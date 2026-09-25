@@ -1,0 +1,7 @@
+# Statistics for Data Science
+
+> Statistics prerequisites for data science courses
+
+## Pages
+
+- [Statistics for Data Science](https://morrison-lab.github.io/sds/index.llms.md)
