@@ -1,10 +1,7 @@
-# Quarto Website Template
+# Statistics for Data Science
 
-> A template for creating websites with Quarto
+> Statistics prerequisites for data science courses
 
 ## Pages
 
-- [Quarto Website Template](https://ucd-serg.github.io/qwt/index.llms.md)
-- [Chapter 2: Advanced Topics](https://ucd-serg.github.io/qwt/chapters/chapter2.llms.md)
-- [Chapter 1: Introduction](https://ucd-serg.github.io/qwt/chapters/chapter1.llms.md)
-- [Theorem Examples](https://ucd-serg.github.io/qwt/chapters/theorem-examples.llms.md)
+- [Statistics for Data Science](https://morrison-lab.github.io/sds/index.llms.md)
