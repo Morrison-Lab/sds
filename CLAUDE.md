@@ -4,7 +4,7 @@ Project guidance for Claude Code (CLI, IDE, and the GitHub Action). The same con
 
 ## Project context
 
-`qwt` (Quarto Website Template) is a template repository for [Quarto](https://quarto.org/) websites maintained by the UCD-SERG lab. Downstream repos are created from this template via the GitHub "Use this template" button, so changes here propagate to new books.
+`sds` holds the statistics prerequisites for the Morrison-Lab data science courses, as [Quarto](https://quarto.org/) fragments. It renders on its own as a website, and course sites (such as `mlds`) include it as a git submodule, so a fragment's path and its `#id` anchors are an interface: renaming either breaks every host site. The scaffolding came from the UCD-SERG `qwt` template.
 
 Authoritative style guide: [UCD-SERG Lab Manual](https://ucd-serg.github.io/lab-manual/) (source: <https://github.com/UCD-SERG/lab-manual>).
 
@@ -55,6 +55,6 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 
 ## Things to avoid
 
-- Adding new top-level dependencies (R packages, Quarto extensions) without a clear reason; this is a template, so every dependency lands in every downstream book.
+- Adding new top-level dependencies (R packages, Quarto extensions) without a clear reason; every host site that includes this repository as a submodule has to install it.
 - Reformatting unrelated files.
 - Inventing URLs or citations --- only use sources actually present in `references.bib` or explicitly provided.
