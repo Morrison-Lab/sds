@@ -7,16 +7,18 @@ project:
     - "!README.md"
     - "!appendix-document-metadata.qmd"
     - "!references.qmd"
-    # The `macros` git submodule provides macro definitions for include/
+    # The `latex-macros` git submodule provides macro definitions for include/
     # shortcode use, not standalone site pages. Don't render its .qmd files
     # directly: macros-table.qmd uses DT::datatable() (an HTML widget) that
     # errors when the project also renders to PDF.
-    - "!macros/"
+    - "!latex-macros/"
 
 website:
-  title: "Quarto Website Template"
-  site-url: https://ucd-serg.github.io/qwt/
-  description: "A template for creating websites with Quarto"
+  google-analytics: "G-VLDZY2T3JF"
+  cookie-consent: implied
+  title: "Statistics for Data Science"
+  site-url: https://morrison-lab.github.io/sds/
+  description: "Statistics prerequisites for data science courses"
   # https://quarto.org/docs/websites/website-llms.html --- use `llms-txt:`, not `llms:` (schema error)
   llms-txt: true
   page-footer:
@@ -24,23 +26,15 @@ website:
   back-to-top-navigation: true
   page-navigation: true
   reader-mode: true
-  repo-url: https://github.com/UCD-SERG/qwt
+  repo-url: https://github.com/Morrison-Lab/sds
   repo-actions: [edit, issue, source]
   navbar:
     left:
       - text: "Home"
         href: index.qmd
-      - text: "Chapters"
-        menu:
-          - text: "Chapter 1: Introduction"
-            href: chapters/chapter1.qmd
-          - text: "Chapter 2: Advanced Topics"
-            href: chapters/chapter2.qmd
-          - text: "Theorem Examples"
-            href: chapters/theorem-examples.qmd
     right:
       - icon: github
-        href: https://github.com/UCD-SERG/qwt
+        href: https://github.com/Morrison-Lab/sds
         aria-label: GitHub
 
 callouty-theorem:
