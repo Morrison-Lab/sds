@@ -16,7 +16,7 @@ and course sites include it as a git submodule.
 
 ## Using these notes in another site
 
-Add this repository as a git submodule named `sds` at the host site's root,
+Add this repository as a git submodule named `sds` at the root of the host site,
 and include fragments with paths that start with `sds/`:
 
 ```sh
