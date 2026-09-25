@@ -250,7 +250,7 @@ ensures all citations are properly traceable.
     ├── .gitignore              # Git ignore file
     ├── LICENSE                  # CC0 1.0 Universal License
     ├── README.md               # This file
-    ├── macros/                 # Git submodule: d-morrison/macros
+    ├── latex-macros/           # Git submodule: d-morrison/macros
     └── .github/
         ├── rulesets/            # Branch ruleset definitions
         │   ├── main.json        # Default branch ruleset
