@@ -15,7 +15,8 @@ project:
 
 website:
   google-analytics: "G-VLDZY2T3JF"
-  cookie-consent: implied
+  cookie-consent:
+    type: implied
   title: "Statistics for Data Science"
   site-url: https://morrison-lab.github.io/sds/
   description: "Statistics prerequisites for data science courses"
