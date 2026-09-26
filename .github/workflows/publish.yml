@@ -42,6 +42,9 @@ jobs:
       - name: Render
         uses: quarto-dev/quarto-actions/render@v2
 
+      - name: Disable Jekyll processing
+        run: touch _site/.nojekyll
+
       - name: Save Quarto freezer
         uses: actions/cache/save@v6
         with:
