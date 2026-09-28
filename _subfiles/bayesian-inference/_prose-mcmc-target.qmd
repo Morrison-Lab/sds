@@ -1,5 +1,7 @@
-If a Markov chain is irreducible, aperiodic and recurrent,
-it has a unique stationary distribution
+Under conditions on its transition probabilities
+(irreducibility, aperiodicity and positive recurrence;
+for a continuous parameter, Harris positive recurrence),
+a Markov chain has a unique stationary distribution
 and the distribution of $\vth^{(t)}$ converges to it
 [@gelman2013bda, Section 11.2, p. 279; @robert2004mcsm, Section 6.6.1, Theorem 6.51, p. 234].
 Averages along the chain also converge to expectations under that distribution,
