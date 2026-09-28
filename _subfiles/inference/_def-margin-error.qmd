@@ -1,0 +1,7 @@
+:::{#def-margin-error}
+#### Margin of error
+
+The **margin of error** (or **radius**) of a
+[confidence interval](#def-confidence-interval)
+is half the interval's width.
+:::

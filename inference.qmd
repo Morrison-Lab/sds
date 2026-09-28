@@ -8,78 +8,89 @@ format:
     output-file: inference-handout.pdf
   docx:
     output-file: inference-handout.docx
-
 ---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| label: load-wcgs
+#| include: false
+wcgs <- rmb::wcgs |> haven::as_factor()
+```
 
 # Inference
 
+<!-- heading directly precedes the def-inference div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
 {{< include sds/_subfiles/inference/_def-inference.qmd >}}
 
----
+{{< slidebreak >}}
 
-Statistical inference typically consists of two steps:
+{{< include sds/_subfiles/inference/_exm-inference.qmd >}}
 
-1. fitting a statistical model to data
-2. summarizing our uncertainty about the parameters of the fitted model
-based on the data (and our prior beliefs).
+{{< slidebreak >}}
 
----
+{{< include sds/_subfiles/inference/_prose-inference-steps.qmd >}}
 
-There are two predominant paradigms for statistical inference:
+# Hypothesis tests {#sec-hypothesis-tests}
 
-1. [Bayesian inference](bayesian-inference.qmd)
-2. [Frequentist inference](intro-MLEs.qmd#sec-intro-MLEs)
+## Hypotheses
 
-# Interpretation of Negative Findings
+<!-- heading directly precedes the def-null-hypothesis div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
 
-If an estimation interval includes the null hypothesis,
-or equivalently if a hypothesis test fails to reject the null hypothesis,
-that doesn't *necessarily* mean that the null hypothesis is true.
-Accordingly, 
-we should not write interpretations of results as 
-"the odds (or risks/hazards/means) are not significantly different"; 
-instead, we should write something like 
-"the data does not provide statistically significant EVIDENCE 
-that the odds (or analogous estimands) differ". 
-Statistical significance is a characteristic of evidence, not of the estimands.
+{{< include sds/_subfiles/inference/_def-null-hypothesis.qmd >}}
 
-P-values do not distinguish between absence of evidence and evidence of absence.
+{{< slidebreak >}}
 
-Confidence intervals do: 
-if the confidence interval is narrow and includes the null value,
-then that confidence interval represents evidence of absence.
-If a confidence interval includes the null value but also includes 
-substantially non-null values, 
-then that confidence interval represents absence of evidence.
+{{< include sds/_subfiles/inference/_def-alternative-hypothesis.qmd >}}
 
-Also, even if we do have statistically significant evidence of a non-null value,
-the estimated value may not be **substantially different from 0**,
-depending on what estimand is.
-For example, we might have statistically significant evidence that
-a certain exercise prolongs human lifespans by 20 seconds,
-but that effect would probably not be substantially different from 0
-in practical terms.
+{{< slidebreak >}}
 
-@fig-CI-interp sketches various scenarios for confidence intervals,
-from office hours.
-To do: convert this sketch into a nicely formatted figure.
+{{< include sds/_subfiles/inference/_exm-hypotheses-wcgs.qmd >}}
 
-![Interpretations of various confidence intervals](images/PXL_20250530_230241474.jpg){#fig-CI-interp}
+## p-values
 
-See also @vittinghoff2e Section 3.7 (p64).
+<!-- heading directly precedes the def-test-statistic div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
+{{< include sds/_subfiles/inference/_def-test-statistic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-p-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-significance-level.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_exm-p-value-wcgs.qmd >}}
 
 # Confidence intervals {#sec-CI}
 
-:::{#def-margin-error}
-#### Margin of error
-The **margin of error** (a.k.a. the **radius**) is 
-one-half the width of a confidence interval.
-:::
+<!-- heading directly precedes the def-confidence-interval div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
 
-more: 
+{{< include sds/_subfiles/inference/_def-confidence-interval.qmd >}}
 
-- [Anatomy of a confidence interval (text)](https://wmed.edu/sites/default/files/ANATOMY%20OF%20A%20CONFIDENCE%20INTERVAL%20%28full%29.pdf)
-- {{< video https://www.youtube.com/watch?v=vq1KrE7gU5M >}}
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_exm-confidence-interval-wcgs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-margin-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_exm-margin-error.qmd >}}
+
+## Further reading
+
+{{< include sds/_subfiles/inference/_prose-CI-resources.qmd >}}
+
+# Interpretation of negative findings
+
+{{< include sds/_subfiles/inference/_prose-negative-findings.qmd >}}
 
 # References {.unnumbered}
 

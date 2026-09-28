@@ -1,0 +1,36 @@
+If a confidence interval includes the null value,
+or equivalently if a hypothesis test fails to reject the null hypothesis,
+that result does not *necessarily* mean that the null hypothesis is true.
+So we should not interpret such results as
+"the odds (or risks, hazards, or means) are not significantly different".
+Instead, we should write something like
+"the data do not provide statistically significant *evidence*
+that the odds (or risks, hazards, or means) differ".
+Statistical significance is a property of evidence,
+not of the estimands.
+
+P-values do not distinguish between absence of evidence
+and evidence of absence.
+Confidence intervals do:
+
+- a narrow confidence interval that includes the null value
+  is evidence of absence
+  (of any effect large enough to matter);
+- a confidence interval that includes the null value
+  but also includes substantially non-null values
+  represents absence of evidence.
+
+Conversely, even statistically significant evidence of a non-null value
+does not mean the value is large enough to matter;
+that depends on what the estimand is.
+For example, we might have statistically significant evidence that
+an exercise program prolongs human lifespans by 20 seconds,
+but an effect that small would be negligible in practical terms.
+
+@fig-CI-interp sketches these scenarios.
+
+{{< include sds/_subfiles/inference/_fig-CI-interp.qmd >}}
+
+::: notes
+See also [@vittinghoff2e, Section 3.7].
+:::

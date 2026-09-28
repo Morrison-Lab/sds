@@ -1,0 +1,21 @@
+::: {#exm-confidence-interval-wcgs}
+#### Confidence interval for mean cholesterol in the WCGS
+
+By the central limit theorem,
+the sample mean $\bar X$ of a large sample
+has approximately a Gaussian distribution
+with mean $\mu$ and
+[standard error](estimation.qmd#def-SE) $\sigma/\sqrt{n}$,
+which we estimate by $s/\sqrt{n}$.
+So $\bar x \pm z_{0.975} \, s/\sqrt{n}$,
+where $z_{0.975} \approx 1.96$ is the 0.975 quantile
+of the standard Gaussian distribution,
+is an approximate 95% confidence interval for $\mu$:
+
+```{r}
+chol <- wcgs$chol[!is.na(wcgs$chol)]
+se_chol <- sd(chol) / sqrt(length(chol))
+mean(chol) + c(lower = -1, upper = 1) * qnorm(0.975) * se_chol
+```
+
+:::

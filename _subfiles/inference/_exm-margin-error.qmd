@@ -1,0 +1,8 @@
+:::{#exm-margin-error}
+#### Margin of error for mean cholesterol
+
+In @exm-confidence-interval-wcgs,
+the margin of error is
+$z_{0.975} \times s/\sqrt{n} \approx$
+`r round(qnorm(0.975) * se_chol, 2)` mg/dL.
+:::

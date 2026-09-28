@@ -1,0 +1,12 @@
+::: {#def-p-value}
+#### p-value
+
+Given a [test statistic](#def-test-statistic) $T$
+whose observed value is $t$,
+the **p-value** is the probability,
+computed under the null hypothesis,
+that $T$ is at least as extreme as the value observed:
+
+$$p \eqdef \Pr(T \ge t \mid H_0)$$
+
+:::

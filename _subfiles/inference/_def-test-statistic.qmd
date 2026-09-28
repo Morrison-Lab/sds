@@ -1,0 +1,9 @@
+::: {#def-test-statistic}
+#### Test statistic
+
+A **test statistic** $T$ is a function of the data
+whose distribution under the [null hypothesis](#def-null-hypothesis)
+is known, exactly or approximately,
+and whose larger values are more extreme,
+meaning less consistent with $H_0$ and more consistent with $H_1$.
+:::
