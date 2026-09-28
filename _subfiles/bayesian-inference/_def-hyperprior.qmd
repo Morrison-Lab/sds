@@ -1,0 +1,7 @@
+::: {#def-hyperprior}
+#### Hyperprior
+
+In a [hierarchical model](#def-hierarchical-model),
+the **hyperprior** is the prior distribution
+of the [hyperparameters](#def-hyperparameter).
+:::

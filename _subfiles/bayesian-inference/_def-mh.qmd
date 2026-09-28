@@ -1,0 +1,20 @@
+::: {#def-mh}
+#### Metropolis--Hastings algorithm
+
+Given a target posterior $\p(\vth \mid \vy) \propto \p(\vy \mid \vth)\, \p(\vth)$,
+a **proposal distribution** $q(\cdot \mid \vth)$,
+and a starting value $\vth^{(1)}$,
+the **Metropolis--Hastings algorithm** produces $\vth^{(t+1)}$ from $\vth^{(t)}$ as follows
+[@dobson4e, Chapter 13, p. 293]:
+
+1. Draw a proposal $\vth^* \sim q(\cdot \mid \vth^{(t)})$.
+2. Compute the **acceptance ratio**
+   $$
+   \alpha \eqdef
+   \frac{\p(\vy \mid \vth^*)\, \p(\vth^*)}{\p(\vy \mid \vth^{(t)})\, \p(\vth^{(t)})}
+   \cdot
+   \frac{q(\vth^{(t)} \mid \vth^*)}{q(\vth^* \mid \vth^{(t)})}.
+   $$
+3. With probability $\min(1, \alpha)$, set $\vth^{(t+1)} = \vth^*$ (**accept**);
+   otherwise set $\vth^{(t+1)} = \vth^{(t)}$ (**reject**).
+:::

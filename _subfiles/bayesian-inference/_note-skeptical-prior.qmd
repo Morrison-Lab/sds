@@ -1,0 +1,4 @@
+::: notes
+A skeptical prior asks how strong the data must be
+to overturn a default of no effect.
+:::

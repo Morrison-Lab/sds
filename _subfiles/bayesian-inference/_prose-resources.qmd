@@ -1,0 +1,36 @@
+The following resources cover Bayesian inference in more depth.
+
+## UC Davis courses
+
+- [STA 015C](https://catalog.ucdavis.edu/search/?q=STA+015C):
+  "Introduction to Statistical Data Science III"
+- [STA 035C](https://catalog.ucdavis.edu/search/?q=STA+035C):
+  "Statistical Data Science III"
+- [STA 145](https://catalog.ucdavis.edu/search/?q=STA+145):
+  "Bayesian Statistical Inference"
+- [ECL 234](https://catalog.ucdavis.edu/search/?q=ECL+234):
+  "Bayesian Models - A Statistical Primer"
+- [PLS 207](https://catalog.ucdavis.edu/search/?q=PLS+207):
+  "Applied Statistical Modeling for the Environmental Sciences"
+- [PSC 205H](https://catalog.ucdavis.edu/search/?q=PSC+205H):
+  "Applied Bayesian Statistics for Social Scientists"
+- [POL 280](https://catalog.ucdavis.edu/search/?q=POL+280):
+  "Bayesian Methods: for Social & Behavioral Sciences"
+- [BAX 442](https://catalog.ucdavis.edu/search/?q=BAX+442):
+  "Advanced Statistics"
+
+## Books
+
+- @rossbayes, a free online textbook
+- @aragon2018population, on population health thinking with Bayesian networks
+- @statrethink2e,
+  which [ECL 234](https://catalog.ucdavis.edu/search/?q=ECL+234) uses;
+  its author was formerly a UC Davis professor,
+  and has published
+  [video lectures](https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus)
+  and [course materials](https://github.com/rmcelreath/stat_rethinking_2024)
+- @korner.bayes.ecology
+- @CowlesMaryKathryn2013ABSW
+- @kery-bayes-pop
+- @HobbsN.Thompson2015Bmas,
+  which has been used in [PLS 207](https://catalog.ucdavis.edu/search/?q=PLS+207)

@@ -1,0 +1,8 @@
+::: {#def-flat-prior}
+#### Flat prior
+
+A **flat prior**,
+also called a **uniform** or **noninformative** prior,
+is a [prior](#def-prior) whose density is constant on the parameter space:
+$\p(\theta) \propto 1$ for $\theta \in \Theta$.
+:::

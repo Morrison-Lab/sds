@@ -1,0 +1,90 @@
+::: {#exm-bayes-random-effects}
+#### A Bayesian random-intercept model
+
+We simulate $J = 8$ groups of 12 observations each,
+with group means drawn from $\ndist{\mu, \tau^2}$
+($\mu = 5$, $\tau = 1.5$)
+and within-group standard deviation $\sigma = 2$.
+The priors are a diffuse $\ndist{0, 100^2}$ for $\mu$
+and [flat priors](#def-flat-prior) on $(0, 100)$
+for the standard deviations $\tau$ and $\sigma$.
+Being flat on the standard-deviation scale is a choice:
+as @exm-flat-prior-reparam shows for a probability,
+it is not flat on another scale, such as the variance.
+
+```{r}
+#| label: jags-random-effects
+set.seed(2025)
+n_groups <- 8L
+n_per_group <- 12L
+theta_true <- stats::rnorm(n_groups, mean = 5, sd = 1.5)
+group <- rep(seq_len(n_groups), each = n_per_group)
+y <- stats::rnorm(n_groups * n_per_group, mean = theta_true[group], sd = 2)
+
+random_intercept_model <- "
+model {
+  for (i in 1:N) {
+    y[i] ~ dnorm(theta[group[i]], 1 / sigma^2)
+  }
+  for (j in 1:J) {
+    theta[j] ~ dnorm(mu, 1 / tau^2)
+  }
+  mu ~ dnorm(0, 1.0E-4)
+  sigma ~ dunif(0, 100)
+  tau ~ dunif(0, 100)
+}
+"
+inits <- list(
+  list(.RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),
+  list(.RNG.name = "base::Mersenne-Twister", .RNG.seed = 2)
+)
+fit <- rjags::jags.model(
+  textConnection(random_intercept_model),
+  data = list(y = y, group = group, N = length(y), J = n_groups),
+  inits = inits,
+  n.chains = 2,
+  quiet = TRUE
+)
+stats::update(fit, n.iter = 2000, progress.bar = "none")
+draws <- rjags::coda.samples(
+  fit,
+  variable.names = c("mu", "tau", "sigma", "theta"),
+  n.iter = 10000,
+  progress.bar = "none"
+)
+draws_matrix <- as.matrix(draws)
+posterior_summary <- cbind(
+  mean = colMeans(draws_matrix),
+  t(apply(draws_matrix, 2, stats::quantile, probs = c(0.025, 0.975))),
+  Rhat = coda::gelman.diag(draws, multivariate = FALSE)$psrf[, "Point est."]
+)
+round(posterior_summary[c("mu", "tau", "sigma"), ], 3)
+```
+
+The 95% credible intervals contain the true $\mu = 5$, $\tau = 1.5$ and $\sigma = 2$.
+The interval for $\tau$ is wide:
+eight groups say little about how spread out group means are,
+and the posterior reports that uncertainty
+instead of a single estimate of the variance component.
+
+Each group's posterior mean lies between its sample mean
+and the overall sample mean:
+
+```{r}
+#| label: random-effects-shrinkage
+sample_means <- as.vector(tapply(y, group, mean))
+tibble::tibble(
+  group_id = seq_len(n_groups),
+  sample_mean = sample_means,
+  posterior_mean = posterior_summary[
+    paste0("theta[", seq_len(n_groups), "]"), "mean"
+  ]
+) |>
+  dplyr::mutate(overall_mean = mean(y)) |>
+  round(2)
+```
+
+This is the borrowing of strength described in @sec-bayes-hierarchies:
+group 4, with the largest sample mean,
+is pulled furthest toward the overall mean.
+:::

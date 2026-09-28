@@ -1,0 +1,62 @@
+::: {#exm-gibbs-bivariate-normal}
+#### Gibbs sampling from a correlated Gaussian target
+
+Let the target be the bivariate Gaussian distribution of $(\theta_1, \theta_2)$
+with means 0, variances 1 and correlation $\rho$,
+whose density is proportional to
+$\expf{-\frac{\theta_1^2 - 2\rho\theta_1\theta_2 + \theta_2^2}{2(1-\rho^2)}}$
+[@CaseBerg01, Definition 4.5.10].
+As a function of $\theta_1$,
+
+$$
+\ba
+\p(\theta_1 \mid \theta_2)
+&\propto \expf{-\frac{\theta_1^2 - 2\rho\theta_1\theta_2}{2(1-\rho^2)}}
+&& \text{(dropping the factor with $\theta_2^2$ only)}\\
+&= \expf{-\frac{(\theta_1 - \rho\theta_2)^2 - \rho^2\theta_2^2}{2(1-\rho^2)}}
+&& \text{(completing the square)}\\
+&\propto \expf{-\frac{(\theta_1 - \rho\theta_2)^2}{2(1-\rho^2)}}
+&& \text{(dropping the factor with $\theta_2^2$ only)},
+\ea
+$$
+
+so the [full conditional](#def-full-conditional) of $\theta_1$
+is $\ndist{\rho\theta_2,\, 1 - \rho^2}$,
+and by symmetry that of $\theta_2$ is $\ndist{\rho\theta_1,\, 1 - \rho^2}$.
+We run the Gibbs sampler with $\rho = 0$ and with $\rho = 0.99$:
+
+```{r}
+#| label: gibbs-bivariate-normal
+gibbs_bvn <- function(n_iter, rho) {
+  draws <- matrix(NA_real_, nrow = n_iter, ncol = 2)
+  theta <- c(0, 0)
+  cond_sd <- sqrt(1 - rho^2)
+  for (t in seq_len(n_iter)) {
+    theta[1] <- stats::rnorm(1, mean = rho * theta[2], sd = cond_sd)
+    theta[2] <- stats::rnorm(1, mean = rho * theta[1], sd = cond_sd)
+    draws[t, ] <- theta
+  }
+  draws
+}
+
+set.seed(3)
+draws_indep <- gibbs_bvn(n_iter = 2000, rho = 0)
+draws_corr <- gibbs_bvn(n_iter = 2000, rho = 0.99)
+lag1_autocorrelation <- function(x) stats::cor(x[-1], x[-length(x)])
+c(
+  rho_0 = lag1_autocorrelation(draws_indep[, 1]),
+  rho_0.99 = lag1_autocorrelation(draws_corr[, 1])
+) |>
+  round(3)
+```
+
+With $\rho = 0$,
+successive draws of $\theta_1$ are nearly uncorrelated.
+With $\rho = 0.99$,
+each full conditional has standard deviation $\sqrt{1 - 0.99^2} \approx 0.14$,
+so each update moves only a short way along the narrow ridge
+where the target puts its probability,
+and successive draws are almost perfectly correlated:
+2,000 such draws carry far less information about the target
+than 2,000 independent ones.
+:::

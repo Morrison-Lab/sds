@@ -1,0 +1,13 @@
+If the chains have all converged to the posterior,
+$W$ and $\hat V$ both estimate the posterior variance,
+and $\hR$ is close to 1.
+If the chains are still exploring different regions,
+the chain means differ,
+$B$ is large,
+and $\hR$ exceeds 1
+[@dobson4e, Chapter 13, p. 302].
+Software reports $\hR$ as `psrf` or `Rhat`;
+`coda::gelman.diag()` also applies a small-sample correction,
+so its value differs slightly from @def-psrf's.
+A value of $\hR$ near 1 does not prove convergence:
+chains that are all stuck in the same wrong region also agree.

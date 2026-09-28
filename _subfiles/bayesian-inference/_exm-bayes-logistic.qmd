@@ -1,0 +1,68 @@
+::: {#exm-bayes-logistic}
+#### Bayesian logistic regression
+
+We simulate $N = 200$ observations from a logistic model
+with one continuous predictor,
+intercept $\beta_0 = -0.5$ and slope $\beta_1 = 1.2$,
+and place a diffuse $\ndist{0, 10^2}$ prior on each coefficient
+(precision $0.01$ in JAGS).
+The model also monitors the odds ratio $e^{\beta_1}$
+for a one-unit increase in $x$.
+
+```{r}
+#| label: jags-logistic
+set.seed(2024)
+n_obs <- 200L
+x <- stats::rnorm(n_obs)
+y <- stats::rbinom(n_obs, size = 1, prob = stats::plogis(-0.5 + 1.2 * x))
+
+logistic_model <- "
+model {
+  for (i in 1:N) {
+    y[i] ~ dbern(pi[i])
+    logit(pi[i]) <- beta0 + beta1 * x[i]
+  }
+  beta0 ~ dnorm(0, 0.01)
+  beta1 ~ dnorm(0, 0.01)
+  OR <- exp(beta1)
+}
+"
+inits <- list(
+  list(.RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),
+  list(.RNG.name = "base::Mersenne-Twister", .RNG.seed = 2)
+)
+fit <- rjags::jags.model(
+  textConnection(logistic_model),
+  data = list(y = y, x = x, N = n_obs),
+  inits = inits,
+  n.chains = 2,
+  quiet = TRUE
+)
+stats::update(fit, n.iter = 1000, progress.bar = "none")
+draws <- rjags::coda.samples(
+  fit,
+  variable.names = c("beta0", "beta1", "OR"),
+  n.iter = 4000,
+  progress.bar = "none"
+)
+draws_matrix <- as.matrix(draws)
+cbind(
+  mean = colMeans(draws_matrix),
+  t(apply(draws_matrix, 2, stats::quantile, probs = c(0.025, 0.975))),
+  Rhat = coda::gelman.diag(draws, multivariate = FALSE)$psrf[, "Point est."]
+) |>
+  round(3)
+```
+
+Each 95% credible interval contains its coefficient's true value,
+and every $\hR$ is near 1.
+As @sec-mcmc-vs-mle leads us to expect,
+the posterior means are close to the maximum likelihood estimates:
+
+```{r}
+#| label: glm-logistic
+stats::glm(y ~ x, family = stats::binomial()) |>
+  stats::coef() |>
+  round(3)
+```
+:::

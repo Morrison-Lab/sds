@@ -1,0 +1,9 @@
+::: {#def-full-conditional}
+#### Full conditional distribution
+
+For a parameter vector $\vth = (\theta_1, \ldots, \theta_K)$,
+the **full conditional distribution** of the component $\theta_k$
+is its conditional distribution given the data and all the other components,
+$\p(\theta_k \mid \vth_{-k}, \vy)$,
+where $\vth_{-k}$ denotes every component of $\vth$ except $\theta_k$.
+:::

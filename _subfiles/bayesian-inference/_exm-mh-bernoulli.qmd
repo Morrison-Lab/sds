@@ -1,0 +1,53 @@
+::: {#exm-mh-bernoulli}
+#### Metropolis--Hastings for a Bernoulli model
+
+We sample the posterior of @exm-beta-bernoulli
+($r = 55$ successes in $n = 91$ trials, uniform prior)
+with a Gaussian random-walk proposal $\pi^* = \pi^{(t)} + \varepsilon$,
+$\varepsilon \sim \ndist{0, 0.05^2}$.
+The proposal is symmetric,
+and the uniform prior density is 1 on $(0, 1)$,
+so the log of the acceptance ratio is the difference of log-likelihoods,
+and a proposal outside $(0, 1)$ is always rejected.
+
+```{r}
+#| label: mh-bernoulli
+log_post_unnorm <- function(pi, r, n) {
+  if (pi <= 0 || pi >= 1) {
+    return(-Inf)
+  }
+  r * log(pi) + (n - r) * log(1 - pi)
+}
+
+mh_bernoulli <- function(n_iter, r, n, pi_init, step_sd = 0.05) {
+  chain <- numeric(n_iter)
+  chain[1] <- pi_init
+  for (t in seq(2, n_iter)) {
+    pi_curr <- chain[t - 1]
+    pi_prop <- pi_curr + stats::rnorm(1, sd = step_sd)
+    log_alpha <- log_post_unnorm(pi_prop, r, n) -
+      log_post_unnorm(pi_curr, r, n)
+    accept <- log(stats::runif(1)) < log_alpha
+    chain[t] <- if (accept) pi_prop else pi_curr
+  }
+  chain
+}
+
+set.seed(1)
+mh_chain <- mh_bernoulli(n_iter = 5000, r = 55, n = 91, pi_init = 0.5)
+c(
+  acceptance_rate = mean(diff(mh_chain) != 0),
+  mh_mean = mean(mh_chain),
+  exact_mean = 56 / 93
+) |>
+  round(3)
+```
+
+Comparing $\log u$, for $u$ uniform on $(0, 1)$, with $\log \alpha$
+accepts with probability $\min(1, \alpha)$,
+and avoids computing $\alpha$ itself,
+which can overflow or underflow.
+Every accepted proposal changes the chain's value,
+so the fraction of iterations that change estimates the acceptance rate.
+The chain's mean is close to the exact posterior mean $56/93$.
+:::

@@ -1,0 +1,8 @@
+::: {#def-prior}
+#### Prior distribution
+
+The **prior distribution** of a parameter $\theta$,
+with density or probability mass function $\p(\theta)$,
+is the probability distribution that describes
+what is believed about $\theta$ before the data are observed.
+:::

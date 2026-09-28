@@ -1,0 +1,83 @@
+::: {#exm-bayes-bma}
+#### A BIC approximation to Bayesian model averaging
+
+Marginal likelihoods are hard to compute,
+but with equal prior probabilities for the models,
+the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic)
+gives a large-sample approximation to the posterior model probabilities
+[@schwarz1978estimating]:
+
+$$
+\p(M_k \mid \vy) \approx
+\frac{\expf{-\tfrac{1}{2}\operatorname{BIC}_k}}{\sum_{l=1}^K \expf{-\tfrac{1}{2}\operatorname{BIC}_l}}.
+$$
+
+We simulate data in which only $x_1$ and $x_2$ affect the outcome,
+fit a linear regression for every subset of the three predictors $x_1$, $x_2$ and $x_3$,
+and compute these approximate posterior model probabilities:
+
+```{r}
+#| label: bma-models
+set.seed(2027)
+n_obs <- 120L
+dat <- tibble::tibble(
+  x1 = stats::rnorm(n_obs),
+  x2 = stats::rnorm(n_obs),
+  x3 = stats::rnorm(n_obs)
+) |>
+  dplyr::mutate(y = 1 + 0.8 * x1 + 0.5 * x2 + stats::rnorm(n_obs))
+
+predictors <- c("x1", "x2", "x3")
+subsets <- lapply(0:3, function(k) {
+  utils::combn(predictors, k, simplify = FALSE)
+}) |>
+  unlist(recursive = FALSE)
+models <- lapply(subsets, function(vars) {
+  rhs <- if (length(vars) > 0) paste(vars, collapse = " + ") else "1"
+  stats::lm(stats::as.formula(paste("y ~", rhs)), data = dat)
+})
+bic <- vapply(models, stats::BIC, numeric(1))
+weight <- exp(-0.5 * (bic - min(bic)))
+weight <- weight / sum(weight)
+```
+
+Subtracting the smallest BIC before exponentiating
+leaves the normalized weights unchanged
+and avoids numerical underflow.
+The [posterior inclusion probability](#def-pip) of each predictor
+sums the weights of the models that contain it:
+
+```{r}
+#| label: bma-pip
+includes <- function(v) vapply(subsets, function(s) v %in% s, logical(1))
+vapply(predictors, function(v) sum(weight[includes(v)]), numeric(1)) |>
+  round(3)
+```
+
+For the model-averaged slope of $x_1$,
+we approximate its posterior mean within each model by the least-squares estimate,
+taken as $0$ in models that exclude $x_1$,
+and average with the posterior model probabilities as weights:
+
+```{r}
+#| label: bma-slope
+beta_x1 <- vapply(models, function(m) {
+  cf <- stats::coef(m)
+  if ("x1" %in% names(cf)) cf[["x1"]] else 0
+}, numeric(1))
+c(
+  bma_slope_x1 = sum(weight * beta_x1),
+  least_squares_x1_x2 = stats::coef(stats::lm(y ~ x1 + x2, data = dat))[["x1"]]
+) |>
+  round(3)
+```
+
+The predictors that affect the outcome, $x_1$ and $x_2$,
+have inclusion probabilities near 1,
+and the irrelevant $x_3$ a much smaller one.
+The models without $x_1$ get almost no weight,
+so the model-averaged slope of $x_1$ is close to its least-squares estimate
+in the model with $x_1$ and $x_2$ only.
+Both differ from the true slope $0.8$ by sampling variation in this data set,
+not because of the averaging.
+:::

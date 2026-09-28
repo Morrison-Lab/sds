@@ -1,0 +1,39 @@
+::: {#exm-prior-spectrum}
+#### Three priors for a log odds ratio
+
+Let $\beta$ be the log odds ratio of disease for exposed versus unexposed people,
+so the odds ratio is $e^\beta$,
+and $\beta$ can be any real number.
+
+- **Informative**: a previous study estimated the odds ratio as 1.5,
+  with a standard error of 0.2 for its logarithm,
+  so an analyst adopts the prior $\beta \sim \ndist{\log 1.5,\; 0.2^2}$.
+- **Weakly informative**: an analyst with no previous study,
+  who nonetheless regards odds ratios above 100 as implausible,
+  adopts $\beta \sim \ndist{0,\; 2.5^2}$.
+- **Flat**: $\p(\beta) \propto 1$ on the whole real line.
+  This prior is **improper**,
+  since $\int_{-\infty}^{\infty} 1 \, d\beta = \infty$;
+  it gives an odds ratio of $10^6$ the same density as an odds ratio of $1$.
+
+The two proper priors' probabilities for large odds ratios:
+
+```{r}
+#| label: prior-spectrum
+or_cutoffs <- c(10, 100, 1e6)
+rbind(
+  informative = stats::pnorm(log(or_cutoffs), log(1.5), 0.2,
+    lower.tail = FALSE
+  ),
+  weakly_informative = stats::pnorm(log(or_cutoffs), 0, 2.5,
+    lower.tail = FALSE
+  )
+) |>
+  signif(2) |>
+  `colnames<-`(c("Pr(OR > 10)", "Pr(OR > 100)", "Pr(OR > 1e6)"))
+```
+
+The informative prior all but rules out an odds ratio of 10;
+the weakly informative prior leaves a few percent of its probability above 100,
+and effectively none above $10^6$.
+:::

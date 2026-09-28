@@ -1,0 +1,8 @@
+::: {#def-informative-prior}
+#### Informative prior
+
+An **informative prior** is a [prior](#def-prior)
+that concentrates its probability in a region of the parameter space
+singled out by knowledge from outside the current data,
+such as previous studies, biological limits, or expert judgment.
+:::

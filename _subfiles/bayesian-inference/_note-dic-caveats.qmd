@@ -1,0 +1,6 @@
+::: notes
+DIC should be used with care:
+it can behave poorly for models with weakly identified parameters
+or markedly non-Gaussian posteriors
+[@dobson4e, Chapter 13, p. 306].
+:::

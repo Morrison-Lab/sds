@@ -1,0 +1,4 @@
+::: notes
+An informative prior pulls the posterior toward its region,
+most strongly when the data are sparse.
+:::

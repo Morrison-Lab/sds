@@ -1,0 +1,41 @@
+::: {#exm-two-state-chain}
+#### A two-state weather chain
+
+Each day is dry or wet.
+A dry day is followed by a dry day with probability 0.9,
+and a wet day is followed by a dry day with probability 0.5,
+whatever the weather on earlier days.
+So the daily weather is a [Markov chain](#def-markov-chain).
+
+Let $\pi_{\text{dry}}$ be the probability that a day is dry.
+For that probability to be the same the next day,
+
+$$
+\ba
+\pi_{\text{dry}}
+&= 0.9\, \pi_{\text{dry}} + 0.5\, (1 - \pi_{\text{dry}})
+&& \text{(tomorrow is dry after a dry or a wet day)}\\
+&= 0.5 + 0.4\, \pi_{\text{dry}}
+&& \text{(collecting terms)},
+\ea
+$$
+
+so $0.6\, \pi_{\text{dry}} = 0.5$
+and $\pi_{\text{dry}} = 5/6$.
+The [stationary distribution](#def-stationary-distribution)
+is dry with probability $5/6$ and wet with probability $1/6$.
+A simulated chain, started on a wet day,
+spends about that fraction of its days dry:
+
+```{r}
+#| label: two-state-chain
+set.seed(7)
+n_days <- 10000
+dry <- logical(n_days)
+for (t in seq(2, n_days)) {
+  p_dry <- if (dry[t - 1]) 0.9 else 0.5
+  dry[t] <- stats::runif(1) < p_dry
+}
+c(simulated = mean(dry), stationary = 5 / 6) |> round(3)
+```
+:::

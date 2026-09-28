@@ -1,0 +1,14 @@
+::: {#def-markov-chain}
+#### Markov chain
+
+A sequence of random variables $\vth^{(1)}, \vth^{(2)}, \ldots$
+is a **Markov chain** if, for every $t$,
+the conditional distribution of $\vth^{(t+1)}$ given all the earlier values
+depends only on $\vth^{(t)}$:
+
+$$
+\p\paren{\vth^{(t+1)} \mid \vth^{(t)}, \vth^{(t-1)}, \ldots, \vth^{(1)}}
+=
+\p\paren{\vth^{(t+1)} \mid \vth^{(t)}}.
+$$
+:::

@@ -1,0 +1,12 @@
+::: {#def-dic}
+#### Deviance information criterion
+
+The **deviance information criterion** is
+
+$$
+\operatorname{DIC} \eqdef D(\bar{\vth}) + 2\,p_D,
+$$
+
+with $D$ from @def-bayes-deviance
+and $p_D$ from @def-effective-parameters.
+:::

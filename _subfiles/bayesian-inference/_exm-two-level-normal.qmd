@@ -1,0 +1,22 @@
+::: {#exm-two-level-normal}
+#### A two-level Gaussian model
+
+Observations $Y_{ij}$ come from groups $j = 1, \ldots, J$,
+and each group has its own mean $\theta_j$.
+A two-level model specifies
+
+$$
+\ba
+Y_{ij} \mid \theta_j &\sim \ndist{\theta_j,\, \sigma^2}
+&& \text{(data given group means)}\\
+\theta_j \mid \mu, \tau &\sim \ndist{\mu,\, \tau^2}
+&& \text{(group means given hyperparameters)}\\
+(\mu, \tau) &\sim \text{a hyperprior}
+&& \text{(hyperparameters)}.
+\ea
+$$
+
+The group means $\theta_j$ are the group-level parameters,
+$\mu$ and $\tau$ are the [hyperparameters](#def-hyperparameter),
+and the within-group standard deviation $\sigma$ needs a prior as well.
+:::
