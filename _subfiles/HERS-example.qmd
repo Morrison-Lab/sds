@@ -2,30 +2,30 @@ This example fits a Gaussian model to real data by maximum likelihood,
 and then uses simulation to examine
 the properties of maximum likelihood estimation for that model.
 
-## Data
+### Data
 
 {{< include sds/_subfiles/HERS-example/_sec-hers-data.qmd >}}
 
-## Maximum likelihood estimates
+### Maximum likelihood estimates
 
 {{< include sds/_subfiles/HERS-example/_sec-hers-mles.qmd >}}
 
-## Likelihood and log-likelihood functions
+### Likelihood and log-likelihood functions
 
 {{< include sds/_subfiles/HERS-example/_sec-hers-loglik.qmd >}}
 
-## Log-likelihood surface
+### Log-likelihood surface
 
 {{< include sds/_subfiles/HERS-example/_sec-hers-3d.qmd >}}
 
-## Standard errors by sample size
+### Standard errors by sample size
 
 {{< include sds/_subfiles/HERS-example/_sec-hers-se.qmd >}}
 
-## Power
+### Power
 
 {{< include sds/_subfiles/HERS-example/_sec-hers-power.qmd >}}
 
-## Simulation
+### Simulation
 
 {{< include sds/_subfiles/HERS-example/_sec-hers-simulation.qmd >}}

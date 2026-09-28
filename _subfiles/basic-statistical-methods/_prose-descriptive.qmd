@@ -1,4 +1,4 @@
-The [Exploratory and Descriptive Methods](exploratory-descriptive.qmd)
+The [Exploratory Data Analysis](exploratory-descriptive.qmd)
 page defines the sample statistics used on this page,
 each with an example:
 

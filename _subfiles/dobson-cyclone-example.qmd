@@ -2,7 +2,7 @@
 Adapted from [@dobson4e, Section 1.6.5].
 :::
 
-## Data {#sec-dobson-cyclones-data}
+### Data {#sec-dobson-cyclones-data}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_sec-data.qmd >}}
 
@@ -96,16 +96,16 @@ algebraically.
 
 {{< include sds/_subfiles/dobson-cyclone-example/_exr-graph-mle.qmd >}}
 
-#### Observed information
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_fig-obs-inf.qmd >}}
 
-## Finding the MLE using the Newton-Raphson algorithm
+### Finding the MLE using the Newton-Raphson algorithm
 
-### Iterative maximization {#sec-newton-raphson}
+#### Iterative maximization {#sec-newton-raphson}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_sec_iterative_maximization.qmd >}}
 
-### Applying Newton-Raphson to the cyclone data
+#### Applying Newton-Raphson to the cyclone data
 
 {{< include sds/_subfiles/dobson-cyclone-example/_exm-dobson-cyclones-Newton.qmd >}}

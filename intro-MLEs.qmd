@@ -17,9 +17,9 @@ These notes are derived primarily from [@dobson4e, Chapters 1--5],
 with some material from [@mclachlan2007em] and [@CaseBerg01].
 :::
 
-# Overview of maximum likelihood estimation {#sec-intro-MLEs}
+## Overview of maximum likelihood estimation {#sec-intro-MLEs}
 
-## The likelihood function
+### The likelihood function
 
 <!-- No slidebreak here: the heading shares its slide with the def-lik-obs div. -->
 
@@ -47,11 +47,11 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_thm-ds-lik-obs-lik.qmd >}}
 
-### Binary outcomes: one group, no covariates
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd >}}
 
-## The maximum likelihood estimate
+### The maximum likelihood estimate
 
 <!-- No slidebreak here: the heading shares its slide with the def-mle div. -->
 
@@ -61,7 +61,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_exm-mle-bernoulli.qmd >}}
 
-## Finding the maximum of a function
+### Finding the maximum of a function
 
 <!-- No slidebreak here: the heading shares its slide with the def-critical-point div. -->
 
@@ -69,11 +69,11 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_prose-maxima.qmd >}}
 
-## Directly maximizing the likelihood function for independent data
+### Directly maximizing the likelihood function for independent data
 
 {{< include sds/_subfiles/intro-MLEs/_sec_mle_no_log.qmd >}}
 
-## The log-likelihood function
+### The log-likelihood function
 
 <!-- No slidebreak here: the heading shares its slide with the def-loglik div. -->
 
@@ -99,7 +99,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd >}}
 
-## The score function
+### The score function
 
 <!-- No slidebreak here: the heading shares its slide with the def-score div. -->
 
@@ -127,7 +127,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd >}}
 
-## Information matrices
+### Information matrices
 
 <!-- No slidebreak here: the heading shares its slide with the def-hessian div. -->
 
@@ -165,11 +165,11 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_exm-information-equality-fails.qmd >}}
 
-### Notation for information matrices
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_tbl-info-mat-symbols.qmd >}}
 
-## Asymptotic distribution of the maximum likelihood estimate
+### Asymptotic distribution of the maximum likelihood estimate
 
 <!-- No slidebreak here: the heading shares its slide with the thm-dist-mle div. -->
 
@@ -183,9 +183,9 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_prose-estimate-se.qmd >}}
 
-## Quantifying uncertainty about MLEs
+### Quantifying uncertainty about MLEs
 
-### Confidence intervals for MLEs
+#### Confidence intervals for MLEs
 
 <!-- No slidebreak here: the heading shares its slide with the def-wald-ci div. -->
 
@@ -193,7 +193,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_prose-ci-mle.qmd >}}
 
-### Wald tests
+#### Wald tests
 
 <!-- No slidebreak here: the heading shares its slide with the def-wald-test div. -->
 
@@ -203,7 +203,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_exm-wald-poisson.qmd >}}
 
-### Likelihood ratio tests for MLEs {#sec-lrt-mles}
+#### Likelihood ratio tests for MLEs {#sec-lrt-mles}
 
 <!-- No slidebreak here: the heading shares its slide with the thm-wilks div. -->
 
@@ -221,11 +221,11 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesson02>.
 :::
 
-### Exact and approximate tests
+#### Exact and approximate tests
 
 {{< include sds/_subfiles/intro-MLEs/_tbl_gaussian_vs_mle_tests.qmd >}}
 
-### Prediction intervals
+#### Prediction intervals
 
 <!-- No slidebreak here: the heading shares its slide with the def-prediction-interval div. -->
 
@@ -233,39 +233,39 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/intro-MLEs/_prose-prediction-interval.qmd >}}
 
-# Example: maximum likelihood for tropical cyclones in Australia
+## Example: maximum likelihood for tropical cyclones in Australia
 
 {{< include sds/_subfiles/dobson-cyclone-example.qmd >}}
 
-# Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
+## Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd >}}
 
-## The score function
+### The score function
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-score.qmd >}}
 
-## MLE of $\mu$
+### MLE of $\mu$
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd >}}
 
-## MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}
+### MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
 
-## Second derivatives
+### Second derivatives
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-hessian.qmd >}}
 
-## Information matrix and standard errors {#sec-covariance-matrix}
+### Information matrix and standard errors {#sec-covariance-matrix}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-information.qmd >}}
 
-# Example: hormone therapy study {#sec-hers-mle-example}
+## Example: hormone therapy study {#sec-hers-mle-example}
 
 {{< include sds/_subfiles/HERS-example.qmd >}}
 
-# Practice exercises {#sec-mle-practice}
+## Practice exercises {#sec-mle-practice}
 
 {{< include sds/_subfiles/intro-MLEs/_exr-prac-binom-lik.qmd >}}
 
@@ -285,7 +285,7 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/intro-MLEs/_exr-prac-exp-mle.qmd >}}
 
-# References {.unnumbered}
+## References {.unnumbered}
 
 ::: {#refs}
 :::

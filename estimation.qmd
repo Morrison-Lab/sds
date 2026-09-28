@@ -12,7 +12,7 @@ format:
 
 {{< include latex-macros/macros.qmd >}}
 
-# Scientific models
+## Scientific models
 
 <!-- No slidebreak here: the heading shares its slide with the def-model div. -->
 
@@ -22,17 +22,17 @@ format:
 
 {{< include sds/_subfiles/estimation/_exm-model.qmd >}}
 
-## Models as approximations
+### Models as approximations
 
 {{< include sds/_subfiles/estimation/_quote-all-models-wrong.qmd >}}
 
-## Statistical analysis of scientific models
+### Statistical analysis of scientific models
 
 {{< include sds/_subfiles/estimation/_prose-statistical-analysis.qmd >}}
 
-# Estimands, estimates, and estimators
+## Estimands, estimates, and estimators
 
-## Estimands
+### Estimands
 
 \index{estimand}
 
@@ -46,7 +46,7 @@ format:
 
 {{< include sds/_subfiles/estimation/_note-estimands.qmd >}}
 
-## Estimates
+### Estimates
 
 \index{estimate} \index{estimated value}
 
@@ -58,7 +58,7 @@ format:
 
 {{< include sds/_subfiles/estimation/_exm-estimate.qmd >}}
 
-## Estimators
+### Estimators
 
 \index{estimator}
 
@@ -72,17 +72,17 @@ format:
 
 {{< include sds/_subfiles/estimation/_exm-estimator.qmd >}}
 
-## Contrasting estimands, estimates, and estimators
+### Contrasting estimands, estimates, and estimators
 
 {{< include sds/_subfiles/estimation/_prose-contrast.qmd >}}
 
-# Accuracy of estimators {#sec-est-accuracy}
+## Accuracy of estimators {#sec-est-accuracy}
 
-## Accuracy
+### Accuracy
 
 {{< include sds/_subfiles/estimation/_prose-accuracy.qmd >}}
 
-## Estimation error
+### Estimation error
 
 <!-- No slidebreak here: the heading shares its slide with the def-estimation-error div. -->
 
@@ -94,11 +94,11 @@ format:
 
 {{< include sds/_subfiles/estimation/_prose-accuracy-measures.qmd >}}
 
-## Residuals
+### Residuals
 
 {{< include sds/_subfiles/estimation/_prose-residuals.qmd >}}
 
-## Bias
+### Bias
 
 <!-- No slidebreak here: the heading shares its slide with the def-bias div. -->
 
@@ -112,7 +112,7 @@ format:
 
 {{< include sds/_subfiles/estimation/_exm-bias-sample-mean.qmd >}}
 
-## Mean squared error
+### Mean squared error
 
 <!-- No slidebreak here: the heading shares its slide with the def-mse div. -->
 
@@ -134,7 +134,7 @@ format:
 
 {{< include sds/_subfiles/estimation/_def-rmse.qmd >}}
 
-## Unbiased estimators {#sec-unbiased-estimators}
+### Unbiased estimators {#sec-unbiased-estimators}
 
 <!-- No slidebreak here: the heading shares its slide with the def-unbiased div. -->
 
@@ -152,7 +152,7 @@ format:
 
 {{< include sds/_subfiles/estimation/_thm-unbiased-props.qmd >}}
 
-## Mean absolute error
+### Mean absolute error
 
 <!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
 
@@ -162,7 +162,7 @@ format:
 
 {{< include sds/_subfiles/estimation/_exm-mae-gaussian.qmd >}}
 
-## Standard error
+### Standard error
 
 <!-- No slidebreak here: the heading shares its slide with the def-SE div. -->
 
@@ -186,7 +186,7 @@ format:
 
 {{< include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd >}}
 
-# References {.unnumbered}
+## References {.unnumbered}
 
 ::: {#refs}
 :::

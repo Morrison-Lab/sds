@@ -10,14 +10,15 @@ format:
     output-file: index.docx
 ---
 
-# Welcome {.unnumbered}
+These notes collect the statistics that data science courses assume.
 
-These notes collect the statistics that data science courses assume,
-organized by topic:
+## Topics
+
+The notes are organized by topic:
 
 - [Nonparametric models](nonparametric-models.qmd):
   the empirical CDF, order statistics, and sample quantiles;
-- [Exploratory and descriptive methods](exploratory-descriptive.qmd):
+- [Exploratory data analysis](exploratory-descriptive.qmd):
   sample statistics, graphs, correlation, and contingency tables,
   illustrated with the WCGS data;
 - [Estimation](estimation.qmd):
@@ -36,6 +37,8 @@ organized by topic:
   simple linear regression, and the bootstrap,
   illustrated with the HERS data.
 
+## Origin
+
 These notes began as the statistics appendices of
 [*Regression Models for Epidemiology*](https://morrison-lab.github.io/rme/),
 and keep those chapters' file names.
@@ -49,7 +52,7 @@ the exceptions are:
 - the sample statistics (mean, median, variance, standard deviation,
   interquartile range, proportion, correlation) and the contingency table,
   which rme defined on two pages;
-  they are now defined once, on the exploratory and descriptive methods page,
+  they are now defined once, on the exploratory data analysis page,
   under the ids rme used on its basic statistical methods page
   (such as `def-sample-mean`),
   so the exploratory-descriptive ids from rme

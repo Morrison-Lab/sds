@@ -18,7 +18,7 @@ format:
 wcgs <- rmb::wcgs |> haven::as_factor()
 ```
 
-# Inference
+## Inference
 
 <!-- No slidebreak here: the heading shares its slide with the def-inference div. -->
 
@@ -32,9 +32,9 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< include sds/_subfiles/inference/_prose-inference-steps.qmd >}}
 
-# Hypothesis tests {#sec-hypothesis-tests}
+## Hypothesis tests {#sec-hypothesis-tests}
 
-## Hypotheses
+### Hypotheses
 
 <!-- No slidebreak here: the heading shares its slide with the def-null-hypothesis div. -->
 
@@ -52,7 +52,7 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< include sds/_subfiles/inference/_exm-hypotheses-wcgs.qmd >}}
 
-## p-values
+### p-values
 
 <!-- No slidebreak here: the heading shares its slide with the def-test-statistic div. -->
 
@@ -74,7 +74,7 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< include sds/_subfiles/inference/_exm-p-value-wcgs.qmd >}}
 
-# Confidence intervals {#sec-CI}
+## Confidence intervals {#sec-CI}
 
 <!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
 
@@ -100,15 +100,15 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< include sds/_subfiles/inference/_exm-margin-error.qmd >}}
 
-## Further reading
+## Further reading on confidence intervals
 
 {{< include sds/_subfiles/inference/_prose-CI-resources.qmd >}}
 
-# Interpretation of negative findings
+## Interpretation of negative findings
 
 {{< include sds/_subfiles/inference/_prose-negative-findings.qmd >}}
 
-# References {.unnumbered}
+## References {.unnumbered}
 
 ::: {#refs}
 :::

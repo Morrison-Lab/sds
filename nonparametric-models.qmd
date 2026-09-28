@@ -12,8 +12,6 @@ format:
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
-# Empirical CDF and quantiles
-
 ## Empirical CDF
 
 <!-- No slidebreak here: the heading shares its slide with the def-empirical-cdf div. -->
@@ -58,7 +56,7 @@ format:
 
 {{< include sds/_subfiles/nonparametric-models/_note-generalized-inverse.qmd >}}
 
-# References {.unnumbered}
+## References {.unnumbered}
 
 ::: {#refs}
 :::

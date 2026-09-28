@@ -14,7 +14,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-overview.qmd >}}
 
-# Frequentist and Bayesian paradigms {#sec-bayes-paradigms}
+## Frequentist and Bayesian paradigms {#sec-bayes-paradigms}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-frequentist.qmd >}}
 
@@ -28,7 +28,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_note-paradigms.qmd >}}
 
-# Bayes' theorem for parameters {#sec-bayes-equation}
+## Bayes' theorem for parameters {#sec-bayes-equation}
 
 <!-- No slidebreak here: the heading shares its slide with the def-posterior div. -->
 
@@ -58,13 +58,13 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-proportional.qmd >}}
 
-## A Gaussian mean with a Gaussian prior {#sec-bayes-normal-normal}
+### A Gaussian mean with a Gaussian prior {#sec-bayes-normal-normal}
 
 <!-- No slidebreak here: the heading shares its slide with the exm-normal-normal div. -->
 
 {{< include sds/_subfiles/bayesian-inference/_exm-normal-normal.qmd >}}
 
-## Two readings of an interval estimate {#sec-bayes-interval-interp}
+### Two readings of an interval estimate {#sec-bayes-interval-interp}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-interval-interp.qmd >}}
 
@@ -80,7 +80,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-normal-credible-vs-confidence.qmd >}}
 
-## The parameter space {#sec-bayes-parameter-space}
+### The parameter space {#sec-bayes-parameter-space}
 
 <!-- No slidebreak here: the heading shares its slide with the def-parameter-space div. -->
 
@@ -102,11 +102,11 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-prior-support.qmd >}}
 
-# Priors {#sec-bayes-priors}
+## Priors {#sec-bayes-priors}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-priors.qmd >}}
 
-## Conjugate priors {#sec-bayes-conjugate}
+### Conjugate priors {#sec-bayes-conjugate}
 
 <!-- No slidebreak here: the heading shares its slide with the def-conjugate-prior div. -->
 
@@ -120,7 +120,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-beta-bernoulli.qmd >}}
 
-## Informative, weakly informative, and flat priors {#sec-bayes-informativeness}
+### Informative, weakly informative, and flat priors {#sec-bayes-informativeness}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-informativeness.qmd >}}
 
@@ -160,7 +160,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-flat-prior-posterior.qmd >}}
 
-## A skeptical prior {#sec-bayes-skeptical}
+### A skeptical prior {#sec-bayes-skeptical}
 
 <!-- No slidebreak here: the heading shares its slide with the def-skeptical-prior div. -->
 
@@ -172,7 +172,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-skeptical-prior.qmd >}}
 
-# Distributions and hierarchies {#sec-bayes-hierarchies}
+## Distributions and hierarchies {#sec-bayes-hierarchies}
 
 <!-- No slidebreak here: the heading shares its slide with the def-hierarchical-model div. -->
 
@@ -194,15 +194,15 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-borrow-strength.qmd >}}
 
-# Foundations of MCMC {#sec-foundations}
+## Foundations of MCMC {#sec-foundations}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-intro.qmd >}}
 
-## Why the normalizing constant is hard to compute
+### Why the normalizing constant is hard to compute
 
 {{< include sds/_subfiles/bayesian-inference/_prose-normalizing-constant.qmd >}}
 
-## Monte Carlo integration
+### Monte Carlo integration
 
 <!-- No slidebreak here: the heading shares its slide with the def-monte-carlo-estimate div. -->
 
@@ -216,7 +216,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-mc-bernoulli.qmd >}}
 
-## Markov chains
+### Markov chains
 
 <!-- No slidebreak here: the heading shares its slide with the def-markov-chain div. -->
 
@@ -234,9 +234,9 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-target.qmd >}}
 
-# MCMC samplers {#sec-samplers}
+## MCMC samplers {#sec-samplers}
 
-## The Metropolis--Hastings algorithm
+### The Metropolis--Hastings algorithm
 
 <!-- No slidebreak here: the heading shares its slide with the def-mh div. -->
 
@@ -250,7 +250,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-mh-bernoulli.qmd >}}
 
-## Trace plots and burn-in {#sec-burnin}
+### Trace plots and burn-in {#sec-burnin}
 
 <!-- No slidebreak here: the heading shares its slide with the def-trace-plot div. -->
 
@@ -268,7 +268,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-burnin.qmd >}}
 
-## The Gibbs sampler
+### The Gibbs sampler
 
 <!-- No slidebreak here: the heading shares its slide with the def-full-conditional div. -->
 
@@ -286,7 +286,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-gibbs-bivariate-normal.qmd >}}
 
-# Checking and improving MCMC {#sec-diagnostics}
+## Checking and improving MCMC {#sec-diagnostics}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-diagnostics.qmd >}}
 
@@ -302,7 +302,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-psrf.qmd >}}
 
-## Comparing MCMC estimates to maximum likelihood {#sec-mcmc-vs-mle}
+### Comparing MCMC estimates to maximum likelihood {#sec-mcmc-vs-mle}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-vs-mle.qmd >}}
 
@@ -314,11 +314,11 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-discrepancy.qmd >}}
 
-## The importance of parameterization {#sec-mcmc-parameterization}
+### The importance of parameterization {#sec-mcmc-parameterization}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-parameterization.qmd >}}
 
-# Deviance information criterion {#sec-dic}
+## Deviance information criterion {#sec-dic}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-dic-intro.qmd >}}
 
@@ -346,7 +346,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_note-dic-caveats.qmd >}}
 
-# A first example: a single proportion {#sec-bayes-examples}
+## A first example: a single proportion {#sec-bayes-examples}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-jags.qmd >}}
 
@@ -354,7 +354,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-proportion.qmd >}}
 
-# Binary outcomes: logistic regression {#sec-bayes-examples-logistic}
+## Binary outcomes: logistic regression {#sec-bayes-examples-logistic}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-logistic.qmd >}}
 
@@ -362,7 +362,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-logistic.qmd >}}
 
-# Survival analysis {#sec-bayes-examples-survival}
+## Survival analysis {#sec-bayes-examples-survival}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-survival.qmd >}}
 
@@ -374,7 +374,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-survival.qmd >}}
 
-# Random effects {#sec-bayes-examples-random-effects}
+## Random effects {#sec-bayes-examples-random-effects}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-random-effects.qmd >}}
 
@@ -382,7 +382,7 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-random-effects.qmd >}}
 
-# Bayesian model averaging {#sec-bayes-examples-bma}
+## Bayesian model averaging {#sec-bayes-examples-bma}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-bma.qmd >}}
 
@@ -398,11 +398,11 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-bma.qmd >}}
 
-# Further reading {#sec-bayes-resources}
+## Further reading {#sec-bayes-resources}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-resources.qmd >}}
 
-# References {.unnumbered}
+## References {.unnumbered}
 
 ::: {#refs}
 :::

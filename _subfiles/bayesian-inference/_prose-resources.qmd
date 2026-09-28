@@ -1,6 +1,6 @@
 The following resources cover Bayesian inference in more depth.
 
-## UC Davis courses
+### UC Davis courses
 
 - [STA 015C](https://catalog.ucdavis.edu/search/?q=STA+015C):
   "Introduction to Statistical Data Science III"
@@ -19,7 +19,7 @@ The following resources cover Bayesian inference in more depth.
 - [BAX 442](https://catalog.ucdavis.edu/search/?q=BAX+442):
   "Advanced Statistics"
 
-## Books
+### Books
 
 - @rossbayes, a free online textbook
 - @aragon2018population, on population health thinking with Bayesian networks

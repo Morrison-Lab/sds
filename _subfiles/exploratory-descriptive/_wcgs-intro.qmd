@@ -1,4 +1,4 @@
-This page illustrates exploratory and descriptive methods
+This page illustrates exploratory data analysis
 using data from the Western Collaborative Group Study (WCGS)
 [@rosenman1975coronary].
 @vittinghoff2e [Chapter 2] describe the study this way:

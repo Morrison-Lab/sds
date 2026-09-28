@@ -10,7 +10,7 @@ and for relating two variables:
 
 The page builds on three others:
 
-- [Exploratory and Descriptive Methods](exploratory-descriptive.qmd)
+- [Exploratory Data Analysis](exploratory-descriptive.qmd)
   defines the sample statistics these methods use;
 - [Statistical Inference](inference.qmd)
   defines hypotheses, test statistics, p-values, and confidence intervals;
