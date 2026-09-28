@@ -22,21 +22,16 @@ Suggests:
 VignetteBuilder: knitr
 Imports: 
     boot,
-    dobson,
     dplyr,
     ggplot2,
-    gridExtra,
     gtsummary,
     haven,
     knitr,
-    labelled,
-    pander,
     plotly,
     rjags,
     rmb,
     runjags,
     scales,
-    table1,
     tibble
 Remotes: 
     d-morrison/rmb

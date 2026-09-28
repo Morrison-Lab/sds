@@ -1,47 +1,16 @@
-<!-- ::: {.content-hidden when-format="revealjs"} -->
-
----
-
-### Configuring R {.unnumbered}
-
-Functions from these packages will be used throughout this document:
-
 ```{r}
-#| label: "packages"
-#| message: false
-library(pander) # format tables for markdown
+#| label: r-config
+#| include: false
 library(ggplot2) # graphics
-library(dplyr) # manipulate data
-library(tibble) # `tibble`s extend `data.frame`s
-library(haven) # import Stata files
-library(knitr) # format R output for markdown
-```
-
-Here are some R settings I use in this document:
-
-```{r}
-#| label: "r-config"
-#| message: false
-rm(list = ls()) # delete any data that's already loaded into R
+library(dplyr) # data manipulation
 
 ggplot2::theme_set(
   ggplot2::theme_bw() +
-    # ggplot2::labs(col = "") +
     ggplot2::theme(
       legend.position = "bottom",
       text = ggplot2::element_text(size = 12, family = "serif")
     )
 )
 
-knitr::opts_chunk$set(message = FALSE)
-options("digits" = 6)
-
-panderOptions("big.mark", ",")
-pander::panderOptions("table.emphasize.rownames", FALSE)
-pander::panderOptions("table.split.table", Inf)
-legend_text_size <- 9
-run_graphs <- TRUE
+options(digits = 6)
 ```
-
-<!-- ::: -->
-
