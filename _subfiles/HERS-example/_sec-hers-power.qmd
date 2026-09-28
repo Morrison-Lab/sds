@@ -74,5 +74,6 @@ The alternative $\mu_1$ should be chosen before seeing the data,
 as a difference worth detecting.
 Power computed at $\mu_1 = \hat\mu$ ("observed power")
 is a function of the p-value,
-so it adds no information about the data already analyzed.
+so it adds no information about the data already analyzed
+[@hoenig2001abuse].
 :::
