@@ -5,10 +5,8 @@ as a Stata file that R can read directly:
 ```{r}
 #| label: load-wcgs
 #| eval: false
-url <- paste0(
-  "https://regression.ucsf.edu/sites/g/files/",
-  "tkssra6706/f/wysiwyg/home/data/wcgs.dta"
-)
+# one unbroken string, so that link checkers test the whole URL:
+url <- "https://regression.ucsf.edu/sites/g/files/tkssra6706/f/wysiwyg/home/data/wcgs.dta" # nolint: line_length_linter.
 wcgs <- haven::read_dta(url)
 ```
 
