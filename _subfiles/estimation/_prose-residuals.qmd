@@ -1,0 +1,6 @@
+See [Linear-model residual definitions and terminology](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-lm-residuals)
+for residual definitions
+and for the relationship between
+residuals,
+model deviations,
+and estimation error.

@@ -1,0 +1,24 @@
+::: {#exm-estimation-error}
+#### Estimation error of a mean height
+
+Continuing @exm-estimate,
+suppose the population mean height of students at our school
+were actually $\mu = 172$ cm.
+Then the estimate $\hat\mu = 175$ cm
+would have estimation error:
+
+$$
+\begin{aligned}
+\erf{\hat\mu}
+&= \hat\mu - \mu
+&& \text{(definition of estimation error)}\\
+&= 175 - 172
+&& \text{(substitute the estimate and the estimand)}\\
+&= 3 \text{ cm}
+\end{aligned}
+$$
+
+In practice we never observe an estimation error,
+because we do not know the estimand's value;
+if we did, we would not need to estimate it.
+:::

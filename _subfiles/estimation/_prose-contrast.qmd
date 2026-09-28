@@ -1,0 +1,7 @@
+It's helpful to keep in mind the mathematical type of each estimation
+concept:
+
+-   [estimands](#def-estimand) are numbers (or vectors of numbers);
+-   [estimates](#def-estimate) are also numbers (or vectors);
+-   [estimators](#def-estimator) are functions of random variables,
+    so they are also random variables.

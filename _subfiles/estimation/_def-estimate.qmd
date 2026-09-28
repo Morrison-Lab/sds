@@ -1,0 +1,6 @@
+::: {#def-estimate}
+#### Estimate/estimated value
+
+In statistics, an **estimate** or **estimated value** is an informed
+guess of an [estimand](#def-estimand)'s value, based on observed data.
+:::

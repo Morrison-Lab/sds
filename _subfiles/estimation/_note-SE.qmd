@@ -1,0 +1,11 @@
+::: notes
+"Standard error" is a confusing name in two ways.
+It is defined through the estimator's own spread,
+not through the [estimation error](#def-estimation-error)
+(although @thm-se-error-sd shows that the two spreads are equal).
+It is also a synonym for the standard deviation of an estimator,
+so it can look redundant.
+The name persists because standard errors
+are the building blocks of p-values and confidence intervals,
+so they come up often enough to deserve their own name.
+:::

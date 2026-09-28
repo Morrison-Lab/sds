@@ -1,0 +1,19 @@
+::: callout-note
+#### Estimators are random variables
+
+When an estimator is applied to random variables $X_1, \ldots, X_n$
+rather than to their observed values,
+the result $\hth(X_1, \ldots, X_n)$ is also a random variable.
+:::
+
+::: callout-note
+#### Notation for estimators
+
+Estimators are often symbolized by placing a \^ ("hat") symbol on top of
+the corresponding estimand; for example, $\hth$.
+
+Usually, their dependence on the data is implicit:
+
+$$\hth \eqdef \hth(x_1, \ldots, x_n)$$
+
+:::

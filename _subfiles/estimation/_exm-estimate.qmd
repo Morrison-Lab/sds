@@ -1,0 +1,8 @@
+::: {#exm-estimate}
+#### Mean height of students
+
+Suppose we measure the heights of 50 randomly sampled students from our school,
+and their [sample mean](exploratory-descriptive.qmd#def-sample-mean) is 175 cm.
+We might use 175 cm as an [*estimate*](#def-estimate) of
+the population mean.
+:::

@@ -1,0 +1,9 @@
+In statistical contexts, most estimands are parameters of probabilistic
+models, or functions of model parameters.
+
+::: callout-note
+#### Notation for estimands
+
+Model parameters and other estimands are often symbolized using
+lower-case Greek letters: $\alpha, \beta, \gamma, \delta$, etc.
+:::

@@ -1,0 +1,9 @@
+:::{#exm-model}
+
+#### Scientific models in epidemiology
+
+Epidemiologists typically study *biological conditions and changes*,
+such as the spread of infectious diseases through populations,
+or the effects of environmental factors on individuals.
+
+:::
