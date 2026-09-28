@@ -33,7 +33,7 @@ $$
 && \text{(expand the numerator)}\\
 &= \frac{x - \pi}{\pi(1 - \pi)}
 && \text{(cancel $x\pi$)}\\
-&= \scoreexpf
+&= \frac{x - \E{X}}{\Var{X}}
 && \text{($\E{X} = \pi$ and $\Var{X} = \pi(1 - \pi)$)}
 \end{aligned}
 $$

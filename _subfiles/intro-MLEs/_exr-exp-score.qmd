@@ -25,7 +25,7 @@ $$
 && \text{(derivatives of $\log \pmean$ and $\pmean^{-1}$)}\\
 &= \frac{x - \pmean}{\pmean^2}
 && \text{(common denominator)}\\
-&= \scoreexpf
+&= \frac{x - \E{X}}{\Var{X}}
 && \text{($\E{X} = \pmean$ and $\Var{X} = \pmean^2$)}
 \end{aligned}
 $$
