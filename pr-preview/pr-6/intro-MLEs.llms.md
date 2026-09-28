@@ -4,11 +4,11 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:41:08 (PDT)
-
-These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](#ref-dobson4e)), with some material from ([McLachlan and Krishnan 2007](#ref-mclachlan2007em)) and ([Casella and Berger 2002](#ref-CaseBerg01)).
+Last modified: 2026-09-28 02:18:22 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
+
+These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](#ref-dobson4e)), with some material from ([McLachlan and Krishnan 2007](#ref-mclachlan2007em)) and ([Casella and Berger 2002](#ref-CaseBerg01)).
 
 ### 1.1 The likelihood function
 
@@ -451,7 +451,7 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 
 Table 2: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
 
-The t, F and ANOVA tests are covered in [basic statistical methods](basic-statistical-methods.llms.md). The exact tests assume \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 9](#thm-dist-mle), Gaussian or not.
+The t-tests and ANOVA are covered in [Comparing Means](basic-statistical-methods.llms.md), and the \\t\\ and \\F\\ distributions in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 9](#thm-dist-mle), Gaussian or not.
 
 #### 1.9.5 Prediction intervals
 
@@ -1531,7 +1531,7 @@ ggplot2::ggplot() +
 
 Figure 20: Power of the test of \\H_0: \mu = 95\\ against \\\mu_1 = 100\\ mg/dL, by sample size
 
-The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat\mu\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed.
+The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat\mu\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed ([Hoenig and Heisey 2001](#ref-hoenig2001abuse)).
 
 ### 4.7 Simulation
 
@@ -1879,11 +1879,13 @@ Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized L
 
 Dunn, Peter K, and Gordon K Smyth. 2018. *Generalized Linear Models with Examples in R*. Vol. 53. Springer. <https://doi.org/10.1007/978-1-4419-0118-7>.
 
-Efron, Bradley, and David V Hinkley. 1978. “Assessing the Accuracy of the Maximum Likelihood Estimator: Observed Versus Expected Fisher Information.” *Biometrika* 65 (3): 457–83.
+Efron, Bradley, and David V Hinkley. 1978. “Assessing the Accuracy of the Maximum Likelihood Estimator: Observed Versus Expected Fisher Information.” *Biometrika* 65 (3): 457–83. <https://doi.org/10.1093/biomet/65.3.457>.
+
+Hoenig, John M., and Dennis M. Heisey. 2001. “The Abuse of Power: The Pervasive Fallacy of Power Calculations for Data Analysis.” *The American Statistician* 55 (1): 19–24. <https://doi.org/10.1198/000313001300339897>.
 
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2015. *Probability and Statistical Inference*. Ninth edition. Pearson.
 
-Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” *JAMA : The Journal of the American Medical Association* (Chicago, IL) 280 (7): 605–13.
+Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” *JAMA : The Journal of the American Medical Association* (Chicago, IL) 280 (7): 605–13. <https://doi.org/10.1001/jama.280.7.605>.
 
 Kleinbaum, David G, Lawrence L Kupper, Azhar Nizam, K Muller, and ES Rosenberg. 2014. *Applied Regression Analysis and Other Multivariable Methods*. 5th ed. Cengage Learning. <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>.
 

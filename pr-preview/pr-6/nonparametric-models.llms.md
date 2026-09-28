@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:41:08 (PDT)
+Last modified: 2026-09-28 02:18:22 (PDT)
 
 ## 1 Empirical CDF
 
@@ -147,7 +147,5 @@ points(q_right, x_ord, pch = 19, col = "blue")
 Figure 1: The empirical CDF and the sample quantile function for the data 4, 1, 7, 3 (order statistics 1, 3, 4, 7).
 
 Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, \\\hat F(t) = 0.5\\ for every \\t \in \[3, 4)\\, and \\\hat Q\\ jumps from 3 to 4 at \\p = 0.5\\. So \\\hat Q\\ is a *generalized* inverse of \\\hat F\\, not an inverse in the usual sense: \\\hat Q(\hat F(t)) \le t\\ for every \\t \ge x\_{(1)}\\, with equality only at the observed values.
-
-## References
 
 Back to top

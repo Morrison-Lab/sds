@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:41:08 (PDT)
+Last modified: 2026-09-28 02:18:22 (PDT)
 
 ## 1 Inference
 
@@ -102,11 +102,70 @@ A p-value is computed assuming \\H_0\\ is true, so it is not the probability tha
 >
 > The p-value is far below 0.05, so at significance level 0.05 the test rejects \\H_0\\: the data provide [statistically significant](#def-statistically-significant) evidence that mean cholesterol differs between the two groups.
 
-## 3 Confidence intervals
+## 3 Reference distributions
+
+The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually [independent](https://morrison-lab.github.io/rme/chapters/probability.html#def-indpt).
 
 > **NOTE:**
 >
-> **Definition 9 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a pair of statistics \\L\\ and \\U\\, computed from the data, such that for every possible value of \\\theta\\:
+> **Definition 9 (Chi-square distribution)** Let \\Z_1, \ldots, Z_k\\ be independent random variables, each with the standard Gaussian distribution. The distribution of \\\sum\_{j=1}^k Z_j^2\\ is the **chi-square distribution with \\k\\ degrees of freedom**, written \\\chi^2_k\\.
+
+> **NOTE:**
+>
+> **Example 4 (The 0.95 quantile of \\\chi^2_1\\)** By [Definition 9](#def-chi-square-dist), a \\\chi^2_1\\ random variable is \\Z^2\\ for a standard Gaussian \\Z\\. So \\\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})\\, and the 0.95 quantile of \\\chi^2_1\\ is the square of the 0.975 quantile of the standard Gaussian distribution:
+>
+> ``` downlit
+> c(chisq = qchisq(0.95, df = 1), gaussian_squared = qnorm(0.975)^2)
+> #>            chisq gaussian_squared 
+> #>          3.84146          3.84146
+> ```
+
+> **NOTE:**
+>
+> **Definition 10 (t-distribution)** Let \\Z\\ have the standard Gaussian distribution, let \\V\\ have the \\\chi^2_k\\ distribution ([Definition 9](#def-chi-square-dist)), and let \\Z\\ and \\V\\ be independent. The distribution of
+>
+> \\\frac{Z}{\sqrt{V/k}}\\
+>
+> is the **t-distribution with \\k\\ degrees of freedom** (or Student’s t-distribution), written \\t_k\\.
+
+> **NOTE:**
+>
+> **Example 5 (t quantiles approach Gaussian quantiles)** The 0.975 quantile of \\t_k\\ is larger than the standard Gaussian’s 0.975 quantile, 1.96, and approaches it as \\k\\ grows:
+>
+> ``` downlit
+> k <- c(4, 9, 29, 99, 2760)
+> tibble::tibble(k = k, t_quantile = qt(0.975, df = k))
+> ```
+>
+> So t-based intervals and tests differ noticeably from Gaussian-based ones only in small samples.
+
+> **NOTE:**
+>
+> **Definition 11 (F-distribution)** Let \\U\\ have the \\\chi^2\_{k_1}\\ distribution, let \\V\\ have the \\\chi^2\_{k_2}\\ distribution, and let \\U\\ and \\V\\ be independent. The distribution of
+>
+> \\\frac{U / k_1}{V / k_2}\\
+>
+> is the **F-distribution with \\k_1\\ and \\k_2\\ degrees of freedom**, written \\F\_{k_1, k_2}\\.
+
+> **NOTE:**
+>
+> **Example 6 (A squared t random variable has an F-distribution)** Let \\T = Z / \sqrt{V/k}\\ as in [Definition 10](#def-t-dist). Then
+>
+> \\T^2 = \frac{Z^2 / 1}{V / k},\\
+>
+> where \\Z^2\\ has the \\\chi^2_1\\ distribution ([Definition 9](#def-chi-square-dist)) and is independent of \\V\\. So \\T^2\\ has the \\F\_{1, k}\\ distribution ([Definition 11](#def-f-dist)), and the 0.95 quantile of \\F\_{1, k}\\ is the square of the 0.975 quantile of \\t_k\\:
+>
+> ``` downlit
+> c(f = qf(0.95, df1 = 1, df2 = 9), t_squared = qt(0.975, df = 9)^2)
+> #>         f t_squared 
+> #>   5.11736   5.11736
+> ```
+
+## 4 Confidence intervals
+
+> **NOTE:**
+>
+> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a pair of statistics \\L\\ and \\U\\, computed from the data, such that for every possible value of \\\theta\\:
 >
 > \\\Pr(L \le \theta \le U) = 1 - \alpha\\
 >
@@ -114,15 +173,15 @@ A p-value is computed assuming \\H_0\\ is true, so it is not the probability tha
 
 > **NOTE:**
 >
-> **Definition 10 (Coverage probability)** The **coverage probability** of an interval \\\[L, U\]\\ for a parameter \\\theta\\ is \\\Pr(L \le \theta \le U)\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability \\1 - \alpha\\.
+> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\\[L, U\]\\ for a parameter \\\theta\\ is \\\Pr(L \le \theta \le U)\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability \\1 - \alpha\\.
 
 > **NOTE:**
 >
-> **Definition 11 (Approximate confidence interval)** An **approximate** \\100(1-\alpha)\\\\ confidence interval is an interval whose [coverage probability](#def-coverage-probability) is approximately \\1 - \alpha\\, for example only in large samples.
+> **Definition 14 (Approximate confidence interval)** An **approximate** \\100(1-\alpha)\\\\ confidence interval is an interval whose [coverage probability](#def-coverage-probability) is approximately \\1 - \alpha\\, for example only in large samples.
 
 > **NOTE:**
 >
-> **Example 4 (Confidence interval for mean cholesterol in the WCGS)**  
+> **Example 7 (Confidence interval for mean cholesterol in the WCGS)**  
 >
 > By the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
 >
@@ -136,13 +195,13 @@ A p-value is computed assuming \\H_0\\ is true, so it is not the probability tha
 
 > **NOTE:**
 >
-> **Definition 12 (Margin of error)** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
+> **Definition 15 (Margin of error)** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
 
 > **NOTE:**
 >
-> **Example 5 (Margin of error for mean cholesterol)** In [Example 4](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
+> **Example 8 (Margin of error for mean cholesterol)** In [Example 7](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
 
-## 4 Further reading on confidence intervals
+## 5 Further reading on confidence intervals
 
 For more on confidence intervals:
 
@@ -152,7 +211,7 @@ For more on confidence intervals:
 
   Unable to execute JavaScript.
 
-## 5 Interpretation of negative findings
+## 6 Interpretation of negative findings
 
 If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not *necessarily* mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage \\1 - \alpha\\ and significance level \\\alpha\\, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant *evidence* that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.
 
@@ -188,7 +247,7 @@ ci_scenarios |>
   ggplot2::labs(x = "Ratio estimand (log scale); null value = 1", y = NULL)
 ```
 
-[![](inference_files/figure-html/unnamed-chunk-3-1.png)](inference_files/figure-html/unnamed-chunk-3-1.png "Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.")
+[![](inference_files/figure-html/unnamed-chunk-6-1.png)](inference_files/figure-html/unnamed-chunk-6-1.png "Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.")
 
 Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.
 
