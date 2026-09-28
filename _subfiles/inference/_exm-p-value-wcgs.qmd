@@ -1,7 +1,7 @@
 ::: {#exm-p-value-wcgs}
 #### Testing whether mean cholesterol differs by CHD status
 
-<!-- Repoint the CLT link to pds (#sec-clt) once pds is published. -->
+<!-- Repoint the CLT link to pds (limit-theorems.qmd#sec-clt) once pds is published. -->
 Continuing @exm-hypotheses-wcgs,
 let $\bar x_1$ and $\bar x_0$ be the two groups' sample mean cholesterol,
 with sample variances $s_1^2$ and $s_0^2$ and sample sizes $n_1$ and $n_0$.
