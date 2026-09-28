@@ -3,7 +3,7 @@ one component at a time,
 whose proposal is the full conditional itself;
 with that proposal the acceptance ratio is always 1,
 so every draw is accepted
-[@dobson4e, Chapter 13, p. 300].
+[@dobson4e, Chapter 13, p. 293].
 It needs a way to draw from each full conditional.
 JAGS ("Just Another Gibbs Sampler")
 builds a Gibbs sampler from a model's description,

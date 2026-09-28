@@ -9,4 +9,4 @@ with $\varepsilon$ drawn from a distribution symmetric about 0,
 the second factor equals 1.
 The resulting chain is a [Markov chain](#def-markov-chain)
 whose stationary distribution is the posterior
-[@dobson4e, Chapter 13, p. 293].
+[@dobson4e, Chapter 13, p. 291].

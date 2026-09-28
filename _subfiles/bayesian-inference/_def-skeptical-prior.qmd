@@ -4,5 +4,5 @@
 A **skeptical prior** is an [informative prior](#def-informative-prior)
 centered on the parameter value that represents no effect,
 and concentrated near that value
-[@dobson4e, Chapter 12, p. 281].
+[@dobson4e, Chapter 12, p. 277].
 :::

@@ -9,7 +9,7 @@ Under the uniform prior, the posterior is $\operatorname{Beta}(r + 1, n - r + 1)
 whose mean is $(r + 1)/(n + 2)$
 and whose standard deviation is
 $\sqrt{ab / \paren{(a + b)^2 (a + b + 1)}}$ with $a = r + 1$ and $b = n - r + 1$
-[@CaseBerg01, Section 3.3]:
+[@CaseBerg01, Section 3.3, p. 107]:
 
 ```{r}
 #| label: mcmc-vs-mle

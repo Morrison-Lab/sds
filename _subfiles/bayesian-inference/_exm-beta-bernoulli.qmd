@@ -55,5 +55,5 @@ c(
 ```
 
 The mean uses the $\operatorname{Beta}(a, b)$ mean $a / (a + b)$
-[@CaseBerg01, Section 3.3].
+[@CaseBerg01, Section 3.3, p. 107].
 :::

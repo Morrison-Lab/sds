@@ -1,7 +1,7 @@
 By the law of large numbers,
 a Monte Carlo estimate converges to the posterior expectation it estimates
 as the number of draws $M$ grows
-[@dobson4e, Chapter 13, p. 290].
+[@dobson4e, Chapter 13, p. 288].
 The posterior mean ($g(\theta) = \theta$)
 and posterior probabilities ($g(\theta) = \1{\theta \le c}$, an indicator)
 are posterior expectations,

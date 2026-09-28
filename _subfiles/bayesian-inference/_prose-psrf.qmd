@@ -5,7 +5,7 @@ If the chains are still exploring different regions,
 the chain means differ,
 $B$ is large,
 and $\hR$ exceeds 1
-[@dobson4e, Chapter 13, p. 302].
+[@dobson4e, Chapter 13, p. 306].
 Software reports $\hR$ as `psrf` or `Rhat`;
 `coda::gelman.diag()` also applies a small-sample correction,
 so its value differs slightly from @def-psrf's.
