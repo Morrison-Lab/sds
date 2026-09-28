@@ -2,16 +2,8 @@ This page reviews the standard methods for comparing the mean
 of a continuous outcome between groups:
 t-tests, confidence intervals for a difference in means,
 and one-way analysis of variance.
-Three companion pages cover the other basic methods:
 
-- [Comparing Proportions](categorical-tests.qmd):
-  the chi-square test and Fisher's exact test;
-- [Correlation and Simple Linear Regression](correlation-regression.qmd);
-- [The Bootstrap](bootstrap.qmd):
-  confidence intervals for statistics
-  whose sampling distribution has no convenient formula.
-
-These pages build on three others:
+This page builds on three others:
 
 - [Exploratory Data Analysis](exploratory-descriptive.qmd)
   defines the sample statistics these methods use;
@@ -20,3 +12,8 @@ These pages build on three others:
   and the t, chi-square, and F reference distributions;
 - [Estimation](estimation.qmd)
   defines estimators and their standard errors.
+
+The t-tests and ANOVA on this page are the exact, Gaussian-outcome tests
+in the [table of exact and approximate tests](intro-MLEs.qmd#tbl-gaussian-vs-mle-tests)
+on the Maximum Likelihood page,
+which pairs each one with its large-sample counterpart.

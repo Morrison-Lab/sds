@@ -6,7 +6,7 @@ Statistical inference typically consists of two steps:
 
 There are two predominant paradigms for statistical inference:
 
-- [frequentist inference](intro-MLEs.qmd#sec-intro-MLEs),
+- frequentist inference,
   which treats parameters as fixed unknown constants;
-- [Bayesian inference](bayesian-inference.qmd),
+- Bayesian inference,
   which treats parameters as random variables with prior distributions.

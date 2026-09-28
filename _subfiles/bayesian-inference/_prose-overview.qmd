@@ -4,14 +4,3 @@ states Bayes' theorem as a rule for updating beliefs about parameters,
 discusses how to choose a prior,
 and outlines hierarchical models
 [@dobson4e, Chapter 12].
-Two further pages put the approach into practice:
-
-- [Markov Chain Monte Carlo](mcmc.qmd)
-  explains why most posteriors must be simulated
-  and how to simulate them and check the results
-  [@dobson4e, Chapter 13];
-- [Bayesian Analyses with JAGS](bayesian-examples.qmd)
-  fits a proportion, a logistic regression, a survival model,
-  and a random-effects model with the JAGS sampler,
-  and averages over linear regression models
-  [@dobson4e, Chapter 14].

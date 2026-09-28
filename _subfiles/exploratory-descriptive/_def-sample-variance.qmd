@@ -6,12 +6,3 @@ The **sample variance** of $n \ge 2$ observations is:
 $$s^2 \eqdef \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
 
 :::
-
-::: notes
-When the observations are independent draws
-with a common mean and variance,
-the divisor $n - 1$, rather than $n$,
-makes $s^2$ an [unbiased](estimation.qmd#def-unbiased) estimator
-of that variance
-([proof](estimation.qmd#exm-biased-variance-mle)).
-:::

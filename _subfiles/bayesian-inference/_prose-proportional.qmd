@@ -6,5 +6,5 @@ is the [likelihood](intro-MLEs.qmd#def-lik) $\Lik(\theta)$.
 @cor-bayes-proportional is the workhorse of applied Bayesian analysis:
 it identifies the posterior from the shape of likelihood times prior,
 without computing the integral $\p(\vy)$,
-and it is what makes the [simulation methods of MCMC](mcmc.qmd#sec-foundations) possible
+and it is what makes the simulation methods of Markov chain Monte Carlo possible
 [@dobson4e, Chapter 12, p. 272].
