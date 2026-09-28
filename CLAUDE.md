@@ -53,6 +53,31 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - Don't bypass CI failures (spell check, link check, lint, bibliography DOIs, non-standard chars) --- fix the underlying issue.
 - Don't commit `_site/` or `_freeze/` changes unless that is genuinely the intent of the PR.
 
+## Shared lab rules
+
+The lab's cross-repository rules live in [`Morrison-Lab/ai-config`](https://github.com/Morrison-Lab/ai-config),
+which `.claude/settings.json` enables as the `ai-config@Morrison-Lab` plugin.
+Enabling is not installing: a local session needs `claude plugin install ai-config@Morrison-Lab` once.
+When the plugin is not loaded (for example, in a session rooted above this checkout),
+read the rules from a clone of ai-config before content work, in particular:
+
+- `shared/writing/` --- definitions, derivation steps, fact-checking, cross-references, plain prose
+- `shared/coding/` --- R style, ASCII punctuation in source
+- `skills/quarto-authoring/references/divs-and-spans.md` --- no theorem-type div nested inside another
+
+## Relationship to rme
+
+This repository is the canonical home for the statistics prerequisites
+that [`Morrison-Lab/rme`](https://github.com/Morrison-Lab/rme) carries as appendices
+(`estimation.qmd`, `inference.qmd`, `intro-MLEs.qmd`, `bayesian-inference.qmd`, `basic-statistical-methods.qmd`, `exploratory-descriptive.qmd` and `nonparametric-models.qmd`).
+rme will drop those appendices and point readers here
+([rme#1204](https://github.com/Morrison-Lab/rme/issues/1204)).
+
+- rme is a good first place to look for content, not an authority on content or style:
+  much of it predates the lab's style rules.
+  Check what you port, fix what is wrong, and bring it up to the current rules.
+- Keep rme's `#id`s, so rme's links can be repointed by changing only the path.
+
 ## Things to avoid
 
 - Adding new top-level dependencies (R packages, Quarto extensions) without a clear reason; every host site that includes this repository as a submodule has to install it.
