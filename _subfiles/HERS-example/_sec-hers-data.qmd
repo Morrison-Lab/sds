@@ -63,7 +63,10 @@ plot1 <-
   data1 |>
   ggplot2::ggplot() +
   ggplot2::aes(x = glucose) +
-  ggplot2::geom_histogram(ggplot2::aes(y = ggplot2::after_stat(density)), bins = 20) +
+  ggplot2::geom_histogram(
+    ggplot2::aes(y = ggplot2::after_stat(density)),
+    bins = 20
+  ) +
   ggplot2::xlab("Fasting glucose (mg/dL)")
 
 print(plot1)

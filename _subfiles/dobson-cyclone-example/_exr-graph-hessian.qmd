@@ -11,6 +11,8 @@ Graph the Hessian.
 ::: {#fig-cyclone-hessian}
 
 ```{r}
+# `cyclones` is defined earlier on the page:
+# nolint next: object_usage_linter.
 hessian <- function(lambda, y = cyclones$number, n = length(y)) {
   -sum(y) / (lambda^2)
 }

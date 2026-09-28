@@ -10,10 +10,10 @@ non-rejection interval
 $$\mu_0 \pm z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}$$
 
 ```{r}
-mu_0 <- 95
-se <- se_mu_hat(n = n_obs)
+mu0 <- 95
+se <- se_mu_hat(n = n_obs, sigma = sigma_hat)
 margin <- qnorm(0.975) * se
-bounds <- mu_0 + c(lower = -1, upper = 1) * margin
+bounds <- mu0 + c(lower = -1, upper = 1) * margin
 bounds
 ```
 
@@ -34,13 +34,13 @@ For the alternative that the true mean equals our estimate,
 $\mu_1 = \hat\mu_{\text{ML}}$:
 
 ```{r}
-power <- function(n = n_obs, null = mu_0, alt = mu_hat, sigma = sigma_hat) {
+power <- function(n, null, alt, sigma) {
   se <- sigma / sqrt(n)
   lower <- null - qnorm(0.975) * se
   upper <- null + qnorm(0.975) * se
   pnorm((lower - alt) / se) + pnorm((upper - alt) / se, lower.tail = FALSE)
 }
-power()
+power(n = n_obs, null = mu0, alt = mu_hat, sigma = sigma_hat)
 ```
 
 {{< slidebreak >}}
@@ -51,7 +51,11 @@ power()
 
 ```{r}
 ggplot2::ggplot() +
-  ggplot2::geom_function(fun = function(n) power(n = n), n = 199) +
+  ggplot2::geom_function(
+    fun = power,
+    args = list(null = mu0, alt = mu_hat, sigma = sigma_hat),
+    n = 199
+  ) +
   ggplot2::xlim(c(2, 200)) +
   ggplot2::ylim(0, 1) +
   ggplot2::ylab("Power") +

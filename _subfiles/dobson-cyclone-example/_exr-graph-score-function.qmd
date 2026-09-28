@@ -11,6 +11,8 @@ Graph the score function.
 ::: {#fig-cyclone-score}
 
 ```{r}
+# `cyclones` is defined earlier on the page:
+# nolint next: object_usage_linter.
 score <- function(lambda, y = cyclones$number, n = length(y)) {
   (sum(y) / lambda) - n
 }

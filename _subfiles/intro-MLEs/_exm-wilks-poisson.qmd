@@ -23,9 +23,13 @@ For example, with $n = 13$, $\bar x = 72/13$, and $\rate_0 = 4$:
 ```{r}
 n_obs <- 13
 xbar_obs <- 72 / 13
-lambda_0 <- 4
-lr_stat <- 2 * n_obs * (xbar_obs * log(xbar_obs / lambda_0) - xbar_obs + lambda_0)
-c(statistic = lr_stat, p_value = pchisq(lr_stat, df = 1, lower.tail = FALSE))
+lambda0 <- 4
+lr_stat <- 2 * n_obs *
+  (xbar_obs * log(xbar_obs / lambda0) - xbar_obs + lambda0)
+c(
+  statistic = lr_stat,
+  p_value = pchisq(lr_stat, df = 1, lower.tail = FALSE)
+)
 ```
 
 :::

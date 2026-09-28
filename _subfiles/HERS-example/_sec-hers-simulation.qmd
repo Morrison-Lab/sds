@@ -10,13 +10,7 @@ a 95% $t$-based confidence interval for $\mu$,
 and the $t$-test of $H_0: \mu = \mu_0$.
 
 ```{r}
-do_one_sim <- function(
-  n = 100,
-  mu = mu_hat,
-  mu_0 = mu_hat * 0.9,
-  sigma2 = sigma_sq_hat,
-  return_data = FALSE
-) {
+do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
   # generate data
   x <- rnorm(n = n, mean = mu, sd = sqrt(sigma2))
 
@@ -24,7 +18,7 @@ do_one_sim <- function(
   est <- mean(x)
   se_est <- sd(x) / sqrt(n)
   confint <- est + c(-1, 1) * se_est * qt(0.975, df = n - 1)
-  tstat <- abs(est - mu_0) / se_est
+  tstat <- abs(est - mu0) / se_est
   pval <- 2 * pt(q = tstat, df = n - 1, lower.tail = FALSE)
 
   results <- tibble::tibble(
@@ -54,7 +48,10 @@ we compare its output with `stats::t.test()` on the same simulated data:
 
 ```{r}
 set.seed(1)
-sim_output <- do_one_sim(mu_0 = 80, return_data = TRUE)
+sim_output <- do_one_sim(
+  n = 100, mu = mu_hat, mu0 = 80, sigma2 = sigma_sq_hat,
+  return_data = TRUE
+)
 t_test <- t.test(sim_output$data, mu = 80)
 
 dplyr::bind_rows(
@@ -88,7 +85,10 @@ do_n_sims <- function(n_sims = 1000, ...) {
     dplyr::bind_rows()
 }
 
-sim_results <- do_n_sims(n_sims = 1000, n = 100)
+sim_results <- do_n_sims(
+  n_sims = 1000,
+  n = 100, mu = mu_hat, mu0 = 0.9 * mu_hat, sigma2 = sigma_sq_hat
+)
 sim_results
 ```
 
@@ -98,20 +98,22 @@ sim_results
 with the true data-generating parameters:
 
 ```{r}
-summarize_sim <- function(sim_results, mu = mu_hat, sigma2 = sigma_sq_hat, n = 100) {
+summarize_sim <- function(sim_results, mu, sigma2, n) {
   true_se <- sqrt(sigma2 / n)
-  sim_results |>
-    dplyr::summarize(
-      bias_mu_hat = mean(mu_hat) - mu,
-      sd_mu_hat = sd(mu_hat),
-      true_se = true_se,
-      bias_se_hat = mean(se_hat) - true_se,
-      coverage = mean(confint_covers),
-      power = mean(test_rejects)
-    )
+  tibble::tibble(
+    bias_mu_hat = mean(sim_results$mu_hat) - mu,
+    sd_mu_hat = sd(sim_results$mu_hat),
+    true_se = true_se,
+    bias_se_hat = mean(sim_results$se_hat) - true_se,
+    coverage = mean(sim_results$confint_covers),
+    power = mean(sim_results$test_rejects)
+  )
 }
 
-sim_summary <- summarize_sim(sim_results)
+sim_summary <- summarize_sim(
+  sim_results,
+  mu = mu_hat, sigma2 = sigma_sq_hat, n = 100
+)
 sim_summary
 ```
 

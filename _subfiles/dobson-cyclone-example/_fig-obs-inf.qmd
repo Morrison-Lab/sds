@@ -5,7 +5,7 @@ $\oinf(\lambda; \vx) = -\ell''(\lambda; \vx)$.
 ::: {#fig-obs-inf-matrix}
 
 ```{r}
-obs_inf <- function(...) -hessian(...)
+obs_inf <- function(...) -hessian(...) # nolint: object_usage_linter.
 ggplot2::ggplot() +
   ggplot2::geom_function(fun = obs_inf, n = 1001) +
   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +

@@ -11,6 +11,8 @@ Graph the likelihood as a function of $\lambda$.
 ::: {#fig-cyclone-lik}
 
 ```{r}
+# `cyclones` is defined earlier on the page:
+# nolint next: object_usage_linter.
 lik <- function(lambda, y = cyclones$number, n = length(y)) {
   lambda^sum(y) * exp(-n * lambda) / prod(factorial(y))
 }

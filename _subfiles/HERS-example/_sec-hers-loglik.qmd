@@ -3,7 +3,7 @@ and exponentiate it to get the likelihood,
 because a product of 100 densities can underflow to zero:
 
 ```{r}
-loglik <- function(mu, sigma, x = glucose_data) {
+loglik <- function(mu, sigma, x) {
   n <- length(x)
   normalizing_constant <- -n / 2 * log(2 * pi * sigma^2)
   # written with sum(x), sum(x^2) so that `mu` can be a vector of values:
@@ -26,7 +26,10 @@ with $\sigma$ fixed at $\hat\sigma_{\text{ML}}$.
 
 ```{r}
 ggplot2::ggplot() +
-  ggplot2::geom_function(fun = function(x) lik(mu = x, sigma = sigma_hat)) +
+  ggplot2::geom_function(
+    fun = lik,
+    args = list(sigma = sigma_hat, x = glucose_data)
+  ) +
   ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
   ggplot2::xlab("mu") +
   ggplot2::ylab("likelihood") +
@@ -41,7 +44,10 @@ Likelihood
 
 ```{r}
 ggplot2::ggplot() +
-  ggplot2::geom_function(fun = function(x) loglik(mu = x, sigma = sigma_hat)) +
+  ggplot2::geom_function(
+    fun = loglik,
+    args = list(sigma = sigma_hat, x = glucose_data)
+  ) +
   ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
   ggplot2::xlab("mu") +
   ggplot2::ylab("log-likelihood") +
@@ -68,7 +74,10 @@ with $\mu$ fixed at $\hat\mu_{\text{ML}}$.
 
 ```{r}
 ggplot2::ggplot() +
-  ggplot2::geom_function(fun = function(x) lik(sigma = x, mu = mu_hat)) +
+  ggplot2::geom_function(
+    fun = lik,
+    args = list(mu = mu_hat, x = glucose_data)
+  ) +
   ggplot2::xlim(sigma_hat * c(0.9, 1.1)) +
   ggplot2::geom_vline(xintercept = sigma_hat, col = "red") +
   ggplot2::xlab("sigma") +
@@ -83,7 +92,10 @@ Likelihood
 
 ```{r}
 ggplot2::ggplot() +
-  ggplot2::geom_function(fun = function(x) loglik(sigma = x, mu = mu_hat)) +
+  ggplot2::geom_function(
+    fun = loglik,
+    args = list(mu = mu_hat, x = glucose_data)
+  ) +
   ggplot2::xlim(sigma_hat * c(0.9, 1.1)) +
   ggplot2::geom_vline(xintercept = sigma_hat, col = "red") +
   ggplot2::xlab("sigma") +

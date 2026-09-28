@@ -48,10 +48,13 @@ and the approximate score function at $\esttmpl = `r cur_lambda_est`$.
 :::{#fig-cyclone-newton-step1}
 
 ```{r}
+# score(), hessian() and loglik() are defined earlier on the page
+# nolint start: object_usage_linter.
 approx_score <- function(lambda, lhat, ...) {
   score(lambda = lhat, ...) +
     hessian(lambda = lhat, ...) * (lambda - lhat)
 }
+# nolint end
 
 point_size <- 5
 
@@ -108,11 +111,13 @@ $$
 :::{#fig-cyclone-newton-step1-loglik}
 
 ```{r}
+# nolint start: object_usage_linter.
 approx_loglik <- function(lambda, lhat, ...) {
   loglik(lambda = lhat, ...) +
     score(lambda = lhat, ...) * (lambda - lhat) +
     1 / 2 * hessian(lambda = lhat, ...) * (lambda - lhat)^2
 }
+# nolint end
 
 plot_loglik <- ggplot2::ggplot() +
   ggplot2::geom_function(
