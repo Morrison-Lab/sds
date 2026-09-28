@@ -1,5 +1,4 @@
-@tbl-chol-by-chd computes summary statistics separately for each group,
-with a p-value comparing the groups for each variable.
+@tbl-chol-by-chd computes summary statistics separately for each group.
 
 ::: {#tbl-chol-by-chd}
 
@@ -14,8 +13,7 @@ wcgs |>
     ),
     digits = gtsummary::all_continuous() ~ 1
   ) |>
-  gtsummary::add_overall() |>
-  gtsummary::add_p()
+  gtsummary::add_overall()
 ```
 
 Cholesterol, systolic blood pressure, and BMI by CHD status in the WCGS

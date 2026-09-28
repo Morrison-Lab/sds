@@ -8,8 +8,10 @@ $$s^2 \eqdef \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
 :::
 
 ::: notes
-The divisor $n - 1$, rather than $n$,
+When the observations are independent draws
+with a common mean and variance,
+the divisor $n - 1$, rather than $n$,
 makes $s^2$ an [unbiased](estimation.qmd#def-unbiased) estimator
-of a population variance
+of that variance
 ([proof](estimation.qmd#exm-biased-variance-mle)).
 :::
