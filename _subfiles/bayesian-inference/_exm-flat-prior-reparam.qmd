@@ -1,0 +1,43 @@
+::: {#exm-flat-prior-reparam}
+#### A flat prior on a probability is not flat on its log-odds
+
+A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated.
+Let $\pi$ have the uniform prior of @exm-prior,
+and let $\eta \eqdef \logit(\pi)$ be its log-odds,
+so that $\pi = \expit(\eta) = 1 / (1 + e^{-\eta})$.
+The derivative of $\expit$ is
+
+$$
+\ba
+\frac{d}{d\eta} \expit(\eta)
+&= \frac{d}{d\eta} (1 + e^{-\eta})^{-1}\\
+&= -(1 + e^{-\eta})^{-2} \cdot (-e^{-\eta})
+&& \text{(chain rule)}\\
+&= \frac{1}{1 + e^{-\eta}} \cdot \frac{e^{-\eta}}{1 + e^{-\eta}}
+&& \text{(splitting the fraction)}\\
+&= \expit(\eta)\, \paren{1 - \expit(\eta)}
+&& \text{($\tfrac{e^{-\eta}}{1 + e^{-\eta}} = 1 - \tfrac{1}{1 + e^{-\eta}}$)}.
+\ea
+$$
+
+By the change-of-variables formula for densities
+[@CaseBerg01, Theorem 2.1.5],
+the prior density of $\eta$ is
+
+$$
+\ba
+\p_\eta(\eta)
+&= \p_\pi\paren{\expit(\eta)} \cdot \abs{\frac{d}{d\eta} \expit(\eta)}
+&& \text{(change of variables)}\\
+&= 1 \cdot \expit(\eta)\, \paren{1 - \expit(\eta)}
+&& \text{(uniform density of $\pi$; derivative of $\expit$)},
+\ea
+$$
+
+the standard logistic density,
+which peaks at $\eta = 0$ and decays in both directions.
+Under this prior,
+$\Pr(-1 < \eta < 1) = \expit(1) - \expit(-1) \approx `r round(stats::plogis(1) - stats::plogis(-1), 2)`$,
+whereas a flat prior on $\eta$ would make every interval of length 2 equally likely.
+"Noninformative" therefore depends on the parameterization.
+:::

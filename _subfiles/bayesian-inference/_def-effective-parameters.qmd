@@ -1,0 +1,11 @@
+::: {#def-effective-parameters}
+#### Effective number of parameters
+
+Let $\overline{D} \eqdef \E{D(\vth) \mid \vy}$ be the posterior mean of the [deviance](#def-bayes-deviance),
+and let $\bar{\vth} \eqdef \E{\vth \mid \vy}$ be the posterior mean of the parameters.
+The **effective number of parameters** is
+
+$$
+p_D \eqdef \overline{D} - D(\bar{\vth}).
+$$
+:::

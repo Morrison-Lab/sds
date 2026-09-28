@@ -1,0 +1,6 @@
+The [prior](#def-prior) encodes what is known about $\theta$
+before the current data are seen.
+Choosing it is the step that most distinguishes Bayesian practice
+from frequentist practice,
+and it is where most of the controversy and most of the craft lie
+[@dobson4e, Chapter 12, p. 281].

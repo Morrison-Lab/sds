@@ -1,0 +1,10 @@
+::: {#def-hierarchical-model}
+#### Hierarchical model
+
+A **hierarchical model**, also called a **multilevel model**,
+builds the prior in stages:
+the data depend on group-level parameters,
+the group-level parameters have a distribution that depends on further unknown parameters,
+and those further parameters have a prior of their own
+[@dobson4e, Chapter 12, p. 281].
+:::

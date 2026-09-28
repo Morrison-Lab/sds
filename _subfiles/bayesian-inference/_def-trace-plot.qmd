@@ -1,0 +1,6 @@
+::: {#def-trace-plot}
+#### Trace plot
+
+A **trace plot** of an MCMC chain
+plots each sampled value of a parameter against its iteration number.
+:::

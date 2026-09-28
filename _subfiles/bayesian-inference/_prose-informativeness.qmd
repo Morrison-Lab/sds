@@ -1,0 +1,2 @@
+Priors range along a spectrum of how strongly they constrain $\theta$
+[@dobson4e, Chapter 12, p. 281].

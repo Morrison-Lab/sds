@@ -1,0 +1,56 @@
+::: {#exm-skeptical-prior}
+#### A skeptical prior for a Gaussian mean
+
+In the model of @exm-normal-normal,
+replace the $\ndist{0, 1}$ prior by the [skeptical prior](#def-skeptical-prior)
+$\mu \sim \ndist{0, \tau^2}$,
+whose standard deviation $\tau$ sets how skeptical it is.
+Its density is proportional to $\expf{-\frac{1}{2}\mu^2/\tau^2}$.
+Let $m_\tau \eqdef \frac{n \bar x}{n + 1/\tau^2}$.
+Reusing the likelihood from @exm-normal-normal:
+
+$$
+\ba
+\p(\mu \mid \vx)
+&\propto \expf{-\frac{1}{2}\paren{n \mu^2 - 2 \mu n \bar x}}
+  \cdot \expf{-\frac{1}{2}\frac{\mu^2}{\tau^2}}
+&& \text{(likelihood times prior)}\\
+&= \expf{-\frac{1}{2}\paren{\paren{n + \frac{1}{\tau^2}}\mu^2 - 2 \mu n \bar x}}
+&& \text{(adding exponents)}\\
+&= \expf{-\frac{1}{2}\paren{n + \frac{1}{\tau^2}}\paren{\mu^2 - 2 \mu m_\tau}}
+&& \text{(factoring; definition of $m_\tau$)}\\
+&= \expf{-\frac{1}{2}\paren{n + \frac{1}{\tau^2}}\paren{(\mu - m_\tau)^2 - m_\tau^2}}
+&& \text{(completing the square)}\\
+&\propto \expf{-\frac{1}{2}\paren{n + \frac{1}{\tau^2}}(\mu - m_\tau)^2}
+&& \text{(dropping a factor that does not involve $\mu$)}.
+\ea
+$$
+
+So $\mu \mid \vx \sim \ndist{m_\tau,\; 1 / (n + 1/\tau^2)}$,
+and $\tau = 1$ recovers @exm-normal-normal.
+The posterior mean
+
+$$
+m_\tau = \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
+$$
+
+is a weighted average of the sample mean and the prior mean $0$,
+weighted by the precision $n$ of the data and the precision $1/\tau^2$ of the prior
+(a precision is a reciprocal variance).
+The more skeptical the prior (the smaller $\tau$),
+the more the posterior mean shrinks toward $0$.
+With $\bar x = 2$ and $n = 20$ held fixed:
+
+```{r}
+#| label: skeptical-prior
+xbar <- 2
+n <- 20
+tau <- c(0.1, 0.25, 0.5, 1, 2, 10)
+data.frame(prior_sd = tau, posterior_mean = n * xbar / (n + 1 / tau^2)) |>
+  round(3)
+```
+
+The most skeptical prior ($\tau = 0.1$) pulls the posterior mean
+down to one sixth of the sample mean,
+while the most diffuse ($\tau = 10$) leaves it essentially at $\bar x$.
+:::

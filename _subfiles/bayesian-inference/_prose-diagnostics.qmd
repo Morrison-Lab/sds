@@ -1,0 +1,8 @@
+Because MCMC draws are correlated,
+and a chain may take many iterations to reach its stationary distribution,
+we must check whether the chains have converged
+before using them for inference
+[@dobson4e, Chapter 13, p. 302].
+[Trace plots](#def-trace-plot) give a visual check;
+the potential scale reduction factor gives a numerical one,
+by comparing several chains started from different values.

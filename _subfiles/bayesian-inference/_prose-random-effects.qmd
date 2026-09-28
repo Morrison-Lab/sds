@@ -1,0 +1,12 @@
+The [hierarchical model](#def-hierarchical-model) of @exm-two-level-normal
+is the random-effects *model structure*,
+with group-level parameters $\theta_j \sim \ndist{\mu, \tau^2}$
+drawn from a common distribution.
+What changes here from a maximum likelihood fit is the *inference method*:
+the Bayesian analysis places priors on the hyperparameters $\mu$ and $\tau$
+and samples their joint posterior together with the group-level parameters
+[@dobson4e, Chapter 14, p. 333].
+The posterior shrinks each group's estimate toward the overall mean,
+by an amount the data determine through $\tau$,
+and the posterior for $\tau$ carries the uncertainty about the between-group spread
+into every group-level summary.

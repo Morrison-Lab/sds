@@ -1,0 +1,11 @@
+::: {#def-monte-carlo-estimate}
+#### Monte Carlo estimate
+
+Given draws $\vth^{(1)}, \ldots, \vth^{(M)} \siid \p(\vth \mid \vy)$
+and a function $g$,
+the **Monte Carlo estimate** of the posterior expectation $\E{g(\vth) \mid \vy}$ is
+
+$$
+\frac{1}{M} \sum_{m=1}^{M} g\paren{\vth^{(m)}}.
+$$
+:::

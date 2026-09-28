@@ -1,0 +1,24 @@
+This page introduces the **Bayesian** approach to statistical inference,
+from its foundations,
+through the simulation methods that put it into practice,
+to analyses of common regression models.
+It has three parts:
+
+- **Foundations** (@sec-bayes-paradigms through @sec-bayes-hierarchies)
+  contrasts the frequentist and Bayesian paradigms,
+  states Bayes' theorem as a rule for updating beliefs about parameters,
+  discusses how to choose a prior,
+  and outlines hierarchical models.
+  This part follows [@dobson4e, Chapter 12].
+- **Computation** (@sec-foundations through @sec-dic)
+  explains why most posteriors must be simulated,
+  introduces Monte Carlo integration and Markov chains,
+  describes the Metropolis--Hastings and Gibbs samplers,
+  shows how to check a sampler's output,
+  and presents a criterion for comparing models.
+  This part follows [@dobson4e, Chapter 13].
+- **Applications** (@sec-bayes-examples onward)
+  fits a proportion, a logistic regression, a survival model and a random-effects model
+  with the **JAGS** sampler,
+  and averages over linear regression models.
+  This part follows [@dobson4e, Chapter 14].

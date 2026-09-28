@@ -1,0 +1,59 @@
+::: {#exm-beta-bernoulli}
+#### Beta-Bernoulli updating
+
+Let $Y_1, \ldots, Y_n \siid \Bernoulli(\pi)$ given $\pi$,
+with $r = \sum_{i=1}^n y_i$ successes,
+and let the prior for $\pi$ be a $\operatorname{Beta}(a, b)$ distribution,
+whose density is proportional to $\pi^{a-1}(1-\pi)^{b-1}$ on $(0, 1)$.
+The likelihood is
+
+$$
+\ba
+\p(\vy \mid \pi)
+&= \prod_{i=1}^n \pi^{y_i}(1-\pi)^{1-y_i}
+&& \text{(independent Bernoulli observations)}\\
+&= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i}
+&& \text{(adding exponents)}\\
+&= \pi^{r}(1-\pi)^{n-r}
+&& \text{(definition of $r$)}.
+\ea
+$$
+
+By @cor-bayes-proportional,
+
+$$
+\ba
+\p(\pi \mid \vy)
+&\propto \pi^{r}(1-\pi)^{n-r} \cdot \pi^{a-1}(1-\pi)^{b-1}
+&& \text{(likelihood times prior)}\\
+&= \pi^{a + r - 1}(1-\pi)^{b + n - r - 1}
+&& \text{(adding exponents)},
+\ea
+$$
+
+which is proportional to the $\operatorname{Beta}(a + r,\; b + n - r)$ density.
+So the Beta family is conjugate to the Bernoulli likelihood.
+The prior parameters $a$ and $b$ act as **pseudo-counts**
+of prior successes and failures:
+the posterior adds the $r$ observed successes and $n - r$ observed failures to them.
+
+The uniform prior of @exm-prior is $\operatorname{Beta}(1, 1)$.
+With that prior and $r = 55$ successes in $n = 91$ trials,
+the posterior is $\operatorname{Beta}(56, 37)$,
+with this mean and equal-tailed 95% [credible interval](#def-credible-interval):
+
+```{r}
+#| label: beta-bernoulli-posterior
+a_post <- 1 + 55
+b_post <- 1 + 91 - 55
+c(
+  mean = a_post / (a_post + b_post),
+  lower = stats::qbeta(0.025, a_post, b_post),
+  upper = stats::qbeta(0.975, a_post, b_post)
+) |>
+  round(3)
+```
+
+The mean uses the $\operatorname{Beta}(a, b)$ mean $a / (a + b)$
+[@CaseBerg01, Section 3.3].
+:::

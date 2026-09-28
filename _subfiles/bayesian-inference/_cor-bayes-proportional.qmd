@@ -1,0 +1,18 @@
+::: {#cor-bayes-proportional}
+#### The posterior is proportional to likelihood times prior
+
+As a function of $\theta$, with the data $\vy$ held fixed,
+
+$$
+\underbrace{\p(\theta \mid \vy)}_{\text{posterior}}
+\;\propto\;
+\underbrace{\p(\vy \mid \theta)}_{\text{likelihood}}
+\cdot
+\underbrace{\p(\theta)}_{\text{prior}}.
+$$ {#eq-bayes-proportional}
+:::
+
+::: proof
+In @eq-bayes-posterior,
+the denominator $\p(\vy)$ does not depend on $\theta$.
+:::

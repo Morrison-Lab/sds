@@ -1,0 +1,5 @@
+A persistent discrepancy between the two
+is a signal worth investigating:
+it may reflect a genuinely informative prior,
+an unconverged chain,
+or a coding error in the model.

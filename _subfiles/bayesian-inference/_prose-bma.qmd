@@ -1,0 +1,10 @@
+When several candidate models are plausible,
+committing to a single "best" one ignores the uncertainty about which model is right.
+**Bayesian model averaging** instead averages over the models,
+weighting each by its posterior probability
+[@dobson4e, Chapter 14, p. 338].
+This approach carries *model* uncertainty,
+not just parameter uncertainty,
+into the final inference.
+It is an alternative to choosing a single model by
+[predictor selection](https://morrison-lab.github.io/rme/chapters/predictor-selection.html).

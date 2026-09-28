@@ -1,0 +1,9 @@
+::: notes
+The two paradigms answer different questions.
+A frequentist asks,
+"for which parameter values would these data be unsurprising?";
+a Bayesian asks,
+"given these data, what should I now believe about the parameter?".
+Neither question is wrong,
+and they call for different machinery.
+:::

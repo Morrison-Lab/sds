@@ -1,0 +1,33 @@
+::: {#thm-bayes-posterior}
+#### Bayes' theorem for parameters
+
+If $\p(\vy) > 0$, then
+
+$$
+\p(\theta \mid \vy)
+=
+\frac{\p(\vy \mid \theta)\, \p(\theta)}{\p(\vy)}.
+$$ {#eq-bayes-posterior}
+:::
+
+::: proof
+By the definition of a conditional density,
+$\p(\theta \mid \vy) = \p(\theta, \vy) / \p(\vy)$
+and $\p(\theta, \vy) = \p(\vy \mid \theta)\, \p(\theta)$,
+where $\p(\vy)$ is the marginal density of $\vY$ at $\vy$.
+That marginal density is
+
+$$
+\ba
+\p(\vy)
+&= \int \p(\theta, \vy)\, d\theta
+&& \text{(marginalizing over $\theta$)}\\
+&= \int \p(\vy \mid \theta)\, \p(\theta)\, d\theta
+&& \text{(substituting the factorization of $\p(\theta, \vy)$)},
+\ea
+$$
+
+which is the [marginal likelihood](#def-marginal-likelihood).
+Substituting the factorization into the numerator of $\p(\theta, \vy) / \p(\vy)$
+gives @eq-bayes-posterior.
+:::

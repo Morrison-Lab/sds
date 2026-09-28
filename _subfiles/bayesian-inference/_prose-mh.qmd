@@ -1,0 +1,13 @@
+The first factor of $\alpha$ is the ratio
+$\p(\vth^* \mid \vy) / \p(\vth^{(t)} \mid \vy)$
+with the normalizing constant $\p(\vy)$ canceled
+(@eq-bayes-posterior),
+so the algorithm needs only the unnormalized posterior.
+When the proposal is symmetric,
+$q(\vth^* \mid \vth) = q(\vth \mid \vth^*)$,
+as for a random walk $\vth^* = \vth^{(t)} + \varepsilon$
+with $\varepsilon$ drawn from a distribution symmetric about 0,
+the second factor equals 1.
+The resulting chain is a [Markov chain](#def-markov-chain)
+whose stationary distribution is the posterior
+[@dobson4e, Chapter 13, p. 293].

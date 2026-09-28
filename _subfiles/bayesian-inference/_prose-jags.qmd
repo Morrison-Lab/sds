@@ -1,0 +1,15 @@
+From here on, the models are fit with **JAGS**
+("Just Another Gibbs Sampler"),
+a program that builds an MCMC sampler from a text description of a model
+[@dobson4e, Chapter 13],
+driven from R through the `rjags` package.
+We begin with the simplest possible model,
+a single Bernoulli probability,
+whose exact posterior is known from @exm-beta-bernoulli,
+so the output can be checked.
+The example shows the mechanics that every later analysis reuses:
+specifying a model, supplying data, running a burn-in,
+monitoring parameters,
+and summarizing and checking the draws.
+In JAGS, `dnorm(mean, precision)` is parameterized by the precision,
+the reciprocal of the variance.

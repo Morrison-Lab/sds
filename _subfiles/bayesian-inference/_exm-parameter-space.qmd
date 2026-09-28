@@ -1,0 +1,11 @@
+::: {#exm-parameter-space}
+#### Parameter spaces and priors that respect them
+
+- A probability $\pi$ has parameter space $(0, 1)$,
+  so its prior should be a distribution on the unit interval,
+  such as the uniform prior of @exm-prior.
+- A variance $\sigma^2$ has parameter space $(0, \infty)$,
+  so its prior should be a distribution on the positive half-line.
+- A vector of $p$ regression coefficients has parameter space $\reals^p$,
+  so its prior should be a distribution on $\reals^p$.
+:::

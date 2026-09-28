@@ -1,0 +1,7 @@
+To compare Bayesian models fit to the same data,
+we need a measure that balances goodness of fit against complexity,
+as [Akaike's information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-aic)
+does for models fit by maximum likelihood.
+The standard criterion computed from MCMC output
+is the **deviance information criterion**
+[@dobson4e, Chapter 13, p. 306].

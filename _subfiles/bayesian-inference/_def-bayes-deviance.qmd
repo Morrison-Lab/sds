@@ -1,0 +1,10 @@
+::: {#def-bayes-deviance}
+#### Deviance of a parameter value
+
+In the deviance information criterion,
+the **deviance** of a parameter value $\vth$ is
+
+$$
+D(\vth) \eqdef -2 \log \p(\vy \mid \vth).
+$$
+:::

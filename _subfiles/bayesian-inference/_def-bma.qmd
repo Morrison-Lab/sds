@@ -1,0 +1,22 @@
+::: {#def-bma}
+#### Bayesian model averaging
+
+Let $M_1, \ldots, M_K$ be candidate models
+with prior probabilities $\p(M_k)$ summing to 1,
+and let $\p(\vy \mid M_k)$ be the [marginal likelihood](#def-marginal-likelihood)
+of the data under model $M_k$.
+The **posterior model probabilities** are
+
+$$
+\p(M_k \mid \vy) \eqdef
+\frac{\p(\vy \mid M_k)\, \p(M_k)}{\sum_{l=1}^K \p(\vy \mid M_l)\, \p(M_l)},
+$$
+
+and **Bayesian model averaging** estimates a quantity $\Delta$
+that has the same meaning in every model
+by its posterior distribution averaged over the models:
+
+$$
+\p(\Delta \mid \vy) \eqdef \sum_{k=1}^K \p(\Delta \mid M_k, \vy)\, \p(M_k \mid \vy).
+$$
+:::
