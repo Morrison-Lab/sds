@@ -1,0 +1,5 @@
+The [CDF](https://morrison-lab.github.io/rme/chapters/probability.html#def-cdf) $F$
+and the [quantile function](https://morrison-lab.github.io/rme/chapters/probability.html#def-quantile-function) $Q$
+describe a probability distribution,
+while $\hat F$ and $\hat Q$ describe a sample,
+and serve as estimates of $F$ and $Q$.

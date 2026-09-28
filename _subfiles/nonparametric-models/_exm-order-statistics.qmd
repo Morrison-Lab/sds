@@ -1,0 +1,7 @@
+:::{#exm-order-statistics}
+#### Numerical example: order statistics
+
+If the observed values are $4, 1, 7, 3$,
+then the order statistics are
+$x_{(1)} = 1$, $x_{(2)} = 3$, $x_{(3)} = 4$, and $x_{(4)} = 7$.
+:::

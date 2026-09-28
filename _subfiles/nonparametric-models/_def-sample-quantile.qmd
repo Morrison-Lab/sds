@@ -1,0 +1,13 @@
+:::{#def-sample-quantile}
+#### Sample quantile function
+
+Given an [empirical CDF](#def-empirical-cdf) $\hat F$,
+the **sample quantile function**
+(also called the **empirical quantile function**)
+is
+
+$$\hat Q(p) \eqdef \inf\cb{t : \hat F(t) \ge p}, \quad 0 < p \le 1.$$
+
+For a given $p$, the value $\hat Q(p)$ is the **sample $p$ quantile**,
+also called the **sample $100p$th percentile**.
+:::

@@ -8,13 +8,57 @@ format:
     output-file: nonparametric-models-handout.pdf
   docx:
     output-file: nonparametric-models-handout.docx
-
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
----
-
 # Empirical CDF and quantiles
 
-{{< include sds/_subfiles/nonparametric-models/_sec_empirical_quantiles.qmd >}}
+## Empirical CDF
+
+<!-- heading directly precedes the def-empirical-cdf div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
+{{< include sds/_subfiles/nonparametric-models/_def-empirical-cdf.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/nonparametric-models/_exm-empirical-cdf.qmd >}}
+
+## Order statistics
+
+<!-- heading directly precedes the def-order-statistics div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
+{{< include sds/_subfiles/nonparametric-models/_def-order-statistics.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/nonparametric-models/_exm-order-statistics.qmd >}}
+
+## Sample quantiles
+
+<!-- heading directly precedes the def-sample-quantile div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
+{{< include sds/_subfiles/nonparametric-models/_def-sample-quantile.qmd >}}
+
+{{< include sds/_subfiles/nonparametric-models/_note-population-vs-sample.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/nonparametric-models/_thm-sample-quantile-order-statistics.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/nonparametric-models/_exm-sample-quantile.qmd >}}
+
+{{< include sds/_subfiles/nonparametric-models/_note-quantile-conventions.qmd >}}
+
+## The empirical CDF and quantile function as generalized inverses
+
+{{< include sds/_subfiles/nonparametric-models/_fig-ecdf-sample-quantile.qmd >}}
+
+{{< include sds/_subfiles/nonparametric-models/_note-generalized-inverse.qmd >}}
+
+# References {.unnumbered}
+
+::: {#refs}
+:::

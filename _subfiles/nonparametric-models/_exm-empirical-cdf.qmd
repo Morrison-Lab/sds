@@ -1,0 +1,21 @@
+:::{#exm-empirical-cdf}
+#### Numerical example: empirical CDF
+
+Suppose the observed values are $4, 1, 7, 3$, so $n = 4$.
+Two of the four values (1 and 3) are at most 3.5, so:
+
+$$
+\begin{aligned}
+\hat F(3.5)
+&= \frac{1}{4}\paren{I(4 \le 3.5) + I(1 \le 3.5) + I(7 \le 3.5) + I(3 \le 3.5)}
+&& \text{(definition of $\hat F$)}\\
+&= \frac{1}{4}(0 + 1 + 0 + 1)
+&& \text{(evaluate each indicator)}\\
+&= 0.5
+&& \text{(arithmetic)}
+\end{aligned}
+$$
+
+Similarly, $\hat F(0) = 0$, because no value is at most 0,
+and $\hat F(7) = 1$, because every value is at most 7.
+:::

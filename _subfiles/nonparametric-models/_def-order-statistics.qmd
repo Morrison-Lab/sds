@@ -1,0 +1,11 @@
+:::{#def-order-statistics}
+#### Order statistics
+
+For observed values $x_1, \ldots, x_n$,
+the **order statistics** are the same values sorted in increasing order,
+written
+
+$$x_{(1)} \le x_{(2)} \le \cdots \le x_{(n)}.$$
+
+So $x_{(1)}$ is the smallest value and $x_{(n)}$ is the largest.
+:::
