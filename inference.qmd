@@ -46,6 +46,10 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/inference/_def-two-sided-alternative.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/inference/_exm-hypotheses-wcgs.qmd >}}
 
 ## p-values
@@ -64,6 +68,10 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/inference/_def-statistically-significant.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/inference/_exm-p-value-wcgs.qmd >}}
 
 # Confidence intervals {#sec-CI}
@@ -71,6 +79,14 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 <!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
 
 {{< include sds/_subfiles/inference/_def-confidence-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-coverage-probability.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-approximate-ci.qmd >}}
 
 {{< slidebreak >}}
 

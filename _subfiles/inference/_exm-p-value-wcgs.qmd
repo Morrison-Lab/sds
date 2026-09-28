@@ -1,10 +1,11 @@
 ::: {#exm-p-value-wcgs}
 #### Testing whether mean cholesterol differs by CHD status
 
+<!-- Repoint the CLT link to pds (#sec-clt) once pds is published. -->
 Continuing @exm-hypotheses-wcgs,
 let $\bar x_1$ and $\bar x_0$ be the two groups' sample mean cholesterol,
 with sample variances $s_1^2$ and $s_0^2$ and sample sizes $n_1$ and $n_0$.
-By the central limit theorem, when $H_0$ holds and the samples are large,
+By the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem), when $H_0$ holds and the samples are large,
 the statistic
 
 $$Z \eqdef \frac{\bar x_1 - \bar x_0}{\sqrt{s_1^2/n_1 + s_0^2/n_0}}$$
@@ -29,6 +30,6 @@ c(difference = diff_means, se = se_diff, z = z, p_value = p_value)
 
 The p-value is far below 0.05,
 so at significance level 0.05 the test rejects $H_0$:
-the data provide statistically significant evidence
+the data provide [statistically significant](#def-statistically-significant) evidence
 that mean cholesterol differs between the two groups.
 :::

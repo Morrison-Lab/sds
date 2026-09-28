@@ -4,6 +4,4 @@
 The **alternative hypothesis**, written $H_1$ or $H_A$,
 is the claim that a hypothesis test weighs the data as evidence *for*,
 against the [null hypothesis](#def-null-hypothesis).
-A **two-sided** alternative is the claim that the null hypothesis is false
-in either direction.
 :::

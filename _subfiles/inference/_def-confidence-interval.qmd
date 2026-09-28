@@ -8,8 +8,5 @@ such that for every possible value of $\theta$:
 $$\Pr(L \le \theta \le U) = 1 - \alpha$$
 
 The probability is over repeated samples from the data-generating process,
-with $\theta$ held fixed;
-$1 - \alpha$ is the interval's **coverage probability**.
-An **approximate** confidence interval satisfies this equation
-only approximately, for example in large samples.
+with $\theta$ held fixed.
 :::
