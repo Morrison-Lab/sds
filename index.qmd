@@ -36,6 +36,15 @@ Inference:
   Wald and likelihood ratio tests, and Newton-Raphson,
   with worked examples.
 
+Methods, illustrated with the HERS data:
+
+- [Comparing means](basic-statistical-methods.qmd):
+  t-tests and one-way ANOVA;
+- [Comparing proportions](categorical-tests.qmd):
+  the chi-square test and Fisher's exact test;
+- [Correlation and simple linear regression](correlation-regression.qmd);
+- [The bootstrap](bootstrap.qmd).
+
 Bayesian:
 
 - [Bayesian inference](bayesian-inference.qmd):
@@ -46,15 +55,6 @@ Bayesian:
 - [Bayesian analyses with JAGS](bayesian-examples.qmd):
   a proportion, logistic regression, survival, random effects,
   and Bayesian model averaging.
-
-Methods, illustrated with the HERS data:
-
-- [Comparing means](basic-statistical-methods.qmd):
-  t-tests and one-way ANOVA;
-- [Comparing proportions](categorical-tests.qmd):
-  the chi-square test and Fisher's exact test;
-- [Correlation and simple linear regression](correlation-regression.qmd);
-- [The bootstrap](bootstrap.qmd).
 
 ## Origin
 

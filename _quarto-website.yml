@@ -53,14 +53,6 @@ website:
             href: inference.qmd
           - text: "Maximum Likelihood"
             href: intro-MLEs.qmd
-      - section: "Bayesian"
-        contents:
-          - text: "Bayesian Inference"
-            href: bayesian-inference.qmd
-          - text: "Markov Chain Monte Carlo"
-            href: mcmc.qmd
-          - text: "Bayesian Analyses with JAGS"
-            href: bayesian-examples.qmd
       - section: "Methods"
         contents:
           - text: "Comparing Means"
@@ -71,6 +63,14 @@ website:
             href: correlation-regression.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
+      - section: "Bayesian"
+        contents:
+          - text: "Bayesian Inference"
+            href: bayesian-inference.qmd
+          - text: "Markov Chain Monte Carlo"
+            href: mcmc.qmd
+          - text: "Bayesian Analyses with JAGS"
+            href: bayesian-examples.qmd
 
 callouty-theorem:
   thm:
