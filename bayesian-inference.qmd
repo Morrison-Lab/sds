@@ -58,11 +58,15 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-proportional.qmd >}}
 
+{{< slidebreak >}}
+
 ### A Gaussian mean with a Gaussian prior {#sec-bayes-normal-normal}
 
 <!-- No slidebreak here: the heading shares its slide with the exm-normal-normal div. -->
 
 {{< include sds/_subfiles/bayesian-inference/_exm-normal-normal.qmd >}}
+
+{{< slidebreak >}}
 
 ### Two readings of an interval estimate {#sec-bayes-interval-interp}
 
@@ -79,6 +83,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_exm-normal-credible-vs-confidence.qmd >}}
+
+{{< slidebreak >}}
 
 ### The parameter space {#sec-bayes-parameter-space}
 
@@ -106,6 +112,8 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-priors.qmd >}}
 
+{{< slidebreak >}}
+
 ### Conjugate priors {#sec-bayes-conjugate}
 
 <!-- No slidebreak here: the heading shares its slide with the def-conjugate-prior div. -->
@@ -119,6 +127,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_exm-beta-bernoulli.qmd >}}
+
+{{< slidebreak >}}
 
 ### Informative, weakly informative, and flat priors {#sec-bayes-informativeness}
 
@@ -159,6 +169,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_exm-flat-prior-posterior.qmd >}}
+
+{{< slidebreak >}}
 
 ### A skeptical prior {#sec-bayes-skeptical}
 

@@ -26,6 +26,8 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-crosstab.qmd >}}
 
+{{< slidebreak >}}
+
 ### The chi-square test {#sec-chi-square}
 
 <!-- No slidebreak here: the heading shares its slide with the def-chi-square-test div. -->
@@ -40,6 +42,8 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-chisq.qmd >}}
 
+{{< slidebreak >}}
+
 ### Fisher's exact test {#sec-fisher}
 
 <!-- No slidebreak here: the heading shares its slide with the def-fishers-exact div. -->
@@ -49,6 +53,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-fisher.qmd >}}
+
+{{< slidebreak >}}
 
 ### Measures of association for $2 \times 2$ tables {#sec-2x2-measures}
 

@@ -10,14 +10,14 @@ format:
     output-file: intro-MLEs-handout.docx
 ---
 
+## Overview of maximum likelihood estimation {#sec-intro-MLEs}
+
 {{< include sds/_subfiles/shared-config.qmd >}}
 
 ::: notes
 These notes are derived primarily from [@dobson4e, Chapters 1--5],
 with some material from [@mclachlan2007em] and [@CaseBerg01].
 :::
-
-## Overview of maximum likelihood estimation {#sec-intro-MLEs}
 
 ### The likelihood function
 
@@ -51,6 +51,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd >}}
 
+{{< slidebreak >}}
+
 ### The maximum likelihood estimate
 
 <!-- No slidebreak here: the heading shares its slide with the def-mle div. -->
@@ -61,6 +63,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_exm-mle-bernoulli.qmd >}}
 
+{{< slidebreak >}}
+
 ### Finding the maximum of a function
 
 <!-- No slidebreak here: the heading shares its slide with the def-critical-point div. -->
@@ -69,9 +73,13 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_prose-maxima.qmd >}}
 
+{{< slidebreak >}}
+
 ### Directly maximizing the likelihood function for independent data
 
 {{< include sds/_subfiles/intro-MLEs/_sec_mle_no_log.qmd >}}
+
+{{< slidebreak >}}
 
 ### The log-likelihood function
 
@@ -98,6 +106,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd >}}
+
+{{< slidebreak >}}
 
 ### The score function
 
@@ -126,6 +136,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd >}}
+
+{{< slidebreak >}}
 
 ### Information matrices
 
@@ -169,6 +181,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_tbl-info-mat-symbols.qmd >}}
 
+{{< slidebreak >}}
+
 ### Asymptotic distribution of the maximum likelihood estimate
 
 <!-- No slidebreak here: the heading shares its slide with the thm-dist-mle div. -->
@@ -183,6 +197,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_prose-estimate-se.qmd >}}
 
+{{< slidebreak >}}
+
 ### Quantifying uncertainty about MLEs
 
 #### Confidence intervals for MLEs
@@ -193,6 +209,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_prose-ci-mle.qmd >}}
 
+{{< slidebreak >}}
+
 #### Wald tests
 
 <!-- No slidebreak here: the heading shares its slide with the def-wald-test div. -->
@@ -202,6 +220,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exm-wald-poisson.qmd >}}
+
+{{< slidebreak >}}
 
 #### Likelihood ratio tests for MLEs {#sec-lrt-mles}
 
@@ -221,9 +241,13 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesson02>.
 :::
 
+{{< slidebreak >}}
+
 #### Exact and approximate tests
 
 {{< include sds/_subfiles/intro-MLEs/_tbl_gaussian_vs_mle_tests.qmd >}}
+
+{{< slidebreak >}}
 
 #### Prediction intervals
 
@@ -241,21 +265,31 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd >}}
 
+{{< slidebreak >}}
+
 ### The score function
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-score.qmd >}}
+
+{{< slidebreak >}}
 
 ### MLE of $\mu$
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd >}}
 
+{{< slidebreak >}}
+
 ### MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
 
+{{< slidebreak >}}
+
 ### Second derivatives
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-hessian.qmd >}}
+
+{{< slidebreak >}}
 
 ### Information matrix and standard errors {#sec-covariance-matrix}
 

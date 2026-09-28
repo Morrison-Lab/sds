@@ -28,5 +28,3 @@ $$
 $$
 
 and the solution becomes the next guess.
-
-{{< slidebreak >}}

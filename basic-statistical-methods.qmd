@@ -10,9 +10,9 @@ format:
     output-file: basic-statistical-methods-handout.docx
 ---
 
-{{< include sds/_subfiles/shared-config.qmd >}}
-
 ## Introduction
+
+{{< include sds/_subfiles/shared-config.qmd >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-intro.qmd >}}
 
@@ -38,6 +38,8 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-hypotheses.qmd >}}
 
+{{< slidebreak >}}
+
 ### One-sample t-test {#sec-one-sample-t-test}
 
 <!-- No slidebreak here: the heading shares its slide with the def-one-sample-t-test div. -->
@@ -48,6 +50,8 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 
 {{< include sds/_subfiles/basic-statistical-methods/_thm-one-sample-t-null.qmd >}}
 
+{{< slidebreak >}}
+
 ### Paired t-test {#sec-paired-t-test}
 
 <!-- No slidebreak here: the heading shares its slide with the def-paired-t-test div. -->
@@ -57,6 +61,8 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-paired.qmd >}}
+
+{{< slidebreak >}}
 
 ### Two-sample t-tests {#sec-two-sample-t-test}
 
@@ -79,6 +85,8 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-pooled-ttest.qmd >}}
+
+{{< slidebreak >}}
 
 ### Confidence intervals for the difference in means {#sec-CI-diff-means}
 

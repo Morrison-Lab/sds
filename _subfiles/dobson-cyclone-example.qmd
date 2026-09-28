@@ -6,9 +6,13 @@ Adapted from [@dobson4e, Section 1.6.5].
 
 {{< include sds/_subfiles/dobson-cyclone-example/_sec-data.qmd >}}
 
+{{< slidebreak >}}
+
 ### Exploratory analysis
 
 {{< include sds/_subfiles/dobson-cyclone-example/_sec-exploratory.qmd >}}
+
+{{< slidebreak >}}
 
 ### Model
 
@@ -21,6 +25,8 @@ Adapted from [@dobson4e, Section 1.6.5].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_exr-def-poisson.qmd >}}
+
+{{< slidebreak >}}
 
 ### Estimating the model parameters using maximum likelihood
 
@@ -54,6 +60,8 @@ We can estimate the parameter $\lambda$ using maximum likelihood estimation.
 
 {{< include sds/_subfiles/dobson-cyclone-example/_exr-graph-loglikelihood.qmd >}}
 
+{{< slidebreak >}}
+
 #### The score function
 
 {{< include sds/_subfiles/dobson-cyclone-example/_exr-pois-cyclone-score.qmd >}}
@@ -61,6 +69,8 @@ We can estimate the parameter $\lambda$ using maximum likelihood estimation.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_exr-graph-score-function.qmd >}}
+
+{{< slidebreak >}}
 
 #### The Hessian {#sec-hessian}
 
@@ -73,6 +83,8 @@ We can estimate the parameter $\lambda$ using maximum likelihood estimation.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_exr-score-equation.qmd >}}
+
+{{< slidebreak >}}
 
 ### Finding the MLE analytically
 
@@ -100,11 +112,15 @@ algebraically.
 
 {{< include sds/_subfiles/dobson-cyclone-example/_fig-obs-inf.qmd >}}
 
+{{< slidebreak >}}
+
 ### Finding the MLE using the Newton-Raphson algorithm
 
 #### Iterative maximization {#sec-newton-raphson}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_sec_iterative_maximization.qmd >}}
+
+{{< slidebreak >}}
 
 #### Applying Newton-Raphson to the cyclone data
 

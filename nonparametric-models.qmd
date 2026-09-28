@@ -10,9 +10,9 @@ format:
     output-file: nonparametric-models-handout.docx
 ---
 
-{{< include sds/_subfiles/shared-config.qmd >}}
-
 ## Empirical CDF
+
+{{< include sds/_subfiles/shared-config.qmd >}}
 
 <!-- No slidebreak here: the heading shares its slide with the def-empirical-cdf div. -->
 
@@ -55,8 +55,3 @@ format:
 {{< include sds/_subfiles/nonparametric-models/_fig-ecdf-sample-quantile.qmd >}}
 
 {{< include sds/_subfiles/nonparametric-models/_note-generalized-inverse.qmd >}}
-
-## References {.unnumbered}
-
-::: {#refs}
-:::

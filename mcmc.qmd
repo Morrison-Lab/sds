@@ -18,9 +18,13 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-intro.qmd >}}
 
+{{< slidebreak >}}
+
 ### Why the normalizing constant is hard to compute
 
 {{< include sds/_subfiles/bayesian-inference/_prose-normalizing-constant.qmd >}}
+
+{{< slidebreak >}}
 
 ### Monte Carlo integration
 
@@ -35,6 +39,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_exm-mc-bernoulli.qmd >}}
+
+{{< slidebreak >}}
 
 ### Markov chains
 
@@ -70,6 +76,8 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-mh-bernoulli.qmd >}}
 
+{{< slidebreak >}}
+
 ### Trace plots and burn-in {#sec-burnin}
 
 <!-- No slidebreak here: the heading shares its slide with the def-trace-plot div. -->
@@ -87,6 +95,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_exm-burnin.qmd >}}
+
+{{< slidebreak >}}
 
 ### The Gibbs sampler
 
@@ -122,6 +132,8 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_exm-psrf.qmd >}}
 
+{{< slidebreak >}}
+
 ### Comparing MCMC estimates to maximum likelihood {#sec-mcmc-vs-mle}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-vs-mle.qmd >}}
@@ -133,6 +145,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-discrepancy.qmd >}}
+
+{{< slidebreak >}}
 
 ### The importance of parameterization {#sec-mcmc-parameterization}
 
