@@ -1,5 +1,5 @@
 ---
-title: "Bayesian Analyses with JAGS"
+title: "Fitting Models by Bayesian Inference with JAGS"
 format:
   html: default
   revealjs:

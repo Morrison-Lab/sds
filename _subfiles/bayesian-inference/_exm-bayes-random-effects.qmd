@@ -1,5 +1,5 @@
 ::: {#exm-bayes-random-effects}
-#### A Bayesian random-intercept model
+#### A random-intercept model fitted by Bayesian inference
 
 We simulate $J = 8$ groups of 12 observations each,
 with group means drawn from $\ndist{\mu, \tau^2}$

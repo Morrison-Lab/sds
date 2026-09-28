@@ -10,13 +10,13 @@ $$
 Y_{ij} \mid \theta_j &\sim \ndist{\theta_j,\, \sigma^2}
 && \text{(data given group means)}\\
 \theta_j \mid \mu, \tau &\sim \ndist{\mu,\, \tau^2}
-&& \text{(group means given hyperparameters)}\\
-(\mu, \tau) &\sim \text{a hyperprior}
-&& \text{(hyperparameters)}.
+&& \text{(group means given hyperparameters)}.
 \ea
 $$
 
 The group means $\theta_j$ are the group-level parameters,
-$\mu$ and $\tau$ are the [hyperparameters](#def-hyperparameter),
-and the within-group standard deviation $\sigma$ needs a prior as well.
+and $\mu$ and $\tau$ are the [hyperparameters](#def-hyperparameter).
+To fit this model by Bayesian inference,
+we add a [hyperprior](#def-hyperprior) for $(\mu, \tau)$
+and a prior for the within-group standard deviation $\sigma$.
 :::

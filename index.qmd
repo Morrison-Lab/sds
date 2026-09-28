@@ -48,11 +48,11 @@ Methods, illustrated with the HERS data:
 Bayesian:
 
 - [Bayesian inference](bayesian-inference.qmd):
-  the Bayesian paradigm, posteriors, priors, and hierarchical models;
+  the Bayesian paradigm, priors, posteriors, and hierarchical models;
 - [Markov chain Monte Carlo](mcmc.qmd):
   Monte Carlo integration, the Metropolis--Hastings and Gibbs samplers,
   convergence diagnostics, and the deviance information criterion;
-- [Bayesian analyses with JAGS](bayesian-examples.qmd):
+- [Fitting models by Bayesian inference with JAGS](bayesian-examples.qmd):
   a proportion, logistic regression, survival, random effects,
   and Bayesian model averaging.
 

@@ -64,7 +64,7 @@ website:
             href: bayesian-inference.qmd
           - text: "Markov Chain Monte Carlo"
             href: mcmc.qmd
-          - text: "Bayesian Analyses with JAGS"
+          - text: "Fitting Models with JAGS"
             href: bayesian-examples.qmd
     right:
       - icon: github
@@ -108,7 +108,7 @@ website:
             href: bayesian-inference.qmd
           - text: "Markov Chain Monte Carlo"
             href: mcmc.qmd
-          - text: "Bayesian Analyses with JAGS"
+          - text: "Fitting Models with JAGS"
             href: bayesian-examples.qmd
 
 callouty-theorem:

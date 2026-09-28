@@ -1,5 +1,5 @@
 ::: {#exm-bayes-proportion}
-#### A Bernoulli model in JAGS
+#### A Bernoulli model fitted with JAGS
 
 The data are $r = 55$ successes in $n = 91$ trials,
 and the prior is uniform, as in [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli).

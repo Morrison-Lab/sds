@@ -1,5 +1,5 @@
 ::: {#exm-bayes-survival}
-#### Bayesian exponential survival regression
+#### Exponential survival regression fitted by Bayesian inference
 
 We simulate $N = 200$ right-censored exponential survival times,
 with a binary covariate $x_i$ (say, treatment)

@@ -1,5 +1,5 @@
-This page fits Bayesian models with the JAGS sampler,
-driven from R:
+This page fits models by Bayesian inference,
+using the JAGS sampler driven from R:
 a single proportion,
 a logistic regression,
 a survival model,
