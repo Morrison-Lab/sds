@@ -1,0 +1,17 @@
+::: {#def-slr}
+#### Simple linear regression model
+
+A **simple linear regression** model relates
+a continuous outcome $Y$ to a single predictor $X$:
+
+$$Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i,
+\qquad \varepsilon_1, \ldots, \varepsilon_n \siid \ndist{0, \sigma^2}.$$
+
+- $\beta_0$ is the **intercept**:
+  the mean of $Y$ among observations with $X = 0$.
+- $\beta_1$ is the **slope**:
+  the difference in the mean of $Y$
+  between two groups whose values of $X$ differ by one unit,
+  $\beta_1 = \E{Y \mid X = x + 1} - \E{Y \mid X = x}$.
+- $\sigma^2$ is the variance of $Y$ around its mean at each value of $X$.
+:::

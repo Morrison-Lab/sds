@@ -1,0 +1,16 @@
+::: {#def-bootstrap-ci-percentile}
+#### Percentile bootstrap confidence interval
+
+The **percentile bootstrap confidence interval**
+runs from the $\alpha/2$ quantile
+to the $1 - \alpha/2$ quantile
+of the bootstrap replicates $\hat\theta^*_1, \ldots, \hat\theta^*_B$
+(@def-bootstrap-distribution).
+:::
+
+::: notes
+The extreme quantiles of $B$ replicates are noisy estimates,
+so percentile-based intervals need more replicates
+than the normal interval;
+$B$ of at least $1{,}000$ is a common choice.
+:::

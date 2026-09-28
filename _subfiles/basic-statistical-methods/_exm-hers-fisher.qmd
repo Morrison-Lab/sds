@@ -1,0 +1,29 @@
+::: {#exm-hers-fisher}
+#### Fisher's exact test of exercise by treatment group in HERS
+
+The p-value of @def-fishers-exact for @tbl-hers-crosstab,
+computed from the hypergeometric probabilities with `dhyper()`:
+
+```{r}
+a <- observed[1, 1]
+row1 <- sum(observed[1, ])
+row2 <- sum(observed[2, ])
+col1 <- sum(observed[, 1])
+x <- max(0, col1 - row2):min(row1, col1)
+p_x <- dhyper(x, m = row1, n = row2, k = col1)
+p_a <- dhyper(a, m = row1, n = row2, k = col1)
+sum(p_x[p_x <= p_a * (1 + 1e-7)])
+```
+
+The tolerance `1e-7` keeps tables whose probability equals $p(a)$
+up to rounding error, as `fisher.test()` does.
+`fisher.test()` reports the same p-value:
+
+```{r}
+fisher.test(hers$exercise, hers$HT)
+```
+
+With counts this large,
+the exact p-value is close to the chi-square p-value
+of @exm-hers-chisq.
+:::

@@ -1,0 +1,15 @@
+::: {#exm-t-dist}
+#### t quantiles approach Gaussian quantiles
+
+The 0.975 quantile of $t_k$ is larger than
+the standard Gaussian's 0.975 quantile, `r round(qnorm(0.975), 3)`,
+and approaches it as $k$ grows:
+
+```{r}
+k <- c(4, 9, 29, 99, 2760)
+tibble::tibble(k = k, t_quantile = qt(0.975, df = k))
+```
+
+So t-based intervals and tests differ noticeably from Gaussian-based ones
+only in small samples.
+:::

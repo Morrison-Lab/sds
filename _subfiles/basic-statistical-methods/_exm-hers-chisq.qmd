@@ -1,0 +1,37 @@
+::: {#exm-hers-chisq}
+#### Chi-square test of exercise by treatment group in HERS
+
+The expected counts and statistic of @def-chi-square-test
+for @tbl-hers-crosstab:
+
+```{r}
+observed <- table(hers$exercise, hers$HT)
+expected <- outer(rowSums(observed), colSums(observed)) / sum(observed)
+x_squared <- sum((observed - expected)^2 / expected)
+expected
+c(
+  x_squared = x_squared,
+  p_value = pchisq(x_squared, df = 1, lower.tail = FALSE)
+)
+```
+
+Every expected count is large,
+so the $\chi^2_1$ approximation of @thm-chi-square-null is reasonable.
+`chisq.test()` with `correct = FALSE` reports the same values:
+
+```{r}
+chisq.test(hers$exercise, hers$HT, correct = FALSE)
+```
+
+The p-value is large:
+the data give no evidence that exercise depends on treatment group,
+as randomization would lead us to expect.
+:::
+
+::: notes
+For a $2 \times 2$ table, `chisq.test()` applies
+Yates' continuity correction by default,
+which subtracts 0.5 from each $\abs{O_{ij} - E_{ij}}$ before squaring,
+and so gives a smaller statistic than @def-chi-square-test.
+`correct = FALSE` turns the correction off.
+:::

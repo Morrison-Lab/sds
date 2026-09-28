@@ -1,0 +1,10 @@
+::: {#def-bootstrap-se}
+#### Bootstrap standard error
+
+The **bootstrap standard error** of a statistic $\hat\theta$,
+written $\widehat{\text{SE}}_\text{boot}$,
+is the sample standard deviation of the bootstrap replicates
+$\hat\theta^*_1, \ldots, \hat\theta^*_B$
+(@def-bootstrap-distribution).
+It estimates the [standard error](estimation.qmd#def-SE) of $\hat\theta$.
+:::

@@ -1,0 +1,16 @@
+::: {#exm-hers-spearman}
+#### Spearman correlation between BMI and fasting glucose in HERS
+
+The Pearson correlation of the ranks (@def-spearman-r),
+and `cor.test()`'s Spearman test
+(`exact = FALSE`, because tied values rule out the exact p-value):
+
+```{r}
+hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
+cor(rank(hers_bmi$BMI), rank(hers_bmi$glucose))
+cor.test(hers_bmi$BMI, hers_bmi$glucose, method = "spearman", exact = FALSE)
+```
+
+$r_S$ is larger than the Pearson $r$ of @exm-hers-cor:
+the association is closer to monotone than to linear.
+:::

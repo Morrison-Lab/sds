@@ -1,0 +1,17 @@
+::: {#def-spearman-r}
+#### Spearman rank correlation
+
+Replace each $x_i$ by its rank among $x_1, \ldots, x_n$,
+and each $y_i$ by its rank among $y_1, \ldots, y_n$,
+giving tied values the average of the ranks they span.
+The **Spearman rank correlation** $r_S$ is the
+[Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r)
+of the ranks.
+:::
+
+::: notes
+Because ranks depend only on the ordering of the values,
+$r_S$ measures how close the association is to monotone,
+whether or not it is linear,
+and a single extreme value moves $r_S$ less than it moves $r$.
+:::

@@ -1,0 +1,5 @@
+The tests on this page compare a test statistic
+with one of three families of distributions,
+each built from independent standard Gaussian random variables.
+Here, "independent" means mutually
+[independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).

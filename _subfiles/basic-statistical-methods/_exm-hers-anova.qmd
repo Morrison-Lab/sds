@@ -1,0 +1,62 @@
+::: {#exm-hers-anova}
+#### Fasting glucose by race/ethnicity in HERS
+
+The group sizes, means, and standard deviations
+of baseline fasting glucose:
+
+```{r}
+hers |>
+  dplyr::summarize(
+    .by = raceth,
+    n = dplyr::n(),
+    mean = mean(glucose),
+    sd = sd(glucose)
+  )
+```
+
+The F statistic of @def-one-way-anova, computed step by step:
+
+```{r}
+anova_parts <- hers |>
+  dplyr::mutate(grand_mean = mean(glucose)) |>
+  dplyr::mutate(.by = raceth, group_mean = mean(glucose)) |>
+  dplyr::summarize(
+    ss_between = sum((group_mean - grand_mean)^2),
+    ss_within = sum((glucose - group_mean)^2),
+    k = dplyr::n_distinct(raceth),
+    n = dplyr::n()
+  ) |>
+  dplyr::mutate(
+    f = (ss_between / (k - 1)) / (ss_within / (n - k)),
+    p_value = pf(f, k - 1, n - k, lower.tail = FALSE)
+  )
+anova_parts
+```
+
+$\text{SS}_\text{between}$ is summed here over observations rather than groups:
+each observation in group $j$ contributes $(\bar{y}_j - \bar{y})^2$,
+which gives the $n_j$ weights of @def-one-way-anova.
+`aov()` reports the same sums of squares, F statistic, and p-value:
+
+```{r}
+aov(glucose ~ raceth, data = hers) |> summary()
+```
+
+The p-value is far below 0.05:
+mean fasting glucose differs among the three race/ethnicity groups.
+:::
+
+::: notes
+The group standard deviations differ,
+from `r round(min(tapply(hers$glucose, hers$raceth, sd)))`
+to `r round(max(tapply(hers$glucose, hers$raceth, sd)))` mg/dL,
+so the equal-variance condition of @thm-anova-null is questionable.
+`oneway.test()` performs Welch's version of the F-test,
+which does not assume equal variances,
+and reaches the same conclusion:
+
+```{r}
+oneway.test(glucose ~ raceth, data = hers)
+```
+
+:::
