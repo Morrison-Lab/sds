@@ -6,7 +6,7 @@ as a Stata file that R can read directly:
 #| label: load-wcgs
 #| eval: false
 # one unbroken string, so that link checkers test the whole URL:
-url <- "https://regression.ucsf.edu/sites/g/files/tkssra6706/f/wysiwyg/home/data/wcgs.dta" # nolint: line_length_linter.
+url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/wcgs.dta" # nolint: line_length_linter.
 wcgs <- haven::read_dta(url)
 ```
 
