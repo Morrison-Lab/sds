@@ -12,6 +12,7 @@ project:
     # directly: macros-table.qmd uses DT::datatable() (an HTML widget) that
     # errors when the project also renders to PDF.
     - "!latex-macros/"
+    - "!sds/"
 
 website:
   google-analytics: "G-VLDZY2T3JF"
