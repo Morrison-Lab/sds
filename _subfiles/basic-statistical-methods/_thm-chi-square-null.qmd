@@ -1,0 +1,16 @@
+::: {#thm-chi-square-null}
+#### Large-sample null distribution of the chi-square statistic
+
+Let $n$ observations be sampled independently
+and classified by two categorical variables,
+and let the two variables be independent.
+Then as $n \to \infty$,
+the distribution of $X^2$ (@def-chi-square-test)
+converges to the $\chi^2_{(r-1)(c-1)}$ distribution
+[@hoggtanis2015].
+:::
+
+::: notes
+The chi-square approximation is poor when some expected counts are small.
+A common rule of thumb asks for every $E_{ij}$ to be at least 5.
+:::

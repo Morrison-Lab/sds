@@ -1,7 +1,8 @@
 ::: {#exm-confidence-interval-wcgs}
 #### Confidence interval for mean cholesterol in the WCGS
 
-By the central limit theorem,
+<!-- Repoint the CLT link to pds (#sec-clt) once pds is published. -->
+By the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem),
 the sample mean $\bar X$ of a large sample
 has approximately a Gaussian distribution
 with mean $\mu$ and
@@ -10,7 +11,7 @@ which we estimate by $s/\sqrt{n}$.
 So $\bar x \pm z_{0.975} \, s/\sqrt{n}$,
 where $z_{0.975} \approx 1.96$ is the 0.975 quantile
 of the standard Gaussian distribution,
-is an approximate 95% confidence interval for $\mu$:
+is an [approximate](#def-approximate-ci) 95% confidence interval for $\mu$:
 
 ```{r}
 chol <- wcgs$chol[!is.na(wcgs$chol)]

@@ -8,12 +8,9 @@ on the book's companion website:
 
 ```{r}
 #| eval: false
-hers <- haven::read_dta(
-  paste0(
-    "https://regression.ucsf.edu/sites/g/files",
-    "/tkssra6706/f/wysiwyg/home/data/hersdata.dta"
-  )
-)
+# one unbroken string, so that link checkers test the whole URL:
+url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta" # nolint: line_length_linter.
+hers <- haven::read_dta(url)
 ```
 
 The `rmb` R package includes the same file,

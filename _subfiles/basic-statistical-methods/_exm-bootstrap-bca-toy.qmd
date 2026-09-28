@@ -1,0 +1,22 @@
+::: {#exm-bootstrap-bca-toy}
+#### BCa bootstrap interval for the mean of ten glucose values
+
+Continuing @exm-bootstrap-distribution-toy,
+the quantities of @def-bootstrap-ci-bca, step by step:
+
+```{r}
+z0 <- qnorm(mean(boot_means10 < mean(glucose10)))
+jackknife_means <- vapply(1:10, \(i) mean(glucose10[-i]), numeric(1))
+dev <- mean(jackknife_means) - jackknife_means
+a_hat <- sum(dev^3) / (6 * sum(dev^2)^(3 / 2))
+z_q <- qnorm(c(0.025, 0.975))
+alpha_q <- pnorm(z0 + (z0 + z_q) / (1 - a_hat * (z0 + z_q)))
+c(z_0 = z0, a_hat = a_hat, alpha_lower = alpha_q[1], alpha_upper = alpha_q[2])
+quantile(boot_means10, alpha_q)
+```
+
+The acceleration $\hat{a}$ is nearly 0 here,
+and $\hat{z}_0$ is small,
+so the BCa interval is close to the percentile interval
+of @exm-bootstrap-percentile-toy.
+:::

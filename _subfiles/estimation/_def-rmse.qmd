@@ -1,0 +1,12 @@
+::: {#def-rmse}
+#### Root mean squared error
+
+The **root mean squared error** of an estimator $\hth$
+is the square root of its [mean squared error](#def-mse):
+
+$$\operatorname{RMSE}\paren{\hth} \eqdef \sqrt{\mselr{\hth}}$$
+
+It has the same units as the estimand.
+In @exm-mse-sample-mean,
+the root mean squared error of $\bar X$ is $\sigma/\sqrt{n}$.
+:::

@@ -1,0 +1,14 @@
+::: {#exm-chi-square-dist}
+#### The 0.95 quantile of $\chi^2_1$
+
+By @def-chi-square-dist, a $\chi^2_1$ random variable is $Z^2$
+for a standard Gaussian $Z$.
+So $\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})$,
+and the 0.95 quantile of $\chi^2_1$
+is the square of the 0.975 quantile of the standard Gaussian distribution:
+
+```{r}
+c(chisq = qchisq(0.95, df = 1), gaussian_squared = qnorm(0.975)^2)
+```
+
+:::

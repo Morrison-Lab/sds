@@ -1,0 +1,58 @@
+::: {#exm-hers-ttest}
+#### Baseline fasting glucose by treatment group in HERS
+
+We test $H_0: \mu_\text{HT} = \mu_\text{placebo}$
+against $H_1: \mu_\text{HT} \neq \mu_\text{placebo}$,
+where $\mu_\text{HT}$ and $\mu_\text{placebo}$
+are the mean baseline fasting glucose levels
+in the hormone therapy and placebo populations.
+@fig-hers-boxplot compares the two groups' distributions.
+
+::: {#fig-hers-boxplot}
+
+```{r}
+#| code-fold: true
+hers |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = HT, y = glucose) +
+  ggplot2::geom_boxplot() +
+  ggplot2::labs(
+    x = "Treatment group",
+    y = "Fasting glucose (mg/dL)"
+  )
+```
+
+Baseline fasting glucose by treatment group in HERS
+
+:::
+
+The statistic and degrees of freedom of @def-two-sample-t-test:
+
+```{r}
+glucose_ht <- hers |>
+  dplyr::filter(HT == "hormone therapy") |>
+  dplyr::pull(glucose)
+glucose_placebo <- hers |>
+  dplyr::filter(HT == "placebo") |>
+  dplyr::pull(glucose)
+v_ht <- var(glucose_ht) / length(glucose_ht)
+v_placebo <- var(glucose_placebo) / length(glucose_placebo)
+t_welch <- (mean(glucose_ht) - mean(glucose_placebo)) / sqrt(v_ht + v_placebo)
+df_welch <- (v_ht + v_placebo)^2 /
+  (v_ht^2 / (length(glucose_ht) - 1) +
+     v_placebo^2 / (length(glucose_placebo) - 1))
+c(t = t_welch, df = df_welch, p_value = 2 * pt(-abs(t_welch), df_welch))
+```
+
+`t.test()` reports the same values:
+
+```{r}
+t.test(glucose_ht, glucose_placebo)
+```
+
+The p-value is large,
+so the data give no evidence against $H_0$.
+That result is expected here:
+treatment was randomized,
+so the groups' baseline means differ only by chance.
+:::

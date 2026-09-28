@@ -1,9 +1,0 @@
-::: {#def-accuracy}
-#### Accuracy
-
-The **accuracy** of an estimator for a given estimand does not have a
-consensus formal definition,
-but all of the usual candidates are functions of the distribution of
-the estimator's [estimation error](#def-estimation-error).
-
-:::

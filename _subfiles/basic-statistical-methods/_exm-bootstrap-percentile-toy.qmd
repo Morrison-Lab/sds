@@ -1,0 +1,11 @@
+::: {#exm-bootstrap-percentile-toy}
+#### Percentile bootstrap interval for the mean of ten glucose values
+
+Continuing @exm-bootstrap-distribution-toy,
+the 95% interval of @def-bootstrap-ci-percentile is:
+
+```{r}
+quantile(boot_means10, c(0.025, 0.975))
+```
+
+:::

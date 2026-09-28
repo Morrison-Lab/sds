@@ -1,0 +1,5 @@
+Tests of independence say whether two binary variables are associated,
+but not how strongly.
+Risk differences, risk ratios, and odds ratios measure the strength
+of the association;
+see [Odds Ratios and Relative Risks](https://morrison-lab.github.io/rme/chapters/binary-outcome-associations.html#sec-OR-RR).

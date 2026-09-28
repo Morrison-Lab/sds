@@ -1,5 +1,7 @@
 The `summary()` function reports the minimum, quartiles, mean, maximum,
-and number of missing values in one call:
+and number of missing values in one call;
+its quartiles use R's default interpolating quantile rule (`type = 7`),
+so they can differ slightly from @def-quartiles:
 
 ```{r}
 #| label: summary-chol

@@ -1,0 +1,8 @@
+::: {#def-approximate-ci}
+#### Approximate confidence interval
+
+An **approximate** $100(1-\alpha)\%$ confidence interval
+is an interval whose [coverage probability](#def-coverage-probability)
+is approximately $1 - \alpha$,
+for example only in large samples.
+:::

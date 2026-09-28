@@ -1,0 +1,22 @@
+One-way ANOVA is a special case of linear regression:
+it is the F-test comparing a linear regression model
+with a single categorical predictor
+to the model with an intercept only
+([Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-understand-LMs)).
+`lm()` gives the same F statistic as `aov()`:
+
+```{r}
+lm(glucose ~ raceth, data = hers) |> anova()
+```
+
+With $k = 2$ groups, the ANOVA F statistic equals the square of
+the pooled t statistic (@def-pooled-t-test),
+as the two treatment groups of @exm-hers-pooled-ttest show:
+
+```{r}
+c(
+  f = anova(lm(glucose ~ HT, data = hers))[["F value"]][[1]],
+  t_squared =
+    t.test(glucose_ht, glucose_placebo, var.equal = TRUE)$statistic[[1]]^2
+)
+```

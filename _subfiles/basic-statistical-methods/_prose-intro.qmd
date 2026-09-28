@@ -1,0 +1,18 @@
+This page reviews the standard methods for comparing groups
+and for relating two variables:
+
+- t-tests and one-way analysis of variance, for a continuous outcome;
+- the chi-square test and Fisher's exact test, for categorical variables;
+- correlation coefficients and simple linear regression,
+  for two continuous variables;
+- bootstrap confidence intervals,
+  for statistics whose sampling distribution has no convenient formula.
+
+The page builds on three others:
+
+- [Exploratory and Descriptive Methods](exploratory-descriptive.qmd)
+  defines the sample statistics these methods use;
+- [Statistical Inference](inference.qmd)
+  defines hypotheses, test statistics, p-values, and confidence intervals;
+- [Estimation](estimation.qmd)
+  defines estimators and their standard errors.

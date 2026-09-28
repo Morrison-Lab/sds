@@ -32,6 +32,7 @@ SBP
 SERG
 Satterthwaite
 Slutsky's
+Stata
 TSS
 TinyTeX
 UC
@@ -42,12 +43,14 @@ Welch
 Welch's
 Wilks
 adist
+anova
 anthropometry
 arcus
 arg
 asymptotics
 ba
 bayes
+bca
 bernoulli
 binom
 bma
@@ -57,7 +60,10 @@ cb
 cd
 cdot
 cdots
+chisq
+ci
 covs
+crosstab
 dL
 defEInf
 defHess
@@ -88,6 +94,7 @@ estimands
 estrogens
 esttmp
 esttmpl
+exm
 expf
 expit
 exponentiate
@@ -110,7 +117,9 @@ ij
 infty
 inv
 ith
+ji
 jk
+jn
 kk
 ldots
 le
@@ -130,6 +139,7 @@ mathfrak
 maximizer
 medroxyprogesterone
 mle
+mmHg
 mse
 mselr
 multimodality
@@ -143,10 +153,13 @@ nonparametrically
 nx
 oinf
 oinff
+ols
 operatorname
 overline
 overset
 paren
+pearson
+pmatrix
 pmean
 pois
 prac
@@ -169,7 +182,9 @@ se
 siid
 simind
 slidebreak
+slr
 socio
+spearman
 sqf
 ss
 subfiles
@@ -185,6 +200,7 @@ thm
 thmADistMLE
 thmHessij
 tp
+ttest
 uarto
 un
 unconverged
@@ -202,3 +218,5 @@ wcgs
 widehat
 wilks
 xbar
+xy
+yy

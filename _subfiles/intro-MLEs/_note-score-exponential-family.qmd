@@ -3,13 +3,20 @@ In all four examples
 @exr-gauss-score-fn, and @exr-exp-score-fn),
 the score function with respect to the mean turned out to be:
 
-$$\score = \scoreexpf$$
+$$\score = \frac{x - \E{X}}{\Var{X}}$$
 
 ::: notes
 This pattern is no coincidence.
-All four distributions belong to the
-[exponential family](https://en.wikipedia.org/wiki/Exponential_family)
-of probability distributions,
-whose members share many special properties
+With the mean as the parameter,
+each of these four models is a one-parameter
+*natural* (or linear) exponential family,
+whose log-density is linear in $x$;
+for every such family, the score with respect to the mean
+is $(x - \E{X})/\Var{X}$.
+Other members of the broader
+[exponential family](https://en.wikipedia.org/wiki/Exponential_family),
+such as the Weibull distribution with known shape $k \ne 1$,
+do not have this form.
+Exponential-family distributions share many special properties
 [@hoggtanis2015, Section 6.7; @dobson4e, Chapter 3].
 :::

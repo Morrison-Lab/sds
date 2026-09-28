@@ -24,7 +24,7 @@ $$
 && \text{(derivatives of $\log \rate$, $\rate$, and a constant)}\\
 &= \frac{x - \rate}{\rate}
 && \text{(common denominator)}\\
-&= \scoreexpf
+&= \frac{x - \E{X}}{\Var{X}}
 && \text{($\E{X} = \Var{X} = \rate$)}
 \end{aligned}
 $$

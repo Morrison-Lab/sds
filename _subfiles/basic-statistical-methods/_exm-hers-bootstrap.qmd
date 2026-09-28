@@ -1,0 +1,39 @@
+::: {#exm-hers-bootstrap}
+#### Bootstrap confidence intervals for the slope of SBP on age in HERS
+
+We regress systolic blood pressure (`SBP`) on `age`
+by OLS (@def-ols),
+and bootstrap the slope,
+resampling participants [adapted from @vittinghoff2e, Chapter 3].
+The statistic function takes the data and the row indices
+of one bootstrap sample:
+
+```{r}
+slope_sbp_age <- function(data, indices) {
+  fit <- lm(SBP ~ age, data = data[indices, ])
+  coef(fit)[["age"]]
+}
+
+set.seed(42)
+boot_result <- boot::boot(data = hers, statistic = slope_sbp_age, R = 1000)
+boot_result
+```
+
+The bootstrap standard error is close to
+the model-based standard error from `lm()`,
+and the three bootstrap intervals are close to
+the model-based 95% confidence interval:
+
+```{r}
+fit_sbp_age <- lm(SBP ~ age, data = hers)
+summary(fit_sbp_age)$coefficients["age", ]
+confint(fit_sbp_age)["age", ]
+boot::boot.ci(boot_result, type = c("norm", "perc", "bca"))
+```
+
+All three intervals are similar here.
+When the bootstrap distribution is skewed,
+the intervals differ more,
+and the BCa interval, which corrects for skewness,
+is the better choice [@efron1993introduction, Chapter 14].
+:::

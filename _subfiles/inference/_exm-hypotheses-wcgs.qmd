@@ -6,7 +6,7 @@ of men who do and do not have a CHD event by 1969,
 in the population the WCGS sampled.
 A comparison of the two groups
 tests the null hypothesis that the means are equal
-against the two-sided alternative that they differ:
+against the [two-sided alternative](#def-two-sided-alternative) that they differ:
 
 $$H_0: \mu_1 = \mu_0 \qquad H_1: \mu_1 \ne \mu_0$$
 :::

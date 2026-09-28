@@ -1,0 +1,14 @@
+::: {#thm-pooled-t-null}
+#### Null distribution of the pooled t statistic
+
+Let the observations in both groups be independent and Gaussian,
+all with the same mean and the same variance $\sigma^2$.
+Then $t_p$ (@def-pooled-t-test), computed from these random variables,
+has the $t_{n_1 + n_2 - 2}$ distribution [@hoggtanis2015].
+:::
+
+::: notes
+@thm-pooled-t-null needs equal variances in the two groups,
+and Welch's test (@def-two-sample-t-test) does not,
+so these notes use Welch's test by default.
+:::

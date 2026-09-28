@@ -1,0 +1,46 @@
+::: {#thm-one-sample-t-null}
+#### Null distribution of the one-sample t statistic
+
+Let $X_1, \ldots, X_n$ be independent,
+each Gaussian with mean $\mu_0$ and variance $\sigma^2$, with $n \ge 2$.
+Then the statistic $T \eqdef (\bar X - \mu_0) / (S / \sqrt{n})$
+of @def-one-sample-t-test,
+computed from these random variables,
+has the $t_{n-1}$ distribution.
+:::
+
+::: proof
+
+We use a standard fact about Gaussian samples [@hoggtanis2015]:
+$\bar X$ and $S^2$ are independent,
+and $V \eqdef (n-1) S^2 / \sigma^2$ has the $\chi^2_{n-1}$ distribution.
+Also, $Z \eqdef (\bar X - \mu_0) / (\sigma / \sqrt{n})$
+has the standard Gaussian distribution,
+and $Z$ is independent of $V$ because $\bar X$ is independent of $S^2$.
+So by @def-t-dist, $Z / \sqrt{V / (n-1)}$ has the $t_{n-1}$ distribution,
+and this ratio equals $T$:
+
+$$
+\begin{aligned}
+\frac{Z}{\sqrt{V/(n-1)}}
+&= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{\sqrt{S^2 / \sigma^2}}
+&& \text{(substitute $Z$ and $V$)}\\
+&= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{S / \sigma}
+&& \text{($\sqrt{S^2} = S$, since $S \ge 0$)}\\
+&= \frac{\bar X - \mu_0}{S / \sqrt{n}}
+&& \text{(the factors of $\sigma$ cancel)}\\
+&= T.
+\end{aligned}
+$$
+
+:::
+
+::: notes
+When the observations are not Gaussian,
+$T$ still has approximately the standard Gaussian distribution
+when $n$ is large,
+<!-- Repoint to pds once it is published. -->
+by the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem),
+and then $t_{n-1}$ is close to the standard Gaussian distribution
+(@exm-t-dist).
+:::

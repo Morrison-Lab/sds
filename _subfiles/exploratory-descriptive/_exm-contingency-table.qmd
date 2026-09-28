@@ -24,8 +24,7 @@ as a formatted table.
 wcgs |>
   dplyr::select(smoke, chd69) |>
   gtsummary::tbl_summary(by = chd69) |>
-  gtsummary::add_overall() |>
-  gtsummary::add_p()
+  gtsummary::add_overall()
 ```
 
 Smoking status and CHD event in the WCGS

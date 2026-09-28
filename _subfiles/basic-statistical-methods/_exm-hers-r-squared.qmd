@@ -1,0 +1,21 @@
+::: {#exm-hers-r-squared}
+#### $R^2$ for the regression of glucose on BMI in HERS
+
+For the fit in @exm-hers-slr,
+$R^2$ computed from @def-r-squared,
+the square of the Pearson correlation, and `lm()`'s value agree:
+
+```{r}
+fit <- lm(glucose ~ BMI, data = hers)
+y <- fit$model$glucose
+c(
+  r_squared = 1 - sum(residuals(fit)^2) / sum((y - mean(y))^2),
+  cor_squared = cor(fit$model$BMI, y)^2,
+  lm = summary(fit)$r.squared
+)
+```
+
+BMI accounts for only about
+`r round(100 * summary(lm(glucose ~ BMI, data = hers))$r.squared)`% of the
+variation in baseline fasting glucose.
+:::

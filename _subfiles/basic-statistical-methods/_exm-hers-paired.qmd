@@ -1,0 +1,35 @@
+::: {#exm-hers-paired}
+#### Change in fasting glucose over the first year of HERS
+
+We test whether mean fasting glucose changed
+between baseline (`glucose`) and the year-1 visit (`glucose1`),
+across both treatment groups.
+Participants missing either measurement are dropped.
+The t statistic of @def-one-sample-t-test, computed on the differences:
+
+```{r}
+glucose_change <- hers |>
+  dplyr::filter(!is.na(glucose), !is.na(glucose1)) |>
+  dplyr::mutate(d = glucose1 - glucose) |>
+  dplyr::pull(d)
+n_pairs <- length(glucose_change)
+t_paired <- mean(glucose_change) / (sd(glucose_change) / sqrt(n_pairs))
+c(
+  n = n_pairs,
+  mean_change = mean(glucose_change),
+  t = t_paired,
+  p_value = 2 * pt(-abs(t_paired), df = n_pairs - 1)
+)
+```
+
+`t.test()` with `paired = TRUE` gives the same statistic,
+along with a confidence interval for $\mu_d$:
+
+```{r}
+t.test(hers$glucose1, hers$glucose, paired = TRUE)
+```
+
+Mean fasting glucose rose by about
+`r round(mean(glucose_change), 1)` mg/dL over the year,
+and the p-value is far below 0.05.
+:::

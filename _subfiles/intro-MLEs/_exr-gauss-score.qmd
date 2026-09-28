@@ -16,7 +16,7 @@ $$
 \score
 &\eqdef \deriv{\pmean}\loglik
 && \text{(definition of the score)}\\
-&= \deriv{\pmean}\paren{\llgaus}
+&= \deriv{\pmean}\paren{\frac{-1}{2}\paren{\logf{2\pi\ss} + \frac{(x - \pmean)^2}{\ss}}}
 && \text{(Gaussian log-likelihood)}\\
 &= \frac{-1}{2}\paren{\deriv{\pmean}\logf{2\pi\ss} + \deriv{\pmean}\frac{(x - \pmean)^2}{\ss}}
 && \text{(linearity of differentiation)}\\
@@ -24,7 +24,7 @@ $$
 && \text{(constant; chain rule)}\\
 &= \frac{x - \pmean}{\ss}
 && \text{(simplify)}\\
-&= \scoreexpf
+&= \frac{x - \E{X}}{\Var{X}}
 && \text{($\E{X} = \pmean$ and $\Var{X} = \ss$)}
 \end{aligned}
 $$

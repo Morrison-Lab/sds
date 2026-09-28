@@ -20,7 +20,7 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 # Inference
 
-<!-- heading directly precedes the def-inference div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-inference div. -->
 
 {{< include sds/_subfiles/inference/_def-inference.qmd >}}
 
@@ -36,7 +36,7 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 ## Hypotheses
 
-<!-- heading directly precedes the def-null-hypothesis div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-null-hypothesis div. -->
 
 {{< include sds/_subfiles/inference/_def-null-hypothesis.qmd >}}
 
@@ -46,11 +46,15 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/inference/_def-two-sided-alternative.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/inference/_exm-hypotheses-wcgs.qmd >}}
 
 ## p-values
 
-<!-- heading directly precedes the def-test-statistic div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-test-statistic div. -->
 
 {{< include sds/_subfiles/inference/_def-test-statistic.qmd >}}
 
@@ -64,13 +68,25 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/inference/_def-statistically-significant.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/inference/_exm-p-value-wcgs.qmd >}}
 
 # Confidence intervals {#sec-CI}
 
-<!-- heading directly precedes the def-confidence-interval div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
 
 {{< include sds/_subfiles/inference/_def-confidence-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-coverage-probability.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-approximate-ci.qmd >}}
 
 {{< slidebreak >}}
 

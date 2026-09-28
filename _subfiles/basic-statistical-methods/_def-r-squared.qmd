@@ -1,0 +1,16 @@
+::: {#def-r-squared}
+#### Coefficient of determination
+
+For a fitted regression with fitted values $\hat{y}_i$,
+the **coefficient of determination** is
+
+$$R^2 \eqdef 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}.$$
+
+The numerator is the residual sum of squares of the fit,
+and the denominator is the **total sum of squares** of the $y_i$.
+:::
+
+::: notes
+$R^2$ is often described as the proportion of the variation in $Y$
+explained by the regression on $X$.
+:::

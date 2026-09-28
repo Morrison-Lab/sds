@@ -1,0 +1,40 @@
+The HERS data are distributed with @vittinghoff2e
+on the book's companion website,
+as a Stata file that R can read directly:
+
+```{r}
+#| label: load-hers-url
+#| eval: false
+# one unbroken string, so that link checkers test the whole URL:
+url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta" # nolint: line_length_linter.
+hers <- haven::read_dta(url)
+```
+
+The `rmb` R package includes the same file,
+which these notes use so that rendering does not depend on the website.
+`haven::as_factor()` converts the Stata value labels to factors:
+
+```{r}
+#| label: load-hers-local
+hers <- rmb::hers |> haven::as_factor()
+```
+
+The examples on this page use these variables:
+
+| Variable | Meaning |
+|----------|---------|
+| `HT` | Randomized treatment: placebo or hormone therapy |
+| `age` | Age at baseline (years) |
+| `raceth` | Race/ethnicity: White, African American, or Other |
+| `exercise` | Exercises at least three times per week (no/yes) |
+| `BMI` | Body mass index at baseline (kg/m^2^) |
+| `SBP` | Systolic blood pressure at baseline (mmHg) |
+| `glucose` | Fasting glucose at baseline (mg/dL) |
+| `glucose1` | Fasting glucose at the year-1 visit (mg/dL) |
+
+```{r}
+#| label: glimpse-hers
+hers |>
+  dplyr::select(HT, age, raceth, exercise, BMI, SBP, glucose, glucose1) |>
+  dplyr::glimpse()
+```

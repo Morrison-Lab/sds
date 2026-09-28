@@ -1,0 +1,29 @@
+::: {#exm-hers-crosstab}
+#### Exercise by treatment group in HERS
+
+@tbl-hers-crosstab cross-tabulates regular exercise at baseline
+by treatment group, as a
+[contingency table](exploratory-descriptive.qmd#def-contingency-table)
+with row percentages.
+
+::: {#tbl-hers-crosstab}
+
+```{r}
+#| code-fold: true
+hers |>
+  gtsummary::tbl_cross(
+    row = exercise,
+    col = HT,
+    label = list(
+      exercise ~ "Exercises regularly",
+      HT ~ "Treatment group"
+    ),
+    percent = "row"
+  )
+```
+
+Exercise by treatment group in HERS
+
+:::
+
+:::

@@ -1,4 +1,4 @@
-::: notes
+::: {.notes #quantile-conventions}
 Other sources, and other software defaults, define sample quantiles differently,
 mostly by interpolating between order statistics.
 R's `quantile()` offers nine definitions through its `type` argument,

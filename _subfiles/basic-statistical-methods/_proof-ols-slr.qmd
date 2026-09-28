@@ -1,0 +1,56 @@
+::: proof
+
+$\text{RSS}$ is a quadratic function of $(b_0, b_1)$,
+so we find where its partial derivatives are zero,
+then check that this point is the unique minimum.
+
+The derivative with respect to $b_0$:
+
+$$
+\begin{aligned}
+\frac{\partial \text{RSS}}{\partial b_0}
+&= -2 \sum_{i=1}^n (y_i - b_0 - b_1 x_i)
+&& \text{(chain rule, term by term)}\\
+&= -2 \paren{n \bar{y} - n b_0 - b_1 n \bar{x}}
+&& \text{($\sum_i y_i = n\bar{y}$, $\sum_i x_i = n\bar{x}$)}
+\end{aligned}
+$$
+
+Setting it to zero and dividing by $-2n$ gives
+$\bar{y} - b_0 - b_1 \bar{x} = 0$, so $b_0 = \bar{y} - b_1 \bar{x}$.
+
+The derivative with respect to $b_1$,
+after substituting $b_0 = \bar{y} - b_1 \bar{x}$:
+
+$$
+\begin{aligned}
+\frac{\partial \text{RSS}}{\partial b_1}
+&= -2 \sum_{i=1}^n x_i (y_i - b_0 - b_1 x_i)
+&& \text{(chain rule, term by term)}\\
+&= -2 \sum_{i=1}^n x_i \paren{(y_i - \bar{y}) - b_1 (x_i - \bar{x})}
+&& \text{(substitute $b_0$)}\\
+&= -2 \sum_{i=1}^n (x_i - \bar{x}) \paren{(y_i - \bar{y}) - b_1 (x_i - \bar{x})}
+&& \text{(subtract $\bar{x} \sum_i \paren{(y_i - \bar{y}) - b_1 (x_i - \bar{x})} = 0$)}\\
+&= -2 \paren{S_{xy} - b_1 S_{xx}}
+&& \text{(definitions of $S_{xy}$ and $S_{xx}$)}
+\end{aligned}
+$$
+
+The subtracted sum in the third step is zero
+because $\sum_i (y_i - \bar{y}) = 0$ and $\sum_i (x_i - \bar{x}) = 0$.
+Setting the derivative to zero gives $b_1 = S_{xy} / S_{xx}$.
+
+This stationary point is the unique minimum.
+The matrix of second derivatives of $\text{RSS}$ is
+
+$$
+2 \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sum_i x_i^2 \end{pmatrix},
+$$
+
+whose top-left entry $2n$ is positive and whose determinant is
+$4\paren{n \sum_i x_i^2 - n^2 \bar{x}^2} = 4 n S_{xx} > 0$.
+So the matrix is positive definite,
+$\text{RSS}$ is strictly convex,
+and its only stationary point is its global minimum.
+
+:::
