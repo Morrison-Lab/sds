@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 03:12:35 (PDT)
+Last modified: 2026-09-28 03:39:25 (PDT)
 
 ## 1 Introduction
 
@@ -30,7 +30,7 @@ This page is adapted from ([Vittinghoff et al. 2012, chap. 2](#ref-vittinghoff2e
 
 ### 1.1 The WCGS data
 
-This page illustrates exploratory data analysis using data from the Western Collaborative Group Study (WCGS) ([Rosenman et al. 1975](#ref-rosenman1975coronary)). Vittinghoff et al. ([2012, chap. 2](#ref-vittinghoff2e)) describe the study this way:
+This page illustrates exploratory data analysis using data from the Western Collaborative Group Study (WCGS) ([Rosenman et al. 1975](#ref-rosenman1975coronary)). Vittinghoff et al. ([2012, 9](#ref-vittinghoff2e)) describe the study this way:
 
 > The Western Collaborative Group Study (WCGS) was a large epidemiological study designed to investigate the association between the “type A” behavior pattern and coronary heart disease (CHD).
 

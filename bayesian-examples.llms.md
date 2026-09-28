@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 03:12:35 (PDT)
+Last modified: 2026-09-28 03:39:25 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -125,7 +125,7 @@ For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operat
 
 ## 3 Survival analysis
 
-Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 330). Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
+Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 327). Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
 
 When a model’s log-likelihood contribution \\\ell_i\\ for observation \\i\\ is not one of the distributions built into JAGS, the *zeros trick* supplies it. An observed value of 0 from a Poisson distribution with mean \\\phi_i\\ has probability \\e^{-\phi_i}\\, and with \\\phi_i \stackrel{\text{def}}{=}C - \ell_i\\ for a constant \\C\\,
 
@@ -215,7 +215,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 ## 4 Random effects
 
-The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ drawn from a common distribution. What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 333). The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
+The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ drawn from a common distribution. What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 329). The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
 
 > **NOTE:**
 >
@@ -294,7 +294,7 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 
 ## 5 Bayesian model averaging
 
-When several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. Bayesian model averaging instead averages over the models, weighting each by its posterior probability ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 338). This approach carries *model* uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by [predictor selection](https://morrison-lab.github.io/rme/chapters/predictor-selection.html).
+When several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. Bayesian model averaging instead averages over the models, weighting each by its posterior probability ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 339). This approach carries *model* uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by [predictor selection](https://morrison-lab.github.io/rme/chapters/predictor-selection.html).
 
 > **NOTE:**
 >

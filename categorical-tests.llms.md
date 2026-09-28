@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 03:12:35 (PDT)
+Last modified: 2026-09-28 03:39:25 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -65,7 +65,7 @@ hers <- rmb::hers |> haven::as_factor()
 
 > **NOTE:**
 >
-> **Theorem 1 (Large-sample null distribution of the chi-square statistic)** Let \\n\\ observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as \\n \to \infty\\, the distribution of \\X^2\\ ([Definition 2](#def-chi-square-test)) converges to the \\\chi^2\_{(r-1)(c-1)}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
+> **Theorem 1 (Large-sample null distribution of the chi-square statistic)** Let \\n\\ observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as \\n \to \infty\\, the distribution of \\X^2\\ ([Definition 2](#def-chi-square-test)) converges to the \\\chi^2\_{(r-1)(c-1)}\\ distribution ([Hogg et al. 2019, sec. 9.2](#ref-hoggtanis2015), p. 440).
 
 The chi-square approximation is poor when some expected counts are small. A common rule of thumb asks for every \\E\_{ij}\\ to be at least 5.
 
@@ -161,7 +161,7 @@ Tests of independence say whether two binary variables are associated, but not h
 
 ## References
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2015. *Probability and Statistical Inference*. Ninth edition. Pearson.
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

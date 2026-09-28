@@ -352,7 +352,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 03:12:35 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 03:39:25 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -366,7 +366,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 1 (Frequentist paradigm)</strong></span> In the <strong>frequentist</strong> paradigm of statistical inference, an unknown parameter <span class="math inline">\(\theta\)</span> is a fixed constant, probability describes long-run frequencies over repetitions of the data-generating process, and uncertainty about <span class="math inline">\(\theta\)</span> is quantified by the sampling distribution of an estimator <span class="math inline">\(\hat\theta\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-bayesian-paradigm" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Bayesian paradigm)</strong></span> In the <strong>Bayesian</strong> paradigm of statistical inference, an unknown parameter <span class="math inline">\(\theta\)</span> is a random variable with its own probability distribution, and probability measures degree of belief <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;271)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 2 (Bayesian paradigm)</strong></span> In the <strong>Bayesian</strong> paradigm of statistical inference, an unknown parameter <span class="math inline">\(\theta\)</span> is a random variable with its own probability distribution, and probability measures degree of belief <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;272)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-paradigms" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Two views of a success probability)</strong></span> Suppose 55 of 91 independent trials succeed. A frequentist treats the success probability <span class="math inline">\(\pi\)</span> as a fixed number, estimates it by <span class="math inline">\(\hat\pi = 55/91 \approx 0.60\)</span>, and describes uncertainty by how much <span class="math inline">\(\hat\pi\)</span> would vary over repeated sets of 91 trials, for example with a confidence interval. A Bayesian gives <span class="math inline">\(\pi\)</span> a probability distribution before seeing the trials, such as the uniform distribution on <span class="math inline">\((0, 1)\)</span>, and describes uncertainty by the distribution of <span class="math inline">\(\pi\)</span> given the 55 successes.</p>
@@ -507,7 +507,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><h3 data-number="2.2" id="sec-bayes-interval-interp">
 <span class="header-section-number">2.2</span> Two readings of an interval estimate</h3>
-<p>The two paradigms differ most visibly in how they interpret an interval estimate <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;271)</span>. A frequentist 95% <a href="./inference.html#def-confidence-interval">confidence interval</a> is a random interval whose coverage probability, over repeated samples with <span class="math inline">\(\theta\)</span> held fixed, is 0.95. Any one realized interval either contains <span class="math inline">\(\theta\)</span> or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about <span class="math inline">\(\theta\)</span> itself, given the data actually observed.</p>
+<p>The two paradigms differ most visibly in how they interpret an interval estimate <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;272)</span>. A frequentist 95% <a href="./inference.html#def-confidence-interval">confidence interval</a> is a random interval whose coverage probability, over repeated samples with <span class="math inline">\(\theta\)</span> held fixed, is 0.95. Any one realized interval either contains <span class="math inline">\(\theta\)</span> or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about <span class="math inline">\(\theta\)</span> itself, given the data actually observed.</p>
 </section><section class="slide level2"><div id="def-credible-interval" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Credible interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>credible interval</strong> for a parameter <span class="math inline">\(\theta\)</span>, given observed data <span class="math inline">\(\tilde{y}\)</span>, is an interval <span class="math inline">\(\mathopen{}\left[l(\tilde{y}),\, r(\tilde{y})\right]\mathclose{}\)</span> whose <a href="#/def-posterior">posterior</a> probability is <span class="math inline">\(1 - \alpha\)</span>:</p>
 <p><span class="math display">\[
@@ -587,7 +587,7 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <div id="def-parameter-space" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Parameter space)</strong></span> The <strong>parameter space</strong> <span class="math inline">\(\Theta\)</span> of a model is the set of values that its parameter <span class="math inline">\(\theta\)</span> can take.</p>
 </div>
-</section><section class="slide level2"><p>Because the Bayesian treats <span class="math inline">\(\theta\)</span> as random, the prior and posterior are distributions over the parameter space <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;274)</span>, and the prior has to respect it.</p>
+</section><section class="slide level2"><p>Because the Bayesian treats <span class="math inline">\(\theta\)</span> as random, the prior and posterior are distributions over the parameter space <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;273)</span>, and the prior has to respect it.</p>
 </section><section class="slide level2"><div id="exm-parameter-space" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Parameter spaces and priors that respect them)</strong></span> &nbsp;</p>
 <ul>
@@ -607,7 +607,7 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 </div>
 </section><section id="sec-bayes-priors" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Priors</h2>
-<p>The <a href="#/def-prior">prior</a> encodes what is known about <span class="math inline">\(\theta\)</span> before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;281)</span>.</p>
+<p>The <a href="#/def-prior">prior</a> encodes what is known about <span class="math inline">\(\theta\)</span> before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;276)</span>.</p>
 </section><section class="slide level2"><h3 data-number="3.1" id="sec-bayes-conjugate">
 <span class="header-section-number">3.1</span> Conjugate priors</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-conjugate-prior div. -->
@@ -653,11 +653,11 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <span id="cb4-10"><a aria-label="10"></a><span class="co">#&gt; 0.602 0.501 0.699</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The mean uses the <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> mean <span class="math inline">\(a / (a + b)\)</span> <span class="citation" data-cites="CaseBerg01">(<a href="#/references" role="doc-biblioref" onclick="">Casella and Berger 2002, sec. 3.3</a>)</span>.</p>
+<p>The mean uses the <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> mean <span class="math inline">\(a / (a + b)\)</span> <span class="citation" data-cites="CaseBerg01">(<a href="#/references" role="doc-biblioref" onclick="">Casella and Berger 2002, sec. 3.3</a>, p.&nbsp;107)</span>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.2" id="sec-bayes-informativeness">
 <span class="header-section-number">3.2</span> Informative, weakly informative, and flat priors</h3>
-<p>Priors range along a spectrum of how strongly they constrain <span class="math inline">\(\theta\)</span> <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;281)</span>.</p>
+<p>Priors range along a spectrum of how strongly they constrain <span class="math inline">\(\theta\)</span> <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;276)</span>.</p>
 </section><section class="slide level2"><div id="def-informative-prior" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Informative prior)</strong></span> An <strong>informative prior</strong> is a <a href="#/def-prior">prior</a> that concentrates its probability in a region of the parameter space singled out by knowledge from outside the current data, such as previous studies, biological limits, or expert judgment.</p>
 </div>
@@ -765,7 +765,7 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <span class="header-section-number">3.3</span> A skeptical prior</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-skeptical-prior div. -->
 <div id="def-skeptical-prior" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14 (Skeptical prior)</strong></span> A <strong>skeptical prior</strong> is an <a href="#/def-informative-prior">informative prior</a> centered on the parameter value that represents no effect, and concentrated near that value <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;281)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 14 (Skeptical prior)</strong></span> A <strong>skeptical prior</strong> is an <a href="#/def-informative-prior">informative prior</a> centered on the parameter value that represents no effect, and concentrated near that value <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;277)</span>.</p>
 </div>
 <aside class="notes"><p>A skeptical prior asks how strong the data must be to overturn a default of no effect.</p>
 <style type="text/css">

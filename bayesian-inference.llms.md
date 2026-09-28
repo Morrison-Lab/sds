@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 03:12:35 (PDT)
+Last modified: 2026-09-28 03:39:25 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)).
 
@@ -18,7 +18,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 2 (Bayesian paradigm)** In the **Bayesian** paradigm of statistical inference, an unknown parameter \\\theta\\ is a random variable with its own probability distribution, and probability measures degree of belief ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 271).
+> **Definition 2 (Bayesian paradigm)** In the **Bayesian** paradigm of statistical inference, an unknown parameter \\\theta\\ is a random variable with its own probability distribution, and probability measures degree of belief ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 272).
 
 > **NOTE:**
 >
@@ -116,7 +116,7 @@ The two paradigms answer different questions. A frequentist asks, “for which p
 
 ### 2.2 Two readings of an interval estimate
 
-The two paradigms differ most visibly in how they interpret an interval estimate ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 271). A frequentist 95% [confidence interval](inference.llms.md#def-confidence-interval) is a random interval whose coverage probability, over repeated samples with \\\theta\\ held fixed, is 0.95. Any one realized interval either contains \\\theta\\ or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about \\\theta\\ itself, given the data actually observed.
+The two paradigms differ most visibly in how they interpret an interval estimate ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 272). A frequentist 95% [confidence interval](inference.llms.md#def-confidence-interval) is a random interval whose coverage probability, over repeated samples with \\\theta\\ held fixed, is 0.95. Any one realized interval either contains \\\theta\\ or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about \\\theta\\ itself, given the data actually observed.
 
 > **NOTE:**
 >
@@ -199,7 +199,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > **Definition 8 (Parameter space)** The **parameter space** \\\Theta\\ of a model is the set of values that its parameter \\\theta\\ can take.
 
-Because the Bayesian treats \\\theta\\ as random, the prior and posterior are distributions over the parameter space ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 274), and the prior has to respect it.
+Because the Bayesian treats \\\theta\\ as random, the prior and posterior are distributions over the parameter space ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 273), and the prior has to respect it.
 
 > **NOTE:**
 >
@@ -223,7 +223,7 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 
 ## 3 Priors
 
-The [prior](#def-prior) encodes what is known about \\\theta\\ before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
+The [prior](#def-prior) encodes what is known about \\\theta\\ before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 276).
 
 ### 3.1 Conjugate priors
 
@@ -260,11 +260,11 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > #> 0.602 0.501 0.699
 > ```
 >
-> The mean uses the \\\operatorname{Beta}(a, b)\\ mean \\a / (a + b)\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01)).
+> The mean uses the \\\operatorname{Beta}(a, b)\\ mean \\a / (a + b)\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107).
 
 ### 3.2 Informative, weakly informative, and flat priors
 
-Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
+Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 276).
 
 > **NOTE:**
 >
@@ -347,7 +347,7 @@ A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improp
 
 > **NOTE:**
 >
-> **Definition 14 (Skeptical prior)** A **skeptical prior** is an [informative prior](#def-informative-prior) centered on the parameter value that represents no effect, and concentrated near that value ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
+> **Definition 14 (Skeptical prior)** A **skeptical prior** is an [informative prior](#def-informative-prior) centered on the parameter value that represents no effect, and concentrated near that value ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 277).
 
 A skeptical prior asks how strong the data must be to overturn a default of no effect.
 

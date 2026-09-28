@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 03:12:35 (PDT)
+Last modified: 2026-09-28 03:39:25 (PDT)
 
 ## 1 Introduction
 
@@ -147,7 +147,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Proof*. We use a standard fact about Gaussian samples ([Hogg et al. 2015](#ref-hoggtanis2015)): \\\bar X\\ and \\S^2\\ are independent, and \\V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2\\ has the \\\chi^2\_{n-1}\\ distribution. Also, \\Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma / \sqrt{n})\\ has the standard Gaussian distribution, and \\Z\\ is independent of \\V\\ because \\\bar X\\ is independent of \\S^2\\. So by the [definition of the t-distribution](inference.llms.md#def-t-dist), \\Z / \sqrt{V / (n-1)}\\ has the \\t\_{n-1}\\ distribution, and this ratio equals \\T\\:
+> *Proof*. We use a standard fact about Gaussian samples ([Hogg et al. 2019, sec. 5.5](#ref-hoggtanis2015), pp. 203-205): \\\bar X\\ and \\S^2\\ are independent, and \\V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2\\ has the \\\chi^2\_{n-1}\\ distribution. Also, \\Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma / \sqrt{n})\\ has the standard Gaussian distribution, and \\Z\\ is independent of \\V\\ because \\\bar X\\ is independent of \\S^2\\. So by the [definition of the t-distribution](inference.llms.md#def-t-dist), \\Z / \sqrt{V / (n-1)}\\ has the \\t\_{n-1}\\ distribution, and this ratio equals \\T\\:
 >
 > \\ \begin{aligned} \frac{Z}{\sqrt{V/(n-1)}} &= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{\sqrt{S^2 / \sigma^2}} && \text{(substitute \$Z\$ and \$V\$)}\\ &= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{S / \sigma} && \text{(\$\sqrt{S^2} = S\$, since \$S \ge 0\$)}\\ &= \frac{\bar X - \mu_0}{S / \sqrt{n}} && \text{(the factors of \$\sigma\$ cancel)}\\ &= T. \end{aligned} \\
 
@@ -299,7 +299,7 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 
 > **NOTE:**
 >
-> **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance \\\sigma^2\\. Then \\t_p\\ ([Definition 5](#def-pooled-t-test)), computed from these random variables, has the \\t\_{n_1 + n_2 - 2}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
+> **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance \\\sigma^2\\. Then \\t_p\\ ([Definition 5](#def-pooled-t-test)), computed from these random variables, has the \\t\_{n_1 + n_2 - 2}\\ distribution ([Hogg et al. 2019, sec. 8.2](#ref-hoggtanis2015), p. 371).
 
 [Theorem 2](#thm-pooled-t-null) needs equal variances in the two groups, and Welch’s test ([Definition 3](#def-two-sample-t-test)) does not, so these notes use Welch’s test by default.
 
@@ -391,7 +391,7 @@ Large values of \\F\\ mean that the group means are spread out more than the var
 
 > **NOTE:**
 >
-> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If \\H_0: \mu_1 = \cdots = \mu_k\\ holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
+> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If \\H_0: \mu_1 = \cdots = \mu_k\\ holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2019, sec. 9.3](#ref-hoggtanis2015), p. 449).
 
 > **NOTE:**
 >
@@ -470,7 +470,7 @@ c(
 
 ## References
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2015. *Probability and Statistical Inference*. Ninth edition. Pearson.
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” *JAMA : The Journal of the American Medical Association* (Chicago, IL) 280 (7): 605–13. <https://doi.org/10.1001/jama.280.7.605>.
 

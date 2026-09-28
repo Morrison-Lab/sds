@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 03:12:35 (PDT)
+Last modified: 2026-09-28 03:39:25 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page.
 
@@ -36,7 +36,7 @@ an integral over every dimension of \\\tilde{\theta}\\ that typically has no clo
 >
 > \\ \frac{1}{M} \sum\_{m=1}^{M} g\mathopen{}\left(\tilde{\theta}^{(m)}\right)\mathclose{}. \\
 
-By the law of large numbers, a Monte Carlo estimate converges to the posterior expectation it estimates as the number of draws \\M\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 290). The posterior mean (\\g(\theta) = \theta\\) and posterior probabilities (\\g(\theta) = \text{1}\_{\theta \le c}\\, an indicator) are posterior expectations, so they are estimated by averages of the draws; posterior quantiles, and so credible-interval endpoints, are estimated by the corresponding quantiles of the draws.
+By the law of large numbers, a Monte Carlo estimate converges to the posterior expectation it estimates as the number of draws \\M\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 288). The posterior mean (\\g(\theta) = \theta\\) and posterior probabilities (\\g(\theta) = \text{1}\_{\theta \le c}\\, an indicator) are posterior expectations, so they are estimated by averages of the draws; posterior quantiles, and so credible-interval endpoints, are estimated by the corresponding quantiles of the draws.
 
 > **NOTE:**
 >
@@ -99,7 +99,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 > #>      0.833      0.833
 > ```
 
-Under mild conditions on its transition probabilities, a Markov chain has a unique stationary distribution, the distribution of \\\tilde{\theta}^{(t)}\\ converges to it, and averages along the chain converge to expectations under it, even though successive values are correlated ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 291). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
+Under mild conditions on its transition probabilities, a Markov chain has a unique stationary distribution, the distribution of \\\tilde{\theta}^{(t)}\\ converges to it, and averages along the chain converge to expectations under it, even though successive values are correlated. MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 
 ## 2 MCMC samplers
 
@@ -133,13 +133,13 @@ Under mild conditions on its transition probabilities, a Markov chain has a uniq
 
 > **NOTE:**
 >
-> **Definition 8 (Metropolis–Hastings algorithm)** Given a target posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, a [proposal distribution](#def-proposal-distribution) \\q(\cdot \mid \tilde{\theta})\\, and a starting value \\\tilde{\theta}^{(1)}\\, the **Metropolis–Hastings algorithm** produces \\\tilde{\theta}^{(t+1)}\\ from \\\tilde{\theta}^{(t)}\\ as follows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293):
+> **Definition 8 (Metropolis–Hastings algorithm)** Given a target posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, a [proposal distribution](#def-proposal-distribution) \\q(\cdot \mid \tilde{\theta})\\, and a starting value \\\tilde{\theta}^{(1)}\\, the **Metropolis–Hastings algorithm** produces \\\tilde{\theta}^{(t+1)}\\ from \\\tilde{\theta}^{(t)}\\ as follows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 291):
 >
 > 1.  Draw a candidate \\\tilde{\theta}^\* \sim q(\cdot \mid \tilde{\theta}^{(t)})\\.
 > 2.  Compute the [acceptance ratio](#def-acceptance-ratio) \\\alpha\\.
 > 3.  With probability \\\min(1, \alpha)\\, set \\\tilde{\theta}^{(t+1)} = \tilde{\theta}^\*\\ (accept the candidate); otherwise set \\\tilde{\theta}^{(t+1)} = \tilde{\theta}^{(t)}\\ (reject it).
 
-The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\* \mid \tilde{y}) / \operatorname{p}(\tilde{\theta}^{(t)} \mid \tilde{y})\\ with the normalizing constant \\\operatorname{p}(\tilde{y})\\ canceled ([the posterior equation](bayesian-inference.llms.md#eq-bayes-posterior)), so the algorithm needs only the unnormalized posterior. When the proposal is [symmetric](#def-symmetric-proposal), as for a random walk \\\tilde{\theta}^\* = \tilde{\theta}^{(t)} + \varepsilon\\ with \\\varepsilon\\ drawn from a distribution symmetric about 0, the second factor equals 1. The resulting chain is a [Markov chain](#def-markov-chain) whose stationary distribution is the posterior ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293).
+The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\* \mid \tilde{y}) / \operatorname{p}(\tilde{\theta}^{(t)} \mid \tilde{y})\\ with the normalizing constant \\\operatorname{p}(\tilde{y})\\ canceled ([the posterior equation](bayesian-inference.llms.md#eq-bayes-posterior)), so the algorithm needs only the unnormalized posterior. When the proposal is [symmetric](#def-symmetric-proposal), as for a random walk \\\tilde{\theta}^\* = \tilde{\theta}^{(t)} + \varepsilon\\ with \\\varepsilon\\ drawn from a distribution symmetric about 0, the second factor equals 1. The resulting chain is a [Markov chain](#def-markov-chain) whose stationary distribution is the posterior.
 
 > **NOTE:**
 >
@@ -229,9 +229,9 @@ A chain started far from where the posterior puts its probability takes some ite
 
 > **NOTE:**
 >
-> **Definition 12 (Gibbs sampler)** The **Gibbs sampler** produces \\\tilde{\theta}^{(t+1)}\\ from \\\tilde{\theta}^{(t)}\\ by updating one component at a time: for \\k = 1, \ldots, K\\ in turn, it draws \\\theta_k^{(t+1)}\\ from the [full conditional distribution](#def-full-conditional) of \\\theta_k\\, with each other component set to its most recent value ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 300).
+> **Definition 12 (Gibbs sampler)** The **Gibbs sampler** produces \\\tilde{\theta}^{(t+1)}\\ from \\\tilde{\theta}^{(t)}\\ by updating one component at a time: for \\k = 1, \ldots, K\\ in turn, it draws \\\theta_k^{(t+1)}\\ from the [full conditional distribution](#def-full-conditional) of \\\theta_k\\, with each other component set to its most recent value ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293).
 
-The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#def-mh), one component at a time, whose proposal is the full conditional itself; with that proposal the acceptance ratio is always 1, so every draw is accepted ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 300). It needs a way to draw from each full conditional. JAGS (“Just Another Gibbs Sampler”) builds a Gibbs sampler from a model’s description, choosing a sampling method for each full conditional ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)).
+The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#def-mh), one component at a time, whose proposal is the full conditional itself; with that proposal the acceptance ratio is always 1, so every draw is accepted ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293). It needs a way to draw from each full conditional. JAGS (“Just Another Gibbs Sampler”) builds a Gibbs sampler from a model’s description, choosing a sampling method for each full conditional ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)).
 
 > **NOTE:**
 >
@@ -283,7 +283,7 @@ Because MCMC draws are correlated, and a chain may take many iterations to reach
 >
 > \\ \hat{R}\stackrel{\text{def}}{=}\sqrt{\hat V / W}. \\
 
-If the chains have all converged to the posterior, \\W\\ and \\\hat V\\ both estimate the posterior variance, and \\\hat{R}\\ is close to 1. If the chains are still exploring different regions, the chain means differ, \\B\\ is large, and \\\hat{R}\\ exceeds 1 ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 302). Software reports \\\hat{R}\\ as `psrf` or `Rhat`; [`coda::gelman.diag()`](https://rdrr.io/pkg/coda/man/gelman.diag.html) also applies a small-sample correction, so its value differs slightly from [Definition 13](#def-psrf)’s. A value of \\\hat{R}\\ near 1 does not prove convergence: chains that are all stuck in the same wrong region also agree.
+If the chains have all converged to the posterior, \\W\\ and \\\hat V\\ both estimate the posterior variance, and \\\hat{R}\\ is close to 1. If the chains are still exploring different regions, the chain means differ, \\B\\ is large, and \\\hat{R}\\ exceeds 1. This statistic is also called the **Gelman–Rubin statistic**; it formally assesses whether several chains have converged ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306). Software reports \\\hat{R}\\ as `psrf` or `Rhat`; [`coda::gelman.diag()`](https://rdrr.io/pkg/coda/man/gelman.diag.html) also applies a small-sample correction, so its value differs slightly from [Definition 13](#def-psrf)’s. A value of \\\hat{R}\\ near 1 does not prove convergence: chains that are all stuck in the same wrong region also agree.
 
 > **NOTE:**
 >
@@ -311,11 +311,11 @@ If the chains have all converged to the posterior, \\W\\ and \\\hat V\\ both est
 
 ### 3.1 Comparing MCMC estimates to maximum likelihood
 
-When the prior is weak and the sample is moderate or large, the posterior mean from a well-mixed chain and the [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) typically agree closely, and the posterior standard deviation is close to the frequentist [standard error](estimation.llms.md#def-SE) ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 298). As \\n\\ grows the likelihood dominates the prior, so the posterior concentrates near the maximum likelihood estimate. Comparing the two is therefore a useful check on an MCMC analysis.
+When the prior is weak and the sample is moderate or large, the posterior mean from a well-mixed chain and the [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) typically agree closely, and the posterior standard deviation is close to the frequentist [standard error](estimation.llms.md#def-SE) ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 302). As \\n\\ grows the likelihood dominates the prior, so the posterior concentrates near the maximum likelihood estimate. Comparing the two is therefore a useful check on an MCMC analysis.
 
 > **NOTE:**
 >
-> **Example 10 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat\pi = r / n\\, with estimated standard error \\\sqrt{\hat\pi(1 - \hat\pi)/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01)):
+> **Example 10 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat\pi = r / n\\, with estimated standard error \\\sqrt{\hat\pi(1 - \hat\pi)/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107):
 >
 > ``` downlit
 > r <- 55

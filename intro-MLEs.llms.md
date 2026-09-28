@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 03:12:35 (PDT)
+Last modified: 2026-09-28 03:39:25 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -217,7 +217,7 @@ In all four examples ([Exercise 3](#exr-derive-bernoulli-score), [Exercise 4](
 
 \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\
 
-This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in \\x\\; for every such family, the score with respect to the mean is \\(x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape \\k \ne 1\\, do not have this form. Exponential-family distributions share many special properties ([Hogg et al. 2015, sec. 6.7](#ref-hoggtanis2015); [Dobson and Barnett 2018, chap. 3](#ref-dobson4e)).
+This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in \\x\\; for every such family, the score with respect to the mean is \\(x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape \\k \ne 1\\, do not have this form. Exponential-family distributions share many special properties ([Hogg et al. 2019, sec. 6.7](#ref-hoggtanis2015); [Dobson and Barnett 2018, chap. 3](#ref-dobson4e)).
 
 > **NOTE:**
 >
@@ -329,7 +329,7 @@ Table 1: Notation for information matrices in several sources
 
 > **NOTE:**
 >
-> *Proof*. The proof is beyond the scope of these notes; see ([Lehmann 1999](#ref-lehmannELST), Theorem 7.3.2) and ([Newey and McFadden 1994](#ref-newey1994large)).
+> *Proof*. The proof is beyond the scope of these notes; see ([Lehmann 1999](#ref-lehmannELST), Theorem 7.5.2, p. 501) and ([Newey and McFadden 1994](#ref-newey1994large)).
 
 These conditions guarantee a consistent root of the score equation; that root is the global maximizer of the likelihood under further conditions, for example when the log-likelihood is strictly concave, as for Poisson data, whose Hessian is negative for every \\{\lambda}\\ ([Example 5](#exm-information-poisson)).
 
@@ -1903,7 +1903,7 @@ Efron, Bradley, and David V Hinkley. 1978. “Assessing the Accuracy of the Maxi
 
 Hoenig, John M., and Dennis M. Heisey. 2001. “The Abuse of Power: The Pervasive Fallacy of Power Calculations for Data Analysis.” *The American Statistician* 55 (1): 19–24. <https://doi.org/10.1198/000313001300339897>.
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2015. *Probability and Statistical Inference*. Ninth edition. Pearson.
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” *JAMA : The Journal of the American Medical Association* (Chicago, IL) 280 (7): 605–13. <https://doi.org/10.1001/jama.280.7.605>.
 
