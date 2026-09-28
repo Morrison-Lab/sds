@@ -40,7 +40,7 @@ format:
 
 ## Measures of center
 
-<!-- heading directly precedes the def-sample-mean div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-sample-mean div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-sample-mean.qmd >}}
 
@@ -58,7 +58,7 @@ format:
 
 ## Measures of spread
 
-<!-- heading directly precedes the def-sample-variance div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-sample-variance div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-sample-variance.qmd >}}
 
@@ -88,7 +88,7 @@ format:
 
 ## Binary and categorical variables
 
-<!-- heading directly precedes the def-sample-proportion div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-sample-proportion div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-sample-proportion.qmd >}}
 
@@ -109,7 +109,7 @@ Different types of graph suit different types of variable.
 
 ## Histograms
 
-<!-- heading directly precedes the def-histogram div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-histogram div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-histogram.qmd >}}
 
@@ -119,7 +119,7 @@ Different types of graph suit different types of variable.
 
 ## Density plots
 
-<!-- heading directly precedes the def-density-plot div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-density-plot div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-density-plot.qmd >}}
 
@@ -129,7 +129,7 @@ Different types of graph suit different types of variable.
 
 ## Box plots
 
-<!-- heading directly precedes the def-boxplot div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-boxplot div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-boxplot.qmd >}}
 
@@ -139,7 +139,7 @@ Different types of graph suit different types of variable.
 
 ## Bar charts
 
-<!-- heading directly precedes the def-bar-chart div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-bar-chart div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-bar-chart.qmd >}}
 
@@ -149,7 +149,7 @@ Different types of graph suit different types of variable.
 
 ## Normal quantile-quantile plots
 
-<!-- heading directly precedes the def-qq-plot div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-qq-plot div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-qq-plot.qmd >}}
 
@@ -161,7 +161,7 @@ Different types of graph suit different types of variable.
 
 ## Two continuous variables
 
-<!-- heading directly precedes the def-scatterplot div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-scatterplot div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-scatterplot.qmd >}}
 
@@ -197,7 +197,7 @@ continuous variable across the groups defined by a categorical variable
 
 ## Two categorical variables
 
-<!-- heading directly precedes the def-contingency-table div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-contingency-table div. -->
 
 {{< include sds/_subfiles/exploratory-descriptive/_def-contingency-table.qmd >}}
 

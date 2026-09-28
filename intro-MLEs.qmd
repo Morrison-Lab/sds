@@ -21,7 +21,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ## The likelihood function
 
-<!-- heading directly precedes the def-lik-obs div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-lik-obs div. -->
 
 {{< include sds/_subfiles/intro-MLEs/_def-lik-obs.qmd >}}
 
@@ -53,7 +53,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ## The maximum likelihood estimate
 
-<!-- heading directly precedes the def-mle div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-mle div. -->
 
 {{< include sds/_subfiles/intro-MLEs/_def_mle.qmd >}}
 
@@ -71,7 +71,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ## The log-likelihood function
 
-<!-- heading directly precedes the def-loglik div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-loglik div. -->
 
 {{< include sds/_subfiles/intro-MLEs/_def_loglik.qmd >}}
 
@@ -97,7 +97,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ## The score function
 
-<!-- heading directly precedes the def-score div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-score div. -->
 
 {{< include sds/_subfiles/intro-MLEs/_def_score.qmd >}}
 
@@ -125,7 +125,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ## Information matrices
 
-<!-- heading directly precedes the def-hessian div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-hessian div. -->
 
 {{< include sds/_subfiles/intro-MLEs/_def_hessian.qmd >}}
 
@@ -167,7 +167,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ## Asymptotic distribution of the maximum likelihood estimate
 
-<!-- heading directly precedes the thm-dist-mle div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the thm-dist-mle div. -->
 
 {{< include sds/_subfiles/intro-MLEs/_thm_dist_mle.qmd >}}
 
@@ -191,7 +191,7 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ### Likelihood ratio tests for MLEs {#sec-lrt-mles}
 
-<!-- heading directly precedes the thm-wilks div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the thm-wilks div. -->
 
 {{< include sds/_subfiles/intro-MLEs/_thm-wilks.qmd >}}
 

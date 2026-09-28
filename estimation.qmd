@@ -14,7 +14,7 @@ format:
 
 # Scientific models
 
-<!-- heading directly precedes the def-model div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-model div. -->
 
 {{< include sds/_subfiles/estimation/_def-model.qmd >}}
 
@@ -36,7 +36,7 @@ format:
 
 \index{estimand}
 
-<!-- heading directly precedes the def-estimand div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-estimand div. -->
 
 {{< include sds/_subfiles/estimation/_def-estimand.qmd >}}
 
@@ -50,7 +50,7 @@ format:
 
 \index{estimate} \index{estimated value}
 
-<!-- heading directly precedes the def-estimate div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-estimate div. -->
 
 {{< include sds/_subfiles/estimation/_def-estimate.qmd >}}
 
@@ -62,7 +62,7 @@ format:
 
 \index{estimator}
 
-<!-- heading directly precedes the def-estimator div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-estimator div. -->
 
 {{< include sds/_subfiles/estimation/_def-estimator.qmd >}}
 
@@ -88,7 +88,7 @@ format:
 
 ## Estimation error
 
-<!-- heading directly precedes the def-estimation-error div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-estimation-error div. -->
 
 {{< include sds/_subfiles/estimation/_def-estimation-error.qmd >}}
 
@@ -102,7 +102,7 @@ format:
 
 ## Bias
 
-<!-- heading directly precedes the def-bias div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-bias div. -->
 
 {{< include sds/_subfiles/estimation/_def-bias.qmd >}}
 
@@ -116,7 +116,7 @@ format:
 
 ## Mean squared error
 
-<!-- heading directly precedes the def-mse div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-mse div. -->
 
 {{< include sds/_subfiles/estimation/_def-mse.qmd >}}
 
@@ -134,7 +134,7 @@ format:
 
 ## Mean absolute error
 
-<!-- heading directly precedes the def-mae div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
 
 {{< include sds/_subfiles/estimation/_def-mae.qmd >}}
 
@@ -144,7 +144,7 @@ format:
 
 ## Unbiased estimators {#sec-unbiased-estimators}
 
-<!-- heading directly precedes the def-unbiased div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-unbiased div. -->
 
 {{< include sds/_subfiles/estimation/_def-unbiased.qmd >}}
 
@@ -162,7 +162,7 @@ format:
 
 ## Standard error
 
-<!-- heading directly precedes the def-SE div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-SE div. -->
 
 {{< include sds/_subfiles/estimation/_def-SE.qmd >}}
 

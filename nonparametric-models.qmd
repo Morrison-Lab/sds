@@ -16,7 +16,7 @@ format:
 
 ## Empirical CDF
 
-<!-- heading directly precedes the def-empirical-cdf div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-empirical-cdf div. -->
 
 {{< include sds/_subfiles/nonparametric-models/_def-empirical-cdf.qmd >}}
 
@@ -26,7 +26,7 @@ format:
 
 ## Order statistics
 
-<!-- heading directly precedes the def-order-statistics div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-order-statistics div. -->
 
 {{< include sds/_subfiles/nonparametric-models/_def-order-statistics.qmd >}}
 
@@ -36,7 +36,7 @@ format:
 
 ## Sample quantiles
 
-<!-- heading directly precedes the def-sample-quantile div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+<!-- No slidebreak here: the heading shares its slide with the def-sample-quantile div. -->
 
 {{< include sds/_subfiles/nonparametric-models/_def-sample-quantile.qmd >}}
 
