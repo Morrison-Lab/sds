@@ -17,25 +17,7 @@ $$
 $$
 
 JAGS has no built-in distribution for this contribution,
-so we use the **zeros trick**:
-an observed value of 0 from a Poisson distribution with mean $\phi_i$
-has probability $e^{-\phi_i}$,
-and with $\phi_i \eqdef C - \ell_i$,
-
-$$
-\ba
-e^{-\phi_i}
-&= e^{-(C - \ell_i)}
-&& \text{(definition of $\phi_i$)}\\
-&= e^{-C} e^{\ell_i}
-&& \text{(splitting the exponent)}\\
-&\propto e^{\ell_i}
-&& \text{($C$ does not depend on the parameters)},
-\ea
-$$
-
-which is observation $i$'s likelihood contribution.
-The constant $C$ only has to be large enough to keep every $\phi_i$ positive.
+so we fit it with the zeros trick.
 
 ```{r}
 #| label: jags-survival

@@ -368,6 +368,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_prose-zeros-trick.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/bayesian-inference/_exm-bayes-survival.qmd >}}
 
 # Random effects {#sec-bayes-examples-random-effects}
