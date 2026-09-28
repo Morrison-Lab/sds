@@ -84,6 +84,14 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_cor-ols-slope-r.qmd >}}
 
+::: {.callout-tip title="Video lecture"}
+Hutchinson's [Linear Regression (pt1)](https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/#linear_regression) (17 min)
+covers fitting a linear regression by least squares,
+framed as machine learning [@hutchinson_wwu_ml_videos].
+The login for the video site is posted
+[on Canvas](https://wwu.instructure.com/courses/1906010/modules#module_3922392).
+:::
+
 {{< slidebreak >}}
 
 ### Fitting a simple linear regression in R {#sec-slr-R}
