@@ -1,0 +1,20 @@
+::: {#def-chi-square-test}
+#### Pearson's chi-square test of independence
+
+Let a contingency table have $r$ rows and $c$ columns,
+with observed count $O_{ij}$ in row $i$ and column $j$,
+row totals $R_i$, column totals $C_j$, and grand total $n$.
+The **expected count** in cell $(i, j)$ under independence is
+
+$$E_{ij} \eqdef \frac{R_i \, C_j}{n}.$$
+
+**Pearson's chi-square test** of the null hypothesis
+that the row and column variables are independent
+uses the statistic
+
+$$X^2 \eqdef \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.$$
+
+Its p-value is $\Pr(W \ge X^2)$,
+where $W$ has the $\chi^2_{(r-1)(c-1)}$ distribution
+(@def-chi-square-dist).
+:::

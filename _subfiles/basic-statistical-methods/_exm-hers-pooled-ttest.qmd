@@ -1,0 +1,15 @@
+::: {#exm-hers-pooled-ttest}
+#### Pooled t-test of baseline glucose in HERS
+
+In HERS, the two groups have nearly equal sizes
+(`r length(glucose_ht)` and `r length(glucose_placebo)`)
+and nearly equal standard deviations
+(`r round(sd(glucose_ht), 1)` and `r round(sd(glucose_placebo), 1)` mg/dL),
+so the pooled test gives almost the same result as Welch's test
+in @exm-hers-ttest:
+
+```{r}
+t.test(glucose_ht, glucose_placebo, var.equal = TRUE)
+```
+
+:::

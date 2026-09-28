@@ -1,0 +1,21 @@
+::: {#exm-bootstrap-sample-toy}
+#### Bootstrap samples of five glucose values
+
+Take the baseline fasting glucose values
+of the first five HERS participants,
+and draw two bootstrap samples from them:
+
+```{r}
+glucose5 <- hers$glucose[1:5]
+glucose5
+set.seed(1)
+list(
+  sample_1 = sample(glucose5, replace = TRUE),
+  sample_2 = sample(glucose5, replace = TRUE)
+)
+```
+
+Each bootstrap sample has five values,
+but some original values appear more than once
+and others do not appear at all.
+:::

@@ -1,0 +1,12 @@
+The bootstrap [@efron1979bootstrap; @efron1993introduction]
+estimates the sampling distribution of a statistic
+by resampling the observed data.
+It gives standard errors and confidence intervals
+in three situations where the usual formulas fall short
+[@vittinghoff2e, Chapter 3]:
+
+- approximate methods for valid confidence intervals exist,
+  but standard software does not implement them conveniently;
+- no closed-form approximate method has been found;
+- the data violate the assumptions of the established methods
+  badly enough that their confidence intervals would be unreliable.

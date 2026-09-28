@@ -1,0 +1,31 @@
+::: {#def-fishers-exact}
+#### Fisher's exact test
+
+Take a $2 \times 2$ contingency table
+with cells $a$, $b$, $c$, and $d$ as in
+[the contingency table definition](exploratory-descriptive.qmd#def-contingency-table),
+and hold its row and column totals fixed.
+Under independence of the row and column variables,
+the probability that the top-left cell equals $x$ is
+the hypergeometric probability
+
+$$p(x) \eqdef \frac{\binom{a+b}{x} \binom{c+d}{a+c-x}}{\binom{n}{a+c}}.$$
+
+**Fisher's exact test** of independence has p-value
+
+$$\sum_{x \,:\, p(x) \le p(a)} p(x),$$
+
+the total probability of the tables with the same totals
+that are no more probable than the observed table.
+:::
+
+::: notes
+The p-value is exact:
+it comes from the null distribution itself,
+not from a large-sample approximation,
+so the test is valid even when expected counts are small,
+and it is often used for $2 \times 2$ tables
+in which some expected count is below 5 (@thm-chi-square-null).
+Other two-sided versions exist;
+this one is the version that R's `fisher.test()` computes.
+:::

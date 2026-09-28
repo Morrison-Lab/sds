@@ -1,0 +1,12 @@
+::: {#def-paired-t-test}
+#### Paired t-test
+
+Let $(x_{1,1}, x_{1,2}), \ldots, (x_{n,1}, x_{n,2})$
+be pairs of related measurements,
+such as the same participants measured at two times,
+and let $d_i \eqdef x_{i,2} - x_{i,1}$ be the within-pair differences,
+with population mean $\mu_d$.
+The **paired t-test** of $H_0: \mu_d = 0$ against $H_1: \mu_d \neq 0$
+is the one-sample t-test (@def-one-sample-t-test)
+of $H_0: \mu = 0$ applied to $d_1, \ldots, d_n$.
+:::

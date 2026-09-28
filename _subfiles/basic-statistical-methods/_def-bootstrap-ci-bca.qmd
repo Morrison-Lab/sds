@@ -1,0 +1,37 @@
+::: {#def-bootstrap-ci-bca}
+#### Bias-corrected and accelerated bootstrap confidence interval
+
+Let $\hat\theta_{(i)}$ be the statistic computed with observation $i$ deleted,
+and let $\hat\theta_{(\cdot)}$ be the mean of
+$\hat\theta_{(1)}, \ldots, \hat\theta_{(n)}$.
+The **bias correction** and the **acceleration** are
+
+$$
+\begin{aligned}
+\hat{z}_0 &\eqdef \Phi^{-1}\paren{\frac{\#\cb{b : \hat\theta^*_b < \hat\theta}}{B}},\\
+\hat{a} &\eqdef \frac{\sum_{i=1}^n \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^3}
+{6 \paren{\sum_{i=1}^n \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^2}^{3/2}}.
+\end{aligned}
+$$
+
+For $q \in \cb{\alpha/2, 1 - \alpha/2}$, let
+
+$$\alpha_q \eqdef \Phi\paren{\hat{z}_0 + \frac{\hat{z}_0 + z_q}{1 - \hat{a}(\hat{z}_0 + z_q)}}.$$
+
+The **bias-corrected and accelerated (BCa) bootstrap confidence interval**
+runs from the $\alpha_{\alpha/2}$ quantile
+to the $\alpha_{1 - \alpha/2}$ quantile
+of the bootstrap replicates
+[@efron1993introduction, Chapter 14].
+:::
+
+::: notes
+When $\hat{z}_0 = 0$ and $\hat{a} = 0$,
+$\alpha_q = q$ and the BCa interval is the percentile interval
+(@def-bootstrap-ci-percentile).
+$\hat{z}_0$ measures how far the bootstrap distribution's median
+sits from $\hat\theta$,
+and $\hat{a}$ measures its skewness,
+so the BCa interval shifts the percentile interval
+to correct for both.
+:::

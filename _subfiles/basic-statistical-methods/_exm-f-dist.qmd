@@ -1,0 +1,19 @@
+::: {#exm-f-dist}
+#### A squared t random variable has an F-distribution
+
+Let $T = Z / \sqrt{V/k}$ as in @def-t-dist.
+Then
+
+$$T^2 = \frac{Z^2 / 1}{V / k},$$
+
+where $Z^2$ has the $\chi^2_1$ distribution (@def-chi-square-dist)
+and is independent of $V$.
+So $T^2$ has the $F_{1, k}$ distribution (@def-f-dist),
+and the 0.95 quantile of $F_{1, k}$
+is the square of the 0.975 quantile of $t_k$:
+
+```{r}
+c(f = qf(0.95, df1 = 1, df2 = 9), t_squared = qt(0.975, df = 9)^2)
+```
+
+:::

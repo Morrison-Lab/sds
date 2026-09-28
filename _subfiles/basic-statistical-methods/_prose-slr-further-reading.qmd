@@ -1,0 +1,4 @@
+[Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html)
+covers linear regression in depth,
+including inference for the coefficients and multiple predictors.
+@vittinghoff2e cover linear regression in Chapter 4.
