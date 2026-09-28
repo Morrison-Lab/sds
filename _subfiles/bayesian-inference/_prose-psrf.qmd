@@ -1,11 +1,18 @@
 If the chains have all converged to the posterior,
-$W$ and $\hat V$ both estimate the posterior variance,
-and $\hR$ is close to 1.
+$\hat V$ estimates the posterior variance
+and $W$ approaches it as $n$ grows,
+so $\hR$ is close to 1.
 If the chains are still exploring different regions,
 the chain means differ,
 $B$ is large,
-and $\hR$ exceeds 1.
-This statistic is also called the **Gelman--Rubin statistic**;
+and $\hR$ exceeds 1
+[@gelman2013bda, Section 11.4, pp. 283-285].
+@def-psrf follows @gelman2013bda [Section 11.4, pp. 284-285],
+except that they first split each chain in half
+and compute $\hR$ over the half-chains,
+so that $\hR$ also checks each chain for stationarity
+[@gelman2013bda, Section 11.4, p. 285, footnote 2].
+The statistic $\hR$ is also called the **Gelman--Rubin statistic**;
 it formally assesses whether several chains have converged
 [@dobson4e, Chapter 13, p. 306].
 Software reports $\hR$ as `psrf` or `Rhat`;
