@@ -8,4 +8,5 @@ as for a random walk $\vth^* = \vth^{(t)} + \varepsilon$
 with $\varepsilon$ drawn from a distribution symmetric about 0,
 the second factor equals 1.
 The resulting chain is a [Markov chain](#def-markov-chain)
-whose stationary distribution is the posterior.
+whose stationary distribution is the posterior
+[@gelman2013bda, Section 11.2, pp. 279-280; @robert2004mcsm, Section 7.3.1, Theorem 7.2, p. 272].

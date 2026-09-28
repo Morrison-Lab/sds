@@ -1,10 +1,14 @@
-Under mild conditions on its transition probabilities,
-a Markov chain has a unique stationary distribution,
-the distribution of $\vth^{(t)}$ converges to it,
-and averages along the chain converge to expectations under it,
-even though successive values are correlated.
+If a Markov chain is irreducible, aperiodic and recurrent,
+it has a unique stationary distribution
+and the distribution of $\vth^{(t)}$ converges to it
+[@gelman2013bda, Section 11.2, p. 279; @robert2004mcsm, Section 6.6.1, Theorem 6.51, p. 234].
+Averages along the chain also converge to expectations under that distribution,
+even though successive values are correlated
+[@robert2004mcsm, Section 6.7.1, Theorem 6.63, p. 241;
+@robert2004mcsm, Section 7.2, p. 269].
 MCMC algorithms construct a Markov chain
-whose stationary distribution is the posterior $\p(\vth \mid \vy)$,
+whose stationary distribution is the posterior $\p(\vth \mid \vy)$
+[@gelman2013bda, Chapter 11, p. 275],
 so that [Monte Carlo estimates](#def-monte-carlo-estimate)
 can be computed from the chain's values
 in place of independent draws.
