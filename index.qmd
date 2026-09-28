@@ -38,7 +38,23 @@ organized by topic:
 
 These notes began as the statistics appendices of
 [*Regression Models for Epidemiology*](https://morrison-lab.github.io/rme/),
-and keep those chapters' file names and `#id` anchors.
+and keep those chapters' file names.
+Most results keep their rme `#id` anchors on the same page;
+the exceptions are:
+
+- the maximum likelihood practice exercises (`exr-prac-*`),
+  which moved from the estimation page to the maximum likelihood page;
+- the null and alternative hypothesis definitions,
+  which moved from basic statistical methods to statistical inference;
+- the sample statistics (mean, median, variance, standard deviation,
+  interquartile range, proportion, correlation) and the contingency table,
+  which rme defined on two pages;
+  they are now defined once, on the exploratory and descriptive methods page,
+  under the ids rme used on its basic statistical methods page
+  (such as `def-sample-mean`),
+  so rme's exploratory-descriptive ids
+  `def-mean`, `def-median`, `def-eda-variance`, `def-eda-sd`,
+  `def-quantile`, `def-iqr`, and `def-correlation` are retired.
 Where they rely on probability or calculus,
 they link to that book's
 [probability](https://morrison-lab.github.io/rme/chapters/probability.html)

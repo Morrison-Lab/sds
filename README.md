@@ -50,7 +50,8 @@ examples on the Bayesian inference page use.
 
 The notes began as the statistics appendices of [*Regression Models for
 Epidemiology*](https://github.com/Morrison-Lab/rme), and keep the file
-names and `#id` anchors of those chapters.
+names of those chapters, and most of their `#id` anchors; the home page
+lists the results that moved.
 
 The site scaffolding comes from the
 [qwt](https://github.com/UCD-SERG/qwt) Quarto website template.
