@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 03:39:25 (PDT)
+Last modified: 2026-09-28 05:16:55 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page.
 
@@ -99,7 +99,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 > #>      0.833      0.833
 > ```
 
-Under mild conditions on its transition probabilities, a Markov chain has a unique stationary distribution, the distribution of \\\tilde{\theta}^{(t)}\\ converges to it, and averages along the chain converge to expectations under it, even though successive values are correlated. MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
+Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\tilde{\theta}^{(t)}\\ converges to it ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), p. 279; [Robert and Casella 2004, sec. 6.6.1](#ref-robert2004mcsm), Theorem 6.51, p. 234). Averages along the chain also converge to expectations under that distribution, even though successive values are correlated ([Robert and Casella 2004, sec. 6.7.1](#ref-robert2004mcsm), Theorem 6.63, p. 241; [Robert and Casella 2004, sec. 7.2](#ref-robert2004mcsm), p. 269). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\ ([Gelman et al. 2013, chap. 11](#ref-gelman2013bda), p. 275), so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 
 ## 2 MCMC samplers
 
@@ -139,7 +139,7 @@ Under mild conditions on its transition probabilities, a Markov chain has a uniq
 > 2.  Compute the [acceptance ratio](#def-acceptance-ratio) \\\alpha\\.
 > 3.  With probability \\\min(1, \alpha)\\, set \\\tilde{\theta}^{(t+1)} = \tilde{\theta}^\*\\ (accept the candidate); otherwise set \\\tilde{\theta}^{(t+1)} = \tilde{\theta}^{(t)}\\ (reject it).
 
-The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\* \mid \tilde{y}) / \operatorname{p}(\tilde{\theta}^{(t)} \mid \tilde{y})\\ with the normalizing constant \\\operatorname{p}(\tilde{y})\\ canceled ([the posterior equation](bayesian-inference.llms.md#eq-bayes-posterior)), so the algorithm needs only the unnormalized posterior. When the proposal is [symmetric](#def-symmetric-proposal), as for a random walk \\\tilde{\theta}^\* = \tilde{\theta}^{(t)} + \varepsilon\\ with \\\varepsilon\\ drawn from a distribution symmetric about 0, the second factor equals 1. The resulting chain is a [Markov chain](#def-markov-chain) whose stationary distribution is the posterior.
+The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\* \mid \tilde{y}) / \operatorname{p}(\tilde{\theta}^{(t)} \mid \tilde{y})\\ with the normalizing constant \\\operatorname{p}(\tilde{y})\\ canceled ([the posterior equation](bayesian-inference.llms.md#eq-bayes-posterior)), so the algorithm needs only the unnormalized posterior. When the proposal is [symmetric](#def-symmetric-proposal), as for a random walk \\\tilde{\theta}^\* = \tilde{\theta}^{(t)} + \varepsilon\\ with \\\varepsilon\\ drawn from a distribution symmetric about 0, the second factor equals 1. Provided the proposal can reach every region where the posterior is positive, the resulting chain is a [Markov chain](#def-markov-chain) whose stationary distribution is the posterior ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), pp. 279-280; [Robert and Casella 2004, sec. 7.3.1](#ref-robert2004mcsm), Theorem 7.2, p. 272).
 
 > **NOTE:**
 >
@@ -283,7 +283,7 @@ Because MCMC draws are correlated, and a chain may take many iterations to reach
 >
 > \\ \hat{R}\stackrel{\text{def}}{=}\sqrt{\hat V / W}. \\
 
-If the chains have all converged to the posterior, \\W\\ and \\\hat V\\ both estimate the posterior variance, and \\\hat{R}\\ is close to 1. If the chains are still exploring different regions, the chain means differ, \\B\\ is large, and \\\hat{R}\\ exceeds 1. This statistic is also called the **Gelman–Rubin statistic**; it formally assesses whether several chains have converged ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306). Software reports \\\hat{R}\\ as `psrf` or `Rhat`; [`coda::gelman.diag()`](https://rdrr.io/pkg/coda/man/gelman.diag.html) also applies a small-sample correction, so its value differs slightly from [Definition 13](#def-psrf)’s. A value of \\\hat{R}\\ near 1 does not prove convergence: chains that are all stuck in the same wrong region also agree.
+If the chains have all converged to the posterior, \\\hat V\\ estimates the posterior variance and \\W\\ approaches it as \\n\\ grows, so \\\hat{R}\\ is close to 1. If the chains are still exploring different regions, the chain means differ, \\B\\ is large, and \\\hat{R}\\ exceeds 1 ([Gelman et al. 2013, sec. 11.4](#ref-gelman2013bda), pp. 283-285). [Definition 13](#def-psrf) follows Gelman et al. ([2013, sec. 11.4](#ref-gelman2013bda), pp. 284-285), except that they first split each chain in half and compute \\\hat{R}\\ over the half-chains, so that \\\hat{R}\\ also checks each chain for stationarity ([Gelman et al. 2013, sec. 11.4](#ref-gelman2013bda), p. 285, footnote 2). The statistic \\\hat{R}\\ is also called the **Gelman–Rubin statistic**; it formally assesses whether several chains have converged ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306). Software reports \\\hat{R}\\ as `psrf` or `Rhat`; [`coda::gelman.diag()`](https://rdrr.io/pkg/coda/man/gelman.diag.html) also applies a small-sample correction, so its value differs slightly from [Definition 13](#def-psrf)’s. A value of \\\hat{R}\\ near 1 does not prove convergence: chains that are all stuck in the same wrong region also agree.
 
 > **NOTE:**
 >
@@ -410,5 +410,9 @@ DIC should be used with care: it can behave poorly for models with weakly identi
 Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
 
 Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized Linear Models*. 4th ed. CRC press. <https://doi.org/10.1201/9781315182780>.
+
+Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. *Bayesian Data Analysis*. 3rd ed. Chapman & Hall/CRC Texts in Statistical Science. CRC Press. <https://doi.org/10.1201/b16018>.
+
+Robert, Christian P., and George Casella. 2004. *Monte Carlo Statistical Methods*. 2nd ed. Springer Texts in Statistics. Springer. <https://doi.org/10.1007/978-1-4757-4145-2>.
 
 Back to top
