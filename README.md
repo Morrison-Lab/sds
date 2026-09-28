@@ -43,8 +43,8 @@ quarto preview
 
 The pages run R code. Install the R packages listed in `DESCRIPTION`
 (for example, `pak::local_install_deps()`), and the
-[JAGS](https://mcmc-jags.sourceforge.io/) library, which the Bayesian
-inference page’s MCMC examples use.
+[JAGS](https://mcmc-jags.sourceforge.io/) library, which the MCMC
+examples on the Bayesian inference page use.
 
 ## Provenance
 
