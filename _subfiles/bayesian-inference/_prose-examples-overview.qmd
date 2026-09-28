@@ -1,0 +1,11 @@
+This page fits Bayesian models with the JAGS sampler,
+driven from R:
+a single proportion,
+a logistic regression,
+a survival model,
+and a random-effects model,
+and then averages over linear regression models
+[@dobson4e, Chapter 14].
+It uses the priors of the [Bayesian Inference](bayesian-inference.qmd) page
+and the sampling and convergence checks of the
+[Markov Chain Monte Carlo](mcmc.qmd) page.

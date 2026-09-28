@@ -5,7 +5,7 @@ With $r = 55$ successes in $n = 91$ trials,
 the maximum likelihood estimate is $\hat\pi = r / n$,
 with estimated standard error $\sqrt{\hat\pi(1 - \hat\pi)/n}$.
 Under the uniform prior, the posterior is $\operatorname{Beta}(r + 1, n - r + 1)$
-(@exm-beta-bernoulli),
+([the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli)),
 whose mean is $(r + 1)/(n + 2)$
 and whose standard deviation is
 $\sqrt{ab / \paren{(a + b)^2 (a + b + 1)}}$ with $a = r + 1$ and $b = n - r + 1$

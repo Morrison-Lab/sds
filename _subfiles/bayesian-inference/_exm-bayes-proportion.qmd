@@ -2,7 +2,7 @@
 #### A Bernoulli model in JAGS
 
 The data are $r = 55$ successes in $n = 91$ trials,
-and the prior is uniform, as in @exm-beta-bernoulli.
+and the prior is uniform, as in [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli).
 Each chain gets its own random-number generator seed,
 so the output is reproducible:
 
@@ -45,7 +45,7 @@ c(
 ```
 
 The posterior mean and equal-tailed 95% credible interval
-agree with the exact $\operatorname{Beta}(56, 37)$ values of @exm-beta-bernoulli
+agree with the exact $\operatorname{Beta}(56, 37)$ values of [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli)
 to about two decimal places,
-and the [potential scale reduction factor](#def-psrf) is 1.
+and the [potential scale reduction factor](mcmc.qmd#def-psrf) is 1.
 :::

@@ -1,7 +1,7 @@
 ::: {#exm-mh-bernoulli}
 #### Metropolis--Hastings for a Bernoulli model
 
-We sample the posterior of @exm-beta-bernoulli
+We sample the posterior of [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli)
 ($r = 55$ successes in $n = 91$ trials, uniform prior)
 with a Gaussian random-walk proposal $\pi^* = \pi^{(t)} + \varepsilon$,
 $\varepsilon \sim \ndist{0, 0.05^2}$.

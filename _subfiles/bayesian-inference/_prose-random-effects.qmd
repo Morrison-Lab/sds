@@ -1,4 +1,4 @@
-The [hierarchical model](#def-hierarchical-model) of @exm-two-level-normal
+The [hierarchical model](bayesian-inference.qmd#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.qmd#exm-two-level-normal)
 is the random-effects *model structure*,
 with group-level parameters $\theta_j \sim \ndist{\mu, \tau^2}$
 drawn from a common distribution.

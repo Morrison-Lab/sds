@@ -1,8 +1,8 @@
 When the posterior has a known closed form,
-as in @exm-beta-bernoulli,
+as in [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli),
 we can compute its summaries exactly or sample from it directly.
 In most real-world models, however,
-the [marginal likelihood](#def-marginal-likelihood) $\p(\vy)$ that normalizes the posterior
+the [marginal likelihood](bayesian-inference.qmd#def-marginal-likelihood) $\p(\vy)$ that normalizes the posterior
 cannot be computed,
 so neither can the posterior's summaries.
 **Markov chain Monte Carlo (MCMC)** methods get around this problem:

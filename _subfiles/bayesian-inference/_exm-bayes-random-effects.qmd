@@ -6,10 +6,10 @@ with group means drawn from $\ndist{\mu, \tau^2}$
 ($\mu = 5$, $\tau = 1.5$)
 and within-group standard deviation $\sigma = 2$.
 The priors are a diffuse $\ndist{0, 100^2}$ for $\mu$
-and [flat priors](#def-flat-prior) on $(0, 100)$
+and [flat priors](bayesian-inference.qmd#def-flat-prior) on $(0, 100)$
 for the standard deviations $\tau$ and $\sigma$.
 Being flat on the standard-deviation scale is a choice:
-as @exm-flat-prior-reparam shows for a probability,
+as [a flat prior on the log-odds](bayesian-inference.qmd#exm-flat-prior-reparam) shows for a probability,
 it is not flat on another scale, such as the variance.
 
 ```{r}
@@ -84,7 +84,7 @@ tibble::tibble(
   round(2)
 ```
 
-This is the borrowing of strength described in @sec-bayes-hierarchies:
+This is the borrowing of strength described in [distributions and hierarchies](bayesian-inference.qmd#sec-bayes-hierarchies):
 group 4, with the largest sample mean,
 is pulled furthest toward the overall mean.
 :::

@@ -56,7 +56,7 @@ cbind(
 
 Each 95% credible interval contains its coefficient's true value,
 and every $\hR$ is near 1.
-As @sec-mcmc-vs-mle leads us to expect,
+As [comparing MCMC estimates to maximum likelihood](mcmc.qmd#sec-mcmc-vs-mle) leads us to expect,
 the posterior means are close to the maximum likelihood estimates:
 
 ```{r}

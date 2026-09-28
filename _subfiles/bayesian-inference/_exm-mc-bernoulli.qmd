@@ -1,7 +1,7 @@
 ::: {#exm-mc-bernoulli}
 #### Monte Carlo posterior summaries for a Bernoulli model
 
-The posterior in @exm-beta-bernoulli is $\operatorname{Beta}(56, 37)$.
+The posterior in [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli) is $\operatorname{Beta}(56, 37)$.
 We draw $M = 5{,}000$ values from it,
 and compare Monte Carlo estimates with the exact values:
 

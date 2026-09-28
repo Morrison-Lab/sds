@@ -3,7 +3,7 @@
 
 Let $M_1, \ldots, M_K$ be candidate models
 with prior probabilities $\p(M_k)$ summing to 1,
-and let $\p(\vy \mid M_k)$ be the [marginal likelihood](#def-marginal-likelihood)
+and let $\p(\vy \mid M_k)$ be the [marginal likelihood](bayesian-inference.qmd#def-marginal-likelihood)
 of the data under model $M_k$.
 The **posterior model probabilities** are
 

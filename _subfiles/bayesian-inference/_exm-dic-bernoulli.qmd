@@ -4,7 +4,7 @@
 For $r = 55$ successes in $n = 91$ trials,
 $D(\pi) = -2\paren{r \log \pi + (n - r) \log(1 - \pi)}$.
 We estimate $\overline{D}$ and $\bar\pi$
-from 5,000 draws from the $\operatorname{Beta}(56, 37)$ posterior of @exm-beta-bernoulli:
+from 5,000 draws from the $\operatorname{Beta}(56, 37)$ posterior of [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli):
 
 ```{r}
 #| label: dic-bernoulli

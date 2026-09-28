@@ -1,0 +1,72 @@
+---
+title: "Bayesian Analyses with JAGS"
+format:
+  html: default
+  revealjs:
+    output-file: bayesian-examples-slides.html
+  pdf:
+    output-file: bayesian-examples-handout.pdf
+  docx:
+    output-file: bayesian-examples-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-examples-overview.qmd >}}
+
+## A first example: a single proportion {#sec-bayes-examples}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-jags.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-bayes-proportion.qmd >}}
+
+## Binary outcomes: logistic regression {#sec-bayes-examples-logistic}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-logistic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-bayes-logistic.qmd >}}
+
+## Survival analysis {#sec-bayes-examples-survival}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-survival.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-zeros-trick.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-bayes-survival.qmd >}}
+
+## Random effects {#sec-bayes-examples-random-effects}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-random-effects.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-bayes-random-effects.qmd >}}
+
+## Bayesian model averaging {#sec-bayes-examples-bma}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-bma.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-bma.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-pip.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-bayes-bma.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
