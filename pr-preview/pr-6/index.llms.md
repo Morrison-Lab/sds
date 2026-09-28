@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 02:30:22 (PDT)
+Last modified: 2026-09-28 02:41:50 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -32,9 +32,9 @@ Methods, illustrated with the HERS data:
 
 Bayesian:
 
-- [Bayesian inference](bayesian-inference.llms.md): the Bayesian paradigm, posteriors, priors, and hierarchical models;
+- [Bayesian inference](bayesian-inference.llms.md): the Bayesian paradigm, priors, posteriors, and hierarchical models;
 - [Markov chain Monte Carlo](mcmc.llms.md): Monte Carlo integration, the Metropolis–Hastings and Gibbs samplers, convergence diagnostics, and the deviance information criterion;
-- [Bayesian analyses with JAGS](bayesian-examples.llms.md): a proportion, logistic regression, survival, random effects, and Bayesian model averaging.
+- [Fitting models by Bayesian inference with JAGS](bayesian-examples.llms.md): a proportion, logistic regression, survival, random effects, and Bayesian model averaging.
 
 ## 2 Origin
 

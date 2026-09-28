@@ -1,20 +1,20 @@
-# Bayesian Analyses with JAGS
+# Fitting Models by Bayesian Inference with JAGS
 
 Code
 
 Published
 
-Last modified: 2026-09-28 02:36:06 (PDT)
+Last modified: 2026-09-28 02:47:00 (PDT)
 
-This page fits Bayesian models with the JAGS sampler, driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
+This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
 ## 1 A first example: a single proportion
 
-From here on, the models are fit with JAGS (“Just Another Gibbs Sampler”), a program that builds an MCMC sampler from a text description of a model ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)), driven from R through the `rjags` package. We begin with the simplest possible model, a single Bernoulli probability, whose exact posterior is known from [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), so the output can be checked. The example shows the mechanics that every later analysis reuses: specifying a model, supplying data, running a burn-in, monitoring parameters, and summarizing and checking the draws. In JAGS, `dnorm(mean, precision)` is parameterized by the precision, the reciprocal of the variance.
+From here on, the models are fit by Bayesian inference with JAGS (“Just Another Gibbs Sampler”), a program that builds an MCMC sampler from a text description of a model ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)), driven from R through the `rjags` package. We begin with the simplest possible model, a single Bernoulli probability, whose exact posterior is known from [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), so the output can be checked. The example shows the mechanics that every later analysis reuses: specifying a model, supplying data, running a burn-in, monitoring parameters, and summarizing and checking the draws. In JAGS, `dnorm(mean, precision)` is parameterized by the precision, the reciprocal of the variance.
 
 > **NOTE:**
 >
-> **Example 1 (A Bernoulli model in JAGS)** The data are \\r = 55\\ successes in \\n = 91\\ trials, and the prior is uniform, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli). Each chain gets its own random-number generator seed, so the output is reproducible:
+> **Example 1 (A Bernoulli model fitted with JAGS)** The data are \\r = 55\\ successes in \\n = 91\\ trials, and the prior is uniform, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli). Each chain gets its own random-number generator seed, so the output is reproducible:
 >
 > ``` downlit
 > y <- rep(c(1L, 0L), times = c(55L, 36L))
@@ -63,7 +63,7 @@ For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operat
 
 > **NOTE:**
 >
-> **Example 2 (Bayesian logistic regression)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta_0 = -0.5\\ and slope \\\beta_1 = 1.2\\, and place a diffuse \\\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The model also monitors the odds ratio \\e^{\beta_1}\\ for a one-unit increase in \\x\\.
+> **Example 2 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta_0 = -0.5\\ and slope \\\beta_1 = 1.2\\, and place a diffuse \\\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta_1}\\ for a one-unit increase in \\x\\.
 >
 > ``` downlit
 > set.seed(2024)
@@ -125,7 +125,7 @@ For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operat
 
 ## 3 Survival analysis
 
-Parametric survival models, such as those with exponential or Weibull event times, admit a Bayesian treatment: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 330). Censoring enters through the likelihood, exactly as in the frequentist [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
+Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 330). Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
 
 When a model’s log-likelihood contribution \\\ell_i\\ for observation \\i\\ is not one of the distributions built into JAGS, the *zeros trick* supplies it. An observed value of 0 from a Poisson distribution with mean \\\phi_i\\ has probability \\e^{-\phi_i}\\, and with \\\phi_i \stackrel{\text{def}}{=}C - \ell_i\\ for a constant \\C\\,
 
@@ -135,7 +135,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 > **NOTE:**
 >
-> **Example 3 (Bayesian exponential survival regression)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i = \operatorname{exp}\mathopen{}\left\\\beta_0 + \beta_1 x_i\right\\\mathclose{}\\, where the log baseline hazard is \\\beta_0 = \log 0.05\\ and the log hazard ratio is \\\beta_1 = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_i e^{-{\lambda}\_i t}\\ and its survival function is \\e^{-{\lambda}\_i t}\\, so observation \\i\\ contributes the log-likelihood
+> **Example 3 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i = \operatorname{exp}\mathopen{}\left\\\beta_0 + \beta_1 x_i\right\\\mathclose{}\\, where the log baseline hazard is \\\beta_0 = \log 0.05\\ and the log hazard ratio is \\\beta_1 = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_i e^{-{\lambda}\_i t}\\ and its survival function is \\e^{-{\lambda}\_i t}\\, so observation \\i\\ contributes the log-likelihood
 >
 > \\ \ell_i \stackrel{\text{def}}{=}\delta_i \log {\lambda}\_i - {\lambda}\_i t_i. \\
 >
@@ -219,7 +219,7 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 
 > **NOTE:**
 >
-> **Example 4 (A Bayesian random-intercept model)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ (\\\mu = 5\\, \\\tau = 1.5\\) and within-group standard deviation \\\sigma = 2\\. The priors are a diffuse \\\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
+> **Example 4 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ (\\\mu = 5\\, \\\tau = 1.5\\) and within-group standard deviation \\\sigma = 2\\. The priors are a diffuse \\\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
 >
 > ``` downlit
 > set.seed(2025)

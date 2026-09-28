@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 02:36:06 (PDT)
+Last modified: 2026-09-28 02:47:00 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page.
 
@@ -348,7 +348,7 @@ Common remedies include *centering* predictors (subtracting their means), so tha
 
 ## 4 Deviance information criterion
 
-To compare Bayesian models fit to the same data, we need a measure that balances goodness of fit against complexity, as [Akaike’s information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-aic) does for models fit by maximum likelihood. The standard criterion computed from MCMC output is the deviance information criterion ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306).
+To compare models fit to the same data by Bayesian inference, we need a measure that balances goodness of fit against complexity, as [Akaike’s information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-aic) does for models fit by maximum likelihood. The standard criterion computed from MCMC output is the deviance information criterion ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306).
 
 > **NOTE:**
 >

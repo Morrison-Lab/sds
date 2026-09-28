@@ -11,7 +11,7 @@
 - [Comparing Proportions](https://morrison-lab.github.io/sds/categorical-tests.llms.md)
 - [Bayesian Inference](https://morrison-lab.github.io/sds/bayesian-inference.llms.md)
 - [Comparing Means](https://morrison-lab.github.io/sds/basic-statistical-methods.llms.md)
-- [Bayesian Analyses with JAGS](https://morrison-lab.github.io/sds/bayesian-examples.llms.md)
+- [Fitting Models by Bayesian Inference with JAGS](https://morrison-lab.github.io/sds/bayesian-examples.llms.md)
 - [The Bootstrap](https://morrison-lab.github.io/sds/bootstrap.llms.md)
 - [Correlation and Simple Linear Regression](https://morrison-lab.github.io/sds/correlation-regression.llms.md)
 - [Exploratory Data Analysis](https://morrison-lab.github.io/sds/exploratory-descriptive.llms.md)
