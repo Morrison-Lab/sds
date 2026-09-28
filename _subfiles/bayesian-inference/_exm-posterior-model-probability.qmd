@@ -1,0 +1,9 @@
+::: {#exm-posterior-model-probability}
+#### Posterior probabilities of two models
+
+Two models with equal prior probabilities $\p(M_1) = \p(M_2) = 0.5$
+and marginal likelihoods $\p(\vy \mid M_1) = 0.02$ and $\p(\vy \mid M_2) = 0.06$
+have posterior probabilities
+$\p(M_1 \mid \vy) = 0.01 / (0.01 + 0.03) = 0.25$
+and $\p(M_2 \mid \vy) = 0.75$.
+:::

@@ -56,6 +56,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_def-posterior-model-probability.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-posterior-model-probability.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/bayesian-inference/_def-bma.qmd >}}
 
 {{< slidebreak >}}

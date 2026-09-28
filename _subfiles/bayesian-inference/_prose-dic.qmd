@@ -18,7 +18,7 @@ The term $D(\bar{\vth})$ rewards fit,
 while $p_D$ penalizes complexity:
 it measures how much the deviance is reduced, on average,
 by letting the parameters adapt to the data.
-As with Akaike's criterion, **lower DIC is better**,
+As with Akaike's criterion, lower DIC is better,
 and only differences in DIC between models fit to the same data are meaningful
 [@dobson4e, Chapter 13, p. 306].
 Both $\overline{D}$ and $\bar{\vth}$ are [Monte Carlo estimates](#def-monte-carlo-estimate)

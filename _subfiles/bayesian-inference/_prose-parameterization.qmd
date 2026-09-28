@@ -7,10 +7,10 @@ that updates one component at a time,
 because each update can move only a short way along a narrow, tilted ridge,
 as @exm-gibbs-bivariate-normal shows with $\rho = 0.99$.
 
-Common remedies include **centering** predictors
+Common remedies include *centering* predictors
 (subtracting their means),
 so that the intercept and slopes are less correlated,
-and **reparameterizing** variance components
+and *reparameterizing* variance components
 on a scale on which the posterior is more nearly symmetric.
 These changes leave the model,
 and so the scientific conclusions, unchanged;

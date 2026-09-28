@@ -5,8 +5,8 @@ In most real-world models, however,
 the [marginal likelihood](bayesian-inference.qmd#def-marginal-likelihood) $\p(\vy)$ that normalizes the posterior
 cannot be computed,
 so neither can the posterior's summaries.
-**Markov chain Monte Carlo (MCMC)** methods get around this problem:
+Markov chain Monte Carlo methods get around this problem:
 instead of independent draws from the posterior,
-they generate a *correlated* sequence of draws
+they generate a correlated sequence of draws
 whose distribution converges to the posterior
 [@dobson4e, Chapter 13, p. 287].

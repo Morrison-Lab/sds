@@ -7,7 +7,7 @@ satisfying regularity conditions
 an identifiable parameter,
 a true parameter value in the interior of the parameter space,
 and a positive definite information matrix),
-a consistent solution $\hthml$ of the score equation exists,
+a consistent solution $\hthml$ of the [score equation](#def-score-equation) exists,
 and for large $n$ it has approximately a Gaussian distribution,
 centered at the true parameter value $\vth$,
 with covariance matrix equal to the inverse of the expected information:

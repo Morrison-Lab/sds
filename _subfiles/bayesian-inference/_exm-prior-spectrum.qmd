@@ -5,14 +5,14 @@ Let $\beta$ be the log odds ratio of disease for exposed versus unexposed people
 so the odds ratio is $e^\beta$,
 and $\beta$ can be any real number.
 
-- **Informative**: a previous study estimated the odds ratio as 1.5,
+- [Informative](#def-informative-prior): a previous study estimated the odds ratio as 1.5,
   with a standard error of 0.2 for its logarithm,
   so an analyst adopts the prior $\beta \sim \ndist{\log 1.5,\; 0.2^2}$.
-- **Weakly informative**: an analyst with no previous study,
+- [Weakly informative](#def-weakly-informative-prior): an analyst with no previous study,
   who nonetheless regards odds ratios above 100 as implausible,
   adopts $\beta \sim \ndist{0,\; 2.5^2}$.
-- **Flat**: $\p(\beta) \propto 1$ on the whole real line.
-  This prior is **improper**,
+- [Flat](#def-flat-prior): $\p(\beta) \propto 1$ on the whole real line.
+  This prior is [improper](#def-improper-prior),
   since $\int_{-\infty}^{\infty} 1 \, d\beta = \infty$;
   it gives an odds ratio of $10^6$ the same density as an odds ratio of $1$.
 

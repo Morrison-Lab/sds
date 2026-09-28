@@ -3,8 +3,7 @@ $\p(\vth^* \mid \vy) / \p(\vth^{(t)} \mid \vy)$
 with the normalizing constant $\p(\vy)$ canceled
 ([the posterior equation](bayesian-inference.qmd#eq-bayes-posterior)),
 so the algorithm needs only the unnormalized posterior.
-When the proposal is symmetric,
-$q(\vth^* \mid \vth) = q(\vth \mid \vth^*)$,
+When the proposal is [symmetric](#def-symmetric-proposal),
 as for a random walk $\vth^* = \vth^{(t)} + \varepsilon$
 with $\varepsilon$ drawn from a distribution symmetric about 0,
 the second factor equals 1.

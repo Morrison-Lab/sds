@@ -33,7 +33,7 @@ $$
 
 which is proportional to the $\operatorname{Beta}(a + r,\; b + n - r)$ density.
 So the Beta family is conjugate to the Bernoulli likelihood.
-The prior parameters $a$ and $b$ act as **pseudo-counts**
+The prior parameters $a$ and $b$ act as *pseudo-counts*
 of prior successes and failures:
 the posterior adds the $r$ observed successes and $n - r$ observed failures to them.
 

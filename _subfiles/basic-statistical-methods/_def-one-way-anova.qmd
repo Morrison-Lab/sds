@@ -1,33 +1,21 @@
 ::: {#def-one-way-anova}
 #### One-way analysis of variance
 
-Let $y_{j1}, \ldots, y_{jn_j}$ be the $n_j$ observations in group $j$,
-for $k \ge 2$ groups with $n \eqdef \sum_{j=1}^k n_j > k$ observations in all.
-Let $\bar{y}_j$ be the sample mean of group $j$
-and $\bar{y}$ the sample mean of all $n$ observations.
-The **between-group** and **within-group sums of squares** are
-
-$$
-\begin{aligned}
-\text{SS}_\text{between} &\eqdef \sum_{j=1}^k n_j (\bar{y}_j - \bar{y})^2,\\
-\text{SS}_\text{within} &\eqdef \sum_{j=1}^k \sum_{i=1}^{n_j} (y_{ji} - \bar{y}_j)^2.
-\end{aligned}
-$$
-
-The **one-way analysis of variance (ANOVA)** F-test of
+With the [mean squares](#def-mean-squares) of $k \ge 2$ groups
+and $n > k$ observations in all,
+the **one-way analysis of variance (ANOVA)** F-test of
 $H_0: \mu_1 = \mu_2 = \cdots = \mu_k$
 against the alternative that at least two group means differ
 uses the statistic
 
-$$F \eqdef \frac{\text{SS}_\text{between} / (k - 1)}{\text{SS}_\text{within} / (n - k)}.$$
+$$F \eqdef \frac{\text{MS}_\text{between}}{\text{MS}_\text{within}}.$$
 
 Its p-value is $\Pr(F^* \ge F)$,
 where $F^*$ has the $F_{k-1,\, n-k}$ distribution ([F-distribution](inference.qmd#def-f-dist)).
 :::
 
 ::: notes
-The numerator and denominator of $F$ are called the between-group
-and within-group **mean squares**.
 Large values of $F$ mean that the group means are spread out
 more than the variation within groups would explain.
+For the groups of @exm-mean-squares, $F = 13.5 / 1 = 13.5$.
 :::

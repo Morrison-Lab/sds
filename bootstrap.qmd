@@ -82,7 +82,23 @@ format:
 
 #### Bias-corrected and accelerated method {#sec-bootstrap-bca}
 
-<!-- No slidebreak here: the heading shares its slide with the def-bootstrap-ci-bca div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-bca-bias-correction div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bca-bias-correction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bca-bias-correction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bca-acceleration.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bca-acceleration.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_def-bootstrap-ci-bca.qmd >}}
 

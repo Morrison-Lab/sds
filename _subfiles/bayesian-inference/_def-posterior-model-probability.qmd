@@ -1,0 +1,15 @@
+::: {#def-posterior-model-probability}
+#### Posterior model probability
+
+Let $M_1, \ldots, M_K$ be candidate models
+with prior probabilities $\p(M_k)$ summing to 1,
+and let $\p(\vy \mid M_k)$ be the [marginal likelihood](bayesian-inference.qmd#def-marginal-likelihood)
+of the data under model $M_k$.
+The **posterior model probability** of $M_k$ is
+
+$$
+\p(M_k \mid \vy) \eqdef
+\frac{\p(\vy \mid M_k)\, \p(M_k)}{\sum_{l=1}^K \p(\vy \mid M_l)\, \p(M_l)}.
+$$
+
+:::

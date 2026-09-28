@@ -1,13 +1,8 @@
 ::: {#def-chi-square-test}
 #### Pearson's chi-square test of independence
 
-Let a contingency table have $r$ rows and $c$ columns,
-with observed count $O_{ij}$ in row $i$ and column $j$,
-row totals $R_i$, column totals $C_j$, and grand total $n$.
-The **expected count** in cell $(i, j)$ under independence is
-
-$$E_{ij} \eqdef \frac{R_i \, C_j}{n}.$$
-
+With observed counts $O_{ij}$ and [expected counts](#def-expected-count) $E_{ij}$
+in an $r \times c$ contingency table,
 **Pearson's chi-square test** of the null hypothesis
 that the row and column variables are independent
 uses the statistic

@@ -1,13 +1,8 @@
 ::: {#def-ols}
 #### Ordinary least squares
 
-For data $(x_1, y_1), \ldots, (x_n, y_n)$,
-the **residual sum of squares** of a candidate line
-with intercept $b_0$ and slope $b_1$ is
-
-$$\text{RSS}(b_0, b_1) \eqdef \sum_{i=1}^n (y_i - b_0 - b_1 x_i)^2.$$
-
 The **ordinary least squares (OLS) estimates**
 $\hat\beta_0$ and $\hat\beta_1$
-are the values of $b_0$ and $b_1$ that minimize $\text{RSS}(b_0, b_1)$.
+are the values of $b_0$ and $b_1$ that minimize the
+[residual sum of squares](#def-rss) $\text{RSS}(b_0, b_1)$.
 :::

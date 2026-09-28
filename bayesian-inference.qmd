@@ -20,6 +20,18 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_def-frequentist-paradigm.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-bayesian-paradigm.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-paradigms.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/bayesian-inference/_def-prior.qmd >}}
 
 {{< slidebreak >}}
@@ -79,6 +91,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-equal-tailed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-equal-tailed-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-equal-tailed-interval.qmd >}}
 
 {{< slidebreak >}}
 

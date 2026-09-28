@@ -5,7 +5,7 @@ with that proposal the acceptance ratio is always 1,
 so every draw is accepted
 [@dobson4e, Chapter 13, p. 300].
 It needs a way to draw from each full conditional.
-**JAGS** ("Just Another Gibbs Sampler")
+JAGS ("Just Another Gibbs Sampler")
 builds a Gibbs sampler from a model's description,
 choosing a sampling method for each full conditional
 [@dobson4e, Chapter 13].

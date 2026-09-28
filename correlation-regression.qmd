@@ -62,7 +62,15 @@ format:
 
 ### Ordinary least squares estimation {#sec-ols}
 
-<!-- No slidebreak here: the heading shares its slide with the def-ols div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-rss div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-rss.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-rss.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_def-ols.qmd >}}
 
@@ -88,7 +96,15 @@ format:
 
 ### The coefficient of determination {#sec-r-squared}
 
-<!-- No slidebreak here: the heading shares its slide with the def-r-squared div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-tss div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-tss.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-tss.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_def-r-squared.qmd >}}
 

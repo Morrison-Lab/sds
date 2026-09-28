@@ -1,0 +1,13 @@
+::: {#exm-mcmc}
+#### A sequence that converges to the standard Gaussian
+
+Let $\theta^{(t+1)} = 0.5\,\theta^{(t)} + \varepsilon_t$,
+with $\varepsilon_t \siid \ndist{0, 0.75}$ independent of the past.
+Each draw depends on the previous one.
+If $\theta^{(t)}$ has mean $m_t$ and variance $v_t$,
+then $m_{t+1} = 0.5\, m_t$ and $v_{t+1} = 0.25\, v_t + 0.75$,
+so from any starting value $m_t \to 0$ and $v_t \to 1$:
+the draws' distribution converges to $\ndist{0, 1}$.
+This sequence is an MCMC method for sampling the standard Gaussian distribution;
+its draws are correlated, unlike independent draws.
+:::

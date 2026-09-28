@@ -1,0 +1,10 @@
+::: {#def-frequentist-paradigm}
+#### Frequentist paradigm
+
+In the **frequentist** paradigm of statistical inference,
+an unknown parameter $\theta$ is a fixed constant,
+probability describes long-run frequencies over repetitions
+of the data-generating process,
+and uncertainty about $\theta$ is quantified by the sampling distribution
+of an estimator $\hth$.
+:::

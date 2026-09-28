@@ -14,13 +14,14 @@ $$
 $$
 
 Substituting the maximizer $\mu = \bar x$,
-which does not depend on $\sigma^2$
-(a technique called profiling), gives:
+which does not depend on $\sigma^2$,
+maximizes the [profile log-likelihood](#def-profile-loglik)
+of @exm-profile-loglik, and gives:
 
 $$\hat{\sigma}^2_{\text{ML}} = \frac{1}{n}\sum_{i=1}^n (x_i - \bar x)^2$$
 
-The profile log-likelihood
-$\ell(\bar x, \sigma^2) = -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2} - \frac{n\hat\sigma^2_{\text{ML}}}{2\sigma^2}$
+The profile log-likelihood,
+$\ell_p(\sigma^2) = -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2} - \frac{n\hat\sigma^2_{\text{ML}}}{2\sigma^2}$,
 increases for $\sigma^2 < \hat\sigma^2_{\text{ML}}$
 and decreases for $\sigma^2 > \hat\sigma^2_{\text{ML}}$,
 because its derivative, $\frac{n}{2}\paren{\sigma^2}^{-2}\paren{\hat\sigma^2_{\text{ML}} - \sigma^2}$,

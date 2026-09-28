@@ -139,6 +139,14 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_def-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
 ### Information matrices
 
 <!-- No slidebreak here: the heading shares its slide with the def-hessian div. -->
@@ -280,6 +288,14 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 {{< slidebreak >}}
 
 ### MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}
+
+{{< include sds/_subfiles/intro-MLEs/_def-profile-loglik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-profile-loglik.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
 

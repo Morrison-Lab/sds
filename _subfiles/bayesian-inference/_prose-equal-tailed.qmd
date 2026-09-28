@@ -1,8 +1,6 @@
 In a credible interval, the data are fixed at their observed values
 and $\theta$ is random,
 so the probability statement is about $\theta$ directly.
-Many intervals have posterior probability $1 - \alpha$.
-The usual choice, and the one used on this page,
-is the **equal-tailed** interval,
-whose endpoints are the $\alpha/2$ and $1 - \alpha/2$ quantiles
-of the posterior distribution.
+Many intervals have posterior probability $1 - \alpha$;
+the usual choice, and the one used on this page,
+is the equal-tailed interval.

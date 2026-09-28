@@ -1,4 +1,4 @@
-From here on, the models are fit with **JAGS**
+From here on, the models are fit with JAGS
 ("Just Another Gibbs Sampler"),
 a program that builds an MCMC sampler from a text description of a model
 [@dobson4e, Chapter 13],

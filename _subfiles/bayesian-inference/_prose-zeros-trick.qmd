@@ -1,6 +1,6 @@
 When a model's log-likelihood contribution $\ell_i$ for observation $i$
 is not one of the distributions built into JAGS,
-the **zeros trick** supplies it.
+the *zeros trick* supplies it.
 An observed value of 0 from a Poisson distribution with mean $\phi_i$
 has probability $e^{-\phi_i}$,
 and with $\phi_i \eqdef C - \ell_i$ for a constant $C$,

@@ -1,4 +1,4 @@
-The middle level lets the groups **borrow strength** from one another:
+The middle level lets the groups *borrow strength* from one another:
 the posterior for each $\theta_j$ is pulled toward the overall mean $\mu$,
 by an amount that depends on the between-group standard deviation $\tau$,
 which the data themselves inform

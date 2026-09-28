@@ -20,6 +20,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_def-mcmc.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-mcmc.qmd >}}
+
+{{< slidebreak >}}
+
 ### Why the normalizing constant is hard to compute
 
 {{< include sds/_subfiles/bayesian-inference/_prose-normalizing-constant.qmd >}}
@@ -64,7 +72,27 @@ format:
 
 ### The Metropolis--Hastings algorithm
 
-<!-- No slidebreak here: the heading shares its slide with the def-mh div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-proposal-distribution div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_def-proposal-distribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-symmetric-proposal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-proposal-distribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-acceptance-ratio.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-acceptance-ratio.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_def-mh.qmd >}}
 

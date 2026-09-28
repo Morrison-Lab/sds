@@ -1,0 +1,8 @@
+::: {#def-bayesian-paradigm}
+#### Bayesian paradigm
+
+In the **Bayesian** paradigm of statistical inference,
+an unknown parameter $\theta$ is a random variable with its own probability distribution,
+and probability measures degree of belief
+[@dobson4e, Chapter 12, p. 271].
+:::

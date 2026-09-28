@@ -1,20 +1,9 @@
 ::: {#def-bootstrap-ci-bca}
 #### Bias-corrected and accelerated bootstrap confidence interval
 
-Let $\hat\theta_{(i)}$ be the statistic computed with observation $i$ deleted,
-and let $\hat\theta_{(\cdot)}$ be the mean of
-$\hat\theta_{(1)}, \ldots, \hat\theta_{(n)}$.
-The **bias correction** and the **acceleration** are
-
-$$
-\begin{aligned}
-\hat{z}_0 &\eqdef \Phi^{-1}\paren{\frac{\#\cb{b : \hat\theta^*_b < \hat\theta}}{B}},\\
-\hat{a} &\eqdef \frac{\sum_{i=1}^n \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^3}
-{6 \paren{\sum_{i=1}^n \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^2}^{3/2}}.
-\end{aligned}
-$$
-
-For $q \in \cb{\alpha/2, 1 - \alpha/2}$, let
+With the [bias correction](#def-bca-bias-correction) $\hat z_0$
+and the [acceleration](#def-bca-acceleration) $\hat a$,
+for $q \in \cb{\alpha/2, 1 - \alpha/2}$, let
 
 $$\alpha_q \eqdef \Phi\paren{\hat{z}_0 + \frac{\hat{z}_0 + z_q}{1 - \hat{a}(\hat{z}_0 + z_q)}}.$$
 

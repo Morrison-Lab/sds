@@ -1,12 +1,9 @@
 ::: {#def-pooled-t-test}
 #### Pooled two-sample t-test
 
-With the notation of @def-two-sample-t-test,
-the **pooled variance** is
-
-$$s_p^2 \eqdef \frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2},$$
-
-and the **pooled two-sample t-test** of $H_0: \mu_1 = \mu_2$
+With the notation of @def-two-sample-t-test
+and the [pooled variance](#def-pooled-variance) $s_p^2$,
+the **pooled two-sample t-test** of $H_0: \mu_1 = \mu_2$
 uses the statistic
 
 $$t_p \eqdef \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}}.$$

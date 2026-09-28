@@ -1,0 +1,7 @@
+::: {#exm-expected-count}
+#### Expected count in a 2 x 2 table
+
+In a table with $n = 100$, first-row total $R_1 = 30$,
+and first-column total $C_1 = 40$,
+the expected count in cell $(1, 1)$ is $E_{11} = 30 \cdot 40 / 100 = 12$.
+:::

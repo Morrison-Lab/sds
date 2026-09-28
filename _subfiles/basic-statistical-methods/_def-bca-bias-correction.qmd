@@ -1,0 +1,11 @@
+::: {#def-bca-bias-correction}
+#### Bias correction of the BCa interval
+
+For a statistic $\hat\theta$ and its bootstrap replicates
+$\hat\theta^*_1, \ldots, \hat\theta^*_B$,
+the **bias correction** is
+
+$$\hat{z}_0 \eqdef \Phi^{-1}\paren{\frac{\#\cb{b : \hat\theta^*_b < \hat\theta}}{B}},$$
+
+where $\Phi$ is the standard Gaussian CDF.
+:::

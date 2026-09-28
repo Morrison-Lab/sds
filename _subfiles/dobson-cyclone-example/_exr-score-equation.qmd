@@ -1,7 +1,7 @@
 :::{#exr-score-equation}
 #### Score equation
 
-Write the score equation (also called the estimating equation).
+Write the [score equation](#def-score-equation).
 :::
 
 {{< slidebreak >}}

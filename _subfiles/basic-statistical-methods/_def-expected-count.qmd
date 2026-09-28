@@ -1,0 +1,11 @@
+::: {#def-expected-count}
+#### Expected count under independence
+
+Let a contingency table have $r$ rows and $c$ columns,
+with observed count $O_{ij}$ in row $i$ and column $j$,
+row totals $R_i$, column totals $C_j$, and grand total $n$.
+The **expected count** in cell $(i, j)$ under independence is
+
+$$E_{ij} \eqdef \frac{R_i \, C_j}{n}.$$
+
+:::

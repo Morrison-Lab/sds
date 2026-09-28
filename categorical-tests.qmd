@@ -30,7 +30,15 @@ format:
 
 ### The chi-square test {#sec-chi-square}
 
-<!-- No slidebreak here: the heading shares its slide with the def-chi-square-test div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-expected-count div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-expected-count.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-expected-count.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_def-chi-square-test.qmd >}}
 

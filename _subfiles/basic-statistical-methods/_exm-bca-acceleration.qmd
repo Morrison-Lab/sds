@@ -1,0 +1,10 @@
+::: {#exm-bca-acceleration}
+#### Acceleration from three deleted estimates
+
+If the differences $\hat\theta_{(\cdot)} - \hat\theta_{(i)}$ are $1$, $1$, and $-2$,
+the sum of their cubes is $1 + 1 - 8 = -6$
+and the sum of their squares is $6$, so
+
+$$\hat a = \frac{-6}{6 \cdot 6^{3/2}} \approx -0.068.$$
+
+:::

@@ -1,0 +1,18 @@
+::: {#exm-ss-within}
+#### Within-group sum of squares of two small groups
+
+For the groups of @exm-ss-between:
+
+$$
+\begin{aligned}
+\text{SS}_\text{within}
+&= \sb{(1-2)^2 + (2-2)^2 + (3-2)^2} + \sb{(4-5)^2 + (5-5)^2 + (6-5)^2}
+&& \text{(definition)}\\
+&= 2 + 2
+&& \text{(arithmetic)}\\
+&= 4
+&& \text{(arithmetic)}
+\end{aligned}
+$$
+
+:::

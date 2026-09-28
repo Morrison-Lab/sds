@@ -1,13 +1,2 @@
 The [estimation](estimation.qmd) and [inference](inference.qmd) pages
-treat an unknown parameter $\theta$ as a fixed but unknown constant,
-and quantify uncertainty using the sampling distribution of an estimator $\hth$:
-the distribution of $\hth$ over hypothetical repetitions
-of the data-generating process.
-This stance is the **frequentist** paradigm:
-probability describes long-run frequencies,
-and a parameter, being a constant, has no probability distribution.
-
-The **Bayesian** paradigm instead treats the unknown parameter as a random variable,
-with its own probability distribution
-[@dobson4e, Chapter 12, p. 271].
-Probability here measures degree of belief.
+take the frequentist view of parameters.

@@ -1,0 +1,7 @@
+::: {#def-equal-tailed-interval}
+#### Equal-tailed credible interval
+
+The $100(1-\alpha)\%$ **equal-tailed credible interval** for $\theta$
+runs from the $\alpha/2$ quantile to the $1 - \alpha/2$ quantile
+of the posterior distribution of $\theta$.
+:::
