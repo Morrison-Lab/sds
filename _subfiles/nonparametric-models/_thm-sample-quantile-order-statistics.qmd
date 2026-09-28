@@ -3,8 +3,7 @@
 
 If $x_{(1)} \le \cdots \le x_{(n)}$ are the [order statistics](#def-order-statistics)
 and $i \in \cb{1, \ldots, n}$,
-then $\hat Q(p) = x_{(i)}$ for every $p \in \paren{(i-1)/n, i/n}$
-and for $p = i/n$.
+then $\hat Q(p) = x_{(i)}$ for every $p$ with $(i-1)/n < p \le i/n$.
 In particular, $\hat Q(i/n) = x_{(i)}$.
 :::
 
