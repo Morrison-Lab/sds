@@ -31,25 +31,46 @@ website:
   repo-url: https://github.com/Morrison-Lab/sds
   repo-actions: [edit, issue, source]
   navbar:
-    left:
-      - text: "Nonparametric"
-        href: nonparametric-models.qmd
-      - text: "Exploratory"
-        href: exploratory-descriptive.qmd
-      - text: "Estimation"
-        href: estimation.qmd
-      - text: "Inference"
-        href: inference.qmd
-      - text: "MLE"
-        href: intro-MLEs.qmd
-      - text: "Bayesian"
-        href: bayesian-inference.qmd
-      - text: "Basic Methods"
-        href: basic-statistical-methods.qmd
     right:
       - icon: github
         href: https://github.com/Morrison-Lab/sds
         aria-label: GitHub
+  sidebar:
+    style: docked
+    search: false
+    contents:
+      - section: "Describing Data"
+        contents:
+          - text: "Nonparametric Models"
+            href: nonparametric-models.qmd
+          - text: "Exploratory Data Analysis"
+            href: exploratory-descriptive.qmd
+      - section: "Inference"
+        contents:
+          - text: "Estimation"
+            href: estimation.qmd
+          - text: "Statistical Inference"
+            href: inference.qmd
+          - text: "Maximum Likelihood"
+            href: intro-MLEs.qmd
+      - section: "Bayesian"
+        contents:
+          - text: "Bayesian Inference"
+            href: bayesian-inference.qmd
+          - text: "Markov Chain Monte Carlo"
+            href: mcmc.qmd
+          - text: "Bayesian Analyses with JAGS"
+            href: bayesian-examples.qmd
+      - section: "Methods"
+        contents:
+          - text: "Comparing Means"
+            href: basic-statistical-methods.qmd
+          - text: "Comparing Proportions"
+            href: categorical-tests.qmd
+          - text: "Correlation & Regression"
+            href: correlation-regression.qmd
+          - text: "The Bootstrap"
+            href: bootstrap.qmd
 
 callouty-theorem:
   thm:
