@@ -25,6 +25,10 @@ jobs:
       (github.event.action != 'labeled' && github.event.action != 'unlabeled') ||
       contains(fromJson('["revealjs","pdf","docx","no-preview-highlights","clear-freezer"]'), github.event.label.name)
     runs-on: ubuntu-latest
+    # Defense in depth alongside the algorithmic fix in
+    # highlight-html-changes.py (Morrison-Lab/mds#7): fail fast instead of
+    # burning an hour of CI if a future page still hits a pathological case.
+    timeout-minutes: 15
     permissions:
       contents: write
       pull-requests: write

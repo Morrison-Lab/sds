@@ -40,19 +40,34 @@ class HTMLDiffer:
             print(f"  Could not read {base_path}: {e}", file=sys.stderr)
             return None
     
-    def extract_main_content(self, html):
-        """Extract the main content section from HTML, ignoring navigation and metadata."""
-        # Find the main content area (typically in <main> or specific div)
+    def _find_main_content_span(self, html):
+        """Return (start, end) offsets of the main content section within
+        html, or None if no <main>/content-div wrapper was found (in which
+        case the whole string is the content). Sharing this with
+        extract_main_content() means a caller that needs to splice a
+        replacement back into html can do so at the exact offset the match
+        was found at, rather than re-locating the extracted text with a
+        second, independent string search -- which can find the wrong
+        occurrence if the exact text recurs earlier in the document (e.g. a
+        duplicated intro sentence, or a nested div matching the same
+        fallback pattern)."""
         main_match = re.search(r'<main[^>]*>(.*?)</main>', html, re.DOTALL)
         if main_match:
-            return main_match.group(1)
-        
-        # Fallback: look for common content containers
+            return main_match.start(1), main_match.end(1)
+
         content_match = re.search(r'<div[^>]*class="[^"]*content[^"]*"[^>]*>(.*?)</div>', html, re.DOTALL)
         if content_match:
-            return content_match.group(1)
-        
-        return html
+            return content_match.start(1), content_match.end(1)
+
+        return None
+
+    def extract_main_content(self, html):
+        """Extract the main content section from HTML, ignoring navigation and metadata."""
+        span = self._find_main_content_span(html)
+        if span is None:
+            return html
+        start, end = span
+        return html[start:end]
     
     def normalize_html(self, html):
         """Normalize HTML for better comparison (remove extra whitespace, etc.)."""
@@ -203,104 +218,149 @@ class HTMLDiffer:
         """Find and highlight changed paragraphs and sections in the HTML."""
         if not old_html:
             return new_html, 0
-        
+
         # Constants for similarity matching
         SIMILARITY_THRESHOLD_MIN = 0.5  # Minimum similarity to consider elements related
         SIMILARITY_THRESHOLD_MAX = 0.99  # Maximum similarity to still highlight differences
-        
-        # Extract main content for both versions
+        # Above this many candidate elements, the pairwise SequenceMatcher
+        # comparison below (O(n_old * n_new), each comparison itself
+        # O(len(text))) gets too expensive to run in CI. A long,
+        # definition/theorem-dense page can carry thousands of <p>/<li>
+        # elements, so this guards against a multi-hour hang: skip
+        # element-level highlighting for such pages rather than block the
+        # workflow (see Morrison-Lab/mds#7).
+        MAX_ELEMENTS_FOR_PAIRWISE = 500
+
+        # Extract main content for both versions. new_content's span within
+        # new_html is captured explicitly (not re-derived later) so the
+        # final splice below can use the exact offset rather than
+        # re-locating new_content as a string -- see the note there.
         old_content = self.extract_main_content(old_html)
-        new_content = self.extract_main_content(new_html)
-        
+        new_span = self._find_main_content_span(new_html)
+        new_content = new_html if new_span is None else new_html[new_span[0]:new_span[1]]
+
         # Define element types to compare
         COMPARABLE_ELEMENTS = 'p|h[1-6]|li|blockquote'
         element_pattern = f'(<(?:{COMPARABLE_ELEMENTS})[^>]*>.*?</(?:{COMPARABLE_ELEMENTS})>)'
-        
-        old_elements = re.findall(element_pattern, old_content, re.DOTALL)
-        new_elements = re.findall(element_pattern, new_content, re.DOTALL)
-        
+
+        # Use finditer (not findall) so we keep each element's position in
+        # new_content -- that lets us splice all replacements into the
+        # output in a single pass below, instead of re-scanning the whole
+        # (growing) HTML string once per changed element.
+        old_matches = list(re.finditer(element_pattern, old_content, re.DOTALL))
+        new_matches = list(re.finditer(element_pattern, new_content, re.DOTALL))
+
         # Create a list of (text, element) tuples to handle duplicates
         old_elem_list = []
-        for elem in old_elements:
+        for m in old_matches:
+            elem = m.group(1)
             text = self.extract_text_from_element(elem)
             if text:  # Only store non-empty elements
                 old_elem_list.append((text, elem))
-        
+
+        if len(old_elem_list) > MAX_ELEMENTS_FOR_PAIRWISE or len(new_matches) > MAX_ELEMENTS_FOR_PAIRWISE:
+            print(
+                f"  Skipping element-level diff highlighting: "
+                f"{len(old_elem_list)} old / {len(new_matches)} new candidate "
+                f"elements exceeds the {MAX_ELEMENTS_FOR_PAIRWISE}-element cap",
+                file=sys.stderr,
+            )
+            return new_html, 0
+
         # Track which old elements have been matched to avoid reuse
         used_old_indices = set()
-        
-        # Process each new element and check if it changed
-        highlighted_new_html = new_html
+
+        # Collect (start, end, replacement) in new_content coordinates
+        # instead of mutating the HTML string on every iteration.
+        replacements = []
         changes_made = 0
-        
-        for new_elem in new_elements:
+
+        for m in new_matches:
+            new_elem = m.group(1)
             new_text = self.extract_text_from_element(new_elem)
             if not new_text:
                 continue
-            
+
             # Try to find a matching old element
             best_match_idx = None
             best_ratio = 0.0
-            
+
             for idx, (old_text, old_elem) in enumerate(old_elem_list):
                 if idx in used_old_indices:
                     continue  # Already matched this element
-                    
+
                 ratio = difflib.SequenceMatcher(None, old_text, new_text).ratio()
                 if ratio > best_ratio:
                     best_ratio = ratio
                     best_match_idx = idx
-            
+
             # If we found a similar element and it's not identical, highlight the differences
             if best_match_idx is not None and best_ratio > SIMILARITY_THRESHOLD_MIN and best_ratio < SIMILARITY_THRESHOLD_MAX:
                 used_old_indices.add(best_match_idx)
                 old_text, old_elem = old_elem_list[best_match_idx]
-                
+
                 # Extract the inner text from the new element
                 tag_match = re.match(r'(<[^>]+>)(.*)(</[^>]+>)', new_elem, re.DOTALL)
                 if tag_match:
                     open_tag, inner_content, close_tag = tag_match.groups()
-                    
+
                     # Get the old element's inner content
                     old_tag_match = re.match(r'(<[^>]+>)(.*)(</[^>]+>)', old_elem, re.DOTALL)
                     old_inner_content = old_tag_match.group(2) if old_tag_match else ""
-                    
+
                     # Highlight the differences using inner HTML (preserves formatting)
                     highlighted_inner = self.highlight_html_diff(old_inner_content, inner_content)
-                    
+
                     # Reconstruct the element with highlighting
                     highlighted_elem = f'{open_tag}{highlighted_inner}{close_tag}'
-                    
-                    # Replace in the HTML - use a unique marker to ensure we replace the right instance
-                    # We escape the element for regex safety
-                    escaped_elem = re.escape(new_elem)
-                    highlighted_new_html = re.sub(
-                        escaped_elem,
-                        lambda _: highlighted_elem,
-                        highlighted_new_html,
-                        count=1
-                    )
+
+                    replacements.append((m.start(), m.end(), highlighted_elem))
                     changes_made += 1
-            
+
             elif (best_match_idx is None or best_ratio < SIMILARITY_THRESHOLD_MIN) and new_text:
                 # This is a completely new element - highlight the whole thing
                 tag_match = re.match(r'(<[^>]+>)(.*)(</[^>]+>)', new_elem, re.DOTALL)
                 if tag_match:
                     open_tag, inner_content, close_tag = tag_match.groups()
-                    
+
                     # Mark the entire element as new, but preserve the inner HTML
                     highlighted_elem = f'{open_tag}<mark class="preview-element-added">{inner_content}</mark>{close_tag}'
-                    
-                    # Replace in the HTML using regex with escaping
-                    escaped_elem = re.escape(new_elem)
-                    highlighted_new_html = re.sub(
-                        escaped_elem,
-                        lambda _: highlighted_elem,
-                        highlighted_new_html,
-                        count=1
-                    )
+
+                    replacements.append((m.start(), m.end(), highlighted_elem))
                     changes_made += 1
-        
+
+        if not replacements:
+            return new_html, 0
+
+        # Splice every replacement into new_content in a single left-to-right
+        # pass (spans came from finditer over new_content, so they're
+        # already non-overlapping and in document order) instead of the
+        # previous per-element re.sub(..., highlighted_new_html, count=1),
+        # which re-scanned the whole (growing) HTML string once per changed
+        # element -- effectively O(n_changes * len(html)) on a long page.
+        pieces = []
+        cursor = 0
+        for start, end, replacement in replacements:
+            pieces.append(new_content[cursor:start])
+            pieces.append(replacement)
+            cursor = end
+        pieces.append(new_content[cursor:])
+        highlighted_content = ''.join(pieces)
+
+        # Splice highlighted_content back into new_html at the exact offset
+        # new_span identified, rather than re-locating new_content as a
+        # string with new_html.replace(new_content, highlighted_content, 1).
+        # That string-search approach could silently patch the wrong spot if
+        # the extracted content recurs verbatim earlier in new_html (e.g.
+        # inside a <script type="application/ld+json"> block, or a nested
+        # div matching the same fallback content-class pattern) -- an
+        # offset-based splice can't be ambiguous this way.
+        if new_span is None:
+            highlighted_new_html = highlighted_content
+        else:
+            start, end = new_span
+            highlighted_new_html = new_html[:start] + highlighted_content + new_html[end:]
+
         return highlighted_new_html, changes_made
     
     def find_changed_sections(self, old_html, new_html):
