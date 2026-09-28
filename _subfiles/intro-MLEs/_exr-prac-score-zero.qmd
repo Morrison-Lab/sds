@@ -1,5 +1,3 @@
-{{< include latex-macros/macros.qmd >}}
-
 ::: {#exr-prac-score-zero}
 #### Score at the MLE (adapted from @dobson4e, Chapter 3)
 
@@ -91,7 +89,6 @@ we are at a "flat" point.
 Intuitively,
 $\hat\rate_{ML} = \bar{x}$ is the value of $\rate$ that makes
 the expected count per observation ($\rate$) exactly equal to
-the observed average count ($\bar{x}$),
-the best possible match between model and data.
+the observed average count ($\bar{x}$).
 
 :::

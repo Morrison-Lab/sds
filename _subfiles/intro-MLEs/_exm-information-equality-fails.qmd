@@ -1,0 +1,13 @@
+:::{#exm-information-equality-fails}
+#### When the support depends on the parameter
+
+Let $X_1, \ldots, X_n \siid \text{Uniform}(0, \th)$.
+The likelihood is $\Lik(\th) = \th^{-n}$ for $\th \ge \max_i x_i$
+(and 0 otherwise),
+so on that range $\llik(\th) = -n \log \th$
+and $\score(\th) = -n/\th$.
+The score is a nonzero constant,
+so $\E{\score} = -n/\th \ne 0$:
+@eq-score-mean-zero fails,
+because the set of possible data values, $(0, \th)$, depends on $\th$.
+:::

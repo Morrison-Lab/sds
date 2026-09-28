@@ -1,0 +1,23 @@
+:::{#exr-graph-mle}
+#### Graphing the MLE
+
+Graph the log-likelihood with the MLE superimposed.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+::: {#fig-cyclone-llik-mle}
+
+```{r}
+mle_data <- tibble::tibble(x = mle, y = loglik(mle))
+ll_plot +
+  ggplot2::geom_point(data = mle_data, ggplot2::aes(x = x, y = y), col = "red")
+```
+
+Log-likelihood of the cyclone data, with the MLE marked in red
+
+:::
+
+::::

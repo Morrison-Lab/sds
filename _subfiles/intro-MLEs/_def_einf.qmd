@@ -1,14 +1,14 @@
 :::{#def-einf}
-#### Expected information/Fisher information
+#### Expected information
 
-The **expected information matrix**, 
-also known as the **Fisher information matrix**,
-is denoted $\einf$
-and is defined as 
-the expected value of the observed information matrix:
+The **expected information matrix**,
+also called the **Fisher information matrix**
+or just the **information matrix**,
+is written $\einf$,
+and is the expected value of the
+[observed information matrix](#def-oinf),
+with the data $\vX$ treated as random:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_einf.qmd >}}
+
 :::
-
-
-

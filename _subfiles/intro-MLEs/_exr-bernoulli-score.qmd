@@ -1,45 +1,41 @@
-{{< include latex-macros/macros.qmd >}}
-
 :::{#exr-derive-bernoulli-score}
+#### Score function of a Bernoulli variable
+
 Derive the score function for a single Bernoulli random variable $X$.
-In other words, differentiate the marginal log-likelihood of 
-a single Bernoulli random variable $X$ 
-with respect to the event probability parameter, $\pi$.
+In other words, differentiate the log-likelihood of
+a single Bernoulli random variable $X$
+with respect to the event probability parameter $\pi$.
 Simplify as much as possible.
 
 :::
 
----
+{{< slidebreak >}}
 
 :::{#sol-derive-bernoulli-score}
 
-Starting from @sol-bernoulli-loglik-one-group:
+With $n = 1$, @sol-bernoulli-loglik-one-group gives
+$\loglik = x \logf{\pi} + (1 - x) \logf{1 - \pi}$, so:
 
 $$
-\ba
-\score 
+\begin{aligned}
+\score
 &\eqdef \deriv{\pi} \loglik
-\\
-&= \deriv{\pi} \paren{x \logf{\pi} + (1-x) \logf{1-\pi}}
-\\
-&= \deriv{\pi} x \logf{\pi} +  \deriv{\pi} (1-x) \logf{1-\pi}
-\\
-&= x \deriv{\pi} \logf{\pi} +  (1-x) \deriv{\pi} \logf{1-\pi}
-\\
-&= x \frac{1}{\pi} - (1-x) \frac{1}{1-\pi}
-\\
-&= x \frac{1-\pi}{\pi(1-\pi)} - (1-x) \frac{\pi}{\pi(1-\pi)}
-\\
-&= \frac{x(1-\pi) - (1-x)\pi}{\pi(1-\pi)}
-\\
-&= \frac{x-x\pi - \pi+x\pi}{\pi(1-\pi)}
-\\
-&= \frac{x-\pi}{\pi(1-\pi)}
-\\
-&= \frac{x-\mu}{\pi(1-\pi)}
-\\
+&& \text{(definition of the score)}\\
+&= \deriv{\pi} \paren{x \logf{\pi} + (1 - x) \logf{1 - \pi}}
+&& \text{(Bernoulli log-likelihood)}\\
+&= x \deriv{\pi} \logf{\pi} + (1 - x) \deriv{\pi} \logf{1 - \pi}
+&& \text{(linearity of differentiation)}\\
+&= x \frac{1}{\pi} - (1 - x) \frac{1}{1 - \pi}
+&& \text{(derivative of log; chain rule)}\\
+&= \frac{x(1 - \pi) - (1 - x)\pi}{\pi(1 - \pi)}
+&& \text{(common denominator)}\\
+&= \frac{x - x\pi - \pi + x\pi}{\pi(1 - \pi)}
+&& \text{(expand the numerator)}\\
+&= \frac{x - \pi}{\pi(1 - \pi)}
+&& \text{(cancel $x\pi$)}\\
 &= \scoreexpf
-\ea
+&& \text{($\E{X} = \pi$ and $\Var{X} = \pi(1 - \pi)$)}
+\end{aligned}
 $$
 
 :::

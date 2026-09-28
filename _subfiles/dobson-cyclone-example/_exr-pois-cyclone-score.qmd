@@ -1,26 +1,32 @@
 ::: {#exr-cyclone-score-fn}
+#### Score function of the dataset
 
-Derive the score function for the dataset.
+Derive the [score function](intro-MLEs.qmd#def-score) for the dataset.
 
 :::
 
----
+{{< slidebreak >}}
 
 ::::{.solution}
 
-The score function is the first derivative of the log-likelihood:
+The score function is the first derivative of the log-likelihood
+from @exr-sample-llik:
 
 $$
 \begin{aligned}
-\ell'( \lambda; \vec x ) &=
-\deriv{\lambda}\paren{\sum_{i = 1}^nx_i\log{\lambda} - n\lambda - \sum_{i = 1}^n\log{x_i!}}\\
-&= \deriv{\lambda}\sum_{i = 1}^nx_i\log{\lambda} - \deriv{\lambda}n\lambda - \deriv{\lambda}\sum_{i = 1}^n\log{x_i!}\\
-&= \sum_{i = 1}^nx_i\deriv{\lambda}\log{\lambda} - n\deriv{\lambda}\lambda - \sum_{i = 1}^n\deriv{\lambda}\log{x_i!}\\
-&= \sum_{i = 1}^nx_i\frac{1}{\lambda} - n - 0\\
-&= \frac{1}{\lambda} \sum_{i = 1}^nx_i- n
-\\&= \paren{\frac{1}{\lambda} n \xbar} - n
-\\&= \paren{\frac{1}{\lambda} `r sumx`} - `r n`
+\ell'(\lambda; \vx)
+&\eqdef \deriv{\lambda}\paren{\paren{\sum_{i = 1}^n x_i}\logf{\lambda} - n\lambda - \sum_{i = 1}^n \logf{x_i!}}
+&& \text{(definition of the score)}\\
+&= \paren{\sum_{i = 1}^n x_i}\deriv{\lambda}\logf{\lambda} - n\deriv{\lambda}\lambda - \deriv{\lambda}\sum_{i = 1}^n \logf{x_i!}
+&& \text{(linearity of differentiation)}\\
+&= \paren{\sum_{i = 1}^n x_i}\frac{1}{\lambda} - n - 0
+&& \text{(derivatives of $\log \lambda$, $\lambda$, and a constant)}\\
+&= \frac{n \bar x}{\lambda} - n
+&& \text{($\textstyle\sum_{i=1}^n x_i = n \bar x$)}
 \end{aligned}
 $$
+
+For the cyclone data, $n = `r n`$ and $n \bar x = `r sumx`$,
+so $\ell'(\lambda; \vx) = `r sumx`/\lambda - `r n`$.
 
 ::::

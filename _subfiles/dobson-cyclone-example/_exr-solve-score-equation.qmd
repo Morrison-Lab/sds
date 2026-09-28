@@ -1,0 +1,28 @@
+:::{#exr-solve-score-equation}
+#### Solving the score equation
+
+Solve the score equation from @exr-score-equation for $\lambda$, using the score from @exr-cyclone-score-fn.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+$$
+\begin{aligned}
+0 &= \frac{n \bar x}{\lambda} - n
+&& \text{(score of the dataset)}\\
+n &= \frac{n \bar x}{\lambda}
+&& \text{(add $n$ to both sides)}\\
+n\lambda &= n \bar x
+&& \text{(multiply both sides by $\lambda > 0$)}\\
+\lambda &= \bar x
+&& \text{(divide both sides by $n$)}
+\end{aligned}
+$$
+
+::::
+
+Call this solution of the score equation $\tilde \lambda$ for now:
+
+$$\tilde \lambda \eqdef \bar x$$

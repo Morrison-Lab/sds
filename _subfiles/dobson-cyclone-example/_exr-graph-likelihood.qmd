@@ -1,0 +1,32 @@
+::: {#exr-graph-likelihood}
+#### Graphing the likelihood
+
+Graph the likelihood as a function of $\lambda$.
+:::
+
+{{< slidebreak >}}
+
+:::: {.solution}
+
+::: {#fig-cyclone-lik}
+
+```{r}
+lik <- function(lambda, y = cyclones$number, n = length(y)) {
+  lambda^sum(y) * exp(-n * lambda) / prod(factorial(y))
+}
+
+lik_plot <-
+  ggplot2::ggplot() +
+  ggplot2::geom_function(fun = lik, n = 1001) +
+  ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+  ggplot2::ylab("likelihood") +
+  ggplot2::xlab("lambda")
+
+print(lik_plot)
+```
+
+Likelihood of the cyclone data
+
+:::
+
+::::

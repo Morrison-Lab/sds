@@ -1,0 +1,15 @@
+:::{#exm-dist-mle-poisson}
+#### Approximate distribution of the Poisson MLE
+
+For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+setting the score $\sum_{i=1}^n X_i/\rate - n$ (@exm-information-equality)
+to zero gives $\hat\rate_{\text{ML}} = \bar X$,
+and $\einf(\rate) = n/\rate$ (@exm-information-poisson),
+so @thm-dist-mle says that for large $n$:
+
+$$\hat\rate_{\text{ML}} \dsim \ndist{\rate, \frac{\rate}{n}}$$
+
+In this example the mean and variance are exact:
+$\E{\bar X} = \rate$ and $\Var{\bar X} = \rate/n$.
+The approximation is in the Gaussian shape.
+:::

@@ -2,21 +2,26 @@
 
 #### Log-likelihood of an independent sample
 
-For mutually independent data $X_1, ..., X_n$ 
-with shared distribution $\p(X=x)$:
+For mutually independent data $X_1, \ldots, X_n$:
 
-$$\ell(x|\theta) = \sum_{i=1}^n \log{p(X=x_i|\theta)}$$ {#eq-loglik-ind}
+$$\ell(\theta) = \sum_{i=1}^n \log{\p(X_i = x_i \mid \theta)}$$ {#eq-loglik-ind}
+
+If the $X_i$ also share a common distribution $\p(X = x \mid \theta)$,
+each term is $\log{\p(X = x_i \mid \theta)}$.
 :::
-
----
 
 :::{.proof}
 $$
-\ba
-\ell(x|\theta) 
-&\eqdef \log{\Lik(\vec x|\theta)}
-\\&= \log{\prod_{i=1}^n \p(X_i=x_i|\theta)}
-\\&= \sum_{i=1}^n \log{p(X=x_i|\theta)}
-\ea
+\begin{aligned}
+\ell(\theta)
+&\eqdef \log{\Lik(\theta)}
+&& \text{(definition of log-likelihood)}\\
+&= \log{\prod_{i=1}^n \p(X_i = x_i \mid \theta)}
+&& \text{(likelihood of an independent sample)}\\
+&= \sum_{i=1}^n \log{\p(X_i = x_i \mid \theta)}
+&& \text{(log of a product is a sum of logs)}
+\end{aligned}
 $$
+
+With a common distribution, $\p(X_i = x_i \mid \theta) = \p(X = x_i \mid \theta)$.
 :::

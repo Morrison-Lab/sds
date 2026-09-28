@@ -1,0 +1,29 @@
+By the [Gaussian MLEs](#sec-gaussian-mle),
+$\hat\mu_{\text{ML}} = \bar x$ and $\hat\sigma^2_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2$:
+
+```{r}
+mu_hat <- mean(glucose_data)
+sigma_sq_hat <- mean((glucose_data - mu_hat)^2)
+sigma_hat <- sqrt(sigma_sq_hat)
+c(mu_hat = mu_hat, sigma_sq_hat = sigma_sq_hat)
+```
+
+@fig-hers-fitted superimposes the fitted Gaussian density on the histogram.
+
+::: {#fig-hers-fitted}
+
+```{r}
+plot1 +
+  ggplot2::geom_function(
+    fun = function(x) dnorm(x, mean = mu_hat, sd = sigma_hat),
+    col = "red"
+  )
+```
+
+Fasting glucose, with the fitted Gaussian density in red
+
+:::
+
+The fitted curve follows the overall shape of the histogram,
+but it underestimates the frequency of values between 110 and 122 mg/dL,
+consistent with the histogram's longer right tail.

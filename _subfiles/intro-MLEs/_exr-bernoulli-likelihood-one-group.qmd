@@ -1,0 +1,42 @@
+:::{#exr-bernoulli-likelihood-one-group}
+#### Likelihood of binary outcomes with one event probability
+
+A binary outcome $Y$ with event probability $\pi$ has
+
+$$
+\begin{aligned}
+\Pr(Y = 1) &= \pi\\
+\Pr(Y = 0) &= 1 - \pi\\
+\Pr(Y = y) &= \pi^y (1 - \pi)^{1 - y}, \quad y \in \cb{0, 1}.
+\end{aligned}
+$$
+
+Let $\vy \eqdef (y_1, \ldots, y_n)$ be a dataset of
+mutually independent binary outcomes,
+all with the same event probability $\pi$:
+$Y_i \simind \Ber(\pi)$.
+Write the likelihood of $\vy$.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-likelihood-one-group}
+
+$$
+\begin{aligned}
+\Lik(\pi; \vy)
+&= \prod_{i=1}^n \Lik_i(\pi)
+&& \text{(product of likelihood components)}\\
+&= \prod_{i=1}^n \Pr(Y_i = y_i)
+&& \text{(definition of likelihood components)}\\
+&= \prodin \pi^{y_i} (1 - \pi)^{1 - y_i}
+&& \text{(Bernoulli PMF)}\\
+&= \pi^{\sumin y_i} (1 - \pi)^{\sumin (1 - y_i)}
+&& \text{(product of powers of a common base)}\\
+&= \pi^{\sumin y_i} (1 - \pi)^{n - \sumin y_i}
+&& \text{($\textstyle\sumin 1 = n$)}
+\end{aligned}
+$$
+
+:::

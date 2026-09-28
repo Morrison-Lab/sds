@@ -1,0 +1,22 @@
+:::{#exr-poisson-likelihood}
+#### Likelihood of one observation
+
+Write down the [likelihood](intro-MLEs.qmd#def-lik-obs)
+of a single observation $x$, according to the Poisson model.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+$$
+\begin{aligned}
+\Lik(\lambda; x)
+&\eqdef \Pr(X = x)
+&& \text{(definition of likelihood)}\\
+&= \frac{\lambda^x e^{-\lambda}}{x!}
+&& \text{(Poisson PMF)}
+\end{aligned}
+$$
+
+::::

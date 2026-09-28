@@ -1,34 +1,32 @@
-{{< include latex-macros/macros.qmd >}}
-
 ::: {#exr-exp-score-fn}
+#### Score function of an exponential variable
 
 Derive the score function for a single exponential random variable $X$,
 with respect to the mean parameter $\pmean$.
 
 :::
 
----
+{{< slidebreak >}}
 
 ::::{#sol-exp-score-fn}
 
-The score function is the first derivative of the log-likelihood:
+The exponential density with mean $\pmean$ is
+$\p(X = x) = \pmean^{-1} e^{-x/\pmean}$ for $x > 0$,
+so $\loglik = \llexpmean$, and:
 
 $$
 \begin{aligned}
-\score &\eqdef
-\deriv{\pmean}\loglik
-\\
-&=\deriv{\pmean}\paren{\llexpmean}
-\\
-&=\deriv{\pmean}\paren{-\logf{\pmean}} -\deriv{\pmean} \frac{x}{\pmean}
-\\
-&=-\frac{1}{\pmean} + \frac{x}{\pmean^2}
-\\
-&=-\frac{\pmean}{\pmean^2} + \frac{x}{\pmean^2}
-\\
-&=\frac{x - \pmean}{\pmean^2}
-\\
+\score
+&\eqdef \deriv{\pmean}\loglik
+&& \text{(definition of the score)}\\
+&= \deriv{\pmean}\paren{-\logf{\pmean}} - \deriv{\pmean} \frac{x}{\pmean}
+&& \text{(exponential log-likelihood; linearity)}\\
+&= -\frac{1}{\pmean} + \frac{x}{\pmean^2}
+&& \text{(derivatives of $\log \pmean$ and $\pmean^{-1}$)}\\
+&= \frac{x - \pmean}{\pmean^2}
+&& \text{(common denominator)}\\
 &= \scoreexpf
+&& \text{($\E{X} = \pmean$ and $\Var{X} = \pmean^2$)}
 \end{aligned}
 $$
 

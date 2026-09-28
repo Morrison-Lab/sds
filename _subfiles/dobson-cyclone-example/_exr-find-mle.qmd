@@ -1,0 +1,26 @@
+::: {#exr-find-mle}
+#### Identifying the MLE
+
+Draw conclusions about the MLE of $\lambda$.
+:::
+
+{{< slidebreak >}}
+
+:::: {.solution}
+
+Since $\ell''(\tilde \lambda; \vx) < 0$,
+$\tilde \lambda$ is a local maximizer of the log-likelihood.
+Moreover, $\ell''(\lambda; \vx) = -n\bar x/\lambda^2 < 0$ for every $\lambda > 0$,
+so the log-likelihood is strictly concave,
+and a local maximizer of a strictly concave function
+is its unique global maximizer.
+So $\tilde \lambda$ maximizes $\ell$, and therefore $\Lik$:
+
+```{r}
+#| label: calc-mle
+mle <- mean(cyclones$number)
+```
+
+$$\hat{\lambda}_{\text{ML}} = \bar x = `r round(mle, 3)`$$
+
+::::

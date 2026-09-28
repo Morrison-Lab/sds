@@ -1,0 +1,19 @@
+:::{#thm-mle-use-log}
+#### Maximize the log-likelihood instead of the likelihood
+
+If $\Lik(\th) > 0$ for every $\th$,
+the likelihood and log-likelihood have the same maximizers:
+
+$$
+\am_\th \Lik(\th) = \am_\th \lik(\th)
+$$
+:::
+
+::: proof
+The natural logarithm is strictly increasing on $(0, \infty)$,
+so for any $\th_1$ and $\th_2$,
+$\Lik(\th_1) \ge \Lik(\th_2)$ if and only if $\log \Lik(\th_1) \ge \log \Lik(\th_2)$,
+that is, $\lik(\th_1) \ge \lik(\th_2)$.
+So $\th^*$ satisfies $\Lik(\th^*) \ge \Lik(\th)$ for every $\th$
+if and only if it satisfies $\lik(\th^*) \ge \lik(\th)$ for every $\th$.
+:::

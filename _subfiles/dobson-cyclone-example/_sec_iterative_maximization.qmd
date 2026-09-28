@@ -1,82 +1,83 @@
-### Iterative maximization {#sec-newton-raphson}
-
-(c.f., @dobson4e, Chapter 4)
-
-::: notes
-Later,
-when we are trying to find MLEs for likelihoods which we can't easily differentiate,
-we will "hill-climb" using the Newton-Raphson algorithm:
-:::
+When we cannot solve the score equation $\score(\th) = 0$ algebraically,
+we can search for its solution numerically [@dobson4e, Chapter 4].
+The **Newton-Raphson algorithm** starts from an initial guess $\esttmp{\th}$
+and repeats the update
 
 $$
 \begin{aligned}
-\esttmp{\theta}
-&\leftarrow \esttmp{\theta} + \inv{\oinff{\vec y;\esttmp{\theta}}}
-\scoref{\vec y;\esttmp{\theta}}
-\\ &= \esttmp{\theta} - \inv{\hessf{\vec y;\esttmp{\theta}}}
-\scoref{\vec y;\esttmp{\theta}}
+\esttmp{\th}
+&\leftarrow \esttmp{\th} - \inv{\hessf{\vx; \esttmp{\th}}} \scoref{\vx; \esttmp{\th}}\\
+&= \esttmp{\th} + \inv{\oinff{\vx; \esttmp{\th}}} \scoref{\vx; \esttmp{\th}}
 \end{aligned}
 $$
 
----
+until the estimate stops changing,
+where the second line uses $\oinf = -\hess$
+([observed information](#def-oinf)).
 
-::: notes
-The reasoning for this algorithm is that
-we can approximate the score function near $\esttmp{\theta}$
-using the first-order [Taylor polynomial](https://en.wikipedia.org/wiki/Taylor%27s_theorem):
-:::
+{{< slidebreak >}}
+
+The update comes from approximating the score function near $\esttmp{\th}$
+by its first-order
+[Taylor polynomial](https://en.wikipedia.org/wiki/Taylor%27s_theorem):
 
 $$
-\ba
+\begin{aligned}
 \score(\th)
-&\approx \score^*(\th)
-\\ &\eqdef \score(\esttmp{\th}) + \hessian(\esttmp{\th})(\th - \esttmp{\th})
-\ea
+&\approx \score^*(\th)\\
+&\eqdef \score(\esttmp{\th}) + \hess(\esttmp{\th})(\th - \esttmp{\th})
+\end{aligned}
 $$
 
----
-
-::: notes
-The approximate score function, $\score^*(\th)$, is a linear function of $\th$, so it is easy to solve the corresponding approximate score equation, $\score^*(\th) = 0$, for $\th$:
-
-:::
+The approximate score function $\score^*(\th)$ is linear in $\th$,
+so the approximate score equation $\score^*(\th) = 0$
+is easy to solve:
 
 $$
-\ba
-\th
-&= \esttmp{\th} - \score(\esttmp{\th}) \cd \inv{\hessian(\esttmp{\th})}
-\ea
+\begin{aligned}
+0 &= \score(\esttmp{\th}) + \hess(\esttmp{\th})(\th - \esttmp{\th})
+&& \text{(set $\score^*(\th) = 0$)}\\
+-\score(\esttmp{\th}) &= \hess(\esttmp{\th})(\th - \esttmp{\th})
+&& \text{(subtract $\score(\esttmp{\th})$)}\\
+-\inv{\hess(\esttmp{\th})}\score(\esttmp{\th}) &= \th - \esttmp{\th}
+&& \text{(multiply by $\inv{\hess(\esttmp{\th})}$ on the left)}\\
+\th &= \esttmp{\th} - \inv{\hess(\esttmp{\th})}\score(\esttmp{\th})
+&& \text{(add $\esttmp{\th}$)}
+\end{aligned}
 $$
 
----
+and the solution becomes the next guess.
 
-For computational simplicity, we will sometimes use
-$\mathfrak{I}^{- 1}(\theta)$ in place of
-$I\left( \widehat{\theta},y \right)$;
-doing so is called "Fisher scoring" or the "method of scoring".
-Note: 
-this substitution is the opposite of 
-the substitution that we are making for estimating the variance of the MLE;
-this time we should technically use the observed information 
-but we use the expected information instead.
+{{< slidebreak >}}
+
+**Fisher scoring** (also called the method of scoring)
+replaces the observed information $\oinf(\vx; \esttmp{\th})$ in the update
+with the [expected information](#def-einf) $\einf(\esttmp{\th})$,
+which is sometimes simpler to compute:
+
+$$
+\esttmp{\th} \leftarrow \esttmp{\th} + \inv{\einff{\esttmp{\th}}} \scoref{\vx; \esttmp{\th}}
+$$
 
 
----
+{{< slidebreak >}}
 
-There's also an "empirical information matrix" (see @mclachlan2007em):
+A third option is the **empirical information matrix**
+[@mclachlan2007em]:
 
-$$I_{e}(\theta,y) \eqdef \sum_{i = 1}^{n}{\ell_{i}'\ {\ell_{i}'}^{\top}} - \frac{1}{n}\ell'{\ell'}^{\top}$$
+$$
+\oinf_e(\th; \vx) \eqdef
+\sum_{i = 1}^{n} \score_i \tp{\score_i}
+- \frac{1}{n} \score \tp{\score}
+$$
 
-where $\ell_{i}$ is the log-likelihood of the ith observation.
-Note that $\ell' = \sum_{i = 1}^{n}\ell_{i}'$.
-
-$\frac{1}{n}I_{e}(\theta,y)$ is the sample equivalent of
-
-$$\mathfrak{I \eqdef I(}\theta) \eqdef {Cov}\left( \ell'|\theta \right) = E[ \ell'{\ell'}^{\top} ] - E[ \ell' ]\ E[ \ell' ]^{\top}$$
-
-$$\left\{ \mathfrak{I}_{jk} \eqdef {Cov}\left( {\ell'}_{j},{\ell'}_{k} \right) = E[ \ell_{j}'\ell_{k}' ] - E[ {\ell'}_{j} ] E[ {\ell'}_{k} ] \right\}$$
-
-$I_{e}(\theta,y)$ is sometimes computationally easier to compute for
-Newton-Raphson-type maximization algorithms.
-
-c.f. <https://en.wikipedia.org/wiki/Newton%27s_method_in_optimization>
+where $\score_i$ is the score of the $i$th observation's log-likelihood,
+and $\score = \sum_{i = 1}^{n} \score_i$.
+For $\iid$ data, $\frac{1}{n}\oinf_e(\th; \vx)$
+is the sample covariance matrix (with divisor $n$)
+of the observations' scores,
+so it estimates the covariance matrix of one observation's score,
+$\einf(\th)/n$
+(@thm-information-equality).
+The empirical information needs only first derivatives,
+so it can be easier to compute than the observed information.

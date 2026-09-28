@@ -1,0 +1,20 @@
+Setting $\deriv{\mu}\ell = 0$:
+
+$$
+\begin{aligned}
+0 &= \frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - n\mu}
+&& \text{(score for $\mu$)}\\
+n\mu &= \sum_{i=1}^n x_i
+&& \text{(multiply by $\sigma^2$; add $n\mu$)}\\
+\mu &= \bar x
+&& \text{(divide by $n$)}
+\end{aligned}
+$$
+
+This solution does not depend on $\sigma^2$.
+The second derivative is
+
+$$\frac{\partial^2 \ell}{\partial \mu^2} = \deriv{\mu}\frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - n\mu} = -\frac{n}{\sigma^2} < 0,$$
+
+so for every fixed $\sigma^2$, $\ell$ is maximized over $\mu$ at $\bar x$,
+and $\hat\mu_{\text{ML}} = \bar x$.

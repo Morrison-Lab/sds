@@ -1,0 +1,37 @@
+The score function is the vector of the two partial derivatives:
+
+$$
+\score(\mu, \sigma^2) =
+\begin{pmatrix}
+\deriv{\mu}\ell(\mu, \sigma^2) \\
+\deriv{\sigma^2}\ell(\mu, \sigma^2)
+\end{pmatrix}
+$$
+
+For the first entry,
+only the last term of $\ell$ depends on $\mu$:
+
+$$
+\begin{aligned}
+\deriv{\mu}\ell
+&= -\frac{1}{2\sigma^2}\sum_{i=1}^n \deriv{\mu}(x_i - \mu)^2
+&& \text{(linearity of differentiation)}\\
+&= -\frac{1}{2\sigma^2}\sum_{i=1}^n -2(x_i - \mu)
+&& \text{(chain rule)}\\
+&= \frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - n\mu}
+&& \text{(simplify; split the sum)}
+\end{aligned}
+$$
+
+For the second entry,
+write $\sigma^2$ as a single variable $v$, so that $\ell$ contains
+$-\frac{n}{2}\log v$ and $-\frac{1}{2}v^{-1}\sum_i (x_i - \mu)^2$:
+
+$$
+\begin{aligned}
+\deriv{\sigma^2}\ell
+&= -\frac{n}{2}\paren{\sigma^2}^{-1}
+ + \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(derivatives of $\log v$ and $v^{-1}$)}
+\end{aligned}
+$$

@@ -1,0 +1,27 @@
+:::{#exm-information-poisson}
+#### Information for Poisson data
+
+For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+one observation's score is $x/\rate - 1$ (@exr-pois-score-fn),
+whose derivative with respect to $\rate$ is $-x/\rate^2$.
+Summing over the observations (@thm-deriv-llik-iid),
+the Hessian is $\hess = -\sum_{i=1}^n x_i / \rate^2$, so:
+
+$$
+\begin{aligned}
+\oinf(\rate)
+&= \frac{\sum_{i=1}^n x_i}{\rate^2}
+&& \text{(observed information: negative Hessian)}\\
+\einf(\rate)
+&= \E{\frac{\sum_{i=1}^n X_i}{\rate^2}}
+&& \text{(expected information)}\\
+&= \frac{\sum_{i=1}^n \E{X_i}}{\rate^2}
+&& \text{(linearity of expectation)}\\
+&= \frac{n\rate}{\rate^2}
+&& \text{($\E{X_i} = \rate$)}\\
+&= \frac{n}{\rate}
+&& \text{(cancel one factor of $\rate$)}
+\end{aligned}
+$$
+
+:::

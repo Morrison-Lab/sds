@@ -2,10 +2,15 @@
 
 #### Hessian
 
-The matrix of second derivatives of the log-likelihood function is called
-the **Hessian matrix (of the log-likelihood function)**
-^[named after mathematician [Otto Hesse](https://en.wikipedia.org/wiki/Otto_Hesse)]:
+The **Hessian matrix** of the log-likelihood function
+is the matrix of its second derivatives
+with respect to the parameters:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_hess.qmd >}}
 
+:::
+
+::: notes
+The Hessian is named after the mathematician
+[Otto Hesse](https://en.wikipedia.org/wiki/Otto_Hesse).
 :::

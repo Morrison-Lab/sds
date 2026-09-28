@@ -1,0 +1,26 @@
+Suppose $X_1, \ldots, X_n \siid \ndist{\mu, \sigma^2}$ with $\sigma^2$ known,
+and we want to predict the mean $\bar X^*$ of $m$ new observations
+from the same distribution,
+independent of the first $n$.
+The MLE of $\mu$ is $\hat\mu = \bar X$,
+and the prediction error $\bar X^* - \hat\mu$
+is a difference of independent Gaussian variables, so:
+
+$$
+\begin{aligned}
+\Var{\bar X^* - \hat\mu}
+&= \Var{\bar X^*} + \Var{\hat\mu}
+&& \text{(variance of a difference of independent variables)}\\
+&= \frac{\sigma^2}{m} + \frac{\sigma^2}{n}
+&& \text{(variance of a sample mean)}
+\end{aligned}
+$$
+
+and $\bar X^* - \hat\mu \sim \ndist{0, \sigma^2\paren{\frac{1}{m} + \frac{1}{n}}}$.
+So a $100(1 - \alpha)\%$ prediction interval for $\bar X^*$ is:
+
+$$\hat\mu \pm z_{1 - \alpha/2} \, \sigma \sqrt{\frac{1}{m} + \frac{1}{n}}$$
+
+Usually $m = 1$.
+The term $1/n$ accounts for the uncertainty in $\hat\mu$,
+and becomes negligible when $n$ is much larger than $m$.

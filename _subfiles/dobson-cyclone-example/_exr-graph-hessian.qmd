@@ -1,0 +1,30 @@
+:::{#exr-graph-hession}
+#### Graphing the Hessian
+
+Graph the Hessian.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+::: {#fig-cyclone-hessian}
+
+```{r}
+hessian <- function(lambda, y = cyclones$number, n = length(y)) {
+  -sum(y) / (lambda^2)
+}
+
+ggplot2::ggplot() +
+  ggplot2::geom_function(fun = hessian, n = 1001) +
+  ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+  ggplot2::ylab("l''(lambda)") +
+  ggplot2::xlab("lambda") +
+  ggplot2::geom_hline(yintercept = 0, col = "red")
+```
+
+Hessian of the cyclone data's log-likelihood
+
+:::
+
+::::

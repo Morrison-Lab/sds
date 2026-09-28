@@ -8,35 +8,62 @@ format:
     output-file: intro-MLEs-handout.pdf
   docx:
     output-file: intro-MLEs-handout.docx
-
----
-
-
-These notes are derived primarily from @dobson4e (mostly chapters 1-5).
-
-Some material was also taken from @mclachlan2007em and @CaseBerg01.
-
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
+::: notes
+These notes are derived primarily from [@dobson4e, Chapters 1--5],
+with some material from [@mclachlan2007em] and [@CaseBerg01].
+:::
+
 # Overview of maximum likelihood estimation {#sec-intro-MLEs}
 
-{{< include sds/_subfiles/intro-MLEs/_sec_likelihood.qmd >}}
+## The likelihood function
+
+<!-- heading directly precedes the def-lik-obs div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-lik-obs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-lik-obs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def-lik.qmd >}}
+
+{{< include sds/_subfiles/intro-MLEs/_note-lik-notation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-lik-iid.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def-lik-factor.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-ds-lik-obs-lik.qmd >}}
+
+### Binary outcomes: one group, no covariates
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd >}}
 
 ## The maximum likelihood estimate
 
+<!-- heading directly precedes the def-mle div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
 {{< include sds/_subfiles/intro-MLEs/_def_mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-mle-bernoulli.qmd >}}
 
 ## Finding the maximum of a function
 
-Recall from calculus: the maxima of a continuous function $f(x)$ 
-over a range of input values $\rangef{x}$ can be found either:
-
-- at the edges of the range of input values, *OR*:
-- where the function is flat 
-(i.e. where the gradient function $f'(x) = 0$) 
-*AND* the second derivative is negative definite ($f''(x) < 0$).
+{{< include sds/_subfiles/intro-MLEs/_prose-maxima.qmd >}}
 
 ## Directly maximizing the likelihood function for independent data
 
@@ -44,184 +71,119 @@ over a range of input values $\rangef{x}$ can be found either:
 
 ## The log-likelihood function
 
-{{< include sds/_subfiles/intro-MLEs/_sec-loglik.qmd >}}
+<!-- heading directly precedes the def-loglik div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
+{{< include sds/_subfiles/intro-MLEs/_def_loglik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-loglik-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-mle-use-log.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm_loglik_ind.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-deriv-llik-iid.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd >}}
 
 ## The score function
 
-{{< include sds/_subfiles/intro-MLEs/_sec-score.qmd >}}
+<!-- heading directly precedes the def-score div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
 
-## Asymptotic distribution of the maximum likelihood estimate
+{{< include sds/_subfiles/intro-MLEs/_def_score.qmd >}}
 
-::: notes
-We learned how to quantify our uncertainty about these maximum likelihood estimates; 
-with sufficient sample size, 
-$\hthml$ has an approximately Gaussian distribution [@newey1994large]:
-:::
+{{< include sds/_subfiles/intro-MLEs/_note-score-notation.qmd >}}
 
-{{< include sds/_subfiles/intro-MLEs/_thm_dist_mle.qmd >}}
+{{< slidebreak >}}
 
----
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score.qmd >}}
 
-Recall:
+{{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_exr-pois-score.qmd >}}
 
-{{< include sds/_subfiles/intro-MLEs/_def_einf.qmd >}}
+{{< slidebreak >}}
 
-We can estimate $\einf(\th)$ using 
-either $\einf(\hthml)$ or $\oinf(\vec x; \hthml)$.
+{{< include sds/_subfiles/intro-MLEs/_exr-gauss-score.qmd >}}
 
-So we can estimate the standard error of $\hth_k$ as:
+{{< slidebreak >}}
 
-$$
-\HSE{\hth_k} = \sqrt{\sb{\inv{\heinff{\hthml}}}_{kk}}
-$$
+{{< include sds/_subfiles/intro-MLEs/_exr-exp-score.qmd >}}
 
-## The (Fisher) (expected) information matrix
+{{< slidebreak >}}
 
-The variance of $\ell'(x,\theta)$,
-${Cov}\left\{ \ell'(x,\theta) \right\}$, is also very
-important;
-we call it the "expected information matrix", "Fisher
-information matrix", or just "information matrix", and we represent it
-using the symbol $\einff{I}$ (`\scriptI` in Unicode, `\mathcal{I}` in LaTeX).
+{{< include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd >}}
 
-$$
-\ba
-\einfm 
-\eqdef \einfm(\theta) 
-\\ &\eqdef \Covf{\score|\theta} 
-\\ &= \Expp[ \score{\score}\' ] - \Expp[\score] \ \Expp[\score]\'
-\ea
-$$
+## Information matrices
 
-The elements of $\einfm$ are:
-
-$$
-\ba
-\einfm_{ij} 
-&\eqdef \Covf{{\ell'}_{i},{\ell'}_{j}}
-\\ &= \Expp[ \ell_{i}'\ell_{j}' ] - \Expp[ {\ell'}_{i} ] \Expp[ {\ell'}_{j} ]
-\ea
-$$
-
-Here, 
-
-$$
-\ba
-\E{\ell'}
-&\eqdef \int_{x \in \rangef{x}}
-{
-\ell'(x,\th) \p(X = x | \th) dx
-}
-\\ &= \int_{x \in \rangef{X}}
-{
-\paren
-{
-\deriv{\th}
-\log{\p(X = x | \th)}
-}
-\p(X = x | \theta) dx
-}
-\\ &= 
-\int_{x \in \rangef{X}}
-{
-\frac
-{\deriv{\theta} \p(X = x | \th)}
-{\p(X = x | \theta)}
-\p(X = x | \theta) dx
-}
-\\ &= 
-\int_{x \in \rangef{X}}
-{
-\deriv{\theta} \p(X = x | \th) dx
-}
-\ea
-$$
-
-
-
-And similarly
-
-$$
-\Exp{\ell' \ell'^{\top}} 
-\eqdef 
-\int_{x \in R(x)}
-{\ell'(x,\theta)\ell'(x,\theta)^{\top}\ 
-\pf{X = x | \th}\ dx}
-$$
-
-Note that $\Exp{\ell'}$ and
-$\Exp{\ell'{\ell'}^{\top}}$
-are functions of $\theta$ but not of $x$; 
-the expectation operator removed $x$.
-
-Also note that for most of the distributions you are familiar with
-(including Gaussian, binomial, Poisson, exponential):
-
-$$\Exp{\ell'} = 0$$
-
-So
-
-$$\einff{\theta} = \Exp{\ell'{\ell'}^{\top} }$$
-
-Moreover, for those distributions (called the "exponential family"), we
-have:
-
-$$
-\einf = -\Exp{\ell''}
-= \Exp{- \score \score\'}
-$$
-
-(see @dobson4e, Section 3.17).
-
----
+<!-- heading directly precedes the def-hessian div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
 
 {{< include sds/_subfiles/intro-MLEs/_def_hessian.qmd >}}
 
----
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_thm_hessian_elements.qmd >}}
 
----
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_thm_hessian_score.qmd >}}
 
----
+{{< slidebreak >}}
 
-### Observed information
+{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
 
-Sometimes, we use $I(\theta;x) \eqdef - hess$ (note the
-standard-font "I" here). 
-$I(\theta;x)$ is the observed information, precision, or concentration
-matrix (Negative Hessian).
+{{< slidebreak >}}
 
-:::{.callout-important}
-### Key point
- The asymptotics of MLEs gives us
-${\widehat{\theta}}_{ML} \sim N\left( \theta,\mathfrak{I}^{- 1}(\theta) \right)$,
-approximately, for large sample sizes.
-:::
+{{< include sds/_subfiles/intro-MLEs/_def_einf.qmd >}}
 
-We can estimate $\einf^{- 1}(\theta)$ by working out
-$\Ef{-\ell''}$ or
-$\Ef{\ell'{\ell'}^{\top}}$
-and plugging in $\hthml$, but sometimes we instead use
-$\oinf(\hthml,\vx)$ for convenience;
-there are
-some cases where it's provably better according to some criteria (@efron1978assessing).
+{{< slidebreak >}}
 
-## Quantifying (un)certainty of MLEs
+{{< include sds/_subfiles/intro-MLEs/_exm-information-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-information-equality.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-information-equality.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-information-equality-fails.qmd >}}
+
+### Notation for information matrices
+
+{{< include sds/_subfiles/intro-MLEs/_tbl-info-mat-symbols.qmd >}}
+
+## Asymptotic distribution of the maximum likelihood estimate
+
+<!-- heading directly precedes the thm-dist-mle div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
+{{< include sds/_subfiles/intro-MLEs/_thm_dist_mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-dist-mle-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_prose-estimate-se.qmd >}}
+
+## Quantifying uncertainty about MLEs
 
 ### Confidence intervals for MLEs
 
-An asymptotic approximation of a 95% confidence interval for $\theta_k$ is
-
-$$
-\hthml \pm z_{0.975} \times \HSE{\hth_k}
-$$
-
-where $z_\beta$ the $\beta$ quantile of the standard Gaussian distribution.
+{{< include sds/_subfiles/intro-MLEs/_prose-ci-mle.qmd >}}
 
 ### p-values and hypothesis tests for MLEs
 
@@ -229,196 +191,75 @@ where $z_\beta$ the $\beta$ quantile of the standard Gaussian distribution.
 
 ### Likelihood ratio tests for MLEs {#sec-lrt-mles}
 
+<!-- heading directly precedes the thm-wilks div; slidebreak omitted so the heading shares its slide with it -- do not re-flag -->
+
 {{< include sds/_subfiles/intro-MLEs/_thm-wilks.qmd >}}
 
-See also @dobson4e Section 5.7 and <https://online.stat.psu.edu/stat504/Lesson02>
+{{< include sds/_subfiles/intro-MLEs/_prf-wilks.qmd >}}
 
-### Prediction intervals for MLEs
+{{< slidebreak >}}
 
-$$\overline{X} \in [ \widehat{\mu} \pm z_{1 - \alpha\text{/}2}\frac{\sigma}{m} ]$$
+{{< include sds/_subfiles/intro-MLEs/_exm-wilks-poisson.qmd >}}
 
-Where $m$ is the sample size of the new data to be predicted (typically
-1, except for binary outcomes, where it needs to be bigger for
-prediction intervals to make sense).
+::: notes
+See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesson02>.
+:::
 
-# Example: Maximum likelihood for Tropical Cyclones in Australia
+### Prediction intervals
+
+{{< include sds/_subfiles/intro-MLEs/_prose-prediction-interval.qmd >}}
+
+# Example: maximum likelihood for tropical cyclones in Australia
 
 {{< include sds/_subfiles/dobson-cyclone-example.qmd >}}
 
-# Maximum likelihood inference for univariate Gaussian models
+# Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
 
-Suppose $X_{1}, ..., X_{n} \siid N(\mu, \sigma^{2})$.
-Let $X = (X_{1},\ldots,X_{n})^{\top}$ be these random
-variables in vector format. Let $x_{i}$ and $x$ denote the corresponding
-observed data. Then $\theta = (\mu,\sigma^{2})$ is
-the vector of true parameters, and $\Theta = (\Mu, \Sigma^2)$ is the vector of parameters as a random
-vector.
-
-$$
-\mathcal{L} = \prod_{i=1}^n (2\sigma^2\pi)^{-1/2} 
-\expf{-\frac{1}{2} \frac{(x_i - \mu)^2}{\sigma^2}}
-$$
-
-Then the log-likelihood
-is:
-
-$$
-\begin{aligned}
-\ell 
-&\propto - \frac{n}{2}\log{\sigma^{2}} - \frac{1}{2}\sum_{i = 1}^{n}\frac{( x_{i} - \mu)^{2}}{\sigma^{2}}\\
-&= - \frac{n}{2}\log{\sigma^{2}} - \frac{1}{2\sigma^{2}}\sum_{i = 1}^{n}{x_{i}^{2} - 2x_{i}\mu + \mu^{2}}
-\end{aligned}
-$$
-
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd >}}
 
 ## The score function
 
-$$\ell'(x,\theta) \eqdef \deriv{\theta}\ell(x,\theta) = \left( \begin{array}{r}
-\deriv{\mu}\ell(\theta;x) \\
-\deriv{\sigma^{2}}\ell(\theta;x)
-\end{array} \right) = \left( \begin{array}{r}
-\ell_{\mu}'(\theta;x) \\
-\ell_{\sigma^{2}}'(\theta;x)
-\end{array} \right)$$.
-
-$\ell'(x,\theta)$ is the function we set equal to 0 and solve
-to find the MLE:
-
-$${\widehat{\theta}}_{ML} = \left\{ \theta:\ell'(x,\theta) = 0 \right\}$$
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-score.qmd >}}
 
 ## MLE of $\mu$
 
-$$
-\ba
-\frac{d\ell}{d\mu} 
-&= - \frac{1}{2}\sum_{i = 1}^{n}
-\frac{- 2(x_{i} - \mu)}{\sigma^{2}}
-\\ &= \frac{1}{\sigma^{2}}
-\sb{
-    \paren{
-        \sum_{i = 1}^{n}x_{i}
-    } 
-    - n\mu
-}
-\ea
-$$
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd >}}
 
-If $\frac{d\ell}{d\mu} = 0$, then
-$\mu = \overline{x} \eqdef \frac{1}{n}\sum_{i = 1}^{n}x_{i}$.
+## MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}
 
-$$\frac{d^{2}\ell}{(d\mu)^{2}} = \frac{- n}{\sigma^{2}} < 0$$
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
 
-So ${\widehat{\mu}}_{ML} = \overline{x}$.
+## Second derivatives
 
-## MLE of $\sigma^{2}$
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-hessian.qmd >}}
 
-:::{.callout-tip}
-### Reparametrizing the Gaussian distribution
+## Information matrix and standard errors {#sec-covariance-matrix}
 
-When solving for ${\widehat{\sigma}}_{ML}$, you can treat
-$\sigma^{2}$ as an atomic variable (don't differentiate with respect to
-$\sigma$ or things get messy). In fact, you can replace $\sigma^{2}$
-with $1/\tau$ and differentiate with respect to $\tau$ instead, and the
-process might be even easier.
-:::
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-information.qmd >}}
 
-$$\frac{d\ell}{d\sigma^{2}} = \deriv{\sigma^{2}}\left( - \frac{n}{2}\log{\sigma^{2}} - \frac{1}{2}\sum_{i = 1}^{n}\frac{\left( x_{i} - \mu \right)^{2}}{\sigma^{2}} \right)\ $$
-
-$$= - \frac{n}{2}\left( \sigma^{2} \right)^{- 1} + \frac{1}{2}\left( \sigma^{2} \right)^{- 2}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}$$
-
-If $\frac{d\ell}{d\sigma^{2}} = 0$, then:
-
-$$\frac{n}{2}\left( \sigma^{2} \right)^{- 1} = \frac{1}{2}\left( \sigma^{2} \right)^{- 2}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}$$
-
-$$\sigma^{2} = \frac{1}{n}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}$$
-
-We plug in ${\widehat{\mu}}_{ML} = \overline{x}$ to maximize globally (a
-technique called profiling):
-
-$$\hat{\sigma}_{ML}^{2} = \frac{1}{n}\sum_{i = 1}^{n}\left( x_{i} - \overline{x} \right)^{2}$$
-
-Now:
-
-$$
-\begin{aligned}
-\frac{d^{2}\ell}{\left( d\sigma^{2} \right)^{2}} 
-&= \deriv{\sigma^{2}}\left\{ - \frac{n}{2}\left( \sigma^{2} \right)^{- 1} + \frac{1}{2}\left( \sigma^{2} \right)^{- 2}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2} \right\}\\
-&= \left\{ - \frac{n}{2}\deriv{\sigma^{2}}\left( \sigma^{2} \right)^{- 1} + \frac{1}{2}\deriv{\sigma^{2}}\left( \sigma^{2} \right)^{- 2}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2} \right\}\\
-&= \left\{ \frac{n}{2}\left( \sigma^{2} \right)^{- 2} - \left( \sigma^{2} \right)^{- 3}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2} \right\}\\
-&= \left( \sigma^{2} \right)^{- 2}\left\{ \frac{n}{2} - \left( \sigma^{2} \right)^{- 1}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2} \right\}
-\end{aligned}
-$$
-
-Evaluated at
-$\mu = \overline{x},\sigma^{2} = \frac{1}{n}\sum_{i = 1}^{n}\left( x_{i} - \overline{x} \right)^{2}$,
-we have:
-
-$$
-\begin{aligned}
-\frac{d^{2}\ell}{\left( d\sigma^{2} \right)^{2}} 
-&= \left( {\widehat{\sigma}}^{2} \right)^{- 2}\left\{ \frac{n}{2} - \left( {\widehat{\sigma}}^{2} \right)^{- 1}\sum_{i = 1}^{n}\left( x_{i} - \overline{x} \right)^{2} \right\}\\
-&= \left( {\widehat{\sigma}}^{2} \right)^{- 2}\left\{ \frac{n}{2} - \left( {\widehat{\sigma}}^{2} \right)^{- 1}n{\widehat{\sigma}}^{2} \right\}\\
-&= \left( {\widehat{\sigma}}^{2} \right)^{- 2}\left\{ \frac{n}{2} - n \right\}\\
-&= \left( {\widehat{\sigma}}^{2} \right)^{- 2}n\left\{ \frac{1}{2} - 1 \right\}\\
-&= \left( {\widehat{\sigma}}^{2} \right)^{- 2}n\left( - \frac{1}{2} \right) < 0
-\end{aligned}
-$$
-
-Finally, we have:
-
-$$
-\begin{aligned}
-\frac{d^{2}\ell}{d\mu\ d\sigma^{2}} 
-&= \deriv{\mu}\left\{ - \frac{n}{2}\left( \sigma^{2} \right)^{- 1} + \frac{1}{2}\left( \sigma^{2} \right)^{- 2}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2} \right\}\\
-&= \frac{1}{2}\left( \sigma^{2} \right)^{- 2}\deriv{\mu}\sum_{i = 1}^{n}\left( x_{i} - \mu \right)^{2}\\
-&= \frac{1}{2}\left( \sigma^{2} \right)^{- 2}\sum_{i = 1}^{n}{- 2(x_{i} - \mu)}\\
-&= - \left( \sigma^{2} \right)^{- 2}\sum_{i = 1}^{n}{(x_{i} - \mu)}
-\end{aligned}
-$$
-
-Evaluated at
-$\mu = \widehat{\mu} = \overline{x},\sigma^{2} = {\widehat{\sigma}}^{2} = \frac{1}{n}\sum_{i = 1}^{n}\left( x_{i} - \overline{x} \right)^{2}$,
-we have:
-
-$$\frac{d^{2}\ell}{d\mu\ d\sigma^{2}} = - \left( {\widehat{\sigma}}^{2} \right)^{- 2}\left( n\overline{x} - n\overline{x} \right) = 0$$
-
-## Covariance matrix {#sec-covariance-matrix}
-
-$$I = \begin{bmatrix}
-\frac{n}{\widehat{\sigma}^{2}} & 0 \\
-0 & \left( {\widehat{\sigma}}^{2} \right)^{- 2}n\left(\frac{1}{2} \right)
-\end{bmatrix} = \begin{bmatrix}
-a & 0 \\
-0 & d
-\end{bmatrix}$$
-
-So:
-
-$$I^{- 1} = \frac{1}{ad}\begin{bmatrix}
-d & 0 \\
-0 & a
-\end{bmatrix} = \begin{bmatrix}
-\frac{1}{a} & 0 \\
-0 & \frac{1}{d}
-\end{bmatrix}$$
-
-$$I^{- 1} = \begin{bmatrix}
-\frac{{\widehat{\sigma}}^{2}}{n} & 0 \\
-0 & \frac{{2\left( {\widehat{\sigma}}^{2} \right)}^{2}}{n}
-\end{bmatrix}$$
-
-See @CaseBerg01 p322, example 7.2.12.
-
-To prove it's a maximum, we need:
-
-- $\ell' = 0$
-
-- At least one diagonal element of $\ell''$ is negative.
-
-- Determinant of $\ell''$ is positive.
-
+# Example: hormone therapy study {#sec-hers-mle-example}
 
 {{< include sds/_subfiles/HERS-example.qmd >}}
+
+# Practice exercises {#sec-mle-practice}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-binom-lik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-gauss-iid-lik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-score-zero.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-mle-se.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-exp-mle.qmd >}}
 
 # References {.unnumbered}
 

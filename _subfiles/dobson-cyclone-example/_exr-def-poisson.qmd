@@ -1,0 +1,14 @@
+:::{#exr-def-poisson}
+#### The Poisson probability mass function
+
+Write down the Poisson distribution's probability mass function.
+
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+$$\Pr(X = x) = \frac{\lambda^{x} e^{-\lambda}}{x!}, \quad x \in \cb{0, 1, 2, \ldots}$$ {#eq-iid-model}
+
+::::

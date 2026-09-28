@@ -1,0 +1,100 @@
+It is numerically better to compute the log-likelihood first
+and exponentiate it to get the likelihood,
+because a product of 100 densities can underflow to zero:
+
+```{r}
+loglik <- function(mu, sigma, x = glucose_data) {
+  n <- length(x)
+  normalizing_constant <- -n / 2 * log(2 * pi * sigma^2)
+  # written with sum(x), sum(x^2) so that `mu` can be a vector of values:
+  kernel <- -1 / (2 * sigma^2) * (sum(x^2) - 2 * sum(x) * mu + n * mu^2)
+  normalizing_constant + kernel
+}
+
+lik <- function(...) exp(loglik(...))
+```
+
+{{< slidebreak >}}
+
+@fig-hers-lik-mu graphs the likelihood and log-likelihood
+as functions of $\mu$,
+with $\sigma$ fixed at $\hat\sigma_{\text{ML}}$.
+
+::: {#fig-hers-lik-mu layout-ncol="2"}
+
+::: {#fig-hers-lik-mu-lik}
+
+```{r}
+ggplot2::ggplot() +
+  ggplot2::geom_function(fun = function(x) lik(mu = x, sigma = sigma_hat)) +
+  ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
+  ggplot2::xlab("mu") +
+  ggplot2::ylab("likelihood") +
+  ggplot2::geom_vline(xintercept = mu_hat, col = "red")
+```
+
+Likelihood
+
+:::
+
+::: {#fig-hers-lik-mu-llik}
+
+```{r}
+ggplot2::ggplot() +
+  ggplot2::geom_function(fun = function(x) loglik(mu = x, sigma = sigma_hat)) +
+  ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
+  ggplot2::xlab("mu") +
+  ggplot2::ylab("log-likelihood") +
+  ggplot2::geom_vline(xintercept = mu_hat, col = "red")
+```
+
+Log-likelihood
+
+:::
+
+Likelihood and log-likelihood of the HERS glucose data as functions of $\mu$,
+with $\sigma = \hat\sigma_{\text{ML}}$; the red line marks $\hat\mu_{\text{ML}}$
+
+:::
+
+{{< slidebreak >}}
+
+@fig-hers-lik-sigma graphs them as functions of $\sigma$,
+with $\mu$ fixed at $\hat\mu_{\text{ML}}$.
+
+::: {#fig-hers-lik-sigma layout-ncol="2"}
+
+::: {#fig-hers-lik-sigma-lik}
+
+```{r}
+ggplot2::ggplot() +
+  ggplot2::geom_function(fun = function(x) lik(sigma = x, mu = mu_hat)) +
+  ggplot2::xlim(sigma_hat * c(0.9, 1.1)) +
+  ggplot2::geom_vline(xintercept = sigma_hat, col = "red") +
+  ggplot2::xlab("sigma") +
+  ggplot2::ylab("likelihood")
+```
+
+Likelihood
+
+:::
+
+::: {#fig-hers-lik-sigma-llik}
+
+```{r}
+ggplot2::ggplot() +
+  ggplot2::geom_function(fun = function(x) loglik(sigma = x, mu = mu_hat)) +
+  ggplot2::xlim(sigma_hat * c(0.9, 1.1)) +
+  ggplot2::geom_vline(xintercept = sigma_hat, col = "red") +
+  ggplot2::xlab("sigma") +
+  ggplot2::ylab("log-likelihood")
+```
+
+Log-likelihood
+
+:::
+
+Likelihood and log-likelihood of the HERS glucose data as functions of $\sigma$,
+with $\mu = \hat\mu_{\text{ML}}$; the red line marks $\hat\sigma_{\text{ML}}$
+
+:::

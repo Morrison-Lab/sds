@@ -1,0 +1,10 @@
+We want to estimate $\Pr(X = x)$;
+that is, $\Pr(X = x)$ is our [estimand](estimation.qmd#def-estimand).
+
+We could estimate $\Pr(X = x)$ for each value of $x$ in $0, 1, 2, \ldots$ separately
+("nonparametrically"),
+using the fraction of our data with $X_i = x$;
+but then we would be estimating an infinite set of parameters
+from 13 observations,
+and each estimate would be imprecise.
+A parametric model, with a few parameters, will probably do better.

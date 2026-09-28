@@ -1,14 +1,21 @@
 :::{#thm-dist-mle}
 #### Central limit theorem for MLEs
 
+For $\iid$ data from a correctly specified model
+satisfying regularity conditions
+(including those of @thm-information-equality,
+and a true parameter value in the interior of the parameter space),
+the MLE is consistent,
+and for large $n$ it has approximately a Gaussian distribution,
+centered at the true parameter value $\vth$,
+with covariance matrix equal to the inverse of the expected information:
+
 {{< include sds/_subfiles/intro-MLEs/_eq_adist_mle.qmd >}}
 
 :::
 
----
-
 ::: proof
-
-See [@lehmannELST], Theorem 7.3.2.
-
+The proof is beyond the scope of these notes;
+see [@lehmannELST, Theorem 7.3.2]
+and [@newey1994large].
 :::

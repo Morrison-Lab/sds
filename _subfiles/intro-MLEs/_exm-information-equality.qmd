@@ -1,0 +1,24 @@
+:::{#exm-information-equality}
+#### Checking the information equality for Poisson data
+
+For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+the score is $\score = \sum_{i=1}^n X_i/\rate - n$
+(@exm-information-poisson). Then:
+
+$$
+\begin{aligned}
+\E{\score}
+&= \frac{\sum_{i=1}^n \E{X_i}}{\rate} - n
+&& \text{(linearity of expectation)}\\
+&= \frac{n\rate}{\rate} - n = 0
+&& \text{($\E{X_i} = \rate$)}\\
+\Var{\score}
+&= \frac{\sum_{i=1}^n \Var{X_i}}{\rate^2}
+&& \text{(variance of a sum of independent variables; constants)}\\
+&= \frac{n\rate}{\rate^2} = \frac{n}{\rate}
+&& \text{($\Var{X_i} = \rate$)}
+\end{aligned}
+$$
+
+which matches $\einf(\rate) = n/\rate$ from @exm-information-poisson.
+:::

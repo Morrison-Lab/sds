@@ -1,0 +1,31 @@
+:::{#exr-bernoulli-loglik-one-group}
+#### Log-likelihood of binary outcomes with one event probability
+
+Write the log-likelihood of $\vy$
+from @exr-bernoulli-likelihood-one-group.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bernoulli-loglik-one-group}
+
+Starting from the likelihood in @sol-bernoulli-likelihood-one-group:
+
+$$
+\begin{aligned}
+\ell(\pi; \vy)
+&= \logf{\pi^{\sumin y_i} (1 - \pi)^{n - \sumin y_i}}
+&& \text{(log of the likelihood)}\\
+&= \paren{\sumin y_i} \logf{\pi} + \paren{n - \sumin y_i} \logf{1 - \pi}
+&& \text{(log of a product; log of a power)}\\
+&= \paren{\sumin y_i} \paren{\logf{\pi} - \logf{1 - \pi}} + n \logf{1 - \pi}
+&& \text{(collect the terms in $\textstyle\sumin y_i$)}\\
+&= \paren{\sumin y_i} \logf{\frac{\pi}{1 - \pi}} + n \logf{1 - \pi}
+&& \text{(log of a quotient)}\\
+&= \paren{\sumin y_i} \logit(\pi) + n \logf{1 - \pi}
+&& \text{(definition of $\logit$)}
+\end{aligned}
+$$
+
+:::

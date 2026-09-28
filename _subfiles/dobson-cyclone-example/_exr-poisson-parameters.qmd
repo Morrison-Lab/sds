@@ -1,0 +1,14 @@
+::: {#exr-poisson-parameters}
+#### Model parameters
+
+Write down the vector of parameters in the model.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+There is only one parameter, $\lambda$:
+
+$$\theta = (\lambda)$$
+::::

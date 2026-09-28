@@ -1,0 +1,57 @@
+::: proof
+We sketch the argument for a scalar parameter
+and the point null hypothesis $H_0: \th = \th_0$,
+which imposes $q = 1$ constraint.
+Then the restricted MLE is $\hat\th_0 = \th_0$, and
+$\Lambda = 2\paren{\llik(\hthml) - \llik(\th_0)}$.
+For the full proof, see [@wilks1938] or [@dobson4e, Section 5.7].
+
+*Step 1: expand the log-likelihood around the MLE.*
+The MLE maximizes $\llik$ at an interior point,
+so $\score(\hthml) = 0$.
+A second-order Taylor expansion of $\llik(\th_0)$ around $\hthml$ gives:
+
+$$
+\begin{aligned}
+\llik(\th_0)
+&\approx \llik(\hthml) + \score(\hthml)(\th_0 - \hthml)
+ + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2
+&& \text{(Taylor expansion)}\\
+&= \llik(\hthml) + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2
+&& \text{($\score(\hthml) = 0$)}
+\end{aligned}
+$$
+
+Rearranging:
+
+$$
+\begin{aligned}
+\Lambda
+&= 2\paren{\llik(\hthml) - \llik(\th_0)}
+&& \text{(definition of $\Lambda$)}\\
+&\approx -\hess(\hthml)(\hthml - \th_0)^2
+&& \text{(substitute the expansion)}\\
+&= \oinf(\hthml)(\hthml - \th_0)^2
+&& \text{(observed information is the negative Hessian)}
+\end{aligned}
+$$
+
+*Step 2: replace the observed information by the expected information.*
+Under the regularity conditions,
+$\oinf(\hthml)/\einf(\th_0) \to 1$ in probability,
+by the law of large numbers and the consistency of $\hthml$, so:
+
+$$\Lambda \approx \einf(\th_0)(\hthml - \th_0)^2$$
+
+*Step 3: recognize a squared standard Gaussian variable.*
+Define $Z \eqdef \sqrt{\einf(\th_0)}\,(\hthml - \th_0)$,
+so that $\Lambda \approx Z^2$.
+By @thm-dist-mle, $\hthml \dsim \ndist{\th_0, \einf(\th_0)^{-1}}$ under $H_0$,
+so $Z \dsim \ndist{0, 1}$,
+and therefore $\Lambda \approx Z^2$ has approximately a $\chi^2_1$ distribution.
+
+With $q$ constraints, the same argument in matrix form
+makes $\Lambda$ approximately a sum of $q$ squared,
+independent standard Gaussian variables,
+which has a $\chi^2_q$ distribution.
+:::

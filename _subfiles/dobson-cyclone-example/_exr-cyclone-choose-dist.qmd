@@ -1,0 +1,19 @@
+:::{#exr-cyclone-choose-dist}
+#### Choosing a distribution family
+
+What parametric family of probability distributions might we use
+to model this empirical distribution?
+
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+The Poisson family.
+The data are counts,
+which can take any non-negative integer value.
+The binomial family also models counts,
+but a binomial count has an upper limit (its number of trials),
+and there is no natural upper limit
+on the number of cyclones in a season.
+::::

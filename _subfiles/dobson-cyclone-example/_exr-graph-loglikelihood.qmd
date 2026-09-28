@@ -1,0 +1,30 @@
+::: {#exr-graph-loglikelihood}
+#### Graphing the log-likelihood
+
+Graph the log-likelihood as a function of $\lambda$.
+:::
+
+{{< slidebreak >}}
+
+:::: {.solution}
+
+::: {#fig-cyclone-llik}
+
+```{r}
+loglik <- function(lambda, y = cyclones$number, n = length(y)) {
+  sum(y) * log(lambda) - n * lambda - sum(lfactorial(y))
+}
+
+ll_plot <- ggplot2::ggplot() +
+  ggplot2::geom_function(fun = loglik, n = 1001) +
+  ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+  ggplot2::ylab("log-likelihood") +
+  ggplot2::xlab("lambda")
+ll_plot
+```
+
+Log-likelihood of the cyclone data
+
+:::
+
+::::

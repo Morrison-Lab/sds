@@ -1,0 +1,64 @@
+Suppose we test the null hypothesis $H_0: \mu = \mu_0$,
+with $\mu_0 = 95$ mg/dL,
+at significance level $\alpha = 0.05$,
+and suppose for simplicity that $\sigma$ is known,
+equal to $\hat\sigma_{\text{ML}}$.
+Then under $H_0$, $\bar X \sim \ndist{\mu_0, \sigma^2/n}$,
+and the test rejects $H_0$ when $\bar x$ falls outside the
+non-rejection interval
+
+$$\mu_0 \pm z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}$$
+
+```{r}
+mu_0 <- 95
+se <- se_mu_hat(n = n_obs)
+margin <- qnorm(0.975) * se
+bounds <- mu_0 + c(lower = -1, upper = 1) * margin
+bounds
+```
+
+{{< slidebreak >}}
+
+The **power** of the test against an alternative value $\mu_1$
+is the probability of rejecting $H_0$ when $\mu = \mu_1$.
+Under $\mu = \mu_1$, $\bar X \sim \ndist{\mu_1, \sigma^2/n}$, so:
+
+$$
+\text{power}(\mu_1) =
+\Phi\paren{\frac{\mu_0 - z_{1-\alpha/2}\,\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}}
++ 1 - \Phi\paren{\frac{\mu_0 + z_{1-\alpha/2}\,\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}}
+$$
+
+where $\Phi$ is the standard Gaussian CDF.
+For the alternative that the true mean equals our estimate,
+$\mu_1 = \hat\mu_{\text{ML}}$:
+
+```{r}
+power <- function(n = n_obs, null = mu_0, alt = mu_hat, sigma = sigma_hat) {
+  se <- sigma / sqrt(n)
+  lower <- null - qnorm(0.975) * se
+  upper <- null + qnorm(0.975) * se
+  pnorm((lower - alt) / se) + pnorm((upper - alt) / se, lower.tail = FALSE)
+}
+power()
+```
+
+{{< slidebreak >}}
+
+@fig-hers-power graphs the power as a function of the sample size.
+
+::: {#fig-hers-power}
+
+```{r}
+ggplot2::ggplot() +
+  ggplot2::geom_function(fun = function(n) power(n = n), n = 199) +
+  ggplot2::xlim(c(2, 200)) +
+  ggplot2::ylim(0, 1) +
+  ggplot2::ylab("Power") +
+  ggplot2::xlab("n")
+```
+
+Power of the test of $H_0: \mu = 95$ against $\mu_1 = \hat\mu_{\text{ML}}$,
+by sample size
+
+:::

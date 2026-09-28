@@ -1,0 +1,15 @@
+:::{#def-lik-obs}
+#### Likelihood of a single observation
+
+Let $X$ be a random variable, with observed value $x$,
+and let $\p_{\Th}(X = x)$ be a probability model for the distribution of $X$,
+with parameter vector $\Th$.
+The **likelihood** of the parameter value $\th$,
+for model $\p_{\Th}(X = x)$ and data $X = x$,
+is the probability of the event $X = x$ when $\Th = \th$:
+
+$$\Lik(\th) \eqdef \p_{\th}(X = x)$$
+
+For a continuous random variable,
+the likelihood is the probability density of $X$ at $x$ instead.
+:::

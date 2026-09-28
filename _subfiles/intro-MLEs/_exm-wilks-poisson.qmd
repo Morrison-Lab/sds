@@ -1,0 +1,31 @@
+:::{#exm-wilks-poisson}
+#### Likelihood ratio test for a Poisson rate
+
+For $X_1, \ldots, X_n \siid \Pois(\rate)$
+and $H_0: \rate = \rate_0$,
+the log-likelihood is $\llik(\rate) = n\bar x \log\rate - n\rate - \sum_i \log x_i!$
+and $\hat\rate_{\text{ML}} = \bar x$, so:
+
+$$
+\begin{aligned}
+\Lambda
+&= 2\paren{\llik(\bar x) - \llik(\rate_0)}
+&& \text{(definition of $\Lambda$)}\\
+&= 2\paren{n\bar x \log \bar x - n\bar x - n\bar x \log\rate_0 + n\rate_0}
+&& \text{(substitute; the $\log x_i!$ terms cancel)}\\
+&= 2n\paren{\bar x \log\frac{\bar x}{\rate_0} - \bar x + \rate_0}
+&& \text{(factor out $n$; log of a quotient)}
+\end{aligned}
+$$
+
+For example, with $n = 13$, $\bar x = 72/13$, and $\rate_0 = 4$:
+
+```{r}
+n_obs <- 13
+xbar_obs <- 72 / 13
+lambda_0 <- 4
+lr_stat <- 2 * n_obs * (xbar_obs * log(xbar_obs / lambda_0) - xbar_obs + lambda_0)
+c(statistic = lr_stat, p_value = pchisq(lr_stat, df = 1, lower.tail = FALSE))
+```
+
+:::

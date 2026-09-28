@@ -1,0 +1,15 @@
+In all four examples
+(@exr-derive-bernoulli-score, @exr-pois-score-fn,
+@exr-gauss-score-fn, and @exr-exp-score-fn),
+the score function with respect to the mean turned out to be:
+
+$$\score = \scoreexpf$$
+
+::: notes
+This pattern is no coincidence.
+All four distributions belong to the
+[exponential family](https://en.wikipedia.org/wiki/Exponential_family)
+of probability distributions,
+whose members share many special properties
+[@hoggtanis2015, Section 6.7; @dobson4e, Chapter 3].
+:::
