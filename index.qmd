@@ -52,7 +52,7 @@ the exceptions are:
   they are now defined once, on the exploratory and descriptive methods page,
   under the ids rme used on its basic statistical methods page
   (such as `def-sample-mean`),
-  so rme's exploratory-descriptive ids
+  so the exploratory-descriptive ids from rme
   `def-mean`, `def-median`, `def-eda-variance`, `def-eda-sd`,
   `def-quantile`, `def-iqr`, and `def-correlation` are retired.
 Where they rely on probability or calculus,
