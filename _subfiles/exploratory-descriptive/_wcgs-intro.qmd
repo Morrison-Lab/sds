@@ -1,0 +1,8 @@
+This page illustrates exploratory and descriptive methods
+using data from the Western Collaborative Group Study (WCGS)
+[@rosenman1975coronary].
+@vittinghoff2e [Chapter 2] describe the study this way:
+
+> The Western Collaborative Group Study (WCGS) was a large
+> epidemiological study designed to investigate the association between
+> the "type A" behavior pattern and coronary heart disease (CHD).

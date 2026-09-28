@@ -1,0 +1,23 @@
+@tbl-chol-by-chd computes summary statistics separately for each group,
+with a p-value comparing the groups for each variable.
+
+::: {#tbl-chol-by-chd}
+
+```{r}
+wcgs |>
+  dplyr::select(chol, sbp, bmi, chd69) |>
+  gtsummary::tbl_summary(
+    by = chd69,
+    statistic = list(
+      gtsummary::all_continuous() ~
+        "{mean} ({sd})"
+    ),
+    digits = gtsummary::all_continuous() ~ 1
+  ) |>
+  gtsummary::add_overall() |>
+  gtsummary::add_p()
+```
+
+Cholesterol, systolic blood pressure, and BMI by CHD status in the WCGS
+
+:::

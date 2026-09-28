@@ -1,0 +1,12 @@
+::: {#exm-sample-sd}
+#### Variance and standard deviation of cholesterol in the WCGS
+
+```{r}
+var(wcgs$chol, na.rm = TRUE)
+sd(wcgs$chol, na.rm = TRUE)
+```
+
+The sample variance is in (mg/dL)^2^,
+and the sample standard deviation is in mg/dL,
+like the cholesterol values themselves.
+:::

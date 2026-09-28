@@ -1,0 +1,14 @@
+::: {#fig-box-chol}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(y = chol) +
+  ggplot2::geom_boxplot(fill = "steelblue") +
+  ggplot2::labs(y = "Cholesterol (mg/dL)") +
+  ggplot2::theme(axis.text.x = ggplot2::element_blank())
+```
+
+Box plot of total cholesterol in the WCGS dataset
+
+:::

@@ -1,0 +1,12 @@
+:::{#def-pearson-r}
+#### Pearson correlation coefficient
+
+The **Pearson correlation coefficient** of $n$ paired observations
+$(x_1, y_1), \ldots, (x_n, y_n)$ is:
+
+$$r \eqdef \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}
+{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}$$
+
+It is defined when neither variable is constant,
+so that both sums of squares are positive.
+:::

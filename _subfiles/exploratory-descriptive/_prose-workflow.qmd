@@ -1,0 +1,31 @@
+A typical exploratory data analysis proceeds as follows:
+
+1. **Understand the dataset**:
+   the number of observations and variables, and each variable's type.
+2. **Examine each variable individually**:
+   - continuous: histogram, box plot, mean, SD, median, IQR;
+   - categorical: bar chart, frequency table;
+   - note missing values, unusual values, and outliers.
+3. **Examine relationships between variables**:
+   - two continuous variables: scatter plot, correlation;
+   - continuous by categorical: side-by-side box plots, group means;
+   - two categorical variables: contingency table.
+4. **Consider transformations** for skewed continuous variables.
+5. **Summarize the findings** to guide model-building decisions.
+
+@tbl-wcgs-all-summary summarizes selected WCGS variables in one table.
+
+::: {#tbl-wcgs-all-summary}
+
+```{r}
+wcgs |>
+  dplyr::select(
+    age, chol, sbp, dbp, bmi, weight, ncigs,
+    chd69, smoke, dibpat, behpat
+  ) |>
+  gtsummary::tbl_summary()
+```
+
+Summary of selected WCGS variables
+
+:::

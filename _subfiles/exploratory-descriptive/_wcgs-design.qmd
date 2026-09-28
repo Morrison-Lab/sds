@@ -1,0 +1,29 @@
+The WCGS began in 1960 with 3,524 male volunteers
+employed by 11 California companies.
+Participants were 39 to 59 years old
+and free of heart disease, as determined by electrocardiogram.
+After the initial screening,
+various exclusions reduced the study population to 3,154 men
+and the number of companies to 10.
+The cohort comprised both blue- and white-collar employees.
+Average follow-up was 8.5 years, with repeat examinations.
+
+::: notes
+This description paraphrases the help page for the `wcgs` dataset
+in the `faraway` R package.
+:::
+
+At baseline, the study collected:
+
+- socio-demographic characteristics:
+  age, education, marital status, income, and occupation;
+- physical and physiological measurements:
+  height, weight, blood pressure, electrocardiogram, and corneal arcus;
+- biochemical measurements:
+  cholesterol and lipoprotein fractions;
+- medical and family history, and use of medications;
+- behavioral data:
+  the Type A interview, smoking, exercise, and alcohol use.
+
+Later surveys added anthropometry, triglycerides,
+the Jenkins Activity Survey, and caffeine use.

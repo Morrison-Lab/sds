@@ -1,0 +1,14 @@
+::: {#exm-pearson-r}
+#### Correlation between cholesterol and blood pressure in the WCGS
+
+```{r}
+#| label: cor-chol-sbp
+cor(wcgs$chol, wcgs$sbp, use = "complete.obs")
+```
+
+The correlation is positive but small:
+cholesterol tends to be slightly higher in participants with higher
+systolic blood pressure,
+consistent with the shallow slope and wide scatter
+in @fig-scatter-chol-sbp.
+:::

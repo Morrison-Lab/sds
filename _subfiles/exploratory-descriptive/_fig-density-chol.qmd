@@ -1,0 +1,13 @@
+::: {#fig-density-chol}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = chol) +
+  ggplot2::geom_density(fill = "steelblue", alpha = 0.5) +
+  ggplot2::labs(x = "Cholesterol (mg/dL)", y = "Density")
+```
+
+Density plot of total cholesterol in the WCGS dataset
+
+:::

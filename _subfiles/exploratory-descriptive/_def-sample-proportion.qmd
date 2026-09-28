@@ -1,0 +1,10 @@
+::: {#def-sample-proportion}
+#### Sample proportion
+
+For a binary variable with values coded 1 ("success") and 0,
+the **sample proportion** of successes is:
+
+$$\hat{p} \eqdef \frac{k}{n}$$
+
+where $k$ is the number of successes and $n$ is the number of observations.
+:::

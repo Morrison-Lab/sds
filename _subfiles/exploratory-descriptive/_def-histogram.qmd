@@ -1,0 +1,8 @@
+::: {#def-histogram}
+#### Histogram
+
+A **histogram** displays the distribution of a continuous variable
+by dividing the variable's range into intervals, called **bins**,
+and drawing a bar over each bin
+whose height is the number (or proportion) of observations in that bin.
+:::

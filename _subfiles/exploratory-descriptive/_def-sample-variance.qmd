@@ -1,0 +1,15 @@
+::: {#def-sample-variance}
+#### Sample variance
+
+The **sample variance** of $n \ge 2$ observations is:
+
+$$s^2 \eqdef \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
+
+:::
+
+::: notes
+The divisor $n - 1$, rather than $n$,
+makes $s^2$ an [unbiased](estimation.qmd#def-unbiased) estimator
+of a population variance
+([proof](estimation.qmd#exm-biased-variance-mle)).
+:::

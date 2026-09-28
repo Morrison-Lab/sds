@@ -1,0 +1,16 @@
+::: {#def-quartiles}
+#### Quartiles
+
+The **first quartile** $Q_1$ and the **third quartile** $Q_3$
+are the sample 0.25 and 0.75 quantiles
+([sample quantile](nonparametric-models.qmd#def-sample-quantile)),
+also called the 25th and 75th percentiles.
+The median is the second quartile.
+:::
+
+::: notes
+Software packages compute quartiles
+with different quantile definitions,
+so they can disagree slightly for the same data
+([quantile conventions](nonparametric-models.qmd#exm-sample-quantile)).
+:::

@@ -1,0 +1,14 @@
+:::{#sol-def-type-A}
+From Wikipedia's article
+["Type A and Type B personality theory"](https://en.wikipedia.org/wiki/Type_A_and_Type_B_personality_theory):
+
+> The hypothesis describes Type A individuals as outgoing, ambitious,
+> rigidly organized, highly status-conscious, impatient, anxious,
+> proactive, and concerned with time management....
+>
+> The hypothesis describes Type B individuals as a contrast to those of
+> Type A. Type B personalities, by definition, are noted to live at lower
+> stress levels. They typically work steadily and may enjoy achievement,
+> although they have a greater tendency to disregard physical or mental
+> stress when they do not achieve.
+:::

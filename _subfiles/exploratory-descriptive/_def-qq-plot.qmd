@@ -1,0 +1,9 @@
+::: {#def-qq-plot}
+#### Normal quantile-quantile plot
+
+A **normal quantile-quantile (Q-Q) plot** plots the sorted observations
+([order statistics](nonparametric-models.qmd#def-order-statistics))
+against the corresponding quantiles of a standard Gaussian distribution.
+If the variable is approximately Gaussian,
+the points fall close to a straight line.
+:::

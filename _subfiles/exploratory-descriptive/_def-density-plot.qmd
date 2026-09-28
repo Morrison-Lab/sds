@@ -1,0 +1,7 @@
+::: {#def-density-plot}
+#### Density plot
+
+A **density plot** draws a smooth curve
+that estimates the probability density of a continuous variable,
+scaled so that the area under the curve is 1.
+:::

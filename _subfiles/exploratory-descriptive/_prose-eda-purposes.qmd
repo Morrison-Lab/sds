@@ -1,0 +1,13 @@
+Before fitting a model,
+it is good practice to explore and summarize the data.
+Exploratory data analysis (EDA) serves several purposes:
+
+- understanding the distribution of each variable individually;
+- detecting unusual values, outliers, and missing data;
+- identifying patterns and relationships among variables;
+- motivating choices of model structure, such as transformations;
+- providing context for interpreting model results.
+
+::: notes
+This page is adapted from [@vittinghoff2e, Chapter 2].
+:::

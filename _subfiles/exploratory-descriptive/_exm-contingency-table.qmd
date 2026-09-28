@@ -1,0 +1,35 @@
+::: {#exm-contingency-table}
+#### Smoking and CHD in the WCGS
+
+```{r}
+#| label: cross-smoke-chd
+table(Smoking = wcgs$smoke, CHD = wcgs$chd69)
+```
+
+Row proportions give the distribution of CHD status
+within each smoking group:
+
+```{r}
+#| label: cross-smoke-chd-prop
+table(Smoking = wcgs$smoke, CHD = wcgs$chd69) |>
+  prop.table(margin = 1)
+```
+
+@tbl-gtsummary-smoke-chd shows the same counts
+as a formatted table.
+
+::: {#tbl-gtsummary-smoke-chd}
+
+```{r}
+wcgs |>
+  dplyr::select(smoke, chd69) |>
+  gtsummary::tbl_summary(by = chd69) |>
+  gtsummary::add_overall() |>
+  gtsummary::add_p()
+```
+
+Smoking status and CHD event in the WCGS
+
+:::
+
+:::

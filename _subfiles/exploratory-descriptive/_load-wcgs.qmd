@@ -1,0 +1,55 @@
+The WCGS data are distributed with @vittinghoff2e
+on the book's companion website,
+as a Stata file that R can read directly:
+
+```{r}
+#| label: load-wcgs
+#| eval: false
+url <- paste0(
+  "https://regression.ucsf.edu/sites/g/files/",
+  "tkssra6706/f/wysiwyg/home/data/wcgs.dta"
+)
+wcgs <- haven::read_dta(url)
+```
+
+The `rmb` R package includes the same file,
+which these notes use so that rendering does not depend on the website.
+`haven::as_factor()` converts the Stata value labels to factors:
+
+```{r}
+#| label: load-wcgs-local
+wcgs <- rmb::wcgs |> haven::as_factor()
+```
+
+```{r}
+#| label: label-wcgs
+#| code-fold: true
+# attach a descriptive label to each variable;
+# gtsummary tables print these labels instead of the column names:
+wcgs_labels <- c(
+  age = "Age (years)",
+  chol = "Cholesterol (mg/dL)",
+  sbp = "Systolic BP (mmHg)",
+  dbp = "Diastolic BP (mmHg)",
+  bmi = "BMI (kg/m^2)",
+  weight = "Weight (lbs)",
+  ncigs = "Cigarettes per day",
+  chd69 = "CHD event by 1969",
+  smoke = "Current smoker",
+  arcus = "Arcus senilis",
+  dibpat = "Behavioral pattern (A/B)",
+  behpat = "Behavioral pattern (A1/A2/B3/B4)",
+  wghtcat = "Weight category",
+  agec = "Age group"
+)
+for (var in names(wcgs_labels)) {
+  attr(wcgs[[var]], "label") <- wcgs_labels[[var]]
+}
+```
+
+The dataset has one row per participant:
+
+```{r}
+#| label: glimpse-wcgs
+dplyr::glimpse(wcgs)
+```

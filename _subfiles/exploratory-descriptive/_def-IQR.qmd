@@ -1,0 +1,9 @@
+::: {#def-IQR}
+#### Interquartile range
+
+The **interquartile range** (IQR) is the difference between the
+third and first [quartiles](#def-quartiles):
+
+$$\text{IQR} \eqdef Q_3 - Q_1$$
+
+:::

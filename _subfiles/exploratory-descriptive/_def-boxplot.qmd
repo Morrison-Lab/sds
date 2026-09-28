@@ -1,0 +1,22 @@
+::: {#def-boxplot}
+#### Box plot
+
+A **box plot** (or box-and-whisker plot) summarizes the distribution
+of a continuous variable:
+
+- the box spans the first to the third [quartile](#def-quartiles),
+  so its length is the [IQR](#def-IQR);
+- a line inside the box marks the [median](#def-sample-median);
+- the whiskers extend from the box
+  to the most extreme observations within $1.5 \times \text{IQR}$ of the box;
+- observations beyond the whiskers are plotted individually,
+  as potential outliers.
+
+:::
+
+::: notes
+The $1.5 \times \text{IQR}$ whisker rule is the default in R's
+`boxplot()` and `ggplot2::geom_boxplot()`;
+other software and authors use other rules,
+such as whiskers that run to the minimum and maximum.
+:::

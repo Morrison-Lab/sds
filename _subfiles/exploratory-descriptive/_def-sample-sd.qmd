@@ -1,0 +1,15 @@
+::: {#def-sample-sd}
+#### Sample standard deviation
+
+The **sample standard deviation** is the square root of the
+[sample variance](#def-sample-variance):
+
+$$s \eqdef \sqrt{s^2}$$
+
+:::
+
+::: notes
+The standard deviation has the same units as the observations,
+which makes it easier to interpret than the variance,
+whose units are squared.
+:::
