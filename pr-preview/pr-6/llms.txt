@@ -6,7 +6,7 @@
 
 - [Nonparametric Models](https://morrison-lab.github.io/sds/nonparametric-models.llms.md)
 - [Statistical Inference](https://morrison-lab.github.io/sds/inference.llms.md)
-- [Exploratory and Descriptive Methods](https://morrison-lab.github.io/sds/exploratory-descriptive.llms.md)
+- [Exploratory Data Analysis](https://morrison-lab.github.io/sds/exploratory-descriptive.llms.md)
 - [Bayesian Inference](https://morrison-lab.github.io/sds/bayesian-inference.llms.md)
 - [Basic Statistical Methods](https://morrison-lab.github.io/sds/basic-statistical-methods.llms.md)
 - [Estimation](https://morrison-lab.github.io/sds/estimation.llms.md)

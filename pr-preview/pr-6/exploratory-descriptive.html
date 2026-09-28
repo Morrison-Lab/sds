@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Exploratory and Descriptive Methods – Statistics for Data Science</title>
+<title>Exploratory Data Analysis – Statistics for Data Science</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -153,6 +153,16 @@ cookieconsent.run({
 });
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-remark.callout {
   border-left-color: #AD1457;
 }
@@ -162,46 +172,6 @@ div.callout-remark.callout-style-default .callout-header {
 div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-prp.callout {
   border-left-color: #827717;
@@ -213,6 +183,36 @@ div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-def.callout {
   border-left-color: #1B5E20;
 }
@@ -222,16 +222,6 @@ div.callout-def.callout-style-default .callout-header {
 div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -243,15 +233,25 @@ div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
+div.callout-lem.callout {
+  border-left-color: #1565C0;
 }
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
 }
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -459,44 +459,33 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./nonparametric-models.html"> 
+<span class="menu-text">Nonparametric</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Notes</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">
-<li>
-    <a class="dropdown-item" href="./nonparametric-models.html">
- <span class="dropdown-text">Nonparametric Models</span></a>
+  <li class="nav-item">
+    <a class="nav-link active" href="./exploratory-descriptive.html" aria-current="page"> 
+<span class="menu-text">Exploratory</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./exploratory-descriptive.html">
- <span class="dropdown-text">Exploratory and Descriptive Methods</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./estimation.html"> 
+<span class="menu-text">Estimation</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./estimation.html">
- <span class="dropdown-text">Estimation</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./inference.html"> 
+<span class="menu-text">Inference</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./inference.html">
- <span class="dropdown-text">Statistical Inference</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./intro-MLEs.html"> 
+<span class="menu-text">MLE</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./intro-MLEs.html">
- <span class="dropdown-text">Maximum Likelihood Inference</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./bayesian-inference.html"> 
+<span class="menu-text">Bayesian</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./bayesian-inference.html">
- <span class="dropdown-text">Bayesian Inference</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./basic-statistical-methods.html"> 
+<span class="menu-text">Basic Methods</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./basic-statistical-methods.html">
- <span class="dropdown-text">Basic Statistical Methods</span></a>
-  </li>  
-    </ul>
-</li>
 </ul>
 <ul class="navbar-nav navbar-nav-scroll ms-auto">
 <li class="nav-item compact">
@@ -524,7 +513,7 @@ window.Quarto = {
   <ul>
 <li>
 <a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#sec-wcgs-data" id="toc-sec-wcgs-data" class="nav-link" data-scroll-target="#sec-wcgs-data"><span class="header-section-number">1.1</span> The WCGS data</a></li>
   <li><a href="#study-design" id="toc-study-design" class="nav-link" data-scroll-target="#study-design"><span class="header-section-number">1.2</span> Study design</a></li>
   <li><a href="#sec-load-wcgs" id="toc-sec-load-wcgs" class="nav-link" data-scroll-target="#sec-load-wcgs"><span class="header-section-number">1.3</span> Loading the data</a></li>
@@ -532,7 +521,7 @@ window.Quarto = {
 </li>
   <li>
 <a href="#summarizing-a-single-variable" id="toc-summarizing-a-single-variable" class="nav-link" data-scroll-target="#summarizing-a-single-variable"><span class="header-section-number">2</span> Summarizing a single variable</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#measures-of-center" id="toc-measures-of-center" class="nav-link" data-scroll-target="#measures-of-center"><span class="header-section-number">2.1</span> Measures of center</a></li>
   <li><a href="#measures-of-spread" id="toc-measures-of-spread" class="nav-link" data-scroll-target="#measures-of-spread"><span class="header-section-number">2.2</span> Measures of spread</a></li>
   <li><a href="#summary-statistics-in-r" id="toc-summary-statistics-in-r" class="nav-link" data-scroll-target="#summary-statistics-in-r"><span class="header-section-number">2.3</span> Summary statistics in R</a></li>
@@ -541,7 +530,7 @@ window.Quarto = {
 </li>
   <li>
 <a href="#graphical-methods" id="toc-graphical-methods" class="nav-link" data-scroll-target="#graphical-methods"><span class="header-section-number">3</span> Graphical methods</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="header-section-number">3.1</span> Histograms</a></li>
   <li><a href="#density-plots" id="toc-density-plots" class="nav-link" data-scroll-target="#density-plots"><span class="header-section-number">3.2</span> Density plots</a></li>
   <li><a href="#box-plots" id="toc-box-plots" class="nav-link" data-scroll-target="#box-plots"><span class="header-section-number">3.3</span> Box plots</a></li>
@@ -551,7 +540,7 @@ window.Quarto = {
 </li>
   <li>
 <a href="#bivariate-relationships" id="toc-bivariate-relationships" class="nav-link" data-scroll-target="#bivariate-relationships"><span class="header-section-number">4</span> Bivariate relationships</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#two-continuous-variables" id="toc-two-continuous-variables" class="nav-link" data-scroll-target="#two-continuous-variables"><span class="header-section-number">4.1</span> Two continuous variables</a></li>
   <li><a href="#a-continuous-variable-by-a-categorical-variable" id="toc-a-continuous-variable-by-a-categorical-variable" class="nav-link" data-scroll-target="#a-continuous-variable-by-a-categorical-variable"><span class="header-section-number">4.2</span> A continuous variable by a categorical variable</a></li>
   <li><a href="#two-categorical-variables" id="toc-two-categorical-variables" class="nav-link" data-scroll-target="#two-categorical-variables"><span class="header-section-number">4.3</span> Two categorical variables</a></li>
@@ -564,7 +553,7 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Exploratory and Descriptive Methods</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
+<div class="quarto-title-block"><div><h1 class="title">Exploratory Data Analysis</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
@@ -575,7 +564,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-09-28 01:33:18 (PDT)</p>
+      <p class="date">Last modified: 2026-09-28 01:41:08 (PDT)</p>
     </div>
   </div>
   
@@ -589,8 +578,8 @@ window.Quarto = {
 text-align: center;
 }
 </style>
-<section id="introduction" class="level1" data-number="1"><h1 data-number="1">
-<span class="header-section-number">1</span> Introduction</h1>
+<section id="introduction" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">1</span> Introduction</h2>
 <p>Before fitting a model, it is good practice to explore and summarize the data. Exploratory data analysis (EDA) serves several purposes:</p>
 <ul>
 <li>understanding the distribution of each variable individually;</li>
@@ -602,9 +591,9 @@ text-align: center;
 <div class="notes">
 <p>This page is adapted from <span class="citation" data-cites="vittinghoff2e">(<a href="#ref-vittinghoff2e" role="doc-biblioref">Vittinghoff et al. 2012, chap. 2</a>)</span>.</p>
 </div>
-<section id="sec-wcgs-data" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="sec-wcgs-data">
-<span class="header-section-number">1.1</span> The WCGS data</h2>
-<p>This page illustrates exploratory and descriptive methods using data from the Western Collaborative Group Study (WCGS) <span class="citation" data-cites="rosenman1975coronary">(<a href="#ref-rosenman1975coronary" role="doc-biblioref">Rosenman et al. 1975</a>)</span>. <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#ref-vittinghoff2e" role="doc-biblioref">2012, chap. 2</a>)</span> describe the study this way:</p>
+<section id="sec-wcgs-data" class="level3" data-number="1.1"><h3 data-number="1.1" class="anchored" data-anchor-id="sec-wcgs-data">
+<span class="header-section-number">1.1</span> The WCGS data</h3>
+<p>This page illustrates exploratory data analysis using data from the Western Collaborative Group Study (WCGS) <span class="citation" data-cites="rosenman1975coronary">(<a href="#ref-rosenman1975coronary" role="doc-biblioref">Rosenman et al. 1975</a>)</span>. <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#ref-vittinghoff2e" role="doc-biblioref">2012, chap. 2</a>)</span> describe the study this way:</p>
 <blockquote class="blockquote">
 <p>The Western Collaborative Group Study (WCGS) was a large epidemiological study designed to investigate the association between the “type A” behavior pattern and coronary heart disease (CHD).</p>
 </blockquote>
@@ -642,8 +631,8 @@ text-align: center;
 </div>
 </div>
 </div>
-</section><section id="study-design" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="study-design">
-<span class="header-section-number">1.2</span> Study design</h2>
+</section><section id="study-design" class="level3" data-number="1.2"><h3 data-number="1.2" class="anchored" data-anchor-id="study-design">
+<span class="header-section-number">1.2</span> Study design</h3>
 <p>The WCGS began in 1960 with 3,524 male volunteers employed by 11 California companies. Participants were 39 to 59 years old and free of heart disease, as determined by electrocardiogram. After the initial screening, various exclusions reduced the study population to 3,154 men and the number of companies to 10. The cohort comprised both blue- and white-collar employees. Average follow-up was 8.5 years, with repeat examinations.</p>
 <div class="notes">
 <p>This description paraphrases the help page for the <code>wcgs</code> dataset in the <code>faraway</code> R package.</p>
@@ -657,8 +646,8 @@ text-align: center;
 <li>behavioral data: the Type A interview, smoking, exercise, and alcohol use.</li>
 </ul>
 <p>Later surveys added anthropometry, triglycerides, the Jenkins Activity Survey, and caffeine use.</p>
-</section><section id="sec-load-wcgs" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="sec-load-wcgs">
-<span class="header-section-number">1.3</span> Loading the data</h2>
+</section><section id="sec-load-wcgs" class="level3" data-number="1.3"><h3 data-number="1.3" class="anchored" data-anchor-id="sec-load-wcgs">
+<span class="header-section-number">1.3</span> Loading the data</h3>
 <p>The WCGS data are distributed with <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#ref-vittinghoff2e" role="doc-biblioref">2012</a>)</span> on the book’s companion website, as a Stata file that R can read directly:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># one unbroken string, so that link checkers test the whole URL:</span></span>
@@ -721,10 +710,10 @@ text-align: center;
 <span><span class="co">#&gt; $ wghtcat  &lt;fct&gt; 170-200, 170-200, 170-200, 140-170, 140-170, 140-170, 140-170…</span></span>
 <span><span class="co">#&gt; $ agec     &lt;fct&gt; 46-50, 51-55, 56-60, 51-55, 41-45, 46-50, 35-40, 41-45, 46-50…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section></section><section id="summarizing-a-single-variable" class="level1" data-number="2"><h1 data-number="2">
-<span class="header-section-number">2</span> Summarizing a single variable</h1>
-<section id="measures-of-center" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="measures-of-center">
-<span class="header-section-number">2.1</span> Measures of center</h2>
+</section></section><section id="summarizing-a-single-variable" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="summarizing-a-single-variable">
+<span class="header-section-number">2</span> Summarizing a single variable</h2>
+<section id="measures-of-center" class="level3" data-number="2.1"><h3 data-number="2.1" class="anchored" data-anchor-id="measures-of-center">
+<span class="header-section-number">2.1</span> Measures of center</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-mean div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -788,8 +777,8 @@ text-align: center;
 </div>
 </div>
 </div>
-</section><section id="measures-of-spread" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="measures-of-spread">
-<span class="header-section-number">2.2</span> Measures of spread</h2>
+</section><section id="measures-of-spread" class="level3" data-number="2.2"><h3 data-number="2.2" class="anchored" data-anchor-id="measures-of-spread">
+<span class="header-section-number">2.2</span> Measures of spread</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-variance div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -890,8 +879,8 @@ text-align: center;
 </div>
 </div>
 </div>
-</section><section id="summary-statistics-in-r" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="summary-statistics-in-r">
-<span class="header-section-number">2.3</span> Summary statistics in R</h2>
+</section><section id="summary-statistics-in-r" class="level3" data-number="2.3"><h3 data-number="2.3" class="anchored" data-anchor-id="summary-statistics-in-r">
+<span class="header-section-number">2.3</span> Summary statistics in R</h3>
 <p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (<code>type = 7</code>), so they can differ slightly from <a href="#def-quartiles" class="quarto-xref">Definition&nbsp;5</a>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">wcgs</span><span class="op">$</span><span class="va">chol</span><span class="op">)</span></span>
@@ -914,23 +903,23 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 <span>    digits <span class="op">=</span> <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html">all_continuous</a></span><span class="op">(</span><span class="op">)</span> <span class="op">~</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="wufmvvhqlt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wufmvvhqlt table {
+<div id="hlajycmusk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hlajycmusk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wufmvvhqlt thead, #wufmvvhqlt tbody, #wufmvvhqlt tfoot, #wufmvvhqlt tr, #wufmvvhqlt td, #wufmvvhqlt th {
+#hlajycmusk thead, #hlajycmusk tbody, #hlajycmusk tfoot, #hlajycmusk tr, #hlajycmusk td, #hlajycmusk th {
   border-style: none;
 }
 
-#wufmvvhqlt p {
+#hlajycmusk p {
   margin: 0;
   padding: 0;
 }
 
-#wufmvvhqlt .gt_table {
+#hlajycmusk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -956,12 +945,12 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-left-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_caption {
+#hlajycmusk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wufmvvhqlt .gt_title {
+#hlajycmusk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -973,7 +962,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-width: 0;
 }
 
-#wufmvvhqlt .gt_subtitle {
+#hlajycmusk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -985,7 +974,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-top-width: 0;
 }
 
-#wufmvvhqlt .gt_heading {
+#hlajycmusk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -997,13 +986,13 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_bottom_border {
+#hlajycmusk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_col_headings {
+#hlajycmusk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1018,7 +1007,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_col_heading {
+#hlajycmusk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1038,7 +1027,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   overflow-x: hidden;
 }
 
-#wufmvvhqlt .gt_column_spanner_outer {
+#hlajycmusk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1050,15 +1039,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 4px;
 }
 
-#wufmvvhqlt .gt_column_spanner_outer:first-child {
+#hlajycmusk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wufmvvhqlt .gt_column_spanner_outer:last-child {
+#hlajycmusk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wufmvvhqlt .gt_column_spanner {
+#hlajycmusk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1070,11 +1059,11 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   width: 100%;
 }
 
-#wufmvvhqlt .gt_spanner_row {
+#hlajycmusk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wufmvvhqlt .gt_group_heading {
+#hlajycmusk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1100,7 +1089,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   text-align: left;
 }
 
-#wufmvvhqlt .gt_empty_group_heading {
+#hlajycmusk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1115,15 +1104,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   vertical-align: middle;
 }
 
-#wufmvvhqlt .gt_from_md > :first-child {
+#hlajycmusk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wufmvvhqlt .gt_from_md > :last-child {
+#hlajycmusk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wufmvvhqlt .gt_row {
+#hlajycmusk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1142,7 +1131,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   overflow-x: hidden;
 }
 
-#wufmvvhqlt .gt_stub {
+#hlajycmusk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1155,7 +1144,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#wufmvvhqlt .gt_stub_row_group {
+#hlajycmusk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1169,15 +1158,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   vertical-align: top;
 }
 
-#wufmvvhqlt .gt_row_group_first td {
+#hlajycmusk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wufmvvhqlt .gt_row_group_first th {
+#hlajycmusk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wufmvvhqlt .gt_summary_row {
+#hlajycmusk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1187,16 +1176,16 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#wufmvvhqlt .gt_first_summary_row {
+#hlajycmusk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_first_summary_row.thick {
+#hlajycmusk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wufmvvhqlt .gt_last_summary_row {
+#hlajycmusk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1206,7 +1195,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_grand_summary_row {
+#hlajycmusk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1216,7 +1205,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#wufmvvhqlt .gt_first_grand_summary_row {
+#hlajycmusk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1226,7 +1215,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-top-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_last_grand_summary_row_top {
+#hlajycmusk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1236,11 +1225,11 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_striped {
+#hlajycmusk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wufmvvhqlt .gt_table_body {
+#hlajycmusk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1249,7 +1238,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_footnotes {
+#hlajycmusk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1263,7 +1252,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_footnote {
+#hlajycmusk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1272,7 +1261,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#wufmvvhqlt .gt_sourcenotes {
+#hlajycmusk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1286,7 +1275,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#wufmvvhqlt .gt_sourcenote {
+#hlajycmusk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1294,72 +1283,72 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#wufmvvhqlt .gt_left {
+#hlajycmusk .gt_left {
   text-align: left;
 }
 
-#wufmvvhqlt .gt_center {
+#hlajycmusk .gt_center {
   text-align: center;
 }
 
-#wufmvvhqlt .gt_right {
+#hlajycmusk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wufmvvhqlt .gt_font_normal {
+#hlajycmusk .gt_font_normal {
   font-weight: normal;
 }
 
-#wufmvvhqlt .gt_font_bold {
+#hlajycmusk .gt_font_bold {
   font-weight: bold;
 }
 
-#wufmvvhqlt .gt_font_italic {
+#hlajycmusk .gt_font_italic {
   font-style: italic;
 }
 
-#wufmvvhqlt .gt_super {
+#hlajycmusk .gt_super {
   font-size: 65%;
 }
 
-#wufmvvhqlt .gt_footnote_marks {
+#hlajycmusk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wufmvvhqlt .gt_asterisk {
+#hlajycmusk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wufmvvhqlt .gt_indent_1 {
+#hlajycmusk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wufmvvhqlt .gt_indent_2 {
+#hlajycmusk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wufmvvhqlt .gt_indent_3 {
+#hlajycmusk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wufmvvhqlt .gt_indent_4 {
+#hlajycmusk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wufmvvhqlt .gt_indent_5 {
+#hlajycmusk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wufmvvhqlt .katex-display {
+#hlajycmusk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wufmvvhqlt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hlajycmusk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1411,8 +1400,8 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 </div>
 </figure>
 </div>
-</section><section id="binary-and-categorical-variables" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="binary-and-categorical-variables">
-<span class="header-section-number">2.4</span> Binary and categorical variables</h2>
+</section><section id="binary-and-categorical-variables" class="level3" data-number="2.4"><h3 data-number="2.4" class="anchored" data-anchor-id="binary-and-categorical-variables">
+<span class="header-section-number">2.4</span> Binary and categorical variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-proportion div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -1459,23 +1448,23 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">chd69</span>, <span class="va">smoke</span>, <span class="va">dibpat</span>, <span class="va">behpat</span>, <span class="va">wghtcat</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="rfucesqhiw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rfucesqhiw table {
+<div id="xfrlyhssjb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xfrlyhssjb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rfucesqhiw thead, #rfucesqhiw tbody, #rfucesqhiw tfoot, #rfucesqhiw tr, #rfucesqhiw td, #rfucesqhiw th {
+#xfrlyhssjb thead, #xfrlyhssjb tbody, #xfrlyhssjb tfoot, #xfrlyhssjb tr, #xfrlyhssjb td, #xfrlyhssjb th {
   border-style: none;
 }
 
-#rfucesqhiw p {
+#xfrlyhssjb p {
   margin: 0;
   padding: 0;
 }
 
-#rfucesqhiw .gt_table {
+#xfrlyhssjb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1501,12 +1490,12 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-left-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_caption {
+#xfrlyhssjb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rfucesqhiw .gt_title {
+#xfrlyhssjb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1518,7 +1507,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-width: 0;
 }
 
-#rfucesqhiw .gt_subtitle {
+#xfrlyhssjb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1530,7 +1519,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-top-width: 0;
 }
 
-#rfucesqhiw .gt_heading {
+#xfrlyhssjb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1542,13 +1531,13 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_bottom_border {
+#xfrlyhssjb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_col_headings {
+#xfrlyhssjb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1563,7 +1552,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_col_heading {
+#xfrlyhssjb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1583,7 +1572,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   overflow-x: hidden;
 }
 
-#rfucesqhiw .gt_column_spanner_outer {
+#xfrlyhssjb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1595,15 +1584,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 4px;
 }
 
-#rfucesqhiw .gt_column_spanner_outer:first-child {
+#xfrlyhssjb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rfucesqhiw .gt_column_spanner_outer:last-child {
+#xfrlyhssjb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rfucesqhiw .gt_column_spanner {
+#xfrlyhssjb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1615,11 +1604,11 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   width: 100%;
 }
 
-#rfucesqhiw .gt_spanner_row {
+#xfrlyhssjb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rfucesqhiw .gt_group_heading {
+#xfrlyhssjb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1645,7 +1634,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   text-align: left;
 }
 
-#rfucesqhiw .gt_empty_group_heading {
+#xfrlyhssjb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1660,15 +1649,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   vertical-align: middle;
 }
 
-#rfucesqhiw .gt_from_md > :first-child {
+#xfrlyhssjb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rfucesqhiw .gt_from_md > :last-child {
+#xfrlyhssjb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rfucesqhiw .gt_row {
+#xfrlyhssjb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1687,7 +1676,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   overflow-x: hidden;
 }
 
-#rfucesqhiw .gt_stub {
+#xfrlyhssjb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1700,7 +1689,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#rfucesqhiw .gt_stub_row_group {
+#xfrlyhssjb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1714,15 +1703,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   vertical-align: top;
 }
 
-#rfucesqhiw .gt_row_group_first td {
+#xfrlyhssjb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rfucesqhiw .gt_row_group_first th {
+#xfrlyhssjb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rfucesqhiw .gt_summary_row {
+#xfrlyhssjb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1732,16 +1721,16 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#rfucesqhiw .gt_first_summary_row {
+#xfrlyhssjb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_first_summary_row.thick {
+#xfrlyhssjb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rfucesqhiw .gt_last_summary_row {
+#xfrlyhssjb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1751,7 +1740,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_grand_summary_row {
+#xfrlyhssjb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1761,7 +1750,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#rfucesqhiw .gt_first_grand_summary_row {
+#xfrlyhssjb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1771,7 +1760,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-top-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_last_grand_summary_row_top {
+#xfrlyhssjb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1781,11 +1770,11 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_striped {
+#xfrlyhssjb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rfucesqhiw .gt_table_body {
+#xfrlyhssjb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1794,7 +1783,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_footnotes {
+#xfrlyhssjb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1808,7 +1797,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_footnote {
+#xfrlyhssjb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1817,7 +1806,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#rfucesqhiw .gt_sourcenotes {
+#xfrlyhssjb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1831,7 +1820,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#rfucesqhiw .gt_sourcenote {
+#xfrlyhssjb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1839,72 +1828,72 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#rfucesqhiw .gt_left {
+#xfrlyhssjb .gt_left {
   text-align: left;
 }
 
-#rfucesqhiw .gt_center {
+#xfrlyhssjb .gt_center {
   text-align: center;
 }
 
-#rfucesqhiw .gt_right {
+#xfrlyhssjb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rfucesqhiw .gt_font_normal {
+#xfrlyhssjb .gt_font_normal {
   font-weight: normal;
 }
 
-#rfucesqhiw .gt_font_bold {
+#xfrlyhssjb .gt_font_bold {
   font-weight: bold;
 }
 
-#rfucesqhiw .gt_font_italic {
+#xfrlyhssjb .gt_font_italic {
   font-style: italic;
 }
 
-#rfucesqhiw .gt_super {
+#xfrlyhssjb .gt_super {
   font-size: 65%;
 }
 
-#rfucesqhiw .gt_footnote_marks {
+#xfrlyhssjb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rfucesqhiw .gt_asterisk {
+#xfrlyhssjb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rfucesqhiw .gt_indent_1 {
+#xfrlyhssjb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rfucesqhiw .gt_indent_2 {
+#xfrlyhssjb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rfucesqhiw .gt_indent_3 {
+#xfrlyhssjb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rfucesqhiw .gt_indent_4 {
+#xfrlyhssjb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rfucesqhiw .gt_indent_5 {
+#xfrlyhssjb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rfucesqhiw .katex-display {
+#xfrlyhssjb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rfucesqhiw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xfrlyhssjb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1992,11 +1981,11 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
 </div>
 </figure>
 </div>
-</section></section><section id="graphical-methods" class="level1" data-number="3"><h1 data-number="3">
-<span class="header-section-number">3</span> Graphical methods</h1>
+</section></section><section id="graphical-methods" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="graphical-methods">
+<span class="header-section-number">3</span> Graphical methods</h2>
 <p>Graphs can reveal features of a distribution that summary statistics miss, such as skewness, multiple peaks, and outliers. Different types of graph suit different types of variable.</p>
-<section id="histograms" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="histograms">
-<span class="header-section-number">3.1</span> Histograms</h2>
+<section id="histograms" class="level3" data-number="3.1"><h3 data-number="3.1" class="anchored" data-anchor-id="histograms">
+<span class="header-section-number">3.1</span> Histograms</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-histogram div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -2034,8 +2023,8 @@ Figure&nbsp;1: Histogram of total cholesterol in the WCGS dataset
 </figure>
 </div>
 <p><a href="#fig-hist-chol" class="quarto-xref">Figure&nbsp;1</a> shows a single-peaked distribution with a longer right tail than left tail: 97% of the values lie between 150 and 350 mg/dL, but the largest value is 645 mg/dL.</p>
-</section><section id="density-plots" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="density-plots">
-<span class="header-section-number">3.2</span> Density plots</h2>
+</section><section id="density-plots" class="level3" data-number="3.2"><h3 data-number="3.2" class="anchored" data-anchor-id="density-plots">
+<span class="header-section-number">3.2</span> Density plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-density-plot div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -2069,8 +2058,8 @@ Figure&nbsp;2: Density plot of total cholesterol in the WCGS dataset
 </div>
 </figure>
 </div>
-</section><section id="box-plots" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="box-plots">
-<span class="header-section-number">3.3</span> Box plots</h2>
+</section><section id="box-plots" class="level3" data-number="3.3"><h3 data-number="3.3" class="anchored" data-anchor-id="box-plots">
+<span class="header-section-number">3.3</span> Box plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-boxplot div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -2114,8 +2103,8 @@ Figure&nbsp;3: Box plot of total cholesterol in the WCGS dataset
 </div>
 </figure>
 </div>
-</section><section id="bar-charts" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="bar-charts">
-<span class="header-section-number">3.4</span> Bar charts</h2>
+</section><section id="bar-charts" class="level3" data-number="3.4"><h3 data-number="3.4" class="anchored" data-anchor-id="bar-charts">
+<span class="header-section-number">3.4</span> Bar charts</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-bar-chart div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -2149,8 +2138,8 @@ Figure&nbsp;4: Bar chart of behavioral pattern in the WCGS dataset
 </div>
 </figure>
 </div>
-</section><section id="normal-quantile-quantile-plots" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="normal-quantile-quantile-plots">
-<span class="header-section-number">3.5</span> Normal quantile-quantile plots</h2>
+</section><section id="normal-quantile-quantile-plots" class="level3" data-number="3.5"><h3 data-number="3.5" class="anchored" data-anchor-id="normal-quantile-quantile-plots">
+<span class="header-section-number">3.5</span> Normal quantile-quantile plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-qq-plot div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -2186,10 +2175,10 @@ Figure&nbsp;5: Normal Q-Q plot for total cholesterol in the WCGS dataset
 </figure>
 </div>
 <p>In <a href="#fig-qq-chol" class="quarto-xref">Figure&nbsp;5</a>, the points curve above the reference line at the right, which matches the long right tail in <a href="#fig-hist-chol" class="quarto-xref">Figure&nbsp;1</a>.</p>
-</section></section><section id="bivariate-relationships" class="level1" data-number="4"><h1 data-number="4">
-<span class="header-section-number">4</span> Bivariate relationships</h1>
-<section id="two-continuous-variables" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="two-continuous-variables">
-<span class="header-section-number">4.1</span> Two continuous variables</h2>
+</section></section><section id="bivariate-relationships" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="bivariate-relationships">
+<span class="header-section-number">4</span> Bivariate relationships</h2>
+<section id="two-continuous-variables" class="level3" data-number="4.1"><h3 data-number="4.1" class="anchored" data-anchor-id="two-continuous-variables">
+<span class="header-section-number">4.1</span> Two continuous variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-scatterplot div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -2300,8 +2289,8 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 <p>Two variables can be strongly related and still have a correlation near zero, if the relationship is not linear. For example, if <span class="math inline">\(y_i = x_i^2\)</span>, the <span class="math inline">\(x_i\)</span> are symmetric around 0, and the <span class="math inline">\(\mathopen{}\left|x_i\right|\mathclose{}\)</span> are not all equal, then <span class="math inline">\(r = 0\)</span>, although <span class="math inline">\(y\)</span> is a function of <span class="math inline">\(x\)</span>. Correlation also does not imply causation.</p>
 </div>
 </div>
-</section><section id="a-continuous-variable-by-a-categorical-variable" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="a-continuous-variable-by-a-categorical-variable">
-<span class="header-section-number">4.2</span> A continuous variable by a categorical variable</h2>
+</section><section id="a-continuous-variable-by-a-categorical-variable" class="level3" data-number="4.2"><h3 data-number="4.2" class="anchored" data-anchor-id="a-continuous-variable-by-a-categorical-variable">
+<span class="header-section-number">4.2</span> A continuous variable by a categorical variable</h3>
 <p>Side-by-side <a href="#def-boxplot">box plots</a> compare the distribution of a continuous variable across the groups defined by a categorical variable (<a href="#fig-box-chol-by-smoke" class="quarto-xref">Figure&nbsp;7</a> and <a href="#fig-box-chol-by-behpat" class="quarto-xref">Figure&nbsp;8</a>).</p>
 <div id="fig-box-chol-by-smoke" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-box-chol-by-smoke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2363,23 +2352,23 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_overall.html">add_overall</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="ityohwjmcv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ityohwjmcv table {
+<div id="imqwlegdsu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#imqwlegdsu table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ityohwjmcv thead, #ityohwjmcv tbody, #ityohwjmcv tfoot, #ityohwjmcv tr, #ityohwjmcv td, #ityohwjmcv th {
+#imqwlegdsu thead, #imqwlegdsu tbody, #imqwlegdsu tfoot, #imqwlegdsu tr, #imqwlegdsu td, #imqwlegdsu th {
   border-style: none;
 }
 
-#ityohwjmcv p {
+#imqwlegdsu p {
   margin: 0;
   padding: 0;
 }
 
-#ityohwjmcv .gt_table {
+#imqwlegdsu .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2405,12 +2394,12 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-left-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_caption {
+#imqwlegdsu .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ityohwjmcv .gt_title {
+#imqwlegdsu .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2422,7 +2411,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-width: 0;
 }
 
-#ityohwjmcv .gt_subtitle {
+#imqwlegdsu .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2434,7 +2423,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-top-width: 0;
 }
 
-#ityohwjmcv .gt_heading {
+#imqwlegdsu .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2446,13 +2435,13 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_bottom_border {
+#imqwlegdsu .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_col_headings {
+#imqwlegdsu .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2467,7 +2456,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_col_heading {
+#imqwlegdsu .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2487,7 +2476,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   overflow-x: hidden;
 }
 
-#ityohwjmcv .gt_column_spanner_outer {
+#imqwlegdsu .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2499,15 +2488,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 4px;
 }
 
-#ityohwjmcv .gt_column_spanner_outer:first-child {
+#imqwlegdsu .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ityohwjmcv .gt_column_spanner_outer:last-child {
+#imqwlegdsu .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ityohwjmcv .gt_column_spanner {
+#imqwlegdsu .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2519,11 +2508,11 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   width: 100%;
 }
 
-#ityohwjmcv .gt_spanner_row {
+#imqwlegdsu .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ityohwjmcv .gt_group_heading {
+#imqwlegdsu .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2549,7 +2538,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   text-align: left;
 }
 
-#ityohwjmcv .gt_empty_group_heading {
+#imqwlegdsu .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2564,15 +2553,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   vertical-align: middle;
 }
 
-#ityohwjmcv .gt_from_md > :first-child {
+#imqwlegdsu .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ityohwjmcv .gt_from_md > :last-child {
+#imqwlegdsu .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ityohwjmcv .gt_row {
+#imqwlegdsu .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2591,7 +2580,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   overflow-x: hidden;
 }
 
-#ityohwjmcv .gt_stub {
+#imqwlegdsu .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2604,7 +2593,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#ityohwjmcv .gt_stub_row_group {
+#imqwlegdsu .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2618,15 +2607,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   vertical-align: top;
 }
 
-#ityohwjmcv .gt_row_group_first td {
+#imqwlegdsu .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ityohwjmcv .gt_row_group_first th {
+#imqwlegdsu .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ityohwjmcv .gt_summary_row {
+#imqwlegdsu .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2636,16 +2625,16 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#ityohwjmcv .gt_first_summary_row {
+#imqwlegdsu .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_first_summary_row.thick {
+#imqwlegdsu .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ityohwjmcv .gt_last_summary_row {
+#imqwlegdsu .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2655,7 +2644,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_grand_summary_row {
+#imqwlegdsu .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2665,7 +2654,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#ityohwjmcv .gt_first_grand_summary_row {
+#imqwlegdsu .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2675,7 +2664,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-top-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_last_grand_summary_row_top {
+#imqwlegdsu .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2685,11 +2674,11 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_striped {
+#imqwlegdsu .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ityohwjmcv .gt_table_body {
+#imqwlegdsu .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2698,7 +2687,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_footnotes {
+#imqwlegdsu .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2712,7 +2701,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_footnote {
+#imqwlegdsu .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2721,7 +2710,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#ityohwjmcv .gt_sourcenotes {
+#imqwlegdsu .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2735,7 +2724,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#ityohwjmcv .gt_sourcenote {
+#imqwlegdsu .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2743,72 +2732,72 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#ityohwjmcv .gt_left {
+#imqwlegdsu .gt_left {
   text-align: left;
 }
 
-#ityohwjmcv .gt_center {
+#imqwlegdsu .gt_center {
   text-align: center;
 }
 
-#ityohwjmcv .gt_right {
+#imqwlegdsu .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ityohwjmcv .gt_font_normal {
+#imqwlegdsu .gt_font_normal {
   font-weight: normal;
 }
 
-#ityohwjmcv .gt_font_bold {
+#imqwlegdsu .gt_font_bold {
   font-weight: bold;
 }
 
-#ityohwjmcv .gt_font_italic {
+#imqwlegdsu .gt_font_italic {
   font-style: italic;
 }
 
-#ityohwjmcv .gt_super {
+#imqwlegdsu .gt_super {
   font-size: 65%;
 }
 
-#ityohwjmcv .gt_footnote_marks {
+#imqwlegdsu .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ityohwjmcv .gt_asterisk {
+#imqwlegdsu .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ityohwjmcv .gt_indent_1 {
+#imqwlegdsu .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ityohwjmcv .gt_indent_2 {
+#imqwlegdsu .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ityohwjmcv .gt_indent_3 {
+#imqwlegdsu .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ityohwjmcv .gt_indent_4 {
+#imqwlegdsu .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ityohwjmcv .gt_indent_5 {
+#imqwlegdsu .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ityohwjmcv .katex-display {
+#imqwlegdsu .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ityohwjmcv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#imqwlegdsu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2871,8 +2860,8 @@ N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 </div>
 </figure>
 </div>
-</section><section id="two-categorical-variables" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="two-categorical-variables">
-<span class="header-section-number">4.3</span> Two categorical variables</h2>
+</section><section id="two-categorical-variables" class="level3" data-number="4.3"><h3 data-number="4.3" class="anchored" data-anchor-id="two-categorical-variables">
+<span class="header-section-number">4.3</span> Two categorical variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-contingency-table div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -2949,23 +2938,23 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
 <span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">chd69</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_overall.html">add_overall</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="yueowrjfql" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yueowrjfql table {
+<div id="nfghfeclrc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nfghfeclrc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yueowrjfql thead, #yueowrjfql tbody, #yueowrjfql tfoot, #yueowrjfql tr, #yueowrjfql td, #yueowrjfql th {
+#nfghfeclrc thead, #nfghfeclrc tbody, #nfghfeclrc tfoot, #nfghfeclrc tr, #nfghfeclrc td, #nfghfeclrc th {
   border-style: none;
 }
 
-#yueowrjfql p {
+#nfghfeclrc p {
   margin: 0;
   padding: 0;
 }
 
-#yueowrjfql .gt_table {
+#nfghfeclrc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2991,12 +2980,12 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-left-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_caption {
+#nfghfeclrc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yueowrjfql .gt_title {
+#nfghfeclrc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3008,7 +2997,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-width: 0;
 }
 
-#yueowrjfql .gt_subtitle {
+#nfghfeclrc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3020,7 +3009,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-top-width: 0;
 }
 
-#yueowrjfql .gt_heading {
+#nfghfeclrc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3032,13 +3021,13 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_bottom_border {
+#nfghfeclrc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_col_headings {
+#nfghfeclrc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3053,7 +3042,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_col_heading {
+#nfghfeclrc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3073,7 +3062,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   overflow-x: hidden;
 }
 
-#yueowrjfql .gt_column_spanner_outer {
+#nfghfeclrc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3085,15 +3074,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 4px;
 }
 
-#yueowrjfql .gt_column_spanner_outer:first-child {
+#nfghfeclrc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yueowrjfql .gt_column_spanner_outer:last-child {
+#nfghfeclrc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yueowrjfql .gt_column_spanner {
+#nfghfeclrc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3105,11 +3094,11 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   width: 100%;
 }
 
-#yueowrjfql .gt_spanner_row {
+#nfghfeclrc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yueowrjfql .gt_group_heading {
+#nfghfeclrc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3135,7 +3124,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   text-align: left;
 }
 
-#yueowrjfql .gt_empty_group_heading {
+#nfghfeclrc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3150,15 +3139,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   vertical-align: middle;
 }
 
-#yueowrjfql .gt_from_md > :first-child {
+#nfghfeclrc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yueowrjfql .gt_from_md > :last-child {
+#nfghfeclrc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yueowrjfql .gt_row {
+#nfghfeclrc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3177,7 +3166,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   overflow-x: hidden;
 }
 
-#yueowrjfql .gt_stub {
+#nfghfeclrc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3190,7 +3179,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#yueowrjfql .gt_stub_row_group {
+#nfghfeclrc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3204,15 +3193,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   vertical-align: top;
 }
 
-#yueowrjfql .gt_row_group_first td {
+#nfghfeclrc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yueowrjfql .gt_row_group_first th {
+#nfghfeclrc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yueowrjfql .gt_summary_row {
+#nfghfeclrc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3222,16 +3211,16 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#yueowrjfql .gt_first_summary_row {
+#nfghfeclrc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_first_summary_row.thick {
+#nfghfeclrc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yueowrjfql .gt_last_summary_row {
+#nfghfeclrc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3241,7 +3230,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_grand_summary_row {
+#nfghfeclrc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3251,7 +3240,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#yueowrjfql .gt_first_grand_summary_row {
+#nfghfeclrc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3261,7 +3250,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-top-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_last_grand_summary_row_top {
+#nfghfeclrc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3271,11 +3260,11 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_striped {
+#nfghfeclrc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yueowrjfql .gt_table_body {
+#nfghfeclrc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3284,7 +3273,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_footnotes {
+#nfghfeclrc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3298,7 +3287,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_footnote {
+#nfghfeclrc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3307,7 +3296,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#yueowrjfql .gt_sourcenotes {
+#nfghfeclrc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3321,7 +3310,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#yueowrjfql .gt_sourcenote {
+#nfghfeclrc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3329,72 +3318,72 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#yueowrjfql .gt_left {
+#nfghfeclrc .gt_left {
   text-align: left;
 }
 
-#yueowrjfql .gt_center {
+#nfghfeclrc .gt_center {
   text-align: center;
 }
 
-#yueowrjfql .gt_right {
+#nfghfeclrc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yueowrjfql .gt_font_normal {
+#nfghfeclrc .gt_font_normal {
   font-weight: normal;
 }
 
-#yueowrjfql .gt_font_bold {
+#nfghfeclrc .gt_font_bold {
   font-weight: bold;
 }
 
-#yueowrjfql .gt_font_italic {
+#nfghfeclrc .gt_font_italic {
   font-style: italic;
 }
 
-#yueowrjfql .gt_super {
+#nfghfeclrc .gt_super {
   font-size: 65%;
 }
 
-#yueowrjfql .gt_footnote_marks {
+#nfghfeclrc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yueowrjfql .gt_asterisk {
+#nfghfeclrc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yueowrjfql .gt_indent_1 {
+#nfghfeclrc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yueowrjfql .gt_indent_2 {
+#nfghfeclrc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yueowrjfql .gt_indent_3 {
+#nfghfeclrc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yueowrjfql .gt_indent_4 {
+#nfghfeclrc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yueowrjfql .gt_indent_5 {
+#nfghfeclrc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yueowrjfql .katex-display {
+#nfghfeclrc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yueowrjfql div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#nfghfeclrc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3441,8 +3430,8 @@ N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 </div>
 </div>
 </div>
-</section></section><section id="data-transformations" class="level1" data-number="5"><h1 data-number="5">
-<span class="header-section-number">5</span> Data transformations</h1>
+</section></section><section id="data-transformations" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="data-transformations">
+<span class="header-section-number">5</span> Data transformations</h2>
 <p>When a continuous variable has a right-skewed distribution (a longer tail to the right than to the left), a logarithmic transformation often makes the distribution more symmetric. A log-transformed variable also has a multiplicative interpretation: an increase of 1 in <span class="math inline">\(\log(x)\)</span> corresponds to multiplying <span class="math inline">\(x\)</span> by <span class="math inline">\(e \approx 2.72\)</span>, because <span class="math inline">\(\log(x) + 1 = \log(e \cdot x)\)</span>.</p>
 <p>The WCGS dataset already contains log-transformed versions of two variables:</p>
 <ul>
@@ -3517,8 +3506,8 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </details>
 </div>
 <p>The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 versus 1.2), but still not symmetric. Whether to transform a variable in a regression model depends on the assumptions of that model and on the scientific question.</p>
-</section><section id="an-exploratory-data-analysis-workflow" class="level1" data-number="6"><h1 data-number="6">
-<span class="header-section-number">6</span> An exploratory data analysis workflow</h1>
+</section><section id="an-exploratory-data-analysis-workflow" class="level2" data-number="6"><h2 data-number="6" class="anchored" data-anchor-id="an-exploratory-data-analysis-workflow">
+<span class="header-section-number">6</span> An exploratory data analysis workflow</h2>
 <p>A typical exploratory data analysis proceeds as follows:</p>
 <ol type="1">
 <li>
@@ -3557,23 +3546,23 @@ Table&nbsp;5: Summary of selected WCGS variables
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="pgdhuqhgtp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pgdhuqhgtp table {
+<div id="wmpwibblbl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wmpwibblbl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pgdhuqhgtp thead, #pgdhuqhgtp tbody, #pgdhuqhgtp tfoot, #pgdhuqhgtp tr, #pgdhuqhgtp td, #pgdhuqhgtp th {
+#wmpwibblbl thead, #wmpwibblbl tbody, #wmpwibblbl tfoot, #wmpwibblbl tr, #wmpwibblbl td, #wmpwibblbl th {
   border-style: none;
 }
 
-#pgdhuqhgtp p {
+#wmpwibblbl p {
   margin: 0;
   padding: 0;
 }
 
-#pgdhuqhgtp .gt_table {
+#wmpwibblbl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3599,12 +3588,12 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-left-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_caption {
+#wmpwibblbl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pgdhuqhgtp .gt_title {
+#wmpwibblbl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3616,7 +3605,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-width: 0;
 }
 
-#pgdhuqhgtp .gt_subtitle {
+#wmpwibblbl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3628,7 +3617,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-top-width: 0;
 }
 
-#pgdhuqhgtp .gt_heading {
+#wmpwibblbl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3640,13 +3629,13 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_bottom_border {
+#wmpwibblbl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_col_headings {
+#wmpwibblbl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3661,7 +3650,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_col_heading {
+#wmpwibblbl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3681,7 +3670,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   overflow-x: hidden;
 }
 
-#pgdhuqhgtp .gt_column_spanner_outer {
+#wmpwibblbl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3693,15 +3682,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 4px;
 }
 
-#pgdhuqhgtp .gt_column_spanner_outer:first-child {
+#wmpwibblbl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pgdhuqhgtp .gt_column_spanner_outer:last-child {
+#wmpwibblbl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pgdhuqhgtp .gt_column_spanner {
+#wmpwibblbl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3713,11 +3702,11 @@ Table&nbsp;5: Summary of selected WCGS variables
   width: 100%;
 }
 
-#pgdhuqhgtp .gt_spanner_row {
+#wmpwibblbl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pgdhuqhgtp .gt_group_heading {
+#wmpwibblbl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3743,7 +3732,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   text-align: left;
 }
 
-#pgdhuqhgtp .gt_empty_group_heading {
+#wmpwibblbl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3758,15 +3747,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   vertical-align: middle;
 }
 
-#pgdhuqhgtp .gt_from_md > :first-child {
+#wmpwibblbl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pgdhuqhgtp .gt_from_md > :last-child {
+#wmpwibblbl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pgdhuqhgtp .gt_row {
+#wmpwibblbl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3785,7 +3774,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   overflow-x: hidden;
 }
 
-#pgdhuqhgtp .gt_stub {
+#wmpwibblbl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3798,7 +3787,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#pgdhuqhgtp .gt_stub_row_group {
+#wmpwibblbl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3812,15 +3801,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   vertical-align: top;
 }
 
-#pgdhuqhgtp .gt_row_group_first td {
+#wmpwibblbl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pgdhuqhgtp .gt_row_group_first th {
+#wmpwibblbl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pgdhuqhgtp .gt_summary_row {
+#wmpwibblbl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3830,16 +3819,16 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#pgdhuqhgtp .gt_first_summary_row {
+#wmpwibblbl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_first_summary_row.thick {
+#wmpwibblbl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pgdhuqhgtp .gt_last_summary_row {
+#wmpwibblbl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3849,7 +3838,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_grand_summary_row {
+#wmpwibblbl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3859,7 +3848,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#pgdhuqhgtp .gt_first_grand_summary_row {
+#wmpwibblbl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3869,7 +3858,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-top-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_last_grand_summary_row_top {
+#wmpwibblbl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3879,11 +3868,11 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_striped {
+#wmpwibblbl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pgdhuqhgtp .gt_table_body {
+#wmpwibblbl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3892,7 +3881,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_footnotes {
+#wmpwibblbl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3906,7 +3895,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_footnote {
+#wmpwibblbl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3915,7 +3904,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#pgdhuqhgtp .gt_sourcenotes {
+#wmpwibblbl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3929,7 +3918,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#pgdhuqhgtp .gt_sourcenote {
+#wmpwibblbl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3937,72 +3926,72 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#pgdhuqhgtp .gt_left {
+#wmpwibblbl .gt_left {
   text-align: left;
 }
 
-#pgdhuqhgtp .gt_center {
+#wmpwibblbl .gt_center {
   text-align: center;
 }
 
-#pgdhuqhgtp .gt_right {
+#wmpwibblbl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pgdhuqhgtp .gt_font_normal {
+#wmpwibblbl .gt_font_normal {
   font-weight: normal;
 }
 
-#pgdhuqhgtp .gt_font_bold {
+#wmpwibblbl .gt_font_bold {
   font-weight: bold;
 }
 
-#pgdhuqhgtp .gt_font_italic {
+#wmpwibblbl .gt_font_italic {
   font-style: italic;
 }
 
-#pgdhuqhgtp .gt_super {
+#wmpwibblbl .gt_super {
   font-size: 65%;
 }
 
-#pgdhuqhgtp .gt_footnote_marks {
+#wmpwibblbl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pgdhuqhgtp .gt_asterisk {
+#wmpwibblbl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pgdhuqhgtp .gt_indent_1 {
+#wmpwibblbl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pgdhuqhgtp .gt_indent_2 {
+#wmpwibblbl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pgdhuqhgtp .gt_indent_3 {
+#wmpwibblbl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pgdhuqhgtp .gt_indent_4 {
+#wmpwibblbl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pgdhuqhgtp .gt_indent_5 {
+#wmpwibblbl .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pgdhuqhgtp .katex-display {
+#wmpwibblbl .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pgdhuqhgtp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wmpwibblbl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4102,7 +4091,7 @@ Table&nbsp;5: Summary of selected WCGS variables
 </div>
 </figure>
 </div>
-</section><section id="references" class="level1 unnumbered"><h1 class="unnumbered">References</h1>
+</section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-rosenman1975coronary" class="csl-entry" role="listitem">
 Rosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. <span>“Coronary Heart Disease in the <span>Western Collaborative Group Study</span>: Final Follow-up Experience of 8 1/2 Years.”</span> <em>JAMA</em> 233 (8): 872–77. <a href="https://doi.org/10.1001/jama.1975.03260080034016">https://doi.org/10.1001/jama.1975.03260080034016</a>.
@@ -4799,7 +4788,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Exploratory and Descriptive Methods"</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Exploratory Data Analysis"</span></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">  revealjs:</span></span>
@@ -4812,11 +4801,11 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/shared-config.qmd &gt;}}</span>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="fu"># Introduction</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
 <span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_prose-eda-purposes.qmd &gt;}}</span>
 <span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="fu">## The WCGS data {#sec-wcgs-data}</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a><span class="fu">### The WCGS data {#sec-wcgs-data}</span></span>
 <span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_wcgs-intro.qmd &gt;}}</span>
 <span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a></span>
@@ -4828,17 +4817,17 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_sol-def-type-A.qmd &gt;}}</span>
 <span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## Study design</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Study design</span></span>
 <span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_wcgs-design.qmd &gt;}}</span>
 <span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Loading the data {#sec-load-wcgs}</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a><span class="fu">### Loading the data {#sec-load-wcgs}</span></span>
 <span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_load-wcgs.qmd &gt;}}</span>
 <span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="fu"># Summarizing a single variable</span></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summarizing a single variable</span></span>
 <span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Measures of center</span></span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Measures of center</span></span>
 <span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-sample-mean div. --&gt;</span></span>
 <span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a></span>
@@ -4856,7 +4845,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_exm-sample-median.qmd &gt;}}</span>
 <span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a><span class="fu">## Measures of spread</span></span>
+<span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a><span class="fu">### Measures of spread</span></span>
 <span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-sample-variance div. --&gt;</span></span>
 <span id="cb30-62"><a href="#cb30-62" aria-hidden="true" tabindex="-1"></a></span>
@@ -4882,11 +4871,11 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-82"><a href="#cb30-82" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-83"><a href="#cb30-83" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_exm-IQR.qmd &gt;}}</span>
 <span id="cb30-84"><a href="#cb30-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a><span class="fu">## Summary statistics in R</span></span>
+<span id="cb30-85"><a href="#cb30-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Summary statistics in R</span></span>
 <span id="cb30-86"><a href="#cb30-86" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-87"><a href="#cb30-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_prose-summary-R.qmd &gt;}}</span>
 <span id="cb30-88"><a href="#cb30-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## Binary and categorical variables</span></span>
+<span id="cb30-89"><a href="#cb30-89" aria-hidden="true" tabindex="-1"></a><span class="fu">### Binary and categorical variables</span></span>
 <span id="cb30-90"><a href="#cb30-90" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-91"><a href="#cb30-91" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-sample-proportion div. --&gt;</span></span>
 <span id="cb30-92"><a href="#cb30-92" aria-hidden="true" tabindex="-1"></a></span>
@@ -4900,14 +4889,14 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-100"><a href="#cb30-100" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-101"><a href="#cb30-101" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_prose-categorical.qmd &gt;}}</span>
 <span id="cb30-102"><a href="#cb30-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a><span class="fu"># Graphical methods</span></span>
+<span id="cb30-103"><a href="#cb30-103" aria-hidden="true" tabindex="-1"></a><span class="fu">## Graphical methods</span></span>
 <span id="cb30-104"><a href="#cb30-104" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-105"><a href="#cb30-105" aria-hidden="true" tabindex="-1"></a>Graphs can reveal features of a distribution</span>
 <span id="cb30-106"><a href="#cb30-106" aria-hidden="true" tabindex="-1"></a>that summary statistics miss,</span>
 <span id="cb30-107"><a href="#cb30-107" aria-hidden="true" tabindex="-1"></a>such as skewness, multiple peaks, and outliers.</span>
 <span id="cb30-108"><a href="#cb30-108" aria-hidden="true" tabindex="-1"></a>Different types of graph suit different types of variable.</span>
 <span id="cb30-109"><a href="#cb30-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a><span class="fu">## Histograms</span></span>
+<span id="cb30-110"><a href="#cb30-110" aria-hidden="true" tabindex="-1"></a><span class="fu">### Histograms</span></span>
 <span id="cb30-111"><a href="#cb30-111" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-112"><a href="#cb30-112" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-histogram div. --&gt;</span></span>
 <span id="cb30-113"><a href="#cb30-113" aria-hidden="true" tabindex="-1"></a></span>
@@ -4917,7 +4906,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-117"><a href="#cb30-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-118"><a href="#cb30-118" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_fig-hist-chol.qmd &gt;}}</span>
 <span id="cb30-119"><a href="#cb30-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Density plots</span></span>
+<span id="cb30-120"><a href="#cb30-120" aria-hidden="true" tabindex="-1"></a><span class="fu">### Density plots</span></span>
 <span id="cb30-121"><a href="#cb30-121" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-122"><a href="#cb30-122" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-density-plot div. --&gt;</span></span>
 <span id="cb30-123"><a href="#cb30-123" aria-hidden="true" tabindex="-1"></a></span>
@@ -4927,7 +4916,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-127"><a href="#cb30-127" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-128"><a href="#cb30-128" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_fig-density-chol.qmd &gt;}}</span>
 <span id="cb30-129"><a href="#cb30-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## Box plots</span></span>
+<span id="cb30-130"><a href="#cb30-130" aria-hidden="true" tabindex="-1"></a><span class="fu">### Box plots</span></span>
 <span id="cb30-131"><a href="#cb30-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-132"><a href="#cb30-132" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-boxplot div. --&gt;</span></span>
 <span id="cb30-133"><a href="#cb30-133" aria-hidden="true" tabindex="-1"></a></span>
@@ -4937,7 +4926,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-137"><a href="#cb30-137" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-138"><a href="#cb30-138" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_fig-box-chol.qmd &gt;}}</span>
 <span id="cb30-139"><a href="#cb30-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bar charts</span></span>
+<span id="cb30-140"><a href="#cb30-140" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bar charts</span></span>
 <span id="cb30-141"><a href="#cb30-141" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-142"><a href="#cb30-142" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-bar-chart div. --&gt;</span></span>
 <span id="cb30-143"><a href="#cb30-143" aria-hidden="true" tabindex="-1"></a></span>
@@ -4947,7 +4936,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-147"><a href="#cb30-147" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-148"><a href="#cb30-148" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_fig-bar-behpat.qmd &gt;}}</span>
 <span id="cb30-149"><a href="#cb30-149" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a><span class="fu">## Normal quantile-quantile plots</span></span>
+<span id="cb30-150"><a href="#cb30-150" aria-hidden="true" tabindex="-1"></a><span class="fu">### Normal quantile-quantile plots</span></span>
 <span id="cb30-151"><a href="#cb30-151" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-152"><a href="#cb30-152" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-qq-plot div. --&gt;</span></span>
 <span id="cb30-153"><a href="#cb30-153" aria-hidden="true" tabindex="-1"></a></span>
@@ -4957,9 +4946,9 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-157"><a href="#cb30-157" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-158"><a href="#cb30-158" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_fig-qq-chol.qmd &gt;}}</span>
 <span id="cb30-159"><a href="#cb30-159" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a><span class="fu"># Bivariate relationships</span></span>
+<span id="cb30-160"><a href="#cb30-160" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bivariate relationships</span></span>
 <span id="cb30-161"><a href="#cb30-161" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two continuous variables</span></span>
+<span id="cb30-162"><a href="#cb30-162" aria-hidden="true" tabindex="-1"></a><span class="fu">### Two continuous variables</span></span>
 <span id="cb30-163"><a href="#cb30-163" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-164"><a href="#cb30-164" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-scatterplot div. --&gt;</span></span>
 <span id="cb30-165"><a href="#cb30-165" aria-hidden="true" tabindex="-1"></a></span>
@@ -4983,7 +4972,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-183"><a href="#cb30-183" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-184"><a href="#cb30-184" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_note-correlation-caution.qmd &gt;}}</span>
 <span id="cb30-185"><a href="#cb30-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## A continuous variable by a categorical variable</span></span>
+<span id="cb30-186"><a href="#cb30-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### A continuous variable by a categorical variable</span></span>
 <span id="cb30-187"><a href="#cb30-187" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-188"><a href="#cb30-188" aria-hidden="true" tabindex="-1"></a>Side-by-side <span class="co">[</span><span class="ot">box plots</span><span class="co">](#def-boxplot)</span> compare the distribution of a</span>
 <span id="cb30-189"><a href="#cb30-189" aria-hidden="true" tabindex="-1"></a>continuous variable across the groups defined by a categorical variable</span>
@@ -4995,7 +4984,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-195"><a href="#cb30-195" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-196"><a href="#cb30-196" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_tbl-chol-by-chd.qmd &gt;}}</span>
 <span id="cb30-197"><a href="#cb30-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a><span class="fu">## Two categorical variables</span></span>
+<span id="cb30-198"><a href="#cb30-198" aria-hidden="true" tabindex="-1"></a><span class="fu">### Two categorical variables</span></span>
 <span id="cb30-199"><a href="#cb30-199" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-200"><a href="#cb30-200" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-contingency-table div. --&gt;</span></span>
 <span id="cb30-201"><a href="#cb30-201" aria-hidden="true" tabindex="-1"></a></span>
@@ -5005,15 +4994,15 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb30-205"><a href="#cb30-205" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-206"><a href="#cb30-206" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_exm-contingency-table.qmd &gt;}}</span>
 <span id="cb30-207"><a href="#cb30-207" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a><span class="fu"># Data transformations</span></span>
+<span id="cb30-208"><a href="#cb30-208" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data transformations</span></span>
 <span id="cb30-209"><a href="#cb30-209" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-210"><a href="#cb30-210" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_prose-transformations.qmd &gt;}}</span>
 <span id="cb30-211"><a href="#cb30-211" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a><span class="fu"># An exploratory data analysis workflow</span></span>
+<span id="cb30-212"><a href="#cb30-212" aria-hidden="true" tabindex="-1"></a><span class="fu">## An exploratory data analysis workflow</span></span>
 <span id="cb30-213"><a href="#cb30-213" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-214"><a href="#cb30-214" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/exploratory-descriptive/_prose-workflow.qmd &gt;}}</span>
 <span id="cb30-215"><a href="#cb30-215" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span>
+<span id="cb30-216"><a href="#cb30-216" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
 <span id="cb30-217"><a href="#cb30-217" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-218"><a href="#cb30-218" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
 <span id="cb30-219"><a href="#cb30-219" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>

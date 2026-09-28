@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:33:18 (PDT)
+Last modified: 2026-09-28 01:41:08 (PDT)
 
-# 1 Scientific models
+## 1 Scientific models
 
 > **NOTE:**
 >
@@ -16,7 +16,7 @@ Last modified: 2026-09-28 01:33:18 (PDT)
 >
 > **Example 1 (Scientific models in epidemiology)** Epidemiologists typically study *biological conditions and changes*, such as the spread of infectious diseases through populations, or the effects of environmental factors on individuals.
 
-## 1.1 Models as approximations
+### 1.1 Models as approximations
 
 > …Essentially, all models are wrong, but some are useful. **However, the approximate nature of the model must always be borne in mind.**
 
@@ -24,7 +24,7 @@ Last modified: 2026-09-28 01:33:18 (PDT)
 
 See also ([Dunn and Smyth 2018, sec. 1.8](#ref-dunn2018generalized)).
 
-## 1.2 Statistical analysis of scientific models
+### 1.2 Statistical analysis of scientific models
 
 When we perform statistical analyses, we use data to help us choose between models; specifically, to determine which models best explain those data.
 
@@ -34,9 +34,9 @@ To learn about the physical processes we are ultimately interested in, we often 
 
 These kinds of *missing data* issues are outside the scope of these notes; see Van Buuren ([2018](#ref-van2018flexible)) for more details.
 
-# 2 Estimands, estimates, and estimators
+## 2 Estimands, estimates, and estimators
 
-## 2.1 Estimands
+### 2.1 Estimands
 
 > **NOTE:**
 >
@@ -52,7 +52,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > Model parameters and other estimands are often symbolized using lower-case Greek letters: \\\alpha, \beta, \gamma, \delta\\, etc.
 
-## 2.2 Estimates
+### 2.2 Estimates
 
 > **NOTE:**
 >
@@ -62,7 +62,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > **Example 3 (Mean height of students)** Suppose we measure the heights of 50 randomly sampled students from our school, and their [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is 175 cm. We might use 175 cm as an [*estimate*](#def-estimate) of the population mean.
 
-## 2.3 Estimators
+### 2.3 Estimators
 
 > **NOTE:**
 >
@@ -98,7 +98,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > Which of these estimators is best? The answer depends on how we evaluate them (see [Section 3](#sec-est-accuracy)).
 
-## 2.4 Contrasting estimands, estimates, and estimators
+### 2.4 Contrasting estimands, estimates, and estimators
 
 It’s helpful to keep in mind the mathematical type of each estimation concept:
 
@@ -106,13 +106,13 @@ It’s helpful to keep in mind the mathematical type of each estimation concept:
 - [estimates](#def-estimate) are also numbers (or vectors);
 - [estimators](#def-estimator) are functions; an estimator applied to random data, \\\hat\theta(X_1, \ldots, X_n)\\, is a random variable.
 
-# 3 Accuracy of estimators
+## 3 Accuracy of estimators
 
-## 3.1 Accuracy
+### 3.1 Accuracy
 
 To determine which estimator is best, we need to define *best*. Accuracy is usually most important, and ease of computation is usually secondary.
 
-## 3.2 Estimation error
+### 3.2 Estimation error
 
 > **NOTE:**
 >
@@ -130,11 +130,11 @@ To determine which estimator is best, we need to define *best*. Accuracy is usua
 
 The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, mean squared error, and mean absolute error defined in this section, are all functions of the distribution of the estimator’s [estimation error](#def-estimation-error).
 
-## 3.3 Residuals
+### 3.3 Residuals
 
 See [Linear-model residual definitions and terminology](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-lm-residuals) for residual definitions and for the relationship between residuals, model deviations, and estimation error.
 
-## 3.4 Bias
+### 3.4 Bias
 
 > **NOTE:**
 >
@@ -162,7 +162,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 >
 > So both estimators have zero bias, even though \\\bar X\\ uses all \\n\\ observations and \\X_1\\ uses only one.
 
-## 3.5 Mean squared error
+### 3.5 Mean squared error
 
 > **NOTE:**
 >
@@ -220,7 +220,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 >
 > It has the same units as the estimand. In [Example 7](#exm-mse-sample-mean), the root mean squared error of \\\bar X\\ is \\\sigma/\sqrt{n}\\.
 
-## 3.6 Unbiased estimators
+### 3.6 Unbiased estimators
 
 > **NOTE:**
 >
@@ -269,7 +269,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 >
 > \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} &= \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} && \text{(definition of unbiased)}\\ &= \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} && \text{(\$0^2 = 0\$)} \end{aligned} \\
 
-## 3.7 Mean absolute error
+### 3.7 Mean absolute error
 
 > **NOTE:**
 >
@@ -285,7 +285,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 >
 > So for an [unbiased](#def-unbiased) Gaussian estimator, the mean absolute error is about \\0.80\\ times the standard deviation \\\tau\\, while the [root mean squared error](#def-rmse) is \\\tau\\ itself ([Theorem 3](#thm-unbiased-props)).
 
-## 3.8 Standard error
+### 3.8 Standard error
 
 > **NOTE:**
 >
@@ -331,7 +331,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 >
 > *Proof*. By [Equation 4](#eq-unbiased-mse), \\\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}\\. Taking square roots of both sides, \\\sqrt{\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}} = \operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{}\\.
 
-# References
+## References
 
 Box, George E. P., and Norman Richard. Draper. 1987. *Empirical Model-Building and Response Surfaces*. Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics. Wiley.
 

@@ -4,11 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:33:18 (PDT)
+Last modified: 2026-09-28 01:41:08 (PDT)
 
-# 1 Empirical CDF and quantiles
-
-## 1.1 Empirical CDF
+## 1 Empirical CDF
 
 > **NOTE:**
 >
@@ -26,7 +24,7 @@ Last modified: 2026-09-28 01:33:18 (PDT)
 >
 > Similarly, \\\hat F(0) = 0\\, because no value is at most 0, and \\\hat F(7) = 1\\, because every value is at most 7.
 
-## 1.2 Order statistics
+## 2 Order statistics
 
 > **NOTE:**
 >
@@ -40,7 +38,7 @@ Last modified: 2026-09-28 01:33:18 (PDT)
 >
 > **Example 2 (Numerical example: order statistics)** If the observed values are \\4, 1, 7, 3\\, then the order statistics are \\x\_{(1)} = 1\\, \\x\_{(2)} = 3\\, \\x\_{(3)} = 4\\, and \\x\_{(4)} = 7\\.
 
-## 1.3 Sample quantiles
+## 3 Sample quantiles
 
 > **NOTE:**
 >
@@ -54,7 +52,7 @@ The [CDF](https://morrison-lab.github.io/rme/chapters/probability.html#def-cdf) 
 
 > **NOTE:**
 >
-> **Theorem 1 (Order-statistics form of the sample quantile)** If \\x\_{(1)} \le \cdots \le x\_{(n)}\\ are the [order statistics](#def-order-statistics) and \\i \in \mathopen{}\left\\1, \ldots, n\right\\\mathclose{}\\, then \\\hat Q(p) = x\_{(i)}\\ for every \\p \in \mathopen{}\left((i-1)/n, i/n\right)\mathclose{}\\ and for \\p = i/n\\. In particular, \\\hat Q(i/n) = x\_{(i)}\\.
+> **Theorem 1 (Order-statistics form of the sample quantile)** If \\x\_{(1)} \le \cdots \le x\_{(n)}\\ are the [order statistics](#def-order-statistics) and \\i \in \mathopen{}\left\\1, \ldots, n\right\\\mathclose{}\\, then \\\hat Q(p) = x\_{(i)}\\ for every \\p\\ with \\(i-1)/n \< p \le i/n\\. In particular, \\\hat Q(i/n) = x\_{(i)}\\.
 
 > **NOTE:**
 >
@@ -91,7 +89,7 @@ The [CDF](https://morrison-lab.github.io/rme/chapters/probability.html#def-cdf) 
 
 Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s [`quantile()`](https://rdrr.io/r/stats/quantile.html) offers nine definitions through its `type` argument, and its default (`type = 7`) interpolates, so `quantile(c(4, 1, 7, 3), 0.5)` returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use [Definition 3](#def-sample-quantile), which always returns one of the observed values.
 
-## 1.4 The empirical CDF and quantile function as generalized inverses
+## 4 The empirical CDF and quantile function as generalized inverses
 
 ``` downlit
 x <- c(4, 1, 7, 3)
@@ -150,6 +148,6 @@ Figure 1: The empirical CDF and the sample quantile function for the data 4, 1,
 
 Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, \\\hat F(t) = 0.5\\ for every \\t \in \[3, 4)\\, and \\\hat Q\\ jumps from 3 to 4 at \\p = 0.5\\. So \\\hat Q\\ is a *generalized* inverse of \\\hat F\\, not an inverse in the usual sense: \\\hat Q(\hat F(t)) \le t\\ for every \\t \ge x\_{(1)}\\, with equality only at the observed values.
 
-# References
+## References
 
 Back to top

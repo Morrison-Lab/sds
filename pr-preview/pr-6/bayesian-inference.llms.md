@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:33:18 (PDT)
+Last modified: 2026-09-28 01:41:08 (PDT)
 
 This page introduces the **Bayesian** approach to statistical inference, from its foundations, through the simulation methods that put it into practice, to analyses of common regression models. It has three parts:
 
@@ -12,7 +12,7 @@ This page introduces the **Bayesian** approach to statistical inference, from it
 - **Computation** ([Section 5](#sec-foundations) through [Section 8](#sec-dic)) explains why most posteriors must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models. This part follows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)).
 - **Applications** ([Section 9](#sec-bayes-examples) onward) fits a proportion, a logistic regression, a survival model and a random-effects model with the **JAGS** sampler, and averages over linear regression models. This part follows ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)).
 
-# 1 Frequentist and Bayesian paradigms
+## 1 Frequentist and Bayesian paradigms
 
 The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages treat an unknown parameter \\\theta\\ as a fixed but unknown constant, and quantify uncertainty using the sampling distribution of an estimator \\\hat\theta\\: the distribution of \\\hat\theta\\ over hypothetical repetitions of the data-generating process. This stance is the **frequentist** paradigm: probability describes long-run frequencies, and a parameter, being a constant, has no probability distribution.
 
@@ -32,7 +32,7 @@ The **Bayesian** paradigm instead treats the unknown parameter as a random varia
 
 The two paradigms answer different questions. A frequentist asks, “for which parameter values would these data be unsurprising?”; a Bayesian asks, “given these data, what should I now believe about the parameter?”. Neither question is wrong, and they call for different machinery.
 
-# 2 Bayes’ theorem for parameters
+## 2 Bayes’ theorem for parameters
 
 > **NOTE:**
 >
@@ -88,7 +88,7 @@ The two paradigms answer different questions. A frequentist asks, “for which p
 
 [Theorem 1](#thm-bayes-posterior) is [Bayes’ theorem](https://morrison-lab.github.io/rme/chapters/probability.html#thm-bayes) for events, restated for densities. Here \\\operatorname{p}(\tilde{y}\mid \theta)\\, viewed as a function of \\\theta\\, is the [likelihood](intro-MLEs.llms.md#def-lik) \\\mathcal{L}(\theta)\\. [Corollary 1](#cor-bayes-proportional) is the workhorse of applied Bayesian analysis: it identifies the posterior from the shape of likelihood times prior, without computing the integral \\\operatorname{p}(\tilde{y})\\, and it is what makes the simulation methods of [Section 5](#sec-foundations) possible ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 272).
 
-## 2.1 A Gaussian mean with a Gaussian prior
+### 2.1 A Gaussian mean with a Gaussian prior
 
 > **NOTE:**
 >
@@ -108,7 +108,7 @@ The two paradigms answer different questions. A frequentist asks, “for which p
 >
 > The posterior mean \\\frac{n}{n+1}\bar{x}\\ is the sample mean shrunk toward the prior mean \\0\\, and the shrinkage factor \\\frac{n}{n+1}\\ approaches \\1\\ as \\n \to \infty\\.
 
-## 2.2 Two readings of an interval estimate
+### 2.2 Two readings of an interval estimate
 
 The two paradigms differ most visibly in how they interpret an interval estimate ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 271). A frequentist 95% [confidence interval](inference.llms.md#def-confidence-interval) is a random interval whose coverage probability, over repeated samples with \\\theta\\ held fixed, is 0.95. Any one realized interval either contains \\\theta\\ or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about \\\theta\\ itself, given the data actually observed.
 
@@ -179,7 +179,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > That probability is 0.931, not 0.95: under this prior, the confidence interval sits slightly too far from \\0\\. A frequentist cannot assign any probability to the event that \\\mu\\ lies in one realized interval, since both are fixed.
 
-## 2.3 The parameter space
+### 2.3 The parameter space
 
 > **NOTE:**
 >
@@ -207,11 +207,11 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 >
 > **Example 7 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on \\(0, 0.5)\\ for the smoking probability \\\pi\\. By [Corollary 2](#cor-prior-support), the posterior then gives probability 0 to \\\pi \> 0.5\\, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
 
-# 3 Priors
+## 3 Priors
 
 The [prior](#def-prior) encodes what is known about \\\theta\\ before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
 
-## 3.1 Conjugate priors
+### 3.1 Conjugate priors
 
 > **NOTE:**
 >
@@ -248,7 +248,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 >
 > The mean uses the \\\operatorname{Beta}(a, b)\\ mean \\a / (a + b)\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01)).
 
-## 3.2 Informative, weakly informative, and flat priors
+### 3.2 Informative, weakly informative, and flat priors
 
 Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
 
@@ -329,7 +329,7 @@ A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improp
 >
 > **Example 11 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 8](#exm-beta-bernoulli) the prior is uniform on \\(0, 1)\\, so by [Corollary 3](#cor-flat-prior-posterior) the posterior density, proportional to \\\pi^{55}(1-\pi)^{36}\\, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood \\r \log \pi + (n - r)\log(1 - \pi)\\, which is \\r/\pi - (n - r)/(1 - \pi)\\, to zero gives \\\hat\pi = r/n = 55/91 \approx 0.604\\. The posterior *mean*, \\56/93 \approx 0.602\\, is not the maximum likelihood estimate: [Corollary 3](#cor-flat-prior-posterior) concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.
 
-## 3.3 A skeptical prior
+### 3.3 A skeptical prior
 
 > **NOTE:**
 >
@@ -359,7 +359,7 @@ A skeptical prior asks how strong the data must be to overturn a default of no e
 >
 > The most skeptical prior (\\\tau = 0.1\\) pulls the posterior mean down to one sixth of the sample mean, while the most diffuse (\\\tau = 10\\) leaves it essentially at \\\bar x\\.
 
-# 4 Distributions and hierarchies
+## 4 Distributions and hierarchies
 
 > **NOTE:**
 >
@@ -383,11 +383,11 @@ A skeptical prior asks how strong the data must be to overturn a default of no e
 
 The middle level lets the groups **borrow strength** from one another: the posterior for each \\\theta_j\\ is pulled toward the overall mean \\\mu\\, by an amount that depends on the between-group standard deviation \\\tau\\, which the data themselves inform ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281). This random-effects *model structure* is the one fit by maximum likelihood in ([Dobson and Barnett 2018, chap. 11](#ref-dobson4e)) and in [an introduction to multilevel models](https://morrison-lab.github.io/rme/chapters/intro-multilevel-models.html). The Bayesian *inference method* differs only in placing a hyperprior on \\\mu\\ and \\\tau\\ and returning a full posterior for them, rather than point estimates of the variance components.
 
-# 5 Foundations of MCMC
+## 5 Foundations of MCMC
 
 When the posterior has a known closed form, as in [Example 8](#exm-beta-bernoulli), we can compute its summaries exactly or sample from it directly. In most real-world models, however, the [marginal likelihood](#def-marginal-likelihood) \\\operatorname{p}(\tilde{y})\\ that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. **Markov chain Monte Carlo (MCMC)** methods get around this problem: instead of independent draws from the posterior, they generate a *correlated* sequence of draws whose distribution converges to the posterior ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 287).
 
-## 5.1 Why the normalizing constant is hard to compute
+### 5.1 Why the normalizing constant is hard to compute
 
 With a parameter vector \\\tilde{\theta}\\, the normalizing constant of the posterior is
 
@@ -395,7 +395,7 @@ With a parameter vector \\\tilde{\theta}\\, the normalizing constant of the post
 
 an integral over every dimension of \\\tilde{\theta}\\ that typically has no closed form. Computing it numerically becomes infeasible as the dimension of \\\tilde{\theta}\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 287). MCMC sidesteps the problem: MCMC samplers use the posterior only through ratios \\\operatorname{p}(\tilde{\theta}^\* \mid \tilde{y}) / \operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, in which the normalizing constant cancels.
 
-## 5.2 Monte Carlo integration
+### 5.2 Monte Carlo integration
 
 > **NOTE:**
 >
@@ -431,7 +431,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > The two agree to about two decimal places, and the agreement improves as \\M\\ grows.
 
-## 5.3 Markov chains
+### 5.3 Markov chains
 
 > **NOTE:**
 >
@@ -468,9 +468,9 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 
 Under mild conditions on its transition probabilities, a Markov chain has a unique stationary distribution, the distribution of \\\tilde{\theta}^{(t)}\\ converges to it, and averages along the chain converge to expectations under it, even though successive values are correlated ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 291). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 
-# 6 MCMC samplers
+## 6 MCMC samplers
 
-## 6.1 The Metropolis–Hastings algorithm
+### 6.1 The Metropolis–Hastings algorithm
 
 > **NOTE:**
 >
@@ -522,7 +522,7 @@ The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\*
 >
 > Comparing \\\log u\\, for \\u\\ uniform on \\(0, 1)\\, with \\\log \alpha\\ accepts with probability \\\min(1, \alpha)\\, and avoids computing \\\alpha\\ itself, which can overflow or underflow. Every accepted proposal changes the chain’s value, so the fraction of iterations that change estimates the acceptance rate. The chain’s mean is close to the exact posterior mean \\56/93\\.
 
-## 6.2 Trace plots and burn-in
+### 6.2 Trace plots and burn-in
 
 > **NOTE:**
 >
@@ -562,7 +562,7 @@ A chain started far from where the posterior puts its probability takes some ite
 >
 > Both chains reach the region around \\0.6\\ within a few dozen iterations, and after that the two are indistinguishable, so discarding the first 500 iterations of each leaves a generous margin.
 
-## 6.3 The Gibbs sampler
+### 6.3 The Gibbs sampler
 
 > **NOTE:**
 >
@@ -610,7 +610,7 @@ The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#de
 >
 > With \\\rho = 0\\, successive draws of \\\theta_1\\ are nearly uncorrelated. With \\\rho = 0.99\\, each full conditional has standard deviation \\\sqrt{1 - 0.99^2} \approx 0.14\\, so each update moves only a short way along the narrow ridge where the target puts its probability, and successive draws are almost perfectly correlated: 2,000 such draws carry far less information about the target than 2,000 independent ones.
 
-# 7 Checking and improving MCMC
+## 7 Checking and improving MCMC
 
 Because MCMC draws are correlated, and a chain may take many iterations to reach its stationary distribution, we must check whether the chains have converged before using them for inference ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 302). [Trace plots](#def-trace-plot) give a visual check; the potential scale reduction factor gives a numerical one, by comparing several chains started from different values.
 
@@ -650,7 +650,7 @@ If the chains have all converged to the posterior, \\W\\ and \\\hat V\\ both est
 >
 > Here `stats::var(colMeans(chains))` is \\\frac{1}{m-1}\sum_j (\bar\theta_j - \bar\theta)^2\\, so `b` is \\B\\. While the chains are still approaching the posterior from opposite ends, \\\hat{R}\\ is well above 1; after burn-in it is essentially 1.
 
-## 7.1 Comparing MCMC estimates to maximum likelihood
+### 7.1 Comparing MCMC estimates to maximum likelihood
 
 When the prior is weak and the sample is moderate or large, the posterior mean from a well-mixed chain and the [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) typically agree closely, and the posterior standard deviation is close to the frequentist [standard error](estimation.llms.md#def-SE) ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 298). As \\n\\ grows the likelihood dominates the prior, so the posterior concentrates near the maximum likelihood estimate. Comparing the two is therefore a useful check on an MCMC analysis.
 
@@ -681,13 +681,13 @@ When the prior is weak and the sample is moderate or large, the posterior mean f
 
 A persistent discrepancy between the two is a signal worth investigating: it may reflect a genuinely informative prior, an unconverged chain, or a coding error in the model.
 
-## 7.2 The importance of parameterization
+### 7.2 The importance of parameterization
 
 How a model is written affects how well its sampler mixes ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 299). Two algebraically equivalent parameterizations of the same model can produce chains with very different autocorrelation. Strong posterior correlation between parameters slows a sampler that updates one component at a time, because each update can move only a short way along a narrow, tilted ridge, as [Example 18](#exm-gibbs-bivariate-normal) shows with \\\rho = 0.99\\.
 
 Common remedies include **centering** predictors (subtracting their means), so that the intercept and slopes are less correlated, and **reparameterizing** variance components on a scale on which the posterior is more nearly symmetric. These changes leave the model, and so the scientific conclusions, unchanged; they alter only the geometry the sampler must explore.
 
-# 8 Deviance information criterion
+## 8 Deviance information criterion
 
 To compare Bayesian models fit to the same data, we need a measure that balances goodness of fit against complexity, as [Akaike’s information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-aic) does for models fit by maximum likelihood. The standard criterion computed from MCMC output is the **deviance information criterion** ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306).
 
@@ -746,7 +746,7 @@ The term \\D(\bar{\tilde{\theta}})\\ rewards fit, while \\p_D\\ penalizes comple
 
 DIC should be used with care: it can behave poorly for models with weakly identified parameters or markedly non-Gaussian posteriors ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306).
 
-# 9 A first example: a single proportion
+## 9 A first example: a single proportion
 
 From here on, the models are fit with **JAGS** (“Just Another Gibbs Sampler”), a program that builds an MCMC sampler from a text description of a model ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)), driven from R through the `rjags` package. We begin with the simplest possible model, a single Bernoulli probability, whose exact posterior is known from [Example 8](#exm-beta-bernoulli), so the output can be checked. The example shows the mechanics that every later analysis reuses: specifying a model, supplying data, running a burn-in, monitoring parameters, and summarizing and checking the draws. In JAGS, `dnorm(mean, precision)` is parameterized by the precision, the reciprocal of the variance.
 
@@ -795,7 +795,7 @@ From here on, the models are fit with **JAGS** (“Just Another Gibbs Sampler”
 >
 > The posterior mean and equal-tailed 95% credible interval agree with the exact \\\operatorname{Beta}(56, 37)\\ values of [Example 8](#exm-beta-bernoulli) to about two decimal places, and the [potential scale reduction factor](#def-psrf) is 1.
 
-# 10 Binary outcomes: logistic regression
+## 10 Binary outcomes: logistic regression
 
 For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = {\tilde{x}\_i}^{\top}\tilde{\beta}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\tilde{\beta}\\ and samples the posterior \\\operatorname{p}(\tilde{\beta}\mid \tilde{y})\\ by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 318). Each \\\beta_j\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta_j}\\, or of any other function of \\\tilde{\beta}\\, is obtained by transforming the draws.
 
@@ -861,7 +861,7 @@ For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operat
 > #>      -0.647       1.183
 > ```
 
-# 11 Survival analysis
+## 11 Survival analysis
 
 Parametric survival models, such as those with exponential or Weibull event times, admit a Bayesian treatment: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 330). Censoring enters through the likelihood, exactly as in the frequentist [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
 
@@ -951,7 +951,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 >
 > The monitored \\e^{\beta_1}\\ gives the hazard ratio and its credible interval directly.
 
-# 12 Random effects
+## 12 Random effects
 
 The [hierarchical model](#def-hierarchical-model) of [Example 13](#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ drawn from a common distribution. What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 333). The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
 
@@ -1030,7 +1030,7 @@ The [hierarchical model](#def-hierarchical-model) of [Example 13](#exm-two-leve
 >
 > This is the borrowing of strength described in [Section 4](#sec-bayes-hierarchies): group 4, with the largest sample mean, is pulled furthest toward the overall mean.
 
-# 13 Bayesian model averaging
+## 13 Bayesian model averaging
 
 When several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. **Bayesian model averaging** instead averages over the models, weighting each by its posterior probability ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 338). This approach carries *model* uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by [predictor selection](https://morrison-lab.github.io/rme/chapters/predictor-selection.html).
 
@@ -1108,11 +1108,11 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > The predictors that affect the outcome, \\x_1\\ and \\x_2\\, have inclusion probabilities near 1, and the irrelevant \\x_3\\ a much smaller one. The models without \\x_1\\ get almost no weight, so the model-averaged slope of \\x_1\\ is close to its least-squares estimate in the model with \\x_1\\ and \\x_2\\ only. Both differ from the true slope \\0.8\\ by sampling variation in this data set, not because of the averaging.
 
-# 14 Further reading
+## 14 Further reading
 
 The following resources cover Bayesian inference in more depth.
 
-## 14.1 UC Davis courses
+### 14.1 UC Davis courses
 
 - [STA 015C](https://catalog.ucdavis.edu/search/?q=STA+015C): “Introduction to Statistical Data Science III”
 - [STA 035C](https://catalog.ucdavis.edu/search/?q=STA+035C): “Statistical Data Science III”
@@ -1123,7 +1123,7 @@ The following resources cover Bayesian inference in more depth.
 - [POL 280](https://catalog.ucdavis.edu/search/?q=POL+280): “Bayesian Methods: for Social & Behavioral Sciences”
 - [BAX 442](https://catalog.ucdavis.edu/search/?q=BAX+442): “Advanced Statistics”
 
-## 14.2 Books
+### 14.2 Books
 
 - Ross ([2022](#ref-rossbayes)), a free online textbook
 - Aragon ([2018](#ref-aragon2018population)), on population health thinking with Bayesian networks
@@ -1133,7 +1133,7 @@ The following resources cover Bayesian inference in more depth.
 - Kéry et al. ([2012](#ref-kery-bayes-pop))
 - Hobbs and Hooten ([2015](#ref-HobbsN.Thompson2015Bmas)), which has been used in [PLS 207](https://catalog.ucdavis.edu/search/?q=PLS+207)
 
-# References
+## References
 
 Aragon, Tomas J. 2018. *Population Health Thinking with Bayesian Networks*. <https://escholarship.org/uc/item/8000r5m5>.
 

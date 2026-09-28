@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:33:18 (PDT)
+Last modified: 2026-09-28 01:41:08 (PDT)
 
-# 1 Inference
+## 1 Inference
 
 > **NOTE:**
 >
@@ -28,9 +28,9 @@ There are two predominant paradigms for statistical inference:
 - [frequentist inference](intro-MLEs.llms.md#sec-intro-MLEs), which treats parameters as fixed unknown constants;
 - [Bayesian inference](bayesian-inference.llms.md), which treats parameters as random variables with prior distributions.
 
-# 2 Hypothesis tests
+## 2 Hypothesis tests
 
-## 2.1 Hypotheses
+### 2.1 Hypotheses
 
 > **NOTE:**
 >
@@ -50,7 +50,7 @@ There are two predominant paradigms for statistical inference:
 >
 > \\H_0: \mu_1 = \mu_0 \qquad H_1: \mu_1 \ne \mu_0\\
 
-## 2.2 p-values
+### 2.2 p-values
 
 > **NOTE:**
 >
@@ -102,7 +102,7 @@ A p-value is computed assuming \\H_0\\ is true, so it is not the probability tha
 >
 > The p-value is far below 0.05, so at significance level 0.05 the test rejects \\H_0\\: the data provide [statistically significant](#def-statistically-significant) evidence that mean cholesterol differs between the two groups.
 
-# 3 Confidence intervals
+## 3 Confidence intervals
 
 > **NOTE:**
 >
@@ -142,7 +142,7 @@ A p-value is computed assuming \\H_0\\ is true, so it is not the probability tha
 >
 > **Example 5 (Margin of error for mean cholesterol)** In [Example 4](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
 
-## 3.1 Further reading
+## 4 Further reading on confidence intervals
 
 For more on confidence intervals:
 
@@ -152,7 +152,7 @@ For more on confidence intervals:
 
   Unable to execute JavaScript.
 
-# 4 Interpretation of negative findings
+## 5 Interpretation of negative findings
 
 If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not *necessarily* mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage \\1 - \alpha\\ and significance level \\\alpha\\, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant *evidence* that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.
 
@@ -194,7 +194,7 @@ Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio 
 
 See also ([Vittinghoff et al. 2012, sec. 3.7](#ref-vittinghoff2e)).
 
-# References
+## References
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

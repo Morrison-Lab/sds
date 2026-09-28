@@ -4,13 +4,13 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:33:18 (PDT)
+Last modified: 2026-09-28 01:41:08 (PDT)
 
 These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](#ref-dobson4e)), with some material from ([McLachlan and Krishnan 2007](#ref-mclachlan2007em)) and ([Casella and Berger 2002](#ref-CaseBerg01)).
 
-# 1 Overview of maximum likelihood estimation
+## 1 Overview of maximum likelihood estimation
 
-## 1.1 The likelihood function
+### 1.1 The likelihood function
 
 > **NOTE:**
 >
@@ -67,8 +67,6 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 >
 > *Proof*. By [Theorem 1](#thm-lik-iid), \\\mathcal{L}(\theta) = \prod\_{i=1}^n \operatorname{p}(X_i = x_i \mid \theta)\\, and by [Definition 3](#def-lik-factor), each factor \\\operatorname{p}(X_i = x_i \mid \theta)\\ is \\\mathcal{L}\_i(\theta)\\.
 
-### 1.1.1 Binary outcomes: one group, no covariates
-
 > **NOTE:**
 >
 > **Exercise 1 (Likelihood of binary outcomes with one event probability)** A binary outcome \\Y\\ with event probability \\\pi\\ has
@@ -81,7 +79,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 >
 > *Solution 1*. \\ \begin{aligned} \mathcal{L}(\pi; \tilde{y}) &= \prod\_{i=1}^n \mathcal{L}\_i(\pi) && \text{(product of likelihood components)}\\ &= \prod\_{i=1}^n \Pr(Y_i = y_i) && \text{(definition of likelihood components)}\\ &= \prod\_{i=1}^n\pi^{y_i} (1 - \pi)^{1 - y_i} && \text{(Bernoulli PMF)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n(1 - y_i)} && \text{(product of powers of a common base)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i} && \text{(\$\textstyle\sum\_{i=1}^n1 = n\$)} \end{aligned} \\
 
-## 1.2 The maximum likelihood estimate
+### 1.2 The maximum likelihood estimate
 
 > **NOTE:**
 >
@@ -93,7 +91,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 >
 > **Example 2 (MLE for one Bernoulli observation)** In [Example 1](#exm-lik-obs), the likelihood of the observation \\x = 1\\ is \\\mathcal{L}(\pi) = \pi\\ for \\\pi \in \[0, 1\]\\. This function is increasing, so it is maximized at the upper edge of the parameter space: \\\hat\pi\_{\text{ML}} = 1\\.
 
-## 1.3 Finding the maximum of a function
+### 1.3 Finding the maximum of a function
 
 > **NOTE:**
 >
@@ -101,7 +99,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 From calculus: if \\f(x)\\ is differentiable, its maximum over an interval of input values can occur only at an endpoint of the interval or at a [critical point](#def-critical-point). At a critical point \\x_0\\, \\f''(x_0) \< 0\\ is sufficient for \\x_0\\ to be a local maximum, but not necessary: \\f(x) = -x^4\\ has a maximum at \\x_0 = 0\\, where \\f''(0) = 0\\. For a function of a vector, a negative definite Hessian matrix at a critical point is sufficient for a local maximum.
 
-## 1.4 Directly maximizing the likelihood function for independent data
+### 1.4 Directly maximizing the likelihood function for independent data
 
 To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta) = 0\\ for \\\theta\\. For mutually independent data, [Equation 1](#eq-Lik) gives:
 
@@ -109,7 +107,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 [Equation 3](#eq-deriv-Lik) is the derivative of a product of \\n\\ factors, which takes \\n - 1\\ applications of the [product rule](https://morrison-lab.github.io/rme/chapters/math-prereqs.html#thm-product-rule) and produces \\n\\ terms. The log-likelihood avoids this work.
 
-## 1.5 The log-likelihood function
+### 1.5 The log-likelihood function
 
 > **NOTE:**
 >
@@ -167,7 +165,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 >
 > \\ \begin{aligned} \ell(\pi; \tilde{y}) &= \operatorname{log}\mathopen{}\left\\\pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i}\right\\\mathclose{} && \text{(log of the likelihood)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + \mathopen{}\left(n - \sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(log of a product; log of a power)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \mathopen{}\left(\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} - \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\right)\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(collect the terms in \$\textstyle\sum\_{i=1}^ny_i\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\frac{\pi}{1 - \pi}\right\\\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(log of a quotient)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(definition of \$\operatorname{logit}\$)} \end{aligned} \\
 
-## 1.6 The score function
+### 1.6 The score function
 
 > **NOTE:**
 >
@@ -221,7 +219,7 @@ In all four examples ([Exercise 3](#exr-derive-bernoulli-score), [Exercise 4](
 
 This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in \\x\\; for every such family, the score with respect to the mean is \\(x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape \\k \ne 1\\, do not have this form. Exponential-family distributions share many special properties ([Hogg et al. 2015, sec. 6.7](#ref-hoggtanis2015); [Dobson and Barnett 2018, chap. 3](#ref-dobson4e)).
 
-## 1.7 Information matrices
+### 1.7 Information matrices
 
 > **NOTE:**
 >
@@ -301,8 +299,6 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > **Example 6 (When the support depends on the parameter)** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Uniform}(0, \theta)\\. The likelihood is \\\mathcal{L}(\theta) = \theta^{-n}\\ for \\\theta\ge \max_i x_i\\ (and 0 otherwise), so on that range \\\ell(\theta) = -n \log \theta\\ and \\\ell'(\theta) = -n/\theta\\. The score is a nonzero constant, so \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = -n/\theta\ne 0\\: [Equation 12](#eq-score-mean-zero) fails, because the set of possible data values, \\(0, \theta)\\, depends on \\\theta\\.
 
-### 1.7.1 Notation for information matrices
-
 Sources disagree on the symbols for the observed and expected information ([Table 1](#tbl-info-mat-symbols)).
 
 | Source | Observed information | Expected information |
@@ -315,7 +311,7 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 
 Table 1: Notation for information matrices in several sources
 
-## 1.8 Asymptotic distribution of the maximum likelihood estimate
+### 1.8 Asymptotic distribution of the maximum likelihood estimate
 
 > **NOTE:**
 >
@@ -345,9 +341,9 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta
 
 Using the observed information is often more convenient, and there are settings where it is provably better by some criteria ([Efron and Hinkley 1978](#ref-efron1978assessing)).
 
-## 1.9 Quantifying uncertainty about MLEs
+### 1.9 Quantifying uncertainty about MLEs
 
-### 1.9.1 Confidence intervals for MLEs
+#### 1.9.1 Confidence intervals for MLEs
 
 > **NOTE:**
 >
@@ -359,7 +355,7 @@ Using the observed information is often more convenient, and there are settings 
 
 By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}\\ has approximately a standard Gaussian distribution in large samples, so the Wald interval is an [approximate confidence interval](inference.llms.md#def-approximate-ci) for \\\theta_k\\. For a 95% interval, \\z\_{0.975} \approx 1.96\\.
 
-### 1.9.2 Wald tests
+#### 1.9.2 Wald tests
 
 > **NOTE:**
 >
@@ -367,7 +363,7 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 >
 > \\Z \stackrel{\text{def}}{=}\frac{\hat\theta_k - \theta\_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}}\\
 >
-> which, by [Theorem 9](#thm-dist-mle), has approximately a standard Gaussian distribution under \\H_0\\ in large samples. For \\q\\ constraints \\H_0: \tilde{\theta}\_{(q)} = \tilde{\theta}\_{(q),0}\\ on a \\q \times 1\\ subvector, the Wald statistic is \\{\mathopen{}\left(\hat\tilde{\theta}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}}^{\top}\\\mathopen{}\left(\hat{V}\_{(q)}\right)^{-1}\mathclose{}\\\mathopen{}\left(\hat\tilde{\theta}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}\\, where \\\hat V\_{(q)}\\ is the corresponding \\q \times q\\ block of \\\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\\; it has approximately a \\\chi^2_q\\ distribution under \\H_0\\.
+> which, by [Theorem 9](#thm-dist-mle), has approximately a standard Gaussian distribution under \\H_0\\ in large samples. For \\q\\ constraints \\H_0: \tilde{\theta}\_{(q)} = \tilde{\theta}\_{(q),0}\\ on a \\q \times 1\\ subvector, the Wald statistic is \\{\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}}^{\top}\\\mathopen{}\left(\hat{V}\_{(q)}\right)^{-1}\mathclose{}\\\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}\\, where \\\hat V\_{(q)}\\ is the corresponding \\q \times q\\ block of \\\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\\; it has approximately a \\\chi^2_q\\ distribution under \\H_0\\.
 
 > **NOTE:**
 >
@@ -388,7 +384,7 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 > #> 4.2591657 6.8177574 2.3570226 0.0184221
 > ```
 
-### 1.9.3 Likelihood ratio tests for MLEs
+#### 1.9.3 Likelihood ratio tests for MLEs
 
 > **NOTE:**
 >
@@ -442,7 +438,7 @@ Equivalently, in terms of nested models: if a full model \\M_1\\ has \\p\\ free 
 
 See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://online.stat.psu.edu/stat504/Lesson02>.
 
-### 1.9.4 Exact and approximate tests
+#### 1.9.4 Exact and approximate tests
 
 | Inference goal | Exact test (Gaussian outcomes) | Null distribution | Approximate test (MLE) | Approximate null distribution |
 |----|----|----|----|----|
@@ -457,7 +453,7 @@ Table 2: Exact tests that assume Gaussian outcomes, and their approximate, larg
 
 The t, F and ANOVA tests are covered in [basic statistical methods](basic-statistical-methods.llms.md). The exact tests assume \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 9](#thm-dist-mle), Gaussian or not.
 
-### 1.9.5 Prediction intervals
+#### 1.9.5 Prediction intervals
 
 > **NOTE:**
 >
@@ -473,11 +469,11 @@ and \\\bar X^\* - \hat\mu \sim \operatorname{N}\mathopen{}\left(0, \sigma^2\math
 
 Usually \\m = 1\\. The term \\1/n\\ accounts for the uncertainty in \\\hat\mu\\, and becomes negligible when \\n\\ is much larger than \\m\\.
 
-# 2 Example: maximum likelihood for tropical cyclones in Australia
+## 2 Example: maximum likelihood for tropical cyclones in Australia
 
 Adapted from ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)).
 
-## 2.1 Data
+### 2.1 Data
 
 [Table 3](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
 
@@ -511,7 +507,7 @@ cyclones |> knitr::kable()
 
 Table 3: Number of tropical cyclones during each November-to-April season in northeastern Australia ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e))
 
-### 2.1.1 Exploratory analysis
+### 2.2 Exploratory analysis
 
 Suppose we want to learn how many cyclones to expect per season.
 
@@ -571,7 +567,7 @@ tibble::tibble(
 
 Table 4: Summary statistics for the `cyclones` data
 
-### 2.1.2 Model
+### 2.3 Model
 
 We want to estimate \\\Pr(X = x)\\; that is, \\\Pr(X = x)\\ is our [estimand](estimation.llms.md#def-estimand).
 
@@ -593,7 +589,7 @@ We could estimate \\\Pr(X = x)\\ for each value of \\x\\ in \\0, 1, 2, \ldots\\ 
 >
 > *Solution*. \\\Pr(X = x) = \frac{\lambda^{x} e^{-\lambda}}{x!}, \quad x \in \mathopen{}\left\\0, 1, 2, \ldots\right\\\mathclose{} \tag{15}\\
 
-### 2.1.3 Estimating the model parameters using maximum likelihood
+### 2.4 Estimating the model parameters using maximum likelihood
 
 We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 
@@ -700,7 +696,7 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > Figure 4: Log-likelihood of the cyclone data
 
-#### The score function
+#### 2.4.1 The score function
 
 > **NOTE:**
 >
@@ -741,7 +737,7 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > Figure 5: Score function of the cyclone data
 
-#### The Hessian
+#### 2.4.2 The Hessian
 
 > **NOTE:**
 >
@@ -790,7 +786,7 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > *Solution*. \\\ell'(\lambda; \tilde{x}) = 0\\
 
-### 2.1.4 Finding the MLE analytically
+### 2.5 Finding the MLE analytically
 
 In this example, we can find the MLE of \\\lambda\\ by solving the score equation algebraically.
 
@@ -846,8 +842,6 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 >
 > Figure 7: Log-likelihood of the cyclone data, with the MLE marked in red
 
-#### Observed information
-
 [Figure 8](#fig-obs-inf-matrix) graphs the [observed information](intro-MLEs.llms.md#def-oinf), \\I(\lambda; \tilde{x}) = -\ell''(\lambda; \tilde{x})\\.
 
 ``` downlit
@@ -864,9 +858,9 @@ ggplot2::ggplot() +
 
 Figure 8: Observed information of the cyclone data
 
-## 2.2 Finding the MLE using the Newton-Raphson algorithm
+### 2.6 Finding the MLE using the Newton-Raphson algorithm
 
-### 2.2.1 Iterative maximization
+#### 2.6.1 Iterative maximization
 
 When we cannot solve the score equation \\\ell'(\theta) = 0\\ algebraically, we can search for its solution numerically ([Dobson and Barnett 2018, chap. 4](#ref-dobson4e)).
 
@@ -916,7 +910,7 @@ The expected information is sometimes simpler to compute than the observed infor
 
 For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \tilde{x})\\ is the sample covariance matrix (with divisor \\n\\) of the observations’ scores, so it estimates the covariance matrix of one observation’s score, \\\mathcal{I}(\theta)/n\\ ([Theorem 8](#thm-information-equality)). The empirical information needs only first derivatives, so it can be easier to compute than the observed information, and it can replace the observed information in the Newton-Raphson update.
 
-### 2.2.2 Applying Newton-Raphson to the cyclone data
+#### 2.6.2 Applying Newton-Raphson to the cyclone data
 
 > **NOTE:**
 >
@@ -1162,7 +1156,7 @@ ll_plot +
 
 Figure 13: Newton-Raphson steps toward the MLE of the Poisson model ([Equation 15](#eq-iid-model)) for the cyclone data
 
-# 3 Maximum likelihood for univariate Gaussian models
+## 3 Maximum likelihood for univariate Gaussian models
 
 Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\, and let \\x_1, \ldots, x_n\\ be the observed values. The parameter vector is \\\tilde{\theta}= (\mu, \sigma^2)\\. We treat \\\sigma^2\\, rather than \\\sigma\\, as the second parameter, and differentiate with respect to \\\sigma^2\\ directly.
 
@@ -1174,7 +1168,7 @@ and by [Theorem 4](#thm-loglik-iid), the log-likelihood is:
 
 \\ \begin{aligned} \ell(\mu, \sigma^2) &= \sum\_{i=1}^n \mathopen{}\left(-\frac{1}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} - \frac{(x_i - \mu)^2}{2\sigma^2}\right)\mathclose{} && \text{(log of each Gaussian density)}\\ &= -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n (x_i - \mu)^2 && \text{(split the sum; log of a product)} \end{aligned} \\
 
-## 3.1 The score function
+### 3.1 The score function
 
 The score function is the vector of the two partial derivatives:
 
@@ -1188,7 +1182,7 @@ For the second entry, write \\\sigma^2\\ as a single variable \\v\\, so that \\\
 
 \\ \begin{aligned} \frac{\partial}{\partial \sigma^2}\ell &= -\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n (x_i - \mu)^2 && \text{(derivatives of \$\log v\$ and \$v^{-1}\$)} \end{aligned} \\
 
-## 3.2 MLE of \\\mu\\
+### 3.2 MLE of \\\mu\\
 
 Setting \\\frac{\partial}{\partial \mu}\ell = 0\\:
 
@@ -1200,7 +1194,7 @@ This solution does not depend on \\\sigma^2\\. The second derivative is
 
 so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\\, and \\\hat\mu\_{\text{ML}} = \bar x\\.
 
-## 3.3 MLE of \\\sigma^2\\
+### 3.3 MLE of \\\sigma^2\\
 
 Setting \\\frac{\partial}{\partial \sigma^2}\ell = 0\\:
 
@@ -1216,7 +1210,7 @@ Differentiating with respect to \\\sigma^2\\ as a single variable, rather than w
 
 This MLE divides by \\n\\, so it is a biased estimator of \\\sigma^2\\ ([bias of the divide-by-\\n\\ estimator](estimation.llms.md#exm-biased-variance-mle)).
 
-## 3.4 Second derivatives
+### 3.4 Second derivatives
 
 The remaining second derivatives are:
 
@@ -1226,7 +1220,7 @@ At the MLE, \\\sum\_{i=1}^n (x_i - \bar x) = 0\\ and \\\sum\_{i=1}^n (x_i - \bar
 
 \\ \begin{aligned} \frac{\partial^2 \ell}{\partial (\sigma^2)^2}\bigg\|\_{\text{MLE}} &= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-3} n\hat\sigma^2 && \text{(substitute)}\\ &= -\frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} && \text{(simplify)}\\ \frac{\partial^2 \ell}{\partial \mu \\ \partial \sigma^2}\bigg\|\_{\text{MLE}} &= 0 && \text{(substitute)} \end{aligned} \\
 
-## 3.5 Information matrix and standard errors
+### 3.5 Information matrix and standard errors
 
 Collecting the second derivatives at the MLE, the [observed information](#def-oinf) is
 
@@ -1240,11 +1234,11 @@ By [Theorem 9](#thm-dist-mle), the estimated standard errors are \\\mathop{\wid
 
 See also ([Casella and Berger 2002](#ref-CaseBerg01), Example 7.2.12).
 
-# 4 Example: hormone therapy study
+## 4 Example: hormone therapy study
 
 This example fits a Gaussian model to real data by maximum likelihood, and then uses simulation to examine the properties of maximum likelihood estimation for that model.
 
-## 4.1 Data
+### 4.1 Data
 
 The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)).
 
@@ -1310,7 +1304,7 @@ Figure 14: Fasting glucose among 100 HERS participants without diabetes who do 
 
 The histogram is irregular, as histograms of 100 observations often are, with a somewhat longer right tail than left tail. A Gaussian model is a rough but usable starting point.
 
-## 4.2 Maximum likelihood estimates
+### 4.2 Maximum likelihood estimates
 
 By the [Gaussian MLEs](#sec-gaussian-mle), \\\hat\mu\_{\text{ML}} = \bar x\\ and \\\hat\sigma^2\_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2\\:
 
@@ -1339,7 +1333,7 @@ Figure 15: Fasting glucose, with the fitted Gaussian density in red
 
 The fitted curve follows the overall shape of the histogram, but it underestimates the frequency of values between 110 and 122 mg/dL, consistent with the histogram’s longer right tail.
 
-## 4.3 Likelihood and log-likelihood functions
+### 4.3 Likelihood and log-likelihood functions
 
 It is numerically better to compute the log-likelihood first and exponentiate it to get the likelihood, because a product of 100 densities can underflow to zero:
 
@@ -1427,7 +1421,7 @@ ggplot2::ggplot() +
 
 Figure 17: Likelihood and log-likelihood of the HERS glucose data as functions of \\\sigma\\, with \\\mu = \hat\mu\_{\text{ML}}\\; the red line marks \\\hat\sigma\_{\text{ML}}\\
 
-## 4.4 Log-likelihood surface
+### 4.4 Log-likelihood surface
 
 [Figure 18](#fig-3d-llik) graphs the log-likelihood over both parameters at once.
 
@@ -1457,7 +1451,7 @@ plotly::plot_ly(
 
 Figure 18: Log-likelihood of the HERS glucose data as a function of \\\mu\\ and \\\sigma\\ (interactive: drag to rotate)
 
-## 4.5 Standard errors by sample size
+### 4.5 Standard errors by sample size
 
 By [Section 3.5](#sec-covariance-matrix), the estimated standard error of \\\hat\mu\_{\text{ML}}\\ is
 
@@ -1480,7 +1474,7 @@ ggplot2::ggplot() +
 
 Figure 19: Standard error of \\\hat\mu\_{\text{ML}}\\ as a function of sample size, with \\\sigma = \hat\sigma\_{\text{ML}}\\
 
-## 4.6 Power
+### 4.6 Power
 
 Suppose we test the null hypothesis \\H_0: \mu = \mu_0\\, with \\\mu_0 = 95\\ mg/dL, at significance level \\\alpha = 0.05\\, and suppose for simplicity that \\\sigma\\ is known, equal to \\\hat\sigma\_{\text{ML}}\\. Then under \\H_0\\, \\\bar X \sim \operatorname{N}\mathopen{}\left(\mu_0, \sigma^2/n\right)\mathclose{}\\, and the test rejects \\H_0\\ when \\\bar x\\ falls outside the non-rejection interval
 
@@ -1539,7 +1533,7 @@ Figure 20: Power of the test of \\H_0: \mu = 95\\ against \\\mu_1 = 100\\ mg/dL
 
 The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat\mu\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed.
 
-## 4.7 Simulation
+### 4.7 Simulation
 
 To check how maximum likelihood estimation behaves for this model, we simulate many datasets from a Gaussian distribution whose parameters equal the HERS estimates, analyze each one, and summarize the results.
 
@@ -1653,7 +1647,7 @@ Across 1000 simulated datasets:
 
 Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` shows how these properties depend on them.
 
-# 5 Practice exercises
+## 5 Practice exercises
 
 > **NOTE:**
 >
@@ -1877,7 +1871,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > Note: the exponential distribution has \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \mu^2\\, so \\\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{} = \mu/\sqrt{n}\\, which is estimated by \\\bar{x}/\sqrt{n}\\. More generally, the standard error of a sample mean is \\\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}/\sqrt{n}\\; here that reduces to \\\mu/\sqrt{n}\\ because \\\operatorname{SD}\mathopen{}\left(X\right)\mathclose{} = \mu\\ for the exponential distribution.
 
-# References
+## References
 
 Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
 

@@ -1,4 +1,4 @@
-# Exploratory and Descriptive Methods
+# Exploratory Data Analysis
 
 Code
 
@@ -14,9 +14,9 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:33:18 (PDT)
+Last modified: 2026-09-28 01:41:08 (PDT)
 
-# 1 Introduction
+## 1 Introduction
 
 Before fitting a model, it is good practice to explore and summarize the data. Exploratory data analysis (EDA) serves several purposes:
 
@@ -28,9 +28,9 @@ Before fitting a model, it is good practice to explore and summarize the data. E
 
 This page is adapted from ([Vittinghoff et al. 2012, chap. 2](#ref-vittinghoff2e)).
 
-## 1.1 The WCGS data
+### 1.1 The WCGS data
 
-This page illustrates exploratory and descriptive methods using data from the Western Collaborative Group Study (WCGS) ([Rosenman et al. 1975](#ref-rosenman1975coronary)). Vittinghoff et al. ([2012, chap. 2](#ref-vittinghoff2e)) describe the study this way:
+This page illustrates exploratory data analysis using data from the Western Collaborative Group Study (WCGS) ([Rosenman et al. 1975](#ref-rosenman1975coronary)). Vittinghoff et al. ([2012, chap. 2](#ref-vittinghoff2e)) describe the study this way:
 
 > The Western Collaborative Group Study (WCGS) was a large epidemiological study designed to investigate the association between the “type A” behavior pattern and coronary heart disease (CHD).
 
@@ -46,7 +46,7 @@ This page illustrates exploratory and descriptive methods using data from the We
 > >
 > > The hypothesis describes Type B individuals as a contrast to those of Type A. Type B personalities, by definition, are noted to live at lower stress levels. They typically work steadily and may enjoy achievement, although they have a greater tendency to disregard physical or mental stress when they do not achieve.
 
-## 1.2 Study design
+### 1.2 Study design
 
 The WCGS began in 1960 with 3,524 male volunteers employed by 11 California companies. Participants were 39 to 59 years old and free of heart disease, as determined by electrocardiogram. After the initial screening, various exclusions reduced the study population to 3,154 men and the number of companies to 10. The cohort comprised both blue- and white-collar employees. Average follow-up was 8.5 years, with repeat examinations.
 
@@ -62,7 +62,7 @@ At baseline, the study collected:
 
 Later surveys added anthropometry, triglycerides, the Jenkins Activity Survey, and caffeine use.
 
-## 1.3 Loading the data
+### 1.3 Loading the data
 
 The WCGS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website, as a Stata file that R can read directly:
 
@@ -134,9 +134,9 @@ dplyr::glimpse(wcgs)
 #> $ agec     <fct> 46-50, 51-55, 56-60, 51-55, 41-45, 46-50, 35-40, 41-45, 46-50…
 ```
 
-# 2 Summarizing a single variable
+## 2 Summarizing a single variable
 
-## 2.1 Measures of center
+### 2.1 Measures of center
 
 > **NOTE:**
 >
@@ -171,7 +171,7 @@ dplyr::glimpse(wcgs)
 >
 > The median cholesterol is a little lower than the mean ([Example 1](#exm-sample-mean)). Cholesterol has a longer right tail than left tail (the maximum is 645 mg/dL), and the large values in that tail pull the mean upward but barely change which value is in the middle. A median is less sensitive to extreme values than a mean.
 
-## 2.2 Measures of spread
+### 2.2 Measures of spread
 
 > **NOTE:**
 >
@@ -228,7 +228,7 @@ With an odd number of observations, the sample 0.5 quantile equals the [sample m
 >
 > The middle half of the cholesterol values span 56 mg/dL. Like the median, the IQR does not depend on the most extreme values, so it is less sensitive to outliers than the standard deviation.
 
-## 2.3 Summary statistics in R
+### 2.3 Summary statistics in R
 
 The [`summary()`](https://rdrr.io/r/base/summary.html) function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (`type = 7`), so they can differ slightly from [Definition 5](#def-quartiles):
 
@@ -265,7 +265,7 @@ wcgs |>
 
 Table 1: WCGS: descriptive statistics for continuous variables
 
-## 2.4 Binary and categorical variables
+### 2.4 Binary and categorical variables
 
 > **NOTE:**
 >
@@ -302,11 +302,11 @@ wcgs |>
 
 Table 2: Frequency table for categorical variables in the WCGS dataset
 
-# 3 Graphical methods
+## 3 Graphical methods
 
 Graphs can reveal features of a distribution that summary statistics miss, such as skewness, multiple peaks, and outliers. Different types of graph suit different types of variable.
 
-## 3.1 Histograms
+### 3.1 Histograms
 
 > **NOTE:**
 >
@@ -328,7 +328,7 @@ Figure 1: Histogram of total cholesterol in the WCGS dataset
 
 [Figure 1](#fig-hist-chol) shows a single-peaked distribution with a longer right tail than left tail: 97% of the values lie between 150 and 350 mg/dL, but the largest value is 645 mg/dL.
 
-## 3.2 Density plots
+### 3.2 Density plots
 
 > **NOTE:**
 >
@@ -346,7 +346,7 @@ wcgs |>
 
 Figure 2: Density plot of total cholesterol in the WCGS dataset
 
-## 3.3 Box plots
+### 3.3 Box plots
 
 > **NOTE:**
 >
@@ -372,7 +372,7 @@ wcgs |>
 
 Figure 3: Box plot of total cholesterol in the WCGS dataset
 
-## 3.4 Bar charts
+### 3.4 Bar charts
 
 > **NOTE:**
 >
@@ -390,7 +390,7 @@ wcgs |>
 
 Figure 4: Bar chart of behavioral pattern in the WCGS dataset
 
-## 3.5 Normal quantile-quantile plots
+### 3.5 Normal quantile-quantile plots
 
 > **NOTE:**
 >
@@ -411,9 +411,9 @@ Figure 5: Normal Q-Q plot for total cholesterol in the WCGS dataset
 
 In [Figure 5](#fig-qq-chol), the points curve above the reference line at the right, which matches the long right tail in [Figure 1](#fig-hist-chol).
 
-# 4 Bivariate relationships
+## 4 Bivariate relationships
 
-## 4.1 Two continuous variables
+### 4.1 Two continuous variables
 
 > **NOTE:**
 >
@@ -465,7 +465,7 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 >
 > Two variables can be strongly related and still have a correlation near zero, if the relationship is not linear. For example, if \\y_i = x_i^2\\, the \\x_i\\ are symmetric around 0, and the \\\mathopen{}\left\|x_i\right\|\mathclose{}\\ are not all equal, then \\r = 0\\, although \\y\\ is a function of \\x\\. Correlation also does not imply causation.
 
-## 4.2 A continuous variable by a categorical variable
+### 4.2 A continuous variable by a categorical variable
 
 Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous variable across the groups defined by a categorical variable ([Figure 7](#fig-box-chol-by-smoke) and [Figure 8](#fig-box-chol-by-behpat)).
 
@@ -515,7 +515,7 @@ wcgs |>
 
 Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCGS
 
-## 4.3 Two categorical variables
+### 4.3 Two categorical variables
 
 > **NOTE:**
 >
@@ -563,7 +563,7 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 >
 > Table 4: Smoking status and CHD event in the WCGS
 
-# 5 Data transformations
+## 5 Data transformations
 
 When a continuous variable has a right-skewed distribution (a longer tail to the right than to the left), a logarithmic transformation often makes the distribution more symmetric. A log-transformed variable also has a multiplicative interpretation: an increase of 1 in \\\log(x)\\ corresponds to multiplying \\x\\ by \\e \approx 2.72\\, because \\\log(x) + 1 = \log(e \cdot x)\\.
 
@@ -614,7 +614,7 @@ sbp_skew <- c(
 
 The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 versus 1.2), but still not symmetric. Whether to transform a variable in a regression model depends on the assumptions of that model and on the scientific question.
 
-# 6 An exploratory data analysis workflow
+## 6 An exploratory data analysis workflow
 
 A typical exploratory data analysis proceeds as follows:
 
@@ -645,7 +645,7 @@ wcgs |>
 
 Table 5: Summary of selected WCGS variables
 
-# References
+## References
 
 Rosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. “Coronary Heart Disease in the Western Collaborative Group Study: Final Follow-up Experience of 8 1/2 Years.” *JAMA* 233 (8): 872–77. <https://doi.org/10.1001/jama.1975.03260080034016>.
 

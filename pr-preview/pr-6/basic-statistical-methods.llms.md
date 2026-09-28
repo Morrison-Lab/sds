@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-09-28 01:33:18 (PDT)
+Last modified: 2026-09-28 01:41:08 (PDT)
 
-# 1 Introduction
+## 1 Introduction
 
 This page reviews the standard methods for comparing groups and for relating two variables:
 
@@ -17,13 +17,13 @@ This page reviews the standard methods for comparing groups and for relating two
 
 The page builds on three others:
 
-- [Exploratory and Descriptive Methods](exploratory-descriptive.llms.md) defines the sample statistics these methods use;
+- [Exploratory Data Analysis](exploratory-descriptive.llms.md) defines the sample statistics these methods use;
 - [Statistical Inference](inference.llms.md) defines hypotheses, test statistics, p-values, and confidence intervals;
 - [Estimation](estimation.llms.md) defines estimators and their standard errors.
 
 This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
-## 1.1 The HERS data
+## 2 The HERS data
 
 The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)).
 
@@ -74,9 +74,9 @@ hers |>
 #> $ glucose1 <dbl> 94, 78, 98, 93, 92, 115, NA, 95, 113, 98, 96, 107, 90, 100, 1…
 ```
 
-# 2 Descriptive statistics
+## 3 Descriptive statistics
 
-The [Exploratory and Descriptive Methods](exploratory-descriptive.llms.md) page defines the sample statistics used on this page, each with an example:
+The [Exploratory Data Analysis](exploratory-descriptive.llms.md) page defines the sample statistics used on this page, each with an example:
 
 - the [sample mean](exploratory-descriptive.llms.md#def-sample-mean);
 - the [sample median](exploratory-descriptive.llms.md#def-sample-median);
@@ -128,7 +128,7 @@ That page also defines the graphs used here, including [box plots](exploratory-d
 >
 > Because treatment was assigned at random, the two groups differ at baseline only by chance, and their summaries are close.
 
-# 3 Reference distributions
+## 4 Reference distributions
 
 The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually [independent](https://morrison-lab.github.io/rme/chapters/probability.html#def-indpt).
 
@@ -187,13 +187,13 @@ The tests on this page compare a test statistic with one of three families of di
 > #>   5.11736   5.11736
 > ```
 
-# 4 Comparing two groups: continuous outcomes
+## 5 Comparing two groups: continuous outcomes
 
-## 4.1 Hypotheses
+### 5.1 Hypotheses
 
 The [Statistical Inference](inference.llms.md) page defines the [null hypothesis](inference.llms.md#def-null-hypothesis), the [alternative hypothesis](inference.llms.md#def-alternative-hypothesis), [test statistics](inference.llms.md#def-test-statistic), [p-values](inference.llms.md#def-p-value), and [significance levels](inference.llms.md#def-significance-level). In a comparison of two groups with means \\\mu_1\\ and \\\mu_2\\, the null hypothesis is usually \\H_0: \mu_1 = \mu_2\\, and the two-sided alternative is \\H_1: \mu_1 \neq \mu_2\\.
 
-## 4.2 One-sample t-test
+### 5.2 One-sample t-test
 
 > **NOTE:**
 >
@@ -215,7 +215,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 When the observations are not Gaussian, \\T\\ still has approximately the standard Gaussian distribution when \\n\\ is large, by the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem), and then \\t\_{n-1}\\ is close to the standard Gaussian distribution ([Example 3](#exm-t-dist)).
 
-## 4.3 Paired t-test
+### 5.3 Paired t-test
 
 > **NOTE:**
 >
@@ -261,7 +261,7 @@ When the observations are not Gaussian, \\T\\ still has approximately the standa
 >
 > Mean fasting glucose rose by about 2.6 mg/dL over the year, and the p-value is far below 0.05.
 
-## 4.4 Two-sample t-tests
+### 5.4 Two-sample t-tests
 
 > **NOTE:**
 >
@@ -374,7 +374,7 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 > #>   111.854   112.449
 > ```
 
-## 4.5 Confidence intervals for the difference in means
+### 5.5 Confidence intervals for the difference in means
 
 > **NOTE:**
 >
@@ -397,7 +397,7 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 >
 > This interval matches the one [`t.test()`](https://rdrr.io/r/stats/t.test.html) reports in [Example 6](#exm-hers-ttest). It contains 0, consistent with the large p-value there.
 
-# 5 One-way analysis of variance
+## 6 One-way analysis of variance
 
 > **NOTE:**
 >
@@ -474,8 +474,6 @@ oneway.test(glucose ~ raceth, data = hers)
 #> F = 12.49, num df = 2.0, denom df = 185.7, p-value = 8.17e-06
 ```
 
-## 5.1 ANOVA as linear regression
-
 One-way ANOVA is a special case of linear regression: it is the F-test comparing a linear regression model with a single categorical predictor to the model with an intercept only ([Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-understand-LMs)). [`lm()`](https://rdrr.io/r/stats/lm.html) gives the same F statistic as [`aov()`](https://rdrr.io/r/stats/aov.html):
 
 ``` downlit
@@ -494,9 +492,9 @@ c(
 #>  0.180281  0.180281
 ```
 
-# 6 Comparing two groups: categorical outcomes
+## 7 Comparing two groups: categorical outcomes
 
-## 6.1 Contingency tables
+### 7.1 Contingency tables
 
 > **NOTE:**
 >
@@ -521,7 +519,7 @@ c(
 >
 > Table 2: Exercise by treatment group in HERS
 
-## 6.2 The chi-square test
+### 7.2 The chi-square test
 
 > **NOTE:**
 >
@@ -576,7 +574,7 @@ The chi-square approximation is poor when some expected counts are small. A comm
 
 For a \\2 \times 2\\ table, [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) applies Yates’ continuity correction by default, which subtracts 0.5 from each \\\mathopen{}\left\|O\_{ij} - E\_{ij}\right\|\mathclose{}\\ before squaring, and so gives a smaller statistic than [Definition 10](#def-chi-square-test). `correct = FALSE` turns the correction off.
 
-## 6.3 Fisher’s exact test
+### 7.3 Fisher’s exact test
 
 > **NOTE:**
 >
@@ -627,13 +625,13 @@ The p-value is exact: it comes from the null distribution itself, not from a lar
 >
 > With counts this large, the exact p-value is close to the chi-square p-value of [Example 11](#exm-hers-chisq).
 
-## 6.4 Measures of association for \\2 \times 2\\ tables
+### 7.4 Measures of association for \\2 \times 2\\ tables
 
 Tests of independence say whether two binary variables are associated, but not how strongly. Risk differences, risk ratios, and odds ratios measure the strength of the association; see [Odds Ratios and Relative Risks](https://morrison-lab.github.io/rme/chapters/binary-outcome-associations.html#sec-OR-RR).
 
-# 7 Correlation
+## 8 Correlation
 
-## 7.1 Testing the Pearson correlation
+### 8.1 Testing the Pearson correlation
 
 > **NOTE:**
 >
@@ -713,7 +711,7 @@ The conditions of [Theorem 5](#thm-pearson-test-null) hold, for example, when t
 >
 > The correlation is positive but modest: glucose tends to be higher at higher BMI, with wide scatter around the line in [Figure 2](#fig-hers-scatter).
 
-## 7.2 Spearman rank correlation
+### 8.2 Spearman rank correlation
 
 > **NOTE:**
 >
@@ -743,9 +741,9 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > \\r_S\\ is larger than the Pearson \\r\\ of [Example 13](#exm-hers-cor): the association is closer to monotone than to linear.
 
-# 8 Simple linear regression
+## 9 Simple linear regression
 
-## 8.1 Model specification
+### 9.1 Model specification
 
 > **NOTE:**
 >
@@ -757,7 +755,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 > - \\\beta_1\\ is the **slope**: the difference in the mean of \\Y\\ between two groups whose values of \\X\\ differ by one unit, \\\beta_1 = \operatorname{E}\mathopen{}\left\[Y \mid X = x + 1\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\.
 > - \\\sigma^2\\ is the variance of \\Y\\ around its mean at each value of \\X\\.
 
-## 8.2 Ordinary least squares estimation
+### 9.2 Ordinary least squares estimation
 
 > **NOTE:**
 >
@@ -813,7 +811,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > \\ \begin{aligned} r \\ \frac{s_y}{s_x} &= \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}} \cdot \frac{\sqrt{S\_{yy} / (n-1)}}{\sqrt{S\_{xx} / (n-1)}} && \text{(substitute \$r\$, \$s_x\$, \$s_y\$)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}}}{\sqrt{S\_{xx}}} && \text{(cancel the factors of \$n - 1\$)}\\ &= \frac{S\_{xy}}{S\_{xx}} && \text{(cancel \$\sqrt{S\_{yy}}\$)}\\ &= \hat\beta_1 && \text{(closed-form OLS slope)} \end{aligned} \\
 
-## 8.3 Fitting a simple linear regression in R
+### 9.3 Fitting a simple linear regression in R
 
 > **NOTE:**
 >
@@ -861,7 +859,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > The estimated slope is \\\hat\beta_1 = 1.82\\ mg/dL per kg/m²: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m² higher. The t statistic for the slope equals the correlation test statistic of [Example 13](#exm-hers-cor).
 
-## 8.4 The coefficient of determination
+### 9.4 The coefficient of determination
 
 > **NOTE:**
 >
@@ -911,13 +909,13 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > BMI accounts for only about 7% of the variation in baseline fasting glucose.
 
-## 8.5 Further reading
+### 9.5 Further reading
 
 [Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html) covers linear regression in depth, including inference for the coefficients and multiple predictors. Vittinghoff et al. ([2012](#ref-vittinghoff2e)) cover linear regression in Chapter 4.
 
-# 9 Bootstrap confidence intervals
+## 10 Bootstrap confidence intervals
 
-## 9.1 When to use the bootstrap
+### 10.1 When to use the bootstrap
 
 The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993](#ref-efron1993introduction)) estimates the sampling distribution of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short ([Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)):
 
@@ -925,7 +923,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 - no closed-form approximate method has been found;
 - the data violate the assumptions of the established methods badly enough that their confidence intervals would be unreliable.
 
-## 9.2 The bootstrap procedure
+### 10.2 The bootstrap procedure
 
 > **NOTE:**
 >
@@ -1000,11 +998,11 @@ The bootstrap distribution estimates the sampling distribution of \\\hat\theta\\
 >
 > Figure 3: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (\\B = 1{,}000\\). The red line marks the observed mean.
 
-## 9.3 Bootstrap confidence interval methods
+### 10.3 Bootstrap confidence interval methods
 
 There are three common methods for turning a bootstrap distribution into a \\100(1-\alpha)\\\\ confidence interval for a parameter \\\theta\\ ([Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e); [Efron and Tibshirani 1993](#ref-efron1993introduction)). Each is an approximate [confidence interval](inference.llms.md#def-confidence-interval). Throughout, \\z_q\\ is the \\q\\ quantile of the standard Gaussian distribution and \\\Phi\\ is its CDF.
 
-### 9.3.1 Normal approximation
+#### 10.3.1 Normal approximation
 
 > **NOTE:**
 >
@@ -1027,7 +1025,7 @@ This interval assumes that the sampling distribution of \\\hat\theta\\ is approx
 > #>  96.9795 110.6205
 > ```
 
-### 9.3.2 Percentile method
+#### 10.3.2 Percentile method
 
 > **NOTE:**
 >
@@ -1045,7 +1043,7 @@ The extreme quantiles of \\B\\ replicates are noisy estimates, so percentile-bas
 > #>  96.5 110.4
 > ```
 
-### 9.3.3 Bias-corrected and accelerated method
+#### 10.3.3 Bias-corrected and accelerated method
 
 > **NOTE:**
 >
@@ -1082,14 +1080,14 @@ When \\\hat{z}\_0 = 0\\ and \\\hat{a} = 0\\, \\\alpha_q = q\\ and the BCa interv
 >
 > The acceleration \\\hat{a}\\ is nearly 0 here, and \\\hat{z}\_0\\ is small, so the BCa interval is close to the percentile interval of [Example 20](#exm-bootstrap-percentile-toy).
 
-## 9.4 Bootstrap confidence intervals in R
+### 10.4 Bootstrap confidence intervals in R
 
 The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a recommended package distributed with R, provides [`boot::boot()`](https://rdrr.io/pkg/boot/man/boot.html) to draw the bootstrap replicates and [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) to compute the three intervals. [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) differs from the definitions on this page in two small ways:
 
 - its normal interval (`type = "norm"`) is centered at \\\hat\theta\\ minus the bootstrap estimate of bias, \\\hat\theta - (\bar\theta^\* - \hat\theta)\\, where \\\bar\theta^\*\\ is the mean of the replicates, rather than at \\\hat\theta\\;
 - it estimates quantiles of the replicates by interpolation, so its percentile and BCa endpoints can differ slightly from those computed with [`quantile()`](https://rdrr.io/r/stats/quantile.html).
 
-### 9.4.1 Slope of SBP on age in HERS
+### 10.5 Example: slope of SBP on age in HERS
 
 > **NOTE:**
 >
@@ -1143,7 +1141,7 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 >
 > All three intervals are similar here. When the bootstrap distribution is skewed, the intervals differ more, and the BCa interval, which corrects for skewness, is the better choice ([Efron and Tibshirani 1993, chap. 14](#ref-efron1993introduction)).
 
-# References
+## References
 
 Davison, Anthony C., and David V. Hinkley. 1997. *Bootstrap Methods and Their Application*. Cambridge Series in Statistical and Probabilistic Mathematics 1. Cambridge University Press. <https://doi.org/10.1017/CBO9780511802843>.
 

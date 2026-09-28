@@ -156,56 +156,6 @@ cookieconsent.run({
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-exr.callout {
   border-left-color: #FFA500;
 }
@@ -216,16 +166,6 @@ div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-cnj.callout {
   border-left-color: #558B2F;
 }
@@ -235,6 +175,16 @@ div.callout-cnj.callout-style-default .callout-header {
 div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-proof.callout {
   border-left-color: #37474F;
@@ -255,6 +205,56 @@ div.callout-solution.callout-style-default .callout-header {
 div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -462,44 +462,33 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
 <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./nonparametric-models.html"> 
+<span class="menu-text">Nonparametric</span></a>
   </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-notes" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Notes</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-notes">
-<li>
-    <a class="dropdown-item" href="./nonparametric-models.html">
- <span class="dropdown-text">Nonparametric Models</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./exploratory-descriptive.html"> 
+<span class="menu-text">Exploratory</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./exploratory-descriptive.html">
- <span class="dropdown-text">Exploratory and Descriptive Methods</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./estimation.html"> 
+<span class="menu-text">Estimation</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./estimation.html">
- <span class="dropdown-text">Estimation</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./inference.html"> 
+<span class="menu-text">Inference</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./inference.html">
- <span class="dropdown-text">Statistical Inference</span></a>
+  <li class="nav-item">
+    <a class="nav-link active" href="./intro-MLEs.html" aria-current="page"> 
+<span class="menu-text">MLE</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./intro-MLEs.html">
- <span class="dropdown-text">Maximum Likelihood Inference</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./bayesian-inference.html"> 
+<span class="menu-text">Bayesian</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./bayesian-inference.html">
- <span class="dropdown-text">Bayesian Inference</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="./basic-statistical-methods.html"> 
+<span class="menu-text">Basic Methods</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./basic-statistical-methods.html">
- <span class="dropdown-text">Basic Statistical Methods</span></a>
-  </li>  
-    </ul>
-</li>
 </ul>
 <ul class="navbar-nav navbar-nav-scroll ms-auto">
 <li class="nav-item compact">
@@ -527,24 +516,14 @@ window.Quarto = {
   <ul>
 <li>
 <a href="#sec-intro-MLEs" id="toc-sec-intro-MLEs" class="nav-link active" data-scroll-target="#sec-intro-MLEs"><span class="header-section-number">1</span> Overview of maximum likelihood estimation</a>
-  <ul class="collapse">
-<li>
-<a href="#the-likelihood-function" id="toc-the-likelihood-function" class="nav-link" data-scroll-target="#the-likelihood-function"><span class="header-section-number">1.1</span> The likelihood function</a>
-  <ul class="collapse">
-<li><a href="#binary-outcomes-one-group-no-covariates" id="toc-binary-outcomes-one-group-no-covariates" class="nav-link" data-scroll-target="#binary-outcomes-one-group-no-covariates"><span class="header-section-number">1.1.1</span> Binary outcomes: one group, no covariates</a></li>
-  </ul>
-</li>
+  <ul>
+<li><a href="#the-likelihood-function" id="toc-the-likelihood-function" class="nav-link" data-scroll-target="#the-likelihood-function"><span class="header-section-number">1.1</span> The likelihood function</a></li>
   <li><a href="#the-maximum-likelihood-estimate" id="toc-the-maximum-likelihood-estimate" class="nav-link" data-scroll-target="#the-maximum-likelihood-estimate"><span class="header-section-number">1.2</span> The maximum likelihood estimate</a></li>
   <li><a href="#finding-the-maximum-of-a-function" id="toc-finding-the-maximum-of-a-function" class="nav-link" data-scroll-target="#finding-the-maximum-of-a-function"><span class="header-section-number">1.3</span> Finding the maximum of a function</a></li>
   <li><a href="#directly-maximizing-the-likelihood-function-for-independent-data" id="toc-directly-maximizing-the-likelihood-function-for-independent-data" class="nav-link" data-scroll-target="#directly-maximizing-the-likelihood-function-for-independent-data"><span class="header-section-number">1.4</span> Directly maximizing the likelihood function for independent data</a></li>
   <li><a href="#the-log-likelihood-function" id="toc-the-log-likelihood-function" class="nav-link" data-scroll-target="#the-log-likelihood-function"><span class="header-section-number">1.5</span> The log-likelihood function</a></li>
   <li><a href="#the-score-function" id="toc-the-score-function" class="nav-link" data-scroll-target="#the-score-function"><span class="header-section-number">1.6</span> The score function</a></li>
-  <li>
-<a href="#information-matrices" id="toc-information-matrices" class="nav-link" data-scroll-target="#information-matrices"><span class="header-section-number">1.7</span> Information matrices</a>
-  <ul class="collapse">
-<li><a href="#notation-for-information-matrices" id="toc-notation-for-information-matrices" class="nav-link" data-scroll-target="#notation-for-information-matrices"><span class="header-section-number">1.7.1</span> Notation for information matrices</a></li>
-  </ul>
-</li>
+  <li><a href="#information-matrices" id="toc-information-matrices" class="nav-link" data-scroll-target="#information-matrices"><span class="header-section-number">1.7</span> Information matrices</a></li>
   <li><a href="#asymptotic-distribution-of-the-maximum-likelihood-estimate" id="toc-asymptotic-distribution-of-the-maximum-likelihood-estimate" class="nav-link" data-scroll-target="#asymptotic-distribution-of-the-maximum-likelihood-estimate"><span class="header-section-number">1.8</span> Asymptotic distribution of the maximum likelihood estimate</a></li>
   <li>
 <a href="#quantifying-uncertainty-about-mles" id="toc-quantifying-uncertainty-about-mles" class="nav-link" data-scroll-target="#quantifying-uncertainty-about-mles"><span class="header-section-number">1.9</span> Quantifying uncertainty about MLEs</a>
@@ -560,28 +539,30 @@ window.Quarto = {
 </li>
   <li>
 <a href="#example-maximum-likelihood-for-tropical-cyclones-in-australia" id="toc-example-maximum-likelihood-for-tropical-cyclones-in-australia" class="nav-link" data-scroll-target="#example-maximum-likelihood-for-tropical-cyclones-in-australia"><span class="header-section-number">2</span> Example: maximum likelihood for tropical cyclones in Australia</a>
+  <ul>
+<li><a href="#sec-dobson-cyclones-data" id="toc-sec-dobson-cyclones-data" class="nav-link" data-scroll-target="#sec-dobson-cyclones-data"><span class="header-section-number">2.1</span> Data</a></li>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis"><span class="header-section-number">2.2</span> Exploratory analysis</a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model"><span class="header-section-number">2.3</span> Model</a></li>
+  <li>
+<a href="#estimating-the-model-parameters-using-maximum-likelihood" id="toc-estimating-the-model-parameters-using-maximum-likelihood" class="nav-link" data-scroll-target="#estimating-the-model-parameters-using-maximum-likelihood"><span class="header-section-number">2.4</span> Estimating the model parameters using maximum likelihood</a>
   <ul class="collapse">
-<li>
-<a href="#sec-dobson-cyclones-data" id="toc-sec-dobson-cyclones-data" class="nav-link" data-scroll-target="#sec-dobson-cyclones-data"><span class="header-section-number">2.1</span> Data</a>
-  <ul class="collapse">
-<li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis"><span class="header-section-number">2.1.1</span> Exploratory analysis</a></li>
-  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model"><span class="header-section-number">2.1.2</span> Model</a></li>
-  <li><a href="#estimating-the-model-parameters-using-maximum-likelihood" id="toc-estimating-the-model-parameters-using-maximum-likelihood" class="nav-link" data-scroll-target="#estimating-the-model-parameters-using-maximum-likelihood"><span class="header-section-number">2.1.3</span> Estimating the model parameters using maximum likelihood</a></li>
-  <li><a href="#finding-the-mle-analytically" id="toc-finding-the-mle-analytically" class="nav-link" data-scroll-target="#finding-the-mle-analytically"><span class="header-section-number">2.1.4</span> Finding the MLE analytically</a></li>
+<li><a href="#the-score-function-1" id="toc-the-score-function-1" class="nav-link" data-scroll-target="#the-score-function-1"><span class="header-section-number">2.4.1</span> The score function</a></li>
+  <li><a href="#sec-hessian" id="toc-sec-hessian" class="nav-link" data-scroll-target="#sec-hessian"><span class="header-section-number">2.4.2</span> The Hessian</a></li>
   </ul>
 </li>
+  <li><a href="#finding-the-mle-analytically" id="toc-finding-the-mle-analytically" class="nav-link" data-scroll-target="#finding-the-mle-analytically"><span class="header-section-number">2.5</span> Finding the MLE analytically</a></li>
   <li>
-<a href="#finding-the-mle-using-the-newton-raphson-algorithm" id="toc-finding-the-mle-using-the-newton-raphson-algorithm" class="nav-link" data-scroll-target="#finding-the-mle-using-the-newton-raphson-algorithm"><span class="header-section-number">2.2</span> Finding the MLE using the Newton-Raphson algorithm</a>
+<a href="#finding-the-mle-using-the-newton-raphson-algorithm" id="toc-finding-the-mle-using-the-newton-raphson-algorithm" class="nav-link" data-scroll-target="#finding-the-mle-using-the-newton-raphson-algorithm"><span class="header-section-number">2.6</span> Finding the MLE using the Newton-Raphson algorithm</a>
   <ul class="collapse">
-<li><a href="#sec-newton-raphson" id="toc-sec-newton-raphson" class="nav-link" data-scroll-target="#sec-newton-raphson"><span class="header-section-number">2.2.1</span> Iterative maximization</a></li>
-  <li><a href="#applying-newton-raphson-to-the-cyclone-data" id="toc-applying-newton-raphson-to-the-cyclone-data" class="nav-link" data-scroll-target="#applying-newton-raphson-to-the-cyclone-data"><span class="header-section-number">2.2.2</span> Applying Newton-Raphson to the cyclone data</a></li>
+<li><a href="#sec-newton-raphson" id="toc-sec-newton-raphson" class="nav-link" data-scroll-target="#sec-newton-raphson"><span class="header-section-number">2.6.1</span> Iterative maximization</a></li>
+  <li><a href="#applying-newton-raphson-to-the-cyclone-data" id="toc-applying-newton-raphson-to-the-cyclone-data" class="nav-link" data-scroll-target="#applying-newton-raphson-to-the-cyclone-data"><span class="header-section-number">2.6.2</span> Applying Newton-Raphson to the cyclone data</a></li>
   </ul>
 </li>
   </ul>
 </li>
   <li>
 <a href="#sec-gaussian-mle" id="toc-sec-gaussian-mle" class="nav-link" data-scroll-target="#sec-gaussian-mle"><span class="header-section-number">3</span> Maximum likelihood for univariate Gaussian models</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#the-score-function-2" id="toc-the-score-function-2" class="nav-link" data-scroll-target="#the-score-function-2"><span class="header-section-number">3.1</span> The score function</a></li>
   <li><a href="#mle-of-mu" id="toc-mle-of-mu" class="nav-link" data-scroll-target="#mle-of-mu"><span class="header-section-number">3.2</span> MLE of <span class="math inline">\(\mu\)</span></a></li>
   <li><a href="#sec-gaussian-mle-sigma" id="toc-sec-gaussian-mle-sigma" class="nav-link" data-scroll-target="#sec-gaussian-mle-sigma"><span class="header-section-number">3.3</span> MLE of <span class="math inline">\(\sigma^2\)</span></a></li>
@@ -591,7 +572,7 @@ window.Quarto = {
 </li>
   <li>
 <a href="#sec-hers-mle-example" id="toc-sec-hers-mle-example" class="nav-link" data-scroll-target="#sec-hers-mle-example"><span class="header-section-number">4</span> Example: hormone therapy study</a>
-  <ul class="collapse">
+  <ul>
 <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">4.1</span> Data</a></li>
   <li><a href="#maximum-likelihood-estimates" id="toc-maximum-likelihood-estimates" class="nav-link" data-scroll-target="#maximum-likelihood-estimates"><span class="header-section-number">4.2</span> Maximum likelihood estimates</a></li>
   <li><a href="#likelihood-and-log-likelihood-functions" id="toc-likelihood-and-log-likelihood-functions" class="nav-link" data-scroll-target="#likelihood-and-log-likelihood-functions"><span class="header-section-number">4.3</span> Likelihood and log-likelihood functions</a></li>
@@ -618,7 +599,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-09-28 01:33:18 (PDT)</p>
+      <p class="date">Last modified: 2026-09-28 01:41:08 (PDT)</p>
     </div>
   </div>
   
@@ -635,10 +616,10 @@ text-align: center;
 <div class="notes">
 <p>These notes are derived primarily from <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chaps. 1–5</a>)</span>, with some material from <span class="citation" data-cites="mclachlan2007em">(<a href="#ref-mclachlan2007em" role="doc-biblioref">McLachlan and Krishnan 2007</a>)</span> and <span class="citation" data-cites="CaseBerg01">(<a href="#ref-CaseBerg01" role="doc-biblioref">Casella and Berger 2002</a>)</span>.</p>
 </div>
-<section id="sec-intro-MLEs" class="level1" data-number="1"><h1 data-number="1">
-<span class="header-section-number">1</span> Overview of maximum likelihood estimation</h1>
-<section id="the-likelihood-function" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="the-likelihood-function">
-<span class="header-section-number">1.1</span> The likelihood function</h2>
+<section id="sec-intro-MLEs" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="sec-intro-MLEs">
+<span class="header-section-number">1</span> Overview of maximum likelihood estimation</h2>
+<section id="the-likelihood-function" class="level3" data-number="1.1"><h3 data-number="1.1" class="anchored" data-anchor-id="the-likelihood-function">
+<span class="header-section-number">1.1</span> The likelihood function</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-lik-obs div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -791,8 +772,6 @@ text-align: center;
 </div>
 </div>
 </div>
-<section id="binary-outcomes-one-group-no-covariates" class="level3" data-number="1.1.1"><h3 data-number="1.1.1" class="anchored" data-anchor-id="binary-outcomes-one-group-no-covariates">
-<span class="header-section-number">1.1.1</span> Binary outcomes: one group, no covariates</h3>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -845,8 +824,8 @@ text-align: center;
 </div>
 </div>
 </div>
-</section></section><section id="the-maximum-likelihood-estimate" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="the-maximum-likelihood-estimate">
-<span class="header-section-number">1.2</span> The maximum likelihood estimate</h2>
+</section><section id="the-maximum-likelihood-estimate" class="level3" data-number="1.2"><h3 data-number="1.2" class="anchored" data-anchor-id="the-maximum-likelihood-estimate">
+<span class="header-section-number">1.2</span> The maximum likelihood estimate</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-mle div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -873,8 +852,8 @@ text-align: center;
 </div>
 </div>
 </div>
-</section><section id="finding-the-maximum-of-a-function" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="finding-the-maximum-of-a-function">
-<span class="header-section-number">1.3</span> Finding the maximum of a function</h2>
+</section><section id="finding-the-maximum-of-a-function" class="level3" data-number="1.3"><h3 data-number="1.3" class="anchored" data-anchor-id="finding-the-maximum-of-a-function">
+<span class="header-section-number">1.3</span> Finding the maximum of a function</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-critical-point div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -889,8 +868,8 @@ text-align: center;
 </div>
 </div>
 <p>From calculus: if <span class="math inline">\(f(x)\)</span> is differentiable, its maximum over an interval of input values can occur only at an endpoint of the interval or at a <a href="#def-critical-point">critical point</a>. At a critical point <span class="math inline">\(x_0\)</span>, <span class="math inline">\(f''(x_0) &lt; 0\)</span> is sufficient for <span class="math inline">\(x_0\)</span> to be a local maximum, but not necessary: <span class="math inline">\(f(x) = -x^4\)</span> has a maximum at <span class="math inline">\(x_0 = 0\)</span>, where <span class="math inline">\(f''(0) = 0\)</span>. For a function of a vector, a negative definite Hessian matrix at a critical point is sufficient for a local maximum.</p>
-</section><section id="directly-maximizing-the-likelihood-function-for-independent-data" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="directly-maximizing-the-likelihood-function-for-independent-data">
-<span class="header-section-number">1.4</span> Directly maximizing the likelihood function for independent data</h2>
+</section><section id="directly-maximizing-the-likelihood-function-for-independent-data" class="level3" data-number="1.4"><h3 data-number="1.4" class="anchored" data-anchor-id="directly-maximizing-the-likelihood-function-for-independent-data">
+<span class="header-section-number">1.4</span> Directly maximizing the likelihood function for independent data</h3>
 <p>To find the maximizer of the likelihood function, we solve <span class="math inline">\(\mathcal{L}'(\theta) = 0\)</span> for <span class="math inline">\(\theta\)</span>. For mutually independent data, <a href="#eq-Lik" class="quarto-xref">Equation&nbsp;1</a> gives:</p>
 <p><span id="eq-deriv-Lik"><span class="math display">\[
 \begin{aligned}
@@ -900,8 +879,8 @@ text-align: center;
 \end{aligned}
 \tag{3}\]</span></span></p>
 <p><a href="#eq-deriv-Lik" class="quarto-xref">Equation&nbsp;3</a> is the derivative of a product of <span class="math inline">\(n\)</span> factors, which takes <span class="math inline">\(n - 1\)</span> applications of the <a href="https://morrison-lab.github.io/rme/chapters/math-prereqs.html#thm-product-rule">product rule</a> and produces <span class="math inline">\(n\)</span> terms. The log-likelihood avoids this work.</p>
-</section><section id="the-log-likelihood-function" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="the-log-likelihood-function">
-<span class="header-section-number">1.5</span> The log-likelihood function</h2>
+</section><section id="the-log-likelihood-function" class="level3" data-number="1.5"><h3 data-number="1.5" class="anchored" data-anchor-id="the-log-likelihood-function">
+<span class="header-section-number">1.5</span> The log-likelihood function</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-loglik div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -1091,8 +1070,8 @@ text-align: center;
 </div>
 </div>
 </div>
-</section><section id="the-score-function" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="the-score-function">
-<span class="header-section-number">1.6</span> The score function</h2>
+</section><section id="the-score-function" class="level3" data-number="1.6"><h3 data-number="1.6" class="anchored" data-anchor-id="the-score-function">
+<span class="header-section-number">1.6</span> The score function</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-score div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -1302,8 +1281,8 @@ text-align: center;
 <div class="notes">
 <p>This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter <em>natural</em> (or linear) exponential family, whose log-density is linear in <span class="math inline">\(x\)</span>; for every such family, the score with respect to the mean is <span class="math inline">\((x - \operatorname{E}\mathopen{}\left[X\right]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\)</span>. Other members of the broader <a href="https://en.wikipedia.org/wiki/Exponential_family">exponential family</a>, such as the Weibull distribution with known shape <span class="math inline">\(k \ne 1\)</span>, do not have this form. Exponential-family distributions share many special properties <span class="citation" data-cites="hoggtanis2015 dobson4e">(<a href="#ref-hoggtanis2015" role="doc-biblioref">Hogg et al. 2015, sec. 6.7</a>; <a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 3</a>)</span>.</p>
 </div>
-</section><section id="information-matrices" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="information-matrices">
-<span class="header-section-number">1.7</span> Information matrices</h2>
+</section><section id="information-matrices" class="level3" data-number="1.7"><h3 data-number="1.7" class="anchored" data-anchor-id="information-matrices">
+<span class="header-section-number">1.7</span> Information matrices</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-hessian div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -1547,8 +1526,6 @@ I({\lambda})
 </div>
 </div>
 </div>
-<section id="notation-for-information-matrices" class="level3" data-number="1.7.1"><h3 data-number="1.7.1" class="anchored" data-anchor-id="notation-for-information-matrices">
-<span class="header-section-number">1.7.1</span> Notation for information matrices</h3>
 <p>Sources disagree on the symbols for the observed and expected information (<a href="#tbl-info-mat-symbols" class="quarto-xref">Table&nbsp;1</a>).</p>
 <div id="tbl-info-mat-symbols" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-info-mat-symbols-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1591,8 +1568,8 @@ Table&nbsp;1: Notation for information matrices in several sources
 </div>
 </figure>
 </div>
-</section></section><section id="asymptotic-distribution-of-the-maximum-likelihood-estimate" class="level2" data-number="1.8"><h2 data-number="1.8" class="anchored" data-anchor-id="asymptotic-distribution-of-the-maximum-likelihood-estimate">
-<span class="header-section-number">1.8</span> Asymptotic distribution of the maximum likelihood estimate</h2>
+</section><section id="asymptotic-distribution-of-the-maximum-likelihood-estimate" class="level3" data-number="1.8"><h3 data-number="1.8" class="anchored" data-anchor-id="asymptotic-distribution-of-the-maximum-likelihood-estimate">
+<span class="header-section-number">1.8</span> Asymptotic distribution of the maximum likelihood estimate</h3>
 <!-- No slidebreak here: the heading shares its slide with the thm-dist-mle div. -->
 <div class="callout callout-style-simple callout-lem no-icon">
 <div class="callout-body d-flex">
@@ -1652,10 +1629,10 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div class="notes">
 <p>Using the observed information is often more convenient, and there are settings where it is provably better by some criteria <span class="citation" data-cites="efron1978assessing">(<a href="#ref-efron1978assessing" role="doc-biblioref">Efron and Hinkley 1978</a>)</span>.</p>
 </div>
-</section><section id="quantifying-uncertainty-about-mles" class="level2" data-number="1.9"><h2 data-number="1.9" class="anchored" data-anchor-id="quantifying-uncertainty-about-mles">
-<span class="header-section-number">1.9</span> Quantifying uncertainty about MLEs</h2>
-<section id="confidence-intervals-for-mles" class="level3" data-number="1.9.1"><h3 data-number="1.9.1" class="anchored" data-anchor-id="confidence-intervals-for-mles">
-<span class="header-section-number">1.9.1</span> Confidence intervals for MLEs</h3>
+</section><section id="quantifying-uncertainty-about-mles" class="level3" data-number="1.9"><h3 data-number="1.9" class="anchored" data-anchor-id="quantifying-uncertainty-about-mles">
+<span class="header-section-number">1.9</span> Quantifying uncertainty about MLEs</h3>
+<section id="confidence-intervals-for-mles" class="level4" data-number="1.9.1"><h4 data-number="1.9.1" class="anchored" data-anchor-id="confidence-intervals-for-mles">
+<span class="header-section-number">1.9.1</span> Confidence intervals for MLEs</h4>
 <!-- No slidebreak here: the heading shares its slide with the def-wald-ci div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -1674,8 +1651,8 @@ Table&nbsp;1: Notation for information matrices in several sources
 </div>
 </div>
 <p>By <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, <span class="math inline">\((\hat\theta_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}\)</span> has approximately a standard Gaussian distribution in large samples, so the Wald interval is an <a href="./inference.html#def-approximate-ci">approximate confidence interval</a> for <span class="math inline">\(\theta_k\)</span>. For a 95% interval, <span class="math inline">\(z_{0.975} \approx 1.96\)</span>.</p>
-</section><section id="wald-tests" class="level3" data-number="1.9.2"><h3 data-number="1.9.2" class="anchored" data-anchor-id="wald-tests">
-<span class="header-section-number">1.9.2</span> Wald tests</h3>
+</section><section id="wald-tests" class="level4" data-number="1.9.2"><h4 data-number="1.9.2" class="anchored" data-anchor-id="wald-tests">
+<span class="header-section-number">1.9.2</span> Wald tests</h4>
 <!-- No slidebreak here: the heading shares its slide with the def-wald-test div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -1686,7 +1663,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div id="def-wald-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Wald test)</strong></span> The <strong>Wald test</strong> of <span class="math inline">\(H_0: \theta_k = \theta_{k,0}\)</span> uses the test statistic</p>
 <p><span class="math display">\[Z \stackrel{\text{def}}{=}\frac{\hat\theta_k - \theta_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}}\]</span></p>
-<p>which, by <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, has approximately a standard Gaussian distribution under <span class="math inline">\(H_0\)</span> in large samples. For <span class="math inline">\(q\)</span> constraints <span class="math inline">\(H_0: \tilde{\theta}_{(q)} = \tilde{\theta}_{(q),0}\)</span> on a <span class="math inline">\(q \times 1\)</span> subvector, the Wald statistic is <span class="math inline">\({\mathopen{}\left(\hat\tilde{\theta}_{(q)} - \tilde{\theta}_{(q),0}\right)\mathclose{}}^{\top}\,\mathopen{}\left(\hat{V}_{(q)}\right)^{-1}\mathclose{}\,\mathopen{}\left(\hat\tilde{\theta}_{(q)} - \tilde{\theta}_{(q),0}\right)\mathclose{}\)</span>, where <span class="math inline">\(\hat V_{(q)}\)</span> is the corresponding <span class="math inline">\(q \times q\)</span> block of <span class="math inline">\(\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\)</span>; it has approximately a <span class="math inline">\(\chi^2_q\)</span> distribution under <span class="math inline">\(H_0\)</span>.</p>
+<p>which, by <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, has approximately a standard Gaussian distribution under <span class="math inline">\(H_0\)</span> in large samples. For <span class="math inline">\(q\)</span> constraints <span class="math inline">\(H_0: \tilde{\theta}_{(q)} = \tilde{\theta}_{(q),0}\)</span> on a <span class="math inline">\(q \times 1\)</span> subvector, the Wald statistic is <span class="math inline">\({\mathopen{}\left(\hat{\tilde{\theta}}_{(q)} - \tilde{\theta}_{(q),0}\right)\mathclose{}}^{\top}\,\mathopen{}\left(\hat{V}_{(q)}\right)^{-1}\mathclose{}\,\mathopen{}\left(\hat{\tilde{\theta}}_{(q)} - \tilde{\theta}_{(q),0}\right)\mathclose{}\)</span>, where <span class="math inline">\(\hat V_{(q)}\)</span> is the corresponding <span class="math inline">\(q \times q\)</span> block of <span class="math inline">\(\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\)</span>; it has approximately a <span class="math inline">\(\chi^2_q\)</span> distribution under <span class="math inline">\(H_0\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1717,8 +1694,8 @@ Table&nbsp;1: Notation for information matrices in several sources
 </div>
 </div>
 </div>
-</section><section id="sec-lrt-mles" class="level3" data-number="1.9.3"><h3 data-number="1.9.3" class="anchored" data-anchor-id="sec-lrt-mles">
-<span class="header-section-number">1.9.3</span> Likelihood ratio tests for MLEs</h3>
+</section><section id="sec-lrt-mles" class="level4" data-number="1.9.3"><h4 data-number="1.9.3" class="anchored" data-anchor-id="sec-lrt-mles">
+<span class="header-section-number">1.9.3</span> Likelihood ratio tests for MLEs</h4>
 <!-- No slidebreak here: the heading shares its slide with the thm-wilks div. -->
 <div class="callout callout-style-simple callout-lem no-icon">
 <div class="callout-body d-flex">
@@ -1825,8 +1802,8 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div class="notes">
 <p>See also <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 5.7</a>)</span> and <a href="https://online.stat.psu.edu/stat504/Lesson02" class="uri">https://online.stat.psu.edu/stat504/Lesson02</a>.</p>
 </div>
-</section><section id="exact-and-approximate-tests" class="level3" data-number="1.9.4"><h3 data-number="1.9.4" class="anchored" data-anchor-id="exact-and-approximate-tests">
-<span class="header-section-number">1.9.4</span> Exact and approximate tests</h3>
+</section><section id="exact-and-approximate-tests" class="level4" data-number="1.9.4"><h4 data-number="1.9.4" class="anchored" data-anchor-id="exact-and-approximate-tests">
+<span class="header-section-number">1.9.4</span> Exact and approximate tests</h4>
 <div id="tbl-gaussian-vs-mle-tests" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gaussian-vs-mle-tests-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. <span class="math inline">\(p\)</span> is the number of regression coefficients.
@@ -1897,8 +1874,8 @@ Table&nbsp;2: Exact tests that assume Gaussian outcomes, and their approximate, 
 <div class="notes">
 <p>The t, F and ANOVA tests are covered in <a href="./basic-statistical-methods.html">basic statistical methods</a>. The exact tests assume <span class="math inline">\(Y_i \ \sim_{\perp\!\!\!\perp}\ N(\mu_i, \sigma^2)\)</span>, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, Gaussian or not.</p>
 </div>
-</section><section id="prediction-intervals" class="level3" data-number="1.9.5"><h3 data-number="1.9.5" class="anchored" data-anchor-id="prediction-intervals">
-<span class="header-section-number">1.9.5</span> Prediction intervals</h3>
+</section><section id="prediction-intervals" class="level4" data-number="1.9.5"><h4 data-number="1.9.5" class="anchored" data-anchor-id="prediction-intervals">
+<span class="header-section-number">1.9.5</span> Prediction intervals</h4>
 <!-- No slidebreak here: the heading shares its slide with the def-prediction-interval div. -->
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -1925,13 +1902,13 @@ Table&nbsp;2: Exact tests that assume Gaussian outcomes, and their approximate, 
 <p>and <span class="math inline">\(\bar X^* - \hat\mu \sim \operatorname{N}\mathopen{}\left(0, \sigma^2\mathopen{}\left(\frac{1}{m} + \frac{1}{n}\right)\mathclose{}\right)\mathclose{}\)</span>. So a <span class="math inline">\(100(1 - \alpha)\%\)</span> prediction interval for <span class="math inline">\(\bar X^*\)</span> is:</p>
 <p><span class="math display">\[\hat\mu \pm z_{1 - \alpha/2} \, \sigma \sqrt{\frac{1}{m} + \frac{1}{n}}\]</span></p>
 <p>Usually <span class="math inline">\(m = 1\)</span>. The term <span class="math inline">\(1/n\)</span> accounts for the uncertainty in <span class="math inline">\(\hat\mu\)</span>, and becomes negligible when <span class="math inline">\(n\)</span> is much larger than <span class="math inline">\(m\)</span>.</p>
-</section></section></section><section id="example-maximum-likelihood-for-tropical-cyclones-in-australia" class="level1" data-number="2"><h1 data-number="2">
-<span class="header-section-number">2</span> Example: maximum likelihood for tropical cyclones in Australia</h1>
+</section></section></section><section id="example-maximum-likelihood-for-tropical-cyclones-in-australia" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="example-maximum-likelihood-for-tropical-cyclones-in-australia">
+<span class="header-section-number">2</span> Example: maximum likelihood for tropical cyclones in Australia</h2>
 <div class="notes">
 <p>Adapted from <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 1.6.5</a>)</span>.</p>
 </div>
-<section id="sec-dobson-cyclones-data" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="sec-dobson-cyclones-data">
-<span class="header-section-number">2.1</span> Data</h2>
+<section id="sec-dobson-cyclones-data" class="level3" data-number="2.1"><h3 data-number="2.1" class="anchored" data-anchor-id="sec-dobson-cyclones-data">
+<span class="header-section-number">2.1</span> Data</h3>
 <p><a href="#tbl-cyclones-data" class="quarto-xref">Table&nbsp;3</a> records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 1.6.5</a>)</span>. <a href="#fig-dobson-cyclone-time-series" class="quarto-xref">Figure&nbsp;1</a> graphs the number of cyclones by season. Let <span class="math inline">\(X_i\)</span> represent the number of cyclones in season <span class="math inline">\(i\)</span>, and <span class="math inline">\(x_i\)</span> its observed value.</p>
 <div id="tbl-cyclones-data" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cyclones-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2027,8 +2004,8 @@ Table&nbsp;3: Number of tropical cyclones during each November-to-April season i
 </div>
 </figure>
 </div>
-<section id="exploratory-analysis" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="exploratory-analysis">
-<span class="header-section-number">2.1.1</span> Exploratory analysis</h3>
+</section><section id="exploratory-analysis" class="level3" data-number="2.2"><h3 data-number="2.2" class="anchored" data-anchor-id="exploratory-analysis">
+<span class="header-section-number">2.2</span> Exploratory analysis</h3>
 <p>Suppose we want to learn how many cyclones to expect per season.</p>
 <div id="fig-dobson-cyclone-time-series" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-dobson-cyclone-time-series-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2115,8 +2092,8 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 </div>
 </figure>
 </div>
-</section><section id="model" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="model">
-<span class="header-section-number">2.1.2</span> Model</h3>
+</section><section id="model" class="level3" data-number="2.3"><h3 data-number="2.3" class="anchored" data-anchor-id="model">
+<span class="header-section-number">2.3</span> Model</h3>
 <p>We want to estimate <span class="math inline">\(\Pr(X = x)\)</span>; that is, <span class="math inline">\(\Pr(X = x)\)</span> is our <a href="./estimation.html#def-estimand">estimand</a>.</p>
 <p>We could estimate <span class="math inline">\(\Pr(X = x)\)</span> for each value of <span class="math inline">\(x\)</span> in <span class="math inline">\(0, 1, 2, \ldots\)</span> separately (“nonparametrically”), using the fraction of our data with <span class="math inline">\(X_i = x\)</span>; but then we would be estimating an infinite set of parameters from 13 observations, and each estimate would be imprecise. A parametric model, with a few parameters, will probably do better.</p>
 <div class="callout callout-style-simple callout-exr no-icon">
@@ -2179,8 +2156,8 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 </div>
 </div>
 </div>
-</section><section id="estimating-the-model-parameters-using-maximum-likelihood" class="level3" data-number="2.1.3"><h3 data-number="2.1.3" class="anchored" data-anchor-id="estimating-the-model-parameters-using-maximum-likelihood">
-<span class="header-section-number">2.1.3</span> Estimating the model parameters using maximum likelihood</h3>
+</section><section id="estimating-the-model-parameters-using-maximum-likelihood" class="level3" data-number="2.4"><h3 data-number="2.4" class="anchored" data-anchor-id="estimating-the-model-parameters-using-maximum-likelihood">
+<span class="header-section-number">2.4</span> Estimating the model parameters using maximum likelihood</h3>
 <p>We can estimate the parameter <span class="math inline">\(\lambda\)</span> using maximum likelihood estimation.</p>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
@@ -2490,7 +2467,8 @@ Figure&nbsp;4: Log-likelihood of the cyclone data
 </div>
 </div>
 </div>
-<section id="the-score-function-1" class="level4"><h4 class="anchored" data-anchor-id="the-score-function-1">The score function</h4>
+<section id="the-score-function-1" class="level4" data-number="2.4.1"><h4 data-number="2.4.1" class="anchored" data-anchor-id="the-score-function-1">
+<span class="header-section-number">2.4.1</span> The score function</h4>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2592,7 +2570,8 @@ Figure&nbsp;5: Score function of the cyclone data
 </div>
 </div>
 </div>
-</section><section id="sec-hessian" class="level4"><h4 class="anchored" data-anchor-id="sec-hessian">The Hessian</h4>
+</section><section id="sec-hessian" class="level4" data-number="2.4.2"><h4 data-number="2.4.2" class="anchored" data-anchor-id="sec-hessian">
+<span class="header-section-number">2.4.2</span> The Hessian</h4>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2722,8 +2701,8 @@ Figure&nbsp;6: Hessian of the cyclone data’s log-likelihood
 </div>
 </div>
 </div>
-</section></section><section id="finding-the-mle-analytically" class="level3" data-number="2.1.4"><h3 data-number="2.1.4" class="anchored" data-anchor-id="finding-the-mle-analytically">
-<span class="header-section-number">2.1.4</span> Finding the MLE analytically</h3>
+</section></section><section id="finding-the-mle-analytically" class="level3" data-number="2.5"><h3 data-number="2.5" class="anchored" data-anchor-id="finding-the-mle-analytically">
+<span class="header-section-number">2.5</span> Finding the MLE analytically</h3>
 <p>In this example, we can find the MLE of <span class="math inline">\(\lambda\)</span> by solving the score equation algebraically.</p>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
@@ -2892,7 +2871,6 @@ Figure&nbsp;7: Log-likelihood of the cyclone data, with the MLE marked in red
 </div>
 </div>
 </div>
-<section id="observed-information" class="level4"><h4 class="anchored" data-anchor-id="observed-information">Observed information</h4>
 <p><a href="#fig-obs-inf-matrix" class="quarto-xref">Figure&nbsp;8</a> graphs the <a href="./intro-MLEs.html#def-oinf">observed information</a>, <span class="math inline">\(I(\lambda; \tilde{x}) = -\ell''(\lambda; \tilde{x})\)</span>.</p>
 <div id="fig-obs-inf-matrix" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-obs-inf-matrix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -2916,10 +2894,10 @@ Figure&nbsp;8: Observed information of the cyclone data
 </div>
 </figure>
 </div>
-</section></section></section><section id="finding-the-mle-using-the-newton-raphson-algorithm" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="finding-the-mle-using-the-newton-raphson-algorithm">
-<span class="header-section-number">2.2</span> Finding the MLE using the Newton-Raphson algorithm</h2>
-<section id="sec-newton-raphson" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-newton-raphson">
-<span class="header-section-number">2.2.1</span> Iterative maximization</h3>
+</section><section id="finding-the-mle-using-the-newton-raphson-algorithm" class="level3" data-number="2.6"><h3 data-number="2.6" class="anchored" data-anchor-id="finding-the-mle-using-the-newton-raphson-algorithm">
+<span class="header-section-number">2.6</span> Finding the MLE using the Newton-Raphson algorithm</h3>
+<section id="sec-newton-raphson" class="level4" data-number="2.6.1"><h4 data-number="2.6.1" class="anchored" data-anchor-id="sec-newton-raphson">
+<span class="header-section-number">2.6.1</span> Iterative maximization</h4>
 <p>When we cannot solve the score equation <span class="math inline">\(\ell'(\theta) = 0\)</span> algebraically, we can search for its solution numerically <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 4</a>)</span>.</p>
 <div class="callout callout-style-simple callout-def no-icon">
 <div class="callout-body d-flex">
@@ -3025,8 +3003,8 @@ I_e(\theta; \tilde{x}) \stackrel{\text{def}}{=}
 </div>
 </div>
 <p>For <span class="math inline">\(\operatorname{iid}\)</span> data, <span class="math inline">\(\frac{1}{n}I_e(\theta; \tilde{x})\)</span> is the sample covariance matrix (with divisor <span class="math inline">\(n\)</span>) of the observations’ scores, so it estimates the covariance matrix of one observation’s score, <span class="math inline">\(\mathcal{I}(\theta)/n\)</span> (<a href="#thm-information-equality" class="quarto-xref">Theorem&nbsp;8</a>). The empirical information needs only first derivatives, so it can be easier to compute than the observed information, and it can replace the observed information in the Newton-Raphson update.</p>
-</section><section id="applying-newton-raphson-to-the-cyclone-data" class="level3" data-number="2.2.2"><h3 data-number="2.2.2" class="anchored" data-anchor-id="applying-newton-raphson-to-the-cyclone-data">
-<span class="header-section-number">2.2.2</span> Applying Newton-Raphson to the cyclone data</h3>
+</section><section id="applying-newton-raphson-to-the-cyclone-data" class="level4" data-number="2.6.2"><h4 data-number="2.6.2" class="anchored" data-anchor-id="applying-newton-raphson-to-the-cyclone-data">
+<span class="header-section-number">2.6.2</span> Applying Newton-Raphson to the cyclone data</h4>
 <div class="callout callout-style-simple callout-exm no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -3386,8 +3364,8 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 </div>
 </figure>
 </div>
-</section></section></section><section id="sec-gaussian-mle" class="level1" data-number="3"><h1 data-number="3">
-<span class="header-section-number">3</span> Maximum likelihood for univariate Gaussian models</h1>
+</section></section></section><section id="sec-gaussian-mle" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="sec-gaussian-mle">
+<span class="header-section-number">3</span> Maximum likelihood for univariate Gaussian models</h2>
 <p>Suppose <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\)</span>, and let <span class="math inline">\(x_1, \ldots, x_n\)</span> be the observed values. The parameter vector is <span class="math inline">\(\tilde{\theta}= (\mu, \sigma^2)\)</span>. We treat <span class="math inline">\(\sigma^2\)</span>, rather than <span class="math inline">\(\sigma\)</span>, as the second parameter, and differentiate with respect to <span class="math inline">\(\sigma^2\)</span> directly.</p>
 <p>By <a href="#thm-lik-iid" class="quarto-xref">Theorem&nbsp;1</a>, the likelihood is:</p>
 <p><span class="math display">\[
@@ -3405,8 +3383,8 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 &amp;&amp; \text{(split the sum; log of a product)}
 \end{aligned}
 \]</span></p>
-<section id="the-score-function-2" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="the-score-function-2">
-<span class="header-section-number">3.1</span> The score function</h2>
+<section id="the-score-function-2" class="level3" data-number="3.1"><h3 data-number="3.1" class="anchored" data-anchor-id="the-score-function-2">
+<span class="header-section-number">3.1</span> The score function</h3>
 <p>The score function is the vector of the two partial derivatives:</p>
 <p><span class="math display">\[
 \ell'(\mu, \sigma^2) =
@@ -3436,9 +3414,9 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 &amp;&amp; \text{(derivatives of $\log v$ and $v^{-1}$)}
 \end{aligned}
 \]</span></p>
-</section><section id="mle-of-mu" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="mle-of-mu">
+</section><section id="mle-of-mu" class="level3" data-number="3.2"><h3 data-number="3.2" class="anchored" data-anchor-id="mle-of-mu">
 <span class="header-section-number">3.2</span> MLE of <span class="math inline">\(\mu\)</span>
-</h2>
+</h3>
 <p>Setting <span class="math inline">\(\frac{\partial}{\partial \mu}\ell = 0\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -3453,9 +3431,9 @@ n\mu &amp;= \sum_{i=1}^n x_i
 <p>This solution does not depend on <span class="math inline">\(\sigma^2\)</span>. The second derivative is</p>
 <p><span class="math display">\[\frac{\partial^2 \ell}{\partial \mu^2} = \frac{\partial}{\partial \mu}\frac{1}{\sigma^2}\mathopen{}\left(\sum_{i=1}^n x_i - n\mu\right)\mathclose{} = -\frac{n}{\sigma^2} &lt; 0,\]</span></p>
 <p>so for every fixed <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\ell\)</span> is maximized over <span class="math inline">\(\mu\)</span> at <span class="math inline">\(\bar x\)</span>, and <span class="math inline">\(\hat\mu_{\text{ML}} = \bar x\)</span>.</p>
-</section><section id="sec-gaussian-mle-sigma" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="sec-gaussian-mle-sigma">
+</section><section id="sec-gaussian-mle-sigma" class="level3" data-number="3.3"><h3 data-number="3.3" class="anchored" data-anchor-id="sec-gaussian-mle-sigma">
 <span class="header-section-number">3.3</span> MLE of <span class="math inline">\(\sigma^2\)</span>
-</h2>
+</h3>
 <p>Setting <span class="math inline">\(\frac{\partial}{\partial \sigma^2}\ell = 0\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -3478,8 +3456,8 @@ n\mu &amp;= \sum_{i=1}^n x_i
 <div class="notes">
 <p>This MLE divides by <span class="math inline">\(n\)</span>, so it is a biased estimator of <span class="math inline">\(\sigma^2\)</span> (<a href="./estimation.html#exm-biased-variance-mle">bias of the divide-by-<span class="math inline">\(n\)</span> estimator</a>).</p>
 </div>
-</section><section id="second-derivatives" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="second-derivatives">
-<span class="header-section-number">3.4</span> Second derivatives</h2>
+</section><section id="second-derivatives" class="level3" data-number="3.4"><h3 data-number="3.4" class="anchored" data-anchor-id="second-derivatives">
+<span class="header-section-number">3.4</span> Second derivatives</h3>
 <p>The remaining second derivatives are:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -3509,8 +3487,8 @@ n\mu &amp;= \sum_{i=1}^n x_i
 &amp;&amp; \text{(substitute)}
 \end{aligned}
 \]</span></p>
-</section><section id="sec-covariance-matrix" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="sec-covariance-matrix">
-<span class="header-section-number">3.5</span> Information matrix and standard errors</h2>
+</section><section id="sec-covariance-matrix" class="level3" data-number="3.5"><h3 data-number="3.5" class="anchored" data-anchor-id="sec-covariance-matrix">
+<span class="header-section-number">3.5</span> Information matrix and standard errors</h3>
 <p>Collecting the second derivatives at the MLE, the <a href="#def-oinf">observed information</a> is</p>
 <p><span class="math display">\[
 I(\hat\mu, \hat\sigma^2) =
@@ -3531,11 +3509,11 @@ I(\hat\mu, \hat\sigma^2) =
 <div class="notes">
 <p>See also <span class="citation" data-cites="CaseBerg01">(<a href="#ref-CaseBerg01" role="doc-biblioref">Casella and Berger 2002</a>, Example 7.2.12)</span>.</p>
 </div>
-</section></section><section id="sec-hers-mle-example" class="level1" data-number="4"><h1 data-number="4">
-<span class="header-section-number">4</span> Example: hormone therapy study</h1>
+</section></section><section id="sec-hers-mle-example" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="sec-hers-mle-example">
+<span class="header-section-number">4</span> Example: hormone therapy study</h2>
 <p>This example fits a Gaussian model to real data by maximum likelihood, and then uses simulation to examine the properties of maximum likelihood estimation for that model.</p>
-<section id="data" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="data">
-<span class="header-section-number">4.1</span> Data</h2>
+<section id="data" class="level3" data-number="4.1"><h3 data-number="4.1" class="anchored" data-anchor-id="data">
+<span class="header-section-number">4.1</span> Data</h3>
 <p>The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">Hulley et al. 1998</a>)</span>.</p>
 <p>The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">Hulley et al. 1998</a>)</span>. Women were followed for an average of 4.1 years <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">Hulley et al. 1998</a>)</span>.</p>
 <p>The primary outcome was nonfatal myocardial infarction or CHD death <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">Hulley et al. 1998</a>)</span>.</p>
@@ -3608,8 +3586,8 @@ Figure&nbsp;14: Fasting glucose among 100 HERS participants without diabetes who
 </figure>
 </div>
 <p>The histogram is irregular, as histograms of 100 observations often are, with a somewhat longer right tail than left tail. A Gaussian model is a rough but usable starting point.</p>
-</section><section id="maximum-likelihood-estimates" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="maximum-likelihood-estimates">
-<span class="header-section-number">4.2</span> Maximum likelihood estimates</h2>
+</section><section id="maximum-likelihood-estimates" class="level3" data-number="4.2"><h3 data-number="4.2" class="anchored" data-anchor-id="maximum-likelihood-estimates">
+<span class="header-section-number">4.2</span> Maximum likelihood estimates</h3>
 <p>By the <a href="#sec-gaussian-mle">Gaussian MLEs</a>, <span class="math inline">\(\hat\mu_{\text{ML}} = \bar x\)</span> and <span class="math inline">\(\hat\sigma^2_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2\)</span>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mu_hat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">glucose_data</span><span class="op">)</span></span>
@@ -3641,8 +3619,8 @@ Figure&nbsp;15: Fasting glucose, with the fitted Gaussian density in red
 </figure>
 </div>
 <p>The fitted curve follows the overall shape of the histogram, but it underestimates the frequency of values between 110 and 122 mg/dL, consistent with the histogram’s longer right tail.</p>
-</section><section id="likelihood-and-log-likelihood-functions" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="likelihood-and-log-likelihood-functions">
-<span class="header-section-number">4.3</span> Likelihood and log-likelihood functions</h2>
+</section><section id="likelihood-and-log-likelihood-functions" class="level3" data-number="4.3"><h3 data-number="4.3" class="anchored" data-anchor-id="likelihood-and-log-likelihood-functions">
+<span class="header-section-number">4.3</span> Likelihood and log-likelihood functions</h3>
 <p>It is numerically better to compute the log-likelihood first and exponentiate it to get the likelihood, because a product of 100 densities can underflow to zero:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">loglik</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">mu</span>, <span class="va">sigma</span>, <span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
@@ -3779,8 +3757,8 @@ Figure&nbsp;17: Likelihood and log-likelihood of the HERS glucose data as functi
 </div>
 </figure>
 </div>
-</section><section id="log-likelihood-surface" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="log-likelihood-surface">
-<span class="header-section-number">4.4</span> Log-likelihood surface</h2>
+</section><section id="log-likelihood-surface" class="level3" data-number="4.4"><h3 data-number="4.4" class="anchored" data-anchor-id="log-likelihood-surface">
+<span class="header-section-number">4.4</span> Log-likelihood surface</h3>
 <p><a href="#fig-3d-llik" class="quarto-xref">Figure&nbsp;18</a> graphs the log-likelihood over both parameters at once.</p>
 <div id="fig-3d-llik" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-3d-llik-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -3809,15 +3787,15 @@ Figure&nbsp;18: Log-likelihood of the HERS glucose data as a function of <span c
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-d5c8cad93ad8d9932086" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-d5c8cad93ad8d9932086">{"x":{"visdat":{"63f35ad5a156":["function () ","plotlyVisDat"]},"cur_data":"63f35ad5a156","attrs":{"63f35ad5a156":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"mu"},"yaxis":{"title":"sigma"},"zaxis":{"title":"log-likelihood"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"t(lliks)","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.041666666666667","rgba(70,19,97,1)"],["0.0833333333333339","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.249999999999999","rgba(60,82,138,1)"],["0.291666666666666","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333334","rgba(79,191,110,1)"],["0.750000000000001","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666666","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[94,94.416666666666671,94.833333333333329,95.25,95.666666666666671,96.083333333333329,96.5,96.916666666666671,97.333333333333329,97.75,98.166666666666671,98.583333333333329,99,99.416666666666671,99.833333333333329,100.25,100.66666666666667,101.08333333333333,101.5,101.91666666666667,102.33333333333333,102.75,103.16666666666667,103.58333333333333,104],"y":[7,7.333333333333333,7.666666666666667,8,8.3333333333333339,8.6666666666666661,9,9.3333333333333321,9.6666666666666661,10,10.333333333333332,10.666666666666666,11,11.333333333333332,11.666666666666666,12,12.333333333333332,12.666666666666666,13,13.333333333333332,13.666666666666666,14,14.333333333333332,14.666666666666666,15],"z":[[-415.52568455252924,-411.74025371352673,-408.30913126454709,-405.23231720559045,-402.50981153665555,-400.14161425774478,-398.12772536885575,-396.46814486998971,-395.16287276114656,-394.21190904232515,-393.61525371352673,-393.37290677475119,-393.48486822599864,-393.95113806726783,-394.7717162985611,-395.94660291987617,-397.47579793121417,-399.35930133257511,-401.5971131239578,-404.18923330536347,-407.13566187679203,-410.43639883824352,-414.091444189718,-418.10079793121298,-422.46446006273334],[-408.71331607047961,-405.26419416965291,-402.13790284733886,-399.33444210353747,-396.85381193824765,-394.6960123514715,-392.86104334320692,-391.34890491345493,-390.15959706221565,-389.29311978948789,-388.74947309527278,-388.52865697957031,-388.63067144238045,-389.05551648370215,-389.80319210353758,-390.87369830188459,-392.26703507874424,-393.98320243411649,-396.02220036800031,-398.38402888039673,-401.06868797130585,-404.07617764072756,-407.40649788866193,-411.05964871510673,-415.0356301200664],[-403.15671523371685,-400.00099689723271,-397.14064718078657,-394.57566608437844,-392.3060536080074,-390.33180975167534,-388.65293451538037,-387.2694278991234,-386.18128990290444,-385.38852052672252,-384.8911197705786,-384.6890876344728,-384.78242411840495,-385.17112922237413,-385.85520294638235,-386.8346452904276,-388.10945625451092,-389.67963583863224,-391.54518404279054,-393.70610086698696,-396.16238631122133,-398.91404037549376,-401.96106305980425,-405.30345436415075,-408.94121428853725],[-398.6348824884509,-395.73666200233959,-393.10970887733959,-390.7540231134509,-388.66960471067262,-386.85645366900656,-385.3145699884509,-384.04395366900656,-383.04460471067353,-382.3165231134509,-381.85970887733959,-381.67416200233959,-381.7598824884509,-382.11687033567262,-382.74512554400656,-383.6446481134509,-384.81543804400656,-386.25749533567353,-387.9708199884509,-389.95541200233959,-392.21127137733959,-394.7383981134509,-397.53679221067353,-400.60645366900565,-403.9473824884509],[-394.97140694047636,-392.30040694047614,-389.87940694047614,-387.70840694047638,-385.78740694047588,-384.11640694047645,-382.69540694047635,-381.52440694047641,-380.6034069404767,-379.93240694047637,-379.51140694047615,-379.34040694047616,-379.41940694047634,-379.74840694047589,-380.32740694047646,-381.15640694047636,-382.23540694047642,-383.56440694047672,-385.14340694047632,-386.97240694047616,-389.05140694047617,-391.38040694047635,-393.9594069404767,-396.78840694047562,-399.86740694047637],[-392.02423091852643,-389.55474127355581,-387.31639068183983,-385.30917914337846,-383.53310665817094,-381.98817322621881,-380.67437884752047,-379.59172352207679,-378.7402072498877,-378.11983003095247,-377.73059186527178,-377.57249275284573,-377.64553269367434,-377.94971168775675,-378.48502973509454,-379.25148683568614,-380.24908298953244,-381.47781819663328,-382.93769245698797,-384.62870577059721,-386.55085813746115,-388.70414955757968,-391.08858003095281,-393.70414955757894,-396.55085813746132],[-389.67803944915096,-387.38808746012472,-385.31247017617409,-383.45118759729911,-381.80423972349899,-380.37162655477516,-379.1533480911263,-378.14940433255299,-377.35979527905528,-376.78452093063243,-376.42358128728523,-376.27697634901364,-376.34470611581764,-376.62677058769651,-377.12316976465172,-377.83390364668185,-378.75897223378752,-379.89837552596885,-381.25211352322503,-382.82018622555682,-384.60259363296427,-386.59933574544726,-388.81041256300591,-391.23582408563868,-393.87557031334848],[-387.83853465485021,-385.7092298079113,-383.77922343036028,-382.04851552219714,-380.51710608342125,-379.18499511403394,-378.05218261403388,-377.11866858342171,-376.38445302219742,-375.84953593036039,-375.5139173079113,-375.37759715485004,-375.44057547117671,-375.70285225689065,-376.16442751199315,-376.82530123648286,-377.6854734303605,-378.74494409362603,-380.00371322627876,-381.46178082831943,-383.11914689974799,-384.97581144056448,-387.03177445076886,-389.28703593035982,-391.74159587934003],[-386.42808141187567,-384.44309330248194,-382.64389591841535,-381.0304892596759,-379.60287332626297,-378.36104811817773,-377.30501363541907,-376.43476987798749,-375.75031684588305,-375.25165453910512,-374.93878295765433,-374.81170210153067,-374.87041197073415,-375.11491256526415,-375.54520388512185,-376.16128593030606,-376.96315870081747,-377.95082219665596,-379.12427641782097,-380.48352136431311,-382.02855703613233,-383.75938343327874,-385.67600055575224,-387.77840840355168,-390.06660697667945],[-385.38236261987186,-383.52750150876062,-381.84625150876059,-380.33861261987181,-379.00458484209372,-377.84416817542746,-376.85736261987182,-376.04416817542744,-375.40458484209432,-374.93861261987183,-374.6462515087606,-374.52750150876062,-374.58236261987184,-374.81083484209375,-375.21291817542749,-375.78861261987186,-376.53791817542748,-377.4608348420943,-378.55736261987181,-379.82750150876058,-381.2712515087606,-382.88861261987182,-384.6795848420943,-386.6441681754269,-388.78236261987183],[-384.64778610924691,-382.91066332048513,-381.33613158271197,-379.9241908959275,-378.67484126013113,-377.58808267532402,-376.66391514150502,-375.90233865867469,-375.303353226833,-374.86695884597952,-374.59315551611468,-374.48194323723851,-374.53332200935097,-374.74729183245165,-375.12385270654147,-375.66300463161946,-376.36474760768613,-377.22908163474148,-378.25600671278494,-379.44552284181702,-380.79763002183785,-382.31232825284735,-383.98961753484554,-385.82949786783126,-387.83196925180675],[-384.17945692112897,-382.54920789769136,-381.07154676487886,-379.74647352269147,-378.57398817112869,-377.55409071019153,-376.68678113987897,-375.97205946019153,-375.4099256711292,-375.00037977269147,-374.74342176487886,-374.63905164769136,-374.68726942112897,-374.88807508519119,-375.24146863987903,-375.74745008519147,-376.40601942112903,-377.2171766476917,-378.18092176487897,-379.29725477269136,-380.56617567112886,-381.98768446019147,-383.5617811398792,-385.28846571019102,-387.16773817112897],[-383.9395789474118,-382.40663588037773,-381.01717307046033,-379.77119051765976,-378.66868822197534,-377.70966618340816,-376.89412440195724,-376.22206287762305,-375.69348161040557,-375.30838060030436,-375.06675984731987,-374.96861935145211,-375.01395911270106,-375.20277913106628,-375.53507940654868,-376.01085993914734,-376.63012072886272,-377.39286177569483,-378.2990830796432,-379.34878464070829,-380.5419664588901,-381.87862853418864,-383.35877086660395,-384.98239345613496,-386.74949630278371],[-383.89618556579148,-382.45208954503016,-381.14315788413046,-379.96939058309249,-378.9307876419158,-378.02734906060124,-377.2590748391479,-376.62596497755624,-376.12801947582631,-375.76523833395754,-375.53762155195056,-375.44516912980521,-375.48788106752158,-375.66575736509918,-375.97879802253897,-376.42700303983992,-377.0103724170026,-377.72890615402696,-378.5826042509126,-379.57146670765991,-380.6954935242689,-381.95468470073956,-383.34904023707196,-384.87856013326513,-386.54324438932088],[-384.0221244801487,-382.65936937810778,-381.42416529647511,-380.31651223525074,-379.33641019443417,-378.48385917402629,-377.75885917402621,-377.16141019443444,-376.69151223525091,-376.34916529647523,-376.13436937810775,-376.04712448014857,-376.08743060259769,-376.25528774545455,-376.55069590872017,-376.97365509239359,-377.52416529647525,-378.20222652096521,-379.00783876586297,-379.94100203116898,-381.00171631688329,-382.18998162300585,-383.5057979495366,-384.9491652964748,-386.52008366382216],[-384.29424052148954,-383.00614252766229,-381.83860780544006,-380.79163635482286,-379.86522817581027,-379.05938326840317,-378.37410163260063,-377.80938326840317,-377.36522817581067,-377.04163635482286,-376.83860780544006,-376.75614252766229,-376.79424052148954,-376.95290178692142,-377.23212632395871,-377.63191413260063,-378.15226521284762,-378.79317956469959,-379.55465718815617,-380.43669808321783,-381.43930224988452,-382.56246968815617,-383.8062003980329,-385.17049437951385,-386.65535163260063],[-384.69271374583627,-383.47330176628907,-382.36802419141685,-381.37688102121973,-380.49987225569726,-379.73699789485016,-379.08825793867771,-378.55365238718031,-378.13318124035794,-377.82684449821022,-377.63464216073754,-377.5565742279399,-377.59264069981725,-377.74284157636924,-378.00717685759668,-378.38564654349875,-378.87825063407587,-379.48498912932803,-380.20586202925477,-381.04086933385662,-381.99001104313345,-383.05328715708532,-384.23069767571224,-385.5222425990134,-386.92792192699039],[-385.20052020468819,-384.04444333488203,-382.99657283626709,-382.05690870884331,-381.22545095261046,-380.50219956756911,-379.88715455371869,-379.38031591105943,-378.98168363959144,-378.69125773931421,-378.50903821022831,-378.43502505233357,-378.46921826563005,-378.61161785011734,-378.86222380579625,-379.22103613266603,-379.68805483072703,-380.26327989997924,-380.94671134042227,-381.73834915205657,-382.63819333488203,-383.64624388889871,-384.76250081410666,-385.98696411050503,-387.31963377809541],[-385.80299025005286,-384.70543929673261,-383.71061681152548,-382.81852279443154,-382.02915724545045,-381.34252016458282,-380.75861155182804,-380.27743140718638,-379.89897973065786,-379.62325652224223,-379.45026178193973,-379.37999550975036,-379.41245770567417,-379.54764836971077,-379.78556750186095,-380.12621510212387,-380.56959117049996,-381.11569570698924,-381.76452871159131,-382.51609018430656,-383.37038012513494,-384.32739853407656,-385.38714541113126,-386.54962075629845,-387.81482456957951],[-386.48744486504995,-385.44408549004987,-384.49838236504985,-383.65033549004994,-382.89994486504975,-382.24721049004995,-381.69213236504993,-381.23471049004996,-380.87494486505005,-380.61283549004992,-380.44838236504984,-380.38158549004987,-380.41244486504991,-380.54096049004971,-380.76713236504997,-381.09096049004989,-381.51244486504993,-382.03158549005008,-382.64838236504994,-383.36283549004986,-384.17494486504984,-385.08471049004993,-386.09213236505008,-387.19721049004966,-388.39994486504992],[-387.2428947766748,-386.24981030314706,-385.34967645424757,-384.5424932299764,-383.82826063033315,-383.20697865531849,-382.67864730493176,-382.24326657917334,-381.90083647804317,-381.65135700154093,-381.494828149667,-381.43124992242127,-381.46062231980386,-381.58294534181442,-381.79821898845353,-382.10644325972061,-382.50761815561594,-383.00174367613954,-383.58881982129105,-384.26884659107088,-385.04182398547903,-385.90775200451537,-386.86663064817998,-387.91845991647222,-389.06323980939339],[-388.05979036362578,-387.11343265387512,-386.25565204163024,-385.48644852689108,-384.80582210965736,-384.21377278992969,-383.71030056770741,-383.2954054429909,-382.96908741578011,-382.73134648607476,-382.58218265387512,-382.52159591918127,-382.54958628199313,-382.66615374231043,-382.87129830013373,-383.16501995546253,-383.54731870829704,-384.01819455863728,-384.57764750648295,-385.22567755183434,-385.96228469469145,-386.78746893505433,-387.70123027292294,-388.7035687082967,-389.7944842411768],[-388.9298128753652,-388.02695998190922,-387.20861222636569,-386.47476960873462,-385.82543212901567,-385.26059978720946,-384.78027258331542,-384.38445051733385,-384.07313358926473,-383.84632179910778,-383.70401514686324,-383.64621363253116,-383.67291725611153,-383.78412601760408,-383.97983991700937,-384.26005895432678,-384.6247831295567,-385.07401244269903,-385.60774689375353,-386.22598648272049,-386.92873120959985,-387.71598107439172,-388.587736077096,-389.54399621771216,-390.58476149624136],[-389.84569941573039,-388.98341894052368,-388.20184610994517,-387.50098092399486,-386.88082338267236,-386.34137348597835,-385.88263123391221,-385.50459662647421,-385.20726966366436,-384.99065034548244,-384.85473867192866,-384.79953464300303,-384.8250382587056,-384.93124951903599,-385.11816842399486,-385.3857949735816,-385.73412916779654,-386.16317100663957,-386.67292049011053,-387.26337761820963,-387.93454239093694,-388.68641480829234,-389.51899487027595,-390.43228257688713,-391.42627792812709],[-390.80109565291048,-389.97671293686102,-389.22949071463881,-388.5594289862438,-387.96652775167576,-387.45078701093519,-387.01220676402158,-386.65078701093518,-386.36652775167602,-386.15942898624382,-386.02949071463883,-385.97671293686102,-386.00109565291046,-386.10263886278688,-386.28134256649076,-386.53720676402156,-386.87023145537967,-387.28041664056491,-387.76776231957712,-388.33226849241657,-388.97393515908328,-389.69276231957713,-390.48874997389822,-391.36189812204606,-392.3122067640216]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-1c69de374e9b4c660964" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-1c69de374e9b4c660964">{"x":{"visdat":{"2e377809c5f7":["function () ","plotlyVisDat"]},"cur_data":"2e377809c5f7","attrs":{"2e377809c5f7":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"mu"},"yaxis":{"title":"sigma"},"zaxis":{"title":"log-likelihood"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"t(lliks)","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.041666666666667","rgba(70,19,97,1)"],["0.0833333333333339","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.249999999999999","rgba(60,82,138,1)"],["0.291666666666666","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333334","rgba(79,191,110,1)"],["0.750000000000001","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666666","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[94,94.416666666666671,94.833333333333329,95.25,95.666666666666671,96.083333333333329,96.5,96.916666666666671,97.333333333333329,97.75,98.166666666666671,98.583333333333329,99,99.416666666666671,99.833333333333329,100.25,100.66666666666667,101.08333333333333,101.5,101.91666666666667,102.33333333333333,102.75,103.16666666666667,103.58333333333333,104],"y":[7,7.333333333333333,7.666666666666667,8,8.3333333333333339,8.6666666666666661,9,9.3333333333333321,9.6666666666666661,10,10.333333333333332,10.666666666666666,11,11.333333333333332,11.666666666666666,12,12.333333333333332,12.666666666666666,13,13.333333333333332,13.666666666666666,14,14.333333333333332,14.666666666666666,15],"z":[[-415.52568455252924,-411.74025371352673,-408.30913126454709,-405.23231720559045,-402.50981153665555,-400.14161425774478,-398.12772536885575,-396.46814486998971,-395.16287276114656,-394.21190904232515,-393.61525371352673,-393.37290677475119,-393.48486822599864,-393.95113806726783,-394.7717162985611,-395.94660291987617,-397.47579793121417,-399.35930133257511,-401.5971131239578,-404.18923330536347,-407.13566187679203,-410.43639883824352,-414.091444189718,-418.10079793121298,-422.46446006273334],[-408.71331607047961,-405.26419416965291,-402.13790284733886,-399.33444210353747,-396.85381193824765,-394.6960123514715,-392.86104334320692,-391.34890491345493,-390.15959706221565,-389.29311978948789,-388.74947309527278,-388.52865697957031,-388.63067144238045,-389.05551648370215,-389.80319210353758,-390.87369830188459,-392.26703507874424,-393.98320243411649,-396.02220036800031,-398.38402888039673,-401.06868797130585,-404.07617764072756,-407.40649788866193,-411.05964871510673,-415.0356301200664],[-403.15671523371685,-400.00099689723271,-397.14064718078657,-394.57566608437844,-392.3060536080074,-390.33180975167534,-388.65293451538037,-387.2694278991234,-386.18128990290444,-385.38852052672252,-384.8911197705786,-384.6890876344728,-384.78242411840495,-385.17112922237413,-385.85520294638235,-386.8346452904276,-388.10945625451092,-389.67963583863224,-391.54518404279054,-393.70610086698696,-396.16238631122133,-398.91404037549376,-401.96106305980425,-405.30345436415075,-408.94121428853725],[-398.6348824884509,-395.73666200233959,-393.10970887733959,-390.7540231134509,-388.66960471067262,-386.85645366900656,-385.3145699884509,-384.04395366900656,-383.04460471067353,-382.3165231134509,-381.85970887733959,-381.67416200233959,-381.7598824884509,-382.11687033567262,-382.74512554400656,-383.6446481134509,-384.81543804400656,-386.25749533567353,-387.9708199884509,-389.95541200233959,-392.21127137733959,-394.7383981134509,-397.53679221067353,-400.60645366900565,-403.9473824884509],[-394.97140694047636,-392.30040694047614,-389.87940694047614,-387.70840694047638,-385.78740694047588,-384.11640694047645,-382.69540694047635,-381.52440694047641,-380.6034069404767,-379.93240694047637,-379.51140694047615,-379.34040694047616,-379.41940694047634,-379.74840694047589,-380.32740694047646,-381.15640694047636,-382.23540694047642,-383.56440694047672,-385.14340694047632,-386.97240694047616,-389.05140694047617,-391.38040694047635,-393.9594069404767,-396.78840694047562,-399.86740694047637],[-392.02423091852643,-389.55474127355581,-387.31639068183983,-385.30917914337846,-383.53310665817094,-381.98817322621881,-380.67437884752047,-379.59172352207679,-378.7402072498877,-378.11983003095247,-377.73059186527178,-377.57249275284573,-377.64553269367434,-377.94971168775675,-378.48502973509454,-379.25148683568614,-380.24908298953244,-381.47781819663328,-382.93769245698797,-384.62870577059721,-386.55085813746115,-388.70414955757968,-391.08858003095281,-393.70414955757894,-396.55085813746132],[-389.67803944915096,-387.38808746012472,-385.31247017617409,-383.45118759729911,-381.80423972349899,-380.37162655477516,-379.1533480911263,-378.14940433255299,-377.35979527905528,-376.78452093063243,-376.42358128728523,-376.27697634901364,-376.34470611581764,-376.62677058769651,-377.12316976465172,-377.83390364668185,-378.75897223378752,-379.89837552596885,-381.25211352322503,-382.82018622555682,-384.60259363296427,-386.59933574544726,-388.81041256300591,-391.23582408563868,-393.87557031334848],[-387.83853465485021,-385.7092298079113,-383.77922343036028,-382.04851552219714,-380.51710608342125,-379.18499511403394,-378.05218261403388,-377.11866858342171,-376.38445302219742,-375.84953593036039,-375.5139173079113,-375.37759715485004,-375.44057547117671,-375.70285225689065,-376.16442751199315,-376.82530123648286,-377.6854734303605,-378.74494409362603,-380.00371322627876,-381.46178082831943,-383.11914689974799,-384.97581144056448,-387.03177445076886,-389.28703593035982,-391.74159587934003],[-386.42808141187567,-384.44309330248194,-382.64389591841535,-381.0304892596759,-379.60287332626297,-378.36104811817773,-377.30501363541907,-376.43476987798749,-375.75031684588305,-375.25165453910512,-374.93878295765433,-374.81170210153067,-374.87041197073415,-375.11491256526415,-375.54520388512185,-376.16128593030606,-376.96315870081747,-377.95082219665596,-379.12427641782097,-380.48352136431311,-382.02855703613233,-383.75938343327874,-385.67600055575224,-387.77840840355168,-390.06660697667945],[-385.38236261987186,-383.52750150876062,-381.84625150876059,-380.33861261987181,-379.00458484209372,-377.84416817542746,-376.85736261987182,-376.04416817542744,-375.40458484209432,-374.93861261987183,-374.6462515087606,-374.52750150876062,-374.58236261987184,-374.81083484209375,-375.21291817542749,-375.78861261987186,-376.53791817542748,-377.4608348420943,-378.55736261987181,-379.82750150876058,-381.2712515087606,-382.88861261987182,-384.6795848420943,-386.6441681754269,-388.78236261987183],[-384.64778610924691,-382.91066332048513,-381.33613158271197,-379.9241908959275,-378.67484126013113,-377.58808267532402,-376.66391514150502,-375.90233865867469,-375.303353226833,-374.86695884597952,-374.59315551611468,-374.48194323723851,-374.53332200935097,-374.74729183245165,-375.12385270654147,-375.66300463161946,-376.36474760768613,-377.22908163474148,-378.25600671278494,-379.44552284181702,-380.79763002183785,-382.31232825284735,-383.98961753484554,-385.82949786783126,-387.83196925180675],[-384.17945692112897,-382.54920789769136,-381.07154676487886,-379.74647352269147,-378.57398817112869,-377.55409071019153,-376.68678113987897,-375.97205946019153,-375.4099256711292,-375.00037977269147,-374.74342176487886,-374.63905164769136,-374.68726942112897,-374.88807508519119,-375.24146863987903,-375.74745008519147,-376.40601942112903,-377.2171766476917,-378.18092176487897,-379.29725477269136,-380.56617567112886,-381.98768446019147,-383.5617811398792,-385.28846571019102,-387.16773817112897],[-383.9395789474118,-382.40663588037773,-381.01717307046033,-379.77119051765976,-378.66868822197534,-377.70966618340816,-376.89412440195724,-376.22206287762305,-375.69348161040557,-375.30838060030436,-375.06675984731987,-374.96861935145211,-375.01395911270106,-375.20277913106628,-375.53507940654868,-376.01085993914734,-376.63012072886272,-377.39286177569483,-378.2990830796432,-379.34878464070829,-380.5419664588901,-381.87862853418864,-383.35877086660395,-384.98239345613496,-386.74949630278371],[-383.89618556579148,-382.45208954503016,-381.14315788413046,-379.96939058309249,-378.9307876419158,-378.02734906060124,-377.2590748391479,-376.62596497755624,-376.12801947582631,-375.76523833395754,-375.53762155195056,-375.44516912980521,-375.48788106752158,-375.66575736509918,-375.97879802253897,-376.42700303983992,-377.0103724170026,-377.72890615402696,-378.5826042509126,-379.57146670765991,-380.6954935242689,-381.95468470073956,-383.34904023707196,-384.87856013326513,-386.54324438932088],[-384.0221244801487,-382.65936937810778,-381.42416529647511,-380.31651223525074,-379.33641019443417,-378.48385917402629,-377.75885917402621,-377.16141019443444,-376.69151223525091,-376.34916529647523,-376.13436937810775,-376.04712448014857,-376.08743060259769,-376.25528774545455,-376.55069590872017,-376.97365509239359,-377.52416529647525,-378.20222652096521,-379.00783876586297,-379.94100203116898,-381.00171631688329,-382.18998162300585,-383.5057979495366,-384.9491652964748,-386.52008366382216],[-384.29424052148954,-383.00614252766229,-381.83860780544006,-380.79163635482286,-379.86522817581027,-379.05938326840317,-378.37410163260063,-377.80938326840317,-377.36522817581067,-377.04163635482286,-376.83860780544006,-376.75614252766229,-376.79424052148954,-376.95290178692142,-377.23212632395871,-377.63191413260063,-378.15226521284762,-378.79317956469959,-379.55465718815617,-380.43669808321783,-381.43930224988452,-382.56246968815617,-383.8062003980329,-385.17049437951385,-386.65535163260063],[-384.69271374583627,-383.47330176628907,-382.36802419141685,-381.37688102121973,-380.49987225569726,-379.73699789485016,-379.08825793867771,-378.55365238718031,-378.13318124035794,-377.82684449821022,-377.63464216073754,-377.5565742279399,-377.59264069981725,-377.74284157636924,-378.00717685759668,-378.38564654349875,-378.87825063407587,-379.48498912932803,-380.20586202925477,-381.04086933385662,-381.99001104313345,-383.05328715708532,-384.23069767571224,-385.5222425990134,-386.92792192699039],[-385.20052020468819,-384.04444333488203,-382.99657283626709,-382.05690870884331,-381.22545095261046,-380.50219956756911,-379.88715455371869,-379.38031591105943,-378.98168363959144,-378.69125773931421,-378.50903821022831,-378.43502505233357,-378.46921826563005,-378.61161785011734,-378.86222380579625,-379.22103613266603,-379.68805483072703,-380.26327989997924,-380.94671134042227,-381.73834915205657,-382.63819333488203,-383.64624388889871,-384.76250081410666,-385.98696411050503,-387.31963377809541],[-385.80299025005286,-384.70543929673261,-383.71061681152548,-382.81852279443154,-382.02915724545045,-381.34252016458282,-380.75861155182804,-380.27743140718638,-379.89897973065786,-379.62325652224223,-379.45026178193973,-379.37999550975036,-379.41245770567417,-379.54764836971077,-379.78556750186095,-380.12621510212387,-380.56959117049996,-381.11569570698924,-381.76452871159131,-382.51609018430656,-383.37038012513494,-384.32739853407656,-385.38714541113126,-386.54962075629845,-387.81482456957951],[-386.48744486504995,-385.44408549004987,-384.49838236504985,-383.65033549004994,-382.89994486504975,-382.24721049004995,-381.69213236504993,-381.23471049004996,-380.87494486505005,-380.61283549004992,-380.44838236504984,-380.38158549004987,-380.41244486504991,-380.54096049004971,-380.76713236504997,-381.09096049004989,-381.51244486504993,-382.03158549005008,-382.64838236504994,-383.36283549004986,-384.17494486504984,-385.08471049004993,-386.09213236505008,-387.19721049004966,-388.39994486504992],[-387.2428947766748,-386.24981030314706,-385.34967645424757,-384.5424932299764,-383.82826063033315,-383.20697865531849,-382.67864730493176,-382.24326657917334,-381.90083647804317,-381.65135700154093,-381.494828149667,-381.43124992242127,-381.46062231980386,-381.58294534181442,-381.79821898845353,-382.10644325972061,-382.50761815561594,-383.00174367613954,-383.58881982129105,-384.26884659107088,-385.04182398547903,-385.90775200451537,-386.86663064817998,-387.91845991647222,-389.06323980939339],[-388.05979036362578,-387.11343265387512,-386.25565204163024,-385.48644852689108,-384.80582210965736,-384.21377278992969,-383.71030056770741,-383.2954054429909,-382.96908741578011,-382.73134648607476,-382.58218265387512,-382.52159591918127,-382.54958628199313,-382.66615374231043,-382.87129830013373,-383.16501995546253,-383.54731870829704,-384.01819455863728,-384.57764750648295,-385.22567755183434,-385.96228469469145,-386.78746893505433,-387.70123027292294,-388.7035687082967,-389.7944842411768],[-388.9298128753652,-388.02695998190922,-387.20861222636569,-386.47476960873462,-385.82543212901567,-385.26059978720946,-384.78027258331542,-384.38445051733385,-384.07313358926473,-383.84632179910778,-383.70401514686324,-383.64621363253116,-383.67291725611153,-383.78412601760408,-383.97983991700937,-384.26005895432678,-384.6247831295567,-385.07401244269903,-385.60774689375353,-386.22598648272049,-386.92873120959985,-387.71598107439172,-388.587736077096,-389.54399621771216,-390.58476149624136],[-389.84569941573039,-388.98341894052368,-388.20184610994517,-387.50098092399486,-386.88082338267236,-386.34137348597835,-385.88263123391221,-385.50459662647421,-385.20726966366436,-384.99065034548244,-384.85473867192866,-384.79953464300303,-384.8250382587056,-384.93124951903599,-385.11816842399486,-385.3857949735816,-385.73412916779654,-386.16317100663957,-386.67292049011053,-387.26337761820963,-387.93454239093694,-388.68641480829234,-389.51899487027595,-390.43228257688713,-391.42627792812709],[-390.80109565291048,-389.97671293686102,-389.22949071463881,-388.5594289862438,-387.96652775167576,-387.45078701093519,-387.01220676402158,-386.65078701093518,-386.36652775167602,-386.15942898624382,-386.02949071463883,-385.97671293686102,-386.00109565291046,-386.10263886278688,-386.28134256649076,-386.53720676402156,-386.87023145537967,-387.28041664056491,-387.76776231957712,-388.33226849241657,-388.97393515908328,-389.69276231957713,-390.48874997389822,-391.36189812204606,-392.3122067640216]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
 </figure>
 </div>
-</section><section id="standard-errors-by-sample-size" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="standard-errors-by-sample-size">
-<span class="header-section-number">4.5</span> Standard errors by sample size</h2>
+</section><section id="standard-errors-by-sample-size" class="level3" data-number="4.5"><h3 data-number="4.5" class="anchored" data-anchor-id="standard-errors-by-sample-size">
+<span class="header-section-number">4.5</span> Standard errors by sample size</h3>
 <p>By <a href="#sec-covariance-matrix" class="quarto-xref">Section&nbsp;3.5</a>, the estimated standard error of <span class="math inline">\(\hat\mu_{\text{ML}}\)</span> is</p>
 <p><span class="math display">\[
 \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\mu\right)\mathclose{} = \sqrt{\mathopen{}\left[\mathopen{}\left(I(\hat\mu, \hat\sigma^2)\right)^{-1}\mathclose{}\right]\mathclose{}_{11}} = \frac{\hat\sigma}{\sqrt{n}}
@@ -3846,8 +3824,8 @@ Figure&nbsp;19: Standard error of <span class="math inline">\(\hat\mu_{\text{ML}
 </div>
 </figure>
 </div>
-</section><section id="power" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="power">
-<span class="header-section-number">4.6</span> Power</h2>
+</section><section id="power" class="level3" data-number="4.6"><h3 data-number="4.6" class="anchored" data-anchor-id="power">
+<span class="header-section-number">4.6</span> Power</h3>
 <p>Suppose we test the null hypothesis <span class="math inline">\(H_0: \mu = \mu_0\)</span>, with <span class="math inline">\(\mu_0 = 95\)</span> mg/dL, at significance level <span class="math inline">\(\alpha = 0.05\)</span>, and suppose for simplicity that <span class="math inline">\(\sigma\)</span> is known, equal to <span class="math inline">\(\hat\sigma_{\text{ML}}\)</span>. Then under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(\bar X \sim \operatorname{N}\mathopen{}\left(\mu_0, \sigma^2/n\right)\mathclose{}\)</span>, and the test rejects <span class="math inline">\(H_0\)</span> when <span class="math inline">\(\bar x\)</span> falls outside the non-rejection interval</p>
 <p><span class="math display">\[\mu_0 \pm z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\]</span></p>
 <div class="cell">
@@ -3918,8 +3896,8 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)
 <div class="notes">
 <p>The alternative <span class="math inline">\(\mu_1\)</span> should be chosen before seeing the data, as a difference worth detecting. Power computed at <span class="math inline">\(\mu_1 = \hat\mu\)</span> (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed.</p>
 </div>
-</section><section id="simulation" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="simulation">
-<span class="header-section-number">4.7</span> Simulation</h2>
+</section><section id="simulation" class="level3" data-number="4.7"><h3 data-number="4.7" class="anchored" data-anchor-id="simulation">
+<span class="header-section-number">4.7</span> Simulation</h3>
 <p>To check how maximum likelihood estimation behaves for this model, we simulate many datasets from a Gaussian distribution whose parameters equal the HERS estimates, analyze each one, and summarize the results.</p>
 <p><code>do_one_sim()</code> simulates and analyzes one dataset: it computes <span class="math inline">\(\hat\mu\)</span>, its estimated standard error, a 95% <span class="math inline">\(t\)</span>-based confidence interval for <span class="math inline">\(\mu\)</span>, and the <span class="math inline">\(t\)</span>-test of <span class="math inline">\(H_0: \mu = \mu_0\)</span>.</p>
 <div class="cell">
@@ -4042,8 +4020,8 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)
 <li>the test of <span class="math inline">\(H_0: \mu = 0.9\,\hat\mu\)</span> rejected in 100% of datasets: with <span class="math inline">\(n = 100\)</span>, a 10% difference in the mean is easy to detect.</li>
 </ul>
 <p>Changing the sample size, the true <span class="math inline">\(\mu\)</span>, or <span class="math inline">\(\sigma^2\)</span> in <code>do_n_sims()</code> shows how these properties depend on them.</p>
-</section></section><section id="sec-mle-practice" class="level1" data-number="5"><h1 data-number="5">
-<span class="header-section-number">5</span> Practice exercises</h1>
+</section></section><section id="sec-mle-practice" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="sec-mle-practice">
+<span class="header-section-number">5</span> Practice exercises</h2>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -4469,7 +4447,7 @@ I(\hat\mu_{ML}; \tilde{x}) = \frac{2n\bar{x}}{\bar{x}^3} - \frac{n}{\bar{x}^2}
 </div>
 </div>
 </div>
-</section><section id="references" class="level1 unnumbered"><h1 class="unnumbered">References</h1>
+</section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-CaseBerg01" class="csl-entry" role="listitem">
 Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
@@ -5217,9 +5195,9 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>with some material from <span class="co">[</span><span class="ot">@mclachlan2007em</span><span class="co">]</span> and <span class="co">[</span><span class="ot">@CaseBerg01</span><span class="co">]</span>.</span>
 <span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="fu"># Overview of maximum likelihood estimation {#sec-intro-MLEs}</span></span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview of maximum likelihood estimation {#sec-intro-MLEs}</span></span>
 <span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## The likelihood function</span></span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a><span class="fu">### The likelihood function</span></span>
 <span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-lik-obs div. --&gt;</span></span>
 <span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a></span>
@@ -5247,11 +5225,11 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-47"><a href="#cb43-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-48"><a href="#cb43-48" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_thm-ds-lik-obs-lik.qmd &gt;}}</span>
 <span id="cb43-49"><a href="#cb43-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-50"><a href="#cb43-50" aria-hidden="true" tabindex="-1"></a><span class="fu">### Binary outcomes: one group, no covariates</span></span>
+<span id="cb43-50"><a href="#cb43-50" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb43-51"><a href="#cb43-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-52"><a href="#cb43-52" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd &gt;}}</span>
 <span id="cb43-53"><a href="#cb43-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-54"><a href="#cb43-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## The maximum likelihood estimate</span></span>
+<span id="cb43-54"><a href="#cb43-54" aria-hidden="true" tabindex="-1"></a><span class="fu">### The maximum likelihood estimate</span></span>
 <span id="cb43-55"><a href="#cb43-55" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-56"><a href="#cb43-56" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-mle div. --&gt;</span></span>
 <span id="cb43-57"><a href="#cb43-57" aria-hidden="true" tabindex="-1"></a></span>
@@ -5261,7 +5239,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-61"><a href="#cb43-61" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-62"><a href="#cb43-62" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_exm-mle-bernoulli.qmd &gt;}}</span>
 <span id="cb43-63"><a href="#cb43-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-64"><a href="#cb43-64" aria-hidden="true" tabindex="-1"></a><span class="fu">## Finding the maximum of a function</span></span>
+<span id="cb43-64"><a href="#cb43-64" aria-hidden="true" tabindex="-1"></a><span class="fu">### Finding the maximum of a function</span></span>
 <span id="cb43-65"><a href="#cb43-65" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-66"><a href="#cb43-66" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-critical-point div. --&gt;</span></span>
 <span id="cb43-67"><a href="#cb43-67" aria-hidden="true" tabindex="-1"></a></span>
@@ -5269,11 +5247,11 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-69"><a href="#cb43-69" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-70"><a href="#cb43-70" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_prose-maxima.qmd &gt;}}</span>
 <span id="cb43-71"><a href="#cb43-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-72"><a href="#cb43-72" aria-hidden="true" tabindex="-1"></a><span class="fu">## Directly maximizing the likelihood function for independent data</span></span>
+<span id="cb43-72"><a href="#cb43-72" aria-hidden="true" tabindex="-1"></a><span class="fu">### Directly maximizing the likelihood function for independent data</span></span>
 <span id="cb43-73"><a href="#cb43-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-74"><a href="#cb43-74" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_sec_mle_no_log.qmd &gt;}}</span>
 <span id="cb43-75"><a href="#cb43-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-76"><a href="#cb43-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## The log-likelihood function</span></span>
+<span id="cb43-76"><a href="#cb43-76" aria-hidden="true" tabindex="-1"></a><span class="fu">### The log-likelihood function</span></span>
 <span id="cb43-77"><a href="#cb43-77" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-78"><a href="#cb43-78" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-loglik div. --&gt;</span></span>
 <span id="cb43-79"><a href="#cb43-79" aria-hidden="true" tabindex="-1"></a></span>
@@ -5299,7 +5277,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-99"><a href="#cb43-99" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-100"><a href="#cb43-100" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd &gt;}}</span>
 <span id="cb43-101"><a href="#cb43-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-102"><a href="#cb43-102" aria-hidden="true" tabindex="-1"></a><span class="fu">## The score function</span></span>
+<span id="cb43-102"><a href="#cb43-102" aria-hidden="true" tabindex="-1"></a><span class="fu">### The score function</span></span>
 <span id="cb43-103"><a href="#cb43-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-104"><a href="#cb43-104" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-score div. --&gt;</span></span>
 <span id="cb43-105"><a href="#cb43-105" aria-hidden="true" tabindex="-1"></a></span>
@@ -5327,7 +5305,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-127"><a href="#cb43-127" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-128"><a href="#cb43-128" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd &gt;}}</span>
 <span id="cb43-129"><a href="#cb43-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-130"><a href="#cb43-130" aria-hidden="true" tabindex="-1"></a><span class="fu">## Information matrices</span></span>
+<span id="cb43-130"><a href="#cb43-130" aria-hidden="true" tabindex="-1"></a><span class="fu">### Information matrices</span></span>
 <span id="cb43-131"><a href="#cb43-131" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-132"><a href="#cb43-132" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-hessian div. --&gt;</span></span>
 <span id="cb43-133"><a href="#cb43-133" aria-hidden="true" tabindex="-1"></a></span>
@@ -5365,11 +5343,11 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-165"><a href="#cb43-165" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-166"><a href="#cb43-166" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_exm-information-equality-fails.qmd &gt;}}</span>
 <span id="cb43-167"><a href="#cb43-167" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-168"><a href="#cb43-168" aria-hidden="true" tabindex="-1"></a><span class="fu">### Notation for information matrices</span></span>
+<span id="cb43-168"><a href="#cb43-168" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb43-169"><a href="#cb43-169" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-170"><a href="#cb43-170" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_tbl-info-mat-symbols.qmd &gt;}}</span>
 <span id="cb43-171"><a href="#cb43-171" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-172"><a href="#cb43-172" aria-hidden="true" tabindex="-1"></a><span class="fu">## Asymptotic distribution of the maximum likelihood estimate</span></span>
+<span id="cb43-172"><a href="#cb43-172" aria-hidden="true" tabindex="-1"></a><span class="fu">### Asymptotic distribution of the maximum likelihood estimate</span></span>
 <span id="cb43-173"><a href="#cb43-173" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-174"><a href="#cb43-174" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the thm-dist-mle div. --&gt;</span></span>
 <span id="cb43-175"><a href="#cb43-175" aria-hidden="true" tabindex="-1"></a></span>
@@ -5383,9 +5361,9 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-183"><a href="#cb43-183" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-184"><a href="#cb43-184" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_prose-estimate-se.qmd &gt;}}</span>
 <span id="cb43-185"><a href="#cb43-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-186"><a href="#cb43-186" aria-hidden="true" tabindex="-1"></a><span class="fu">## Quantifying uncertainty about MLEs</span></span>
+<span id="cb43-186"><a href="#cb43-186" aria-hidden="true" tabindex="-1"></a><span class="fu">### Quantifying uncertainty about MLEs</span></span>
 <span id="cb43-187"><a href="#cb43-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-188"><a href="#cb43-188" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confidence intervals for MLEs</span></span>
+<span id="cb43-188"><a href="#cb43-188" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Confidence intervals for MLEs</span></span>
 <span id="cb43-189"><a href="#cb43-189" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-190"><a href="#cb43-190" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-wald-ci div. --&gt;</span></span>
 <span id="cb43-191"><a href="#cb43-191" aria-hidden="true" tabindex="-1"></a></span>
@@ -5393,7 +5371,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-193"><a href="#cb43-193" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-194"><a href="#cb43-194" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_prose-ci-mle.qmd &gt;}}</span>
 <span id="cb43-195"><a href="#cb43-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-196"><a href="#cb43-196" aria-hidden="true" tabindex="-1"></a><span class="fu">### Wald tests</span></span>
+<span id="cb43-196"><a href="#cb43-196" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Wald tests</span></span>
 <span id="cb43-197"><a href="#cb43-197" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-198"><a href="#cb43-198" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-wald-test div. --&gt;</span></span>
 <span id="cb43-199"><a href="#cb43-199" aria-hidden="true" tabindex="-1"></a></span>
@@ -5403,7 +5381,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-203"><a href="#cb43-203" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-204"><a href="#cb43-204" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_exm-wald-poisson.qmd &gt;}}</span>
 <span id="cb43-205"><a href="#cb43-205" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-206"><a href="#cb43-206" aria-hidden="true" tabindex="-1"></a><span class="fu">### Likelihood ratio tests for MLEs {#sec-lrt-mles}</span></span>
+<span id="cb43-206"><a href="#cb43-206" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Likelihood ratio tests for MLEs {#sec-lrt-mles}</span></span>
 <span id="cb43-207"><a href="#cb43-207" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-208"><a href="#cb43-208" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the thm-wilks div. --&gt;</span></span>
 <span id="cb43-209"><a href="#cb43-209" aria-hidden="true" tabindex="-1"></a></span>
@@ -5421,11 +5399,11 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-221"><a href="#cb43-221" aria-hidden="true" tabindex="-1"></a>See also <span class="co">[</span><span class="ot">@dobson4e, Section 5.7</span><span class="co">]</span> and <span class="ot">&lt;https://online.stat.psu.edu/stat504/Lesson02&gt;</span>.</span>
 <span id="cb43-222"><a href="#cb43-222" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb43-223"><a href="#cb43-223" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-224"><a href="#cb43-224" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exact and approximate tests</span></span>
+<span id="cb43-224"><a href="#cb43-224" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Exact and approximate tests</span></span>
 <span id="cb43-225"><a href="#cb43-225" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-226"><a href="#cb43-226" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_tbl_gaussian_vs_mle_tests.qmd &gt;}}</span>
 <span id="cb43-227"><a href="#cb43-227" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-228"><a href="#cb43-228" aria-hidden="true" tabindex="-1"></a><span class="fu">### Prediction intervals</span></span>
+<span id="cb43-228"><a href="#cb43-228" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Prediction intervals</span></span>
 <span id="cb43-229"><a href="#cb43-229" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-230"><a href="#cb43-230" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-prediction-interval div. --&gt;</span></span>
 <span id="cb43-231"><a href="#cb43-231" aria-hidden="true" tabindex="-1"></a></span>
@@ -5433,39 +5411,39 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-233"><a href="#cb43-233" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-234"><a href="#cb43-234" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_prose-prediction-interval.qmd &gt;}}</span>
 <span id="cb43-235"><a href="#cb43-235" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-236"><a href="#cb43-236" aria-hidden="true" tabindex="-1"></a><span class="fu"># Example: maximum likelihood for tropical cyclones in Australia</span></span>
+<span id="cb43-236"><a href="#cb43-236" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example: maximum likelihood for tropical cyclones in Australia</span></span>
 <span id="cb43-237"><a href="#cb43-237" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-238"><a href="#cb43-238" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/dobson-cyclone-example.qmd &gt;}}</span>
 <span id="cb43-239"><a href="#cb43-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-240"><a href="#cb43-240" aria-hidden="true" tabindex="-1"></a><span class="fu"># Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}</span></span>
+<span id="cb43-240"><a href="#cb43-240" aria-hidden="true" tabindex="-1"></a><span class="fu">## Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}</span></span>
 <span id="cb43-241"><a href="#cb43-241" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-242"><a href="#cb43-242" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd &gt;}}</span>
 <span id="cb43-243"><a href="#cb43-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-244"><a href="#cb43-244" aria-hidden="true" tabindex="-1"></a><span class="fu">## The score function</span></span>
+<span id="cb43-244"><a href="#cb43-244" aria-hidden="true" tabindex="-1"></a><span class="fu">### The score function</span></span>
 <span id="cb43-245"><a href="#cb43-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-246"><a href="#cb43-246" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_sec-gaussian-score.qmd &gt;}}</span>
 <span id="cb43-247"><a href="#cb43-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-248"><a href="#cb43-248" aria-hidden="true" tabindex="-1"></a><span class="fu">## MLE of $\mu$</span></span>
+<span id="cb43-248"><a href="#cb43-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### MLE of $\mu$</span></span>
 <span id="cb43-249"><a href="#cb43-249" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-250"><a href="#cb43-250" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd &gt;}}</span>
 <span id="cb43-251"><a href="#cb43-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-252"><a href="#cb43-252" aria-hidden="true" tabindex="-1"></a><span class="fu">## MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}</span></span>
+<span id="cb43-252"><a href="#cb43-252" aria-hidden="true" tabindex="-1"></a><span class="fu">### MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}</span></span>
 <span id="cb43-253"><a href="#cb43-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-254"><a href="#cb43-254" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd &gt;}}</span>
 <span id="cb43-255"><a href="#cb43-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-256"><a href="#cb43-256" aria-hidden="true" tabindex="-1"></a><span class="fu">## Second derivatives</span></span>
+<span id="cb43-256"><a href="#cb43-256" aria-hidden="true" tabindex="-1"></a><span class="fu">### Second derivatives</span></span>
 <span id="cb43-257"><a href="#cb43-257" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-258"><a href="#cb43-258" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_sec-gaussian-hessian.qmd &gt;}}</span>
 <span id="cb43-259"><a href="#cb43-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-260"><a href="#cb43-260" aria-hidden="true" tabindex="-1"></a><span class="fu">## Information matrix and standard errors {#sec-covariance-matrix}</span></span>
+<span id="cb43-260"><a href="#cb43-260" aria-hidden="true" tabindex="-1"></a><span class="fu">### Information matrix and standard errors {#sec-covariance-matrix}</span></span>
 <span id="cb43-261"><a href="#cb43-261" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-262"><a href="#cb43-262" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_sec-gaussian-information.qmd &gt;}}</span>
 <span id="cb43-263"><a href="#cb43-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-264"><a href="#cb43-264" aria-hidden="true" tabindex="-1"></a><span class="fu"># Example: hormone therapy study {#sec-hers-mle-example}</span></span>
+<span id="cb43-264"><a href="#cb43-264" aria-hidden="true" tabindex="-1"></a><span class="fu">## Example: hormone therapy study {#sec-hers-mle-example}</span></span>
 <span id="cb43-265"><a href="#cb43-265" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-266"><a href="#cb43-266" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/HERS-example.qmd &gt;}}</span>
 <span id="cb43-267"><a href="#cb43-267" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-268"><a href="#cb43-268" aria-hidden="true" tabindex="-1"></a><span class="fu"># Practice exercises {#sec-mle-practice}</span></span>
+<span id="cb43-268"><a href="#cb43-268" aria-hidden="true" tabindex="-1"></a><span class="fu">## Practice exercises {#sec-mle-practice}</span></span>
 <span id="cb43-269"><a href="#cb43-269" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-270"><a href="#cb43-270" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_exr-prac-binom-lik.qmd &gt;}}</span>
 <span id="cb43-271"><a href="#cb43-271" aria-hidden="true" tabindex="-1"></a></span>
@@ -5485,7 +5463,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb43-285"><a href="#cb43-285" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-286"><a href="#cb43-286" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_exr-prac-exp-mle.qmd &gt;}}</span>
 <span id="cb43-287"><a href="#cb43-287" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-288"><a href="#cb43-288" aria-hidden="true" tabindex="-1"></a><span class="fu"># References {.unnumbered}</span></span>
+<span id="cb43-288"><a href="#cb43-288" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
 <span id="cb43-289"><a href="#cb43-289" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-290"><a href="#cb43-290" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
 <span id="cb43-291"><a href="#cb43-291" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
