@@ -32,24 +32,20 @@ website:
   repo-actions: [edit, issue, source]
   navbar:
     left:
-      - text: "Home"
-        href: index.qmd
-      - text: "Notes"
-        menu:
-          - text: "Nonparametric Models"
-            href: nonparametric-models.qmd
-          - text: "Exploratory and Descriptive Methods"
-            href: exploratory-descriptive.qmd
-          - text: "Estimation"
-            href: estimation.qmd
-          - text: "Statistical Inference"
-            href: inference.qmd
-          - text: "Maximum Likelihood Inference"
-            href: intro-MLEs.qmd
-          - text: "Bayesian Inference"
-            href: bayesian-inference.qmd
-          - text: "Basic Statistical Methods"
-            href: basic-statistical-methods.qmd
+      - text: "Nonparametric"
+        href: nonparametric-models.qmd
+      - text: "Exploratory"
+        href: exploratory-descriptive.qmd
+      - text: "Estimation"
+        href: estimation.qmd
+      - text: "Inference"
+        href: inference.qmd
+      - text: "MLE"
+        href: intro-MLEs.qmd
+      - text: "Bayesian"
+        href: bayesian-inference.qmd
+      - text: "Basic Methods"
+        href: basic-statistical-methods.qmd
     right:
       - icon: github
         href: https://github.com/Morrison-Lab/sds
@@ -160,7 +156,7 @@ format:
     toc: true
     anchor-sections: true
     toc-location: right
-    toc-depth: 3
+    toc-depth: 4
     code-fold: false
     code-tools: true
     code-link: true
@@ -171,11 +167,11 @@ format:
     fig-cap-location: top
     html-math-method: mathjax
     number-sections: true
-    number-depth: 3
+    number-depth: 4
     df-print: paged
   docx:
     number-sections: true
-    number-depth: 3
+    number-depth: 4
     df-print: tibble
     prefer-html: true
   revealjs:
@@ -196,9 +192,9 @@ format:
     progress: true
     incremental: false
     df-print: paged
-    number-depth: 2
+    number-depth: 3
     shift-heading-level-by: 0
-    slide-level: 2
+    slide-level: 3
     scrollable: true
     echo: true
     margin: 0.0
