@@ -271,24 +271,56 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 01:04:30 (PDT)</p>
-</section>
-<section>
-<section id="welcome" class="title-slide slide level1 unnumbered center">
-<h1>Welcome</h1>
-
+  <p class="date">Last modified: 2026-09-28 02:56:03 (PDT)</p>
 </section>
 <section class="slide level2">
 
 <p>These notes collect the statistics that data science courses assume.</p>
 </section>
-<section id="using-these-notes-in-another-site" class="slide level2" data-number="0.1">
-<h2><span class="header-section-number">0.1</span> Using these notes in another site</h2>
+<section id="topics" class="slide level2" data-number="1">
+<h2><span class="header-section-number">1</span> Topics</h2>
+<p>The notes are organized in four groups of pages.</p>
+<p>Describing data:</p>
+<ul>
+<li><a href="./nonparametric-models.html">Nonparametric models</a>: the empirical CDF, order statistics, and sample quantiles;</li>
+<li><a href="./exploratory-descriptive.html">Exploratory data analysis</a>: sample statistics, graphs, correlation, and contingency tables, illustrated with the WCGS data.</li>
+</ul>
+<p>Inference:</p>
+<ul>
+<li><a href="./estimation.html">Estimation</a>: estimands, estimators, bias, mean squared error, and standard error;</li>
+<li><a href="./inference.html">Statistical inference</a>: hypothesis tests, p-values, the <span class="math inline">\(t\)</span>, chi-square, and <span class="math inline">\(F\)</span> distributions, confidence intervals, and how to interpret negative findings;</li>
+<li><a href="./intro-MLEs.html">Maximum likelihood inference</a>: likelihood, score, information, the asymptotic distribution of MLEs, Wald and likelihood ratio tests, and Newton-Raphson, with worked examples.</li>
+</ul>
+<p>Methods, illustrated with the HERS data:</p>
+<ul>
+<li><a href="./basic-statistical-methods.html">Comparing means</a>: t-tests and one-way ANOVA;</li>
+<li><a href="./categorical-tests.html">Comparing proportions</a>: the chi-square test and Fisher’s exact test;</li>
+<li><a href="./correlation-regression.html">Correlation and simple linear regression</a>;</li>
+<li><a href="./bootstrap.html">The bootstrap</a>.</li>
+</ul>
+<p>Bayesian:</p>
+<ul>
+<li><a href="./bayesian-inference.html">Bayesian inference</a>: the Bayesian paradigm, priors, posteriors, and hierarchical models;</li>
+<li><a href="./mcmc.html">Markov chain Monte Carlo</a>: Monte Carlo integration, the Metropolis–Hastings and Gibbs samplers, convergence diagnostics, and the deviance information criterion;</li>
+<li><a href="./bayesian-examples.html">Fitting models by Bayesian inference with JAGS</a>: a proportion, logistic regression, survival, random effects, and Bayesian model averaging.</li>
+</ul>
 </section>
-<section class="slide level2">
-
-<p>Course sites include these notes as a git submodule named <code>sds</code> at the site’s root, and include fragments with paths that start with <code>sds/</code>.</p>
-<p>Quarto resolves <code>@id</code> cross-references only within one rendered page, so a host site that links to a result here uses an explicit link to the page and anchor.</p>
+<section id="origin" class="slide level2" data-number="2">
+<h2><span class="header-section-number">2</span> Origin</h2>
+<p>These notes began as the statistics appendices of <a href="https://morrison-lab.github.io/rme/"><em>Regression Models for Epidemiology</em></a>, and keep those chapters’ file names, except that two long chapters are now split into several pages. Most results keep their rme <code>#id</code> anchors on the same page; the exceptions are:</p>
+<ul>
+<li>the maximum likelihood practice exercises (<code>exr-prac-*</code>), which moved from the estimation page to the maximum likelihood page;</li>
+<li>the null and alternative hypothesis definitions, which moved from basic statistical methods to statistical inference;</li>
+<li>the sample statistics (mean, median, variance, standard deviation, interquartile range, proportion, correlation) and the contingency table, which rme defined on two pages; they are now defined once, on the exploratory data analysis page, under the ids rme used on its basic statistical methods page (such as <code>def-sample-mean</code>), so the exploratory-descriptive ids from rme <code>def-mean</code>, <code>def-median</code>, <code>def-eda-variance</code>, <code>def-eda-sd</code>, <code>def-quantile</code>, <code>def-iqr</code>, and <code>def-correlation</code> are retired;</li>
+<li>the basic statistical methods sections on categorical outcomes, correlation and simple linear regression, and the bootstrap (such as <code>sec-two-group-categorical</code>, <code>sec-correlation</code>, <code>sec-simple-linear-regression</code>, and <code>sec-bootstrap-ci</code>), which moved to their own pages, with their ids;</li>
+<li>the Bayesian inference sections on computation (<code>sec-foundations</code> through <code>sec-dic</code>) and the worked examples (<code>sec-bayes-examples</code> and the sections after it), which moved to the MCMC and JAGS pages, with their ids.</li>
+</ul>
+<p>Where these notes rely on probability or calculus, they link to that book’s <a href="https://morrison-lab.github.io/rme/chapters/probability.html">probability</a> and <a href="https://morrison-lab.github.io/rme/chapters/math-prereqs.html">mathematics</a> chapters.</p>
+</section>
+<section id="using-these-notes-in-another-site" class="slide level2" data-number="3">
+<h2><span class="header-section-number">3</span> Using these notes in another site</h2>
+<p>Course sites include these notes as a git submodule named <code>sds</code> at the site’s root, and include fragments with paths that start with <code>sds/</code>, for example <code>{{&lt; include sds/_subfiles/intro-MLEs/_def_mle.qmd &gt;}}</code>. This site includes its own fragments the same way, through an <code>sds</code> symlink that points at the repository root.</p>
+<p>Quarto resolves <code>@id</code> cross-references only within one rendered page, so a host site that links to a result here uses an explicit link, such as <code>[text](estimation.qmd#def-bias)</code>.</p>
 
 
 <script>
@@ -481,7 +513,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 })();
 </script>
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
