@@ -27,6 +27,9 @@ exclude = [
   "https://127.0.0.1.*",
   # quarto.org is a trusted site but may be unreachable from CI runners
   "https://quarto.org/.*",
+  # Login-gated course sites (lecture videos and Canvas) return 401 to CI
+  "https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/.*",
+  "https://wwu.instructure.com/.*",
   # Stack Overflow answers 403 to automated clients, including CI link checkers
   "https://stackoverflow.com/.*",
   # online.stat.psu.edu fails lychee's TLS certificate verification in CI
