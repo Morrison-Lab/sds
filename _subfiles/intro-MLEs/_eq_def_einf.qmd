@@ -1,1 +1,1 @@
-$$\defEInf$${#eq-def-einf}
+$$\einf(\vth) \eqdef \E{\oinf(\vX \mid \vth)}$${#eq-def-einf}

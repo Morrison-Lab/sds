@@ -1,4 +1,4 @@
-:::{#exr-graph-hession}
+:::{#exr-graph-hessian}
 #### Graphing the Hessian
 
 Graph the Hessian.

@@ -4,8 +4,10 @@
 For $\iid$ data from a correctly specified model
 satisfying regularity conditions
 (including those of @thm-information-equality,
-and a true parameter value in the interior of the parameter space),
-the MLE is consistent,
+an identifiable parameter,
+a true parameter value in the interior of the parameter space,
+and a positive definite information matrix),
+a consistent solution $\hthml$ of the score equation exists,
 and for large $n$ it has approximately a Gaussian distribution,
 centered at the true parameter value $\vth$,
 with covariance matrix equal to the inverse of the expected information:
@@ -14,8 +16,17 @@ with covariance matrix equal to the inverse of the expected information:
 
 :::
 
+
 ::: proof
 The proof is beyond the scope of these notes;
 see [@lehmannELST, Theorem 7.3.2]
 and [@newey1994large].
+:::
+
+::: notes
+These conditions guarantee a consistent root of the score equation;
+that root is the global maximizer of the likelihood
+under further conditions,
+for example when the log-likelihood is strictly concave,
+as for Poisson data, whose Hessian is negative for every $\rate$ (@exm-information-poisson).
 :::

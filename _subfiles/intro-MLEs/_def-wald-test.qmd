@@ -1,0 +1,16 @@
+:::{#def-wald-test}
+#### Wald test
+
+The **Wald test** of $H_0: \theta_k = \theta_{k,0}$
+uses the test statistic
+
+$$Z \eqdef \frac{\hth_k - \theta_{k,0}}{\HSE{\hth_k}}$$
+
+which, by @thm-dist-mle, has approximately a standard Gaussian distribution
+under $H_0$ in large samples.
+For $q$ constraints $H_0: \vth_{(q)} = \vth_{(q),0}$ on a $q \times 1$ subvector,
+the Wald statistic is
+$\tp{\paren{\hat\vth_{(q)} - \vth_{(q),0}}}\,\inv{\hat{V}_{(q)}}\,\paren{\hat\vth_{(q)} - \vth_{(q),0}}$,
+where $\hat V_{(q)}$ is the corresponding $q \times q$ block of $\inv{\hat{\einf}}$;
+it has approximately a $\chi^2_q$ distribution under $H_0$.
+:::

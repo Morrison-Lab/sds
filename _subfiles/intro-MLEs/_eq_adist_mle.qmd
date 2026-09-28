@@ -1,3 +1,3 @@
 $$
-\thmADistMLE
+\hthml \dsim \ndist{\vth, \inv{\einf(\vth)}}
 $${#eq-adist-mle}

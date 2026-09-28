@@ -1,12 +1,7 @@
 By @thm-dist-mle,
-an approximate 95% [confidence interval](inference.qmd#def-confidence-interval)
-for the $k$th parameter $\theta_k$ is
-
-$$
-\hth_k \pm z_{0.975} \times \HSE{\hth_k}
-$$
-
-where $\hth_k$ is the $k$th entry of $\hthml$
-and $z_{\beta}$ is the $\beta$ quantile of the standard Gaussian distribution
-($z_{0.975} \approx 1.96$).
-This interval is called a **Wald** confidence interval.
+$(\hth_k - \theta_k)/\HSE{\hth_k}$
+has approximately a standard Gaussian distribution in large samples,
+so the Wald interval is an
+[approximate confidence interval](inference.qmd#def-approximate-ci)
+for $\theta_k$.
+For a 95% interval, $z_{0.975} \approx 1.96$.

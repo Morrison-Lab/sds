@@ -19,9 +19,11 @@ bounds
 
 {{< slidebreak >}}
 
-The **power** of the test against an alternative value $\mu_1$
-is the probability of rejecting $H_0$ when $\mu = \mu_1$.
-Under $\mu = \mu_1$, $\bar X \sim \ndist{\mu_1, \sigma^2/n}$, so:
+{{< include sds/_subfiles/HERS-example/_def-power.qmd >}}
+
+{{< slidebreak >}}
+
+For this test, under $\mu = \mu_1$, $\bar X \sim \ndist{\mu_1, \sigma^2/n}$, so:
 
 $$
 \text{power}(\mu_1) =
@@ -30,8 +32,7 @@ $$
 $$
 
 where $\Phi$ is the standard Gaussian CDF.
-For the alternative that the true mean equals our estimate,
-$\mu_1 = \hat\mu_{\text{ML}}$:
+For example, the power against $\mu_1 = 100$ mg/dL is:
 
 ```{r}
 power <- function(n, null, alt, sigma) {
@@ -40,7 +41,8 @@ power <- function(n, null, alt, sigma) {
   upper <- null + qnorm(0.975) * se
   pnorm((lower - alt) / se) + pnorm((upper - alt) / se, lower.tail = FALSE)
 }
-power(n = n_obs, null = mu0, alt = mu_hat, sigma = sigma_hat)
+mu1 <- 100
+power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 ```
 
 {{< slidebreak >}}
@@ -53,7 +55,7 @@ power(n = n_obs, null = mu0, alt = mu_hat, sigma = sigma_hat)
 ggplot2::ggplot() +
   ggplot2::geom_function(
     fun = power,
-    args = list(null = mu0, alt = mu_hat, sigma = sigma_hat),
+    args = list(null = mu0, alt = mu1, sigma = sigma_hat),
     n = 199
   ) +
   ggplot2::xlim(c(2, 200)) +
@@ -62,7 +64,15 @@ ggplot2::ggplot() +
   ggplot2::xlab("n")
 ```
 
-Power of the test of $H_0: \mu = 95$ against $\mu_1 = \hat\mu_{\text{ML}}$,
+Power of the test of $H_0: \mu = 95$ against $\mu_1 = 100$ mg/dL,
 by sample size
 
+:::
+
+::: notes
+The alternative $\mu_1$ should be chosen before seeing the data,
+as a difference worth detecting.
+Power computed at $\mu_1 = \hat\mu$ ("observed power")
+is a function of the p-value,
+so it adds no information about the data already analyzed.
 :::

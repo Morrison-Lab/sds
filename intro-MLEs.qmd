@@ -63,6 +63,10 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ## Finding the maximum of a function
 
+<!-- No slidebreak here: the heading shares its slide with the def-critical-point div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-critical-point.qmd >}}
+
 {{< include sds/_subfiles/intro-MLEs/_prose-maxima.qmd >}}
 
 ## Directly maximizing the likelihood function for independent data
@@ -183,11 +187,21 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 ### Confidence intervals for MLEs
 
+<!-- No slidebreak here: the heading shares its slide with the def-wald-ci div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-wald-ci.qmd >}}
+
 {{< include sds/_subfiles/intro-MLEs/_prose-ci-mle.qmd >}}
 
-### p-values and hypothesis tests for MLEs
+### Wald tests
 
-{{< include sds/_subfiles/intro-MLEs/_tbl_gaussian_vs_mle_tests.qmd >}}
+<!-- No slidebreak here: the heading shares its slide with the def-wald-test div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-wald-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-wald-poisson.qmd >}}
 
 ### Likelihood ratio tests for MLEs {#sec-lrt-mles}
 
@@ -197,6 +211,8 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_prf-wilks.qmd >}}
 
+{{< include sds/_subfiles/intro-MLEs/_note-wilks-nested.qmd >}}
+
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exm-wilks-poisson.qmd >}}
@@ -205,7 +221,15 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesson02>.
 :::
 
+### Exact and approximate tests
+
+{{< include sds/_subfiles/intro-MLEs/_tbl_gaussian_vs_mle_tests.qmd >}}
+
 ### Prediction intervals
+
+<!-- No slidebreak here: the heading shares its slide with the def-prediction-interval div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-prediction-interval.qmd >}}
 
 {{< include sds/_subfiles/intro-MLEs/_prose-prediction-interval.qmd >}}
 

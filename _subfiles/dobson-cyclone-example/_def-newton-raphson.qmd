@@ -1,0 +1,18 @@
+:::{#def-newton-raphson}
+#### Newton-Raphson algorithm
+
+The **Newton-Raphson algorithm** for solving the score equation
+$\score(\th) = 0$
+starts from an initial guess $\esttmp{\th}$
+and repeats the update
+
+$$
+\begin{aligned}
+\esttmp{\th}
+&\leftarrow \esttmp{\th} - \inv{\hessf{\vx; \esttmp{\th}}} \scoref{\vx; \esttmp{\th}}\\
+&= \esttmp{\th} + \inv{\oinff{\vx; \esttmp{\th}}} \scoref{\vx; \esttmp{\th}}
+\end{aligned}
+$$
+
+until the estimate stops changing.
+:::

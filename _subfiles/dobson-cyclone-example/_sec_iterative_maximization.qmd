@@ -1,83 +1,27 @@
 When we cannot solve the score equation $\score(\th) = 0$ algebraically,
 we can search for its solution numerically [@dobson4e, Chapter 4].
-The **Newton-Raphson algorithm** starts from an initial guess $\esttmp{\th}$
-and repeats the update
 
-$$
-\begin{aligned}
-\esttmp{\th}
-&\leftarrow \esttmp{\th} - \inv{\hessf{\vx; \esttmp{\th}}} \scoref{\vx; \esttmp{\th}}\\
-&= \esttmp{\th} + \inv{\oinff{\vx; \esttmp{\th}}} \scoref{\vx; \esttmp{\th}}
-\end{aligned}
-$$
+{{< slidebreak >}}
 
-until the estimate stops changing,
-where the second line uses $\oinf = -\hess$
+{{< include sds/_subfiles/dobson-cyclone-example/_def-newton-raphson.qmd >}}
+
+The second line of the update uses $\oinf = -\hess$
 ([observed information](#def-oinf)).
 
 {{< slidebreak >}}
 
-The update comes from approximating the score function near $\esttmp{\th}$
-by its first-order
-[Taylor polynomial](https://en.wikipedia.org/wiki/Taylor%27s_theorem):
-
-$$
-\begin{aligned}
-\score(\th)
-&\approx \score^*(\th)\\
-&\eqdef \score(\esttmp{\th}) + \hess(\esttmp{\th})(\th - \esttmp{\th})
-\end{aligned}
-$$
-
-The approximate score function $\score^*(\th)$ is linear in $\th$,
-so the approximate score equation $\score^*(\th) = 0$
-is easy to solve:
-
-$$
-\begin{aligned}
-0 &= \score(\esttmp{\th}) + \hess(\esttmp{\th})(\th - \esttmp{\th})
-&& \text{(set $\score^*(\th) = 0$)}\\
--\score(\esttmp{\th}) &= \hess(\esttmp{\th})(\th - \esttmp{\th})
-&& \text{(subtract $\score(\esttmp{\th})$)}\\
--\inv{\hess(\esttmp{\th})}\score(\esttmp{\th}) &= \th - \esttmp{\th}
-&& \text{(multiply by $\inv{\hess(\esttmp{\th})}$ on the left)}\\
-\th &= \esttmp{\th} - \inv{\hess(\esttmp{\th})}\score(\esttmp{\th})
-&& \text{(add $\esttmp{\th}$)}
-\end{aligned}
-$$
-
-and the solution becomes the next guess.
+{{< include sds/_subfiles/dobson-cyclone-example/_prose-newton-raphson-derivation.qmd >}}
 
 {{< slidebreak >}}
 
-**Fisher scoring** (also called the method of scoring)
-replaces the observed information $\oinf(\vx; \esttmp{\th})$ in the update
-with the [expected information](#def-einf) $\einf(\esttmp{\th})$,
-which is sometimes simpler to compute:
-
-$$
-\esttmp{\th} \leftarrow \esttmp{\th} + \inv{\einff{\esttmp{\th}}} \scoref{\vx; \esttmp{\th}}
-$$
-
+{{< include sds/_subfiles/dobson-cyclone-example/_def-fisher-scoring.qmd >}}
 
 {{< slidebreak >}}
 
-A third option is the **empirical information matrix**
-[@mclachlan2007em]:
+{{< include sds/_subfiles/dobson-cyclone-example/_exm-fisher-scoring-poisson.qmd >}}
 
-$$
-\oinf_e(\th; \vx) \eqdef
-\sum_{i = 1}^{n} \score_i \tp{\score_i}
-- \frac{1}{n} \score \tp{\score}
-$$
+{{< slidebreak >}}
 
-where $\score_i$ is the score of the $i$th observation's log-likelihood,
-and $\score = \sum_{i = 1}^{n} \score_i$.
-For $\iid$ data, $\frac{1}{n}\oinf_e(\th; \vx)$
-is the sample covariance matrix (with divisor $n$)
-of the observations' scores,
-so it estimates the covariance matrix of one observation's score,
-$\einf(\th)/n$
-(@thm-information-equality).
-The empirical information needs only first derivatives,
-so it can be easier to compute than the observed information.
+{{< include sds/_subfiles/dobson-cyclone-example/_def-empirical-information.qmd >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_prose-empirical-information.qmd >}}

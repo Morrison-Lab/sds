@@ -22,7 +22,7 @@ with $\sigma$ fixed at $\hat\sigma_{\text{ML}}$.
 
 ::: {#fig-hers-lik-mu layout-ncol="2"}
 
-::: {#fig-hers-lik-mu-lik}
+::: {#fig-likelihood-mu}
 
 ```{r}
 ggplot2::ggplot() +
@@ -40,7 +40,7 @@ Likelihood
 
 :::
 
-::: {#fig-hers-lik-mu-llik}
+::: {#fig-loglik-mu}
 
 ```{r}
 ggplot2::ggplot() +
