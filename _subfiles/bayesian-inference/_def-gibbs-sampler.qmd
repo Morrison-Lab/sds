@@ -6,5 +6,5 @@ by updating one component at a time:
 for $k = 1, \ldots, K$ in turn,
 it draws $\theta_k^{(t+1)}$ from the [full conditional distribution](#def-full-conditional) of $\theta_k$,
 with each other component set to its most recent value
-[@dobson4e, Chapter 13, p. 300].
+[@dobson4e, Chapter 13, p. 293].
 :::

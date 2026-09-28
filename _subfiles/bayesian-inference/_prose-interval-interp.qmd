@@ -1,5 +1,5 @@
 The two paradigms differ most visibly in how they interpret an interval estimate
-[@dobson4e, Chapter 12, p. 271].
+[@dobson4e, Chapter 12, p. 272].
 A frequentist 95% [confidence interval](inference.qmd#def-confidence-interval)
 is a random interval whose coverage probability,
 over repeated samples with $\theta$ held fixed,

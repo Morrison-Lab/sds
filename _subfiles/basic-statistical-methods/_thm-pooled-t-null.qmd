@@ -4,7 +4,7 @@
 Let the observations in both groups be independent and Gaussian,
 all with the same mean and the same variance $\sigma^2$.
 Then $t_p$ (@def-pooled-t-test), computed from these random variables,
-has the $t_{n_1 + n_2 - 2}$ distribution [@hoggtanis2015].
+has the $t_{n_1 + n_2 - 2}$ distribution [@hoggtanis2015, Section 8.2, p. 371].
 :::
 
 ::: notes

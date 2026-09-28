@@ -19,7 +19,7 @@ with covariance matrix equal to the inverse of the expected information:
 
 ::: proof
 The proof is beyond the scope of these notes;
-see [@lehmannELST, Theorem 7.3.2]
+see [@lehmannELST, Theorem 7.5.2, p. 501]
 and [@newey1994large].
 :::
 

@@ -4,7 +4,7 @@ and the [maximum likelihood estimate](intro-MLEs.qmd#def-mle)
 typically agree closely,
 and the posterior standard deviation is close to the frequentist
 [standard error](estimation.qmd#def-SE)
-[@dobson4e, Chapter 13, p. 298].
+[@dobson4e, Chapter 13, p. 302].
 As $n$ grows the likelihood dominates the prior,
 so the posterior concentrates near the maximum likelihood estimate.
 Comparing the two is therefore a useful check on an MCMC analysis.

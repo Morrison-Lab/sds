@@ -11,7 +11,7 @@ has the $t_{n-1}$ distribution.
 
 ::: proof
 
-We use a standard fact about Gaussian samples [@hoggtanis2015]:
+We use a standard fact about Gaussian samples [@hoggtanis2015, Section 5.5, pp. 203-205]:
 $\bar X$ and $S^2$ are independent,
 and $V \eqdef (n-1) S^2 / \sigma^2$ has the $\chi^2_{n-1}$ distribution.
 Also, $Z \eqdef (\bar X - \mu_0) / (\sigma / \sqrt{n})$

@@ -7,7 +7,7 @@ and let the two variables be independent.
 Then as $n \to \infty$,
 the distribution of $X^2$ (@def-chi-square-test)
 converges to the $\chi^2_{(r-1)(c-1)}$ distribution
-[@hoggtanis2015].
+[@hoggtanis2015, Section 9.2, p. 440].
 :::
 
 ::: notes

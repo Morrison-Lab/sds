@@ -4,8 +4,10 @@ and $\hR$ is close to 1.
 If the chains are still exploring different regions,
 the chain means differ,
 $B$ is large,
-and $\hR$ exceeds 1
-[@dobson4e, Chapter 13, p. 302].
+and $\hR$ exceeds 1.
+This statistic is also called the **Gelman--Rubin statistic**;
+it formally assesses whether several chains have converged
+[@dobson4e, Chapter 13, p. 306].
 Software reports $\hR$ as `psrf` or `Rhat`;
 `coda::gelman.diag()` also applies a small-sample correction,
 so its value differs slightly from @def-psrf's.
