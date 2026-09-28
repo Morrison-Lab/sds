@@ -15,19 +15,35 @@ format:
 These notes collect the statistics that data science courses assume,
 organized by topic:
 
-- [Exploratory and Descriptive Methods](exploratory-descriptive.qmd)
-- [Nonparametric Models](nonparametric-models.qmd)
-- [Estimation](estimation.qmd)
-- [Statistical Inference](inference.qmd)
-- [Introduction to Maximum Likelihood Inference](intro-MLEs.qmd)
-- [Bayesian Inference](bayesian-inference.qmd)
-- [Basic Statistical Methods](basic-statistical-methods.qmd)
+- [Nonparametric models](nonparametric-models.qmd):
+  the empirical CDF, order statistics, and sample quantiles;
+- [Exploratory and descriptive methods](exploratory-descriptive.qmd):
+  sample statistics, graphs, correlation, and contingency tables,
+  illustrated with the WCGS data;
+- [Estimation](estimation.qmd):
+  estimands, estimators, bias, mean squared error, and standard error;
+- [Statistical inference](inference.qmd):
+  hypothesis tests, p-values, confidence intervals,
+  and how to interpret negative findings;
+- [Maximum likelihood inference](intro-MLEs.qmd):
+  likelihood, score, information, the asymptotic distribution of MLEs,
+  likelihood ratio tests, and Newton-Raphson,
+  with worked examples;
+- [Bayesian inference](bayesian-inference.qmd):
+  priors and posteriors, MCMC, and Bayesian versions of common models;
+- [Basic statistical methods](basic-statistical-methods.qmd):
+  t-tests, ANOVA, chi-square and Fisher's exact tests, correlation,
+  simple linear regression, and the bootstrap,
+  illustrated with the HERS data.
 
-Each page is ported from the corresponding appendix chapter of
+These notes began as the statistics appendices of
 [*Regression Models for Epidemiology*](https://morrison-lab.github.io/rme/),
-keeping that chapter's file names and `#id` anchors.
-Probability prerequisites are in the companion `pds` notes,
-and mathematics prerequisites in the companion `mds` notes.
+and keep those chapters' file names and `#id` anchors.
+Where they rely on probability or calculus,
+they link to that book's
+[probability](https://morrison-lab.github.io/rme/chapters/probability.html)
+and [mathematics](https://morrison-lab.github.io/rme/chapters/math-prereqs.html)
+chapters.
 
 ## Using these notes in another site
 
@@ -40,4 +56,4 @@ through an `sds` symlink that points at the repository root.
 
 Quarto resolves `@id` cross-references only within one rendered page,
 so a host site that links to a result here
-uses an explicit link, `[text](estimation.qmd#id)`.
+uses an explicit link, such as `[text](estimation.qmd#def-bias)`.

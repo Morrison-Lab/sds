@@ -36,10 +36,10 @@ website:
         href: index.qmd
       - text: "Notes"
         menu:
-          - text: "Exploratory and Descriptive Methods"
-            href: exploratory-descriptive.qmd
           - text: "Nonparametric Models"
             href: nonparametric-models.qmd
+          - text: "Exploratory and Descriptive Methods"
+            href: exploratory-descriptive.qmd
           - text: "Estimation"
             href: estimation.qmd
           - text: "Statistical Inference"
