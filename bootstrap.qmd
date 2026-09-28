@@ -1,0 +1,126 @@
+---
+title: "The Bootstrap"
+format:
+  html: default
+  revealjs:
+    output-file: bootstrap-slides.html
+  pdf:
+    output-file: bootstrap-handout.pdf
+  docx:
+    output-file: bootstrap-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-intro-bootstrap.qmd >}}
+
+## The HERS data
+
+{{< include sds/_subfiles/basic-statistical-methods/_load-hers-short.qmd >}}
+
+## Bootstrap confidence intervals {#sec-bootstrap-ci}
+
+### When to use the bootstrap {#sec-bootstrap-when}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-bootstrap-when.qmd >}}
+
+{{< slidebreak >}}
+
+### The bootstrap procedure {#sec-bootstrap-procedure}
+
+<!-- No slidebreak here: the heading shares its slide with the def-bootstrap-sample div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bootstrap-sample.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bootstrap-sample-toy.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bootstrap-distribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bootstrap-se.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bootstrap-distribution-toy.qmd >}}
+
+{{< slidebreak >}}
+
+### Bootstrap confidence interval methods {#sec-bootstrap-methods}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-bootstrap-methods.qmd >}}
+
+{{< slidebreak >}}
+
+#### Normal approximation {#sec-bootstrap-normal}
+
+<!-- No slidebreak here: the heading shares its slide with the def-bootstrap-ci-normal div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bootstrap-ci-normal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bootstrap-normal-toy.qmd >}}
+
+{{< slidebreak >}}
+
+#### Percentile method {#sec-bootstrap-percentile}
+
+<!-- No slidebreak here: the heading shares its slide with the def-bootstrap-ci-percentile div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bootstrap-ci-percentile.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bootstrap-percentile-toy.qmd >}}
+
+{{< slidebreak >}}
+
+#### Bias-corrected and accelerated method {#sec-bootstrap-bca}
+
+<!-- No slidebreak here: the heading shares its slide with the def-bca-bias-correction div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bca-bias-correction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bca-bias-correction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bca-acceleration.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bca-acceleration.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-bootstrap-ci-bca.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-bootstrap-bca-toy.qmd >}}
+
+{{< slidebreak >}}
+
+### The boot package {#sec-bootstrap-R}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-bootstrap-R.qmd >}}
+
+{{< slidebreak >}}
+
+### Example: slope of SBP on age in HERS {#sec-bootstrap-hers}
+
+<!-- No slidebreak here: the heading shares its slide with the exm-hers-bootstrap div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-bootstrap.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

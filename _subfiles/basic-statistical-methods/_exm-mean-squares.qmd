@@ -1,0 +1,7 @@
+::: {#exm-mean-squares}
+#### Mean squares of two small groups
+
+For the groups of @exm-ss-between, $k = 2$ and $n = 6$, so
+$\text{MS}_\text{between} = 13.5 / 1 = 13.5$
+and $\text{MS}_\text{within} = 4 / 4 = 1$.
+:::

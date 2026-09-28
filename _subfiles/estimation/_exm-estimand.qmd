@@ -1,0 +1,6 @@
+::: {#exm-estimand}
+#### Mean height of students
+
+If we are trying to determine the mean height of students at our school,
+then the *population mean* is our [estimand](#def-estimand).
+:::

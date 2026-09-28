@@ -1,0 +1,16 @@
+:::{#def-empirical-information}
+#### Empirical information matrix
+
+For mutually independent observations,
+the **empirical information matrix** is
+[@mclachlan2007em]:
+
+$$
+\oinf_e(\th; \vx) \eqdef
+\sum_{i = 1}^{n} \score_i \tp{\score_i}
+- \frac{1}{n} \score \tp{\score}
+$$
+
+where $\score_i$ is the score of the $i$th observation's log-likelihood,
+and $\score = \sum_{i = 1}^{n} \score_i$.
+:::

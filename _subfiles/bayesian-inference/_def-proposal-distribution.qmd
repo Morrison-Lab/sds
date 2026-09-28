@@ -1,0 +1,7 @@
+::: {#def-proposal-distribution}
+#### Proposal distribution
+
+In a Metropolis--Hastings sampler,
+a **proposal distribution** $q(\cdot \mid \vth)$ is a conditional distribution
+from which a candidate value $\vth^*$ is drawn, given the current value $\vth$.
+:::

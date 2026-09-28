@@ -1,0 +1,10 @@
+:::{#exm-lik-obs}
+#### Likelihood of one Bernoulli observation
+
+If $X \sim \Ber(\pi)$, then $\p_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x}$
+for $x \in \cb{0, 1}$.
+If we observe $x = 1$, the likelihood is $\Lik(\pi) = \pi$:
+for example, $\Lik(0.2) = 0.2$ and $\Lik(0.7) = 0.7$,
+so the observation $x = 1$ is more likely under $\pi = 0.7$
+than under $\pi = 0.2$.
+:::

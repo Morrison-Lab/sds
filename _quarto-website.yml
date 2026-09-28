@@ -12,6 +12,7 @@ project:
     # directly: macros-table.qmd uses DT::datatable() (an HTML widget) that
     # errors when the project also renders to PDF.
     - "!latex-macros/"
+    - "!sds/"
 
 website:
   google-analytics: "G-VLDZY2T3JF"
@@ -29,14 +30,86 @@ website:
   reader-mode: true
   repo-url: https://github.com/Morrison-Lab/sds
   repo-actions: [edit, issue, source]
+  # The navbar menus and the sidebar list the same pages in the same groups
+  # and order; edit the two lists together.
   navbar:
     left:
-      - text: "Home"
-        href: index.qmd
+      - text: "Describing Data"
+        menu:
+          - text: "Nonparametric Models"
+            href: nonparametric-models.qmd
+          - text: "Exploratory Data Analysis"
+            href: exploratory-descriptive.qmd
+      - text: "Inference"
+        menu:
+          - text: "Estimation"
+            href: estimation.qmd
+          - text: "Statistical Inference"
+            href: inference.qmd
+          - text: "Maximum Likelihood"
+            href: intro-MLEs.qmd
+      - text: "Methods"
+        menu:
+          - text: "Comparing Means"
+            href: basic-statistical-methods.qmd
+          - text: "Comparing Proportions"
+            href: categorical-tests.qmd
+          - text: "Correlation & Regression"
+            href: correlation-regression.qmd
+          - text: "The Bootstrap"
+            href: bootstrap.qmd
+      - text: "Bayesian"
+        menu:
+          - text: "Bayesian Inference"
+            href: bayesian-inference.qmd
+          - text: "Markov Chain Monte Carlo"
+            href: mcmc.qmd
+          - text: "Fitting Models with JAGS"
+            href: bayesian-examples.qmd
     right:
       - icon: github
         href: https://github.com/Morrison-Lab/sds
         aria-label: GitHub
+  # The navbar menus and the sidebar list the same pages in the same groups
+  # and order; edit the two lists together.
+  sidebar:
+    style: docked
+    # sections are collapsible, and open by default so every page shows
+    collapse-level: 2
+    search: false
+    contents:
+      - section: "Describing Data"
+        contents:
+          - text: "Nonparametric Models"
+            href: nonparametric-models.qmd
+          - text: "Exploratory Data Analysis"
+            href: exploratory-descriptive.qmd
+      - section: "Inference"
+        contents:
+          - text: "Estimation"
+            href: estimation.qmd
+          - text: "Statistical Inference"
+            href: inference.qmd
+          - text: "Maximum Likelihood"
+            href: intro-MLEs.qmd
+      - section: "Methods"
+        contents:
+          - text: "Comparing Means"
+            href: basic-statistical-methods.qmd
+          - text: "Comparing Proportions"
+            href: categorical-tests.qmd
+          - text: "Correlation & Regression"
+            href: correlation-regression.qmd
+          - text: "The Bootstrap"
+            href: bootstrap.qmd
+      - section: "Bayesian"
+        contents:
+          - text: "Bayesian Inference"
+            href: bayesian-inference.qmd
+          - text: "Markov Chain Monte Carlo"
+            href: mcmc.qmd
+          - text: "Fitting Models with JAGS"
+            href: bayesian-examples.qmd
 
 callouty-theorem:
   thm:
@@ -143,7 +216,7 @@ format:
     toc: true
     anchor-sections: true
     toc-location: right
-    toc-depth: 3
+    toc-depth: 4
     code-fold: false
     code-tools: true
     code-link: true
@@ -154,11 +227,11 @@ format:
     fig-cap-location: top
     html-math-method: mathjax
     number-sections: true
-    number-depth: 3
+    number-depth: 4
     df-print: paged
   docx:
     number-sections: true
-    number-depth: 3
+    number-depth: 4
     df-print: tibble
     prefer-html: true
   revealjs:
@@ -179,7 +252,7 @@ format:
     progress: true
     incremental: false
     df-print: paged
-    number-depth: 2
+    number-depth: 3
     shift-heading-level-by: 0
     slide-level: 2
     scrollable: true

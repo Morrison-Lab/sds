@@ -1,0 +1,31 @@
+::: {#fig-box-chol-by-smoke}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = smoke, y = chol, fill = smoke) +
+  ggplot2::geom_boxplot() +
+  ggplot2::labs(x = "Current smoker", y = "Cholesterol (mg/dL)") +
+  ggplot2::theme(legend.position = "none")
+```
+
+Box plots of cholesterol by smoking status in the WCGS dataset
+
+:::
+
+{{< slidebreak >}}
+
+::: {#fig-box-chol-by-behpat}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = behpat, y = chol, fill = behpat) +
+  ggplot2::geom_boxplot() +
+  ggplot2::labs(x = "Behavioral pattern", y = "Cholesterol (mg/dL)") +
+  ggplot2::theme(legend.position = "none")
+```
+
+Box plots of cholesterol by behavioral pattern in the WCGS dataset
+
+:::

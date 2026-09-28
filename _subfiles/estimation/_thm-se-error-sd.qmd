@@ -1,0 +1,23 @@
+::: {#thm-se-error-sd}
+#### Standard error is the spread of the estimation error
+
+$$\SE{\hth} = \SD{\erf{\hth}}$$
+
+:::
+
+::: proof
+
+$$
+\begin{aligned}
+\Var{\erf{\hth}}
+&= \Var{\hth - \th}
+&& \text{(definition of estimation error)}\\
+&= \Var{\hth}
+&& \text{(subtracting a constant does not change a variance)}
+\end{aligned}
+$$
+
+Taking square roots of both sides,
+$\SD{\erf{\hth}} = \SD{\hth} = \SE{\hth}$.
+
+:::

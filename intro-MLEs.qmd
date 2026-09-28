@@ -1,0 +1,341 @@
+---
+title: "Introduction to Maximum Likelihood Inference"
+format:
+  html: default
+  revealjs:
+    output-file: intro-MLEs-slides.html
+  pdf:
+    output-file: intro-MLEs-handout.pdf
+  docx:
+    output-file: intro-MLEs-handout.docx
+---
+
+## Overview of maximum likelihood estimation {#sec-intro-MLEs}
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+::: notes
+These notes are derived primarily from [@dobson4e, Chapters 1--5],
+with some material from [@mclachlan2007em] and [@CaseBerg01].
+:::
+
+### The likelihood function
+
+<!-- No slidebreak here: the heading shares its slide with the def-lik-obs div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-lik-obs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-lik-obs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def-lik.qmd >}}
+
+{{< include sds/_subfiles/intro-MLEs/_note-lik-notation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-lik-iid.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def-lik-factor.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-ds-lik-obs-lik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-likelihood-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+### The maximum likelihood estimate
+
+<!-- No slidebreak here: the heading shares its slide with the def-mle div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def_mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-mle-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
+### Finding the maximum of a function
+
+<!-- No slidebreak here: the heading shares its slide with the def-critical-point div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-critical-point.qmd >}}
+
+{{< include sds/_subfiles/intro-MLEs/_prose-maxima.qmd >}}
+
+{{< slidebreak >}}
+
+### Directly maximizing the likelihood function for independent data
+
+{{< include sds/_subfiles/intro-MLEs/_sec_mle_no_log.qmd >}}
+
+{{< slidebreak >}}
+
+### The log-likelihood function
+
+<!-- No slidebreak here: the heading shares its slide with the def-loglik div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def_loglik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-loglik-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-mle-use-log.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm_loglik_ind.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-deriv-llik-iid.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-loglik-one-group.qmd >}}
+
+{{< slidebreak >}}
+
+### The score function
+
+<!-- No slidebreak here: the heading shares its slide with the def-score div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def_score.qmd >}}
+
+{{< include sds/_subfiles/intro-MLEs/_note-score-notation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-bernoulli-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-pois-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-gauss-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-exp-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_note-score-exponential-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+### Information matrices
+
+<!-- No slidebreak here: the heading shares its slide with the def-hessian div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def_hessian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm_hessian_elements.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm_hessian_score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_def_einf.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-information-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-information-equality.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-information-equality.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-information-equality-fails.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_tbl-info-mat-symbols.qmd >}}
+
+{{< slidebreak >}}
+
+### Asymptotic distribution of the maximum likelihood estimate
+
+<!-- No slidebreak here: the heading shares its slide with the thm-dist-mle div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_thm_dist_mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-dist-mle-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_prose-estimate-se.qmd >}}
+
+{{< slidebreak >}}
+
+### Quantifying uncertainty about MLEs
+
+#### Confidence intervals for MLEs
+
+<!-- No slidebreak here: the heading shares its slide with the def-wald-ci div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-wald-ci.qmd >}}
+
+{{< include sds/_subfiles/intro-MLEs/_prose-ci-mle.qmd >}}
+
+{{< slidebreak >}}
+
+#### Wald tests
+
+<!-- No slidebreak here: the heading shares its slide with the def-wald-test div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-wald-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-wald-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+#### Likelihood ratio tests for MLEs {#sec-lrt-mles}
+
+<!-- No slidebreak here: the heading shares its slide with the thm-wilks div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_thm-wilks.qmd >}}
+
+{{< include sds/_subfiles/intro-MLEs/_prf-wilks.qmd >}}
+
+{{< include sds/_subfiles/intro-MLEs/_note-wilks-nested.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-wilks-poisson.qmd >}}
+
+::: notes
+See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesson02>.
+:::
+
+{{< slidebreak >}}
+
+#### Exact and approximate tests
+
+{{< include sds/_subfiles/intro-MLEs/_tbl_gaussian_vs_mle_tests.qmd >}}
+
+{{< slidebreak >}}
+
+#### Prediction intervals
+
+<!-- No slidebreak here: the heading shares its slide with the def-prediction-interval div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-prediction-interval.qmd >}}
+
+{{< include sds/_subfiles/intro-MLEs/_prose-prediction-interval.qmd >}}
+
+## Example: maximum likelihood for tropical cyclones in Australia
+
+{{< include sds/_subfiles/dobson-cyclone-example.qmd >}}
+
+## Maximum likelihood for univariate Gaussian models {#sec-gaussian-mle}
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-setup.qmd >}}
+
+{{< slidebreak >}}
+
+### The score function
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-score.qmd >}}
+
+{{< slidebreak >}}
+
+### MLE of $\mu$
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd >}}
+
+{{< slidebreak >}}
+
+### MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}
+
+{{< include sds/_subfiles/intro-MLEs/_def-profile-loglik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exm-profile-loglik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-sigma.qmd >}}
+
+{{< slidebreak >}}
+
+### Second derivatives
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+### Information matrix and standard errors {#sec-covariance-matrix}
+
+{{< include sds/_subfiles/intro-MLEs/_sec-gaussian-information.qmd >}}
+
+## Example: hormone therapy study {#sec-hers-mle-example}
+
+{{< include sds/_subfiles/HERS-example.qmd >}}
+
+## Practice exercises {#sec-mle-practice}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-binom-lik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-gauss-iid-lik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-score-zero.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-mle-se.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-prac-exp-mle.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

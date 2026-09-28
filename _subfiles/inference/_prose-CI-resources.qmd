@@ -1,0 +1,5 @@
+For more on confidence intervals:
+
+- [Anatomy of a confidence interval](https://wmed.edu/sites/default/files/ANATOMY%20OF%20A%20CONFIDENCE%20INTERVAL%20%28full%29.pdf)
+  (PDF);
+- {{< video https://www.youtube.com/watch?v=vq1KrE7gU5M >}}

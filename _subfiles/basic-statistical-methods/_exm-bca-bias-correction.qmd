@@ -1,0 +1,7 @@
+::: {#exm-bca-bias-correction}
+#### Bias correction when 40% of replicates fall below the estimate
+
+If 400 of $B = 1{,}000$ replicates are below $\hat\theta$,
+then $\hat z_0 = \Phi^{-1}(0.4) \approx -0.253$.
+If exactly half were below, $\hat z_0 = \Phi^{-1}(0.5) = 0$.
+:::

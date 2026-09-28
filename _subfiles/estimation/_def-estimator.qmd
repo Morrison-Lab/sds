@@ -1,0 +1,7 @@
+::: {#def-estimator}
+#### Estimator
+
+An **estimator** is a function $\hth(x_1, \ldots, x_n)$
+that transforms data $x_1, \ldots, x_n$ into an [estimate](#def-estimate).
+
+:::

@@ -1,0 +1,2 @@
+The [estimation](estimation.qmd) and [inference](inference.qmd) pages
+take the frequentist view of parameters.

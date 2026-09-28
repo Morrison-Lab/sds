@@ -1,0 +1,236 @@
+---
+title: "Bayesian Inference"
+format:
+  html: default
+  revealjs:
+    output-file: bayesian-inference-slides.html
+  pdf:
+    output-file: bayesian-inference-handout.pdf
+  docx:
+    output-file: bayesian-inference-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-overview.qmd >}}
+
+## Frequentist and Bayesian paradigms {#sec-bayes-paradigms}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-frequentist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-frequentist-paradigm.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-bayesian-paradigm.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-paradigms.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-prior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-prior.qmd >}}
+
+{{< include sds/_subfiles/bayesian-inference/_note-paradigms.qmd >}}
+
+## Bayes' theorem for parameters {#sec-bayes-equation}
+
+<!-- No slidebreak here: the heading shares its slide with the def-posterior div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_def-posterior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-posterior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-marginal-likelihood.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_thm-bayes-posterior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-marginal-likelihood.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_cor-bayes-proportional.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-proportional.qmd >}}
+
+{{< slidebreak >}}
+
+### A Gaussian mean with a Gaussian prior {#sec-bayes-normal-normal}
+
+<!-- No slidebreak here: the heading shares its slide with the exm-normal-normal div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_exm-normal-normal.qmd >}}
+
+{{< slidebreak >}}
+
+### Two readings of an interval estimate {#sec-bayes-interval-interp}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-interval-interp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-credible-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-equal-tailed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-equal-tailed-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-equal-tailed-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-normal-credible-vs-confidence.qmd >}}
+
+{{< slidebreak >}}
+
+### The parameter space {#sec-bayes-parameter-space}
+
+<!-- No slidebreak here: the heading shares its slide with the def-parameter-space div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_def-parameter-space.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-parameter-space.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-parameter-space.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_cor-prior-support.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-prior-support.qmd >}}
+
+## Priors {#sec-bayes-priors}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-priors.qmd >}}
+
+{{< slidebreak >}}
+
+### Conjugate priors {#sec-bayes-conjugate}
+
+<!-- No slidebreak here: the heading shares its slide with the def-conjugate-prior div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_def-conjugate-prior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-conjugate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-beta-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
+### Informative, weakly informative, and flat priors {#sec-bayes-informativeness}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-informativeness.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-informative-prior.qmd >}}
+
+{{< include sds/_subfiles/bayesian-inference/_note-informative-prior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-weakly-informative-prior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-flat-prior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-improper-prior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-prior-spectrum.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-flat-prior-reparam.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_cor-flat-prior-posterior.qmd >}}
+
+{{< include sds/_subfiles/bayesian-inference/_note-flat-prior-improper.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-flat-prior-posterior.qmd >}}
+
+{{< slidebreak >}}
+
+### A skeptical prior {#sec-bayes-skeptical}
+
+<!-- No slidebreak here: the heading shares its slide with the def-skeptical-prior div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_def-skeptical-prior.qmd >}}
+
+{{< include sds/_subfiles/bayesian-inference/_note-skeptical-prior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-skeptical-prior.qmd >}}
+
+## Distributions and hierarchies {#sec-bayes-hierarchies}
+
+<!-- No slidebreak here: the heading shares its slide with the def-hierarchical-model div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_def-hierarchical-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-hyperparameter.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-hyperprior.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-two-level-normal.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-borrow-strength.qmd >}}
+
+## Further reading {#sec-bayes-resources}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-resources.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

@@ -25,6 +25,18 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      # `sds` is a self-referential symlink (`sds -> .`, see CLAUDE.md). Left
+      # in place, `all_files` below would also list every real file a second
+      # time under `sds/...`, and lintr's exclusions field always resolves
+      # through normalize_path() (see .lintr.R), which follows symlinks: a
+      # `sds/<changed-file>` entry in `all_files` normalizes onto the exact
+      # same path as the real changed file, so `setdiff(all_files,
+      # changed_files)` -- which only strips the real path, never its
+      # sds-prefixed alias -- ends up excluding the real changed file too.
+      # Removing the symlink up front avoids both problems.
+      - name: Remove self-referential sds symlink before linting
+        run: rm -f sds
+
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true

@@ -1,0 +1,6 @@
+::: {#def-symmetric-proposal}
+#### Symmetric proposal
+
+A [proposal distribution](#def-proposal-distribution) is **symmetric**
+if $q(\vth^* \mid \vth) = q(\vth \mid \vth^*)$ for every $\vth$ and $\vth^*$.
+:::

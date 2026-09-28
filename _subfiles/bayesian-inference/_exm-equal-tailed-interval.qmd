@@ -1,0 +1,10 @@
+::: {#exm-equal-tailed-interval}
+#### Equal-tailed interval for a Gaussian posterior
+
+In @exm-normal-normal,
+the posterior of $\mu$ is Gaussian
+with mean $\frac{n}{n+1}\bar x$ and standard deviation $1/\sqrt{n+1}$,
+so the 95% equal-tailed credible interval is
+$\frac{n}{n+1}\bar x \pm 1.96/\sqrt{n+1}$.
+With $n = 20$, the interval's half-width is $1.96/\sqrt{21} \approx 0.43$.
+:::

@@ -1,0 +1,51 @@
+::: {#exm-bayes-proportion}
+#### A Bernoulli model fitted with JAGS
+
+The data are $r = 55$ successes in $n = 91$ trials,
+and the prior is uniform, as in [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli).
+Each chain gets its own random-number generator seed,
+so the output is reproducible:
+
+```{r}
+#| label: jags-proportion
+y <- rep(c(1L, 0L), times = c(55L, 36L))
+bernoulli_model <- "
+model {
+  for (i in 1:N) {
+    y[i] ~ dbern(p)
+  }
+  p ~ dbeta(1, 1)
+}
+"
+inits <- list(
+  list(.RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),
+  list(.RNG.name = "base::Mersenne-Twister", .RNG.seed = 2)
+)
+fit <- rjags::jags.model(
+  textConnection(bernoulli_model),
+  data = list(y = y, N = length(y)),
+  inits = inits,
+  n.chains = 2,
+  quiet = TRUE
+)
+stats::update(fit, n.iter = 1000, progress.bar = "none") # burn-in
+draws <- rjags::coda.samples(
+  fit,
+  variable.names = "p",
+  n.iter = 4000,
+  progress.bar = "none"
+)
+p_draws <- as.matrix(draws)[, "p"]
+c(
+  mean = mean(p_draws),
+  stats::quantile(p_draws, c(0.025, 0.975)),
+  Rhat = coda::gelman.diag(draws)$psrf[1, "Point est."]
+) |>
+  round(3)
+```
+
+The posterior mean and equal-tailed 95% credible interval
+agree with the exact $\operatorname{Beta}(56, 37)$ values of [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli)
+to about two decimal places,
+and the [potential scale reduction factor](mcmc.qmd#def-psrf) is 1.
+:::

@@ -1,0 +1,9 @@
+::: {#def-chi-square-dist}
+#### Chi-square distribution
+
+Let $Z_1, \ldots, Z_k$ be independent random variables,
+each with the standard Gaussian distribution.
+The distribution of $\sum_{j=1}^k Z_j^2$
+is the **chi-square distribution with $k$ degrees of freedom**,
+written $\chi^2_k$.
+:::

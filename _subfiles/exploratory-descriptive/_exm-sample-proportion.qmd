@@ -1,0 +1,13 @@
+::: {#exm-sample-proportion}
+#### Proportion of WCGS participants with a CHD event
+
+```{r}
+table(wcgs$chd69)
+mean(wcgs$chd69 == "Yes")
+```
+
+`r sum(wcgs$chd69 == "Yes")` of the `r nrow(wcgs)` participants
+had a CHD event by 1969,
+a sample proportion of
+`r round(mean(wcgs$chd69 == "Yes"), 3)`.
+:::

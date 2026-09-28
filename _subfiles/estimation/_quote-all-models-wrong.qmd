@@ -1,0 +1,8 @@
+> ...Essentially, all models are wrong, but some are useful.
+> **However, the approximate nature of the model must always be borne in mind.**
+
+[@box_draper_1987, p. 424; emphasis added]
+
+::: notes
+See also [@dunn2018generalized, Section 1.8].
+:::

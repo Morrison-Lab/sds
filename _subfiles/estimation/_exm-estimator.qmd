@@ -1,0 +1,31 @@
+::: {#exm-estimator}
+#### Mean height of students
+
+Suppose we want to estimate the mean height of students at our school,
+which we will represent as $\mu$,
+and we measure the heights of
+$n = 50$ randomly sampled students as random variables $X_1, \ldots, X_n$.
+Then we could use the function
+
+$$\hat\mu(X_1, \ldots, X_n) \eqdef \frac{1}{n} \sum_{i=1}^n X_i \eqdef \bar X$$
+
+as an [*estimator*](#def-estimator) to produce an *estimate* $\hat\mu = \bar x$ of $\mu$.
+
+Another estimator would be just the height of the first student sampled:
+
+$$\hat\mu^{(2)}(X_1, \ldots, X_n) \eqdef X_1$$
+
+A third possible estimator would be the mean of all sampled students'
+heights, except for the two most extreme.
+Using the [order statistics](nonparametric-models.qmd#def-order-statistics)
+$X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}$
+(the observations sorted in increasing order),
+this estimator drops $X_{(1)}$ and $X_{(n)}$
+and averages the remaining $n - 2$ observations:
+
+$$\hat\mu^{(3)}(X_1, \ldots, X_n) \eqdef \frac{1}{n-2}\sum_{i=2}^{n-1} X_{(i)}$$
+
+Which of these estimators is best?
+The answer depends on how we evaluate them
+(see @sec-est-accuracy).
+:::

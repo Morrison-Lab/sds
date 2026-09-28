@@ -1,0 +1,14 @@
+The [Exploratory Data Analysis](exploratory-descriptive.qmd)
+page defines the sample statistics used on this page,
+each with an example:
+
+- the [sample mean](exploratory-descriptive.qmd#def-sample-mean);
+- the [sample median](exploratory-descriptive.qmd#def-sample-median);
+- the [sample variance](exploratory-descriptive.qmd#def-sample-variance);
+- the [sample standard deviation](exploratory-descriptive.qmd#def-sample-sd);
+- the [interquartile range](exploratory-descriptive.qmd#def-IQR);
+- the [sample proportion](exploratory-descriptive.qmd#def-sample-proportion).
+
+That page also defines the graphs used here,
+including [box plots](exploratory-descriptive.qmd#def-boxplot)
+and [scatter plots](exploratory-descriptive.qmd#def-scatterplot).

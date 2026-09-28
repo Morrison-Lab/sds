@@ -1,0 +1,9 @@
+The [Statistical Inference](inference.qmd) page defines the
+[null hypothesis](inference.qmd#def-null-hypothesis),
+the [alternative hypothesis](inference.qmd#def-alternative-hypothesis),
+[test statistics](inference.qmd#def-test-statistic),
+[p-values](inference.qmd#def-p-value),
+and [significance levels](inference.qmd#def-significance-level).
+In a comparison of two groups with means $\mu_1$ and $\mu_2$,
+the null hypothesis is usually $H_0: \mu_1 = \mu_2$,
+and the two-sided alternative is $H_1: \mu_1 \neq \mu_2$.

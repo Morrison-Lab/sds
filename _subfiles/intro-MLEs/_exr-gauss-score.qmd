@@ -1,0 +1,32 @@
+::: {#exr-gauss-score-fn}
+#### Score function of a Gaussian variable
+
+Derive the score function for a single Gaussian random variable $X$,
+with respect to the mean parameter $\pmean$,
+treating the variance $\ss$ as known.
+
+:::
+
+{{< slidebreak >}}
+
+::::{#sol-gauss-score-fn}
+
+$$
+\begin{aligned}
+\score
+&\eqdef \deriv{\pmean}\loglik
+&& \text{(definition of the score)}\\
+&= \deriv{\pmean}\paren{\frac{-1}{2}\paren{\logf{2\pi\ss} + \frac{(x - \pmean)^2}{\ss}}}
+&& \text{(Gaussian log-likelihood)}\\
+&= \frac{-1}{2}\paren{\deriv{\pmean}\logf{2\pi\ss} + \deriv{\pmean}\frac{(x - \pmean)^2}{\ss}}
+&& \text{(linearity of differentiation)}\\
+&= \frac{-1}{2}\paren{0 + \frac{-2(x - \pmean)}{\ss}}
+&& \text{(constant; chain rule)}\\
+&= \frac{x - \pmean}{\ss}
+&& \text{(simplify)}\\
+&= \frac{x - \E{X}}{\Var{X}}
+&& \text{($\E{X} = \pmean$ and $\Var{X} = \ss$)}
+\end{aligned}
+$$
+
+::::

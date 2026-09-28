@@ -1,0 +1,30 @@
+The update comes from approximating the score function near $\esttmp{\th}$
+by its first-order
+[Taylor polynomial](https://en.wikipedia.org/wiki/Taylor%27s_theorem):
+
+$$
+\begin{aligned}
+\score(\th)
+&\approx \score^*(\th)\\
+&\eqdef \score(\esttmp{\th}) + \hess(\esttmp{\th})(\th - \esttmp{\th})
+\end{aligned}
+$$
+
+The approximate score function $\score^*(\th)$ is linear in $\th$,
+so the approximate score equation $\score^*(\th) = 0$
+is easy to solve:
+
+$$
+\begin{aligned}
+0 &= \score(\esttmp{\th}) + \hess(\esttmp{\th})(\th - \esttmp{\th})
+&& \text{(set $\score^*(\th) = 0$)}\\
+-\score(\esttmp{\th}) &= \hess(\esttmp{\th})(\th - \esttmp{\th})
+&& \text{(subtract $\score(\esttmp{\th})$)}\\
+-\inv{\hess(\esttmp{\th})}\score(\esttmp{\th}) &= \th - \esttmp{\th}
+&& \text{(multiply by $\inv{\hess(\esttmp{\th})}$ on the left)}\\
+\th &= \esttmp{\th} - \inv{\hess(\esttmp{\th})}\score(\esttmp{\th})
+&& \text{(add $\esttmp{\th}$)}
+\end{aligned}
+$$
+
+and the solution becomes the next guess.

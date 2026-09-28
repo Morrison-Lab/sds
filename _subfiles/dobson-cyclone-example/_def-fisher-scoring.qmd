@@ -1,0 +1,13 @@
+:::{#def-fisher-scoring}
+#### Fisher scoring
+
+**Fisher scoring** (also called the method of scoring)
+is the [Newton-Raphson algorithm](#def-newton-raphson)
+with the observed information $\oinf(\vx; \esttmp{\th})$ in the update
+replaced by the [expected information](#def-einf) $\einf(\esttmp{\th})$:
+
+$$
+\esttmp{\th} \leftarrow \esttmp{\th} + \inv{\einff{\esttmp{\th}}} \scoref{\vx; \esttmp{\th}}
+$$
+
+:::

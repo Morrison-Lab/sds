@@ -1,0 +1,72 @@
+Suppose we want to learn how many cyclones to expect per season.
+
+::: {#fig-dobson-cyclone-time-series}
+
+```{r}
+cyclones |>
+  dplyr::mutate(years = factor(years, levels = years)) |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = years, y = number, group = 1) +
+  ggplot2::geom_point() +
+  ggplot2::geom_line() +
+  ggplot2::xlab("Season") +
+  ggplot2::ylab("Number of cyclones") +
+  ggplot2::expand_limits(y = 0) +
+  ggplot2::theme(axis.text.x = ggplot2::element_text(vjust = .5, angle = 45))
+```
+
+Number of tropical cyclones per season in northeastern Australia,
+1956/57 to 1968/69
+
+:::
+
+@fig-dobson-cyclone-time-series shows no obvious trend,
+and no obvious correlation between adjacent seasons,
+so we assume that the seasons' counts are mutually independent.
+We also assume that they are identically distributed,
+with a common distribution $\Pr(X = x)$;
+the expression has no index $i$,
+because the distribution is the same for every season.
+
+{{< slidebreak >}}
+
+@fig-cyclones-bar-plot shows the empirical distribution of the counts.
+
+::: {#fig-cyclones-bar-plot}
+
+```{r}
+cyclones |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = number) +
+  ggplot2::geom_bar() +
+  ggplot2::expand_limits(x = 0) +
+  ggplot2::xlab("Number of cyclones") +
+  ggplot2::ylab("Count (number of seasons)")
+```
+
+Bar plot of cyclones per season
+
+:::
+
+{{< slidebreak >}}
+
+@tbl-dobson-cyclones-sumstat provides summary statistics.
+
+::: {#tbl-dobson-cyclones-sumstat}
+
+```{r}
+n <- nrow(cyclones)
+sumx <- sum(cyclones$number)
+xbar <- mean(cyclones$number)
+tibble::tibble(
+  seasons = n,
+  total = sumx,
+  mean = xbar,
+  variance = var(cyclones$number)
+) |>
+  knitr::kable(digits = 2)
+```
+
+Summary statistics for the `cyclones` data
+
+:::

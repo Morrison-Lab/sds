@@ -1,0 +1,30 @@
+When we cannot solve the score equation $\score(\th) = 0$ algebraically,
+we can search for its solution numerically [@dobson4e, Chapter 4].
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_def-newton-raphson.qmd >}}
+
+The second line of the update uses $\oinf = -\hess$
+([observed information](#def-oinf)).
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_prose-newton-raphson-derivation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_def-fisher-scoring.qmd >}}
+
+The expected information is sometimes simpler to compute
+than the observed information.
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exm-fisher-scoring-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_def-empirical-information.qmd >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_prose-empirical-information.qmd >}}

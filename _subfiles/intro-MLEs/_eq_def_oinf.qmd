@@ -1,0 +1,1 @@
+$$\defOInf$${#eq-def-oinf}

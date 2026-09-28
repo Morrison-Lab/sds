@@ -1,0 +1,216 @@
+---
+title: "Estimation"
+format:
+  html: default
+  revealjs:
+    output-file: estimation-slides.html
+  pdf:
+    output-file: estimation-handout.pdf
+  docx:
+    output-file: estimation-handout.docx
+---
+
+## Scientific models
+
+{{< include latex-macros/macros.qmd >}}
+
+<!-- No slidebreak here: the heading shares its slide with the def-model div. -->
+
+{{< include sds/_subfiles/estimation/_def-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-model.qmd >}}
+
+{{< slidebreak >}}
+
+### Models as approximations
+
+{{< include sds/_subfiles/estimation/_quote-all-models-wrong.qmd >}}
+
+{{< slidebreak >}}
+
+### Statistical analysis of scientific models
+
+{{< include sds/_subfiles/estimation/_prose-statistical-analysis.qmd >}}
+
+## Estimands, estimates, and estimators
+
+### Estimands
+
+\index{estimand}
+
+<!-- No slidebreak here: the heading shares its slide with the def-estimand div. -->
+
+{{< include sds/_subfiles/estimation/_def-estimand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-estimand.qmd >}}
+
+{{< include sds/_subfiles/estimation/_note-estimands.qmd >}}
+
+{{< slidebreak >}}
+
+### Estimates
+
+\index{estimate} \index{estimated value}
+
+<!-- No slidebreak here: the heading shares its slide with the def-estimate div. -->
+
+{{< include sds/_subfiles/estimation/_def-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-estimate.qmd >}}
+
+{{< slidebreak >}}
+
+### Estimators
+
+\index{estimator}
+
+<!-- No slidebreak here: the heading shares its slide with the def-estimator div. -->
+
+{{< include sds/_subfiles/estimation/_def-estimator.qmd >}}
+
+{{< include sds/_subfiles/estimation/_note-estimators.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-estimator.qmd >}}
+
+{{< slidebreak >}}
+
+### Contrasting estimands, estimates, and estimators
+
+{{< include sds/_subfiles/estimation/_prose-contrast.qmd >}}
+
+## Accuracy of estimators {#sec-est-accuracy}
+
+### Accuracy
+
+{{< include sds/_subfiles/estimation/_prose-accuracy.qmd >}}
+
+{{< slidebreak >}}
+
+### Estimation error
+
+<!-- No slidebreak here: the heading shares its slide with the def-estimation-error div. -->
+
+{{< include sds/_subfiles/estimation/_def-estimation-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-estimation-error.qmd >}}
+
+{{< include sds/_subfiles/estimation/_prose-accuracy-measures.qmd >}}
+
+{{< slidebreak >}}
+
+### Residuals
+
+{{< include sds/_subfiles/estimation/_prose-residuals.qmd >}}
+
+{{< slidebreak >}}
+
+### Bias
+
+<!-- No slidebreak here: the heading shares its slide with the def-bias div. -->
+
+{{< include sds/_subfiles/estimation/_def-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_thm-bias-exprs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-bias-sample-mean.qmd >}}
+
+{{< slidebreak >}}
+
+### Mean squared error
+
+<!-- No slidebreak here: the heading shares its slide with the def-mse div. -->
+
+{{< include sds/_subfiles/estimation/_def-mse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_thm-mse-bias-variance.qmd >}}
+
+::: proof
+{{< include sds/_subfiles/proof-mse-bias-variance.qmd >}}
+:::
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-mse-sample-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-rmse.qmd >}}
+
+{{< slidebreak >}}
+
+### Unbiased estimators {#sec-unbiased-estimators}
+
+<!-- No slidebreak here: the heading shares its slide with the def-unbiased div. -->
+
+{{< include sds/_subfiles/estimation/_def-unbiased.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-unbiased-sample-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-biased-variance-mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_thm-unbiased-props.qmd >}}
+
+{{< slidebreak >}}
+
+### Mean absolute error
+
+<!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
+
+{{< include sds/_subfiles/estimation/_def-mae.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-mae-gaussian.qmd >}}
+
+{{< slidebreak >}}
+
+### Standard error
+
+<!-- No slidebreak here: the heading shares its slide with the def-SE div. -->
+
+{{< include sds/_subfiles/estimation/_def-SE.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-SE-sample-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_thm-se-error-sd.qmd >}}
+
+{{< include sds/_subfiles/estimation/_note-SE.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_cor-var-mse-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

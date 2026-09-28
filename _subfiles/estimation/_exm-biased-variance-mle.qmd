@@ -1,0 +1,62 @@
+::: {#exm-biased-variance-mle}
+#### A biased estimator of the variance
+
+Let $X_1, \ldots, X_n$ be mutually independent,
+each with expectation $\mu$ and variance $\sigma^2$,
+and let $n \ge 2$.
+Consider two estimators of $\sigma^2$:
+
+- the [sample variance](exploratory-descriptive.qmd#def-sample-variance)
+  $S^2 \eqdef \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar X)^2$;
+- the divide-by-$n$ estimator
+  $\hat\sigma^2 \eqdef \frac{1}{n} \sum_{i=1}^n (X_i - \bar X)^2$.
+
+Both estimators are built from the sum of squared deviations
+$\sum_{i=1}^n (X_i - \bar X)^2$,
+so we first find its expectation.
+Using $\E{X_i^2} = \Var{X_i} + \sqf{\E{X_i}} = \sigma^2 + \mu^2$
+and $\E{\bar X^2} = \Var{\bar X} + \sqf{\E{\bar X}} = \sigma^2/n + \mu^2$
+(by @exm-mse-sample-mean and @exm-bias-sample-mean):
+
+$$
+\begin{aligned}
+\E{\sum_{i=1}^n (X_i - \bar X)^2}
+&= \E{\sum_{i=1}^n X_i^2 - 2\bar X \sum_{i=1}^n X_i + n \bar X^2}
+&& \text{(expand each square and sum)}\\
+&= \E{\sum_{i=1}^n X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2}
+&& \text{($\textstyle\sum_{i=1}^n X_i = n \bar X$)}\\
+&= \E{\sum_{i=1}^n X_i^2 - n \bar X^2}
+&& \text{(collect the $\bar X^2$ terms)}\\
+&= \sum_{i=1}^n \E{X_i^2} - n \E{\bar X^2}
+&& \text{(linearity of expectation)}\\
+&= n(\sigma^2 + \mu^2) - n\paren{\frac{\sigma^2}{n} + \mu^2}
+&& \text{(substitute both second moments)}\\
+&= (n - 1)\sigma^2
+&& \text{(cancel $n\mu^2$ and simplify)}
+\end{aligned}
+$$
+
+So $\E{S^2} = \frac{1}{n-1}(n-1)\sigma^2 = \sigma^2$,
+and by @thm-bias-exprs,
+$\bias{S^2} = 0$:
+the sample variance is [unbiased](#def-unbiased).
+
+For the divide-by-$n$ estimator,
+$\E{\hat\sigma^2} = \frac{1}{n}(n-1)\sigma^2$, so:
+
+$$
+\begin{aligned}
+\bias{\hat\sigma^2}
+&= \E{\hat\sigma^2} - \sigma^2
+&& \text{(bias equals expectation minus truth)}\\
+&= \frac{n-1}{n}\sigma^2 - \sigma^2
+&& \text{(substitute $\E{\hat\sigma^2}$)}\\
+&= -\frac{\sigma^2}{n}
+&& \text{(common denominator)}
+\end{aligned}
+$$
+
+This estimator is biased:
+on average it underestimates $\sigma^2$,
+by an amount that shrinks to zero as $n$ grows.
+:::

@@ -1,0 +1,144 @@
+---
+title: "Statistical Inference"
+format:
+  html: default
+  revealjs:
+    output-file: inference-slides.html
+  pdf:
+    output-file: inference-handout.pdf
+  docx:
+    output-file: inference-handout.docx
+---
+
+## Inference
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| label: load-wcgs
+#| include: false
+wcgs <- rmb::wcgs |> haven::as_factor()
+```
+
+<!-- No slidebreak here: the heading shares its slide with the def-inference div. -->
+
+{{< include sds/_subfiles/inference/_def-inference.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_exm-inference.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_prose-inference-steps.qmd >}}
+
+## Hypothesis tests {#sec-hypothesis-tests}
+
+### Hypotheses
+
+<!-- No slidebreak here: the heading shares its slide with the def-null-hypothesis div. -->
+
+{{< include sds/_subfiles/inference/_def-null-hypothesis.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-alternative-hypothesis.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-two-sided-alternative.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_exm-hypotheses-wcgs.qmd >}}
+
+{{< slidebreak >}}
+
+### p-values
+
+<!-- No slidebreak here: the heading shares its slide with the def-test-statistic div. -->
+
+{{< include sds/_subfiles/inference/_def-test-statistic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-p-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-significance-level.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-statistically-significant.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_exm-p-value-wcgs.qmd >}}
+
+## Reference distributions {#sec-reference-distributions}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-reference-distributions.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-chi-square-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-chi-square-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-t-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-t-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-f-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-f-dist.qmd >}}
+
+## Confidence intervals {#sec-CI}
+
+<!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
+
+{{< include sds/_subfiles/inference/_def-confidence-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-coverage-probability.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-approximate-ci.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_exm-confidence-interval-wcgs.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_def-margin-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/inference/_exm-margin-error.qmd >}}
+
+## Further reading on confidence intervals
+
+{{< include sds/_subfiles/inference/_prose-CI-resources.qmd >}}
+
+## Interpretation of negative findings
+
+{{< include sds/_subfiles/inference/_prose-negative-findings.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

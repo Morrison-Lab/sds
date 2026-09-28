@@ -1,0 +1,16 @@
+For categorical variables with more than two levels,
+the natural descriptive statistics are the
+count of observations in each category
+and the corresponding proportions (@tbl-wcgs-summary-cat).
+
+::: {#tbl-wcgs-summary-cat}
+
+```{r}
+wcgs |>
+  dplyr::select(chd69, smoke, dibpat, behpat, wghtcat) |>
+  gtsummary::tbl_summary()
+```
+
+Frequency table for categorical variables in the WCGS dataset
+
+:::

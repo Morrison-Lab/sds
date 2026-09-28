@@ -1,0 +1,11 @@
+:::{#exm-inference}
+#### Inference about cholesterol in the WCGS population
+
+The [WCGS](exploratory-descriptive.qmd#sec-wcgs-data)
+measured total cholesterol in 3,142 of its 3,154 participants.
+Using those measurements to learn about
+the distribution of cholesterol among men like the participants,
+for example its mean,
+and quantifying how uncertain that knowledge is,
+is statistical inference.
+:::

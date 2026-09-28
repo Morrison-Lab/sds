@@ -1,0 +1,20 @@
+::: {#def-bootstrap-ci-normal}
+#### Normal bootstrap confidence interval
+
+The **normal bootstrap confidence interval** is
+
+$$\hat\theta \pm z_{1 - \alpha/2} \, \widehat{\text{SE}}_\text{boot},$$
+
+where $\widehat{\text{SE}}_\text{boot}$ is the
+bootstrap standard error (@def-bootstrap-se).
+:::
+
+::: notes
+This interval assumes that the sampling distribution of $\hat\theta$
+is approximately Gaussian and centered at $\theta$,
+so it can be unreliable when that distribution is skewed.
+It needs only a standard error,
+which takes fewer bootstrap replicates to estimate well
+than the tail quantiles used by the next two intervals
+[@efron1993introduction].
+:::

@@ -1,0 +1,23 @@
+:::{#exm-fisher-scoring-poisson}
+#### Fisher scoring for Poisson data
+
+For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+the score is $\score(\rate) = n\bar x/\rate - n$
+and the expected information is $\einf(\rate) = n/\rate$
+(@exm-information-poisson), so one Fisher scoring step from any $\esttmpl > 0$ gives:
+
+$$
+\begin{aligned}
+\esttmpl + \inv{\einf(\esttmpl)} \score(\esttmpl)
+&= \esttmpl + \frac{\esttmpl}{n}\paren{\frac{n\bar x}{\esttmpl} - n}
+&& \text{(substitute $\einf$ and $\score$)}\\
+&= \esttmpl + \bar x - \esttmpl
+&& \text{(distribute $\esttmpl/n$)}\\
+&= \bar x
+&& \text{(cancel $\esttmpl$)}
+\end{aligned}
+$$
+
+So Fisher scoring reaches the MLE $\bar x$ in one step,
+while Newton-Raphson needs several (@tbl-mle-converge).
+:::

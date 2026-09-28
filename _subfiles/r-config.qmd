@@ -1,0 +1,16 @@
+```{r}
+#| label: r-config
+#| include: false
+library(ggplot2) # graphics
+library(dplyr) # data manipulation
+
+ggplot2::theme_set(
+  ggplot2::theme_bw() +
+    ggplot2::theme(
+      legend.position = "bottom",
+      text = ggplot2::element_text(size = 12, family = "serif")
+    )
+)
+
+options(digits = 6)
+```

@@ -1,0 +1,19 @@
+::: {#exm-ss-between}
+#### Between-group sum of squares of two small groups
+
+Let group 1 be $\cb{1, 2, 3}$ and group 2 be $\cb{4, 5, 6}$,
+so $\bar y_1 = 2$, $\bar y_2 = 5$, and $\bar y = 3.5$. Then:
+
+$$
+\begin{aligned}
+\text{SS}_\text{between}
+&= 3(2 - 3.5)^2 + 3(5 - 3.5)^2
+&& \text{(definition)}\\
+&= 3(2.25) + 3(2.25)
+&& \text{(square the deviations)}\\
+&= 13.5
+&& \text{(arithmetic)}
+\end{aligned}
+$$
+
+:::

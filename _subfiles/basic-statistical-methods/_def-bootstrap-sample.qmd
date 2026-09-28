@@ -1,0 +1,15 @@
+::: {#def-bootstrap-sample}
+#### Bootstrap sample
+
+A **bootstrap sample** from observed data $x_1, \ldots, x_n$
+is a sample of size $n$ drawn with replacement
+from $\cb{x_1, \ldots, x_n}$,
+each draw choosing each of the $n$ observations
+with probability $1/n$.
+:::
+
+::: notes
+Because the draws are with replacement,
+a bootstrap sample usually contains some observations more than once
+and omits others.
+:::

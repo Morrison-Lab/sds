@@ -1,0 +1,9 @@
+::: {#def-mse}
+#### Mean squared error
+
+The **mean squared error** of an estimator $\hth$, denoted
+$\mselr{\hth}$, is the expectation of the square
+of the [estimation error](#def-estimation-error):
+
+$$\mselr{\hth} \eqdef \E{\sqf{\erf{\hth}}}$$
+:::

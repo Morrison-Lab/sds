@@ -1,0 +1,22 @@
+::: {#def-p-value}
+#### p-value
+
+Given a [test statistic](#def-test-statistic) $T$
+whose observed value is $t$,
+the **p-value** is the probability
+that $T$ is at least as extreme as the value observed,
+computed with the data distributed as the null hypothesis specifies:
+
+$$p \eqdef \Pr_{H_0}(T \ge t)$$
+
+If the null hypothesis allows more than one distribution
+(a *composite* null hypothesis, such as $H_0: \mu_1 = \mu_0$ with unknown variances),
+the p-value is the largest such probability over those distributions,
+or an approximation to it.
+
+:::
+
+::: notes
+A p-value is computed assuming $H_0$ is true,
+so it is not the probability that $H_0$ is true given the data.
+:::

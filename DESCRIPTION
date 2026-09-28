@@ -14,11 +14,22 @@ BugReports: https://github.com/Morrison-Lab/sds/issues
 Depends: 
     R (>= 4.1.0)
 Suggests:
-    knitr,
     rmarkdown,
     spelling,
     usethis,
     devtools
-VignetteBuilder: knitr
 Imports: 
-    dplyr
+    boot,
+    coda,
+    dplyr,
+    ggplot2,
+    gtsummary,
+    haven,
+    knitr,
+    plotly,
+    rjags,
+    rmb,
+    scales,
+    tibble
+Remotes: 
+    d-morrison/rmb

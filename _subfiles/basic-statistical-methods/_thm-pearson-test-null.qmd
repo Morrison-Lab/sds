@@ -1,0 +1,15 @@
+::: {#thm-pearson-test-null}
+#### Null distribution of the correlation t statistic
+
+Let the pairs $(X_1, Y_1), \ldots, (X_n, Y_n)$ be independent,
+and let each $Y_i$, given $X_1, \ldots, X_n$,
+be Gaussian with a mean and variance that do not depend on the $X$ values.
+Then the statistic $t$ of @def-pearson-test has the $t_{n-2}$ distribution
+[@hoggtanis2015].
+:::
+
+::: notes
+The conditions of @thm-pearson-test-null hold, for example,
+when the pairs are independent draws
+from a bivariate Gaussian distribution with $\rho = 0$.
+:::

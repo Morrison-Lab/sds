@@ -1,0 +1,9 @@
+The examples on this page use the HERS data,
+which the [Comparing Means](basic-statistical-methods.qmd#sec-hers-intro) page describes.
+The `rmb` R package includes the dataset;
+`haven::as_factor()` converts its Stata value labels to factors:
+
+```{r}
+#| label: load-hers
+hers <- rmb::hers |> haven::as_factor()
+```

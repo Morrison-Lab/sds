@@ -1,0 +1,28 @@
+::: {#thm-pearson-r-range}
+#### Range of the correlation coefficient
+
+The Pearson correlation coefficient satisfies $-1 \le r \le 1$.
+Moreover, $r = 1$ if and only if the points $(x_i, y_i)$
+lie on a straight line with positive slope,
+and $r = -1$ if and only if they lie on a straight line with negative slope.
+:::
+
+::: proof
+
+Write $a_i \eqdef x_i - \bar x$ and $b_i \eqdef y_i - \bar y$,
+so that $r = \sum_i a_i b_i / \paren{\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}}$.
+The Cauchy--Schwarz inequality states that
+$\abs{\sum_i a_i b_i} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}$,
+with equality if and only if one of the vectors
+$(a_1, \ldots, a_n)$ and $(b_1, \ldots, b_n)$
+is a scalar multiple of the other.
+Dividing both sides by the (positive) right-hand side gives $\abs{r} \le 1$.
+
+Equality $\abs{r} = 1$ therefore holds
+if and only if $b_i = c \, a_i$ for some constant $c \ne 0$ and every $i$,
+that is, $y_i = \bar y + c(x_i - \bar x)$:
+the points lie on a line with slope $c$.
+Then $\sum_i a_i b_i = c \sum_i a_i^2$ has the sign of $c$,
+so $r = 1$ when $c > 0$ and $r = -1$ when $c < 0$.
+
+:::

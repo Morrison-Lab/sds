@@ -15,6 +15,22 @@ Authoritative style guide: [UCD-SERG Lab Manual](https://ucd-serg.github.io/lab-
   render (`!references.qmd` in `_quarto-website.yml`), so it isn't part of the
   normal site build
 - `_quarto.yml`, `_quarto-website.yml` --- Quarto project + website config
+- `sds` --- a self-referential symlink (`sds -> .`), so include paths written
+  as `sds/...` (matching how a host site addresses this repo as a submodule)
+  also resolve when this repo renders standalone. This creates an unbounded
+  `sds/sds/sds/...` path loop; `_quarto-website.yml`'s `!sds/` render
+  exclusion keeps Quarto's own render-list glob from walking into it, but the
+  symlink is not otherwise sandboxed --- avoid recursive/symlink-following
+  operations (`find -L`, `rsync -a --copy-links`, unscoped `grep -r`) rooted
+  at the repo root; scope such commands to real subdirectories instead.
+  **lintr cannot be pointed away from it via `.lintr.R`'s `exclusions` field**:
+  `lintr::normalize_exclusions()` always resolves exclusion paths with
+  `normalize_path()`, which follows symlinks, so any exclusion naming `sds`
+  (the directory, or a file under it) collapses onto the exact same absolute
+  path as the real file it aliases and silently excludes that real file too.
+  `lint-project.yaml` and `lint-changed-files.yaml` instead `rm -f sds` right
+  after checkout, before invoking lintr, so its directory walk never sees the
+  symlink at all.
 - `_extensions/` --- vendored Quarto extensions
 - `latex-macros/` --- git submodule for shortcode/macro definitions (see `.gitmodules`)
 - `R/`, `man/`, `DESCRIPTION`, `NAMESPACE` --- the project is also a small R package

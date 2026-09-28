@@ -1,0 +1,16 @@
+::: {#def-significance-level}
+#### Significance level
+
+A hypothesis test with **significance level** $\alpha$
+rejects the [null hypothesis](#def-null-hypothesis)
+when the [p-value](#def-p-value) is at most $\alpha$.
+:::
+
+::: notes
+$\alpha = 0.05$ is a common convention, not a rule.
+When $H_0$ is true and the p-value is computed exactly,
+a test with significance level $\alpha$ rejects $H_0$
+with probability at most $\alpha$;
+for a test based on an approximate p-value, such as a large-sample test,
+this holds only approximately.
+:::

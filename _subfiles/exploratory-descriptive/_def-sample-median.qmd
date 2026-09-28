@@ -1,0 +1,12 @@
+::: {#def-sample-median}
+#### Sample median
+
+The **sample median** is the middle value
+when the observations are sorted in increasing order.
+In terms of the [order statistics](nonparametric-models.qmd#def-order-statistics)
+$x_{(1)} \le \cdots \le x_{(n)}$:
+
+- if $n$ is odd, the median is $x_{((n+1)/2)}$;
+- if $n$ is even, the median is $\frac{1}{2}\paren{x_{(n/2)} + x_{(n/2 + 1)}}$.
+
+:::

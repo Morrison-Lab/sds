@@ -1,0 +1,7 @@
+By @thm-dist-mle,
+$(\hth_k - \theta_k)/\HSE{\hth_k}$
+has approximately a standard Gaussian distribution in large samples,
+so the Wald interval is an
+[approximate confidence interval](inference.qmd#def-approximate-ci)
+for $\theta_k$.
+For a 95% interval, $z_{0.975} \approx 1.96$.

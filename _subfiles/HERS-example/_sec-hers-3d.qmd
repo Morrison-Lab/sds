@@ -1,0 +1,43 @@
+@fig-3d-llik graphs the log-likelihood over both parameters at once.
+
+:::{#fig-3d-llik}
+
+```{r}
+#| eval: !expr knitr::is_html_output()
+n_points <- 25
+mu_grid <- seq(94, 104, length.out = n_points)
+sigma_grid <- seq(7, 15, length.out = n_points)
+lliks <- outer(mu_grid, sigma_grid, loglik, x = glucose_data)
+
+plotly::plot_ly(
+  type = "surface",
+  x = ~mu_grid,
+  y = ~sigma_grid,
+  # plot_ly() expects rows of z to correspond to y values,
+  # so the matrix is transposed;
+  # see https://stackoverflow.com/questions/69472185
+  z = ~ t(lliks)
+) |>
+  plotly::layout(
+    scene = list(
+      xaxis = list(title = "mu"),
+      yaxis = list(title = "sigma"),
+      zaxis = list(title = "log-likelihood")
+    )
+  )
+```
+
+```{r}
+#| echo: false
+#| eval: !expr isFALSE(knitr::is_html_output())
+#| results: asis
+cat(
+  "*(This graph is interactive; see the HTML version",
+  "of this page to view it.)*"
+)
+```
+
+Log-likelihood of the HERS glucose data as a function of $\mu$ and $\sigma$
+(interactive: drag to rotate)
+
+:::

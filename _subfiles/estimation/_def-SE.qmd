@@ -1,0 +1,10 @@
+::: {#def-SE}
+#### Standard error
+
+The **standard error** of an estimator $\hth$ is the
+[standard deviation](https://morrison-lab.github.io/rme/chapters/probability.html#def-sd)
+of $\hth$:
+
+$$\SE{\hth} \eqdef \SD{\hth}$$
+
+:::

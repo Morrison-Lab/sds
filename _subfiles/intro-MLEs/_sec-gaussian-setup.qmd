@@ -1,0 +1,25 @@
+Suppose $X_1, \ldots, X_n \siid \ndist{\mu, \sigma^2}$,
+and let $x_1, \ldots, x_n$ be the observed values.
+The parameter vector is $\vth = (\mu, \sigma^2)$.
+We treat $\sigma^2$, rather than $\sigma$, as the second parameter,
+and differentiate with respect to $\sigma^2$ directly.
+
+By @thm-lik-iid, the likelihood is:
+
+$$
+\Lik(\mu, \sigma^2) = \prod_{i=1}^n (2\pi\sigma^2)^{-1/2}
+\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}
+$$
+
+and by @thm-loglik-iid, the log-likelihood is:
+
+$$
+\begin{aligned}
+\ell(\mu, \sigma^2)
+&= \sum_{i=1}^n \paren{-\frac{1}{2}\logf{2\pi\sigma^2} - \frac{(x_i - \mu)^2}{2\sigma^2}}
+&& \text{(log of each Gaussian density)}\\
+&= -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
+ - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(split the sum; log of a product)}
+\end{aligned}
+$$

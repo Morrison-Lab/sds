@@ -1,0 +1,11 @@
+Under mild conditions on its transition probabilities,
+a Markov chain has a unique stationary distribution,
+the distribution of $\vth^{(t)}$ converges to it,
+and averages along the chain converge to expectations under it,
+even though successive values are correlated
+[@dobson4e, Chapter 13, p. 291].
+MCMC algorithms construct a Markov chain
+whose stationary distribution is the posterior $\p(\vth \mid \vy)$,
+so that [Monte Carlo estimates](#def-monte-carlo-estimate)
+can be computed from the chain's values
+in place of independent draws.

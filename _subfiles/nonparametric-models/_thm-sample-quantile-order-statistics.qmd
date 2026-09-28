@@ -1,0 +1,48 @@
+::: {#thm-sample-quantile-order-statistics}
+#### Order-statistics form of the sample quantile
+
+If $x_{(1)} \le \cdots \le x_{(n)}$ are the [order statistics](#def-order-statistics)
+and $i \in \cb{1, \ldots, n}$,
+then $\hat Q(p) = x_{(i)}$ for every $p$ with $(i-1)/n < p \le i/n$.
+In particular, $\hat Q(i/n) = x_{(i)}$.
+:::
+
+::: proof
+
+Fix $p$ with $(i-1)/n < p \le i/n$.
+
+For any $t < x_{(i)}$,
+the $n - i + 1$ values $x_{(i)}, \ldots, x_{(n)}$ all exceed $t$,
+so at most $i - 1$ values are at most $t$, and:
+
+$$
+\begin{aligned}
+\hat F(t)
+&\le \frac{i-1}{n}
+&& \text{(at most $i - 1$ indicators equal 1)}\\
+&< p
+&& \text{(choice of $p$)}
+\end{aligned}
+$$
+
+So no $t < x_{(i)}$ belongs to the set $\cb{t : \hat F(t) \ge p}$.
+
+At $t = x_{(i)}$,
+the $i$ values $x_{(1)}, \ldots, x_{(i)}$ are all at most $x_{(i)}$, so:
+
+$$
+\begin{aligned}
+\hat F\paren{x_{(i)}}
+&\ge \frac{i}{n}
+&& \text{(at least $i$ indicators equal 1)}\\
+&\ge p
+&& \text{(choice of $p$)}
+\end{aligned}
+$$
+
+So $x_{(i)}$ belongs to the set,
+and it is the smallest member of the set,
+because no smaller $t$ belongs to it.
+Therefore $\hat Q(p) = x_{(i)}$.
+
+:::

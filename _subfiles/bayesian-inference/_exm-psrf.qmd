@@ -1,0 +1,31 @@
+::: {#exm-psrf}
+#### Potential scale reduction factor for the Bernoulli sampler
+
+Continuing @exm-burnin,
+we compute $\hR$ for the two chains,
+first over their first 50 iterations, which include the burn-in,
+and then over iterations 501 to 5,000:
+
+```{r}
+#| label: psrf
+psrf <- function(chains) {
+  n <- nrow(chains)
+  w <- mean(apply(chains, 2, stats::var))
+  b <- n * stats::var(colMeans(chains))
+  v_hat <- (n - 1) / n * w + b / n
+  sqrt(v_hat / w)
+}
+chains <- cbind(chain_low, chain_high)
+c(
+  first_50 = psrf(chains[1:50, ]),
+  after_burnin = psrf(chains[501:5000, ])
+) |>
+  round(3)
+```
+
+Here `stats::var(colMeans(chains))` is $\frac{1}{m-1}\sum_j (\bar\theta_j - \bar\theta)^2$,
+so `b` is $B$.
+While the chains are still approaching the posterior from opposite ends,
+$\hR$ is well above 1;
+after burn-in it is essentially 1.
+:::

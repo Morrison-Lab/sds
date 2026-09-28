@@ -1,0 +1,13 @@
+::: {#exm-IQR}
+#### Quartiles and IQR of cholesterol in the WCGS
+
+```{r}
+quantile(wcgs$chol, probs = c(0.25, 0.75), na.rm = TRUE, type = 1)
+IQR(wcgs$chol, na.rm = TRUE, type = 1)
+```
+
+The middle half of the cholesterol values span
+`r IQR(wcgs$chol, na.rm = TRUE, type = 1)` mg/dL.
+Like the median, the IQR does not depend on the most extreme values,
+so it is less sensitive to outliers than the standard deviation.
+:::

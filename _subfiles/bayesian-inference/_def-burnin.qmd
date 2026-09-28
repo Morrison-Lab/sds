@@ -1,0 +1,7 @@
+::: {#def-burnin}
+#### Burn-in
+
+The **burn-in** period is the initial segment of an MCMC chain
+that is discarded before posterior summaries are computed
+[@dobson4e, Chapter 13, p. 301].
+:::

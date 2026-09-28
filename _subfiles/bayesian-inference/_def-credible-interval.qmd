@@ -1,0 +1,12 @@
+::: {#def-credible-interval}
+#### Credible interval
+
+A $100(1-\alpha)\%$ **credible interval** for a parameter $\theta$,
+given observed data $\vy$,
+is an interval $\sb{l(\vy),\, r(\vy)}$
+whose [posterior](#def-posterior) probability is $1 - \alpha$:
+
+$$
+\Pr\paren{l(\vy) \le \theta \le r(\vy) \mid \vY = \vy} = 1 - \alpha.
+$$
+:::

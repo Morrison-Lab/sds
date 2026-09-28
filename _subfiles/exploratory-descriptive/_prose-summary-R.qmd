@@ -1,0 +1,30 @@
+The `summary()` function reports the minimum, quartiles, mean, maximum,
+and number of missing values in one call;
+its quartiles use R's default interpolating quantile rule (`type = 7`),
+so they can differ slightly from @def-quartiles:
+
+```{r}
+#| label: summary-chol
+summary(wcgs$chol)
+```
+
+For a formatted table of several variables at once,
+`gtsummary::tbl_summary()` is useful (@tbl-wcgs-summary-continuous).
+
+::: {#tbl-wcgs-summary-continuous}
+
+```{r}
+wcgs |>
+  dplyr::select(age, chol, sbp, dbp, bmi, weight) |>
+  gtsummary::tbl_summary(
+    statistic = list(
+      gtsummary::all_continuous() ~
+        "{mean} ({sd}); {median} [{p25}, {p75}]"
+    ),
+    digits = gtsummary::all_continuous() ~ 1
+  )
+```
+
+WCGS: descriptive statistics for continuous variables
+
+:::

@@ -1,0 +1,11 @@
+:::{#def-lik-factor}
+#### Likelihood components
+
+For a dataset $\vx$ of mutually independent observations,
+the **likelihood component** (or **likelihood factor**)
+of observation $X_i = x_i$
+is the likelihood of that observation alone:
+
+$$\Lik_i(\theta) \eqdef \p(X_i = x_i \mid \theta)$$
+
+:::

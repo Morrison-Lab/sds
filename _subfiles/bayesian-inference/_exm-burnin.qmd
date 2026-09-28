@@ -1,0 +1,40 @@
+::: {#exm-burnin}
+#### Burn-in for the Bernoulli sampler
+
+Continuing @exm-mh-bernoulli,
+we start two more chains at the extreme values $0.05$ and $0.95$.
+@fig-mh-burnin shows their first 200 iterations.
+
+::: {#fig-mh-burnin}
+
+```{r}
+#| code-fold: true
+#| fig-alt: >-
+#|   Two trace plots of pi against iteration. One chain starts at 0.05,
+#|   the other at 0.95; both move to about 0.6 within a few dozen
+#|   iterations and then fluctuate together between about 0.5 and 0.7.
+set.seed(2)
+chain_low <- mh_bernoulli(n_iter = 5000, r = 55, n = 91, pi_init = 0.05)
+chain_high <- mh_bernoulli(n_iter = 5000, r = 55, n = 91, pi_init = 0.95)
+shown <- 1:200
+traces <- tibble::tibble(
+  iteration = rep(shown, times = 2),
+  pi = c(chain_low[shown], chain_high[shown]),
+  start = rep(c("0.05", "0.95"), each = length(shown))
+)
+ggplot2::ggplot(traces) +
+  ggplot2::aes(x = iteration, y = pi, colour = start) +
+  ggplot2::geom_line() +
+  ggplot2::labs(y = expression(pi), colour = "starting value")
+```
+
+[Trace plots](#def-trace-plot) of the first 200 iterations
+of two Metropolis--Hastings chains for the Bernoulli model,
+started at $\pi = 0.05$ and $\pi = 0.95$.
+:::
+
+Both chains reach the region around $0.6$ within a few dozen iterations,
+and after that the two are indistinguishable,
+so discarding the first 500 iterations of each
+leaves a generous margin.
+:::

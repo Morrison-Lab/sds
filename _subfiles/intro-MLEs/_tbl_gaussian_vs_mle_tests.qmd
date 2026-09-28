@@ -1,0 +1,27 @@
+:::{#tbl-gaussian-vs-mle-tests}
+
+| Inference goal | Exact test (Gaussian outcomes) | Null distribution | Approximate test (MLE) | Approximate null distribution |
+|---|---|---|---|---|
+| Single coefficient | t-test | $T_{n-p}$ | [Wald](#def-wald-test) z-test | $Z \sim N(0,1)$ |
+| Linear combination of coefficients | t-test | $T_{n-p}$ | [Wald](#def-wald-test) z-test | $Z \sim N(0,1)$ |
+| Nested models ($q$ constraints) | Partial F-test | $F_{q,\, n-p}$ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | $\chi^2_q$ |
+| One-sample mean | One-sample t-test | $T_{n-1}$ | z-test | $Z \sim N(0,1)$ |
+| Two-sample means | Two-sample t-test (pooled variance) | $T_{n_1+n_2-2}$ | z-test | $Z \sim N(0,1)$ |
+| $K$-group means (ANOVA) | F-test | $F_{K-1,\, n-K}$ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | $\chi^2_{K-1}$ |
+
+Exact tests that assume Gaussian outcomes,
+and their approximate, large-sample counterparts based on maximum likelihood.
+$p$ is the number of regression coefficients.
+
+:::
+
+::: notes
+The $t$ and $F$ distributions are defined in
+[Statistical Inference](inference.qmd#sec-reference-distributions).
+The exact tests assume $Y_i \simind N(\mu_i, \sigma^2)$,
+with a common variance.
+The approximate tests hold asymptotically,
+for any model that is correctly specified
+and satisfies the regularity conditions of @thm-dist-mle,
+Gaussian or not.
+:::

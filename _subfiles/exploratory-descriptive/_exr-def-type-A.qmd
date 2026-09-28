@@ -1,0 +1,6 @@
+:::{#exr-def-type-A}
+#### Type A behavior
+
+What is "type A" behavior?
+
+:::

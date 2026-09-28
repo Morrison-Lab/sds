@@ -1,0 +1,17 @@
+::: {#exr-poisson-mean-and-variance}
+#### Mean and variance
+
+Write down the population mean and variance of a single observation
+from the model, as functions of the parameters.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+- Population mean: $\E{X} = \lambda$.
+- Population variance: $\Var{X} = \lambda$.
+
+The sample mean and variance in @tbl-dobson-cyclones-sumstat
+are of similar size, as the model implies.
+::::

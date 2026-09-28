@@ -1,0 +1,17 @@
+::: {#def-hierarchical-model}
+#### Hierarchical model
+
+A **hierarchical model**, also called a **multilevel model**,
+is a model in which the data depend on group-level parameters,
+and the group-level parameters are themselves random,
+with a distribution that depends on further unknown parameters
+[@dobson4e, Chapter 12, p. 281].
+:::
+
+::: notes
+A hierarchical model is a model structure,
+not an inference method:
+it can be fit by maximum likelihood or by Bayesian inference.
+Bayesian inference also gives the further unknown parameters a prior
+(a *hyperprior*).
+:::

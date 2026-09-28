@@ -1,0 +1,36 @@
+::: {#exm-mae-gaussian}
+#### Mean absolute error of a Gaussian estimator
+
+Suppose an estimator $\hth$ has a Gaussian distribution
+with mean $\th$ and standard deviation $\tau$,
+so that its estimation error $\erf{\hth} = \hth - \th$
+has the same distribution as $\tau Z$,
+where $Z$ has a standard Gaussian distribution
+with density $\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}$.
+Then:
+
+$$
+\begin{aligned}
+\maelr{\hth}
+&= \E{\abs{\tau Z}}
+&& \text{(definition of MAE)}\\
+&= \tau \E{\abs{Z}}
+&& \text{($\tau > 0$ and linearity of expectation)}\\
+&= \tau \int_{-\infty}^{\infty} \abs{z} \phi(z) \, dz
+&& \text{(expectation of a function of $Z$)}\\
+&= 2\tau \int_{0}^{\infty} z \phi(z) \, dz
+&& \text{($\abs{z}\phi(z)$ is symmetric about 0)}\\
+&= 2\tau \sb{-\phi(z)}_{0}^{\infty}
+&& \text{($\phi'(z) = -z\phi(z)$)}\\
+&= 2\tau \phi(0)
+&& \text{($\phi(z) \to 0$ as $z \to \infty$)}\\
+&= \tau \sqrt{2/\pi}
+&& \text{($\phi(0) = (2\pi)^{-1/2}$)}
+\end{aligned}
+$$
+
+So for an [unbiased](#def-unbiased) Gaussian estimator,
+the mean absolute error is about $0.80$ times the standard deviation $\tau$,
+while the [root mean squared error](#def-rmse) is $\tau$ itself
+(@thm-unbiased-props).
+:::

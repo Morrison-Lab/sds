@@ -29,9 +29,15 @@ jobs:
         with:
           use-public-rspm: true
 
+      # rjags (a DESCRIPTION import) links against the JAGS system library,
+      # which the Bayesian inference page's MCMC examples run.
+      - name: Install JAGS
+        run: sudo apt-get update && sudo apt-get install -y jags
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages: |
+            deps::.
             any::knitr
             any::rmarkdown
             any::tibble

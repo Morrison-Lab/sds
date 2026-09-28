@@ -1,0 +1,28 @@
+::: {#exm-mc-bernoulli}
+#### Monte Carlo posterior summaries for a Bernoulli model
+
+The posterior in [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli) is $\operatorname{Beta}(56, 37)$.
+We draw $M = 5{,}000$ values from it,
+and compare Monte Carlo estimates with the exact values:
+
+```{r}
+#| label: mc-bernoulli
+set.seed(42)
+pi_draws <- stats::rbeta(n = 5000, shape1 = 56, shape2 = 37)
+rbind(
+  exact = c(
+    mean = 56 / (56 + 37),
+    lower = stats::qbeta(0.025, 56, 37),
+    upper = stats::qbeta(0.975, 56, 37)
+  ),
+  monte_carlo = c(
+    mean(pi_draws),
+    stats::quantile(pi_draws, c(0.025, 0.975))
+  )
+) |>
+  round(4)
+```
+
+The two agree to about two decimal places,
+and the agreement improves as $M$ grows.
+:::

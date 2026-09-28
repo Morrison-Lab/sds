@@ -1,0 +1,16 @@
+Sources disagree on the symbols for the observed and expected information
+(@tbl-info-mat-symbols).
+
+::: {#tbl-info-mat-symbols}
+
+| Source                | Observed information | Expected information |
+|-----------------------|----------------------|----------------------|
+| These notes           | $\oinf$              | $\einf$              |
+| @dobson4e             | $-U'$                | $\mathfrak{I}$       |
+| @dunn2018generalized  | $\mathfrak{I}$       | $\mathcal{I}$        |
+| @mclachlan2007em      | $I$                  | $\mathcal{I}$        |
+| @wood2017generalized  | $\hat{I}$            | $\mathcal{I}$        |
+
+Notation for information matrices in several sources
+
+:::

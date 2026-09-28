@@ -1,0 +1,17 @@
+::: {#fig-qq-chol}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(sample = chol) +
+  ggplot2::stat_qq() +
+  ggplot2::stat_qq_line(color = "red") +
+  ggplot2::labs(x = "Standard Gaussian quantiles", y = "Cholesterol (mg/dL)")
+```
+
+Normal Q-Q plot for total cholesterol in the WCGS dataset
+
+:::
+
+In @fig-qq-chol, the points curve above the reference line at the right,
+which matches the long right tail in @fig-hist-chol.

@@ -1,0 +1,8 @@
+::: {#def-bias}
+#### Bias
+
+The **bias** of an estimator $\hth$ for an estimand $\theta$ is the
+expected value of the [estimation error](#def-estimation-error):
+
+$$\bias{\hth} \eqdef \E{\erf{\hth}}$$ {#eq-bias-def}
+:::

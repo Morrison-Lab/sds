@@ -1,0 +1,83 @@
+::: {#exm-normal-credible-vs-confidence}
+#### Credible and confidence intervals for a Gaussian mean
+
+We simulate $n = 20$ observations from the model of @exm-normal-normal,
+with true mean $\mu = 2$,
+and compute both a 95% confidence interval,
+$\bar x \pm 1.96 / \sqrt{n}$ (the variance is known to be 1),
+and the equal-tailed 95% credible interval
+from the $\ndist{\frac{n}{n+1}\bar{x},\, \frac{1}{n+1}}$ posterior:
+
+```{r}
+#| label: normal-credible-vs-confidence
+set.seed(1)
+mu_true <- 2
+n <- 20
+x <- rnorm(n = n, mean = mu_true, sd = 1)
+xbar <- mean(x)
+ci_freq <- xbar + stats::qnorm(c(0.025, 0.975)) / sqrt(n)
+post_mean <- n / (n + 1) * xbar
+post_sd <- sqrt(1 / (n + 1))
+ci_bayes <- stats::qnorm(c(0.025, 0.975), mean = post_mean, sd = post_sd)
+rbind(confidence = ci_freq, credible = ci_bayes) |>
+  round(3) |>
+  `colnames<-`(c("lower", "upper"))
+```
+
+The sample mean is $\bar x = `r round(xbar, 3)`$.
+The credible interval is slightly narrower than the confidence interval,
+because the prior adds information,
+and shifted toward the prior mean $0$.
+
+@fig-normal-prior-lik-post shows how the posterior combines prior and data.
+Completing the square in the likelihood of @exm-normal-normal
+as a function of $\mu$ alone
+shows that the likelihood is proportional to a $\ndist{\bar x, 1/n}$ density,
+which is the curve drawn for it.
+
+::: {#fig-normal-prior-lik-post}
+
+```{r}
+#| code-fold: true
+#| fig-alt: >-
+#|   Three bell-shaped curves over the mean mu: a wide prior centered at 0,
+#|   a narrow likelihood centered near 2.2, and a posterior just as narrow,
+#|   centered slightly closer to 0 than the likelihood.
+mu_grid <- seq(-3, 5, length.out = 801)
+curves <- tibble::tibble(
+  mu = rep(mu_grid, times = 3),
+  curve = rep(c("prior", "likelihood", "posterior"), each = length(mu_grid)),
+  density = c(
+    stats::dnorm(mu_grid, mean = 0, sd = 1),
+    stats::dnorm(mu_grid, mean = xbar, sd = 1 / sqrt(n)),
+    stats::dnorm(mu_grid, mean = post_mean, sd = post_sd)
+  )
+)
+ggplot2::ggplot(curves) +
+  ggplot2::aes(x = mu, y = density, colour = curve) +
+  ggplot2::geom_line() +
+  ggplot2::labs(x = expression(mu), y = "density", colour = NULL)
+```
+
+The $\ndist{0, 1}$ prior, the likelihood (scaled to integrate to 1),
+and the posterior for the mean $\mu$,
+for the data of @exm-normal-credible-vs-confidence.
+:::
+
+Because $\mu$ has a distribution,
+the Bayesian can also compute the posterior probability
+that $\mu$ lies in the realized *confidence* interval:
+
+```{r}
+#| label: normal-posterior-prob-ci
+pr_in_ci <- stats::pnorm(ci_freq, mean = post_mean, sd = post_sd) |> diff()
+round(pr_in_ci, 3)
+```
+
+That probability is `r round(pr_in_ci, 3)`, not 0.95:
+under this prior,
+the confidence interval sits slightly too far from $0$.
+A frequentist cannot assign any probability to the event
+that $\mu$ lies in one realized interval,
+since both are fixed.
+:::

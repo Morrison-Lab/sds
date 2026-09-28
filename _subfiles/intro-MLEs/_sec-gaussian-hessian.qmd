@@ -1,0 +1,34 @@
+The remaining second derivatives are:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \ell}{\partial (\sigma^2)^2}
+&= \deriv{\sigma^2}\paren{-\frac{n}{2}\paren{\sigma^2}^{-1}
+ + \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(differentiate the score for $\sigma^2$)}\\
+&= \frac{n}{2}\paren{\sigma^2}^{-2} - \paren{\sigma^2}^{-3}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(power rule)}\\
+\frac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2}
+&= \deriv{\mu}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(only this term depends on $\mu$)}\\
+&= -\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)
+&& \text{(chain rule)}
+\end{aligned}
+$$
+
+At the MLE, $\sum_{i=1}^n (x_i - \bar x) = 0$
+and $\sum_{i=1}^n (x_i - \bar x)^2 = n\hat\sigma^2$
+(writing $\hat\sigma^2$ for $\hat\sigma^2_{\text{ML}}$), so:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \ell}{\partial (\sigma^2)^2}\bigg|_{\text{MLE}}
+&= \frac{n}{2}\paren{\hat\sigma^2}^{-2} - \paren{\hat\sigma^2}^{-3} n\hat\sigma^2
+&& \text{(substitute)}\\
+&= -\frac{n}{2}\paren{\hat\sigma^2}^{-2}
+&& \text{(simplify)}\\
+\frac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2}\bigg|_{\text{MLE}}
+&= 0
+&& \text{(substitute)}
+\end{aligned}
+$$

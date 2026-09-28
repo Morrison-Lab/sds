@@ -1,0 +1,68 @@
+When a continuous variable has a right-skewed distribution
+(a longer tail to the right than to the left),
+a logarithmic transformation often makes the distribution
+more symmetric.
+A log-transformed variable also has a multiplicative interpretation:
+an increase of 1 in $\log(x)$ corresponds to multiplying $x$ by $e \approx 2.72$,
+because $\log(x) + 1 = \log(e \cdot x)$.
+
+The WCGS dataset already contains log-transformed versions
+of two variables:
+
+- `lnsbp`: $\log(\text{SBP})$;
+- `lnwght`: $\log(\text{weight})$.
+
+::: {#fig-hist-sbp-log layout-ncol="2"}
+
+::: {#fig-hist-sbp-raw}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = sbp) +
+  ggplot2::geom_histogram(bins = 30, fill = "steelblue", color = "white") +
+  ggplot2::labs(x = "Systolic BP (mmHg)", y = "Count")
+```
+
+Raw scale
+
+:::
+
+::: {#fig-hist-sbp-logscale}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = lnsbp) +
+  ggplot2::geom_histogram(bins = 30, fill = "coral", color = "white") +
+  ggplot2::labs(x = "log(Systolic BP)", y = "Count")
+```
+
+Log scale
+
+:::
+
+Distribution of systolic blood pressure in the WCGS, on two scales
+
+:::
+
+```{r}
+#| label: skewness-sbp
+#| code-fold: true
+# sample skewness: mean cubed deviation, divided by the cubed SD
+skewness <- function(x) {
+  x <- x[!is.na(x)]
+  mean((x - mean(x))^3) / sd(x)^3
+}
+sbp_skew <- c(
+  raw = skewness(wcgs$sbp),
+  log = skewness(wcgs$lnsbp)
+)
+```
+
+The log-transformed SBP is less skewed than the raw SBP
+(sample skewness `r round(sbp_skew[["log"]], 2)`
+versus `r round(sbp_skew[["raw"]], 2)`),
+but still not symmetric.
+Whether to transform a variable in a regression model depends on
+the assumptions of that model and on the scientific question.

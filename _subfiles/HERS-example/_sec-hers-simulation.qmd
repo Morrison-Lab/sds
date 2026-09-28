@@ -1,0 +1,138 @@
+To check how maximum likelihood estimation behaves for this model,
+we simulate many datasets from a Gaussian distribution
+whose parameters equal the HERS estimates,
+analyze each one,
+and summarize the results.
+
+`do_one_sim()` simulates and analyzes one dataset:
+it computes $\hat\mu$, its estimated standard error,
+a 95% $t$-based confidence interval for $\mu$,
+and the $t$-test of $H_0: \mu = \mu_0$.
+
+```{r}
+do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
+  # generate data
+  x <- rnorm(n = n, mean = mu, sd = sqrt(sigma2))
+
+  # analyze data
+  est <- mean(x)
+  se_est <- sd(x) / sqrt(n)
+  confint <- est + c(-1, 1) * se_est * qt(0.975, df = n - 1)
+  tstat <- abs(est - mu0) / se_est
+  pval <- 2 * pt(q = tstat, df = n - 1, lower.tail = FALSE)
+
+  results <- tibble::tibble(
+    mu_hat = est,
+    sigma_hat = sd(x),
+    se_hat = se_est,
+    confint_left = confint[1],
+    confint_right = confint[2],
+    tstat = tstat,
+    pval = pval,
+    confint_covers = dplyr::between(mu, confint[1], confint[2]),
+    test_rejects = pval < 0.05
+  )
+
+  if (return_data) {
+    list(data = x, results = results)
+  } else {
+    results
+  }
+}
+```
+
+{{< slidebreak >}}
+
+To check `do_one_sim()`,
+we compare its output with `stats::t.test()` on the same simulated data:
+
+```{r}
+set.seed(1)
+sim_output <- do_one_sim(
+  n = 100, mu = mu_hat, mu0 = 80, sigma2 = sigma_sq_hat,
+  return_data = TRUE
+)
+t_test <- t.test(sim_output$data, mu = 80)
+
+dplyr::bind_rows(
+  `do_one_sim()` = sim_output$results |>
+    dplyr::select(mu_hat, se_hat, confint_left, confint_right, pval),
+  `t.test()` = tibble::tibble(
+    mu_hat = unname(t_test$estimate),
+    se_hat = t_test$stderr,
+    confint_left = t_test$conf.int[1],
+    confint_right = t_test$conf.int[2],
+    pval = t_test$p.value
+  ),
+  .id = "source"
+)
+```
+
+The two rows agree.
+
+{{< slidebreak >}}
+
+`do_n_sims()` repeats the simulation `n_sims` times,
+with a different random seed for each dataset:
+
+```{r}
+do_n_sims <- function(n_sims = 1000, ...) {
+  lapply(seq_len(n_sims), function(i) {
+    set.seed(i)
+    do_one_sim(...) |>
+      dplyr::mutate(sim_number = i, .before = dplyr::everything())
+  }) |>
+    dplyr::bind_rows()
+}
+
+sim_results <- do_n_sims(
+  n_sims = 1000,
+  n = 100, mu = mu_hat, mu0 = 0.9 * mu_hat, sigma2 = sigma_sq_hat
+)
+sim_results
+```
+
+{{< slidebreak >}}
+
+`summarize_sim()` compares the simulation results
+with the true data-generating parameters:
+
+```{r}
+summarize_sim <- function(sim_results, mu, sigma2, n) {
+  true_se <- sqrt(sigma2 / n)
+  tibble::tibble(
+    bias_mu_hat = mean(sim_results$mu_hat) - mu,
+    sd_mu_hat = sd(sim_results$mu_hat),
+    true_se = true_se,
+    bias_se_hat = mean(sim_results$se_hat) - true_se,
+    coverage = mean(sim_results$confint_covers),
+    power = mean(sim_results$test_rejects)
+  )
+}
+
+sim_summary <- summarize_sim(
+  sim_results,
+  mu = mu_hat, sigma2 = sigma_sq_hat, n = 100
+)
+sim_summary
+```
+
+Across `r nrow(sim_results)` simulated datasets:
+
+- the average error of $\hat\mu$ is
+  `r signif(sim_summary$bias_mu_hat, 2)` mg/dL,
+  small relative to its standard error of
+  `r signif(sim_summary$true_se, 3)` mg/dL,
+  consistent with $\hat\mu$ being unbiased;
+- the standard deviation of the $\hat\mu$ values,
+  `r signif(sim_summary$sd_mu_hat, 3)`,
+  is close to the true standard error;
+- the 95% confidence intervals covered the true $\mu$ in
+  `r round(100 * sim_summary$coverage, 1)`% of datasets,
+  close to their nominal 95%;
+- the test of $H_0: \mu = 0.9\,\hat\mu$ rejected in
+  `r round(100 * sim_summary$power, 1)`% of datasets:
+  with $n = 100$, a 10% difference in the mean is easy to detect.
+
+Changing the sample size, the true $\mu$, or $\sigma^2$
+in `do_n_sims()` shows how these properties depend on them.

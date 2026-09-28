@@ -1,0 +1,33 @@
+::: {#exm-hers-slr}
+#### Regression of fasting glucose on BMI in HERS
+
+The OLS estimates from @thm-ols-slr,
+and the slope from @cor-ols-slope-r,
+for the participants with a BMI measurement:
+
+```{r}
+hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
+x <- hers_bmi$BMI
+y <- hers_bmi$glucose
+b1 <- sum((x - mean(x)) * (y - mean(y))) / sum((x - mean(x))^2)
+c(
+  intercept = mean(y) - b1 * mean(x),
+  slope = b1,
+  slope_from_r = cor(x, y) * sd(y) / sd(x)
+)
+```
+
+`lm()` gives the same estimates:
+
+```{r}
+slr_fit <- lm(glucose ~ BMI, data = hers)
+summary(slr_fit)
+```
+
+The estimated slope is
+$\hat\beta_1 = `r round(coef(slr_fit)[["BMI"]], 2)`$ mg/dL per kg/m^2^:
+mean fasting glucose is about `r round(coef(slr_fit)[["BMI"]], 1)` mg/dL higher
+among participants whose BMI is 1 kg/m^2^ higher.
+The t statistic for the slope equals the correlation test statistic
+of @exm-hers-cor.
+:::

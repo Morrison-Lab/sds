@@ -1,0 +1,33 @@
+Collecting the second derivatives at the MLE,
+the [observed information](#def-oinf) is
+
+$$
+\oinf(\hat\mu, \hat\sigma^2) =
+\begin{bmatrix}
+\frac{n}{\hat\sigma^2} & 0 \\
+0 & \frac{n}{2\paren{\hat\sigma^2}^2}
+\end{bmatrix}
+$$
+
+Its diagonal entries are positive and its off-diagonal entries are zero,
+so it is positive definite,
+consistent with the MLE being a maximum.
+The inverse of a diagonal matrix inverts each diagonal entry, so:
+
+$$
+\inv{\oinf(\hat\mu, \hat\sigma^2)} =
+\begin{bmatrix}
+\frac{\hat\sigma^2}{n} & 0 \\
+0 & \frac{2\paren{\hat\sigma^2}^2}{n}
+\end{bmatrix}
+$$
+
+By @thm-dist-mle,
+the estimated standard errors are
+$\HSE{\hat\mu} = \hat\sigma/\sqrt{n}$ and
+$\HSE{\hat\sigma^2} = \hat\sigma^2 \sqrt{2/n}$,
+and the two estimates are approximately uncorrelated in large samples.
+
+::: notes
+See also [@CaseBerg01, Example 7.2.12].
+:::

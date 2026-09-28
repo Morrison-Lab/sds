@@ -1,0 +1,19 @@
+This page reviews the standard methods for comparing the mean
+of a continuous outcome between groups:
+t-tests, confidence intervals for a difference in means,
+and one-way analysis of variance.
+
+This page builds on three others:
+
+- [Exploratory Data Analysis](exploratory-descriptive.qmd)
+  defines the sample statistics these methods use;
+- [Statistical Inference](inference.qmd)
+  defines hypotheses, test statistics, p-values, confidence intervals,
+  and the t, chi-square, and F reference distributions;
+- [Estimation](estimation.qmd)
+  defines estimators and their standard errors.
+
+The t-tests and ANOVA on this page are the exact, Gaussian-outcome tests
+in the [table of exact and approximate tests](intro-MLEs.qmd#tbl-gaussian-vs-mle-tests)
+on the Maximum Likelihood page,
+which pairs each one with its large-sample counterpart.

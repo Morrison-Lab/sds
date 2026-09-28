@@ -1,0 +1,7 @@
+::: {#def-scatterplot}
+#### Scatter plot
+
+A **scatter plot** displays the joint distribution of two continuous variables
+by plotting each observation as a point,
+with one variable on each axis.
+:::

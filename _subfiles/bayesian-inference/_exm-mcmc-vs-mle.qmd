@@ -1,0 +1,36 @@
+::: {#exm-mcmc-vs-mle}
+#### Posterior mean and maximum likelihood estimate for a Bernoulli model
+
+With $r = 55$ successes in $n = 91$ trials,
+the maximum likelihood estimate is $\hat\pi = r / n$,
+with estimated standard error $\sqrt{\hat\pi(1 - \hat\pi)/n}$.
+Under the uniform prior, the posterior is $\operatorname{Beta}(r + 1, n - r + 1)$
+([the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli)),
+whose mean is $(r + 1)/(n + 2)$
+and whose standard deviation is
+$\sqrt{ab / \paren{(a + b)^2 (a + b + 1)}}$ with $a = r + 1$ and $b = n - r + 1$
+[@CaseBerg01, Section 3.3]:
+
+```{r}
+#| label: mcmc-vs-mle
+r <- 55
+n <- 91
+pi_hat <- r / n
+a <- r + 1
+b <- n - r + 1
+rbind(
+  maximum_likelihood = c(
+    estimate = pi_hat,
+    spread = sqrt(pi_hat * (1 - pi_hat) / n)
+  ),
+  posterior = c(a / (a + b), sqrt(a * b / ((a + b)^2 * (a + b + 1))))
+) |>
+  round(4)
+```
+
+The two estimates differ only through the prior's pseudo-counts,
+and so do the two measures of spread;
+both differences vanish as $n$ grows.
+The MCMC mean in @exm-mh-bernoulli agrees with the exact posterior mean,
+and so with the maximum likelihood estimate to about two decimal places.
+:::

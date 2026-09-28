@@ -1,0 +1,6 @@
+This page reviews the bootstrap,
+a resampling method for standard errors and confidence intervals
+that does not need a formula for the sampling distribution of a statistic.
+Its HERS example bootstraps the slope of a
+[simple linear regression](correlation-regression.qmd#sec-simple-linear-regression).
+This page is adapted from @vittinghoff2e, Section 3.6.

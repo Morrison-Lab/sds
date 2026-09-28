@@ -1,0 +1,27 @@
+@tbl-cyclones-data records the number of tropical cyclones
+in northeastern Australia
+during 13 November-to-April cyclone seasons,
+from 1956/57 to 1968/69 [@dobson4e, Section 1.6.5].
+@fig-dobson-cyclone-time-series graphs
+the number of cyclones by season.
+Let $X_i$ represent the number of cyclones in season $i$,
+and $x_i$ its observed value.
+
+::: {#tbl-cyclones-data}
+
+```{r}
+cyclones <- tibble::tibble(
+  years = c(
+    "1956/7", "1957/8", "1958/9", "1959/60", "1960/1", "1961/2", "1962/3",
+    "1963/4", "1964/5", "1965/6", "1966/7", "1967/8", "1968/9"
+  ),
+  season = 1:13,
+  number = c(6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4)
+)
+cyclones |> knitr::kable()
+```
+
+Number of tropical cyclones during each November-to-April season
+in northeastern Australia [@dobson4e, Section 1.6.5]
+
+:::

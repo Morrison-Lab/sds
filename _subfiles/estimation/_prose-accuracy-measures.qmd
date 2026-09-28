@@ -1,0 +1,6 @@
+The accuracy of an estimator has no single, agreed formal definition.
+The usual measures of accuracy,
+including the bias, mean squared error, and mean absolute error
+defined in this section,
+are all functions of the distribution of the estimator's
+[estimation error](#def-estimation-error).

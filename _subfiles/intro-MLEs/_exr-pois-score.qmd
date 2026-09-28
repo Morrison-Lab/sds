@@ -1,0 +1,32 @@
+::: {#exr-pois-score-fn}
+#### Score function of a Poisson variable
+
+Derive the score function for a single Poisson random variable $X$,
+with respect to its mean parameter $\rate$.
+
+:::
+
+{{< slidebreak >}}
+
+::::{#sol-pois-score-fn}
+
+The log-likelihood of one Poisson observation is
+$\loglik = x \logf{\rate} - \rate - \logf{x!}$, so:
+
+$$
+\begin{aligned}
+\score
+&\eqdef \deriv{\rate}\paren{x\logf{\rate} - \rate - \logf{x!}}
+&& \text{(definition of the score)}\\
+&= x\deriv{\rate}\logf{\rate} - \deriv{\rate}\rate - \deriv{\rate}\logf{x!}
+&& \text{(linearity of differentiation)}\\
+&= \frac{x}{\rate} - 1 - 0
+&& \text{(derivatives of $\log \rate$, $\rate$, and a constant)}\\
+&= \frac{x - \rate}{\rate}
+&& \text{(common denominator)}\\
+&= \frac{x - \E{X}}{\Var{X}}
+&& \text{($\E{X} = \Var{X} = \rate$)}
+\end{aligned}
+$$
+
+::::

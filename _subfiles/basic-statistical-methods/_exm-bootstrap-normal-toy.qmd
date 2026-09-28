@@ -1,0 +1,12 @@
+::: {#exm-bootstrap-normal-toy}
+#### Normal bootstrap interval for the mean of ten glucose values
+
+Continuing @exm-bootstrap-distribution-toy,
+the 95% interval of @def-bootstrap-ci-normal is:
+
+```{r}
+mean(glucose10) +
+  c(lower = -1, upper = 1) * qnorm(0.975) * sd(boot_means10)
+```
+
+:::

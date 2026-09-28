@@ -1,0 +1,9 @@
+:::{#def-model}
+
+#### Scientific models
+
+**Scientific models** are attempts to describe
+*physical conditions or changes*
+that occur in the world and universe around us.
+
+:::

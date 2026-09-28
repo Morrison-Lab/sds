@@ -1,0 +1,13 @@
+::: {#fig-bar-behpat}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = behpat) +
+  ggplot2::geom_bar(fill = "steelblue") +
+  ggplot2::labs(x = "Behavioral pattern", y = "Count")
+```
+
+Bar chart of behavioral pattern in the WCGS dataset
+
+:::

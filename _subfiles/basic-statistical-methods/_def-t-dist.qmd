@@ -1,0 +1,13 @@
+::: {#def-t-dist}
+#### t-distribution
+
+Let $Z$ have the standard Gaussian distribution,
+let $V$ have the $\chi^2_k$ distribution (@def-chi-square-dist),
+and let $Z$ and $V$ be independent.
+The distribution of
+
+$$\frac{Z}{\sqrt{V/k}}$$
+
+is the **t-distribution with $k$ degrees of freedom**
+(or Student's t-distribution), written $t_k$.
+:::

@@ -1,0 +1,311 @@
+:::{#exm-dobson-cyclones-Newton}
+#### Finding the MLE using the Newton-Raphson algorithm
+
+We found the MLE $\hat{\lambda} = \bar{x}$
+by solving the score equation $\score(\lambda) = 0$ algebraically
+(@exr-solve-score-equation).
+If we could not have solved it,
+we could instead start from an initial guess such as $\esttmpl = 3$
+and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
+
+```{r}
+#| label: initial-guess
+cur_lambda_est <- 3
+```
+
+:::
+
+{{< slidebreak >}}
+
+From @exr-cyclone-score-fn and @exr-hessian,
+the score function and Hessian are:
+
+$$
+\begin{aligned}
+\score(\lambda; \vx) &= \frac{`r sumx`}{\lambda} - `r n`\\
+\hessian(\lambda; \vx) &= -\frac{`r sumx`}{\lambda^2}
+\end{aligned}
+$$
+
+So the first-order Taylor approximation of the score function
+around $\esttmpl$ is:
+
+$$
+\begin{aligned}
+\score(\lambda)
+&\approx \score^*(\lambda)\\
+&\eqdef \score(\esttmpl) + \hessian(\esttmpl)(\lambda - \esttmpl)\\
+&= \paren{\frac{`r sumx`}{\esttmpl} - `r n`}
+ + \paren{-\frac{`r sumx`}{\sqf{\esttmpl}}} (\lambda - \esttmpl)
+\end{aligned}
+$$
+
+{{< slidebreak >}}
+
+@fig-cyclone-newton-step1 compares the score function
+and the approximate score function at $\esttmpl = `r cur_lambda_est`$.
+
+:::{#fig-cyclone-newton-step1}
+
+```{r}
+# score(), hessian() and loglik() are defined earlier on the page
+# nolint start: object_usage_linter.
+approx_score <- function(lambda, lhat, ...) {
+  score(lambda = lhat, ...) +
+    hessian(lambda = lhat, ...) * (lambda - lhat)
+}
+# nolint end
+
+point_size <- 5
+
+plot1 <- ggplot2::ggplot() +
+  ggplot2::geom_function(
+    fun = score,
+    ggplot2::aes(col = "score function"),
+    n = 1001
+  ) +
+  ggplot2::geom_function(
+    fun = approx_score,
+    ggplot2::aes(col = "approximate score function"),
+    n = 1001,
+    args = list(lhat = cur_lambda_est)
+  ) +
+  ggplot2::geom_point(
+    size = point_size,
+    ggplot2::aes(
+      x = cur_lambda_est, y = score(lambda = cur_lambda_est),
+      col = "current estimate"
+    )
+  ) +
+  ggplot2::geom_point(
+    size = point_size,
+    ggplot2::aes(x = xbar, y = 0, col = "MLE")
+  ) +
+  ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+  ggplot2::ylab("l'(lambda)") +
+  ggplot2::xlab("lambda") +
+  ggplot2::geom_hline(yintercept = 0)
+
+print(plot1)
+```
+
+Score function of the cyclone data and its first-order approximation
+at the initial guess
+
+:::
+
+{{< slidebreak >}}
+
+Approximating the score function by a linear function
+is equivalent to approximating the log-likelihood
+by a second-order Taylor polynomial
+(@fig-cyclone-newton-step1-loglik):
+
+$$
+\llik^*(\lambda) \eqdef
+\llik(\esttmpl) +
+(\lambda - \esttmpl) \score(\esttmpl) +
+\frac{1}{2}\hessian(\esttmpl)(\lambda - \esttmpl)^2
+$$
+
+:::{#fig-cyclone-newton-step1-loglik}
+
+```{r}
+# nolint start: object_usage_linter.
+approx_loglik <- function(lambda, lhat, ...) {
+  loglik(lambda = lhat, ...) +
+    score(lambda = lhat, ...) * (lambda - lhat) +
+    1 / 2 * hessian(lambda = lhat, ...) * (lambda - lhat)^2
+}
+# nolint end
+
+plot_loglik <- ggplot2::ggplot() +
+  ggplot2::geom_function(
+    fun = loglik,
+    ggplot2::aes(col = "log-likelihood"),
+    n = 1001
+  ) +
+  ggplot2::geom_function(
+    fun = approx_loglik,
+    ggplot2::aes(col = "approximate log-likelihood"),
+    n = 1001,
+    args = list(lhat = cur_lambda_est)
+  ) +
+  ggplot2::geom_point(
+    size = point_size,
+    ggplot2::aes(
+      x = cur_lambda_est, y = loglik(lambda = cur_lambda_est),
+      col = "current estimate"
+    )
+  ) +
+  ggplot2::geom_point(
+    size = point_size,
+    ggplot2::aes(x = xbar, y = loglik(xbar), col = "MLE")
+  ) +
+  ggplot2::xlim(min(cyclones$number) - 1, max(cyclones$number)) +
+  ggplot2::ylab("log-likelihood") +
+  ggplot2::xlab("lambda")
+
+print(plot_loglik)
+```
+
+Log-likelihood of the cyclone data and its second-order approximation
+at the initial guess
+
+:::
+
+{{< slidebreak >}}
+
+Solving the approximate score equation $\score^*(\lambda) = 0$
+gives the next estimate:
+
+$$
+\begin{aligned}
+\lambda
+&= \esttmpl - \score(\esttmpl) \cd \inv{\hessian(\esttmpl)}\\
+&= `r round(cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est), 4)`
+\end{aligned}
+$$
+
+```{r}
+#| label: NR-one-step
+new_lambda_est <-
+  cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
+```
+
+:::{#fig-cyclone-newton-step1-with-new-est}
+
+```{r}
+plot2 <- plot1 +
+  ggplot2::geom_point(
+    size = point_size,
+    ggplot2::aes(x = new_lambda_est, y = 0, col = "new estimate")
+  ) +
+  ggplot2::geom_segment(
+    arrow = grid::arrow(),
+    linewidth = 2,
+    alpha = .7,
+    ggplot2::aes(
+      x = cur_lambda_est,
+      y = approx_score(lhat = cur_lambda_est, lambda = cur_lambda_est),
+      xend = new_lambda_est,
+      yend = 0,
+      col = "update"
+    )
+  )
+print(plot2)
+```
+
+The first Newton-Raphson update:
+the new estimate is where the approximate score function crosses zero
+
+:::
+
+{{< slidebreak >}}
+
+We update $\esttmpl \leftarrow `r round(new_lambda_est, 4)`$
+and repeat the process
+(@fig-cyclone-newton-step2).
+
+:::{#fig-cyclone-newton-step2}
+
+```{r}
+plot2 +
+  ggplot2::geom_function(
+    fun = approx_score,
+    ggplot2::aes(col = "new approximate score function"),
+    n = 1001,
+    args = list(lhat = new_lambda_est)
+  ) +
+  ggplot2::geom_point(
+    size = point_size,
+    ggplot2::aes(
+      x = new_lambda_est, y = score(lambda = new_lambda_est),
+      col = "new estimate"
+    )
+  )
+```
+
+The approximate score function at the updated estimate
+
+:::
+
+{{< slidebreak >}}
+
+We repeat this process until the log-likelihood stops changing
+(@tbl-mle-converge).
+
+:::{#tbl-mle-converge}
+
+```{r}
+cur_lambda_est <- 3 # restart from the initial guess
+tolerance <- 10^-4
+max_iter <- 100
+nr_info <- tibble::tibble(
+  iteration = 0,
+  lambda = cur_lambda_est,
+  `log(likelihood)` = loglik(cur_lambda_est),
+  score = score(cur_lambda_est),
+  hessian = hessian(cur_lambda_est)
+)
+
+for (cur_iter in 1:max_iter) {
+  new_lambda_est <-
+    cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
+
+  diff_loglik <- loglik(new_lambda_est) - loglik(cur_lambda_est)
+
+  nr_info <- nr_info |>
+    dplyr::bind_rows(
+      tibble::tibble(
+        iteration = cur_iter,
+        lambda = new_lambda_est,
+        `log(likelihood)` = loglik(new_lambda_est),
+        score = score(new_lambda_est),
+        hessian = hessian(new_lambda_est),
+        `diff(loglik)` = diff_loglik
+      )
+    )
+
+  cur_lambda_est <- new_lambda_est
+
+  if (abs(diff_loglik) < tolerance) {
+    break
+  }
+}
+
+nr_info |> knitr::kable(digits = 5)
+```
+
+Convergence of the Newton-Raphson algorithm to the MLE for the cyclone data
+
+:::
+
+The final estimate matches the closed-form MLE,
+$\bar x = `r round(xbar, 5)`$ (@exr-find-mle).
+
+{{< slidebreak >}}
+
+:::{#fig-NR-converge}
+
+```{r}
+ll_plot +
+  ggplot2::geom_segment(
+    data = nr_info,
+    arrow = grid::arrow(),
+    alpha = .7,
+    ggplot2::aes(
+      x = lambda,
+      xend = dplyr::lead(lambda),
+      y = `log(likelihood)`,
+      yend = dplyr::lead(`log(likelihood)`),
+      col = factor(iteration)
+    )
+  ) +
+  ggplot2::labs(col = "iteration")
+```
+
+Newton-Raphson steps toward the MLE of the Poisson model (@eq-iid-model)
+for the cyclone data
+
+:::

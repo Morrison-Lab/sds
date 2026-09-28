@@ -1,0 +1,48 @@
+Setting $\deriv{\sigma^2}\ell = 0$:
+
+$$
+\begin{aligned}
+0 &= -\frac{n}{2}\paren{\sigma^2}^{-1}
+ + \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(score for $\sigma^2$)}\\
+\frac{n}{2}\paren{\sigma^2}^{-1}
+&= \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(add $\tfrac{n}{2}(\sigma^2)^{-1}$)}\\
+\sigma^2 &= \frac{1}{n}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(multiply by $2(\sigma^2)^2/n$)}
+\end{aligned}
+$$
+
+Substituting the maximizer $\mu = \bar x$,
+which does not depend on $\sigma^2$,
+maximizes the [profile log-likelihood](#def-profile-loglik)
+of @exm-profile-loglik, and gives:
+
+$$\hat{\sigma}^2_{\text{ML}} = \frac{1}{n}\sum_{i=1}^n (x_i - \bar x)^2$$
+
+The profile log-likelihood,
+$\ell_p(\sigma^2) = -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2} - \frac{n\hat\sigma^2_{\text{ML}}}{2\sigma^2}$,
+increases for $\sigma^2 < \hat\sigma^2_{\text{ML}}$
+and decreases for $\sigma^2 > \hat\sigma^2_{\text{ML}}$,
+because its derivative, $\frac{n}{2}\paren{\sigma^2}^{-2}\paren{\hat\sigma^2_{\text{ML}} - \sigma^2}$,
+has the sign of $\hat\sigma^2_{\text{ML}} - \sigma^2$.
+So $(\bar x, \hat\sigma^2_{\text{ML}})$ is the global maximizer,
+provided the $x_i$ are not all equal.
+
+::: notes
+Differentiating with respect to $\sigma^2$ as a single variable,
+rather than with respect to $\sigma$, keeps the algebra short.
+Replacing $\sigma^2$ with the precision $\tau \eqdef 1/\sigma^2$
+and differentiating with respect to $\tau$
+can be shorter still,
+because $\tau$ enters the log-likelihood as
+$\frac{n}{2}\log\tau - \frac{\tau}{2}\sum_{i=1}^n (x_i - \mu)^2$.
+By the invariance of maximum likelihood estimates,
+$\hat\tau_{\text{ML}} = 1/\hat\sigma^2_{\text{ML}}$.
+:::
+
+::: notes
+This MLE divides by $n$,
+so it is a biased estimator of $\sigma^2$
+([bias of the divide-by-$n$ estimator](estimation.qmd#exm-biased-variance-mle)).
+:::

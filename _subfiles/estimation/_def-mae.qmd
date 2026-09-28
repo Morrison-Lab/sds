@@ -1,0 +1,10 @@
+::: {#def-mae}
+#### Mean absolute error
+
+The **mean absolute error** of an estimator is the expectation of the
+absolute value of the [estimation error](#def-estimation-error):
+
+$$
+\maelr{\hth} \eqdef \E{\abs{\erf{\hth}}}
+$$
+:::

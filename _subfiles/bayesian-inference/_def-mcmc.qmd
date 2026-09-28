@@ -1,0 +1,9 @@
+::: {#def-mcmc}
+#### Markov chain Monte Carlo
+
+A **Markov chain Monte Carlo (MCMC)** method for a target distribution
+generates a sequence of draws $\vth^{(1)}, \vth^{(2)}, \ldots$,
+each drawn from a distribution that depends on the previous draw,
+such that the distribution of $\vth^{(t)}$ converges to the target
+as $t \to \infty$.
+:::

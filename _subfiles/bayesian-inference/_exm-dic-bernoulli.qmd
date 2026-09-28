@@ -1,0 +1,29 @@
+::: {#exm-dic-bernoulli}
+#### DIC for the Bernoulli model
+
+For $r = 55$ successes in $n = 91$ trials,
+$D(\pi) = -2\paren{r \log \pi + (n - r) \log(1 - \pi)}$.
+We estimate $\overline{D}$ and $\bar\pi$
+from 5,000 draws from the $\operatorname{Beta}(56, 37)$ posterior of [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli):
+
+```{r}
+#| label: dic-bernoulli
+deviance_bernoulli <- function(pi, r = 55, n = 91) {
+  -2 * (r * log(pi) + (n - r) * log(1 - pi))
+}
+set.seed(4)
+pi_draws <- stats::rbeta(5000, shape1 = 56, shape2 = 37)
+d_bar <- mean(deviance_bernoulli(pi_draws))
+d_at_mean <- deviance_bernoulli(mean(pi_draws))
+c(
+  d_bar = d_bar,
+  d_at_mean = d_at_mean,
+  p_d = d_bar - d_at_mean,
+  dic = 2 * d_bar - d_at_mean
+) |>
+  round(2)
+```
+
+The model has one parameter,
+and its effective number of parameters $p_D$ is close to 1.
+:::

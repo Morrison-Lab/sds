@@ -1,0 +1,48 @@
+::: {#exm-bootstrap-distribution-toy}
+#### Bootstrap distribution of a mean of ten glucose values
+
+Take the baseline fasting glucose values
+of the first ten HERS participants,
+and compute the sample mean of each of $B = 1{,}000$ bootstrap samples:
+
+```{r}
+glucose10 <- hers$glucose[1:10]
+set.seed(42)
+boot_means10 <- replicate(1000, mean(sample(glucose10, replace = TRUE)))
+c(
+  observed_mean = mean(glucose10),
+  bootstrap_se = sd(boot_means10),
+  formula_se = sd(glucose10) / sqrt(10),
+  divide_by_n_se = sqrt(mean((glucose10 - mean(glucose10))^2) / 10)
+)
+```
+
+The bootstrap standard error (@def-bootstrap-se)
+is close to the usual estimate $s / \sqrt{n}$.
+Each bootstrap draw has variance
+$\hat\sigma^2 \eqdef \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2$
+around $\bar{x}$, and the $n$ draws are independent,
+so as $B$ grows the bootstrap standard error of the mean
+approaches $\hat\sigma / \sqrt{n}$ (`divide_by_n_se`),
+which is smaller than $s / \sqrt{n}$ by the factor $\sqrt{(n-1)/n}$.
+@fig-boot-dist-toy shows the bootstrap distribution.
+
+::: {#fig-boot-dist-toy}
+
+```{r}
+#| code-fold: true
+tibble::tibble(mean = boot_means10) |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = mean) +
+  ggplot2::geom_histogram(bins = 30, color = "white") +
+  ggplot2::geom_vline(xintercept = mean(glucose10), color = "red") +
+  ggplot2::labs(x = "Bootstrap mean (mg/dL)", y = "Count")
+```
+
+Bootstrap distribution of the mean fasting glucose
+of the first ten HERS participants ($B = 1{,}000$).
+The red line marks the observed mean.
+
+:::
+
+:::

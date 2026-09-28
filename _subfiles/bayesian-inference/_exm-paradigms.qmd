@@ -1,0 +1,13 @@
+::: {#exm-paradigms}
+#### Two views of a success probability
+
+Suppose 55 of 91 independent trials succeed.
+A frequentist treats the success probability $\pi$ as a fixed number,
+estimates it by $\hat\pi = 55/91 \approx 0.60$,
+and describes uncertainty by how much $\hat\pi$ would vary
+over repeated sets of 91 trials,
+for example with a confidence interval.
+A Bayesian gives $\pi$ a probability distribution before seeing the trials,
+such as the uniform distribution on $(0, 1)$,
+and describes uncertainty by the distribution of $\pi$ given the 55 successes.
+:::

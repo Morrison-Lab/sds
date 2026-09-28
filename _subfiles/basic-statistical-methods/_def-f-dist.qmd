@@ -1,0 +1,13 @@
+::: {#def-f-dist}
+#### F-distribution
+
+Let $U$ have the $\chi^2_{k_1}$ distribution,
+let $V$ have the $\chi^2_{k_2}$ distribution,
+and let $U$ and $V$ be independent.
+The distribution of
+
+$$\frac{U / k_1}{V / k_2}$$
+
+is the **F-distribution with $k_1$ and $k_2$ degrees of freedom**,
+written $F_{k_1, k_2}$.
+:::

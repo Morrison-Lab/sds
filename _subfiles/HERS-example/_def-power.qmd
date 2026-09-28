@@ -1,0 +1,7 @@
+:::{#def-power}
+#### Power
+
+The **power** of a hypothesis test against an alternative parameter value
+is the probability that the test rejects the null hypothesis
+when the parameter equals that alternative value.
+:::

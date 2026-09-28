@@ -1,0 +1,25 @@
+:::{#exm-wald-poisson}
+#### Wald interval and test for a Poisson rate
+
+For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+$\hat\rate_{\text{ML}} = \bar x$ and $\einf(\rate) = n/\rate$
+(@exm-dist-mle-poisson),
+so $\HSE{\hat\rate} = \sqrt{\bar x/n}$.
+With $n = 13$ and $\bar x = 72/13$,
+the 95% Wald interval for $\rate$,
+and the Wald test of $H_0: \rate = 4$, are:
+
+```{r}
+n_obs <- 13
+xbar_obs <- 72 / 13
+se_rate <- sqrt(xbar_obs / n_obs)
+z_wald <- (xbar_obs - 4) / se_rate
+c(
+  lower = xbar_obs - qnorm(0.975) * se_rate,
+  upper = xbar_obs + qnorm(0.975) * se_rate,
+  z = z_wald,
+  p_value = 2 * pnorm(-abs(z_wald))
+)
+```
+
+:::

@@ -1,0 +1,25 @@
+:::{#thm-deriv-llik-iid}
+#### Derivative of the log-likelihood function for $\iid$ data
+
+For $\iid$ data:
+
+$$\ell'(\theta) = \sumin \deriv{\theta} \log{\p(X = x_i \mid \theta)}$$ {#eq-deriv-llik}
+
+:::
+
+:::{.proof}
+$$
+\begin{aligned}
+\lik'(\th)
+&= \deriv{\th} \lik(\th)
+&& \text{(notation for the derivative)}\\
+&= \deriv{\th} \sum_{i=1}^n \log{\p(X = x_i \mid \theta)}
+&& \text{(log-likelihood of an $\iid$ sample)}\\
+&= \sum_{i=1}^n \deriv{\th} \log{\p(X = x_i \mid \theta)}
+&& \text{(derivative of a sum is the sum of derivatives)}
+\end{aligned}
+$$
+
+Unlike @eq-deriv-Lik, each term involves only one observation,
+so no product rule is needed.
+:::

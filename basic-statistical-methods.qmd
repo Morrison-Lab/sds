@@ -1,0 +1,154 @@
+---
+title: "Comparing Means"
+format:
+  html: default
+  revealjs:
+    output-file: basic-statistical-methods-slides.html
+  pdf:
+    output-file: basic-statistical-methods-handout.pdf
+  docx:
+    output-file: basic-statistical-methods-handout.docx
+---
+
+## Introduction
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-intro.qmd >}}
+
+This page is adapted from @vittinghoff2e, Chapter 3.
+
+## The HERS data {#sec-hers-intro}
+
+{{< include sds/_subfiles/shared/_sec_hers_intro.qmd >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_load-hers.qmd >}}
+
+## Descriptive statistics {#sec-descriptive-stats}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-descriptive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-summary.qmd >}}
+
+## Comparing two groups: continuous outcomes {#sec-two-group-continuous}
+
+### Hypotheses {#sec-hypotheses}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-hypotheses.qmd >}}
+
+{{< slidebreak >}}
+
+### One-sample t-test {#sec-one-sample-t-test}
+
+<!-- No slidebreak here: the heading shares its slide with the def-one-sample-t-test div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-one-sample-t-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-one-sample-t-null.qmd >}}
+
+{{< slidebreak >}}
+
+### Paired t-test {#sec-paired-t-test}
+
+<!-- No slidebreak here: the heading shares its slide with the def-paired-t-test div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-paired-t-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-paired.qmd >}}
+
+{{< slidebreak >}}
+
+### Two-sample t-tests {#sec-two-sample-t-test}
+
+<!-- No slidebreak here: the heading shares its slide with the def-two-sample-t-test div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-two-sample-t-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-ttest.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-pooled-variance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-pooled-variance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-pooled-t-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-pooled-t-null.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-pooled-ttest.qmd >}}
+
+{{< slidebreak >}}
+
+### Confidence intervals for the difference in means {#sec-CI-diff-means}
+
+<!-- No slidebreak here: the heading shares its slide with the def-ci-diff-means div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-ci-diff-means.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-diff-means-ci.qmd >}}
+
+## One-way analysis of variance {#sec-anova}
+
+<!-- No slidebreak here: the heading shares its slide with the def-ss-between div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-ss-between.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-ss-between.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-ss-within.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-ss-within.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-mean-squares.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-mean-squares.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-one-way-anova.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-anova-null.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-anova.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_note-anova-regression.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

@@ -1,0 +1,7 @@
+::: {#def-alternative-hypothesis}
+#### Alternative hypothesis
+
+The **alternative hypothesis**, written $H_1$ or $H_A$,
+is the claim that a hypothesis test weighs the data as evidence *for*,
+against the [null hypothesis](#def-null-hypothesis).
+:::

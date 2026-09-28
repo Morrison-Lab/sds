@@ -1,0 +1,8 @@
+A chain started far from where the posterior puts its probability
+takes some iterations to get there,
+and until it does, its values are not draws from the posterior.
+Burn-in removes those iterations.
+Its length is chosen by inspecting [trace plots](#def-trace-plot)
+of chains started from different values:
+the burn-in should end after the chains have stopped drifting
+and are moving around the same region.

@@ -1,0 +1,12 @@
+::: {.callout-caution}
+#### Correlation measures linear association only
+
+Two variables can be strongly related
+and still have a correlation near zero,
+if the relationship is not linear.
+For example, if $y_i = x_i^2$, the $x_i$ are symmetric around 0,
+and the $\abs{x_i}$ are not all equal,
+then $r = 0$,
+although $y$ is a function of $x$.
+Correlation also does not imply causation.
+:::

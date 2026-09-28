@@ -1,0 +1,27 @@
+By @sec-covariance-matrix,
+the estimated standard error of $\hat\mu_{\text{ML}}$ is
+
+$$
+\HSE{\hat\mu} = \sqrt{\sb{\inv{\oinf(\hat\mu, \hat\sigma^2)}}_{11}} = \frac{\hat\sigma}{\sqrt{n}}
+$$
+
+which shrinks in proportion to $1/\sqrt{n}$
+(@fig-hers-se-by-n).
+
+::: {#fig-hers-se-by-n}
+
+```{r}
+se_mu_hat <- function(n, sigma) sigma / sqrt(n)
+ggplot2::ggplot() +
+  ggplot2::geom_function(fun = se_mu_hat, args = list(sigma = sigma_hat)) +
+  ggplot2::scale_x_log10(
+    limits = c(10, 10^5), name = "Sample size",
+    labels = scales::label_comma()
+  ) +
+  ggplot2::ylab("Standard error of mu-hat (mg/dL)")
+```
+
+Standard error of $\hat\mu_{\text{ML}}$ as a function of sample size,
+with $\sigma = \hat\sigma_{\text{ML}}$
+
+:::

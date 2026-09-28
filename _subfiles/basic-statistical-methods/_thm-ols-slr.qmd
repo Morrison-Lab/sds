@@ -1,0 +1,19 @@
+::: {#thm-ols-slr}
+#### Closed-form OLS estimates
+
+Write
+
+$$
+\begin{aligned}
+S_{xx} &\eqdef \sum_{i=1}^n (x_i - \bar{x})^2, &
+S_{yy} &\eqdef \sum_{i=1}^n (y_i - \bar{y})^2, &
+S_{xy} &\eqdef \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}),
+\end{aligned}
+$$
+
+and suppose $S_{xx} > 0$ (not all $x_i$ are equal).
+Then the OLS estimates (@def-ols) are unique, and
+
+$$\hat\beta_1 = \frac{S_{xy}}{S_{xx}},
+\qquad \hat\beta_0 = \bar{y} - \hat\beta_1 \bar{x}.$$
+:::

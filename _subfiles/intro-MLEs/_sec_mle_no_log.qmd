@@ -1,0 +1,17 @@
+To find the maximizer of the likelihood function,
+we solve $\Lik'(\th) = 0$ for $\theta$.
+For mutually independent data, @eq-Lik gives:
+
+$$
+\begin{aligned}
+\Lik'(\th)
+&= \deriv{\th} \Lik(\th)\\
+&= \deriv{\th} \prod_{i=1}^n \p(X_i = x_i \mid \theta)
+\end{aligned}
+$$ {#eq-deriv-Lik}
+
+@eq-deriv-Lik is the derivative of a product of $n$ factors,
+which takes $n - 1$ applications of the
+[product rule](https://morrison-lab.github.io/rme/chapters/math-prereqs.html#thm-product-rule)
+and produces $n$ terms.
+The log-likelihood avoids this work.

@@ -1,0 +1,8 @@
+::: {#def-weakly-informative-prior}
+#### Weakly informative prior
+
+A **weakly informative prior** is a [prior](#def-prior)
+that gives little probability to implausible values of $\theta$,
+while spreading its probability nearly evenly
+across the range of scientifically plausible values.
+:::

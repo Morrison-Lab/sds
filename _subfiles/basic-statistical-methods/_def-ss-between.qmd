@@ -1,0 +1,12 @@
+::: {#def-ss-between}
+#### Between-group sum of squares
+
+Let $y_{j1}, \ldots, y_{jn_j}$ be the $n_j$ observations in group $j$,
+for $k \ge 2$ groups with $n \eqdef \sum_{j=1}^k n_j$ observations in all,
+let $\bar{y}_j$ be the sample mean of group $j$,
+and let $\bar{y}$ be the sample mean of all $n$ observations.
+The **between-group sum of squares** is
+
+$$\text{SS}_\text{between} \eqdef \sum_{j=1}^k n_j (\bar{y}_j - \bar{y})^2.$$
+
+:::

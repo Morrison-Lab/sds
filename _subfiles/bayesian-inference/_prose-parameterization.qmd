@@ -1,0 +1,17 @@
+How a model is written affects how well its sampler mixes
+[@dobson4e, Chapter 13, p. 299].
+Two algebraically equivalent parameterizations of the same model
+can produce chains with very different autocorrelation.
+Strong posterior correlation between parameters slows a sampler
+that updates one component at a time,
+because each update can move only a short way along a narrow, tilted ridge,
+as @exm-gibbs-bivariate-normal shows with $\rho = 0.99$.
+
+Common remedies include *centering* predictors
+(subtracting their means),
+so that the intercept and slopes are less correlated,
+and *reparameterizing* variance components
+on a scale on which the posterior is more nearly symmetric.
+These changes leave the model,
+and so the scientific conclusions, unchanged;
+they alter only the geometry the sampler must explore.

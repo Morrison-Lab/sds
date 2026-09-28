@@ -1,0 +1,20 @@
+::: {#exm-pooled-variance}
+#### Pooled variance of two small samples
+
+With $n_1 = 3$, $s_1^2 = 4$, $n_2 = 5$, and $s_2^2 = 9$:
+
+$$
+\begin{aligned}
+s_p^2
+&= \frac{(3 - 1) \cdot 4 + (5 - 1) \cdot 9}{3 + 5 - 2}
+&& \text{(definition of pooled variance)}\\
+&= \frac{8 + 36}{6}
+&& \text{(arithmetic)}\\
+&\approx 7.33
+&& \text{(arithmetic)}
+\end{aligned}
+$$
+
+The pooled variance lies between the two sample variances,
+closer to $s_2^2$, whose sample is larger.
+:::

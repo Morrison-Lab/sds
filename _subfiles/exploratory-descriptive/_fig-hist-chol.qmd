@@ -1,0 +1,19 @@
+::: {#fig-hist-chol}
+
+```{r}
+wcgs |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = chol) +
+  ggplot2::geom_histogram(bins = 30, fill = "steelblue", color = "white") +
+  ggplot2::labs(x = "Cholesterol (mg/dL)", y = "Count")
+```
+
+Histogram of total cholesterol in the WCGS dataset
+
+:::
+
+@fig-hist-chol shows a single-peaked distribution
+with a longer right tail than left tail:
+`r round(100 * mean(wcgs$chol >= 150 & wcgs$chol <= 350, na.rm = TRUE))`%
+of the values lie between 150 and 350 mg/dL,
+but the largest value is `r max(wcgs$chol, na.rm = TRUE)` mg/dL.

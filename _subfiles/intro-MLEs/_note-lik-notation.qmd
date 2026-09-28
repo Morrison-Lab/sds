@@ -1,0 +1,16 @@
+::: callout-note
+#### Notation for the likelihood function
+
+Sources write the likelihood function in several ways,
+all meaning the same function:
+
+- $\Lik(\theta)$;
+- $\Lik(\vx; \theta)$ or $\Lik(\theta; \vx)$;
+- $\Lik_{\vx}(\theta)$ or $\Lik_{\theta}(\vx)$;
+- $\Lik(\vx \mid \theta)$.
+
+These notes mostly write $\Lik(\theta)$,
+leaving the data implicit,
+to emphasize that the likelihood is a function of the parameters,
+with the data held fixed at their observed values.
+:::

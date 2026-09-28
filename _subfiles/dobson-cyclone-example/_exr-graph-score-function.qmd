@@ -1,0 +1,32 @@
+:::{#exr-graph-score-function}
+#### Graphing the score function
+
+Graph the score function.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+::: {#fig-cyclone-score}
+
+```{r}
+# `cyclones` is defined earlier on the page:
+# nolint next: object_usage_linter.
+score <- function(lambda, y = cyclones$number, n = length(y)) {
+  (sum(y) / lambda) - n
+}
+
+ggplot2::ggplot() +
+  ggplot2::geom_function(fun = score, n = 1001) +
+  ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+  ggplot2::ylab("l'(lambda)") +
+  ggplot2::xlab("lambda") +
+  ggplot2::geom_hline(yintercept = 0, col = "red")
+```
+
+Score function of the cyclone data
+
+:::
+
+::::

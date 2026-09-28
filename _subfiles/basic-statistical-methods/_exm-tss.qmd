@@ -1,0 +1,18 @@
+::: {#exm-tss}
+#### Total sum of squares of three values
+
+For $y = 1, 2, 2$, $\bar y = 5/3$, so
+
+$$
+\begin{aligned}
+\text{TSS}
+&= \paren{1 - \tfrac{5}{3}}^2 + 2\paren{2 - \tfrac{5}{3}}^2
+&& \text{(definition)}\\
+&= \tfrac{4}{9} + \tfrac{2}{9}
+&& \text{(square the deviations)}\\
+&= \tfrac{2}{3}
+&& \text{(arithmetic)}
+\end{aligned}
+$$
+
+:::

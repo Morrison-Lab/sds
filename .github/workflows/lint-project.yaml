@@ -17,6 +17,17 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      # `sds` is a self-referential symlink (`sds -> .`, see CLAUDE.md) that
+      # lets include paths written as `sds/...` resolve when this repo
+      # renders standalone. lintr's own directory walk follows symlinks and
+      # has no config-level way to exclude it without also excluding the
+      # real files it aliases (normalize_path() collapses the two onto the
+      # same path -- see .lintr.R). Remove it before linting so lintr never
+      # walks into it; nothing under it is content distinct from what's
+      # already linted at the repo root, and this job never renders the site.
+      - name: Remove self-referential sds symlink before linting
+        run: rm -f sds
+
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true

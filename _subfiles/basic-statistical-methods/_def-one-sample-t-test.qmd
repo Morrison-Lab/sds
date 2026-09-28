@@ -1,0 +1,13 @@
+::: {#def-one-sample-t-test}
+#### One-sample t-test
+
+Let $x_1, \ldots, x_n$ be observations with $n \ge 2$,
+sample mean $\bar{x}$, and sample standard deviation $s$.
+The **one-sample t-test** of $H_0: \mu = \mu_0$
+against $H_1: \mu \neq \mu_0$ uses the statistic
+
+$$t \eqdef \frac{\bar{x} - \mu_0}{s / \sqrt{n}}.$$
+
+Its p-value is $\Pr(\abs{T} \ge \abs{t})$,
+where $T$ has the $t_{n-1}$ distribution ([t-distribution](inference.qmd#def-t-dist)).
+:::

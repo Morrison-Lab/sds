@@ -1,0 +1,127 @@
+::: notes
+Adapted from [@dobson4e, Section 1.6.5].
+:::
+
+### Data {#sec-dobson-cyclones-data}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_sec-data.qmd >}}
+
+{{< slidebreak >}}
+
+### Exploratory analysis
+
+{{< include sds/_subfiles/dobson-cyclone-example/_sec-exploratory.qmd >}}
+
+{{< slidebreak >}}
+
+### Model
+
+{{< include sds/_subfiles/dobson-cyclone-example/_sec-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-cyclone-choose-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-def-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+### Estimating the model parameters using maximum likelihood
+
+We can estimate the parameter $\lambda$ using maximum likelihood estimation.
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-poisson-likelihood.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-poisson-parameters.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-poisson-mean-and-variance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-sample-likelihood.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-graph-likelihood.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-sample-llik.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-graph-loglikelihood.qmd >}}
+
+{{< slidebreak >}}
+
+#### The score function
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-pois-cyclone-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-graph-score-function.qmd >}}
+
+{{< slidebreak >}}
+
+#### The Hessian {#sec-hessian}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-graph-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+### Finding the MLE analytically
+
+In this example,
+we can find the MLE of $\lambda$ by solving the score equation
+algebraically.
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-solve-score-equation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-check-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-find-mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exr-graph-mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_fig-obs-inf.qmd >}}
+
+{{< slidebreak >}}
+
+### Finding the MLE using the Newton-Raphson algorithm
+
+#### Iterative maximization {#sec-newton-raphson}
+
+{{< include sds/_subfiles/dobson-cyclone-example/_sec_iterative_maximization.qmd >}}
+
+{{< slidebreak >}}
+
+#### Applying Newton-Raphson to the cyclone data
+
+{{< include sds/_subfiles/dobson-cyclone-example/_exm-dobson-cyclones-Newton.qmd >}}

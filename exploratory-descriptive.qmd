@@ -1,0 +1,245 @@
+---
+title: "Exploratory Data Analysis"
+format:
+  html: default
+  revealjs:
+    output-file: exploratory-descriptive-slides.html
+  pdf:
+    output-file: exploratory-descriptive-handout.pdf
+  docx:
+    output-file: exploratory-descriptive-handout.docx
+---
+
+## Introduction
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_prose-eda-purposes.qmd >}}
+
+{{< slidebreak >}}
+
+### The WCGS data {#sec-wcgs-data}
+
+{{< include sds/_subfiles/exploratory-descriptive/_wcgs-intro.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exr-def-type-A.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_sol-def-type-A.qmd >}}
+
+{{< slidebreak >}}
+
+### Study design
+
+{{< include sds/_subfiles/exploratory-descriptive/_wcgs-design.qmd >}}
+
+{{< slidebreak >}}
+
+### Loading the data {#sec-load-wcgs}
+
+{{< include sds/_subfiles/exploratory-descriptive/_load-wcgs.qmd >}}
+
+## Summarizing a single variable
+
+### Measures of center
+
+<!-- No slidebreak here: the heading shares its slide with the def-sample-mean div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-sample-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-sample-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-sample-median.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-sample-median.qmd >}}
+
+{{< slidebreak >}}
+
+### Measures of spread
+
+<!-- No slidebreak here: the heading shares its slide with the def-sample-variance div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-sample-variance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-sample-sd.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-sample-sd.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-quartiles.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-IQR.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-IQR.qmd >}}
+
+{{< slidebreak >}}
+
+### Summary statistics in R
+
+{{< include sds/_subfiles/exploratory-descriptive/_prose-summary-R.qmd >}}
+
+{{< slidebreak >}}
+
+### Binary and categorical variables
+
+<!-- No slidebreak here: the heading shares its slide with the def-sample-proportion div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-sample-proportion.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-sample-proportion.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_prose-categorical.qmd >}}
+
+## Graphical methods
+
+Graphs can reveal features of a distribution
+that summary statistics miss,
+such as skewness, multiple peaks, and outliers.
+Different types of graph suit different types of variable.
+
+{{< slidebreak >}}
+
+### Histograms
+
+<!-- No slidebreak here: the heading shares its slide with the def-histogram div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-histogram.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_fig-hist-chol.qmd >}}
+
+{{< slidebreak >}}
+
+### Density plots
+
+<!-- No slidebreak here: the heading shares its slide with the def-density-plot div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-density-plot.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_fig-density-chol.qmd >}}
+
+{{< slidebreak >}}
+
+### Box plots
+
+<!-- No slidebreak here: the heading shares its slide with the def-boxplot div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-boxplot.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_fig-box-chol.qmd >}}
+
+{{< slidebreak >}}
+
+### Bar charts
+
+<!-- No slidebreak here: the heading shares its slide with the def-bar-chart div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-bar-chart.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_fig-bar-behpat.qmd >}}
+
+{{< slidebreak >}}
+
+### Normal quantile-quantile plots
+
+<!-- No slidebreak here: the heading shares its slide with the def-qq-plot div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-qq-plot.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_fig-qq-chol.qmd >}}
+
+## Bivariate relationships
+
+### Two continuous variables
+
+<!-- No slidebreak here: the heading shares its slide with the def-scatterplot div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-scatterplot.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_fig-scatter-chol-sbp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-pearson-r.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_thm-pearson-r-range.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-pearson-r.qmd >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_note-correlation-caution.qmd >}}
+
+{{< slidebreak >}}
+
+### A continuous variable by a categorical variable
+
+Side-by-side [box plots](#def-boxplot) compare the distribution of a
+continuous variable across the groups defined by a categorical variable
+(@fig-box-chol-by-smoke and @fig-box-chol-by-behpat).
+
+{{< include sds/_subfiles/exploratory-descriptive/_fig-box-chol-by-group.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_tbl-chol-by-chd.qmd >}}
+
+{{< slidebreak >}}
+
+### Two categorical variables
+
+<!-- No slidebreak here: the heading shares its slide with the def-contingency-table div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-contingency-table.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-contingency-table.qmd >}}
+
+## Data transformations
+
+{{< include sds/_subfiles/exploratory-descriptive/_prose-transformations.qmd >}}
+
+## An exploratory data analysis workflow
+
+{{< include sds/_subfiles/exploratory-descriptive/_prose-workflow.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

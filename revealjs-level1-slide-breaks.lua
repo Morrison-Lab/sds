@@ -8,7 +8,7 @@ function Pandoc(doc)
   for i, block in ipairs(doc.blocks) do
     table.insert(updated_blocks, block)
 
-    if block.t == "Header" and block.level <= 2 then
+    if block.t == "Header" and block.level <= 1 then
       local next_block = doc.blocks[i + 1]
 
       if next_block and next_block.t ~= "HorizontalRule" then

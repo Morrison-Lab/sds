@@ -1,0 +1,29 @@
+When we perform statistical analyses,
+we use data to help us choose between models;
+specifically, to determine which models best explain those data.
+
+Physical processes do not produce data on their own.
+Data are only produced when scientists implement an *observation process*
+(that is, a *scientific study*),
+which is distinct from the underlying *physical process*.
+In some cases, the observation process and the physical process
+interact with each other;
+this interaction is called the
+["observer effect"](https://en.wikipedia.org/wiki/Observer_effect).
+
+To learn about the physical processes we are ultimately interested in,
+we often need to account for the observation process
+that produced the data we are analyzing.
+In particular, if some of the planned observations in the study design
+were not completed,
+we will likely need to account for the incompleteness
+of the resulting data set in our analysis.
+If we are not sure why some observations are incomplete,
+we may need to model the observation process
+in addition to the physical process we were originally interested in.
+For example, if some participants in a study dropped out part-way through,
+we may need to investigate why those participants dropped out,
+as opposed to other participants who completed the study.
+
+These kinds of *missing data* issues are outside the scope of these notes;
+see @van2018flexible for more details.

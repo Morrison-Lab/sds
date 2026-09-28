@@ -1,0 +1,7 @@
+::: {#def-pip}
+#### Posterior inclusion probability
+
+When the candidate models of @def-bma differ in which predictors they include,
+the **posterior inclusion probability** of a predictor
+is the total posterior probability of the models that include it.
+:::

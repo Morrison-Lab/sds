@@ -1,0 +1,48 @@
+::: {#exm-hers-summary}
+#### HERS baseline characteristics by treatment group
+
+@tbl-hers-summary summarizes the HERS participants at baseline,
+separately for each randomized group.
+Continuous variables are summarized by mean (standard deviation),
+and categorical variables by count (percent).
+
+::: {#tbl-hers-summary}
+
+```{r}
+#| code-fold: true
+hers |>
+  dplyr::select(
+    age, BMI, glucose, SBP, DBP,
+    HT, raceth, exercise, smoking, diabetes
+  ) |>
+  gtsummary::tbl_summary(
+    by = HT,
+    statistic = list(
+      gtsummary::all_continuous() ~ "{mean} ({sd})",
+      gtsummary::all_categorical() ~ "{n} ({p}%)"
+    ),
+    digits = gtsummary::all_continuous() ~ 1,
+    label = list(
+      age ~ "Age (years)",
+      BMI ~ "BMI (kg/m^2)",
+      glucose ~ "Fasting glucose (mg/dL)",
+      SBP ~ "Systolic BP (mmHg)",
+      DBP ~ "Diastolic BP (mmHg)",
+      raceth ~ "Race/ethnicity",
+      exercise ~ "Exercises regularly",
+      smoking ~ "Current smoker",
+      diabetes ~ "Diabetes"
+    )
+  ) |>
+  gtsummary::add_overall() |>
+  gtsummary::bold_labels()
+```
+
+HERS: baseline characteristics by treatment group
+
+:::
+
+Because treatment was assigned at random,
+the two groups differ at baseline only by chance,
+and their summaries are close.
+:::

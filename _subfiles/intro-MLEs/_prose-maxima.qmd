@@ -1,0 +1,12 @@
+From calculus:
+if $f(x)$ is differentiable,
+its maximum over an interval of input values
+can occur only at an endpoint of the interval
+or at a [critical point](#def-critical-point).
+At a critical point $x_0$,
+$f''(x_0) < 0$ is sufficient for $x_0$ to be a local maximum,
+but not necessary:
+$f(x) = -x^4$ has a maximum at $x_0 = 0$, where $f''(0) = 0$.
+For a function of a vector,
+a negative definite Hessian matrix at a critical point
+is sufficient for a local maximum.

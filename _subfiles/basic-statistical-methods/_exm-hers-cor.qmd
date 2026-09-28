@@ -1,0 +1,48 @@
+::: {#exm-hers-cor}
+#### Correlation between BMI and fasting glucose in HERS
+
+@fig-hers-scatter plots baseline fasting glucose against BMI.
+
+::: {#fig-hers-scatter}
+
+```{r}
+#| code-fold: true
+hers |>
+  dplyr::filter(!is.na(BMI)) |>
+  ggplot2::ggplot() +
+  ggplot2::aes(x = BMI, y = glucose) +
+  ggplot2::geom_point(alpha = 0.3) +
+  ggplot2::geom_smooth(method = "lm", formula = y ~ x) +
+  ggplot2::labs(
+    x = "BMI (kg/m^2)",
+    y = "Fasting glucose (mg/dL)"
+  )
+```
+
+Baseline fasting glucose against BMI in HERS,
+with the least-squares line
+
+:::
+
+The statistic of @def-pearson-test,
+using the `r sum(!is.na(hers$BMI))` participants with a BMI measurement:
+
+```{r}
+hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
+r <- cor(hers_bmi$BMI, hers_bmi$glucose)
+n <- nrow(hers_bmi)
+t_cor <- r * sqrt(n - 2) / sqrt(1 - r^2)
+c(r = r, t = t_cor, p_value = 2 * pt(-abs(t_cor), df = n - 2))
+```
+
+`cor.test()` reports the same values,
+and a confidence interval for $\rho$:
+
+```{r}
+cor.test(hers$BMI, hers$glucose, method = "pearson")
+```
+
+The correlation is positive but modest:
+glucose tends to be higher at higher BMI,
+with wide scatter around the line in @fig-hers-scatter.
+:::

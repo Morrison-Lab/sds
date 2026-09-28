@@ -1,0 +1,9 @@
+For $\iid$ data, $\frac{1}{n}\oinf_e(\th; \vx)$
+is the sample covariance matrix (with divisor $n$)
+of the observations' scores,
+so it estimates the covariance matrix of one observation's score,
+$\einf(\th)/n$
+(@thm-information-equality).
+The empirical information needs only first derivatives,
+so it can be easier to compute than the observed information,
+and it can replace the observed information in the Newton-Raphson update.

@@ -1,0 +1,8 @@
+::: {#def-sample-variance}
+#### Sample variance
+
+The **sample variance** of $n \ge 2$ observations is:
+
+$$s^2 \eqdef \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2$$
+
+:::

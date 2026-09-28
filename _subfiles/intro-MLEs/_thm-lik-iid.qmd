@@ -1,0 +1,23 @@
+:::{#thm-lik-iid}
+#### Likelihood of an independent sample
+
+For [mutually independent](https://morrison-lab.github.io/rme/chapters/probability.html#def-indpt)
+data $X_1, \ldots, X_n$:
+
+$$\Lik(\theta) = \prod_{i=1}^n \p(X_i = x_i \mid \theta)$$ {#eq-Lik}
+
+:::
+
+:::{.proof}
+
+$$
+\begin{aligned}
+\Lik(\theta)
+&\eqdef \p(X_1 = x_1, \ldots, X_n = x_n \mid \theta)
+&& \text{(definition of likelihood)}\\
+&= \prod_{i=1}^n \p(X_i = x_i \mid \theta)
+&& \text{(definition of mutual independence)}
+\end{aligned}
+$$
+
+:::

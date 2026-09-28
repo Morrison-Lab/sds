@@ -1,0 +1,94 @@
+::: {#exm-bayes-survival}
+#### Exponential survival regression fitted by Bayesian inference
+
+We simulate $N = 200$ right-censored exponential survival times,
+with a binary covariate $x_i$ (say, treatment)
+and hazard $\haz_i = \expf{\beta_0 + \beta_1 x_i}$,
+where the log baseline hazard is $\beta_0 = \log 0.05$
+and the log hazard ratio is $\beta_1 = -0.7$.
+With event indicator $\delta_i$ (1 for an event, 0 for a censored time)
+and follow-up time $t_i$,
+the exponential density is $\haz_i e^{-\haz_i t}$
+and its survival function is $e^{-\haz_i t}$,
+so observation $i$ contributes the log-likelihood
+
+$$
+\ell_i \eqdef \delta_i \log \haz_i - \haz_i t_i.
+$$
+
+JAGS has no built-in distribution for this contribution,
+so we fit it with the zeros trick.
+
+```{r}
+#| label: jags-survival
+set.seed(2026)
+n_obs <- 200L
+x <- stats::rbinom(n_obs, size = 1, prob = 0.5)
+event_time <- stats::rexp(n_obs, rate = exp(log(0.05) - 0.7 * x))
+censor_time <- stats::rexp(n_obs, rate = 0.03)
+follow_up <- pmin(event_time, censor_time)
+event <- as.integer(event_time <= censor_time)
+
+survival_model <- "
+model {
+  C <- 10000
+  for (i in 1:N) {
+    log(lambda[i]) <- beta0 + beta1 * x[i]
+    loglik[i] <- event[i] * log(lambda[i]) - lambda[i] * follow_up[i]
+    zeros[i] ~ dpois(C - loglik[i])
+  }
+  beta0 ~ dnorm(0, 0.01)
+  beta1 ~ dnorm(0, 0.01)
+  HR <- exp(beta1)
+}
+"
+inits <- list(
+  list(.RNG.name = "base::Mersenne-Twister", .RNG.seed = 1),
+  list(.RNG.name = "base::Mersenne-Twister", .RNG.seed = 2)
+)
+fit <- rjags::jags.model(
+  textConnection(survival_model),
+  data = list(
+    follow_up = follow_up, x = x, event = event,
+    N = n_obs, zeros = rep(0, n_obs)
+  ),
+  inits = inits,
+  n.chains = 2,
+  quiet = TRUE
+)
+stats::update(fit, n.iter = 1000, progress.bar = "none")
+draws <- rjags::coda.samples(
+  fit,
+  variable.names = c("beta0", "beta1", "HR"),
+  n.iter = 4000,
+  progress.bar = "none"
+)
+draws_matrix <- as.matrix(draws)
+cbind(
+  mean = colMeans(draws_matrix),
+  t(apply(draws_matrix, 2, stats::quantile, probs = c(0.025, 0.975))),
+  Rhat = coda::gelman.diag(draws, multivariate = FALSE)$psrf[, "Point est."]
+) |>
+  round(3)
+```
+
+About `r round(100 * mean(event))`% of the follow-up times end in an event.
+The 95% credible interval for $\beta_1$ contains the true $-0.7$,
+though the posterior mean is some distance from it.
+The maximum likelihood estimates, from the same log-likelihood,
+show that the gap is sampling variation in this data set
+rather than an effect of the prior:
+
+```{r}
+#| label: mle-survival
+neg_loglik <- function(beta) {
+  lambda <- exp(beta[1] + beta[2] * x)
+  -sum(event * log(lambda) - lambda * follow_up)
+}
+stats::optim(c(0, 0), neg_loglik)$par |>
+  stats::setNames(c("beta0", "beta1")) |>
+  round(3)
+```
+
+The monitored $e^{\beta_1}$ gives the hazard ratio and its credible interval directly.
+:::

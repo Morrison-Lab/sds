@@ -1,0 +1,16 @@
+:::{#cor-se-rmse-unbiased}
+#### For unbiased estimators, SE equals root MSE
+
+If $\hth$ is [unbiased](#def-unbiased), then its standard error equals its [root mean squared error](#def-rmse):
+
+$$\SE{\hth} = \sqrt{\mselr{\hth}}$$
+
+:::
+
+::: proof
+
+By @eq-unbiased-mse, $\mselr{\hth} = \Var{\hth}$.
+Taking square roots of both sides,
+$\sqrt{\mselr{\hth}} = \SD{\hth} = \SE{\hth}$.
+
+:::
