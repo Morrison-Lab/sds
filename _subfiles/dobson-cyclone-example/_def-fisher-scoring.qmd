@@ -11,8 +11,3 @@ $$
 $$
 
 :::
-
-::: notes
-The expected information is sometimes simpler to compute
-than the observed information.
-:::

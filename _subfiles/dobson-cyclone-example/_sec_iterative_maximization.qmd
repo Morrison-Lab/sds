@@ -16,6 +16,9 @@ The second line of the update uses $\oinf = -\hess$
 
 {{< include sds/_subfiles/dobson-cyclone-example/_def-fisher-scoring.qmd >}}
 
+The expected information is sometimes simpler to compute
+than the observed information.
+
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/dobson-cyclone-example/_exm-fisher-scoring-poisson.qmd >}}
