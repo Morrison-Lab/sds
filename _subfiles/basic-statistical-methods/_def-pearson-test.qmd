@@ -11,5 +11,5 @@ of $H_0: \rho = 0$ against $H_1: \rho \neq 0$
 $$t \eqdef \frac{r \sqrt{n - 2}}{\sqrt{1 - r^2}}.$$
 
 Its p-value is $\Pr(\abs{T} \ge \abs{t})$,
-where $T$ has the $t_{n-2}$ distribution (@def-t-dist).
+where $T$ has the $t_{n-2}$ distribution ([t-distribution](inference.qmd#def-t-dist)).
 :::

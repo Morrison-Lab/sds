@@ -16,8 +16,10 @@ $p$ is the number of regression coefficients.
 :::
 
 ::: notes
-The t, F and ANOVA tests are covered in
-[basic statistical methods](basic-statistical-methods.qmd).
+The t-tests and ANOVA are covered in
+[Comparing Means](basic-statistical-methods.qmd),
+and the $t$ and $F$ distributions in
+[Statistical Inference](inference.qmd#sec-reference-distributions).
 The exact tests assume $Y_i \simind N(\mu_i, \sigma^2)$,
 with a common variance.
 The approximate tests hold asymptotically,

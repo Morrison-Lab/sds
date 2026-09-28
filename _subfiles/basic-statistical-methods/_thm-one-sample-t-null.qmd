@@ -17,7 +17,7 @@ and $V \eqdef (n-1) S^2 / \sigma^2$ has the $\chi^2_{n-1}$ distribution.
 Also, $Z \eqdef (\bar X - \mu_0) / (\sigma / \sqrt{n})$
 has the standard Gaussian distribution,
 and $Z$ is independent of $V$ because $\bar X$ is independent of $S^2$.
-So by @def-t-dist, $Z / \sqrt{V / (n-1)}$ has the $t_{n-1}$ distribution,
+So by the [definition of the t-distribution](inference.qmd#def-t-dist), $Z / \sqrt{V / (n-1)}$ has the $t_{n-1}$ distribution,
 and this ratio equals $T$:
 
 $$
@@ -42,5 +42,5 @@ when $n$ is large,
 <!-- Repoint to pds (limit-theorems.qmd#sec-clt) once it is published. -->
 by the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem),
 and then $t_{n-1}$ is close to the standard Gaussian distribution
-(@exm-t-dist).
+([t quantiles approach Gaussian quantiles](inference.qmd#exm-t-dist)).
 :::

@@ -22,7 +22,7 @@ uses the statistic
 $$F \eqdef \frac{\text{SS}_\text{between} / (k - 1)}{\text{SS}_\text{within} / (n - k)}.$$
 
 Its p-value is $\Pr(F^* \ge F)$,
-where $F^*$ has the $F_{k-1,\, n-k}$ distribution (@def-f-dist).
+where $F^*$ has the $F_{k-1,\, n-k}$ distribution ([F-distribution](inference.qmd#def-f-dist)).
 :::
 
 ::: notes

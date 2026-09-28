@@ -1,0 +1,60 @@
+---
+title: "Comparing Proportions"
+format:
+  html: default
+  revealjs:
+    output-file: categorical-tests-slides.html
+  pdf:
+    output-file: categorical-tests-handout.pdf
+  docx:
+    output-file: categorical-tests-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-intro-categorical.qmd >}}
+
+## The HERS data
+
+{{< include sds/_subfiles/basic-statistical-methods/_load-hers-short.qmd >}}
+
+## Comparing two groups: categorical outcomes {#sec-two-group-categorical}
+
+### Contingency tables {#sec-contingency-tables}
+
+<!-- No slidebreak here: the heading shares its slide with the exm-hers-crosstab div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-crosstab.qmd >}}
+
+### The chi-square test {#sec-chi-square}
+
+<!-- No slidebreak here: the heading shares its slide with the def-chi-square-test div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-chi-square-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-chi-square-null.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-chisq.qmd >}}
+
+### Fisher's exact test {#sec-fisher}
+
+<!-- No slidebreak here: the heading shares its slide with the def-fishers-exact div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-fishers-exact.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-fisher.qmd >}}
+
+### Measures of association for $2 \times 2$ tables {#sec-2x2-measures}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-2x2-measures.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

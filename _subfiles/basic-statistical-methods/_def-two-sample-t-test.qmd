@@ -15,7 +15,7 @@ $$\hat\nu \eqdef \frac{\paren{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}^2}
 {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.$$
 
 Its p-value is $\Pr(\abs{T} \ge \abs{t})$,
-where $T$ has the $t_{\hat\nu}$ distribution (@def-t-dist).
+where $T$ has the $t_{\hat\nu}$ distribution ([t-distribution](inference.qmd#def-t-dist)).
 :::
 
 ::: notes

@@ -1,0 +1,5 @@
+This page reviews tests for comparing groups on a categorical outcome:
+the chi-square test and Fisher's exact test for contingency tables.
+It uses the chi-square reference distribution
+defined on the [Statistical Inference](inference.qmd#sec-reference-distributions) page.
+This page is adapted from @vittinghoff2e, Chapter 3.

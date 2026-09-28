@@ -9,5 +9,5 @@ against $H_1: \mu \neq \mu_0$ uses the statistic
 $$t \eqdef \frac{\bar{x} - \mu_0}{s / \sqrt{n}}.$$
 
 Its p-value is $\Pr(\abs{T} \ge \abs{t})$,
-where $T$ has the $t_{n-1}$ distribution (@def-t-dist).
+where $T$ has the $t_{n-1}$ distribution ([t-distribution](inference.qmd#def-t-dist)).
 :::

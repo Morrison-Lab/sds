@@ -1,0 +1,102 @@
+---
+title: "Correlation and Simple Linear Regression"
+format:
+  html: default
+  revealjs:
+    output-file: correlation-regression-slides.html
+  pdf:
+    output-file: correlation-regression-handout.pdf
+  docx:
+    output-file: correlation-regression-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-intro-correlation.qmd >}}
+
+## The HERS data
+
+{{< include sds/_subfiles/basic-statistical-methods/_load-hers-short.qmd >}}
+
+## Correlation {#sec-correlation}
+
+### Testing the Pearson correlation {#sec-pearson}
+
+<!-- No slidebreak here: the heading shares its slide with the def-population-correlation div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-population-correlation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-pearson-test.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-pearson-test-null.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-cor.qmd >}}
+
+### Spearman rank correlation {#sec-spearman}
+
+<!-- No slidebreak here: the heading shares its slide with the def-spearman-r div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-spearman-r.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-spearman.qmd >}}
+
+## Simple linear regression {#sec-simple-linear-regression}
+
+### Model specification {#sec-slr-model}
+
+<!-- No slidebreak here: the heading shares its slide with the def-slr div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-slr.qmd >}}
+
+### Ordinary least squares estimation {#sec-ols}
+
+<!-- No slidebreak here: the heading shares its slide with the def-ols div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-ols.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-ols-slr.qmd >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_proof-ols-slr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_cor-ols-slope-r.qmd >}}
+
+### Fitting a simple linear regression in R {#sec-slr-R}
+
+<!-- No slidebreak here: the heading shares its slide with the exm-hers-slr div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-slr.qmd >}}
+
+### The coefficient of determination {#sec-r-squared}
+
+<!-- No slidebreak here: the heading shares its slide with the def-r-squared div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-r-squared.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-r-squared-slr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-hers-r-squared.qmd >}}
+
+### Further reading
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-slr-further-reading.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

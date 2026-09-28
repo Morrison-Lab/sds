@@ -1,0 +1,6 @@
+This page reviews two ways to relate two continuous variables:
+correlation coefficients, with tests of whether they differ from zero,
+and simple linear regression.
+It uses the $t$ reference distribution
+defined on the [Statistical Inference](inference.qmd#sec-reference-distributions) page.
+This page is adapted from @vittinghoff2e, Chapter 3.

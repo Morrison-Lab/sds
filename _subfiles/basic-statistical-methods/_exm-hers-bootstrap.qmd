@@ -2,7 +2,7 @@
 #### Bootstrap confidence intervals for the slope of SBP on age in HERS
 
 We regress systolic blood pressure (`SBP`) on `age`
-by OLS (@def-ols),
+by [ordinary least squares](correlation-regression.qmd#def-ols),
 and bootstrap the slope,
 resampling participants [adapted from @vittinghoff2e, Chapter 3].
 The statistic function takes the data and the row indices
