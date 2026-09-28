@@ -12,14 +12,32 @@ format:
 
 # Welcome {.unnumbered}
 
-These notes collect the statistics that data science courses assume.
+These notes collect the statistics that data science courses assume,
+organized by topic:
+
+- [Exploratory and Descriptive Methods](exploratory-descriptive.qmd)
+- [Nonparametric Models](nonparametric-models.qmd)
+- [Estimation](estimation.qmd)
+- [Statistical Inference](inference.qmd)
+- [Introduction to Maximum Likelihood Inference](intro-MLEs.qmd)
+- [Bayesian Inference](bayesian-inference.qmd)
+- [Basic Statistical Methods](basic-statistical-methods.qmd)
+
+Each page is ported from the corresponding appendix chapter of
+[*Regression Models for Epidemiology*](https://morrison-lab.github.io/rme/),
+keeping that chapter's file names and `#id` anchors.
+Probability prerequisites are in the companion `pds` notes,
+and mathematics prerequisites in the companion `mds` notes.
 
 ## Using these notes in another site
 
 Course sites include these notes as a git submodule named `sds`
 at the site's root,
-and include fragments with paths that start with `sds/`.
+and include fragments with paths that start with `sds/`,
+for example `{{</* include sds/_subfiles/intro-MLEs/_def_mle.qmd */>}}`.
+This site includes its own fragments the same way,
+through an `sds` symlink that points at the repository root.
 
 Quarto resolves `@id` cross-references only within one rendered page,
 so a host site that links to a result here
-uses an explicit link to the page and anchor.
+uses an explicit link, `[text](estimation.qmd#id)`.

@@ -7,7 +7,9 @@
 
 <!-- badges: end -->
 
-`sds` collects the statistics that data science courses assume, as
+`sds` collects the statistics that data science courses assume:
+descriptive and exploratory methods, estimation, maximum likelihood and
+Bayesian inference, and basic statistical methods, as
 [Quarto](https://quarto.org/) fragments. It renders on its own as a
 website, and course sites include it as a git submodule.
 
@@ -35,6 +37,10 @@ quarto preview
 ```
 
 ## Provenance
+
+The notes are ported from the appendix chapters of [*Regression Models
+for Epidemiology*](https://github.com/Morrison-Lab/rme), keeping the
+file names and `#id` anchors of those chapters.
 
 The site scaffolding comes from the
 [qwt](https://github.com/UCD-SERG/qwt) Quarto website template.

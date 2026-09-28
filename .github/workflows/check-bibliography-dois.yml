@@ -21,3 +21,14 @@ jobs:
     permissions:
       contents: read
     uses: Morrison-Lab/gha/.github/workflows/check-bibliography-dois.yml@v2
+    with:
+      # Book/article entries copied from rme's references.bib without a DOI
+      # (older or non-DOI'd books, a web textbook, an eScholarship paper,
+      # and two journal articles whose DOIs have not been verified yet).
+      # Move a key out of this list when a DOI is found and verified
+      # against CrossRef.
+      exclude-keys: >-
+        aragon2018population box_draper_1987 CaseBerg01 efron1978assessing
+        HobbsN.Thompson2015Bmas hoggtanis2015 HulleyStephen1998RToE
+        kery-bayes-pop kleinbaum2014applied korner.bayes.ecology rossbayes
+        statrethink2e van2018flexible

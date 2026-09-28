@@ -1,0 +1,3 @@
+$$
+\thmADistMLE
+$${#eq-adist-mle}

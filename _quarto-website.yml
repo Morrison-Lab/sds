@@ -34,6 +34,22 @@ website:
     left:
       - text: "Home"
         href: index.qmd
+      - text: "Notes"
+        menu:
+          - text: "Exploratory and Descriptive Methods"
+            href: exploratory-descriptive.qmd
+          - text: "Nonparametric Models"
+            href: nonparametric-models.qmd
+          - text: "Estimation"
+            href: estimation.qmd
+          - text: "Statistical Inference"
+            href: inference.qmd
+          - text: "Maximum Likelihood Inference"
+            href: intro-MLEs.qmd
+          - text: "Bayesian Inference"
+            href: bayesian-inference.qmd
+          - text: "Basic Statistical Methods"
+            href: basic-statistical-methods.qmd
     right:
       - icon: github
         href: https://github.com/Morrison-Lab/sds
