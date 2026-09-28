@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ucd-serg.github.io/qwt/index.html</loc>
-    <lastmod>2026-04-07T00:41:35.309Z</lastmod>
+    <loc>https://morrison-lab.github.io/sds/nonparametric-models.html</loc>
+    <lastmod>2026-09-28T08:33:18.301Z</lastmod>
   </url>
   <url>
-    <loc>https://ucd-serg.github.io/qwt/index-slides.html</loc>
-    <lastmod>2026-04-07T00:41:35.309Z</lastmod>
+    <loc>https://morrison-lab.github.io/sds/inference.html</loc>
+    <lastmod>2026-09-28T08:33:18.301Z</lastmod>
   </url>
   <url>
-    <loc>https://ucd-serg.github.io/qwt/chapters/chapter1.html</loc>
-    <lastmod>2026-04-07T00:41:35.308Z</lastmod>
+    <loc>https://morrison-lab.github.io/sds/exploratory-descriptive.html</loc>
+    <lastmod>2026-09-28T08:33:18.301Z</lastmod>
   </url>
   <url>
-    <loc>https://ucd-serg.github.io/qwt/chapters/chapter1-slides.html</loc>
-    <lastmod>2026-04-07T00:41:35.308Z</lastmod>
+    <loc>https://morrison-lab.github.io/sds/bayesian-inference.html</loc>
+    <lastmod>2026-09-28T08:33:18.301Z</lastmod>
   </url>
   <url>
-    <loc>https://ucd-serg.github.io/qwt/chapters/chapter2-slides.html</loc>
-    <lastmod>2026-04-07T00:41:35.309Z</lastmod>
+    <loc>https://morrison-lab.github.io/sds/basic-statistical-methods.html</loc>
+    <lastmod>2026-09-28T08:33:18.296Z</lastmod>
   </url>
   <url>
-    <loc>https://ucd-serg.github.io/qwt/chapters/chapter2.html</loc>
-    <lastmod>2026-04-07T00:41:35.309Z</lastmod>
+    <loc>https://morrison-lab.github.io/sds/estimation.html</loc>
+    <lastmod>2026-09-28T08:33:18.302Z</lastmod>
+  </url>
+  <url>
+    <loc>https://morrison-lab.github.io/sds/index.html</loc>
+    <lastmod>2026-09-28T08:21:55.698Z</lastmod>
+  </url>
+  <url>
+    <loc>https://morrison-lab.github.io/sds/intro-MLEs.html</loc>
+    <lastmod>2026-09-28T08:33:18.302Z</lastmod>
   </url>
 </urlset>
