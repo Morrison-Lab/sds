@@ -14,12 +14,10 @@ BugReports: https://github.com/Morrison-Lab/sds/issues
 Depends: 
     R (>= 4.1.0)
 Suggests:
-    knitr,
     rmarkdown,
     spelling,
     usethis,
     devtools
-VignetteBuilder: knitr
 Imports: 
     boot,
     coda,
