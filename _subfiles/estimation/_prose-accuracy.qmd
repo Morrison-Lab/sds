@@ -1,3 +1,3 @@
 To determine which estimator is best, we need to define *best*.
-"Accuracy" is usually most important; easy computation is usually
-secondary.
+Accuracy is usually most important,
+and ease of computation is usually secondary.

@@ -82,10 +82,6 @@ format:
 
 {{< include sds/_subfiles/estimation/_prose-accuracy.qmd >}}
 
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_def-accuracy.qmd >}}
-
 ## Estimation error
 
 <!-- No slidebreak here: the heading shares its slide with the def-estimation-error div. -->
@@ -95,6 +91,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/estimation/_exm-estimation-error.qmd >}}
+
+{{< include sds/_subfiles/estimation/_prose-accuracy-measures.qmd >}}
 
 ## Residuals
 
@@ -132,15 +130,9 @@ format:
 
 {{< include sds/_subfiles/estimation/_exm-mse-sample-mean.qmd >}}
 
-## Mean absolute error
-
-<!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
-
-{{< include sds/_subfiles/estimation/_def-mae.qmd >}}
-
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/estimation/_exm-mae-gaussian.qmd >}}
+{{< include sds/_subfiles/estimation/_def-rmse.qmd >}}
 
 ## Unbiased estimators {#sec-unbiased-estimators}
 
@@ -159,6 +151,16 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/estimation/_thm-unbiased-props.qmd >}}
+
+## Mean absolute error
+
+<!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
+
+{{< include sds/_subfiles/estimation/_def-mae.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-mae-gaussian.qmd >}}
 
 ## Standard error
 

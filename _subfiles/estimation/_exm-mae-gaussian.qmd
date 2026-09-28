@@ -29,7 +29,8 @@ $$
 \end{aligned}
 $$
 
-So for an unbiased Gaussian estimator,
-the mean absolute error is about $0.80$ times the standard deviation,
-while the root mean squared error equals the standard deviation.
+So for an [unbiased](#def-unbiased) Gaussian estimator,
+the mean absolute error is about $0.80$ times the standard deviation $\tau$,
+while the [root mean squared error](#def-rmse) is $\tau$ itself
+(@thm-unbiased-props).
 :::
