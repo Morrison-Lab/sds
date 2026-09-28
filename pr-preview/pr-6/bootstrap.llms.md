@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 02:18:22 (PDT)
+Last modified: 2026-09-28 02:36:06 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
@@ -30,7 +30,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 
 > **NOTE:**
 >
-> **Definition 1 (Bootstrap sample)** A **bootstrap sample** from observed data \\x_1, \ldots, x_n\\ is a sample of size \\n\\ drawn **with replacement** from \\\mathopen{}\left\\x_1, \ldots, x_n\right\\\mathclose{}\\, each draw choosing each of the \\n\\ observations with probability \\1/n\\.
+> **Definition 1 (Bootstrap sample)** A **bootstrap sample** from observed data \\x_1, \ldots, x_n\\ is a sample of size \\n\\ drawn with replacement from \\\mathopen{}\left\\x_1, \ldots, x_n\right\\\mathclose{}\\, each draw choosing each of the \\n\\ observations with probability \\1/n\\.
 
 Because the draws are with replacement, a bootstrap sample usually contains some observations more than once and omits others.
 
@@ -150,11 +150,31 @@ The extreme quantiles of \\B\\ replicates are noisy estimates, so percentile-bas
 
 > **NOTE:**
 >
-> **Definition 6 (Bias-corrected and accelerated bootstrap confidence interval)** Let \\\hat\theta\_{(i)}\\ be the statistic computed with observation \\i\\ deleted, and let \\\hat\theta\_{(\cdot)}\\ be the mean of \\\hat\theta\_{(1)}, \ldots, \hat\theta\_{(n)}\\. The **bias correction** and the **acceleration** are
+> **Definition 6 (Bias correction of the BCa interval)** For a statistic \\\hat\theta\\ and its bootstrap replicates \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\, the **bias correction** is
 >
-> \\ \begin{aligned} \hat{z}\_0 &\stackrel{\text{def}}{=}\Phi^{-1}\mathopen{}\left(\frac{\\\mathopen{}\left\\b : \hat\theta^\*\_b \< \hat\theta\right\\\mathclose{}}{B}\right)\mathclose{},\\ \hat{a} &\stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n \mathopen{}\left(\hat\theta\_{(\cdot)} - \hat\theta\_{(i)}\right)\mathclose{}^3} {6 \mathopen{}\left(\sum\_{i=1}^n \mathopen{}\left(\hat\theta\_{(\cdot)} - \hat\theta\_{(i)}\right)\mathclose{}^2\right)\mathclose{}^{3/2}}. \end{aligned} \\
+> \\\hat{z}\_0 \stackrel{\text{def}}{=}\Phi^{-1}\mathopen{}\left(\frac{\\\mathopen{}\left\\b : \hat\theta^\*\_b \< \hat\theta\right\\\mathclose{}}{B}\right)\mathclose{},\\
 >
-> For \\q \in \mathopen{}\left\\\alpha/2, 1 - \alpha/2\right\\\mathclose{}\\, let
+> where \\\Phi\\ is the standard Gaussian CDF.
+
+> **NOTE:**
+>
+> **Example 5 (Bias correction when 40% of replicates fall below the estimate)** If 400 of \\B = 1{,}000\\ replicates are below \\\hat\theta\\, then \\\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\\. If exactly half were below, \\\hat z_0 = \Phi^{-1}(0.5) = 0\\.
+
+> **NOTE:**
+>
+> **Definition 7 (Acceleration of the BCa interval)** Let \\\hat\theta\_{(i)}\\ be the statistic computed with observation \\i\\ deleted, and let \\\hat\theta\_{(\cdot)}\\ be the mean of \\\hat\theta\_{(1)}, \ldots, \hat\theta\_{(n)}\\. The **acceleration** is
+>
+> \\\hat{a} \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n \mathopen{}\left(\hat\theta\_{(\cdot)} - \hat\theta\_{(i)}\right)\mathclose{}^3} {6 \mathopen{}\left(\sum\_{i=1}^n \mathopen{}\left(\hat\theta\_{(\cdot)} - \hat\theta\_{(i)}\right)\mathclose{}^2\right)\mathclose{}^{3/2}}.\\
+
+> **NOTE:**
+>
+> **Example 6 (Acceleration from three deleted estimates)** If the differences \\\hat\theta\_{(\cdot)} - \hat\theta\_{(i)}\\ are \\1\\, \\1\\, and \\-2\\, the sum of their cubes is \\1 + 1 - 8 = -6\\ and the sum of their squares is \\6\\, so
+>
+> \\\hat a = \frac{-6}{6 \cdot 6^{3/2}} \approx -0.068.\\
+
+> **NOTE:**
+>
+> **Definition 8 (Bias-corrected and accelerated bootstrap confidence interval)** With the [bias correction](#def-bca-bias-correction) \\\hat z_0\\ and the [acceleration](#def-bca-acceleration) \\\hat a\\, for \\q \in \mathopen{}\left\\\alpha/2, 1 - \alpha/2\right\\\mathclose{}\\, let
 >
 > \\\alpha_q \stackrel{\text{def}}{=}\Phi\mathopen{}\left(\hat{z}\_0 + \frac{\hat{z}\_0 + z_q}{1 - \hat{a}(\hat{z}\_0 + z_q)}\right)\mathclose{}.\\
 >
@@ -164,7 +184,7 @@ When \\\hat{z}\_0 = 0\\ and \\\hat{a} = 0\\, \\\alpha_q = q\\ and the BCa interv
 
 > **NOTE:**
 >
-> **Example 5 (BCa bootstrap interval for the mean of ten glucose values)** Continuing [Example 2](#exm-bootstrap-distribution-toy), the quantities of [Definition 6](#def-bootstrap-ci-bca), step by step:
+> **Example 7 (BCa bootstrap interval for the mean of ten glucose values)** Continuing [Example 2](#exm-bootstrap-distribution-toy), the quantities of [Definition 8](#def-bootstrap-ci-bca), step by step:
 >
 > ``` downlit
 > z0 <- qnorm(mean(boot_means10 < mean(glucose10)))
@@ -194,7 +214,7 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 
 > **NOTE:**
 >
-> **Example 6 (Bootstrap confidence intervals for the slope of SBP on age in HERS)** We regress systolic blood pressure (`SBP`) on `age` by [ordinary least squares](correlation-regression.llms.md#def-ols), and bootstrap the slope, resampling participants (adapted from [Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)). The statistic function takes the data and the row indices of one bootstrap sample:
+> **Example 8 (Bootstrap confidence intervals for the slope of SBP on age in HERS)** We regress systolic blood pressure (`SBP`) on `age` by [ordinary least squares](correlation-regression.llms.md#def-ols), and bootstrap the slope, resampling participants (adapted from [Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)). The statistic function takes the data and the row indices of one bootstrap sample:
 >
 > ``` downlit
 > slope_sbp_age <- function(data, indices) {

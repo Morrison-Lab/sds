@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 02:18:22 (PDT)
+Last modified: 2026-09-28 02:36:06 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -47,11 +47,17 @@ hers <- rmb::hers |> haven::as_factor()
 
 > **NOTE:**
 >
-> **Definition 1 (Pearson’s chi-square test of independence)** Let a contingency table have \\r\\ rows and \\c\\ columns, with observed count \\O\_{ij}\\ in row \\i\\ and column \\j\\, row totals \\R_i\\, column totals \\C_j\\, and grand total \\n\\. The **expected count** in cell \\(i, j)\\ under independence is
+> **Definition 1 (Expected count under independence)** Let a contingency table have \\r\\ rows and \\c\\ columns, with observed count \\O\_{ij}\\ in row \\i\\ and column \\j\\, row totals \\R_i\\, column totals \\C_j\\, and grand total \\n\\. The **expected count** in cell \\(i, j)\\ under independence is
 >
 > \\E\_{ij} \stackrel{\text{def}}{=}\frac{R_i \\ C_j}{n}.\\
+
+> **NOTE:**
 >
-> **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the statistic
+> **Example 2 (Expected count in a 2 x 2 table)** In a table with \\n = 100\\, first-row total \\R_1 = 30\\, and first-column total \\C_1 = 40\\, the expected count in cell \\(1, 1)\\ is \\E\_{11} = 30 \cdot 40 / 100 = 12\\.
+
+> **NOTE:**
+>
+> **Definition 2 (Pearson’s chi-square test of independence)** With observed counts \\O\_{ij}\\ and [expected counts](#def-expected-count) \\E\_{ij}\\ in an \\r \times c\\ contingency table, **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the statistic
 >
 > \\X^2 \stackrel{\text{def}}{=}\sum\_{i=1}^r \sum\_{j=1}^c \frac{(O\_{ij} - E\_{ij})^2}{E\_{ij}}.\\
 >
@@ -59,13 +65,13 @@ hers <- rmb::hers |> haven::as_factor()
 
 > **NOTE:**
 >
-> **Theorem 1 (Large-sample null distribution of the chi-square statistic)** Let \\n\\ observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as \\n \to \infty\\, the distribution of \\X^2\\ ([Definition 1](#def-chi-square-test)) converges to the \\\chi^2\_{(r-1)(c-1)}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
+> **Theorem 1 (Large-sample null distribution of the chi-square statistic)** Let \\n\\ observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as \\n \to \infty\\, the distribution of \\X^2\\ ([Definition 2](#def-chi-square-test)) converges to the \\\chi^2\_{(r-1)(c-1)}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
 
 The chi-square approximation is poor when some expected counts are small. A common rule of thumb asks for every \\E\_{ij}\\ to be at least 5.
 
 > **NOTE:**
 >
-> **Example 2 (Chi-square test of exercise by treatment group in HERS)** The expected counts and statistic of [Definition 1](#def-chi-square-test) for [Table 1](#tbl-hers-crosstab):
+> **Example 3 (Chi-square test of exercise by treatment group in HERS)** The expected counts and statistic of [Definition 2](#def-chi-square-test) for [Table 1](#tbl-hers-crosstab):
 >
 > ``` downlit
 > observed <- table(hers$exercise, hers$HT)
@@ -96,13 +102,13 @@ The chi-square approximation is poor when some expected counts are small. A comm
 >
 > The p-value is large: the data give no evidence that exercise depends on treatment group, as randomization would lead us to expect.
 
-For a \\2 \times 2\\ table, [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) applies Yates’ continuity correction by default, which subtracts 0.5 from each \\\mathopen{}\left\|O\_{ij} - E\_{ij}\right\|\mathclose{}\\ before squaring, and so gives a smaller statistic than [Definition 1](#def-chi-square-test). `correct = FALSE` turns the correction off.
+For a \\2 \times 2\\ table, [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) applies Yates’ continuity correction by default, which subtracts 0.5 from each \\\mathopen{}\left\|O\_{ij} - E\_{ij}\right\|\mathclose{}\\ before squaring, and so gives a smaller statistic than [Definition 2](#def-chi-square-test). `correct = FALSE` turns the correction off.
 
 ### 2.3 Fisher’s exact test
 
 > **NOTE:**
 >
-> **Definition 2 (Fisher’s exact test)** Take a \\2 \times 2\\ contingency table with cells \\a\\, \\b\\, \\c\\, and \\d\\ as in [the contingency table definition](exploratory-descriptive.llms.md#def-contingency-table), and hold its row and column totals fixed. Under independence of the row and column variables, the probability that the top-left cell equals \\x\\ is the hypergeometric probability
+> **Definition 3 (Fisher’s exact test)** Take a \\2 \times 2\\ contingency table with cells \\a\\, \\b\\, \\c\\, and \\d\\ as in [the contingency table definition](exploratory-descriptive.llms.md#def-contingency-table), and hold its row and column totals fixed. Under independence of the row and column variables, the probability that the top-left cell equals \\x\\ is the hypergeometric probability
 >
 > \\p(x) \stackrel{\text{def}}{=}\frac{\binom{a+b}{x} \binom{c+d}{a+c-x}}{\binom{n}{a+c}}.\\
 >
@@ -116,7 +122,7 @@ The p-value is exact: it comes from the null distribution itself, not from a lar
 
 > **NOTE:**
 >
-> **Example 3 (Fisher’s exact test of exercise by treatment group in HERS)** The p-value of [Definition 2](#def-fishers-exact) for [Table 1](#tbl-hers-crosstab), computed from the hypergeometric probabilities with [`dhyper()`](https://rdrr.io/r/stats/Hypergeometric.html):
+> **Example 4 (Fisher’s exact test of exercise by treatment group in HERS)** The p-value of [Definition 3](#def-fishers-exact) for [Table 1](#tbl-hers-crosstab), computed from the hypergeometric probabilities with [`dhyper()`](https://rdrr.io/r/stats/Hypergeometric.html):
 >
 > ``` downlit
 > a <- observed[1, 1]
@@ -147,7 +153,7 @@ The p-value is exact: it comes from the null distribution itself, not from a lar
 > #>    1.02836
 > ```
 >
-> With counts this large, the exact p-value is close to the chi-square p-value of [Example 2](#exm-hers-chisq).
+> With counts this large, the exact p-value is close to the chi-square p-value of [Example 3](#exm-hers-chisq).
 
 ### 2.4 Measures of association for \\2 \times 2\\ tables
 

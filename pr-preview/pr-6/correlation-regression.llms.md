@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 02:18:22 (PDT)
+Last modified: 2026-09-28 02:36:06 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -146,11 +146,17 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 5 (Ordinary least squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **residual sum of squares** of a candidate line with intercept \\b_0\\ and slope \\b_1\\ is
+> **Definition 5 (Residual sum of squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **residual sum of squares** of a line with intercept \\b_0\\ and slope \\b_1\\ is
 >
 > \\\text{RSS}(b_0, b_1) \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - b_0 - b_1 x_i)^2.\\
+
+> **NOTE:**
 >
-> The **ordinary least squares (OLS) estimates** \\\hat\beta_0\\ and \\\hat\beta_1\\ are the values of \\b_0\\ and \\b_1\\ that minimize \\\text{RSS}(b_0, b_1)\\.
+> **Example 3 (Residual sum of squares of a line through three points)** For the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\b_0 = 1\\ and \\b_1 = 0.5\\, the vertical distances from the points to the line are \\1 - 1 = 0\\, \\2 - 1.5 = 0.5\\, and \\2 - 2 = 0\\, so \\\text{RSS}(1, 0.5) = 0^2 + 0.5^2 + 0^2 = 0.25\\.
+
+> **NOTE:**
+>
+> **Definition 6 (Ordinary least squares)** The **ordinary least squares (OLS) estimates** \\\hat\beta_0\\ and \\\hat\beta_1\\ are the values of \\b_0\\ and \\b_1\\ that minimize the [residual sum of squares](#def-rss) \\\text{RSS}(b_0, b_1)\\.
 
 > **NOTE:**
 >
@@ -158,7 +164,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > \\ \begin{aligned} S\_{xx} &\stackrel{\text{def}}{=}\sum\_{i=1}^n (x_i - \bar{x})^2, & S\_{yy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - \bar{y})^2, & S\_{xy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}), \end{aligned} \\
 >
-> and suppose \\S\_{xx} \> 0\\ (not all \\x_i\\ are equal). Then the OLS estimates ([Definition 5](#def-ols)) are unique, and
+> and suppose \\S\_{xx} \> 0\\ (not all \\x_i\\ are equal). Then the OLS estimates ([Definition 6](#def-ols)) are unique, and
 >
 > \\\hat\beta_1 = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat\beta_0 = \bar{y} - \hat\beta_1 \bar{x}.\\
 
@@ -202,7 +208,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Example 3 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 2](#thm-ols-slr), and the slope from [Corollary 1](#cor-ols-slope-r), for the participants with a BMI measurement:
+> **Example 4 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 2](#thm-ols-slr), and the slope from [Corollary 1](#cor-ols-slope-r), for the participants with a BMI measurement:
 >
 > ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
@@ -250,11 +256,23 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 6 (Coefficient of determination)** For a fitted regression with fitted values \\\hat{y}\_i\\, the **coefficient of determination** is
+> **Definition 7 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
+>
+> \\\text{TSS} \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - \bar{y})^2.\\
+
+> **NOTE:**
+>
+> **Example 5 (Total sum of squares of three values)** For \\y = 1, 2, 2\\, \\\bar y = 5/3\\, so
+>
+> \\ \begin{aligned} \text{TSS} &= \mathopen{}\left(1 - \tfrac{5}{3}\right)\mathclose{}^2 + 2\mathopen{}\left(2 - \tfrac{5}{3}\right)\mathclose{}^2 && \text{(definition)}\\ &= \tfrac{4}{9} + \tfrac{2}{9} && \text{(square the deviations)}\\ &= \tfrac{2}{3} && \text{(arithmetic)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Definition 8 (Coefficient of determination)** For a fitted regression with fitted values \\\hat{y}\_i\\, the **coefficient of determination** is
 >
 > \\R^2 \stackrel{\text{def}}{=}1 - \frac{\sum\_{i=1}^n (y_i - \hat{y}\_i)^2}{\sum\_{i=1}^n (y_i - \bar{y})^2}.\\
 >
-> The numerator is the residual sum of squares of the fit, and the denominator is the **total sum of squares** of the \\y_i\\.
+> The numerator is the [residual sum of squares](#def-rss) of the fit, and the denominator is the [total sum of squares](#def-tss) of the \\y_i\\.
 
 \\R^2\\ is often described as the proportion of the variation in \\Y\\ explained by the regression on \\X\\.
 
@@ -280,7 +298,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Example 4 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 3](#exm-hers-slr), \\R^2\\ computed from [Definition 6](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
+> **Example 6 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 4](#exm-hers-slr), \\R^2\\ computed from [Definition 8](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
 >
 > ``` downlit
 > fit <- lm(glucose ~ BMI, data = hers)

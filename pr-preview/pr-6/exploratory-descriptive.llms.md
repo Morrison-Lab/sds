@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 02:18:22 (PDT)
+Last modified: 2026-09-28 02:36:06 (PDT)
 
 ## 1 Introduction
 
@@ -178,8 +178,6 @@ dplyr::glimpse(wcgs)
 > **Definition 3 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
 >
 > \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^{n} (x_i - \bar{x})^2\\
-
-When the observations are independent draws with a common mean and variance, the divisor \\n - 1\\, rather than \\n\\, makes \\s^2\\ an [unbiased](estimation.llms.md#def-unbiased) estimator of that variance ([proof](estimation.llms.md#exm-biased-variance-mle)).
 
 > **NOTE:**
 >

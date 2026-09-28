@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 02:18:22 (PDT)
+Last modified: 2026-09-28 02:36:06 (PDT)
 
 ## 1 Inference
 
@@ -25,8 +25,8 @@ Statistical inference typically consists of two steps:
 
 There are two predominant paradigms for statistical inference:
 
-- [frequentist inference](intro-MLEs.llms.md#sec-intro-MLEs), which treats parameters as fixed unknown constants;
-- [Bayesian inference](bayesian-inference.llms.md), which treats parameters as random variables with prior distributions.
+- frequentist inference, which treats parameters as fixed unknown constants;
+- Bayesian inference, which treats parameters as random variables with prior distributions.
 
 ## 2 Hypothesis tests
 

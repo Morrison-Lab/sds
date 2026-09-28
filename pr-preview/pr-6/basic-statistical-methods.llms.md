@@ -4,21 +4,19 @@ Code
 
 Published
 
-Last modified: 2026-09-28 02:18:22 (PDT)
+Last modified: 2026-09-28 02:36:06 (PDT)
 
 ## 1 Introduction
 
-This page reviews the standard methods for comparing the mean of a continuous outcome between groups: t-tests, confidence intervals for a difference in means, and one-way analysis of variance. Three companion pages cover the other basic methods:
+This page reviews the standard methods for comparing the mean of a continuous outcome between groups: t-tests, confidence intervals for a difference in means, and one-way analysis of variance.
 
-- [Comparing Proportions](categorical-tests.llms.md): the chi-square test and Fisher’s exact test;
-- [Correlation and Simple Linear Regression](correlation-regression.llms.md);
-- [The Bootstrap](bootstrap.llms.md): confidence intervals for statistics whose sampling distribution has no convenient formula.
-
-These pages build on three others:
+This page builds on three others:
 
 - [Exploratory Data Analysis](exploratory-descriptive.llms.md) defines the sample statistics these methods use;
 - [Statistical Inference](inference.llms.md) defines hypotheses, test statistics, p-values, confidence intervals, and the t, chi-square, and F reference distributions;
 - [Estimation](estimation.llms.md) defines estimators and their standard errors.
+
+The t-tests and ANOVA on this page are the exact, Gaussian-outcome tests in the [table of exact and approximate tests](intro-MLEs.llms.md#tbl-gaussian-vs-mle-tests) on the Maximum Likelihood page, which pairs each one with its large-sample counterpart.
 
 This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -279,11 +277,21 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 
 > **NOTE:**
 >
-> **Definition 4 (Pooled two-sample t-test)** With the notation of [Definition 3](#def-two-sample-t-test), the **pooled variance** is
+> **Definition 4 (Pooled variance)** For two samples of sizes \\n_1\\ and \\n_2\\ with sample variances \\s_1^2\\ and \\s_2^2\\, the **pooled variance** is
 >
-> \\s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2},\\
+> \\s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}.\\
+
+> **NOTE:**
 >
-> and the **pooled two-sample t-test** of \\H_0: \mu_1 = \mu_2\\ uses the statistic
+> **Example 4 (Pooled variance of two small samples)** With \\n_1 = 3\\, \\s_1^2 = 4\\, \\n_2 = 5\\, and \\s_2^2 = 9\\:
+>
+> \\ \begin{aligned} s_p^2 &= \frac{(3 - 1) \cdot 4 + (5 - 1) \cdot 9}{3 + 5 - 2} && \text{(definition of pooled variance)}\\ &= \frac{8 + 36}{6} && \text{(arithmetic)}\\ &\approx 7.33 && \text{(arithmetic)} \end{aligned} \\
+>
+> The pooled variance lies between the two sample variances, closer to \\s_2^2\\, whose sample is larger.
+
+> **NOTE:**
+>
+> **Definition 5 (Pooled two-sample t-test)** With the notation of [Definition 3](#def-two-sample-t-test) and the [pooled variance](#def-pooled-variance) \\s_p^2\\, the **pooled two-sample t-test** of \\H_0: \mu_1 = \mu_2\\ uses the statistic
 >
 > \\t_p \stackrel{\text{def}}{=}\frac{\bar{x}\_1 - \bar{x}\_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}}.\\
 >
@@ -291,13 +299,13 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 
 > **NOTE:**
 >
-> **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance \\\sigma^2\\. Then \\t_p\\ ([Definition 4](#def-pooled-t-test)), computed from these random variables, has the \\t\_{n_1 + n_2 - 2}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
+> **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance \\\sigma^2\\. Then \\t_p\\ ([Definition 5](#def-pooled-t-test)), computed from these random variables, has the \\t\_{n_1 + n_2 - 2}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
 
 [Theorem 2](#thm-pooled-t-null) needs equal variances in the two groups, and Welch’s test ([Definition 3](#def-two-sample-t-test)) does not, so these notes use Welch’s test by default.
 
 > **NOTE:**
 >
-> **Example 4 (Pooled t-test of baseline glucose in HERS)** In HERS, the two groups have nearly equal sizes (1380 and 1383) and nearly equal standard deviations (36.9 and 36.8 mg/dL), so the pooled test gives almost the same result as Welch’s test in [Example 3](#exm-hers-ttest):
+> **Example 5 (Pooled t-test of baseline glucose in HERS)** In HERS, the two groups have nearly equal sizes (1380 and 1383) and nearly equal standard deviations (36.9 and 36.8 mg/dL), so the pooled test gives almost the same result as Welch’s test in [Example 3](#exm-hers-ttest):
 >
 > ``` downlit
 > t.test(glucose_ht, glucose_placebo, var.equal = TRUE)
@@ -318,7 +326,7 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 
 > **NOTE:**
 >
-> **Definition 5 (Welch confidence interval for a difference in means)** With the notation of [Definition 3](#def-two-sample-t-test), the **Welch \\100(1-\alpha)\\\\ confidence interval** for \\\mu_1 - \mu_2\\ is
+> **Definition 6 (Welch confidence interval for a difference in means)** With the notation of [Definition 3](#def-two-sample-t-test), the **Welch \\100(1-\alpha)\\\\ confidence interval** for \\\mu_1 - \mu_2\\ is
 >
 > \\(\bar{x}\_1 - \bar{x}\_2) \pm t\_{\hat\nu,\\ 1 - \alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\\
 >
@@ -326,7 +334,7 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 
 > **NOTE:**
 >
-> **Example 5 (Confidence interval for the HERS baseline glucose difference)** Continuing [Example 3](#exm-hers-ttest), the 95% interval of [Definition 5](#def-ci-diff-means) is:
+> **Example 6 (Confidence interval for the HERS baseline glucose difference)** Continuing [Example 3](#exm-hers-ttest), the 95% interval of [Definition 6](#def-ci-diff-means) is:
 >
 > ``` downlit
 > (mean(glucose_ht) - mean(glucose_placebo)) +
@@ -341,25 +349,53 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 
 > **NOTE:**
 >
-> **Definition 6 (One-way analysis of variance)** Let \\y\_{j1}, \ldots, y\_{jn_j}\\ be the \\n_j\\ observations in group \\j\\, for \\k \ge 2\\ groups with \\n \stackrel{\text{def}}{=}\sum\_{j=1}^k n_j \> k\\ observations in all. Let \\\bar{y}\_j\\ be the sample mean of group \\j\\ and \\\bar{y}\\ the sample mean of all \\n\\ observations. The **between-group** and **within-group sums of squares** are
+> **Definition 7 (Between-group sum of squares)** Let \\y\_{j1}, \ldots, y\_{jn_j}\\ be the \\n_j\\ observations in group \\j\\, for \\k \ge 2\\ groups with \\n \stackrel{\text{def}}{=}\sum\_{j=1}^k n_j\\ observations in all, let \\\bar{y}\_j\\ be the sample mean of group \\j\\, and let \\\bar{y}\\ be the sample mean of all \\n\\ observations. The **between-group sum of squares** is
 >
-> \\ \begin{aligned} \text{SS}\_\text{between} &\stackrel{\text{def}}{=}\sum\_{j=1}^k n_j (\bar{y}\_j - \bar{y})^2,\\ \text{SS}\_\text{within} &\stackrel{\text{def}}{=}\sum\_{j=1}^k \sum\_{i=1}^{n_j} (y\_{ji} - \bar{y}\_j)^2. \end{aligned} \\
+> \\\text{SS}\_\text{between} \stackrel{\text{def}}{=}\sum\_{j=1}^k n_j (\bar{y}\_j - \bar{y})^2.\\
+
+> **NOTE:**
 >
-> The **one-way analysis of variance (ANOVA)** F-test of \\H_0: \mu_1 = \mu_2 = \cdots = \mu_k\\ against the alternative that at least two group means differ uses the statistic
+> **Example 7 (Between-group sum of squares of two small groups)** Let group 1 be \\\mathopen{}\left\\1, 2, 3\right\\\mathclose{}\\ and group 2 be \\\mathopen{}\left\\4, 5, 6\right\\\mathclose{}\\, so \\\bar y_1 = 2\\, \\\bar y_2 = 5\\, and \\\bar y = 3.5\\. Then:
 >
-> \\F \stackrel{\text{def}}{=}\frac{\text{SS}\_\text{between} / (k - 1)}{\text{SS}\_\text{within} / (n - k)}.\\
+> \\ \begin{aligned} \text{SS}\_\text{between} &= 3(2 - 3.5)^2 + 3(5 - 3.5)^2 && \text{(definition)}\\ &= 3(2.25) + 3(2.25) && \text{(square the deviations)}\\ &= 13.5 && \text{(arithmetic)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Definition 8 (Within-group sum of squares)** With the notation of [Definition 7](#def-ss-between), the **within-group sum of squares** is
+>
+> \\\text{SS}\_\text{within} \stackrel{\text{def}}{=}\sum\_{j=1}^k \sum\_{i=1}^{n_j} (y\_{ji} - \bar{y}\_j)^2.\\
+
+> **NOTE:**
+>
+> **Example 8 (Within-group sum of squares of two small groups)** For the groups of [Example 7](#exm-ss-between):
+>
+> \\ \begin{aligned} \text{SS}\_\text{within} &= \mathopen{}\left\[(1-2)^2 + (2-2)^2 + (3-2)^2\right\]\mathclose{} + \mathopen{}\left\[(4-5)^2 + (5-5)^2 + (6-5)^2\right\]\mathclose{} && \text{(definition)}\\ &= 2 + 2 && \text{(arithmetic)}\\ &= 4 && \text{(arithmetic)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Definition 9 (Mean squares)** In one-way analysis of variance, the **mean squares** are the sums of squares divided by their degrees of freedom: \\\text{MS}\_\text{between} \stackrel{\text{def}}{=}\text{SS}\_\text{between} / (k - 1)\\ and \\\text{MS}\_\text{within} \stackrel{\text{def}}{=}\text{SS}\_\text{within} / (n - k)\\.
+
+> **NOTE:**
+>
+> **Example 9 (Mean squares of two small groups)** For the groups of [Example 7](#exm-ss-between), \\k = 2\\ and \\n = 6\\, so \\\text{MS}\_\text{between} = 13.5 / 1 = 13.5\\ and \\\text{MS}\_\text{within} = 4 / 4 = 1\\.
+
+> **NOTE:**
+>
+> **Definition 10 (One-way analysis of variance)** With the [mean squares](#def-mean-squares) of \\k \ge 2\\ groups and \\n \> k\\ observations in all, the **one-way analysis of variance (ANOVA)** F-test of \\H_0: \mu_1 = \mu_2 = \cdots = \mu_k\\ against the alternative that at least two group means differ uses the statistic
+>
+> \\F \stackrel{\text{def}}{=}\frac{\text{MS}\_\text{between}}{\text{MS}\_\text{within}}.\\
 >
 > Its p-value is \\\Pr(F^\* \ge F)\\, where \\F^\*\\ has the \\F\_{k-1,\\ n-k}\\ distribution ([F-distribution](inference.llms.md#def-f-dist)).
 
-The numerator and denominator of \\F\\ are called the between-group and within-group **mean squares**. Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain.
+Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares), \\F = 13.5 / 1 = 13.5\\.
 
 > **NOTE:**
 >
-> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If \\H_0: \mu_1 = \cdots = \mu_k\\ holds, then \\F\\ ([Definition 6](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
+> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If \\H_0: \mu_1 = \cdots = \mu_k\\ holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2015](#ref-hoggtanis2015)).
 
 > **NOTE:**
 >
-> **Example 6 (Fasting glucose by race/ethnicity in HERS)** The group sizes, means, and standard deviations of baseline fasting glucose:
+> **Example 10 (Fasting glucose by race/ethnicity in HERS)** The group sizes, means, and standard deviations of baseline fasting glucose:
 >
 > ``` downlit
 > hers |>
@@ -371,7 +407,7 @@ The numerator and denominator of \\F\\ are called the between-group and within-g
 >   )
 > ```
 >
-> The F statistic of [Definition 6](#def-one-way-anova), computed step by step:
+> The F statistic of [Definition 10](#def-one-way-anova), computed step by step:
 >
 > ``` downlit
 > anova_parts <- hers |>
@@ -390,7 +426,7 @@ The numerator and denominator of \\F\\ are called the between-group and within-g
 > anova_parts
 > ```
 >
-> \\\text{SS}\_\text{between}\\ is summed here over observations rather than groups: each observation in group \\j\\ contributes \\(\bar{y}\_j - \bar{y})^2\\, which gives the \\n_j\\ weights of [Definition 6](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
+> \\\text{SS}\_\text{between}\\ is summed here over observations rather than groups: each observation in group \\j\\ contributes \\(\bar{y}\_j - \bar{y})^2\\, which gives the \\n_j\\ weights of [Definition 10](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
 >
 > ``` downlit
 > aov(glucose ~ raceth, data = hers) |> summary()
@@ -420,7 +456,7 @@ One-way ANOVA is a special case of linear regression: it is the F-test comparing
 lm(glucose ~ raceth, data = hers) |> anova()
 ```
 
-With \\k = 2\\ groups, the ANOVA F statistic equals the square of the pooled t statistic ([Definition 4](#def-pooled-t-test)), as the two treatment groups of [Example 4](#exm-hers-pooled-ttest) show:
+With \\k = 2\\ groups, the ANOVA F statistic equals the square of the pooled t statistic ([Definition 5](#def-pooled-t-test)), as the two treatment groups of [Example 5](#exm-hers-pooled-ttest) show:
 
 ``` downlit
 c(
