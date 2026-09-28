@@ -22,6 +22,7 @@ Suggests:
 VignetteBuilder: knitr
 Imports: 
     boot,
+    coda,
     dplyr,
     ggplot2,
     gtsummary,
@@ -30,7 +31,6 @@ Imports:
     plotly,
     rjags,
     rmb,
-    runjags,
     scales,
     tibble
 Remotes: 
