@@ -54,7 +54,7 @@ jobs:
         id: check_label
         # Pass the expression result through env (GitHub-recommended) rather
         # than interpolating it directly into the shell, to avoid the
-        # expression-injection anti-pattern in code that downstream books copy.
+        # expression-injection anti-pattern.
         env:
           EVENT_NAME: ${{ github.event_name }}
           LABELS_CONTAIN_SKIP: ${{ contains(github.event.pull_request.labels.*.name, 'skip-cp-setup') }}
