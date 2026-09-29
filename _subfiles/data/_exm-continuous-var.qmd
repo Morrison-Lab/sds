@@ -1,0 +1,7 @@
+::: {#exm-continuous-var}
+#### Continuous variables in the WCGS
+
+Age, systolic blood pressure, total cholesterol, and body mass index (BMI)
+are continuous variables:
+their possible values form a continuum of real numbers.
+:::

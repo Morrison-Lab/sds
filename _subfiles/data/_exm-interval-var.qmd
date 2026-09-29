@@ -1,0 +1,9 @@
+::: {#exm-interval-var}
+#### Temperature in degrees Celsius
+
+Temperature in degrees Celsius is an interval variable:
+a difference of 10 deg C is meaningful,
+but 30 deg C is not "twice as hot" as 15 deg C
+because 0 deg C is an arbitrary zero point (the freezing point of water)
+rather than the complete absence of heat.
+:::

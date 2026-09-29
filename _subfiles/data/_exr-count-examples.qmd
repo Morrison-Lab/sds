@@ -1,0 +1,16 @@
+::: {#exr-count-examples}
+#### Examples of count variables
+
+What are some examples of count variables?
+:::
+
+::: {.solution}
+Examples of count variables include:
+
+- number of fish in a pond
+- number of cyclones per season
+- seconds of tooth-brushing per session (when rounded)
+- infections per person-year
+- visits to an emergency room per person-month
+- car accidents per 1,000 miles driven
+:::

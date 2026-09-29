@@ -1,0 +1,145 @@
+---
+title: "Types of Variables"
+format:
+  html: default
+  revealjs:
+    output-file: data-slides.html
+  pdf:
+    output-file: data-handout.pdf
+  docx:
+    output-file: data-handout.docx
+---
+
+## Types of variables
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+Before summarizing data,
+it helps to identify the **type** of each variable,
+since the appropriate descriptive methods depend on the type.
+Variables are broadly classified as either **numerical** or **categorical**,
+and within each class there are important subtypes.
+
+<!-- No slidebreak here: the heading shares its slide with the def-numerical-var div. -->
+
+{{< include sds/_subfiles/data/_def-numerical-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-numerical-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-interval-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-interval-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-ratio-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-ratio-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-continuous-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-continuous-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-discrete-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-discrete-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-categorical-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-categorical-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-nominal-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-nominal-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-ordinal-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-ordinal-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-binary-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exm-binary-var.qmd >}}
+
+## Taxonomy of variable types
+
+@fig-var-taxonomy illustrates the relationships among these variable types.
+
+{{< include sds/_subfiles/data/_fig-var-taxonomy.qmd >}}
+
+::: {.callout-note}
+The continuous/discrete distinction cuts across the
+numerical/categorical distinction.
+Continuous variables are always numerical.
+Discrete variables include both numerical types (such as count variables)
+and categorical types (such as binary, nominal, and ordinal variables).
+:::
+
+## Variables in the WCGS dataset
+
+@tbl-wcgs-vartypes shows selected variables from the Western Collaborative
+Group Study (WCGS) dataset and their types.
+
+{{< include sds/_subfiles/data/_tbl-wcgs-vartypes.qmd >}}
+
+## Random variables
+
+### Binary variables {#sec-binary-vars}
+
+<!-- No slidebreak here: the heading shares its slide with the def-binary div. -->
+
+{{< include sds/_subfiles/data/_def-binary.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exr-binary-examples.qmd >}}
+
+### Count variables {#sec-count-vars}
+
+<!-- No slidebreak here: the heading shares its slide with the def-count div. -->
+
+{{< include sds/_subfiles/data/_def-count.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_exr-count-examples.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_count-distributions.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

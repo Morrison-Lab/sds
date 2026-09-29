@@ -1,0 +1,8 @@
+::: {#exm-ratio-var}
+#### Ratio variables in the WCGS
+
+Age, weight, cholesterol, blood pressure, and number of cigarettes per day
+are ratio variables:
+a value of 0 represents the complete absence of the quantity,
+so ratios of values are meaningful.
+:::

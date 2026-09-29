@@ -1,0 +1,6 @@
+#### Probability distributions for count outcomes
+
+Standard probability distributions for count outcomes include:
+
+- [Poisson distribution](https://morrison-lab.github.io/pds/distributions.html#sec-poisson-dist)
+- [Negative binomial distribution](https://morrison-lab.github.io/pds/distributions.html#sec-nb-dist)

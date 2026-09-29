@@ -1,0 +1,6 @@
+::: {#exm-numerical-var}
+#### Numerical variables in the WCGS
+
+Age, systolic blood pressure, total cholesterol, and number of cigarettes
+smoked per day are numerical variables in the WCGS dataset.
+:::

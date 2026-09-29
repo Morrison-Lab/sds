@@ -1,0 +1,11 @@
+::: {#def-numerical-var}
+#### Numerical variable
+
+A **numerical** (or **quantitative**) variable is a variable that takes
+values on a numeric scale,
+where arithmetic operations such as subtraction (and possibly division)
+are meaningful.
+Numerical variables may be further classified as
+[interval](#def-interval-var) or [ratio](#def-ratio-var) variables,
+and as [continuous](#def-continuous-var) or [discrete](#def-discrete-var).
+:::

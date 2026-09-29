@@ -1,0 +1,8 @@
+::: {#def-interval-var}
+#### Interval variable
+
+An **interval variable** is a numerical variable for which
+differences between values are meaningful,
+but there is no natural zero point
+(so ratios of values are not meaningful).
+:::

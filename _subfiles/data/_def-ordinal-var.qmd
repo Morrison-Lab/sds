@@ -1,0 +1,6 @@
+::: {#def-ordinal-var}
+#### Ordinal variable
+
+An **ordinal variable** is a categorical variable whose categories have a
+natural ordering.
+:::

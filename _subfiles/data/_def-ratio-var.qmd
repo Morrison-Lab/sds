@@ -1,0 +1,6 @@
+::: {#def-ratio-var}
+#### Ratio variable
+
+A **ratio variable** is a numerical variable with a natural zero point,
+so that both differences and ratios of values are meaningful.
+:::

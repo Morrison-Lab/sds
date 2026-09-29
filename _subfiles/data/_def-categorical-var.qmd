@@ -1,0 +1,9 @@
+::: {#def-categorical-var}
+#### Categorical variable
+
+A **categorical** (or **qualitative**) variable is a variable that takes
+values in a finite set of categories,
+where arithmetic operations such as differences are not meaningful.
+Categorical variables may be **nominal** (unordered) or **ordinal** (ordered),
+and are always discrete.
+:::
