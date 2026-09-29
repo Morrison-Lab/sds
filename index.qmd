@@ -93,7 +93,7 @@ they link to the lab's notes on
 [probability](https://morrison-lab.github.io/pds/)
 and [mathematics](https://morrison-lab.github.io/mds/)
 for data science,
-which are the canonical home for the material in rme's probability and mathematics appendices.
+which are the canonical home for the probability and mathematics appendices of rme.
 
 ## Using these notes in another site
 
