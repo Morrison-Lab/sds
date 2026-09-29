@@ -89,10 +89,11 @@ the exceptions are:
   which moved to the MCMC and JAGS pages, with their ids.
 
 Where these notes rely on probability or calculus,
-they link to that book's
-[probability](https://morrison-lab.github.io/rme/chapters/probability.html)
-and [mathematics](https://morrison-lab.github.io/rme/chapters/math-prereqs.html)
-chapters.
+they link to the lab's notes on
+[probability](https://morrison-lab.github.io/pds/)
+and [mathematics](https://morrison-lab.github.io/mds/)
+for data science,
+which are the canonical home for the material in rme's probability and mathematics appendices.
 
 ## Using these notes in another site
 

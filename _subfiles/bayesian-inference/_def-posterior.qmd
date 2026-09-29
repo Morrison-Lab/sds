@@ -3,7 +3,7 @@
 
 The **posterior distribution** of a parameter $\theta$,
 given observed data $\vY = \vy$,
-is the [conditional distribution](https://morrison-lab.github.io/rme/chapters/probability.html#def-cond-pdf)
+is the [conditional distribution](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf)
 of $\theta$ given $\vY = \vy$.
 Its density or probability mass function is written $\p(\theta \mid \vy)$.
 :::
