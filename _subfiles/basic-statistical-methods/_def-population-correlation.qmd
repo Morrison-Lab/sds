@@ -7,8 +7,7 @@ with positive variances is
 $$\rho \eqdef \frac{\Cov{X, Y}}{\sqrt{\Var{X} \Var{Y}}},$$
 
 where $\Cov{X, Y}$ is their
-<!-- Repoint to pds once it is published. -->
-[covariance](https://morrison-lab.github.io/rme/chapters/probability.html#def-cov).
+[covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
 :::
 
 ::: notes
