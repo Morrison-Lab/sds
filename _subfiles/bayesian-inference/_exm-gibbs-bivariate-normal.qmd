@@ -27,6 +27,7 @@ We run the Gibbs sampler with $\rho = 0$ and with $\rho = 0.99$:
 
 ```{r}
 #| label: gibbs-bivariate-normal
+#| code-fold: false
 gibbs_bvn <- function(n_iter, rho) {
   draws <- matrix(NA_real_, nrow = n_iter, ncol = 2)
   theta <- c(0, 0)

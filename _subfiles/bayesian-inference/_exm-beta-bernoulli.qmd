@@ -44,6 +44,7 @@ with this mean and equal-tailed 95% [credible interval](#def-credible-interval):
 
 ```{r}
 #| label: beta-bernoulli-posterior
+#| code-fold: false
 a_post <- 1 + 55
 b_post <- 1 + 91 - 55
 c(

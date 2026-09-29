@@ -8,6 +8,7 @@ from 5,000 draws from the $\operatorname{Beta}(56, 37)$ posterior of [the Beta-B
 
 ```{r}
 #| label: dic-bernoulli
+#| code-fold: false
 deviance_bernoulli <- function(pi, r = 55, n = 91) {
   -2 * (r * log(pi) + (n - r) * log(1 - pi))
 }

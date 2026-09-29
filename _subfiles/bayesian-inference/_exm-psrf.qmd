@@ -8,6 +8,7 @@ and then over iterations 501 to 5,000:
 
 ```{r}
 #| label: psrf
+#| code-fold: false
 psrf <- function(chains) {
   n <- nrow(chains)
   w <- mean(apply(chains, 2, stats::var))

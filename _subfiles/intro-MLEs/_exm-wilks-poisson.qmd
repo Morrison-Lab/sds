@@ -21,6 +21,7 @@ $$
 For example, with $n = 13$, $\bar x = 72/13$, and $\rate_0 = 4$:
 
 ```{r}
+#| code-fold: false
 n_obs <- 13
 xbar_obs <- 72 / 13
 lambda0 <- 4

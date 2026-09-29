@@ -17,6 +17,7 @@ and the p-value is $\Pr(\abs{Z} \ge \abs{z}) = 2\Phi(-\abs{z})$,
 where $\Phi$ is the standard Gaussian CDF.
 
 ```{r}
+#| code-fold: false
 chol_by_chd <- split(wcgs$chol, wcgs$chd69) |>
   lapply(function(x) x[!is.na(x)])
 x1 <- chol_by_chd[["Yes"]]

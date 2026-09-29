@@ -6,6 +6,7 @@ and the slope from @cor-ols-slope-r,
 for the participants with a BMI measurement:
 
 ```{r}
+#| code-fold: false
 hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
 x <- hers_bmi$BMI
 y <- hers_bmi$glucose
@@ -20,6 +21,7 @@ c(
 `lm()` gives the same estimates:
 
 ```{r}
+#| code-fold: false
 slr_fit <- lm(glucose ~ BMI, data = hers)
 summary(slr_fit)
 ```

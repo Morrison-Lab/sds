@@ -2,6 +2,7 @@
 #### Variance and standard deviation of cholesterol in the WCGS
 
 ```{r}
+#| code-fold: false
 var(wcgs$chol, na.rm = TRUE)
 sd(wcgs$chol, na.rm = TRUE)
 ```

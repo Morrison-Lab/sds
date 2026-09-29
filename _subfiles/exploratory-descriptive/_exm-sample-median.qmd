@@ -2,6 +2,7 @@
 #### Median cholesterol in the WCGS
 
 ```{r}
+#| code-fold: false
 median(wcgs$chol, na.rm = TRUE)
 ```
 

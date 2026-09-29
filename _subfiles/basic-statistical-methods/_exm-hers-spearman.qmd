@@ -6,6 +6,7 @@ and `cor.test()`'s Spearman test
 (`exact = FALSE`, because tied values rule out the exact p-value):
 
 ```{r}
+#| code-fold: false
 hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
 cor(rank(hers_bmi$BMI), rank(hers_bmi$glucose))
 cor.test(hers_bmi$BMI, hers_bmi$glucose, method = "spearman", exact = FALSE)

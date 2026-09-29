@@ -8,6 +8,7 @@ so the output is reproducible:
 
 ```{r}
 #| label: jags-proportion
+#| code-fold: false
 y <- rep(c(1L, 0L), times = c(55L, 36L))
 bernoulli_model <- "
 model {

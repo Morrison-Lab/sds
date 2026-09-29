@@ -5,6 +5,7 @@ so they can differ slightly from @def-quartiles:
 
 ```{r}
 #| label: summary-chol
+#| code-fold: false
 summary(wcgs$chol)
 ```
 
@@ -14,6 +15,7 @@ For a formatted table of several variables at once,
 ::: {#tbl-wcgs-summary-continuous}
 
 ```{r}
+#| code-fold: false
 wcgs |>
   dplyr::select(age, chol, sbp, dbp, bmi, weight) |>
   gtsummary::tbl_summary(

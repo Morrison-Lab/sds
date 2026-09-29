@@ -18,6 +18,7 @@ and compute these approximate posterior model probabilities:
 
 ```{r}
 #| label: bma-models
+#| code-fold: false
 set.seed(2027)
 n_obs <- 120L
 dat <- tibble::tibble(
@@ -49,6 +50,7 @@ sums the weights of the models that contain it:
 
 ```{r}
 #| label: bma-pip
+#| code-fold: false
 includes <- function(v) vapply(subsets, function(s) v %in% s, logical(1))
 vapply(predictors, function(v) sum(weight[includes(v)]), numeric(1)) |>
   round(3)
@@ -61,6 +63,7 @@ and average with the posterior model probabilities as weights:
 
 ```{r}
 #| label: bma-slope
+#| code-fold: false
 beta_x1 <- vapply(models, function(m) {
   cf <- stats::coef(m)
   if ("x1" %in% names(cf)) cf[["x1"]] else 0

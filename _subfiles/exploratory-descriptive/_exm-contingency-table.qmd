@@ -3,6 +3,7 @@
 
 ```{r}
 #| label: cross-smoke-chd
+#| code-fold: false
 table(Smoking = wcgs$smoke, CHD = wcgs$chd69)
 ```
 
@@ -11,6 +12,7 @@ within each smoking group:
 
 ```{r}
 #| label: cross-smoke-chd-prop
+#| code-fold: false
 table(Smoking = wcgs$smoke, CHD = wcgs$chd69) |>
   prop.table(margin = 1)
 ```

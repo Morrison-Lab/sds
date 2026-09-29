@@ -21,6 +21,7 @@ so we fit it with the zeros trick.
 
 ```{r}
 #| label: jags-survival
+#| code-fold: false
 set.seed(2026)
 n_obs <- 200L
 x <- stats::rbinom(n_obs, size = 1, prob = 0.5)
@@ -81,6 +82,7 @@ rather than an effect of the prior:
 
 ```{r}
 #| label: mle-survival
+#| code-fold: false
 neg_loglik <- function(beta) {
   lambda <- exp(beta[1] + beta[2] * x)
   -sum(event * log(lambda) - lambda * follow_up)

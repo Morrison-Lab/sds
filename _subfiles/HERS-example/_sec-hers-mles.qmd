@@ -2,6 +2,7 @@ By the [Gaussian MLEs](#sec-gaussian-mle),
 $\hat\mu_{\text{ML}} = \bar x$ and $\hat\sigma^2_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2$:
 
 ```{r}
+#| code-fold: false
 mu_hat <- mean(glucose_data)
 sigma_sq_hat <- mean((glucose_data - mu_hat)^2)
 sigma_hat <- sqrt(sigma_sq_hat)

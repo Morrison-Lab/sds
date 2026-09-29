@@ -13,6 +13,7 @@ $\sqrt{ab / \paren{(a + b)^2 (a + b + 1)}}$ with $a = r + 1$ and $b = n - r + 1$
 
 ```{r}
 #| label: mcmc-vs-mle
+#| code-fold: false
 r <- 55
 n <- 91
 pi_hat <- r / n

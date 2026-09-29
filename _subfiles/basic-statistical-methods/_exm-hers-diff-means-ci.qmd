@@ -5,6 +5,7 @@ Continuing @exm-hers-ttest,
 the 95% interval of @def-ci-diff-means is:
 
 ```{r}
+#| code-fold: false
 (mean(glucose_ht) - mean(glucose_placebo)) +
   c(lower = -1, upper = 1) * qt(0.975, df_welch) * sqrt(v_ht + v_placebo)
 ```

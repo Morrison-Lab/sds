@@ -5,6 +5,7 @@ The expected counts and statistic of @def-chi-square-test
 for @tbl-hers-crosstab:
 
 ```{r}
+#| code-fold: false
 observed <- table(hers$exercise, hers$HT)
 expected <- outer(rowSums(observed), colSums(observed)) / sum(observed)
 x_squared <- sum((observed - expected)^2 / expected)
@@ -20,6 +21,7 @@ so the $\chi^2_1$ approximation of @thm-chi-square-null is reasonable.
 `chisq.test()` with `correct = FALSE` reports the same values:
 
 ```{r}
+#| code-fold: false
 chisq.test(hers$exercise, hers$HT, correct = FALSE)
 ```
 

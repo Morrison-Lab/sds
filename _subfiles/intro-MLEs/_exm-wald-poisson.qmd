@@ -10,6 +10,7 @@ the 95% Wald interval for $\rate$,
 and the Wald test of $H_0: \rate = 4$, are:
 
 ```{r}
+#| code-fold: false
 n_obs <- 13
 xbar_obs <- 72 / 13
 se_rate <- sqrt(xbar_obs / n_obs)

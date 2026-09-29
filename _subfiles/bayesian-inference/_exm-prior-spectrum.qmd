@@ -20,6 +20,7 @@ The two proper priors' probabilities for large odds ratios:
 
 ```{r}
 #| label: prior-spectrum
+#| code-fold: false
 or_cutoffs <- c(10, 100, 1e6)
 rbind(
   informative = stats::pnorm(log(or_cutoffs), log(1.5), 0.2,

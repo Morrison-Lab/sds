@@ -6,6 +6,7 @@ the standard Gaussian's 0.975 quantile, `r round(qnorm(0.975), 3)`,
 and approaches it as $k$ grows:
 
 ```{r}
+#| code-fold: false
 k <- c(4, 9, 29, 99, 2760)
 tibble::tibble(k = k, t_quantile = qt(0.975, df = k))
 ```

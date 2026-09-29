@@ -15,6 +15,7 @@ So $\hat Q(0.5) = 3$ and $\hat Q(0.9) = 7$.
 R's `quantile()` function computes this definition when called with `type = 1`:
 
 ```{r}
+#| code-fold: false
 quantile(c(4, 1, 7, 3), probs = c(0.5, 0.9), type = 1)
 ```
 

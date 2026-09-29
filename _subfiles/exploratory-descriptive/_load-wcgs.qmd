@@ -5,6 +5,7 @@ as a Stata file that R can read directly:
 ```{r}
 #| label: load-wcgs
 #| eval: false
+#| code-fold: false
 # one unbroken string, so that link checkers test the whole URL:
 url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/wcgs.dta" # nolint: line_length_linter.
 wcgs <- haven::read_dta(url)
@@ -16,6 +17,7 @@ which these notes use so that rendering does not depend on the website.
 
 ```{r}
 #| label: load-wcgs-local
+#| code-fold: false
 wcgs <- rmb::wcgs |> haven::as_factor()
 ```
 
@@ -49,5 +51,6 @@ The dataset has one row per participant:
 
 ```{r}
 #| label: glimpse-wcgs
+#| code-fold: false
 dplyr::glimpse(wcgs)
 ```

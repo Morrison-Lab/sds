@@ -18,6 +18,7 @@ So $\tilde \lambda$ maximizes $\ell$, and therefore $\Lik$:
 
 ```{r}
 #| label: calc-mle
+#| code-fold: false
 mle <- mean(cyclones$number)
 ```
 

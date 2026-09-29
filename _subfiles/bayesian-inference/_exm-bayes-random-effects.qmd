@@ -14,6 +14,7 @@ it is not flat on another scale, such as the variance.
 
 ```{r}
 #| label: jags-random-effects
+#| code-fold: false
 set.seed(2025)
 n_groups <- 8L
 n_per_group <- 12L
@@ -72,6 +73,7 @@ and the overall sample mean:
 
 ```{r}
 #| label: random-effects-shrinkage
+#| code-fold: false
 sample_means <- as.vector(tapply(y, group, mean))
 tibble::tibble(
   group_id = seq_len(n_groups),

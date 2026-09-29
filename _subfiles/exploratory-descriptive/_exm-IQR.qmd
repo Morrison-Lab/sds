@@ -2,6 +2,7 @@
 #### Quartiles and IQR of cholesterol in the WCGS
 
 ```{r}
+#| code-fold: false
 quantile(wcgs$chol, probs = c(0.25, 0.75), na.rm = TRUE, type = 1)
 IQR(wcgs$chol, na.rm = TRUE, type = 1)
 ```

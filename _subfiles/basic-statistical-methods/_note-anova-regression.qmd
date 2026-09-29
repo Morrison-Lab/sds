@@ -6,6 +6,7 @@ to the model with an intercept only
 `lm()` gives the same F statistic as `aov()`:
 
 ```{r}
+#| code-fold: false
 lm(glucose ~ raceth, data = hers) |> anova()
 ```
 
@@ -14,6 +15,7 @@ the pooled t statistic (@def-pooled-t-test),
 as the two treatment groups of @exm-hers-pooled-ttest show:
 
 ```{r}
+#| code-fold: false
 c(
   f = anova(lm(glucose ~ HT, data = hers))[["F value"]][[1]],
   t_squared =
