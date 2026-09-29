@@ -12,6 +12,7 @@ and a proposal outside $(0, 1)$ is always rejected.
 
 ```{r}
 #| label: mh-bernoulli
+#| code-fold: false
 log_post_unnorm <- function(pi, r, n) {
   if (pi <= 0 || pi >= 1) {
     return(-Inf)

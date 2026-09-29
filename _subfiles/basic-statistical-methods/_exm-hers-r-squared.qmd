@@ -6,6 +6,7 @@ $R^2$ computed from @def-r-squared,
 the square of the Pearson correlation, and `lm()`'s value agree:
 
 ```{r}
+#| code-fold: false
 fit <- lm(glucose ~ BMI, data = hers)
 y <- fit$model$glucose
 c(

@@ -13,6 +13,7 @@ and the 0.95 quantile of $F_{1, k}$
 is the square of the 0.975 quantile of $t_k$:
 
 ```{r}
+#| code-fold: false
 c(f = qf(0.95, df1 = 1, df2 = 9), t_squared = qt(0.975, df = 9)^2)
 ```
 

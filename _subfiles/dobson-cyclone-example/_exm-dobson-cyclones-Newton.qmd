@@ -10,6 +10,7 @@ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
 
 ```{r}
 #| label: initial-guess
+#| code-fold: false
 cur_lambda_est <- 3
 ```
 
@@ -169,6 +170,7 @@ $$
 
 ```{r}
 #| label: NR-one-step
+#| code-fold: false
 new_lambda_est <-
   cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
 ```
@@ -238,6 +240,7 @@ We repeat this process until the log-likelihood stops changing
 :::{#tbl-mle-converge}
 
 ```{r}
+#| code-fold: false
 cur_lambda_est <- 3 # restart from the initial guess
 tolerance <- 10^-4
 max_iter <- 100

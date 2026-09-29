@@ -9,6 +9,7 @@ so the pooled test gives almost the same result as Welch's test
 in @exm-hers-ttest:
 
 ```{r}
+#| code-fold: false
 t.test(glucose_ht, glucose_placebo, var.equal = TRUE)
 ```
 

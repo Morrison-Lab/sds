@@ -5,6 +5,7 @@ as a Stata file that R can read directly:
 ```{r}
 #| label: load-hers-url
 #| eval: false
+#| code-fold: false
 # one unbroken string, so that link checkers test the whole URL:
 url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta" # nolint: line_length_linter.
 hers <- haven::read_dta(url)
@@ -16,6 +17,7 @@ which these notes use so that rendering does not depend on the website.
 
 ```{r}
 #| label: load-hers-local
+#| code-fold: false
 hers <- rmb::hers |> haven::as_factor()
 ```
 
@@ -34,6 +36,7 @@ The examples on this page use these variables:
 
 ```{r}
 #| label: glimpse-hers
+#| code-fold: false
 hers |>
   dplyr::select(HT, age, raceth, exercise, BMI, SBP, glucose, glucose1) |>
   dplyr::glimpse()

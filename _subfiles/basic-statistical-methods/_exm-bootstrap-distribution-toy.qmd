@@ -6,6 +6,7 @@ of the first ten HERS participants,
 and compute the sample mean of each of $B = 1{,}000$ bootstrap samples:
 
 ```{r}
+#| code-fold: false
 glucose10 <- hers$glucose[1:10]
 set.seed(42)
 boot_means10 <- replicate(1000, mean(sample(glucose10, replace = TRUE)))

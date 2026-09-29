@@ -29,6 +29,7 @@ spends about that fraction of its days dry:
 
 ```{r}
 #| label: two-state-chain
+#| code-fold: false
 set.seed(7)
 n_days <- 10000
 dry <- logical(n_days)

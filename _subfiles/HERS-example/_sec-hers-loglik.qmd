@@ -3,6 +3,7 @@ and exponentiate it to get the likelihood,
 because a product of 100 densities can underflow to zero:
 
 ```{r}
+#| code-fold: false
 loglik <- function(mu, sigma, x) {
   n <- length(x)
   normalizing_constant <- -n / 2 * log(2 * pi * sigma^2)

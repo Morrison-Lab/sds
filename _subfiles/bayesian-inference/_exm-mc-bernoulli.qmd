@@ -7,6 +7,7 @@ and compare Monte Carlo estimates with the exact values:
 
 ```{r}
 #| label: mc-bernoulli
+#| code-fold: false
 set.seed(42)
 pi_draws <- stats::rbeta(n = 5000, shape1 = 56, shape2 = 37)
 rbind(

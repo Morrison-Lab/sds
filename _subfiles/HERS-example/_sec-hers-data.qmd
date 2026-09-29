@@ -8,6 +8,7 @@ on the book's companion website:
 
 ```{r}
 #| eval: false
+#| code-fold: false
 # one unbroken string, so that link checkers test the whole URL:
 url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta" # nolint: line_length_linter.
 hers <- haven::read_dta(url)
@@ -18,6 +19,7 @@ which these notes use so that rendering does not depend on the website
 (@tbl-HERS):
 
 ```{r}
+#| code-fold: false
 hers <- rmb::hers |> haven::zap_labels()
 ```
 

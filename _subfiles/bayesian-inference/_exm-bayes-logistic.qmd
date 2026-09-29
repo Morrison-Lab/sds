@@ -11,6 +11,7 @@ for a one-unit increase in $x$.
 
 ```{r}
 #| label: jags-logistic
+#| code-fold: false
 set.seed(2024)
 n_obs <- 200L
 x <- stats::rnorm(n_obs)
@@ -61,6 +62,7 @@ the posterior means are close to the maximum likelihood estimates:
 
 ```{r}
 #| label: glm-logistic
+#| code-fold: false
 stats::glm(y ~ x, family = stats::binomial()) |>
   stats::coef() |>
   round(3)

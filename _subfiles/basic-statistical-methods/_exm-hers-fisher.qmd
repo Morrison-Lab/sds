@@ -5,6 +5,7 @@ The p-value of @def-fishers-exact for @tbl-hers-crosstab,
 computed from the hypergeometric probabilities with `dhyper()`:
 
 ```{r}
+#| code-fold: false
 a <- observed[1, 1]
 row1 <- sum(observed[1, ])
 row2 <- sum(observed[2, ])
@@ -20,6 +21,7 @@ up to rounding error, as `fisher.test()` does.
 `fisher.test()` reports the same p-value:
 
 ```{r}
+#| code-fold: false
 fisher.test(hers$exercise, hers$HT)
 ```
 

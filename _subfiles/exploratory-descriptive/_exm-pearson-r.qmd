@@ -3,6 +3,7 @@
 
 ```{r}
 #| label: cor-chol-sbp
+#| code-fold: false
 cor(wcgs$chol, wcgs$sbp, use = "complete.obs")
 ```
 

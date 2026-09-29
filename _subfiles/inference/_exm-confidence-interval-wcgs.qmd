@@ -14,6 +14,7 @@ of the standard Gaussian distribution,
 is an [approximate](#def-approximate-ci) 95% confidence interval for $\mu$:
 
 ```{r}
+#| code-fold: false
 chol <- wcgs$chol[!is.na(wcgs$chol)]
 se_chol <- sd(chol) / sqrt(length(chol))
 mean(chol) + c(lower = -1, upper = 1) * qnorm(0.975) * se_chol

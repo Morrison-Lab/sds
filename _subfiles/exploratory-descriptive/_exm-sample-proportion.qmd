@@ -2,6 +2,7 @@
 #### Proportion of WCGS participants with a CHD event
 
 ```{r}
+#| code-fold: false
 table(wcgs$chd69)
 mean(wcgs$chd69 == "Yes")
 ```

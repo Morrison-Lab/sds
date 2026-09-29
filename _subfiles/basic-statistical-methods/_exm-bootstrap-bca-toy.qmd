@@ -5,6 +5,7 @@ Continuing @exm-bootstrap-distribution-toy,
 the quantities of @def-bootstrap-ci-bca, step by step:
 
 ```{r}
+#| code-fold: false
 z0 <- qnorm(mean(boot_means10 < mean(glucose10)))
 jackknife_means <- vapply(1:10, \(i) mean(glucose10[-i]), numeric(1))
 dev <- mean(jackknife_means) - jackknife_means

@@ -6,6 +6,7 @@ of the first five HERS participants,
 and draw two bootstrap samples from them:
 
 ```{r}
+#| code-fold: false
 glucose5 <- hers$glucose[1:5]
 glucose5
 set.seed(1)

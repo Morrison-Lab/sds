@@ -8,6 +8,7 @@ Participants missing either measurement are dropped.
 The t statistic of @def-one-sample-t-test, computed on the differences:
 
 ```{r}
+#| code-fold: false
 glucose_change <- hers |>
   dplyr::filter(!is.na(glucose), !is.na(glucose1)) |>
   dplyr::mutate(d = glucose1 - glucose) |>
@@ -26,6 +27,7 @@ c(
 along with a confidence interval for $\mu_d$:
 
 ```{r}
+#| code-fold: false
 t.test(hers$glucose1, hers$glucose, paired = TRUE)
 ```
 

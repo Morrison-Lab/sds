@@ -29,6 +29,7 @@ Baseline fasting glucose by treatment group in HERS
 The statistic and degrees of freedom of @def-two-sample-t-test:
 
 ```{r}
+#| code-fold: false
 glucose_ht <- hers |>
   dplyr::filter(HT == "hormone therapy") |>
   dplyr::pull(glucose)
@@ -47,6 +48,7 @@ c(t = t_welch, df = df_welch, p_value = 2 * pt(-abs(t_welch), df_welch))
 `t.test()` reports the same values:
 
 ```{r}
+#| code-fold: false
 t.test(glucose_ht, glucose_placebo)
 ```
 

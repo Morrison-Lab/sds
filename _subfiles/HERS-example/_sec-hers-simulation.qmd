@@ -10,6 +10,7 @@ a 95% $t$-based confidence interval for $\mu$,
 and the $t$-test of $H_0: \mu = \mu_0$.
 
 ```{r}
+#| code-fold: false
 do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
   # generate data
   x <- rnorm(n = n, mean = mu, sd = sqrt(sigma2))
@@ -47,6 +48,7 @@ To check `do_one_sim()`,
 we compare its output with `stats::t.test()` on the same simulated data:
 
 ```{r}
+#| code-fold: false
 set.seed(1)
 sim_output <- do_one_sim(
   n = 100, mu = mu_hat, mu0 = 80, sigma2 = sigma_sq_hat,
@@ -76,6 +78,7 @@ The two rows agree.
 with a different random seed for each dataset:
 
 ```{r}
+#| code-fold: false
 do_n_sims <- function(n_sims = 1000, ...) {
   lapply(seq_len(n_sims), function(i) {
     set.seed(i)
@@ -98,6 +101,7 @@ sim_results
 with the true data-generating parameters:
 
 ```{r}
+#| code-fold: false
 summarize_sim <- function(sim_results, mu, sigma2, n) {
   true_se <- sqrt(sigma2 / n)
   tibble::tibble(

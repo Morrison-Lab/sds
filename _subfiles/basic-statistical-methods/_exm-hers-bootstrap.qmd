@@ -9,6 +9,7 @@ The statistic function takes the data and the row indices
 of one bootstrap sample:
 
 ```{r}
+#| code-fold: false
 slope_sbp_age <- function(data, indices) {
   fit <- lm(SBP ~ age, data = data[indices, ])
   coef(fit)[["age"]]
@@ -25,6 +26,7 @@ and the three bootstrap intervals are close to
 the model-based 95% confidence interval:
 
 ```{r}
+#| code-fold: false
 fit_sbp_age <- lm(SBP ~ age, data = hers)
 summary(fit_sbp_age)$coefficients["age", ]
 confint(fit_sbp_age)["age", ]

@@ -10,6 +10,7 @@ non-rejection interval
 $$\mu_0 \pm z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}$$
 
 ```{r}
+#| code-fold: false
 mu0 <- 95
 se <- se_mu_hat(n = n_obs, sigma = sigma_hat)
 margin <- qnorm(0.975) * se
@@ -35,6 +36,7 @@ where $\Phi$ is the standard Gaussian CDF.
 For example, the power against $\mu_1 = 100$ mg/dL is:
 
 ```{r}
+#| code-fold: false
 power <- function(n, null, alt, sigma) {
   se <- sigma / sqrt(n)
   lower <- null - qnorm(0.975) * se
