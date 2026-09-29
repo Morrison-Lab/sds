@@ -156,6 +156,26 @@ cookieconsent.run({
 });
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-solution.callout {
   border-left-color: #4E342E;
 }
@@ -165,36 +185,6 @@ div.callout-solution.callout-style-default .callout-header {
 div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-prp.callout {
   border-left-color: #827717;
@@ -226,6 +216,36 @@ div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-def.callout {
   border-left-color: #1B5E20;
 }
@@ -235,26 +255,6 @@ div.callout-def.callout-style-default .callout-header {
 div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -467,6 +467,10 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-describing-data">
 <li>
+    <a class="dropdown-item" href="./data.html">
+ <span class="dropdown-text">Types of Variables</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./nonparametric-models.html">
  <span class="dropdown-text">Nonparametric Models</span></a>
   </li>  
@@ -559,7 +563,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./nonparametric-models.html">Describing Data</a></li><li class="breadcrumb-item"><a href="./exploratory-descriptive.html">Exploratory Data Analysis</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.html">Describing Data</a></li><li class="breadcrumb-item"><a href="./exploratory-descriptive.html">Exploratory Data Analysis</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -577,6 +581,12 @@ window.Quarto = {
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Types of Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./nonparametric-models.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
  <span class="menu-text">Nonparametric Models</span></a>
@@ -732,7 +742,7 @@ window.Quarto = {
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/exploratory-descriptive.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/exploratory-descriptive.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="exploratory-descriptive-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="exploratory-descriptive-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="exploratory-descriptive-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./nonparametric-models.html">Describing Data</a></li><li class="breadcrumb-item"><a href="./exploratory-descriptive.html">Exploratory Data Analysis</a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data.html">Describing Data</a></li><li class="breadcrumb-item"><a href="./exploratory-descriptive.html">Exploratory Data Analysis</a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Exploratory Data Analysis</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
@@ -744,7 +754,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-09-29 <mark class="preview-text-changed">13:17:00</mark> (PDT)</p>
+      <p class="date">Last modified: 2026-09-29 <mark class="preview-text-changed">13:27:28</mark> (PDT)</p>
     </div>
   </div>
   
@@ -1080,23 +1090,23 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 <span>    digits <span class="op">=</span> <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html">all_continuous</a></span><span class="op">(</span><span class="op">)</span> <span class="op">~</span> <span class="fl">1</span></span>
 <span>  <span class="op"><mark class="preview-text-changed">)</mark></span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="pmrchaayoc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style><mark class="preview-text-changed">#pmrchaayoc table {
+<div id="xsqdjcszqw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style><mark class="preview-text-changed">#xsqdjcszqw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pmrchaayoc thead, #pmrchaayoc tbody, #pmrchaayoc tfoot, #pmrchaayoc tr, #pmrchaayoc td, #pmrchaayoc th {
+#xsqdjcszqw thead, #xsqdjcszqw tbody, #xsqdjcszqw tfoot, #xsqdjcszqw tr, #xsqdjcszqw td, #xsqdjcszqw th {
   border-style: none;
 }
 
-#pmrchaayoc p {
+#xsqdjcszqw p {
   margin: 0;
   padding: 0;
 }
 
-#pmrchaayoc .gt_table {
+#xsqdjcszqw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1122,12 +1132,12 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-left-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_caption {
+#xsqdjcszqw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pmrchaayoc .gt_title {
+#xsqdjcszqw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1139,7 +1149,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-width: 0;
 }
 
-#pmrchaayoc .gt_subtitle {
+#xsqdjcszqw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1151,7 +1161,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-top-width: 0;
 }
 
-#pmrchaayoc .gt_heading {
+#xsqdjcszqw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1163,13 +1173,13 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_bottom_border {
+#xsqdjcszqw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_col_headings {
+#xsqdjcszqw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1184,7 +1194,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_col_heading {
+#xsqdjcszqw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1204,7 +1214,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   overflow-x: hidden;
 }
 
-#pmrchaayoc .gt_column_spanner_outer {
+#xsqdjcszqw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1216,15 +1226,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 4px;
 }
 
-#pmrchaayoc .gt_column_spanner_outer:first-child {
+#xsqdjcszqw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pmrchaayoc .gt_column_spanner_outer:last-child {
+#xsqdjcszqw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pmrchaayoc .gt_column_spanner {
+#xsqdjcszqw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1236,11 +1246,11 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   width: 100%;
 }
 
-#pmrchaayoc .gt_spanner_row {
+#xsqdjcszqw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pmrchaayoc .gt_group_heading {
+#xsqdjcszqw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1266,7 +1276,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   text-align: left;
 }
 
-#pmrchaayoc .gt_empty_group_heading {
+#xsqdjcszqw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1281,15 +1291,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   vertical-align: middle;
 }
 
-#pmrchaayoc .gt_from_md > :first-child {
+#xsqdjcszqw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pmrchaayoc .gt_from_md > :last-child {
+#xsqdjcszqw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pmrchaayoc .gt_row {
+#xsqdjcszqw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1308,7 +1318,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   overflow-x: hidden;
 }
 
-#pmrchaayoc .gt_stub {
+#xsqdjcszqw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1321,7 +1331,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#pmrchaayoc .gt_stub_row_group {
+#xsqdjcszqw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1335,15 +1345,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   vertical-align: top;
 }
 
-#pmrchaayoc .gt_row_group_first td {
+#xsqdjcszqw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pmrchaayoc .gt_row_group_first th {
+#xsqdjcszqw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pmrchaayoc .gt_summary_row {
+#xsqdjcszqw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1353,16 +1363,16 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#pmrchaayoc .gt_first_summary_row {
+#xsqdjcszqw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_first_summary_row.thick {
+#xsqdjcszqw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pmrchaayoc .gt_last_summary_row {
+#xsqdjcszqw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1372,7 +1382,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_grand_summary_row {
+#xsqdjcszqw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1382,7 +1392,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#pmrchaayoc .gt_first_grand_summary_row {
+#xsqdjcszqw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1392,7 +1402,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-top-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_last_grand_summary_row_top {
+#xsqdjcszqw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1402,11 +1412,11 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_striped {
+#xsqdjcszqw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pmrchaayoc .gt_table_body {
+#xsqdjcszqw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1415,7 +1425,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_footnotes {
+#xsqdjcszqw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1429,7 +1439,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_footnote {
+#xsqdjcszqw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1438,7 +1448,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#pmrchaayoc .gt_sourcenotes {
+#xsqdjcszqw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1452,7 +1462,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#pmrchaayoc .gt_sourcenote {
+#xsqdjcszqw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1460,72 +1470,72 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#pmrchaayoc .gt_left {
+#xsqdjcszqw .gt_left {
   text-align: left;
 }
 
-#pmrchaayoc .gt_center {
+#xsqdjcszqw .gt_center {
   text-align: center;
 }
 
-#pmrchaayoc .gt_right {
+#xsqdjcszqw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pmrchaayoc .gt_font_normal {
+#xsqdjcszqw .gt_font_normal {
   font-weight: normal;
 }
 
-#pmrchaayoc .gt_font_bold {
+#xsqdjcszqw .gt_font_bold {
   font-weight: bold;
 }
 
-#pmrchaayoc .gt_font_italic {
+#xsqdjcszqw .gt_font_italic {
   font-style: italic;
 }
 
-#pmrchaayoc .gt_super {
+#xsqdjcszqw .gt_super {
   font-size: 65%;
 }
 
-#pmrchaayoc .gt_footnote_marks {
+#xsqdjcszqw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pmrchaayoc .gt_asterisk {
+#xsqdjcszqw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pmrchaayoc .gt_indent_1 {
+#xsqdjcszqw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pmrchaayoc .gt_indent_2 {
+#xsqdjcszqw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pmrchaayoc .gt_indent_3 {
+#xsqdjcszqw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pmrchaayoc .gt_indent_4 {
+#xsqdjcszqw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pmrchaayoc .gt_indent_5 {
+#xsqdjcszqw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pmrchaayoc .katex-display {
+#xsqdjcszqw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pmrchaayoc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xsqdjcszqw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </mark></style>
@@ -1617,31 +1627,31 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 </div>
 <p>For categorical variables with more than two levels, the natural descriptive statistics are the count of observations in each category and the corresponding proportions (<a href="#tbl-wcgs-summary-cat" class="quarto-xref">Table&nbsp;2</a>).</p>
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wcgs</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><mark class="preview-text-changed">dplyr</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html"><mark class="preview-text-changed">select</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="va"><mark class="preview-text-changed">chd69</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">smoke</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">dibpat</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">behpat</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">wghtc</mark>at</span><span class="op">)</span> <span class="op">|&<mark class="preview-text-changed">gt;</mark></span></span>
-<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html"><mark class="preview-text-changed">tbl_sum</mark>mary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span>  <span class="fu"><mark class="preview-text-changed">dplyr</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html"><mark class="preview-text-changed">select</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="va"><mark class="preview-text-changed">chd</mark>69</span>, <span class="va">smoke</span>, <span class="va">dibpa<mark class="preview-text-changed">t</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">behpat</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">wghtc</mark>at</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="tbl-wcgs-summary-cat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wcgs-summary-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<mark class="preview-text-changed">Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
+<mark class="preview-text-changed">Table&nbsp;2: Frequency table for categorical varia</mark>bles i<mark class="preview-text-changed">n the W</mark>CGS d<mark class="preview-text-changed">ataset
 </mark></figcaption><div aria-describedby="tbl-wcgs-summary-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="sshikbylun" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style><mark class="preview-text-changed">#sshikbylun table {
+<div id="rolrgcvaos" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rolrgcvaos table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: gra<mark class="preview-text-changed">yscale;
 }
 
-#sshikbylun thead, #sshikbylun tbody, #sshikbylun tfoot, #sshikbylun tr, #sshikbylun td, #sshikbylun th {
-  border-style: none;
+</mark>#rolrgcv<mark class="preview-text-changed">aos thead, </mark>#rolrgcv<mark class="preview-text-changed">aos tbody, </mark>#rolrgcv<mark class="preview-text-changed">aos tfoot, </mark>#rolr<mark class="preview-text-changed">gcvaos tr, </mark>#rolr<mark class="preview-text-changed">gcvaos td, </mark>#rolrgcvaos th {
+  border-style<mark class="preview-text-changed">: none;
 }
 
-#sshikbylun p {
+</mark>#rolrgcvaos p {
   margin: 0;
-  padding: 0;
+  padd<mark class="preview-text-changed">ing: 0;
 }
 
-#sshikbylun .gt_table {
+</mark>#rolrgcvaos .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1664,15 +1674,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #A8A8A8;
   border-left-style: none;
   border-left-width: 2px;
-  border-left-color: #D3D3D3;
+  border-left-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_caption {
+</mark>#rolrgcvaos .gt_caption {
   padding-top: 4px;
-  padding-bottom: 4px;
+  padding-botto<mark class="preview-text-changed">m: 4px;
 }
 
-#sshikbylun .gt_title {
+</mark>#rolrgcvaos .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1681,10 +1691,10 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
+  border-bottom-wi<mark class="preview-text-changed">dth: 0;
 }
 
-#sshikbylun .gt_subtitle {
+</mark>#rolrgcvaos .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1693,10 +1703,10 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
-  border-top-width: 0;
+  border-top-wi<mark class="preview-text-changed">dth: 0;
 }
 
-#sshikbylun .gt_heading {
+</mark>#rolrgcvaos .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1705,16 +1715,16 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-left-color: #D3D3D3;
   border-right-style: none;
   border-right-width: 1px;
-  border-right-color: #D3D3D3;
+  border-right-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_bottom_border {
+</mark>#rolrgcvaos .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_col_headings {
+</mark>#rolrgcvaos .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1726,10 +1736,10 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-left-color: #D3D3D3;
   border-right-style: none;
   border-right-width: 1px;
-  border-right-color: #D3D3D3;
+  border-right-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_col_heading {
+</mark>#rolrgcvaos .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1746,10 +1756,10 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-bottom: 6px;
   padding-left: 5px;
   padding-right: 5px;
-  overflow-x: hidden;
+  overflow-x: <mark class="preview-text-changed">hidden;
 }
 
-#sshikbylun .gt_column_spanner_outer {
+</mark>#rolrgcvaos .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1758,18 +1768,18 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
-  padding-right: 4px;
+  padding-righ<mark class="preview-text-changed">t: 4px;
 }
 
-#sshikbylun .gt_column_spanner_outer:first-child {
-  padding-left: 0;
+</mark>#rolrgcvaos .gt_column_spanner_outer:first-child {
+  padding-l<mark class="preview-text-changed">eft: 0;
 }
 
-#sshikbylun .gt_column_spanner_outer:last-child {
-  padding-right: 0;
+</mark>#rolrgcvaos .gt_column_spanner_outer:last-child {
+  padding-ri<mark class="preview-text-changed">ght: 0;
 }
 
-#sshikbylun .gt_column_spanner {
+</mark>#rolrgcvaos .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1778,14 +1788,14 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-bottom: 5px;
   overflow-x: hidden;
   display: inline-block;
-  width: 100%;
+  width<mark class="preview-text-changed">: 100%;
 }
 
-#sshikbylun .gt_spanner_row {
-  border-bottom-style: hidden;
+</mark>#rolrgcvaos .gt_spanner_row {
+  border-bottom-style: <mark class="preview-text-changed">hidden;
 }
 
-#sshikbylun .gt_group_heading {
+</mark>#rolrgcvaos .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1808,10 +1818,10 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
-  text-align: left;
+  text-align<mark class="preview-text-changed">: left;
 }
 
-#sshikbylun .gt_empty_group_heading {
+</mark>#rolrgcvaos .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1823,18 +1833,18 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
-  vertical-align: middle;
+  vertical-align: <mark class="preview-text-changed">middle;
 }
 
-#sshikbylun .gt_from_md > :first-child {
-  margin-top: 0;
+</mark>#rolrgcvaos .gt_from_md > :first-child {
+  margin-<mark class="preview-text-changed">top: 0;
 }
 
-#sshikbylun .gt_from_md > :last-child {
-  margin-bottom: 0;
+</mark>#rolrgcvaos .gt_from_md > :last-child {
+  margin-bot<mark class="preview-text-changed">tom: 0;
 }
 
-#sshikbylun .gt_row {
+</mark>#rolrgcvaos .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1850,10 +1860,23 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
-  overflow-x: hidden;
+  overflow-x: <mark class="preview-text-changed">hidden;
 }
 
-#sshikbylun .gt_stub {
+</mark>#rolrgcvaos .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-righ<mark class="preview-text-changed">t: 5px;
+}
+
+</mark>#rolrgcvaos .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1864,103 +1887,90 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
   padding-left: 5px;
   padding-right: 5px;
+  vertical-alig<mark class="preview-text-changed">n: top;
 }
 
-#sshikbylun .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
+</mark>#rolrgcvaos .gt_row_group_first td {
+  border-top-widt<mark class="preview-text-changed">h: 2px;
 }
 
-#sshikbylun .gt_row_group_first td {
-  border-top-width: 2px;
+</mark>#rolrgcvaos .gt_row_group_first th {
+  border-top-widt<mark class="preview-text-changed">h: 2px;
 }
 
-#sshikbylun .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#sshikbylun .gt_summary_row {
+</mark>#rolrgcvaos .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
-  padding-right: 5px;
+  padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-#sshikbylun .gt_first_summary_row {
+</mark>#rolrgcvaos .gt_first_summary_row {
   border-top-style: solid;
-  border-top-color: #D3D3D3;
+  border-top-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_first_summary_row.thick {
-  border-top-width: 2px;
+</mark>#rolrgcvaos .gt_first_summary_row.thick {
+  border-top-widt<mark class="preview-text-changed">h: 2px;
 }
 
-#sshikbylun .gt_last_summary_row {
+</mark>#rolrgcvaos .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_grand_summary_row {
+</mark>#rolrgcvaos .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
-  padding-right: 5px;
+  padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-#sshikbylun .gt_first_grand_summary_row {
+</mark>#rolrgcvaos .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-style: double;
   border-top-width: 6px;
-  border-top-color: #D3D3D3;
+  border-top-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_last_grand_summary_row_top {
+</mark>#rolrgcvaos .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: double;
   border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
+</mark>#rolrgcvaos .gt_striped {
+  background-color: rgba(128, 128, 128,<mark class="preview-text-changed"> 0.05);
 }
 
-#sshikbylun .gt_table_body {
+</mark>#rolrgcvaos .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
+  border-bottom-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_footnotes {
+</mark>#rolrgcvaos .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1971,19 +1981,19 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-left-color: #D3D3D3;
   border-right-style: none;
   border-right-width: 2px;
-  border-right-color: #D3D3D3;
+  border-right-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_footnote {
+</mark>#rolrgcvaos .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
-  padding-right: 5px;
+  padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-#sshikbylun .gt_sourcenotes {
+</mark>#rolrgcvaos .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1994,140 +2004,140 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-left-color: #D3D3D3;
   border-right-style: none;
   border-right-width: 2px;
-  border-right-color: #D3D3D3;
+  border-right-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-#sshikbylun .gt_sourcenote {
+</mark>#rolrgcvaos .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
-  padding-right: 5px;
+  padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-#sshikbylun .gt_left {
-  text-align: left;
+</mark>#rolrgcvaos .gt_left {
+  text-align<mark class="preview-text-changed">: left;
 }
 
-#sshikbylun .gt_center {
-  text-align: center;
+</mark>#rolrgcvaos .gt_center {
+  text-align: <mark class="preview-text-changed">center;
 }
 
-#sshikbylun .gt_right {
+</mark>#rolrgcvaos .gt_right {
   text-align: right;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: tabula<mark class="preview-text-changed">r-nums;
 }
 
-#sshikbylun .gt_font_normal {
-  font-weight: normal;
+</mark>#rolrgcvaos .gt_font_normal {
+  font-weight: <mark class="preview-text-changed">normal;
 }
 
-#sshikbylun .gt_font_bold {
-  font-weight: bold;
+</mark>#rolrgcvaos .gt_font_bold {
+  font-weight<mark class="preview-text-changed">: bold;
 }
 
-#sshikbylun .gt_font_italic {
-  font-style: italic;
+</mark>#rolrgcvaos .gt_font_italic {
+  font-style: <mark class="preview-text-changed">italic;
 }
 
-#sshikbylun .gt_super {
-  font-size: 65%;
+</mark>#rolrgcvaos .gt_super {
+  font-siz<mark class="preview-text-changed">e: 65%;
 }
 
-#sshikbylun .gt_footnote_marks {
+</mark>#rolrgcvaos .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
-  position: initial;
+  position: i<mark class="preview-text-changed">nitial;
 }
 
-#sshikbylun .gt_asterisk {
+</mark>#rolrgcvaos .gt_asterisk {
   font-size: 100%;
-  vertical-align: 0;
+  vertical-al<mark class="preview-text-changed">ign: 0;
 }
 
-#sshikbylun .gt_indent_1 {
-  text-indent: 5px;
+</mark>#rolrgcvaos .gt_indent_1 {
+  text-inden<mark class="preview-text-changed">t: 5px;
 }
 
-#sshikbylun .gt_indent_2 {
-  text-indent: 10px;
+</mark>#rolrgcvaos .gt_indent_2 {
+  text-indent<mark class="preview-text-changed">: 10px;
 }
 
-#sshikbylun .gt_indent_3 {
-  text-indent: 15px;
+</mark>#rolrgcvaos .gt_indent_3 {
+  text-indent<mark class="preview-text-changed">: 15px;
 }
 
-#sshikbylun .gt_indent_4 {
-  text-indent: 20px;
+</mark>#rolrgcvaos .gt_indent_4 {
+  text-indent<mark class="preview-text-changed">: 20px;
 }
 
-#sshikbylun .gt_indent_5 {
-  text-indent: 25px;
+</mark>#rolrgcvaos .gt_indent_5 {
+  text-indent<mark class="preview-text-changed">: 25px;
 }
 
-#sshikbylun .katex-display {
+</mark>#rolrgcvaos .katex-display {
   display: inline-flex !important;
-  margin-bottom: 0.75em !important;
+  margin-bottom: 0.75em !imp<mark class="preview-text-changed">ortant;
 }
 
-#sshikbylun div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+</mark>#rolrgcvaos div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
-</mark></style>
+</style>
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
 </colgroup>
 <thead><tr class="gt_col_headings header">
-<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong><mark class="preview-text-changed">Characteristic</mark></strong></th>
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
 <th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
-<strong><mark class="preview-text-changed">N = </mark>3,154</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+<strong>N = 3,154</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
 </th>
 </tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">CHD event by 1969</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">257 (8.1%)</mark></td>
+<td class="gt_row gt_left" headers="label">CHD event by 1969</td>
+<td class="gt_row gt_center" headers="stat_0">257 (8.1%)</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Current smoker</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,502 (48%)</mark></td>
+<td class="gt_row gt_left" headers="label">Current smoker</td>
+<td class="gt_row gt_center" headers="stat_0">1,502 (48%)</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Behavioral pattern (A/B)</mark></td>
+<td class="gt_row gt_left" headers="label">Behavioral pattern (A/B)</td>
 <td class="gt_row gt_center" headers="stat_0"><br></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbsp;Type B</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,565 (50%)</mark></td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Type B</td>
+<td class="gt_row gt_center" headers="stat_0">1,565 (50%)</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbsp;Type A</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,589 (50%)</mark></td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Type A</td>
+<td class="gt_row gt_center" headers="stat_0">1,589 (50%)</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Behavioral pattern (A1/A2/B3/B4)</mark></td>
+<td class="gt_row gt_left" headers="label">Behavioral pattern (A1/A2/B3/B4)</td>
 <td class="gt_row gt_center" headers="stat_0"><br></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbsp;A1</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">264 (8.4%)</mark></td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;A1</td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">264 (8.4%)</mark></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbsp;A2</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,325 (42%)</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">&nbsp;&nbsp;&nbsp;&nbsp;A2</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">1,325 (42%)</mark></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbsp;B3</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,216 (39%)</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">&nbsp;&nbsp;&nbsp;&nbsp;B3</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">1,216 (39%)</mark></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbs</mark>p;B4</td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">349 (11</mark>%)</td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">&nbsp;&nbsp;&nbsp;&nbs</mark>p;B4</td>
+<td class="gt_row gt_center" headers="stat_0">349 (11<mark class="preview-text-changed">%)</mark></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label">Weigh<mark class="preview-text-changed">t category</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Weight category</mark></td>
 <td class="gt_row gt_center" headers="stat_0"><br></td>
 </tr>
 <tr class="even">
@@ -2513,39 +2523,39 @@ Figure&nbsp;8: Box plots of cholesterol by behavioral pattern in the WCGS datase
 </div>
 <p><a href="#tbl-chol-by-chd" class="quarto-xref">Table&nbsp;3</a> computes summary statistics separately for each group.</p>
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wcgs</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><mark class="preview-text-changed">dplyr</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html"><mark class="preview-text-changed">select</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="va"><mark class="preview-text-changed">chol</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">sbp</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">bmi</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">chd69</mark></span><span class="op"><mark class="preview-text-changed">)</mark></span> <span class="op"><mark class="preview-text-changed">|&gt;</mark></span></span>
-<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html"><mark class="preview-text-changed">tbl_su</mark>mmary</a></span><span class="op"><mark class="preview-text-changed">(</mark></span></span>
-<span><mark class="preview-text-changed">    by </mark><span class="op"><mark class="preview-text-changed">=</mark></span> <span class="va">chd69</span><mark class="preview-text-changed">,</mark></span>
+<span>  <span class="fu"><mark class="preview-text-changed">dplyr</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html"><mark class="preview-text-changed">select</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="va"><mark class="preview-text-changed">chol</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">sbp</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">b</mark>mi</span>, <span class="va">chd69</span><span class="op">)</span> <span class="op">|&<mark class="preview-text-changed">gt;</mark></span></span>
+<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html"><mark class="preview-text-changed">tbl_summary</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span></span>
+<span>   <mark class="preview-text-changed"> by </mark><span class="op"><mark class="preview-text-changed">=</mark></span> <span class="va"><mark class="preview-text-changed">chd69</mark></span><mark class="preview-text-changed">,</mark></span>
 <span><mark class="preview-text-changed">    statistic </mark><span class="op"><mark class="preview-text-changed">=</mark></span> <span class="fu"><a href="https://rdrr.io/r/base/list.html"><mark class="preview-text-changed">list</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span></span>
 <span>      <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html"><mark class="preview-text-changed">all_continuous</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="op"><mark class="preview-text-changed">)</mark></span> <span class="op"><mark class="preview-text-changed">~</mark></span></span>
 <span>        <span class="st"><mark class="preview-text-changed">"{mean} ({sd})"</mark></span></span>
 <span>    <span class="op"><mark class="preview-text-changed">)</mark></span><mark class="preview-text-changed">,</mark></span>
-<span><mark class="preview-text-changed">    digits </mark><span class="op"><mark class="preview-text-changed">=</mark></span> <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html"><mark class="preview-text-changed">all_continuous</mark></a></span><span class="op">(</span><span class="op">)</span> <span class="op">~</span> <span class="fl">1</span></span>
-<span>  <span class="op">)</span> <span class="op"><mark class="preview-text-changed">|&gt;</mark></span></span>
-<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_overall.html"><mark class="preview-text-changed">add_</mark>overall</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><mark class="preview-text-changed">    digits </mark><span class="op"><mark class="preview-text-changed">=</mark></span> <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html"><mark class="preview-text-changed">all_continuous</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="op"><mark class="preview-text-changed">)</mark></span> <span class="op"><mark class="preview-text-changed">~</mark></span> <span class="fl">1</span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_overall.html">add_overall</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="tbl-chol-by-chd" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-chol-by-chd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><mark class="preview-text-changed">
-Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status in<mark class="preview-text-changed"> the WCGS
+Table&nbsp;3: Cholesterol, systolic blood pressure, </mark>and BMI by CHD status in<mark class="preview-text-changed"> the WCGS
 </mark></figcaption><div aria-describedby="tbl-chol-by-chd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="xbrvorfkwj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xbrvorfkwj table {
+<div id="aqjvkrzvvd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#aqjvkrzvvd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: <mark class="preview-text-changed">grayscale;
 </mark>}
 
-#xbrv<mark class="preview-text-changed">orfkwj thea</mark>d, #xbrv<mark class="preview-text-changed">orfkwj tbod</mark>y, #xbrv<mark class="preview-text-changed">orfkwj tfoo</mark>t, #x<mark class="preview-text-changed">brvorfkwj t</mark>r, #x<mark class="preview-text-changed">brvorfkwj t</mark>d, #xbrvorfkwj th {
+#aqjv<mark class="preview-text-changed">krzvvd thea</mark>d, #aqjv<mark class="preview-text-changed">krzvvd tbod</mark>y, #aqjv<mark class="preview-text-changed">krzvvd tfoo</mark>t, #a<mark class="preview-text-changed">qjvkrzvvd t</mark>r, #a<mark class="preview-text-changed">qjvkrzvvd t</mark>d, #aqjvkrzvvd th {
   border-st<mark class="preview-text-changed">yle: none;
 </mark>}
 
-#xbrvorfkwj p {
+#aqjvkrzvvd p {
   margin: 0;
   p<mark class="preview-text-changed">adding: 0;
 </mark>}
 
-#xbrvorfkwj .gt_table {
+#aqjvkrzvvd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2571,12 +2581,12 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-left-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_caption {
+#aqjvkrzvvd .gt_caption {
   padding-top: 4px;
   padding-bo<mark class="preview-text-changed">ttom: 4px;
 </mark>}
 
-#xbrvorfkwj .gt_title {
+#aqjvkrzvvd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2588,7 +2598,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-bottom<mark class="preview-text-changed">-width: 0;
 </mark>}
 
-#xbrvorfkwj .gt_subtitle {
+#aqjvkrzvvd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2600,7 +2610,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-top<mark class="preview-text-changed">-width: 0;
 </mark>}
 
-#xbrvorfkwj .gt_heading {
+#aqjvkrzvvd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2612,13 +2622,13 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-right-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_bottom_border {
+#aqjvkrzvvd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_col_headings {
+#aqjvkrzvvd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2633,7 +2643,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-right-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_col_heading {
+#aqjvkrzvvd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2653,7 +2663,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   overflow-<mark class="preview-text-changed">x: hidden;
 </mark>}
 
-#xbrvorfkwj .gt_column_spanner_outer {
+#aqjvkrzvvd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2665,15 +2675,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   padding-r<mark class="preview-text-changed">ight: 4px;
 </mark>}
 
-#xbrvorfkwj .gt_column_spanner_outer:first-child {
+#aqjvkrzvvd .gt_column_spanner_outer:first-child {
   paddin<mark class="preview-text-changed">g-left: 0;
 </mark>}
 
-#xbrvorfkwj .gt_column_spanner_outer:last-child {
+#aqjvkrzvvd .gt_column_spanner_outer:last-child {
   padding<mark class="preview-text-changed">-right: 0;
 </mark>}
 
-#xbrvorfkwj .gt_column_spanner {
+#aqjvkrzvvd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2685,11 +2695,11 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   wi<mark class="preview-text-changed">dth: 100%;
 </mark>}
 
-#xbrvorfkwj .gt_spanner_row {
+#aqjvkrzvvd .gt_spanner_row {
   border-bottom-styl<mark class="preview-text-changed">e: hidden;
 </mark>}
 
-#xbrvorfkwj .gt_group_heading {
+#aqjvkrzvvd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2715,7 +2725,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   text-al<mark class="preview-text-changed">ign: left;
 </mark>}
 
-#xbrvorfkwj .gt_empty_group_heading {
+#aqjvkrzvvd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2730,15 +2740,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   vertical-alig<mark class="preview-text-changed">n: middle;
 </mark>}
 
-#xbrvorfkwj .gt_from_md > :first-child {
+#aqjvkrzvvd .gt_from_md > :first-child {
   marg<mark class="preview-text-changed">in-top: 0;
 </mark>}
 
-#xbrvorfkwj .gt_from_md > :last-child {
+#aqjvkrzvvd .gt_from_md > :last-child {
   margin-<mark class="preview-text-changed">bottom: 0;
 </mark>}
 
-#xbrvorfkwj .gt_row {
+#aqjvkrzvvd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2757,7 +2767,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   overflow-<mark class="preview-text-changed">x: hidden;
 </mark>}
 
-#xbrvorfkwj .gt_stub {
+#aqjvkrzvvd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2770,7 +2780,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   padding-r<mark class="preview-text-changed">ight: 5px;
 </mark>}
 
-#xbrvorfkwj .gt_stub_row_group {
+#aqjvkrzvvd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2784,15 +2794,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   vertical-a<mark class="preview-text-changed">lign: top;
 </mark>}
 
-#xbrvorfkwj .gt_row_group_first td {
+#aqjvkrzvvd .gt_row_group_first td {
   border-top-w<mark class="preview-text-changed">idth: 2px;
 </mark>}
 
-#xbrvorfkwj .gt_row_group_first th {
+#aqjvkrzvvd .gt_row_group_first th {
   border-top-w<mark class="preview-text-changed">idth: 2px;
 </mark>}
 
-#xbrvorfkwj .gt_summary_row {
+#aqjvkrzvvd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2802,16 +2812,16 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   padding-r<mark class="preview-text-changed">ight: 5px;
 </mark>}
 
-#xbrvorfkwj .gt_first_summary_row {
+#aqjvkrzvvd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_first_summary_row.thick {
+#aqjvkrzvvd .gt_first_summary_row.thick {
   border-top-w<mark class="preview-text-changed">idth: 2px;
 </mark>}
 
-#xbrvorfkwj .gt_last_summary_row {
+#aqjvkrzvvd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2821,7 +2831,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-bottom-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_grand_summary_row {
+#aqjvkrzvvd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2831,7 +2841,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   padding-r<mark class="preview-text-changed">ight: 5px;
 </mark>}
 
-#xbrvorfkwj .gt_first_grand_summary_row {
+#aqjvkrzvvd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2841,7 +2851,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-top-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_last_grand_summary_row_top {
+#aqjvkrzvvd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2851,11 +2861,11 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-bottom-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_striped {
+#aqjvkrzvvd .gt_striped {
   background-color: rgba(128, 128, 1<mark class="preview-text-changed">28, 0.05);
 </mark>}
 
-#xbrvorfkwj .gt_table_body {
+#aqjvkrzvvd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2864,7 +2874,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-bottom-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_footnotes {
+#aqjvkrzvvd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2878,7 +2888,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-right-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_footnote {
+#aqjvkrzvvd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2887,7 +2897,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   padding-r<mark class="preview-text-changed">ight: 5px;
 </mark>}
 
-#xbrvorfkwj .gt_sourcenotes {
+#aqjvkrzvvd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2901,7 +2911,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   border-right-color<mark class="preview-text-changed">: #D3D3D3;
 </mark>}
 
-#xbrvorfkwj .gt_sourcenote {
+#aqjvkrzvvd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2909,73 +2919,73 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
   padding-r<mark class="preview-text-changed">ight: 5px;
 </mark>}
 
-#xbrvorfkwj .gt_left {
+#aqjvkrzvvd .gt_left {
   text-al<mark class="preview-text-changed">ign: left;
 </mark>}
 
-#xbrvorfkwj .gt_center {
+#aqjvkrzvvd .gt_center {
   text-alig<mark class="preview-text-changed">n: center;
 </mark>}
 
-#xbrvorfkwj .gt_right {
+#aqjvkrzvvd .gt_right {
   text-align: right;
   font-variant-numeric: tab<mark class="preview-text-changed">ular-nums;
 </mark>}
 
-#xbrvorfkwj .gt_font_normal {
+#aqjvkrzvvd .gt_font_normal {
   font-weigh<mark class="preview-text-changed">t: normal;
 </mark>}
 
-#xbrvorfkwj .gt_font_bold {
+#aqjvkrzvvd .gt_font_bold {
   font-wei<mark class="preview-text-changed">ght: bold;
 </mark>}
 
-#xbrvorfkwj .gt_font_italic {
+#aqjvkrzvvd .gt_font_italic {
   font-styl<mark class="preview-text-changed">e: italic;
 </mark>}
 
-#xbrvorfkwj .gt_super {
+#aqjvkrzvvd .gt_super {
   font-<mark class="preview-text-changed">size: 65%;
 </mark>}
 
-#xbrvorfkwj .gt_footnote_marks {
+#aqjvkrzvvd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position<mark class="preview-text-changed">: initial;
 </mark>}
 
-#xbrvorfkwj .gt_asterisk {
+#aqjvkrzvvd .gt_asterisk {
   font-size: 100%;
   vertical<mark class="preview-text-changed">-align: 0;
 </mark>}
 
-#xbrvorfkwj .gt_indent_1 {
+#aqjvkrzvvd .gt_indent_1 {
   text-in<mark class="preview-text-changed">dent: 5px;
 </mark>}
 
-#xbrvorfkwj .gt_indent_2 {
+#aqjvkrzvvd .gt_indent_2 {
   text-ind<mark class="preview-text-changed">ent: 10px;
 </mark>}
 
-#xbrvorfkwj .gt_indent_3 {
+#aqjvkrzvvd .gt_indent_3 {
   text-ind<mark class="preview-text-changed">ent: 15px;
 </mark>}
 
-#xbrvorfkwj .gt_indent_4 {
+#aqjvkrzvvd .gt_indent_4 {
   text-ind<mark class="preview-text-changed">ent: 20px;
 </mark>}
 
-#xbrvorfkwj .gt_indent_5 {
+#aqjvkrzvvd .gt_indent_5 {
   text-ind<mark class="preview-text-changed">ent: 25px;
 </mark>}
 
-#xbrvorfkwj .katex-display {
+#aqjvkrzvvd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !<mark class="preview-text-changed">important;
 </mark>}
 
-#xbrvorfkwj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px<mark class="preview-text-changed"> !importan</mark>t;
+#aqjvkrzvvd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
@@ -2986,42 +2996,42 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD</mark> status
 <col style="width: 25%">
 </colgroup>
 <thead><tr class="gt_col_headings header">
-<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Ch<mark class="preview-text-added">aracteri</mark>stic</strong></th>
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
 <th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
-<strong>Over<mark class="preview-text-added">all</mark></strong><br><mark class="preview-text-added">
-N = 3,154</mark><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-added">1</mark></sup></span>
+<strong>Overall</strong><br>
+N = 3,154<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
 </th>
 <th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
-<strong><mark class="preview-text-added">No</mark></strong><br><mark class="preview-text-added">
-N = 2,897</mark><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-added">1</mark></sup></span>
+<strong>No</strong><br>
+N = 2,897<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
 </th>
 <th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
-<strong>Yes</strong><br>
-N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+<strong><mark class="preview-text-changed">Yes</mark></strong><br><mark class="preview-text-changed">
+N = 257</mark><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-changed">1</mark></sup></span>
 </th>
 </tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="label">Choles<mark class="preview-text-changed">terol (mg/dL)</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Cholesterol (mg/dL)</mark></td>
 <td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">226.4 (43.4)</mark></td>
-<td class="gt_row gt_center" headers="stat_1"><mark class="preview-text-changed">224.3 (42.2</mark>)</td>
-<td class="gt_row gt_center" headers="stat_2">250.1 (49.4)</td>
+<td class="gt_row gt_center" headers="stat_1"><mark class="preview-text-changed">224.3 (42.2)</mark></td>
+<td class="gt_row gt_center" headers="stat_2"><mark class="preview-text-changed">250.1 (49.4)</mark></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">&nbsp</mark>;&nbsp;&nbsp;&nbsp;Unk<mark class="preview-text-changed">nown</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</mark></td>
 <td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">12</mark></td>
 <td class="gt_row gt_center" headers="stat_1"><mark class="preview-text-changed">12</mark></td>
 <td class="gt_row gt_center" headers="stat_2"><mark class="preview-text-changed">0</mark></td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Systolic BP (mmHg)</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">128.</mark>6 (15.1)</td>
-<td class="gt_row gt_center" headers="stat_1">128.0 (<mark class="preview-text-changed">14.7)</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">128.6 (15.1)</mark></td>
+<td class="gt_row gt_center" headers="stat_1"><mark class="preview-text-changed">128.0 (14.7)</mark></td>
 <td class="gt_row gt_center" headers="stat_2"><mark class="preview-text-changed">135.4 (17.5)</mark></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">BMI (kg/m^2</mark>)</td>
-<td class="gt_row gt_center" headers="stat_0">24.5 <mark class="preview-text-changed">(2.6)</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">BMI (kg/m^2)</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">24.</mark>5 <mark class="preview-text-changed">(2.6)</mark></td>
 <td class="gt_row gt_center" headers="stat_1"><mark class="preview-text-changed">24.5 (2.6)</mark></td>
 <td class="gt_row gt_center" headers="stat_2"><mark class="preview-text-changed">25.1 (2.6)</mark></td>
 </tr>
@@ -3107,31 +3117,31 @@ N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 <p><a href="#tbl-gtsummary-smoke-chd" class="quarto-xref">Table&nbsp;4</a> shows the same counts as a formatted table.</p>
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wcgs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><mark class="preview-text-changed">dplyr</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html"><mark class="preview-text-changed">select</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="va"><mark class="preview-text-changed">smoke</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">chd</mark>69</span><span class="op">)</span> <span class="op">|&<mark class="preview-text-changed">gt;</mark></span></span>
-<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html"><mark class="preview-text-changed">tbl_summary</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><mark class="preview-text-changed">by </mark><span class="op"><mark class="preview-text-changed">=</mark></span> <span class="va"><mark class="preview-text-changed">chd69</mark></span><span class="op"><mark class="preview-text-changed">)</mark></span> <span class="op"><mark class="preview-text-changed">|&gt;</mark></span></span>
-<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_overall.html"><mark class="preview-text-changed">add_</mark>overall</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html"><mark class="preview-text-changed">tbl_summ</mark>ary</a></span><span class="op"><mark class="preview-text-changed">(</mark></span><mark class="preview-text-changed">by </mark><span class="op"><mark class="preview-text-changed">=</mark></span> <span class="va"><mark class="preview-text-changed">chd69</mark></span><span class="op"><mark class="preview-text-changed">)</mark></span> <span class="op"><mark class="preview-text-changed">|&gt;</mark></span></span>
+<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/add_overall.html"><mark class="preview-text-changed">add_overall</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="op"><mark class="preview-text-changed">)</mark></span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="tbl-gtsummary-smoke-chd" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gtsummary-smoke-chd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><mark class="preview-text-changed">
 Table&nbsp;4: Smoking status and CHD event in the WCGS
 </mark></figcaption><div aria-describedby="tbl-gtsummary-smoke-chd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="vqkhslscfx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vqkhslscfx table {
+<div id="nycjebiknn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style><mark class="preview-text-changed">#nycjebiknn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: <mark class="preview-text-changed">grayscale;
-</mark>}
+  -moz-osx-font-smoothing: grayscale;
+}
 
-#vqkh<mark class="preview-text-changed">slscfx thea</mark>d, #vqkh<mark class="preview-text-changed">slscfx tbod</mark>y, #vqkh<mark class="preview-text-changed">slscfx tfoo</mark>t, #v<mark class="preview-text-changed">qkhslscfx t</mark>r, #v<mark class="preview-text-changed">qkhslscfx t</mark>d, #vqkhslscfx th {
-  border-st<mark class="preview-text-changed">yle: none;
-</mark>}
+#nycjebiknn thead, #nycjebiknn tbody, #nycjebiknn tfoot, #nycjebiknn tr, #nycjebiknn td, #nycjebiknn th {
+  border-style: none;
+}
 
-#vqkhslscfx p {
+#nycjebiknn p {
   margin: 0;
-  p<mark class="preview-text-changed">adding: 0;
-</mark>}
+  padding: 0;
+}
 
-#vqkhslscfx .gt_table {
+#nycjebiknn .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3154,15 +3164,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #A8A8A8;
   border-left-style: none;
   border-left-width: 2px;
-  border-left-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-left-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_caption {
+#nycjebiknn .gt_caption {
   padding-top: 4px;
-  padding-bo<mark class="preview-text-changed">ttom: 4px;
-</mark>}
+  padding-bottom: 4px;
+}
 
-#vqkhslscfx .gt_title {
+#nycjebiknn .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3171,10 +3181,10 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-color: #FFFFFF;
-  border-bottom<mark class="preview-text-changed">-width: 0;
-</mark>}
+  border-bottom-width: 0;
+}
 
-#vqkhslscfx .gt_subtitle {
+#nycjebiknn .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3183,10 +3193,10 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-left: 5px;
   padding-right: 5px;
   border-top-color: #FFFFFF;
-  border-top<mark class="preview-text-changed">-width: 0;
-</mark>}
+  border-top-width: 0;
+}
 
-#vqkhslscfx .gt_heading {
+#nycjebiknn .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3195,16 +3205,16 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-left-color: #D3D3D3;
   border-right-style: none;
   border-right-width: 1px;
-  border-right-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-right-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_bottom_border {
+#nycjebiknn .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-bottom-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_col_headings {
+#nycjebiknn .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3216,10 +3226,10 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-left-color: #D3D3D3;
   border-right-style: none;
   border-right-width: 1px;
-  border-right-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-right-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_col_heading {
+#nycjebiknn .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3236,10 +3246,10 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-bottom: 6px;
   padding-left: 5px;
   padding-right: 5px;
-  overflow-<mark class="preview-text-changed">x: hidden;
-</mark>}
+  overflow-x: hidden;
+}
 
-#vqkhslscfx .gt_column_spanner_outer {
+#nycjebiknn .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3248,18 +3258,18 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-top: 0;
   padding-bottom: 0;
   padding-left: 4px;
-  padding-r<mark class="preview-text-changed">ight: 4px;
-</mark>}
+  padding-right: 4px;
+}
 
-#vqkhslscfx .gt_column_spanner_outer:first-child {
-  paddin<mark class="preview-text-changed">g-left: 0;
-</mark>}
+#nycjebiknn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
 
-#vqkhslscfx .gt_column_spanner_outer:last-child {
-  padding<mark class="preview-text-changed">-right: 0;
-</mark>}
+#nycjebiknn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
 
-#vqkhslscfx .gt_column_spanner {
+#nycjebiknn .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3268,14 +3278,14 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-bottom: 5px;
   overflow-x: hidden;
   display: inline-block;
-  wi<mark class="preview-text-changed">dth: 100%;
-</mark>}
+  width: 100%;
+}
 
-#vqkhslscfx .gt_spanner_row {
-  border-bottom-styl<mark class="preview-text-changed">e: hidden;
-</mark>}
+#nycjebiknn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
 
-#vqkhslscfx .gt_group_heading {
+#nycjebiknn .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3298,10 +3308,10 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
-  text-al<mark class="preview-text-changed">ign: left;
-</mark>}
+  text-align: left;
+}
 
-#vqkhslscfx .gt_empty_group_heading {
+#nycjebiknn .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3313,18 +3323,18 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
-  vertical-alig<mark class="preview-text-changed">n: middle;
-</mark>}
+  vertical-align: middle;
+}
 
-#vqkhslscfx .gt_from_md > :first-child {
-  marg<mark class="preview-text-changed">in-top: 0;
-</mark>}
+#nycjebiknn .gt_from_md > :first-child {
+  margin-top: 0;
+}
 
-#vqkhslscfx .gt_from_md > :last-child {
-  margin-<mark class="preview-text-changed">bottom: 0;
-</mark>}
+#nycjebiknn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
 
-#vqkhslscfx .gt_row {
+#nycjebiknn .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3340,23 +3350,10 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-width: 1px;
   border-right-color: #D3D3D3;
   vertical-align: middle;
-  overflow-<mark class="preview-text-changed">x: hidden;
-</mark>}
+  overflow-x: hidden;
+}
 
-#vqkhslscfx .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-r<mark class="preview-text-changed">ight: 5px;
-</mark>}
-
-#vqkhslscfx .gt_stub_row_group {
+#nycjebiknn .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3367,90 +3364,103 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
   padding-left: 5px;
   padding-right: 5px;
-  vertical-a<mark class="preview-text-changed">lign: top;
-</mark>}
+}
 
-#vqkhslscfx .gt_row_group_first td {
-  border-top-w<mark class="preview-text-changed">idth: 2px;
-</mark>}
+#nycjebiknn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
 
-#vqkhslscfx .gt_row_group_first th {
-  border-top-w<mark class="preview-text-changed">idth: 2px;
-</mark>}
+#nycjebiknn .gt_row_group_first td {
+  border-top-width: 2px;
+}
 
-#vqkhslscfx .gt_summary_row {
+#nycjebiknn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#nycjebiknn .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
-  padding-r<mark class="preview-text-changed">ight: 5px;
-</mark>}
+  padding-right: 5px;
+}
 
-#vqkhslscfx .gt_first_summary_row {
+#nycjebiknn .gt_first_summary_row {
   border-top-style: solid;
-  border-top-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-top-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_first_summary_row.thick {
-  border-top-w<mark class="preview-text-changed">idth: 2px;
-</mark>}
+#nycjebiknn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
 
-#vqkhslscfx .gt_last_summary_row {
+#nycjebiknn .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-bottom-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_grand_summary_row {
+#nycjebiknn .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
-  padding-r<mark class="preview-text-changed">ight: 5px;
-</mark>}
+  padding-right: 5px;
+}
 
-#vqkhslscfx .gt_first_grand_summary_row {
+#nycjebiknn .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-top-style: double;
   border-top-width: 6px;
-  border-top-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-top-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_last_grand_summary_row_top {
+#nycjebiknn .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
   padding-right: 5px;
   border-bottom-style: double;
   border-bottom-width: 6px;
-  border-bottom-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-bottom-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_striped {
-  background-color: rgba(128, 128, 1<mark class="preview-text-changed">28, 0.05);
-</mark>}
+#nycjebiknn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
 
-#vqkhslscfx .gt_table_body {
+#nycjebiknn .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
   border-bottom-style: solid;
   border-bottom-width: 2px;
-  border-bottom-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-bottom-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_footnotes {
+#nycjebiknn .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3461,19 +3471,19 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-left-color: #D3D3D3;
   border-right-style: none;
   border-right-width: 2px;
-  border-right-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-right-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_footnote {
+#nycjebiknn .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
-  padding-r<mark class="preview-text-changed">ight: 5px;
-</mark>}
+  padding-right: 5px;
+}
 
-#vqkhslscfx .gt_sourcenotes {
+#nycjebiknn .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3484,86 +3494,86 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-left-color: #D3D3D3;
   border-right-style: none;
   border-right-width: 2px;
-  border-right-color<mark class="preview-text-changed">: #D3D3D3;
-</mark>}
+  border-right-color: #D3D3D3;
+}
 
-#vqkhslscfx .gt_sourcenote {
+#nycjebiknn .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 5px;
-  padding-r<mark class="preview-text-changed">ight: 5px;
-</mark>}
+  padding-right: 5px;
+}
 
-#vqkhslscfx .gt_left {
-  text-al<mark class="preview-text-changed">ign: left;
-</mark>}
+#nycjebiknn .gt_left {
+  text-align: left;
+}
 
-#vqkhslscfx .gt_center {
-  text-alig<mark class="preview-text-changed">n: center;
-</mark>}
+#nycjebiknn .gt_center {
+  text-align: center;
+}
 
-#vqkhslscfx .gt_right {
+#nycjebiknn .gt_right {
   text-align: right;
-  font-variant-numeric: tab<mark class="preview-text-changed">ular-nums;
-</mark>}
+  font-variant-numeric: tabular-nums;
+}
 
-#vqkhslscfx .gt_font_normal {
-  font-weigh<mark class="preview-text-changed">t: normal;
-</mark>}
+#nycjebiknn .gt_font_normal {
+  font-weight: normal;
+}
 
-#vqkhslscfx .gt_font_bold {
-  font-wei<mark class="preview-text-changed">ght: bold;
-</mark>}
+#nycjebiknn .gt_font_bold {
+  font-weight: bold;
+}
 
-#vqkhslscfx .gt_font_italic {
-  font-styl<mark class="preview-text-changed">e: italic;
-</mark>}
+#nycjebiknn .gt_font_italic {
+  font-style: italic;
+}
 
-#vqkhslscfx .gt_super {
-  font-<mark class="preview-text-changed">size: 65%;
-</mark>}
+#nycjebiknn .gt_super {
+  font-size: 65%;
+}
 
-#vqkhslscfx .gt_footnote_marks {
+#nycjebiknn .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
-  position<mark class="preview-text-changed">: initial;
-</mark>}
-
-#vqkhslscfx .gt_asterisk {
-  font-size: 100%;
-  vertical<mark class="preview-text-changed">-align: 0;
-</mark>}
-
-#vqkhslscfx .gt_indent_1 {
-  text-in<mark class="preview-text-changed">dent: 5px;
-</mark>}
-
-#vqkhslscfx .gt_indent_2 {
-  text-ind<mark class="preview-text-changed">ent: 10px;
-</mark>}
-
-#vqkhslscfx .gt_indent_3 {
-  text-ind<mark class="preview-text-changed">ent: 15px;
-</mark>}
-
-#vqkhslscfx .gt_indent_4 {
-  text-ind<mark class="preview-text-changed">ent: 20px;
-</mark>}
-
-#vqkhslscfx .gt_indent_5 {
-  text-ind<mark class="preview-text-changed">ent: 25px;
-</mark>}
-
-#vqkhslscfx .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !<mark class="preview-text-changed">important;
-</mark>}
-
-#vqkhslscfx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px<mark class="preview-text-changed"> !importan</mark>t;
+  position: initial;
 }
-</style>
+
+#nycjebiknn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#nycjebiknn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#nycjebiknn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#nycjebiknn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#nycjebiknn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#nycjebiknn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#nycjebiknn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#nycjebiknn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</mark></style>
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
 <colgroup>
 <col style="width: 25%">
@@ -3572,25 +3582,25 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
 <col style="width: 25%">
 </colgroup>
 <thead><tr class="gt_col_headings header">
-<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Ch<mark class="preview-text-added">aracteri</mark>stic</strong></th>
+<th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong><mark class="preview-text-changed">Characteris</mark>tic</strong></th>
 <th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
-<strong>Overall</strong><br><mark class="preview-text-added">
-N = 3,154</mark><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-added">1</mark></sup></span>
+<strong><mark class="preview-text-changed">Overall</mark></strong><br><mark class="preview-text-changed">
+N = 3,154</mark><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-changed">1</mark></sup></span>
 </th>
 <th id="stat_1" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
-<strong><mark class="preview-text-added">No</mark></strong><br><mark class="preview-text-added">
-N = 2,897</mark><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-added">1</mark></sup></span>
+<strong><mark class="preview-text-changed">No</mark></strong><br><mark class="preview-text-changed">
+N = 2,897</mark><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-changed">1</mark></sup></span>
 </th>
 <th id="stat_2" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
-<strong><mark class="preview-text-added">Ye</mark>s</strong><br>
-N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+<strong><mark class="preview-text-changed">Yes</mark></strong><br><mark class="preview-text-changed">
+N = 257</mark><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-changed">1</mark></sup></span>
 </th>
 </tr></thead>
 <tbody class="gt_table_body"><tr class="odd">
-<td class="gt_row gt_left" headers="label">Current smok<mark class="preview-text-changed">er</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Current smoker</mark></td>
 <td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,502 (48%)</mark></td>
 <td class="gt_row gt_center" headers="stat_1"><mark class="preview-text-changed">1,343 (46%)</mark></td>
-<td class="gt_row gt_center" headers="stat_2">159 (6<mark class="preview-text-changed">2%)</mark></td>
+<td class="gt_row gt_center" headers="stat_2"><mark class="preview-text-changed">159 (62%)</mark></td>
 </tr></tbody>
 <tfoot><tr class="gt_footnotes odd">
 <td colspan="4" class="gt_footnote">
@@ -3713,33 +3723,33 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 <p><a href="#tbl-wcgs-all-summary" class="quarto-xref">Table&nbsp;5</a> summarizes selected WCGS variables in one table.</p>
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wcgs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><mark class="preview-text-changed">dplyr</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html"><mark class="preview-text-changed">select</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span></span>
-<span>    <span class="va"><mark class="preview-text-changed">a</mark>ge</span>, <span class="va">chol</span>, <span class="va">sbp</span>, <span class="va">dbp</span>, <span class="va">bm<mark class="preview-text-changed">i</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">weight</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">ncigs</mark></span><mark class="preview-text-changed">,</mark></span>
-<span>    <span class="va"><mark class="preview-text-changed">chd69</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">smoke</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">dibpat</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">behpat</mark></span></span>
-<span>  <span class="op">)</span> <span class="op">|&<mark class="preview-text-changed">gt;</mark></span></span>
-<span>  <span class="fu"><mark class="preview-text-changed">gtsummary</mark></span><span class="fu"><mark class="preview-text-changed">::</mark></span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html"><mark class="preview-text-changed">tbl_sum</mark>mar<mark class="preview-text-changed">y</mark></a></span><span class="op"><mark class="preview-text-changed">(</mark></span><span class="op"><mark class="preview-text-changed">)</mark></span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span>    <span class="va"><mark class="preview-text-changed">age</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">chol</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">sbp</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">dbp</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">bmi</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">weight</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">ncigs</mark></span><mark class="preview-text-changed">,</mark></span>
+<span>    <span class="va"><mark class="preview-text-changed">chd</mark>69</span>, <span class="va">smoke</span>, <span class="va">dibpa<mark class="preview-text-changed">t</mark></span><mark class="preview-text-changed">, </mark><span class="va"><mark class="preview-text-changed">behpat</mark></span></span>
+<span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html">tbl_summary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="tbl-wcgs-all-summary" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wcgs-all-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><mark class="preview-text-changed">
-Table&nbsp;5: Summary of selected WCGS variables
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wcgs-all-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<mark class="preview-text-changed">Table&nbsp;5: Summary of selected WCGS variables
 </mark></figcaption><div aria-describedby="tbl-wcgs-all-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="jfsdmueysv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jfsdmueysv table {
+<div id="ayjsbqitte" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ayjsbqitte table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: gra<mark class="preview-text-changed">yscale;
 }
 
-</mark>#jfsdmue<mark class="preview-text-changed">ysv thead, </mark>#jfsdmue<mark class="preview-text-changed">ysv tbody, </mark>#jfsdmue<mark class="preview-text-changed">ysv tfoot, </mark>#jfsd<mark class="preview-text-changed">mueysv tr, </mark>#jfsd<mark class="preview-text-changed">mueysv td, </mark>#jfsdmueysv th {
+</mark>#ayjsbqi<mark class="preview-text-changed">tte thead, </mark>#ayjsbqi<mark class="preview-text-changed">tte tbody, </mark>#ayjsbqi<mark class="preview-text-changed">tte tfoot, </mark>#ayjs<mark class="preview-text-changed">bqitte tr, </mark>#ayjs<mark class="preview-text-changed">bqitte td, </mark>#ayjsbqitte th {
   border-style<mark class="preview-text-changed">: none;
 }
 
-</mark>#jfsdmueysv p {
+</mark>#ayjsbqitte p {
   margin: 0;
   padd<mark class="preview-text-changed">ing: 0;
 }
 
-</mark>#jfsdmueysv .gt_table {
+</mark>#ayjsbqitte .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3765,12 +3775,12 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-left-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_caption {
+</mark>#ayjsbqitte .gt_caption {
   padding-top: 4px;
   padding-botto<mark class="preview-text-changed">m: 4px;
 }
 
-</mark>#jfsdmueysv .gt_title {
+</mark>#ayjsbqitte .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3782,7 +3792,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-wi<mark class="preview-text-changed">dth: 0;
 }
 
-</mark>#jfsdmueysv .gt_subtitle {
+</mark>#ayjsbqitte .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3794,7 +3804,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-top-wi<mark class="preview-text-changed">dth: 0;
 }
 
-</mark>#jfsdmueysv .gt_heading {
+</mark>#ayjsbqitte .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3806,13 +3816,13 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_bottom_border {
+</mark>#ayjsbqitte .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_col_headings {
+</mark>#ayjsbqitte .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3827,7 +3837,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_col_heading {
+</mark>#ayjsbqitte .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3847,7 +3857,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   overflow-x: <mark class="preview-text-changed">hidden;
 }
 
-</mark>#jfsdmueysv .gt_column_spanner_outer {
+</mark>#ayjsbqitte .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3859,15 +3869,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-righ<mark class="preview-text-changed">t: 4px;
 }
 
-</mark>#jfsdmueysv .gt_column_spanner_outer:first-child {
+</mark>#ayjsbqitte .gt_column_spanner_outer:first-child {
   padding-l<mark class="preview-text-changed">eft: 0;
 }
 
-</mark>#jfsdmueysv .gt_column_spanner_outer:last-child {
+</mark>#ayjsbqitte .gt_column_spanner_outer:last-child {
   padding-ri<mark class="preview-text-changed">ght: 0;
 }
 
-</mark>#jfsdmueysv .gt_column_spanner {
+</mark>#ayjsbqitte .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3879,11 +3889,11 @@ Table&nbsp;5: Summary of selected WCGS variables
   width<mark class="preview-text-changed">: 100%;
 }
 
-</mark>#jfsdmueysv .gt_spanner_row {
+</mark>#ayjsbqitte .gt_spanner_row {
   border-bottom-style: <mark class="preview-text-changed">hidden;
 }
 
-</mark>#jfsdmueysv .gt_group_heading {
+</mark>#ayjsbqitte .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3909,7 +3919,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   text-align<mark class="preview-text-changed">: left;
 }
 
-</mark>#jfsdmueysv .gt_empty_group_heading {
+</mark>#ayjsbqitte .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3924,15 +3934,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   vertical-align: <mark class="preview-text-changed">middle;
 }
 
-</mark>#jfsdmueysv .gt_from_md > :first-child {
+</mark>#ayjsbqitte .gt_from_md > :first-child {
   margin-<mark class="preview-text-changed">top: 0;
 }
 
-</mark>#jfsdmueysv .gt_from_md > :last-child {
+</mark>#ayjsbqitte .gt_from_md > :last-child {
   margin-bot<mark class="preview-text-changed">tom: 0;
 }
 
-</mark>#jfsdmueysv .gt_row {
+</mark>#ayjsbqitte .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3951,7 +3961,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   overflow-x: <mark class="preview-text-changed">hidden;
 }
 
-</mark>#jfsdmueysv .gt_stub {
+</mark>#ayjsbqitte .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3964,7 +3974,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-</mark>#jfsdmueysv .gt_stub_row_group {
+</mark>#ayjsbqitte .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3978,15 +3988,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   vertical-alig<mark class="preview-text-changed">n: top;
 }
 
-</mark>#jfsdmueysv .gt_row_group_first td {
+</mark>#ayjsbqitte .gt_row_group_first td {
   border-top-widt<mark class="preview-text-changed">h: 2px;
 }
 
-</mark>#jfsdmueysv .gt_row_group_first th {
+</mark>#ayjsbqitte .gt_row_group_first th {
   border-top-widt<mark class="preview-text-changed">h: 2px;
 }
 
-</mark>#jfsdmueysv .gt_summary_row {
+</mark>#ayjsbqitte .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3996,16 +4006,16 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-</mark>#jfsdmueysv .gt_first_summary_row {
+</mark>#ayjsbqitte .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_first_summary_row.thick {
+</mark>#ayjsbqitte .gt_first_summary_row.thick {
   border-top-widt<mark class="preview-text-changed">h: 2px;
 }
 
-</mark>#jfsdmueysv .gt_last_summary_row {
+</mark>#ayjsbqitte .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4015,7 +4025,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_grand_summary_row {
+</mark>#ayjsbqitte .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4025,7 +4035,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-</mark>#jfsdmueysv .gt_first_grand_summary_row {
+</mark>#ayjsbqitte .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4035,7 +4045,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-top-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_last_grand_summary_row_top {
+</mark>#ayjsbqitte .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4045,11 +4055,11 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_striped {
+</mark>#ayjsbqitte .gt_striped {
   background-color: rgba(128, 128, 128,<mark class="preview-text-changed"> 0.05);
 }
 
-</mark>#jfsdmueysv .gt_table_body {
+</mark>#ayjsbqitte .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4058,7 +4068,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_footnotes {
+</mark>#ayjsbqitte .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4072,7 +4082,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_footnote {
+</mark>#ayjsbqitte .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4081,7 +4091,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-</mark>#jfsdmueysv .gt_sourcenotes {
+</mark>#ayjsbqitte .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4095,7 +4105,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #<mark class="preview-text-changed">D3D3D3;
 }
 
-</mark>#jfsdmueysv .gt_sourcenote {
+</mark>#ayjsbqitte .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4103,73 +4113,73 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-righ<mark class="preview-text-changed">t: 5px;
 }
 
-</mark>#jfsdmueysv .gt_left {
+</mark>#ayjsbqitte .gt_left {
   text-align<mark class="preview-text-changed">: left;
 }
 
-</mark>#jfsdmueysv .gt_center {
+</mark>#ayjsbqitte .gt_center {
   text-align: <mark class="preview-text-changed">center;
 }
 
-</mark>#jfsdmueysv .gt_right {
+</mark>#ayjsbqitte .gt_right {
   text-align: right;
   font-variant-numeric: tabula<mark class="preview-text-changed">r-nums;
 }
 
-</mark>#jfsdmueysv .gt_font_normal {
+</mark>#ayjsbqitte .gt_font_normal {
   font-weight: <mark class="preview-text-changed">normal;
 }
 
-</mark>#jfsdmueysv .gt_font_bold {
+</mark>#ayjsbqitte .gt_font_bold {
   font-weight<mark class="preview-text-changed">: bold;
 }
 
-</mark>#jfsdmueysv .gt_font_italic {
+</mark>#ayjsbqitte .gt_font_italic {
   font-style: <mark class="preview-text-changed">italic;
 }
 
-</mark>#jfsdmueysv .gt_super {
+</mark>#ayjsbqitte .gt_super {
   font-siz<mark class="preview-text-changed">e: 65%;
 }
 
-</mark>#jfsdmueysv .gt_footnote_marks {
+</mark>#ayjsbqitte .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: i<mark class="preview-text-changed">nitial;
 }
 
-</mark>#jfsdmueysv .gt_asterisk {
+</mark>#ayjsbqitte .gt_asterisk {
   font-size: 100%;
   vertical-al<mark class="preview-text-changed">ign: 0;
 }
 
-</mark>#jfsdmueysv .gt_indent_1 {
+</mark>#ayjsbqitte .gt_indent_1 {
   text-inden<mark class="preview-text-changed">t: 5px;
 }
 
-</mark>#jfsdmueysv .gt_indent_2 {
+</mark>#ayjsbqitte .gt_indent_2 {
   text-indent<mark class="preview-text-changed">: 10px;
 }
 
-</mark>#jfsdmueysv .gt_indent_3 {
+</mark>#ayjsbqitte .gt_indent_3 {
   text-indent<mark class="preview-text-changed">: 15px;
 }
 
-</mark>#jfsdmueysv .gt_indent_4 {
+</mark>#ayjsbqitte .gt_indent_4 {
   text-indent<mark class="preview-text-changed">: 20px;
 }
 
-</mark>#jfsdmueysv .gt_indent_5 {
+</mark>#ayjsbqitte .gt_indent_5 {
   text-indent<mark class="preview-text-changed">: 25px;
 }
 
-</mark>#jfsdmueysv .katex-display {
+</mark>#ayjsbqitte .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !imp<mark class="preview-text-changed">ortant;
 }
 
-</mark>#jfsdmueysv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !i<mark class="preview-text-changed">mportant</mark>;
+</mark>#ayjsbqitte div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
 }
 </style>
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
@@ -4180,69 +4190,69 @@ Table&nbsp;5: Summary of selected WCGS variables
 <thead><tr class="gt_col_headings header">
 <th id="label" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col"><strong>Characteristic</strong></th>
 <th id="stat_0" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">
-<strong>N = 3,154</strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span>
+<strong>N = <mark class="preview-text-added">3,154</mark></strong><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup><mark class="preview-text-added">1</mark></sup></span>
 </th>
 </tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_left" headers="label">Age (y<mark class="preview-text-changed">ears)</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">45.0 (</mark>42.0, 50.0)</td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">Age (years)</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">45.0 (42.0, 50.0)</mark></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label">Cholester<mark class="preview-text-changed">ol (mg/dL)</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">223</mark> (197, 253)</td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">Cholesterol (mg/dL)</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">223 (197, 253)</mark></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;U<mark class="preview-text-changed">nknown</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">12</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">&nbsp;&nbsp;&nbsp;&nbsp;Unknown</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">12</mark></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Sy</mark>stolic BP (mmHg)</td>
-<td class="gt_row gt_center" headers="stat_0">126 (1<mark class="preview-text-changed">20, 136)</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">Systolic BP (mmHg)</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">126 (120, 136)</mark></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label">Diastolic BP (mm<mark class="preview-text-changed">Hg)</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">80 (76, 86)</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">Diastolic BP (mmHg)</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">80 (76, 86)</mark></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">BM</mark>I (kg/m^2)</td>
-<td class="gt_row gt_center" headers="stat_0">24.39<mark class="preview-text-changed"> (22.96, 25.84)</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">BMI (kg/m^2)</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">24.39 (22.96, 25.84)</mark></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Weight (lbs)</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">170 (155, 182)</mark></td>
+<td class="gt_row gt_left" headers="label"><mark class="preview-text-added">Weight (lbs)</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">170 (155, 182)</mark></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Cigarettes per day</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">0 (0, 20)</mark></td>
+<td class="gt_row gt_left" headers="label">Cigarettes per day</td>
+<td class="gt_row gt_center" headers="stat_0">0 (0, 20)</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">CHD event by 1969</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">257 (8.1%)</mark></td>
+<td class="gt_row gt_left" headers="label">CHD event by 1969</td>
+<td class="gt_row gt_center" headers="stat_0">257 (8.1%)</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Current smoker</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,502 (48%)</mark></td>
+<td class="gt_row gt_left" headers="label">Current smoker</td>
+<td class="gt_row gt_center" headers="stat_0">1,502 (48%)</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Behavioral pattern (A/B)</mark></td>
+<td class="gt_row gt_left" headers="label">Behavioral pattern (A/B)</td>
 <td class="gt_row gt_center" headers="stat_0"><br></td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbsp;Type B</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,565 (50%)</mark></td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Type B</td>
+<td class="gt_row gt_center" headers="stat_0">1,565 (50%)</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nbsp;&nbsp;Type A</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">1,589 (50%)</mark></td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&nbsp;&nbsp;Type A</td>
+<td class="gt_row gt_center" headers="stat_0">1,589 (50%)</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">Behavioral pattern (A1/A2/B3/B4)</mark></td>
+<td class="gt_row gt_left" headers="label">Behavioral pattern (A1/A2/B3/B4)</td>
 <td class="gt_row gt_center" headers="stat_0"><br></td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&</mark>nbsp;&nbsp;&nb<mark class="preview-text-changed">sp;A1</mark></td>
-<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-changed">264 (8.4%)</mark></td>
+<td class="gt_row gt_left" headers="label">&nbsp;&nbsp;&n<mark class="preview-text-added">bsp;&nbsp;A1</mark></td>
+<td class="gt_row gt_center" headers="stat_0"><mark class="preview-text-added">264 </mark>(8.4%<mark class="preview-text-changed">)</mark></td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="label"><mark class="preview-text-changed">&nbsp;&nbsp;&nb</mark>sp;&nbsp;A2</td>

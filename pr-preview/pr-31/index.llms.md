@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-29 13:12:40 (PDT)
+Last modified: 2026-09-29 13:21:54 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -14,6 +14,7 @@ The notes are organized in four groups of pages.
 
 Describing data:
 
+- [Types of variables](data.llms.md): numerical and categorical variables, scales of measurement, the taxonomy of data types, and binary and count random variables;
 - [Nonparametric models](nonparametric-models.llms.md): the empirical CDF, order statistics, and sample quantiles;
 - [Exploratory data analysis](exploratory-descriptive.llms.md): sample statistics, graphs, correlation, and contingency tables, illustrated with the WCGS data.
 
