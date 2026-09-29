@@ -1,0 +1,2531 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Estimation – Statistics for Data Science</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./inference.html" rel="next">
+<link href="./exploratory-descriptive.html" rel="prev">
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-761fc14e25ebc0e942fc86aa4dfe65fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-761fc14e25ebc0e942fc86aa4dfe65fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLDZY2T3JF"></script>
+
+<script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-VLDZY2T3JF', { 'anonymize_ip': true});
+</script>
+
+<script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"en"
+  });
+});
+</script> 
+  
+<style>
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Statistics for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-describing-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Describing Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-describing-data">    
+        <li>
+    <a class="dropdown-item" href="./nonparametric-models.html">
+ <span class="dropdown-text">Nonparametric Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./exploratory-descriptive.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-inference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Inference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-inference">    
+        <li>
+    <a class="dropdown-item" href="./estimation.html">
+ <span class="dropdown-text">Estimation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./inference.html">
+ <span class="dropdown-text">Statistical Inference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./intro-MLEs.html">
+ <span class="dropdown-text">Maximum Likelihood</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-methods" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Methods</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-methods">    
+        <li>
+    <a class="dropdown-item" href="./basic-statistical-methods.html">
+ <span class="dropdown-text">Comparing Means</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./categorical-tests.html">
+ <span class="dropdown-text">Comparing Proportions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./correlation-regression.html">
+ <span class="dropdown-text">Correlation &amp; Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./bootstrap.html">
+ <span class="dropdown-text">The Bootstrap</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bayesian" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Bayesian</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bayesian">    
+        <li>
+    <a class="dropdown-item" href="./bayesian-inference.html">
+ <span class="dropdown-text">Bayesian Inference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./mcmc.html">
+ <span class="dropdown-text">Markov Chain Monte Carlo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./bayesian-examples.html">
+ <span class="dropdown-text">Fitting Models with JAGS</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Morrison-Lab/sds"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./estimation.html">Inference</a></li><li class="breadcrumb-item"><a href="./estimation.html">Estimation</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Describing Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nonparametric-models.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Nonparametric Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exploratory-descriptive.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Exploratory Data Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estimation.html" class="sidebar-item-text sidebar-link active" preview-toc-changed>
+ <span class="menu-text">Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inference.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Statistical Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-MLEs.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Maximum Likelihood</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic-statistical-methods.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Comparing Means</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./categorical-tests.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Comparing Proportions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./correlation-regression.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Correlation &amp; Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bootstrap.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">The Bootstrap</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bayesian</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bayesian-inference.html" class="sidebar-item-text sidebar-link" preview-toc-changed preview-toc-changed>
+ <span class="menu-text">Bayesian Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mcmc.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Markov Chain Monte Carlo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bayesian-examples.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Fitting Models with JAGS</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#scientific-models" id="toc-scientific-models" class="nav-link active" data-scroll-target="#scientific-models"><span class="header-section-number">1</span> Scientific models</a>
+  <ul>
+  <li><a href="#models-as-approximations" id="toc-models-as-approximations" class="nav-link" data-scroll-target="#models-as-approximations"><span class="header-section-number">1.1</span> Models as approximations</a></li>
+  <li><a href="#statistical-analysis-of-scientific-models" id="toc-statistical-analysis-of-scientific-models" class="nav-link" data-scroll-target="#statistical-analysis-of-scientific-models"><span class="header-section-number">1.2</span> Statistical analysis of scientific models</a></li>
+  </ul></li>
+  <li><a href="#estimands-estimates-and-estimators" id="toc-estimands-estimates-and-estimators" class="nav-link" data-scroll-target="#estimands-estimates-and-estimators"><span class="header-section-number">2</span> Estimands, estimates, and estimators</a>
+  <ul>
+  <li><a href="#estimands" id="toc-estimands" class="nav-link" data-scroll-target="#estimands"><span class="header-section-number">2.1</span> Estimands</a></li>
+  <li><a href="#estimates" id="toc-estimates" class="nav-link" data-scroll-target="#estimates"><span class="header-section-number">2.2</span> Estimates</a></li>
+  <li><a href="#estimators" id="toc-estimators" class="nav-link" data-scroll-target="#estimators"><span class="header-section-number">2.3</span> Estimators</a></li>
+  <li><a href="#contrasting-estimands-estimates-and-estimators" id="toc-contrasting-estimands-estimates-and-estimators" class="nav-link" data-scroll-target="#contrasting-estimands-estimates-and-estimators"><span class="header-section-number">2.4</span> Contrasting estimands, estimates, and estimators</a></li>
+  </ul></li>
+  <li><a href="#sec-est-accuracy" id="toc-sec-est-accuracy" class="nav-link" data-scroll-target="#sec-est-accuracy"><span class="header-section-number">3</span> Accuracy of estimators</a>
+  <ul>
+  <li><a href="#accuracy" id="toc-accuracy" class="nav-link" data-scroll-target="#accuracy"><span class="header-section-number">3.1</span> Accuracy</a></li>
+  <li><a href="#estimation-error" id="toc-estimation-error" class="nav-link" data-scroll-target="#estimation-error"><span class="header-section-number">3.2</span> Estimation error</a></li>
+  <li><a href="#residuals" id="toc-residuals" class="nav-link" data-scroll-target="#residuals"><span class="header-section-number">3.3</span> Residuals</a></li>
+  <li><a href="#bias" id="toc-bias" class="nav-link" data-scroll-target="#bias"><span class="header-section-number">3.4</span> Bias</a></li>
+  <li><a href="#mean-squared-error" id="toc-mean-squared-error" class="nav-link" data-scroll-target="#mean-squared-error"><span class="header-section-number">3.5</span> Mean squared error</a></li>
+  <li><a href="#sec-unbiased-estimators" id="toc-sec-unbiased-estimators" class="nav-link" data-scroll-target="#sec-unbiased-estimators"><span class="header-section-number">3.6</span> Unbiased estimators</a></li>
+  <li><a href="#mean-absolute-error" id="toc-mean-absolute-error" class="nav-link" data-scroll-target="#mean-absolute-error"><span class="header-section-number">3.7</span> Mean absolute error</a></li>
+  <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">3.8</span> Standard error</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/estimation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="estimation-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="estimation-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="estimation-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./estimation.html">Inference</a></li><li class="breadcrumb-item"><a href="./estimation.html">Estimation</a></li></ol></nav>
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Estimation</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Last modified: 2026-09-29 <mark class="preview-text-changed">13:17:00</mark> (PDT)</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="scientific-models" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="scientific-models"><span class="header-section-number">1</span> Scientific models</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-model div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-model" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Scientific models)</strong></span> <strong>Scientific models</strong> are attempts to describe <em>physical conditions or changes</em> that occur in the world and universe around us.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-model" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Scientific models in epidemiology)</strong></span> Epidemiologists typically study <em>biological conditions and changes</em>, such as the spread of infectious diseases through populations, or the effects of environmental factors on individuals.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="models-as-approximations" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="models-as-approximations"><span class="header-section-number">1.1</span> Models as approximations</h3>
+<blockquote class="blockquote">
+<p>…Essentially, all models are wrong, but some are useful. <strong>However, the approximate nature of the model must always be borne in mind.</strong></p>
+</blockquote>
+<p>[<span class="citation" data-cites="box_draper_1987">Box and Draper (<a href="#ref-box_draper_1987" role="doc-biblioref">1987</a>)</span>, p.&nbsp;424; emphasis added]</p>
+<div class="notes">
+<p>See also <span class="citation" data-cites="dunn2018generalized">(<a href="#ref-dunn2018generalized" role="doc-biblioref">Dunn and Smyth 2018, sec. 1.8</a>)</span>.</p>
+</div>
+</section>
+<section id="statistical-analysis-of-scientific-models" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="statistical-analysis-of-scientific-models"><span class="header-section-number">1.2</span> Statistical analysis of scientific models</h3>
+<p>When we perform statistical analyses, we use data to help us choose between models; specifically, to determine which models best explain those data.</p>
+<p>Physical processes do not produce data on their own. Data are only produced when scientists implement an <em>observation process</em> (that is, a <em>scientific study</em>), which is distinct from the underlying <em>physical process</em>. In some cases, the observation process and the physical process interact with each other; this interaction is called the <a href="https://en.wikipedia.org/wiki/Observer_effect">“observer effect”</a>.</p>
+<p>To learn about the physical processes we are ultimately interested in, we often need to account for the observation process that produced the data we are analyzing. In particular, if some of the planned observations in the study design were not completed, we will likely need to account for the incompleteness of the resulting data set in our analysis. If we are not sure why some observations are incomplete, we may need to model the observation process in addition to the physical process we were originally interested in. For example, if some participants in a study dropped out part-way through, we may need to investigate why those participants dropped out, as opposed to other participants who completed the study.</p>
+<p>These kinds of <em>missing data</em> issues are outside the scope of these notes; see <span class="citation" data-cites="van2018flexible">Van Buuren (<a href="#ref-van2018flexible" role="doc-biblioref">2018</a>)</span> for more details.</p>
+</section>
+</section>
+<section id="estimands-estimates-and-estimators" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="estimands-estimates-and-estimators"><span class="header-section-number">2</span> Estimands, estimates, and estimators</h2>
+<section id="estimands" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="estimands"><span class="header-section-number">2.1</span> Estimands</h3>
+<p></p>
+<!-- No slidebreak here: the heading shares its slide with the def-estimand div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-estimand" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Estimand)</strong></span> An <strong>estimand</strong> is an unknown quantity whose value we want to know <span class="citation" data-cites="pohl2021estimands lawrance2020estimand">(<a href="#ref-pohl2021estimands" role="doc-biblioref">Pohl et al. 2021</a>; <a href="#ref-lawrance2020estimand" role="doc-biblioref">Lawrance et al. 2020</a>)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-estimand" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Mean height of students)</strong></span> If we are trying to determine the mean height of students at our school, then the <em>population mean</em> is our <a href="#def-estimand">estimand</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<p>In statistical contexts, most estimands are parameters of probabilistic models, or functions of model parameters.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Notation for estimands
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Model parameters and other estimands are often symbolized using lower-case Greek letters: <span class="math inline">\(\alpha, \beta, \gamma, \delta\)</span>, etc.</p>
+</div>
+</div>
+</section>
+<section id="estimates" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="estimates"><span class="header-section-number">2.2</span> Estimates</h3>
+<p> </p>
+<!-- No slidebreak here: the heading shares its slide with the def-estimate div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-estimate" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Estimate/estimated value)</strong></span> In statistics, an <strong>estimate</strong> or <strong>estimated value</strong> is an informed guess of an <a href="#def-estimand">estimand</a>’s value, based on observed data.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-estimate" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Mean height of students)</strong></span> Suppose we measure the heights of 50 randomly sampled students from our school, and their <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> is 175 cm. We might use 175 cm as an <a href="#def-estimate"><em>estimate</em></a> of the population mean.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="estimators" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="estimators"><span class="header-section-number">2.3</span> Estimators</h3>
+<p></p>
+<!-- No slidebreak here: the heading shares its slide with the def-estimator div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-estimator" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Estimator)</strong></span> An <strong>estimator</strong> is a function <span class="math inline">\(\hat\theta(x_1, \ldots, x_n)\)</span> that transforms data <span class="math inline">\(x_1, \ldots, x_n\)</span> into an <a href="#def-estimate">estimate</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Estimators are random variables
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When an estimator is applied to random variables <span class="math inline">\(X_1, \ldots, X_n\)</span> rather than to their observed values, the result <span class="math inline">\(\hat\theta(X_1, \ldots, X_n)\)</span> is also a random variable.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Notation for estimators
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Estimators are often symbolized by placing a ^ (“hat”) symbol on top of the corresponding estimand; for example, <span class="math inline">\(\hat\theta\)</span>.</p>
+<p>Usually, their dependence on the data is implicit:</p>
+<p><span class="math display">\[\hat\theta\stackrel{\text{def}}{=}\hat\theta(x_1, \ldots, x_n)\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-estimator" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Mean height of students)</strong></span> Suppose we want to estimate the mean height of students at our school, which we will represent as <span class="math inline">\(\mu\)</span>, and we measure the heights of <span class="math inline">\(n = 50\)</span> randomly sampled students as random variables <span class="math inline">\(X_1, \ldots, X_n\)</span>. Then we could use the function</p>
+<p><span class="math display">\[\hat\mu(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n X_i \stackrel{\text{def}}{=}\bar X\]</span></p>
+<p>as an <a href="#def-estimator"><em>estimator</em></a> to produce an <em>estimate</em> <span class="math inline">\(\hat\mu = \bar x\)</span> of <span class="math inline">\(\mu\)</span>.</p>
+<p>Another estimator would be just the height of the first student sampled:</p>
+<p><span class="math display">\[\hat\mu^{(2)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}X_1\]</span></p>
+<p>A third possible estimator would be the mean of all sampled students’ heights, except for the two most extreme. Using the <a href="./nonparametric-models.html#def-order-statistics">order statistics</a> <span class="math inline">\(X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}\)</span> (the observations sorted in increasing order), this estimator drops <span class="math inline">\(X_{(1)}\)</span> and <span class="math inline">\(X_{(n)}\)</span> and averages the remaining <span class="math inline">\(n - 2\)</span> observations:</p>
+<p><span class="math display">\[\hat\mu^{(3)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n-2}\sum_{i=2}^{n-1} X_{(i)}\]</span></p>
+<p>Which of these estimators is best? The answer depends on how we evaluate them (see <a href="#sec-est-accuracy" class="quarto-xref">Section&nbsp;3</a>).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="contrasting-estimands-estimates-and-estimators" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="contrasting-estimands-estimates-and-estimators"><span class="header-section-number">2.4</span> Contrasting estimands, estimates, and estimators</h3>
+<p>It’s helpful to keep in mind the mathematical type of each estimation concept:</p>
+<ul>
+<li><a href="#def-estimand">estimands</a> are numbers (or vectors of numbers);</li>
+<li><a href="#def-estimate">estimates</a> are also numbers (or vectors);</li>
+<li><a href="#def-estimator">estimators</a> are functions; an estimator applied to random data, <span class="math inline">\(\hat\theta(X_1, \ldots, X_n)\)</span>, is a random variable.</li>
+</ul>
+</section>
+</section>
+<section id="sec-est-accuracy" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-est-accuracy"><span class="header-section-number">3</span> Accuracy of estimators</h2>
+<section id="accuracy" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="accuracy"><span class="header-section-number">3.1</span> Accuracy</h3>
+<p>To determine which estimator is best, we need to define <em>best</em>. Accuracy is usually most important, and ease of computation is usually secondary.</p>
+</section>
+<section id="estimation-error" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="estimation-error"><span class="header-section-number">3.2</span> Estimation error</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-estimation-error div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-estimation-error" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Estimation error)</strong></span> The <strong>estimation error</strong> of an estimate <span class="math inline">\(\hat\theta\)</span> of a true value <span class="math inline">\(\theta\)</span> is the difference between the estimate and the estimand <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\hat\theta- \theta\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-estimation-error" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (Estimation error of a mean height)</strong></span> Continuing <a href="#exm-estimate" class="quarto-xref">Example&nbsp;3</a>, suppose the population mean height of students at our school were actually <span class="math inline">\(\mu = 172\)</span> cm. Then the estimate <span class="math inline">\(\hat\mu = 175\)</span> cm would have estimation error:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\varepsilon\mathopen{}\left(\hat\mu\right)\mathclose{}
+&amp;= \hat\mu - \mu
+&amp;&amp; \text{(definition of estimation error)}\\
+&amp;= 175 - 172
+&amp;&amp; \text{(substitute the estimate and the estimand)}\\
+&amp;= 3 \text{ cm}
+\end{aligned}
+\]</span></p>
+<p>In practice we never observe an estimation error, because we do not know the estimand’s value; if we did, we would not need to estimate it.</p>
+</div>
+</div>
+</div>
+</div>
+<p>The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, mean squared error, and mean absolute error defined in this section, are all functions of the distribution of the estimator’s <a href="#def-estimation-error">estimation error</a>.</p>
+</section>
+<section id="residuals" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="residuals"><span class="header-section-number">3.3</span> Residuals</h3>
+<p>See <a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-lm-residuals">Linear-model residual definitions and terminology</a> for residual definitions and for the relationship between residuals, model deviations, and estimation error.</p>
+</section>
+<section id="bias" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="bias"><span class="header-section-number">3.4</span> Bias</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-bias div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-bias" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (Bias)</strong></span> The <strong>bias</strong> of an estimator <span class="math inline">\(\hat\theta\)</span> for an estimand <span class="math inline">\(\theta\)</span> is the expected value of the <a href="#def-estimation-error">estimation error</a>:</p>
+<p><span id="eq-bias-def"><span class="math display">\[\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right]\mathclose{} \tag{1}\]</span></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-bias-exprs" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Bias equals expectation minus truth)</strong></span> <span class="math display">\[\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{} - \theta\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
+\begin{aligned}
+\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;\stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right]\mathclose{}
+&amp;&amp; \text{(definition of bias)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\hat\theta- \theta\right]\mathclose{}
+&amp;&amp; \text{(definition of estimation error)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{} - \operatorname{E}\mathopen{}\left[\theta\right]\mathclose{}
+&amp;&amp; \text{(linearity of expectation)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{} - \theta
+&amp;&amp; \text{($\theta$ is a constant)}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-bias-sample-mean" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (Bias of two estimators of a mean)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> each have expectation <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} = \mu\)</span>, as in <a href="#exm-estimator" class="quarto-xref">Example&nbsp;4</a>. By <a href="#thm-bias-exprs" class="quarto-xref">Theorem&nbsp;1</a>, the bias of the sample mean <span class="math inline">\(\bar X\)</span> is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{} - \mu
+&amp;&amp; \text{(bias equals expectation minus truth)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\frac{1}{n}\sum_{i=1}^n X_i\right]\mathclose{} - \mu
+&amp;&amp; \text{(definition of $\bar X$)}\\
+&amp;= \frac{1}{n}\sum_{i=1}^n \operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} - \mu
+&amp;&amp; \text{(linearity of expectation)}\\
+&amp;= \frac{1}{n} \cdot n\mu - \mu
+&amp;&amp; \text{($\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} = \mu$ for every $i$)}\\
+&amp;= 0
+\end{aligned}
+\]</span></p>
+<p>and the bias of the single-observation estimator <span class="math inline">\(\hat\mu^{(2)} = X_1\)</span> is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[X_1\right]\mathclose{} - \mu
+&amp;&amp; \text{(bias equals expectation minus truth)}\\
+&amp;= \mu - \mu
+&amp;&amp; \text{($\operatorname{E}\mathopen{}\left[X_1\right]\mathclose{} = \mu$)}\\
+&amp;= 0
+\end{aligned}
+\]</span></p>
+<p>So both estimators have zero bias, even though <span class="math inline">\(\bar X\)</span> uses all <span class="math inline">\(n\)</span> observations and <span class="math inline">\(X_1\)</span> uses only one.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mean-squared-error" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="mean-squared-error"><span class="header-section-number">3.5</span> Mean squared error</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-mse div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-mse" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 7 (Mean squared error)</strong></span> The <strong>mean squared error</strong> of an estimator <span class="math inline">\(\hat\theta\)</span>, denoted <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}\)</span>, is the expectation of the square of the <a href="#def-estimation-error">estimation error</a>:</p>
+<p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left(\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}\right]\mathclose{}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-mse-bias-variance" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (Mean squared error equals bias squared plus variance)</strong></span> For any one-dimensional estimator <span class="math inline">\(\hat\theta\)</span>:</p>
+<p><span id="eq-mse"><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} = \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} \tag{2}\]</span></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let’s start by expanding each term of the right-hand side. By <a href="#thm-bias-exprs" class="quarto-xref">Theorem&nbsp;1</a>, the squared bias is:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}
+&amp;= \mathopen{}\left(\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{} - \theta\right)^2\mathclose{}
+&amp;&amp; \text{(bias equals expectation minus truth)}\\
+&amp;= \mathopen{}\left(\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\theta+ \theta^2
+&amp;&amp; \text{(expand the binomial square)}
+\end{aligned}
+\]</span></p>
+<p>The variance is (<a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance">simplified expression for variance</a>):</p>
+<p><span class="math display">\[\operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{E}\mathopen{}\left[\hat\theta^2\right]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\right)^2\mathclose{}\]</span></p>
+<p>Now, add them together and simplify:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;= \mathopen{}\left(\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\theta+ \theta^2 + \operatorname{E}\mathopen{}\left[\hat\theta^2\right]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\right)^2\mathclose{}
+&amp;&amp; \text{(substitute both expansions)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\hat\theta^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\theta+ \theta^2
+&amp;&amp; \text{(cancel $\mathopen{}\left(\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\right)^2\mathclose{}$)}
+\end{aligned}
+\]</span></p>
+<p>Now let’s expand the left-hand side to reach the same expression:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;\stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left(\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}\right]\mathclose{}
+&amp;&amp; \text{(definition of MSE)}\\
+&amp;= \operatorname{E}\mathopen{}\left[(\hat\theta- \theta)^2\right]\mathclose{}
+&amp;&amp; \text{(definition of estimation error)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\hat\theta^2 - 2\hat\theta\theta+ \theta^2\right]\mathclose{}
+&amp;&amp; \text{(expand the binomial square)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\hat\theta^2\right]\mathclose{} - \operatorname{E}\mathopen{}\left[2\hat\theta\theta\right]\mathclose{} + \operatorname{E}\mathopen{}\left[\theta^2\right]\mathclose{}
+&amp;&amp; \text{(linearity of expectation)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\hat\theta^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\theta+ \theta^2
+&amp;&amp; \text{($\theta$ is a constant)}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}\)</span> and <span class="math inline">\(\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}\)</span> both equal <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat\theta^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\theta+ \theta^2\)</span>. Equality is transitive, so <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}\)</span> and <span class="math inline">\(\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}\)</span> are equal to each other:</p>
+<p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} = \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-mse-sample-mean" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Mean squared error of two estimators of a mean)</strong></span> Continuing <a href="#exm-bias-sample-mean" class="quarto-xref">Example&nbsp;6</a>, suppose also that <span class="math inline">\(X_1, \ldots, X_n\)</span> are mutually independent, each with variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\)</span>. Both <span class="math inline">\(\bar X\)</span> and <span class="math inline">\(X_1\)</span> have zero bias, so by <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;2</a> each estimator’s mean squared error equals its variance.</p>
+<p>For <span class="math inline">\(X_1\)</span>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} = 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} = \sigma^2\)</span>.</p>
+<p>For <span class="math inline">\(\bar X\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{}
+&amp;= \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}
+&amp;&amp; \text{(MSE equals bias squared plus variance)}\\
+&amp;= 0 + \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum_{i=1}^n X_i\right)\mathclose{}
+&amp;&amp; \text{(zero bias; definition of $\bar X$)}\\
+&amp;= \frac{1}{n^2}\sum_{i=1}^n \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}
+&amp;&amp; \text{(variance of a linear combination of independent variables)}\\
+&amp;= \frac{1}{n^2} \cdot n\sigma^2
+&amp;&amp; \text{($\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2$ for every $i$)}\\
+&amp;= \frac{\sigma^2}{n}
+\end{aligned}
+\]</span></p>
+<p>The third line uses the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom">variance of a linear combination</a>, whose covariance terms are all zero for independent variables.</p>
+<p>So for any sample size <span class="math inline">\(n &gt; 1\)</span>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/n &lt; \sigma^2 = \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}\)</span>: by mean squared error, the sample mean is the more accurate estimator. With <span class="math inline">\(n = 50\)</span> students, as in <a href="#exm-estimator" class="quarto-xref">Example&nbsp;4</a>, the sample mean’s mean squared error is <span class="math inline">\(1/50\)</span> of <span class="math inline">\(X_1\)</span>’s.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-rmse" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 8 (Root mean squared error)</strong></span> The <strong>root mean squared error</strong> of an estimator <span class="math inline">\(\hat\theta\)</span> is the square root of its <a href="#def-mse">mean squared error</a>:</p>
+<p><span class="math display">\[\operatorname{RMSE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}}\]</span></p>
+<p>It has the same units as the estimand. In <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;7</a>, the root mean squared error of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-unbiased-estimators" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="sec-unbiased-estimators"><span class="header-section-number">3.6</span> Unbiased estimators</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-unbiased div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-unbiased" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9 (Unbiased estimator)</strong></span> An estimator <span class="math inline">\(\hat\theta\)</span> is <strong>unbiased</strong> if its <a href="#def-bias">bias</a> is zero: <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} = 0\)</span>. An estimator whose bias is not zero is <strong>biased</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-unbiased-sample-mean" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8 (The sample mean is unbiased)</strong></span> By <a href="#exm-bias-sample-mean" class="quarto-xref">Example&nbsp;6</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\)</span> and <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\)</span>, so both the sample mean <span class="math inline">\(\bar X\)</span> and the single-observation estimator <span class="math inline">\(X_1\)</span> are <a href="#def-unbiased">unbiased</a> estimators of <span class="math inline">\(\mu\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-biased-variance-mle" class="theorem example">
+<p><span class="theorem-title"><strong>Example 9 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
+<ul>
+<li>the <a href="./exploratory-descriptive.html#def-sample-variance">sample variance</a> <span class="math inline">\(S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n (X_i - \bar X)^2\)</span>;</li>
+<li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n (X_i - \bar X)^2\)</span>.</li>
+</ul>
+<p>Both estimators are built from the sum of squared deviations <span class="math inline">\(\sum_{i=1}^n (X_i - \bar X)^2\)</span>, so we first find its expectation. Using <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{}\right)^2\mathclose{} = \sigma^2 + \mu^2\)</span> and <span class="math inline">\(\operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\)</span> (by <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;7</a> and <a href="#exm-bias-sample-mean" class="quarto-xref">Example&nbsp;6</a>):</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{E}\mathopen{}\left[\sum_{i=1}^n (X_i - \bar X)^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - 2\bar X \sum_{i=1}^n X_i + n \bar X^2\right]\mathclose{}
+&amp;&amp; \text{(expand each square and sum)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right]\mathclose{}
+&amp;&amp; \text{($\textstyle\sum_{i=1}^n X_i = n \bar X$)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - n \bar X^2\right]\mathclose{}
+&amp;&amp; \text{(collect the $\bar X^2$ terms)}\\
+&amp;= \sum_{i=1}^n \operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} - n \operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{}
+&amp;&amp; \text{(linearity of expectation)}\\
+&amp;= n(\sigma^2 + \mu^2) - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{}
+&amp;&amp; \text{(substitute both second moments)}\\
+&amp;= (n - 1)\sigma^2
+&amp;&amp; \text{(cancel $n\mu^2$ and simplify)}
+\end{aligned}
+\]</span></p>
+<p>So <span class="math inline">\(\operatorname{E}\mathopen{}\left[S^2\right]\mathclose{} = \frac{1}{n-1}(n-1)\sigma^2 = \sigma^2\)</span>, and by <a href="#thm-bias-exprs" class="quarto-xref">Theorem&nbsp;1</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(S^2\right)\mathclose{} = 0\)</span>: the sample variance is <a href="#def-unbiased">unbiased</a>.</p>
+<p>For the divide-by-<span class="math inline">\(n\)</span> estimator, <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat\sigma^2\right]\mathclose{} = \frac{1}{n}(n-1)\sigma^2\)</span>, so:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{Bias}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\hat\sigma^2\right]\mathclose{} - \sigma^2
+&amp;&amp; \text{(bias equals expectation minus truth)}\\
+&amp;= \frac{n-1}{n}\sigma^2 - \sigma^2
+&amp;&amp; \text{(substitute $\operatorname{E}\mathopen{}\left[\hat\sigma^2\right]\mathclose{}$)}\\
+&amp;= -\frac{\sigma^2}{n}
+&amp;&amp; \text{(common denominator)}
+\end{aligned}
+\]</span></p>
+<p>This estimator is biased: on average it underestimates <span class="math inline">\(\sigma^2\)</span>, by an amount that shrinks to zero as <span class="math inline">\(n\)</span> grows.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-unbiased-props" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 3 (Properties of unbiased estimators)</strong></span> If <span class="math inline">\(\hat\theta\)</span> is an <a href="#def-unbiased">unbiased</a> estimator of <span class="math inline">\(\theta\)</span>, then:</p>
+<p><span id="eq-unbiased-exp"><span class="math display">\[\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{} = \theta \tag{3}\]</span></span></p>
+<p><span id="eq-unbiased-mse"><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} \tag{4}\]</span></span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>For <a href="#eq-unbiased-exp" class="quarto-xref">Equation&nbsp;3</a>, apply <a href="#thm-bias-exprs" class="quarto-xref">Theorem&nbsp;1</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+0 &amp;= \operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;&amp; \text{(definition of unbiased)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{} - \theta
+&amp;&amp; \text{(bias equals expectation minus truth)}
+\end{aligned}
+\]</span></p>
+<p>Adding <span class="math inline">\(\theta\)</span> to both sides gives <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{} = \theta\)</span>.</p>
+<p>For <a href="#eq-unbiased-mse" class="quarto-xref">Equation&nbsp;4</a>, apply <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;2</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;= \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;&amp; \text{(MSE equals bias squared plus variance)}\\
+&amp;= 0^2 + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;&amp; \text{(definition of unbiased)}\\
+&amp;= \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;&amp; \text{($0^2 = 0$)}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="mean-absolute-error" class="level3" data-number="3.7">
+<h3 data-number="3.7" class="anchored" data-anchor-id="mean-absolute-error"><span class="header-section-number">3.7</span> Mean absolute error</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-mae" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10 (Mean absolute error)</strong></span> The <strong>mean absolute error</strong> of an estimator is the expectation of the absolute value of the <a href="#def-estimation-error">estimation error</a>:</p>
+<p><span class="math display">\[
+\operatorname{MAE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left|\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right|\mathclose{}\right]\mathclose{}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-mae-gaussian" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10 (Mean absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat\theta\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{} = \hat\theta- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{MAE}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\mathopen{}\left|\tau Z\right|\mathclose{}\right]\mathclose{}
+&amp;&amp; \text{(definition of MAE)}\\
+&amp;= \tau \operatorname{E}\mathopen{}\left[\mathopen{}\left|Z\right|\mathclose{}\right]\mathclose{}
+&amp;&amp; \text{($\tau &gt; 0$ and linearity of expectation)}\\
+&amp;= \tau \int_{-\infty}^{\infty} \mathopen{}\left|z\right|\mathclose{} \phi(z) \, dz
+&amp;&amp; \text{(expectation of a function of $Z$)}\\
+&amp;= 2\tau \int_{0}^{\infty} z \phi(z) \, dz
+&amp;&amp; \text{($\mathopen{}\left|z\right|\mathclose{}\phi(z)$ is symmetric about 0)}\\
+&amp;= 2\tau \mathopen{}\left[-\phi(z)\right]\mathclose{}_{0}^{\infty}
+&amp;&amp; \text{($\phi'(z) = -z\phi(z)$)}\\
+&amp;= 2\tau \phi(0)
+&amp;&amp; \text{($\phi(z) \to 0$ as $z \to \infty$)}\\
+&amp;= \tau \sqrt{2/\pi}
+&amp;&amp; \text{($\phi(0) = (2\pi)^{-1/2}$)}
+\end{aligned}
+\]</span></p>
+<p>So for an <a href="#def-unbiased">unbiased</a> Gaussian estimator, the mean absolute error is about <span class="math inline">\(0.80\)</span> times the standard deviation <span class="math inline">\(\tau\)</span>, while the <a href="#def-rmse">root mean squared error</a> is <span class="math inline">\(\tau\)</span> itself (<a href="#thm-unbiased-props" class="quarto-xref">Theorem&nbsp;3</a>).</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="standard-error" class="level3" data-number="3.8">
+<h3 data-number="3.8" class="anchored" data-anchor-id="standard-error"><span class="header-section-number">3.8</span> Standard error</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-SE div. -->
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-SE" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 11 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat\theta\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat\theta\)</span>:</p>
+<p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-SE-sample-mean" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11 (Standard error of the sample mean)</strong></span> In <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;7</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2 / n\)</span>, so <span class="math inline">\(\operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} = \sqrt{\sigma^2 / n} = \sigma / \sqrt{n}\)</span>. With <span class="math inline">\(n = 50\)</span> students, the standard error of the sample mean height is <span class="math inline">\(\sigma / \sqrt{50} \approx 0.14\sigma\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-lem no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="thm-se-error-sd" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Standard error is the spread of the estimation error)</strong></span> <span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right)\mathclose{}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span><span class="math display">\[
+\begin{aligned}
+\operatorname{Var}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right)\mathclose{}
+&amp;= \operatorname{Var}\mathopen{}\left(\hat\theta- \theta\right)\mathclose{}
+&amp;&amp; \text{(definition of estimation error)}\\
+&amp;= \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;&amp; \text{(subtracting a constant does not change a variance)}
+\end{aligned}
+\]</span></p>
+<p>Taking square roots of both sides, <span class="math inline">\(\operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="notes">
+<p>“Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the <a href="#def-estimation-error">estimation error</a> (although <a href="#thm-se-error-sd" class="quarto-xref">Theorem&nbsp;4</a> shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.</p>
+</div>
+<div class="callout callout-style-simple callout-cor no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-var-mse-bias" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 1 (Standard error squared equals MSE minus squared bias)</strong></span> The squared standard error is what remains of the mean squared error after the squared bias is removed:</p>
+<p><span class="math display">\[\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} = \operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} - \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Start from <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;2</a>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} &amp;= \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}
+&amp;&amp; \text{(MSE equals bias squared plus variance)}\\
+\operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} &amp;= \operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} - \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}
+&amp;&amp; \text{(subtract $\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}$ from both sides)}\\
+\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} &amp;= \operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} - \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}
+&amp;&amp; \text{($\operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} = \mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} = \mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}$)}
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-cor no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="cor-se-rmse-unbiased" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corollary 2 (For unbiased estimators, SE equals root MSE)</strong></span> If <span class="math inline">\(\hat\theta\)</span> is <a href="#def-unbiased">unbiased</a>, then its standard error equals its <a href="#def-rmse">root mean squared error</a>:</p>
+<p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{} = \sqrt{\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#eq-unbiased-mse" class="quarto-xref">Equation&nbsp;4</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{}\)</span>. Taking square roots of both sides, <span class="math inline">\(\sqrt{\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}} = \operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-box_draper_1987" class="csl-entry" role="listitem">
+Box, George E. P., and Norman Richard. Draper. 1987. <em>Empirical Model-Building and Response Surfaces</em>. Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics. Wiley.
+</div>
+<div id="ref-dunn2018generalized" class="csl-entry" role="listitem">
+Dunn, Peter K, and Gordon K Smyth. 2018. <em>Generalized Linear Models with Examples in <span>R</span></em>. Vol. 53. Springer. <a href="https://doi.org/10.1007/978-1-4419-0118-7">https://doi.org/10.1007/978-1-4419-0118-7</a>.
+</div>
+<div id="ref-lawrance2020estimand" class="csl-entry" role="listitem">
+Lawrance, Rachael, Evgeny Degtyarev, Philip Griffiths, et al. 2020. <span>“What Is an Estimand, and How Does It Relate to Quantifying the Effect of Treatment on Patient-Reported Quality of Life Outcomes in Clinical Trials?”</span> <em>Journal of Patient-Reported Outcomes</em> 4 (1): 1–8. <a href="https://doi.org/10.1186/s41687-020-00218-5">https://doi.org/10.1186/s41687-020-00218-5</a>.
+</div>
+<div id="ref-pohl2021estimands" class="csl-entry" role="listitem">
+Pohl, Moritz, Lukas Baumann, Rouven Behnisch, Marietta Kirchner, Johannes Krisam, and Anja Sander. 2021. <span>“<span class="nocase">Estimands—A Basic Element for Clinical Trials</span>.”</span> <em>Deutsches <span>Ä</span>rzteblatt International</em> 118 (51-52): 883–88. <a href="https://doi.org/10.3238/arztebl.m2021.0373">https://doi.org/10.3238/arztebl.m2021.0373</a>.
+</div>
+<div id="ref-van2018flexible" class="csl-entry" role="listitem">
+Van Buuren, Stef. 2018. <em>Flexible Imputation of Missing Data</em>. CRC press. <a href="https://stefvanbuuren.name/fimd/">https://stefvanbuuren.name/fimd/</a>.
+</div>
+</div>
+
+
+<!-- -->
+
+<script>
+const theoremLikeClasses = new Set([
+  "thm",
+  "theorem",
+  "lem",
+  "lemma",
+  "cor",
+  "corollary",
+  "prp",
+  "proposition",
+  "cnj",
+  "conjecture",
+  "def",
+  "definition",
+  "exm",
+  "example",
+  "exr",
+  "exercise",
+  "proof",
+  "remark",
+  "solution"
+]);
+const inlineAnchorSeparator = "\u00A0";
+const maxAnchorRetryAttempts = 5;
+const anchorRetryDelayMs = 50;
+
+const isTheoremLikeDiv = (div) =>
+  Array.from(div.classList).some((className) => theoremLikeClasses.has(className));
+
+const addTheoremLikeDivAnchors = () => {
+  for (const theoremDiv of window.document.querySelectorAll("div[id]")) {
+    if (!isTheoremLikeDiv(theoremDiv)) {
+      continue;
+    }
+
+    if (!theoremDiv.classList.contains("anchored")) {
+      theoremDiv.classList.add("anchored");
+    }
+
+    if (!theoremDiv.dataset.anchorId) {
+      theoremDiv.dataset.anchorId = theoremDiv.id;
+    }
+  }
+};
+
+const ensureSectionHeadingAnchorAttributes = () => {
+  for (const sectionHeading of window.document.querySelectorAll(
+    "section[id] > h1, section[id] > h2, section[id] > h3, section[id] > h4, section[id] > h5, section[id] > h6"
+  )) {
+    if (!sectionHeading.classList.contains("anchored")) {
+      sectionHeading.classList.add("anchored");
+    }
+
+    if (!sectionHeading.dataset.anchorId) {
+      sectionHeading.dataset.anchorId = sectionHeading.parentElement.id;
+    }
+  }
+};
+
+const normalizeInternalAnchorLinkIcons = () => {
+  for (const link of window.document.querySelectorAll(
+    "a.anchorjs-link, a.quarto-xref"
+  )) {
+    if (link.classList.contains("quarto-xref")) {
+      link.classList.add("no-external");
+      link.classList.remove("external");
+      continue;
+    }
+
+    const href = link.getAttribute("href") || "";
+    if (!href.startsWith("#")) {
+      continue;
+    }
+
+    link.classList.add("no-external");
+    link.classList.remove("external");
+  }
+};
+
+const moveTheoremDivAnchorsInline = () => {
+  let hasPendingAnchors = false;
+
+  for (const theoremDiv of window.document.querySelectorAll("div[id]")) {
+    if (!isTheoremLikeDiv(theoremDiv)) {
+      continue;
+    }
+
+    const theoremTitle = theoremDiv.querySelector(".theorem-title");
+    if (!theoremTitle) {
+      continue;
+    }
+
+    const anchorLink = Array.from(
+      theoremDiv.querySelectorAll("a.anchorjs-link")
+    ).find((link) => {
+      const href = link.getAttribute("href") || "";
+      return href === `#${theoremDiv.id}` || href.endsWith(`#${theoremDiv.id}`);
+    });
+
+    if (anchorLink && anchorLink.parentElement === theoremTitle) {
+      continue;
+    }
+
+    if (!anchorLink) {
+      hasPendingAnchors = true;
+      continue;
+    }
+
+    anchorLink.classList.remove("external");
+    theoremTitle.append(inlineAnchorSeparator);
+    theoremTitle.append(anchorLink);
+  }
+
+  return hasPendingAnchors;
+};
+
+const moveTheoremDivAnchorsInlineWithRetry = (
+  attemptsRemaining = maxAnchorRetryAttempts
+) => {
+  const hasPendingAnchors = moveTheoremDivAnchorsInline();
+  if (hasPendingAnchors && attemptsRemaining > 0) {
+    window.setTimeout(() => {
+      moveTheoremDivAnchorsInlineWithRetry(attemptsRemaining - 1);
+    }, anchorRetryDelayMs);
+  }
+};
+
+if (window.document.readyState === "loading") {
+  window.document.addEventListener("DOMContentLoaded", () => {
+    addTheoremLikeDivAnchors();
+    ensureSectionHeadingAnchorAttributes();
+    normalizeInternalAnchorLinkIcons();
+    moveTheoremDivAnchorsInlineWithRetry();
+  });
+} else {
+  addTheoremLikeDivAnchors();
+  ensureSectionHeadingAnchorAttributes();
+  normalizeInternalAnchorLinkIcons();
+  moveTheoremDivAnchorsInlineWithRetry();
+}
+
+window.addEventListener("load", () => {
+  normalizeInternalAnchorLinkIcons();
+  moveTheoremDivAnchorsInlineWithRetry();
+});
+</script>
+
+<script>
+const defaultAnchorIconFallback = "#";
+
+function getDefaultAnchorTemplate() {
+  const defaultAnchor = document.querySelector("a.anchorjs-link[data-anchorjs-icon]");
+  if (!defaultAnchor) {
+    return null;
+  }
+
+  return {
+    icon: defaultAnchor.getAttribute("data-anchorjs-icon"),
+    style: defaultAnchor.getAttribute("style")
+  };
+}
+
+function alignEquationAnchorWithDefault(anchor, template) {
+  if (!anchor) {
+    return;
+  }
+
+  anchor.classList.remove("external");
+
+  if (template && template.icon) {
+    anchor.setAttribute("data-anchorjs-icon", template.icon);
+    anchor.textContent = "";
+  } else if (!anchor.textContent) {
+    anchor.textContent = defaultAnchorIconFallback;
+  }
+
+  if (template && template.style) {
+    anchor.setAttribute("style", template.style);
+  } else {
+    anchor.removeAttribute("style");
+  }
+}
+
+function alignEquationAnchorsWithDefault() {
+  const template = getDefaultAnchorTemplate();
+  document.querySelectorAll("a.equation-anchor").forEach(function (anchor) {
+    alignEquationAnchorWithDefault(anchor, template);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const equations = document.querySelectorAll("span[id^='eq-']");
+  equations.forEach(function (equation) {
+    if (equation.querySelector(".equation-anchor")) {
+      return;
+    }
+
+    if (!equation.querySelector(".math.display")) {
+      return;
+    }
+
+    const id = equation.getAttribute("id");
+    if (!id) {
+      return;
+    }
+
+    equation.classList.add("equation-anchor-target");
+
+    const anchor = document.createElement("a");
+    anchor.className = "equation-anchor anchorjs-link";
+    anchor.href = "#" + id;
+    anchor.setAttribute("aria-label", "Permalink to this equation");
+    equation.appendChild(anchor);
+  });
+
+  alignEquationAnchorsWithDefault();
+});
+
+window.addEventListener("load", alignEquationAnchorsWithDefault);
+</script>
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/morrison-lab\.github\.io\/sds\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./exploratory-descriptive.html" class="pagination-link" preview-toc-changed aria-label="Exploratory Data Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Exploratory Data Analysis</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./inference.html" class="pagination-link" preview-toc-changed aria-label="Statistical Inference">
+        <span class="nav-page-text">Statistical Inference</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Estimation"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  revealjs:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: estimation-slides.html</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: estimation-handout.pdf</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: estimation-handout.docx</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="an">preview-changed:</span><span class="co"> true</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## Scientific models</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include latex-macros/macros.qmd &gt;}}</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-model div. --&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-model.qmd &gt;}}</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-model.qmd &gt;}}</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">### Models as approximations</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_quote-all-models-wrong.qmd &gt;}}</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="fu">### Statistical analysis of scientific models</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_prose-statistical-analysis.qmd &gt;}}</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Estimands, estimates, and estimators</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estimands</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>\index{estimand}</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-estimand div. --&gt;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-estimand.qmd &gt;}}</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-estimand.qmd &gt;}}</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_note-estimands.qmd &gt;}}</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estimates</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>\index{estimate} \index{estimated value}</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-estimate div. --&gt;</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-estimate.qmd &gt;}}</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-estimate.qmd &gt;}}</span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estimators</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>\index{estimator}</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-estimator div. --&gt;</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-estimator.qmd &gt;}}</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_note-estimators.qmd &gt;}}</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-estimator.qmd &gt;}}</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a><span class="fu">### Contrasting estimands, estimates, and estimators</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_prose-contrast.qmd &gt;}}</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="fu">## Accuracy of estimators {#sec-est-accuracy}</span></span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="fu">### Accuracy</span></span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_prose-accuracy.qmd &gt;}}</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### Estimation error</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-estimation-error div. --&gt;</span></span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-estimation-error.qmd &gt;}}</span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-estimation-error.qmd &gt;}}</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_prose-accuracy-measures.qmd &gt;}}</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="fu">### Residuals</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_prose-residuals.qmd &gt;}}</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a><span class="fu">### Bias</span></span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-bias div. --&gt;</span></span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-bias.qmd &gt;}}</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_thm-bias-exprs.qmd &gt;}}</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-bias-sample-mean.qmd &gt;}}</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mean squared error</span></span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-mse div. --&gt;</span></span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-mse.qmd &gt;}}</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_thm-mse-bias-variance.qmd &gt;}}</span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>::: proof</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/proof-mse-bias-variance.qmd &gt;}}</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-149"><a href="#cb1-149" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-mse-sample-mean.qmd &gt;}}</span>
+<span id="cb1-150"><a href="#cb1-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-151"><a href="#cb1-151" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-152"><a href="#cb1-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-153"><a href="#cb1-153" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-rmse.qmd &gt;}}</span>
+<span id="cb1-154"><a href="#cb1-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-155"><a href="#cb1-155" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-156"><a href="#cb1-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-157"><a href="#cb1-157" aria-hidden="true" tabindex="-1"></a><span class="fu">### Unbiased estimators {#sec-unbiased-estimators}</span></span>
+<span id="cb1-158"><a href="#cb1-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-159"><a href="#cb1-159" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-unbiased div. --&gt;</span></span>
+<span id="cb1-160"><a href="#cb1-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-161"><a href="#cb1-161" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-unbiased.qmd &gt;}}</span>
+<span id="cb1-162"><a href="#cb1-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-163"><a href="#cb1-163" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-164"><a href="#cb1-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-165"><a href="#cb1-165" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-unbiased-sample-mean.qmd &gt;}}</span>
+<span id="cb1-166"><a href="#cb1-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-167"><a href="#cb1-167" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-168"><a href="#cb1-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-169"><a href="#cb1-169" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-biased-variance-mle.qmd &gt;}}</span>
+<span id="cb1-170"><a href="#cb1-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-171"><a href="#cb1-171" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-172"><a href="#cb1-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-173"><a href="#cb1-173" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_thm-unbiased-props.qmd &gt;}}</span>
+<span id="cb1-174"><a href="#cb1-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-175"><a href="#cb1-175" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-176"><a href="#cb1-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-177"><a href="#cb1-177" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mean absolute error</span></span>
+<span id="cb1-178"><a href="#cb1-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-179"><a href="#cb1-179" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-mae div. --&gt;</span></span>
+<span id="cb1-180"><a href="#cb1-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-181"><a href="#cb1-181" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-mae.qmd &gt;}}</span>
+<span id="cb1-182"><a href="#cb1-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-183"><a href="#cb1-183" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-184"><a href="#cb1-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-185"><a href="#cb1-185" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-mae-gaussian.qmd &gt;}}</span>
+<span id="cb1-186"><a href="#cb1-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-187"><a href="#cb1-187" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-188"><a href="#cb1-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-189"><a href="#cb1-189" aria-hidden="true" tabindex="-1"></a><span class="fu">### Standard error</span></span>
+<span id="cb1-190"><a href="#cb1-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-191"><a href="#cb1-191" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-SE div. --&gt;</span></span>
+<span id="cb1-192"><a href="#cb1-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-193"><a href="#cb1-193" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-SE.qmd &gt;}}</span>
+<span id="cb1-194"><a href="#cb1-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-195"><a href="#cb1-195" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-196"><a href="#cb1-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-197"><a href="#cb1-197" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-SE-sample-mean.qmd &gt;}}</span>
+<span id="cb1-198"><a href="#cb1-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-199"><a href="#cb1-199" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-200"><a href="#cb1-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-201"><a href="#cb1-201" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_thm-se-error-sd.qmd &gt;}}</span>
+<span id="cb1-202"><a href="#cb1-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-203"><a href="#cb1-203" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_note-SE.qmd &gt;}}</span>
+<span id="cb1-204"><a href="#cb1-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-205"><a href="#cb1-205" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-206"><a href="#cb1-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-207"><a href="#cb1-207" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_cor-var-mse-bias.qmd &gt;}}</span>
+<span id="cb1-208"><a href="#cb1-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-209"><a href="#cb1-209" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb1-210"><a href="#cb1-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd &gt;}}</span>
+<span id="cb1-212"><a href="#cb1-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-213"><a href="#cb1-213" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb1-214"><a href="#cb1-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-215"><a href="#cb1-215" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb1-216"><a href="#cb1-216" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/estimation.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/estimation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
