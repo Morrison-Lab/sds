@@ -1,8 +1,7 @@
 ::: {#exm-confidence-interval-wcgs}
 #### Confidence interval for mean cholesterol in the WCGS
 
-<!-- Repoint the CLT link to pds (limit-theorems.qmd#sec-clt) once pds is published. -->
-By the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem),
+By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt),
 the sample mean $\bar X$ of a large sample
 has approximately a Gaussian distribution
 with mean $\mu$ and

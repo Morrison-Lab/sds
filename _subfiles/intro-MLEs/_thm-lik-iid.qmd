@@ -1,7 +1,7 @@
 :::{#thm-lik-iid}
 #### Likelihood of an independent sample
 
-For [mutually independent](https://morrison-lab.github.io/rme/chapters/probability.html#def-indpt)
+For [mutually independent](https://morrison-lab.github.io/pds/independence.html#def-indpt)
 data $X_1, \ldots, X_n$:
 
 $$\Lik(\theta) = \prod_{i=1}^n \p(X_i = x_i \mid \theta)$$ {#eq-Lik}

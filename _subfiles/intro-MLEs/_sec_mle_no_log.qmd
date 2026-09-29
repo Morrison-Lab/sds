@@ -12,6 +12,6 @@ $$ {#eq-deriv-Lik}
 
 @eq-deriv-Lik is the derivative of a product of $n$ factors,
 which takes $n - 1$ applications of the
-[product rule](https://morrison-lab.github.io/rme/chapters/math-prereqs.html#thm-product-rule)
+[product rule](https://morrison-lab.github.io/mds/calculus.html#thm-product-rule)
 and produces $n$ terms.
 The log-likelihood avoids this work.

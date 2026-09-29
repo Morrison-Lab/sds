@@ -28,7 +28,7 @@ $$
 $$
 
 The third line uses
-the [variance of a linear combination](https://morrison-lab.github.io/rme/chapters/probability.html#thm-var-lincom),
+the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom),
 whose covariance terms are all zero for independent variables.
 
 So for any sample size $n > 1$,

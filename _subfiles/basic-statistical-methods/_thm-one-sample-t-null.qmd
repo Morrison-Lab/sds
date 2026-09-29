@@ -39,8 +39,7 @@ $$
 When the observations are not Gaussian,
 $T$ still has approximately the standard Gaussian distribution
 when $n$ is large,
-<!-- Repoint to pds (limit-theorems.qmd#sec-clt) once it is published. -->
-by the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem),
+by the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt),
 and then $t_{n-1}$ is close to the standard Gaussian distribution
 ([t quantiles approach Gaussian quantiles](inference.qmd#exm-t-dist)).
 :::
