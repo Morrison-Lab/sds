@@ -334,7 +334,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:59:25 (PDT)</p>
 </section><section id="empirical-cdf" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical CDF</h2>
 <style>
@@ -381,7 +381,7 @@ text-align: center;
 <p><span class="math display">\[\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\{t : \hat F(t) \ge p\right\}\mathclose{}, \quad 0 &lt; p \le 1.\]</span></p>
 <p>For a given <span class="math inline">\(p\)</span>, the value <span class="math inline">\(\hat Q(p)\)</span> is the <strong>sample <span class="math inline">\(p\)</span> quantile</strong>, also called the <strong>sample <span class="math inline">\(100p\)</span>th percentile</strong>.</p>
 </div>
-<p>The <a href="https://morrison-lab.github.io/rme/chapters/probability.html#def-cdf">CDF</a> <span class="math inline">\(F\)</span> and the <a href="https://morrison-lab.github.io/rme/chapters/probability.html#def-quantile-function">quantile function</a> <span class="math inline">\(Q\)</span> describe a probability distribution, while <span class="math inline">\(\hat F\)</span> and <span class="math inline">\(\hat Q\)</span> describe a sample, and serve as estimates of <span class="math inline">\(F\)</span> and <span class="math inline">\(Q\)</span>.</p>
+<p>The <a href="https://morrison-lab.github.io/pds/random-variables.html#def-cdf">CDF</a> <span class="math inline">\(F\)</span> and the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-quantile-function">quantile function</a> <span class="math inline">\(Q\)</span> describe a probability distribution, while <span class="math inline">\(\hat F\)</span> and <span class="math inline">\(\hat Q\)</span> describe a sample, and serve as estimates of <span class="math inline">\(F\)</span> and <span class="math inline">\(Q\)</span>.</p>
 </section><section class="slide level2"><div id="thm-sample-quantile-order-statistics" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Order-statistics form of the sample quantile)</strong></span> If <span class="math inline">\(x_{(1)} \le \cdots \le x_{(n)}\)</span> are the <a href="#/def-order-statistics">order statistics</a> and <span class="math inline">\(i \in \mathopen{}\left\{1, \ldots, n\right\}\mathclose{}\)</span>, then <span class="math inline">\(\hat Q(p) = x_{(i)}\)</span> for every <span class="math inline">\(p\)</span> with <span class="math inline">\((i-1)/n &lt; p \le i/n\)</span>. In particular, <span class="math inline">\(\hat Q(i/n) = x_{(i)}\)</span>.</p>
 </div>

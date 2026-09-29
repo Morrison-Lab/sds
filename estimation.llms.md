@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 23:02:22 (PDT)
+Last modified: 2026-09-28 23:59:25 (PDT)
 
 ## 1 Scientific models
 
@@ -182,7 +182,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 >
 > \\ \begin{aligned} \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{} &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat\theta\right\]\mathclose{} - \theta\right)^2\mathclose{} && \text{(bias equals expectation minus truth)}\\ &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat\theta\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat\theta\right\]\mathclose{}\theta+ \theta^2 && \text{(expand the binomial square)} \end{aligned} \\
 >
-> The variance is ([simplified expression for variance](https://morrison-lab.github.io/rme/chapters/probability.html#thm-variance)):
+> The variance is ([simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)):
 >
 > \\\operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat\theta^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat\theta\right\]\mathclose{}\right)^2\mathclose{}\\
 >
@@ -208,7 +208,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 >
 > \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &= \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0 + \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum\_{i=1}^n X_i\right)\mathclose{} && \text{(zero bias; definition of \$\bar X\$)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} && \text{(variance of a linear combination of independent variables)}\\ &= \frac{1}{n^2} \cdot n\sigma^2 && \text{(\$\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\$ for every \$i\$)}\\ &= \frac{\sigma^2}{n} \end{aligned} \\
 >
-> The third line uses the [variance of a linear combination](https://morrison-lab.github.io/rme/chapters/probability.html#thm-var-lincom), whose covariance terms are all zero for independent variables.
+> The third line uses the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom), whose covariance terms are all zero for independent variables.
 >
 > So for any sample size \\n \> 1\\, \\\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/n \< \sigma^2 = \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}\\: by mean squared error, the sample mean is the more accurate estimator. With \\n = 50\\ students, as in [Example 4](#exm-estimator), the sample mean’s mean squared error is \\1/50\\ of \\X_1\\’s.
 
@@ -289,7 +289,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 
 > **NOTE:**
 >
-> **Definition 11 (Standard error)** The **standard error** of an estimator \\\hat\theta\\ is the [standard deviation](https://morrison-lab.github.io/rme/chapters/probability.html#def-sd) of \\\hat\theta\\:
+> **Definition 11 (Standard error)** The **standard error** of an estimator \\\hat\theta\\ is the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of \\\hat\theta\\:
 >
 > \\\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{}\\
 

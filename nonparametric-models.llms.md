@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 23:02:22 (PDT)
+Last modified: 2026-09-28 23:59:25 (PDT)
 
 ## 1 Empirical CDF
 
@@ -48,7 +48,7 @@ Last modified: 2026-09-28 23:02:22 (PDT)
 >
 > For a given \\p\\, the value \\\hat Q(p)\\ is the **sample \\p\\ quantile**, also called the **sample \\100p\\th percentile**.
 
-The [CDF](https://morrison-lab.github.io/rme/chapters/probability.html#def-cdf) \\F\\ and the [quantile function](https://morrison-lab.github.io/rme/chapters/probability.html#def-quantile-function) \\Q\\ describe a probability distribution, while \\\hat F\\ and \\\hat Q\\ describe a sample, and serve as estimates of \\F\\ and \\Q\\.
+The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\\ and the [quantile function](https://morrison-lab.github.io/pds/random-variables.html#def-quantile-function) \\Q\\ describe a probability distribution, while \\\hat F\\ and \\\hat Q\\ describe a sample, and serve as estimates of \\F\\ and \\Q\\.
 
 > **NOTE:**
 >

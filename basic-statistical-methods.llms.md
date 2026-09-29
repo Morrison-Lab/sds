@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 23:02:22 (PDT)
+Last modified: 2026-09-28 23:59:25 (PDT)
 
 ## 1 Introduction
 
@@ -151,7 +151,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > \\ \begin{aligned} \frac{Z}{\sqrt{V/(n-1)}} &= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{\sqrt{S^2 / \sigma^2}} && \text{(substitute \$Z\$ and \$V\$)}\\ &= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{S / \sigma} && \text{(\$\sqrt{S^2} = S\$, since \$S \ge 0\$)}\\ &= \frac{\bar X - \mu_0}{S / \sqrt{n}} && \text{(the factors of \$\sigma\$ cancel)}\\ &= T. \end{aligned} \\
 
-When the observations are not Gaussian, \\T\\ still has approximately the standard Gaussian distribution when \\n\\ is large, by the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem), and then \\t\_{n-1}\\ is close to the standard Gaussian distribution ([t quantiles approach Gaussian quantiles](inference.llms.md#exm-t-dist)).
+When the observations are not Gaussian, \\T\\ still has approximately the standard Gaussian distribution when \\n\\ is large, by the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), and then \\t\_{n-1}\\ is close to the standard Gaussian distribution ([t quantiles approach Gaussian quantiles](inference.llms.md#exm-t-dist)).
 
 ### 4.3 Paired t-test
 

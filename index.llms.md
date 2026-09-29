@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 23:02:22 (PDT)
+Last modified: 2026-09-28 23:59:25 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -46,7 +46,7 @@ These notes began as the statistics appendices of [*Regression Models for Epidem
 - the basic statistical methods sections on categorical outcomes, correlation and simple linear regression, and the bootstrap (such as `sec-two-group-categorical`, `sec-correlation`, `sec-simple-linear-regression`, and `sec-bootstrap-ci`), which moved to their own pages, with their ids;
 - the Bayesian inference sections on computation (`sec-foundations` through `sec-dic`) and the worked examples (`sec-bayes-examples` and the sections after it), which moved to the MCMC and JAGS pages, with their ids.
 
-Where these notes rely on probability or calculus, they link to that book’s [probability](https://morrison-lab.github.io/rme/chapters/probability.html) and [mathematics](https://morrison-lab.github.io/rme/chapters/math-prereqs.html) chapters.
+Where these notes rely on probability or calculus, they link to the lab’s notes on [probability](https://morrison-lab.github.io/pds/) and [mathematics](https://morrison-lab.github.io/mds/) for data science, which are the canonical home for the probability and mathematics appendices of rme.
 
 ## 3 Using these notes in another site
 

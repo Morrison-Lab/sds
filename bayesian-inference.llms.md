@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 23:02:22 (PDT)
+Last modified: 2026-09-28 23:59:25 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)).
 
@@ -42,7 +42,7 @@ The two paradigms answer different questions. A frequentist asks, “for which p
 
 > **NOTE:**
 >
-> **Definition 4 (Posterior distribution)** The **posterior distribution** of a parameter \\\theta\\, given observed data \\\tilde{Y}= \tilde{y}\\, is the [conditional distribution](https://morrison-lab.github.io/rme/chapters/probability.html#def-cond-pdf) of \\\theta\\ given \\\tilde{Y}= \tilde{y}\\. Its density or probability mass function is written \\\operatorname{p}(\theta \mid \tilde{y})\\.
+> **Definition 4 (Posterior distribution)** The **posterior distribution** of a parameter \\\theta\\, given observed data \\\tilde{Y}= \tilde{y}\\, is the [conditional distribution](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf) of \\\theta\\ given \\\tilde{Y}= \tilde{y}\\. Its density or probability mass function is written \\\operatorname{p}(\theta \mid \tilde{y})\\.
 
 > **NOTE:**
 >
@@ -92,7 +92,7 @@ The two paradigms answer different questions. A frequentist asks, “for which p
 >
 > *Proof*. In [Equation 1](#eq-bayes-posterior), the denominator \\\operatorname{p}(\tilde{y})\\ does not depend on \\\theta\\.
 
-[Theorem 1](#thm-bayes-posterior) is [Bayes’ theorem](https://morrison-lab.github.io/rme/chapters/probability.html#thm-bayes) for events, restated for densities. Here \\\operatorname{p}(\tilde{y}\mid \theta)\\, viewed as a function of \\\theta\\, is the [likelihood](intro-MLEs.llms.md#def-lik) \\\mathcal{L}(\theta)\\. [Corollary 1](#cor-bayes-proportional) is the workhorse of applied Bayesian analysis: it identifies the posterior from the shape of likelihood times prior, without computing the integral \\\operatorname{p}(\tilde{y})\\, and it is what makes the simulation methods of Markov chain Monte Carlo possible ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 272).
+[Theorem 1](#thm-bayes-posterior) is [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes) for events, restated for densities. Here \\\operatorname{p}(\tilde{y}\mid \theta)\\, viewed as a function of \\\theta\\, is the [likelihood](intro-MLEs.llms.md#def-lik) \\\mathcal{L}(\theta)\\. [Corollary 1](#cor-bayes-proportional) is the workhorse of applied Bayesian analysis: it identifies the posterior from the shape of likelihood times prior, without computing the integral \\\operatorname{p}(\tilde{y})\\, and it is what makes the simulation methods of Markov chain Monte Carlo possible ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 272).
 
 ### 2.1 A Gaussian mean with a Gaussian prior
 

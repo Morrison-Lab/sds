@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 23:02:22 (PDT)
+Last modified: 2026-09-28 23:59:25 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -53,7 +53,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Theorem 1 (Likelihood of an independent sample)** For [mutually independent](https://morrison-lab.github.io/rme/chapters/probability.html#def-indpt) data \\X_1, \ldots, X_n\\:
+> **Theorem 1 (Likelihood of an independent sample)** For [mutually independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) data \\X_1, \ldots, X_n\\:
 >
 > \\\mathcal{L}(\theta) = \prod\_{i=1}^n \operatorname{p}(X_i = x_i \mid \theta) \tag{1}\\
 
@@ -115,7 +115,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 \\ \begin{aligned} \mathcal{L}'(\theta) &= \frac{\partial}{\partial \theta} \mathcal{L}(\theta)\\ &= \frac{\partial}{\partial \theta} \prod\_{i=1}^n \operatorname{p}(X_i = x_i \mid \theta) \end{aligned} \tag{3}\\
 
-[Equation 3](#eq-deriv-Lik) is the derivative of a product of \\n\\ factors, which takes \\n - 1\\ applications of the [product rule](https://morrison-lab.github.io/rme/chapters/math-prereqs.html#thm-product-rule) and produces \\n\\ terms. The log-likelihood avoids this work.
+[Equation 3](#eq-deriv-Lik) is the derivative of a product of \\n\\ factors, which takes \\n - 1\\ applications of the [product rule](https://morrison-lab.github.io/mds/calculus.html#thm-product-rule) and produces \\n\\ terms. The log-likelihood avoids this work.
 
 ### 1.5 The log-likelihood function
 

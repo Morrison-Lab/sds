@@ -291,7 +291,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:59:25 (PDT)</p>
 </section>
 <section id="scientific-models" class="slide level2" data-number="1">
 <h2><span class="header-section-number">1</span> Scientific models</h2>
@@ -564,7 +564,7 @@
 &amp;&amp; \text{(expand the binomial square)}
 \end{aligned}
 \]</span></p>
-<p>The variance is (<a href="https://morrison-lab.github.io/rme/chapters/probability.html#thm-variance">simplified expression for variance</a>):</p>
+<p>The variance is (<a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance">simplified expression for variance</a>):</p>
 <p><span class="math display">\[\operatorname{Var}\mathopen{}\left(\hat\theta\right)\mathclose{} = \operatorname{E}\mathopen{}\left[\hat\theta^2\right]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left[\hat\theta\right]\mathclose{}\right)^2\mathclose{}\]</span></p>
 <p>Now, add them together and simplify:</p>
 <p><span class="math display">\[
@@ -616,7 +616,7 @@
 &amp;= \frac{\sigma^2}{n}
 \end{aligned}
 \]</span></p>
-<p>The third line uses the <a href="https://morrison-lab.github.io/rme/chapters/probability.html#thm-var-lincom">variance of a linear combination</a>, whose covariance terms are all zero for independent variables.</p>
+<p>The third line uses the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom">variance of a linear combination</a>, whose covariance terms are all zero for independent variables.</p>
 <p>So for any sample size <span class="math inline">\(n &gt; 1\)</span>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/n &lt; \sigma^2 = \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}\)</span>: by mean squared error, the sample mean is the more accurate estimator. With <span class="math inline">\(n = 50\)</span> students, as in <a href="#/exm-estimator" class="quarto-xref">Example&nbsp;4</a>, the sample mean’s mean squared error is <span class="math inline">\(1/50\)</span> of <span class="math inline">\(X_1\)</span>’s.</p>
 </div>
 </section>
@@ -758,7 +758,7 @@
 <h3 data-number="3.8" id="standard-error"><span class="header-section-number">3.8</span> Standard error</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-SE div. -->
 <div id="def-SE" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat\theta\)</span> is the <a href="https://morrison-lab.github.io/rme/chapters/probability.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat\theta\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 11 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat\theta\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat\theta\)</span>:</p>
 <p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{}\]</span></p>
 </div>
 </section>

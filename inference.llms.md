@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 23:02:22 (PDT)
+Last modified: 2026-09-28 23:59:25 (PDT)
 
 ## 1 Inference
 
@@ -78,9 +78,7 @@ A p-value is computed assuming \\H_0\\ is true, so it is not the probability tha
 
 > **NOTE:**
 >
-> **Example 3 (Testing whether mean cholesterol differs by CHD status)**  
->
-> Continuing [Example 2](#exm-hypotheses-wcgs), let \\\bar x_1\\ and \\\bar x_0\\ be the two groups’ sample mean cholesterol, with sample variances \\s_1^2\\ and \\s_0^2\\ and sample sizes \\n_1\\ and \\n_0\\. By the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem), when \\H_0\\ holds and the samples are large, the statistic
+> **Example 3 (Testing whether mean cholesterol differs by CHD status)** Continuing [Example 2](#exm-hypotheses-wcgs), let \\\bar x_1\\ and \\\bar x_0\\ be the two groups’ sample mean cholesterol, with sample variances \\s_1^2\\ and \\s_0^2\\ and sample sizes \\n_1\\ and \\n_0\\. By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), when \\H_0\\ holds and the samples are large, the statistic
 >
 > \\Z \stackrel{\text{def}}{=}\frac{\bar x_1 - \bar x_0}{\sqrt{s_1^2/n_1 + s_0^2/n_0}}\\
 >
@@ -104,7 +102,7 @@ A p-value is computed assuming \\H_0\\ is true, so it is not the probability tha
 
 ## 3 Reference distributions
 
-The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually [independent](https://morrison-lab.github.io/rme/chapters/probability.html#def-indpt).
+The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
 
 > **NOTE:**
 >
@@ -181,9 +179,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Example 7 (Confidence interval for mean cholesterol in the WCGS)**  
->
-> By the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
+> **Example 7 (Confidence interval for mean cholesterol in the WCGS)** By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
 >
 > ``` downlit
 > chol <- wcgs$chol[!is.na(wcgs$chol)]
