@@ -58,9 +58,8 @@ jobs:
       # "non-human actor".
       allowed-bots: 'github-actions[bot],claude'
       prompt-addendum: |
-        In addition to the standard checks above, this is the qwt Quarto
-        website template -- small, prose-heavy, and re-used as a template
-        for downstream books -- so also prioritize:
+        In addition to the standard checks above, this is a small,
+        prose-heavy Quarto website, so also prioritize:
 
         1. **Quarto / prose correctness**
            - `.qmd` syntax: chunk options use `#|` directives, fenced
@@ -72,15 +71,13 @@ jobs:
 
         2. **R code**
            - Conforms to `.lintr.R` settings (snake_case, line length, etc.).
-           - No new package dependencies without justification -- every
-             dependency added here lands in every downstream book.
 
         3. **Build hygiene**
            - No accidental commits of `_site/`, `_freeze/`, or `.quarto/`.
            - `README.md` is generated; edits should go to `README.Rmd`.
            - Bibliography entries in `references.bib` are well-formed BibTeX.
 
-        4. **CI / template impact**
+        4. **CI impact**
            - Workflow changes don't break the `copilot-setup-steps.yml`
              contract or the publish/preview pipelines.
            - Spell-check / link-check failures are fixed at the source
