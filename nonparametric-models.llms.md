@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 22:22:08 (PDT)
+Last modified: 2026-09-28 23:02:22 (PDT)
 
 ## 1 Empirical CDF
 
@@ -91,6 +91,8 @@ Other sources, and other software defaults, define sample quantiles differently,
 
 ## 4 The empirical CDF and quantile function as generalized inverses
 
+Show R code
+
 ``` downlit
 x <- c(4, 1, 7, 3)
 n <- length(x)
@@ -121,6 +123,8 @@ points(x_ord, f_levels[seq_len(n) + 1], pch = 19, col = "blue")
 [![](nonparametric-models_files/figure-html/unnamed-chunk-2-1.png)](nonparametric-models_files/figure-html/unnamed-chunk-2-1.png "Figure 1 (a): Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.")
 
 \(a\) Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.
+
+Show R code
 
 ``` downlit
 eqf_y_padding <- 0.5

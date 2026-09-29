@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 22:22:08 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -364,8 +364,7 @@ text-align: center;
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="sec-correlation" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Correlation</h2>
@@ -436,18 +435,17 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
 </div>
 <p>The statistic of <a href="#/def-pearson-test" class="quarto-xref">Definition&nbsp;2</a>, using the 2758 participants with a BMI measurement:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>hers_bmi <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>hers_bmi <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI))</span>
 <span id="cb3-2"><a aria-label="2"></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(hers_bmi<span class="sc">$</span>BMI, hers_bmi<span class="sc">$</span>glucose)</span>
 <span id="cb3-3"><a aria-label="3"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(hers_bmi)</span>
 <span id="cb3-4"><a aria-label="4"></a>t_cor <span class="ot">&lt;-</span> r <span class="sc">*</span> <span class="fu">sqrt</span>(n <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> r<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb3-5"><a aria-label="5"></a><span class="fu">c</span>(<span class="at">r =</span> r, <span class="at">t =</span> t_cor, <span class="at">p_value =</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>(<span class="sc">-</span><span class="fu">abs</span>(t_cor), <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">2</span>))</span>
 <span id="cb3-6"><a aria-label="6"></a><span class="co">#&gt;           r           t     p_value </span></span>
 <span id="cb3-7"><a aria-label="7"></a><span class="co">#&gt; 2.72664e-01 1.48779e+01 3.24201e-48</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p><code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> reports the same values, and a confidence interval for <span class="math inline">\(\rho\)</span>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">cor.test</span>(hers<span class="sc">$</span>BMI, hers<span class="sc">$</span>glucose, <span class="at">method =</span> <span class="st">"pearson"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">cor.test</span>(hers<span class="sc">$</span>BMI, hers<span class="sc">$</span>glucose, <span class="at">method =</span> <span class="st">"pearson"</span>)</span>
 <span id="cb4-2"><a aria-label="2"></a><span class="co">#&gt; </span></span>
 <span id="cb4-3"><a aria-label="3"></a><span class="co">#&gt;  Pearson's product-moment correlation</span></span>
 <span id="cb4-4"><a aria-label="4"></a><span class="co">#&gt; </span></span>
@@ -459,7 +457,6 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
 <span id="cb4-10"><a aria-label="10"></a><span class="co">#&gt; sample estimates:</span></span>
 <span id="cb4-11"><a aria-label="11"></a><span class="co">#&gt;      cor </span></span>
 <span id="cb4-12"><a aria-label="12"></a><span class="co">#&gt; 0.272664</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The correlation is positive but modest: glucose tends to be higher at higher BMI, with wide scatter around the line in <a href="#/fig-hers-scatter" class="quarto-xref">Figure&nbsp;1</a>.</p>
 </div>
@@ -483,7 +480,7 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
       }</style></aside></section><section class="slide level2"><div id="exm-hers-spearman" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Spearman correlation between BMI and fasting glucose in HERS)</strong></span> The Pearson correlation of the ranks (<a href="#/def-spearman-r" class="quarto-xref">Definition&nbsp;3</a>), and <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code>’s Spearman test (<code>exact = FALSE</code>, because tied values rule out the exact p-value):</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>hers_bmi <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>hers_bmi <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI))</span>
 <span id="cb5-2"><a aria-label="2"></a><span class="fu">cor</span>(<span class="fu">rank</span>(hers_bmi<span class="sc">$</span>BMI), <span class="fu">rank</span>(hers_bmi<span class="sc">$</span>glucose))</span>
 <span id="cb5-3"><a aria-label="3"></a><span class="co">#&gt; [1] 0.333751</span></span>
 <span id="cb5-4"><a aria-label="4"></a><span class="fu">cor.test</span>(hers_bmi<span class="sc">$</span>BMI, hers_bmi<span class="sc">$</span>glucose, <span class="at">method =</span> <span class="st">"spearman"</span>, <span class="at">exact =</span> <span class="cn">FALSE</span>)</span>
@@ -496,7 +493,6 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
 <span id="cb5-11"><a aria-label="11"></a><span class="co">#&gt; sample estimates:</span></span>
 <span id="cb5-12"><a aria-label="12"></a><span class="co">#&gt;      rho </span></span>
 <span id="cb5-13"><a aria-label="13"></a><span class="co">#&gt; 0.333751</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p><span class="math inline">\(r_S\)</span> is larger than the Pearson <span class="math inline">\(r\)</span> of <a href="#/exm-hers-cor" class="quarto-xref">Example&nbsp;1</a>: the association is closer to monotone than to linear.</p>
 </div>
@@ -622,7 +618,7 @@ r \, \frac{s_y}{s_x}
 <div id="exm-hers-slr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Regression of fasting glucose on BMI in HERS)</strong></span> The OLS estimates from <a href="#/thm-ols-slr" class="quarto-xref">Theorem&nbsp;2</a>, and the slope from <a href="#/cor-ols-slope-r" class="quarto-xref">Corollary&nbsp;1</a>, for the participants with a BMI measurement:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>hers_bmi <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>hers_bmi <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI))</span>
 <span id="cb6-2"><a aria-label="2"></a>x <span class="ot">&lt;-</span> hers_bmi<span class="sc">$</span>BMI</span>
 <span id="cb6-3"><a aria-label="3"></a>y <span class="ot">&lt;-</span> hers_bmi<span class="sc">$</span>glucose</span>
 <span id="cb6-4"><a aria-label="4"></a>b1 <span class="ot">&lt;-</span> <span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">*</span> (y <span class="sc">-</span> <span class="fu">mean</span>(y))) <span class="sc">/</span> <span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>)</span>
@@ -633,11 +629,10 @@ r \, \frac{s_y}{s_x}
 <span id="cb6-9"><a aria-label="9"></a>)</span>
 <span id="cb6-10"><a aria-label="10"></a><span class="co">#&gt;    intercept        slope slope_from_r </span></span>
 <span id="cb6-11"><a aria-label="11"></a><span class="co">#&gt;     60.07405      1.82218      1.82218</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p><code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> gives the same estimates:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>slr_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI, <span class="at">data =</span> hers)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>slr_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI, <span class="at">data =</span> hers)</span>
 <span id="cb7-2"><a aria-label="2"></a><span class="fu">summary</span>(slr_fit)</span>
 <span id="cb7-3"><a aria-label="3"></a><span class="co">#&gt; </span></span>
 <span id="cb7-4"><a aria-label="4"></a><span class="co">#&gt; Call:</span></span>
@@ -658,7 +653,6 @@ r \, \frac{s_y}{s_x}
 <span id="cb7-19"><a aria-label="19"></a><span class="co">#&gt;   (5 observations deleted due to missingness)</span></span>
 <span id="cb7-20"><a aria-label="20"></a><span class="co">#&gt; Multiple R-squared:  0.0743, Adjusted R-squared:  0.074 </span></span>
 <span id="cb7-21"><a aria-label="21"></a><span class="co">#&gt; F-statistic:  221 on 1 and 2756 DF,  p-value: &lt;2e-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The estimated slope is <span class="math inline">\(\hat\beta_1 = 1.82\)</span> mg/dL per kg/m<sup>2</sup>: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m<sup>2</sup> higher. The t statistic for the slope equals the correlation test statistic of <a href="#/exm-hers-cor" class="quarto-xref">Example&nbsp;1</a>.</p>
 </div>
@@ -745,7 +739,7 @@ R^2
 </section><section class="slide level2"><div id="exm-hers-r-squared" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (<span class="math inline">\(R^2\)</span> for the regression of glucose on BMI in HERS)</strong></span> For the fit in <a href="#/exm-hers-slr" class="quarto-xref">Example&nbsp;4</a>, <span class="math inline">\(R^2\)</span> computed from <a href="#/def-r-squared" class="quarto-xref">Definition&nbsp;8</a>, the square of the Pearson correlation, and <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>’s value agree:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI, <span class="at">data =</span> hers)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI, <span class="at">data =</span> hers)</span>
 <span id="cb8-2"><a aria-label="2"></a>y <span class="ot">&lt;-</span> fit<span class="sc">$</span>model<span class="sc">$</span>glucose</span>
 <span id="cb8-3"><a aria-label="3"></a><span class="fu">c</span>(</span>
 <span id="cb8-4"><a aria-label="4"></a>  <span class="at">r_squared =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(fit)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sum</span>((y <span class="sc">-</span> <span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>),</span>
@@ -754,7 +748,6 @@ R^2
 <span id="cb8-7"><a aria-label="7"></a>)</span>
 <span id="cb8-8"><a aria-label="8"></a><span class="co">#&gt;   r_squared cor_squared          lm </span></span>
 <span id="cb8-9"><a aria-label="9"></a><span class="co">#&gt;   0.0743455   0.0743455   0.0743455</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>BMI accounts for only about 7% of the variation in baseline fasting glucose.</p>
 </div>

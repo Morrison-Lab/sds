@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 22:22:08 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -525,7 +525,7 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-normal-credible-vs-confidence" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Credible and confidence intervals for a Gaussian mean)</strong></span> We simulate <span class="math inline">\(n = 20\)</span> observations from the model of <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;5</a>, with true mean <span class="math inline">\(\mu = 2\)</span>, and compute both a 95% confidence interval, <span class="math inline">\(\bar x \pm 1.96 / \sqrt{n}\)</span> (the variance is known to be 1), and the equal-tailed 95% credible interval from the <span class="math inline">\(\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\, \frac{1}{n+1}\right)\mathclose{}\)</span> posterior:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb1-2"><a aria-label="2"></a>mu_true <span class="ot">&lt;-</span> <span class="dv">2</span></span>
 <span id="cb1-3"><a aria-label="3"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
 <span id="cb1-4"><a aria-label="4"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> n, <span class="at">mean =</span> mu_true, <span class="at">sd =</span> <span class="dv">1</span>)</span>
@@ -540,7 +540,6 @@ text-align: center;
 <span id="cb1-13"><a aria-label="13"></a><span class="co">#&gt;            lower upper</span></span>
 <span id="cb1-14"><a aria-label="14"></a><span class="co">#&gt; confidence 1.752 2.629</span></span>
 <span id="cb1-15"><a aria-label="15"></a><span class="co">#&gt; credible   1.659 2.514</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The sample mean is <span class="math inline">\(\bar x = 2.191\)</span>. The credible interval is slightly narrower than the confidence interval, because the prior adds information, and shifted toward the prior mean <span class="math inline">\(0\)</span>.</p>
 <p><a href="#/fig-normal-prior-lik-post" class="quarto-xref">Figure&nbsp;1</a> shows how the posterior combines prior and data. Completing the square in the likelihood of <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;5</a> as a function of <span class="math inline">\(\mu\)</span> alone shows that the likelihood is proportional to a <span class="math inline">\(\operatorname{N}\mathopen{}\left(\bar x, 1/n\right)\mathclose{}\)</span> density, which is the curve drawn for it.</p>
@@ -575,10 +574,9 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 </div>
 <p>Because <span class="math inline">\(\mu\)</span> has a distribution, the Bayesian can also compute the posterior probability that <span class="math inline">\(\mu\)</span> lies in the realized <em>confidence</em> interval:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>pr_in_ci <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">pnorm</span>(ci_freq, <span class="at">mean =</span> post_mean, <span class="at">sd =</span> post_sd) <span class="sc">|&gt;</span> <span class="fu">diff</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>pr_in_ci <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">pnorm</span>(ci_freq, <span class="at">mean =</span> post_mean, <span class="at">sd =</span> post_sd) <span class="sc">|&gt;</span> <span class="fu">diff</span>()</span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">round</span>(pr_in_ci, <span class="dv">3</span>)</span>
 <span id="cb3-3"><a aria-label="3"></a><span class="co">#&gt; [1] 0.931</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>That probability is 0.931, not 0.95: under this prior, the confidence interval sits slightly too far from <span class="math inline">\(0\)</span>. A frequentist cannot assign any probability to the event that <span class="math inline">\(\mu\)</span> lies in one realized interval, since both are fixed.</p>
 </div>
@@ -642,7 +640,7 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <p>which is proportional to the <span class="math inline">\(\operatorname{Beta}(a + r,\; b + n - r)\)</span> density. So the Beta family is conjugate to the Bernoulli likelihood. The prior parameters <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> act as <em>pseudo-counts</em> of prior successes and failures: the posterior adds the <span class="math inline">\(r\)</span> observed successes and <span class="math inline">\(n - r\)</span> observed failures to them.</p>
 <p>The uniform prior of <a href="#/exm-prior" class="quarto-xref">Example&nbsp;2</a> is <span class="math inline">\(\operatorname{Beta}(1, 1)\)</span>. With that prior and <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, the posterior is <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span>, with this mean and equal-tailed 95% <a href="#/def-credible-interval">credible interval</a>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>a_post <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">55</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>a_post <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">55</span></span>
 <span id="cb4-2"><a aria-label="2"></a>b_post <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">91</span> <span class="sc">-</span> <span class="dv">55</span></span>
 <span id="cb4-3"><a aria-label="3"></a><span class="fu">c</span>(</span>
 <span id="cb4-4"><a aria-label="4"></a>  <span class="at">mean =</span> a_post <span class="sc">/</span> (a_post <span class="sc">+</span> b_post),</span>
@@ -652,7 +650,6 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <span id="cb4-8"><a aria-label="8"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb4-9"><a aria-label="9"></a><span class="co">#&gt;  mean lower upper </span></span>
 <span id="cb4-10"><a aria-label="10"></a><span class="co">#&gt; 0.602 0.501 0.699</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The mean uses the <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> mean <span class="math inline">\(a / (a + b)\)</span> <span class="citation" data-cites="CaseBerg01">(<a href="#/references" role="doc-biblioref" onclick="">Casella and Berger 2002, sec. 3.3</a>, p.&nbsp;107)</span>.</p>
 </div>
@@ -694,7 +691,7 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 </ul>
 <p>The two proper priors’ probabilities for large odds ratios:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>or_cutoffs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="fl">1e6</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>or_cutoffs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">100</span>, <span class="fl">1e6</span>)</span>
 <span id="cb5-2"><a aria-label="2"></a><span class="fu">rbind</span>(</span>
 <span id="cb5-3"><a aria-label="3"></a>  <span class="at">informative =</span> stats<span class="sc">::</span><span class="fu">pnorm</span>(<span class="fu">log</span>(or_cutoffs), <span class="fu">log</span>(<span class="fl">1.5</span>), <span class="fl">0.2</span>,</span>
 <span id="cb5-4"><a aria-label="4"></a>    <span class="at">lower.tail =</span> <span class="cn">FALSE</span></span>
@@ -708,7 +705,6 @@ Figure&nbsp;1: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <span id="cb5-12"><a aria-label="12"></a><span class="co">#&gt;                    Pr(OR &gt; 10) Pr(OR &gt; 100) Pr(OR &gt; 1e6)</span></span>
 <span id="cb5-13"><a aria-label="13"></a><span class="co">#&gt; informative            1.2e-21      3.4e-98      0.0e+00</span></span>
 <span id="cb5-14"><a aria-label="14"></a><span class="co">#&gt; weakly_informative     1.8e-01      3.3e-02      1.6e-08</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The informative prior all but rules out an odds ratio of 10; the weakly informative prior leaves a few percent of its probability above 100, and effectively none above <span class="math inline">\(10^6\)</span>.</p>
 </div>
@@ -803,12 +799,12 @@ m_\tau = \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 \]</span></p>
 <p>is a weighted average of the sample mean and the prior mean <span class="math inline">\(0\)</span>, weighted by the precision <span class="math inline">\(n\)</span> of the data and the precision <span class="math inline">\(1/\tau^2\)</span> of the prior (a precision is a reciprocal variance). The more skeptical the prior (the smaller <span class="math inline">\(\tau\)</span>), the more the posterior mean shrinks toward <span class="math inline">\(0\)</span>. With <span class="math inline">\(\bar x = 2\)</span> and <span class="math inline">\(n = 20\)</span> held fixed:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>xbar <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>xbar <span class="ot">&lt;-</span> <span class="dv">2</span></span>
 <span id="cb6-2"><a aria-label="2"></a>n <span class="ot">&lt;-</span> <span class="dv">20</span></span>
 <span id="cb6-3"><a aria-label="3"></a>tau <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">10</span>)</span>
 <span id="cb6-4"><a aria-label="4"></a><span class="fu">data.frame</span>(<span class="at">prior_sd =</span> tau, <span class="at">posterior_mean =</span> n <span class="sc">*</span> xbar <span class="sc">/</span> (n <span class="sc">+</span> <span class="dv">1</span> <span class="sc">/</span> tau<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb6-5"><a aria-label="5"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["prior_sd"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["posterior_mean"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.10","2":"0.333"},{"1":"0.25","2":"1.111"},{"1":"0.50","2":"1.667"},{"1":"1.00","2":"1.905"},{"1":"2.00","2":"1.975"},{"1":"10.00","2":"1.999"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}

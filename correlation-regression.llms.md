@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 22:22:08 (PDT)
+Last modified: 2026-09-28 23:02:22 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -48,7 +48,7 @@ The conditions of [Theorem 1](#thm-pearson-test-null) hold, for example, when t
 >
 > **Example 1 (Correlation between BMI and fasting glucose in HERS)** [Figure 1](#fig-hers-scatter) plots baseline fasting glucose against BMI.
 >
-> Code
+> Show R code
 >
 > ``` downlit
 > hers |>

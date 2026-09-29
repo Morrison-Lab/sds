@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 22:22:08 (PDT)
+Last modified: 2026-09-28 23:02:22 (PDT)
 
 ## 1 Inference
 
@@ -223,6 +223,8 @@ P-values do not distinguish between absence of evidence and evidence of absence.
 Conversely, even statistically significant evidence of a non-null value does not mean the value is large enough to matter; that depends on what the estimand is. For example, we might have statistically significant evidence that an exercise program prolongs human lifespans by 20 seconds, but an effect that small would be negligible in practical terms.
 
 [Figure 1](#fig-CI-interp) sketches these scenarios.
+
+Show R code
 
 ``` downlit
 ci_scenarios <- tibble::tribble(

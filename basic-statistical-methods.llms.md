@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 22:22:08 (PDT)
+Last modified: 2026-09-28 23:02:22 (PDT)
 
 ## 1 Introduction
 
@@ -88,7 +88,7 @@ That page also defines the graphs used here, including [box plots](exploratory-d
 >
 > **Example 1 (HERS baseline characteristics by treatment group)** [Table 1](#tbl-hers-summary) summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by mean (standard deviation), and categorical variables by count (percent).
 >
-> Code
+> Show R code
 >
 > ``` downlit
 > hers |>
@@ -219,7 +219,7 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 >
 > **Example 3 (Baseline fasting glucose by treatment group in HERS)** We test \\H_0: \mu\_\text{HT} = \mu\_\text{placebo}\\ against \\H_1: \mu\_\text{HT} \neq \mu\_\text{placebo}\\, where \\\mu\_\text{HT}\\ and \\\mu\_\text{placebo}\\ are the mean baseline fasting glucose levels in the hormone therapy and placebo populations. [Figure 1](#fig-hers-boxplot) compares the two groups’ distributions.
 >
-> Code
+> Show R code
 >
 > ``` downlit
 > hers |>

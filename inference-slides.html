@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 22:22:08 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <style>
@@ -451,7 +451,7 @@ text-align: center;
 <p><span class="math display">\[Z \stackrel{\text{def}}{=}\frac{\bar x_1 - \bar x_0}{\sqrt{s_1^2/n_1 + s_0^2/n_0}}\]</span></p>
 <p>has approximately a standard Gaussian distribution. Extreme values in either direction are evidence for the two-sided <span class="math inline">\(H_1\)</span>, so the test statistic is <span class="math inline">\(T = \mathopen{}\left|Z\right|\mathclose{}\)</span>, and the p-value is <span class="math inline">\(\Pr(\mathopen{}\left|Z\right|\mathclose{} \ge \mathopen{}\left|z\right|\mathclose{}) = 2\Phi(-\mathopen{}\left|z\right|\mathclose{})\)</span>, where <span class="math inline">\(\Phi\)</span> is the standard Gaussian CDF.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>chol_by_chd <span class="ot">&lt;-</span> <span class="fu">split</span>(wcgs<span class="sc">$</span>chol, wcgs<span class="sc">$</span>chd69) <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>chol_by_chd <span class="ot">&lt;-</span> <span class="fu">split</span>(wcgs<span class="sc">$</span>chol, wcgs<span class="sc">$</span>chd69) <span class="sc">|&gt;</span></span>
 <span id="cb1-2"><a aria-label="2"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(x) x[<span class="sc">!</span><span class="fu">is.na</span>(x)])</span>
 <span id="cb1-3"><a aria-label="3"></a>x1 <span class="ot">&lt;-</span> chol_by_chd[[<span class="st">"Yes"</span>]]</span>
 <span id="cb1-4"><a aria-label="4"></a>x0 <span class="ot">&lt;-</span> chol_by_chd[[<span class="st">"No"</span>]]</span>
@@ -462,7 +462,6 @@ text-align: center;
 <span id="cb1-9"><a aria-label="9"></a><span class="fu">c</span>(<span class="at">difference =</span> diff_means, <span class="at">se =</span> se_diff, <span class="at">z =</span> z, <span class="at">p_value =</span> p_value)</span>
 <span id="cb1-10"><a aria-label="10"></a><span class="co">#&gt;  difference          se           z     p_value </span></span>
 <span id="cb1-11"><a aria-label="11"></a><span class="co">#&gt; 2.58087e+01 3.17988e+00 8.11626e+00 4.80780e-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The p-value is far below 0.05, so at significance level 0.05 the test rejects <span class="math inline">\(H_0\)</span>: the data provide <a href="#/def-statistically-significant">statistically significant</a> evidence that mean cholesterol differs between the two groups.</p>
 </div>
@@ -476,10 +475,9 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-chi-square-dist" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (The 0.95 quantile of <span class="math inline">\(\chi^2_1\)</span>)</strong></span> By <a href="#/def-chi-square-dist" class="quarto-xref">Definition&nbsp;9</a>, a <span class="math inline">\(\chi^2_1\)</span> random variable is <span class="math inline">\(Z^2\)</span> for a standard Gaussian <span class="math inline">\(Z\)</span>. So <span class="math inline">\(\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})\)</span>, and the 0.95 quantile of <span class="math inline">\(\chi^2_1\)</span> is the square of the 0.975 quantile of the standard Gaussian distribution:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="at">chisq =</span> <span class="fu">qchisq</span>(<span class="fl">0.95</span>, <span class="at">df =</span> <span class="dv">1</span>), <span class="at">gaussian_squared =</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="at">chisq =</span> <span class="fu">qchisq</span>(<span class="fl">0.95</span>, <span class="at">df =</span> <span class="dv">1</span>), <span class="at">gaussian_squared =</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb2-2"><a aria-label="2"></a><span class="co">#&gt;            chisq gaussian_squared </span></span>
 <span id="cb2-3"><a aria-label="3"></a><span class="co">#&gt;          3.84146          3.84146</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </div>
 </section><section class="slide level2"><div id="def-t-dist" class="theorem definition">
@@ -490,9 +488,9 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-t-dist" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (t quantiles approach Gaussian quantiles)</strong></span> The 0.975 quantile of <span class="math inline">\(t_k\)</span> is larger than the standard Gaussian’s 0.975 quantile, 1.96, and approaches it as <span class="math inline">\(k\)</span> grows:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">29</span>, <span class="dv">99</span>, <span class="dv">2760</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>k <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">29</span>, <span class="dv">99</span>, <span class="dv">2760</span>)</span>
 <span id="cb3-2"><a aria-label="2"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">k =</span> k, <span class="at">t_quantile =</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> k))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["k"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["t_quantile"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"4","2":"2.77645"},{"1":"9","2":"2.26216"},{"1":"29","2":"2.04523"},{"1":"99","2":"1.98422"},{"1":"2760","2":"1.96082"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -512,10 +510,9 @@ text-align: center;
 <p><span class="math display">\[T^2 = \frac{Z^2 / 1}{V / k},\]</span></p>
 <p>where <span class="math inline">\(Z^2\)</span> has the <span class="math inline">\(\chi^2_1\)</span> distribution (<a href="#/def-chi-square-dist" class="quarto-xref">Definition&nbsp;9</a>) and is independent of <span class="math inline">\(V\)</span>. So <span class="math inline">\(T^2\)</span> has the <span class="math inline">\(F_{1, k}\)</span> distribution (<a href="#/def-f-dist" class="quarto-xref">Definition&nbsp;11</a>), and the 0.95 quantile of <span class="math inline">\(F_{1, k}\)</span> is the square of the 0.975 quantile of <span class="math inline">\(t_k\)</span>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="at">f =</span> <span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="at">df1 =</span> <span class="dv">1</span>, <span class="at">df2 =</span> <span class="dv">9</span>), <span class="at">t_squared =</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">9</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="at">f =</span> <span class="fu">qf</span>(<span class="fl">0.95</span>, <span class="at">df1 =</span> <span class="dv">1</span>, <span class="at">df2 =</span> <span class="dv">9</span>), <span class="at">t_squared =</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="dv">9</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb4-2"><a aria-label="2"></a><span class="co">#&gt;         f t_squared </span></span>
 <span id="cb4-3"><a aria-label="3"></a><span class="co">#&gt;   5.11736   5.11736</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </div>
 </section><section id="sec-CI" class="slide level2" data-number="4"><h2>
@@ -537,12 +534,11 @@ text-align: center;
 <!-- Repoint the CLT link to pds (limit-theorems.qmd#sec-clt) once pds is published. -->
 <p>By the <a href="https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem">central limit theorem</a>, the sample mean <span class="math inline">\(\bar X\)</span> of a large sample has approximately a Gaussian distribution with mean <span class="math inline">\(\mu\)</span> and <a href="./estimation.html#def-SE">standard error</a> <span class="math inline">\(\sigma/\sqrt{n}\)</span>, which we estimate by <span class="math inline">\(s/\sqrt{n}\)</span>. So <span class="math inline">\(\bar x \pm z_{0.975} \, s/\sqrt{n}\)</span>, where <span class="math inline">\(z_{0.975} \approx 1.96\)</span> is the 0.975 quantile of the standard Gaussian distribution, is an <a href="#/def-approximate-ci">approximate</a> 95% confidence interval for <span class="math inline">\(\mu\)</span>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>chol <span class="ot">&lt;-</span> wcgs<span class="sc">$</span>chol[<span class="sc">!</span><span class="fu">is.na</span>(wcgs<span class="sc">$</span>chol)]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>chol <span class="ot">&lt;-</span> wcgs<span class="sc">$</span>chol[<span class="sc">!</span><span class="fu">is.na</span>(wcgs<span class="sc">$</span>chol)]</span>
 <span id="cb5-2"><a aria-label="2"></a>se_chol <span class="ot">&lt;-</span> <span class="fu">sd</span>(chol) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(chol))</span>
 <span id="cb5-3"><a aria-label="3"></a><span class="fu">mean</span>(chol) <span class="sc">+</span> <span class="fu">c</span>(<span class="at">lower =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">upper =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>) <span class="sc">*</span> se_chol</span>
 <span id="cb5-4"><a aria-label="4"></a><span class="co">#&gt;   lower   upper </span></span>
 <span id="cb5-5"><a aria-label="5"></a><span class="co">#&gt; 224.854 227.891</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </div>
 </section><section class="slide level2"><div id="def-margin-error" class="theorem definition">

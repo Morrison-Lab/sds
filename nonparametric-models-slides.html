@@ -334,7 +334,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 22:22:08 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
 </section><section id="empirical-cdf" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical CDF</h2>
 <style>
@@ -424,10 +424,9 @@ text-align: center;
 </ul>
 <p>So <span class="math inline">\(\hat Q(0.5) = 3\)</span> and <span class="math inline">\(\hat Q(0.9) = 7\)</span>. R’s <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> function computes this definition when called with <code>type = 1</code>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">quantile</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">3</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">type =</span> <span class="dv">1</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">quantile</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">3</span>), <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">0.9</span>), <span class="at">type =</span> <span class="dv">1</span>)</span>
 <span id="cb1-2"><a aria-label="2"></a><span class="co">#&gt; 50% 90% </span></span>
 <span id="cb1-3"><a aria-label="3"></a><span class="co">#&gt;   3   7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </div>
 <aside id="quantile-conventions" class="notes"><p>Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> offers nine definitions through its <code>type</code> argument, and its default (<code>type = 7</code>) interpolates, so <code>quantile(c(4, 1, 7, 3), 0.5)</code> returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use <a href="#/def-sample-quantile" class="quarto-xref">Definition&nbsp;3</a>, which always returns one of the observed values.</p>

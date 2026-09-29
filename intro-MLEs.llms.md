@@ -2,9 +2,19 @@
 
 Code
 
+- [Show All Code](javascript:void(0))
+
+- [Hide All Code](javascript:void(0))
+
+- 
+
+  ------------------------------------------------------------------------
+
+- [View Source](javascript:void(0))
+
 Published
 
-Last modified: 2026-09-28 22:22:08 (PDT)
+Last modified: 2026-09-28 23:02:22 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -485,6 +495,8 @@ Adapted from ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)).
 
 [Table 3](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
 
+Show R code
+
 ``` downlit
 cyclones <- tibble::tibble(
   years = c(
@@ -519,6 +531,8 @@ Table 3: Number of tropical cyclones during each November-to-April season in no
 
 Suppose we want to learn how many cyclones to expect per season.
 
+Show R code
+
 ``` downlit
 cyclones |>
   dplyr::mutate(years = factor(years, levels = years)) |>
@@ -540,6 +554,8 @@ Figure 1: Number of tropical cyclones per season in northeastern Australia, 195
 
 [Figure 2](#fig-cyclones-bar-plot) shows the empirical distribution of the counts.
 
+Show R code
+
 ``` downlit
 cyclones |>
   ggplot2::ggplot() +
@@ -555,6 +571,8 @@ cyclones |>
 Figure 2: Bar plot of cyclones per season
 
 [Table 4](#tbl-dobson-cyclones-sumstat) provides summary statistics.
+
+Show R code
 
 ``` downlit
 n <- nrow(cyclones)
@@ -648,6 +666,8 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > *Solution*.
 >
+> Show R code
+>
 > ``` downlit
 > # `cyclones` is defined earlier on the page:
 > # nolint next: object_usage_linter.
@@ -684,6 +704,8 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 > **NOTE:**
 >
 > *Solution*.
+>
+> Show R code
 >
 > ``` downlit
 > # `cyclones` is defined earlier on the page:
@@ -726,6 +748,8 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > *Solution*.
 >
+> Show R code
+>
 > ``` downlit
 > # `cyclones` is defined earlier on the page:
 > # nolint next: object_usage_linter.
@@ -766,6 +790,8 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 > **NOTE:**
 >
 > *Solution*.
+>
+> Show R code
 >
 > ``` downlit
 > # `cyclones` is defined earlier on the page:
@@ -840,6 +866,8 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 >
 > *Solution*.
 >
+> Show R code
+>
 > ``` downlit
 > mle_data <- tibble::tibble(x = mle, y = loglik(mle))
 > ll_plot +
@@ -851,6 +879,8 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 > Figure 7: Log-likelihood of the cyclone data, with the MLE marked in red
 
 [Figure 8](#fig-obs-inf-matrix) graphs the [observed information](intro-MLEs.llms.md#def-oinf), \\I(\lambda; \tilde{x}) = -\ell''(\lambda; \tilde{x})\\.
+
+Show R code
 
 ``` downlit
 obs_inf <- function(...) -hessian(...) # nolint: object_usage_linter.
@@ -938,6 +968,8 @@ So the first-order Taylor approximation of the score function around \\{\widehat
 
 [Figure 9](#fig-cyclone-newton-step1) compares the score function and the approximate score function at \\{\widehat{\lambda}}^\*= 3\\.
 
+Show R code
+
 ``` downlit
 # score(), hessian() and loglik() are defined earlier on the page
 # nolint start: object_usage_linter.
@@ -987,6 +1019,8 @@ Figure 9: Score function of the cyclone data and its first-order approximation 
 Approximating the score function by a linear function is equivalent to approximating the log-likelihood by a second-order Taylor polynomial ([Figure 10](#fig-cyclone-newton-step1-loglik)):
 
 \\ \ell^\*(\lambda) \stackrel{\text{def}}{=} \ell({\widehat{\lambda}}^\*) + (\lambda - {\widehat{\lambda}}^\*) \ell'({\widehat{\lambda}}^\*) + \frac{1}{2}\ell''({\widehat{\lambda}}^\*)(\lambda - {\widehat{\lambda}}^\*)^2 \\
+
+Show R code
 
 ``` downlit
 # nolint start: object_usage_linter.
@@ -1040,6 +1074,8 @@ new_lambda_est <-
   cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
 ```
 
+Show R code
+
 ``` downlit
 plot2 <- plot1 +
   ggplot2::geom_point(
@@ -1066,6 +1102,8 @@ print(plot2)
 Figure 11: The first Newton-Raphson update: the new estimate is where the approximate score function crosses zero
 
 We update \\{\widehat{\lambda}}^\*\leftarrow 4.375\\ and repeat the process ([Figure 12](#fig-cyclone-newton-step2)).
+
+Show R code
 
 ``` downlit
 plot2 +
@@ -1142,6 +1180,8 @@ nr_info |> knitr::kable(digits = 5)
 Table 5: Convergence of the Newton-Raphson algorithm to the MLE for the cyclone data
 
 The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise 23](#exr-find-mle)).
+
+Show R code
 
 ``` downlit
 ll_plot +
@@ -1282,6 +1322,8 @@ The `rmb` R package includes the same file, which these notes use so that render
 hers <- rmb::hers |> haven::zap_labels()
 ```
 
+Show R code
+
 ``` downlit
 hers |> head()
 ```
@@ -1289,6 +1331,8 @@ hers |> head()
 Table 6: The first rows of the HERS dataset
 
 To keep the likelihood graphs readable, we use only the first 100 eligible participants ([Figure 14](#fig-hers-glucose-hist)); with the whole subset, the likelihood would be too concentrated to graph clearly.
+
+Show R code
 
 ``` downlit
 n_obs <- 100
@@ -1303,6 +1347,8 @@ data1 <-
 
 glucose_data <- data1$glucose
 ```
+
+Show R code
 
 ``` downlit
 plot1 <-
@@ -1339,6 +1385,8 @@ c(mu_hat = mu_hat, sigma_sq_hat = sigma_sq_hat)
 
 [Figure 15](#fig-hers-fitted) superimposes the fitted Gaussian density on the histogram.
 
+Show R code
+
 ``` downlit
 plot1 +
   ggplot2::geom_function(
@@ -1371,6 +1419,8 @@ lik <- function(...) exp(loglik(...))
 
 [Figure 16](#fig-hers-lik-mu) graphs the likelihood and log-likelihood as functions of \\\mu\\, with \\\sigma\\ fixed at \\\hat\sigma\_{\text{ML}}\\.
 
+Show R code
+
 ``` downlit
 ggplot2::ggplot() +
   ggplot2::geom_function(
@@ -1386,6 +1436,8 @@ ggplot2::ggplot() +
 [![](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png "Figure 16 (a): Likelihood")
 
 \(a\) Likelihood
+
+Show R code
 
 ``` downlit
 ggplot2::ggplot() +
@@ -1407,6 +1459,8 @@ Figure 16: Likelihood and log-likelihood of the HERS glucose data as functions 
 
 [Figure 17](#fig-hers-lik-sigma) graphs them as functions of \\\sigma\\, with \\\mu\\ fixed at \\\hat\mu\_{\text{ML}}\\.
 
+Show R code
+
 ``` downlit
 ggplot2::ggplot() +
   ggplot2::geom_function(
@@ -1422,6 +1476,8 @@ ggplot2::ggplot() +
 [![](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png "Figure 17 (a): Likelihood")
 
 \(a\) Likelihood
+
+Show R code
 
 ``` downlit
 ggplot2::ggplot() +
@@ -1444,6 +1500,8 @@ Figure 17: Likelihood and log-likelihood of the HERS glucose data as functions 
 ### 4.4 Log-likelihood surface
 
 [Figure 18](#fig-3d-llik) graphs the log-likelihood over both parameters at once.
+
+Show R code
 
 ``` downlit
 n_points <- 25
@@ -1478,6 +1536,8 @@ By [Section 3.5](#sec-covariance-matrix), the estimated standard error of \\\ha
 \\ \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\mu\right)\mathclose{} = \sqrt{\mathopen{}\left\[\mathopen{}\left(I(\hat\mu, \hat\sigma^2)\right)^{-1}\mathclose{}\right\]\mathclose{}\_{11}} = \frac{\hat\sigma}{\sqrt{n}} \\
 
 which shrinks in proportion to \\1/\sqrt{n}\\ ([Figure 19](#fig-hers-se-by-n)).
+
+Show R code
 
 ``` downlit
 se_mu_hat <- function(n, sigma) sigma / sqrt(n)
@@ -1533,6 +1593,8 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 ```
 
 [Figure 20](#fig-hers-power) graphs the power as a function of the sample size.
+
+Show R code
 
 ``` downlit
 ggplot2::ggplot() +

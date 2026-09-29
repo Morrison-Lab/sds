@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 22:22:08 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
 </section><section id="introduction" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Introduction</h2>
 <style>
@@ -380,15 +380,13 @@ text-align: center;
 <p>The primary outcome was nonfatal myocardial infarction or CHD death <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#/references" role="doc-biblioref" onclick="">Hulley et al. 1998</a>)</span>.</p>
 <p>The HERS data are distributed with <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> on the book’s companion website, as a Stata file that R can read directly:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># one unbroken string, so that link checkers test the whole URL:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># one unbroken string, so that link checkers test the whole URL:</span></span>
 <span id="cb1-2"><a aria-label="2"></a>url <span class="ot">&lt;-</span> <span class="st">"https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta"</span> <span class="co"># nolint: line_length_linter.</span></span>
 <span id="cb1-3"><a aria-label="3"></a>hers <span class="ot">&lt;-</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(url)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The <code>rmb</code> R package includes the same file, which these notes use so that rendering does not depend on the website. <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts the Stata value labels to factors:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The examples on this page use these variables:</p>
 <table class="caption-top">
@@ -432,7 +430,7 @@ text-align: center;
 </tbody>
 </table>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(HT, age, raceth, exercise, BMI, SBP, glucose, glucose1) <span class="sc">|&gt;</span></span>
 <span id="cb3-3"><a aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">glimpse</span>()</span>
 <span id="cb3-4"><a aria-label="4"></a><span class="co">#&gt; Rows: 2,763</span></span>
@@ -445,7 +443,6 @@ text-align: center;
 <span id="cb3-11"><a aria-label="11"></a><span class="co">#&gt; $ SBP      &lt;dbl&gt; 138, 118, 134, 152, 175, 174, 119, 178, 162, 111, 122, 158, 1…</span></span>
 <span id="cb3-12"><a aria-label="12"></a><span class="co">#&gt; $ glucose  &lt;dbl&gt; 84, 111, 114, 94, 101, 116, 120, 95, 105, 98, 111, 95, 97, 10…</span></span>
 <span id="cb3-13"><a aria-label="13"></a><span class="co">#&gt; $ glucose1 &lt;dbl&gt; 94, 78, 98, 93, 92, 115, NA, 95, 113, 98, 96, 107, 90, 100, 1…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </section><section id="sec-descriptive-stats" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Descriptive statistics</h2>
@@ -493,23 +490,23 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
 </figcaption><div aria-describedby="tbl-hers-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="soyneaplfw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#soyneaplfw table {
+<div id="hffyvyndod" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hffyvyndod table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#soyneaplfw thead, #soyneaplfw tbody, #soyneaplfw tfoot, #soyneaplfw tr, #soyneaplfw td, #soyneaplfw th {
+#hffyvyndod thead, #hffyvyndod tbody, #hffyvyndod tfoot, #hffyvyndod tr, #hffyvyndod td, #hffyvyndod th {
   border-style: none;
 }
 
-#soyneaplfw p {
+#hffyvyndod p {
   margin: 0;
   padding: 0;
 }
 
-#soyneaplfw .gt_table {
+#hffyvyndod .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -535,12 +532,12 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-left-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_caption {
+#hffyvyndod .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#soyneaplfw .gt_title {
+#hffyvyndod .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -552,7 +549,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-width: 0;
 }
 
-#soyneaplfw .gt_subtitle {
+#hffyvyndod .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -564,7 +561,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-width: 0;
 }
 
-#soyneaplfw .gt_heading {
+#hffyvyndod .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -576,13 +573,13 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_bottom_border {
+#hffyvyndod .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_col_headings {
+#hffyvyndod .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -597,7 +594,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_col_heading {
+#hffyvyndod .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -617,7 +614,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#soyneaplfw .gt_column_spanner_outer {
+#hffyvyndod .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -629,15 +626,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 4px;
 }
 
-#soyneaplfw .gt_column_spanner_outer:first-child {
+#hffyvyndod .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#soyneaplfw .gt_column_spanner_outer:last-child {
+#hffyvyndod .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#soyneaplfw .gt_column_spanner {
+#hffyvyndod .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -649,11 +646,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   width: 100%;
 }
 
-#soyneaplfw .gt_spanner_row {
+#hffyvyndod .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#soyneaplfw .gt_group_heading {
+#hffyvyndod .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -679,7 +676,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   text-align: left;
 }
 
-#soyneaplfw .gt_empty_group_heading {
+#hffyvyndod .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -694,15 +691,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: middle;
 }
 
-#soyneaplfw .gt_from_md > :first-child {
+#hffyvyndod .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#soyneaplfw .gt_from_md > :last-child {
+#hffyvyndod .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#soyneaplfw .gt_row {
+#hffyvyndod .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -721,7 +718,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#soyneaplfw .gt_stub {
+#hffyvyndod .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -734,7 +731,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#soyneaplfw .gt_stub_row_group {
+#hffyvyndod .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -748,15 +745,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: top;
 }
 
-#soyneaplfw .gt_row_group_first td {
+#hffyvyndod .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#soyneaplfw .gt_row_group_first th {
+#hffyvyndod .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#soyneaplfw .gt_summary_row {
+#hffyvyndod .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -766,16 +763,16 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#soyneaplfw .gt_first_summary_row {
+#hffyvyndod .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_first_summary_row.thick {
+#hffyvyndod .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#soyneaplfw .gt_last_summary_row {
+#hffyvyndod .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -785,7 +782,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_grand_summary_row {
+#hffyvyndod .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -795,7 +792,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#soyneaplfw .gt_first_grand_summary_row {
+#hffyvyndod .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -805,7 +802,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_last_grand_summary_row_top {
+#hffyvyndod .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -815,11 +812,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_striped {
+#hffyvyndod .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#soyneaplfw .gt_table_body {
+#hffyvyndod .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -828,7 +825,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_footnotes {
+#hffyvyndod .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -842,7 +839,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_footnote {
+#hffyvyndod .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -851,7 +848,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#soyneaplfw .gt_sourcenotes {
+#hffyvyndod .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -865,7 +862,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#soyneaplfw .gt_sourcenote {
+#hffyvyndod .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -873,72 +870,72 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#soyneaplfw .gt_left {
+#hffyvyndod .gt_left {
   text-align: left;
 }
 
-#soyneaplfw .gt_center {
+#hffyvyndod .gt_center {
   text-align: center;
 }
 
-#soyneaplfw .gt_right {
+#hffyvyndod .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#soyneaplfw .gt_font_normal {
+#hffyvyndod .gt_font_normal {
   font-weight: normal;
 }
 
-#soyneaplfw .gt_font_bold {
+#hffyvyndod .gt_font_bold {
   font-weight: bold;
 }
 
-#soyneaplfw .gt_font_italic {
+#hffyvyndod .gt_font_italic {
   font-style: italic;
 }
 
-#soyneaplfw .gt_super {
+#hffyvyndod .gt_super {
   font-size: 65%;
 }
 
-#soyneaplfw .gt_footnote_marks {
+#hffyvyndod .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#soyneaplfw .gt_asterisk {
+#hffyvyndod .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#soyneaplfw .gt_indent_1 {
+#hffyvyndod .gt_indent_1 {
   text-indent: 5px;
 }
 
-#soyneaplfw .gt_indent_2 {
+#hffyvyndod .gt_indent_2 {
   text-indent: 10px;
 }
 
-#soyneaplfw .gt_indent_3 {
+#hffyvyndod .gt_indent_3 {
   text-indent: 15px;
 }
 
-#soyneaplfw .gt_indent_4 {
+#hffyvyndod .gt_indent_4 {
   text-indent: 20px;
 }
 
-#soyneaplfw .gt_indent_5 {
+#hffyvyndod .gt_indent_5 {
   text-indent: 25px;
 }
 
-#soyneaplfw .katex-display {
+#hffyvyndod .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#soyneaplfw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hffyvyndod div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1114,7 +1111,7 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </section><section class="slide level2"><div id="exm-hers-paired" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Change in fasting glucose over the first year of HERS)</strong></span> We test whether mean fasting glucose changed between baseline (<code>glucose</code>) and the year-1 visit (<code>glucose1</code>), across both treatment groups. Participants missing either measurement are dropped. The t statistic of <a href="#/def-one-sample-t-test" class="quarto-xref">Definition&nbsp;1</a>, computed on the differences:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>glucose_change <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>glucose_change <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(glucose), <span class="sc">!</span><span class="fu">is.na</span>(glucose1)) <span class="sc">|&gt;</span></span>
 <span id="cb5-3"><a aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">d =</span> glucose1 <span class="sc">-</span> glucose) <span class="sc">|&gt;</span></span>
 <span id="cb5-4"><a aria-label="4"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(d)</span>
@@ -1128,11 +1125,10 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 <span id="cb5-12"><a aria-label="12"></a>)</span>
 <span id="cb5-13"><a aria-label="13"></a><span class="co">#&gt;           n mean_change           t     p_value </span></span>
 <span id="cb5-14"><a aria-label="14"></a><span class="co">#&gt; 2.61300e+03 2.62036e+00 4.15081e+00 3.41911e-05</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p><code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> with <code>paired = TRUE</code> gives the same statistic, along with a confidence interval for <span class="math inline">\(\mu_d\)</span>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">t.test</span>(hers<span class="sc">$</span>glucose1, hers<span class="sc">$</span>glucose, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">t.test</span>(hers<span class="sc">$</span>glucose1, hers<span class="sc">$</span>glucose, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb6-2"><a aria-label="2"></a><span class="co">#&gt; </span></span>
 <span id="cb6-3"><a aria-label="3"></a><span class="co">#&gt;  Paired t-test</span></span>
 <span id="cb6-4"><a aria-label="4"></a><span class="co">#&gt; </span></span>
@@ -1144,7 +1140,6 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 <span id="cb6-10"><a aria-label="10"></a><span class="co">#&gt; sample estimates:</span></span>
 <span id="cb6-11"><a aria-label="11"></a><span class="co">#&gt; mean difference </span></span>
 <span id="cb6-12"><a aria-label="12"></a><span class="co">#&gt;         2.62036</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>Mean fasting glucose rose by about 2.6 mg/dL over the year, and the p-value is far below 0.05.</p>
 </div>
@@ -1197,7 +1192,7 @@ Figure&nbsp;1: Baseline fasting glucose by treatment group in HERS
 </div>
 <p>The statistic and degrees of freedom of <a href="#/def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>glucose_ht <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>glucose_ht <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(HT <span class="sc">==</span> <span class="st">"hormone therapy"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb8-3"><a aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">pull</span>(glucose)</span>
 <span id="cb8-4"><a aria-label="4"></a>glucose_placebo <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span></span>
@@ -1212,11 +1207,10 @@ Figure&nbsp;1: Baseline fasting glucose by treatment group in HERS
 <span id="cb8-13"><a aria-label="13"></a><span class="fu">c</span>(<span class="at">t =</span> t_welch, <span class="at">df =</span> df_welch, <span class="at">p_value =</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pt</span>(<span class="sc">-</span><span class="fu">abs</span>(t_welch), df_welch))</span>
 <span id="cb8-14"><a aria-label="14"></a><span class="co">#&gt;           t          df     p_value </span></span>
 <span id="cb8-15"><a aria-label="15"></a><span class="co">#&gt;   -0.424594 2760.978546    0.671165</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p><code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> reports the same values:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">t.test</span>(glucose_ht, glucose_placebo)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">t.test</span>(glucose_ht, glucose_placebo)</span>
 <span id="cb9-2"><a aria-label="2"></a><span class="co">#&gt; </span></span>
 <span id="cb9-3"><a aria-label="3"></a><span class="co">#&gt;  Welch Two Sample t-test</span></span>
 <span id="cb9-4"><a aria-label="4"></a><span class="co">#&gt; </span></span>
@@ -1228,7 +1222,6 @@ Figure&nbsp;1: Baseline fasting glucose by treatment group in HERS
 <span id="cb9-10"><a aria-label="10"></a><span class="co">#&gt; sample estimates:</span></span>
 <span id="cb9-11"><a aria-label="11"></a><span class="co">#&gt; mean of x mean of y </span></span>
 <span id="cb9-12"><a aria-label="12"></a><span class="co">#&gt;   111.854   112.449</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The p-value is large, so the data give no evidence against <span class="math inline">\(H_0\)</span>. That result is expected here: treatment was randomized, so the groups’ baseline means differ only by chance.</p>
 </div>
@@ -1273,7 +1266,7 @@ s_p^2
       }</style></aside></section><section class="slide level2"><div id="exm-hers-pooled-ttest" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (Pooled t-test of baseline glucose in HERS)</strong></span> In HERS, the two groups have nearly equal sizes (1380 and 1383) and nearly equal standard deviations (36.9 and 36.8 mg/dL), so the pooled test gives almost the same result as Welch’s test in <a href="#/exm-hers-ttest" class="quarto-xref">Example&nbsp;3</a>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">t.test</span>(glucose_ht, glucose_placebo, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">t.test</span>(glucose_ht, glucose_placebo, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb10-2"><a aria-label="2"></a><span class="co">#&gt; </span></span>
 <span id="cb10-3"><a aria-label="3"></a><span class="co">#&gt;  Two Sample t-test</span></span>
 <span id="cb10-4"><a aria-label="4"></a><span class="co">#&gt; </span></span>
@@ -1285,7 +1278,6 @@ s_p^2
 <span id="cb10-10"><a aria-label="10"></a><span class="co">#&gt; sample estimates:</span></span>
 <span id="cb10-11"><a aria-label="11"></a><span class="co">#&gt; mean of x mean of y </span></span>
 <span id="cb10-12"><a aria-label="12"></a><span class="co">#&gt;   111.854   112.449</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </div>
 </section><section class="slide level2"><h3 data-number="4.5" id="sec-CI-diff-means">
@@ -1300,11 +1292,10 @@ s_p^2
 </section><section class="slide level2"><div id="exm-hers-diff-means-ci" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Confidence interval for the HERS baseline glucose difference)</strong></span> Continuing <a href="#/exm-hers-ttest" class="quarto-xref">Example&nbsp;3</a>, the 95% interval of <a href="#/def-ci-diff-means" class="quarto-xref">Definition&nbsp;6</a> is:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>(<span class="fu">mean</span>(glucose_ht) <span class="sc">-</span> <span class="fu">mean</span>(glucose_placebo)) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>(<span class="fu">mean</span>(glucose_ht) <span class="sc">-</span> <span class="fu">mean</span>(glucose_placebo)) <span class="sc">+</span></span>
 <span id="cb11-2"><a aria-label="2"></a>  <span class="fu">c</span>(<span class="at">lower =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">upper =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, df_welch) <span class="sc">*</span> <span class="fu">sqrt</span>(v_ht <span class="sc">+</span> v_placebo)</span>
 <span id="cb11-3"><a aria-label="3"></a><span class="co">#&gt;    lower    upper </span></span>
 <span id="cb11-4"><a aria-label="4"></a><span class="co">#&gt; -3.34503  2.15423</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>This interval matches the one <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> reports in <a href="#/exm-hers-ttest" class="quarto-xref">Example&nbsp;3</a>. It contains 0, consistent with the large p-value there.</p>
 </div>
@@ -1375,14 +1366,14 @@ s_p^2
 </section><section class="slide level2"><div id="exm-hers-anova" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Fasting glucose by race/ethnicity in HERS)</strong></span> The group sizes, means, and standard deviations of baseline fasting glucose:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(</span>
 <span id="cb12-3"><a aria-label="3"></a>    <span class="at">.by =</span> raceth,</span>
 <span id="cb12-4"><a aria-label="4"></a>    <span class="at">n =</span> dplyr<span class="sc">::</span><span class="fu">n</span>(),</span>
 <span id="cb12-5"><a aria-label="5"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(glucose),</span>
 <span id="cb12-6"><a aria-label="6"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(glucose)</span>
 <span id="cb12-7"><a aria-label="7"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["raceth"],"name":[1],"type":["fct"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]},{"label":["mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"African American","2":"218","3":"122.849","4":"44.3194"},{"1":"White","2":"2451","3":"110.703","4":"35.6265"},{"1":"Other","2":"94","3":"125.128","4":"42.5843"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1392,7 +1383,7 @@ s_p^2
 </div>
 <p>The F statistic of <a href="#/def-one-way-anova" class="quarto-xref">Definition&nbsp;10</a>, computed step by step:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>anova_parts <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>anova_parts <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">grand_mean =</span> <span class="fu">mean</span>(glucose)) <span class="sc">|&gt;</span></span>
 <span id="cb13-3"><a aria-label="3"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">.by =</span> raceth, <span class="at">group_mean =</span> <span class="fu">mean</span>(glucose)) <span class="sc">|&gt;</span></span>
 <span id="cb13-4"><a aria-label="4"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(</span>
@@ -1406,7 +1397,7 @@ s_p^2
 <span id="cb13-12"><a aria-label="12"></a>    <span class="at">p_value =</span> <span class="fu">pf</span>(f, k <span class="sc">-</span> <span class="dv">1</span>, n <span class="sc">-</span> k, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb13-13"><a aria-label="13"></a>  )</span>
 <span id="cb13-14"><a aria-label="14"></a>anova_parts</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":["ss_between"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["ss_within"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["k"],"name":[3],"type":["int"],"align":["right"]},{"label":["n"],"name":[4],"type":["int"],"align":["right"]},{"label":["f"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["p_value"],"name":[6],"type":["dbl"],"align":["right"]}],"data":[{"1":"45918.8","2":"3704543","3":"3","4":"2763","5":"17.1055","6":"4.13857e-08"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1416,25 +1407,23 @@ s_p^2
 </div>
 <p><span class="math inline">\(\text{SS}_\text{between}\)</span> is summed here over observations rather than groups: each observation in group <span class="math inline">\(j\)</span> contributes <span class="math inline">\((\bar{y}_j - \bar{y})^2\)</span>, which gives the <span class="math inline">\(n_j\)</span> weights of <a href="#/def-one-way-anova" class="quarto-xref">Definition&nbsp;10</a>. <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code> reports the same sums of squares, F statistic, and p-value:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">aov</span>(glucose <span class="sc">~</span> raceth, <span class="at">data =</span> hers) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">aov</span>(glucose <span class="sc">~</span> raceth, <span class="at">data =</span> hers) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span>
 <span id="cb14-2"><a aria-label="2"></a><span class="co">#&gt;               Df  Sum Sq Mean Sq F value  Pr(&gt;F)    </span></span>
 <span id="cb14-3"><a aria-label="3"></a><span class="co">#&gt; raceth         2   45919   22959    17.1 4.1e-08 ***</span></span>
 <span id="cb14-4"><a aria-label="4"></a><span class="co">#&gt; Residuals   2760 3704543    1342                    </span></span>
 <span id="cb14-5"><a aria-label="5"></a><span class="co">#&gt; ---</span></span>
 <span id="cb14-6"><a aria-label="6"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The p-value is far below 0.05: mean fasting glucose differs among the three race/ethnicity groups.</p>
 </div>
 <aside class="notes"><p>The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of <a href="#/thm-anova-null" class="quarto-xref">Theorem&nbsp;3</a> is questionable. <code><a href="https://rdrr.io/r/stats/oneway.test.html">oneway.test()</a></code> performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">oneway.test</span>(glucose <span class="sc">~</span> raceth, <span class="at">data =</span> hers)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="fu">oneway.test</span>(glucose <span class="sc">~</span> raceth, <span class="at">data =</span> hers)</span>
 <span id="cb15-2"><a aria-label="2"></a><span class="co">#&gt; </span></span>
 <span id="cb15-3"><a aria-label="3"></a><span class="co">#&gt;  One-way analysis of means (not assuming equal variances)</span></span>
 <span id="cb15-4"><a aria-label="4"></a><span class="co">#&gt; </span></span>
 <span id="cb15-5"><a aria-label="5"></a><span class="co">#&gt; data:  glucose and raceth</span></span>
 <span id="cb15-6"><a aria-label="6"></a><span class="co">#&gt; F = 12.49, num df = 2.0, denom df = 185.7, p-value = 8.17e-06</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1448,8 +1437,8 @@ s_p^2
           display:block!important;
       }</style></aside></section><section class="slide level2"><p>One-way ANOVA is a special case of linear regression: it is the F-test comparing a linear regression model with a single categorical predictor to the model with an intercept only (<a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-understand-LMs">Linear Models Overview</a>). <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> gives the same F statistic as <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">lm</span>(glucose <span class="sc">~</span> raceth, <span class="at">data =</span> hers) <span class="sc">|&gt;</span> <span class="fu">anova</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">lm</span>(glucose <span class="sc">~</span> raceth, <span class="at">data =</span> hers) <span class="sc">|&gt;</span> <span class="fu">anova</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
 {"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Df"],"name":[1],"type":["int"],"align":["right"]},{"label":["Sum Sq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Mean Sq"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["F value"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>F)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"2","2":"45918.8","3":"22959.41","4":"17.1055","5":"4.13857e-08","_rn_":"raceth"},{"1":"2760","2":"3704542.6","3":"1342.23","4":"NA","5":"NA","_rn_":"Residuals"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -1459,14 +1448,13 @@ s_p^2
 </div>
 <p>With <span class="math inline">\(k = 2\)</span> groups, the ANOVA F statistic equals the square of the pooled t statistic (<a href="#/def-pooled-t-test" class="quarto-xref">Definition&nbsp;5</a>), as the two treatment groups of <a href="#/exm-hers-pooled-ttest" class="quarto-xref">Example&nbsp;5</a> show:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">c</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">c</span>(</span>
 <span id="cb17-2"><a aria-label="2"></a>  <span class="at">f =</span> <span class="fu">anova</span>(<span class="fu">lm</span>(glucose <span class="sc">~</span> HT, <span class="at">data =</span> hers))[[<span class="st">"F value"</span>]][[<span class="dv">1</span>]],</span>
 <span id="cb17-3"><a aria-label="3"></a>  <span class="at">t_squared =</span></span>
 <span id="cb17-4"><a aria-label="4"></a>    <span class="fu">t.test</span>(glucose_ht, glucose_placebo, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>statistic[[<span class="dv">1</span>]]<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb17-5"><a aria-label="5"></a>)</span>
 <span id="cb17-6"><a aria-label="6"></a><span class="co">#&gt;         f t_squared </span></span>
 <span id="cb17-7"><a aria-label="7"></a><span class="co">#&gt;  0.180281  0.180281</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">

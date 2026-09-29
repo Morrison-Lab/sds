@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 22:22:08 (PDT)
+Last modified: 2026-09-28 23:02:22 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page.
 
@@ -197,7 +197,7 @@ A chain started far from where the posterior puts its probability takes some ite
 >
 > **Example 7 (Burn-in for the Bernoulli sampler)** Continuing [Example 6](#exm-mh-bernoulli), we start two more chains at the extreme values \\0.05\\ and \\0.95\\. [Figure 1](#fig-mh-burnin) shows their first 200 iterations.
 >
-> Code
+> Show R code
 >
 > ``` downlit
 > set.seed(2)

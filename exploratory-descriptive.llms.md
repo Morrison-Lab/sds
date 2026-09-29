@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 22:22:08 (PDT)
+Last modified: 2026-09-28 23:02:22 (PDT)
 
 ## 1 Introduction
 
@@ -78,7 +78,7 @@ The `rmb` R package includes the same file, which these notes use so that render
 wcgs <- rmb::wcgs |> haven::as_factor()
 ```
 
-Code
+Show R code
 
 ``` downlit
 # attach a descriptive label to each variable;
@@ -290,6 +290,8 @@ Table 1: WCGS: descriptive statistics for continuous variables
 
 For categorical variables with more than two levels, the natural descriptive statistics are the count of observations in each category and the corresponding proportions ([Table 2](#tbl-wcgs-summary-cat)).
 
+Show R code
+
 ``` downlit
 wcgs |>
   dplyr::select(chd69, smoke, dibpat, behpat, wghtcat) |>
@@ -312,6 +314,8 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 The intervals are often called *bins*.
 
+Show R code
+
 ``` downlit
 wcgs |>
   ggplot2::ggplot() +
@@ -331,6 +335,8 @@ Figure 1: Histogram of total cholesterol in the WCGS dataset
 > **NOTE:**
 >
 > **Definition 9 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
+
+Show R code
 
 ``` downlit
 wcgs |>
@@ -357,6 +363,8 @@ Figure 2: Density plot of total cholesterol in the WCGS dataset
 
 The \\1.5 \times \text{IQR}\\ whisker rule is the default in R’s [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html) and [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html); other software and authors use other rules, such as whiskers that run to the minimum and maximum.
 
+Show R code
+
 ``` downlit
 wcgs |>
   ggplot2::ggplot() +
@@ -376,6 +384,8 @@ Figure 3: Box plot of total cholesterol in the WCGS dataset
 >
 > **Definition 11 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
 
+Show R code
+
 ``` downlit
 wcgs |>
   ggplot2::ggplot() +
@@ -393,6 +403,8 @@ Figure 4: Bar chart of behavioral pattern in the WCGS dataset
 > **NOTE:**
 >
 > **Definition 12 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
+
+Show R code
 
 ``` downlit
 wcgs |>
@@ -416,6 +428,8 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 > **NOTE:**
 >
 > **Definition 13 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
+
+Show R code
 
 ``` downlit
 wcgs |>
@@ -467,6 +481,8 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 
 Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous variable across the groups defined by a categorical variable ([Figure 7](#fig-box-chol-by-smoke) and [Figure 8](#fig-box-chol-by-behpat)).
 
+Show R code
+
 ``` downlit
 wcgs |>
   ggplot2::ggplot() +
@@ -479,6 +495,8 @@ wcgs |>
 [![](exploratory-descriptive_files/figure-html/unnamed-chunk-14-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-14-1.png "Figure 7: Box plots of cholesterol by smoking status in the WCGS dataset")
 
 Figure 7: Box plots of cholesterol by smoking status in the WCGS dataset
+
+Show R code
 
 ``` downlit
 wcgs |>
@@ -494,6 +512,8 @@ wcgs |>
 Figure 8: Box plots of cholesterol by behavioral pattern in the WCGS dataset
 
 [Table 3](#tbl-chol-by-chd) computes summary statistics separately for each group.
+
+Show R code
 
 ``` downlit
 wcgs |>
@@ -550,6 +570,8 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 >
 > [Table 4](#tbl-gtsummary-smoke-chd) shows the same counts as a formatted table.
 >
+> Show R code
+>
 > ``` downlit
 > wcgs |>
 >   dplyr::select(smoke, chd69) |>
@@ -570,6 +592,8 @@ The WCGS dataset already contains log-transformed versions of two variables:
 - `lnsbp`: \\\log(\text{SBP})\\;
 - `lnwght`: \\\log(\text{weight})\\.
 
+Show R code
+
 ``` downlit
 wcgs |>
   ggplot2::ggplot() +
@@ -581,6 +605,8 @@ wcgs |>
 [![](exploratory-descriptive_files/figure-html/unnamed-chunk-18-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-18-1.png "Figure 9 (a): Raw scale")
 
 \(a\) Raw scale
+
+Show R code
 
 ``` downlit
 wcgs |>
@@ -596,7 +622,7 @@ wcgs |>
 
 Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales
 
-Code
+Show R code
 
 ``` downlit
 # sample skewness: mean cubed deviation, divided by the cubed SD
@@ -629,6 +655,8 @@ A typical exploratory data analysis proceeds as follows:
 5.  **Summarize the findings** to guide model-building decisions.
 
 [Table 5](#tbl-wcgs-all-summary) summarizes selected WCGS variables in one table.
+
+Show R code
 
 ``` downlit
 wcgs |>

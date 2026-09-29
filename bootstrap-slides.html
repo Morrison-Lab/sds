@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 22:22:08 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -364,8 +364,7 @@ text-align: center;
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="sec-bootstrap-ci" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Bootstrap confidence intervals</h2>
@@ -396,7 +395,7 @@ text-align: center;
       }</style></aside></section><section class="slide level2"><div id="exm-bootstrap-sample-toy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Bootstrap samples of five glucose values)</strong></span> Take the baseline fasting glucose values of the first five HERS participants, and draw two bootstrap samples from them:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>glucose5 <span class="ot">&lt;-</span> hers<span class="sc">$</span>glucose[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>glucose5 <span class="ot">&lt;-</span> hers<span class="sc">$</span>glucose[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span>
 <span id="cb2-2"><a aria-label="2"></a>glucose5</span>
 <span id="cb2-3"><a aria-label="3"></a><span class="co">#&gt; [1]  84 111 114  94 101</span></span>
 <span id="cb2-4"><a aria-label="4"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
@@ -409,7 +408,6 @@ text-align: center;
 <span id="cb2-11"><a aria-label="11"></a><span class="co">#&gt; </span></span>
 <span id="cb2-12"><a aria-label="12"></a><span class="co">#&gt; $sample_2</span></span>
 <span id="cb2-13"><a aria-label="13"></a><span class="co">#&gt; [1] 114 111 114 114  84</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>Each bootstrap sample has five values, but some original values appear more than once and others do not appear at all.</p>
 </div>
@@ -433,7 +431,7 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-bootstrap-distribution-toy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Bootstrap distribution of a mean of ten glucose values)</strong></span> Take the baseline fasting glucose values of the first ten HERS participants, and compute the sample mean of each of <span class="math inline">\(B = 1{,}000\)</span> bootstrap samples:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>glucose10 <span class="ot">&lt;-</span> hers<span class="sc">$</span>glucose[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>glucose10 <span class="ot">&lt;-</span> hers<span class="sc">$</span>glucose[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb3-3"><a aria-label="3"></a>boot_means10 <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">mean</span>(<span class="fu">sample</span>(glucose10, <span class="at">replace =</span> <span class="cn">TRUE</span>)))</span>
 <span id="cb3-4"><a aria-label="4"></a><span class="fu">c</span>(</span>
@@ -444,7 +442,6 @@ text-align: center;
 <span id="cb3-9"><a aria-label="9"></a>)</span>
 <span id="cb3-10"><a aria-label="10"></a><span class="co">#&gt;  observed_mean   bootstrap_se     formula_se divide_by_n_se </span></span>
 <span id="cb3-11"><a aria-label="11"></a><span class="co">#&gt;      103.80000        3.47992        3.61417        3.42870</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The bootstrap standard error (<a href="#/def-bootstrap-se" class="quarto-xref">Definition&nbsp;3</a>) is close to the usual estimate <span class="math inline">\(s / \sqrt{n}\)</span>. Each bootstrap draw has variance <span class="math inline">\(\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2\)</span> around <span class="math inline">\(\bar{x}\)</span>, and the <span class="math inline">\(n\)</span> draws are independent, so as <span class="math inline">\(B\)</span> grows the bootstrap standard error of the mean approaches <span class="math inline">\(\hat\sigma / \sqrt{n}\)</span> (<code>divide_by_n_se</code>), which is smaller than <span class="math inline">\(s / \sqrt{n}\)</span> by the factor <span class="math inline">\(\sqrt{(n-1)/n}\)</span>. <a href="#/fig-boot-dist-toy" class="quarto-xref">Figure&nbsp;1</a> shows the bootstrap distribution.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">mean =</span> boot_means10) <span class="sc">|&gt;</span></span>
@@ -493,11 +490,10 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
       }</style></aside></section><section class="slide level2"><div id="exm-bootstrap-normal-toy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Normal bootstrap interval for the mean of ten glucose values)</strong></span> Continuing <a href="#/exm-bootstrap-distribution-toy" class="quarto-xref">Example&nbsp;2</a>, the 95% interval of <a href="#/def-bootstrap-ci-normal" class="quarto-xref">Definition&nbsp;4</a> is:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">mean</span>(glucose10) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">mean</span>(glucose10) <span class="sc">+</span></span>
 <span id="cb5-2"><a aria-label="2"></a>  <span class="fu">c</span>(<span class="at">lower =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">upper =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.975</span>) <span class="sc">*</span> <span class="fu">sd</span>(boot_means10)</span>
 <span id="cb5-3"><a aria-label="3"></a><span class="co">#&gt;    lower    upper </span></span>
 <span id="cb5-4"><a aria-label="4"></a><span class="co">#&gt;  96.9795 110.6205</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </div>
 </section><section class="slide level2"><h4 id="sec-bootstrap-percentile">Percentile method</h4>
@@ -519,10 +515,9 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
       }</style></aside></section><section class="slide level2"><div id="exm-bootstrap-percentile-toy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Percentile bootstrap interval for the mean of ten glucose values)</strong></span> Continuing <a href="#/exm-bootstrap-distribution-toy" class="quarto-xref">Example&nbsp;2</a>, the 95% interval of <a href="#/def-bootstrap-ci-percentile" class="quarto-xref">Definition&nbsp;5</a> is:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">quantile</span>(boot_means10, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">quantile</span>(boot_means10, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span>
 <span id="cb6-2"><a aria-label="2"></a><span class="co">#&gt;  2.5% 97.5% </span></span>
 <span id="cb6-3"><a aria-label="3"></a><span class="co">#&gt;  96.5 110.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </div>
 </section><section class="slide level2"><h4 id="sec-bootstrap-bca">Bias-corrected and accelerated method</h4>
@@ -563,7 +558,7 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
       }</style></aside></section><section class="slide level2"><div id="exm-bootstrap-bca-toy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (BCa bootstrap interval for the mean of ten glucose values)</strong></span> Continuing <a href="#/exm-bootstrap-distribution-toy" class="quarto-xref">Example&nbsp;2</a>, the quantities of <a href="#/def-bootstrap-ci-bca" class="quarto-xref">Definition&nbsp;8</a>, step by step:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>z0 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fu">mean</span>(boot_means10 <span class="sc">&lt;</span> <span class="fu">mean</span>(glucose10)))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>z0 <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fu">mean</span>(boot_means10 <span class="sc">&lt;</span> <span class="fu">mean</span>(glucose10)))</span>
 <span id="cb7-2"><a aria-label="2"></a>jackknife_means <span class="ot">&lt;-</span> <span class="fu">vapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, \(i) <span class="fu">mean</span>(glucose10[<span class="sc">-</span>i]), <span class="fu">numeric</span>(<span class="dv">1</span>))</span>
 <span id="cb7-3"><a aria-label="3"></a>dev <span class="ot">&lt;-</span> <span class="fu">mean</span>(jackknife_means) <span class="sc">-</span> jackknife_means</span>
 <span id="cb7-4"><a aria-label="4"></a>a_hat <span class="ot">&lt;-</span> <span class="fu">sum</span>(dev<span class="sc">^</span><span class="dv">3</span>) <span class="sc">/</span> (<span class="dv">6</span> <span class="sc">*</span> <span class="fu">sum</span>(dev<span class="sc">^</span><span class="dv">2</span>)<span class="sc">^</span>(<span class="dv">3</span> <span class="sc">/</span> <span class="dv">2</span>))</span>
@@ -575,7 +570,6 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 <span id="cb7-10"><a aria-label="10"></a><span class="fu">quantile</span>(boot_means10, alpha_q)</span>
 <span id="cb7-11"><a aria-label="11"></a><span class="co">#&gt; 2.422093% 97.42271% </span></span>
 <span id="cb7-12"><a aria-label="12"></a><span class="co">#&gt;      96.5     110.4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The acceleration <span class="math inline">\(\hat{a}\)</span> is nearly 0 here, and <span class="math inline">\(\hat{z}_0\)</span> is small, so the BCa interval is close to the percentile interval of <a href="#/exm-bootstrap-percentile-toy" class="quarto-xref">Example&nbsp;4</a>.</p>
 </div>
@@ -591,7 +585,7 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 <div id="exm-hers-bootstrap" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Bootstrap confidence intervals for the slope of SBP on age in HERS)</strong></span> We regress systolic blood pressure (<code>SBP</code>) on <code>age</code> by <a href="./correlation-regression.html#def-ols">ordinary least squares</a>, and bootstrap the slope, resampling participants <span class="citation" data-cites="vittinghoff2e">(adapted from <a href="#/references" role="doc-biblioref" onclick="">Vittinghoff et al. 2012, chap. 3</a>)</span>. The statistic function takes the data and the row indices of one bootstrap sample:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>slope_sbp_age <span class="ot">&lt;-</span> <span class="cf">function</span>(data, indices) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>slope_sbp_age <span class="ot">&lt;-</span> <span class="cf">function</span>(data, indices) {</span>
 <span id="cb8-2"><a aria-label="2"></a>  fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(SBP <span class="sc">~</span> age, <span class="at">data =</span> data[indices, ])</span>
 <span id="cb8-3"><a aria-label="3"></a>  <span class="fu">coef</span>(fit)[[<span class="st">"age"</span>]]</span>
 <span id="cb8-4"><a aria-label="4"></a>}</span>
@@ -610,11 +604,10 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 <span id="cb8-17"><a aria-label="17"></a><span class="co">#&gt; Bootstrap Statistics :</span></span>
 <span id="cb8-18"><a aria-label="18"></a><span class="co">#&gt;     original       bias    std. error</span></span>
 <span id="cb8-19"><a aria-label="19"></a><span class="co">#&gt; t1* 0.471728 -0.000635537   0.0536514</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The bootstrap standard error is close to the model-based standard error from <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>, and the three bootstrap intervals are close to the model-based 95% confidence interval:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>fit_sbp_age <span class="ot">&lt;-</span> <span class="fu">lm</span>(SBP <span class="sc">~</span> age, <span class="at">data =</span> hers)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>fit_sbp_age <span class="ot">&lt;-</span> <span class="fu">lm</span>(SBP <span class="sc">~</span> age, <span class="at">data =</span> hers)</span>
 <span id="cb9-2"><a aria-label="2"></a><span class="fu">summary</span>(fit_sbp_age)<span class="sc">$</span>coefficients[<span class="st">"age"</span>, ]</span>
 <span id="cb9-3"><a aria-label="3"></a><span class="co">#&gt;    Estimate  Std. Error     t value    Pr(&gt;|t|) </span></span>
 <span id="cb9-4"><a aria-label="4"></a><span class="co">#&gt; 4.71728e-01 5.36838e-02 8.78716e+00 2.64196e-18</span></span>
@@ -633,7 +626,6 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 <span id="cb9-17"><a aria-label="17"></a><span class="co">#&gt; Level      Normal             Percentile            BCa          </span></span>
 <span id="cb9-18"><a aria-label="18"></a><span class="co">#&gt; 95%   ( 0.3672,  0.5775 )   ( 0.3607,  0.5811 )   ( 0.3624,  0.5824 )  </span></span>
 <span id="cb9-19"><a aria-label="19"></a><span class="co">#&gt; Calculations and Intervals on Original Scale</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>All three intervals are similar here. When the bootstrap distribution is skewed, the intervals differ more, and the BCa interval, which corrects for skewness, is the better choice <span class="citation" data-cites="efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993, chap. 14</a>)</span>.</p>
 </div>

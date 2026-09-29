@@ -353,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-09-28 22:22:08 (PDT)</p>
+  <p class="date">Last modified: 2026-09-28 23:02:22 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -387,7 +387,7 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-mc-bernoulli" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Monte Carlo posterior summaries for a Bernoulli model)</strong></span> The posterior in <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a> is <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span>. We draw <span class="math inline">\(M = 5{,}000\)</span> values from it, and compare Monte Carlo estimates with the exact values:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb1-2"><a aria-label="2"></a>pi_draws <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">5000</span>, <span class="at">shape1 =</span> <span class="dv">56</span>, <span class="at">shape2 =</span> <span class="dv">37</span>)</span>
 <span id="cb1-3"><a aria-label="3"></a><span class="fu">rbind</span>(</span>
 <span id="cb1-4"><a aria-label="4"></a>  <span class="at">exact =</span> <span class="fu">c</span>(</span>
@@ -404,7 +404,6 @@ text-align: center;
 <span id="cb1-15"><a aria-label="15"></a><span class="co">#&gt;               mean  lower  upper</span></span>
 <span id="cb1-16"><a aria-label="16"></a><span class="co">#&gt; exact       0.6022 0.5014 0.6988</span></span>
 <span id="cb1-17"><a aria-label="17"></a><span class="co">#&gt; monte_carlo 0.6022 0.5011 0.7013</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The two agree to about two decimal places, and the agreement improves as <span class="math inline">\(M\)</span> grows.</p>
 </div>
@@ -436,7 +435,7 @@ text-align: center;
 \]</span></p>
 <p>so <span class="math inline">\(0.6\, \pi_{\text{dry}} = 0.5\)</span> and <span class="math inline">\(\pi_{\text{dry}} = 5/6\)</span>. The <a href="#/def-stationary-distribution">stationary distribution</a> is dry with probability <span class="math inline">\(5/6\)</span> and wet with probability <span class="math inline">\(1/6\)</span>. A simulated chain, started on a wet day, spends about that fraction of its days dry:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)</span>
 <span id="cb2-2"><a aria-label="2"></a>n_days <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
 <span id="cb2-3"><a aria-label="3"></a>dry <span class="ot">&lt;-</span> <span class="fu">logical</span>(n_days)</span>
 <span id="cb2-4"><a aria-label="4"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">2</span>, n_days)) {</span>
@@ -446,7 +445,6 @@ text-align: center;
 <span id="cb2-8"><a aria-label="8"></a><span class="fu">c</span>(<span class="at">simulated =</span> <span class="fu">mean</span>(dry), <span class="at">stationary =</span> <span class="dv">5</span> <span class="sc">/</span> <span class="dv">6</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb2-9"><a aria-label="9"></a><span class="co">#&gt;  simulated stationary </span></span>
 <span id="cb2-10"><a aria-label="10"></a><span class="co">#&gt;      0.833      0.833</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 </div>
 </section><section class="slide level2"><p>Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of <span class="math inline">\(\tilde{\theta}^{(t)}\)</span> converges to it <span class="citation" data-cites="gelman2013bda robert2004mcsm">(<a href="#/references" role="doc-biblioref" onclick="">Gelman et al. 2013, sec. 11.2</a>, p.&nbsp;279; <a href="#/references" role="doc-biblioref" onclick="">Robert and Casella 2004, sec. 6.6.1</a>, Theorem 6.51, p.&nbsp;234)</span>. Averages along the chain also converge to expectations under that distribution, even though successive values are correlated <span class="citation" data-cites="robert2004mcsm robert2004mcsm">(<a href="#/references" role="doc-biblioref" onclick="">Robert and Casella 2004, sec. 6.7.1</a>, Theorem 6.63, p.&nbsp;241; <a href="#/references" role="doc-biblioref" onclick="">Robert and Casella 2004, sec. 7.2</a>, p.&nbsp;269)</span>. MCMC algorithms construct a Markov chain whose stationary distribution is the posterior <span class="math inline">\(\operatorname{p}(\tilde{\theta}\mid \tilde{y})\)</span> <span class="citation" data-cites="gelman2013bda">(<a href="#/references" role="doc-biblioref" onclick="">Gelman et al. 2013, chap. 11</a>, p.&nbsp;275)</span>, so that <a href="#/def-monte-carlo-estimate">Monte Carlo estimates</a> can be computed from the chain’s values in place of independent draws.</p>
@@ -500,7 +498,7 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-mh-bernoulli" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Metropolis–Hastings for a Bernoulli model)</strong></span> We sample the posterior of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a> (<span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, uniform prior) with a Gaussian random-walk proposal <span class="math inline">\(\pi^* = \pi^{(t)} + \varepsilon\)</span>, <span class="math inline">\(\varepsilon \sim \operatorname{N}\mathopen{}\left(0, 0.05^2\right)\mathclose{}\)</span>. The proposal is symmetric, and the uniform prior density is 1 on <span class="math inline">\((0, 1)\)</span>, so the log of the acceptance ratio is the difference of log-likelihoods, and a proposal outside <span class="math inline">\((0, 1)\)</span> is always rejected.</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>log_post_unnorm <span class="ot">&lt;-</span> <span class="cf">function</span>(pi, r, n) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>log_post_unnorm <span class="ot">&lt;-</span> <span class="cf">function</span>(pi, r, n) {</span>
 <span id="cb3-2"><a aria-label="2"></a>  <span class="cf">if</span> (pi <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">||</span> pi <span class="sc">&gt;=</span> <span class="dv">1</span>) {</span>
 <span id="cb3-3"><a aria-label="3"></a>    <span class="fu">return</span>(<span class="sc">-</span><span class="cn">Inf</span>)</span>
 <span id="cb3-4"><a aria-label="4"></a>  }</span>
@@ -531,7 +529,6 @@ text-align: center;
 <span id="cb3-29"><a aria-label="29"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb3-30"><a aria-label="30"></a><span class="co">#&gt; acceptance_rate         mh_mean      exact_mean </span></span>
 <span id="cb3-31"><a aria-label="31"></a><span class="co">#&gt;           0.710           0.601           0.602</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>Comparing <span class="math inline">\(\log u\)</span>, for <span class="math inline">\(u\)</span> uniform on <span class="math inline">\((0, 1)\)</span>, with <span class="math inline">\(\log \alpha\)</span> accepts with probability <span class="math inline">\(\min(1, \alpha)\)</span>, and avoids computing <span class="math inline">\(\alpha\)</span> itself, which can overflow or underflow. Every accepted proposal changes the chain’s value, so the fraction of iterations that change estimates the acceptance rate. The chain’s mean is close to the exact posterior mean <span class="math inline">\(56/93\)</span>.</p>
 </div>
@@ -602,7 +599,7 @@ Figure&nbsp;1: <a href="#/def-trace-plot">Trace plots</a> of the first 200 itera
 \]</span></p>
 <p>so the <a href="#/def-full-conditional">full conditional</a> of <span class="math inline">\(\theta_1\)</span> is <span class="math inline">\(\operatorname{N}\mathopen{}\left(\rho\theta_2,\, 1 - \rho^2\right)\mathclose{}\)</span>, and by symmetry that of <span class="math inline">\(\theta_2\)</span> is <span class="math inline">\(\operatorname{N}\mathopen{}\left(\rho\theta_1,\, 1 - \rho^2\right)\mathclose{}\)</span>. We run the Gibbs sampler with <span class="math inline">\(\rho = 0\)</span> and with <span class="math inline">\(\rho = 0.99\)</span>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>gibbs_bvn <span class="ot">&lt;-</span> <span class="cf">function</span>(n_iter, rho) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>gibbs_bvn <span class="ot">&lt;-</span> <span class="cf">function</span>(n_iter, rho) {</span>
 <span id="cb5-2"><a aria-label="2"></a>  draws <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA_real_</span>, <span class="at">nrow =</span> n_iter, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
 <span id="cb5-3"><a aria-label="3"></a>  theta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
 <span id="cb5-4"><a aria-label="4"></a>  cond_sd <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> rho<span class="sc">^</span><span class="dv">2</span>)</span>
@@ -625,7 +622,6 @@ Figure&nbsp;1: <a href="#/def-trace-plot">Trace plots</a> of the first 200 itera
 <span id="cb5-21"><a aria-label="21"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb5-22"><a aria-label="22"></a><span class="co">#&gt;    rho_0 rho_0.99 </span></span>
 <span id="cb5-23"><a aria-label="23"></a><span class="co">#&gt;    0.020    0.971</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>With <span class="math inline">\(\rho = 0\)</span>, successive draws of <span class="math inline">\(\theta_1\)</span> are nearly uncorrelated. With <span class="math inline">\(\rho = 0.99\)</span>, each full conditional has standard deviation <span class="math inline">\(\sqrt{1 - 0.99^2} \approx 0.14\)</span>, so each update moves only a short way along the narrow ridge where the target puts its probability, and successive draws are almost perfectly correlated: 2,000 such draws carry far less information about the target than 2,000 independent ones.</p>
 </div>
@@ -653,7 +649,7 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^m \mathopen{}\left(\ba
 </section><section class="slide level2"><div id="exm-psrf" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Potential scale reduction factor for the Bernoulli sampler)</strong></span> Continuing <a href="#/exm-burnin" class="quarto-xref">Example&nbsp;7</a>, we compute <span class="math inline">\(\hat{R}\)</span> for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>psrf <span class="ot">&lt;-</span> <span class="cf">function</span>(chains) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>psrf <span class="ot">&lt;-</span> <span class="cf">function</span>(chains) {</span>
 <span id="cb6-2"><a aria-label="2"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(chains)</span>
 <span id="cb6-3"><a aria-label="3"></a>  w <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">apply</span>(chains, <span class="dv">2</span>, stats<span class="sc">::</span>var))</span>
 <span id="cb6-4"><a aria-label="4"></a>  b <span class="ot">&lt;-</span> n <span class="sc">*</span> stats<span class="sc">::</span><span class="fu">var</span>(<span class="fu">colMeans</span>(chains))</span>
@@ -668,7 +664,6 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^m \mathopen{}\left(\ba
 <span id="cb6-13"><a aria-label="13"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
 <span id="cb6-14"><a aria-label="14"></a><span class="co">#&gt;     first_50 after_burnin </span></span>
 <span id="cb6-15"><a aria-label="15"></a><span class="co">#&gt;        1.648        1.001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>Here <code>stats::var(colMeans(chains))</code> is <span class="math inline">\(\frac{1}{m-1}\sum_j (\bar\theta_j - \bar\theta)^2\)</span>, so <code>b</code> is <span class="math inline">\(B\)</span>. While the chains are still approaching the posterior from opposite ends, <span class="math inline">\(\hat{R}\)</span> is well above 1; after burn-in it is essentially 1.</p>
 </div>
@@ -678,7 +673,7 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^m \mathopen{}\left(\ba
 </section><section class="slide level2"><div id="exm-mcmc-vs-mle" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Posterior mean and maximum likelihood estimate for a Bernoulli model)</strong></span> With <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, the maximum likelihood estimate is <span class="math inline">\(\hat\pi = r / n\)</span>, with estimated standard error <span class="math inline">\(\sqrt{\hat\pi(1 - \hat\pi)/n}\)</span>. Under the uniform prior, the posterior is <span class="math inline">\(\operatorname{Beta}(r + 1, n - r + 1)\)</span> (<a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>), whose mean is <span class="math inline">\((r + 1)/(n + 2)\)</span> and whose standard deviation is <span class="math inline">\(\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\)</span> with <span class="math inline">\(a = r + 1\)</span> and <span class="math inline">\(b = n - r + 1\)</span> <span class="citation" data-cites="CaseBerg01">(<a href="#/references" role="doc-biblioref" onclick="">Casella and Berger 2002, sec. 3.3</a>, p.&nbsp;107)</span>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>r <span class="ot">&lt;-</span> <span class="dv">55</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>r <span class="ot">&lt;-</span> <span class="dv">55</span></span>
 <span id="cb7-2"><a aria-label="2"></a>n <span class="ot">&lt;-</span> <span class="dv">91</span></span>
 <span id="cb7-3"><a aria-label="3"></a>pi_hat <span class="ot">&lt;-</span> r <span class="sc">/</span> n</span>
 <span id="cb7-4"><a aria-label="4"></a>a <span class="ot">&lt;-</span> r <span class="sc">+</span> <span class="dv">1</span></span>
@@ -694,7 +689,6 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^m \mathopen{}\left(\ba
 <span id="cb7-14"><a aria-label="14"></a><span class="co">#&gt;                    estimate spread</span></span>
 <span id="cb7-15"><a aria-label="15"></a><span class="co">#&gt; maximum_likelihood   0.6044 0.0513</span></span>
 <span id="cb7-16"><a aria-label="16"></a><span class="co">#&gt; posterior            0.6022 0.0505</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The two estimates differ only through the prior’s pseudo-counts, and so do the two measures of spread; both differences vanish as <span class="math inline">\(n\)</span> grows. The MCMC mean in <a href="#/exm-mh-bernoulli" class="quarto-xref">Example&nbsp;6</a> agrees with the exact posterior mean, and so with the maximum likelihood estimate to about two decimal places.</p>
 </div>
@@ -754,7 +748,7 @@ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}).
 </section><section class="slide level2"><div id="exm-dic-bernoulli" class="theorem example">
 <p><span class="theorem-title"><strong>Example 11 (DIC for the Bernoulli model)</strong></span> For <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, <span class="math inline">\(D(\pi) = -2\mathopen{}\left(r \log \pi + (n - r) \log(1 - \pi)\right)\mathclose{}\)</span>. We estimate <span class="math inline">\(\overline{D}\)</span> and <span class="math inline">\(\bar\pi\)</span> from 5,000 draws from the <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span> posterior of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>:</p>
 <div class="cell">
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>deviance_bernoulli <span class="ot">&lt;-</span> <span class="cf">function</span>(pi, <span class="at">r =</span> <span class="dv">55</span>, <span class="at">n =</span> <span class="dv">91</span>) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>deviance_bernoulli <span class="ot">&lt;-</span> <span class="cf">function</span>(pi, <span class="at">r =</span> <span class="dv">55</span>, <span class="at">n =</span> <span class="dv">91</span>) {</span>
 <span id="cb8-2"><a aria-label="2"></a>  <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (r <span class="sc">*</span> <span class="fu">log</span>(pi) <span class="sc">+</span> (n <span class="sc">-</span> r) <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> pi))</span>
 <span id="cb8-3"><a aria-label="3"></a>}</span>
 <span id="cb8-4"><a aria-label="4"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
@@ -770,7 +764,6 @@ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}).
 <span id="cb8-14"><a aria-label="14"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span>
 <span id="cb8-15"><a aria-label="15"></a><span class="co">#&gt;     d_bar d_at_mean       p_d       dic </span></span>
 <span id="cb8-16"><a aria-label="16"></a><span class="co">#&gt;    123.13    122.16      0.97    124.10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>The model has one parameter, and its effective number of parameters <span class="math inline">\(p_D\)</span> is close to 1.</p>
 </div>
