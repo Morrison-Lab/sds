@@ -2,19 +2,9 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -25,8 +15,6 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 > **NOTE:**
 >
 > **Example 1 (A Bernoulli model fitted with JAGS)** The data are \\r = 55\\ successes in \\n = 91\\ trials, and the prior is uniform, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli). Each chain gets its own random-number generator seed, so the output is reproducible:
->
-> Show R code
 >
 > ``` downlit
 > y <- rep(c(1L, 0L), times = c(55L, 36L))
@@ -76,8 +64,6 @@ For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operat
 > **NOTE:**
 >
 > **Example 2 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta_0 = -0.5\\ and slope \\\beta_1 = 1.2\\, and place a diffuse \\\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta_1}\\ for a one-unit increase in \\x\\.
->
-> Show R code
 >
 > ``` downlit
 > set.seed(2024)
@@ -129,8 +115,6 @@ For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operat
 >
 > Each 95% credible interval contains its coefficient’s true value, and every \\\hat{R}\\ is near 1. As [comparing MCMC estimates to maximum likelihood](mcmc.llms.md#sec-mcmc-vs-mle) leads us to expect, the posterior means are close to the maximum likelihood estimates:
 >
-> Show R code
->
 > ``` downlit
 > stats::glm(y ~ x, family = stats::binomial()) |>
 >   stats::coef() |>
@@ -156,8 +140,6 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 > \\ \ell_i \stackrel{\text{def}}{=}\delta_i \log {\lambda}\_i - {\lambda}\_i t_i. \\
 >
 > JAGS has no built-in distribution for this contribution, so we fit it with the zeros trick.
->
-> Show R code
 >
 > ``` downlit
 > set.seed(2026)
@@ -217,8 +199,6 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 >
 > About 50% of the follow-up times end in an event. The 95% credible interval for \\\beta_1\\ contains the true \\-0.7\\, though the posterior mean is some distance from it. The maximum likelihood estimates, from the same log-likelihood, show that the gap is sampling variation in this data set rather than an effect of the prior:
 >
-> Show R code
->
 > ``` downlit
 > neg_loglik <- function(beta) {
 >   lambda <- exp(beta[1] + beta[2] * x)
@@ -240,8 +220,6 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 > **NOTE:**
 >
 > **Example 4 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ (\\\mu = 5\\, \\\tau = 1.5\\) and within-group standard deviation \\\sigma = 2\\. The priors are a diffuse \\\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
->
-> Show R code
 >
 > ``` downlit
 > set.seed(2025)
@@ -299,8 +277,6 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 >
 > Each group’s posterior mean lies between its sample mean and the overall sample mean:
 >
-> Show R code
->
 > ``` downlit
 > sample_means <- as.vector(tapply(y, group, mean))
 > tibble::tibble(
@@ -348,8 +324,6 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > We simulate data in which only \\x_1\\ and \\x_2\\ affect the outcome, fit a linear regression for every subset of the three predictors \\x_1\\, \\x_2\\ and \\x_3\\, and compute these approximate posterior model probabilities:
 >
-> Show R code
->
 > ``` downlit
 > set.seed(2027)
 > n_obs <- 120L
@@ -376,8 +350,6 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > Subtracting the smallest BIC before exponentiating leaves the normalized weights unchanged and avoids numerical underflow. The [posterior inclusion probability](#def-pip) of each predictor sums the weights of the models that contain it:
 >
-> Show R code
->
 > ``` downlit
 > includes <- function(v) vapply(subsets, function(s) v %in% s, logical(1))
 > vapply(predictors, function(v) sum(weight[includes(v)]), numeric(1)) |>
@@ -387,8 +359,6 @@ When several candidate models are plausible, committing to a single “best” o
 > ```
 >
 > For the model-averaged slope of \\x_1\\, we approximate its posterior mean within each model by the least-squares estimate, taken as \\0\\ in models that exclude \\x_1\\, and average with the posterior model probabilities as weights:
->
-> Show R code
 >
 > ``` downlit
 > beta_x1 <- vapply(models, function(m) {

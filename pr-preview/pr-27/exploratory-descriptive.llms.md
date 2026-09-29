@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 ## 1 Introduction
 
@@ -66,8 +66,6 @@ Later surveys added anthropometry, triglycerides, the Jenkins Activity Survey, a
 
 The WCGS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website, as a Stata file that R can read directly:
 
-Show R code
-
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
 url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/wcgs.dta" # nolint: line_length_linter.
@@ -75,8 +73,6 @@ wcgs <- haven::read_dta(url)
 ```
 
 The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website. [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts the Stata value labels to factors:
-
-Show R code
 
 ``` downlit
 wcgs <- rmb::wcgs |> haven::as_factor()
@@ -109,8 +105,6 @@ for (var in names(wcgs_labels)) {
 ```
 
 The dataset has one row per participant:
-
-Show R code
 
 ``` downlit
 dplyr::glimpse(wcgs)
@@ -154,8 +148,6 @@ dplyr::glimpse(wcgs)
 >
 > **Example 1 (Mean cholesterol in the WCGS)** Total cholesterol (`chol`) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:
 >
-> Show R code
->
 > ``` downlit
 > mean(wcgs$chol, na.rm = TRUE)
 > #> [1] 226.372
@@ -171,8 +163,6 @@ dplyr::glimpse(wcgs)
 > **NOTE:**
 >
 > **Example 2 (Median cholesterol in the WCGS)**  
->
-> Show R code
 >
 > ``` downlit
 > median(wcgs$chol, na.rm = TRUE)
@@ -201,8 +191,6 @@ The standard deviation has the same units as the observations, which makes it ea
 >
 > **Example 3 (Variance and standard deviation of cholesterol in the WCGS)**  
 >
-> Show R code
->
 > ``` downlit
 > var(wcgs$chol, na.rm = TRUE)
 > #> [1] 1885.33
@@ -228,8 +216,6 @@ With an odd number of observations, the sample 0.5 quantile equals the [sample m
 >
 > **Example 4 (Quartiles and IQR of cholesterol in the WCGS)**  
 >
-> Show R code
->
 > ``` downlit
 > quantile(wcgs$chol, probs = c(0.25, 0.75), na.rm = TRUE, type = 1)
 > #> 25% 75% 
@@ -244,8 +230,6 @@ With an odd number of observations, the sample 0.5 quantile equals the [sample m
 
 The [`summary()`](https://rdrr.io/r/base/summary.html) function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (`type = 7`), so they can differ slightly from [Definition 5](#def-quartiles):
 
-Show R code
-
 ``` downlit
 summary(wcgs$chol)
 #>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
@@ -253,8 +237,6 @@ summary(wcgs$chol)
 ```
 
 For a formatted table of several variables at once, [`gtsummary::tbl_summary()`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html) is useful ([Table 1](#tbl-wcgs-summary-continuous)).
-
-Show R code
 
 ``` downlit
 wcgs |>
@@ -294,8 +276,6 @@ Table 1: WCGS: descriptive statistics for continuous variables
 > **NOTE:**
 >
 > **Example 5 (Proportion of WCGS participants with a CHD event)**  
->
-> Show R code
 >
 > ``` downlit
 > table(wcgs$chd69)
@@ -486,8 +466,6 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 >
 > **Example 6 (Correlation between cholesterol and blood pressure in the WCGS)**  
 >
-> Show R code
->
 > ``` downlit
 > cor(wcgs$chol, wcgs$sbp, use = "complete.obs")
 > #> [1] 0.123061
@@ -571,8 +549,6 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 >
 > **Example 7 (Smoking and CHD in the WCGS)**  
 >
-> Show R code
->
 > ``` downlit
 > table(Smoking = wcgs$smoke, CHD = wcgs$chd69)
 > #>        CHD
@@ -582,8 +558,6 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 > ```
 >
 > Row proportions give the distribution of CHD status within each smoking group:
->
-> Show R code
 >
 > ``` downlit
 > table(Smoking = wcgs$smoke, CHD = wcgs$chd69) |>

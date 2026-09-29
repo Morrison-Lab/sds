@@ -2,19 +2,9 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 ## 1 Empirical CDF
 
@@ -90,8 +80,6 @@ The [CDF](https://morrison-lab.github.io/rme/chapters/probability.html#def-cdf) 
 > - \\\hat Q(p) = 7\\ for \\3/4 \< p \le 1\\.
 >
 > So \\\hat Q(0.5) = 3\\ and \\\hat Q(0.9) = 7\\. R’s [`quantile()`](https://rdrr.io/r/stats/quantile.html) function computes this definition when called with `type = 1`:
->
-> Show R code
 >
 > ``` downlit
 > quantile(c(4, 1, 7, 3), probs = c(0.5, 0.9), type = 1)

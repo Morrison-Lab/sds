@@ -2,19 +2,9 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 ## 1 Inference
 
@@ -96,8 +86,6 @@ A p-value is computed assuming \\H_0\\ is true, so it is not the probability tha
 >
 > has approximately a standard Gaussian distribution. Extreme values in either direction are evidence for the two-sided \\H_1\\, so the test statistic is \\T = \mathopen{}\left\|Z\right\|\mathclose{}\\, and the p-value is \\\Pr(\mathopen{}\left\|Z\right\|\mathclose{} \ge \mathopen{}\left\|z\right\|\mathclose{}) = 2\Phi(-\mathopen{}\left\|z\right\|\mathclose{})\\, where \\\Phi\\ is the standard Gaussian CDF.
 >
-> Show R code
->
 > ``` downlit
 > chol_by_chd <- split(wcgs$chol, wcgs$chd69) |>
 >   lapply(function(x) x[!is.na(x)])
@@ -126,8 +114,6 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Example 4 (The 0.95 quantile of \\\chi^2_1\\)** By [Definition 9](#def-chi-square-dist), a \\\chi^2_1\\ random variable is \\Z^2\\ for a standard Gaussian \\Z\\. So \\\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})\\, and the 0.95 quantile of \\\chi^2_1\\ is the square of the 0.975 quantile of the standard Gaussian distribution:
 >
-> Show R code
->
 > ``` downlit
 > c(chisq = qchisq(0.95, df = 1), gaussian_squared = qnorm(0.975)^2)
 > #>            chisq gaussian_squared 
@@ -145,8 +131,6 @@ The tests on this page compare a test statistic with one of three families of di
 > **NOTE:**
 >
 > **Example 5 (t quantiles approach Gaussian quantiles)** The 0.975 quantile of \\t_k\\ is larger than the standard Gaussian’s 0.975 quantile, 1.96, and approaches it as \\k\\ grows:
->
-> Show R code
 >
 > ``` downlit
 > k <- c(4, 9, 29, 99, 2760)
@@ -170,8 +154,6 @@ The tests on this page compare a test statistic with one of three families of di
 > \\T^2 = \frac{Z^2 / 1}{V / k},\\
 >
 > where \\Z^2\\ has the \\\chi^2_1\\ distribution ([Definition 9](#def-chi-square-dist)) and is independent of \\V\\. So \\T^2\\ has the \\F\_{1, k}\\ distribution ([Definition 11](#def-f-dist)), and the 0.95 quantile of \\F\_{1, k}\\ is the square of the 0.975 quantile of \\t_k\\:
->
-> Show R code
 >
 > ``` downlit
 > c(f = qf(0.95, df1 = 1, df2 = 9), t_squared = qt(0.975, df = 9)^2)
@@ -202,8 +184,6 @@ The tests on this page compare a test statistic with one of three families of di
 > **Example 7 (Confidence interval for mean cholesterol in the WCGS)**  
 >
 > By the [central limit theorem](https://morrison-lab.github.io/rme/chapters/probability.html#the-central-limit-theorem), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
->
-> Show R code
 >
 > ``` downlit
 > chol <- wcgs$chol[!is.na(wcgs$chol)]

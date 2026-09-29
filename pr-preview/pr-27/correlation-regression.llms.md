@@ -2,27 +2,15 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
 ## 1 The HERS data
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
-
-Show R code
 
 ``` downlit
 hers <- rmb::hers |> haven::as_factor()
@@ -81,8 +69,6 @@ The conditions of [Theorem 1](#thm-pearson-test-null) hold, for example, when t
 >
 > The statistic of [Definition 2](#def-pearson-test), using the 2758 participants with a BMI measurement:
 >
-> Show R code
->
 > ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
 > r <- cor(hers_bmi$BMI, hers_bmi$glucose)
@@ -94,8 +80,6 @@ The conditions of [Theorem 1](#thm-pearson-test-null) hold, for example, when t
 > ```
 >
 > [`cor.test()`](https://rdrr.io/r/stats/cor.test.html) reports the same values, and a confidence interval for \\\rho\\:
->
-> Show R code
 >
 > ``` downlit
 > cor.test(hers$BMI, hers$glucose, method = "pearson")
@@ -125,8 +109,6 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 > **NOTE:**
 >
 > **Example 2 (Spearman correlation between BMI and fasting glucose in HERS)** The Pearson correlation of the ranks ([Definition 3](#def-spearman-r)), and [`cor.test()`](https://rdrr.io/r/stats/cor.test.html)’s Spearman test (`exact = FALSE`, because tied values rule out the exact p-value):
->
-> Show R code
 >
 > ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
@@ -232,8 +214,6 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > **Example 4 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 2](#thm-ols-slr), and the slope from [Corollary 1](#cor-ols-slope-r), for the participants with a BMI measurement:
 >
-> Show R code
->
 > ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
 > x <- hers_bmi$BMI
@@ -249,8 +229,6 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 > ```
 >
 > [`lm()`](https://rdrr.io/r/stats/lm.html) gives the same estimates:
->
-> Show R code
 >
 > ``` downlit
 > slr_fit <- lm(glucose ~ BMI, data = hers)
@@ -325,8 +303,6 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 > **NOTE:**
 >
 > **Example 6 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 4](#exm-hers-slr), \\R^2\\ computed from [Definition 8](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
->
-> Show R code
 >
 > ``` downlit
 > fit <- lm(glucose ~ BMI, data = hers)

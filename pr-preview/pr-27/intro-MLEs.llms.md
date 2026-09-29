@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -387,8 +387,6 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 >
 > **Example 9 (Wald interval and test for a Poisson rate)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, \\\hat{\lambda}\_{\text{ML}} = \bar x\\ and \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 8](#exm-dist-mle-poisson)), so \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\lambda}\right)\mathclose{} = \sqrt{\bar x/n}\\. With \\n = 13\\ and \\\bar x = 72/13\\, the 95% Wald interval for \\{\lambda}\\, and the Wald test of \\H_0: {\lambda}= 4\\, are:
 >
-> Show R code
->
 > ``` downlit
 > n_obs <- 13
 > xbar_obs <- 72 / 13
@@ -441,8 +439,6 @@ Equivalently, in terms of nested models: if a full model \\M_1\\ has \\p\\ free 
 > \\ \begin{aligned} \Lambda &= 2\mathopen{}\left(\ell(\bar x) - \ell({\lambda}\_0)\right)\mathclose{} && \text{(definition of \$\Lambda\$)}\\ &= 2\mathopen{}\left(n\bar x \log \bar x - n\bar x - n\bar x \log{\lambda}\_0 + n{\lambda}\_0\right)\mathclose{} && \text{(substitute; the \$\log x_i!\$ terms cancel)}\\ &= 2n\mathopen{}\left(\bar x \log\frac{\bar x}{{\lambda}\_0} - \bar x + {\lambda}\_0\right)\mathclose{} && \text{(factor out \$n\$; log of a quotient)} \end{aligned} \\
 >
 > For example, with \\n = 13\\, \\\bar x = 72/13\\, and \\{\lambda}\_0 = 4\\:
->
-> Show R code
 >
 > ``` downlit
 > n_obs <- 13
@@ -856,8 +852,6 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 >
 > *Solution*. Since \\\ell''(\tilde \lambda; \tilde{x}) \< 0\\, \\\tilde \lambda\\ is a local maximizer of the log-likelihood. Moreover, \\\ell''(\lambda; \tilde{x}) = -n\bar x/\lambda^2 \< 0\\ for every \\\lambda \> 0\\, so the log-likelihood is strictly concave, and a local maximizer of a strictly concave function is its unique global maximizer. So \\\tilde \lambda\\ maximizes \\\ell\\, and therefore \\\mathcal{L}\\:
 >
-> Show R code
->
 > ``` downlit
 > mle <- mean(cyclones$number)
 > ```
@@ -959,8 +953,6 @@ For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \tilde{x})\\ is the sa
 > **NOTE:**
 >
 > **Example 12 (Finding the MLE using the Newton-Raphson algorithm)** We found the MLE \\\hat{\lambda} = \bar{x}\\ by solving the score equation \\\ell'(\lambda) = 0\\ algebraically ([Exercise 21](#exr-solve-score-equation)). If we could not have solved it, we could instead start from an initial guess such as \\{\widehat{\lambda}}^\*= 3\\ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
->
-> Show R code
 >
 > ``` downlit
 > cur_lambda_est <- 3
@@ -1077,8 +1069,6 @@ Solving the approximate score equation \\\ell'^\*(\lambda) = 0\\ gives the next 
 
 \\ \begin{aligned} \lambda &= {\widehat{\lambda}}^\*- \ell'({\widehat{\lambda}}^\*) \cdot\mathopen{}\left(\ell''({\widehat{\lambda}}^\*)\right)^{-1}\mathclose{}\\ &= 4.375 \end{aligned} \\
 
-Show R code
-
 ``` downlit
 new_lambda_est <-
   cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
@@ -1137,8 +1127,6 @@ plot2 +
 Figure 12: The approximate score function at the updated estimate
 
 We repeat this process until the log-likelihood stops changing ([Table 5](#tbl-mle-converge)).
-
-Show R code
 
 ``` downlit
 cur_lambda_est <- 3 # restart from the initial guess
@@ -1322,8 +1310,6 @@ We model the distribution of fasting glucose among HERS participants who do not 
 
 The HERS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website:
 
-Show R code
-
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
 url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta" # nolint: line_length_linter.
@@ -1331,8 +1317,6 @@ hers <- haven::read_dta(url)
 ```
 
 The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website ([Table 6](#tbl-HERS)):
-
-Show R code
 
 ``` downlit
 hers <- rmb::hers |> haven::zap_labels()
@@ -1390,8 +1374,6 @@ The histogram is irregular, as histograms of 100 observations often are, with a 
 
 By the [Gaussian MLEs](#sec-gaussian-mle), \\\hat\mu\_{\text{ML}} = \bar x\\ and \\\hat\sigma^2\_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2\\:
 
-Show R code
-
 ``` downlit
 mu_hat <- mean(glucose_data)
 sigma_sq_hat <- mean((glucose_data - mu_hat)^2)
@@ -1422,8 +1404,6 @@ The fitted curve follows the overall shape of the histogram, but it underestimat
 ### 4.3 Likelihood and log-likelihood functions
 
 It is numerically better to compute the log-likelihood first and exponentiate it to get the likelihood, because a product of 100 densities can underflow to zero:
-
-Show R code
 
 ``` downlit
 loglik <- function(mu, sigma, x) {
@@ -1580,8 +1560,6 @@ Suppose we test the null hypothesis \\H_0: \mu = \mu_0\\, with \\\mu_0 = 95\\ mg
 
 \\\mu_0 \pm z\_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\\
 
-Show R code
-
 ``` downlit
 mu0 <- 95
 se <- se_mu_hat(n = n_obs, sigma = sigma_hat)
@@ -1601,8 +1579,6 @@ For this test, under \\\mu = \mu_1\\, \\\bar X \sim \operatorname{N}\mathopen{}\
 \\ \text{power}(\mu_1) = \Phi\mathopen{}\left(\frac{\mu_0 - z\_{1-\alpha/2}\\\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}\right)\mathclose{} + 1 - \Phi\mathopen{}\left(\frac{\mu_0 + z\_{1-\alpha/2}\\\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}\right)\mathclose{} \\
 
 where \\\Phi\\ is the standard Gaussian CDF. For example, the power against \\\mu_1 = 100\\ mg/dL is:
-
-Show R code
 
 ``` downlit
 power <- function(n, null, alt, sigma) {
@@ -1645,8 +1621,6 @@ To check how maximum likelihood estimation behaves for this model, we simulate m
 
 `do_one_sim()` simulates and analyzes one dataset: it computes \\\hat\mu\\, its estimated standard error, a 95% \\t\\-based confidence interval for \\\mu\\, and the \\t\\-test of \\H_0: \mu = \mu_0\\.
 
-Show R code
-
 ``` downlit
 do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
   # generate data
@@ -1681,8 +1655,6 @@ do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
 
 To check `do_one_sim()`, we compare its output with [`stats::t.test()`](https://rdrr.io/r/stats/t.test.html) on the same simulated data:
 
-Show R code
-
 ``` downlit
 set.seed(1)
 sim_output <- do_one_sim(
@@ -1709,8 +1681,6 @@ The two rows agree.
 
 `do_n_sims()` repeats the simulation `n_sims` times, with a different random seed for each dataset:
 
-Show R code
-
 ``` downlit
 do_n_sims <- function(n_sims = 1000, ...) {
   lapply(seq_len(n_sims), function(i) {
@@ -1729,8 +1699,6 @@ sim_results
 ```
 
 `summarize_sim()` compares the simulation results with the true data-generating parameters:
-
-Show R code
 
 ``` downlit
 summarize_sim <- function(sim_results, mu, sigma2, n) {

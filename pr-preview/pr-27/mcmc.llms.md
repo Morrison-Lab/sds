@@ -2,19 +2,9 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page.
 
@@ -51,8 +41,6 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 > **NOTE:**
 >
 > **Example 2 (Monte Carlo posterior summaries for a Bernoulli model)** The posterior in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) is \\\operatorname{Beta}(56, 37)\\. We draw \\M = 5{,}000\\ values from it, and compare Monte Carlo estimates with the exact values:
->
-> Show R code
 >
 > ``` downlit
 > set.seed(42)
@@ -97,8 +85,6 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 > \\ \begin{aligned} \pi\_{\text{dry}} &= 0.9\\ \pi\_{\text{dry}} + 0.5\\ (1 - \pi\_{\text{dry}}) && \text{(tomorrow is dry after a dry or a wet day)}\\ &= 0.5 + 0.4\\ \pi\_{\text{dry}} && \text{(collecting terms)}, \end{aligned} \\
 >
 > so \\0.6\\ \pi\_{\text{dry}} = 0.5\\ and \\\pi\_{\text{dry}} = 5/6\\. The [stationary distribution](#def-stationary-distribution) is dry with probability \\5/6\\ and wet with probability \\1/6\\. A simulated chain, started on a wet day, spends about that fraction of its days dry:
->
-> Show R code
 >
 > ``` downlit
 > set.seed(7)
@@ -158,8 +144,6 @@ The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\*
 > **NOTE:**
 >
 > **Example 6 (Metropolis–Hastings for a Bernoulli model)** We sample the posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) (\\r = 55\\ successes in \\n = 91\\ trials, uniform prior) with a Gaussian random-walk proposal \\\pi^\* = \pi^{(t)} + \varepsilon\\, \\\varepsilon \sim \operatorname{N}\mathopen{}\left(0, 0.05^2\right)\mathclose{}\\. The proposal is symmetric, and the uniform prior density is 1 on \\(0, 1)\\, so the log of the acceptance ratio is the difference of log-likelihoods, and a proposal outside \\(0, 1)\\ is always rejected.
->
-> Show R code
 >
 > ``` downlit
 > log_post_unnorm <- function(pi, r, n) {
@@ -257,8 +241,6 @@ The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#de
 >
 > so the [full conditional](#def-full-conditional) of \\\theta_1\\ is \\\operatorname{N}\mathopen{}\left(\rho\theta_2,\\ 1 - \rho^2\right)\mathclose{}\\, and by symmetry that of \\\theta_2\\ is \\\operatorname{N}\mathopen{}\left(\rho\theta_1,\\ 1 - \rho^2\right)\mathclose{}\\. We run the Gibbs sampler with \\\rho = 0\\ and with \\\rho = 0.99\\:
 >
-> Show R code
->
 > ``` downlit
 > gibbs_bvn <- function(n_iter, rho) {
 >   draws <- matrix(NA_real_, nrow = n_iter, ncol = 2)
@@ -307,8 +289,6 @@ If the chains have all converged to the posterior, \\\hat V\\ estimates the post
 >
 > **Example 9 (Potential scale reduction factor for the Bernoulli sampler)** Continuing [Example 7](#exm-burnin), we compute \\\hat{R}\\ for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:
 >
-> Show R code
->
 > ``` downlit
 > psrf <- function(chains) {
 >   n <- nrow(chains)
@@ -336,8 +316,6 @@ When the prior is weak and the sample is moderate or large, the posterior mean f
 > **NOTE:**
 >
 > **Example 10 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat\pi = r / n\\, with estimated standard error \\\sqrt{\hat\pi(1 - \hat\pi)/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107):
->
-> Show R code
 >
 > ``` downlit
 > r <- 55
@@ -403,8 +381,6 @@ The term \\D(\bar{\tilde{\theta}})\\ rewards fit, while \\p_D\\ penalizes comple
 > **NOTE:**
 >
 > **Example 11 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\D(\pi) = -2\mathopen{}\left(r \log \pi + (n - r) \log(1 - \pi)\right)\mathclose{}\\. We estimate \\\overline{D}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
->
-> Show R code
 >
 > ``` downlit
 > deviance_bernoulli <- function(pi, r = 55, n = 91) {

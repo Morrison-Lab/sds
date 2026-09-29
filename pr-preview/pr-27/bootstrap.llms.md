@@ -2,27 +2,15 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
 ## 1 The HERS data
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
-
-Show R code
 
 ``` downlit
 hers <- rmb::hers |> haven::as_factor()
@@ -49,8 +37,6 @@ Because the draws are with replacement, a bootstrap sample usually contains some
 > **NOTE:**
 >
 > **Example 1 (Bootstrap samples of five glucose values)** Take the baseline fasting glucose values of the first five HERS participants, and draw two bootstrap samples from them:
->
-> Show R code
 >
 > ``` downlit
 > glucose5 <- hers$glucose[1:5]
@@ -83,8 +69,6 @@ The bootstrap distribution estimates the sampling distribution of \\\hat\theta\\
 > **NOTE:**
 >
 > **Example 2 (Bootstrap distribution of a mean of ten glucose values)** Take the baseline fasting glucose values of the first ten HERS participants, and compute the sample mean of each of \\B = 1{,}000\\ bootstrap samples:
->
-> Show R code
 >
 > ``` downlit
 > glucose10 <- hers$glucose[1:10]
@@ -137,8 +121,6 @@ This interval assumes that the sampling distribution of \\\hat\theta\\ is approx
 >
 > **Example 3 (Normal bootstrap interval for the mean of ten glucose values)** Continuing [Example 2](#exm-bootstrap-distribution-toy), the 95% interval of [Definition 4](#def-bootstrap-ci-normal) is:
 >
-> Show R code
->
 > ``` downlit
 > mean(glucose10) +
 >   c(lower = -1, upper = 1) * qnorm(0.975) * sd(boot_means10)
@@ -157,8 +139,6 @@ The extreme quantiles of \\B\\ replicates are noisy estimates, so percentile-bas
 > **NOTE:**
 >
 > **Example 4 (Percentile bootstrap interval for the mean of ten glucose values)** Continuing [Example 2](#exm-bootstrap-distribution-toy), the 95% interval of [Definition 5](#def-bootstrap-ci-percentile) is:
->
-> Show R code
 >
 > ``` downlit
 > quantile(boot_means10, c(0.025, 0.975))
@@ -206,8 +186,6 @@ When \\\hat{z}\_0 = 0\\ and \\\hat{a} = 0\\, \\\alpha_q = q\\ and the BCa interv
 >
 > **Example 7 (BCa bootstrap interval for the mean of ten glucose values)** Continuing [Example 2](#exm-bootstrap-distribution-toy), the quantities of [Definition 8](#def-bootstrap-ci-bca), step by step:
 >
-> Show R code
->
 > ``` downlit
 > z0 <- qnorm(mean(boot_means10 < mean(glucose10)))
 > jackknife_means <- vapply(1:10, \(i) mean(glucose10[-i]), numeric(1))
@@ -238,8 +216,6 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 >
 > **Example 8 (Bootstrap confidence intervals for the slope of SBP on age in HERS)** We regress systolic blood pressure (`SBP`) on `age` by [ordinary least squares](correlation-regression.llms.md#def-ols), and bootstrap the slope, resampling participants (adapted from [Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)). The statistic function takes the data and the row indices of one bootstrap sample:
 >
-> Show R code
->
 > ``` downlit
 > slope_sbp_age <- function(data, indices) {
 >   fit <- lm(SBP ~ age, data = data[indices, ])
@@ -263,8 +239,6 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 > ```
 >
 > The bootstrap standard error is close to the model-based standard error from [`lm()`](https://rdrr.io/r/stats/lm.html), and the three bootstrap intervals are close to the model-based 95% confidence interval:
->
-> Show R code
 >
 > ``` downlit
 > fit_sbp_age <- lm(SBP ~ age, data = hers)

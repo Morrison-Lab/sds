@@ -2,27 +2,15 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
 ## 1 The HERS data
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
-
-Show R code
 
 ``` downlit
 hers <- rmb::hers |> haven::as_factor()
@@ -85,8 +73,6 @@ The chi-square approximation is poor when some expected counts are small. A comm
 >
 > **Example 3 (Chi-square test of exercise by treatment group in HERS)** The expected counts and statistic of [Definition 2](#def-chi-square-test) for [Table 1](#tbl-hers-crosstab):
 >
-> Show R code
->
 > ``` downlit
 > observed <- table(hers$exercise, hers$HT)
 > expected <- outer(rowSums(observed), colSums(observed)) / sum(observed)
@@ -104,8 +90,6 @@ The chi-square approximation is poor when some expected counts are small. A comm
 > ```
 >
 > Every expected count is large, so the \\\chi^2_1\\ approximation of [Theorem 1](#thm-chi-square-null) is reasonable. [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) with `correct = FALSE` reports the same values:
->
-> Show R code
 >
 > ``` downlit
 > chisq.test(hers$exercise, hers$HT, correct = FALSE)
@@ -140,8 +124,6 @@ The p-value is exact: it comes from the null distribution itself, not from a lar
 >
 > **Example 4 (Fisher’s exact test of exercise by treatment group in HERS)** The p-value of [Definition 3](#def-fishers-exact) for [Table 1](#tbl-hers-crosstab), computed from the hypergeometric probabilities with [`dhyper()`](https://rdrr.io/r/stats/Hypergeometric.html):
 >
-> Show R code
->
 > ``` downlit
 > a <- observed[1, 1]
 > row1 <- sum(observed[1, ])
@@ -155,8 +137,6 @@ The p-value is exact: it comes from the null distribution itself, not from a lar
 > ```
 >
 > The tolerance `1e-7` keeps tables whose probability equals \\p(a)\\ up to rounding error, as [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) does. [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) reports the same p-value:
->
-> Show R code
 >
 > ``` downlit
 > fisher.test(hers$exercise, hers$HT)

@@ -2,19 +2,9 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)).
 
@@ -148,8 +138,6 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > **Example 7 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 5](#exm-normal-normal), with true mean \\\mu = 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\\ \frac{1}{n+1}\right)\mathclose{}\\ posterior:
 >
-> Show R code
->
 > ``` downlit
 > set.seed(1)
 > mu_true <- 2
@@ -196,8 +184,6 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 > Figure 1: The \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \\\mu\\, for the data of [Example 7](#exm-normal-credible-vs-confidence).
 >
 > Because \\\mu\\ has a distribution, the Bayesian can also compute the posterior probability that \\\mu\\ lies in the realized *confidence* interval:
->
-> Show R code
 >
 > ``` downlit
 > pr_in_ci <- stats::pnorm(ci_freq, mean = post_mean, sd = post_sd) |> diff()
@@ -261,8 +247,6 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 >
 > The uniform prior of [Example 2](#exm-prior) is \\\operatorname{Beta}(1, 1)\\. With that prior and \\r = 55\\ successes in \\n = 91\\ trials, the posterior is \\\operatorname{Beta}(56, 37)\\, with this mean and equal-tailed 95% [credible interval](#def-credible-interval):
 >
-> Show R code
->
 > ``` downlit
 > a_post <- 1 + 55
 > b_post <- 1 + 91 - 55
@@ -309,8 +293,6 @@ An informative prior pulls the posterior toward its region, most strongly when t
 > - [Flat](#def-flat-prior): \\\operatorname{p}(\beta) \propto 1\\ on the whole real line. This prior is [improper](#def-improper-prior), since \\\int\_{-\infty}^{\infty} 1 \\ d\beta = \infty\\; it gives an odds ratio of \\10^6\\ the same density as an odds ratio of \\1\\.
 >
 > The two proper priors’ probabilities for large odds ratios:
->
-> Show R code
 >
 > ``` downlit
 > or_cutoffs <- c(10, 100, 1e6)
@@ -380,8 +362,6 @@ A skeptical prior asks how strong the data must be to overturn a default of no e
 > \\ m\_\tau = \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}} \\
 >
 > is a weighted average of the sample mean and the prior mean \\0\\, weighted by the precision \\n\\ of the data and the precision \\1/\tau^2\\ of the prior (a precision is a reciprocal variance). The more skeptical the prior (the smaller \\\tau\\), the more the posterior mean shrinks toward \\0\\. With \\\bar x = 2\\ and \\n = 20\\ held fixed:
->
-> Show R code
 >
 > ``` downlit
 > xbar <- 2

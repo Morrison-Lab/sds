@@ -2,19 +2,9 @@
 
 Code
 
-- [Show All Code](javascript:void(0))
-
-- [Hide All Code](javascript:void(0))
-
-- 
-
-  ------------------------------------------------------------------------
-
-- [View Source](javascript:void(0))
-
 Published
 
-Last modified: 2026-09-28 22:36:32 (PDT)
+Last modified: 2026-09-28 22:55:32 (PDT)
 
 ## 1 Introduction
 
@@ -40,8 +30,6 @@ The primary outcome was nonfatal myocardial infarction or CHD death ([Hulley et 
 
 The HERS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website, as a Stata file that R can read directly:
 
-Show R code
-
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
 url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta" # nolint: line_length_linter.
@@ -49,8 +37,6 @@ hers <- haven::read_dta(url)
 ```
 
 The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website. [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts the Stata value labels to factors:
-
-Show R code
 
 ``` downlit
 hers <- rmb::hers |> haven::as_factor()
@@ -68,8 +54,6 @@ The examples on this page use these variables:
 | `SBP`      | Systolic blood pressure at baseline (mmHg)        |
 | `glucose`  | Fasting glucose at baseline (mg/dL)               |
 | `glucose1` | Fasting glucose at the year-1 visit (mg/dL)       |
-
-Show R code
 
 ``` downlit
 hers |>
@@ -179,8 +163,6 @@ When the observations are not Gaussian, \\T\\ still has approximately the standa
 >
 > **Example 2 (Change in fasting glucose over the first year of HERS)** We test whether mean fasting glucose changed between baseline (`glucose`) and the year-1 visit (`glucose1`), across both treatment groups. Participants missing either measurement are dropped. The t statistic of [Definition 1](#def-one-sample-t-test), computed on the differences:
 >
-> Show R code
->
 > ``` downlit
 > glucose_change <- hers |>
 >   dplyr::filter(!is.na(glucose), !is.na(glucose1)) |>
@@ -199,8 +181,6 @@ When the observations are not Gaussian, \\T\\ still has approximately the standa
 > ```
 >
 > [`t.test()`](https://rdrr.io/r/stats/t.test.html) with `paired = TRUE` gives the same statistic, along with a confidence interval for \\\mu_d\\:
->
-> Show R code
 >
 > ``` downlit
 > t.test(hers$glucose1, hers$glucose, paired = TRUE)
@@ -258,8 +238,6 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 >
 > The statistic and degrees of freedom of [Definition 3](#def-two-sample-t-test):
 >
-> Show R code
->
 > ``` downlit
 > glucose_ht <- hers |>
 >   dplyr::filter(HT == "hormone therapy") |>
@@ -279,8 +257,6 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 > ```
 >
 > [`t.test()`](https://rdrr.io/r/stats/t.test.html) reports the same values:
->
-> Show R code
 >
 > ``` downlit
 > t.test(glucose_ht, glucose_placebo)
@@ -331,8 +307,6 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 >
 > **Example 5 (Pooled t-test of baseline glucose in HERS)** In HERS, the two groups have nearly equal sizes (1380 and 1383) and nearly equal standard deviations (36.9 and 36.8 mg/dL), so the pooled test gives almost the same result as Welch’s test in [Example 3](#exm-hers-ttest):
 >
-> Show R code
->
 > ``` downlit
 > t.test(glucose_ht, glucose_placebo, var.equal = TRUE)
 > #> 
@@ -361,8 +335,6 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 > **NOTE:**
 >
 > **Example 6 (Confidence interval for the HERS baseline glucose difference)** Continuing [Example 3](#exm-hers-ttest), the 95% interval of [Definition 6](#def-ci-diff-means) is:
->
-> Show R code
 >
 > ``` downlit
 > (mean(glucose_ht) - mean(glucose_placebo)) +
@@ -425,8 +397,6 @@ Large values of \\F\\ mean that the group means are spread out more than the var
 >
 > **Example 10 (Fasting glucose by race/ethnicity in HERS)** The group sizes, means, and standard deviations of baseline fasting glucose:
 >
-> Show R code
->
 > ``` downlit
 > hers |>
 >   dplyr::summarize(
@@ -438,8 +408,6 @@ Large values of \\F\\ mean that the group means are spread out more than the var
 > ```
 >
 > The F statistic of [Definition 10](#def-one-way-anova), computed step by step:
->
-> Show R code
 >
 > ``` downlit
 > anova_parts <- hers |>
@@ -460,8 +428,6 @@ Large values of \\F\\ mean that the group means are spread out more than the var
 >
 > \\\text{SS}\_\text{between}\\ is summed here over observations rather than groups: each observation in group \\j\\ contributes \\(\bar{y}\_j - \bar{y})^2\\, which gives the \\n_j\\ weights of [Definition 10](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
 >
-> Show R code
->
 > ``` downlit
 > aov(glucose ~ raceth, data = hers) |> summary()
 > #>               Df  Sum Sq Mean Sq F value  Pr(>F)    
@@ -475,8 +441,6 @@ Large values of \\F\\ mean that the group means are spread out more than the var
 
 The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of [Theorem 3](#thm-anova-null) is questionable. [`oneway.test()`](https://rdrr.io/r/stats/oneway.test.html) performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:
 
-Show R code
-
 ``` downlit
 oneway.test(glucose ~ raceth, data = hers)
 #> 
@@ -488,15 +452,11 @@ oneway.test(glucose ~ raceth, data = hers)
 
 One-way ANOVA is a special case of linear regression: it is the F-test comparing a linear regression model with a single categorical predictor to the model with an intercept only ([Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-understand-LMs)). [`lm()`](https://rdrr.io/r/stats/lm.html) gives the same F statistic as [`aov()`](https://rdrr.io/r/stats/aov.html):
 
-Show R code
-
 ``` downlit
 lm(glucose ~ raceth, data = hers) |> anova()
 ```
 
 With \\k = 2\\ groups, the ANOVA F statistic equals the square of the pooled t statistic ([Definition 5](#def-pooled-t-test)), as the two treatment groups of [Example 5](#exm-hers-pooled-ttest) show:
-
-Show R code
 
 ``` downlit
 c(
