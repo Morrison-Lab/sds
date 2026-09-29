@@ -1,0 +1,7 @@
+::: {#exm-nominal-var}
+#### Nominal variables in the WCGS
+
+Behavioral pattern (Type A1, A2, B3, B4), arcus senilis (present/absent),
+and ABO blood type are nominal variables:
+there is no natural numerical ordering among the categories.
+:::

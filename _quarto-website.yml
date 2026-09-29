@@ -36,6 +36,8 @@ website:
     left:
       - text: "Describing Data"
         menu:
+          - text: "Types of Variables"
+            href: data.qmd
           - text: "Nonparametric Models"
             href: nonparametric-models.qmd
           - text: "Exploratory Data Analysis"
@@ -80,6 +82,8 @@ website:
     contents:
       - section: "Describing Data"
         contents:
+          - text: "Types of Variables"
+            href: data.qmd
           - text: "Nonparametric Models"
             href: nonparametric-models.qmd
           - text: "Exploratory Data Analysis"

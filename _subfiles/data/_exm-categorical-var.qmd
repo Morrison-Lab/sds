@@ -1,0 +1,6 @@
+::: {#exm-categorical-var}
+#### Categorical variables in the WCGS
+
+Behavioral pattern (Type A1, A2, B3, B4), smoking status (yes/no), and
+weight category are categorical variables in the WCGS dataset.
+:::

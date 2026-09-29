@@ -1,0 +1,16 @@
+::: {#exr-binary-examples}
+#### Examples of binary variables
+
+What are some examples of binary variables in health sciences and data science?
+:::
+
+::: {.solution}
+Examples of binary outcomes include:
+
+- exposure (exposed vs unexposed)
+- disease status (diseased vs healthy)
+- recovery (recovered vs unrecovered)
+- relapse (relapse vs remission)
+- return to hospital (returned vs not returned)
+- vital status (dead vs alive)
+:::

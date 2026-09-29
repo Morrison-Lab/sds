@@ -1,0 +1,26 @@
+::: {#tbl-wcgs-vartypes}
+
+```{r}
+#| tbl-cap: "Selected WCGS variables and their types"
+tibble::tribble(
+  ~Variable, ~Description, ~Type, ~Scale,
+  "`age`", "Age (years)", "Continuous", "Ratio",
+  "`chol`", "Total cholesterol", "Continuous", "Ratio",
+  "`sbp`", "Systolic blood pressure", "Continuous", "Ratio",
+  "`bmi`", "Body mass index (kg/m^2)", "Continuous", "Ratio",
+  "`weight`", "Weight (lbs)", "Continuous", "Ratio",
+  "`ncigs`", "Cigarettes per day", "Count (discrete)", "Ratio",
+  "`chd69`", "CHD event by 1969", "Binary (nominal)", "Nominal",
+  "`smoke`", "Current smoking", "Binary (nominal)", "Nominal",
+  "`arcus`", "Arcus senilis", "Binary (nominal)", "Nominal",
+  "`dibpat`", "Behavioral pattern (A/B)", "Binary (nominal)", "Nominal",
+  "`behpat`", "Behavioral pattern (A1/A2/B3/B4)", "Nominal", "Nominal",
+  "`wghtcat`", "Weight category", "Ordinal", "Ordinal",
+  "`agec`", "Age group", "Ordinal", "Ordinal"
+) |>
+  knitr::kable()
+```
+
+Selected WCGS variables and their types
+
+:::

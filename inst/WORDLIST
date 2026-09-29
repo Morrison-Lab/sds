@@ -1,3 +1,4 @@
+ABO
 Acknowledgements
 BAX
 BCa
@@ -184,6 +185,7 @@ scoref
 scrollable
 sds
 se
+senilis
 siid
 simind
 slidebreak
@@ -194,6 +196,8 @@ sqf
 ss
 subfiles
 submodule
+subseteq
+subtypes
 sumin
 surv
 symlink
@@ -210,9 +214,11 @@ uarto
 un
 unconverged
 underbrace
+unrecovered
 vX
 vY
 varepsilon
+vartypes
 vbeta
 vec
 vth

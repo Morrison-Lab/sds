@@ -1,0 +1,7 @@
+::: {#def-continuous-var}
+#### Continuous variable
+
+A **continuous variable** is a numerical variable whose possible values form an
+interval (or union of intervals) of real numbers.
+A continuous variable is always numerical.
+:::

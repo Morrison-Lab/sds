@@ -18,6 +18,9 @@ The notes are organized in four groups of pages.
 
 Describing data:
 
+- [Types of variables](data.qmd):
+  numerical and categorical variables, scales of measurement,
+  the taxonomy of data types, and binary and count random variables;
 - [Nonparametric models](nonparametric-models.qmd):
   the empirical CDF, order statistics, and sample quantiles;
 - [Exploratory data analysis](exploratory-descriptive.qmd):

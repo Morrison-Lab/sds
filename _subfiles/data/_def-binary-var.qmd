@@ -1,0 +1,7 @@
+::: {#def-binary-var}
+#### Binary variable
+
+A **binary variable** takes only two possible values,
+often coded 0 (absence) and 1 (presence).
+A binary variable is a special case of a nominal variable.
+:::

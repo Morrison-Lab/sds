@@ -1,0 +1,6 @@
+::: {#def-nominal-var}
+#### Nominal variable
+
+A **nominal variable** is a categorical variable whose categories have
+no natural ordering.
+:::

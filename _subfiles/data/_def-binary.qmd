@@ -1,0 +1,5 @@
+::: {#def-binary}
+#### Binary random variable
+
+A **binary variable** is a random variable which has only two possible values in its range.
+:::

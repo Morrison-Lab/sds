@@ -1,0 +1,11 @@
+::: {#def-discrete-var}
+#### Discrete variable
+
+A **discrete variable** is a variable whose possible values form a
+countable set.
+Discrete variables include both **numerical** types
+(such as [count variables](#def-count)) and
+**categorical** types
+(such as binary, nominal, and ordinal variables).
+In contrast, continuous variables are always numerical.
+:::

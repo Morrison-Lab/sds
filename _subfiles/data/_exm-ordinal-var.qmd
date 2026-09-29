@@ -1,0 +1,7 @@
+::: {#exm-ordinal-var}
+#### Ordinal variables in the WCGS
+
+Weight category and age group are ordinal variables:
+their categories have a natural ordering,
+though the distances between categories are not measured on a numeric scale.
+:::

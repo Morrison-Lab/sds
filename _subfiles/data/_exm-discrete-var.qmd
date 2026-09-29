@@ -1,0 +1,8 @@
+::: {#exm-discrete-var}
+#### Discrete variables in the WCGS
+
+In the WCGS dataset:
+
+- number of cigarettes per day is a discrete numerical variable (count);
+- coronary heart disease event status is a discrete categorical variable (binary).
+:::

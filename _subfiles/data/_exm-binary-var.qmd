@@ -1,0 +1,6 @@
+::: {#exm-binary-var}
+#### Binary variables in the WCGS
+
+Coronary heart disease event status (`chd69`, yes/no) and current smoking
+status (`smoke`, yes/no) are binary variables.
+:::
