@@ -4,7 +4,7 @@ Project guidance for Claude Code (CLI, IDE, and the GitHub Action). The same con
 
 ## Project context
 
-`sds` holds the statistics prerequisites for the Morrison-Lab data science courses, as [Quarto](https://quarto.org/) fragments. It renders on its own as a website, and course sites (such as `mlds`) include it as a git submodule, so a fragment's path and its `#id` anchors are an interface: renaming either breaks every host site. The scaffolding came from the UCD-SERG `qwt` template.
+`sds` holds the statistics prerequisites for the Morrison-Lab data science courses, as [Quarto](https://quarto.org/) fragments. It renders on its own as a website, and course sites can link to its pages by URL, so a page's path and its `#id` anchors are an interface: renaming either breaks those links. The scaffolding came from the UCD-SERG `qwt` template.
 
 Authoritative style guide: [UCD-SERG Lab Manual](https://ucd-serg.github.io/lab-manual/) (source: <https://github.com/UCD-SERG/lab-manual>).
 
@@ -96,6 +96,5 @@ rme will drop those appendices and point readers here
 
 ## Things to avoid
 
-- Adding new top-level dependencies (R packages, Quarto extensions) without a clear reason; every host site that includes this repository as a submodule has to install it.
 - Reformatting unrelated files.
 - Inventing URLs or citations --- only use sources actually present in `references.bib` or explicitly provided.
