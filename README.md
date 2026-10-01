@@ -15,8 +15,8 @@
 - basic statistical methods, such as t-tests, chi-square tests, and the
   bootstrap.
 
-It renders on its own as a website, and course sites link to its pages by
-URL.
+It renders on its own as a website, and course sites link to its pages
+by URL.
 
 ## Using these notes in another site
 
