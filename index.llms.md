@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-01 18:10:29 (PDT)
+Last modified: 2026-10-02 01:38:37 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -29,7 +29,8 @@ Methods, illustrated with the HERS data:
 - [Comparing means](basic-statistical-methods.llms.md): t-tests and one-way ANOVA;
 - [Comparing proportions](categorical-tests.llms.md): the chi-square test and Fisher’s exact test;
 - [Correlation and simple linear regression](correlation-regression.llms.md);
-- [The bootstrap](bootstrap.llms.md).
+- [The bootstrap](bootstrap.llms.md);
+- [Validating predictions](model-validation.llms.md): overfitting, training/validation/test splits, and cross-validation.
 
 Bayesian:
 
