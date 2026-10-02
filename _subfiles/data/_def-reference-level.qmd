@@ -1,0 +1,20 @@
+<!-- Source: ported from rme (Morrison-Lab/rme), _subfiles/Linear-models-overview/_sec_linreg_understanding.qmd; see also Dobson and Barnett (2018), An Introduction to Generalized Linear Models, 4th ed., section 2.4 (not verified) -->
+::: {#def-reference-level}
+#### Reference level
+
+The **reference level** of a categorical variable
+is the category that is represented
+by all indicator variables equal to 0.
+:::
+
+::: notes
+The choice of a reference level is arbitrary.
+It does not limit what the indicator variables can describe.
+It makes comparisons with the reference level convenient.
+
+For example,
+female is the reference level for chromosomal sex $S$
+when using the indicator variable $M$ for male.
+In @exr-dummy-coding,
+category A1 is the reference level for the variable `behpat`.
+:::

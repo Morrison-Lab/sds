@@ -1,0 +1,27 @@
+<!-- Source: ported from rme (Morrison-Lab/rme), _subfiles/Linear-models-overview/_sec_linreg_understanding.qmd; see also Dobson and Barnett (2018), An Introduction to Generalized Linear Models, 4th ed., section 2.4 (not verified) -->
+::: {#def-dummy-variable}
+#### Dummy variable (indicator variable)
+
+A **dummy variable** is a numeric variable
+that represents a category of a categorical variable.
+An **indicator variable** is a dummy variable
+that takes the value 1 for one category
+and 0 otherwise.
+:::
+
+::: notes
+For example,
+in modeling birthweight by sex,
+let $S$ be chromosomal sex with categories "female" and "male".
+We define an indicator variable $M$ for male:
+$M = 1$ if $S$ is "male",
+and $M = 0$ if $S$ is "female".
+We define an indicator variable $F$ for female:
+$F = 1$ if $S$ is "female",
+and $F = 0$ if $S$ is "male".
+Together, $M$ and $F$ are a numeric representation
+of the categorical variable $S$.
+
+Other codings for dummy variables exist,
+such as using the values -1 and 1.
+:::

@@ -1,0 +1,12 @@
+::: {#exr-dummy-coding}
+#### Dummy coding
+
+The WCGS variable `behpat` (behavioral pattern) has four categories:
+A1, A2, B3, and B4.
+
+(a) How many indicator variables are needed to represent `behpat`
+if A1 is the reference level?
+(b) Write the values of those indicator variables
+for a person in category B3,
+and for a person in category A1.
+:::
