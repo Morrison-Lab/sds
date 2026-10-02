@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-02 10:09:58 (PDT)</p>
+  <p class="date">Last modified: 2026-10-02 10:23:53 (PDT)</p>
 </section><section id="types-of-variables" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Types of variables</h2>
 <style>
@@ -423,8 +423,68 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-binary-var" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Binary variables in the WCGS)</strong></span> Coronary heart disease event status (<code>chd69</code>, yes/no) and current smoking status (<code>smoke</code>, yes/no) are binary variables.</p>
 </div>
-</section><section id="taxonomy-of-variable-types" class="slide level2" data-number="2"><h2>
-<span class="header-section-number">2</span> Taxonomy of variable types</h2>
+</section><section id="sec-dummy-coding" class="slide level2 scrollable" data-number="2"><h2>
+<span class="header-section-number">2</span> Coding a categorical variable with numbers</h2>
+<div id="exr-dummy-coding" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Dummy coding)</strong></span> The Western Collaborative Group Study (WCGS) variable <code>behpat</code> (behavioral pattern) has four categories: A1, A2, B3, and B4.</p>
+<ol type="a">
+<li>How many indicator variables are needed to represent <code>behpat</code> if A1 is the reference level?</li>
+<li>Write the values of those indicator variables, in the order A2, B3, B4, for a person in category B3, and for a person in category A1.</li>
+</ol>
+</div>
+</section><section class="slide level2 scrollable"><div id="sol-dummy-coding" class="proof solution">
+<p><span class="proof-title"><em>Solution 1</em>. </span></p>
+<ol type="a">
+<li><p>3 indicator variables, one for each non-reference category: A2, B3, and B4.</p></li>
+<li><p>In the order (A2, B3, B4): for B3, the values are (0, 1, 0); for A1, the values are (0, 0, 0).</p></li>
+</ol>
+<p>The reference level is the case where all indicators are 0.</p>
+</div>
+</section><section class="slide level2"><!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/Linear-models-overview/_sec_linreg_understanding.qmd.
+Dobson and Barnett (2018), section 2.4, uses the same terms
+(text checked in the PDF; page number not recorded).
+The -1/1 example in the notes is an illustration written for this page.
+--><div id="def-dummy-variable" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10 (Dummy variables)</strong></span> <strong>Dummy variables</strong> are numeric variables that, together, are a numeric representation of a categorical variable.</p>
+</div>
+</section><section class="slide level2"><div id="exm-dummy-sex" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10 (Dummy variables for chromosomal sex)</strong></span> Let <span class="math inline">\(S\)</span> be the chromosomal sex of a newborn, a categorical variable with the categories “female” and “male”. Let <span class="math inline">\(M = 1\)</span> if <span class="math inline">\(S\)</span> is “male” and <span class="math inline">\(M = 0\)</span> if <span class="math inline">\(S\)</span> is “female”, and let <span class="math inline">\(F = 1\)</span> if <span class="math inline">\(S\)</span> is “female” and <span class="math inline">\(F = 0\)</span> if <span class="math inline">\(S\)</span> is “male”. Together, <span class="math inline">\(M\)</span> and <span class="math inline">\(F\)</span> are dummy variables for <span class="math inline">\(S\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="rem-dummy-other-codings" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Other ways to code dummy variables). </span>There are other ways to construct dummy variables. One is to use the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>: for example, <span class="math inline">\(-1\)</span> for “female” and <span class="math inline">\(1\)</span> for “male”. See <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, section 2.4, for details.</p>
+</div>
+</section><section class="slide level2"><!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/Linear-models-overview/_sec_linreg_understanding.qmd
+("Dummy variables with values 0 and 1 are also called indicator variables").
+Dobson and Barnett (2018), section 2.4, says the same
+(text checked in the PDF; page number not recorded).
+--><div id="def-indicator-variable" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 11 (Indicator variable)</strong></span> An <strong>indicator variable</strong> is a <a href="#/def-dummy-variable">dummy variable</a> whose only values are 0 and 1.</p>
+</div>
+</section><section class="slide level2"><div id="exm-indicator-sex" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11 (Indicator variables for chromosomal sex)</strong></span> In <a href="#/exm-dummy-sex" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(M\)</span> and <span class="math inline">\(F\)</span> are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> (<a href="#/rem-dummy-other-codings" class="quarto-xref">Remark&nbsp;1</a>) is not an indicator variable.</p>
+</div>
+</section><section class="slide level2"><!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/Linear-models-overview/_sec_linreg_understanding.qmd,
+which uses the term "reference level" for the category without its own
+indicator variable. The one-sentence definition is written for this page.
+Dobson and Barnett (2018), section 2.4, calls this the corner point
+parameterization (text checked in the PDF; page number not recorded).
+--><div id="def-reference-level" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12 (Reference level)</strong></span> The <strong>reference level</strong> of a categorical variable is the category that does not have its own <a href="#/def-indicator-variable">indicator variable</a>. An observation in the reference level has the value 0 for every indicator variable of that categorical variable.</p>
+</div>
+</section><section class="slide level2"><div id="exm-reference-level-sex" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12 (The reference level for chromosomal sex)</strong></span> Take chromosomal sex <span class="math inline">\(S\)</span> with the indicator variable <span class="math inline">\(M\)</span> for “male” (<a href="#/exm-dummy-sex" class="quarto-xref">Example&nbsp;10</a>). The category “female” has no indicator variable, so “female” is the reference level, and a female newborn has <span class="math inline">\(M = 0\)</span>. In <a href="#/exr-dummy-coding" class="quarto-xref">Exercise&nbsp;1</a>, category A1 of <code>behpat</code> is the reference level.</p>
+</div>
+</section><section class="slide level2"><div id="rem-reference-level-choice" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Any category can be the reference level). </span>The choice of reference level changes how we code the categories. It does not change what the data say. For example, in <a href="#/exm-reference-level-sex" class="quarto-xref">Example&nbsp;12</a>, we could instead use “male” as the reference level and the indicator variable <span class="math inline">\(F\)</span> for “female”. Both choices describe the same two groups.</p>
+</div>
+</section><section id="taxonomy-of-variable-types" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> Taxonomy of variable types</h2>
 <p><a href="#/fig-var-taxonomy" class="quarto-xref">Figure&nbsp;1</a> illustrates the relationships among these variable types.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>nodes <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
 <span id="cb1-2"><a aria-label="2"></a>  <span class="sc">~</span>id,   <span class="sc">~</span>x,    <span class="sc">~</span>y,   <span class="sc">~</span>label,</span>
@@ -527,8 +587,8 @@ Figure&nbsp;1: Taxonomy of variable types. Count variables are discrete and nume
 </div>
 </div>
 </div>
-</section><section id="variables-in-the-wcgs-dataset" class="slide level2" data-number="3"><h2>
-<span class="header-section-number">3</span> Variables in the WCGS dataset</h2>
+</section><section id="variables-in-the-wcgs-dataset" class="slide level2" data-number="4"><h2>
+<span class="header-section-number">4</span> Variables in the WCGS dataset</h2>
 <p><a href="#/tbl-wcgs-vartypes" class="quarto-xref">Table&nbsp;1</a> shows selected variables from the Western Collaborative Group Study (WCGS) dataset and their types.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
 <span id="cb2-2"><a aria-label="2"></a>  <span class="sc">~</span>Variable, <span class="sc">~</span>Description, <span class="sc">~</span>Type, <span class="sc">~</span>Scale,</span>
@@ -653,16 +713,16 @@ Table&nbsp;1: Selected WCGS variables and their types
 </div>
 </figure>
 </div>
-</section><section id="random-variables" class="slide level2" data-number="4"><h2>
-<span class="header-section-number">4</span> Random variables</h2>
-<h3 data-number="4.1" id="sec-binary-vars">
-<span class="header-section-number">4.1</span> Binary variables</h3>
+</section><section id="random-variables" class="slide level2" data-number="5"><h2>
+<span class="header-section-number">5</span> Random variables</h2>
+<h3 data-number="5.1" id="sec-binary-vars">
+<span class="header-section-number">5.1</span> Binary variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-binary div. -->
 <div id="def-binary" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Binary random variable)</strong></span> A <strong>binary variable</strong> is a random variable which has only two possible values in its range.</p>
+<p><span class="theorem-title"><strong>Definition 13 (Binary random variable)</strong></span> A <strong>binary variable</strong> is a random variable which has only two possible values in its range.</p>
 </div>
 </section><section class="slide level2"><div id="exr-binary-examples" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 1 (Examples of binary variables)</strong></span> What are some examples of binary variables in health sciences and data science?</p>
+<p><span class="theorem-title"><strong>Exercise 2 (Examples of binary variables)</strong></span> What are some examples of binary variables in health sciences and data science?</p>
 </div>
 <div class="proof solution">
 <p><span class="proof-title"><em>Solution</em>. </span>Examples of binary outcomes include:</p>
@@ -675,15 +735,15 @@ Table&nbsp;1: Selected WCGS variables and their types
 <li>vital status (dead vs alive)</li>
 </ul>
 </div>
-<h3 data-number="4.2" id="sec-count-vars">
-<span class="header-section-number">4.2</span> Count variables</h3>
+<h3 data-number="5.2" id="sec-count-vars">
+<span class="header-section-number">5.2</span> Count variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-count div. -->
 <div id="def-count" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11 (Count variable)</strong></span> A <strong>count variable</strong> is a random variable whose possible values are some subset of the non-negative integers; specifically, a random variable <span class="math inline">\(X\)</span> such that:</p>
+<p><span class="theorem-title"><strong>Definition 14 (Count variable)</strong></span> A <strong>count variable</strong> is a random variable whose possible values are some subset of the non-negative integers; specifically, a random variable <span class="math inline">\(X\)</span> such that:</p>
 <p><span class="math display">\[\mathcal{R}(X) \subseteq \mathbb{N}\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-count-examples" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (Examples of count variables)</strong></span> What are some examples of count variables?</p>
+<p><span class="theorem-title"><strong>Exercise 3 (Examples of count variables)</strong></span> What are some examples of count variables?</p>
 </div>
 <div class="proof solution">
 <p><span class="proof-title"><em>Solution</em>. </span>Examples of count variables include:</p>
@@ -702,8 +762,10 @@ Table&nbsp;1: Selected WCGS variables and their types
 <li><a href="https://morrison-lab.github.io/pds/distributions.html#sec-poisson-dist">Poisson distribution</a></li>
 <li><a href="https://morrison-lab.github.io/pds/distributions.html#sec-nb-dist">Negative binomial distribution</a></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" role="list">
-
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-dobson4e" class="csl-entry" role="listitem">
+Dobson, Annette J, and Adrian G Barnett. 2018. <em>An Introduction to Generalized Linear Models</em>. 4th ed. CRC press. <a href="https://doi.org/10.1201/9781315182780">https://doi.org/10.1201/9781315182780</a>.
+</div>
 </div>
 
 

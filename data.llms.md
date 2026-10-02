@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-02 10:09:58 (PDT)
+Last modified: 2026-10-02 10:23:53 (PDT)
 
 ## 1 Types of variables
 
@@ -85,7 +85,58 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > **Example 9 (Binary variables in the WCGS)** Coronary heart disease event status (`chd69`, yes/no) and current smoking status (`smoke`, yes/no) are binary variables.
 
-## 2 Taxonomy of variable types
+## 2 Coding a categorical variable with numbers
+
+> **NOTE:**
+>
+> **Exercise 1 (Dummy coding)** The Western Collaborative Group Study (WCGS) variable `behpat` (behavioral pattern) has four categories: A1, A2, B3, and B4.
+>
+> 1.  How many indicator variables are needed to represent `behpat` if A1 is the reference level?
+> 2.  Write the values of those indicator variables, in the order A2, B3, B4, for a person in category B3, and for a person in category A1.
+
+> **NOTE:**
+>
+> *Solution 1*.
+>
+> 1.  3 indicator variables, one for each non-reference category: A2, B3, and B4.
+>
+> 2.  In the order (A2, B3, B4): for B3, the values are (0, 1, 0); for A1, the values are (0, 0, 0).
+>
+> The reference level is the case where all indicators are 0.
+
+> **NOTE:**
+>
+> **Definition 10 (Dummy variables)** **Dummy variables** are numeric variables that, together, are a numeric representation of a categorical variable.
+
+> **NOTE:**
+>
+> **Example 10 (Dummy variables for chromosomal sex)** Let \\S\\ be the chromosomal sex of a newborn, a categorical variable with the categories “female” and “male”. Let \\M = 1\\ if \\S\\ is “male” and \\M = 0\\ if \\S\\ is “female”, and let \\F = 1\\ if \\S\\ is “female” and \\F = 0\\ if \\S\\ is “male”. Together, \\M\\ and \\F\\ are dummy variables for \\S\\.
+
+> **NOTE:**
+>
+> *Remark 1* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett ([2018](#ref-dobson4e)), section 2.4, for details.
+
+> **NOTE:**
+>
+> **Definition 11 (Indicator variable)** An **indicator variable** is a [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
+
+> **NOTE:**
+>
+> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 1](#rem-dummy-other-codings)) is not an indicator variable.
+
+> **NOTE:**
+>
+> **Definition 12 (Reference level)** The **reference level** of a categorical variable is the category that does not have its own [indicator variable](#def-indicator-variable). An observation in the reference level has the value 0 for every indicator variable of that categorical variable.
+
+> **NOTE:**
+>
+> **Example 12 (The reference level for chromosomal sex)** Take chromosomal sex \\S\\ with the indicator variable \\M\\ for “male” ([Example 10](#exm-dummy-sex)). The category “female” has no indicator variable, so “female” is the reference level, and a female newborn has \\M = 0\\. In [Exercise 1](#exr-dummy-coding), category A1 of `behpat` is the reference level.
+
+> **NOTE:**
+>
+> *Remark 2* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
+
+## 3 Taxonomy of variable types
 
 [Figure 1](#fig-var-taxonomy) illustrates the relationships among these variable types.
 
@@ -175,7 +226,7 @@ Figure 1: Taxonomy of variable types. Count variables are discrete and numerica
 >
 > The continuous/discrete distinction cuts across the numerical/categorical distinction. Continuous variables are always numerical. Discrete variables include both numerical types (such as count variables) and categorical types (such as binary, nominal, and ordinal variables).
 
-## 3 Variables in the WCGS dataset
+## 4 Variables in the WCGS dataset
 
 [Table 1](#tbl-wcgs-vartypes) shows selected variables from the Western Collaborative Group Study (WCGS) dataset and their types.
 
@@ -221,17 +272,17 @@ Selected WCGS variables and their types {.caption-top .table .table-sm .table-st
 
 Table 1: Selected WCGS variables and their types
 
-## 4 Random variables
+## 5 Random variables
 
-### 4.1 Binary variables
-
-> **NOTE:**
->
-> **Definition 10 (Binary random variable)** A **binary variable** is a random variable which has only two possible values in its range.
+### 5.1 Binary variables
 
 > **NOTE:**
 >
-> **Exercise 1 (Examples of binary variables)** What are some examples of binary variables in health sciences and data science?
+> **Definition 13 (Binary random variable)** A **binary variable** is a random variable which has only two possible values in its range.
+
+> **NOTE:**
+>
+> **Exercise 2 (Examples of binary variables)** What are some examples of binary variables in health sciences and data science?
 
 > **NOTE:**
 >
@@ -244,17 +295,17 @@ Table 1: Selected WCGS variables and their types
 > - return to hospital (returned vs not returned)
 > - vital status (dead vs alive)
 
-### 4.2 Count variables
+### 5.2 Count variables
 
 > **NOTE:**
 >
-> **Definition 11 (Count variable)** A **count variable** is a random variable whose possible values are some subset of the non-negative integers; specifically, a random variable \\X\\ such that:
+> **Definition 14 (Count variable)** A **count variable** is a random variable whose possible values are some subset of the non-negative integers; specifically, a random variable \\X\\ such that:
 >
 > \\\mathcal{R}(X) \subseteq \mathbb{N}\\
 
 > **NOTE:**
 >
-> **Exercise 2 (Examples of count variables)** What are some examples of count variables?
+> **Exercise 3 (Examples of count variables)** What are some examples of count variables?
 
 > **NOTE:**
 >
@@ -267,7 +318,7 @@ Table 1: Selected WCGS variables and their types
 > - visits to an emergency room per person-month
 > - car accidents per 1,000 miles driven
 
-#### 4.2.1 Probability distributions for count outcomes
+#### 5.2.1 Probability distributions for count outcomes
 
 Standard probability distributions for count outcomes include:
 
@@ -275,5 +326,7 @@ Standard probability distributions for count outcomes include:
 - [Negative binomial distribution](https://morrison-lab.github.io/pds/distributions.html#sec-nb-dist)
 
 ## References
+
+Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized Linear Models*. 4th ed. CRC press. <https://doi.org/10.1201/9781315182780>.
 
 Back to top
