@@ -19,13 +19,18 @@ $$z_i \eqdef \frac{x_i - \bar x}{s}$$
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-standardization-units}
+#### Standardized values have no units
+
 In @exr-standardize,
 the standardized value of a cholesterol of 250 mg/dL
 is the number of sample standard deviations
 between 250 and the sample mean.
 Standardizing puts variables measured in different units
-on a comparable scale:
-a salary in dollars and an age in years
+on a comparable scale.
+For example, a salary in dollars and an age in years
 both become unitless numbers of standard deviations.
+
 :::
