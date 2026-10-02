@@ -1,0 +1,46 @@
+<!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/Linear-models-overview/_sec_linreg_understanding.qmd,
+which uses the term "reference level" for the category without its own
+indicator variable. The one-sentence definition is written for this page.
+Dobson and Barnett (2018), section 2.4, calls this the corner point
+parameterization (text checked in the PDF; page number not recorded).
+-->
+::: {#def-reference-level}
+#### Reference level
+
+The **reference level** of a categorical variable
+is the category that does not have its own
+[indicator variable](#def-indicator-variable).
+An observation in the reference level has the value 0
+for every indicator variable of that categorical variable.
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-reference-level-sex}
+#### The reference level for chromosomal sex
+
+Take chromosomal sex $S$ with the indicator variable $M$
+for "male" (@exm-dummy-sex).
+The category "female" has no indicator variable,
+so "female" is the reference level, and a female newborn has $M = 0$.
+In @exr-dummy-coding,
+category A1 of `behpat` is the reference level.
+
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-reference-level-choice}
+#### Any category can be the reference level
+
+The choice of reference level changes how we code the categories.
+It does not change what the data say.
+For example, in @exm-reference-level-sex,
+we could instead use "male" as the reference level
+and the indicator variable $F$ for "female".
+Both choices describe the same two groups.
+
+:::

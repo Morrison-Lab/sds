@@ -92,6 +92,26 @@ and within each class there are important subtypes.
 
 {{< include sds/_subfiles/data/_exm-binary-var.qmd >}}
 
+## Coding a categorical variable with numbers {#sec-dummy-coding}
+
+{{< include sds/_subfiles/data/_exr-dummy-coding.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_sol-dummy-coding.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-dummy-variable.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-indicator-variable.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_def-reference-level.qmd >}}
+
 ## Taxonomy of variable types
 
 @fig-var-taxonomy illustrates the relationships among these variable types.
