@@ -8,7 +8,7 @@
 # posting Claude's prose reply when no code was committed, dispatching
 # claude-code-review.yml on an explicit "@claude review" (including one
 # absorbed late by the polling loop), and the late-comment dedup / rescue
-# machinery (`<!-- claude-absorbed: ... -->` marker + 🚀 reaction) that was
+# machinery (`<!-- claude-absorbed: ... -->` marker + rocket reaction) that was
 # originally ported FROM this repo's own #73/#90/#95 into gha's claude.yml.
 # See https://github.com/Morrison-Lab/gha for inputs and versioning.
 #
@@ -60,5 +60,5 @@ jobs:
       SUBMODULES_TOKEN: ${{ secrets.SUBMODULES_TOKEN }}   # optional; latex-macros/ is public, so unset is fine
       WORKFLOW_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}       # optional; for editing .github/workflows
     with:
-      install-quarto: true      # qwt is a Quarto site; Claude may need to render .qmd files
+      install-quarto: true      # sds is a Quarto site; Claude may need to render .qmd files
       checkout-submodules: true # latex-macros/ (public; no SUBMODULES_TOKEN needed)
