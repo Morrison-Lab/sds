@@ -13,16 +13,27 @@ are a numeric representation of a categorical variable.
 
 :::
 
-::: notes
-For example,
-let $S$ be the chromosomal sex of a newborn,
+{{< slidebreak >}}
+
+::: {#exm-dummy-sex}
+#### Dummy variables for chromosomal sex
+
+Let $S$ be the chromosomal sex of a newborn,
 a categorical variable with the categories "female" and "male".
 Let $M = 1$ if $S$ is "male" and $M = 0$ if $S$ is "female",
 and let $F = 1$ if $S$ is "female" and $F = 0$ if $S$ is "male".
 Together, $M$ and $F$ are dummy variables for $S$.
 
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-dummy-other-codings}
+#### Other ways to code dummy variables
+
 There are other ways to construct dummy variables.
 One is to use the values $-1$ and $1$:
 for example, $-1$ for "female" and $1$ for "male".
 See @dobson4e, section 2.4, for details.
+
 :::

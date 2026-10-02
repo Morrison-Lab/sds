@@ -13,9 +13,15 @@ An **indicator variable** is a
 
 :::
 
-::: notes
-In the chromosomal-sex example of @def-dummy-variable,
+{{< slidebreak >}}
+
+::: {#exm-indicator-sex}
+#### Indicator variables for chromosomal sex
+
+In @exm-dummy-sex,
 $M$ and $F$ are indicator variables:
 each takes only the values 0 and 1.
-A dummy variable that uses the values $-1$ and $1$ is not an indicator variable.
+A dummy variable that uses the values $-1$ and $1$
+(@rem-dummy-other-codings) is not an indicator variable.
+
 :::
