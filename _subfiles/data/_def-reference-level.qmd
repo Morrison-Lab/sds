@@ -25,10 +25,9 @@ so "female" is the reference level, and a female newborn has $M = 0$.
 In @exr-dummy-coding,
 category A1 of `behpat` is the reference level.
 
-The choice of a reference level is arbitrary
-and does not limit what we can do with the resulting model.
-It only makes it more computationally convenient
-to make inferences about comparisons involving that reference group.
+Any category can be the reference level.
+The choice changes how we code the categories.
+It does not change what the data say.
 In the example, we could instead use "male" as the reference level
 and the indicator variable $F$ for "female".
 Both choices describe the same two groups.
