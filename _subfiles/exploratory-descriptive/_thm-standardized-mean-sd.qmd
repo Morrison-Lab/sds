@@ -34,5 +34,5 @@ For the WCGS cholesterol values,
 `z <- scale(wcgs$chol)[, 1]` has `mean(z, na.rm = TRUE)` equal to 0
 (up to rounding error, about $10^{-16}$)
 and `sd(z, na.rm = TRUE)` equal to 1.
-The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
+The `na.rm = TRUE` is needed because `r sum(is.na(wcgs$chol))` of the cholesterol values are missing.
 :::
