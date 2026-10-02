@@ -10,5 +10,5 @@ range(chol_minmax, na.rm = TRUE)
 
 The smallest cholesterol value maps to 0 and the largest maps to 1.
 The scaled values keep the shape of the distribution
-but lose the units.
+but have no units.
 :::
