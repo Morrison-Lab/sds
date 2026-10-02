@@ -1,0 +1,52 @@
+:::{#sol-overfitting}
+
+```{r}
+#| label: overfitting-table
+#| code-fold: false
+train_cars <- mtcars[1:20, ]
+held_out_cars <- mtcars[21:32, ]
+
+rmse <- function(model, data) {
+  sqrt(mean((data$mpg - predict(model, newdata = data))^2))
+}
+
+overfitting_results <- tibble::tibble(degree = 1:4) |>
+  dplyr::mutate(
+    fit = purrr::map(
+      degree,
+      \(d) lm(mpg ~ poly(wt, d, raw = TRUE), data = train_cars)
+    ),
+    training_RMSE = purrr::map_dbl(fit, rmse, data = train_cars),
+    held_out_RMSE = purrr::map_dbl(fit, rmse, data = held_out_cars)
+  ) |>
+  dplyr::select(-fit)
+
+overfitting_results
+```
+
+```{r}
+#| label: overfitting-summary
+best_train <- overfitting_results$degree[
+  which.min(overfitting_results$training_RMSE)
+]
+best_held_out <- overfitting_results$degree[
+  which.min(overfitting_results$held_out_RMSE)
+]
+```
+
+1. The smallest training RMSE is at degree `r best_train`.
+   Each model contains the previous one as a special case,
+   so its training RMSE cannot increase as the degree grows.
+
+2. The smallest held-out RMSE is at degree `r best_held_out`.
+
+3. No.
+   Going from degree 2 to degree 3 or 4 lowers the training RMSE a little
+   but leaves the held-out RMSE essentially unchanged
+   (it does not fall below its degree-2 value).
+   The terms beyond degree 2 improve the fit to the 20 training cars
+   without improving predictions for the 12 held-out cars.
+   Degree 1 to degree 2 is different:
+   there the held-out RMSE also falls.
+
+:::

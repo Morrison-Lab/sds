@@ -1,0 +1,21 @@
+<!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/predictor-selection/_sec-pred-sel-prediction.qmd, #def-overfitting.
+-->
+:::{#def-overfitting}
+#### Overfitting
+
+**Overfitting** occurs when a model fits the training data well
+but predicts poorly for new observations.
+It results from including too many predictors
+relative to the effective sample size.
+
+:::
+
+::: notes
+In @exr-overfitting,
+the terms beyond degree 2 fit the 20 training cars more closely
+but do not predict the 12 held-out cars better.
+The effect is small here:
+it is the beginning of overfitting, not a dramatic case.
+:::

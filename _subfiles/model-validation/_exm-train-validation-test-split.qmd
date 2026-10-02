@@ -1,0 +1,264 @@
+<!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/Linear-models-overview/_sec_linreg_model_selection.qmd,
+#exm-train-validation-test-split. The page citations
+(James et al. 2021, ISLR 2e, p. 213, the validation set approach lab)
+are carried over from rme; the section heading on p. 213 was checked in the PDF.
+The four near-identical figure chunks of the rme version
+are replaced by one plotting helper.
+-->
+:::{#exm-train-validation-test-split}
+#### Numerical example
+
+This example (@exm-train-validation-test-split)
+uses R's built-in `mtcars` dataset
+($n=32$ cars)
+to predict fuel efficiency (`mpg`)
+from vehicle weight (`wt`).
+It uses one random split
+to compare linear,
+quadratic,
+cubic,
+and quartic models
+(`mpg ~ wt`,
+`mpg ~ wt + I(wt^2)`,
+`mpg ~ wt + I(wt^2) + I(wt^3)`,
+and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`)
+on a validation set,
+then reports the chosen model's test RMSE
+on untouched test data
+[@james2021islr2e, p. 213].
+
+```{r}
+#| code-fold: false
+set.seed(108)
+n <- nrow(mtcars)
+
+n_train <- floor(0.6 * n)
+n_valid <- floor(0.2 * n)
+
+idx_train <- sample.int(n, size = n_train)
+idx_remaining <- setdiff(seq_len(n), idx_train)
+idx_valid <- sample(idx_remaining, size = n_valid)
+idx_test <- setdiff(idx_remaining, idx_valid)
+
+split_sizes <- tibble::tibble(
+  split = c("training", "validation", "test"),
+  n = c(length(idx_train), length(idx_valid), length(idx_test))
+)
+```
+
+:::{#tbl-train-validation-test-split-sizes}
+```{r}
+split_sizes
+```
+
+Sizes of the training,
+validation,
+and test splits
+:::
+
+```{r}
+train_dat <- mtcars[idx_train, ]
+valid_dat <- mtcars[idx_valid, ]
+test_dat <- mtcars[idx_test, ]
+
+model_linear <- lm(mpg ~ wt, data = train_dat)
+model_quadratic <- lm(mpg ~ wt + I(wt^2), data = train_dat)
+model_cubic <- lm(mpg ~ wt + I(wt^2) + I(wt^3), data = train_dat)
+model_quartic <- lm(
+  mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4),
+  data = train_dat
+)
+
+compute_rmse <- function(model, data) {
+  sqrt(mean((data$mpg - predict(model, newdata = data))^2))
+}
+
+candidate_models <- list(
+  linear = model_linear,
+  quadratic = model_quadratic,
+  cubic = model_cubic,
+  quartic = model_quartic
+)
+
+validation_results <- tibble::tibble(
+  model = names(candidate_models)
+) |>
+  dplyr::mutate(
+    training_RMSE = purrr::map_dbl(
+      model,
+      \(model_name) compute_rmse(candidate_models[[model_name]], train_dat)
+    ),
+    validation_RMSE = purrr::map_dbl(
+      model,
+      \(model_name) compute_rmse(candidate_models[[model_name]], valid_dat)
+    )
+  )
+
+model_labels <- c(
+  linear = "linear model",
+  quadratic = "quadratic model",
+  cubic = "cubic model",
+  quartic = "quartic model"
+)
+
+chosen_model_name <-
+  validation_results |>
+  dplyr::arrange(validation_RMSE) |>
+  dplyr::slice(1) |>
+  dplyr::pull(model)
+
+chosen_model_label <- model_labels[[chosen_model_name]]
+
+chosen_model <- candidate_models[[chosen_model_name]]
+chosen_model_validation_rmse <- compute_rmse(chosen_model, valid_dat)
+
+performance_comparison <- tibble::tibble(
+  split = c("validation", "test"),
+  model = chosen_model_name,
+  RMSE = c(
+    chosen_model_validation_rmse,
+    compute_rmse(chosen_model, test_dat)
+  )
+)
+```
+
+```{r}
+#| label: setup-model-fit-figure-partitions
+partition_colors <- c(
+  training = "#1b9e77",
+  validation = "#d95f02",
+  test = "#7570b3"
+)
+partition_shapes <- c(
+  training = 16,
+  validation = 17,
+  test = 15
+)
+wt_range <- range(c(train_dat$wt, valid_dat$wt, test_dat$wt))
+mpg_range <- range(c(train_dat$mpg, valid_dat$mpg, test_dat$mpg))
+wt_grid <- seq(wt_range[1], wt_range[2], length.out = 200)
+
+plot_partitions_with_fit <- function(model, fit_label) {
+  plot(
+    train_dat$wt,
+    train_dat$mpg,
+    xlab = "wt",
+    ylab = "mpg",
+    pch = partition_shapes[["training"]],
+    xlim = wt_range,
+    ylim = mpg_range,
+    col = partition_colors[["training"]]
+  )
+  points(
+    valid_dat$wt,
+    valid_dat$mpg,
+    pch = partition_shapes[["validation"]],
+    col = partition_colors[["validation"]]
+  )
+  points(
+    test_dat$wt,
+    test_dat$mpg,
+    pch = partition_shapes[["test"]],
+    col = partition_colors[["test"]]
+  )
+  fitted_curve <- predict(model, newdata = data.frame(wt = wt_grid))
+  lines(wt_grid, fitted_curve, col = "blue", lwd = 2)
+  legend(
+    "topright",
+    legend = c("training", "validation", "test", fit_label),
+    col = c(unname(partition_colors), "blue"),
+    pch = c(unname(partition_shapes), NA),
+    lty = c(NA, NA, NA, 1),
+    lwd = c(NA, NA, NA, 2),
+    bty = "n"
+  )
+}
+```
+
+:::{#fig-linear-model-superimposed}
+
+```{r}
+#| fig-alt: Scatterplot of miles per gallon versus vehicle weight.
+#|   Points are colored and shaped by training,
+#|   validation,
+#|   and test partitions.
+#|   The fitted linear regression line is superimposed.
+#| code-fold: true
+plot_partitions_with_fit(model_linear, "linear fit")
+```
+
+Linear model fit superimposed on data partitions
+:::
+
+:::{#fig-quadratic-model-superimposed}
+
+```{r}
+#| fig-alt: Scatterplot of miles per gallon versus vehicle weight.
+#|   Points are colored and shaped by training,
+#|   validation,
+#|   and test partitions.
+#|   The fitted quadratic curve is superimposed.
+#| code-fold: true
+plot_partitions_with_fit(model_quadratic, "quadratic fit")
+```
+
+Quadratic model fit superimposed on data partitions
+:::
+
+:::{#fig-cubic-model-superimposed}
+
+```{r}
+#| fig-alt: Scatterplot of miles per gallon versus vehicle weight.
+#|   Points are colored and shaped by training,
+#|   validation,
+#|   and test partitions.
+#|   The fitted cubic curve is superimposed.
+#| code-fold: true
+plot_partitions_with_fit(model_cubic, "cubic fit")
+```
+
+Cubic model fit superimposed on data partitions
+:::
+
+:::{#fig-quartic-model-superimposed}
+
+```{r}
+#| fig-alt: Scatterplot of miles per gallon versus vehicle weight.
+#|   Points are colored and shaped by training,
+#|   validation,
+#|   and test partitions.
+#|   The fitted quartic curve is superimposed.
+#| code-fold: true
+plot_partitions_with_fit(model_quartic, "quartic fit")
+```
+
+Quartic model fit superimposed on data partitions
+:::
+
+:::{#tbl-train-validation-results}
+```{r}
+validation_results
+```
+
+Training and validation RMSE for candidate models
+:::
+
+The chosen model is
+the `r chosen_model_label`,
+because it has the lowest validation RMSE of the four.
+This split uses different cars from @exr-overfitting,
+and its validation set has only 6 cars,
+so the model it picks can differ from the one chosen there.
+
+:::{#tbl-train-validation-test-rmse}
+```{r}
+performance_comparison
+```
+
+Validation and test RMSE
+for the chosen model
+:::
+
+:::
