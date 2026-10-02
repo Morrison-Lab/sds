@@ -4,16 +4,16 @@
 #| code-fold: false
 chol_mean <- mean(wcgs$chol, na.rm = TRUE)
 chol_sd <- sd(wcgs$chol, na.rm = TRUE)
-chol_z_250 <- (250 - chol_mean) / chol_sd
-c(mean = chol_mean, sd = chol_sd, z_250 = chol_z_250)
+chol_z <- (250 - chol_mean) / chol_sd
+c(mean = chol_mean, sd = chol_sd, z_250 = chol_z)
 ```
 
 1. The sample mean is `r round(chol_mean, 1)` mg/dL
    and the sample standard deviation is `r round(chol_sd, 1)` mg/dL.
 
-2. $(250 - \bar x) / s$ is `r round(chol_z_250, 2)`:
-   his cholesterol is `r round(abs(chol_z_250), 2)` standard deviations
-   `r if (chol_z_250 > 0) "above" else "below"` the sample mean.
+2. $(250 - \bar x) / s$ is `r round(chol_z, 2)`:
+   his cholesterol is `r round(abs(chol_z), 2)` standard deviations
+   `r if (chol_z > 0) "above" else "below"` the sample mean.
 
 3. The numerator is in mg/dL and the denominator is in mg/dL,
    so the answer has no units.
