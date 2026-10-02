@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-02 09:46:02 (PDT)
+Last modified: 2026-10-02 10:10:50 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
