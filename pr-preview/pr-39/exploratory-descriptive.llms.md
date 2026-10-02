@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-02 02:02:49 (PDT)
+Last modified: 2026-10-02 02:23:13 (PDT)
 
 ## 1 Introduction
 
@@ -691,7 +691,7 @@ In R, [`scale()`](https://rdrr.io/r/base/scale.html) returns the standardized va
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
 
-Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. Min-max scaling is sensitive to outliers. If one district’s median income of 100 were recorded by mistake among values ranging from 0 to 15, min-max scaling would squeeze all the other values into \\\[0, 0.15\]\\, while [standardization](#def-standardization) would change them far less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
+Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. Min-max scaling is sensitive to outliers. For example, suppose median incomes range from 0 to 15, and one value of 100 is recorded by mistake. Min-max scaling then maps all the other values into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
 
 > **NOTE:**
 >
@@ -704,7 +704,7 @@ Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and t
 > #> [1] 0 1
 > ```
 >
-> The smallest cholesterol value maps to 0 and the largest maps to 1. The scaled values keep the shape of the distribution but lose the units.
+> The smallest cholesterol value maps to 0 and the largest maps to 1. The scaled values keep the shape of the distribution but have no units.
 
 ## 6 An exploratory data analysis workflow
 
