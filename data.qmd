@@ -106,6 +106,10 @@ and within each class there are important subtypes.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/data/_def-indicator-variable.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/data/_def-reference-level.qmd >}}
 
 ## Taxonomy of variable types

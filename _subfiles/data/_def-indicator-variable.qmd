@@ -1,0 +1,21 @@
+<!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/Linear-models-overview/_sec_linreg_understanding.qmd
+("Dummy variables with values 0 and 1 are also called indicator variables").
+Dobson and Barnett (2018), section 2.4, says the same
+(text checked in the PDF; page number not recorded).
+-->
+::: {#def-indicator-variable}
+#### Indicator variable
+
+An **indicator variable** is a
+[dummy variable](#def-dummy-variable) whose only values are 0 and 1.
+
+:::
+
+::: notes
+In the birthweight example of @def-dummy-variable,
+$M$ and $F$ are indicator variables:
+each takes only the values 0 and 1.
+A dummy variable that uses the values $-1$ and $1$ is not an indicator variable.
+:::

@@ -1,20 +1,35 @@
-<!-- Source: ported from rme (Morrison-Lab/rme), _subfiles/Linear-models-overview/_sec_linreg_understanding.qmd; see also Dobson and Barnett (2018), An Introduction to Generalized Linear Models, 4th ed., section 2.4 (not verified) -->
+<!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/Linear-models-overview/_sec_linreg_understanding.qmd,
+which uses the term "reference level" for the category without its own
+indicator variable. The one-sentence definition is written for this page.
+Dobson and Barnett (2018), section 2.4, calls this the corner point
+parameterization (text checked in the PDF; page number not recorded).
+-->
 ::: {#def-reference-level}
 #### Reference level
 
 The **reference level** of a categorical variable
-is the category that is represented
-by all indicator variables equal to 0.
+is the category that does not have its own
+[indicator variable](#def-indicator-variable).
+An observation in the reference level has the value 0
+for every indicator variable of that categorical variable.
+
 :::
 
 ::: notes
-The choice of a reference level is arbitrary.
-It does not limit what the indicator variables can describe.
-It makes comparisons with the reference level convenient.
-
-For example,
-female is the reference level for chromosomal sex $S$
-when using the indicator variable $M$ for male.
+For example, take chromosomal sex $S$ with the indicator variable $M$
+for "male".
+The category "female" has no indicator variable,
+so "female" is the reference level, and a female newborn has $M = 0$.
 In @exr-dummy-coding,
-category A1 is the reference level for the variable `behpat`.
+category A1 of `behpat` is the reference level.
+
+The choice of a reference level is arbitrary
+and does not limit what we can do with the resulting model.
+It only makes it more computationally convenient
+to make inferences about comparisons involving that reference group.
+In the example, we could instead use "male" as the reference level
+and the indicator variable $F$ for "female".
+Both choices describe the same two groups.
 :::
