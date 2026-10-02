@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-02 09:27:56 (PDT)
+Last modified: 2026-10-02 09:51:32 (PDT)
 
 ## 1 Types of variables
 
@@ -108,23 +108,33 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > **Definition 10 (Dummy variables)** **Dummy variables** are numeric variables that, together, are a numeric representation of a categorical variable.
 
-For example, let \\S\\ be the chromosomal sex of a newborn, a categorical variable with the categories “female” and “male”. Let \\M = 1\\ if \\S\\ is “male” and \\M = 0\\ if \\S\\ is “female”, and let \\F = 1\\ if \\S\\ is “female” and \\F = 0\\ if \\S\\ is “male”. Together, \\M\\ and \\F\\ are dummy variables for \\S\\.
+> **NOTE:**
+>
+> **Example 10 (Dummy variables for chromosomal sex)** Let \\S\\ be the chromosomal sex of a newborn, a categorical variable with the categories “female” and “male”. Let \\M = 1\\ if \\S\\ is “male” and \\M = 0\\ if \\S\\ is “female”, and let \\F = 1\\ if \\S\\ is “female” and \\F = 0\\ if \\S\\ is “male”. Together, \\M\\ and \\F\\ are dummy variables for \\S\\.
 
-There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett ([2018](#ref-dobson4e)), section 2.4, for details.
+> **NOTE:**
+>
+> *Remark 1* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett ([2018](#ref-dobson4e)), section 2.4, for details.
 
 > **NOTE:**
 >
 > **Definition 11 (Indicator variable)** An **indicator variable** is a [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
 
-In the chromosomal-sex example of [Definition 10](#def-dummy-variable), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ is not an indicator variable.
+> **NOTE:**
+>
+> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 1](#rem-dummy-other-codings)) is not an indicator variable.
 
 > **NOTE:**
 >
 > **Definition 12 (Reference level)** The **reference level** of a categorical variable is the category that does not have its own [indicator variable](#def-indicator-variable). An observation in the reference level has the value 0 for every indicator variable of that categorical variable.
 
-For example, take chromosomal sex \\S\\ with the indicator variable \\M\\ for “male”. The category “female” has no indicator variable, so “female” is the reference level, and a female newborn has \\M = 0\\. In [Exercise 1](#exr-dummy-coding), category A1 of `behpat` is the reference level.
+> **NOTE:**
+>
+> **Example 12 (The reference level for chromosomal sex)** Take chromosomal sex \\S\\ with the indicator variable \\M\\ for “male” ([Example 10](#exm-dummy-sex)). The category “female” has no indicator variable, so “female” is the reference level, and a female newborn has \\M = 0\\. In [Exercise 1](#exr-dummy-coding), category A1 of `behpat` is the reference level.
 
-Any category can be the reference level. The choice changes how we code the categories. It does not change what the data say. In the example, we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
+> **NOTE:**
+>
+> *Remark 2* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
 
 ## 3 Taxonomy of variable types
 
