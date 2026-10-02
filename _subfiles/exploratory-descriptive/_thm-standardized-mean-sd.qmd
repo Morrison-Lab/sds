@@ -1,5 +1,5 @@
 <!--
-Source: stated for the standardized WCGS and Caravan variables in
+Source: stated for the standardized Caravan variables in
 James et al. (2021), ISLR 2e, section 4.7.6, p. 183
 ("every column of standardized.X has a standard deviation of one
 and a mean of zero"); the proof below is the elementary calculation.
@@ -7,7 +7,8 @@ and a mean of zero"); the proof below is the elementary calculation.
 ::: {#thm-standardized-mean-sd}
 #### Standardized values have mean 0 and standard deviation 1
 
-The [standardized values](#def-standardization) $z_1, \ldots, z_n$
+For $n \ge 2$ observations with $s > 0$,
+the [standardized values](#def-standardization) $z_1, \ldots, z_n$
 have sample mean $0$ and sample standard deviation $1$.
 :::
 
@@ -27,7 +28,11 @@ so their sample standard deviation is $\sqrt{1} = 1$.
 :::
 
 ::: notes
-For example, `scale()` in R returns the standardized values of each column.
-Applied to `wcgs$chol`, the result has mean 0 and standard deviation 1,
-up to rounding error.
+In R, `scale()` returns the standardized values of a column,
+as a one-column matrix.
+For the WCGS cholesterol values,
+`z <- scale(wcgs$chol)[, 1]` has `mean(z, na.rm = TRUE)` equal to 0
+(up to rounding error, about $10^{-16}$)
+and `sd(z, na.rm = TRUE)` equal to 1.
+The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
 :::

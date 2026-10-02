@@ -23,5 +23,5 @@ If one district's median income of 100 were recorded by mistake
 among values ranging from 0 to 15,
 min-max scaling would squeeze all the other values into $[0, 0.15]$,
 while [standardization](#def-standardization) would change them far less
-(Geron 2017, chapter 2, "Feature Scaling").
+[@geron2017hands, chapter 2, "Feature Scaling"].
 :::
