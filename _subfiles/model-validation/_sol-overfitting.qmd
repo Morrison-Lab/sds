@@ -26,8 +26,12 @@ overfitting_results
 
 ```{r}
 #| label: overfitting-summary
-best_train <- overfitting_results$degree[which.min(overfitting_results$training_RMSE)]
-best_held_out <- overfitting_results$degree[which.min(overfitting_results$held_out_RMSE)]
+best_train <- overfitting_results$degree[
+  which.min(overfitting_results$training_RMSE)
+]
+best_held_out <- overfitting_results$degree[
+  which.min(overfitting_results$held_out_RMSE)
+]
 ```
 
 1. The smallest training RMSE is at degree `r best_train`.
