@@ -1,6 +1,8 @@
 <!--
 Source: ported from rme (Morrison-Lab/rme),
 _subfiles/predictor-selection/_sec-pred-sel-prediction.qmd, #def-kfold.
+The only wording edit: step 3 says "prediction-error measure"
+where rme says "PE measure", since sds does not define PE.
 -->
 :::{#def-kfold}
 #### $k$-fold cross-validation
@@ -18,6 +20,10 @@ Values of $k = 5$ or $k = 10$ are typical.
 :::
 
 ::: notes
+If data are limited,
+$k$-fold cross-validation
+can replace the single validation set of @def-data-splits
+for more stable tuning.
 In @exr-kfold, $k = 4$ folds of 8 cars each
 give 4 fits on 24 cars each.
 :::

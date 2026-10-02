@@ -11,7 +11,7 @@ and on the remaining 12 rows.
 
 1. Which degree has the smallest training RMSE?
 2. Which degree has the smallest RMSE on the 12 held-out rows?
-3. Is the model with the smallest training RMSE
-   also the best predictor for the held-out cars?
+3. Do the terms added beyond degree 2
+   improve predictions for the held-out cars?
 
 :::

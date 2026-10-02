@@ -1,7 +1,7 @@
 :::{#sol-overfitting}
 
 ```{r}
-#| label: sol-overfitting
+#| label: overfitting-table
 #| code-fold: false
 train_cars <- mtcars[1:20, ]
 held_out_cars <- mtcars[21:32, ]
@@ -25,7 +25,7 @@ overfitting_results
 ```
 
 ```{r}
-#| label: sol-overfitting-summary
+#| label: overfitting-summary
 best_train <- overfitting_results$degree[which.min(overfitting_results$training_RMSE)]
 best_held_out <- overfitting_results$degree[which.min(overfitting_results$held_out_RMSE)]
 ```
@@ -37,9 +37,12 @@ best_held_out <- overfitting_results$degree[which.min(overfitting_results$held_o
 2. The smallest held-out RMSE is at degree `r best_held_out`.
 
 3. No.
-   The degree-`r best_train` model has the smallest training RMSE
-   but not the smallest held-out RMSE:
-   the extra terms improve the fit to the 20 training cars
+   Going from degree 2 to degree 3 or 4 lowers the training RMSE a little
+   but leaves the held-out RMSE essentially unchanged
+   (it does not fall below its degree-2 value).
+   The terms beyond degree 2 improve the fit to the 20 training cars
    without improving predictions for the 12 held-out cars.
+   Degree 1 to degree 2 is different:
+   there the held-out RMSE also falls.
 
 :::
