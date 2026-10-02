@@ -14,7 +14,7 @@ An **indicator variable** is a
 :::
 
 ::: notes
-In the birthweight example of @def-dummy-variable,
+In the chromosomal-sex example of @def-dummy-variable,
 $M$ and $F$ are indicator variables:
 each takes only the values 0 and 1.
 A dummy variable that uses the values $-1$ and $1$ is not an indicator variable.

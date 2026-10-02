@@ -1,7 +1,8 @@
 ::: {#exr-dummy-coding}
 #### Dummy coding
 
-The WCGS variable `behpat` (behavioral pattern) has four categories:
+The Western Collaborative Group Study (WCGS) variable `behpat`
+(behavioral pattern) has four categories:
 A1, A2, B3, and B4.
 
 (a) How many indicator variables are needed to represent `behpat`
