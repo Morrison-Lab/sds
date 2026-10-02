@@ -1,0 +1,28 @@
+<!--
+Source: James, Witten, Hastie and Tibshirani (2021), An Introduction to
+Statistical Learning with Applications in R, 2nd ed., section 4.7.6, p. 183
+("standardize the data so that all variables are given a mean of zero and
+a standard deviation of one").
+-->
+::: {#def-standardization}
+#### Standardization
+
+Let $x_1, \ldots, x_n$ be $n \ge 2$ observations of a variable
+with [sample mean](#def-sample-mean) $\bar x$
+and [sample standard deviation](#def-sample-sd) $s > 0$.
+The **standardized value** (or **z-score**) of $x_i$ is
+
+$$z_i \eqdef \frac{x_i - \bar x}{s}$$
+
+:::
+
+::: notes
+In @exr-standardize,
+the standardized value of a cholesterol of 250 mg/dL
+is the number of sample standard deviations
+between 250 and the sample mean.
+Standardizing puts variables measured in different units
+on a comparable scale:
+a salary in dollars and an age in years
+both become unitless numbers of standard deviations.
+:::
