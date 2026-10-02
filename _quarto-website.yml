@@ -58,6 +58,8 @@ website:
             href: categorical-tests.qmd
           - text: "Correlation & Regression"
             href: correlation-regression.qmd
+          - text: "Validating Predictions"
+            href: model-validation.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
       - text: "Bayesian"
@@ -104,6 +106,8 @@ website:
             href: categorical-tests.qmd
           - text: "Correlation & Regression"
             href: correlation-regression.qmd
+          - text: "Validating Predictions"
+            href: model-validation.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
       - section: "Bayesian"

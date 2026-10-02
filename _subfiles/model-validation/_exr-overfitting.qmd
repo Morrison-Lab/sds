@@ -1,0 +1,17 @@
+:::{#exr-overfitting}
+#### Training error versus error on new cars
+
+The built-in `mtcars` data frame has $n = 32$ cars.
+Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`,
+of degree 1, 2, 3, and 4,
+using only the first 20 rows as the training set.
+For each model, compute the root mean squared error (RMSE)
+on the 20 training rows
+and on the remaining 12 rows.
+
+1. Which degree has the smallest training RMSE?
+2. Which degree has the smallest RMSE on the 12 held-out rows?
+3. Is the model with the smallest training RMSE
+   also the best predictor for the held-out cars?
+
+:::

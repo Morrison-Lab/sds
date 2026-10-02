@@ -1,0 +1,34 @@
+<!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/Linear-models-overview/_sec_linreg_model_selection.qmd,
+section "Train/validation/test splits", which follows
+James et al. (2021), ISLR 2e, pp. 198-201 (the validation set approach;
+heading verified in the PDF, text paraphrased in rme).
+-->
+:::{#def-data-splits}
+#### Training, validation, and test sets
+
+In a **training/validation/test split**,
+the data are divided into three sets:
+
+- The **training set** is used to estimate model parameters.
+- The **validation set** is used to compare candidate models,
+  choose transformations,
+  or tune hyperparameters.
+- The **test set** is used once at the end
+  to estimate final out-of-sample performance.
+
+:::
+
+::: notes
+Keeping the test set untouched during model building
+helps avoid optimistic bias
+from repeatedly trying many models.
+If data are limited,
+$k$-fold cross-validation (@def-kfold)
+can replace a single validation split
+for more stable tuning.
+In @exr-data-splits,
+a rule of 60% / 20% / 20% on $n = 32$ cars
+gives sets of 19, 6, and 7 cars.
+:::

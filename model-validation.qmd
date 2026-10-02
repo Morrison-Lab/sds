@@ -1,0 +1,58 @@
+---
+title: "Validating Predictions"
+format:
+  html: default
+  revealjs:
+    output-file: model-validation-slides.html
+  pdf:
+    output-file: model-validation-handout.pdf
+  docx:
+    output-file: model-validation-handout.docx
+---
+
+## Overfitting
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/model-validation/_exr-overfitting.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-overfitting.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-overfitting.qmd >}}
+
+## Training, validation, and test sets {#sec-data-splits}
+
+{{< include sds/_subfiles/model-validation/_exr-data-splits.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-data-splits.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-data-splits.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-train-validation-test-split.qmd >}}
+
+## $k$-fold cross-validation {#sec-kfold}
+
+{{< include sds/_subfiles/model-validation/_exr-kfold.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-kfold.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-kfold.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

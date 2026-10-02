@@ -1,0 +1,23 @@
+<!--
+Source: ported from rme (Morrison-Lab/rme),
+_subfiles/predictor-selection/_sec-pred-sel-prediction.qmd, #def-kfold.
+-->
+:::{#def-kfold}
+#### $k$-fold cross-validation
+
+In **$k$-fold cross-validation**:
+
+1. The data are randomly divided into $k$ equal-sized subsets ("folds").
+2. For each fold $i = 1, \ldots, k$:
+   - Fit the model using all data *except* fold $i$.
+   - Compute predicted values for the observations in fold $i$.
+3. Compute a summary prediction-error measure across all folds.
+
+Values of $k = 5$ or $k = 10$ are typical.
+
+:::
+
+::: notes
+In @exr-kfold, $k = 4$ folds of 8 cars each
+give 4 fits on 24 cars each.
+:::
