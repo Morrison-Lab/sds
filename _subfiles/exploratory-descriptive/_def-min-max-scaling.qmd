@@ -19,9 +19,9 @@ $$\frac{x_i - x_{\min}}{x_{\max} - x_{\min}}$$
 Every min-max scaled value lies in $[0, 1]$:
 the minimum maps to $0$ and the maximum maps to $1$.
 Min-max scaling is sensitive to outliers.
-If one district's median income of 100 were recorded by mistake
-among values ranging from 0 to 15,
-min-max scaling would map all the other values into $[0, 0.15]$,
-while [standardization](#def-standardization) would change them far less
+For example, suppose median incomes range from 0 to 15,
+and one value of 100 is recorded by mistake.
+Min-max scaling then maps all the other values into $[0, 0.15]$.
+[Standardization](#def-standardization) changes them much less
 [@geron2017hands, chapter 2, "Feature Scaling"].
 :::
