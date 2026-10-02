@@ -10,9 +10,9 @@ format:
     output-file: model-validation-handout.docx
 ---
 
-## Overfitting
-
 {{< include sds/_subfiles/shared-config.qmd >}}
+
+## Overfitting
 
 {{< include sds/_subfiles/model-validation/_exr-overfitting.qmd >}}
 
