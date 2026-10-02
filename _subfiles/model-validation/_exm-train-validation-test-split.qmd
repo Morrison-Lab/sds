@@ -247,7 +247,7 @@ Training and validation RMSE for candidate models
 
 The chosen model is
 the `r chosen_model_label`,
-because it has the lower validation RMSE.
+because it has the lowest validation RMSE of the four.
 This split uses different cars from @exr-overfitting,
 and its validation set has only 6 cars,
 so the model it picks can differ from the one chosen there.
