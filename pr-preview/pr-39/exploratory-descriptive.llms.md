@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-02 09:28:42 (PDT)
+Last modified: 2026-10-02 09:51:21 (PDT)
 
 ## 1 Introduction
 
@@ -673,7 +673,9 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
 
-In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale: a salary in dollars and an age in years both become unitless numbers of standard deviations.
+> **NOTE:**
+>
+> *Remark 1* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
 
 > **NOTE:**
 >
@@ -683,7 +685,19 @@ In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 2
 >
 > *Proof*. The sample mean of the \\z_i\\ is \\\frac{1}{n} \sum\_{i=1}^n \frac{x_i - \bar x}{s} = \frac{1}{s} \mathopen{}\left(\frac{1}{n} \sum\_{i=1}^n x_i - \bar x\right)\mathclose{} = \frac{1}{s} (\bar x - \bar x) = 0.\\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\\frac{1}{n-1} \sum\_{i=1}^n z_i^2 = \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n (x_i - \bar x)^2 = \frac{s^2}{s^2} = 1,\\ so their sample standard deviation is \\\sqrt{1} = 1\\.
 
-In R, [`scale()`](https://rdrr.io/r/base/scale.html) returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values, `z <- scale(wcgs$chol)[, 1]` has `mean(z, na.rm = TRUE)` equal to 0 (up to rounding error, about \\10^{-16}\\) and `sd(z, na.rm = TRUE)` equal to 1. The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
+> **NOTE:**
+>
+> **Example 8 (Standardizing cholesterol in R)** In R, [`scale()`](https://rdrr.io/r/base/scale.html) returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values:
+>
+> ``` downlit
+> z <- scale(wcgs$chol)[, 1]
+> mean(z, na.rm = TRUE)
+> #> [1] 2.79926e-16
+> sd(z, na.rm = TRUE)
+> #> [1] 1
+> ```
+>
+> The mean is \\0\\ up to rounding error, and the standard deviation is \\1\\, as [Theorem 2](#thm-standardized-mean-sd) says. The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
 
 > **NOTE:**
 >
@@ -691,11 +705,15 @@ In R, [`scale()`](https://rdrr.io/r/base/scale.html) returns the standardized va
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
 
-Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. Min-max scaling is sensitive to outliers. For example, suppose median incomes range from 0 to 15, and one value of 100 is recorded by mistake. Min-max scaling then maps all the other values into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
+> **NOTE:**
+>
+> *Remark 2* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+>
+> Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
 
 > **NOTE:**
 >
-> **Example 8 (Min-max scaling of cholesterol in the WCGS)**  
+> **Example 9 (Min-max scaling of cholesterol in the WCGS)**  
 >
 > ``` downlit
 > chol_range <- range(wcgs$chol, na.rm = TRUE)
