@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-03 13:15:31 (PDT)
+Last modified: 2026-10-03 13:52:37 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -136,27 +136,27 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > **Definition 4 (Simple linear regression model)** A **simple linear regression** model relates a continuous outcome \\Y\\ to a single predictor \\X\\:
 >
-> \\Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \qquad \varepsilon_1, \ldots, \varepsilon_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}.\\
+> \\Y_i = \beta\_{0}+ \beta\_{x} x_i + \varepsilon_i, \qquad \varepsilon_1, \ldots, \varepsilon_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}.\\
 >
-> - \\\beta_0\\ is the **intercept**: the mean of \\Y\\ among observations with \\X = 0\\.
-> - \\\beta_1\\ is the **slope**: the difference in the mean of \\Y\\ between two groups whose values of \\X\\ differ by one unit, \\\beta_1 = \operatorname{E}\mathopen{}\left\[Y \mid X = x + 1\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\.
+> - \\\beta\_{0}\\ is the **intercept**: the mean of \\Y\\ among observations with \\X = 0\\.
+> - \\\beta\_{x}\\ is the **slope**: the difference in the mean of \\Y\\ between two groups whose values of \\X\\ differ by one unit, \\\beta\_{x} = \operatorname{E}\mathopen{}\left\[Y \mid X = x + 1\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\.
 > - \\\sigma^2\\ is the variance of \\Y\\ around its mean at each value of \\X\\.
 
 ### 3.2 Ordinary least squares estimation
 
 > **NOTE:**
 >
-> **Definition 5 (Residual sum of squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **residual sum of squares** of a line with intercept \\b_0\\ and slope \\b_1\\ is
+> **Definition 5 (Residual sum of squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **residual sum of squares** of a line with intercept \\\beta\_{0}\\ and slope \\\beta\_{x}\\ is
 >
-> \\\text{RSS}(b_0, b_1) \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - b_0 - b_1 x_i)^2.\\
+> \\\text{RSS}(\beta\_{0}, \beta\_{x}) \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - \beta\_{0}- \beta\_{x} x_i)^2.\\
 
 > **NOTE:**
 >
-> **Example 3 (Residual sum of squares of a line through three points)** For the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\b_0 = 1\\ and \\b_1 = 0.5\\, the vertical distances from the points to the line are \\1 - 1 = 0\\, \\2 - 1.5 = 0.5\\, and \\2 - 2 = 0\\, so \\\text{RSS}(1, 0.5) = 0^2 + 0.5^2 + 0^2 = 0.25\\.
+> **Example 3 (Residual sum of squares of a line through three points)** For the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\, the vertical distances from the points to the line are \\1 - 1 = 0\\, \\2 - 1.5 = 0.5\\, and \\2 - 2 = 0\\, so \\\text{RSS}(1, 0.5) = 0^2 + 0.5^2 + 0^2 = 0.25\\.
 
 > **NOTE:**
 >
-> **Definition 6 (Ordinary least squares)** The **ordinary least squares (OLS) estimates** \\\hat\beta_0\\ and \\\hat\beta_1\\ are the values of \\b_0\\ and \\b_1\\ that minimize the [residual sum of squares](#def-rss) \\\text{RSS}(b_0, b_1)\\.
+> **Definition 6 (Ordinary least squares)** The **ordinary least squares (OLS) estimates** \\\hat{\beta}\_{0}\\ and \\\hat{\beta}\_{x}\\ are the values of \\\beta\_{0}\\ and \\\beta\_{x}\\ that minimize the [residual sum of squares](#def-rss) \\\text{RSS}(\beta\_{0}, \beta\_{x})\\.
 
 > **NOTE:**
 >
@@ -166,23 +166,39 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > and suppose \\S\_{xx} \> 0\\ (not all \\x_i\\ are equal). Then the OLS estimates ([Definition 6](#def-ols)) are unique, and
 >
-> \\\hat\beta_1 = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat\beta_0 = \bar{y} - \hat\beta_1 \bar{x}.\\
+> \\\hat{\beta}\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat{\beta}\_{0}= \bar{y} - \hat{\beta}\_{x} \bar{x}.\\
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is a quadratic function of \\(b_0, b_1)\\, so we find where its partial derivatives are zero, then check that this point is the unique minimum.
+> *Proof*. \\\text{RSS}\\ is a quadratic function of \\(\beta\_{0}, \beta\_{x})\\, so we find where its partial derivatives are zero, then check that this point is the unique minimum.
 >
-> The derivative with respect to \\b_0\\:
+> The derivative with respect to \\\beta\_{0}\\, by the chain rule applied to each term of the sum:
 >
-> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial b_0} &= -2 \sum\_{i=1}^n (y_i - b_0 - b_1 x_i) && \text{(chain rule, term by term)}\\ &= -2 \mathopen{}\left(n \bar{y} - n b_0 - b_1 n \bar{x}\right)\mathclose{} && \text{(\$\sum_i y_i = n\bar{y}\$, \$\sum_i x_i = n\bar{x}\$)} \end{aligned} \\
+> \\ \frac{\partial \text{RSS}}{\partial \beta\_{0}} = \sum\_{i=1}^n 2 (y_i - \beta\_{0}- \beta\_{x} x_i) \frac{\partial}{\partial \beta\_{0}} (y_i - \beta\_{0}- \beta\_{x} x_i). \\
 >
-> Setting it to zero and dividing by \\-2n\\ gives \\\bar{y} - b_0 - b_1 \bar{x} = 0\\, so \\b_0 = \bar{y} - b_1 \bar{x}\\.
+> The inner derivative:
 >
-> The derivative with respect to \\b_1\\, after substituting \\b_0 = \bar{y} - b_1 \bar{x}\\:
+> \\ \begin{aligned} \frac{\partial}{\partial \beta\_{0}} (y_i - \beta\_{0}- \beta\_{x} x_i) &= \frac{\partial y_i}{\partial \beta\_{0}} - \frac{\partial \beta\_{0}}{\partial \beta\_{0}} - \frac{\partial (\beta\_{x} x_i)}{\partial \beta\_{0}} && \text{(derivative of a sum)}\\ &= 0 - 1 - 0 && \text{(\$y_i\$ and \$\beta\_{x} x_i\$ do not depend on \$\beta\_{0}\$)}\\ &= -1 \end{aligned} \\
 >
-> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial b_1} &= -2 \sum\_{i=1}^n x_i (y_i - b_0 - b_1 x_i) && \text{(chain rule, term by term)}\\ &= -2 \sum\_{i=1}^n x_i \mathopen{}\left((y_i - \bar{y}) - b_1 (x_i - \bar{x})\right)\mathclose{} && \text{(substitute \$b_0\$)}\\ &= -2 \sum\_{i=1}^n (x_i - \bar{x}) \mathopen{}\left((y_i - \bar{y}) - b_1 (x_i - \bar{x})\right)\mathclose{} && \text{(subtract \$\bar{x} \sum_i \mathopen{}\left((y_i - \bar{y}) - b_1 (x_i - \bar{x})\right)\mathclose{} = 0\$)}\\ &= -2 \mathopen{}\left(S\_{xy} - b_1 S\_{xx}\right)\mathclose{} && \text{(definitions of \$S\_{xy}\$ and \$S\_{xx}\$)} \end{aligned} \\
+> Plugging the inner derivative back in:
 >
-> The subtracted sum in the third step is zero because \\\sum_i (y_i - \bar{y}) = 0\\ and \\\sum_i (x_i - \bar{x}) = 0\\. Setting the derivative to zero gives \\b_1 = S\_{xy} / S\_{xx}\\.
+> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{0}} &= -2 \sum\_{i=1}^n (y_i - \beta\_{0}- \beta\_{x} x_i) && \text{(inner derivative is \$-1\$)}\\ &= -2 \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(\$\sum_i y_i = n\bar{y}\$, \$\sum_i x_i = n\bar{x}\$)} \end{aligned} \\
+>
+> Setting it to zero and dividing by \\-2n\\ gives \\\bar{y} - \beta\_{0}- \beta\_{x} \bar{x} = 0\\, so \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\.
+>
+> The derivative with respect to \\\beta\_{x}\\, again by the chain rule applied to each term:
+>
+> \\ \frac{\partial \text{RSS}}{\partial \beta\_{x}} = \sum\_{i=1}^n 2 (y_i - \beta\_{0}- \beta\_{x} x_i) \frac{\partial}{\partial \beta\_{x}} (y_i - \beta\_{0}- \beta\_{x} x_i). \\
+>
+> The inner derivative:
+>
+> \\ \begin{aligned} \frac{\partial}{\partial \beta\_{x}} (y_i - \beta\_{0}- \beta\_{x} x_i) &= \frac{\partial y_i}{\partial \beta\_{x}} - \frac{\partial \beta\_{0}}{\partial \beta\_{x}} - \frac{\partial (\beta\_{x} x_i)}{\partial \beta\_{x}} && \text{(derivative of a sum)}\\ &= 0 - 0 - x_i && \text{(\$y_i\$ and \$\beta\_{0}\$ do not depend on \$\beta\_{x}\$)}\\ &= -x_i \end{aligned} \\
+>
+> Plugging the inner derivative back in, and substituting \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\:
+>
+> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{x}} &= -2 \sum\_{i=1}^n x_i (y_i - \beta\_{0}- \beta\_{x} x_i) && \text{(inner derivative is \$-x_i\$)}\\ &= -2 \sum\_{i=1}^n x_i \mathopen{}\left((y_i - \bar{y}) - \beta\_{x} (x_i - \bar{x})\right)\mathclose{} && \text{(substitute \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^n (x_i - \bar{x}) \mathopen{}\left((y_i - \bar{y}) - \beta\_{x} (x_i - \bar{x})\right)\mathclose{} && \text{(subtract \$\bar{x} \sum_i \mathopen{}\left((y_i - \bar{y}) - \beta\_{x} (x_i - \bar{x})\right)\mathclose{} = 0\$)}\\ &= -2 \mathopen{}\left(S\_{xy} - \beta\_{x} S\_{xx}\right)\mathclose{} && \text{(definitions of \$S\_{xy}\$ and \$S\_{xx}\$)} \end{aligned} \\
+>
+> The subtracted sum in the third step is zero because \\\sum_i (y_i - \bar{y}) = 0\\ and \\\sum_i (x_i - \bar{x}) = 0\\. Setting the derivative to zero gives \\\beta\_{x} = S\_{xy} / S\_{xx}\\.
 >
 > This stationary point is the unique minimum. The matrix of second derivatives of \\\text{RSS}\\ is
 >
@@ -190,43 +206,51 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > whose top-left entry \\2n\\ is positive and whose determinant is \\4\mathopen{}\left(n \sum_i x_i^2 - n^2 \bar{x}^2\right)\mathclose{} = 4 n S\_{xx} \> 0\\. So the matrix is positive definite, \\\text{RSS}\\ is strictly convex, and its only stationary point is its global minimum.
 
-The same result follows from a derivation in vector notation, which treats \\(b_0, b_1)\\ as a single vector instead of differentiating with respect to each component separately.
+The same result follows from a derivation in vector notation, which treats \\(\beta\_{0}, \beta\_{x})\\ as a single vector instead of differentiating with respect to each component separately.
 
 > **NOTE:**
 >
 > *Proof*. Collect the coefficients and each observation’s covariates into vectors:
 >
-> \\ \tilde{b} \stackrel{\text{def}}{=}\begin{pmatrix} b_0 \\ b_1 \end{pmatrix}, \qquad \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}, \qquad\text{so}\qquad b_0 + b_1 x_i = {\tilde{x}\_i}^{\top} \tilde{b} \quad\text{and}\quad \text{RSS}(\tilde{b}) = \sum\_{i=1}^n\mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{b}\right)\mathclose{}^2. \\
+> \\ \tilde{\beta}\stackrel{\text{def}}{=}\begin{pmatrix} \beta\_{0}\\ \beta\_{x} \end{pmatrix}, \qquad \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}, \qquad\text{so}\qquad \beta\_{0}+ \beta\_{x} x_i = {\tilde{x}\_i}^{\top} \tilde{\beta} \quad\text{and}\quad \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n\mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{}^2. \\
 >
-> **Gradient.** For any constant vector \\\tilde{a}\\, \\\frac{\partial}{\partial \tilde{b}} {\tilde{a}}^{\top} \tilde{b} = \tilde{a}\\, since the \\j\\th component of \\{\tilde{a}}^{\top} \tilde{b}\\’s gradient is \\\frac{\partial}{\partial b_j} \sum_k a_k b_k = a_j\\. So:
+> **Gradient.** By the chain rule applied to each term of the sum:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \tilde{b}} \text{RSS}(\tilde{b}) &= \sum\_{i=1}^n2 \mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{b}\right)\mathclose{} \frac{\partial}{\partial \tilde{b}} \mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{b}\right)\mathclose{} && \text{(chain rule, term by term)}\\ &= -2 \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{b}\right)\mathclose{} && \text{(\$\frac{\partial}{\partial \tilde{b}} {\tilde{x}\_i}^{\top} \tilde{b} = \tilde{x}\_i\$)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^n\tilde{x}\_iy_i - \sum\_{i=1}^n\tilde{x}\_i{\tilde{x}\_i}^{\top} \tilde{b}\right)\mathclose{} && \text{(distribute the sum)} \end{aligned} \\
+> \\ \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n2 \mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{}. \\
 >
-> **Solve for \\\hat{\tilde{b}}\\.** Write \\A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ and \\\tilde{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_iy_i\\, so that the gradient is \\-2 \mathopen{}\left(\tilde{c} - A \tilde{b}\right)\mathclose{}\\. Setting it equal to \\\tilde{0}\\ gives the **normal equations** \\A \tilde{b} = \tilde{c}\\. Writing out the components of each term:
+> For the inner derivative, we need the gradient of a linear function. For any constant vector \\\tilde{a} = {(a_0, a_x)}^{\top}\\, \\{\tilde{a}}^{\top} \tilde{\beta} = a_0 \beta\_{0}+ a_x \beta\_{x}\\, whose partial derivatives with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ are \\a_0\\ and \\a_x\\; so \\\frac{\partial}{\partial \tilde{\beta}} {\tilde{a}}^{\top} \tilde{\beta} = \tilde{a}\\. With \\\tilde{a} = \tilde{x}\_i\\:
+>
+> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{} &= \frac{\partial}{\partial \tilde{\beta}} y_i - \frac{\partial}{\partial \tilde{\beta}} {\tilde{x}\_i}^{\top} \tilde{\beta} && \text{(derivative of a difference)}\\ &= \tilde{0}- \tilde{x}\_i && \text{(\$y_i\$ does not depend on \$\tilde{\beta}\$; gradient of a linear function)}\\ &= -\tilde{x}\_i \end{aligned} \\
+>
+> Plugging the inner derivative back in:
+>
+> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) &= -2 \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{} && \text{(inner derivative is \$-\tilde{x}\_i\$)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^n\tilde{x}\_iy_i - \sum\_{i=1}^n\tilde{x}\_i{\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{} && \text{(distribute the sum)} \end{aligned} \\
+>
+> **Solve for \\\hat{\tilde{\beta}}\\.** Write \\A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ and \\\tilde{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_iy_i\\, so that the gradient is \\-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\\. Setting it equal to \\\tilde{0}\\ gives the **normal equations** \\A \tilde{\beta}= \tilde{c}\\. Writing out the components of each term:
 >
 > \\ A = \sum\_{i=1}^n\begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix} = \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sum\_{i=1}^nx_i^2 \end{pmatrix}, \qquad \tilde{c} = \sum\_{i=1}^n\begin{pmatrix} y_i \\ x_i y_i \end{pmatrix} = \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix}. \\
 >
 > The determinant of \\A\\ is \\n \sum\_{i=1}^nx_i^2 - n^2 \bar{x}^2 = n S\_{xx} \> 0\\, so \\A\\ is invertible and the normal equations have the unique solution
 >
-> \\ \begin{aligned} \hat{\tilde{b}} = A^{-1} \tilde{c} &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(inverse of a \$2 \times 2\$ matrix)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_i y_i \\ \sum\_{i=1}^nx_i y_i - n \bar{x} \bar{y} \end{pmatrix} && \text{(multiply, cancel \$n\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \mathopen{}\left(S\_{xx} + n\bar{x}^2\right)\mathclose{} - \bar{x} \mathopen{}\left(S\_{xy} + n\bar{x}\bar{y}\right)\mathclose{} \\ S\_{xy} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i^2 = S\_{xx} + n\bar{x}^2\$, \$\sum\_{i=1}^nx_i y_i = S\_{xy} + n\bar{x}\bar{y}\$)}\\ &= \begin{pmatrix} \bar{y} - \bar{x} \\ S\_{xy} / S\_{xx} \\ S\_{xy} / S\_{xx} \end{pmatrix} && \text{(cancel \$\pm n\bar{x}^2\bar{y}\$)} \end{aligned} \\
+> \\ \begin{aligned} \hat{\tilde{\beta}}= A^{-1} \tilde{c} &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(inverse of a \$2 \times 2\$ matrix)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_i y_i \\ \sum\_{i=1}^nx_i y_i - n \bar{x} \bar{y} \end{pmatrix} && \text{(multiply, cancel \$n\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \mathopen{}\left(S\_{xx} + n\bar{x}^2\right)\mathclose{} - \bar{x} \mathopen{}\left(S\_{xy} + n\bar{x}\bar{y}\right)\mathclose{} \\ S\_{xy} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i^2 = S\_{xx} + n\bar{x}^2\$, \$\sum\_{i=1}^nx_i y_i = S\_{xy} + n\bar{x}\bar{y}\$)}\\ &= \begin{pmatrix} \bar{y} - \bar{x} \\ S\_{xy} / S\_{xx} \\ S\_{xy} / S\_{xx} \end{pmatrix} && \text{(first component: cancel \$\pm n\bar{x}^2\bar{y}\$)} \end{aligned} \\
 >
-> which matches \\\hat\beta_0 = \bar{y} - \hat\beta_1 \bar{x}\\ and \\\hat\beta_1 = S\_{xy} / S\_{xx}\\.
+> which matches \\\hat{\beta}\_{0}= \bar{y} - \hat{\beta}\_{x} \bar{x}\\ and \\\hat{\beta}\_{x} = S\_{xy} / S\_{xx}\\.
 >
-> **Second derivative.** Differentiating the gradient \\-2 \mathopen{}\left(\tilde{c} - A \tilde{b}\right)\mathclose{}\\ with respect to \\{\tilde{b}}^{\top}\\ gives the [Hessian](intro-MLEs.llms.md#def-hessian) of \\\text{RSS}\\:
+> **Second derivative.** Differentiating the gradient \\-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\\ with respect to \\{\tilde{\beta}}^{\top}\\ gives the [Hessian](intro-MLEs.llms.md#def-hessian) of \\\text{RSS}\\:
 >
-> \\ \frac{\partial}{\partial \tilde{b}} \frac{\partial}{\partial {\tilde{b}}^{\top}} \text{RSS}(\tilde{b}) = 2 A = 2 \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}. \\
+> \\ \frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta}) = 2 A = 2 \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}. \\
 >
-> It is positive definite. For any vector \\\tilde{v} = {(v_0, v_1)}^{\top} \neq \tilde{0}\\:
+> It is positive definite. For any vector \\\tilde{v} = {(v_0, v_x)}^{\top} \neq \tilde{0}\\:
 >
-> \\ {\tilde{v}}^{\top} \mathopen{}\left(2 A\right)\mathclose{} \tilde{v} = 2 \sum\_{i=1}^n{\tilde{v}}^{\top} \tilde{x}\_i {\tilde{x}\_i}^{\top} \tilde{v} = 2 \sum\_{i=1}^n\mathopen{}\left(v_0 + v_1 x_i\right)\mathclose{}^2 \ge 0, \\
+> \\ {\tilde{v}}^{\top} \mathopen{}\left(2 A\right)\mathclose{} \tilde{v} = 2 \sum\_{i=1}^n{\tilde{v}}^{\top} \tilde{x}\_i {\tilde{x}\_i}^{\top} \tilde{v} = 2 \sum\_{i=1}^n\mathopen{}\left(v_0 + v_x x_i\right)\mathclose{}^2 \ge 0, \\
 >
-> with equality only if \\v_0 + v_1 x_i = 0\\ for every \\i\\. If \\v_1 \neq 0\\, that would force every \\x_i = -v_0 / v_1\\, contradicting \\S\_{xx} \> 0\\; if \\v_1 = 0\\, it would force \\v_0 = 0\\, contradicting \\\tilde{v} \neq \tilde{0}\\. So the inequality is strict, the Hessian is positive definite at every \\\tilde{b}\\, \\\text{RSS}\\ is strictly convex, and \\\hat{\tilde{b}}\\ is its unique global minimum.
+> with equality only if \\v_0 + v_x x_i = 0\\ for every \\i\\. If \\v_x \neq 0\\, that would force every \\x_i = -v_0 / v_x\\, contradicting \\S\_{xx} \> 0\\; if \\v_x = 0\\, it would force \\v_0 = 0\\, contradicting \\\tilde{v} \neq \tilde{0}\\. So the inequality is strict, the Hessian is positive definite at every \\\tilde{\beta}\\, \\\text{RSS}\\ is strictly convex, and \\\hat{\tilde{\beta}}\\ is its unique global minimum.
 
 > **NOTE:**
 >
 > **Corollary 1 (OLS slope in terms of the correlation)** If \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\, then
 >
-> \\\hat\beta_1 = r \\ \frac{s_y}{s_x},\\
+> \\\hat{\beta}\_{x} = r \\ \frac{s_y}{s_x},\\
 >
 > where \\r\\ is the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) and \\s_x\\ and \\s_y\\ are the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) of the \\x_i\\ and the \\y_i\\.
 
@@ -234,7 +258,7 @@ The same result follows from a derivation in vector notation, which treats \\(b_
 >
 > *Proof*. With the notation of [Theorem 2](#thm-ols-slr), \\r = S\_{xy} / \sqrt{S\_{xx} S\_{yy}}\\, \\s_x = \sqrt{S\_{xx} / (n-1)}\\, and \\s_y = \sqrt{S\_{yy} / (n-1)}\\. So:
 >
-> \\ \begin{aligned} r \\ \frac{s_y}{s_x} &= \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}} \cdot \frac{\sqrt{S\_{yy} / (n-1)}}{\sqrt{S\_{xx} / (n-1)}} && \text{(substitute \$r\$, \$s_x\$, \$s_y\$)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}}}{\sqrt{S\_{xx}}} && \text{(cancel the factors of \$n - 1\$)}\\ &= \frac{S\_{xy}}{S\_{xx}} && \text{(cancel \$\sqrt{S\_{yy}}\$)}\\ &= \hat\beta_1 && \text{(closed-form OLS slope)} \end{aligned} \\
+> \\ \begin{aligned} r \\ \frac{s_y}{s_x} &= \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}} \cdot \frac{\sqrt{S\_{yy} / (n-1)}}{\sqrt{S\_{xx} / (n-1)}} && \text{(substitute \$r\$, \$s_x\$, \$s_y\$)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}}}{\sqrt{S\_{xx}}} && \text{(cancel the factors of \$n - 1\$)}\\ &= \frac{S\_{xy}}{S\_{xx}} && \text{(cancel \$\sqrt{S\_{yy}}\$)}\\ &= \hat{\beta}\_{x} && \text{(closed-form OLS slope)} \end{aligned} \\
 
 > **TIP:**
 >
@@ -286,7 +310,7 @@ The same result follows from a derivation in vector notation, which treats \\(b_
 > #> F-statistic:  221 on 1 and 2756 DF,  p-value: <2e-16
 > ```
 >
-> The estimated slope is \\\hat\beta_1 = 1.82\\ mg/dL per kg/m²: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m² higher. The t statistic for the slope equals the correlation test statistic of [Example 1](#exm-hers-cor).
+> The estimated slope is \\\hat{\beta}\_{\text{BMI}} = 1.82\\ mg/dL per kg/m²: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m² higher. The t statistic for the slope equals the correlation test statistic of [Example 1](#exm-hers-cor).
 
 ### 3.4 The coefficient of determination
 
@@ -318,13 +342,13 @@ The same result follows from a derivation in vector notation, which treats \\(b_
 
 > **NOTE:**
 >
-> *Proof*. With the notation of [Theorem 2](#thm-ols-slr), the fitted values are \\\hat{y}\_i = \hat\beta_0 + \hat\beta_1 x_i\\, so each residual is
+> *Proof*. With the notation of [Theorem 2](#thm-ols-slr), the fitted values are \\\hat{y}\_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each residual is
 >
-> \\ \begin{aligned} y_i - \hat{y}\_i &= y_i - (\bar{y} - \hat\beta_1 \bar{x}) - \hat\beta_1 x_i && \text{(substitute \$\hat\beta_0\$)}\\ &= (y_i - \bar{y}) - \hat\beta_1 (x_i - \bar{x}) && \text{(regroup)} \end{aligned} \\
+> \\ \begin{aligned} y_i - \hat{y}\_i &= y_i - (\bar{y} - \hat{\beta}\_{x} \bar{x}) - \hat{\beta}\_{x} x_i && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= (y_i - \bar{y}) - \hat{\beta}\_{x} (x_i - \bar{x}) && \text{(regroup)} \end{aligned} \\
 >
 > Squaring and summing:
 >
-> \\ \begin{aligned} \sum\_{i=1}^n (y_i - \hat{y}\_i)^2 &= \sum\_{i=1}^n \mathopen{}\left((y_i - \bar{y})^2 - 2 \hat\beta_1 (x_i - \bar{x})(y_i - \bar{y}) + \hat\beta_1^2 (x_i - \bar{x})^2\right)\mathclose{} && \text{(expand the square)}\\ &= S\_{yy} - 2 \hat\beta_1 S\_{xy} + \hat\beta_1^2 S\_{xx} && \text{(definitions of \$S\_{yy}\$, \$S\_{xy}\$, \$S\_{xx}\$)}\\ &= S\_{yy} - 2 \frac{S\_{xy}^2}{S\_{xx}} + \frac{S\_{xy}^2}{S\_{xx}} && \text{(substitute \$\hat\beta_1 = S\_{xy} / S\_{xx}\$)}\\ &= S\_{yy} - \frac{S\_{xy}^2}{S\_{xx}} && \text{(combine like terms)} \end{aligned} \\
+> \\ \begin{aligned} \sum\_{i=1}^n (y_i - \hat{y}\_i)^2 &= \sum\_{i=1}^n \mathopen{}\left((y_i - \bar{y})^2 - 2 \hat{\beta}\_{x} (x_i - \bar{x})(y_i - \bar{y}) + \hat{\beta}\_{x}^2 (x_i - \bar{x})^2\right)\mathclose{} && \text{(expand the square)}\\ &= S\_{yy} - 2 \hat{\beta}\_{x} S\_{xy} + \hat{\beta}\_{x}^2 S\_{xx} && \text{(definitions of \$S\_{yy}\$, \$S\_{xy}\$, \$S\_{xx}\$)}\\ &= S\_{yy} - 2 \frac{S\_{xy}^2}{S\_{xx}} + \frac{S\_{xy}^2}{S\_{xx}} && \text{(substitute \$\hat{\beta}\_{x} = S\_{xy} / S\_{xx}\$)}\\ &= S\_{yy} - \frac{S\_{xy}^2}{S\_{xx}} && \text{(combine like terms)} \end{aligned} \\
 >
 > The total sum of squares is \\S\_{yy}\\, so:
 >
