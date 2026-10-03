@@ -82,6 +82,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_proof-ols-slr-vector.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_cor-ols-slope-r.qmd >}}
 
 ::: {.callout-tip title="Video lecture"}
