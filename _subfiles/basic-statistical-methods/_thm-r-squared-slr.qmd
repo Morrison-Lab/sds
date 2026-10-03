@@ -13,15 +13,15 @@ In particular, $0 \le R^2 \le 1$.
 ::: proof
 
 With the notation of @thm-ols-slr,
-the fitted values are $\hat{y}_i = \hat\beta_0 + \hat\beta_1 x_i$,
+the fitted values are $\hat{y}_i = \hintcoef + \hcoef{x} x_i$,
 so each residual is
 
 $$
 \begin{aligned}
 y_i - \hat{y}_i
-&= y_i - (\bar{y} - \hat\beta_1 \bar{x}) - \hat\beta_1 x_i
-&& \text{(substitute $\hat\beta_0$)}\\
-&= (y_i - \bar{y}) - \hat\beta_1 (x_i - \bar{x})
+&= y_i - (\bar{y} - \hcoef{x} \bar{x}) - \hcoef{x} x_i
+&& \text{(substitute $\hintcoef$)}\\
+&= (y_i - \bar{y}) - \hcoef{x} (x_i - \bar{x})
 && \text{(regroup)}
 \end{aligned}
 $$
@@ -31,13 +31,13 @@ Squaring and summing:
 $$
 \begin{aligned}
 \sum_{i=1}^n (y_i - \hat{y}_i)^2
-&= \sum_{i=1}^n \paren{(y_i - \bar{y})^2 - 2 \hat\beta_1 (x_i - \bar{x})(y_i - \bar{y})
-  + \hat\beta_1^2 (x_i - \bar{x})^2}
+&= \sum_{i=1}^n \paren{(y_i - \bar{y})^2 - 2 \hcoef{x} (x_i - \bar{x})(y_i - \bar{y})
+  + \hcoef{x}^2 (x_i - \bar{x})^2}
 && \text{(expand the square)}\\
-&= S_{yy} - 2 \hat\beta_1 S_{xy} + \hat\beta_1^2 S_{xx}
+&= S_{yy} - 2 \hcoef{x} S_{xy} + \hcoef{x}^2 S_{xx}
 && \text{(definitions of $S_{yy}$, $S_{xy}$, $S_{xx}$)}\\
 &= S_{yy} - 2 \frac{S_{xy}^2}{S_{xx}} + \frac{S_{xy}^2}{S_{xx}}
-&& \text{(substitute $\hat\beta_1 = S_{xy} / S_{xx}$)}\\
+&& \text{(substitute $\hcoef{x} = S_{xy} / S_{xx}$)}\\
 &= S_{yy} - \frac{S_{xy}^2}{S_{xx}}
 && \text{(combine like terms)}
 \end{aligned}

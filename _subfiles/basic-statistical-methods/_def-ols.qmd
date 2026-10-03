@@ -2,7 +2,7 @@
 #### Ordinary least squares
 
 The **ordinary least squares (OLS) estimates**
-$\hat\beta_0$ and $\hat\beta_1$
-are the values of $b_0$ and $b_1$ that minimize the
-[residual sum of squares](#def-rss) $\text{RSS}(b_0, b_1)$.
+$\hintcoef$ and $\hcoef{x}$
+are the values of $\intcoef$ and $\coef{x}$ that minimize the
+[residual sum of squares](#def-rss) $\text{RSS}(\intcoef, \coef{x})$.
 :::

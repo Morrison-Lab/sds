@@ -1,0 +1,10 @@
+\providecommand{\regcoef}{\b}
+\providecommand{\Regcoef}{\mathrm{B}}
+\providecommand{\coef}[1]{\regcoef_{#1}}
+\providecommand{\Coef}[1]{\Regcoef_{#1}}
+\providecommand{\intcoef}{\coef{0}}
+\providecommand{\Intcoef}{\Coef{0}}
+\providecommand{\hcoef}[1]{\est{\regcoef}_{#1}}
+\providecommand{\hintcoef}{\hcoef{0}}
+\providecommand{\vcoef}{\vec{\regcoef}}
+\providecommand{\hvcoef}{\est{\vcoef}}

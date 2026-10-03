@@ -1,6 +1,9 @@
 {{< include sds/_subfiles/r-config.qmd >}}
 {{< include latex-macros/macros.qmd >}}
 
+<!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
+{{< include sds/_subfiles/_macros-sds.qmd >}}
+
 ```{=html}
 <style>
 .quarto-figure-center > figure {

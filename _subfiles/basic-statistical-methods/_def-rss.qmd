@@ -3,8 +3,8 @@
 
 For data $(x_1, y_1), \ldots, (x_n, y_n)$,
 the **residual sum of squares** of a line
-with intercept $b_0$ and slope $b_1$ is
+with intercept $\intcoef$ and slope $\coef{x}$ is
 
-$$\text{RSS}(b_0, b_1) \eqdef \sum_{i=1}^n (y_i - b_0 - b_1 x_i)^2.$$
+$$\text{RSS}(\intcoef, \coef{x}) \eqdef \sum_{i=1}^n (y_i - \intcoef - \coef{x} x_i)^2.$$
 
 :::

@@ -14,6 +14,6 @@ $$
 and suppose $S_{xx} > 0$ (not all $x_i$ are equal).
 Then the OLS estimates (@def-ols) are unique, and
 
-$$\hat\beta_1 = \frac{S_{xy}}{S_{xx}},
-\qquad \hat\beta_0 = \bar{y} - \hat\beta_1 \bar{x}.$$
+$$\hcoef{x} = \frac{S_{xy}}{S_{xx}},
+\qquad \hintcoef = \bar{y} - \hcoef{x} \bar{x}.$$
 :::
