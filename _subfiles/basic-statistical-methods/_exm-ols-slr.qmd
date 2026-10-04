@@ -5,4 +5,47 @@ For a simple linear regression,
 the OLS estimates (@def-ols) $\hintcoef$ and $\hcoef{x}$
 are the values of $\intcoef$ and $\coef{x}$
 that minimize $\text{RSS}(\intcoef, \coef{x})$ from @exm-rss-slr.
+@fig-rss-surface shows $\text{RSS}(\intcoef, \coef{x})$
+for the three points of @exm-rss:
+the OLS estimates sit at the bottom of the bowl,
+and the line of @exm-rss sits higher up.
+
+::: {#fig-rss-surface}
+
+```{r}
+rss_grid <- expand.grid(
+  b0 = seq(0, 2.5, length.out = 101),
+  bx = seq(-0.5, 1.5, length.out = 101)
+)
+rss_grid$rss <- mapply(
+  function(b0, bx) sum((rss_points$y - b0 - bx * rss_points$x)^2),
+  rss_grid$b0,
+  rss_grid$bx
+)
+ols_coefs <- coef(lm(y ~ x, data = rss_points))
+
+ggplot2::ggplot(rss_grid, ggplot2::aes(x = b0, y = bx, z = rss)) +
+  ggplot2::geom_contour(
+    ggplot2::aes(color = ggplot2::after_stat(level)),
+    breaks = c(0.25, 0.5, 1, 2, 4, 8)
+  ) +
+  ggplot2::annotate(
+    "point",
+    x = ols_coefs[[1]], y = ols_coefs[[2]], size = 3
+  ) +
+  ggplot2::annotate("point", x = 1, y = 0.5, shape = 4, size = 3) +
+  ggplot2::labs(
+    x = expression(beta[0]),
+    y = expression(beta[x]),
+    color = "RSS"
+  )
+
+ols_coefs
+```
+
+Contours of $\text{RSS}(\intcoef, \coef{x})$ for the three points of @exm-rss.
+The dot marks the OLS estimates;
+the cross marks the line of @exm-rss.
+
+:::
 :::
