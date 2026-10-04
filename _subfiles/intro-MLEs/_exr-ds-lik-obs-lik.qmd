@@ -1,0 +1,24 @@
+:::{#exr-ds-lik-obs-lik}
+#### Dataset likelihood from likelihood components
+
+For mutually independent data $\vx \eqdef \x1n$,
+use @thm-lik-iid
+to write the likelihood of the dataset
+in terms of the observations' [likelihood components](#def-lik-factor).
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+$$
+\begin{aligned}
+\Lik(\theta)
+&= \prod_{i=1}^n \p(X_i = x_i \mid \theta)
+&& \text{(likelihood of an independent sample)}\\
+&= \prodin \Lik_i(\theta)
+&& \text{(definition of likelihood components)}
+\end{aligned}
+$$
+
+::::

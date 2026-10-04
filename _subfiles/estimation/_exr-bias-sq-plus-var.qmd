@@ -1,0 +1,30 @@
+:::{#exr-bias-sq-plus-var}
+#### Squared bias plus variance
+
+Using @exr-sq-bias-expand,
+write $\sqf{\bias{\hth}} + \var{\hth}$
+in terms of $\E{\hth^2}$, $\E{\hth}$, and the estimand $\th$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+The variance is
+([simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)):
+
+$$\var{\hth} = \E{\hth^2} - \sqf{\E{\hth}}$$
+
+Add it to the squared bias from @exr-sq-bias-expand and simplify:
+
+$$
+\begin{aligned}
+\sqf{\bias{\hth}} + \var{\hth}
+&= \sqf{\E{\hth}} - 2\E{\hth}\th + \th^2 + \E{\hth^2} - \sqf{\E{\hth}}
+&& \text{(substitute both expansions)}\\
+&= \E{\hth^2} - 2\E{\hth}\th + \th^2
+&& \text{(cancel $\sqf{\E{\hth}}$)}
+\end{aligned}
+$$
+
+::::

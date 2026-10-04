@@ -1,0 +1,23 @@
+:::{#exr-unbiased-exp}
+#### Expected value of an unbiased estimator
+
+Using @thm-bias-exprs,
+find $\E{\hth}$ for an [unbiased](#def-unbiased) estimator $\hth$ of $\th$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+$$
+\begin{aligned}
+0 &= \bias{\hth}
+&& \text{(definition of unbiased)}\\
+&= \E{\hth} - \th
+&& \text{(bias equals expectation minus truth)}
+\end{aligned}
+$$
+
+Adding $\th$ to both sides gives $\E{\hth} = \th$.
+
+::::

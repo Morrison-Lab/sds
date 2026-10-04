@@ -1,0 +1,32 @@
+:::{#exr-wilks-lrt-quadratic}
+#### Likelihood ratio statistic for a point null hypothesis
+
+With a scalar parameter $\th$,
+the point null hypothesis $H_0: \th = \th_0$
+imposes $q = 1$ constraint.
+Use @exr-wilks-taylor
+to approximate the [likelihood ratio statistic](#def-lrt-stat) $\Lambda$
+in terms of the [observed information](#def-oinf) $\oinf(\hthml)$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+Under $H_0$, the only allowed value is $\th_0$,
+so the restricted MLE is $\hat\th_0 = \th_0$.
+Substituting the approximation from @exr-wilks-taylor:
+
+$$
+\begin{aligned}
+\Lambda
+&= 2\paren{\llik(\hthml) - \llik(\th_0)}
+&& \text{(definition of $\Lambda$, with $\hat\th_0 = \th_0$)}\\
+&\approx -\hess(\hthml)(\hthml - \th_0)^2
+&& \text{(substitute the expansion)}\\
+&= \oinf(\hthml)(\hthml - \th_0)^2
+&& \text{(observed information is the negative Hessian)}
+\end{aligned}
+$$
+
+::::

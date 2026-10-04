@@ -37,11 +37,19 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_exr-lik-iid.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_thm-lik-iid.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_def-lik-factor.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-ds-lik-obs-lik.qmd >}}
 
 {{< slidebreak >}}
 
@@ -93,11 +101,23 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_exr-mle-use-log.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_thm-mle-use-log.qmd >}}
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_exr-loglik-iid.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_thm_loglik_ind.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-deriv-llik-iid.qmd >}}
 
 {{< slidebreak >}}
 
@@ -155,7 +175,15 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_exr-hessian-elements.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_thm_hessian_elements.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-hessian-score.qmd >}}
 
 {{< slidebreak >}}
 
@@ -172,6 +200,18 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_exm-information-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-deriv-log-density.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-score-mean-zero.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-score-second-moment.qmd >}}
 
 {{< slidebreak >}}
 
@@ -233,7 +273,23 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 #### Likelihood ratio tests for MLEs {#sec-lrt-mles}
 
-<!-- No slidebreak here: the heading shares its slide with the thm-wilks div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-lrt-stat div. -->
+
+{{< include sds/_subfiles/intro-MLEs/_def-lrt-stat.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-wilks-taylor.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-wilks-lrt-quadratic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_exr-wilks-std-gaussian.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/intro-MLEs/_thm-wilks.qmd >}}
 

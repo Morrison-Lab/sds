@@ -1,0 +1,26 @@
+:::{#exr-se-error-sd}
+#### Spread of the estimation error
+
+Show that the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd)
+of the [estimation error](#def-estimation-error) $\erf{\hth}$
+equals the [standard error](#def-SE) of $\hth$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+$$
+\begin{aligned}
+\Var{\erf{\hth}}
+&= \Var{\hth - \th}
+&& \text{(definition of estimation error)}\\
+&= \Var{\hth}
+&& \text{(subtracting a constant does not change a variance)}
+\end{aligned}
+$$
+
+Taking square roots of both sides,
+$\SD{\erf{\hth}} = \SD{\hth} = \SE{\hth}$.
+
+::::

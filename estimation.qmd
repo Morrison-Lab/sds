@@ -143,6 +143,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_exr-bias-exprs.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_thm-bias-exprs.qmd >}}
 
 {{< slidebreak >}}
@@ -159,11 +163,21 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_exr-sq-bias-expand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-bias-sq-plus-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-mse-expand.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_thm-mse-bias-variance.qmd >}}
 
-::: proof
-{{< include sds/_subfiles/proof-mse-bias-variance.qmd >}}
-:::
+{{< include sds/_subfiles/estimation/_proof-mse-bias-variance.qmd >}}
 
 {{< slidebreak >}}
 
@@ -188,6 +202,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/estimation/_exm-biased-variance-mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-unbiased-exp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-unbiased-mse.qmd >}}
 
 {{< slidebreak >}}
 
@@ -219,13 +241,25 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_exr-se-error-sd.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_thm-se-error-sd.qmd >}}
 
 {{< include sds/_subfiles/estimation/_note-SE.qmd >}}
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_exr-var-mse-bias.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_cor-var-mse-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-se-rmse-unbiased.qmd >}}
 
 {{< slidebreak >}}
 

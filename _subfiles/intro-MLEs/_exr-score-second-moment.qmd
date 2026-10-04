@@ -1,0 +1,48 @@
+:::{#exr-score-second-moment}
+#### Second moment of the score
+
+Under the assumptions of @exr-score-mean-zero,
+show that $\E{\score^2} = \einf(\th)$,
+the [expected information](#def-einf).
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+By @exr-score-mean-zero,
+$0 = \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx$
+for every $\th$.
+Differentiate this identity with respect to $\th$;
+the third step uses @exr-deriv-log-density:
+
+$$
+\begin{aligned}
+0
+&= \int \deriv{\th}\sb{\paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th)} d\vx
+&& \text{(exchange derivative and integral)}\\
+&= \int \paren{\frac{\partial^2}{\partial \th^2} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+ + \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \deriv{\th}\p(\vx \mid \th) \, d\vx
+&& \text{(product rule)}\\
+&= \E{\hess} + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
+&& \text{($\deriv{\th}\p = \paren{\deriv{\th}\log \p} \p$)}\\
+&= \E{\hess} + \E{\score^2}
+&& \text{(definition of expectation)}
+\end{aligned}
+$$
+
+Rearranging:
+
+$$
+\begin{aligned}
+\E{\score^2}
+&= \E{-\hess}
+&& \text{(subtract $\E{\hess}$ from both sides)}\\
+&= \E{\oinf}
+&& \text{(observed information is the negative Hessian)}\\
+&= \einf(\th)
+&& \text{(definition of expected information)}
+\end{aligned}
+$$
+
+::::
