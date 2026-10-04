@@ -13,13 +13,15 @@ Show that the [score](#def-score) has mean zero.
 
 :::{#sol-score-mean-zero}
 
-The second step uses @exr-deriv-log-density:
+The step that rewrites the derivative of $\log \p(\vx \mid \th)$ uses @exr-deriv-log-density:
 
 $$
 \begin{aligned}
 \E{\score}
-&= \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+&= \int \score \, \p(\vx \mid \th) \, d\vx
 && \text{(definition of expectation)}\\
+&= \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+&& \text{(definition of the score)}\\
 &= \int \frac{\deriv{\th} \p(\vx \mid \th)}{\p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
 && \text{(chain rule for $\log$)}\\
 &= \int \deriv{\th} \p(\vx \mid \th) \, d\vx

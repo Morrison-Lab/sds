@@ -13,13 +13,33 @@ and show that it is positive definite when $S_{xx} > 0$ (@def-centered-sums).
 Differentiate the gradient $-2 \paren{\v{c} - A \vcoef}$
 from @exr-normal-equations-vector
 with respect to $\tp{\vcoef}$.
-$\v{c}$ does not depend on $\vcoef$,
-and $A \vcoef$ is linear in $\vcoef$, so
+$\v{c}$ does not depend on $\vcoef$.
+Each entry of $A \vcoef$ is the dot product of a row of $A$ with $\vcoef$,
+so by the gradient of a linear function
+(@exr-rss-gradient-vector),
+the derivative of $A \vcoef$ with respect to $\tp{\vcoef}$ is $A$.
+So:
 
 $$
+\begin{aligned}
 \deriv{\vcoef} \deriv{\tp{\vcoef}} \text{RSS}(\vcoef)
-= 2 A
-= 2 \sumin \soprod{\vxi}.
+&= \deriv{\tp{\vcoef}} \paren{-2 \paren{\v{c} - A \vcoef}}
+&& \text{(differentiate the gradient)}\\
+&= -2 \deriv{\tp{\vcoef}} \paren{\v{c} - A \vcoef}
+&& \text{(constant factor)}\\
+&= -2 \paren{\deriv{\tp{\vcoef}} \v{c} - \deriv{\tp{\vcoef}} A \vcoef}
+&& \text{(derivative of a difference)}\\
+&= -2 \paren{\mat{0} - \deriv{\tp{\vcoef}} A \vcoef}
+&& \text{($\v{c}$ does not depend on $\vcoef$)}\\
+&= -2 \paren{\mat{0} - A}
+&& \text{(derivative of a linear function)}\\
+&= -2 \paren{-A}
+&& \text{(subtract from zero)}\\
+&= 2 A
+&& \text{(multiply)}\\
+&= 2 \sumin \soprod{\vxi}
+&& \text{(definition of $A$)}
+\end{aligned}
 $$
 
 To show it is positive definite,
@@ -28,13 +48,22 @@ take any vector $\v{v} = \tp{(v_0, v_x)} \neq \vzero$:
 $$
 \begin{aligned}
 \tp{\v{v}} \paren{2 A} \v{v}
-&= 2 \sumin \tp{\v{v}} \paren{\soprod{\vxi}} \v{v}
+&= 2 \, \tp{\v{v}} A \v{v}
+&& \text{(constant factor)}\\
+&= 2 \, \tp{\v{v}} \paren{\sumin \soprod{\vxi}} \v{v}
 && \text{(definition of $A$)}\\
+&= 2 \sumin \tp{\v{v}} \paren{\soprod{\vxi}} \v{v}
+&& \text{(matrix multiplication distributes over the sum)}\\
+&= 2 \sumin \paren{\tprod{\v{v}}{\vxi}} \paren{\tprod{\vxi}{\v{v}}}
+&& \text{(matrix multiplication is associative)}\\
+&= 2 \sumin \paren{\dprod{\v{v}}{\vxi}} \paren{\dprod{\vxi}{\v{v}}}
+&& \text{(transpose products as dot products)}\\
 &= 2 \sumin \paren{\dprod{\v{v}}{\vxi}}^2
-&& \text{($\tp{\v{v}} \vxi = \tp{\vxi} \v{v} = \dprod{\v{v}}{\vxi}$)}\\
+&& \text{(dot product is symmetric)}\\
 &= 2 \sumin \paren{v_0 + v_x x_i}^2
 && \text{(write out the dot product)}\\
 &\ge 0
+&& \text{(sum of squares)}
 \end{aligned}
 $$
 

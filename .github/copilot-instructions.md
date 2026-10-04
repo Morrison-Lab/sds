@@ -92,11 +92,22 @@ Split a long derivation into one exercise per step
 so no single solution packs several steps together.
 Define any notation the exercises use (such as $S_{xx}$) in its own definition before them,
 not inside the theorem that follows them.
+Inside each solution, give every displayed line exactly one operation
+(split a sum, sum a constant, factor out a constant, substitute one result, ...)
+and its own `&& \text{(reason)}` justification;
+never combine, say, the derivative-of-a-sum rule with the chain rule,
+or distributing a sum with substituting $\sum_i y_i = n \bar{y}$, in one line.
+Prove any fact a step relies on (such as deviations from the mean summing to zero)
+in its own exercise before citing it.
 
 ## Definitions: compact and general, then examples
 
 Keep each definition div to its defining statement, stated in the most general form the page needs
 (for example, define the residual sum of squares as $\sum_i r_i^2$ for any fitted model, not only for a line).
+State a technical definition in both prose and math: one sentence saying what the term means,
+and the formula, built from terms already defined
+(for example, $R^2 \eqdef 1 - \text{RSS} / \text{TSS}$, not the two sums written out,
+and the OLS estimate as $\est{\vth} \eqdef \argmin_{\vth} \text{RSS}(\vth)$, not only in words).
 Put special cases in example divs right after it, from the most general to the most specific
 (the simple linear regression case, then a numerical example),
 each linking back to the definition.

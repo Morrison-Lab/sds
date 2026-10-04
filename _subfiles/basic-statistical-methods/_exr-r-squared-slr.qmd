@@ -13,16 +13,30 @@ and show that $0 \le R^2 \le 1$.
 
 :::{#sol-r-squared-slr}
 
-The [total sum of squares](#def-tss) is $S_{yy}$,
+The [total sum of squares](#def-tss) is $S_{yy}$ (@def-centered-sums),
 and @exr-rss-ols-fit gives the residual sum of squares, so:
 
 $$
 \begin{aligned}
 R^2
+&= 1 - \frac{\text{RSS}}{\text{TSS}}
+&& \text{(definition of $R^2$)}\\
+&= 1 - \frac{\text{RSS}}{S_{yy}}
+&& \text{(TSS is $S_{yy}$)}\\
 &= 1 - \frac{S_{yy} - S_{xy}^2 / S_{xx}}{S_{yy}}
-&& \text{(substitute into the definition of $R^2$)}\\
+&& \text{(residual sum of squares of the OLS fit)}\\
+&= 1 - \paren{\frac{S_{yy}}{S_{yy}} - \frac{S_{xy}^2 / S_{xx}}{S_{yy}}}
+&& \text{(split the fraction)}\\
+&= 1 - \paren{1 - \frac{S_{xy}^2 / S_{xx}}{S_{yy}}}
+&& \text{($S_{yy} / S_{yy} = 1$)}\\
+&= 1 - 1 + \frac{S_{xy}^2 / S_{xx}}{S_{yy}}
+&& \text{(distribute the minus sign)}\\
+&= \frac{S_{xy}^2 / S_{xx}}{S_{yy}}
+&& \text{($1 - 1 = 0$)}\\
 &= \frac{S_{xy}^2}{S_{xx} S_{yy}}
-&& \text{(simplify)}\\
+&& \text{(divide a fraction by $S_{yy}$)}\\
+&= \paren{\frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}}^2
+&& \text{(write as a square)}\\
 &= r^2
 && \text{($r = S_{xy} / \sqrt{S_{xx} S_{yy}}$)}
 \end{aligned}

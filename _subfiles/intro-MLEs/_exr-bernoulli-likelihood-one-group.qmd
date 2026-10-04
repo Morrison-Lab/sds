@@ -32,8 +32,12 @@ $$
 && \text{(definition of likelihood components)}\\
 &= \prodin \pi^{y_i} (1 - \pi)^{1 - y_i}
 && \text{(Bernoulli PMF)}\\
+&= \paren{\prodin \pi^{y_i}} \paren{\prodin (1 - \pi)^{1 - y_i}}
+&& \text{(regroup the factors of the product)}\\
 &= \pi^{\sumin y_i} (1 - \pi)^{\sumin (1 - y_i)}
 && \text{(product of powers of a common base)}\\
+&= \pi^{\sumin y_i} (1 - \pi)^{\sumin 1 - \sumin y_i}
+&& \text{(split the sum in the exponent)}\\
 &= \pi^{\sumin y_i} (1 - \pi)^{n - \sumin y_i}
 && \text{($\textstyle\sumin 1 = n$)}
 \end{aligned}

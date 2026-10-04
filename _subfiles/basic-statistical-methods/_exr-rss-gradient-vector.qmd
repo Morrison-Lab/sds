@@ -10,20 +10,43 @@ rather than one component at a time.
 
 :::{#sol-rss-gradient-vector}
 
-By the chain rule applied to each term of the sum:
+Differentiate one operation at a time,
+starting from the definition of $\text{RSS}(\vcoef)$:
 
 $$
+\begin{aligned}
 \deriv{\vcoef} \text{RSS}(\vcoef)
-= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}}
-  \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}.
+&= \deriv{\vcoef} \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2\\
+&= \sumin \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}^2
+&& \text{(derivative of a sum)}\\
+&= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}}
+  \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}
+&& \text{(chain rule)}
+\end{aligned}
 $$
 
 For the inner derivative, we need the gradient of a linear function.
-For any constant vector $\v{a} = \tp{(a_0, a_x)}$,
-$\dprod{\v{a}}{\vcoef} = a_0 \intcoef + a_x \coef{x}$,
-whose partial derivatives with respect to $\intcoef$ and $\coef{x}$
-are $a_0$ and $a_x$;
-so $\deriv{\vcoef} \dprod{\v{a}}{\vcoef} = \v{a}$.
+For any constant vector $\v{a} = \tp{(a_0, a_x)}$:
+
+$$
+\begin{aligned}
+\deriv{\vcoef} \dprod{\v{a}}{\vcoef}
+&= \deriv{\vcoef} \paren{a_0 \intcoef + a_x \coef{x}}
+&& \text{(write out the dot product)}\\
+&= \begin{pmatrix}
+  \frac{\partial}{\partial \intcoef} \paren{a_0 \intcoef + a_x \coef{x}} \\
+  \frac{\partial}{\partial \coef{x}} \paren{a_0 \intcoef + a_x \coef{x}}
+  \end{pmatrix}
+&& \text{(definition of the gradient)}\\
+&= \begin{pmatrix} a_0 + 0 \\ 0 + a_x \end{pmatrix}
+&& \text{(derivative of each term)}\\
+&= \begin{pmatrix} a_0 \\ a_x \end{pmatrix}
+&& \text{(add zero)}\\
+&= \v{a}
+&& \text{(definition of $\v{a}$)}
+\end{aligned}
+$$
+
 With $\v{a} = \vxi$:
 
 $$
@@ -31,17 +54,29 @@ $$
 \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}
 &= \deriv{\vcoef} y_i - \deriv{\vcoef} \dprod{\vxi}{\vcoef}
 && \text{(derivative of a difference)}\\
+&= \vzero - \deriv{\vcoef} \dprod{\vxi}{\vcoef}
+&& \text{($y_i$ does not depend on $\vcoef$)}\\
 &= \vzero - \vxi
-&& \text{($y_i$ does not depend on $\vcoef$; gradient of a linear function)}\\
+&& \text{(gradient of a linear function)}\\
 &= -\vxi
+&& \text{(subtract from zero)}
 \end{aligned}
 $$
 
 Plugging the inner derivative back in:
 
 $$
+\begin{aligned}
 \deriv{\vcoef} \text{RSS}(\vcoef)
-= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}.
+&= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}} \paren{-\vxi}
+&& \text{(inner derivative is $-\vxi$)}\\
+&= \sumin 2 \paren{-\vxi} \paren{y_i - \dprod{\vxi}{\vcoef}}
+&& \text{(reorder the scalar and vector factors)}\\
+&= \sumin \paren{-2} \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
+&& \text{($2 \paren{-\vxi} = -2 \vxi$)}\\
+&= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
+&& \text{(constant factor out of the sum)}
+\end{aligned}
 $$
 
 :::

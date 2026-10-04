@@ -8,15 +8,33 @@ the score is $\score = \sum_{i=1}^n X_i/\rate - n$
 $$
 \begin{aligned}
 \E{\score}
+&= \E{\frac{\sum_{i=1}^n X_i}{\rate} - n}
+&& \text{(Poisson score)}\\
 &= \frac{\sum_{i=1}^n \E{X_i}}{\rate} - n
 && \text{(linearity of expectation)}\\
-&= \frac{n\rate}{\rate} - n = 0
+&= \frac{\sum_{i=1}^n \rate}{\rate} - n
 && \text{($\E{X_i} = \rate$)}\\
+&= \frac{n\rate}{\rate} - n
+&& \text{(sum of $n$ copies of $\rate$)}\\
+&= n - n
+&& \text{(cancel $\rate$)}\\
+&= 0
+&& \text{(subtract)}\\
 \Var{\score}
+&= \Var{\frac{\sum_{i=1}^n X_i}{\rate} - n}
+&& \text{(Poisson score)}\\
+&= \Var{\frac{\sum_{i=1}^n X_i}{\rate}}
+&& \text{(subtracting a constant does not change a variance)}\\
+&= \frac{\Var{\sum_{i=1}^n X_i}}{\rate^2}
+&& \text{($\Var{aY} = a^2 \Var{Y}$)}\\
 &= \frac{\sum_{i=1}^n \Var{X_i}}{\rate^2}
-&& \text{(variance of a sum of independent variables; constants)}\\
-&= \frac{n\rate}{\rate^2} = \frac{n}{\rate}
-&& \text{($\Var{X_i} = \rate$)}
+&& \text{(variance of a sum of independent variables)}\\
+&= \frac{\sum_{i=1}^n \rate}{\rate^2}
+&& \text{($\Var{X_i} = \rate$)}\\
+&= \frac{n\rate}{\rate^2}
+&& \text{(sum of $n$ copies of $\rate$)}\\
+&= \frac{n}{\rate}
+&& \text{(cancel one factor of $\rate$)}
 \end{aligned}
 $$
 

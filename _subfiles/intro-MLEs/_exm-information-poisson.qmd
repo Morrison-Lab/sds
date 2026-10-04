@@ -10,15 +10,21 @@ the Hessian is $\hess = -\sum_{i=1}^n x_i / \rate^2$, so:
 $$
 \begin{aligned}
 \oinf(\rate)
-&= \frac{\sum_{i=1}^n x_i}{\rate^2}
+&= -\hess
 && \text{(observed information: negative Hessian)}\\
+&= -\paren{-\frac{\sum_{i=1}^n x_i}{\rate^2}}
+&& \text{(substitute the Hessian)}\\
+&= \frac{\sum_{i=1}^n x_i}{\rate^2}
+&& \text{(two negatives make a positive)}\\
 \einf(\rate)
 &= \E{\frac{\sum_{i=1}^n X_i}{\rate^2}}
 && \text{(expected information)}\\
 &= \frac{\sum_{i=1}^n \E{X_i}}{\rate^2}
 && \text{(linearity of expectation)}\\
-&= \frac{n\rate}{\rate^2}
+&= \frac{\sum_{i=1}^n \rate}{\rate^2}
 && \text{($\E{X_i} = \rate$)}\\
+&= \frac{n\rate}{\rate^2}
+&& \text{(sum of $n$ copies of $\rate$)}\\
 &= \frac{n}{\rate}
 && \text{(cancel one factor of $\rate$)}
 \end{aligned}

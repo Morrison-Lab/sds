@@ -12,7 +12,19 @@ by the law of large numbers and the consistency of $\hthml$;
 this sketch assumes that step rather than proving it.
 So, with $Z$ as in @exr-wilks-std-gaussian:
 
-$$\Lambda \approx \einf(\th_0)(\hthml - \th_0)^2 = Z^2$$
+$$
+\begin{aligned}
+\Lambda
+&\approx \oinf(\hthml)(\hthml - \th_0)^2
+&& \text{(quadratic approximation to $\Lambda$)}\\
+&\approx \einf(\th_0)(\hthml - \th_0)^2
+&& \text{($\oinf(\hthml)/\einf(\th_0) \to 1$)}\\
+&= \paren{\sqrt{\einf(\th_0)}\,(\hthml - \th_0)}^2
+&& \text{(write the product as a square)}\\
+&= Z^2
+&& \text{(definition of $Z$)}
+\end{aligned}
+$$
 
 By @thm-dist-mle, $\hthml \dsim \ndist{\th_0, \einf(\th_0)^{-1}}$ under $H_0$,
 so by @exr-wilks-std-gaussian,

@@ -1,7 +1,9 @@
 :::{#def-power}
 #### Power
 
-The **power** of a hypothesis test against an alternative parameter value
-is the probability that the test rejects the null hypothesis
-when the parameter equals that alternative value.
+The **power** of a hypothesis test of $H_0$ against an alternative parameter value $\th_1$
+is the probability that the test rejects $H_0$
+when the parameter equals $\th_1$:
+
+$$\text{power}(\th_1) \eqdef \Prf{\text{reject } H_0 \mid \th = \th_1}.$$
 :::

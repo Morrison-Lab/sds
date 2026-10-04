@@ -11,12 +11,20 @@ and write it in terms of $\bar{x}$ and $\bar{y}$.
 
 :::{#sol-rss-deriv-intercept}
 
-By the chain rule applied to each term of the sum:
+Differentiate one operation at a time,
+starting from the definition (@exm-rss-slr):
 
 $$
+\begin{aligned}
 \frac{\partial \text{RSS}}{\partial \intcoef}
-= \sumin 2 (y_i - \intcoef - \coef{x} x_i)
-  \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i).
+&= \frac{\partial}{\partial \intcoef} \sumin (y_i - \intcoef - \coef{x} x_i)^2
+&& \text{(definition of RSS)}\\
+&= \sumin \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)^2
+&& \text{(derivative of a sum)}\\
+&= \sumin 2 (y_i - \intcoef - \coef{x} x_i)
+  \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)
+&& \text{(chain rule)}
+\end{aligned}
 $$
 
 The inner derivative:
@@ -39,10 +47,22 @@ Plugging the inner derivative back in:
 $$
 \begin{aligned}
 \frac{\partial \text{RSS}}{\partial \intcoef}
-&= -2 \sumin (y_i - \intcoef - \coef{x} x_i)
+&= \sumin 2 (y_i - \intcoef - \coef{x} x_i) (-1)
 && \text{(inner derivative is $-1$)}\\
+&= \sumin -2 (y_i - \intcoef - \coef{x} x_i)
+&& \text{(multiply $2$ by $-1$)}\\
+&= -2 \sumin (y_i - \intcoef - \coef{x} x_i)
+&& \text{(constant factor out of the sum)}\\
+&= -2 \paren{\sumin y_i - \sumin \intcoef - \sumin \coef{x} x_i}
+&& \text{(split the sum)}\\
+&= -2 \paren{\sumin y_i - n \intcoef - \sumin \coef{x} x_i}
+&& \text{(sum of a constant)}\\
+&= -2 \paren{\sumin y_i - n \intcoef - \coef{x} \sumin x_i}
+&& \text{(constant factor out of the sum)}\\
+&= -2 \paren{n \bar{y} - n \intcoef - \coef{x} \sumin x_i}
+&& \text{($\sumin y_i = n \bar{y}$)}\\
 &= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
-&& \text{($\sum_i y_i = n\bar{y}$, $\sum_i x_i = n\bar{x}$)}
+&& \text{($\sumin x_i = n \bar{x}$)}
 \end{aligned}
 $$
 

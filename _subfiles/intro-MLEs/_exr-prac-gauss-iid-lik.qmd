@@ -23,11 +23,28 @@ $$
 **(a)**
 
 $$
+\ba
 \Lik(\mu, \sigma^2; \vx)
-= \prod_{i=1}^n (2\pi\sigma^2)^{-1/2}
+&= \prod_{i=1}^n (2\pi\sigma^2)^{-1/2}
   \expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}
-= (2\pi\sigma^2)^{-n/2}
+&& \text{(likelihood of an $\iid$ sample)}
+\\
+&= \paren{\prod_{i=1}^n (2\pi\sigma^2)^{-1/2}}
+  \paren{\prod_{i=1}^n \expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}
+&& \text{(regroup the factors of the product)}
+\\
+&= (2\pi\sigma^2)^{-n/2}
+  \prod_{i=1}^n \expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}
+&& \text{(product of $n$ copies of a power)}
+\\
+&= (2\pi\sigma^2)^{-n/2}
+  \expf{\sum_{i=1}^n -\frac{(x_i - \mu)^2}{2\sigma^2}}
+&& \text{(product of exponentials)}
+\\
+&= (2\pi\sigma^2)^{-n/2}
   \expf{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2}
+&& \text{(factor the constant out of the sum)}
+\ea
 $$
 
 **(b)**
@@ -36,9 +53,23 @@ $$
 \ba
 \ell(\mu, \sigma^2; \vx)
 &= \logf{\Lik(\mu, \sigma^2; \vx)}
+&& \text{(definition of the log-likelihood)}
+\\
+&= \logf{(2\pi\sigma^2)^{-n/2}
+  \expf{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2}}
+&& \text{(likelihood from (a))}
+\\
+&= \logf{(2\pi\sigma^2)^{-n/2}}
+  + \logf{\expf{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2}}
+&& \text{(log of a product)}
+\\
+&= -\frac{n}{2}\logf{2\pi\sigma^2}
+  + \logf{\expf{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i-\mu)^2}}
+&& \text{(log of a power)}
 \\
 &= -\frac{n}{2}\logf{2\pi\sigma^2}
    - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{($\log$ undoes $\exp$)}
 \ea
 $$
 
@@ -50,10 +81,60 @@ $$
 \ba
 \deriv{\mu}\ell
 &= \deriv{\mu}\sb{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(the first term of $\ell$ does not depend on $\mu$)}
+\\
+&= -\frac{1}{2\sigma^2}\deriv{\mu}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(constant multiple rule)}
+\\
+&= -\frac{1}{2\sigma^2}\sum_{i=1}^n \deriv{\mu}(x_i - \mu)^2
+&& \text{(derivative of a sum is the sum of derivatives)}
+\\
+&= -\frac{1}{2\sigma^2}\sum_{i=1}^n 2(x_i - \mu)\deriv{\mu}(x_i - \mu)
+&& \text{(chain rule, outer function $u^2$)}
+\ea
+$$
+
+The inner derivative is:
+
+$$
+\ba
+\deriv{\mu}(x_i - \mu)
+&= \deriv{\mu} x_i - \deriv{\mu} \mu
+&& \text{(linearity of differentiation)}
+\\
+&= 0 - \deriv{\mu} \mu
+&& \text{($x_i$ does not depend on $\mu$)}
+\\
+&= 0 - 1
+&& \text{(derivative of $\mu$ with respect to itself)}
+\\
+&= -1
+&& \text{(subtract)}
+\ea
+$$
+
+Substituting the inner derivative back in:
+
+$$
+\ba
+\deriv{\mu}\ell
+&= -\frac{1}{2\sigma^2}\sum_{i=1}^n 2(x_i - \mu) \cdot (-1)
+&& \text{(inner derivative is $-1$)}
+\\
+&= -\frac{1}{2\sigma^2}\sum_{i=1}^n -2(x_i - \mu)
+&& \text{(multiply)}
+\\
+&= -\frac{1}{2\sigma^2} \cdot (-2) \sum_{i=1}^n (x_i - \mu)
+&& \text{(factor the constant $-2$ out of the sum)}
 \\
 &= \frac{1}{\sigma^2}\sum_{i=1}^n (x_i - \mu)
+&& \text{(multiply the constants)}
+\\
+&= \frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - \sum_{i=1}^n \mu}
+&& \text{(split the sum)}
 \\
 &= \frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - n\mu}
+&& \text{(sum of $n$ copies of $\mu$)}
 \ea
 $$
 
@@ -64,7 +145,40 @@ Setting this to zero: $\hat\mu_{ML} = \bar{x} \eqdef \frac{1}{n}\sum_{i=1}^n x_i
 $$
 \ba
 \deriv{\sigma^2}\ell
+&= \deriv{\sigma^2}\sb{-\frac{n}{2}\logf{2\pi\sigma^2}
+   - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(log-likelihood from (b))}
+\\
+&= \deriv{\sigma^2}\sb{-\frac{n}{2}\paren{\logf{2\pi} + \logf{\sigma^2}}
+   - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(log of a product)}
+\\
+&= \deriv{\sigma^2}\sb{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
+   - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(distribute $-\tfrac{n}{2}$)}
+\\
+&= \deriv{\sigma^2}\sb{- \frac{n}{2}\logf{\sigma^2}
+   - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(the first term does not depend on $\sigma^2$)}
+\\
+&= \deriv{\sigma^2}\sb{- \frac{n}{2}\logf{\sigma^2}
+   - \frac{1}{2}(\sigma^2)^{-1}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(write $\tfrac{1}{2\sigma^2}$ as $\tfrac{1}{2}(\sigma^2)^{-1}$)}
+\\
+&= -\frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
+   - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}(\sigma^2)^{-1}
+&& \text{(linearity of differentiation)}
+\\
+&= -\frac{n}{2\sigma^2}
+   - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}(\sigma^2)^{-1}
+&& \text{(derivative of $\log$)}
+\\
+&= -\frac{n}{2\sigma^2}
+   - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \paren{-(\sigma^2)^{-2}}
+&& \text{(power rule)}
+\\
 &= -\frac{n}{2\sigma^2} + \frac{1}{2(\sigma^2)^2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(multiply)}
 \ea
 $$
 
@@ -72,11 +186,21 @@ Setting this to zero and solving:
 
 $$
 \ba
+0
+&= -\frac{n}{2\sigma^2} + \frac{1}{2(\sigma^2)^2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(set the derivative to zero)}
+\\
 \frac{n}{2\sigma^2}
 &= \frac{1}{2(\sigma^2)^2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(add $\tfrac{n}{2\sigma^2}$ to both sides)}
+\\
+n\sigma^2
+&= \sum_{i=1}^n (x_i - \mu)^2
+&& \text{(multiply both sides by $2(\sigma^2)^2$)}
 \\
 \sigma^2
 &= \frac{1}{n}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(divide both sides by $n$)}
 \ea
 $$
 

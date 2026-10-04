@@ -24,8 +24,11 @@ $$
 &\approx \llik(\hthml) + \score(\hthml)(\th_0 - \hthml)
  + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2
 && \text{(Taylor expansion)}\\
+&= \llik(\hthml) + 0 \cdot (\th_0 - \hthml)
+ + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2
+&& \text{($\score(\hthml) = 0$)}\\
 &= \llik(\hthml) + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2
-&& \text{($\score(\hthml) = 0$)}
+&& \text{(drop the zero term)}
 \end{aligned}
 $$
 

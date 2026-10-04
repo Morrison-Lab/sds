@@ -14,20 +14,36 @@ By @exr-score-mean-zero,
 $0 = \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx$
 for every $\th$.
 Differentiate this identity with respect to $\th$;
-the third step uses @exr-deriv-log-density:
+the step that substitutes for $\deriv{\th}\p(\vx \mid \th)$ uses @exr-deriv-log-density:
 
 $$
 \begin{aligned}
+\deriv{\th} 0
+&= \deriv{\th} \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+&& \text{(differentiate both sides)}\\
 0
+&= \deriv{\th} \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+&& \text{(derivative of a constant)}\\
 &= \int \deriv{\th}\sb{\paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th)} d\vx
 && \text{(exchange derivative and integral)}\\
 &= \int \paren{\frac{\partial^2}{\partial \th^2} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
  + \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \deriv{\th}\p(\vx \mid \th) \, d\vx
 && \text{(product rule)}\\
-&= \E{\hess} + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
+&= \int \paren{\frac{\partial^2}{\partial \th^2} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+ + \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \paren{\deriv{\th}\log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
 && \text{($\deriv{\th}\p = \paren{\deriv{\th}\log \p} \p$)}\\
+&= \int \paren{\frac{\partial^2}{\partial \th^2} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+ + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
+&& \text{(product of two equal factors is a square)}\\
+&= \E{\frac{\partial^2}{\partial \th^2} \log \p(\vX \mid \th)}
+ + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
+&& \text{(definition of expectation)}\\
+&= \E{\hess} + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
+&& \text{(definition of the Hessian)}\\
+&= \E{\hess} + \E{\paren{\deriv{\th} \log \p(\vX \mid \th)}^2}
+&& \text{(definition of expectation)}\\
 &= \E{\hess} + \E{\score^2}
-&& \text{(definition of expectation)}
+&& \text{(definition of the score)}
 \end{aligned}
 $$
 
@@ -36,8 +52,10 @@ Rearranging:
 $$
 \begin{aligned}
 \E{\score^2}
-&= \E{-\hess}
+&= -\E{\hess}
 && \text{(subtract $\E{\hess}$ from both sides)}\\
+&= \E{-\hess}
+&& \text{(linearity of expectation)}\\
 &= \E{\oinf}
 && \text{(observed information is the negative Hessian)}\\
 &= \einf(\th)

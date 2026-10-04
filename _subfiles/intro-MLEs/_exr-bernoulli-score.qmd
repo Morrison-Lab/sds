@@ -25,16 +25,50 @@ $$
 && \text{(Bernoulli log-likelihood)}\\
 &= x \deriv{\pi} \logf{\pi} + (1 - x) \deriv{\pi} \logf{1 - \pi}
 && \text{(linearity of differentiation)}\\
+&= x \frac{1}{\pi} + (1 - x) \deriv{\pi} \logf{1 - \pi}
+&& \text{(derivative of $\log$)}\\
+&= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} \deriv{\pi}(1 - \pi)
+&& \text{(chain rule)}
+\end{aligned}
+$$
+
+The inner derivative is:
+
+$$
+\begin{aligned}
+\deriv{\pi}(1 - \pi)
+&= \deriv{\pi} 1 - \deriv{\pi} \pi
+&& \text{(linearity of differentiation)}\\
+&= 0 - \deriv{\pi} \pi
+&& \text{(derivative of a constant)}\\
+&= 0 - 1
+&& \text{(derivative of $\pi$ with respect to itself)}\\
+&= -1
+&& \text{(subtract)}
+\end{aligned}
+$$
+
+Substituting the inner derivative back in:
+
+$$
+\begin{aligned}
+\score
+&= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} (-1)
+&& \text{(inner derivative is $-1$)}\\
 &= x \frac{1}{\pi} - (1 - x) \frac{1}{1 - \pi}
-&& \text{(derivative of log; chain rule)}\\
+&& \text{(multiply by $-1$)}\\
+&= \frac{x(1 - \pi)}{\pi(1 - \pi)} - \frac{(1 - x)\pi}{\pi(1 - \pi)}
+&& \text{(write both terms over the common denominator)}\\
 &= \frac{x(1 - \pi) - (1 - x)\pi}{\pi(1 - \pi)}
-&& \text{(common denominator)}\\
+&& \text{(combine the fractions)}\\
 &= \frac{x - x\pi - \pi + x\pi}{\pi(1 - \pi)}
 && \text{(expand the numerator)}\\
 &= \frac{x - \pi}{\pi(1 - \pi)}
 && \text{(cancel $x\pi$)}\\
+&= \frac{x - \E{X}}{\pi(1 - \pi)}
+&& \text{($\E{X} = \pi$)}\\
 &= \frac{x - \E{X}}{\Var{X}}
-&& \text{($\E{X} = \pi$ and $\Var{X} = \pi(1 - \pi)$)}
+&& \text{($\Var{X} = \pi(1 - \pi)$)}
 \end{aligned}
 $$
 

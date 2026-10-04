@@ -20,8 +20,10 @@ $$
 && \text{(expand the binomial square)}\\
 &= \E{\hth^2} - \E{2\hth\th} + \E{\th^2}
 && \text{(linearity of expectation)}\\
+&= \E{\hth^2} - 2\E{\hth}\th + \E{\th^2}
+&& \text{(factor the constant $2\th$ out of the middle expectation)}\\
 &= \E{\hth^2} - 2\E{\hth}\th + \th^2
-&& \text{($\th$ is a constant)}
+&& \text{(the expectation of a constant is that constant)}
 \end{aligned}
 $$
 

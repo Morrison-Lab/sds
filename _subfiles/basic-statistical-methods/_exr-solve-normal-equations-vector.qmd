@@ -14,21 +14,90 @@ and compare the result with @exr-solve-normal-equations.
 Write out the entries of each term of $A$ and $\v{c}$, then add them up:
 
 $$
-A = \sumin \begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix}
-= \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sumin x_i^2 \end{pmatrix},
-\qquad
-\v{c} = \sumin \begin{pmatrix} y_i \\ x_i y_i \end{pmatrix}
-= \begin{pmatrix} n\bar{y} \\ \sumin x_i y_i \end{pmatrix}.
+\begin{aligned}
+A
+&= \sumin \soprod{\vxi}
+&& \text{(definition of $A$)}\\
+&= \sumin \begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix}
+&& \text{(outer product of $\vxi$)}\\
+&= \begin{pmatrix} \sumin 1 & \sumin x_i \\ \sumin x_i & \sumin x_i^2 \end{pmatrix}
+&& \text{(matrices add entrywise)}\\
+&= \begin{pmatrix} n & \sumin x_i \\ \sumin x_i & \sumin x_i^2 \end{pmatrix}
+&& \text{(sum of a constant)}\\
+&= \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sumin x_i^2 \end{pmatrix}
+&& \text{($\sumin x_i = n \bar{x}$)}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\v{c}
+&= \sumin \vxi y_i
+&& \text{(definition of $\v{c}$)}\\
+&= \sumin \begin{pmatrix} y_i \\ x_i y_i \end{pmatrix}
+&& \text{(scalar times a vector)}\\
+&= \begin{pmatrix} \sumin y_i \\ \sumin x_i y_i \end{pmatrix}
+&& \text{(vectors add entrywise)}\\
+&= \begin{pmatrix} n\bar{y} \\ \sumin x_i y_i \end{pmatrix}
+&& \text{($\sumin y_i = n \bar{y}$)}
+\end{aligned}
 $$
 
 The determinant of $A$ is
 
 $$
-n \sumin x_i^2 - n^2 \bar{x}^2 = n S_{xx} > 0,
+\begin{aligned}
+\det A
+&= n \sumin x_i^2 - \paren{n\bar{x}} \paren{n\bar{x}}
+&& \text{(determinant of a $2 \times 2$ matrix)}\\
+&= n \sumin x_i^2 - n^2 \bar{x}^2
+&& \text{(multiply)}\\
+&= n \paren{\sumin x_i^2 - n \bar{x}^2}
+&& \text{(factor out $n$)}\\
+&= n S_{xx}
+&& \text{(expansion of $S_{xx}$)}
+\end{aligned}
 $$
 
+where the last step uses @exr-sxx-expand.
+Since $n > 0$ and $S_{xx} > 0$, $\det A > 0$,
 so $A$ is invertible,
-and $A \vcoef = \v{c}$ has exactly one solution:
+and $A \vcoef = \v{c}$ has exactly one solution, $A^{-1} \v{c}$.
+
+To simplify $A^{-1} \v{c}$, we need two expansions of uncentered sums.
+Adding $n \bar{x}^2$ to both sides of @exr-sxx-expand gives
+$\sumin x_i^2 = S_{xx} + n \bar{x}^2$.
+The cross-product sum expands the same way:
+
+$$
+\begin{aligned}
+S_{xy}
+&= \sumin (x_i - \bar{x})(y_i - \bar{y})
+&& \text{(definition of $S_{xy}$)}\\
+&= \sumin \paren{x_i y_i - x_i \bar{y} - \bar{x} y_i + \bar{x} \bar{y}}
+&& \text{(expand the product)}\\
+&= \sumin x_i y_i - \sumin x_i \bar{y} - \sumin \bar{x} y_i + \sumin \bar{x} \bar{y}
+&& \text{(sum of a sum)}\\
+&= \sumin x_i y_i - \bar{y} \sumin x_i - \sumin \bar{x} y_i + \sumin \bar{x} \bar{y}
+&& \text{(constant factor out of the sum)}\\
+&= \sumin x_i y_i - \bar{y} \sumin x_i - \bar{x} \sumin y_i + \sumin \bar{x} \bar{y}
+&& \text{(constant factor out of the sum)}\\
+&= \sumin x_i y_i - \bar{y} \sumin x_i - \bar{x} \sumin y_i + n \bar{x} \bar{y}
+&& \text{(sum of a constant)}\\
+&= \sumin x_i y_i - \bar{y} \paren{n \bar{x}} - \bar{x} \sumin y_i + n \bar{x} \bar{y}
+&& \text{($\sumin x_i = n \bar{x}$)}\\
+&= \sumin x_i y_i - \bar{y} \paren{n \bar{x}} - \bar{x} \paren{n \bar{y}} + n \bar{x} \bar{y}
+&& \text{($\sumin y_i = n \bar{y}$)}\\
+&= \sumin x_i y_i - n \bar{x} \bar{y} - n \bar{x} \bar{y} + n \bar{x} \bar{y}
+&& \text{(reorder the factors)}\\
+&= \sumin x_i y_i - n \bar{x} \bar{y}
+&& \text{(combine like terms)}
+\end{aligned}
+$$
+
+Adding $n \bar{x} \bar{y}$ to both sides gives
+$\sumin x_i y_i = S_{xy} + n \bar{x} \bar{y}$.
+Now compute the solution:
 
 $$
 \begin{aligned}
@@ -36,24 +105,89 @@ A^{-1} \v{c}
 &= \frac{1}{n S_{xx}}
   \begin{pmatrix} \sumin x_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix}
   \begin{pmatrix} n\bar{y} \\ \sumin x_i y_i \end{pmatrix}
-&& \text{(inverse of a $2 \times 2$ matrix)}\\
+&& \text{(inverse of a $2 \times 2$ matrix; $\det A = n S_{xx}$)}\\
+&= \frac{1}{n S_{xx}}
+  \begin{pmatrix}
+  \sumin x_i^2 \cdot n\bar{y} + \paren{-n\bar{x}} \sumin x_i y_i \\
+  \paren{-n\bar{x}} \cdot n\bar{y} + n \sumin x_i y_i
+  \end{pmatrix}
+&& \text{(matrix times a vector)}\\
+&= \frac{1}{n S_{xx}}
+  \begin{pmatrix}
+  n \bar{y} \sumin x_i^2 - n \bar{x} \sumin x_i y_i \\
+  -n^2 \bar{x} \bar{y} + n \sumin x_i y_i
+  \end{pmatrix}
+&& \text{(multiply out the products)}\\
+&= \frac{1}{n S_{xx}} \, n
+  \begin{pmatrix}
+  \bar{y} \sumin x_i^2 - \bar{x} \sumin x_i y_i \\
+  -n \bar{x} \bar{y} + \sumin x_i y_i
+  \end{pmatrix}
+&& \text{(factor $n$ out of the vector)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} \sumin x_i^2 - \bar{x} \sumin x_i y_i \\
+  -n \bar{x} \bar{y} + \sumin x_i y_i
+  \end{pmatrix}
+&& \text{(cancel $n$)}\\
 &= \frac{1}{S_{xx}}
   \begin{pmatrix}
   \bar{y} \sumin x_i^2 - \bar{x} \sumin x_i y_i \\
   \sumin x_i y_i - n \bar{x} \bar{y}
   \end{pmatrix}
-&& \text{(multiply, cancel $n$)}\\
+&& \text{(reorder the terms of the second entry)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} \paren{S_{xx} + n\bar{x}^2} - \bar{x} \sumin x_i y_i \\
+  \sumin x_i y_i - n \bar{x} \bar{y}
+  \end{pmatrix}
+&& \text{($\sumin x_i^2 = S_{xx} + n\bar{x}^2$)}\\
 &= \frac{1}{S_{xx}}
   \begin{pmatrix}
   \bar{y} \paren{S_{xx} + n\bar{x}^2} - \bar{x} \paren{S_{xy} + n\bar{x}\bar{y}} \\
+  \paren{S_{xy} + n\bar{x}\bar{y}} - n \bar{x} \bar{y}
+  \end{pmatrix}
+&& \text{($\sumin x_i y_i = S_{xy} + n\bar{x}\bar{y}$)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} S_{xx} + \bar{y} n\bar{x}^2 - \bar{x} S_{xy} - \bar{x} n\bar{x}\bar{y} \\
+  S_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y}
+  \end{pmatrix}
+&& \text{(distribute)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} S_{xx} + n\bar{x}^2\bar{y} - \bar{x} S_{xy} - n\bar{x}\bar{x}\bar{y} \\
+  S_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y}
+  \end{pmatrix}
+&& \text{(reorder the factors)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} S_{xx} + n\bar{x}^2\bar{y} - \bar{x} S_{xy} - n\bar{x}^2\bar{y} \\
+  S_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y}
+  \end{pmatrix}
+&& \text{($\bar{x} \bar{x} = \bar{x}^2$)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} S_{xx} - \bar{x} S_{xy} \\
+  S_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y}
+  \end{pmatrix}
+&& \text{(first entry: cancel $\pm n\bar{x}^2\bar{y}$)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} S_{xx} - \bar{x} S_{xy} \\
   S_{xy}
   \end{pmatrix}
-&& \text{($\sumin x_i^2 = S_{xx} + n\bar{x}^2$, $\sumin x_i y_i = S_{xy} + n\bar{x}\bar{y}$)}\\
+&& \text{(second entry: cancel $\pm n\bar{x}\bar{y}$)}\\
+&= \begin{pmatrix}
+  \bar{y} S_{xx} / S_{xx} - \bar{x} \, S_{xy} / S_{xx} \\
+  S_{xy} / S_{xx}
+  \end{pmatrix}
+&& \text{(multiply each entry by $1 / S_{xx}$)}\\
 &= \begin{pmatrix}
   \bar{y} - \bar{x} \, S_{xy} / S_{xx} \\
   S_{xy} / S_{xx}
   \end{pmatrix}
-&& \text{(first component: cancel $\pm n\bar{x}^2\bar{y}$)}
+&& \text{(cancel $S_{xx}$)}
 \end{aligned}
 $$
 

@@ -14,18 +14,26 @@ $$
 \maelr{\hth}
 &= \E{\abs{\tau Z}}
 && \text{(definition of MAE)}\\
+&= \E{\tau \abs{Z}}
+&& \text{($\abs{\tau Z} = \tau \abs{Z}$ because $\tau > 0$)}\\
 &= \tau \E{\abs{Z}}
-&& \text{($\tau > 0$ and linearity of expectation)}\\
+&& \text{(linearity of expectation)}\\
 &= \tau \int_{-\infty}^{\infty} \abs{z} \phi(z) \, dz
 && \text{(expectation of a function of $Z$)}\\
-&= 2\tau \int_{0}^{\infty} z \phi(z) \, dz
+&= 2\tau \int_{0}^{\infty} \abs{z} \phi(z) \, dz
 && \text{($\abs{z}\phi(z)$ is symmetric about 0)}\\
+&= 2\tau \int_{0}^{\infty} z \phi(z) \, dz
+&& \text{($\abs{z} = z$ for $z \ge 0$)}\\
 &= 2\tau \sb{-\phi(z)}_{0}^{\infty}
 && \text{($\phi'(z) = -z\phi(z)$)}\\
+&= 2\tau \paren{\lim_{z \to \infty} \sb{-\phi(z)} + \phi(0)}
+&& \text{(evaluate at the limits)}\\
 &= 2\tau \phi(0)
 && \text{($\phi(z) \to 0$ as $z \to \infty$)}\\
+&= 2\tau (2\pi)^{-1/2}
+&& \text{($\phi(0) = (2\pi)^{-1/2}$)}\\
 &= \tau \sqrt{2/\pi}
-&& \text{($\phi(0) = (2\pi)^{-1/2}$)}
+&& \text{($2 (2\pi)^{-1/2} = \sqrt{4/(2\pi)}$)}
 \end{aligned}
 $$
 

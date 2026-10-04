@@ -96,6 +96,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_exr-sum-deviations-zero.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-sxx-expand.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-intercept.qmd >}}
 
 {{< slidebreak >}}

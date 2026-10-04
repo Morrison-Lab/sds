@@ -14,12 +14,53 @@ only the last term of $\ell$ depends on $\mu$:
 $$
 \begin{aligned}
 \deriv{\mu}\ell
+&= \deriv{\mu}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
+ - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(Gaussian log-likelihood)}\\
+&= \deriv{\mu}\paren{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(the first two terms do not depend on $\mu$)}\\
+&= -\frac{1}{2\sigma^2}\deriv{\mu}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(constant multiple rule)}\\
 &= -\frac{1}{2\sigma^2}\sum_{i=1}^n \deriv{\mu}(x_i - \mu)^2
+&& \text{(derivative of a sum is the sum of derivatives)}\\
+&= -\frac{1}{2\sigma^2}\sum_{i=1}^n 2(x_i - \mu)\deriv{\mu}(x_i - \mu)
+&& \text{(chain rule, outer function $u^2$)}
+\end{aligned}
+$$
+
+The inner derivative is:
+
+$$
+\begin{aligned}
+\deriv{\mu}(x_i - \mu)
+&= \deriv{\mu} x_i - \deriv{\mu} \mu
 && \text{(linearity of differentiation)}\\
+&= 0 - \deriv{\mu} \mu
+&& \text{($x_i$ does not depend on $\mu$)}\\
+&= 0 - 1
+&& \text{(derivative of $\mu$ with respect to itself)}\\
+&= -1
+&& \text{(subtract)}
+\end{aligned}
+$$
+
+Substituting the inner derivative back in:
+
+$$
+\begin{aligned}
+\deriv{\mu}\ell
+&= -\frac{1}{2\sigma^2}\sum_{i=1}^n 2(x_i - \mu) \cdot (-1)
+&& \text{(inner derivative is $-1$)}\\
 &= -\frac{1}{2\sigma^2}\sum_{i=1}^n -2(x_i - \mu)
-&& \text{(chain rule)}\\
+&& \text{(multiply)}\\
+&= -\frac{1}{2\sigma^2} \cdot (-2) \sum_{i=1}^n (x_i - \mu)
+&& \text{(factor the constant $-2$ out of the sum)}\\
+&= \frac{1}{\sigma^2}\sum_{i=1}^n (x_i - \mu)
+&& \text{(multiply the constants)}\\
+&= \frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - \sum_{i=1}^n \mu}
+&& \text{(split the sum)}\\
 &= \frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - n\mu}
-&& \text{(simplify; split the sum)}
+&& \text{(sum of $n$ copies of $\mu$)}
 \end{aligned}
 $$
 
@@ -30,8 +71,23 @@ $-\frac{n}{2}\log v$ and $-\frac{1}{2}v^{-1}\sum_i (x_i - \mu)^2$:
 $$
 \begin{aligned}
 \deriv{\sigma^2}\ell
+&= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
+ - \frac{1}{2}\paren{\sigma^2}^{-1}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(Gaussian log-likelihood)}\\
+&= \deriv{\sigma^2}\paren{- \frac{n}{2}\logf{\sigma^2}
+ - \frac{1}{2}\paren{\sigma^2}^{-1}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(the first term does not depend on $\sigma^2$)}\\
+&= -\frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
+ - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
+&& \text{(linearity of differentiation)}\\
+&= -\frac{n}{2}\paren{\sigma^2}^{-1}
+ - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
+&& \text{(derivative of $\log v$)}\\
+&= -\frac{n}{2}\paren{\sigma^2}^{-1}
+ - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \paren{-\paren{\sigma^2}^{-2}}
+&& \text{(power rule for $v^{-1}$)}\\
 &= -\frac{n}{2}\paren{\sigma^2}^{-1}
  + \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2
-&& \text{(derivatives of $\log v$ and $v^{-1}$)}
+&& \text{(multiply)}
 \end{aligned}
 $$

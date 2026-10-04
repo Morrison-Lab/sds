@@ -16,16 +16,28 @@ $\loglik = x \logf{\rate} - \rate - \logf{x!}$, so:
 $$
 \begin{aligned}
 \score
-&\eqdef \deriv{\rate}\paren{x\logf{\rate} - \rate - \logf{x!}}
+&\eqdef \deriv{\rate}\loglik
 && \text{(definition of the score)}\\
+&= \deriv{\rate}\paren{x\logf{\rate} - \rate - \logf{x!}}
+&& \text{(Poisson log-likelihood)}\\
 &= x\deriv{\rate}\logf{\rate} - \deriv{\rate}\rate - \deriv{\rate}\logf{x!}
 && \text{(linearity of differentiation)}\\
+&= \frac{x}{\rate} - \deriv{\rate}\rate - \deriv{\rate}\logf{x!}
+&& \text{(derivative of $\log \rate$)}\\
+&= \frac{x}{\rate} - 1 - \deriv{\rate}\logf{x!}
+&& \text{(derivative of $\rate$ with respect to itself)}\\
 &= \frac{x}{\rate} - 1 - 0
-&& \text{(derivatives of $\log \rate$, $\rate$, and a constant)}\\
+&& \text{(derivative of a constant)}\\
+&= \frac{x}{\rate} - 1
+&& \text{(drop the zero term)}\\
+&= \frac{x}{\rate} - \frac{\rate}{\rate}
+&& \text{(write both terms over the common denominator)}\\
 &= \frac{x - \rate}{\rate}
-&& \text{(common denominator)}\\
+&& \text{(combine the fractions)}\\
+&= \frac{x - \E{X}}{\rate}
+&& \text{($\E{X} = \rate$)}\\
 &= \frac{x - \E{X}}{\Var{X}}
-&& \text{($\E{X} = \Var{X} = \rate$)}
+&& \text{($\Var{X} = \rate$)}
 \end{aligned}
 $$
 

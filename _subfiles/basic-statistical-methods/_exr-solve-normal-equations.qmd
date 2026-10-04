@@ -12,14 +12,23 @@ assuming $S_{xx} > 0$ (@def-centered-sums).
 :::{#sol-solve-normal-equations}
 
 **First normal equation.**
-By @exr-rss-deriv-intercept,
-setting $\partial \text{RSS} / \partial \intcoef$ to zero
-and dividing by $-2n$ gives
-$\bar{y} - \intcoef - \coef{x} \bar{x} = 0$, so
+Set the derivative from @exr-rss-deriv-intercept to zero,
+then isolate $\intcoef$:
 
 $$
-\intcoef = \bar{y} - \coef{x} \bar{x}.
+\begin{aligned}
+0 &= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
+&& \text{(first normal equation)}\\
+0 &= n \bar{y} - n \intcoef - \coef{x} n \bar{x}
+&& \text{(divide both sides by $-2$)}\\
+0 &= \bar{y} - \intcoef - \coef{x} \bar{x}
+&& \text{(divide both sides by $n$)}\\
+\intcoef &= \bar{y} - \coef{x} \bar{x}
+&& \text{(add $\intcoef$ to both sides)}
+\end{aligned}
 $$
+
+{{< slidebreak >}}
 
 **Second normal equation.**
 Substitute that intercept into the derivative from @exr-rss-deriv-slope:
@@ -29,22 +38,77 @@ $$
 \frac{\partial \text{RSS}}{\partial \coef{x}}
 &= -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i)
 && \text{(derivative with respect to $\coef{x}$)}\\
-&= -2 \sumin x_i \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&= -2 \sumin x_i \paren{y_i - (\bar{y} - \coef{x} \bar{x}) - \coef{x} x_i}
 && \text{(substitute $\intcoef$)}\\
-&= -2 \sumin (x_i - \bar{x}) \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
-&& \text{(subtract $\bar{x} \sum_i \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})} = 0$)}\\
-&= -2 \paren{S_{xy} - \coef{x} S_{xx}}
-&& \text{(definitions of $S_{xy}$ and $S_{xx}$)}
+&= -2 \sumin x_i \paren{y_i - \bar{y} + \coef{x} \bar{x} - \coef{x} x_i}
+&& \text{(remove the inner parentheses)}\\
+&= -2 \sumin x_i \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&& \text{(factor out $-\coef{x}$)}
 \end{aligned}
 $$
 
-The subtracted sum in the third step is zero
-because $\sum_i (y_i - \bar{y}) = 0$ and $\sum_i (x_i - \bar{x}) = 0$.
-Setting the derivative to zero and dividing by $-2 S_{xx}$,
-which is allowed because $S_{xx} > 0$:
+To shorten the next steps, write
+$d_i \eqdef (y_i - \bar{y}) - \coef{x} (x_i - \bar{x})$,
+so that $\partial \text{RSS} / \partial \coef{x} = -2 \sumin x_i d_i$.
+The $d_i$ sum to zero,
+because deviations from a mean sum to zero (@exr-sum-deviations-zero):
 
 $$
-\coef{x} = \frac{S_{xy}}{S_{xx}}.
+\begin{aligned}
+\sumin d_i
+&= \sumin (y_i - \bar{y}) - \sumin \coef{x} (x_i - \bar{x})
+&& \text{(split the sum)}\\
+&= \sumin (y_i - \bar{y}) - \coef{x} \sumin (x_i - \bar{x})
+&& \text{(constant factor out of the sum)}\\
+&= 0 - \coef{x} \cdot 0
+&& \text{(deviations sum to zero)}\\
+&= 0
+\end{aligned}
+$$
+
+{{< slidebreak >}}
+
+So subtracting $\bar{x} \sumin d_i$ from $\sumin x_i d_i$
+does not change it:
+
+$$
+\begin{aligned}
+\sumin x_i d_i
+&= \sumin x_i d_i - \bar{x} \sumin d_i
+&& \text{($\sumin d_i = 0$)}\\
+&= \sumin x_i d_i - \sumin \bar{x} d_i
+&& \text{(constant factor into the sum)}\\
+&= \sumin (x_i - \bar{x}) d_i
+&& \text{(combine the sums)}\\
+&= \sumin (x_i - \bar{x}) \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&& \text{(definition of $d_i$)}\\
+&= \sumin \paren{(x_i - \bar{x})(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})^2}
+&& \text{(distribute)}\\
+&= \sumin (x_i - \bar{x})(y_i - \bar{y}) - \sumin \coef{x} (x_i - \bar{x})^2
+&& \text{(split the sum)}\\
+&= \sumin (x_i - \bar{x})(y_i - \bar{y}) - \coef{x} \sumin (x_i - \bar{x})^2
+&& \text{(constant factor out of the sum)}\\
+&= S_{xy} - \coef{x} \sumin (x_i - \bar{x})^2
+&& \text{(definition of $S_{xy}$)}\\
+&= S_{xy} - \coef{x} S_{xx}
+&& \text{(definition of $S_{xx}$)}
+\end{aligned}
+$$
+
+So $\partial \text{RSS} / \partial \coef{x} = -2 \paren{S_{xy} - \coef{x} S_{xx}}$.
+Set it to zero and isolate $\coef{x}$:
+
+$$
+\begin{aligned}
+0 &= -2 \paren{S_{xy} - \coef{x} S_{xx}}
+&& \text{(second normal equation)}\\
+0 &= S_{xy} - \coef{x} S_{xx}
+&& \text{(divide both sides by $-2$)}\\
+\coef{x} S_{xx} &= S_{xy}
+&& \text{(add $\coef{x} S_{xx}$ to both sides)}\\
+\coef{x} &= \frac{S_{xy}}{S_{xx}}
+&& \text{(divide both sides by $S_{xx} > 0$)}
+\end{aligned}
 $$
 
 So the normal equations have exactly one solution:

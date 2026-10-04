@@ -16,8 +16,10 @@ $$
 && \text{(MSE equals bias squared plus variance)}\\
 \Var{\hth} &= \mselr{\hth} - \sqf{\bias{\hth}}
 && \text{(subtract $\sqf{\bias{\hth}}$ from both sides)}\\
+\sqf{\SD{\hth}} &= \mselr{\hth} - \sqf{\bias{\hth}}
+&& \text{($\Var{\hth} = \sqf{\SD{\hth}}$)}\\
 \sqf{\SE{\hth}} &= \mselr{\hth} - \sqf{\bias{\hth}}
-&& \text{($\Var{\hth} = \sqf{\SD{\hth}} = \sqf{\SE{\hth}}$)}
+&& \text{(definition of standard error: $\SE{\hth} = \SD{\hth}$)}
 \end{aligned}
 $$
 

@@ -20,10 +20,14 @@ Add it to the squared bias from @exr-sq-bias-expand and simplify:
 $$
 \begin{aligned}
 \sqf{\bias{\hth}} + \var{\hth}
+&= \sqf{\E{\hth}} - 2\E{\hth}\th + \th^2 + \var{\hth}
+&& \text{(substitute the squared bias)}\\
 &= \sqf{\E{\hth}} - 2\E{\hth}\th + \th^2 + \E{\hth^2} - \sqf{\E{\hth}}
-&& \text{(substitute both expansions)}\\
+&& \text{(substitute the variance)}\\
+&= - 2\E{\hth}\th + \th^2 + \E{\hth^2}
+&& \text{(cancel $\sqf{\E{\hth}}$)}\\
 &= \E{\hth^2} - 2\E{\hth}\th + \th^2
-&& \text{(cancel $\sqf{\E{\hth}}$)}
+&& \text{(reorder the terms)}
 \end{aligned}
 $$
 

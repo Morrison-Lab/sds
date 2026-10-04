@@ -10,12 +10,20 @@ with respect to the slope, $\partial \text{RSS} / \partial \coef{x}$.
 
 :::{#sol-rss-deriv-slope}
 
-By the chain rule applied to each term of the sum:
+Differentiate one operation at a time,
+starting from the definition (@exm-rss-slr):
 
 $$
+\begin{aligned}
 \frac{\partial \text{RSS}}{\partial \coef{x}}
-= \sumin 2 (y_i - \intcoef - \coef{x} x_i)
-  \frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i).
+&= \frac{\partial}{\partial \coef{x}} \sumin (y_i - \intcoef - \coef{x} x_i)^2
+&& \text{(definition of RSS)}\\
+&= \sumin \frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i)^2
+&& \text{(derivative of a sum)}\\
+&= \sumin 2 (y_i - \intcoef - \coef{x} x_i)
+  \frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i)
+&& \text{(chain rule)}
+\end{aligned}
 $$
 
 The inner derivative:
@@ -36,8 +44,15 @@ $$
 Plugging the inner derivative back in:
 
 $$
+\begin{aligned}
 \frac{\partial \text{RSS}}{\partial \coef{x}}
-= -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i).
+&= \sumin 2 (y_i - \intcoef - \coef{x} x_i) (-x_i)
+&& \text{(inner derivative is $-x_i$)}\\
+&= \sumin -2 x_i (y_i - \intcoef - \coef{x} x_i)
+&& \text{(rearrange the product)}\\
+&= -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i)
+&& \text{(constant factor out of the sum)}
+\end{aligned}
 $$
 
 :::

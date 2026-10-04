@@ -21,18 +21,34 @@ and $\E{\bar X^2} = \Var{\bar X} + \sqf{\E{\bar X}} = \sigma^2/n + \mu^2$
 $$
 \begin{aligned}
 \E{\sum_{i=1}^n (X_i - \bar X)^2}
+&= \E{\sum_{i=1}^n \paren{X_i^2 - 2 X_i \bar X + \bar X^2}}
+&& \text{(expand each square)}\\
+&= \E{\sum_{i=1}^n X_i^2 - \sum_{i=1}^n 2 X_i \bar X + \sum_{i=1}^n \bar X^2}
+&& \text{(split the sum)}\\
+&= \E{\sum_{i=1}^n X_i^2 - 2\bar X \sum_{i=1}^n X_i + \sum_{i=1}^n \bar X^2}
+&& \text{(factor $2\bar X$ out of the middle sum)}\\
 &= \E{\sum_{i=1}^n X_i^2 - 2\bar X \sum_{i=1}^n X_i + n \bar X^2}
-&& \text{(expand each square and sum)}\\
+&& \text{(sum of $n$ copies of $\bar X^2$)}\\
 &= \E{\sum_{i=1}^n X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2}
 && \text{($\textstyle\sum_{i=1}^n X_i = n \bar X$)}\\
+&= \E{\sum_{i=1}^n X_i^2 - 2n \bar X^2 + n \bar X^2}
+&& \text{(multiply $2\bar X \cdot n \bar X$)}\\
 &= \E{\sum_{i=1}^n X_i^2 - n \bar X^2}
 && \text{(collect the $\bar X^2$ terms)}\\
 &= \sum_{i=1}^n \E{X_i^2} - n \E{\bar X^2}
 && \text{(linearity of expectation)}\\
+&= \sum_{i=1}^n (\sigma^2 + \mu^2) - n \E{\bar X^2}
+&& \text{(substitute $\E{X_i^2}$)}\\
+&= n(\sigma^2 + \mu^2) - n \E{\bar X^2}
+&& \text{(sum of $n$ copies of $\sigma^2 + \mu^2$)}\\
 &= n(\sigma^2 + \mu^2) - n\paren{\frac{\sigma^2}{n} + \mu^2}
-&& \text{(substitute both second moments)}\\
+&& \text{(substitute $\E{\bar X^2}$)}\\
+&= n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2
+&& \text{(distribute $n$ in both products)}\\
+&= n\sigma^2 - \sigma^2
+&& \text{(cancel $n\mu^2$)}\\
 &= (n - 1)\sigma^2
-&& \text{(cancel $n\mu^2$ and simplify)}
+&& \text{(factor out $\sigma^2$)}
 \end{aligned}
 $$
 
@@ -51,8 +67,12 @@ $$
 && \text{(bias equals expectation minus truth)}\\
 &= \frac{n-1}{n}\sigma^2 - \sigma^2
 && \text{(substitute $\E{\hat\sigma^2}$)}\\
+&= \frac{n-1}{n}\sigma^2 - \frac{n}{n}\sigma^2
+&& \text{(write $\sigma^2$ over the common denominator $n$)}\\
+&= \frac{n - 1 - n}{n}\sigma^2
+&& \text{(combine the fractions)}\\
 &= -\frac{\sigma^2}{n}
-&& \text{(common denominator)}
+&& \text{($n - 1 - n = -1$)}
 \end{aligned}
 $$
 

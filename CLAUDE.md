@@ -54,8 +54,8 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - **Visible results**: every code chunk readers can see should produce a visible result (figure, table, or console output); end assignment-only chunks with an expression that shows what they made. See "Every visible chunk shows a result" in `.github/copilot-instructions.md`.
 - **R style**: respect `.lintr.R`. Run `lintr::lint_dir()` before declaring R changes done.
 - **Math notation**: use semantic macros (`\coef{x}`, `\intcoef`, ...), index coefficients by their variable ($\beta_x$, not $\beta_1$), write inner products as dot products (`\dprod`) rather than transpose products, and derive a chain rule's inner derivative in its own aligned block. See "Math Notation" in `.github/copilot-instructions.md`.
-- **Definitions**: compact and general, followed by examples from most general to most specific and a remark for any commentary. See "Definitions" in `.github/copilot-instructions.md`.
-- **Derivations**: present them as exercise -> solution -> theorem -> proof, one exercise per step, with the proof citing the exercises. See "Derivations" in `.github/copilot-instructions.md`.
+- **Definitions**: in both prose and math, compact and general, followed by examples from most general to most specific and a remark for any commentary. See "Definitions" in `.github/copilot-instructions.md`.
+- **Derivations**: present them as exercise -> solution -> theorem -> proof, one exercise per step, with the proof citing the exercises; one operation per displayed line, each with its own justification. See "Derivations" in `.github/copilot-instructions.md`.
 - **Quarto chunks**: prefer chunk options as YAML-style `#|` directives, not as inline `r, opt = val` arguments.
 
 ## Working in this repo

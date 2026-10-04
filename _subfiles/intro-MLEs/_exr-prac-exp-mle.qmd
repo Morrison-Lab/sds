@@ -29,14 +29,31 @@ $$
 \ba
 \ell(\pmean; \vx)
 &= \logf{\prod_{i=1}^n \frac{1}{\pmean} e^{-x_i/\pmean}}
+&& \text{(log of the likelihood of an $\iid$ sample)}
 \\
 &= \sum_{i=1}^n \logf{\frac{1}{\pmean} e^{-x_i/\pmean}}
+&& \text{(log of a product)}
+\\
+&= \sum_{i=1}^n \paren{\logf{\frac{1}{\pmean}} + \logf{e^{-x_i/\pmean}}}
+&& \text{(log of a product)}
+\\
+&= \sum_{i=1}^n \paren{-\logf{\pmean} + \logf{e^{-x_i/\pmean}}}
+&& \text{(log of a reciprocal)}
 \\
 &= \sum_{i=1}^n \paren{-\logf{\pmean} - \frac{x_i}{\pmean}}
+&& \text{($\log$ undoes $\exp$)}
+\\
+&= \sum_{i=1}^n \paren{-\logf{\pmean}} - \sum_{i=1}^n \frac{x_i}{\pmean}
+&& \text{(split the sum)}
+\\
+&= -n\logf{\pmean} - \sum_{i=1}^n \frac{x_i}{\pmean}
+&& \text{(sum of $n$ identical terms)}
 \\
 &= -n\logf{\pmean} - \frac{1}{\pmean}\sum_{i=1}^n x_i
+&& \text{(factor the constant $\tfrac{1}{\pmean}$ out of the sum)}
 \\
 &= -n\logf{\pmean} - \frac{n\bar{x}}{\pmean}
+&& \text{($\textstyle\sum_{i=1}^n x_i = n\bar{x}$)}
 \ea
 $$
 
@@ -46,10 +63,25 @@ $$
 \ba
 \ell'(\pmean; \vx)
 &= \deriv{\pmean}\paren{-n\logf{\pmean} - \frac{n\bar{x}}{\pmean}}
+&& \text{(log-likelihood from (a))}
+\\
+&= -n\deriv{\pmean}\logf{\pmean} - n\bar{x}\deriv{\pmean}\pmean^{-1}
+&& \text{(linearity of differentiation)}
+\\
+&= -\frac{n}{\pmean} - n\bar{x}\deriv{\pmean}\pmean^{-1}
+&& \text{(derivative of $\log$)}
+\\
+&= -\frac{n}{\pmean} - n\bar{x}\paren{-\pmean^{-2}}
+&& \text{(power rule)}
 \\
 &= -\frac{n}{\pmean} + \frac{n\bar{x}}{\pmean^2}
+&& \text{(multiply)}
+\\
+&= -\frac{n\pmean}{\pmean^2} + \frac{n\bar{x}}{\pmean^2}
+&& \text{(write both terms over the common denominator)}
 \\
 &= \frac{n}{\pmean^2}\paren{\bar{x} - \pmean}
+&& \text{(factor out $\tfrac{n}{\pmean^2}$)}
 \ea
 $$
 
@@ -60,8 +92,13 @@ Setting $\ell'(\pmean; \vx) = 0$:
 $$
 \ba
 0 &= \frac{n}{\pmean^2}\paren{\bar{x} - \pmean}
+&& \text{(score from (b))}
+\\
+0 &= \bar{x} - \pmean
+&& \text{(multiply both sides by $\tfrac{\pmean^2}{n}$)}
 \\
 \hat\pmean_{ML} &= \bar{x}
+&& \text{(add $\pmean$ to both sides)}
 \ea
 $$
 
@@ -71,8 +108,19 @@ $$
 \ba
 \ell''(\pmean; \vx)
 &= \deriv{\pmean}\paren{-\frac{n}{\pmean} + \frac{n\bar{x}}{\pmean^2}}
+&& \text{(score from (b))}
+\\
+&= -n\deriv{\pmean}\pmean^{-1} + n\bar{x}\deriv{\pmean}\pmean^{-2}
+&& \text{(linearity of differentiation)}
+\\
+&= -n\paren{-\pmean^{-2}} + n\bar{x}\deriv{\pmean}\pmean^{-2}
+&& \text{(power rule for $\pmean^{-1}$)}
+\\
+&= -n\paren{-\pmean^{-2}} + n\bar{x}\paren{-2\pmean^{-3}}
+&& \text{(power rule for $\pmean^{-2}$)}
 \\
 &= \frac{n}{\pmean^2} - \frac{2n\bar{x}}{\pmean^3}
+&& \text{(multiply)}
 \ea
 $$
 
@@ -92,8 +140,20 @@ Since the second derivative is negative, $\hat\pmean_{ML} = \bar{x}$ is a maximu
 The observed information is:
 
 $$
-\oinf(\pmean; \vx) = -\ell''(\pmean; \vx)
-= \frac{2n\bar{x}}{\pmean^3} - \frac{n}{\pmean^2}
+\ba
+\oinf(\pmean; \vx)
+&= -\ell''(\pmean; \vx)
+&& \text{(observed information is the negative Hessian)}
+\\
+&= -\paren{\frac{n}{\pmean^2} - \frac{2n\bar{x}}{\pmean^3}}
+&& \text{(second derivative from (c))}
+\\
+&= -\frac{n}{\pmean^2} + \frac{2n\bar{x}}{\pmean^3}
+&& \text{(distribute the minus sign)}
+\\
+&= \frac{2n\bar{x}}{\pmean^3} - \frac{n}{\pmean^2}
+&& \text{(reorder the terms)}
+\ea
 $$
 
 Evaluated at $\hat\pmean_{ML} = \bar{x}$:

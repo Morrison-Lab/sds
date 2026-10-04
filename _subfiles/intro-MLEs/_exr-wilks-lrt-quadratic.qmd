@@ -20,10 +20,20 @@ Substituting the approximation from @exr-wilks-taylor:
 $$
 \begin{aligned}
 \Lambda
+&= 2\paren{\llik(\hthml) - \llik(\hat\th_0)}
+&& \text{(definition of $\Lambda$)}\\
 &= 2\paren{\llik(\hthml) - \llik(\th_0)}
-&& \text{(definition of $\Lambda$, with $\hat\th_0 = \th_0$)}\\
-&\approx -\hess(\hthml)(\hthml - \th_0)^2
+&& \text{($\hat\th_0 = \th_0$)}\\
+&\approx 2\paren{\llik(\hthml) - \paren{\llik(\hthml) + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2}}
 && \text{(substitute the expansion)}\\
+&= 2\paren{\llik(\hthml) - \llik(\hthml) - \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2}
+&& \text{(distribute the minus sign)}\\
+&= 2\paren{-\frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2}
+&& \text{(cancel $\llik(\hthml)$)}\\
+&= -\hess(\hthml)(\th_0 - \hthml)^2
+&& \text{(multiply by 2)}\\
+&= -\hess(\hthml)(\hthml - \th_0)^2
+&& \text{($(a - b)^2 = (b - a)^2$)}\\
 &= \oinf(\hthml)(\hthml - \th_0)^2
 && \text{(observed information is the negative Hessian)}
 \end{aligned}
