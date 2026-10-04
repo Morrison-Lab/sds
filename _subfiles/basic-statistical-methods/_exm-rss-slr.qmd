@@ -4,7 +4,7 @@
 For a [simple linear regression](#def-slr) line
 with intercept $\intcoef$ and slope $\coef{x}$,
 the fitted value of observation $i$ is $\intcoef + \coef{x} x_i$,
-so the residual sum of squares (@def-rss) is a function of the coefficients:
+so the residual sum of squares (@def-rss), with $\vth = (\intcoef, \coef{x})$, is
 
 $$\text{RSS}(\intcoef, \coef{x}) = \sumin (y_i - \intcoef - \coef{x} x_i)^2.$$
 :::

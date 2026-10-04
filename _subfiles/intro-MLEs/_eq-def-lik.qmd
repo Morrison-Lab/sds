@@ -1,6 +1,8 @@
 $$
 \begin{aligned}
-\Lik(\theta) &\eqdef \p(\vX = \vx \mid \Theta = \theta)\\
+\Lik(\theta) &\eqdef \p(\vX = \vx \mid \Theta = \theta)
+&& \text{(definition of the likelihood)}\\
 &= \p(X_1 = x_1, \ldots, X_n = x_n \mid \Theta = \theta)
+&& \text{(write $\vX = \vx$ componentwise)}
 \end{aligned}
 $$

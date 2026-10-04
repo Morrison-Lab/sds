@@ -39,6 +39,7 @@ $$
 &= 0 - 1 - 0
 && \text{($y_i$ and $\coef{x} x_i$ do not depend on $\intcoef$)}\\
 &= -1
+&& \text{(subtract)}
 \end{aligned}
 $$
 

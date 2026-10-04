@@ -21,6 +21,8 @@ $$
 && \text{(definition of the score)}\\
 &= \deriv{\pmean}\paren{\llexpmean}
 && \text{(exponential log-likelihood)}\\
+&= \deriv{\pmean}\paren{-\logf{\pmean} - x \pmean^{-1}}
+&& \text{(write $\frac{x}{\pmean}$ as $x \pmean^{-1}$)}\\
 &= -\deriv{\pmean}\logf{\pmean} - x \deriv{\pmean} \pmean^{-1}
 && \text{(linearity of differentiation)}\\
 &= -\frac{1}{\pmean} - x \deriv{\pmean} \pmean^{-1}

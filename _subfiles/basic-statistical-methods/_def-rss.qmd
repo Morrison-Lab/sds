@@ -1,8 +1,10 @@
 ::: {#def-rss}
 #### Residual sum of squares
 
-The **residual sum of squares** of a model fitted to data
-is the sum of its squared [residuals](estimation.qmd#def-residual):
+The **residual sum of squares** of a model with parameter vector $\vth$,
+fitted to data,
+is the sum of the squared [residuals](estimation.qmd#def-residual)
+$\resid_i$ that the parameter values $\vth$ produce:
 
-$$\text{RSS} \eqdef \sumin \resid_i^2.$$
+$$\text{RSS}(\vth) \eqdef \sumin \resid_i^2.$$
 :::

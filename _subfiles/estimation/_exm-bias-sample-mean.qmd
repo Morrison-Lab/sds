@@ -22,6 +22,7 @@ $$
 &= \mu - \mu
 && \text{(cancel $n$)}\\
 &= 0
+&& \text{(subtract)}
 \end{aligned}
 $$
 
@@ -35,6 +36,7 @@ $$
 &= \mu - \mu
 && \text{($\E{X_1} = \mu$)}\\
 &= 0
+&& \text{(subtract)}
 \end{aligned}
 $$
 

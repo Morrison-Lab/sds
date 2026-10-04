@@ -5,9 +5,12 @@ A binary outcome $Y$ with event probability $\pi$ has
 
 $$
 \begin{aligned}
-\Pr(Y = 1) &= \pi\\
-\Pr(Y = 0) &= 1 - \pi\\
-\Pr(Y = y) &= \pi^y (1 - \pi)^{1 - y}, \quad y \in \cb{0, 1}.
+\Pr(Y = 1) &= \pi
+&& \text{(definition of the event probability)}\\
+\Pr(Y = 0) &= 1 - \pi
+&& \text{(complement rule)}\\
+\Pr(Y = y) &= \pi^y (1 - \pi)^{1 - y}, \quad y \in \cb{0, 1}
+&& \text{(combine the two cases)}
 \end{aligned}
 $$
 

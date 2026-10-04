@@ -24,7 +24,10 @@ $$
 && \text{(linearity of expectation)}\\
 &\approx \sqrt{\einf(\th_0)}\,(\th_0 - \th_0)
 && \text{(approximate mean of $\hthml$)}\\
+&= \sqrt{\einf(\th_0)} \cdot 0
+&& \text{(subtract)}\\
 &= 0
+&& \text{(multiply by zero)}
 \end{aligned}
 $$
 
@@ -38,6 +41,7 @@ $$
 &\approx \einf(\th_0) \einf(\th_0)^{-1}
 && \text{(approximate variance of $\hthml$)}\\
 &= 1
+&& \text{(a number times its inverse is 1)}
 \end{aligned}
 $$
 

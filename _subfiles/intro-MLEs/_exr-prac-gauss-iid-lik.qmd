@@ -80,8 +80,19 @@ $$
 $$
 \ba
 \deriv{\mu}\ell
+&= \deriv{\mu}\sb{-\frac{n}{2}\logf{2\pi\sigma^2}
+   - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(log-likelihood from (b))}
+\\
+&= \deriv{\mu}\sb{-\frac{n}{2}\logf{2\pi\sigma^2}}
+   + \deriv{\mu}\sb{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(linearity of differentiation)}
+\\
+&= 0 + \deriv{\mu}\sb{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(derivative of a constant)}
+\\
 &= \deriv{\mu}\sb{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
-&& \text{(the first term of $\ell$ does not depend on $\mu$)}
+&& \text{(drop the zero term)}
 \\
 &= -\frac{1}{2\sigma^2}\deriv{\mu}\sum_{i=1}^n (x_i - \mu)^2
 && \text{(constant multiple rule)}

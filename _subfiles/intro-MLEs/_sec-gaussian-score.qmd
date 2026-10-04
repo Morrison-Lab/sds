@@ -17,8 +17,13 @@ $$
 &= \deriv{\mu}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
  - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
 && \text{(Gaussian log-likelihood)}\\
+&= \deriv{\mu}\paren{-\frac{n}{2}\logf{2\pi}} + \deriv{\mu}\paren{-\frac{n}{2}\logf{\sigma^2}}
+ + \deriv{\mu}\paren{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(linearity of differentiation)}\\
+&= 0 + 0 + \deriv{\mu}\paren{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(derivative of a constant)}\\
 &= \deriv{\mu}\paren{-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
-&& \text{(the first two terms do not depend on $\mu$)}\\
+&& \text{(drop the zero terms)}\\
 &= -\frac{1}{2\sigma^2}\deriv{\mu}\sum_{i=1}^n (x_i - \mu)^2
 && \text{(constant multiple rule)}\\
 &= -\frac{1}{2\sigma^2}\sum_{i=1}^n \deriv{\mu}(x_i - \mu)^2
@@ -74,12 +79,15 @@ $$
 &= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
  - \frac{1}{2}\paren{\sigma^2}^{-1}\sum_{i=1}^n (x_i - \mu)^2}
 && \text{(Gaussian log-likelihood)}\\
-&= \deriv{\sigma^2}\paren{- \frac{n}{2}\logf{\sigma^2}
- - \frac{1}{2}\paren{\sigma^2}^{-1}\sum_{i=1}^n (x_i - \mu)^2}
-&& \text{(the first term does not depend on $\sigma^2$)}\\
-&= -\frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
+&= -\frac{n}{2}\deriv{\sigma^2}\logf{2\pi} - \frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
  - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
 && \text{(linearity of differentiation)}\\
+&= -\frac{n}{2} \cdot 0 - \frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
+ - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
+&& \text{(derivative of a constant)}\\
+&= -\frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
+ - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
+&& \text{(drop the zero term)}\\
 &= -\frac{n}{2}\paren{\sigma^2}^{-1}
  - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
 && \text{(derivative of $\log v$)}\\

@@ -18,6 +18,7 @@ $$
 &= n \bar{x} - n \bar{x}
 && \text{($\sumin x_i = n \bar{x}$)}\\
 &= 0
+&& \text{(subtract)}
 \end{aligned}
 $$
 

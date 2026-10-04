@@ -32,8 +32,10 @@ $$
 && \text{($\phi(z) \to 0$ as $z \to \infty$)}\\
 &= 2\tau (2\pi)^{-1/2}
 && \text{($\phi(0) = (2\pi)^{-1/2}$)}\\
+&= \tau \sqrt{4/(2\pi)}
+&& \text{($2 (2\pi)^{-1/2} = \sqrt{4/(2\pi)}$)}\\
 &= \tau \sqrt{2/\pi}
-&& \text{($2 (2\pi)^{-1/2} = \sqrt{4/(2\pi)}$)}
+&& \text{(cancel the common factor 2 in $4/(2\pi)$)}
 \end{aligned}
 $$
 

@@ -23,7 +23,8 @@ Distribute the sum in the gradient from @exr-rss-gradient-vector:
 $$
 \begin{aligned}
 \deriv{\vcoef} \text{RSS}(\vcoef)
-&= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}\\
+&= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
+&& \text{(gradient of RSS)}\\
 &= -2 \sumin \paren{\vxi y_i - \vxi \paren{\dprod{\vxi}{\vcoef}}}
 && \text{(distribute $\vxi$)}\\
 &= -2 \paren{\sumin \vxi y_i - \sumin \vxi \paren{\dprod{\vxi}{\vcoef}}}

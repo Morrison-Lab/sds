@@ -102,10 +102,18 @@ Now compute the solution:
 $$
 \begin{aligned}
 A^{-1} \v{c}
+&= \frac{1}{\det A}
+  \begin{pmatrix} \sumin x_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix}
+  \v{c}
+&& \text{(inverse of a $2 \times 2$ matrix)}\\
+&= \frac{1}{n S_{xx}}
+  \begin{pmatrix} \sumin x_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix}
+  \v{c}
+&& \text{($\det A = n S_{xx}$)}\\
 &= \frac{1}{n S_{xx}}
   \begin{pmatrix} \sumin x_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix}
   \begin{pmatrix} n\bar{y} \\ \sumin x_i y_i \end{pmatrix}
-&& \text{(inverse of a $2 \times 2$ matrix; $\det A = n S_{xx}$)}\\
+&& \text{(substitute $\v{c}$)}\\
 &= \frac{1}{n S_{xx}}
   \begin{pmatrix}
   \sumin x_i^2 \cdot n\bar{y} + \paren{-n\bar{x}} \sumin x_i y_i \\

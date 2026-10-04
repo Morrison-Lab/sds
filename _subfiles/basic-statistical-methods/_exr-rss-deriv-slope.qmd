@@ -38,6 +38,7 @@ $$
 &= 0 - 0 - x_i
 && \text{($y_i$ and $\intcoef$ do not depend on $\coef{x}$)}\\
 &= -x_i
+&& \text{(subtract)}
 \end{aligned}
 $$
 

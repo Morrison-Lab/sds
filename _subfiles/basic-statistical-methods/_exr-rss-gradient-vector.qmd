@@ -16,7 +16,8 @@ starting from the definition of $\text{RSS}(\vcoef)$:
 $$
 \begin{aligned}
 \deriv{\vcoef} \text{RSS}(\vcoef)
-&= \deriv{\vcoef} \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2\\
+&= \deriv{\vcoef} \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2
+&& \text{(definition of RSS)}\\
 &= \sumin \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}^2
 && \text{(derivative of a sum)}\\
 &= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}}

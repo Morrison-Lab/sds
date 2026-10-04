@@ -32,6 +32,8 @@ $$
 && \text{(derivative of a sum)}\\
 &= -2 (0 - n - 0)
 && \text{(differentiate each term)}\\
+&= -2 (-n)
+&& \text{(drop the zeros)}\\
 &= 2n
 && \text{(multiply)}
 \end{aligned}
@@ -52,6 +54,8 @@ $$
 && \text{(derivative of a sum)}\\
 &= -2 (0 - 0 - n \bar{x})
 && \text{(differentiate each term)}\\
+&= -2 (-n \bar{x})
+&& \text{(drop the zeros)}\\
 &= 2 n \bar{x}
 && \text{(multiply)}
 \end{aligned}

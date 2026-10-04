@@ -31,6 +31,7 @@ $$
 &= \deriv{\th} 1
 && \text{(a density integrates to 1)}\\
 &= 0
+&& \text{(derivative of a constant)}
 \end{aligned}
 $$
 

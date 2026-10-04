@@ -42,8 +42,10 @@ $$
 && \text{(substitute $\intcoef$)}\\
 &= -2 \sumin x_i \paren{y_i - \bar{y} + \coef{x} \bar{x} - \coef{x} x_i}
 && \text{(remove the inner parentheses)}\\
+&= -2 \sumin x_i \paren{(y_i - \bar{y}) - (\coef{x} x_i - \coef{x} \bar{x})}
+&& \text{(group terms)}\\
 &= -2 \sumin x_i \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
-&& \text{(factor out $-\coef{x}$)}
+&& \text{(factor out $\coef{x}$)}
 \end{aligned}
 $$
 
@@ -56,13 +58,18 @@ because deviations from a mean sum to zero (@exr-sum-deviations-zero):
 $$
 \begin{aligned}
 \sumin d_i
+&= \sumin \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&& \text{(definition of $d_i$)}\\
 &= \sumin (y_i - \bar{y}) - \sumin \coef{x} (x_i - \bar{x})
 && \text{(split the sum)}\\
 &= \sumin (y_i - \bar{y}) - \coef{x} \sumin (x_i - \bar{x})
 && \text{(constant factor out of the sum)}\\
 &= 0 - \coef{x} \cdot 0
 && \text{(deviations sum to zero)}\\
+&= 0 - 0
+&& \text{(multiply)}\\
 &= 0
+&& \text{(subtract)}
 \end{aligned}
 $$
 

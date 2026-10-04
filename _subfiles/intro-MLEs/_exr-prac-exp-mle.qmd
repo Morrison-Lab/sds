@@ -80,6 +80,12 @@ $$
 &= -\frac{n\pmean}{\pmean^2} + \frac{n\bar{x}}{\pmean^2}
 && \text{(write both terms over the common denominator)}
 \\
+&= \frac{-n\pmean + n\bar{x}}{\pmean^2}
+&& \text{(combine the fractions)}
+\\
+&= \frac{n\bar{x} - n\pmean}{\pmean^2}
+&& \text{(reorder the numerator)}
+\\
 &= \frac{n}{\pmean^2}\paren{\bar{x} - \pmean}
 && \text{(factor out $\tfrac{n}{\pmean^2}$)}
 \ea

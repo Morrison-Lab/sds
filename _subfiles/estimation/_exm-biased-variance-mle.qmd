@@ -43,8 +43,14 @@ $$
 && \text{(sum of $n$ copies of $\sigma^2 + \mu^2$)}\\
 &= n(\sigma^2 + \mu^2) - n\paren{\frac{\sigma^2}{n} + \mu^2}
 && \text{(substitute $\E{\bar X^2}$)}\\
+&= n\sigma^2 + n\mu^2 - n\paren{\frac{\sigma^2}{n} + \mu^2}
+&& \text{(distribute $n$ over $\sigma^2 + \mu^2$)}\\
+&= n\sigma^2 + n\mu^2 - \paren{n \cdot \frac{\sigma^2}{n} + n\mu^2}
+&& \text{(distribute $n$ over $\frac{\sigma^2}{n} + \mu^2$)}\\
+&= n\sigma^2 + n\mu^2 - \paren{\sigma^2 + n\mu^2}
+&& \text{(cancel $n$ in $n \cdot \frac{\sigma^2}{n}$)}\\
 &= n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2
-&& \text{(distribute $n$ in both products)}\\
+&& \text{(distribute the minus sign)}\\
 &= n\sigma^2 - \sigma^2
 && \text{(cancel $n\mu^2$)}\\
 &= (n - 1)\sigma^2

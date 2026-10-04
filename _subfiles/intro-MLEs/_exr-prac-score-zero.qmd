@@ -101,10 +101,13 @@ $$
 \ba
 \ell'(\bar{x}; \vx)
 &= \frac{n\bar{x}}{\bar{x}} - n
+&& \text{(score from (b) at $\rate = \bar{x}$)}
 \\
 &= n - n
+&& \text{(cancel $\bar{x}$, since $\bar{x} > 0$)}
 \\
-&= 0.
+&= 0
+&& \text{(subtract)}
 \ea
 $$
 
