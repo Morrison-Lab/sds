@@ -84,6 +84,22 @@ read the rules from a clone of ai-config before content work, in particular:
 - `shared/coding/` --- R style, ASCII punctuation in source
 - `skills/quarto-authoring/references/divs-and-spans.md` --- no theorem-type div nested inside another
 
+## Where sds sits among the lab's sites
+
+The lab's course sites form a prerequisite sequence
+(canonical copy: `shared/writing/course-sequence.md` in [`Morrison-Lab/ai-config`](https://github.com/Morrison-Lab/ai-config), added by [Morrison-Lab/ai-config#4277](https://github.com/Morrison-Lab/ai-config/pull/4277)):
+
+```
+mds -> pds -> sds -+-> lds  (prediction-focused statistics)
+                   +-> rme  (model-inference-focused statistics) <-- win, cie (causal inference)
+```
+
+- sds is the shared trunk for lds and rme:
+  material both branches need belongs here, not duplicated in either.
+- sds may rely on mds and pds for content.
+- sds may link to lds, rme, win or cie only as further reading on advanced topics,
+  never to define or explain something an sds page needs.
+
 ## Relationship to rme
 
 This repository is the canonical home for the statistics prerequisites
@@ -96,9 +112,9 @@ rme will drop those appendices and point readers here
   much of it predates the lab's style rules.
   Check what you port, fix what is wrong, and bring it up to the current rules.
 - Keep rme's `#id`s, so rme's links can be repointed by changing only the path.
-- Don't outsource content to rme: define and explain core material here
-  (or in the sibling mds/pds/lds sites), so rme can point to it rather than the reverse.
-  Linking to rme, cie, win or lds as further reading on advanced topics is fine.
+- Don't outsource content to rme (see the sequence above):
+  define and explain core material here, or rely on mds/pds,
+  so rme can point to sds rather than the reverse.
 
 ## Things to avoid
 
