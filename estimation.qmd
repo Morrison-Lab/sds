@@ -10,11 +10,9 @@ format:
     output-file: estimation-handout.docx
 ---
 
+{{< include sds/_subfiles/shared-config.qmd >}}
+
 ## Scientific models
-
-{{< include latex-macros/macros.qmd >}}
-
-{{< include sds/_subfiles/_macros-sds.qmd >}}
 
 <!-- No slidebreak here: the heading shares its slide with the def-model div. -->
 
