@@ -8,6 +8,7 @@ and place a diffuse $\ndist{0, 10^2}$ prior on each coefficient
 (precision $0.01$ in JAGS).
 The JAGS program also monitors the odds ratio $e^{\coef{x}}$
 for a one-unit increase in $x$.
+In the code, `beta0` and `beta1` are $\intcoef$ and $\coef{x}$.
 
 ```{r}
 #| label: jags-logistic

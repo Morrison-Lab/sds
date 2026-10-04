@@ -18,6 +18,7 @@ $$
 
 JAGS has no built-in distribution for this contribution,
 so we fit it with the zeros trick.
+In the code, `beta0` and `beta1` are $\intcoef$ and $\coef{x}$.
 
 ```{r}
 #| label: jags-survival
