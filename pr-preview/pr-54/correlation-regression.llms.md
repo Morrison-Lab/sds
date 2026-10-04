@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-03 14:43:41 (PDT)
+Last modified: 2026-10-03 17:49:29 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -212,21 +212,21 @@ The same result follows from a derivation in vector notation, which treats \\(\b
 >
 > *Proof*. Collect the coefficients and each observation’s covariates into vectors:
 >
-> \\ \tilde{\beta}\stackrel{\text{def}}{=}\begin{pmatrix} \beta\_{0}\\ \beta\_{x} \end{pmatrix}, \qquad \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}, \qquad\text{so}\qquad \beta\_{0}+ \beta\_{x} x_i = {\tilde{x}\_i}^{\top} \tilde{\beta} \quad\text{and}\quad \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n\mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{}^2. \\
+> \\ \tilde{\beta}\stackrel{\text{def}}{=}\begin{pmatrix} \beta\_{0}\\ \beta\_{x} \end{pmatrix}, \qquad \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}, \qquad\text{so}\qquad \beta\_{0}+ \beta\_{x} x_i = \tilde{x}\_i \cdot \tilde{\beta} \quad\text{and}\quad \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2. \\
 >
 > **Gradient.** By the chain rule applied to each term of the sum:
 >
-> \\ \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n2 \mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{}. \\
+> \\ \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n2 \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}. \\
 >
-> For the inner derivative, we need the gradient of a linear function. For any constant vector \\\tilde{a} = {(a_0, a_x)}^{\top}\\, \\{\tilde{a}}^{\top} \tilde{\beta} = a_0 \beta\_{0}+ a_x \beta\_{x}\\, whose partial derivatives with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ are \\a_0\\ and \\a_x\\; so \\\frac{\partial}{\partial \tilde{\beta}} {\tilde{a}}^{\top} \tilde{\beta} = \tilde{a}\\. With \\\tilde{a} = \tilde{x}\_i\\:
+> For the inner derivative, we need the gradient of a linear function. For any constant vector \\\tilde{a} = {(a_0, a_x)}^{\top}\\, \\\tilde{a} \cdot \tilde{\beta} = a_0 \beta\_{0}+ a_x \beta\_{x}\\, whose partial derivatives with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ are \\a_0\\ and \\a_x\\; so \\\frac{\partial}{\partial \tilde{\beta}} \tilde{a} \cdot \tilde{\beta} = \tilde{a}\\. With \\\tilde{a} = \tilde{x}\_i\\:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{} &= \frac{\partial}{\partial \tilde{\beta}} y_i - \frac{\partial}{\partial \tilde{\beta}} {\tilde{x}\_i}^{\top} \tilde{\beta} && \text{(derivative of a difference)}\\ &= \tilde{0}- \tilde{x}\_i && \text{(\$y_i\$ does not depend on \$\tilde{\beta}\$; gradient of a linear function)}\\ &= -\tilde{x}\_i \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} &= \frac{\partial}{\partial \tilde{\beta}} y_i - \frac{\partial}{\partial \tilde{\beta}} \tilde{x}\_i \cdot \tilde{\beta} && \text{(derivative of a difference)}\\ &= \tilde{0}- \tilde{x}\_i && \text{(\$y_i\$ does not depend on \$\tilde{\beta}\$; gradient of a linear function)}\\ &= -\tilde{x}\_i \end{aligned} \\
 >
 > Plugging the inner derivative back in:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) &= -2 \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(y_i - {\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{} && \text{(inner derivative is \$-\tilde{x}\_i\$)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^n\tilde{x}\_iy_i - \sum\_{i=1}^n\tilde{x}\_i{\tilde{x}\_i}^{\top} \tilde{\beta}\right)\mathclose{} && \text{(distribute the sum)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) &= -2 \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} && \text{(inner derivative is \$-\tilde{x}\_i\$)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^n\tilde{x}\_iy_i - \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(\tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}\right)\mathclose{} && \text{(distribute the sum)} \end{aligned} \\
 >
-> **Solve for \\\hat{\tilde{\beta}}\\.** Write \\A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ and \\\tilde{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_iy_i\\, so that the gradient is \\-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\\. Setting it equal to \\\tilde{0}\\ gives the **normal equations** \\A \tilde{\beta}= \tilde{c}\\. Writing out the components of each term:
+> **Solve for \\\hat{\tilde{\beta}}\\.** Write \\A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ and \\\tilde{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_iy_i\\. Since \\\tilde{x}\_i\mathopen{}\left(\tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} = \mathopen{}\left(\tilde{x}\_i {\tilde{x}\_i}^{\top}\right)\mathclose{} \tilde{\beta}\\, the gradient is \\-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\\. Setting it equal to \\\tilde{0}\\ gives the **normal equations** \\A \tilde{\beta}= \tilde{c}\\. Writing out the components of each term:
 >
 > \\ A = \sum\_{i=1}^n\begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix} = \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sum\_{i=1}^nx_i^2 \end{pmatrix}, \qquad \tilde{c} = \sum\_{i=1}^n\begin{pmatrix} y_i \\ x_i y_i \end{pmatrix} = \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix}. \\
 >
@@ -242,7 +242,7 @@ The same result follows from a derivation in vector notation, which treats \\(\b
 >
 > It is positive definite. For any vector \\\tilde{v} = {(v_0, v_x)}^{\top} \neq \tilde{0}\\:
 >
-> \\ {\tilde{v}}^{\top} \mathopen{}\left(2 A\right)\mathclose{} \tilde{v} = 2 \sum\_{i=1}^n{\tilde{v}}^{\top} \tilde{x}\_i {\tilde{x}\_i}^{\top} \tilde{v} = 2 \sum\_{i=1}^n\mathopen{}\left(v_0 + v_x x_i\right)\mathclose{}^2 \ge 0, \\
+> \\ {\tilde{v}}^{\top} \mathopen{}\left(2 A\right)\mathclose{} \tilde{v} = 2 \sum\_{i=1}^n\mathopen{}\left(\tilde{v} \cdot \tilde{x}\_i\right)\mathclose{}^2 = 2 \sum\_{i=1}^n\mathopen{}\left(v_0 + v_x x_i\right)\mathclose{}^2 \ge 0, \\
 >
 > with equality only if \\v_0 + v_x x_i = 0\\ for every \\i\\. If \\v_x \neq 0\\, that would force every \\x_i = -v_0 / v_x\\, contradicting \\S\_{xx} \> 0\\; if \\v_x = 0\\, it would force \\v_0 = 0\\, contradicting \\\tilde{v} \neq \tilde{0}\\. So the inequality is strict, the Hessian is positive definite at every \\\tilde{\beta}\\, \\\text{RSS}\\ is strictly convex, and \\\hat{\tilde{\beta}}\\ is its unique global minimum.
 

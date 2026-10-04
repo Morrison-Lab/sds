@@ -215,6 +215,26 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-lem.callout {
   border-left-color: #1565C0;
 }
@@ -245,15 +265,25 @@ div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-def.callout {
   border-left-color: #1B5E20;
@@ -274,36 +304,6 @@ div.callout-remark.callout-style-default .callout-header {
 div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -796,7 +796,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-03 14:43:41 (PDT)</p>
+      <p class="date">Last modified: 2026-10-03 17:49:29 (PDT)</p>
     </div>
   </div>
   
@@ -846,23 +846,23 @@ Table&nbsp;1: Exercise by treatment group in HERS
 </figcaption><div aria-describedby="tbl-hers-crosstab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="hnnsyrbsks" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hnnsyrbsks table {
+<div id="bqjlyggqoy" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bqjlyggqoy table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hnnsyrbsks thead, #hnnsyrbsks tbody, #hnnsyrbsks tfoot, #hnnsyrbsks tr, #hnnsyrbsks td, #hnnsyrbsks th {
+#bqjlyggqoy thead, #bqjlyggqoy tbody, #bqjlyggqoy tfoot, #bqjlyggqoy tr, #bqjlyggqoy td, #bqjlyggqoy th {
   border-style: none;
 }
 
-#hnnsyrbsks p {
+#bqjlyggqoy p {
   margin: 0;
   padding: 0;
 }
 
-#hnnsyrbsks .gt_table {
+#bqjlyggqoy .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -888,12 +888,12 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-left-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_caption {
+#bqjlyggqoy .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hnnsyrbsks .gt_title {
+#bqjlyggqoy .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -905,7 +905,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-width: 0;
 }
 
-#hnnsyrbsks .gt_subtitle {
+#bqjlyggqoy .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -917,7 +917,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-top-width: 0;
 }
 
-#hnnsyrbsks .gt_heading {
+#bqjlyggqoy .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -929,13 +929,13 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_bottom_border {
+#bqjlyggqoy .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_col_headings {
+#bqjlyggqoy .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -950,7 +950,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_col_heading {
+#bqjlyggqoy .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -970,7 +970,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   overflow-x: hidden;
 }
 
-#hnnsyrbsks .gt_column_spanner_outer {
+#bqjlyggqoy .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -982,15 +982,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 4px;
 }
 
-#hnnsyrbsks .gt_column_spanner_outer:first-child {
+#bqjlyggqoy .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hnnsyrbsks .gt_column_spanner_outer:last-child {
+#bqjlyggqoy .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hnnsyrbsks .gt_column_spanner {
+#bqjlyggqoy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1002,11 +1002,11 @@ Table&nbsp;1: Exercise by treatment group in HERS
   width: 100%;
 }
 
-#hnnsyrbsks .gt_spanner_row {
+#bqjlyggqoy .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hnnsyrbsks .gt_group_heading {
+#bqjlyggqoy .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1032,7 +1032,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   text-align: left;
 }
 
-#hnnsyrbsks .gt_empty_group_heading {
+#bqjlyggqoy .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1047,15 +1047,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   vertical-align: middle;
 }
 
-#hnnsyrbsks .gt_from_md > :first-child {
+#bqjlyggqoy .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hnnsyrbsks .gt_from_md > :last-child {
+#bqjlyggqoy .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hnnsyrbsks .gt_row {
+#bqjlyggqoy .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1074,7 +1074,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   overflow-x: hidden;
 }
 
-#hnnsyrbsks .gt_stub {
+#bqjlyggqoy .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1087,7 +1087,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#hnnsyrbsks .gt_stub_row_group {
+#bqjlyggqoy .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1101,15 +1101,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   vertical-align: top;
 }
 
-#hnnsyrbsks .gt_row_group_first td {
+#bqjlyggqoy .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hnnsyrbsks .gt_row_group_first th {
+#bqjlyggqoy .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hnnsyrbsks .gt_summary_row {
+#bqjlyggqoy .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1119,16 +1119,16 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#hnnsyrbsks .gt_first_summary_row {
+#bqjlyggqoy .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_first_summary_row.thick {
+#bqjlyggqoy .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hnnsyrbsks .gt_last_summary_row {
+#bqjlyggqoy .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1138,7 +1138,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_grand_summary_row {
+#bqjlyggqoy .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1148,7 +1148,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#hnnsyrbsks .gt_first_grand_summary_row {
+#bqjlyggqoy .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1158,7 +1158,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-top-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_last_grand_summary_row_top {
+#bqjlyggqoy .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1168,11 +1168,11 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_striped {
+#bqjlyggqoy .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hnnsyrbsks .gt_table_body {
+#bqjlyggqoy .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1181,7 +1181,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_footnotes {
+#bqjlyggqoy .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1195,7 +1195,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_footnote {
+#bqjlyggqoy .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1204,7 +1204,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#hnnsyrbsks .gt_sourcenotes {
+#bqjlyggqoy .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1218,7 +1218,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#hnnsyrbsks .gt_sourcenote {
+#bqjlyggqoy .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1226,72 +1226,72 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#hnnsyrbsks .gt_left {
+#bqjlyggqoy .gt_left {
   text-align: left;
 }
 
-#hnnsyrbsks .gt_center {
+#bqjlyggqoy .gt_center {
   text-align: center;
 }
 
-#hnnsyrbsks .gt_right {
+#bqjlyggqoy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hnnsyrbsks .gt_font_normal {
+#bqjlyggqoy .gt_font_normal {
   font-weight: normal;
 }
 
-#hnnsyrbsks .gt_font_bold {
+#bqjlyggqoy .gt_font_bold {
   font-weight: bold;
 }
 
-#hnnsyrbsks .gt_font_italic {
+#bqjlyggqoy .gt_font_italic {
   font-style: italic;
 }
 
-#hnnsyrbsks .gt_super {
+#bqjlyggqoy .gt_super {
   font-size: 65%;
 }
 
-#hnnsyrbsks .gt_footnote_marks {
+#bqjlyggqoy .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hnnsyrbsks .gt_asterisk {
+#bqjlyggqoy .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hnnsyrbsks .gt_indent_1 {
+#bqjlyggqoy .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hnnsyrbsks .gt_indent_2 {
+#bqjlyggqoy .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hnnsyrbsks .gt_indent_3 {
+#bqjlyggqoy .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hnnsyrbsks .gt_indent_4 {
+#bqjlyggqoy .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hnnsyrbsks .gt_indent_5 {
+#bqjlyggqoy .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hnnsyrbsks .katex-display {
+#bqjlyggqoy .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hnnsyrbsks div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bqjlyggqoy div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
