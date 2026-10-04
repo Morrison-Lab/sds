@@ -29,6 +29,7 @@ then reports the chosen model's test RMSE
 on untouched test data
 [@james2021islr2e, p. 213].
 
+:::{#tbl-train-validation-test-split-sizes}
 ```{r}
 #| code-fold: false
 set.seed(108)
@@ -46,10 +47,7 @@ split_sizes <- tibble::tibble(
   split = c("training", "validation", "test"),
   n = c(length(idx_train), length(idx_valid), length(idx_test))
 )
-```
 
-:::{#tbl-train-validation-test-split-sizes}
-```{r}
 split_sizes
 ```
 
@@ -122,6 +120,8 @@ performance_comparison <- tibble::tibble(
     compute_rmse(chosen_model, test_dat)
   )
 )
+
+chosen_model_name
 ```
 
 ```{r}
@@ -175,6 +175,8 @@ plot_partitions_with_fit <- function(model, fit_label) {
     bty = "n"
   )
 }
+
+rbind(wt = wt_range, mpg = mpg_range)
 ```
 
 :::{#fig-linear-model-superimposed}

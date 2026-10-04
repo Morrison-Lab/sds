@@ -19,6 +19,7 @@ which these notes use so that rendering does not depend on the website.
 #| label: load-hers-local
 #| code-fold: false
 hers <- rmb::hers |> haven::as_factor()
+hers |> head()
 ```
 
 The examples on this page use these variables:

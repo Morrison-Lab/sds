@@ -51,6 +51,7 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 
 - **Lists of 3+ items**: use bullet lists rather than comma-separated prose. Always leave a blank line before a markdown bullet list (especially in `.qmd` files).
 - **Code chunks**: HTML output folds code by default: `_quarto-website.yml` sets `code-fold: true` (with `code-tools: true`, so readers can show all code at once), as rme does. Keep the default when the *output* (plot, table) is the point and the code is incidental. Set `#| code-fold: false` on tutorial code, short examples, code that is the main focus, and chunks where the console output is the main content.
+- **Visible results**: every code chunk readers can see should produce a visible result (figure, table, or console output); end assignment-only chunks with an expression that shows what they made. See "Every visible chunk shows a result" in `.github/copilot-instructions.md`.
 - **R style**: respect `.lintr.R`. Run `lintr::lint_dir()` before declaring R changes done.
 - **Math notation**: use semantic macros (`\coef{x}`, `\intcoef`, ...), index coefficients by their variable ($\beta_x$, not $\beta_1$), write inner products as dot products (`\dprod`) rather than transpose products, and derive a chain rule's inner derivative in its own aligned block. See "Math Notation" in `.github/copilot-instructions.md`.
 - **Definitions**: compact and general, followed by examples from most general to most specific and a remark for any commentary. See "Definitions" in `.github/copilot-instructions.md`.

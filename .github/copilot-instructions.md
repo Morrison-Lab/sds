@@ -105,6 +105,18 @@ Never nest one theorem-type div inside another.
 
 ## Code Chunks
 
+### Every visible chunk shows a result
+
+A code chunk that readers can see should produce a visible result:
+a figure, a table, or console output.
+A chunk that only assigns (for example `hers <- rmb::hers |> haven::as_factor()`)
+shows code with nothing to connect it to.
+End it with an expression that displays what it made
+(`hers |> head()`, the estimate it computed, a call to the function it defined),
+or merge it into the chunk that displays the result.
+Chunks hidden with `#| include: false` are exempt.
+
+
 ### Code Folding
 
 HTML output folds code by default: `_quarto-website.yml` sets `code-fold: true` (with `code-tools: true`, so readers can show all code at once), as rme does. This allows readers to focus on the narrative and results while still having the option to view the code if they want to. Set `#| code-fold: false` on a chunk when readers should see its code without clicking.

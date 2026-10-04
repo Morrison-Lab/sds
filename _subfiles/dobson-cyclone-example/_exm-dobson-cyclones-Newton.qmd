@@ -12,6 +12,7 @@ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
 #| label: initial-guess
 #| code-fold: false
 cur_lambda_est <- 3
+cur_lambda_est
 ```
 
 :::
@@ -173,6 +174,7 @@ $$
 #| code-fold: false
 new_lambda_est <-
   cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
+new_lambda_est
 ```
 
 :::{#fig-cyclone-newton-step1-with-new-est}

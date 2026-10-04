@@ -20,6 +20,7 @@ So $\tilde \lambda$ maximizes $\ell$, and therefore $\Lik$:
 #| label: calc-mle
 #| code-fold: false
 mle <- mean(cyclones$number)
+mle
 ```
 
 $$\hat{\lambda}_{\text{ML}} = \bar x = `r round(mle, 3)`$$

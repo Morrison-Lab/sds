@@ -40,6 +40,9 @@ do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
     results
   }
 }
+
+# one small example dataset:
+do_one_sim(n = 10, mu = 0, mu0 = 0, sigma2 = 1)
 ```
 
 {{< slidebreak >}}
