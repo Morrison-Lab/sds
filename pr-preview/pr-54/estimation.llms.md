@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-03 17:49:29 (PDT)
+Last modified: 2026-10-03 18:22:19 (PDT)
 
 ## 1 Scientific models
 
@@ -130,15 +130,57 @@ To determine which estimator is best, we need to define *best*. Accuracy is usua
 
 The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, mean squared error, and mean absolute error defined in this section, are all functions of the distribution of the estimator’s [estimation error](#def-estimation-error).
 
-### 3.3 Residuals
+### 3.3 Fitted values, residuals, and prediction errors
 
-See [Linear-model residual definitions and terminology](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-lm-residuals) for residual definitions and for the relationship between residuals, model deviations, and estimation error.
+> **NOTE:**
+>
+> **Definition 6 (Fitted value)** Suppose a model for the mean of an outcome \\Y\\ given a predictor \\X\\ has been fitted to data \\(x_1, y_1), \ldots, (x_n, y_n)\\. The **fitted value** for observation \\i\\, written \\\hat y_i\\, is the fitted model’s estimate of the mean outcome at that observation’s predictor value, \\\operatorname{E}\mathopen{}\left\[Y \mid X = x_i\right\]\mathclose{}\\.
+>
+> For example, a simple linear regression fitted by [ordinary least squares](correlation-regression.llms.md#def-ols) has fitted values \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\.
+
+> **NOTE:**
+>
+> **Definition 7 (Residual)** The **residual** for observation \\i\\ is its observed outcome minus its [fitted value](#def-fitted-value):
+>
+> \\r_i \stackrel{\text{def}}{=}y_i - \hat y_i\\
+
+> **NOTE:**
+>
+> **Definition 8 (Prediction error)** The **prediction error** of a prediction \\\hat y\\ of an observed outcome \\y\\ is the prediction minus the observed outcome:
+>
+> \\e\stackrel{\text{def}}{=}\hat y- y\\
+>
+> The prediction can be a [fitted value](#def-fitted-value) or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value. For an observation that was used to fit the model, \\e_i = \hat y_i - y_i = -r_i\\, the negative of its [residual](#def-residual).
+
+> **NOTE:**
+>
+> **Definition 9 (Mean squared error of predictions)** The **mean squared error** of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
+>
+> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^ne_i^2 = \frac{1}{n} \sum\_{i=1}^n\mathopen{}\left(\hat y_i - y_i\right)\mathclose{}^2\\
+>
+> It averages squared errors over observations, where the [mean squared error of an estimator](#def-mse) takes an expectation over repeated samples. On the data used to fit the model, \\e_i^2 = r_i^2\\, so \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \sum\_{i=1}^nr_i^2\\: for a simple linear regression, the [residual sum of squares](correlation-regression.llms.md#def-rss) of the fitted line divided by \\n\\.
+
+> **NOTE:**
+>
+> **Example 6 (Fitted values, residuals, and prediction errors for three points)** Take the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
+>
+> | \\x_i\\ | \\y_i\\ | \\\hat y_i = 1 + 0.5 x_i\\ | \\r_i = y_i - \hat y_i\\ | \\e_i = \hat y_i - y_i\\ |
+> |:--:|:--:|:--:|:--:|:--:|
+> | 0 | 1 | 1 | 0 | 0 |
+> | 1 | 2 | 1.5 | 0.5 | \\-0.5\\ |
+> | 2 | 2 | 2 | 0 | 0 |
+>
+> The mean squared error of these predictions is
+>
+> \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{0^2 + (-0.5)^2 + 0^2}{3} = \frac{0.25}{3} \approx 0.083, \\
+>
+> the residual sum of squares, \\0.25\\, divided by \\n = 3\\.
 
 ### 3.4 Bias
 
 > **NOTE:**
 >
-> **Definition 6 (Bias)** The **bias** of an estimator \\\hat\theta\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error):
+> **Definition 10 (Bias)** The **bias** of an estimator \\\hat\theta\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error):
 >
 > \\\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right\]\mathclose{} \tag{1}\\
 
@@ -152,7 +194,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 
 > **NOTE:**
 >
-> **Example 6 (Bias of two estimators of a mean)** Let \\X_1, \ldots, X_n\\ each have expectation \\\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\\, as in [Example 4](#exm-estimator). By [Theorem 1](#thm-bias-exprs), the bias of the sample mean \\\bar X\\ is:
+> **Example 7 (Bias of two estimators of a mean)** Let \\X_1, \ldots, X_n\\ each have expectation \\\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\\, as in [Example 4](#exm-estimator). By [Theorem 1](#thm-bias-exprs), the bias of the sample mean \\\bar X\\ is:
 >
 > \\ \begin{aligned} \operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{} - \mu && \text{(bias equals expectation minus truth)}\\ &= \operatorname{E}\mathopen{}\left\[\frac{1}{n}\sum\_{i=1}^n X_i\right\]\mathclose{} - \mu && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n}\sum\_{i=1}^n \operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} - \mu && \text{(linearity of expectation)}\\ &= \frac{1}{n} \cdot n\mu - \mu && \text{(\$\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\$ for every \$i\$)}\\ &= 0 \end{aligned} \\
 >
@@ -166,7 +208,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 
 > **NOTE:**
 >
-> **Definition 7 (Mean squared error)** The **mean squared error** of an estimator \\\hat\theta\\, denoted \\\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
+> **Definition 11 (Mean squared error)** The **mean squared error** of an estimator \\\hat\theta\\, denoted \\\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{}\\
 
@@ -200,7 +242,7 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 
 > **NOTE:**
 >
-> **Example 7 (Mean squared error of two estimators of a mean)** Continuing [Example 6](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 2](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
+> **Example 8 (Mean squared error of two estimators of a mean)** Continuing [Example 7](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 2](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
 >
 > For \\X_1\\, \\\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} = 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} = \sigma^2\\.
 >
@@ -214,30 +256,30 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 
 > **NOTE:**
 >
-> **Definition 8 (Root mean squared error)** The **root mean squared error** of an estimator \\\hat\theta\\ is the square root of its [mean squared error](#def-mse):
+> **Definition 12 (Root mean squared error)** The **root mean squared error** of an estimator \\\hat\theta\\ is the square root of its [mean squared error](#def-mse):
 >
 > \\\operatorname{RMSE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}}\\
 >
-> It has the same units as the estimand. In [Example 7](#exm-mse-sample-mean), the root mean squared error of \\\bar X\\ is \\\sigma/\sqrt{n}\\.
+> It has the same units as the estimand. In [Example 8](#exm-mse-sample-mean), the root mean squared error of \\\bar X\\ is \\\sigma/\sqrt{n}\\.
 
 ### 3.6 Unbiased estimators
 
 > **NOTE:**
 >
-> **Definition 9 (Unbiased estimator)** An estimator \\\hat\theta\\ is **unbiased** if its [bias](#def-bias) is zero: \\\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} = 0\\. An estimator whose bias is not zero is **biased**.
+> **Definition 13 (Unbiased estimator)** An estimator \\\hat\theta\\ is **unbiased** if its [bias](#def-bias) is zero: \\\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} = 0\\. An estimator whose bias is not zero is **biased**.
 
 > **NOTE:**
 >
-> **Example 8 (The sample mean is unbiased)** By [Example 6](#exm-bias-sample-mean), \\\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\\ and \\\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\\, so both the sample mean \\\bar X\\ and the single-observation estimator \\X_1\\ are [unbiased](#def-unbiased) estimators of \\\mu\\.
+> **Example 9 (The sample mean is unbiased)** By [Example 7](#exm-bias-sample-mean), \\\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\\ and \\\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\\, so both the sample mean \\\bar X\\ and the single-observation estimator \\X_1\\ are [unbiased](#def-unbiased) estimators of \\\mu\\.
 
 > **NOTE:**
 >
-> **Example 9 (A biased estimator of the variance)** Let \\X_1, \ldots, X_n\\ be mutually independent, each with expectation \\\mu\\ and variance \\\sigma^2\\, and let \\n \ge 2\\. Consider two estimators of \\\sigma^2\\:
+> **Example 10 (A biased estimator of the variance)** Let \\X_1, \ldots, X_n\\ be mutually independent, each with expectation \\\mu\\ and variance \\\sigma^2\\, and let \\n \ge 2\\. Consider two estimators of \\\sigma^2\\:
 >
 > - the [sample variance](exploratory-descriptive.llms.md#def-sample-variance) \\S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n (X_i - \bar X)^2\\;
 > - the divide-by-\\n\\ estimator \\\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^n (X_i - \bar X)^2\\.
 >
-> Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n (X_i - \bar X)^2\\, so we first find its expectation. Using \\\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2 + \mu^2\\ and \\\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\\ (by [Example 7](#exm-mse-sample-mean) and [Example 6](#exm-bias-sample-mean)):
+> Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n (X_i - \bar X)^2\\, so we first find its expectation. Using \\\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2 + \mu^2\\ and \\\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\\ (by [Example 8](#exm-mse-sample-mean) and [Example 7](#exm-bias-sample-mean)):
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n (X_i - \bar X)^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - 2\bar X \sum\_{i=1}^n X_i + n \bar X^2\right\]\mathclose{} && \text{(expand each square and sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right\]\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^n X_i = n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - n \bar X^2\right\]\mathclose{} && \text{(collect the \$\bar X^2\$ terms)}\\ &= \sum\_{i=1}^n \operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= n(\sigma^2 + \mu^2) - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(substitute both second moments)}\\ &= (n - 1)\sigma^2 && \text{(cancel \$n\mu^2\$ and simplify)} \end{aligned} \\
 >
@@ -273,13 +315,13 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 
 > **NOTE:**
 >
-> **Definition 10 (Mean absolute error)** The **mean absolute error** of an estimator is the expectation of the absolute value of the [estimation error](#def-estimation-error):
+> **Definition 14 (Mean absolute error)** The **mean absolute error** of an estimator is the expectation of the absolute value of the [estimation error](#def-estimation-error):
 >
 > \\ \operatorname{MAE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right\|\mathclose{}\right\]\mathclose{} \\
 
 > **NOTE:**
 >
-> **Example 10 (Mean absolute error of a Gaussian estimator)** Suppose an estimator \\\hat\theta\\ has a Gaussian distribution with mean \\\theta\\ and standard deviation \\\tau\\, so that its estimation error \\\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{} = \hat\theta- \theta\\ has the same distribution as \\\tau Z\\, where \\Z\\ has a standard Gaussian distribution with density \\\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\\. Then:
+> **Example 11 (Mean absolute error of a Gaussian estimator)** Suppose an estimator \\\hat\theta\\ has a Gaussian distribution with mean \\\theta\\ and standard deviation \\\tau\\, so that its estimation error \\\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{} = \hat\theta- \theta\\ has the same distribution as \\\tau Z\\, where \\Z\\ has a standard Gaussian distribution with density \\\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\\. Then:
 >
 > \\ \begin{aligned} \operatorname{MAE}\mathopen{}\left(\hat\theta\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\tau Z\right\|\mathclose{}\right\]\mathclose{} && \text{(definition of MAE)}\\ &= \tau \operatorname{E}\mathopen{}\left\[\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{} && \text{(\$\tau \> 0\$ and linearity of expectation)}\\ &= \tau \int\_{-\infty}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(expectation of a function of \$Z\$)}\\ &= 2\tau \int\_{0}^{\infty} z \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{}\phi(z)\$ is symmetric about 0)}\\ &= 2\tau \mathopen{}\left\[-\phi(z)\right\]\mathclose{}\_{0}^{\infty} && \text{(\$\phi'(z) = -z\phi(z)\$)}\\ &= 2\tau \phi(0) && \text{(\$\phi(z) \to 0\$ as \$z \to \infty\$)}\\ &= \tau \sqrt{2/\pi} && \text{(\$\phi(0) = (2\pi)^{-1/2}\$)} \end{aligned} \\
 >
@@ -289,13 +331,13 @@ See [Linear-model residual definitions and terminology](https://morrison-lab.git
 
 > **NOTE:**
 >
-> **Definition 11 (Standard error)** The **standard error** of an estimator \\\hat\theta\\ is the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of \\\hat\theta\\:
+> **Definition 15 (Standard error)** The **standard error** of an estimator \\\hat\theta\\ is the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of \\\hat\theta\\:
 >
 > \\\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{}\\
 
 > **NOTE:**
 >
-> **Example 11 (Standard error of the sample mean)** In [Example 7](#exm-mse-sample-mean), \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2 / n\\, so \\\operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} = \sqrt{\sigma^2 / n} = \sigma / \sqrt{n}\\. With \\n = 50\\ students, the standard error of the sample mean height is \\\sigma / \sqrt{50} \approx 0.14\sigma\\.
+> **Example 12 (Standard error of the sample mean)** In [Example 8](#exm-mse-sample-mean), \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2 / n\\, so \\\operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} = \sqrt{\sigma^2 / n} = \sigma / \sqrt{n}\\. With \\n = 50\\ students, the standard error of the sample mean height is \\\sigma / \sqrt{50} \approx 0.14\sigma\\.
 
 > **NOTE:**
 >

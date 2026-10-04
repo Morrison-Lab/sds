@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-03 17:49:29 (PDT)
+Last modified: 2026-10-03 18:22:19 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -149,6 +149,8 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 > **Definition 5 (Residual sum of squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **residual sum of squares** of a line with intercept \\\beta\_{0}\\ and slope \\\beta\_{x}\\ is
 >
 > \\\text{RSS}(\beta\_{0}, \beta\_{x}) \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - \beta\_{0}- \beta\_{x} x_i)^2.\\
+>
+> Each term is the square of a [residual](estimation.llms.md#def-residual), with the line’s value \\\beta\_{0}+ \beta\_{x} x_i\\ as the fitted value.
 
 > **NOTE:**
 >
@@ -328,11 +330,11 @@ The same result follows from a derivation in vector notation, which treats \\(\b
 
 > **NOTE:**
 >
-> **Definition 8 (Coefficient of determination)** For a fitted regression with fitted values \\\hat{y}\_i\\, the **coefficient of determination** is
+> **Definition 8 (Coefficient of determination)** For a fitted regression with [fitted values](estimation.llms.md#def-fitted-value) \\\hat y_i\\, the **coefficient of determination** is
 >
-> \\R^2 \stackrel{\text{def}}{=}1 - \frac{\sum\_{i=1}^n (y_i - \hat{y}\_i)^2}{\sum\_{i=1}^n (y_i - \bar{y})^2}.\\
+> \\R^2 \stackrel{\text{def}}{=}1 - \frac{\sum\_{i=1}^n (y_i - \hat y_i)^2}{\sum\_{i=1}^n (y_i - \bar{y})^2}.\\
 >
-> The numerator is the [residual sum of squares](#def-rss) of the fit, and the denominator is the [total sum of squares](#def-tss) of the \\y_i\\.
+> The numerator is the [residual sum of squares](#def-rss) of the fit, the sum of the squared [residuals](estimation.llms.md#def-residual), and the denominator is the [total sum of squares](#def-tss) of the \\y_i\\.
 
 \\R^2\\ is often described as the proportion of the variation in \\Y\\ explained by the regression on \\X\\.
 
@@ -342,13 +344,13 @@ The same result follows from a derivation in vector notation, which treats \\(\b
 
 > **NOTE:**
 >
-> *Proof*. With the notation of [Theorem 2](#thm-ols-slr), the fitted values are \\\hat{y}\_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each residual is
+> *Proof*. With the notation of [Theorem 2](#thm-ols-slr), the [fitted values](estimation.llms.md#def-fitted-value) are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](estimation.llms.md#def-residual) is
 >
-> \\ \begin{aligned} y_i - \hat{y}\_i &= y_i - (\bar{y} - \hat{\beta}\_{x} \bar{x}) - \hat{\beta}\_{x} x_i && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= (y_i - \bar{y}) - \hat{\beta}\_{x} (x_i - \bar{x}) && \text{(regroup)} \end{aligned} \\
+> \\ \begin{aligned} r_i = y_i - \hat y_i &= y_i - (\bar{y} - \hat{\beta}\_{x} \bar{x}) - \hat{\beta}\_{x} x_i && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= (y_i - \bar{y}) - \hat{\beta}\_{x} (x_i - \bar{x}) && \text{(regroup)} \end{aligned} \\
 >
 > Squaring and summing:
 >
-> \\ \begin{aligned} \sum\_{i=1}^n (y_i - \hat{y}\_i)^2 &= \sum\_{i=1}^n \mathopen{}\left((y_i - \bar{y})^2 - 2 \hat{\beta}\_{x} (x_i - \bar{x})(y_i - \bar{y}) + \hat{\beta}\_{x}^2 (x_i - \bar{x})^2\right)\mathclose{} && \text{(expand the square)}\\ &= S\_{yy} - 2 \hat{\beta}\_{x} S\_{xy} + \hat{\beta}\_{x}^2 S\_{xx} && \text{(definitions of \$S\_{yy}\$, \$S\_{xy}\$, \$S\_{xx}\$)}\\ &= S\_{yy} - 2 \frac{S\_{xy}^2}{S\_{xx}} + \frac{S\_{xy}^2}{S\_{xx}} && \text{(substitute \$\hat{\beta}\_{x} = S\_{xy} / S\_{xx}\$)}\\ &= S\_{yy} - \frac{S\_{xy}^2}{S\_{xx}} && \text{(combine like terms)} \end{aligned} \\
+> \\ \begin{aligned} \sum\_{i=1}^n (y_i - \hat y_i)^2 &= \sum\_{i=1}^n \mathopen{}\left((y_i - \bar{y})^2 - 2 \hat{\beta}\_{x} (x_i - \bar{x})(y_i - \bar{y}) + \hat{\beta}\_{x}^2 (x_i - \bar{x})^2\right)\mathclose{} && \text{(expand the square)}\\ &= S\_{yy} - 2 \hat{\beta}\_{x} S\_{xy} + \hat{\beta}\_{x}^2 S\_{xx} && \text{(definitions of \$S\_{yy}\$, \$S\_{xy}\$, \$S\_{xx}\$)}\\ &= S\_{yy} - 2 \frac{S\_{xy}^2}{S\_{xx}} + \frac{S\_{xy}^2}{S\_{xx}} && \text{(substitute \$\hat{\beta}\_{x} = S\_{xy} / S\_{xx}\$)}\\ &= S\_{yy} - \frac{S\_{xy}^2}{S\_{xx}} && \text{(combine like terms)} \end{aligned} \\
 >
 > The total sum of squares is \\S\_{yy}\\, so:
 >

@@ -14,13 +14,13 @@ Code
 
 Published
 
-Last modified: 2026-10-03 17:49:29 (PDT)
+Last modified: 2026-10-03 18:22:19 (PDT)
 
 ## 1 Overfitting
 
 > **NOTE:**
 >
-> **Exercise 1 (Training error versus error on new cars)** The built-in `mtcars` data frame has \\n = 32\\ cars. Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`, of degree 1, 2, 3, and 4, using only the first 20 rows as the training set. For each model, compute the root mean squared error (RMSE) on the 20 training rows and on the remaining 12 rows.
+> **Exercise 1 (Training error versus error on new cars)** The built-in `mtcars` data frame has \\n = 32\\ cars. Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`, of degree 1, 2, 3, and 4, using only the first 20 rows as the training set. For each model, compute the root mean squared error (RMSE), the square root of the [mean squared error of its predictions](estimation.llms.md#def-prediction-mse), on the 20 training rows and on the remaining 12 rows.
 >
 > 1.  Which degree has the smallest training RMSE?
 > 2.  Which degree has the smallest RMSE on the 12 held-out rows?
