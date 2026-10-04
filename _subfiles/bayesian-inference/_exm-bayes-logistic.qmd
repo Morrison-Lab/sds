@@ -3,10 +3,10 @@
 
 We simulate $N = 200$ observations from a logistic model
 with one continuous predictor,
-intercept $\beta_0 = -0.5$ and slope $\beta_1 = 1.2$,
+intercept $\intcoef = -0.5$ and slope $\coef{x} = 1.2$,
 and place a diffuse $\ndist{0, 10^2}$ prior on each coefficient
 (precision $0.01$ in JAGS).
-The JAGS program also monitors the odds ratio $e^{\beta_1}$
+The JAGS program also monitors the odds ratio $e^{\coef{x}}$
 for a one-unit increase in $x$.
 
 ```{r}
