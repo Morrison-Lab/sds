@@ -1,0 +1,8 @@
+::: {#def-residual}
+#### Residual
+
+The **residual** for observation $i$
+is its observed outcome minus its [fitted value](#def-fitted-value):
+
+$$\resid_i \eqdef y_i - \fitted_i$$
+:::

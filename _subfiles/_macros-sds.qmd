@@ -8,3 +8,5 @@
 \providecommand{\hintcoef}{\hcoef{0}}
 \providecommand{\vcoef}{\vec{\regcoef}}
 \providecommand{\hvcoef}{\est{\vcoef}}
+\providecommand{\fitted}{\hy}
+\providecommand{\prederr}{e}

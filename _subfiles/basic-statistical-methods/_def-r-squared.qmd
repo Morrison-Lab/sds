@@ -1,12 +1,14 @@
 ::: {#def-r-squared}
 #### Coefficient of determination
 
-For a fitted regression with fitted values $\hat{y}_i$,
+For a fitted regression with
+[fitted values](estimation.qmd#def-fitted-value) $\fitted_i$,
 the **coefficient of determination** is
 
-$$R^2 \eqdef 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}.$$
+$$R^2 \eqdef 1 - \frac{\sum_{i=1}^n (y_i - \fitted_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}.$$
 
 The numerator is the [residual sum of squares](#def-rss) of the fit,
+the sum of the squared [residuals](estimation.qmd#def-residual),
 and the denominator is the [total sum of squares](#def-tss) of the $y_i$.
 :::
 

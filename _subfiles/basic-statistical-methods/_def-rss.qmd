@@ -7,4 +7,7 @@ with intercept $\intcoef$ and slope $\coef{x}$ is
 
 $$\text{RSS}(\intcoef, \coef{x}) \eqdef \sum_{i=1}^n (y_i - \intcoef - \coef{x} x_i)^2.$$
 
+Each term is the square of a [residual](estimation.qmd#def-residual),
+with the line's value $\intcoef + \coef{x} x_i$ as the fitted value.
+
 :::

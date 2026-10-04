@@ -1,0 +1,15 @@
+::: {#def-fitted-value}
+#### Fitted value
+
+Suppose a model for the mean of an outcome $Y$ given a predictor $X$
+has been fitted to data $(x_1, y_1), \ldots, (x_n, y_n)$.
+The **fitted value** for observation $i$, written $\fitted_i$,
+is the fitted model's estimate of
+the mean outcome at that observation's predictor value,
+$\E{Y \mid X = x_i}$.
+
+For example, a simple linear regression fitted by
+[ordinary least squares](correlation-regression.qmd#def-ols)
+has fitted values
+$\fitted_i = \hintcoef + \hcoef{x} x_i$.
+:::

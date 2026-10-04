@@ -96,6 +96,9 @@ rme will drop those appendices and point readers here
   much of it predates the lab's style rules.
   Check what you port, fix what is wrong, and bring it up to the current rules.
 - Keep rme's `#id`s, so rme's links can be repointed by changing only the path.
+- Don't outsource content to rme: define and explain core material here
+  (or in the sibling mds/pds/lds sites), so rme can point to it rather than the reverse.
+  Linking to rme, cie, win or lds as further reading on advanced topics is fine.
 
 ## Things to avoid
 

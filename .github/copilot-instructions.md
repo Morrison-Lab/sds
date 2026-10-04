@@ -67,6 +67,10 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
   since the intercept symbol may change.
   Where a coefficient as a random variable or unknown must be distinguished from a specific value,
   use `\Coef{x}` / `\Intcoef` (capital Greek) for the former and `\coef{x}` / `\intcoef` for the latter.
+- **Fitted values and errors**:
+  `\fitted` ($\hat y$) for a fitted value or prediction,
+  `\resid` ($r = y - \hat y$, from the macros repo) for a residual,
+  and `\prederr` ($e = \hat y - y$) for a prediction error.
 - **Inner products**: write the inner product of two vectors as a dot product,
   `\dprod{\vxi}{\vcoef}` ($\tilde x_i \cdot \tilde\beta$),
   rather than as a transpose product `\tprod{\vxi}{\vcoef}` ($\tilde x_i^\top \tilde\beta$).
