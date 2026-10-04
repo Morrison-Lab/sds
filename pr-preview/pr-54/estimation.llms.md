@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 11:16:44 (PDT)
+Last modified: 2026-10-04 11:24:12 (PDT)
 
 ## 1 Scientific models
 
@@ -171,6 +171,35 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 > | 0 | 1 | 1 | 0 | 0 |
 > | 1 | 2 | 1.5 | 0.5 | \\-0.5\\ |
 > | 2 | 2 | 2 | 0 | 0 |
+>
+> [Figure 1](#fig-fitted-residual-error) shows the observed outcomes, the fitted values on the line, and the residual of the second point.
+>
+> Show R code
+>
+> ``` downlit
+> fre_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>
+>   dplyr::mutate(fitted = 1 + 0.5 * x)
+>
+> ggplot2::ggplot(fre_points, ggplot2::aes(x = x)) +
+>   ggplot2::geom_abline(intercept = 1, slope = 0.5) +
+>   ggplot2::geom_segment(
+>     ggplot2::aes(y = fitted, xend = x, yend = y),
+>     linetype = "dashed",
+>     color = "firebrick"
+>   ) +
+>   ggplot2::geom_point(ggplot2::aes(y = fitted), shape = 1, size = 3) +
+>   ggplot2::geom_point(ggplot2::aes(y = y), size = 3) +
+>   ggplot2::annotate(
+>     "text",
+>     x = 1.1, y = 1.75, hjust = 0,
+>     label = "r[2] == 0.5", parse = TRUE
+>   ) +
+>   ggplot2::labs(y = "y")
+> ```
+>
+> [![](estimation_files/figure-html/unnamed-chunk-1-1.png)](estimation_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Observed outcomes (filled), fitted values on the line (open), and the residual of the second point (dashed), which points up from its fitted value to its observed outcome")
+>
+> Figure 1: Observed outcomes (filled), fitted values on the line (open), and the residual of the second point (dashed), which points up from its fitted value to its observed outcome
 >
 > The mean squared error of these predictions is
 >
