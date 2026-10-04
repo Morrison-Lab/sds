@@ -7,7 +7,7 @@ says that, given their covariate values,
 the outcomes $Y_1, \ldots, Y_n$ are independent and Gaussian
 with a common variance $\sigma^2$,
 each centered on its conditional mean $\mean_i$,
-a linear function $\mean(x)$ of its covariate value $x_i$:
+the value at $x_i$ of a linear function $\mean(x)$:
 
 $$
 \begin{aligned}

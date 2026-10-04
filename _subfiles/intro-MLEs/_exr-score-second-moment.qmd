@@ -55,7 +55,7 @@ $$
 &= -\E{\hess}
 && \text{(subtract $\E{\hess}$ from both sides)}\\
 &= \E{-\hess}
-&& \text{(linearity of expectation)}\\
+&& \text{(move the constant factor $-1$ into the expectation)}\\
 &= \E{\oinf}
 && \text{(observed information is the negative Hessian)}\\
 &= \einf(\th)

@@ -17,7 +17,7 @@ $$
 &= \E{\tau \abs{Z}}
 && \text{($\abs{\tau Z} = \tau \abs{Z}$ because $\tau > 0$)}\\
 &= \tau \E{\abs{Z}}
-&& \text{(linearity of expectation)}\\
+&& \text{(factor the constant $\tau$ out of the expectation)}\\
 &= \tau \int_{-\infty}^{\infty} \abs{z} \phi(z) \, dz
 && \text{(expectation of a function of $Z$)}\\
 &= \tau \cdot 2 \int_{0}^{\infty} \abs{z} \phi(z) \, dz

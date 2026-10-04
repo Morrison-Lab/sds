@@ -1,19 +1,21 @@
 ::: {#exm-rss-slr}
 #### Residual sum of squares of a simple linear regression
 
-A [simple linear regression](#def-slr) model
+The mean function of a [simple linear regression](#def-slr) model
 has parameter vector $\vth = (\intcoef, \coef{x})$,
 so write $\text{RSS}(\intcoef, \coef{x})$ for its residual sum of squares (@def-rss):
 
 $$
 \begin{aligned}
 \text{RSS}(\intcoef, \coef{x})
-&= \sumin \paren{y_i - \mean(x_i)}^2
+&= \sumin \resid_i(\intcoef, \coef{x})^2
 && \text{(definition of RSS)}\\
+&= \sumin \paren{y_i - \mean(x_i; \intcoef, \coef{x})}^2
+&& \text{(definition of $\resid_i(\vth)$)}\\
 &= \sumin \paren{y_i - (\intcoef + \coef{x} x_i)}^2
 && \text{(definition of $\mean(x)$)}\\
 &= \sumin (y_i - \intcoef - \coef{x} x_i)^2
-&& \text{(remove the inner parentheses)}
+&& \text{(distribute the minus sign)}
 \end{aligned}
 $$
 :::

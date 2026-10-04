@@ -2,9 +2,10 @@
 #### Distribution of the deviations
 
 Show that in a simple linear regression model (@def-slr),
-each deviation (@def-slr-deviation) is Gaussian with mean 0 and variance $\sigma^2$,
-given the covariate value:
-$\cdev_i \mid X_i = x_i \sim \ndist{0, \sigma^2}$.
+given the covariate values,
+the deviations (@def-slr-deviation) are independent
+and each is Gaussian with mean 0 and variance $\sigma^2$:
+$\cdev_i \mid X_i = x_i \simind \ndist{0, \sigma^2}$.
 :::
 
 {{< slidebreak >}}
@@ -25,8 +26,10 @@ $$
 F_{\cdev}(t)
 &= \Prf{\cdev_i \le t}
 && \text{(definition of a CDF)}\\
-&= \Prf{Y_i - \mean_i \le t}
+&= \Prf{Y_i - \mean(x_i) \le t}
 && \text{(definition of $\cdev_i$)}\\
+&= \Prf{Y_i - \mean_i \le t}
+&& \text{(definition of $\mean_i$)}\\
 &= \Prf{Y_i \le t + \mean_i}
 && \text{(add $\mean_i$ to both sides of the inequality)}\\
 &= F_Y(t + \mean_i)
@@ -88,5 +91,26 @@ $$
 
 The last line is the density of $\ndist{0, \sigma^2}$,
 so $\cdev_i \mid X_i = x_i \sim \ndist{0, \sigma^2}$.
+
+{{< slidebreak >}}
+
+For independence, factor the joint CDF of $\cdev_1, \ldots, \cdev_n$,
+using the same CDF step as above for each $i$
+and the independence of the $Y_i$ given the covariates (@def-slr):
+
+$$
+\begin{aligned}
+\Prf{\cdev_1 \le t_1, \ldots, \cdev_n \le t_n}
+&= \Prf{Y_1 \le t_1 + \mean_1, \ldots, Y_n \le t_n + \mean_n}
+&& \text{(add $\mean_i$ to both sides of each inequality)}\\
+&= \prod_{i=1}^n \Prf{Y_i \le t_i + \mean_i}
+&& \text{(the $Y_i$ are independent)}\\
+&= \prod_{i=1}^n \Prf{\cdev_i \le t_i}
+&& \text{(subtract $\mean_i$ from both sides of each inequality)}
+\end{aligned}
+$$
+
+The joint CDF is the product of the marginal CDFs,
+so $\cdev_1, \ldots, \cdev_n$ are independent.
 
 :::

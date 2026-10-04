@@ -223,9 +223,17 @@ $$
 &= \frac{1}{2}(\sigma^2)^{-2}\sum_{i=1}^n (x_i - \mu)^2
 && \text{(add $\tfrac{n}{2}(\sigma^2)^{-1}$ to both sides)}
 \\
+n(\sigma^2)^{-1}(\sigma^2)^2
+&= (\sigma^2)^{-2}(\sigma^2)^2\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(multiply both sides by $2(\sigma^2)^2$)}
+\\
+n\sigma^2
+&= (\sigma^2)^{-2}(\sigma^2)^2\sum_{i=1}^n (x_i - \mu)^2
+&& \text{($(\sigma^2)^{-1}(\sigma^2)^2 = \sigma^2$)}
+\\
 n\sigma^2
 &= \sum_{i=1}^n (x_i - \mu)^2
-&& \text{(multiply both sides by $2(\sigma^2)^2$)}
+&& \text{($(\sigma^2)^{-2}(\sigma^2)^2 = 1$)}
 \\
 \sigma^2
 &= \frac{1}{n}\sum_{i=1}^n (x_i - \mu)^2
