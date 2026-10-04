@@ -7,7 +7,7 @@ Derive the [score function](intro-MLEs.qmd#def-score) for the dataset.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-cyclone-score-fn}
 
 The score function is the first derivative of the log-likelihood
 from @exr-sample-llik:
@@ -29,4 +29,4 @@ $$
 For the cyclone data, $n = `r n`$ and $n \bar x = `r sumx`$,
 so $\ell'(\lambda; \vx) = `r sumx`/\lambda - `r n`$.
 
-::::
+:::

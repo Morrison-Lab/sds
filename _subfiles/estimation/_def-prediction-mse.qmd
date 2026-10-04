@@ -6,16 +6,5 @@ $\fitted_1, \ldots, \fitted_n$
 of observed outcomes $y_1, \ldots, y_n$
 is the mean of their squared [prediction errors](#def-prediction-error):
 
-$$\mselr{\fitted} \eqdef \frac{1}{n} \sumin \prederr_i^2
-= \frac{1}{n} \sumin \paren{\fitted_i - y_i}^2$$
-
-It averages squared errors over observations,
-where the [mean squared error of an estimator](#def-mse)
-takes an expectation over repeated samples.
-On the data used to fit the model,
-$\prederr_i^2 = \resid_i^2$,
-so $\mselr{\fitted} = \frac{1}{n} \sumin \resid_i^2$:
-for a simple linear regression,
-the [residual sum of squares](correlation-regression.qmd#def-rss)
-of the fitted line divided by $n$.
+$$\mselr{\fitted} \eqdef \frac{1}{n} \sumin \prederr_i^2.$$
 :::

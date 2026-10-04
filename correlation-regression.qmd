@@ -68,6 +68,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_exm-rss-slr.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exm-rss.qmd >}}
 
 {{< slidebreak >}}
@@ -76,7 +80,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_exm-ols-slr.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_def-normal-equations.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-normal-equations-slr.qmd >}}
 
 {{< slidebreak >}}
 

@@ -3,7 +3,7 @@
 
 Suppose $S_{xx} > 0$ (@def-centered-sums),
 that is, not all $x_i$ are equal.
-Then the OLS estimates (@def-ols) are unique, and
+Then the OLS estimates (@exm-ols-slr) are unique, and
 
 $$\hcoef{x} = \frac{S_{xy}}{S_{xx}},
 \qquad \hintcoef = \bar{y} - \hcoef{x} \bar{x}.$$

@@ -8,7 +8,7 @@ with respect to its mean parameter $\rate$.
 
 {{< slidebreak >}}
 
-::::{#sol-pois-score-fn}
+:::{#sol-pois-score-fn}
 
 The log-likelihood of one Poisson observation is
 $\loglik = x \logf{\rate} - \rate - \logf{x!}$, so:
@@ -29,4 +29,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

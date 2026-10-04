@@ -1,13 +1,8 @@
 ::: {#def-rss}
 #### Residual sum of squares
 
-For data $(x_1, y_1), \ldots, (x_n, y_n)$,
-the **residual sum of squares** of a line
-with intercept $\intcoef$ and slope $\coef{x}$ is
+The **residual sum of squares** of a model fitted to data
+is the sum of its squared [residuals](estimation.qmd#def-residual):
 
-$$\text{RSS}(\intcoef, \coef{x}) \eqdef \sum_{i=1}^n (y_i - \intcoef - \coef{x} x_i)^2.$$
-
-Each term is the square of a [residual](estimation.qmd#def-residual),
-with the line's value $\intcoef + \coef{x} x_i$ as the fitted value.
-
+$$\text{RSS} \eqdef \sumin \resid_i^2.$$
 :::

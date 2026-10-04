@@ -7,11 +7,11 @@ from the model, as functions of the parameters.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-poisson-mean-and-variance}
 
 - Population mean: $\E{X} = \lambda$.
 - Population variance: $\Var{X} = \lambda$.
 
 The sample mean and variance in @tbl-dobson-cyclones-sumstat
 are of similar size, as the model implies.
-::::
+:::

@@ -8,7 +8,7 @@ equals the [standard error](#def-SE) of $\hth$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-se-error-sd}
 
 $$
 \begin{aligned}
@@ -23,4 +23,4 @@ $$
 Taking square roots of both sides,
 $\SD{\erf{\hth}} = \SD{\hth} = \SE{\hth}$.
 
-::::
+:::

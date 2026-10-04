@@ -8,7 +8,7 @@ in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of $\ht
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-var-mse-bias}
 
 $$
 \begin{aligned}
@@ -21,4 +21,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

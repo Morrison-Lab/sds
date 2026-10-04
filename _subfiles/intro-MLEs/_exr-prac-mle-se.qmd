@@ -13,7 +13,7 @@ Let $X_1, \ldots, X_n \siid \Pois(\rate)$.
 using the asymptotic normal distribution of the MLE.
 :::
 
-::: {.solution}
+:::{#sol-prac-mle-se}
 
 **(a)**
 

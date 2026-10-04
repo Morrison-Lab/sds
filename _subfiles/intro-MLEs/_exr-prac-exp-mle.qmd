@@ -21,7 +21,7 @@ evaluate it at $\hat\pmean_{ML}$,
 and give an approximate 95% confidence interval for $\pmean$.
 :::
 
-::: {.solution}
+:::{#sol-prac-exp-mle}
 
 **(a)**
 

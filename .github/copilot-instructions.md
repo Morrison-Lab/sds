@@ -84,7 +84,7 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
 ## Derivations: exercise, solution, theorem, proof
 
 Present a derivation as one or more exercises (`#exr-` divs),
-each followed in the same file by its `::::{.solution}` block,
+each followed in the same file by its solution (a `#sol-` div whose name matches the exercise, e.g. `#exr-foo` and `#sol-foo`),
 then the theorem (or corollary) that records the result,
 with a short `::: proof` that cites the exercises it rests on.
 Split a long derivation into one exercise per step
@@ -92,6 +92,16 @@ Split a long derivation into one exercise per step
 so no single solution packs several steps together.
 Define any notation the exercises use (such as $S_{xx}$) in its own definition before them,
 not inside the theorem that follows them.
+
+## Definitions: compact and general, then examples
+
+Keep each definition div to its defining statement, stated in the most general form the page needs
+(for example, define the residual sum of squares as $\sum_i r_i^2$ for any fitted model, not only for a line).
+Put special cases in example divs right after it, from the most general to the most specific
+(the simple linear regression case, then a numerical example),
+each linking back to the definition.
+Put commentary (scope, orientation, relations to other quantities) in a remark div after the definition, never inside it.
+Never nest one theorem-type div inside another.
 
 ## Code Chunks
 

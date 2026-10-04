@@ -1,0 +1,12 @@
+::: {#rem-prediction-error}
+#### Prediction errors and residuals
+
+The prediction in @def-prediction-error can be a [fitted value](#def-fitted-value)
+or a prediction for an observation that was not used to fit the model.
+Prediction error is oriented the same way as
+[estimation error](#def-estimation-error):
+estimate minus true value.
+For an observation that was used to fit the model,
+$\prederr_i = \fitted_i - y_i = -\resid_i$,
+the negative of its [residual](#def-residual).
+:::

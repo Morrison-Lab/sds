@@ -8,7 +8,7 @@ the [expected information](#def-einf).
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-score-second-moment}
 
 By @exr-score-mean-zero,
 $0 = \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx$
@@ -45,4 +45,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

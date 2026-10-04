@@ -8,7 +8,7 @@ in terms of $\E{\hth}$ and the estimand $\th$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-sq-bias-expand}
 
 $$
 \begin{aligned}
@@ -20,4 +20,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

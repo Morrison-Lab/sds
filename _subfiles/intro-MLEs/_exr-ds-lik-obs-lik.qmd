@@ -9,7 +9,7 @@ in terms of the observations' [likelihood components](#def-lik-factor).
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-ds-lik-obs-lik}
 
 $$
 \begin{aligned}
@@ -21,4 +21,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

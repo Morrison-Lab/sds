@@ -8,7 +8,7 @@ rather than one component at a time.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-rss-gradient-vector}
 
 By the chain rule applied to each term of the sum:
 
@@ -44,4 +44,4 @@ $$
 = -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}.
 $$
 
-::::
+:::

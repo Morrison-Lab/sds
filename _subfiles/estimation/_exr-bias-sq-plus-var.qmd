@@ -8,7 +8,7 @@ in terms of $\E{\hth^2}$, $\E{\hth}$, and the estimand $\th$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-bias-sq-plus-var}
 
 The variance is
 ([simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)):
@@ -27,4 +27,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

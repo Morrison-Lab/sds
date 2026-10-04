@@ -8,10 +8,10 @@ in terms of its [mean squared error](#def-mse).
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-se-rmse-unbiased}
 
 By @eq-unbiased-mse, $\mselr{\hth} = \Var{\hth}$.
 Taking square roots of both sides,
 $\sqrt{\mselr{\hth}} = \SD{\hth} = \SE{\hth}$.
 
-::::
+:::

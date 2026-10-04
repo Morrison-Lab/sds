@@ -11,7 +11,7 @@ in terms of the [observed information](#def-oinf) $\oinf(\hthml)$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-wilks-lrt-quadratic}
 
 Under $H_0$, the only allowed value is $\th_0$,
 so the restricted MLE is $\hat\th_0 = \th_0$.
@@ -29,4 +29,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

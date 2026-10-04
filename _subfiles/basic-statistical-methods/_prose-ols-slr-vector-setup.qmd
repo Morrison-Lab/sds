@@ -3,7 +3,7 @@ which treats $(\intcoef, \coef{x})$ as a single vector
 instead of differentiating with respect to each component separately.
 
 Use the coefficient vector $\vcoef = \tp{\paren{\intcoef, \coef{x}}}$
-from @def-normal-equations,
+from @exm-normal-equations-slr,
 and give each observation a covariate vector
 with a leading 1 for the intercept:
 

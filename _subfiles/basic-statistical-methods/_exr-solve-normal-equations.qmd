@@ -2,14 +2,14 @@
 #### Solving the normal equations
 
 Using @exr-rss-deriv-intercept and @exr-rss-deriv-slope,
-solve the [normal equations](#def-normal-equations)
+solve the normal equations of @exm-normal-equations-slr
 for $\intcoef$ and $\coef{x}$,
 assuming $S_{xx} > 0$ (@def-centered-sums).
 :::
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-solve-normal-equations}
 
 **First normal equation.**
 By @exr-rss-deriv-intercept,
@@ -50,4 +50,4 @@ $$
 So the normal equations have exactly one solution:
 $\coef{x} = S_{xy} / S_{xx}$ and $\intcoef = \bar{y} - \coef{x} \bar{x}$.
 
-::::
+:::

@@ -16,7 +16,7 @@ can be written as $A \vcoef = \v{c}$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-normal-equations-vector}
 
 Distribute the sum in the gradient from @exr-rss-gradient-vector:
 
@@ -52,4 +52,4 @@ $$
 A \vcoef = \v{c}.
 $$
 
-::::
+:::

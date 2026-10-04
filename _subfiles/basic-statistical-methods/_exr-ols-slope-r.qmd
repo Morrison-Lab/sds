@@ -12,7 +12,7 @@ $s_x$ and $s_y$ of the $x_i$ and the $y_i$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-ols-slope-r}
 
 In terms of the centered sums (@def-centered-sums),
 
@@ -42,4 +42,4 @@ r \, \frac{s_y}{s_x}
 \end{aligned}
 $$
 
-::::
+:::

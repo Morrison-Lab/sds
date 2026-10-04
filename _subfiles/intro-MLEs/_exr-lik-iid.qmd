@@ -9,7 +9,7 @@ in terms of the distributions of the individual $X_i$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-lik-iid}
 
 $$
 \begin{aligned}
@@ -21,4 +21,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

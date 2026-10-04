@@ -7,7 +7,7 @@ find $\E{\hth}$ for an [unbiased](#def-unbiased) estimator $\hth$ of $\th$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-unbiased-exp}
 
 $$
 \begin{aligned}
@@ -20,4 +20,4 @@ $$
 
 Adding $\th$ to both sides gives $\E{\hth} = \th$.
 
-::::
+:::

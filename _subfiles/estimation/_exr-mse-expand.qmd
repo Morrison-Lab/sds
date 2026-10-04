@@ -7,7 +7,7 @@ in terms of $\E{\hth^2}$, $\E{\hth}$, and the estimand $\th$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-mse-expand}
 
 $$
 \begin{aligned}
@@ -25,4 +25,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

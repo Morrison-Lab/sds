@@ -8,7 +8,7 @@ with respect to the mean parameter $\pmean$.
 
 {{< slidebreak >}}
 
-::::{#sol-exp-score-fn}
+:::{#sol-exp-score-fn}
 
 The exponential density with mean $\pmean$ is
 $\p(X = x) = \pmean^{-1} e^{-x/\pmean}$ for $x > 0$,
@@ -30,4 +30,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

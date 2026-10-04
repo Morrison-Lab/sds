@@ -11,7 +11,7 @@ Show that the [score](#def-score) has mean zero.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-score-mean-zero}
 
 The second step uses @exr-deriv-log-density:
 
@@ -32,4 +32,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

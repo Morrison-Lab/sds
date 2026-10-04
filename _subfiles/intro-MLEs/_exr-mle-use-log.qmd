@@ -8,7 +8,7 @@ if and only if it maximizes the [log-likelihood](#def-loglik) $\lik$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-mle-use-log}
 
 The natural logarithm is strictly increasing on $(0, \infty)$,
 so for any $\th_1$ and $\th_2$,
@@ -17,4 +17,4 @@ that is, $\lik(\th_1) \ge \lik(\th_2)$.
 So $\th^*$ satisfies $\Lik(\th^*) \ge \Lik(\th)$ for every $\th$
 if and only if it satisfies $\lik(\th^*) \ge \lik(\th)$ for every $\th$.
 
-::::
+:::

@@ -14,7 +14,7 @@ and verify that the score equals zero at the MLE.
 why does the score being zero at $\hat\rate_{ML}$ make sense?
 :::
 
-::: {.solution}
+:::{#sol-prac-score-zero}
 
 **(a)**
 

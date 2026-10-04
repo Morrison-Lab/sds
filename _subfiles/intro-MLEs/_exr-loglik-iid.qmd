@@ -11,7 +11,7 @@ if the $X_i$ also share a common distribution $\p(X = x \mid \theta)$?
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-loglik-iid}
 
 $$
 \begin{aligned}
@@ -28,4 +28,4 @@ $$
 With a common distribution, $\p(X_i = x_i \mid \theta) = \p(X = x_i \mid \theta)$,
 so each term is $\log{\p(X = x_i \mid \theta)}$.
 
-::::
+:::

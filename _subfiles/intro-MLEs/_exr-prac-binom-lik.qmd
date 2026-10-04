@@ -22,7 +22,7 @@ Confirm that $\hat\pi_{ML} = y/n$.
 confirming a maximum.
 :::
 
-::: {.solution}
+:::{#sol-prac-binom-lik}
 
 **(a)**
 

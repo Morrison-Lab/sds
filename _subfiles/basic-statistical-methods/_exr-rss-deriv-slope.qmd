@@ -1,14 +1,14 @@
 :::{#exr-rss-deriv-slope}
 #### Derivative of RSS with respect to the slope
 
-Find the partial derivative of the
-[residual sum of squares](#def-rss)
+Find the partial derivative of the simple linear regression
+residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
 with respect to the slope, $\partial \text{RSS} / \partial \coef{x}$.
 :::
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-rss-deriv-slope}
 
 By the chain rule applied to each term of the sum:
 
@@ -40,4 +40,4 @@ $$
 = -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i).
 $$
 
-::::
+:::

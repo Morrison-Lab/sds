@@ -1,21 +1,9 @@
 ::: {#def-normal-equations}
 #### Normal equations
 
-The **normal equations** of a simple linear regression
-are the two equations that set the partial derivatives of the
-[residual sum of squares](#def-rss) to zero:
+For a model fitted by least squares with parameter vector $\vth$,
+the **normal equations** set the gradient
+of the [residual sum of squares](#def-rss) to zero:
 
-$$
-\frac{\partial \text{RSS}}{\partial \intcoef} = 0,
-\qquad
-\frac{\partial \text{RSS}}{\partial \coef{x}} = 0.
-$$
-
-Collecting the coefficients into a vector
-$\vcoef \eqdef \tp{\paren{\intcoef, \coef{x}}}$,
-the normal equations say that the gradient of $\text{RSS}$ is the zero vector:
-
-$$
-\deriv{\vcoef} \text{RSS}(\vcoef) = \vzero.
-$$
+$$\deriv{\vth} \text{RSS}(\vth) = \vzero.$$
 :::

@@ -1,8 +1,7 @@
 ::: {#def-ols}
 #### Ordinary least squares
 
-The **ordinary least squares (OLS) estimates**
-$\hintcoef$ and $\hcoef{x}$
-are the values of $\intcoef$ and $\coef{x}$ that minimize the
-[residual sum of squares](#def-rss) $\text{RSS}(\intcoef, \coef{x})$.
+The **ordinary least squares (OLS) estimates** of a model's parameters
+are the parameter values that minimize
+the [residual sum of squares](#def-rss).
 :::

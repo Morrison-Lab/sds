@@ -127,7 +127,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_rem-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_def-prediction-mse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_rem-prediction-mse.qmd >}}
 
 {{< slidebreak >}}
 

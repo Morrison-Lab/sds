@@ -9,7 +9,7 @@ in terms of $\deriv{\th}\log \p(\vx \mid \th)$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-deriv-log-density}
 
 By the chain rule,
 with outer function $\log u$ and inner function $u = \p(\vx \mid \th)$:
@@ -43,4 +43,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

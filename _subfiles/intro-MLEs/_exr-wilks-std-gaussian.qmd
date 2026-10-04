@@ -9,7 +9,7 @@ and find the approximate distribution of $Z^2$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-wilks-std-gaussian}
 
 $Z$ is a linear function of $\hthml$,
 so it is approximately Gaussian,
@@ -41,4 +41,4 @@ So $Z \dsim \ndist{0, 1}$.
 The square of a standard Gaussian variable has a $\chi^2_1$ distribution,
 so $Z^2$ has approximately a $\chi^2_1$ distribution.
 
-::::
+:::

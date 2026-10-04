@@ -1,0 +1,8 @@
+::: {#exm-ols-slr}
+#### OLS estimates of a simple linear regression
+
+For a simple linear regression,
+the OLS estimates (@def-ols) $\hintcoef$ and $\hcoef{x}$
+are the values of $\intcoef$ and $\coef{x}$
+that minimize $\text{RSS}(\intcoef, \coef{x})$ from @exm-rss-slr.
+:::

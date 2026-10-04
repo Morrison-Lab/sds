@@ -9,7 +9,7 @@ as a sum over the observations.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-deriv-llik-iid}
 
 $$
 \begin{aligned}
@@ -26,4 +26,4 @@ $$
 Unlike @eq-deriv-Lik, each term involves only one observation,
 so no product rule is needed.
 
-::::
+:::

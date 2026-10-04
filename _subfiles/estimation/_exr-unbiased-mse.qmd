@@ -8,7 +8,7 @@ in terms of its variance.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-unbiased-mse}
 
 $$
 \begin{aligned}
@@ -22,4 +22,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

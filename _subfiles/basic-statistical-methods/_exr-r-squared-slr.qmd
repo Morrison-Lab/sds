@@ -11,7 +11,7 @@ and show that $0 \le R^2 \le 1$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-r-squared-slr}
 
 The [total sum of squares](#def-tss) is $S_{yy}$,
 and @exr-rss-ols-fit gives the residual sum of squares, so:
@@ -32,4 +32,4 @@ Since $-1 \le r \le 1$
 ([range of the correlation coefficient](exploratory-descriptive.qmd#thm-pearson-r-range)),
 $0 \le r^2 \le 1$.
 
-::::
+:::

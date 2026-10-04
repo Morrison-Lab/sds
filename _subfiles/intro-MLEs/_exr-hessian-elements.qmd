@@ -9,7 +9,7 @@ and an expression for its $ij$th entry.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-hessian-elements}
 
 $\deriv{\vth\'}\llik$ is the $1 \times p$ row vector
 whose $j$th entry is $\deriv{\th_j}\llik$.
@@ -18,4 +18,4 @@ gives a $p \times 1$ column of derivatives per entry,
 so $\deriv{\vth}\deriv{\vth\'}\llik$ is $p \times p$,
 with $ij$th entry $\deriv{\th_i}\deriv{\th_j}\llik$.
 
-::::
+:::

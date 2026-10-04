@@ -7,7 +7,7 @@ as a derivative of the [score function](#def-score) $\score$.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-hessian-score}
 
 By @def-score, $\score = \deriv{\vth}\llik$,
 so $\pt{\score} = \deriv{\vth\'}\llik$.
@@ -23,4 +23,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

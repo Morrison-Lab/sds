@@ -6,7 +6,7 @@ Write down the likelihood of the full dataset.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-sample-likelihood}
 
 $$
 \begin{aligned}
@@ -22,4 +22,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

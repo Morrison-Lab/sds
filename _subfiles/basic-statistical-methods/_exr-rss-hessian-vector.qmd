@@ -8,7 +8,7 @@ and show that it is positive definite when $S_{xx} > 0$ (@def-centered-sums).
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-rss-hessian-vector}
 
 Differentiate the gradient $-2 \paren{\v{c} - A \vcoef}$
 from @exr-normal-equations-vector
@@ -46,4 +46,4 @@ contradicting $\v{v} \neq \vzero$.
 So the inequality is strict,
 and the Hessian is positive definite at every $\vcoef$.
 
-::::
+:::

@@ -9,7 +9,7 @@ and compare the result with @exr-solve-normal-equations.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-solve-normal-equations-vector}
 
 Write out the entries of each term of $A$ and $\v{c}$, then add them up:
 
@@ -60,4 +60,4 @@ $$
 Its entries are $\intcoef = \bar{y} - \coef{x} \bar{x}$ and $\coef{x} = S_{xy} / S_{xx}$,
 the same solution as @exr-solve-normal-equations.
 
-::::
+:::

@@ -13,5 +13,4 @@ S_{xy} &\eqdef \sumin (x_i - \bar{x})(y_i - \bar{y}).
 \end{aligned}
 $$
 
-$S_{xx} > 0$ unless all the $x_i$ are equal.
 :::
