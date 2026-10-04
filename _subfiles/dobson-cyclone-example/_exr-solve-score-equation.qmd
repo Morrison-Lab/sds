@@ -22,6 +22,7 @@ n\lambda &= n \bar x
 $$
 
 :::
+
 Call this solution of the score equation $\tilde \lambda$ for now:
 
 $$\tilde \lambda \eqdef \bar x$$
