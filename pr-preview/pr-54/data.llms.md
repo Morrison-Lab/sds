@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 10:41:28 (PDT)
+Last modified: 2026-10-04 11:02:53 (PDT)
 
 ## 1 Types of variables
 
@@ -286,7 +286,7 @@ Table 1: Selected WCGS variables and their types
 
 > **NOTE:**
 >
-> *Solution*. Examples of binary outcomes include:
+> *Solution 2*. Examples of binary outcomes include:
 >
 > - exposure (exposed vs unexposed)
 > - disease status (diseased vs healthy)
@@ -309,7 +309,7 @@ Table 1: Selected WCGS variables and their types
 
 > **NOTE:**
 >
-> *Solution*. Examples of count variables include:
+> *Solution 3*. Examples of count variables include:
 >
 > - number of fish in a pond
 > - number of cyclones per season

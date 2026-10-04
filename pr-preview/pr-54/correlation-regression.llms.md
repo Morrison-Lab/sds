@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 10:41:28 (PDT)
+Last modified: 2026-10-04 11:02:53 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -146,45 +146,53 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 5 (Residual sum of squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **residual sum of squares** of a line with intercept \\\beta\_{0}\\ and slope \\\beta\_{x}\\ is
+> **Definition 5 (Residual sum of squares)** The **residual sum of squares** of a model fitted to data is the sum of its squared [residuals](estimation.llms.md#def-residual):
 >
-> \\\text{RSS}(\beta\_{0}, \beta\_{x}) \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - \beta\_{0}- \beta\_{x} x_i)^2.\\
->
-> Each term is the square of a [residual](estimation.llms.md#def-residual), with the line’s value \\\beta\_{0}+ \beta\_{x} x_i\\ as the fitted value.
+> \\\text{RSS} \stackrel{\text{def}}{=}\sum\_{i=1}^nr_i^2.\\
 
 > **NOTE:**
 >
-> **Example 3 (Residual sum of squares of a line through three points)** For the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\, the vertical distances from the points to the line are \\1 - 1 = 0\\, \\2 - 1.5 = 0.5\\, and \\2 - 2 = 0\\, so \\\text{RSS}(1, 0.5) = 0^2 + 0.5^2 + 0^2 = 0.25\\.
+> **Example 3 (Residual sum of squares of a simple linear regression)** For a [simple linear regression](#def-slr) line with intercept \\\beta\_{0}\\ and slope \\\beta\_{x}\\, the fitted value of observation \\i\\ is \\\beta\_{0}+ \beta\_{x} x_i\\, so the residual sum of squares ([Definition 5](#def-rss)) is a function of the coefficients:
+>
+> \\\text{RSS}(\beta\_{0}, \beta\_{x}) = \sum\_{i=1}^n(y_i - \beta\_{0}- \beta\_{x} x_i)^2.\\
 
 > **NOTE:**
 >
-> **Definition 6 (Ordinary least squares)** The **ordinary least squares (OLS) estimates** \\\hat{\beta}\_{0}\\ and \\\hat{\beta}\_{x}\\ are the values of \\\beta\_{0}\\ and \\\beta\_{x}\\ that minimize the [residual sum of squares](#def-rss) \\\text{RSS}(\beta\_{0}, \beta\_{x})\\.
+> **Example 4 (Residual sum of squares of a line through three points)** For the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ ([Example 3](#exm-rss-slr)), the residuals are \\1 - 1 = 0\\, \\2 - 1.5 = 0.5\\, and \\2 - 2 = 0\\, so \\\text{RSS}(1, 0.5) = 0^2 + 0.5^2 + 0^2 = 0.25\\.
 
 > **NOTE:**
 >
-> **Definition 7 (Normal equations)** The **normal equations** of a simple linear regression are the two equations that set the partial derivatives of the [residual sum of squares](#def-rss) to zero:
+> **Definition 6 (Ordinary least squares)** The **ordinary least squares (OLS) estimates** of a model’s parameters are the parameter values that minimize the [residual sum of squares](#def-rss).
+
+> **NOTE:**
+>
+> **Example 5 (OLS estimates of a simple linear regression)** For a simple linear regression, the OLS estimates ([Definition 6](#def-ols)) \\\hat{\beta}\_{0}\\ and \\\hat{\beta}\_{x}\\ are the values of \\\beta\_{0}\\ and \\\beta\_{x}\\ that minimize \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr).
+
+> **NOTE:**
+>
+> **Definition 7 (Normal equations)** For a model fitted by least squares with parameter vector \\\tilde{\theta}\\, the **normal equations** set the gradient of the [residual sum of squares](#def-rss) to zero:
+>
+> \\\frac{\partial}{\partial \tilde{\theta}} \text{RSS}(\tilde{\theta}) = \tilde{0}.\\
+
+> **NOTE:**
+>
+> **Example 6 (Normal equations of a simple linear regression)** For a simple linear regression, the parameter vector is \\\tilde{\beta}\stackrel{\text{def}}{=}{\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\, and \\\text{RSS}(\tilde{\beta})\\ is \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). Its gradient has one entry per coefficient, so the normal equations ([Definition 7](#def-normal-equations)) are two scalar equations:
 >
 > \\ \frac{\partial \text{RSS}}{\partial \beta\_{0}} = 0, \qquad \frac{\partial \text{RSS}}{\partial \beta\_{x}} = 0. \\
->
-> Collecting the coefficients into a vector \\\tilde{\beta}\stackrel{\text{def}}{=}{\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\, the normal equations say that the gradient of \\\text{RSS}\\ is the zero vector:
->
-> \\ \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) = \tilde{0}. \\
 
 > **NOTE:**
 >
 > **Definition 8 (Centered sums of squares and cross-products)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **centered sums of squares** of the \\x_i\\ and of the \\y_i\\, and their **centered sum of cross-products**, are
 >
 > \\ \begin{aligned} S\_{xx} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})^2, & S\_{yy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2, & S\_{xy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}). \end{aligned} \\
->
-> \\S\_{xx} \> 0\\ unless all the \\x_i\\ are equal.
 
 > **NOTE:**
 >
-> **Exercise 1 (Derivative of RSS with respect to the intercept)** Find the partial derivative of the [residual sum of squares](#def-rss) with respect to the intercept, \\\partial \text{RSS} / \partial \beta\_{0}\\, and write it in terms of \\\bar{x}\\ and \\\bar{y}\\.
+> **Exercise 1 (Derivative of RSS with respect to the intercept)** Find the partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the intercept, \\\partial \text{RSS} / \partial \beta\_{0}\\, and write it in terms of \\\bar{x}\\ and \\\bar{y}\\.
 
 > **NOTE:**
 >
-> *Solution*. By the chain rule applied to each term of the sum:
+> *Solution 1*. By the chain rule applied to each term of the sum:
 >
 > \\ \frac{\partial \text{RSS}}{\partial \beta\_{0}} = \sum\_{i=1}^n2 (y_i - \beta\_{0}- \beta\_{x} x_i) \frac{\partial}{\partial \beta\_{0}} (y_i - \beta\_{0}- \beta\_{x} x_i). \\
 >
@@ -198,11 +206,11 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 2 (Derivative of RSS with respect to the slope)** Find the partial derivative of the [residual sum of squares](#def-rss) with respect to the slope, \\\partial \text{RSS} / \partial \beta\_{x}\\.
+> **Exercise 2 (Derivative of RSS with respect to the slope)** Find the partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the slope, \\\partial \text{RSS} / \partial \beta\_{x}\\.
 
 > **NOTE:**
 >
-> *Solution*. By the chain rule applied to each term of the sum:
+> *Solution 2*. By the chain rule applied to each term of the sum:
 >
 > \\ \frac{\partial \text{RSS}}{\partial \beta\_{x}} = \sum\_{i=1}^n2 (y_i - \beta\_{0}- \beta\_{x} x_i) \frac{\partial}{\partial \beta\_{x}} (y_i - \beta\_{0}- \beta\_{x} x_i). \\
 >
@@ -216,11 +224,11 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 3 (Solving the normal equations)** Using [Exercise 1](#exr-rss-deriv-intercept) and [Exercise 2](#exr-rss-deriv-slope), solve the [normal equations](#def-normal-equations) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx} \> 0\\ ([Definition 8](#def-centered-sums)).
+> **Exercise 3 (Solving the normal equations)** Using [Exercise 1](#exr-rss-deriv-intercept) and [Exercise 2](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx} \> 0\\ ([Definition 8](#def-centered-sums)).
 
 > **NOTE:**
 >
-> *Solution*. **First normal equation.** By [Exercise 1](#exr-rss-deriv-intercept), setting \\\partial \text{RSS} / \partial \beta\_{0}\\ to zero and dividing by \\-2n\\ gives \\\bar{y} - \beta\_{0}- \beta\_{x} \bar{x} = 0\\, so
+> *Solution 3*. **First normal equation.** By [Exercise 1](#exr-rss-deriv-intercept), setting \\\partial \text{RSS} / \partial \beta\_{0}\\ to zero and dividing by \\-2n\\ gives \\\bar{y} - \beta\_{0}- \beta\_{x} \bar{x} = 0\\, so
 >
 > \\ \beta\_{0}= \bar{y} - \beta\_{x} \bar{x}. \\
 >
@@ -236,11 +244,11 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 4 (Second derivatives of RSS)** Find the matrix of second derivatives of the [residual sum of squares](#def-rss) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 8](#def-centered-sums)).
+> **Exercise 4 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 8](#def-centered-sums)).
 
 > **NOTE:**
 >
-> *Solution*. Differentiate each first derivative again. From [Exercise 1](#exr-rss-deriv-intercept), \\\partial \text{RSS} / \partial \beta\_{0}= -2 n \bar{y} + 2 n \beta\_{0}+ 2 n \bar{x} \beta\_{x}\\, so
+> *Solution 4*. Differentiate each first derivative again. From [Exercise 1](#exr-rss-deriv-intercept), \\\partial \text{RSS} / \partial \beta\_{0}= -2 n \bar{y} + 2 n \beta\_{0}+ 2 n \bar{x} \beta\_{x}\\, so
 >
 > \\ \frac{\partial^2 \text{RSS}}{\partial \beta\_{0}^2} = 2n, \qquad \frac{\partial^2 \text{RSS}}{\partial \beta\_{x} \\ \partial \beta\_{0}} = 2 n \bar{x}. \\
 >
@@ -260,7 +268,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Theorem 2 (Closed-form OLS estimates)** Suppose \\S\_{xx} \> 0\\ ([Definition 8](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Definition 6](#def-ols)) are unique, and
+> **Theorem 2 (Closed-form OLS estimates)** Suppose \\S\_{xx} \> 0\\ ([Definition 8](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Example 5](#exm-ols-slr)) are unique, and
 >
 > \\\hat{\beta}\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat{\beta}\_{0}= \bar{y} - \hat{\beta}\_{x} \bar{x}.\\
 
@@ -270,7 +278,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 The same estimates follow from a derivation in vector notation, which treats \\(\beta\_{0}, \beta\_{x})\\ as a single vector instead of differentiating with respect to each component separately.
 
-Use the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ from [Definition 7](#def-normal-equations), and give each observation a covariate vector with a leading 1 for the intercept:
+Use the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ from [Example 6](#exm-normal-equations-slr), and give each observation a covariate vector with a leading 1 for the intercept:
 
 \\ \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}. \\
 
@@ -284,7 +292,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> *Solution*. By the chain rule applied to each term of the sum:
+> *Solution 5*. By the chain rule applied to each term of the sum:
 >
 > \\ \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n2 \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}. \\
 >
@@ -306,7 +314,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> *Solution*. Distribute the sum in the gradient from [Exercise 5](#exr-rss-gradient-vector):
+> *Solution 6*. Distribute the sum in the gradient from [Exercise 5](#exr-rss-gradient-vector):
 >
 > \\ \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) = -2 \mathopen{}\left(\sum\_{i=1}^n\tilde{x}\_iy_i - \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(\tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}\right)\mathclose{}. \\
 >
@@ -328,7 +336,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> *Solution*. Write out the entries of each term of \\A\\ and \\\tilde{c}\\, then add them up:
+> *Solution 7*. Write out the entries of each term of \\A\\ and \\\tilde{c}\\, then add them up:
 >
 > \\ A = \sum\_{i=1}^n\begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix} = \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sum\_{i=1}^nx_i^2 \end{pmatrix}, \qquad \tilde{c} = \sum\_{i=1}^n\begin{pmatrix} y_i \\ x_i y_i \end{pmatrix} = \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix}. \\
 >
@@ -348,7 +356,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> *Solution*. Differentiate the gradient \\-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\\ from [Exercise 6](#exr-normal-equations-vector) with respect to \\{\tilde{\beta}}^{\top}\\. \\\tilde{c}\\ does not depend on \\\tilde{\beta}\\, and \\A \tilde{\beta}\\ is linear in \\\tilde{\beta}\\, so
+> *Solution 8*. Differentiate the gradient \\-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\\ from [Exercise 6](#exr-normal-equations-vector) with respect to \\{\tilde{\beta}}^{\top}\\. \\\tilde{c}\\ does not depend on \\\tilde{\beta}\\, and \\A \tilde{\beta}\\ is linear in \\\tilde{\beta}\\, so
 >
 > \\ \frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta}) = 2 A = 2 \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}. \\
 >
@@ -376,7 +384,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> *Solution*. In terms of the centered sums ([Definition 8](#def-centered-sums)),
+> *Solution 9*. In terms of the centered sums ([Definition 8](#def-centered-sums)),
 >
 > \\ r = \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}, \qquad s_x = \sqrt{\frac{S\_{xx}}{n-1}}, \qquad s_y = \sqrt{\frac{S\_{yy}}{n-1}}. \\
 >
@@ -404,7 +412,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> **Example 4 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 2](#thm-ols-slr), and the slope from [Corollary 1](#cor-ols-slope-r), for the participants with a BMI measurement:
+> **Example 7 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 2](#thm-ols-slr), and the slope from [Corollary 1](#cor-ols-slope-r), for the participants with a BMI measurement:
 >
 > ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
@@ -458,7 +466,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> **Example 5 (Total sum of squares of three values)** For \\y = 1, 2, 2\\, \\\bar y = 5/3\\, so
+> **Example 8 (Total sum of squares of three values)** For \\y = 1, 2, 2\\, \\\bar y = 5/3\\, so
 >
 > \\ \begin{aligned} \text{TSS} &= \mathopen{}\left(1 - \tfrac{5}{3}\right)\mathclose{}^2 + 2\mathopen{}\left(2 - \tfrac{5}{3}\right)\mathclose{}^2 && \text{(definition)}\\ &= \tfrac{4}{9} + \tfrac{2}{9} && \text{(square the deviations)}\\ &= \tfrac{2}{3} && \text{(arithmetic)} \end{aligned} \\
 
@@ -478,7 +486,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> *Solution*. The [fitted values](estimation.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](estimation.llms.md#def-residual) is
+> *Solution 10*. The [fitted values](estimation.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](estimation.llms.md#def-residual) is
 >
 > \\ \begin{aligned} r_i = y_i - \hat y_i &= y_i - (\bar{y} - \hat{\beta}\_{x} \bar{x}) - \hat{\beta}\_{x} x_i && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= (y_i - \bar{y}) - \hat{\beta}\_{x} (x_i - \bar{x}) && \text{(regroup)} \end{aligned} \\
 >
@@ -492,7 +500,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> *Solution*. The [total sum of squares](#def-tss) is \\S\_{yy}\\, and [Exercise 10](#exr-rss-ols-fit) gives the residual sum of squares, so:
+> *Solution 11*. The [total sum of squares](#def-tss) is \\S\_{yy}\\, and [Exercise 10](#exr-rss-ols-fit) gives the residual sum of squares, so:
 >
 > \\ \begin{aligned} R^2 &= 1 - \frac{S\_{yy} - S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(substitute into the definition of \$R^2\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx} S\_{yy}} && \text{(simplify)}\\ &= r^2 && \text{(\$r = S\_{xy} / \sqrt{S\_{xx} S\_{yy}}\$)} \end{aligned} \\
 >
@@ -508,7 +516,7 @@ Each point on the line is then a dot product, \\\beta\_{0}+ \beta\_{x} x_i = \ti
 
 > **NOTE:**
 >
-> **Example 6 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 4](#exm-hers-slr), \\R^2\\ computed from [Definition 10](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
+> **Example 9 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 7](#exm-hers-slr), \\R^2\\ computed from [Definition 10](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
 >
 > ``` downlit
 > fit <- lm(glucose ~ BMI, data = hers)
