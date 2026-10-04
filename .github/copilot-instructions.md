@@ -108,6 +108,12 @@ State a technical definition in both prose and math: one sentence saying what th
 and the formula, built from terms already defined
 (for example, $R^2 \eqdef 1 - \text{RSS} / \text{TSS}$, not the two sums written out,
 and the OLS estimate as $\est{\vth} \eqdef \argmin_{\vth} \text{RSS}(\vth)$, not only in words).
+Define a regression model by the distribution of the outcome conditional on the covariates,
+centered on a named mean function built from semantic macros
+(for example, $Y_i \mid X_i = x_i \simind \ndist{\mean_i, \sigma^2}$ with $\mean_i \eqdef \mean(x_i)$ and $\mean(x) \eqdef \intcoef + \coef{x} x$),
+not as $Y_i = \mean_i + \cdev_i$ with a distribution on $\cdev_i$.
+Define the deviation $\cdev_i \eqdef Y_i - \mean(x_i)$ separately,
+and state $Y_i = \mean_i + \cdev_i$ as a result that follows from the definitions.
 Put special cases in example divs right after it, from the most general to the most specific
 (the simple linear regression case, then a numerical example),
 each linking back to the definition.

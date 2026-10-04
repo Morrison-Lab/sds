@@ -60,6 +60,26 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_rem-slr-parameters.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-slr-deviation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-slr-additive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-slr-deviation-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-slr-additive.qmd >}}
+
+{{< slidebreak >}}
+
 ### Ordinary least squares estimation {#sec-ols}
 
 <!-- No slidebreak here: the heading shares its slide with the def-rss div. -->

@@ -1,17 +1,19 @@
 ::: {#def-slr}
 #### Simple linear regression model
 
-A **simple linear regression** model relates
-a continuous outcome $Y$ to a single predictor $X$:
+A **simple linear regression** model for a continuous outcome $Y$
+and a single covariate $X$
+says that, given their covariate values,
+the outcomes $Y_1, \ldots, Y_n$ are independent and Gaussian
+with a common variance $\sigma^2$,
+each centered on its conditional mean $\mean_i$,
+a linear function $\mean(x)$ of its covariate value $x_i$:
 
-$$Y_i = \intcoef + \coef{x} x_i + \varepsilon_i,
-\qquad \varepsilon_1, \ldots, \varepsilon_n \siid \ndist{0, \sigma^2}.$$
-
-- $\intcoef$ is the **intercept**:
-  the mean of $Y$ among observations with $X = 0$.
-- $\coef{x}$ is the **slope**:
-  the difference in the mean of $Y$
-  between two groups whose values of $X$ differ by one unit,
-  $\coef{x} = \E{Y \mid X = x + 1} - \E{Y \mid X = x}$.
-- $\sigma^2$ is the variance of $Y$ around its mean at each value of $X$.
+$$
+\begin{aligned}
+Y_i \mid X_i = x_i &\simind \ndist{\mean_i, \sigma^2},\\
+\mean_i &\eqdef \mean(x_i),\\
+\mean(x) &\eqdef \intcoef + \coef{x} x.
+\end{aligned}
+$$
 :::

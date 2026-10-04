@@ -10,3 +10,4 @@
 \providecommand{\hvcoef}{\est{\vcoef}}
 \providecommand{\fitted}{\hy}
 \providecommand{\prederr}{e}
+\providecommand{\cdev}{\eps}

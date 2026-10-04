@@ -11,9 +11,10 @@ $$
 \vxi \eqdef \begin{pmatrix} 1 \\ x_i \end{pmatrix}.
 $$
 
-Each point on the line is then a dot product,
-$\intcoef + \coef{x} x_i = \dprod{\vxi}{\vcoef}$,
-so the residual sum of squares is a function of $\vcoef$:
+Each conditional mean is then a dot product,
+$\mean(x_i) = \intcoef + \coef{x} x_i = \dprod{\vxi}{\vcoef}$,
+so with $\vth = \vcoef$ the residual sum of squares (@exm-rss-slr)
+is a function of $\vcoef$:
 
 $$
 \text{RSS}(\vcoef) = \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2.

@@ -3,8 +3,8 @@
 
 Assuming $S_{xx} > 0$ (@def-centered-sums),
 write the [residual sum of squares](#def-rss)
-of the OLS fit (@thm-ols-slr),
-$\sumin \resid_i^2$,
+at the OLS estimates (@thm-ols-slr),
+$\text{RSS}(\hintcoef, \hcoef{x}) = \sumin \resid_i^2$,
 in terms of $S_{xx}$, $S_{yy}$ and $S_{xy}$.
 :::
 

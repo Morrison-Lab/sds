@@ -1,0 +1,27 @@
+:::{#exr-slr-additive}
+#### Outcome as mean plus deviation
+
+Show that each outcome in a simple linear regression model (@def-slr)
+is its conditional mean plus its deviation (@def-slr-deviation):
+$Y_i = \mean_i + \cdev_i$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-slr-additive}
+
+$$
+\begin{aligned}
+Y_i
+&= Y_i - \mean(x_i) + \mean(x_i)
+&& \text{(add and subtract $\mean(x_i)$)}\\
+&= \cdev_i + \mean(x_i)
+&& \text{(definition of $\cdev_i$)}\\
+&= \mean(x_i) + \cdev_i
+&& \text{(reorder the terms)}\\
+&= \mean_i + \cdev_i
+&& \text{(definition of $\mean_i$)}
+\end{aligned}
+$$
+
+:::

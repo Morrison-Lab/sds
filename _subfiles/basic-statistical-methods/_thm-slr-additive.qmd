@@ -1,0 +1,19 @@
+::: {#thm-slr-additive}
+#### Additive form of the simple linear regression model
+
+In a simple linear regression model (@def-slr),
+each outcome is its conditional mean plus a Gaussian deviation
+(@def-slr-deviation) with mean 0 and variance $\sigma^2$:
+
+$$
+Y_i = \mean_i + \cdev_i,
+\qquad
+\cdev_i \mid X_i = x_i \sim \ndist{0, \sigma^2}.
+$$
+:::
+
+::: proof
+@exr-slr-additive shows that $Y_i = \mean_i + \cdev_i$,
+and @exr-slr-deviation-dist shows that
+$\cdev_i \mid X_i = x_i \sim \ndist{0, \sigma^2}$.
+:::

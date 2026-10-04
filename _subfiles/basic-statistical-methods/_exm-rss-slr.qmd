@@ -1,10 +1,19 @@
 ::: {#exm-rss-slr}
 #### Residual sum of squares of a simple linear regression
 
-For a [simple linear regression](#def-slr) line
-with intercept $\intcoef$ and slope $\coef{x}$,
-the fitted value of observation $i$ is $\intcoef + \coef{x} x_i$,
-so the residual sum of squares (@def-rss), with $\vth = (\intcoef, \coef{x})$, is
+A [simple linear regression](#def-slr) model
+has parameter vector $\vth = (\intcoef, \coef{x})$,
+so write $\text{RSS}(\intcoef, \coef{x})$ for its residual sum of squares (@def-rss):
 
-$$\text{RSS}(\intcoef, \coef{x}) = \sumin (y_i - \intcoef - \coef{x} x_i)^2.$$
+$$
+\begin{aligned}
+\text{RSS}(\intcoef, \coef{x})
+&= \sumin \paren{y_i - \mean(x_i)}^2
+&& \text{(definition of RSS)}\\
+&= \sumin \paren{y_i - (\intcoef + \coef{x} x_i)}^2
+&& \text{(definition of $\mean(x)$)}\\
+&= \sumin (y_i - \intcoef - \coef{x} x_i)^2
+&& \text{(remove the inner parentheses)}
+\end{aligned}
+$$
 :::
