@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 11:02:53 (PDT)
+Last modified: 2026-10-04 11:16:44 (PDT)
 
 ## 1 Introduction
 
@@ -76,6 +76,7 @@ The `rmb` R package includes the same file, which these notes use so that render
 
 ``` downlit
 wcgs <- rmb::wcgs |> haven::as_factor()
+wcgs |> head()
 ```
 
 Show R code
@@ -102,6 +103,22 @@ wcgs_labels <- c(
 for (var in names(wcgs_labels)) {
   attr(wcgs[[var]], "label") <- wcgs_labels[[var]]
 }
+
+wcgs_labels
+#>                                age                               chol 
+#>                      "Age (years)"              "Cholesterol (mg/dL)" 
+#>                                sbp                                dbp 
+#>               "Systolic BP (mmHg)"              "Diastolic BP (mmHg)" 
+#>                                bmi                             weight 
+#>                     "BMI (kg/m^2)"                     "Weight (lbs)" 
+#>                              ncigs                              chd69 
+#>               "Cigarettes per day"                "CHD event by 1969" 
+#>                              smoke                              arcus 
+#>                   "Current smoker"                    "Arcus senilis" 
+#>                             dibpat                             behpat 
+#>         "Behavioral pattern (A/B)" "Behavioral pattern (A1/A2/B3/B4)" 
+#>                            wghtcat                               agec 
+#>                  "Weight category"                        "Age group"
 ```
 
 The dataset has one row per participant:
@@ -634,6 +651,9 @@ sbp_skew <- c(
   raw = skewness(wcgs$sbp),
   log = skewness(wcgs$lnsbp)
 )
+sbp_skew
+#>      raw      log 
+#> 1.203824 0.739911
 ```
 
 The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 versus 1.2), but still not symmetric. Whether to transform a variable in a regression model depends on the assumptions of that model and on the scientific question.

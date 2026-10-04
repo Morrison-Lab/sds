@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 11:02:53 (PDT)
+Last modified: 2026-10-04 11:16:44 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -346,6 +346,15 @@ When several candidate models are plausible, committing to a single “best” o
 > bic <- vapply(models, stats::BIC, numeric(1))
 > weight <- exp(-0.5 * (bic - min(bic)))
 > weight <- weight / sum(weight)
+>
+> tibble::tibble(
+>   model = vapply(
+>     subsets,
+>     function(s) if (length(s) > 0) paste(s, collapse = " + ") else "(none)",
+>     character(1)
+>   ),
+>   weight = round(weight, 3)
+> )
 > ```
 >
 > Subtracting the smallest BIC before exponentiating leaves the normalized weights unchanged and avoids numerical underflow. The [posterior inclusion probability](#def-pip) of each predictor sums the weights of the models that contain it:

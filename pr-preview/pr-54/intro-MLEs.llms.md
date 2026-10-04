@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 11:02:53 (PDT)
+Last modified: 2026-10-04 11:16:44 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -978,6 +978,8 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 >
 > ``` downlit
 > mle <- mean(cyclones$number)
+> mle
+> #> [1] 5.53846
 > ```
 >
 > \\\hat{\lambda}\_{\text{ML}} = \bar x = 5.538\\
@@ -1080,6 +1082,8 @@ For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \tilde{x})\\ is the sa
 >
 > ``` downlit
 > cur_lambda_est <- 3
+> cur_lambda_est
+> #> [1] 3
 > ```
 
 From [Exercise 29](#exr-cyclone-score-fn) and [Exercise 31](#exr-hessian), the score function and Hessian are:
@@ -1196,6 +1200,8 @@ Solving the approximate score equation \\\ell'^\*(\lambda) = 0\\ gives the next 
 ``` downlit
 new_lambda_est <-
   cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
+new_lambda_est
+#> [1] 4.375
 ```
 
 Show R code
@@ -1444,11 +1450,6 @@ The `rmb` R package includes the same file, which these notes use so that render
 
 ``` downlit
 hers <- rmb::hers |> haven::zap_labels()
-```
-
-Show R code
-
-``` downlit
 hers |> head()
 ```
 
@@ -1470,6 +1471,10 @@ data1 <-
   head(n_obs)
 
 glucose_data <- data1$glucose
+
+summary(glucose_data)
+#>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#>    80.0    91.5    98.0    98.7   105.0   125.0
 ```
 
 Show R code
@@ -1488,7 +1493,7 @@ plot1 <-
 print(plot1)
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-23-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-23-1.png "Figure 14: Fasting glucose among 100 HERS participants without diabetes who do not exercise")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-22-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-22-1.png "Figure 14: Fasting glucose among 100 HERS participants without diabetes who do not exercise")
 
 Figure 14: Fasting glucose among 100 HERS participants without diabetes who do not exercise
 
@@ -1519,7 +1524,7 @@ plot1 +
   )
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-25-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-25-1.png "Figure 15: Fasting glucose, with the fitted Gaussian density in red")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-24-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-24-1.png "Figure 15: Fasting glucose, with the fitted Gaussian density in red")
 
 Figure 15: Fasting glucose, with the fitted Gaussian density in red
 
@@ -1539,6 +1544,10 @@ loglik <- function(mu, sigma, x) {
 }
 
 lik <- function(...) exp(loglik(...))
+
+# log-likelihood at the MLEs:
+loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
+#> [1] -374.47
 ```
 
 [Figure 16](#fig-hers-lik-mu) graphs the likelihood and log-likelihood as functions of \\\mu\\, with \\\sigma\\ fixed at \\\hat\sigma\_{\text{ML}}\\.
@@ -1557,7 +1566,7 @@ ggplot2::ggplot() +
   ggplot2::geom_vline(xintercept = mu_hat, col = "red")
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png "Figure 16 (a): Likelihood")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-26-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-26-1.png "Figure 16 (a): Likelihood")
 
 \(a\) Likelihood
 
@@ -1575,7 +1584,7 @@ ggplot2::ggplot() +
   ggplot2::geom_vline(xintercept = mu_hat, col = "red")
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-28-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-28-1.png "Figure 16 (b): Log-likelihood")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png "Figure 16 (b): Log-likelihood")
 
 \(b\) Log-likelihood
 
@@ -1597,7 +1606,7 @@ ggplot2::ggplot() +
   ggplot2::ylab("likelihood")
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png "Figure 17 (a): Likelihood")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-28-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-28-1.png "Figure 17 (a): Likelihood")
 
 \(a\) Likelihood
 
@@ -1615,7 +1624,7 @@ ggplot2::ggplot() +
   ggplot2::ylab("log-likelihood")
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-30-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-30-1.png "Figure 17 (b): Log-likelihood")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png "Figure 17 (b): Log-likelihood")
 
 \(b\) Log-likelihood
 
@@ -1674,7 +1683,7 @@ ggplot2::ggplot() +
   ggplot2::ylab("Standard error of mu-hat (mg/dL)")
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-33-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-33-1.png "Figure 19: Standard error of \hat\mu_{\text{ML}} as a function of sample size, with \sigma = \hat\sigma_{\text{ML}}")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png "Figure 19: Standard error of \hat\mu_{\text{ML}} as a function of sample size, with \sigma = \hat\sigma_{\text{ML}}")
 
 Figure 19: Standard error of \\\hat\mu\_{\text{ML}}\\ as a function of sample size, with \\\sigma = \hat\sigma\_{\text{ML}}\\
 
@@ -1733,7 +1742,7 @@ ggplot2::ggplot() +
   ggplot2::xlab("n")
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-36-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-36-1.png "Figure 20: Power of the test of H_0: \mu = 95 against \mu_1 = 100 mg/dL, by sample size")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png "Figure 20: Power of the test of H_0: \mu = 95 against \mu_1 = 100 mg/dL, by sample size")
 
 Figure 20: Power of the test of \\H_0: \mu = 95\\ against \\\mu_1 = 100\\ mg/dL, by sample size
 
@@ -1775,6 +1784,9 @@ do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
     results
   }
 }
+
+# one small example dataset:
+do_one_sim(n = 10, mu = 0, mu0 = 0, sigma2 = 1)
 ```
 
 To check `do_one_sim()`, we compare its output with [`stats::t.test()`](https://rdrr.io/r/stats/t.test.html) on the same simulated data:
