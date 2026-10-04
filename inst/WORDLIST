@@ -9,6 +9,7 @@ CHD
 CLI
 CLT
 Canvas
+Coef
 Cov
 Covf
 DOCX
@@ -25,6 +26,7 @@ Gelman
 Geron
 HSE
 Hutchinson
+Intcoef
 kfold
 lfloor
 Lik
@@ -33,6 +35,7 @@ PSC
 Pois
 quartic
 Raphson
+Regcoef
 Reparametrizing
 RevealJS
 rfloor
@@ -71,6 +74,7 @@ cdot
 cdots
 chisq
 ci
+coef
 covs
 crosstab
 dL
@@ -116,14 +120,18 @@ geq
 glitchy
 hR
 haz
+hcoef
 heinff
 hess
 hessf
+hintcoef
 hth
 hthml
+hvcoef
 hyperprior
 ij
 infty
+intcoef
 inv
 irreducibility
 ith
@@ -174,12 +182,14 @@ pmean
 pois
 prac
 pre
+prederr
 prodin
 propto
 qmd
 qquad
 qwt
 rangef
+regcoef
 reparameterization
 reparameterizing
 rme
@@ -226,6 +236,7 @@ vY
 varepsilon
 vartypes
 vbeta
+vcoef
 vec
 vth
 vx

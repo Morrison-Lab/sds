@@ -20,6 +20,9 @@ description: "Use when editing Quarto pages, chapters, slides, handouts, or narr
   `Rscript -e 'lintr::lint("path/to/file.qmd")'` before finishing.
 - Do not hard-code computed values in narrative text. Compute them in a chunk
   and reference them with inline R.
+- Write math notation through semantic macros (for example `\coef{x}`,
+  `\intcoef`), not hard-coded symbols; see "Math Notation" in
+  [copilot-instructions.md](../copilot-instructions.md).
 - Treat files under `_extensions/` as vendored third-party code: read them for
   context if needed, but do not reformat or edit them as part of a content
   change.

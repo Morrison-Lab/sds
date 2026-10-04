@@ -1,0 +1,140 @@
+The same result follows from a derivation in vector notation,
+which treats $(\intcoef, \coef{x})$ as a single vector
+instead of differentiating with respect to each component separately.
+
+::: proof
+
+Collect the coefficients and each observation's covariates into vectors:
+
+$$
+\vcoef \eqdef \begin{pmatrix} \intcoef \\ \coef{x} \end{pmatrix},
+\qquad
+\vxi \eqdef \begin{pmatrix} 1 \\ x_i \end{pmatrix},
+\qquad\text{so}\qquad
+\intcoef + \coef{x} x_i = \dprod{\vxi}{\vcoef}
+\quad\text{and}\quad
+\text{RSS}(\vcoef) = \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2.
+$$
+
+**Gradient.**
+By the chain rule applied to each term of the sum:
+
+$$
+\deriv{\vcoef} \text{RSS}(\vcoef)
+= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}}
+  \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}.
+$$
+
+For the inner derivative, we need the gradient of a linear function.
+For any constant vector $\v{a} = \tp{(a_0, a_x)}$,
+$\dprod{\v{a}}{\vcoef} = a_0 \intcoef + a_x \coef{x}$,
+whose partial derivatives with respect to $\intcoef$ and $\coef{x}$
+are $a_0$ and $a_x$;
+so $\deriv{\vcoef} \dprod{\v{a}}{\vcoef} = \v{a}$.
+With $\v{a} = \vxi$:
+
+$$
+\begin{aligned}
+\deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}
+&= \deriv{\vcoef} y_i - \deriv{\vcoef} \dprod{\vxi}{\vcoef}
+&& \text{(derivative of a difference)}\\
+&= \vzero - \vxi
+&& \text{($y_i$ does not depend on $\vcoef$; gradient of a linear function)}\\
+&= -\vxi
+\end{aligned}
+$$
+
+Plugging the inner derivative back in:
+
+$$
+\begin{aligned}
+\deriv{\vcoef} \text{RSS}(\vcoef)
+&= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
+&& \text{(inner derivative is $-\vxi$)}\\
+&= -2 \paren{\sumin \vxi y_i - \sumin \vxi \paren{\dprod{\vxi}{\vcoef}}}
+&& \text{(distribute the sum)}
+\end{aligned}
+$$
+
+**Solve for $\hvcoef$.**
+Write $A \eqdef \sumin \soprod{\vxi}$ and $\v{c} \eqdef \sumin \vxi y_i$.
+Since $\vxi \paren{\dprod{\vxi}{\vcoef}} = \paren{\soprod{\vxi}} \vcoef$,
+the gradient is $-2 \paren{\v{c} - A \vcoef}$.
+Setting it equal to $\vzero$ gives the
+**normal equations** $A \vcoef = \v{c}$.
+Writing out the components of each term:
+
+$$
+A = \sumin \begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix}
+= \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sumin x_i^2 \end{pmatrix},
+\qquad
+\v{c} = \sumin \begin{pmatrix} y_i \\ x_i y_i \end{pmatrix}
+= \begin{pmatrix} n\bar{y} \\ \sumin x_i y_i \end{pmatrix}.
+$$
+
+The determinant of $A$ is
+$n \sumin x_i^2 - n^2 \bar{x}^2 = n S_{xx} > 0$,
+so $A$ is invertible and the normal equations have the unique solution
+
+$$
+\begin{aligned}
+\hvcoef = A^{-1} \v{c}
+&= \frac{1}{n S_{xx}}
+  \begin{pmatrix} \sumin x_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix}
+  \begin{pmatrix} n\bar{y} \\ \sumin x_i y_i \end{pmatrix}
+&& \text{(inverse of a $2 \times 2$ matrix)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} \sumin x_i^2 - \bar{x} \sumin x_i y_i \\
+  \sumin x_i y_i - n \bar{x} \bar{y}
+  \end{pmatrix}
+&& \text{(multiply, cancel $n$)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} \paren{S_{xx} + n\bar{x}^2} - \bar{x} \paren{S_{xy} + n\bar{x}\bar{y}} \\
+  S_{xy}
+  \end{pmatrix}
+&& \text{($\sumin x_i^2 = S_{xx} + n\bar{x}^2$, $\sumin x_i y_i = S_{xy} + n\bar{x}\bar{y}$)}\\
+&= \begin{pmatrix}
+  \bar{y} - \bar{x} \, S_{xy} / S_{xx} \\
+  S_{xy} / S_{xx}
+  \end{pmatrix}
+&& \text{(first component: cancel $\pm n\bar{x}^2\bar{y}$)}
+\end{aligned}
+$$
+
+which matches $\hintcoef = \bar{y} - \hcoef{x} \bar{x}$
+and $\hcoef{x} = S_{xy} / S_{xx}$.
+
+**Second derivative.**
+Differentiating the gradient $-2 \paren{\v{c} - A \vcoef}$
+with respect to $\tp{\vcoef}$ gives the
+[Hessian](intro-MLEs.qmd#def-hessian) of $\text{RSS}$:
+
+$$
+\deriv{\vcoef} \deriv{\tp{\vcoef}} \text{RSS}(\vcoef)
+= 2 A
+= 2 \sumin \soprod{\vxi}.
+$$
+
+It is positive definite.
+For any vector $\v{v} = \tp{(v_0, v_x)} \neq \vzero$:
+
+$$
+\tp{\v{v}} \paren{2 A} \v{v}
+= 2 \sumin \paren{\dprod{\v{v}}{\vxi}}^2
+= 2 \sumin \paren{v_0 + v_x x_i}^2
+\ge 0,
+$$
+
+with equality only if $v_0 + v_x x_i = 0$ for every $i$.
+If $v_x \neq 0$, that would force every $x_i = -v_0 / v_x$,
+contradicting $S_{xx} > 0$;
+if $v_x = 0$, it would force $v_0 = 0$,
+contradicting $\v{v} \neq \vzero$.
+So the inequality is strict,
+the Hessian is positive definite at every $\vcoef$,
+$\text{RSS}$ is strictly convex,
+and $\hvcoef$ is its unique global minimum.
+
+:::

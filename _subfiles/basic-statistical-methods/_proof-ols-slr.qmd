@@ -1,44 +1,93 @@
 ::: proof
 
-$\text{RSS}$ is a quadratic function of $(b_0, b_1)$,
+$\text{RSS}$ is a quadratic function of $(\intcoef, \coef{x})$,
 so we find where its partial derivatives are zero,
 then check that this point is the unique minimum.
 
-The derivative with respect to $b_0$:
+The derivative with respect to $\intcoef$,
+by the chain rule applied to each term of the sum:
+
+$$
+\frac{\partial \text{RSS}}{\partial \intcoef}
+= \sum_{i=1}^n 2 (y_i - \intcoef - \coef{x} x_i)
+  \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i).
+$$
+
+The inner derivative:
 
 $$
 \begin{aligned}
-\frac{\partial \text{RSS}}{\partial b_0}
-&= -2 \sum_{i=1}^n (y_i - b_0 - b_1 x_i)
-&& \text{(chain rule, term by term)}\\
-&= -2 \paren{n \bar{y} - n b_0 - b_1 n \bar{x}}
+\frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)
+&= \frac{\partial y_i}{\partial \intcoef}
+  - \frac{\partial \intcoef}{\partial \intcoef}
+  - \frac{\partial (\coef{x} x_i)}{\partial \intcoef}
+&& \text{(derivative of a sum)}\\
+&= 0 - 1 - 0
+&& \text{($y_i$ and $\coef{x} x_i$ do not depend on $\intcoef$)}\\
+&= -1
+\end{aligned}
+$$
+
+Plugging the inner derivative back in:
+
+$$
+\begin{aligned}
+\frac{\partial \text{RSS}}{\partial \intcoef}
+&= -2 \sum_{i=1}^n (y_i - \intcoef - \coef{x} x_i)
+&& \text{(inner derivative is $-1$)}\\
+&= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
 && \text{($\sum_i y_i = n\bar{y}$, $\sum_i x_i = n\bar{x}$)}
 \end{aligned}
 $$
 
 Setting it to zero and dividing by $-2n$ gives
-$\bar{y} - b_0 - b_1 \bar{x} = 0$, so $b_0 = \bar{y} - b_1 \bar{x}$.
+$\bar{y} - \intcoef - \coef{x} \bar{x} = 0$,
+so $\intcoef = \bar{y} - \coef{x} \bar{x}$.
 
-The derivative with respect to $b_1$,
-after substituting $b_0 = \bar{y} - b_1 \bar{x}$:
+The derivative with respect to $\coef{x}$,
+again by the chain rule applied to each term:
+
+$$
+\frac{\partial \text{RSS}}{\partial \coef{x}}
+= \sum_{i=1}^n 2 (y_i - \intcoef - \coef{x} x_i)
+  \frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i).
+$$
+
+The inner derivative:
 
 $$
 \begin{aligned}
-\frac{\partial \text{RSS}}{\partial b_1}
-&= -2 \sum_{i=1}^n x_i (y_i - b_0 - b_1 x_i)
-&& \text{(chain rule, term by term)}\\
-&= -2 \sum_{i=1}^n x_i \paren{(y_i - \bar{y}) - b_1 (x_i - \bar{x})}
-&& \text{(substitute $b_0$)}\\
-&= -2 \sum_{i=1}^n (x_i - \bar{x}) \paren{(y_i - \bar{y}) - b_1 (x_i - \bar{x})}
-&& \text{(subtract $\bar{x} \sum_i \paren{(y_i - \bar{y}) - b_1 (x_i - \bar{x})} = 0$)}\\
-&= -2 \paren{S_{xy} - b_1 S_{xx}}
+\frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i)
+&= \frac{\partial y_i}{\partial \coef{x}}
+  - \frac{\partial \intcoef}{\partial \coef{x}}
+  - \frac{\partial (\coef{x} x_i)}{\partial \coef{x}}
+&& \text{(derivative of a sum)}\\
+&= 0 - 0 - x_i
+&& \text{($y_i$ and $\intcoef$ do not depend on $\coef{x}$)}\\
+&= -x_i
+\end{aligned}
+$$
+
+Plugging the inner derivative back in,
+and substituting $\intcoef = \bar{y} - \coef{x} \bar{x}$:
+
+$$
+\begin{aligned}
+\frac{\partial \text{RSS}}{\partial \coef{x}}
+&= -2 \sum_{i=1}^n x_i (y_i - \intcoef - \coef{x} x_i)
+&& \text{(inner derivative is $-x_i$)}\\
+&= -2 \sum_{i=1}^n x_i \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&& \text{(substitute $\intcoef$)}\\
+&= -2 \sum_{i=1}^n (x_i - \bar{x}) \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&& \text{(subtract $\bar{x} \sum_i \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})} = 0$)}\\
+&= -2 \paren{S_{xy} - \coef{x} S_{xx}}
 && \text{(definitions of $S_{xy}$ and $S_{xx}$)}
 \end{aligned}
 $$
 
 The subtracted sum in the third step is zero
 because $\sum_i (y_i - \bar{y}) = 0$ and $\sum_i (x_i - \bar{x}) = 0$.
-Setting the derivative to zero gives $b_1 = S_{xy} / S_{xx}$.
+Setting the derivative to zero gives $\coef{x} = S_{xy} / S_{xx}$.
 
 This stationary point is the unique minimum.
 The matrix of second derivatives of $\text{RSS}$ is

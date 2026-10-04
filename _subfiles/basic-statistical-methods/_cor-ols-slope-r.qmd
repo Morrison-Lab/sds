@@ -3,7 +3,7 @@
 
 If $S_{xx} > 0$ and $S_{yy} > 0$, then
 
-$$\hat\beta_1 = r \, \frac{s_y}{s_x},$$
+$$\hcoef{x} = r \, \frac{s_y}{s_x},$$
 
 where $r$ is the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r)
@@ -29,7 +29,7 @@ r \, \frac{s_y}{s_x}
 && \text{(cancel the factors of $n - 1$)}\\
 &= \frac{S_{xy}}{S_{xx}}
 && \text{(cancel $\sqrt{S_{yy}}$)}\\
-&= \hat\beta_1
+&= \hcoef{x}
 && \text{(closed-form OLS slope)}
 \end{aligned}
 $$

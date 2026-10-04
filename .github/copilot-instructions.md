@@ -50,6 +50,37 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
 - Use bullet lists when the items are important and deserve emphasis
 - Technical lists (commands, file names, features) typically benefit from bullet format
 
+## Math Notation
+
+- **Use semantic macros, not hard-coded symbols.**
+  Write notation through a macro that names its meaning,
+  so a convention can change in one place.
+  Defaults come from the [`latex-macros`](https://github.com/d-morrison/macros) submodule;
+  repo-level conventions it does not cover yet live in
+  [`_subfiles/_macros-sds.qmd`](../_subfiles/_macros-sds.qmd),
+  defined with `\providecommand` so the macros repo's definitions win once it adds the same names.
+- **Regression coefficients**:
+  `\coef{x}` ($\beta_x$), `\intcoef` ($\beta_0$), `\hcoef{x}` and `\hintcoef` (estimates),
+  `\vcoef` and `\hvcoef` (vectors).
+  Index a coefficient by the symbol of its variable ($\beta_x$, not $\beta_1$).
+  Use `\intcoef` for the intercept rather than writing $\beta_0$,
+  since the intercept symbol may change.
+  Where a coefficient as a random variable or unknown must be distinguished from a specific value,
+  use `\Coef{x}` / `\Intcoef` (capital Greek) for the former and `\coef{x}` / `\intcoef` for the latter.
+- **Fitted values and errors**:
+  `\fitted` ($\hat y$) for a fitted value or prediction,
+  `\resid` ($r = y - \hat y$, from the macros repo) for a residual,
+  and `\prederr` ($e = \hat y - y$) for a prediction error.
+- **Inner products**: write the inner product of two vectors as a dot product,
+  `\dprod{\vxi}{\vcoef}` ($\tilde x_i \cdot \tilde\beta$),
+  rather than as a transpose product `\tprod{\vxi}{\vcoef}` ($\tilde x_i^\top \tilde\beta$).
+  Keep the transpose where it is needed:
+  outer products (`\soprod{\vxi}`), quadratic forms with a matrix, and derivatives with respect to a row vector.
+- **Chain rule steps**:
+  after applying the chain rule, derive the inner function's derivative
+  in its own set of aligned equations,
+  then return to the outer expression and substitute the result.
+
 ## Code Chunks
 
 ### Code Folding

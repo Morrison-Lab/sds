@@ -27,7 +27,7 @@ summary(slr_fit)
 ```
 
 The estimated slope is
-$\hat\beta_1 = `r round(coef(slr_fit)[["BMI"]], 2)`$ mg/dL per kg/m^2^:
+$\hcoef{\text{BMI}} = `r round(coef(slr_fit)[["BMI"]], 2)`$ mg/dL per kg/m^2^:
 mean fasting glucose is about `r round(coef(slr_fit)[["BMI"]], 1)` mg/dL higher
 among participants whose BMI is 1 kg/m^2^ higher.
 The t statistic for the slope equals the correlation test statistic

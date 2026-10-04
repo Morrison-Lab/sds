@@ -14,6 +14,8 @@ format:
 
 {{< include latex-macros/macros.qmd >}}
 
+{{< include sds/_subfiles/_macros-sds.qmd >}}
+
 <!-- No slidebreak here: the heading shares its slide with the def-model div. -->
 
 {{< include sds/_subfiles/estimation/_def-model.qmd >}}
@@ -108,9 +110,28 @@ format:
 
 {{< slidebreak >}}
 
-### Residuals
+### Fitted values, residuals, and prediction errors {#residuals}
 
-{{< include sds/_subfiles/estimation/_prose-residuals.qmd >}}
+<!-- The explicit {#residuals} keeps the anchor this section had when its heading was "Residuals". -->
+<!-- No slidebreak here: the heading shares its slide with the def-fitted-value div. -->
+
+{{< include sds/_subfiles/estimation/_def-fitted-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-residual.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-prediction-mse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-fitted-residual-error.qmd >}}
 
 {{< slidebreak >}}
 
