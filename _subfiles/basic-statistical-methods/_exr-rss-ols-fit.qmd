@@ -1,0 +1,46 @@
+:::{#exr-rss-ols-fit}
+#### Residual sum of squares of the OLS fit
+
+Assuming $S_{xx} > 0$ (@def-centered-sums),
+write the [residual sum of squares](#def-rss)
+of the OLS fit (@thm-ols-slr),
+$\sumin \resid_i^2$,
+in terms of $S_{xx}$, $S_{yy}$ and $S_{xy}$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+The [fitted values](estimation.qmd#def-fitted-value)
+of the OLS fit are $\fitted_i = \hintcoef + \hcoef{x} x_i$,
+so each [residual](estimation.qmd#def-residual) is
+
+$$
+\begin{aligned}
+\resid_i = y_i - \fitted_i
+&= y_i - (\bar{y} - \hcoef{x} \bar{x}) - \hcoef{x} x_i
+&& \text{(substitute $\hintcoef$)}\\
+&= (y_i - \bar{y}) - \hcoef{x} (x_i - \bar{x})
+&& \text{(regroup)}
+\end{aligned}
+$$
+
+Squaring and summing:
+
+$$
+\begin{aligned}
+\sumin \resid_i^2
+&= \sumin \paren{(y_i - \bar{y})^2 - 2 \hcoef{x} (x_i - \bar{x})(y_i - \bar{y})
+  + \hcoef{x}^2 (x_i - \bar{x})^2}
+&& \text{(expand the square)}\\
+&= S_{yy} - 2 \hcoef{x} S_{xy} + \hcoef{x}^2 S_{xx}
+&& \text{(definitions of $S_{yy}$, $S_{xy}$, $S_{xx}$)}\\
+&= S_{yy} - 2 \frac{S_{xy}^2}{S_{xx}} + \frac{S_{xy}^2}{S_{xx}}
+&& \text{(substitute $\hcoef{x} = S_{xy} / S_{xx}$)}\\
+&= S_{yy} - \frac{S_{xy}^2}{S_{xx}}
+&& \text{(combine like terms)}
+\end{aligned}
+$$
+
+::::

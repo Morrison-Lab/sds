@@ -1,0 +1,53 @@
+:::{#exr-solve-normal-equations}
+#### Solving the normal equations
+
+Using @exr-rss-deriv-intercept and @exr-rss-deriv-slope,
+solve the [normal equations](#def-normal-equations)
+for $\intcoef$ and $\coef{x}$,
+assuming $S_{xx} > 0$ (@def-centered-sums).
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+**First normal equation.**
+By @exr-rss-deriv-intercept,
+setting $\partial \text{RSS} / \partial \intcoef$ to zero
+and dividing by $-2n$ gives
+$\bar{y} - \intcoef - \coef{x} \bar{x} = 0$, so
+
+$$
+\intcoef = \bar{y} - \coef{x} \bar{x}.
+$$
+
+**Second normal equation.**
+Substitute that intercept into the derivative from @exr-rss-deriv-slope:
+
+$$
+\begin{aligned}
+\frac{\partial \text{RSS}}{\partial \coef{x}}
+&= -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i)
+&& \text{(derivative with respect to $\coef{x}$)}\\
+&= -2 \sumin x_i \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&& \text{(substitute $\intcoef$)}\\
+&= -2 \sumin (x_i - \bar{x}) \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&& \text{(subtract $\bar{x} \sum_i \paren{(y_i - \bar{y}) - \coef{x} (x_i - \bar{x})} = 0$)}\\
+&= -2 \paren{S_{xy} - \coef{x} S_{xx}}
+&& \text{(definitions of $S_{xy}$ and $S_{xx}$)}
+\end{aligned}
+$$
+
+The subtracted sum in the third step is zero
+because $\sum_i (y_i - \bar{y}) = 0$ and $\sum_i (x_i - \bar{x}) = 0$.
+Setting the derivative to zero and dividing by $-2 S_{xx}$,
+which is allowed because $S_{xx} > 0$:
+
+$$
+\coef{x} = \frac{S_{xy}}{S_{xx}}.
+$$
+
+So the normal equations have exactly one solution:
+$\coef{x} = S_{xy} / S_{xx}$ and $\intcoef = \bar{y} - \coef{x} \bar{x}$.
+
+::::

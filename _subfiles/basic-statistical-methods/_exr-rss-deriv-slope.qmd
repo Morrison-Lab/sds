@@ -1,0 +1,43 @@
+:::{#exr-rss-deriv-slope}
+#### Derivative of RSS with respect to the slope
+
+Find the partial derivative of the
+[residual sum of squares](#def-rss)
+with respect to the slope, $\partial \text{RSS} / \partial \coef{x}$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+By the chain rule applied to each term of the sum:
+
+$$
+\frac{\partial \text{RSS}}{\partial \coef{x}}
+= \sumin 2 (y_i - \intcoef - \coef{x} x_i)
+  \frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i).
+$$
+
+The inner derivative:
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i)
+&= \frac{\partial y_i}{\partial \coef{x}}
+  - \frac{\partial \intcoef}{\partial \coef{x}}
+  - \frac{\partial (\coef{x} x_i)}{\partial \coef{x}}
+&& \text{(derivative of a sum)}\\
+&= 0 - 0 - x_i
+&& \text{($y_i$ and $\intcoef$ do not depend on $\coef{x}$)}\\
+&= -x_i
+\end{aligned}
+$$
+
+Plugging the inner derivative back in:
+
+$$
+\frac{\partial \text{RSS}}{\partial \coef{x}}
+= -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i).
+$$
+
+::::

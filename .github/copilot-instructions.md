@@ -81,6 +81,18 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
   in its own set of aligned equations,
   then return to the outer expression and substitute the result.
 
+## Derivations: exercise, solution, theorem, proof
+
+Present a derivation as one or more exercises (`#exr-` divs),
+each followed in the same file by its `::::{.solution}` block,
+then the theorem (or corollary) that records the result,
+with a short `::: proof` that cites the exercises it rests on.
+Split a long derivation into one exercise per step
+(for example: each partial derivative, solving the resulting equations, the second-derivative check),
+so no single solution packs several steps together.
+Define any notation the exercises use (such as $S_{xx}$) in its own definition before them,
+not inside the theorem that follows them.
+
 ## Code Chunks
 
 ### Code Folding

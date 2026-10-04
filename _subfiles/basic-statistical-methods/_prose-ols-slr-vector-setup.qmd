@@ -1,0 +1,20 @@
+The same estimates follow from a derivation in vector notation,
+which treats $(\intcoef, \coef{x})$ as a single vector
+instead of differentiating with respect to each component separately.
+
+Use the coefficient vector $\vcoef = \tp{\paren{\intcoef, \coef{x}}}$
+from @def-normal-equations,
+and give each observation a covariate vector
+with a leading 1 for the intercept:
+
+$$
+\vxi \eqdef \begin{pmatrix} 1 \\ x_i \end{pmatrix}.
+$$
+
+Each point on the line is then a dot product,
+$\intcoef + \coef{x} x_i = \dprod{\vxi}{\vcoef}$,
+so the residual sum of squares is a function of $\vcoef$:
+
+$$
+\text{RSS}(\vcoef) = \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2.
+$$

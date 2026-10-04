@@ -1,0 +1,17 @@
+::: {#def-centered-sums}
+#### Centered sums of squares and cross-products
+
+For data $(x_1, y_1), \ldots, (x_n, y_n)$,
+the **centered sums of squares** of the $x_i$ and of the $y_i$,
+and their **centered sum of cross-products**, are
+
+$$
+\begin{aligned}
+S_{xx} &\eqdef \sumin (x_i - \bar{x})^2, &
+S_{yy} &\eqdef \sumin (y_i - \bar{y})^2, &
+S_{xy} &\eqdef \sumin (x_i - \bar{x})(y_i - \bar{y}).
+\end{aligned}
+$$
+
+$S_{xx} > 0$ unless all the $x_i$ are equal.
+:::

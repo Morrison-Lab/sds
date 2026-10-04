@@ -76,13 +76,61 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_def-normal-equations.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-centered-sums.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-intercept.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-slope.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-solve-normal-equations.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_thm-ols-slr.qmd >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_proof-ols-slr.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/basic-statistical-methods/_proof-ols-slr-vector.qmd >}}
+{{< include sds/_subfiles/basic-statistical-methods/_prose-ols-slr-vector-setup.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-gradient-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-normal-equations-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-solve-normal-equations-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-ols-slr-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-ols-slope-r.qmd >}}
 
 {{< slidebreak >}}
 
@@ -119,6 +167,14 @@ The login for the video site is posted
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_def-r-squared.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-ols-fit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-r-squared-slr.qmd >}}
 
 {{< slidebreak >}}
 

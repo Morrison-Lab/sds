@@ -1,0 +1,57 @@
+:::{#exr-rss-hessian}
+#### Second derivatives of RSS
+
+Find the matrix of second derivatives of the
+[residual sum of squares](#def-rss)
+with respect to $\intcoef$ and $\coef{x}$,
+and show that it is positive definite when $S_{xx} > 0$ (@def-centered-sums).
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+Differentiate each first derivative again.
+From @exr-rss-deriv-intercept,
+$\partial \text{RSS} / \partial \intcoef = -2 n \bar{y} + 2 n \intcoef + 2 n \bar{x} \coef{x}$, so
+
+$$
+\frac{\partial^2 \text{RSS}}{\partial \intcoef^2} = 2n,
+\qquad
+\frac{\partial^2 \text{RSS}}{\partial \coef{x} \, \partial \intcoef} = 2 n \bar{x}.
+$$
+
+From @exr-rss-deriv-slope,
+$\partial \text{RSS} / \partial \coef{x}
+= -2 \sum_i x_i y_i + 2 \intcoef \sum_i x_i + 2 \coef{x} \sum_i x_i^2$, so
+
+$$
+\frac{\partial^2 \text{RSS}}{\partial \intcoef \, \partial \coef{x}} = 2 \sumin x_i = 2 n \bar{x},
+\qquad
+\frac{\partial^2 \text{RSS}}{\partial \coef{x}^2} = 2 \sumin x_i^2.
+$$
+
+So the matrix of second derivatives is
+
+$$
+2 \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sumin x_i^2 \end{pmatrix}.
+$$
+
+Its top-left entry, $2n$, is positive.
+Its determinant is
+
+$$
+\begin{aligned}
+4 \paren{n \sumin x_i^2 - n^2 \bar{x}^2}
+&= 4 n \paren{\sumin x_i^2 - n \bar{x}^2}
+&& \text{(factor out $n$)}\\
+&= 4 n S_{xx}
+&& \text{($\sum_i (x_i - \bar{x})^2 = \sum_i x_i^2 - n \bar{x}^2$)}
+\end{aligned}
+$$
+
+which is positive when $S_{xx} > 0$.
+A symmetric $2 \times 2$ matrix with a positive top-left entry
+and a positive determinant is positive definite.
+
+::::

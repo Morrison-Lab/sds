@@ -1,0 +1,63 @@
+:::{#exr-solve-normal-equations-vector}
+#### Solving the normal equations in vector notation
+
+Assuming $S_{xx} > 0$ (@def-centered-sums),
+show that $A$ from @exr-normal-equations-vector is invertible,
+solve $A \vcoef = \v{c}$ for $\vcoef$,
+and compare the result with @exr-solve-normal-equations.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+Write out the entries of each term of $A$ and $\v{c}$, then add them up:
+
+$$
+A = \sumin \begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix}
+= \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sumin x_i^2 \end{pmatrix},
+\qquad
+\v{c} = \sumin \begin{pmatrix} y_i \\ x_i y_i \end{pmatrix}
+= \begin{pmatrix} n\bar{y} \\ \sumin x_i y_i \end{pmatrix}.
+$$
+
+The determinant of $A$ is
+
+$$
+n \sumin x_i^2 - n^2 \bar{x}^2 = n S_{xx} > 0,
+$$
+
+so $A$ is invertible,
+and $A \vcoef = \v{c}$ has exactly one solution:
+
+$$
+\begin{aligned}
+A^{-1} \v{c}
+&= \frac{1}{n S_{xx}}
+  \begin{pmatrix} \sumin x_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix}
+  \begin{pmatrix} n\bar{y} \\ \sumin x_i y_i \end{pmatrix}
+&& \text{(inverse of a $2 \times 2$ matrix)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} \sumin x_i^2 - \bar{x} \sumin x_i y_i \\
+  \sumin x_i y_i - n \bar{x} \bar{y}
+  \end{pmatrix}
+&& \text{(multiply, cancel $n$)}\\
+&= \frac{1}{S_{xx}}
+  \begin{pmatrix}
+  \bar{y} \paren{S_{xx} + n\bar{x}^2} - \bar{x} \paren{S_{xy} + n\bar{x}\bar{y}} \\
+  S_{xy}
+  \end{pmatrix}
+&& \text{($\sumin x_i^2 = S_{xx} + n\bar{x}^2$, $\sumin x_i y_i = S_{xy} + n\bar{x}\bar{y}$)}\\
+&= \begin{pmatrix}
+  \bar{y} - \bar{x} \, S_{xy} / S_{xx} \\
+  S_{xy} / S_{xx}
+  \end{pmatrix}
+&& \text{(first component: cancel $\pm n\bar{x}^2\bar{y}$)}
+\end{aligned}
+$$
+
+Its entries are $\intcoef = \bar{y} - \coef{x} \bar{x}$ and $\coef{x} = S_{xy} / S_{xx}$,
+the same solution as @exr-solve-normal-equations.
+
+::::

@@ -1,0 +1,47 @@
+:::{#exr-rss-gradient-vector}
+#### Gradient of RSS in vector notation
+
+Find the gradient $\deriv{\vcoef} \text{RSS}(\vcoef)$
+by differentiating with respect to the vector $\vcoef$ directly,
+rather than one component at a time.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+By the chain rule applied to each term of the sum:
+
+$$
+\deriv{\vcoef} \text{RSS}(\vcoef)
+= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}}
+  \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}.
+$$
+
+For the inner derivative, we need the gradient of a linear function.
+For any constant vector $\v{a} = \tp{(a_0, a_x)}$,
+$\dprod{\v{a}}{\vcoef} = a_0 \intcoef + a_x \coef{x}$,
+whose partial derivatives with respect to $\intcoef$ and $\coef{x}$
+are $a_0$ and $a_x$;
+so $\deriv{\vcoef} \dprod{\v{a}}{\vcoef} = \v{a}$.
+With $\v{a} = \vxi$:
+
+$$
+\begin{aligned}
+\deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}
+&= \deriv{\vcoef} y_i - \deriv{\vcoef} \dprod{\vxi}{\vcoef}
+&& \text{(derivative of a difference)}\\
+&= \vzero - \vxi
+&& \text{($y_i$ does not depend on $\vcoef$; gradient of a linear function)}\\
+&= -\vxi
+\end{aligned}
+$$
+
+Plugging the inner derivative back in:
+
+$$
+\deriv{\vcoef} \text{RSS}(\vcoef)
+= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}.
+$$
+
+::::

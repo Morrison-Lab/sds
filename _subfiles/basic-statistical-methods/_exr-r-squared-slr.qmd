@@ -1,0 +1,35 @@
+:::{#exr-r-squared-slr}
+#### $R^2$ and the correlation
+
+Assuming $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums),
+use @exr-rss-ols-fit to write the
+[coefficient of determination](#def-r-squared) $R^2$ of the OLS fit
+in terms of the
+[Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r) $r$,
+and show that $0 \le R^2 \le 1$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+The [total sum of squares](#def-tss) is $S_{yy}$,
+and @exr-rss-ols-fit gives the residual sum of squares, so:
+
+$$
+\begin{aligned}
+R^2
+&= 1 - \frac{S_{yy} - S_{xy}^2 / S_{xx}}{S_{yy}}
+&& \text{(substitute into the definition of $R^2$)}\\
+&= \frac{S_{xy}^2}{S_{xx} S_{yy}}
+&& \text{(simplify)}\\
+&= r^2
+&& \text{($r = S_{xy} / \sqrt{S_{xx} S_{yy}}$)}
+\end{aligned}
+$$
+
+Since $-1 \le r \le 1$
+([range of the correlation coefficient](exploratory-descriptive.qmd#thm-pearson-r-range)),
+$0 \le r^2 \le 1$.
+
+::::

@@ -1,0 +1,49 @@
+:::{#exr-rss-hessian-vector}
+#### Hessian of RSS in vector notation
+
+Find the [Hessian](intro-MLEs.qmd#def-hessian)
+$\deriv{\vcoef} \deriv{\tp{\vcoef}} \text{RSS}(\vcoef)$,
+and show that it is positive definite when $S_{xx} > 0$ (@def-centered-sums).
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+Differentiate the gradient $-2 \paren{\v{c} - A \vcoef}$
+from @exr-normal-equations-vector
+with respect to $\tp{\vcoef}$.
+$\v{c}$ does not depend on $\vcoef$,
+and $A \vcoef$ is linear in $\vcoef$, so
+
+$$
+\deriv{\vcoef} \deriv{\tp{\vcoef}} \text{RSS}(\vcoef)
+= 2 A
+= 2 \sumin \soprod{\vxi}.
+$$
+
+To show it is positive definite,
+take any vector $\v{v} = \tp{(v_0, v_x)} \neq \vzero$:
+
+$$
+\begin{aligned}
+\tp{\v{v}} \paren{2 A} \v{v}
+&= 2 \sumin \tp{\v{v}} \paren{\soprod{\vxi}} \v{v}
+&& \text{(definition of $A$)}\\
+&= 2 \sumin \paren{\dprod{\v{v}}{\vxi}}^2
+&& \text{($\tp{\v{v}} \vxi = \tp{\vxi} \v{v} = \dprod{\v{v}}{\vxi}$)}\\
+&= 2 \sumin \paren{v_0 + v_x x_i}^2
+&& \text{(write out the dot product)}\\
+&\ge 0
+\end{aligned}
+$$
+
+Equality would need $v_0 + v_x x_i = 0$ for every $i$.
+If $v_x \neq 0$, that would force every $x_i = -v_0 / v_x$,
+contradicting $S_{xx} > 0$;
+if $v_x = 0$, it would force $v_0 = 0$,
+contradicting $\v{v} \neq \vzero$.
+So the inequality is strict,
+and the Hessian is positive definite at every $\vcoef$.
+
+::::

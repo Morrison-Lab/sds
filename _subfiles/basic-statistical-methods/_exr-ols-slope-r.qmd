@@ -1,0 +1,45 @@
+:::{#exr-ols-slope-r}
+#### OLS slope and the correlation
+
+Assuming $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums),
+write the OLS slope $\hcoef{x}$ from @thm-ols-slr
+in terms of the
+[Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r) $r$
+and the
+[sample standard deviations](exploratory-descriptive.qmd#def-sample-sd)
+$s_x$ and $s_y$ of the $x_i$ and the $y_i$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+In terms of the centered sums (@def-centered-sums),
+
+$$
+r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}},
+\qquad
+s_x = \sqrt{\frac{S_{xx}}{n-1}},
+\qquad
+s_y = \sqrt{\frac{S_{yy}}{n-1}}.
+$$
+
+So:
+
+$$
+\begin{aligned}
+r \, \frac{s_y}{s_x}
+&= \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}} \cdot
+  \frac{\sqrt{S_{yy} / (n-1)}}{\sqrt{S_{xx} / (n-1)}}
+&& \text{(substitute $r$, $s_x$, $s_y$)}\\
+&= \frac{S_{xy}}{\sqrt{S_{xx}} \sqrt{S_{yy}}} \cdot
+  \frac{\sqrt{S_{yy}}}{\sqrt{S_{xx}}}
+&& \text{(cancel the factors of $n - 1$)}\\
+&= \frac{S_{xy}}{S_{xx}}
+&& \text{(cancel $\sqrt{S_{yy}}$)}\\
+&= \hcoef{x}
+&& \text{(closed-form OLS slope)}
+\end{aligned}
+$$
+
+::::

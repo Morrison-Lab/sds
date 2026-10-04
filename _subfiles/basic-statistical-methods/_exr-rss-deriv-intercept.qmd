@@ -1,0 +1,49 @@
+:::{#exr-rss-deriv-intercept}
+#### Derivative of RSS with respect to the intercept
+
+Find the partial derivative of the
+[residual sum of squares](#def-rss)
+with respect to the intercept, $\partial \text{RSS} / \partial \intcoef$,
+and write it in terms of $\bar{x}$ and $\bar{y}$.
+:::
+
+{{< slidebreak >}}
+
+::::{.solution}
+
+By the chain rule applied to each term of the sum:
+
+$$
+\frac{\partial \text{RSS}}{\partial \intcoef}
+= \sumin 2 (y_i - \intcoef - \coef{x} x_i)
+  \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i).
+$$
+
+The inner derivative:
+
+$$
+\begin{aligned}
+\frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)
+&= \frac{\partial y_i}{\partial \intcoef}
+  - \frac{\partial \intcoef}{\partial \intcoef}
+  - \frac{\partial (\coef{x} x_i)}{\partial \intcoef}
+&& \text{(derivative of a sum)}\\
+&= 0 - 1 - 0
+&& \text{($y_i$ and $\coef{x} x_i$ do not depend on $\intcoef$)}\\
+&= -1
+\end{aligned}
+$$
+
+Plugging the inner derivative back in:
+
+$$
+\begin{aligned}
+\frac{\partial \text{RSS}}{\partial \intcoef}
+&= -2 \sumin (y_i - \intcoef - \coef{x} x_i)
+&& \text{(inner derivative is $-1$)}\\
+&= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
+&& \text{($\sum_i y_i = n\bar{y}$, $\sum_i x_i = n\bar{x}$)}
+\end{aligned}
+$$
+
+::::
