@@ -20,16 +20,20 @@ $$
 && \text{(definition of the score)}\\
 &= \deriv{\rate}\paren{x\logf{\rate} - \rate - \logf{x!}}
 && \text{(Poisson log-likelihood)}\\
-&= x\deriv{\rate}\logf{\rate} - \deriv{\rate}\rate - \deriv{\rate}\logf{x!}
+&= \deriv{\rate}\paren{x\logf{\rate}} - \deriv{\rate}\rate - \deriv{\rate}\logf{x!}
 && \text{(linearity of differentiation)}\\
-&= \frac{x}{\rate} - \deriv{\rate}\rate - \deriv{\rate}\logf{x!}
-&& \text{(derivative of $\log \rate$)}\\
-&= \frac{x}{\rate} - 1 - \deriv{\rate}\logf{x!}
-&& \text{(derivative of $\rate$ with respect to itself)}\\
-&= \frac{x}{\rate} - 1 - 0
+&= \deriv{\rate}\paren{x\logf{\rate}} - \deriv{\rate}\rate - 0
 && \text{(derivative of a constant)}\\
-&= \frac{x}{\rate} - 1
+&= \deriv{\rate}\paren{x\logf{\rate}} - \deriv{\rate}\rate
 && \text{(drop the zero term)}\\
+&= x\deriv{\rate}\logf{\rate} - \deriv{\rate}\rate
+&& \text{(constant multiple rule)}\\
+&= x\rate^{-1} - \deriv{\rate}\rate
+&& \text{(derivative of $\log \rate$)}\\
+&= x\rate^{-1} - 1
+&& \text{(derivative of $\rate$ with respect to itself)}\\
+&= \frac{x}{\rate} - 1
+&& \text{(write the negative power as a fraction)}\\
 &= \frac{x}{\rate} - \frac{\rate}{\rate}
 && \text{(write both terms over the common denominator)}\\
 &= \frac{x - \rate}{\rate}

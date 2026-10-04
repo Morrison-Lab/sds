@@ -10,6 +10,12 @@ $$
 \E{\score}
 &= \E{\frac{\sum_{i=1}^n X_i}{\rate} - n}
 && \text{(Poisson score)}\\
+&= \E{\frac{\sum_{i=1}^n X_i}{\rate}} - \E{n}
+&& \text{(linearity of expectation)}\\
+&= \E{\frac{\sum_{i=1}^n X_i}{\rate}} - n
+&& \text{(the expectation of a constant is that constant)}\\
+&= \frac{\E{\sum_{i=1}^n X_i}}{\rate} - n
+&& \text{(factor the constant $\tfrac{1}{\rate}$ out of the expectation)}\\
 &= \frac{\sum_{i=1}^n \E{X_i}}{\rate} - n
 && \text{(linearity of expectation)}\\
 &= \frac{\sum_{i=1}^n \rate}{\rate} - n

@@ -168,28 +168,46 @@ $$
    - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
 && \text{(distribute $-\tfrac{n}{2}$)}
 \\
-&= \deriv{\sigma^2}\sb{- \frac{n}{2}\logf{\sigma^2}
-   - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2}
-&& \text{(the first term does not depend on $\sigma^2$)}
-\\
-&= \deriv{\sigma^2}\sb{- \frac{n}{2}\logf{\sigma^2}
+&= \deriv{\sigma^2}\sb{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
    - \frac{1}{2}(\sigma^2)^{-1}\sum_{i=1}^n (x_i - \mu)^2}
 && \text{(write $\tfrac{1}{2\sigma^2}$ as $\tfrac{1}{2}(\sigma^2)^{-1}$)}
 \\
-&= -\frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
-   - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}(\sigma^2)^{-1}
+&= \deriv{\sigma^2}\sb{-\frac{n}{2}\logf{2\pi}}
+   + \deriv{\sigma^2}\sb{-\frac{n}{2}\logf{\sigma^2}}
+   + \deriv{\sigma^2}\sb{-\frac{1}{2}(\sigma^2)^{-1}\sum_{i=1}^n (x_i - \mu)^2}
 && \text{(linearity of differentiation)}
 \\
-&= -\frac{n}{2\sigma^2}
+&= 0 + \deriv{\sigma^2}\sb{-\frac{n}{2}\logf{\sigma^2}}
+   + \deriv{\sigma^2}\sb{-\frac{1}{2}(\sigma^2)^{-1}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(derivative of a constant)}
+\\
+&= \deriv{\sigma^2}\sb{-\frac{n}{2}\logf{\sigma^2}}
+   + \deriv{\sigma^2}\sb{-\frac{1}{2}(\sigma^2)^{-1}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(drop the zero term)}
+\\
+&= \deriv{\sigma^2}\sb{-\frac{n}{2}\logf{\sigma^2}}
+   + \deriv{\sigma^2}\sb{-\frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 (\sigma^2)^{-1}}
+&& \text{(reorder the factors)}
+\\
+&= -\frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
+   - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}(\sigma^2)^{-1}
+&& \text{(constant multiple rule)}
+\\
+&= -\frac{n}{2}(\sigma^2)^{-1}
    - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}(\sigma^2)^{-1}
 && \text{(derivative of $\log$)}
 \\
-&= -\frac{n}{2\sigma^2}
+&= -\frac{n}{2}(\sigma^2)^{-1}
    - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \paren{-(\sigma^2)^{-2}}
 && \text{(power rule)}
 \\
-&= -\frac{n}{2\sigma^2} + \frac{1}{2(\sigma^2)^2}\sum_{i=1}^n (x_i - \mu)^2
+&= -\frac{n}{2}(\sigma^2)^{-1}
+   + \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 (\sigma^2)^{-2}
 && \text{(multiply)}
+\\
+&= -\frac{n}{2}(\sigma^2)^{-1}
+   + \frac{1}{2}(\sigma^2)^{-2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(reorder the factors)}
 \ea
 $$
 
@@ -198,12 +216,12 @@ Setting this to zero and solving:
 $$
 \ba
 0
-&= -\frac{n}{2\sigma^2} + \frac{1}{2(\sigma^2)^2}\sum_{i=1}^n (x_i - \mu)^2
+&= -\frac{n}{2}(\sigma^2)^{-1} + \frac{1}{2}(\sigma^2)^{-2}\sum_{i=1}^n (x_i - \mu)^2
 && \text{(set the derivative to zero)}
 \\
-\frac{n}{2\sigma^2}
-&= \frac{1}{2(\sigma^2)^2}\sum_{i=1}^n (x_i - \mu)^2
-&& \text{(add $\tfrac{n}{2\sigma^2}$ to both sides)}
+\frac{n}{2}(\sigma^2)^{-1}
+&= \frac{1}{2}(\sigma^2)^{-2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(add $\tfrac{n}{2}(\sigma^2)^{-1}$ to both sides)}
 \\
 n\sigma^2
 &= \sum_{i=1}^n (x_i - \mu)^2

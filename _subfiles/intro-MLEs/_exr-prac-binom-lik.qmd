@@ -51,16 +51,22 @@ $$
 &= \deriv{\pi}\sb{\logf{\binom{n}{y}} + y\logf{\pi} + (n-y)\logf{1-\pi}}
 && \text{(log-likelihood from (a))}
 \\
-&= \deriv{\pi}\logf{\binom{n}{y}} + y\deriv{\pi}\logf{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
+&= \deriv{\pi}\logf{\binom{n}{y}} + \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
 && \text{(linearity of differentiation)}
 \\
-&= 0 + y\deriv{\pi}\logf{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
+&= 0 + \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
 && \text{(derivative of a constant)}
 \\
-&= 0 + \frac{y}{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
+&= \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
+&& \text{(drop the zero term)}
+\\
+&= y\deriv{\pi}\logf{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
+&& \text{(constant multiple rule)}
+\\
+&= y\frac{1}{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
 && \text{(derivative of $\log$)}
 \\
-&= 0 + \frac{y}{\pi} + (n-y)\frac{1}{1-\pi}\deriv{\pi}(1-\pi)
+&= y\frac{1}{\pi} + (n-y)\frac{1}{1-\pi}\deriv{\pi}(1-\pi)
 && \text{(chain rule)}
 \ea
 $$
@@ -89,14 +95,14 @@ Substituting the inner derivative back in:
 $$
 \ba
 \ell'(\pi; y)
-&= 0 + \frac{y}{\pi} + (n-y)\frac{1}{1-\pi}(-1)
+&= y\frac{1}{\pi} + (n-y)\frac{1}{1-\pi}(-1)
 && \text{(inner derivative is $-1$)}
 \\
-&= 0 + \frac{y}{\pi} - \frac{n-y}{1-\pi}
+&= y\frac{1}{\pi} - (n-y)\frac{1}{1-\pi}
 && \text{(multiply by $-1$)}
 \\
 &= \frac{y}{\pi} - \frac{n-y}{1-\pi}
-&& \text{(drop the zero term)}
+&& \text{(multiply)}
 \\
 &= \frac{y(1-\pi)}{\pi(1-\pi)} - \frac{(n-y)\pi}{\pi(1-\pi)}
 && \text{(write both terms over the common denominator)}
@@ -140,8 +146,14 @@ $$
 &= \deriv{\pi}\sb{\frac{y}{\pi} - \frac{n-y}{1-\pi}}
 && \text{(score from (b))}
 \\
-&= y\deriv{\pi}\pi^{-1} - (n-y)\deriv{\pi}(1-\pi)^{-1}
+&= \deriv{\pi}\sb{y\pi^{-1} - (n-y)(1-\pi)^{-1}}
+&& \text{(write the fractions as negative powers)}
+\\
+&= \deriv{\pi}\sb{y\pi^{-1}} - \deriv{\pi}\sb{(n-y)(1-\pi)^{-1}}
 && \text{(linearity of differentiation)}
+\\
+&= y\deriv{\pi}\pi^{-1} - (n-y)\deriv{\pi}(1-\pi)^{-1}
+&& \text{(constant multiple rule)}
 \\
 &= y\paren{-\pi^{-2}} - (n-y)\deriv{\pi}(1-\pi)^{-1}
 && \text{(power rule)}
@@ -152,8 +164,11 @@ $$
 &= y\paren{-\pi^{-2}} - (n-y)\paren{-(1-\pi)^{-2}}(-1)
 && \text{(inner derivative from (b) is $-1$)}
 \\
-&= -\frac{y}{\pi^2} - \frac{n-y}{(1-\pi)^2}
+&= -y\pi^{-2} - (n-y)(1-\pi)^{-2}
 && \text{(multiply)}
+\\
+&= -\frac{y}{\pi^2} - \frac{n-y}{(1-\pi)^2}
+&& \text{(write the negative powers as fractions)}
 \ea
 $$
 

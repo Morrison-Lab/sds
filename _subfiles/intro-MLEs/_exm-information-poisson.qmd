@@ -19,6 +19,8 @@ $$
 \einf(\rate)
 &= \E{\frac{\sum_{i=1}^n X_i}{\rate^2}}
 && \text{(expected information)}\\
+&= \frac{\E{\sum_{i=1}^n X_i}}{\rate^2}
+&& \text{(factor the constant $\tfrac{1}{\rate^2}$ out of the expectation)}\\
 &= \frac{\sum_{i=1}^n \E{X_i}}{\rate^2}
 && \text{(linearity of expectation)}\\
 &= \frac{\sum_{i=1}^n \rate}{\rate^2}

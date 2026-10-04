@@ -23,18 +23,24 @@ $$
 && \text{(exponential log-likelihood)}\\
 &= \deriv{\pmean}\paren{-\logf{\pmean} - x \pmean^{-1}}
 && \text{(write $\frac{x}{\pmean}$ as $x \pmean^{-1}$)}\\
-&= -\deriv{\pmean}\logf{\pmean} - x \deriv{\pmean} \pmean^{-1}
+&= \deriv{\pmean}\paren{-\logf{\pmean}} - \deriv{\pmean}\paren{x \pmean^{-1}}
 && \text{(linearity of differentiation)}\\
-&= -\frac{1}{\pmean} - x \deriv{\pmean} \pmean^{-1}
+&= -\deriv{\pmean}\logf{\pmean} - x \deriv{\pmean} \pmean^{-1}
+&& \text{(constant multiple rule)}\\
+&= -\pmean^{-1} - x \deriv{\pmean} \pmean^{-1}
 && \text{(derivative of $\log \pmean$)}\\
-&= -\frac{1}{\pmean} - x \paren{-\pmean^{-2}}
+&= -\pmean^{-1} - x \paren{-\pmean^{-2}}
 && \text{(power rule)}\\
-&= -\frac{1}{\pmean} + \frac{x}{\pmean^2}
+&= -\pmean^{-1} + x \pmean^{-2}
 && \text{(multiply)}\\
+&= -\frac{1}{\pmean} + \frac{x}{\pmean^2}
+&& \text{(write the negative powers as fractions)}\\
 &= -\frac{\pmean}{\pmean^2} + \frac{x}{\pmean^2}
 && \text{(write both terms over the common denominator)}\\
-&= \frac{x - \pmean}{\pmean^2}
+&= \frac{-\pmean + x}{\pmean^2}
 && \text{(combine the fractions)}\\
+&= \frac{x - \pmean}{\pmean^2}
+&& \text{(reorder the numerator)}\\
 &= \frac{x - \E{X}}{\pmean^2}
 && \text{($\E{X} = \pmean$)}\\
 &= \frac{x - \E{X}}{\Var{X}}

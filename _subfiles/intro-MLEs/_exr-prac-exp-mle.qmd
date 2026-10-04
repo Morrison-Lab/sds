@@ -65,17 +65,26 @@ $$
 &= \deriv{\pmean}\paren{-n\logf{\pmean} - \frac{n\bar{x}}{\pmean}}
 && \text{(log-likelihood from (a))}
 \\
-&= -n\deriv{\pmean}\logf{\pmean} - n\bar{x}\deriv{\pmean}\pmean^{-1}
+&= \deriv{\pmean}\paren{-n\logf{\pmean} - n\bar{x}\pmean^{-1}}
+&& \text{(write $\tfrac{n\bar{x}}{\pmean}$ as $n\bar{x}\pmean^{-1}$)}
+\\
+&= \deriv{\pmean}\paren{-n\logf{\pmean}} - \deriv{\pmean}\paren{n\bar{x}\pmean^{-1}}
 && \text{(linearity of differentiation)}
 \\
-&= -\frac{n}{\pmean} - n\bar{x}\deriv{\pmean}\pmean^{-1}
+&= -n\deriv{\pmean}\logf{\pmean} - n\bar{x}\deriv{\pmean}\pmean^{-1}
+&& \text{(constant multiple rule)}
+\\
+&= -n\pmean^{-1} - n\bar{x}\deriv{\pmean}\pmean^{-1}
 && \text{(derivative of $\log$)}
 \\
-&= -\frac{n}{\pmean} - n\bar{x}\paren{-\pmean^{-2}}
+&= -n\pmean^{-1} - n\bar{x}\paren{-\pmean^{-2}}
 && \text{(power rule)}
 \\
-&= -\frac{n}{\pmean} + \frac{n\bar{x}}{\pmean^2}
+&= -n\pmean^{-1} + n\bar{x}\pmean^{-2}
 && \text{(multiply)}
+\\
+&= -\frac{n}{\pmean} + \frac{n\bar{x}}{\pmean^2}
+&& \text{(write the negative powers as fractions)}
 \\
 &= -\frac{n\pmean}{\pmean^2} + \frac{n\bar{x}}{\pmean^2}
 && \text{(write both terms over the common denominator)}
@@ -116,8 +125,14 @@ $$
 &= \deriv{\pmean}\paren{-\frac{n}{\pmean} + \frac{n\bar{x}}{\pmean^2}}
 && \text{(score from (b))}
 \\
-&= -n\deriv{\pmean}\pmean^{-1} + n\bar{x}\deriv{\pmean}\pmean^{-2}
+&= \deriv{\pmean}\paren{-n\pmean^{-1} + n\bar{x}\pmean^{-2}}
+&& \text{(write the fractions as negative powers)}
+\\
+&= \deriv{\pmean}\paren{-n\pmean^{-1}} + \deriv{\pmean}\paren{n\bar{x}\pmean^{-2}}
 && \text{(linearity of differentiation)}
+\\
+&= -n\deriv{\pmean}\pmean^{-1} + n\bar{x}\deriv{\pmean}\pmean^{-2}
+&& \text{(constant multiple rule)}
 \\
 &= -n\paren{-\pmean^{-2}} + n\bar{x}\deriv{\pmean}\pmean^{-2}
 && \text{(power rule for $\pmean^{-1}$)}
@@ -125,21 +140,32 @@ $$
 &= -n\paren{-\pmean^{-2}} + n\bar{x}\paren{-2\pmean^{-3}}
 && \text{(power rule for $\pmean^{-2}$)}
 \\
-&= \frac{n}{\pmean^2} - \frac{2n\bar{x}}{\pmean^3}
+&= n\pmean^{-2} - 2n\bar{x}\pmean^{-3}
 && \text{(multiply)}
+\\
+&= \frac{n}{\pmean^2} - \frac{2n\bar{x}}{\pmean^3}
+&& \text{(write the negative powers as fractions)}
 \ea
 $$
 
 Evaluated at $\hat\pmean_{ML} = \bar{x}$:
 
 $$
+\ba
 \ell''(\bar{x}; \vx)
-= \frac{n}{\bar{x}^2} - \frac{2n\bar{x}}{\bar{x}^3}
-= \frac{n}{\bar{x}^2} - \frac{2n}{\bar{x}^2}
-= -\frac{n}{\bar{x}^2} < 0
+&= \frac{n}{\bar{x}^2} - \frac{2n\bar{x}}{\bar{x}^3}
+&& \text{(second derivative at $\pmean = \bar{x}$)}
+\\
+&= \frac{n}{\bar{x}^2} - \frac{2n}{\bar{x}^2}
+&& \text{(cancel one factor of $\bar{x}$)}
+\\
+&= -\frac{n}{\bar{x}^2}
+&& \text{(combine like terms)}
+\ea
 $$
 
-Since the second derivative is negative, $\hat\pmean_{ML} = \bar{x}$ is a maximum.
+Since $n > 0$ and $\bar{x}^2 > 0$, the second derivative is negative,
+so $\hat\pmean_{ML} = \bar{x}$ is a maximum.
 
 **(d)**
 
@@ -165,9 +191,17 @@ $$
 Evaluated at $\hat\pmean_{ML} = \bar{x}$:
 
 $$
-\oinf(\hat\pmean_{ML}; \vx) = \frac{2n\bar{x}}{\bar{x}^3} - \frac{n}{\bar{x}^2}
-= \frac{2n}{\bar{x}^2} - \frac{n}{\bar{x}^2}
-= \frac{n}{\bar{x}^2}
+\ba
+\oinf(\hat\pmean_{ML}; \vx)
+&= \frac{2n\bar{x}}{\bar{x}^3} - \frac{n}{\bar{x}^2}
+&& \text{(observed information at $\pmean = \bar{x}$)}
+\\
+&= \frac{2n}{\bar{x}^2} - \frac{n}{\bar{x}^2}
+&& \text{(cancel one factor of $\bar{x}$)}
+\\
+&= \frac{n}{\bar{x}^2}
+&& \text{(combine like terms)}
+\ea
 $$
 
 So $\SE{\hat\pmean_{ML}} \approx \sqrt{\oinf(\hat\pmean_{ML}; \vx)^{-1}} = \frac{\bar{x}}{\sqrt{n}}$.

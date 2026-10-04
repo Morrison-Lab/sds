@@ -25,20 +25,29 @@ $$
 &= \deriv{\rate}\sb{\frac{n\bar{x}}{\rate} - n}
 && \text{(Poisson score)}
 \\
-&= n\bar{x}\deriv{\rate}\rate^{-1} - \deriv{\rate} n
+&= \deriv{\rate}\sb{n\bar{x}\rate^{-1} - n}
+&& \text{(write $\tfrac{n\bar{x}}{\rate}$ as $n\bar{x}\rate^{-1}$)}
+\\
+&= \deriv{\rate}\sb{n\bar{x}\rate^{-1}} - \deriv{\rate} n
 && \text{(linearity of differentiation)}
 \\
-&= n\bar{x}\deriv{\rate}\rate^{-1} - 0
+&= \deriv{\rate}\sb{n\bar{x}\rate^{-1}} - 0
 && \text{(derivative of a constant)}
 \\
-&= n\bar{x}\deriv{\rate}\rate^{-1}
+&= \deriv{\rate}\sb{n\bar{x}\rate^{-1}}
 && \text{(drop the zero term)}
+\\
+&= n\bar{x}\deriv{\rate}\rate^{-1}
+&& \text{(constant multiple rule)}
 \\
 &= n\bar{x}\paren{-\rate^{-2}}
 && \text{(power rule)}
 \\
-&= -\frac{n\bar{x}}{\rate^2}
+&= -n\bar{x}\rate^{-2}
 && \text{(multiply)}
+\\
+&= -\frac{n\bar{x}}{\rate^2}
+&& \text{(write the negative power as a fraction)}
 \ea
 $$
 
@@ -65,7 +74,14 @@ Assuming $\bar{x} > 0$
 substituting $\hat\rate_{ML} = \bar{x}$:
 
 $$
-\oinf(\hat\rate_{ML}; \vx) = \frac{n\bar{x}}{\bar{x}^2} = \frac{n}{\bar{x}}
+\ba
+\oinf(\hat\rate_{ML}; \vx)
+&= \frac{n\bar{x}}{\bar{x}^2}
+&& \text{(observed information at $\rate = \bar{x}$)}
+\\
+&= \frac{n}{\bar{x}}
+&& \text{(cancel one factor of $\bar{x}$)}
+\ea
 $$
 
 **(d)**

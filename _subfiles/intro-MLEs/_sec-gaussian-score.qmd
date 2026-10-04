@@ -79,15 +79,21 @@ $$
 &= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
  - \frac{1}{2}\paren{\sigma^2}^{-1}\sum_{i=1}^n (x_i - \mu)^2}
 && \text{(Gaussian log-likelihood)}\\
-&= -\frac{n}{2}\deriv{\sigma^2}\logf{2\pi} - \frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
- - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
+&= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{2\pi}} + \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{\sigma^2}}
+ + \deriv{\sigma^2}\paren{-\frac{1}{2}\paren{\sigma^2}^{-1}\sum_{i=1}^n (x_i - \mu)^2}
 && \text{(linearity of differentiation)}\\
-&= -\frac{n}{2} \cdot 0 - \frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
- - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
+&= 0 + \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{\sigma^2}}
+ + \deriv{\sigma^2}\paren{-\frac{1}{2}\paren{\sigma^2}^{-1}\sum_{i=1}^n (x_i - \mu)^2}
 && \text{(derivative of a constant)}\\
+&= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{\sigma^2}}
+ + \deriv{\sigma^2}\paren{-\frac{1}{2}\paren{\sigma^2}^{-1}\sum_{i=1}^n (x_i - \mu)^2}
+&& \text{(drop the zero term)}\\
+&= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{\sigma^2}}
+ + \deriv{\sigma^2}\paren{-\frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \paren{\sigma^2}^{-1}}
+&& \text{(reorder the factors)}\\
 &= -\frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
  - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
-&& \text{(drop the zero term)}\\
+&& \text{(constant multiple rule)}\\
 &= -\frac{n}{2}\paren{\sigma^2}^{-1}
  - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
 && \text{(derivative of $\log v$)}\\
@@ -95,7 +101,10 @@ $$
  - \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \paren{-\paren{\sigma^2}^{-2}}
 && \text{(power rule for $v^{-1}$)}\\
 &= -\frac{n}{2}\paren{\sigma^2}^{-1}
+ + \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \paren{\sigma^2}^{-2}
+&& \text{(multiply)}\\
+&= -\frac{n}{2}\paren{\sigma^2}^{-1}
  + \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2
-&& \text{(multiply)}
+&& \text{(reorder the factors)}
 \end{aligned}
 $$

@@ -23,8 +23,10 @@ $$
 && \text{(definition of the score)}\\
 &= \deriv{\pi} \paren{x \logf{\pi} + (1 - x) \logf{1 - \pi}}
 && \text{(Bernoulli log-likelihood)}\\
-&= x \deriv{\pi} \logf{\pi} + (1 - x) \deriv{\pi} \logf{1 - \pi}
+&= \deriv{\pi} \paren{x \logf{\pi}} + \deriv{\pi} \paren{(1 - x) \logf{1 - \pi}}
 && \text{(linearity of differentiation)}\\
+&= x \deriv{\pi} \logf{\pi} + (1 - x) \deriv{\pi} \logf{1 - \pi}
+&& \text{(constant multiple rule)}\\
 &= x \frac{1}{\pi} + (1 - x) \deriv{\pi} \logf{1 - \pi}
 && \text{(derivative of $\log$)}\\
 &= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} \deriv{\pi}(1 - \pi)
@@ -57,6 +59,8 @@ $$
 && \text{(inner derivative is $-1$)}\\
 &= x \frac{1}{\pi} - (1 - x) \frac{1}{1 - \pi}
 && \text{(multiply by $-1$)}\\
+&= \frac{x}{\pi} - \frac{1 - x}{1 - \pi}
+&& \text{(multiply)}\\
 &= \frac{x(1 - \pi)}{\pi(1 - \pi)} - \frac{(1 - x)\pi}{\pi(1 - \pi)}
 && \text{(write both terms over the common denominator)}\\
 &= \frac{x(1 - \pi) - (1 - x)\pi}{\pi(1 - \pi)}

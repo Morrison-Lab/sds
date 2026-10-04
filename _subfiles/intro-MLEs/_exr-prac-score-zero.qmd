@@ -55,17 +55,30 @@ $$
 $$
 \ba
 \ell'(\rate; \vx)
-&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate} - n\rate}
-&& \text{(the last term of $\ell$ does not depend on $\rate$)}
+&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate} - n\rate - \sum_{i=1}^n \logf{x_i!}}
+&& \text{(log-likelihood from (a))}
 \\
-&= \paren{\sum_{i=1}^n x_i}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate
+&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate}
+   - \deriv{\rate}\sb{\sum_{i=1}^n \logf{x_i!}}
 && \text{(linearity of differentiation)}
 \\
-&= \frac{\sum_{i=1}^n x_i}{\rate} - n\deriv{\rate}\rate
+&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate} - 0
+&& \text{(derivative of a constant)}
+\\
+&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate}
+&& \text{(drop the zero term)}
+\\
+&= \paren{\sum_{i=1}^n x_i}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate
+&& \text{(constant multiple rule)}
+\\
+&= \paren{\sum_{i=1}^n x_i}\rate^{-1} - n\deriv{\rate}\rate
 && \text{(derivative of $\log$)}
 \\
-&= \frac{\sum_{i=1}^n x_i}{\rate} - n
+&= \paren{\sum_{i=1}^n x_i}\rate^{-1} - n
 && \text{(derivative of $\rate$ with respect to itself)}
+\\
+&= \frac{\sum_{i=1}^n x_i}{\rate} - n
+&& \text{(write the negative power as a fraction)}
 \\
 &= \frac{n\bar{x}}{\rate} - n
 && \text{($\textstyle\sum_{i=1}^n x_i = n\bar{x}$)}

@@ -18,6 +18,8 @@ $$
 && \text{(definition of the score)}\\
 &= \deriv{\pmean}\paren{\frac{-1}{2}\paren{\logf{2\pi\ss} + \frac{(x - \pmean)^2}{\ss}}}
 && \text{(Gaussian log-likelihood)}\\
+&= \frac{-1}{2}\deriv{\pmean}\paren{\logf{2\pi\ss} + \frac{(x - \pmean)^2}{\ss}}
+&& \text{(constant multiple rule)}\\
 &= \frac{-1}{2}\paren{\deriv{\pmean}\logf{2\pi\ss} + \deriv{\pmean}\frac{(x - \pmean)^2}{\ss}}
 && \text{(linearity of differentiation)}\\
 &= \frac{-1}{2}\paren{0 + \deriv{\pmean}\frac{(x - \pmean)^2}{\ss}}

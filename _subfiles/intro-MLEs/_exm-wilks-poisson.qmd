@@ -21,6 +21,8 @@ $$
 && \text{(the $\log x_i!$ terms cancel)}\\
 &= 2n\paren{\bar x \log \bar x - \bar x - \bar x \log\rate_0 + \rate_0}
 && \text{(factor out $n$)}\\
+&= 2n\paren{\bar x \log \bar x - \bar x \log\rate_0 - \bar x + \rate_0}
+&& \text{(reorder the terms)}\\
 &= 2n\paren{\bar x \paren{\log \bar x - \log\rate_0} - \bar x + \rate_0}
 && \text{(factor $\bar x$ out of the two log terms)}\\
 &= 2n\paren{\bar x \log\frac{\bar x}{\rate_0} - \bar x + \rate_0}

@@ -25,14 +25,18 @@ $$
 && \text{(differentiate the score for $\mu$)}\\
 &= \frac{1}{\sigma^2}\deriv{\mu}\paren{\sum_{i=1}^n x_i - n\mu}
 && \text{(constant multiple rule)}\\
-&= \frac{1}{\sigma^2}\paren{\deriv{\mu}\sum_{i=1}^n x_i - n\deriv{\mu}\mu}
+&= \frac{1}{\sigma^2}\paren{\deriv{\mu}\sum_{i=1}^n x_i - \deriv{\mu}\paren{n\mu}}
 && \text{(linearity of differentiation)}\\
-&= \frac{1}{\sigma^2}\paren{0 - n\deriv{\mu}\mu}
+&= \frac{1}{\sigma^2}\paren{0 - \deriv{\mu}\paren{n\mu}}
 && \text{($\textstyle\sum_{i=1}^n x_i$ does not depend on $\mu$)}\\
+&= \frac{1}{\sigma^2}\paren{0 - n\deriv{\mu}\mu}
+&& \text{(constant multiple rule)}\\
 &= \frac{1}{\sigma^2}\paren{0 - n}
 && \text{(derivative of $\mu$ with respect to itself)}\\
+&= \frac{1}{\sigma^2}\paren{-n}
+&& \text{(subtract)}\\
 &= -\frac{n}{\sigma^2}
-&& \text{(simplify)}\\
+&& \text{(multiply)}\\
 &< 0,
 && \text{($n > 0$ and $\sigma^2 > 0$)}
 \end{aligned}
