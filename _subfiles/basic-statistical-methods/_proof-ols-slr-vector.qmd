@@ -11,9 +11,9 @@ $$
 \qquad
 \vxi \eqdef \begin{pmatrix} 1 \\ x_i \end{pmatrix},
 \qquad\text{so}\qquad
-\intcoef + \coef{x} x_i = \tprod{\vxi}{\vcoef}
+\intcoef + \coef{x} x_i = \dprod{\vxi}{\vcoef}
 \quad\text{and}\quad
-\text{RSS}(\vcoef) = \sumin \paren{y_i - \tprod{\vxi}{\vcoef}}^2.
+\text{RSS}(\vcoef) = \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2.
 $$
 
 **Gradient.**
@@ -21,22 +21,22 @@ By the chain rule applied to each term of the sum:
 
 $$
 \deriv{\vcoef} \text{RSS}(\vcoef)
-= \sumin 2 \paren{y_i - \tprod{\vxi}{\vcoef}}
-  \deriv{\vcoef} \paren{y_i - \tprod{\vxi}{\vcoef}}.
+= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}}
+  \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}.
 $$
 
 For the inner derivative, we need the gradient of a linear function.
 For any constant vector $\v{a} = \tp{(a_0, a_x)}$,
-$\tprod{\v{a}}{\vcoef} = a_0 \intcoef + a_x \coef{x}$,
+$\dprod{\v{a}}{\vcoef} = a_0 \intcoef + a_x \coef{x}$,
 whose partial derivatives with respect to $\intcoef$ and $\coef{x}$
 are $a_0$ and $a_x$;
-so $\deriv{\vcoef} \tprod{\v{a}}{\vcoef} = \v{a}$.
+so $\deriv{\vcoef} \dprod{\v{a}}{\vcoef} = \v{a}$.
 With $\v{a} = \vxi$:
 
 $$
 \begin{aligned}
-\deriv{\vcoef} \paren{y_i - \tprod{\vxi}{\vcoef}}
-&= \deriv{\vcoef} y_i - \deriv{\vcoef} \tprod{\vxi}{\vcoef}
+\deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}
+&= \deriv{\vcoef} y_i - \deriv{\vcoef} \dprod{\vxi}{\vcoef}
 && \text{(derivative of a difference)}\\
 &= \vzero - \vxi
 && \text{($y_i$ does not depend on $\vcoef$; gradient of a linear function)}\\
@@ -49,16 +49,17 @@ Plugging the inner derivative back in:
 $$
 \begin{aligned}
 \deriv{\vcoef} \text{RSS}(\vcoef)
-&= -2 \sumin \vxi \paren{y_i - \tprod{\vxi}{\vcoef}}
+&= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
 && \text{(inner derivative is $-\vxi$)}\\
-&= -2 \paren{\sumin \vxi y_i - \sumin \vxi \tprod{\vxi}{\vcoef}}
+&= -2 \paren{\sumin \vxi y_i - \sumin \vxi \paren{\dprod{\vxi}{\vcoef}}}
 && \text{(distribute the sum)}
 \end{aligned}
 $$
 
 **Solve for $\hvcoef$.**
-Write $A \eqdef \sumin \soprod{\vxi}$ and $\v{c} \eqdef \sumin \vxi y_i$,
-so that the gradient is $-2 \paren{\v{c} - A \vcoef}$.
+Write $A \eqdef \sumin \soprod{\vxi}$ and $\v{c} \eqdef \sumin \vxi y_i$.
+Since $\vxi \paren{\dprod{\vxi}{\vcoef}} = \paren{\soprod{\vxi}} \vcoef$,
+the gradient is $-2 \paren{\v{c} - A \vcoef}$.
 Setting it equal to $\vzero$ gives the
 **normal equations** $A \vcoef = \v{c}$.
 Writing out the components of each term:
@@ -121,7 +122,7 @@ For any vector $\v{v} = \tp{(v_0, v_x)} \neq \vzero$:
 
 $$
 \tp{\v{v}} \paren{2 A} \v{v}
-= 2 \sumin \tprod{\v{v}}{\vxi} \tprod{\vxi}{\v{v}}
+= 2 \sumin \paren{\dprod{\v{v}}{\vxi}}^2
 = 2 \sumin \paren{v_0 + v_x x_i}^2
 \ge 0,
 $$

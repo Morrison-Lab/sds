@@ -67,6 +67,11 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
   since the intercept symbol may change.
   Where a coefficient as a random variable or unknown must be distinguished from a specific value,
   use `\Coef{x}` / `\Intcoef` (capital Greek) for the former and `\coef{x}` / `\intcoef` for the latter.
+- **Inner products**: write the inner product of two vectors as a dot product,
+  `\dprod{\vxi}{\vcoef}` ($\tilde x_i \cdot \tilde\beta$),
+  rather than as a transpose product `\tprod{\vxi}{\vcoef}` ($\tilde x_i^\top \tilde\beta$).
+  Keep the transpose where it is needed:
+  outer products (`\soprod{\vxi}`), quadratic forms with a matrix, and derivatives with respect to a row vector.
 - **Chain rule steps**:
   after applying the chain rule, derive the inner function's derivative
   in its own set of aligned equations,
