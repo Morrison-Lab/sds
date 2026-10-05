@@ -71,7 +71,8 @@ $$
 
 Plugging the inner derivative back in,
 and using the [Gaussian density](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
-of $Y_i$, which has mean $\mean_i$ and variance $\sigma^2$ (@def-slr):
+of $Y_i$, which has mean $\mean_i = \mean(x_i)$ (@def-cond-gaussian)
+and variance $\sigma^2$ (@def-homoskedastic):
 
 $$
 \begin{aligned}
@@ -96,7 +97,7 @@ so $\cdev_i \mid X_i = x_i \sim \ndist{0, \sigma^2}$.
 
 For independence, factor the joint CDF of $\cdev_1, \ldots, \cdev_n$,
 using the same CDF step as above for each $i$
-and the independence of the $Y_i$ given the covariates (@def-slr):
+and the independence of the $Y_i$ given the covariates (@def-cond-gaussian):
 
 $$
 \begin{aligned}

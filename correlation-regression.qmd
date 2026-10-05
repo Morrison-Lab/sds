@@ -54,7 +54,19 @@ format:
 
 ### Model specification {#sec-slr-model}
 
-<!-- No slidebreak here: the heading shares its slide with the def-slr div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-cond-gaussian div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-cond-gaussian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-homoskedastic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-linear-regression.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_def-slr.qmd >}}
 

@@ -1,19 +1,10 @@
 ::: {#def-slr}
 #### Simple linear regression model
 
-A **simple linear regression** model for a continuous outcome $Y$
-and a single covariate $X$
-says that, given their covariate values,
-the outcomes $Y_1, \ldots, Y_n$ are independent and Gaussian
-with a common variance $\sigma^2$,
-each centered on its conditional mean $\mean_i$,
-the value at $x_i$ of a linear function $\mean(x)$:
+A **simple linear regression** model
+is a linear regression model (@def-linear-regression)
+with $p = 1$ covariate $X$,
+writing $x_i$ for $x_{i1}$:
 
-$$
-\begin{aligned}
-Y_i \mid X_i = x_i &\simind \ndist{\mean_i, \sigma^2},\\
-\mean_i &\eqdef \mean(x_i),\\
-\mean(x) &\eqdef \intcoef + \coef{x} x.
-\end{aligned}
-$$
+$$\mean(x) \eqdef \intcoef + \coef{x} x.$$
 :::
