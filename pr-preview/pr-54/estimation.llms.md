@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 00:22:29 (PDT)
+Last modified: 2026-10-05 00:40:34 (PDT)
 
 ## 1 Scientific models
 
@@ -134,23 +134,35 @@ To determine which estimator is best, we need to define *best*. Accuracy is usua
 
 The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, mean squared error, and mean absolute error defined in this section, are all functions of the distribution of the estimator’s [estimation error](#def-estimation-error).
 
-### 3.3 Fitted values, residuals, and prediction errors
+### 3.3 Predictions, fitted values, residuals, and prediction errors
 
 > **NOTE:**
 >
-> **Definition 6 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ under a model fitted to data \\(x_1, y_1), \ldots, (x_n, y_n)\\ is the fitted model’s estimate of \\\operatorname{E}\mathopen{}\left\[Y \mid X = x_i\right\]\mathclose{}\\:
+> **Definition 6 (Prediction)** A **prediction** (or **predicted value**) \\\hat y(x)\\ of an outcome \\Y\\ with covariate value \\X = x\\ is a number computed from \\x\\ and from data \\(x_1, y_1), \ldots, (x_n, y_n)\\ by a rule \\g\\, and used as a guess of \\Y\\:
 >
-> \\\hat y_i \stackrel{\text{def}}{=}\mathop{\hat{\operatorname{E}}}\nolimits\mathopen{}\left\[Y \mid X = x_i\right\]\mathclose{}.\\
+> \\\hat y(x) \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\\
 
 > **NOTE:**
 >
-> **Definition 7 (Residual)** The **residual** for observation \\i\\ is its observed outcome minus its [fitted value](#def-fitted-value):
+> **Example 6 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \tilde{\theta})\\ of a parameter vector \\\tilde{\theta}\\, and \\\hat{\tilde{\theta}}\\ is an estimate of \\\tilde{\theta}\\. The usual prediction ([Definition 6](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
+>
+> \\\hat y(x) = \mu(x; \hat{\tilde{\theta}}).\\
+
+> **NOTE:**
+>
+> **Definition 7 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ is the [prediction](#def-prediction) at its own covariate value \\x_i\\:
+>
+> \\\hat y_i \stackrel{\text{def}}{=}\hat y(x_i).\\
+
+> **NOTE:**
+>
+> **Definition 8 (Residual)** The **residual** for observation \\i\\ is its observed outcome minus its [fitted value](#def-fitted-value):
 >
 > \\r_i \stackrel{\text{def}}{=}y_i - \hat y_i\\
 
 > **NOTE:**
 >
-> **Definition 8 (Prediction error)** The **prediction error** of a prediction \\\hat y\\ of an observed outcome \\y\\ is
+> **Definition 9 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) \\\hat y\\ (such as \\\hat y(x)\\ or a fitted value \\\hat y_i\\) of an observed outcome \\y\\ is the prediction minus the outcome:
 >
 > \\e\stackrel{\text{def}}{=}\hat y- y.\\
 
@@ -174,7 +186,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Remark 1* (Prediction errors and residuals). The prediction in [Definition 8](#def-prediction-error) can be a [fitted value](#def-fitted-value) or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value.
+> *Remark 1* (Prediction errors and residuals). The prediction in [Definition 9](#def-prediction-error) can be a [fitted value](#def-fitted-value), for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value.
 >
 > \\ \begin{aligned} e&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{} &= \hat\theta- \theta && \text{(estimation error)} \end{aligned} \\
 >
@@ -182,19 +194,19 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Definition 9 (Mean squared error of predictions)** The **mean squared error** of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
+> **Definition 10 (Mean squared error of predictions)** The **mean squared error** of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^ne_i^2.\\
 
 > **NOTE:**
 >
-> *Remark 2* (Prediction MSE, estimator MSE and RSS). [Definition 9](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([mean squared error and RSS](correlation-regression.llms.md#thm-mse-rss)):
+> *Remark 2* (Prediction MSE, estimator MSE and RSS). [Definition 10](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([mean squared error and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\tilde{\theta}}), \qquad \text{RSS}(\hat{\tilde{\theta}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
 > **NOTE:**
 >
-> **Example 6 (Fitted values, residuals, and prediction errors for three points)** Take the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
+> **Example 7 (Fitted values, residuals, and prediction errors for three points)** Take the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
 >
 > | \\x_i\\ | \\y_i\\ | \\\hat y_i = 1 + 0.5 x_i\\ | \\r_i = y_i - \hat y_i\\ | \\e_i = \hat y_i - y_i\\ |
 > |:--:|:--:|:--:|:--:|:--:|
@@ -241,7 +253,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Definition 10 (Bias)** The **bias** of an estimator \\\hat\theta\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error):
+> **Definition 11 (Bias)** The **bias** of an estimator \\\hat\theta\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error):
 >
 > \\\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right\]\mathclose{} \tag{1}\\
 
@@ -263,7 +275,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Example 7 (Bias of two estimators of a mean)** Let \\X_1, \ldots, X_n\\ each have expectation \\\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\\, as in [Example 4](#exm-estimator). By [Theorem 2](#thm-bias-exprs), the bias of the sample mean \\\bar X\\ is:
+> **Example 8 (Bias of two estimators of a mean)** Let \\X_1, \ldots, X_n\\ each have expectation \\\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\\, as in [Example 4](#exm-estimator). By [Theorem 2](#thm-bias-exprs), the bias of the sample mean \\\bar X\\ is:
 >
 > \\ \begin{aligned} \operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{} - \mu && \text{(bias equals expectation minus truth)}\\ &= \operatorname{E}\mathopen{}\left\[\frac{1}{n}\sum\_{i=1}^n X_i\right\]\mathclose{} - \mu && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n}\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i\right\]\mathclose{} - \mu && \text{(factor the constant \$\tfrac{1}{n}\$ out of the expectation)}\\ &= \frac{1}{n}\sum\_{i=1}^n \operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} - \mu && \text{(linearity of expectation)}\\ &= \frac{1}{n}\sum\_{i=1}^n \mu - \mu && \text{(\$\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\$ for every \$i\$)}\\ &= \frac{1}{n} \cdot n\mu - \mu && \text{(sum of \$n\$ copies of \$\mu\$)}\\ &= \mu - \mu && \text{(cancel \$n\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
@@ -277,7 +289,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Definition 11 (Mean squared error)** The **mean squared error** of an estimator \\\hat\theta\\, denoted \\\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
+> **Definition 12 (Mean squared error)** The **mean squared error** of an estimator \\\hat\theta\\, denoted \\\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{}\\
 
@@ -323,7 +335,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Example 8 (Mean squared error of two estimators of a mean)** Continuing [Example 7](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 3](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
+> **Example 9 (Mean squared error of two estimators of a mean)** Continuing [Example 8](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 3](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
 >
 > For \\X_1\\, \\\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} = 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} = \sigma^2\\.
 >
@@ -337,17 +349,17 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Definition 12 (Root mean squared error)** The **root mean squared error** of an estimator \\\hat\theta\\ is the square root of its [mean squared error](#def-mse):
+> **Definition 13 (Root mean squared error)** The **root mean squared error** of an estimator \\\hat\theta\\ is the square root of its [mean squared error](#def-mse):
 >
 > \\\operatorname{RMSE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat\theta\right)\mathclose{}}\\
 >
-> It has the same units as the estimand. In [Example 8](#exm-mse-sample-mean), the root mean squared error of \\\bar X\\ is \\\sigma/\sqrt{n}\\.
+> It has the same units as the estimand. In [Example 9](#exm-mse-sample-mean), the root mean squared error of \\\bar X\\ is \\\sigma/\sqrt{n}\\.
 
 ### 3.6 Unbiased estimators
 
 > **NOTE:**
 >
-> **Definition 13 (Unbiased estimator)** An estimator \\\hat\theta\\ is **unbiased** if its [bias](#def-bias) is zero:
+> **Definition 14 (Unbiased estimator)** An estimator \\\hat\theta\\ is **unbiased** if its [bias](#def-bias) is zero:
 >
 > \\ \operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} = 0 \\
 >
@@ -355,16 +367,16 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Example 9 (The sample mean is unbiased)** By [Example 7](#exm-bias-sample-mean), \\\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\\ and \\\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\\, so both the sample mean \\\bar X\\ and the single-observation estimator \\X_1\\ are [unbiased](#def-unbiased) estimators of \\\mu\\.
+> **Example 10 (The sample mean is unbiased)** By [Example 8](#exm-bias-sample-mean), \\\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\\ and \\\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\\, so both the sample mean \\\bar X\\ and the single-observation estimator \\X_1\\ are [unbiased](#def-unbiased) estimators of \\\mu\\.
 
 > **NOTE:**
 >
-> **Example 10 (A biased estimator of the variance)** Let \\X_1, \ldots, X_n\\ be mutually independent, each with expectation \\\mu\\ and variance \\\sigma^2\\, and let \\n \ge 2\\. Consider two estimators of \\\sigma^2\\:
+> **Example 11 (A biased estimator of the variance)** Let \\X_1, \ldots, X_n\\ be mutually independent, each with expectation \\\mu\\ and variance \\\sigma^2\\, and let \\n \ge 2\\. Consider two estimators of \\\sigma^2\\:
 >
 > - the [sample variance](exploratory-descriptive.llms.md#def-sample-variance) \\S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n (X_i - \bar X)^2\\;
 > - the divide-by-\\n\\ estimator \\\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^n (X_i - \bar X)^2\\.
 >
-> Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n (X_i - \bar X)^2\\, so we first find its expectation. Using \\\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2 + \mu^2\\ and \\\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\\ (by [Example 8](#exm-mse-sample-mean) and [Example 7](#exm-bias-sample-mean)):
+> Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n (X_i - \bar X)^2\\, so we first find its expectation. Using \\\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2 + \mu^2\\ and \\\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\\ (by [Example 9](#exm-mse-sample-mean) and [Example 8](#exm-bias-sample-mean)):
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n (X_i - \bar X)^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n \mathopen{}\left(X_i^2 - 2 X_i \bar X + \bar X^2\right)\mathclose{}\right\]\mathclose{} && \text{(expand each square)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - \sum\_{i=1}^n 2 X_i \bar X + \sum\_{i=1}^n \bar X^2\right\]\mathclose{} && \text{(split the sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - 2\bar X \sum\_{i=1}^n X_i + \sum\_{i=1}^n \bar X^2\right\]\mathclose{} && \text{(factor \$2\bar X\$ out of the middle sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - 2\bar X \sum\_{i=1}^n X_i + n \bar X^2\right\]\mathclose{} && \text{(sum of \$n\$ copies of \$\bar X^2\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right\]\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^n X_i = n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - 2n \bar X^2 + n \bar X^2\right\]\mathclose{} && \text{(multiply \$2\bar X \cdot n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2 - n \bar X^2\right\]\mathclose{} && \text{(collect the \$\bar X^2\$ terms)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n X_i^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n \operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n \operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(factor the constant \$n\$ out of the expectation)}\\ &= \sum\_{i=1}^n (\sigma^2 + \mu^2) - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(substitute \$\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}\$)}\\ &= n(\sigma^2 + \mu^2) - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(sum of \$n\$ copies of \$\sigma^2 + \mu^2\$)}\\ &= n(\sigma^2 + \mu^2) - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(substitute \$\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}\$)}\\ &= n\sigma^2 + n\mu^2 - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\sigma^2 + \mu^2\$)}\\ &= n\sigma^2 + n\mu^2 - \mathopen{}\left(n \cdot \frac{\sigma^2}{n} + n\mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\frac{\sigma^2}{n} + \mu^2\$)}\\ &= n\sigma^2 + n\mu^2 - \mathopen{}\left(\sigma^2 + n\mu^2\right)\mathclose{} && \text{(cancel \$n\$ in \$n \cdot \frac{\sigma^2}{n}\$)}\\ &= n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2 && \text{(distribute the minus sign)}\\ &= n\sigma^2 - \sigma^2 && \text{(cancel \$n\mu^2\$)}\\ &= (n - 1)\sigma^2 && \text{(factor out \$\sigma^2\$)} \end{aligned} \\
 >
@@ -410,13 +422,13 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Definition 14 (Mean absolute error)** The **mean absolute error** of an estimator is the expectation of the absolute value of the [estimation error](#def-estimation-error):
+> **Definition 15 (Mean absolute error)** The **mean absolute error** of an estimator is the expectation of the absolute value of the [estimation error](#def-estimation-error):
 >
 > \\ \operatorname{MAE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{}\right\|\mathclose{}\right\]\mathclose{} \\
 
 > **NOTE:**
 >
-> **Example 11 (Mean absolute error of a Gaussian estimator)** Suppose an estimator \\\hat\theta\\ has a Gaussian distribution with mean \\\theta\\ and standard deviation \\\tau\\, so that its estimation error \\\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{} = \hat\theta- \theta\\ has the same distribution as \\\tau Z\\, where \\Z\\ has a standard Gaussian distribution with density \\\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\\. Then:
+> **Example 12 (Mean absolute error of a Gaussian estimator)** Suppose an estimator \\\hat\theta\\ has a Gaussian distribution with mean \\\theta\\ and standard deviation \\\tau\\, so that its estimation error \\\varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{} = \hat\theta- \theta\\ has the same distribution as \\\tau Z\\, where \\Z\\ has a standard Gaussian distribution with density \\\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\\. Then:
 >
 > \\ \begin{aligned} \operatorname{MAE}\mathopen{}\left(\hat\theta\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\tau Z\right\|\mathclose{}\right\]\mathclose{} && \text{(definition of MAE)}\\ &= \operatorname{E}\mathopen{}\left\[\tau \mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{} && \text{(\$\mathopen{}\left\|\tau Z\right\|\mathclose{} = \tau \mathopen{}\left\|Z\right\|\mathclose{}\$ because \$\tau \> 0\$)}\\ &= \tau \operatorname{E}\mathopen{}\left\[\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{} && \text{(factor the constant \$\tau\$ out of the expectation)}\\ &= \tau \int\_{-\infty}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(expectation of a function of \$Z\$)}\\ &= \tau \cdot 2 \int\_{0}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{}\phi(z)\$ is symmetric about 0)}\\ &= \tau \cdot 2 \int\_{0}^{\infty} z \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{} = z\$ for \$z \ge 0\$)}\\ &= \tau \cdot 2 \mathopen{}\left\[-\phi(z)\right\]\mathclose{}\_{0}^{\infty} && \text{(\$\phi'(z) = -z\phi(z)\$)}\\ &= \tau \cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} - \mathopen{}\left(-\phi(0)\right)\mathclose{}\right)\mathclose{} && \text{(evaluate at the limits)}\\ &= \tau \cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} + \phi(0)\right)\mathclose{} && \text{(subtracting a negative is adding)}\\ &= \tau \cdot 2 \mathopen{}\left(0 + \phi(0)\right)\mathclose{} && \text{(\$\phi(z) \to 0\$ as \$z \to \infty\$)}\\ &= \tau \cdot 2 \phi(0) && \text{(drop the zero term)}\\ &= \tau \cdot 2 (2\pi)^{-1/2} && \text{(\$\phi(0) = (2\pi)^{-1/2}\$)}\\ &= \tau \cdot 2 \cdot \frac{1}{\sqrt{2\pi}} && \text{(write \$(2\pi)^{-1/2}\$ as \$1/\sqrt{2\pi}\$)}\\ &= \tau \cdot \frac{2}{\sqrt{2\pi}} && \text{(multiply)}\\ &= \tau \cdot \frac{\sqrt{4}}{\sqrt{2\pi}} && \text{(write \$2\$ as \$\sqrt{4}\$)}\\ &= \tau \sqrt{4/(2\pi)} && \text{(quotient of square roots)}\\ &= \tau \sqrt{2/\pi} && \text{(cancel the common factor 2 in \$4/(2\pi)\$)} \end{aligned} \\
 >
@@ -426,13 +438,13 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Definition 15 (Standard error)** The **standard error** of an estimator \\\hat\theta\\ is the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of \\\hat\theta\\:
+> **Definition 16 (Standard error)** The **standard error** of an estimator \\\hat\theta\\ is the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of \\\hat\theta\\:
 >
 > \\\operatorname{SE}\mathopen{}\left(\hat\theta\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat\theta\right)\mathclose{}\\
 
 > **NOTE:**
 >
-> **Example 12 (Standard error of the sample mean)** In [Example 8](#exm-mse-sample-mean), \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2 / n\\, so \\\operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} = \sqrt{\sigma^2 / n} = \sigma / \sqrt{n}\\. With \\n = 50\\ students, the standard error of the sample mean height is \\\sigma / \sqrt{50} \approx 0.14\sigma\\.
+> **Example 13 (Standard error of the sample mean)** In [Example 9](#exm-mse-sample-mean), \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2 / n\\, so \\\operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} = \sqrt{\sigma^2 / n} = \sigma / \sqrt{n}\\. With \\n = 50\\ students, the standard error of the sample mean height is \\\sigma / \sqrt{50} \approx 0.14\sigma\\.
 
 > **NOTE:**
 >

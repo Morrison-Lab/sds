@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 00:22:29 (PDT)
+Last modified: 2026-10-05 00:40:34 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -623,7 +623,7 @@ The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inferen
 >
 > \\ \Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{} = 1 - \alpha \\
 
-Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat\mu = \bar X\\, and the prediction error \\\bar X^\* - \hat\mu\\ is a difference of independent Gaussian variables, so:
+Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat\mu = \bar X\\, and the difference \\\bar X^\* - \hat\mu\\ (the negative of the [prediction error](estimation.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
 \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\bar X^\* - \hat\mu\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X^\*\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\mu\right)\mathclose{} && \text{(variance of a difference of independent variables)}\\ &= \frac{\sigma^2}{m} + \frac{\sigma^2}{n} && \text{(variance of a sample mean)} \end{aligned} \\
 
@@ -632,6 +632,16 @@ and \\\bar X^\* - \hat\mu \sim \operatorname{N}\mathopen{}\left(0, \sigma^2\math
 \\\hat\mu \pm z\_{1 - \alpha/2} \\ \sigma \sqrt{\frac{1}{m} + \frac{1}{n}}\\
 
 Usually \\m = 1\\. The term \\1/n\\ accounts for the uncertainty in \\\hat\mu\\, and becomes negligible when \\n\\ is much larger than \\m\\.
+
+> **NOTE:**
+>
+> *Remark 1* (Prediction intervals versus confidence intervals). A [confidence interval](inference.llms.md#def-confidence-interval) covers a fixed parameter, such as the mean \\\mu\\. A prediction interval ([Definition 15](#def-prediction-interval)) covers a random quantity, such as a new outcome, or, in the example above, the mean \\\bar X^\*\\ of \\m\\ new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.
+>
+> In the Gaussian example above, the standard error of \\\hat\mu = \bar X\\ is \\\sigma / \sqrt{n}\\, so the two intervals, the [Wald confidence interval](#def-wald-ci) for \\\mu\\ and the prediction interval for \\\bar X^\*\\, are
+>
+> \\ \begin{aligned} &\hat\mu \pm z\_{1 - \alpha/2} \\ \sigma \sqrt{\frac{1}{n}} && \text{(confidence interval for \$\mu\$)}\\ &\hat\mu \pm z\_{1 - \alpha/2} \\ \sigma \sqrt{\frac{1}{m} + \frac{1}{n}} && \text{(prediction interval for \$\bar X^\*\$)} \end{aligned} \\
+>
+> The prediction interval is always the wider of the two, because its variance has the extra term \\\sigma^2 / m\\, the variance of the new observations’ mean. As \\n\\ grows, the width of the confidence interval shrinks to 0, but the width of the prediction interval shrinks only to \\2 z\_{1 - \alpha/2} \\ \sigma / \sqrt{m}\\: more data pins down \\\mu\\, but cannot remove the randomness of the new observations. The same contrast holds in regression, between a confidence interval for the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ and a prediction interval for a new outcome \\Y\\ at \\X = x\\.
 
 ## 2 Example: maximum likelihood for tropical cyclones in Australia
 
