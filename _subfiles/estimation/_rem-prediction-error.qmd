@@ -16,18 +16,8 @@ $$
 \end{aligned}
 $$
 
-For an observation that was used to fit the model,
-the prediction error is the negative of the [residual](#def-residual):
-
-$$
-\begin{aligned}
-\prederr_i
-&= \fitted_i - y_i
-&& \text{(definition of prediction error)}\\
-&= -(y_i - \fitted_i)
-&& \text{(factor out $-1$)}\\
-&= -\resid_i
-&& \text{(definition of residual)}
-\end{aligned}
-$$
+For an observation used to fit the model,
+the prediction error is the negative of the residual
+(@thm-prediction-error-residual),
+so the two differ only in orientation.
 :::
