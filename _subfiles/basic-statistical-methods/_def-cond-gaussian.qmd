@@ -6,8 +6,8 @@ with covariate values $x_1, \ldots, x_n$
 (each a single value or a vector)
 says that, given the covariates,
 the outcomes are independent and Gaussian,
-each centered on the value of a mean function $\mean(x)$
-at its own covariate values,
+each centered on a mean function $\mean(x)$
+evaluated at its own covariate values,
 with its own variance $\sigma_i^2$:
 
 $$
