@@ -10,18 +10,20 @@ $Y_i = \mean_i + \cdev_i$.
 
 :::{#sol-slr-additive}
 
+Start from the right-hand side:
+
 $$
 \begin{aligned}
-Y_i
-&= Y_i - \mean(x_i) + \mean(x_i)
-&& \text{(add and subtract $\mean(x_i)$)}\\
-&= \cdev_i + \mean(x_i)
-&& \text{(definition of $\cdev_i$)}\\
+\mean_i + \cdev_i
 &= \mean(x_i) + \cdev_i
-&& \text{(reorder the terms)}\\
-&= \mean_i + \cdev_i
-&& \text{(definition of $\mean_i$)}
+&& \text{(definition of $\mean_i$)}\\
+&= \mean(x_i) + \paren{Y_i - \mean(x_i)}
+&& \text{(definition of $\cdev_i$)}\\
+&= Y_i
+&& \text{(cancel $\mean(x_i)$)}
 \end{aligned}
 $$
+
+So $Y_i = \mean_i + \cdev_i$.
 
 :::

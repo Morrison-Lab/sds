@@ -100,6 +100,19 @@ or distributing a sum with substituting $\sum_i y_i = n \bar{y}$, in one line.
 Prove any fact a step relies on (such as deviations from the mean summing to zero)
 in its own exercise before citing it.
 
+When a derivation would add and subtract a term to reach the other side
+(as in $Y_i = Y_i - \mean(x_i) + \mean(x_i)$),
+start from the other side instead:
+expand $\mean_i + \cdev_i$ with the definitions, then cancel.
+Each line then follows from a definition or a simplification,
+with no term pulled from nowhere.
+
+Give each theorem, corollary or lemma div one result.
+Two results joined by a semicolon,
+or set side by side with `\qquad` in one display,
+usually belong in two divs,
+each with its own exercise and proof.
+
 ## Definitions and results: prose plus a display equation, compact and general, then examples
 
 Keep each definition div to its defining statement, stated in the most general form the page needs
