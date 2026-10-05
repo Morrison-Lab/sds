@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 01:53:33 (PDT)
+Last modified: 2026-10-05 02:02:50 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -530,21 +530,47 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 The same estimates follow from a derivation in vector notation, which treats \\(\beta\_{0}, \beta\_{x})\\ as a single vector instead of differentiating with respect to each component separately.
 
-Use the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ from [Example 6](#exm-normal-equations-slr), and give each observation a covariate vector with a leading 1 for the intercept:
-
-\\ \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}. \\
-
-Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x} x_i = \tilde{x}\_i \cdot \tilde{\beta}\\, so with \\\tilde{\theta}= \tilde{\beta}\\ the residual sum of squares ([Example 3](#exm-rss-slr)) is a function of \\\tilde{\beta}\\:
-
-\\ \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2. \\
+> **NOTE:**
+>
+> **Definition 13 (Covariate vector)** In simple linear regression ([Definition 8](#def-slr)), the **covariate vector** \\\tilde{x}\_i\\ of observation \\i\\ is its covariate value \\x_i\\, preceded by a 1 for the intercept:
+>
+> \\ \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}. \\
 
 > **NOTE:**
 >
-> **Exercise 10 (Gradient of RSS in vector notation)** Find the gradient \\\frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta})\\ by differentiating with respect to the vector \\\tilde{\beta}\\ directly, rather than one component at a time.
+> **Exercise 10 (Mean as a dot product)** Show that in simple linear regression ([Definition 8](#def-slr)), the conditional mean \\\mu(x_i)\\ is the dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 13](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)): \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\.
 
 > **NOTE:**
 >
-> *Solution 10*. Differentiate one operation at a time, starting from the definition of \\\text{RSS}(\tilde{\beta})\\:
+> *Solution 10*. Start from the dot product:
+>
+> \\ \begin{aligned} \tilde{x}\_i \cdot \tilde{\beta} &= \begin{pmatrix} 1 \\ x_i \end{pmatrix} \cdot \tilde{\beta} && \text{(definition of \$\tilde{x}\_i\$)}\\ &= \begin{pmatrix} 1 \\ x_i \end{pmatrix} \cdot \begin{pmatrix} \beta\_{0}\\ \beta\_{x} \end{pmatrix} && \text{(definition of \$\tilde{\beta}\$, written as a column)}\\ &= 1 \cdot \beta\_{0}+ x_i \beta\_{x} && \text{(definition of the dot product)}\\ &= \beta\_{0}+ x_i \beta\_{x} && \text{(\$1 \cdot a = a\$)}\\ &= \beta\_{0}+ \beta\_{x} x_i && \text{(reorder the factors)}\\ &= \mu(x_i) && \text{(definition of \$\mu(x)\$)} \end{aligned} \\
+>
+> So \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\.
+
+> **NOTE:**
+>
+> **Lemma 1 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 13](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}\\ ([Example 6](#exm-normal-equations-slr)):
+>
+> \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 10](#exr-slr-mean-dot-product).
+
+> **NOTE:**
+>
+> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\tilde{\theta}= \tilde{\beta}\\ and substitute \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\ ([Lemma 1](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 9](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\tilde{\beta}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
+>
+> \\ \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2. \\
+
+> **NOTE:**
+>
+> **Exercise 11 (Gradient of RSS in vector notation)** Find the gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)), \\\frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta})\\, by differentiating with respect to the vector \\\tilde{\beta}\\ directly, rather than one component at a time.
+
+> **NOTE:**
+>
+> *Solution 11*. Differentiate one operation at a time, starting from \\\text{RSS}(\tilde{\beta})\\ in vector notation ([Example 7](#exm-rss-vector)):
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) &= \frac{\partial}{\partial \tilde{\beta}} \sum\_{i=1}^n\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2 && \text{(RSS in vector form)}\\ &= \sum\_{i=1}^n\frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2 && \text{(derivative of a sum)}\\ &= \sum\_{i=1}^n2 \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} && \text{(chain rule)} \end{aligned} \\
 >
@@ -562,15 +588,15 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 11 (Normal equations in vector notation)** Define the matrix and vector
+> **Exercise 12 (Normal equations in vector notation)** Define the matrix and vector
 >
 > \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}, \qquad \tilde{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_iy_i. \\
 >
-> Using [Exercise 10](#exr-rss-gradient-vector), show that the [normal equations](#def-normal-equations) can be written as \\A \tilde{\beta}= \tilde{c}\\.
+> Using [Exercise 11](#exr-rss-gradient-vector), show that the [normal equations](#def-normal-equations) can be written as \\A \tilde{\beta}= \tilde{c}\\.
 
 > **NOTE:**
 >
-> *Solution 11*. Distribute the sum in the gradient from [Exercise 10](#exr-rss-gradient-vector):
+> *Solution 12*. Distribute the sum in the gradient from [Exercise 11](#exr-rss-gradient-vector):
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) &= -2 \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} && \text{(gradient of RSS)}\\ &= -2 \sum\_{i=1}^n\mathopen{}\left(\tilde{x}\_iy_i - \tilde{x}\_i\mathopen{}\left(\tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}\right)\mathclose{} && \text{(distribute \$\tilde{x}\_i\$)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^n\tilde{x}\_iy_i - \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(\tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}\right)\mathclose{} && \text{(sum of differences)} \end{aligned} \\
 >
@@ -588,11 +614,11 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 12 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), show that \\A\\ from [Exercise 11](#exr-normal-equations-vector) is invertible, solve \\A \tilde{\beta}= \tilde{c}\\ for \\\tilde{\beta}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
+> **Exercise 13 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), show that \\A\\ from [Exercise 12](#exr-normal-equations-vector) is invertible, solve \\A \tilde{\beta}= \tilde{c}\\ for \\\tilde{\beta}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
-> *Solution 12*. Write out the entries of each term of \\A\\ and \\\tilde{c}\\, then add them up:
+> *Solution 13*. Write out the entries of each term of \\A\\ and \\\tilde{c}\\, then add them up:
 >
 > \\ \begin{aligned} A &= \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top} && \text{(definition of \$A\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix} && \text{(outer product of \$\tilde{x}\_i\$)}\\ &= \begin{pmatrix} \sum\_{i=1}^n1 & \sum\_{i=1}^nx_i \\ \sum\_{i=1}^nx_i & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(matrices add entrywise)}\\ &= \begin{pmatrix} n & \sum\_{i=1}^nx_i \\ \sum\_{i=1}^nx_i & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(sum of a constant)}\\ &= \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i = n \bar{x}\$)} \end{aligned} \\
 >
@@ -616,11 +642,11 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 13 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)).
+> **Exercise 14 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)).
 
 > **NOTE:**
 >
-> *Solution 13*. Differentiate the gradient \\-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\\ from [Exercise 11](#exr-normal-equations-vector) with respect to \\{\tilde{\beta}}^{\top}\\. \\\tilde{c}\\ does not depend on \\\tilde{\beta}\\. Each entry of \\A \tilde{\beta}\\ is the dot product of a row of \\A\\ with \\\tilde{\beta}\\, so by the gradient of a linear function ([Exercise 10](#exr-rss-gradient-vector)), the derivative of \\A \tilde{\beta}\\ with respect to \\{\tilde{\beta}}^{\top}\\ is \\A\\. So:
+> *Solution 14*. Differentiate the gradient \\-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\\ from [Exercise 12](#exr-normal-equations-vector) with respect to \\{\tilde{\beta}}^{\top}\\. \\\tilde{c}\\ does not depend on \\\tilde{\beta}\\. Each entry of \\A \tilde{\beta}\\ is the dot product of a row of \\A\\ with \\\tilde{\beta}\\, so by the gradient of a linear function ([Exercise 11](#exr-rss-gradient-vector)), the derivative of \\A \tilde{\beta}\\ with respect to \\{\tilde{\beta}}^{\top}\\ is \\A\\. So:
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta}) &= \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \mathopen{}\left(-2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{}\right)\mathclose{} && \text{(differentiate the gradient)}\\ &= -2 \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left(\frac{\partial}{\partial {\tilde{\beta}}^{\top}} \tilde{c} - \frac{\partial}{\partial {\tilde{\beta}}^{\top}} A \tilde{\beta}\right)\mathclose{} && \text{(derivative of a difference)}\\ &= -2 \mathopen{}\left(\mathbf{0} - \frac{\partial}{\partial {\tilde{\beta}}^{\top}} A \tilde{\beta}\right)\mathclose{} && \text{(\$\tilde{c}\$ does not depend on \$\tilde{\beta}\$)}\\ &= -2 \mathopen{}\left(\mathbf{0} - A\right)\mathclose{} && \text{(derivative of a linear function)}\\ &= -2 \mathopen{}\left(-A\right)\mathclose{} && \text{(subtract from zero)}\\ &= 2 A && \text{(multiply)}\\ &= 2 \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top} && \text{(definition of \$A\$)} \end{aligned} \\
 >
@@ -640,15 +666,15 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Exercise 11](#exr-normal-equations-vector), the normal equations are \\A \tilde{\beta}= \tilde{c}\\. By [Exercise 12](#exr-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \tilde{c}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Exercise 13](#exr-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\tilde{\beta}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \tilde{c}\\ is its unique global minimum.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Exercise 12](#exr-normal-equations-vector), the normal equations are \\A \tilde{\beta}= \tilde{c}\\. By [Exercise 13](#exr-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \tilde{c}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Exercise 14](#exr-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\tilde{\beta}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \tilde{c}\\ is its unique global minimum.
 
 > **NOTE:**
 >
-> **Exercise 14 (OLS slope and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 5](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
+> **Exercise 15 (OLS slope and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 5](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
 
 > **NOTE:**
 >
-> *Solution 14*. In terms of the centered sums ([Definition 12](#def-centered-sums)),
+> *Solution 15*. In terms of the centered sums ([Definition 12](#def-centered-sums)),
 >
 > \\ r = \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}, \qquad s_x = \sqrt{\frac{S\_{xx}}{n-1}}, \qquad s_y = \sqrt{\frac{S\_{yy}}{n-1}}. \\
 >
@@ -666,7 +692,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 14](#exr-ols-slope-r).
+> *Proof*. This is the solution to [Exercise 15](#exr-ols-slope-r).
 
 > **TIP:**
 >
@@ -676,7 +702,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Example 7 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 5](#thm-ols-slr), and the slope from [Corollary 2](#cor-ols-slope-r), for the participants with a BMI measurement:
+> **Example 8 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 5](#thm-ols-slr), and the slope from [Corollary 2](#cor-ols-slope-r), for the participants with a BMI measurement:
 >
 > ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
@@ -743,19 +769,19 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Definition 13 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
+> **Definition 14 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
 >
 > \\\text{TSS} \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - \bar{y})^2.\\
 
 > **NOTE:**
 >
-> **Example 8 (Total sum of squares of three values)** For \\y = 1, 2, 2\\, \\\bar y = 5/3\\, so
+> **Example 9 (Total sum of squares of three values)** For \\y = 1, 2, 2\\, \\\bar y = 5/3\\, so
 >
 > \\ \begin{aligned} \text{TSS} &= \mathopen{}\left(1 - \tfrac{5}{3}\right)\mathclose{}^2 + 2\mathopen{}\left(2 - \tfrac{5}{3}\right)\mathclose{}^2 && \text{(definition)}\\ &= \tfrac{4}{9} + \tfrac{2}{9} && \text{(square the deviations)}\\ &= \tfrac{2}{3} && \text{(arithmetic)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Definition 14 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\tilde{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\tilde{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
+> **Definition 15 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\tilde{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\tilde{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
 >
 > \\R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}}.\\
 
@@ -763,11 +789,11 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 15 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
+> **Exercise 16 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
 
 > **NOTE:**
 >
-> *Solution 15*. The [fitted values](estimation.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](estimation.llms.md#def-residual) is
+> *Solution 16*. The [fitted values](estimation.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](estimation.llms.md#def-residual) is
 >
 > \\ \begin{aligned} r_i &= y_i - \hat y_i && \text{(definition of a residual)}\\ &= y_i - \mathopen{}\left(\hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat y_i\$)}\\ &= y_i - \mathopen{}\left(\bar{y} - \hat{\beta}\_{x} \bar{x} + \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= y_i - \bar{y} + \hat{\beta}\_{x} \bar{x} - \hat{\beta}\_{x} x_i && \text{(distribute the minus sign)}\\ &= (y_i - \bar{y}) - \mathopen{}\left(\hat{\beta}\_{x} x_i - \hat{\beta}\_{x} \bar{x}\right)\mathclose{} && \text{(group terms)}\\ &= (y_i - \bar{y}) - \hat{\beta}\_{x} (x_i - \bar{x}) && \text{(factor out \$\hat{\beta}\_{x}\$)} \end{aligned} \\
 >
@@ -777,11 +803,11 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 16 (\\R^2\\ and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), use [Exercise 15](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
+> **Exercise 17 (\\R^2\\ and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), use [Exercise 16](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
 
 > **NOTE:**
 >
-> *Solution 16*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 12](#def-centered-sums)), and [Exercise 15](#exr-rss-ols-fit) gives the residual sum of squares, so:
+> *Solution 17*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 12](#def-centered-sums)), and [Exercise 16](#exr-rss-ols-fit) gives the residual sum of squares, so:
 >
 > \\ \begin{aligned} R^2 &= 1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}} && \text{(definition of \$R^2\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{\text{TSS}} && \text{(the OLS estimate is \$(\hat{\beta}\_{0}, \hat{\beta}\_{x})\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{S\_{yy}} && \text{(TSS is \$S\_{yy}\$)}\\ &= 1 - \frac{S\_{yy} - S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(residual sum of squares of the OLS fit)}\\ &= 1 - \mathopen{}\left(\frac{S\_{yy}}{S\_{yy}} - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(split the fraction)}\\ &= 1 - \mathopen{}\left(1 - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(\$S\_{yy} / S\_{yy} = 1\$)}\\ &= 1 - 1 + \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(distribute the minus sign)}\\ &= \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(\$1 - 1 = 0\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx} S\_{yy}} && \text{(divide a fraction by \$S\_{yy}\$)}\\ &= \mathopen{}\left(\frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}\right)\mathclose{}^2 && \text{(write as a square)}\\ &= r^2 && \text{(\$r = S\_{xy} / \sqrt{S\_{xx} S\_{yy}}\$)} \end{aligned} \\
 >
@@ -795,11 +821,11 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 16](#exr-r-squared-slr), which uses the residual sum of squares from [Exercise 15](#exr-rss-ols-fit).
+> *Proof*. This is the solution to [Exercise 17](#exr-r-squared-slr), which uses the residual sum of squares from [Exercise 16](#exr-rss-ols-fit).
 
 > **NOTE:**
 >
-> **Example 9 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 7](#exm-hers-slr), \\R^2\\ computed from [Definition 14](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
+> **Example 10 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 8](#exm-hers-slr), \\R^2\\ computed from [Definition 15](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
 >
 > ``` downlit
 > fit <- lm(glucose ~ BMI, data = hers)
