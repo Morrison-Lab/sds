@@ -98,13 +98,13 @@ and its own `&& \text{(reason)}` justification;
 never combine, say, the derivative-of-a-sum rule with the chain rule,
 or distributing a sum with substituting $\sum_i y_i = n \bar{y}$, in one line.
 Never write "cancel" as one step.
-Cancelling a term hides several operations, each of which gets its own line:
+Canceling a term hides several operations, each of which gets its own line:
 removing parentheses,
 reordering the terms,
 grouping the two that cancel,
 $a - a = 0$,
 and $a + 0 = a$.
-Cancelling a factor likewise hides
+Canceling a factor likewise hides
 rewriting a division as multiplication by a reciprocal,
 removing the parentheses that creates,
 reordering the factors,
