@@ -14,13 +14,13 @@ Code
 
 Published
 
-Last modified: 2026-10-05 02:17:22 (PDT)
+Last modified: 2026-10-05 16:04:28 (PDT)
 
 ## 1 Overfitting
 
 > **NOTE:**
 >
-> **Exercise 1 (Training error versus error on new cars)** The built-in `mtcars` data frame has \\n = 32\\ cars. Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`, of degree 1, 2, 3, and 4, using only the first 20 rows as the training set. For each model, compute the root mean squared error (RMSE) on the 20 training rows and on the remaining 12 rows.
+> **Exercise 1 (Training error versus error on new cars)** The built-in `mtcars` data frame has \\n = 32\\ cars. Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`, of degree 1, 2, 3, and 4, using only the first 20 rows as the training set. For each model, compute the root mean squared error (RMSE), the square root of the [mean squared error of its predictions](estimation.llms.md#def-prediction-mse), on the 20 training rows and on the remaining 12 rows.
 >
 > 1.  Which degree has the smallest training RMSE?
 > 2.  Which degree has the smallest RMSE on the 12 held-out rows?
@@ -61,6 +61,10 @@ Last modified: 2026-10-05 02:17:22 (PDT)
 > best_held_out <- overfitting_results$degree[
 >   which.min(overfitting_results$held_out_RMSE)
 > ]
+>
+> c(best_train = best_train, best_held_out = best_held_out)
+> #>    best_train best_held_out 
+> #>             4             2
 > ```
 >
 > 1.  The smallest training RMSE is at degree 4. Each model contains the previous one as a special case, so its training RMSE cannot increase as the degree grows.
@@ -117,11 +121,7 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 >   split = c("training", "validation", "test"),
 >   n = c(length(idx_train), length(idx_valid), length(idx_test))
 > )
-> ```
 >
-> Show R code
->
-> ``` downlit
 > split_sizes
 > ```
 >
@@ -193,6 +193,9 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 >     compute_rmse(chosen_model, test_dat)
 >   )
 > )
+>
+> chosen_model_name
+> #> [1] "linear"
 > ```
 >
 > Show R code
@@ -247,6 +250,11 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 >     bty = "n"
 >   )
 > }
+>
+> rbind(wt = wt_range, mpg = mpg_range)
+> #>       [,1]   [,2]
+> #> wt   1.513  5.424
+> #> mpg 10.400 33.900
 > ```
 >
 > Show R code
@@ -255,7 +263,7 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 > plot_partitions_with_fit(model_linear, "linear fit")
 > ```
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted linear regression line is superimposed.](model-validation_files/figure-html/unnamed-chunk-4-1.png)](model-validation_files/figure-html/unnamed-chunk-4-1.png "Figure 1: Linear model fit superimposed on data partitions")
+> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted linear regression line is superimposed.](model-validation_files/figure-html/unnamed-chunk-3-1.png)](model-validation_files/figure-html/unnamed-chunk-3-1.png "Figure 1: Linear model fit superimposed on data partitions")
 >
 > Figure 1: Linear model fit superimposed on data partitions
 >
@@ -265,7 +273,7 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 > plot_partitions_with_fit(model_quadratic, "quadratic fit")
 > ```
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted quadratic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-5-1.png)](model-validation_files/figure-html/unnamed-chunk-5-1.png "Figure 2: Quadratic model fit superimposed on data partitions")
+> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted quadratic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-4-1.png)](model-validation_files/figure-html/unnamed-chunk-4-1.png "Figure 2: Quadratic model fit superimposed on data partitions")
 >
 > Figure 2: Quadratic model fit superimposed on data partitions
 >
@@ -275,7 +283,7 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 > plot_partitions_with_fit(model_cubic, "cubic fit")
 > ```
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted cubic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-6-1.png)](model-validation_files/figure-html/unnamed-chunk-6-1.png "Figure 3: Cubic model fit superimposed on data partitions")
+> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted cubic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-5-1.png)](model-validation_files/figure-html/unnamed-chunk-5-1.png "Figure 3: Cubic model fit superimposed on data partitions")
 >
 > Figure 3: Cubic model fit superimposed on data partitions
 >
@@ -285,7 +293,7 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 > plot_partitions_with_fit(model_quartic, "quartic fit")
 > ```
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted quartic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-7-1.png)](model-validation_files/figure-html/unnamed-chunk-7-1.png "Figure 4: Quartic model fit superimposed on data partitions")
+> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted quartic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-6-1.png)](model-validation_files/figure-html/unnamed-chunk-6-1.png "Figure 4: Quartic model fit superimposed on data partitions")
 >
 > Figure 4: Quartic model fit superimposed on data partitions
 >

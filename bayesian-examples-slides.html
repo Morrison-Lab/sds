@@ -352,8 +352,8 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-05 02:17:22 (PDT)</p>
-</section><section class="slide level2"><style>
+  <p class="date">Last modified: 2026-10-05 16:04:28 (PDT)</p>
+</section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
@@ -685,7 +685,23 @@ e^{-\phi_i}
 <span id="cb8-18"><a aria-label="18"></a>})</span>
 <span id="cb8-19"><a aria-label="19"></a>bic <span class="ot">&lt;-</span> <span class="fu">vapply</span>(models, stats<span class="sc">::</span>BIC, <span class="fu">numeric</span>(<span class="dv">1</span>))</span>
 <span id="cb8-20"><a aria-label="20"></a>weight <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.5</span> <span class="sc">*</span> (bic <span class="sc">-</span> <span class="fu">min</span>(bic)))</span>
-<span id="cb8-21"><a aria-label="21"></a>weight <span class="ot">&lt;-</span> weight <span class="sc">/</span> <span class="fu">sum</span>(weight)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-21"><a aria-label="21"></a>weight <span class="ot">&lt;-</span> weight <span class="sc">/</span> <span class="fu">sum</span>(weight)</span>
+<span id="cb8-22"><a aria-label="22"></a></span>
+<span id="cb8-23"><a aria-label="23"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb8-24"><a aria-label="24"></a>  <span class="at">model =</span> <span class="fu">vapply</span>(</span>
+<span id="cb8-25"><a aria-label="25"></a>    subsets,</span>
+<span id="cb8-26"><a aria-label="26"></a>    <span class="cf">function</span>(s) <span class="cf">if</span> (<span class="fu">length</span>(s) <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="fu">paste</span>(s, <span class="at">collapse =</span> <span class="st">" + "</span>) <span class="cf">else</span> <span class="st">"(none)"</span>,</span>
+<span id="cb8-27"><a aria-label="27"></a>    <span class="fu">character</span>(<span class="dv">1</span>)</span>
+<span id="cb8-28"><a aria-label="28"></a>  ),</span>
+<span id="cb8-29"><a aria-label="29"></a>  <span class="at">weight =</span> <span class="fu">round</span>(weight, <span class="dv">3</span>)</span>
+<span id="cb8-30"><a aria-label="30"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["model"],"name":[1],"type":["chr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"(none)","2":"0.000"},{"1":"x1","2":"0.000"},{"1":"x2","2":"0.000"},{"1":"x3","2":"0.000"},{"1":"x1 + x2","2":"0.848"},{"1":"x1 + x3","2":"0.000"},{"1":"x2 + x3","2":"0.000"},{"1":"x1 + x2 + x3","2":"0.152"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
 </div>
 <p>Subtracting the smallest BIC before exponentiating leaves the normalized weights unchanged and avoids numerical underflow. The <a href="#/def-pip">posterior inclusion probability</a> of each predictor sums the weights of the models that contain it:</p>
 <div class="cell">

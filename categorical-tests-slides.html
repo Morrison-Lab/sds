@@ -352,8 +352,8 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-05 02:17:22 (PDT)</p>
-</section><section class="slide level2"><style>
+  <p class="date">Last modified: 2026-10-05 16:04:28 (PDT)</p>
+</section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
@@ -363,7 +363,15 @@ text-align: center;
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hers <span class="ot">&lt;-</span> rmb<span class="sc">::</span>hers <span class="sc">|&gt;</span> haven<span class="sc">::</span><span class="fu">as_factor</span>()</span>
+<span id="cb1-2"><a aria-label="2"></a>hers <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["HT"],"name":[1],"type":["fct"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["raceth"],"name":[3],"type":["fct"],"align":["left"]},{"label":["nonwhite"],"name":[4],"type":["fct"],"align":["left"]},{"label":["smoking"],"name":[5],"type":["fct"],"align":["left"]},{"label":["drinkany"],"name":[6],"type":["fct"],"align":["left"]},{"label":["exercise"],"name":[7],"type":["fct"],"align":["left"]},{"label":["physact"],"name":[8],"type":["fct"],"align":["left"]},{"label":["globrat"],"name":[9],"type":["fct"],"align":["left"]},{"label":["poorfair"],"name":[10],"type":["fct"],"align":["left"]},{"label":["medcond"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["htnmeds"],"name":[12],"type":["fct"],"align":["left"]},{"label":["statins"],"name":[13],"type":["fct"],"align":["left"]},{"label":["diabetes"],"name":[14],"type":["fct"],"align":["left"]},{"label":["dmpills"],"name":[15],"type":["fct"],"align":["left"]},{"label":["insulin"],"name":[16],"type":["fct"],"align":["left"]},{"label":["weight"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["BMI"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["waist"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["WHR"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["glucose"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["weight1"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["BMI1"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["waist1"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["WHR1"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["glucose1"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["tchol"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["LDL"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["HDL"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["TG"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["tchol1"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["LDL1"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["HDL1"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["TG1"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["SBP"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["DBP"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["age10"],"name":[37],"type":["dbl"],"align":["right"]}],"data":[{"1":"placebo","2":"70","3":"African American","4":"yes","5":"no","6":"no","7":"no","8":"much more active","9":"good","10":"no","11":"0","12":"yes","13":"yes","14":"no","15":"no","16":"no","17":"73.8","18":"23.69","19":"96.0","20":"0.932","21":"84","22":"73.6","23":"23.63","24":"93.0","25":"0.912","26":"94","27":"189","28":"122.4","29":"52","30":"73","31":"201","32":"137.6","33":"48","34":"77","35":"138","36":"78","37":"7.0"},{"1":"placebo","2":"62","3":"African American","4":"yes","5":"no","6":"no","7":"no","8":"much less active","9":"good","10":"no","11":"1","12":"yes","13":"no","14":"no","15":"no","16":"no","17":"70.9","18":"28.62","19":"93.0","20":"0.964","21":"111","22":"73.4","23":"28.89","24":"95.0","25":"0.964","26":"78","27":"307","28":"241.6","29":"44","30":"107","31":"216","32":"150.6","33":"48","34":"87","35":"118","36":"70","37":"6.2"},{"1":"hormone therapy","2":"69","3":"White","4":"no","5":"no","6":"no","7":"no","8":"about as active","9":"good","10":"no","11":"0","12":"yes","13":"no","14":"yes","15":"no","16":"no","17":"102.0","18":"42.51","19":"110.2","20":"0.782","21":"114","22":"96.1","23":"40.73","24":"103.0","25":"0.774","26":"98","27":"254","28":"166.2","29":"57","30":"154","31":"254","32":"156.0","33":"66","34":"160","35":"134","36":"78","37":"6.9"},{"1":"placebo","2":"64","3":"White","4":"no","5":"yes","6":"yes","7":"no","8":"much less active","9":"good","10":"no","11":"1","12":"yes","13":"no","14":"no","15":"no","16":"no","17":"64.4","18":"24.39","19":"87.0","20":"0.877","21":"94","22":"58.6","23":"22.52","24":"77.0","25":"0.802","26":"93","27":"204","28":"116.2","29":"56","30":"159","31":"207","32":"122.6","33":"57","34":"137","35":"152","36":"72","37":"6.4"},{"1":"placebo","2":"65","3":"White","4":"no","5":"no","6":"no","7":"no","8":"somewhat less active","9":"good","10":"no","11":"0","12":"no","13":"no","14":"no","15":"no","16":"no","17":"57.9","18":"21.90","19":"77.0","20":"0.794","21":"101","22":"58.9","23":"22.28","24":"76.5","25":"0.757","26":"92","27":"214","28":"150.6","29":"42","30":"107","31":"235","32":"172.2","33":"35","34":"139","35":"175","36":"95","37":"6.5"},{"1":"hormone therapy","2":"68","3":"African American","4":"yes","5":"no","6":"yes","7":"no","8":"about as active","9":"good","10":"no","11":"0","12":"no","13":"no","14":"no","15":"no","16":"no","17":"60.9","18":"29.05","19":"96.0","20":"1.000","21":"116","22":"57.7","23":"27.52","24":"86.0","25":"0.910","26":"115","27":"212","28":"137.8","29":"52","30":"111","31":"202","32":"126.6","33":"53","34":"112","35":"174","36":"98","37":"6.8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
 </div>
 </section><section id="sec-two-group-categorical" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Comparing two groups: categorical outcomes</h2>
@@ -388,23 +396,23 @@ Table&nbsp;1: Exercise by treatment group in HERS
 </figcaption><div aria-describedby="tbl-hers-crosstab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="jroadlxurr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jroadlxurr table {
+<div id="gcpcdesckc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gcpcdesckc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jroadlxurr thead, #jroadlxurr tbody, #jroadlxurr tfoot, #jroadlxurr tr, #jroadlxurr td, #jroadlxurr th {
+#gcpcdesckc thead, #gcpcdesckc tbody, #gcpcdesckc tfoot, #gcpcdesckc tr, #gcpcdesckc td, #gcpcdesckc th {
   border-style: none;
 }
 
-#jroadlxurr p {
+#gcpcdesckc p {
   margin: 0;
   padding: 0;
 }
 
-#jroadlxurr .gt_table {
+#gcpcdesckc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -430,12 +438,12 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-left-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_caption {
+#gcpcdesckc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jroadlxurr .gt_title {
+#gcpcdesckc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -447,7 +455,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-width: 0;
 }
 
-#jroadlxurr .gt_subtitle {
+#gcpcdesckc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -459,7 +467,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-top-width: 0;
 }
 
-#jroadlxurr .gt_heading {
+#gcpcdesckc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -471,13 +479,13 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_bottom_border {
+#gcpcdesckc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_col_headings {
+#gcpcdesckc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -492,7 +500,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_col_heading {
+#gcpcdesckc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -512,7 +520,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   overflow-x: hidden;
 }
 
-#jroadlxurr .gt_column_spanner_outer {
+#gcpcdesckc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -524,15 +532,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 4px;
 }
 
-#jroadlxurr .gt_column_spanner_outer:first-child {
+#gcpcdesckc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jroadlxurr .gt_column_spanner_outer:last-child {
+#gcpcdesckc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jroadlxurr .gt_column_spanner {
+#gcpcdesckc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -544,11 +552,11 @@ Table&nbsp;1: Exercise by treatment group in HERS
   width: 100%;
 }
 
-#jroadlxurr .gt_spanner_row {
+#gcpcdesckc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jroadlxurr .gt_group_heading {
+#gcpcdesckc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -574,7 +582,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   text-align: left;
 }
 
-#jroadlxurr .gt_empty_group_heading {
+#gcpcdesckc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -589,15 +597,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   vertical-align: middle;
 }
 
-#jroadlxurr .gt_from_md > :first-child {
+#gcpcdesckc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jroadlxurr .gt_from_md > :last-child {
+#gcpcdesckc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jroadlxurr .gt_row {
+#gcpcdesckc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -616,7 +624,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   overflow-x: hidden;
 }
 
-#jroadlxurr .gt_stub {
+#gcpcdesckc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -629,7 +637,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#jroadlxurr .gt_stub_row_group {
+#gcpcdesckc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -643,15 +651,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   vertical-align: top;
 }
 
-#jroadlxurr .gt_row_group_first td {
+#gcpcdesckc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jroadlxurr .gt_row_group_first th {
+#gcpcdesckc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jroadlxurr .gt_summary_row {
+#gcpcdesckc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -661,16 +669,16 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#jroadlxurr .gt_first_summary_row {
+#gcpcdesckc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_first_summary_row.thick {
+#gcpcdesckc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jroadlxurr .gt_last_summary_row {
+#gcpcdesckc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -680,7 +688,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_grand_summary_row {
+#gcpcdesckc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -690,7 +698,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#jroadlxurr .gt_first_grand_summary_row {
+#gcpcdesckc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -700,7 +708,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-top-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_last_grand_summary_row_top {
+#gcpcdesckc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -710,11 +718,11 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_striped {
+#gcpcdesckc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jroadlxurr .gt_table_body {
+#gcpcdesckc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -723,7 +731,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_footnotes {
+#gcpcdesckc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -737,7 +745,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_footnote {
+#gcpcdesckc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -746,7 +754,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#jroadlxurr .gt_sourcenotes {
+#gcpcdesckc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -760,7 +768,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#jroadlxurr .gt_sourcenote {
+#gcpcdesckc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -768,72 +776,72 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#jroadlxurr .gt_left {
+#gcpcdesckc .gt_left {
   text-align: left;
 }
 
-#jroadlxurr .gt_center {
+#gcpcdesckc .gt_center {
   text-align: center;
 }
 
-#jroadlxurr .gt_right {
+#gcpcdesckc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jroadlxurr .gt_font_normal {
+#gcpcdesckc .gt_font_normal {
   font-weight: normal;
 }
 
-#jroadlxurr .gt_font_bold {
+#gcpcdesckc .gt_font_bold {
   font-weight: bold;
 }
 
-#jroadlxurr .gt_font_italic {
+#gcpcdesckc .gt_font_italic {
   font-style: italic;
 }
 
-#jroadlxurr .gt_super {
+#gcpcdesckc .gt_super {
   font-size: 65%;
 }
 
-#jroadlxurr .gt_footnote_marks {
+#gcpcdesckc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jroadlxurr .gt_asterisk {
+#gcpcdesckc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jroadlxurr .gt_indent_1 {
+#gcpcdesckc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jroadlxurr .gt_indent_2 {
+#gcpcdesckc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jroadlxurr .gt_indent_3 {
+#gcpcdesckc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jroadlxurr .gt_indent_4 {
+#gcpcdesckc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jroadlxurr .gt_indent_5 {
+#gcpcdesckc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jroadlxurr .katex-display {
+#gcpcdesckc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jroadlxurr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gcpcdesckc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
