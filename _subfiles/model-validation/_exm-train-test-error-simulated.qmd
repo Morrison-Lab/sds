@@ -58,10 +58,8 @@ sim_errors
 ```{r}
 #| label: train-test-error-plot
 #| fig-alt: Mean squared error against polynomial degree from 1 to 10.
-#|   The training error falls as the degree grows.
-#|   The estimated generalization error drops sharply at degree 3,
-#|   is smallest at a middle degree,
-#|   and creeps up for the highest degrees.
+#|   The training error falls as the degree grows;
+#|   the estimated generalization error does not.
 #|   A dashed horizontal line marks the noise variance, 0.09.
 sim_errors |>
   tidyr::pivot_longer(
@@ -115,7 +113,8 @@ The generalization error is smallest at degree `r sim_best_generalization`.
 No prediction rule can have generalization error below $\sigma^2 = `r sim_sigma^2`$.
 Yet the training error falls below $\sigma^2$
 at `r sim_n_below[["training"]]` of the ten degrees,
-and the estimated generalization error at `r sim_n_below[["generalization"]]`:
+while the estimated generalization error falls below it
+at `r sim_n_below[["generalization"]]` of them:
 the training error is [optimistic](#rem-training-mse-optimistic).
 
 :::

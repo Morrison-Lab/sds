@@ -1,9 +1,14 @@
 :::{#thm-held-out-unbiased}
 #### Held-out mean squared error is unbiased
 
-If a held-out set is drawn from the same population as $(X_0, Y_0)$
-and independently of the training set $\mathcal{T}$,
-then the [mean squared error](estimation.qmd#def-prediction-mse)
+Let a prediction rule $\fitted$ be fitted to a training set $\mathcal{T}$,
+and let a held-out set of $m$ observations
+$(x_{0,1}, y_{0,1}), \ldots, (x_{0,m}, y_{0,m})$
+be drawn from the same population as $(X_0, Y_0)$,
+each independently of $\mathcal{T}$,
+with [prediction errors](estimation.qmd#def-prediction-error)
+$\prederr_{0,j} = \fitted(x_{0,j}) - y_{0,j}$.
+Then the [mean squared error](estimation.qmd#def-prediction-mse)
 of the held-out predictions
 is a conditionally [unbiased](estimation.qmd#def-unbiased) estimator
 of the [generalization error](#def-generalization-error):

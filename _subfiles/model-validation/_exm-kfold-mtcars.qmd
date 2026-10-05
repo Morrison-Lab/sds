@@ -68,17 +68,31 @@ mtcars_cv_range <-
   dplyr::summarise(
     dplyr::across(dplyr::starts_with("degree_"), \(v) diff(range(v)))
   )
+mtcars_chosen <- sort(unique(mtcars_cv_best$degree))
+mtcars_choice_text <- if (length(mtcars_chosen) == 1) {
+  paste0(
+    "but every assignment chose degree ", mtcars_chosen,
+    ": the estimates moved, and their ranking did not"
+  )
+} else {
+  paste0(
+    "and the chosen degree was ",
+    knitr::combine_words(mtcars_chosen, and = " or "),
+    ", depending on how the cars happened to be split"
+  )
+}
 mtcars_cv_range
 ```
 
 Each row of the first table holds, for each degree,
 the square root of $\cvest{4}$ (@eq-cv-estimate) for one fold assignment.
 Across fold assignments,
-the estimate for one degree varies by as much as
+the estimate for one degree varied by as much as
 `r round(max(unlist(mtcars_cv_range)), 2)` mpg,
-and the chosen degree is `r knitr::combine_words(sort(unique(mtcars_cv_best$degree)), and = " or ")`.
-With only 32 cars,
-the choice between neighboring degrees
-depends partly on how the cars happen to be split.
+`r mtcars_choice_text`.
+A single run of $k$-fold cross-validation
+reports one of these rows,
+so a small difference between two models' estimates
+may not survive a different split.
 
 :::

@@ -5,14 +5,16 @@ James, Witten, Hastie and Tibshirani (2021), ISLR 2e, section 6.1.3.
 :::{#def-one-se-rule}
 #### One-standard-error rule
 
-Given candidate models ordered from least to most flexible,
-each with a [cross-validation estimate](#def-cv-estimate),
-let $m^*$ be the model with the smallest estimate,
-and let $\operatorname{SE}_{\text{CV}}(m^*)$ be the [standard error](#def-cv-se) of that estimate.
-The **one-standard-error rule** chooses the least flexible model $m$ whose estimate is within one standard error of the smallest:
+Let $M_1, \ldots, M_L$ be candidate models ordered from least to most flexible.
+Write $\cvest{k}(M_l)$ for the [cross-validation estimate](#def-cv-estimate) of model $M_l$
+and $\cvse(M_l)$ for its [standard error](#def-cv-se),
+all computed with the same folds,
+and let $M_{l^*}$ be the model with the smallest estimate.
+The **one-standard-error rule** chooses the least flexible model $M_l$
+whose estimate is within one standard error of the smallest:
 
 $$
-\cvest{k}(m) \le \cvest{k}(m^*) + \operatorname{SE}_{\text{CV}}(m^*).
+\cvest{k}(M_l) \le \cvest{k}(M_{l^*}) + \cvse(M_{l^*}).
 $$ {#eq-one-se-rule}
 
 :::

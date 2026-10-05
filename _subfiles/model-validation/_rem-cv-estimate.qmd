@@ -8,7 +8,7 @@ But each of those rules was fitted to about $n (k - 1) / k$ observations,
 not $n$,
 and the $k$ rules differ from one another and from the rule fitted to all $n$.
 So $\cvest{k}$ estimates the generalization error of the fitting *procedure*
-applied to a training set of slightly smaller size,
+applied to training sets of that smaller size,
 averaged over training sets,
 rather than $\generr_{\mathcal{T}}$ for the one rule fitted to all the data
 [@hastie2009elements, sec. 7.12].

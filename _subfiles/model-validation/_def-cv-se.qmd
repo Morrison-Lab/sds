@@ -6,16 +6,16 @@ errors and states the one-standard-error rule.
 :::{#def-cv-se}
 #### Standard error of a cross-validation estimate
 
-Let $\operatorname{MSE}_1, \ldots, \operatorname{MSE}_k$
+Let $\foldmse{1}, \ldots, \foldmse{k}$
 be the [mean squared errors](estimation.qmd#def-prediction-mse)
 of the predictions for the observations in folds $1, \ldots, k$
 of [$k$-fold cross-validation](#def-kfold),
-and let $s_{\text{CV}}$ be their
+and let $\cvsd$ be their
 [sample standard deviation](exploratory-descriptive.qmd#def-sample-sd).
 The **standard error** of the cross-validation estimate is
 
 $$
-\operatorname{SE}_{\text{CV}} \eqdef \frac{s_{\text{CV}}}{\sqrt{k}}.
+\cvse \eqdef \frac{\cvsd}{\sqrt{k}}.
 $$ {#eq-cv-se}
 
 :::

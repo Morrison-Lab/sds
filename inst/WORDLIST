@@ -15,6 +15,8 @@ Cov
 Covf
 cv
 cvest
+cvsd
+cvse
 DOCX
 Dobson
 ECL
@@ -26,6 +28,7 @@ Estimand
 Estimands
 Expp
 fittedwo
+foldmse
 foldof
 Gelman
 generr
@@ -53,6 +56,7 @@ rfloor
 SBP
 SERG
 Satterthwaite
+Sherman
 Slutsky's
 soprod
 Stata

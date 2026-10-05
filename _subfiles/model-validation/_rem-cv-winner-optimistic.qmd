@@ -11,11 +11,11 @@ of @def-data-splits,
 the one consulted again and again,
 and not of the test set, which stays unused until the end.
 The cross-validation estimate of the winning model is optimistic:
-that model won partly because its folds happened to suit it,
-so its estimate is the smallest of several noisy estimates
-[@hastie2009elements, sec. 7.10].
+that model won partly because the particular sample and split happened to favor it,
+so its estimate is the smallest of several noisy estimates.
 An honest estimate of the chosen model's error needs data
-that took no part in the choice,
+that took no part in the choice
+[@hastie2009elements, sec. 7.2],
 such as a test set, or an outer cross-validation loop
 that repeats the whole selection inside each of its folds.
 

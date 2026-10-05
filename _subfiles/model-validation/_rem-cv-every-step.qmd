@@ -18,6 +18,7 @@ Repeating such a step inside each fold is never wrong, though,
 and it scores each held-out fold the way new data would be scored.
 Examples are estimating the mean and standard deviation used for
 [standardization](exploratory-descriptive.qmd#def-standardization),
-and the values used to fill in missing data.
+and the values used to fill in missing predictor values,
+when they are computed without the outcome.
 
 :::
