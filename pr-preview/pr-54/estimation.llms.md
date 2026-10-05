@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 23:12:19 (PDT)
+Last modified: 2026-10-04 23:26:19 (PDT)
 
 ## 1 Scientific models
 
@@ -134,7 +134,9 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Definition 6 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ under a model fitted to data \\(x_1, y_1), \ldots, (x_n, y_n)\\ is the fitted model’s estimate of \\\operatorname{E}\mathopen{}\left\[Y \mid X = x_i\right\]\mathclose{}\\.
+> **Definition 6 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ under a model fitted to data \\(x_1, y_1), \ldots, (x_n, y_n)\\ is the fitted model’s estimate of \\\operatorname{E}\mathopen{}\left\[Y \mid X = x_i\right\]\mathclose{}\\:
+>
+> \\\hat y_i \stackrel{\text{def}}{=}\mathop{\hat{\operatorname{E}}}\nolimits\mathopen{}\left\[Y \mid X = x_i\right\]\mathclose{}.\\
 
 > **NOTE:**
 >
@@ -150,7 +152,9 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Remark 1* (Prediction errors and residuals). The prediction in [Definition 8](#def-prediction-error) can be a [fitted value](#def-fitted-value) or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value. For an observation that was used to fit the model, \\e_i = \hat y_i - y_i = -r_i\\, the negative of its [residual](#def-residual).
+> *Remark 1* (Prediction errors and residuals). The prediction in [Definition 8](#def-prediction-error) can be a [fitted value](#def-fitted-value) or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value. For an observation that was used to fit the model, the prediction error is the negative of the [residual](#def-residual):
+>
+> \\ \begin{aligned} e_i &= \hat y_i - y_i && \text{(definition of prediction error)}\\ &= -(y_i - \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
 
 > **NOTE:**
 >
