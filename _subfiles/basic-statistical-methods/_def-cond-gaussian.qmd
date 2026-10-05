@@ -5,10 +5,10 @@ A **conditional Gaussian model** for outcomes $Y_1, \ldots, Y_n$
 with covariate values $x_1, \ldots, x_n$
 (each a single value or a vector)
 says that, given the covariates,
-the outcomes are independent and Gaussian,
-each centered on a mean function $\mean(x)$
-evaluated at its own covariate values,
-with its own variance $\sigma_i^2$:
+the outcomes are independent and Gaussian:
+outcome $Y_i$ is centered on a mean function $\mean(x)$
+evaluated at $x_i$,
+and has its own variance $\sigma_i^2$:
 
 $$
 \begin{aligned}
