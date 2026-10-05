@@ -37,7 +37,7 @@ $$
 && \text{(log of a power)}
 \\
 &= \sum_{i=1}^n \paren{x_i \logf{\rate} - \rate - \logf{x_i!}}
-&& \text{($\log$ undoes $\exp$)}
+&& \text{($\logt$ undoes $\expt$)}
 \\
 &= \sum_{i=1}^n x_i \logf{\rate} - \sum_{i=1}^n \rate - \sum_{i=1}^n \logf{x_i!}
 && \text{(split the sum)}

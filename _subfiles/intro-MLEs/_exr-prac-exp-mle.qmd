@@ -41,7 +41,7 @@ $$
 && \text{(log of a reciprocal)}
 \\
 &= \sum_{i=1}^n \paren{-\logf{\pmean} - \frac{x_i}{\pmean}}
-&& \text{($\log$ undoes $\exp$)}
+&& \text{($\logt$ undoes $\expt$)}
 \\
 &= \sum_{i=1}^n \paren{-\logf{\pmean}} - \sum_{i=1}^n \frac{x_i}{\pmean}
 && \text{(split the sum)}

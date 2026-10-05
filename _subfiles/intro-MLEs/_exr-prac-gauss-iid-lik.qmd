@@ -69,7 +69,7 @@ $$
 \\
 &= -\frac{n}{2}\logf{2\pi\sigma^2}
    - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2
-&& \text{($\log$ undoes $\exp$)}
+&& \text{($\logt$ undoes $\expt$)}
 \ea
 $$
 
