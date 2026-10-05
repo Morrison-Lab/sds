@@ -14,7 +14,7 @@ $$
 \cvest{k} \eqdef \frac{1}{n} \sumin \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}.
 $$ {#eq-cv-estimate}
 
-::: {.small .text-muted}
+::: {.attribution}
 Source: @james2021islr2e [sec. 5.1.3] for the average of fold mean squared errors;
 @hastie2009elements [sec. 7.10.1] for the per-observation form with the fold index $\foldof{i}$.
 :::

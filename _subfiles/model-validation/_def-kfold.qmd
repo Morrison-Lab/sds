@@ -15,7 +15,7 @@ In **$k$-fold cross-validation**:
 
 Values of $k = 5$ or $k = 10$ are typical.
 
-::: {.small .text-muted}
+::: {.attribution}
 Source: the rme notes' [definition of $k$-fold cross-validation](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-kfold).
 :::
 

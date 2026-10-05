@@ -6,7 +6,7 @@ but predicts poorly for new observations.
 It results from including too many predictors
 relative to the effective sample size.
 
-::: {.small .text-muted}
+::: {.attribution}
 Source: the rme notes' [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting).
 :::
 

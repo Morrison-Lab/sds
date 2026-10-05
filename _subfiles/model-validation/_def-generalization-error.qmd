@@ -12,7 +12,7 @@ $$
 \generr_{\mathcal{T}} \eqdef \E{\sqf{\fitted(X_0) - Y_0} \mid \mathcal{T}}.
 $$ {#eq-generalization-error}
 
-::: {.small .text-muted}
+::: {.attribution}
 Source: adapted from the lds notes' [definition of risk](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-risk),
 which adapts Brian Hutchinson's Fall 2025 lecture notes;
 the conditional form, with the training set held fixed,

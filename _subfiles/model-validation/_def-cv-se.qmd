@@ -13,7 +13,7 @@ $$
 \cvse \eqdef \frac{\cvsd}{\sqrt{k}}.
 $$ {#eq-cv-se}
 
-::: {.small .text-muted}
+::: {.attribution}
 Source: @hastie2009elements [sec. 7.10.1].
 :::
 

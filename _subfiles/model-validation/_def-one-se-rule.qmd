@@ -13,7 +13,7 @@ $$
 \cvest{k}(M_l) \le \cvest{k}(M_{l^*}) + \cvse(M_{l^*}).
 $$ {#eq-one-se-rule}
 
-::: {.small .text-muted}
+::: {.attribution}
 Source: @hastie2009elements [sec. 7.10.1];
 @james2021islr2e [sec. 6.1.3].
 :::

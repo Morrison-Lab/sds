@@ -15,7 +15,7 @@ that took no part in the choice
 such as a test set, or an outer cross-validation loop
 that repeats the whole selection inside each of its folds.
 
-::: {.small .text-muted}
+::: {.attribution}
 Source: adapted from the remark [Cross-validation replaces the development set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#rem-cv-is-a-dev-set) in the lds notes,
 in a section those notes base on a Spring 2025 lecture on generalization by Logan Sizemore.
 :::
