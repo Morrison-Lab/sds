@@ -10,7 +10,7 @@ $Y_i = \mean_i + \cdev_i$.
 
 :::{#sol-slr-additive}
 
-Starting from the right-hand side:
+Start from the right-hand side:
 
 $$
 \begin{aligned}
@@ -32,6 +32,8 @@ $$
 \end{aligned}
 $$
 
+So $Y_i = \mean_i + \cdev_i$.
+
 {{< slidebreak >}}
 
 Alternatively, solve the definition of $\cdev_i$ for $Y_i$:
@@ -44,6 +46,9 @@ $$
 \cdev_i + \mean(x_i)
 &= Y_i - \mean(x_i) + \mean(x_i)
 && \text{(add $\mean(x_i)$ to both sides)}\\
+\cdev_i + \mean(x_i)
+&= Y_i + \paren{-\mean(x_i)} + \mean(x_i)
+&& \text{(subtracting is adding the negative)}\\
 \cdev_i + \mean(x_i)
 &= Y_i + \paren{-\mean(x_i) + \mean(x_i)}
 && \text{(group the last two terms)}\\

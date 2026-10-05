@@ -106,6 +106,7 @@ $a - a = 0$,
 and $a + 0 = a$.
 Cancelling a factor likewise hides
 rewriting a division as multiplication by a reciprocal,
+removing the parentheses,
 reordering the factors,
 grouping the two that cancel,
 $a \cdot \frac{1}{a} = 1$,
