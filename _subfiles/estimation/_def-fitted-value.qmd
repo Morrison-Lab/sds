@@ -3,5 +3,7 @@
 
 The **fitted value** $\fitted_i$ of observation $i$
 under a model fitted to data $(x_1, y_1), \ldots, (x_n, y_n)$
-is the fitted model's estimate of $\E{Y \mid X = x_i}$.
+is the fitted model's estimate of $\E{Y \mid X = x_i}$:
+
+$$\fitted_i \eqdef \hE{Y \mid X = x_i}.$$
 :::
