@@ -149,6 +149,32 @@ each linking back to the definition.
 Put commentary (scope, orientation, relations to other quantities) in a remark div after the definition, never inside it.
 Never nest one theorem-type div inside another.
 
+## Attributions are reader-visible
+
+Credit every source a reader would want to know about where readers can see it:
+the book or paper an item follows,
+and the lab site (rme, lds, pds, ...) or person it was adapted from.
+An HTML comment is not an attribution,
+because no reader of the website, slides or handout ever sees it.
+Put the credit at the end of the item's own div,
+so it travels with the fragment when a host site includes it:
+
+```markdown
+::: {.small .text-muted}
+Source: adapted from the rme notes'
+[definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting);
+see also @james2021islr2e [sec. 5.1].
+:::
+```
+
+Cite books and papers through `references.bib` (`@key [locator]`),
+and link a lab site's rendered page at the item's anchor.
+When the source credits its own upstream (a person's lecture notes, say),
+carry that credit too.
+Comments are still the place for maintainer-only notes
+that are not attributions,
+such as what was checked in a PDF or a wording edit made while porting.
+
 ## Code Chunks
 
 ### Every visible chunk shows a result

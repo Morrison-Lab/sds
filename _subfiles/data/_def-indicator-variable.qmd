@@ -1,15 +1,16 @@
 <!--
-Source: ported from rme (Morrison-Lab/rme),
-_subfiles/Linear-models-overview/_sec_linreg_understanding.qmd
-("Dummy variables with values 0 and 1 are also called indicator variables").
-Dobson and Barnett (2018), section 2.4, says the same
-(text checked in the PDF; page number not recorded).
+Dobson and Barnett: text checked in the PDF; page number not recorded.
 -->
 ::: {#def-indicator-variable}
 #### Indicator variable
 
 An **indicator variable** is a
 [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
+
+::: {.small .text-muted}
+Source: adapted from the rme notes' [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation) ("Dummy variables with values 0 and 1 are also called indicator variables");
+@dobson4e [sec. 2.4] say the same.
+:::
 
 :::
 

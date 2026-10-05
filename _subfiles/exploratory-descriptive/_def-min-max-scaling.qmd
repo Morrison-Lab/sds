@@ -1,8 +1,7 @@
 <!--
-Source: Geron (2017), Hands-On Machine Learning with Scikit-Learn and
-TensorFlow, 1st ed., chapter 2, "Feature Scaling" (page number not verified).
-Geron's text says standardization divides by "the variance";
-the standard deviation is used here, as in James et al. (2021), p. 183.
+Geron: page number not verified. Geron's text says standardization
+divides by "the variance"; the standard deviation is used here,
+as in James et al. (2021), p. 183.
 -->
 ::: {#def-min-max-scaling}
 #### Min-max scaling
@@ -12,6 +11,10 @@ with minimum $x_{\min}$ and maximum $x_{\max} > x_{\min}$.
 The **min-max scaled value** of $x_i$ is
 
 $$\frac{x_i - x_{\min}}{x_{\max} - x_{\min}}$$
+
+::: {.small .text-muted}
+Source: @geron2017hands [ch. 2].
+:::
 
 :::
 
