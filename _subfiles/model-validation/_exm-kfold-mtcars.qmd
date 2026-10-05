@@ -72,7 +72,7 @@ mtcars_chosen <- sort(unique(mtcars_cv_best$degree))
 mtcars_choice_text <- if (length(mtcars_chosen) == 1) {
   paste0(
     "but every assignment chose degree ", mtcars_chosen,
-    ": the estimates moved, and their ranking did not"
+    ": the estimates moved, and the winner did not"
   )
 } else {
   paste0(

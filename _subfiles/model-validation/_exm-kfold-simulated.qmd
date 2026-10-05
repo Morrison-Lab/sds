@@ -97,11 +97,13 @@ could be computed from real data.
 ```{r}
 #| label: cv-simulated-summary
 sim_best_cv <- sim_errors$degree[which.min(sim_errors$cv_5)]
+sim_n_fit <- nrow(sim_train) - max(table(sim_folds))
 sim_top <- sim_errors[sim_errors$degree == max(sim_degrees), ]
 sim_cv_ratio_top <- sim_top$cv_5 / sim_top$generalization
 c(
   best_by_cv = sim_best_cv,
   best_by_generalization = sim_best_generalization,
+  n_per_fit = sim_n_fit,
   cv_over_generalization_at_top_degree = sim_cv_ratio_top
 )
 ```
@@ -113,13 +115,14 @@ the cross-validation estimate does not keep falling as the degree grows,
 so it does not simply reward flexibility.
 It is not an estimate of $\generr_{\mathcal{T}}$ for the fit to all 30 observations, though
 (@rem-cv-estimate).
-Each of its fits uses only 24 observations.
+Each of its fits uses only `r sim_n_fit` observations.
 At degree `r max(sim_degrees)`,
-polynomials fitted to 24 points predict their held-out points
+polynomials fitted to `r sim_n_fit` points predict their held-out points
 much worse than the fit to all 30 predicts new data:
 the cross-validation estimate is
 `r round(sim_cv_ratio_top, 1)` times the estimated generalization error.
-This is the bias of @rem-choosing-k.
+Much of this gap is the bias described in @rem-choosing-k;
+the rest is the noise of one run on 30 points.
 The estimate also jumps around from one degree to the next,
 because it rests on only 30 observations
 rather than on $10{,}000$ new ones.

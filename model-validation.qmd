@@ -98,15 +98,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_rem-choosing-k.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_exm-kfold-simulated.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_exm-kfold-mtcars.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_rem-choosing-k.qmd >}}
 
 ## Leave-one-out cross-validation {#sec-loocv}
 
