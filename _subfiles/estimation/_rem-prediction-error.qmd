@@ -6,16 +6,6 @@ or a prediction for an observation that was not used to fit the model.
 Prediction error is oriented the same way as
 [estimation error](#def-estimation-error):
 estimate minus true value.
-
-$$
-\begin{aligned}
-\prederr &= \fitted - y
-&& \text{(prediction error)}\\
-\erf{\hth} &= \hth - \th
-&& \text{(estimation error)}
-\end{aligned}
-$$
-
 For an observation that was used to fit the model,
 the prediction error is the negative of the [residual](#def-residual):
 
