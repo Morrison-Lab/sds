@@ -97,13 +97,26 @@ Inside each solution, give every displayed line exactly one operation
 and its own `&& \text{(reason)}` justification;
 never combine, say, the derivative-of-a-sum rule with the chain rule,
 or distributing a sum with substituting $\sum_i y_i = n \bar{y}$, in one line.
+Never write "cancel" as one step.
+Cancelling a term hides several operations, each of which gets its own line:
+removing parentheses,
+reordering the terms,
+grouping the two that cancel,
+$a - a = 0$,
+and $a + 0 = a$.
+Cancelling a factor likewise hides
+rewriting a division as multiplication by a reciprocal,
+reordering the factors,
+grouping the two that cancel,
+$a \cdot \frac{1}{a} = 1$,
+and $1 \cdot b = b$.
 Prove any fact a step relies on (such as deviations from the mean summing to zero)
 in its own exercise before citing it.
 
 When a derivation would add and subtract a term to reach the other side
 (as in $Y_i = Y_i - \mean(x_i) + \mean(x_i)$),
 start from the other side instead:
-expand $\mean_i + \cdev_i$ with the definitions, then cancel.
+expand $\mean_i + \cdev_i$ with the definitions, then simplify one operation per line.
 Each line then follows from a definition or a simplification,
 with no term pulled from nowhere.
 

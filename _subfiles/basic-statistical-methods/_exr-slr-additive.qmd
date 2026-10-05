@@ -10,7 +10,7 @@ $Y_i = \mean_i + \cdev_i$.
 
 :::{#sol-slr-additive}
 
-Start from the right-hand side:
+Starting from the right-hand side:
 
 $$
 \begin{aligned}
@@ -19,11 +19,50 @@ $$
 && \text{(definition of $\mean_i$)}\\
 &= \mean(x_i) + \paren{Y_i - \mean(x_i)}
 && \text{(definition of $\cdev_i$)}\\
+&= \mean(x_i) + Y_i - \mean(x_i)
+&& \text{(remove the parentheses)}\\
+&= Y_i + \mean(x_i) - \mean(x_i)
+&& \text{(reorder the terms)}\\
+&= Y_i + \paren{\mean(x_i) - \mean(x_i)}
+&& \text{(group the last two terms)}\\
+&= Y_i + 0
+&& \text{($a - a = 0$)}\\
 &= Y_i
-&& \text{(cancel $\mean(x_i)$)}
+&& \text{($a + 0 = a$)}
 \end{aligned}
 $$
 
-So $Y_i = \mean_i + \cdev_i$.
+{{< slidebreak >}}
+
+Alternatively, solve the definition of $\cdev_i$ for $Y_i$:
+
+$$
+\begin{aligned}
+\cdev_i
+&= Y_i - \mean(x_i)
+&& \text{(definition of $\cdev_i$)}\\
+\cdev_i + \mean(x_i)
+&= Y_i - \mean(x_i) + \mean(x_i)
+&& \text{(add $\mean(x_i)$ to both sides)}\\
+\cdev_i + \mean(x_i)
+&= Y_i + \paren{-\mean(x_i) + \mean(x_i)}
+&& \text{(group the last two terms)}\\
+\cdev_i + \mean(x_i)
+&= Y_i + 0
+&& \text{($-a + a = 0$)}\\
+\cdev_i + \mean(x_i)
+&= Y_i
+&& \text{($a + 0 = a$)}\\
+Y_i
+&= \cdev_i + \mean(x_i)
+&& \text{(swap the two sides)}\\
+Y_i
+&= \mean(x_i) + \cdev_i
+&& \text{(reorder the terms)}\\
+Y_i
+&= \mean_i + \cdev_i
+&& \text{(definition of $\mean_i$)}
+\end{aligned}
+$$
 
 :::
