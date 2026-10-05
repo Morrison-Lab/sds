@@ -100,12 +100,12 @@ or distributing a sum with substituting $\sum_i y_i = n \bar{y}$, in one line.
 Prove any fact a step relies on (such as deviations from the mean summing to zero)
 in its own exercise before citing it.
 
-## Definitions: compact and general, then examples
+## Definitions and results: prose plus a display equation, compact and general, then examples
 
 Keep each definition div to its defining statement, stated in the most general form the page needs
 (for example, define the residual sum of squares as $\sum_i r_i^2$ for any fitted model, not only for a line).
-State a technical definition in both prose and math: one sentence saying what the term means,
-and the formula, built from terms already defined
+State every technical definition and every result (theorem, corollary, lemma) in both prose and math: one sentence saying what it means,
+and the formula as a display equation inside the same div, built from terms already defined
 (for example, $R^2 \eqdef 1 - \text{RSS} / \text{TSS}$, not the two sums written out,
 and the OLS estimate as $\est{\vth} \eqdef \argmin_{\vth} \text{RSS}(\vth)$, not only in words).
 Define a regression model by the distribution of the outcome conditional on the covariates,

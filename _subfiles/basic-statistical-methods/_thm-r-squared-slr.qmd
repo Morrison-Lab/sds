@@ -3,11 +3,17 @@
 
 For the OLS fit of a simple linear regression,
 with $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums),
-$R^2 = r^2$,
-where $r$ is the
-[Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r)
-of the $x_i$ and $y_i$.
-In particular, $0 \le R^2 \le 1$.
+$R^2$ is the square of the
+[Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r) $r$
+of the $x_i$ and $y_i$,
+and so lies between 0 and 1:
+
+$$
+\begin{aligned}
+R^2 &= r^2, &
+0 \le R^2 &\le 1.
+\end{aligned}
+$$
 :::
 
 ::: proof
