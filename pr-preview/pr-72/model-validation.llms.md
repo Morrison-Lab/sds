@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 11:47:54 (PDT)
+Last modified: 2026-10-05 12:00:19 (PDT)
 
 ## 1 Overfitting
 
@@ -77,7 +77,9 @@ Last modified: 2026-10-05 11:47:54 (PDT)
 >
 > **Definition 1 (Overfitting)** **Overfitting** occurs when a model fits the training data well but predicts poorly for new observations. It results from including too many predictors relative to the effective sample size.
 >
-> Source: the rme notes’ [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting).
+> > **NOTE:**
+> >
+> > The rme notes’ [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting).
 
 In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 training cars more closely but do not predict the 12 held-out cars better. The effect is small here: it is the beginning of overfitting, not a dramatic case.
 
@@ -109,7 +111,9 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 >
 > \\ \operatorname{Err}\_{\mathcal{T}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{}. \tag{1}\\
 >
-> Source: adapted from the lds notes’ [definition of risk](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-risk), which adapts Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)).
+> > **NOTE:**
+> >
+> > Adapted from the lds notes’ [definition of risk](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-risk), which adapts Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)).
 
 > **NOTE:**
 >
@@ -228,7 +232,9 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 >
 > The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The generalization error is smallest at degree 5. No prediction rule can have generalization error below \\\sigma^2 = 0.09\\. Yet the training error falls below \\\sigma^2\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
 >
-> Source: modeled on the lds notes’ interactive [figure of training and held-out error](https://morrison-lab.github.io/lds/chapters/big-ideas.html#fig-train-vs-held-out), rewritten in R with a known true mean function.
+> > **NOTE:**
+> >
+> > Modeled on the lds notes’ interactive [figure of training and held-out error](https://morrison-lab.github.io/lds/chapters/big-ideas.html#fig-train-vs-held-out), rewritten in R with a known true mean function.
 
 ## 3 Training, validation, and test sets
 
@@ -248,7 +254,9 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 > - Use the *validation set* to compare candidate models, choose transformations, or tune hyperparameters.
 > - Use the *test set* once at the end to estimate final out-of-sample performance.
 >
-> Source: adapted from the rme notes’ section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits), which follows James et al. ([2021, 198–201](#ref-james2021islr2e)).
+> > **NOTE:**
+> >
+> > Adapted from the rme notes’ section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits), which follows James et al. ([2021, 198–201](#ref-james2021islr2e)).
 
 This validation approach extends the basic train/test split by separating model tuning from final model assessment. It follows James et al. ([2021, 198–201](#ref-james2021islr2e)).
 
@@ -468,7 +476,9 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 >
 > Table 3: Validation and test RMSE for the chosen model
 >
-> Source: adapted from the rme notes’ [numerical example](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#exm-train-validation-test-split), which follows the validation-set lab of James et al. ([2021, 213](#ref-james2021islr2e)).
+> > **NOTE:**
+> >
+> > Adapted from the rme notes’ [numerical example](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#exm-train-validation-test-split), which follows the validation-set lab of James et al. ([2021, 213](#ref-james2021islr2e)).
 
 ## 4 \\k\\-fold cross-validation
 
@@ -502,7 +512,9 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 >
 > Values of \\k = 5\\ or \\k = 10\\ are typical.
 >
-> Source: the rme notes’ [definition of \\k\\-fold cross-validation](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-kfold).
+> > **NOTE:**
+> >
+> > The rme notes’ [definition of \\k\\-fold cross-validation](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-kfold).
 
 If data are limited, \\k\\-fold cross-validation can replace the single validation set of [Definition 3](#def-data-splits) for more stable tuning. In [Exercise 5](#exr-kfold), \\k = 4\\ folds of 8 cars each give 4 fits on 24 cars each.
 
@@ -512,7 +524,9 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >
 > \\ \operatorname{CV}\_{(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^n\mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{}. \tag{2}\\
 >
-> Source: James et al. ([2021, sec. 5.1.3](#ref-james2021islr2e)) for the average of fold mean squared errors; Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)) for the per-observation form with the fold index \\\kappa(i)\\.
+> > **NOTE:**
+> >
+> > James et al. ([2021, sec. 5.1.3](#ref-james2021islr2e)) for the average of fold mean squared errors; Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)) for the per-observation form with the fold index \\\kappa(i)\\.
 
 > **NOTE:**
 >
@@ -735,7 +749,9 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >
 > \\ \operatorname{CV}\_{(n)} = \frac{1}{n} \sum\_{i=1}^n\mathopen{}\left(\hat y^{(-i)}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{}. \tag{3}\\
 >
-> Source: James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)).
+> > **NOTE:**
+> >
+> > James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
@@ -743,7 +759,9 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >
 > \\ h\_{i} \stackrel{\text{def}}{=}\tilde{x}\_i^{\top} A^{-1} \tilde{x}\_i. \tag{4}\\
 >
-> Source: James et al. ([2021, sec. 3.3.3](#ref-james2021islr2e)), written here with the covariate vectors and the matrix \\A\\ of [the vector form of the OLS estimates](correlation-regression.llms.md#thm-ols-slr-vector). In R, [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html) returns the leverages of an `lm` fit.
+> > **NOTE:**
+> >
+> > James et al. ([2021, sec. 3.3.3](#ref-james2021islr2e)), written here with the covariate vectors and the matrix \\A\\ of [the vector form of the OLS estimates](correlation-regression.llms.md#thm-ols-slr-vector). In R, [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html) returns the leverages of an `lm` fit.
 
 > **NOTE:**
 >
@@ -751,7 +769,9 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >
 > \\ \operatorname{CV}\_{(n)} = \frac{1}{n} \sum\_{i=1}^n\mathopen{}\left(\frac{e_i}{1 - h\_{i}}\right)^2\mathclose{}. \tag{5}\\
 >
-> Source: James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)) states this formula for least squares linear or polynomial regression, and Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)) for many linear fitting methods.
+> > **NOTE:**
+> >
+> > James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)) states this formula for least squares linear or polynomial regression, and Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)) for many linear fitting methods.
 
 > **NOTE:**
 >
@@ -805,10 +825,10 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 6](#sol-loocv)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 6](#sol-loocv)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
@@ -820,7 +840,9 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >
 > *Remark 7* (Cross-validation replaces the validation set, not the test set). Used to choose between models, cross-validation takes the place of the *validation* set of [Definition 3](#def-data-splits), the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice ([Hastie et al. 2009, sec. 7.2](#ref-hastie2009elements)), such as a test set, or an outer cross-validation loop that repeats the whole selection inside each of its folds.
 >
-> Source: adapted from the remark [Cross-validation replaces the development set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#rem-cv-is-a-dev-set) in the lds notes, in a section those notes base on a Spring 2025 lecture on generalization by Logan Sizemore.
+> > **NOTE:**
+> >
+> > Adapted from the remark [Cross-validation replaces the development set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#rem-cv-is-a-dev-set) in the lds notes, in a section those notes base on a Spring 2025 lecture on generalization by Logan Sizemore.
 
 > **NOTE:**
 >
@@ -828,7 +850,9 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >
 > \\ \operatorname{SE}\_{\text{CV}}\stackrel{\text{def}}{=}\frac{s\_{\text{CV}}}{\sqrt{k}}. \tag{6}\\
 >
-> Source: Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)).
+> > **NOTE:**
+> >
+> > Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)).
 
 > **NOTE:**
 >
@@ -840,7 +864,9 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >
 > \\ \operatorname{CV}\_{(k)}(M_l) \le \operatorname{CV}\_{(k)}(M\_{l^\*}) + \operatorname{SE}\_{\text{CV}}(M\_{l^\*}). \tag{7}\\
 >
-> Source: Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)); James et al. ([2021, sec. 6.1.3](#ref-james2021islr2e)).
+> > **NOTE:**
+> >
+> > Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)); James et al. ([2021, sec. 6.1.3](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
@@ -929,7 +955,9 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 > 2.  Simulate the analyst’s procedure. What cross-validation estimate does it report?
 > 3.  Repeat the simulation, but carry out step 1 inside each fold, using only that fold’s training observations. What estimate does this give?
 >
-> Source: a regression version of the classification example in Hastie et al. ([2009, sec. 7.10.2](#ref-hastie2009elements)), “The Wrong and Right Way to Do Cross-validation”.
+> > **NOTE:**
+> >
+> > A regression version of the classification example in Hastie et al. ([2009, sec. 7.10.2](#ref-hastie2009elements)), “The Wrong and Right Way to Do Cross-validation”.
 
 > **NOTE:**
 >

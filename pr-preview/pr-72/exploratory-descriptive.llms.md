@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 11:47:54 (PDT)
+Last modified: 2026-10-05 12:00:19 (PDT)
 
 ## 1 Introduction
 
@@ -693,7 +693,9 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
 >
-> Source: James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
+> > **NOTE:**
+> >
+> > James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
@@ -703,7 +705,9 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > **Theorem 2 (Standardized values have mean 0 and standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
 >
-> Source: stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
+> > **NOTE:**
+> >
+> > Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
 
 > **NOTE:**
 >
@@ -729,7 +733,9 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
 >
-> Source: Géron ([2017](#ref-geron2017hands), ch. 2).
+> > **NOTE:**
+> >
+> > Géron ([2017](#ref-geron2017hands), ch. 2).
 
 > **NOTE:**
 >
