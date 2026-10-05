@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 22:11:37 (PDT)
+Last modified: 2026-10-04 22:30:36 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -135,9 +135,27 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 4 (Simple linear regression model)** A **simple linear regression** model for a continuous outcome \\Y\\ and a single covariate \\X\\ says that, given their covariate values, the outcomes \\Y_1, \ldots, Y_n\\ are independent and Gaussian with a common variance \\\sigma^2\\, each centered on its conditional mean \\\mu_i\\, the value at \\x_i\\ of a linear function \\\mu(x)\\:
+> **Definition 4 (Conditional Gaussian model)** A **conditional Gaussian model** for outcomes \\Y_1, \ldots, Y_n\\ with covariate values \\x_1, \ldots, x_n\\ (each a single value or a vector) says that, given the covariates, the outcomes are independent and Gaussian, each centered on the value of a mean function \\\mu(x)\\ at its own covariate values, with its own variance \\\sigma_i^2\\:
 >
-> \\ \begin{aligned} Y_i \mid X_i = x_i &\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(\mu_i, \sigma^2\right)\mathclose{},\\ \mu_i &\stackrel{\text{def}}{=}\mu(x_i),\\ \mu(x) &\stackrel{\text{def}}{=}\beta\_{0}+ \beta\_{x} x. \end{aligned} \\
+> \\ \begin{aligned} Y_i \mid X_i = x_i &\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(\mu_i, \sigma_i^2\right)\mathclose{},\\ \mu_i &\stackrel{\text{def}}{=}\mu(x_i). \end{aligned} \\
+
+> **NOTE:**
+>
+> **Definition 5 (Homoskedastic model)** A conditional Gaussian model ([Definition 4](#def-cond-gaussian)) is **homoskedastic** if all outcomes share one variance \\\sigma^2\\, which does not depend on \\i\\:
+>
+> \\\sigma_i^2 = \sigma^2 \text{ for all } i.\\
+
+> **NOTE:**
+>
+> **Definition 6 (Linear regression model)** A **linear regression model** is a homoskedastic ([Definition 5](#def-homoskedastic)) conditional Gaussian model ([Definition 4](#def-cond-gaussian)) whose mean function is linear in \\p\\ covariates, where observation \\i\\ has covariate values \\x_i = (x\_{i1}, \ldots, x\_{ip})\\:
+>
+> \\\mu(x_1, \ldots, x_p) \stackrel{\text{def}}{=}\beta\_{0}+ \sum\_{j=1}^p \beta\_{x_j} x_j.\\
+
+> **NOTE:**
+>
+> **Definition 7 (Simple linear regression model)** A **simple linear regression** model is a linear regression model ([Definition 6](#def-linear-regression)) with \\p = 1\\ covariate \\X\\, writing \\x_i\\ for \\x\_{i1}\\:
+>
+> \\\mu(x) \stackrel{\text{def}}{=}\beta\_{0}+ \beta\_{x} x.\\
 
 > **NOTE:**
 >
@@ -149,13 +167,13 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 5 (Deviation from the conditional mean)** In a simple linear regression model ([Definition 4](#def-slr)), the **deviation** \\\varepsilon_i\\ of outcome \\Y_i\\ is its [deviation from its mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean), taking the mean conditional on \\X_i = x_i\\:
+> **Definition 8 (Deviation from the conditional mean)** In a simple linear regression model ([Definition 7](#def-slr)), the **deviation** \\\varepsilon_i\\ of outcome \\Y_i\\ is its [deviation from its mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean), taking the mean conditional on \\X_i = x_i\\:
 >
 > \\\varepsilon_i \stackrel{\text{def}}{=}Y_i - \mu(x_i).\\
 
 > **NOTE:**
 >
-> **Exercise 1 (Outcome as mean plus deviation)** Show that each outcome in a simple linear regression model ([Definition 4](#def-slr)) is its conditional mean plus its deviation ([Definition 5](#def-slr-deviation)): \\Y_i = \mu_i + \varepsilon_i\\.
+> **Exercise 1 (Outcome as mean plus deviation)** Show that each outcome in a simple linear regression model ([Definition 7](#def-slr)) is its conditional mean plus its deviation ([Definition 8](#def-slr-deviation)): \\Y_i = \mu_i + \varepsilon_i\\.
 
 > **NOTE:**
 >
@@ -163,7 +181,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 2 (Distribution of the deviations)** Show that in a simple linear regression model ([Definition 4](#def-slr)), given the covariate values, the deviations ([Definition 5](#def-slr-deviation)) are independent and each is Gaussian with mean 0 and variance \\\sigma^2\\: \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\.
+> **Exercise 2 (Distribution of the deviations)** Show that in a simple linear regression model ([Definition 7](#def-slr)), given the covariate values, the deviations ([Definition 8](#def-slr-deviation)) are independent and each is Gaussian with mean 0 and variance \\\sigma^2\\: \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -181,13 +199,13 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > \\ \begin{aligned} \frac{\partial}{\partial t} (t + \mu_i) &= \frac{\partial}{\partial t} t + \frac{\partial}{\partial t} \mu_i && \text{(derivative of a sum)}\\ &= 1 + 0 && \text{(\$\mu_i\$ does not depend on \$t\$)}\\ &= 1 && \text{(add)} \end{aligned} \\
 >
-> Plugging the inner derivative back in, and using the [Gaussian density](https://morrison-lab.github.io/pds/random-variables.html#def-normal) of \\Y_i\\, which has mean \\\mu_i\\ and variance \\\sigma^2\\ ([Definition 4](#def-slr)):
+> Plugging the inner derivative back in, and using the [Gaussian density](https://morrison-lab.github.io/pds/random-variables.html#def-normal) of \\Y_i\\, which has mean \\\mu_i = \mu(x_i)\\ ([Definition 4](#def-cond-gaussian)) and variance \\\sigma^2\\ ([Definition 5](#def-homoskedastic)):
 >
 > \\ \begin{aligned} f\_{\varepsilon}(t) &= f_Y(t + \mu_i) \cdot 1 && \text{(inner derivative is 1)}\\ &= f_Y(t + \mu_i) && \text{(multiply by 1)}\\ &= \frac{1}{\sigma \sqrt{2 \pi}} \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma^2}} && \text{(Gaussian density with mean \$\mu_i\$)}\\ &= \frac{1}{\sigma \sqrt{2 \pi}} \text{e}^{-\frac{t^2}{2 \sigma^2}} && \text{(subtract)} \end{aligned} \\
 >
 > The last line is the density of \\\operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\, so \\\varepsilon_i \mid X_i = x_i \sim \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\.
 >
-> For independence, factor the joint CDF of \\\varepsilon_1, \ldots, \varepsilon_n\\, using the same CDF step as above for each \\i\\ and the independence of the \\Y_i\\ given the covariates ([Definition 4](#def-slr)):
+> For independence, factor the joint CDF of \\\varepsilon_1, \ldots, \varepsilon_n\\, using the same CDF step as above for each \\i\\ and the independence of the \\Y_i\\ given the covariates ([Definition 4](#def-cond-gaussian)):
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(\varepsilon_1 \le t_1, \ldots, \varepsilon_n \le t_n\right)\mathclose{} &= \Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n \Pr\mathopen{}\left(Y_i \le t_i + \mu_i\right)\mathclose{} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n \Pr\mathopen{}\left(\varepsilon_i \le t_i\right)\mathclose{} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
 >
@@ -195,7 +213,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Theorem 2 (Additive form of the simple linear regression model)** In a simple linear regression model ([Definition 4](#def-slr)), each outcome is its conditional mean plus a deviation ([Definition 5](#def-slr-deviation)); given the covariates, the deviations are independent and Gaussian with mean 0 and variance \\\sigma^2\\:
+> **Theorem 2 (Additive form of the simple linear regression model)** In a simple linear regression model ([Definition 7](#def-slr)), each outcome is its conditional mean plus a deviation ([Definition 8](#def-slr-deviation)); given the covariates, the deviations are independent and Gaussian with mean 0 and variance \\\sigma^2\\:
 >
 > \\ Y_i = \mu_i + \varepsilon_i, \qquad \varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}. \\
 
@@ -207,7 +225,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 6 (Residual sum of squares)** For a regression model whose conditional mean \\\mu(x; \tilde{\theta})\\ depends on a parameter vector \\\tilde{\theta}\\, the **residual sum of squares** at \\\tilde{\theta}\\ is the sum of the squared residuals \\r_i(\tilde{\theta}) \stackrel{\text{def}}{=}y_i - \mu(x_i; \tilde{\theta})\\ that the model has when its parameters equal \\\tilde{\theta}\\:
+> **Definition 9 (Residual sum of squares)** For a regression model whose conditional mean \\\mu(x; \tilde{\theta})\\ depends on a parameter vector \\\tilde{\theta}\\, the **residual sum of squares** at \\\tilde{\theta}\\ is the sum of the squared residuals \\r_i(\tilde{\theta}) \stackrel{\text{def}}{=}y_i - \mu(x_i; \tilde{\theta})\\ that the model has when its parameters equal \\\tilde{\theta}\\:
 >
 > \\\text{RSS}(\tilde{\theta}) \stackrel{\text{def}}{=}\sum\_{i=1}^nr_i(\tilde{\theta})^2.\\
 >
@@ -215,7 +233,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Example 3 (Residual sum of squares of a simple linear regression)** The mean function of a [simple linear regression](#def-slr) model has parameter vector \\\tilde{\theta}= (\beta\_{0}, \beta\_{x})\\, so write \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for its residual sum of squares ([Definition 6](#def-rss)):
+> **Example 3 (Residual sum of squares of a simple linear regression)** The mean function of a [simple linear regression](#def-slr) model has parameter vector \\\tilde{\theta}= (\beta\_{0}, \beta\_{x})\\, so write \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for its residual sum of squares ([Definition 9](#def-rss)):
 >
 > \\ \begin{aligned} \text{RSS}(\beta\_{0}, \beta\_{x}) &= \sum\_{i=1}^nr_i(\beta\_{0}, \beta\_{x})^2 && \text{(definition of RSS)}\\ &= \sum\_{i=1}^n\mathopen{}\left(y_i - \mu(x_i; \beta\_{0}, \beta\_{x})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(y_i - (\beta\_{0}+ \beta\_{x} x_i)\right)\mathclose{}^2 && \text{(definition of \$\mu(x)\$)}\\ &= \sum\_{i=1}^n(y_i - \beta\_{0}- \beta\_{x} x_i)^2 && \text{(distribute the minus sign)} \end{aligned} \\
 
@@ -246,7 +264,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\tilde{\theta})\\ ([Definition 6](#def-rss)) be taken over those same outcomes. Write the [mean squared error](estimation.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\tilde{\theta})\\, and \\\text{RSS}(\tilde{\theta})\\ in terms of that mean squared error.
+> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\tilde{\theta})\\ ([Definition 9](#def-rss)) be taken over those same outcomes. Write the [mean squared error](estimation.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\tilde{\theta})\\, and \\\text{RSS}(\tilde{\theta})\\ in terms of that mean squared error.
 
 > **NOTE:**
 >
@@ -264,7 +282,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Theorem 3 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, the [mean squared error](estimation.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \tilde{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\tilde{\theta})\\ ([Definition 6](#def-rss)) over those same \\n\\ outcomes satisfy
+> **Theorem 3 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, the [mean squared error](estimation.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \tilde{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\tilde{\theta})\\ ([Definition 9](#def-rss)) over those same \\n\\ outcomes satisfy
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\tilde{\theta}),\\
 >
@@ -282,13 +300,13 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 7 (Ordinary least squares)** The **ordinary least squares (OLS) estimate** of a model’s parameter vector \\\tilde{\theta}\\ is the value of \\\tilde{\theta}\\ that minimizes the [residual sum of squares](#def-rss):
+> **Definition 10 (Ordinary least squares)** The **ordinary least squares (OLS) estimate** of a model’s parameter vector \\\tilde{\theta}\\ is the value of \\\tilde{\theta}\\ that minimizes the [residual sum of squares](#def-rss):
 >
 > \\\hat{\tilde{\theta}} \stackrel{\text{def}}{=}\arg \min\_{\tilde{\theta}} \text{RSS}(\tilde{\theta}).\\
 
 > **NOTE:**
 >
-> **Example 5 (OLS estimates of a simple linear regression)** For a simple linear regression, the OLS estimates ([Definition 7](#def-ols)) \\\hat{\beta}\_{0}\\ and \\\hat{\beta}\_{x}\\ are the values of \\\beta\_{0}\\ and \\\beta\_{x}\\ that minimize \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). [Figure 3](#fig-rss-surface) shows \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss): the OLS estimates sit at the bottom of the bowl, and the line of [Example 4](#exm-rss) sits higher up.
+> **Example 5 (OLS estimates of a simple linear regression)** For a simple linear regression, the OLS estimates ([Definition 10](#def-ols)) \\\hat{\beta}\_{0}\\ and \\\hat{\beta}\_{x}\\ are the values of \\\beta\_{0}\\ and \\\beta\_{x}\\ that minimize \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). [Figure 3](#fig-rss-surface) shows \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss): the OLS estimates sit at the bottom of the bowl, and the line of [Example 4](#exm-rss) sits higher up.
 >
 > Show R code
 >
@@ -336,19 +354,19 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 8 (Normal equations)** For a model fitted by least squares with parameter vector \\\tilde{\theta}\\, the **normal equations** set the gradient of the [residual sum of squares](#def-rss) to zero:
+> **Definition 11 (Normal equations)** For a model fitted by least squares with parameter vector \\\tilde{\theta}\\, the **normal equations** set the gradient of the [residual sum of squares](#def-rss) to zero:
 >
 > \\\frac{\partial}{\partial \tilde{\theta}} \text{RSS}(\tilde{\theta}) = \tilde{0}.\\
 
 > **NOTE:**
 >
-> **Example 6 (Normal equations of a simple linear regression)** For a simple linear regression, the parameter vector is \\\tilde{\beta}\stackrel{\text{def}}{=}{\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\, and \\\text{RSS}(\tilde{\beta})\\ is \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). Its gradient has one entry per coefficient, so the normal equations ([Definition 8](#def-normal-equations)) are two scalar equations:
+> **Example 6 (Normal equations of a simple linear regression)** For a simple linear regression, the parameter vector is \\\tilde{\beta}\stackrel{\text{def}}{=}{\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\, and \\\text{RSS}(\tilde{\beta})\\ is \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). Its gradient has one entry per coefficient, so the normal equations ([Definition 11](#def-normal-equations)) are two scalar equations:
 >
 > \\ \frac{\partial \text{RSS}}{\partial \beta\_{0}} = 0, \qquad \frac{\partial \text{RSS}}{\partial \beta\_{x}} = 0. \\
 
 > **NOTE:**
 >
-> **Definition 9 (Centered sums of squares and cross-products)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **centered sums of squares** of the \\x_i\\ and of the \\y_i\\, and their **centered sum of cross-products**, are
+> **Definition 12 (Centered sums of squares and cross-products)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **centered sums of squares** of the \\x_i\\ and of the \\y_i\\, and their **centered sum of cross-products**, are
 >
 > \\ \begin{aligned} S\_{xx} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})^2, & S\_{yy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2, & S\_{xy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}). \end{aligned} \\
 
@@ -364,7 +382,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 5 (Expanding the centered sum of squares)** Show that \\S\_{xx} = \sum\_{i=1}^nx_i^2 - n \bar{x}^2\\ ([Definition 9](#def-centered-sums)).
+> **Exercise 5 (Expanding the centered sum of squares)** Show that \\S\_{xx} = \sum\_{i=1}^nx_i^2 - n \bar{x}^2\\ ([Definition 12](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -408,7 +426,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 8 (Solving the normal equations)** Using [Exercise 6](#exr-rss-deriv-intercept) and [Exercise 7](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx} \> 0\\ ([Definition 9](#def-centered-sums)).
+> **Exercise 8 (Solving the normal equations)** Using [Exercise 6](#exr-rss-deriv-intercept) and [Exercise 7](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -436,7 +454,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 9 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 9](#def-centered-sums)).
+> **Exercise 9 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -470,7 +488,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Theorem 4 (Closed-form OLS estimates)** Suppose \\S\_{xx} \> 0\\ ([Definition 9](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Example 5](#exm-ols-slr)) are unique, and
+> **Theorem 4 (Closed-form OLS estimates)** Suppose \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Example 5](#exm-ols-slr)) are unique, and
 >
 > \\\hat{\beta}\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat{\beta}\_{0}= \bar{y} - \hat{\beta}\_{x} \bar{x}.\\
 
@@ -538,7 +556,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 12 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 9](#def-centered-sums)), show that \\A\\ from [Exercise 11](#exr-normal-equations-vector) is invertible, solve \\A \tilde{\beta}= \tilde{c}\\ for \\\tilde{\beta}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
+> **Exercise 12 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), show that \\A\\ from [Exercise 11](#exr-normal-equations-vector) is invertible, solve \\A \tilde{\beta}= \tilde{c}\\ for \\\tilde{\beta}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
@@ -566,7 +584,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 13 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 9](#def-centered-sums)).
+> **Exercise 13 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -582,7 +600,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Theorem 5 (OLS estimates in vector notation)** Suppose \\S\_{xx} \> 0\\ ([Definition 9](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 7](#def-ols)) is
+> **Theorem 5 (OLS estimates in vector notation)** Suppose \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 10](#def-ols)) is
 >
 > \\ \hat{\tilde{\beta}}= A^{-1} \tilde{c}, \qquad \tilde{c} = \sum\_{i=1}^n\tilde{x}\_iy_i. \\
 >
@@ -594,11 +612,11 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 14 (OLS slope and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 9](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 4](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
+> **Exercise 14 (OLS slope and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 4](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
 
 > **NOTE:**
 >
-> *Solution 14*. In terms of the centered sums ([Definition 9](#def-centered-sums)),
+> *Solution 14*. In terms of the centered sums ([Definition 12](#def-centered-sums)),
 >
 > \\ r = \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}, \qquad s_x = \sqrt{\frac{S\_{xx}}{n-1}}, \qquad s_y = \sqrt{\frac{S\_{yy}}{n-1}}. \\
 >
@@ -608,7 +626,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Corollary 1 (OLS slope in terms of the correlation)** If \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 9](#def-centered-sums)), then
+> **Corollary 1 (OLS slope in terms of the correlation)** If \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), then
 >
 > \\\hat{\beta}\_{x} = r \\ \frac{s_y}{s_x},\\
 >
@@ -693,7 +711,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Definition 10 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
+> **Definition 13 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
 >
 > \\\text{TSS} \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - \bar{y})^2.\\
 
@@ -705,7 +723,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Definition 11 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\tilde{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\tilde{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
+> **Definition 14 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\tilde{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\tilde{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
 >
 > \\R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}}.\\
 
@@ -713,7 +731,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 15 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx} \> 0\\ ([Definition 9](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 4](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
+> **Exercise 15 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 4](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
 
 > **NOTE:**
 >
@@ -727,11 +745,11 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Exercise 16 (\\R^2\\ and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 9](#def-centered-sums)), use [Exercise 15](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
+> **Exercise 16 (\\R^2\\ and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), use [Exercise 15](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
 
 > **NOTE:**
 >
-> *Solution 16*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 9](#def-centered-sums)), and [Exercise 15](#exr-rss-ols-fit) gives the residual sum of squares, so:
+> *Solution 16*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 12](#def-centered-sums)), and [Exercise 15](#exr-rss-ols-fit) gives the residual sum of squares, so:
 >
 > \\ \begin{aligned} R^2 &= 1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}} && \text{(definition of \$R^2\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{\text{TSS}} && \text{(the OLS estimate is \$(\hat{\beta}\_{0}, \hat{\beta}\_{x})\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{S\_{yy}} && \text{(TSS is \$S\_{yy}\$)}\\ &= 1 - \frac{S\_{yy} - S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(residual sum of squares of the OLS fit)}\\ &= 1 - \mathopen{}\left(\frac{S\_{yy}}{S\_{yy}} - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(split the fraction)}\\ &= 1 - \mathopen{}\left(1 - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(\$S\_{yy} / S\_{yy} = 1\$)}\\ &= 1 - 1 + \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(distribute the minus sign)}\\ &= \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(\$1 - 1 = 0\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx} S\_{yy}} && \text{(divide a fraction by \$S\_{yy}\$)}\\ &= \mathopen{}\left(\frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}\right)\mathclose{}^2 && \text{(write as a square)}\\ &= r^2 && \text{(\$r = S\_{xy} / \sqrt{S\_{xx} S\_{yy}}\$)} \end{aligned} \\
 >
@@ -739,7 +757,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Theorem 6 (\\R^2\\ of a simple linear regression)** For the OLS fit of a simple linear regression, with \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 9](#def-centered-sums)), \\R^2 = r^2\\, where \\r\\ is the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) of the \\x_i\\ and \\y_i\\. In particular, \\0 \le R^2 \le 1\\.
+> **Theorem 6 (\\R^2\\ of a simple linear regression)** For the OLS fit of a simple linear regression, with \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), \\R^2 = r^2\\, where \\r\\ is the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) of the \\x_i\\ and \\y_i\\. In particular, \\0 \le R^2 \le 1\\.
 
 > **NOTE:**
 >
@@ -747,7 +765,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Example 9 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 7](#exm-hers-slr), \\R^2\\ computed from [Definition 11](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
+> **Example 9 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 7](#exm-hers-slr), \\R^2\\ computed from [Definition 14](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
 >
 > ``` downlit
 > fit <- lm(glucose ~ BMI, data = hers)
