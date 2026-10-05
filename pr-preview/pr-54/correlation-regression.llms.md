@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 23:56:17 (PDT)
+Last modified: 2026-10-05 00:22:29 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -157,9 +157,13 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > *Solution 1*. Start from the right-hand side:
 >
-> \\ \begin{aligned} \mu_i + \varepsilon_i &= \mu(x_i) + \varepsilon_i && \text{(definition of \$\mu_i\$)}\\ &= \mu(x_i) + \mathopen{}\left(Y_i - \mu(x_i)\right)\mathclose{} && \text{(definition of \$\varepsilon_i\$)}\\ &= Y_i && \text{(cancel \$\mu(x_i)\$)} \end{aligned} \\
+> \\ \begin{aligned} \mu_i + \varepsilon_i &= \mu(x_i) + \varepsilon_i && \text{(definition of \$\mu_i\$)}\\ &= \mu(x_i) + \mathopen{}\left(Y_i - \mu(x_i)\right)\mathclose{} && \text{(definition of \$\varepsilon_i\$)}\\ &= \mu(x_i) + Y_i - \mu(x_i) && \text{(remove the parentheses)}\\ &= Y_i + \mu(x_i) - \mu(x_i) && \text{(reorder the terms)}\\ &= Y_i + \mathopen{}\left(\mu(x_i) - \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ &= Y_i + 0 && \text{(\$a - a = 0\$)}\\ &= Y_i && \text{(\$a + 0 = a\$)} \end{aligned} \\
 >
 > So \\Y_i = \mu_i + \varepsilon_i\\.
+>
+> Alternatively, solve the definition of \\\varepsilon_i\\ for \\Y_i\\:
+>
+> \\ \begin{aligned} \varepsilon_i &= Y_i - \mu(x_i) && \text{(definition of \$\varepsilon_i\$)}\\ \varepsilon_i + \mu(x_i) &= Y_i - \mu(x_i) + \mu(x_i) && \text{(add \$\mu(x_i)\$ to both sides)}\\ \varepsilon_i + \mu(x_i) &= Y_i + \mathopen{}\left(-\mu(x_i)\right)\mathclose{} + \mu(x_i) && \text{(subtracting is adding the negative)}\\ \varepsilon_i + \mu(x_i) &= Y_i + \mathopen{}\left(-\mu(x_i) + \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ \varepsilon_i + \mu(x_i) &= Y_i + 0 && \text{(\$-a + a = 0\$)}\\ \varepsilon_i + \mu(x_i) &= Y_i && \text{(\$a + 0 = a\$)}\\ Y_i &= \varepsilon_i + \mu(x_i) && \text{(swap the two sides)}\\ Y_i &= \mu(x_i) + \varepsilon_i && \text{(reorder the terms)}\\ Y_i &= \mu_i + \varepsilon_i && \text{(definition of \$\mu_i\$)} \end{aligned} \\
 
 > **NOTE:**
 >
