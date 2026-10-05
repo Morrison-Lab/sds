@@ -96,6 +96,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_exr-mse-rss.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-mse-rss.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_def-ols.qmd >}}
 
 {{< slidebreak >}}
