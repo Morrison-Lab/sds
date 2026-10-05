@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 22:30:36 (PDT)
+Last modified: 2026-10-04 22:52:39 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -141,39 +141,13 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Definition 5 (Homoskedastic model)** A conditional Gaussian model ([Definition 4](#def-cond-gaussian)) is **homoskedastic** if all outcomes share one variance \\\sigma^2\\, which does not depend on \\i\\:
->
-> \\\sigma_i^2 = \sigma^2 \text{ for all } i.\\
-
-> **NOTE:**
->
-> **Definition 6 (Linear regression model)** A **linear regression model** is a homoskedastic ([Definition 5](#def-homoskedastic)) conditional Gaussian model ([Definition 4](#def-cond-gaussian)) whose mean function is linear in \\p\\ covariates, where observation \\i\\ has covariate values \\x_i = (x\_{i1}, \ldots, x\_{ip})\\:
->
-> \\\mu(x_1, \ldots, x_p) \stackrel{\text{def}}{=}\beta\_{0}+ \sum\_{j=1}^p \beta\_{x_j} x_j.\\
-
-> **NOTE:**
->
-> **Definition 7 (Simple linear regression model)** A **simple linear regression** model is a linear regression model ([Definition 6](#def-linear-regression)) with \\p = 1\\ covariate \\X\\, writing \\x_i\\ for \\x\_{i1}\\:
->
-> \\\mu(x) \stackrel{\text{def}}{=}\beta\_{0}+ \beta\_{x} x.\\
-
-> **NOTE:**
->
-> *Remark 1* (Interpreting the parameters).
->
-> - \\\beta\_{0}= \mu(0)\\ is the **intercept**: the mean of \\Y\\ among observations with \\X = 0\\.
-> - \\\beta\_{x} = \mu(x + 1) - \mu(x)\\ is the **slope**: the difference in the mean of \\Y\\ between two groups whose values of \\X\\ differ by one unit.
-> - \\\sigma^2\\ is the variance of \\Y\\ around its mean at each value of \\X\\.
-
-> **NOTE:**
->
-> **Definition 8 (Deviation from the conditional mean)** In a simple linear regression model ([Definition 7](#def-slr)), the **deviation** \\\varepsilon_i\\ of outcome \\Y_i\\ is its [deviation from its mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean), taking the mean conditional on \\X_i = x_i\\:
+> **Definition 5 (Deviation from the conditional mean)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), the **deviation** \\\varepsilon_i\\ of outcome \\Y_i\\ is its [deviation from its mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean), taking the mean conditional on \\X_i = x_i\\:
 >
 > \\\varepsilon_i \stackrel{\text{def}}{=}Y_i - \mu(x_i).\\
 
 > **NOTE:**
 >
-> **Exercise 1 (Outcome as mean plus deviation)** Show that each outcome in a simple linear regression model ([Definition 7](#def-slr)) is its conditional mean plus its deviation ([Definition 8](#def-slr-deviation)): \\Y_i = \mu_i + \varepsilon_i\\.
+> **Exercise 1 (Outcome as mean plus deviation)** Show that each outcome in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) is its conditional mean plus its deviation ([Definition 5](#def-slr-deviation)): \\Y_i = \mu_i + \varepsilon_i\\.
 
 > **NOTE:**
 >
@@ -181,7 +155,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Exercise 2 (Distribution of the deviations)** Show that in a simple linear regression model ([Definition 7](#def-slr)), given the covariate values, the deviations ([Definition 8](#def-slr-deviation)) are independent and each is Gaussian with mean 0 and variance \\\sigma^2\\: \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\.
+> **Exercise 2 (Distribution of the deviations)** Show that in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariate values, the deviations ([Definition 5](#def-slr-deviation)) are independent and each is Gaussian with mean 0 and the same variance \\\sigma_i^2\\ as \\Y_i\\: \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -199,11 +173,11 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 >
 > \\ \begin{aligned} \frac{\partial}{\partial t} (t + \mu_i) &= \frac{\partial}{\partial t} t + \frac{\partial}{\partial t} \mu_i && \text{(derivative of a sum)}\\ &= 1 + 0 && \text{(\$\mu_i\$ does not depend on \$t\$)}\\ &= 1 && \text{(add)} \end{aligned} \\
 >
-> Plugging the inner derivative back in, and using the [Gaussian density](https://morrison-lab.github.io/pds/random-variables.html#def-normal) of \\Y_i\\, which has mean \\\mu_i = \mu(x_i)\\ ([Definition 4](#def-cond-gaussian)) and variance \\\sigma^2\\ ([Definition 5](#def-homoskedastic)):
+> Plugging the inner derivative back in, and using the [Gaussian density](https://morrison-lab.github.io/pds/random-variables.html#def-normal) of \\Y_i\\, which has mean \\\mu_i = \mu(x_i)\\ and variance \\\sigma_i^2\\ ([Definition 4](#def-cond-gaussian)):
 >
-> \\ \begin{aligned} f\_{\varepsilon}(t) &= f_Y(t + \mu_i) \cdot 1 && \text{(inner derivative is 1)}\\ &= f_Y(t + \mu_i) && \text{(multiply by 1)}\\ &= \frac{1}{\sigma \sqrt{2 \pi}} \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma^2}} && \text{(Gaussian density with mean \$\mu_i\$)}\\ &= \frac{1}{\sigma \sqrt{2 \pi}} \text{e}^{-\frac{t^2}{2 \sigma^2}} && \text{(subtract)} \end{aligned} \\
+> \\ \begin{aligned} f\_{\varepsilon}(t) &= f_Y(t + \mu_i) \cdot 1 && \text{(inner derivative is 1)}\\ &= f_Y(t + \mu_i) && \text{(multiply by 1)}\\ &= \frac{1}{\sigma_i \sqrt{2 \pi}} \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma_i^2}} && \text{(Gaussian density with mean \$\mu_i\$)}\\ &= \frac{1}{\sigma_i \sqrt{2 \pi}} \text{e}^{-\frac{t^2}{2 \sigma_i^2}} && \text{(subtract)} \end{aligned} \\
 >
-> The last line is the density of \\\operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\, so \\\varepsilon_i \mid X_i = x_i \sim \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\.
+> The last line is the density of \\\operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\\, so \\\varepsilon_i \mid X_i = x_i \sim \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\\.
 >
 > For independence, factor the joint CDF of \\\varepsilon_1, \ldots, \varepsilon_n\\, using the same CDF step as above for each \\i\\ and the independence of the \\Y_i\\ given the covariates ([Definition 4](#def-cond-gaussian)):
 >
@@ -213,13 +187,49 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> **Theorem 2 (Additive form of the simple linear regression model)** In a simple linear regression model ([Definition 7](#def-slr)), each outcome is its conditional mean plus a deviation ([Definition 8](#def-slr-deviation)); given the covariates, the deviations are independent and Gaussian with mean 0 and variance \\\sigma^2\\:
+> **Theorem 2 (Additive form of the conditional Gaussian model)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), each outcome is its conditional mean plus a deviation ([Definition 5](#def-slr-deviation)); given the covariates, the deviations are independent and Gaussian with mean 0 and variance \\\sigma_i^2\\:
 >
-> \\ Y_i = \mu_i + \varepsilon_i, \qquad \varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}. \\
+> \\ Y_i = \mu_i + \varepsilon_i, \qquad \varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}. \\
 
 > **NOTE:**
 >
-> *Proof*. [Exercise 1](#exr-slr-additive) shows that \\Y_i = \mu_i + \varepsilon_i\\, and [Exercise 2](#exr-slr-deviation-dist) shows that \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\.
+> *Proof*. [Exercise 1](#exr-slr-additive) shows that \\Y_i = \mu_i + \varepsilon_i\\, and [Exercise 2](#exr-slr-deviation-dist) shows that \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\\.
+
+> **NOTE:**
+>
+> **Definition 6 (Homoskedastic model)** A conditional Gaussian model ([Definition 4](#def-cond-gaussian)) is **homoskedastic** if all outcomes share one variance \\\sigma^2\\, which does not depend on \\i\\:
+>
+> \\\sigma_i^2 = \sigma^2 \text{ for all } i.\\
+
+> **NOTE:**
+>
+> **Corollary 1 (Deviations in a homoskedastic model)** In a homoskedastic model ([Definition 6](#def-homoskedastic)), the deviations ([Definition 5](#def-slr-deviation)) all have the same variance \\\sigma^2\\:
+>
+> \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}.\\
+
+> **NOTE:**
+>
+> *Proof*. By [Theorem 2](#thm-slr-additive), \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\\, and [Definition 6](#def-homoskedastic) sets \\\sigma_i^2 = \sigma^2\\ for all \\i\\.
+
+> **NOTE:**
+>
+> **Definition 7 (Linear regression model)** A **linear regression model** is a homoskedastic ([Definition 6](#def-homoskedastic)) conditional Gaussian model ([Definition 4](#def-cond-gaussian)) whose mean function is linear in \\p\\ covariates, where observation \\i\\ has covariate values \\x_i = (x\_{i1}, \ldots, x\_{ip})\\:
+>
+> \\\mu(x_1, \ldots, x_p) \stackrel{\text{def}}{=}\beta\_{0}+ \sum\_{j=1}^p \beta\_{x_j} x_j.\\
+
+> **NOTE:**
+>
+> **Definition 8 (Simple linear regression model)** A **simple linear regression** model is a linear regression model ([Definition 7](#def-linear-regression)) with \\p = 1\\ covariate \\X\\, writing \\x_i\\ for \\x\_{i1}\\:
+>
+> \\\mu(x) \stackrel{\text{def}}{=}\beta\_{0}+ \beta\_{x} x.\\
+
+> **NOTE:**
+>
+> *Remark 1* (Interpreting the parameters).
+>
+> - \\\beta\_{0}= \mu(0)\\ is the **intercept**: the mean of \\Y\\ among observations with \\X = 0\\.
+> - \\\beta\_{x} = \mu(x + 1) - \mu(x)\\ is the **slope**: the difference in the mean of \\Y\\ between two groups whose values of \\X\\ differ by one unit.
+> - \\\sigma^2\\ is the variance of \\Y\\ around its mean at each value of \\X\\.
 
 ### 3.2 Ordinary least squares estimation
 
@@ -626,7 +636,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Corollary 1 (OLS slope in terms of the correlation)** If \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), then
+> **Corollary 2 (OLS slope in terms of the correlation)** If \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), then
 >
 > \\\hat{\beta}\_{x} = r \\ \frac{s_y}{s_x},\\
 >
@@ -644,7 +654,7 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Example 7 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 4](#thm-ols-slr), and the slope from [Corollary 1](#cor-ols-slope-r), for the participants with a BMI measurement:
+> **Example 7 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 4](#thm-ols-slr), and the slope from [Corollary 2](#cor-ols-slope-r), for the participants with a BMI measurement:
 >
 > ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
