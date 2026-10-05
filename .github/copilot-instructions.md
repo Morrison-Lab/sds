@@ -106,11 +106,11 @@ $a - a = 0$,
 and $a + 0 = a$.
 Cancelling a factor likewise hides
 rewriting a division as multiplication by a reciprocal,
-removing the parentheses,
+removing the parentheses that creates,
 reordering the factors,
 grouping the two that cancel,
 $a \cdot \frac{1}{a} = 1$,
-and $1 \cdot b = b$.
+and $b \cdot 1 = b$.
 Prove any fact a step relies on (such as deviations from the mean summing to zero)
 in its own exercise before citing it.
 
