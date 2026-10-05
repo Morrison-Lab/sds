@@ -2,11 +2,9 @@
 #### Prediction
 
 A **prediction** (or **predicted value**) $\fitted(x)$
-of the outcome $Y$ at covariate value $x$
-is a value computed from data $(x_1, y_1), \ldots, (x_n, y_n)$ and from $x$,
-used as a guess of the value that $Y$ takes when $X = x$:
+of an outcome $Y$ with covariate value $X = x$
+is a number computed from $x$ and from data $(x_1, y_1), \ldots, (x_n, y_n)$
+by a rule $g$, and used as a guess of $Y$:
 
-$$\fitted(x) \eqdef \hat{f}(x),$$
-
-where $\hat{f}$ is a function fitted to those data.
+$$\fitted(x) \eqdef g\paren{x; (x_1, y_1), \ldots, (x_n, y_n)}.$$
 :::
