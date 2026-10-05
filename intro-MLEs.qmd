@@ -321,6 +321,10 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< include sds/_subfiles/intro-MLEs/_prose-prediction-interval.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_rem-prediction-vs-confidence-interval.qmd >}}
+
 ## Example: maximum likelihood for tropical cyclones in Australia
 
 {{< include sds/_subfiles/dobson-cyclone-example.qmd >}}

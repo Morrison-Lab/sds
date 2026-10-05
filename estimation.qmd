@@ -108,10 +108,18 @@ format:
 
 {{< slidebreak >}}
 
-### Fitted values, residuals, and prediction errors {#residuals}
+### Predictions, fitted values, residuals, and prediction errors {#residuals}
 
 <!-- The explicit {#residuals} keeps the anchor this section had when its heading was "Residuals". -->
-<!-- No slidebreak here: the heading shares its slide with the def-fitted-value div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-prediction div. -->
+
+{{< include sds/_subfiles/estimation/_def-prediction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-prediction-cond-mean.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/estimation/_def-fitted-value.qmd >}}
 

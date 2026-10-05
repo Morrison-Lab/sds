@@ -1,0 +1,11 @@
+::: {#exm-prediction-cond-mean}
+#### Predicting with an estimated conditional mean
+
+Suppose a model specifies the conditional mean $\E{Y \mid X = x}$
+as a function $\mean(x; \vth)$ of a parameter vector $\vth$,
+and $\est{\vth}$ is an estimate of $\vth$.
+The usual prediction (@def-prediction) of $Y$ at $X = x$
+is the estimated conditional mean:
+
+$$\fitted(x) = \mean(x; \est{\vth}).$$
+:::

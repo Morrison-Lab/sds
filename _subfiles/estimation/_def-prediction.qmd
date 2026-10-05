@@ -1,0 +1,12 @@
+::: {#def-prediction}
+#### Prediction
+
+A **prediction** (or **predicted value**) $\fitted(x)$
+of the outcome $Y$ at covariate value $x$
+is a value computed from data $(x_1, y_1), \ldots, (x_n, y_n)$ and from $x$,
+used as a guess of the value that $Y$ takes when $X = x$:
+
+$$\fitted(x) \eqdef \hat{f}(x),$$
+
+where $\hat{f}$ is a function fitted to those data.
+:::

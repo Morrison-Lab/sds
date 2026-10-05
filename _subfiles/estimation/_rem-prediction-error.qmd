@@ -1,7 +1,8 @@
 ::: {#rem-prediction-error}
 #### Prediction errors and residuals
 
-The prediction in @def-prediction-error can be a [fitted value](#def-fitted-value)
+The prediction in @def-prediction-error can be a [fitted value](#def-fitted-value),
+for an observation used to fit the model,
 or a prediction for an observation that was not used to fit the model.
 Prediction error is oriented the same way as
 [estimation error](#def-estimation-error):
