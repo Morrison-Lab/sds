@@ -50,7 +50,118 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
 - Use bullet lists when the items are important and deserve emphasis
 - Technical lists (commands, file names, features) typically benefit from bullet format
 
+## Math Notation
+
+- **Use semantic macros, not hard-coded symbols.**
+  Write notation through a macro that names its meaning,
+  so a convention can change in one place.
+  Defaults come from the [`latex-macros`](https://github.com/d-morrison/macros) submodule;
+  repo-level conventions it does not cover yet live in
+  [`_subfiles/_macros-sds.qmd`](../_subfiles/_macros-sds.qmd),
+  defined with `\providecommand` so the macros repo's definitions win once it adds the same names.
+- **Regression coefficients**:
+  `\coef{x}` ($\beta_x$), `\intcoef` ($\beta_0$), `\hcoef{x}` and `\hintcoef` (estimates),
+  `\vcoef` and `\hvcoef` (vectors).
+  Index a coefficient by the symbol of its variable ($\beta_x$, not $\beta_1$).
+  Use `\intcoef` for the intercept rather than writing $\beta_0$,
+  since the intercept symbol may change.
+  Where a coefficient as a random variable or unknown must be distinguished from a specific value,
+  use `\Coef{x}` / `\Intcoef` (capital Greek) for the former and `\coef{x}` / `\intcoef` for the latter.
+- **Fitted values and errors**:
+  `\fitted` ($\hat y$) for a fitted value or prediction,
+  `\resid` ($r = y - \hat y$, from the macros repo) for a residual,
+  and `\prederr` ($e = \hat y - y$) for a prediction error.
+- **Inner products**: write the inner product of two vectors as a dot product,
+  `\dprod{\vxi}{\vcoef}` ($\tilde x_i \cdot \tilde\beta$),
+  rather than as a transpose product `\tprod{\vxi}{\vcoef}` ($\tilde x_i^\top \tilde\beta$).
+  Keep the transpose where it is needed:
+  outer products (`\soprod{\vxi}`), quadratic forms with a matrix, and derivatives with respect to a row vector.
+- **Chain rule steps**:
+  after applying the chain rule, derive the inner function's derivative
+  in its own set of aligned equations,
+  then return to the outer expression and substitute the result.
+
+## Derivations: exercise, solution, theorem, proof
+
+Present a derivation as one or more exercises (`#exr-` divs),
+each followed in the same file by its solution (a `#sol-` div whose name matches the exercise, e.g. `#exr-foo` and `#sol-foo`),
+then the theorem (or corollary) that records the result,
+with a short `::: proof` that cites the exercises it rests on.
+Split a long derivation into one exercise per step
+(for example: each partial derivative, solving the resulting equations, the second-derivative check),
+so no single solution packs several steps together.
+Define any notation the exercises use (such as $S_{xx}$) in its own definition before them,
+not inside the theorem that follows them.
+Inside each solution, give every displayed line exactly one operation
+(split a sum, sum a constant, factor out a constant, substitute one result, ...)
+and its own `&& \text{(reason)}` justification;
+never combine, say, the derivative-of-a-sum rule with the chain rule,
+or distributing a sum with substituting $\sum_i y_i = n \bar{y}$, in one line.
+Never write "cancel" as one step.
+Canceling a term hides several operations, each of which gets its own line:
+removing parentheses,
+reordering the terms,
+grouping the two that cancel,
+$a - a = 0$,
+and $a + 0 = a$.
+Canceling a factor likewise hides
+rewriting a division as multiplication by a reciprocal,
+removing the parentheses that creates,
+reordering the factors,
+grouping the two that cancel,
+$a \cdot \frac{1}{a} = 1$,
+and $b \cdot 1 = b$.
+Prove any fact a step relies on (such as deviations from the mean summing to zero)
+in its own exercise before citing it.
+
+When a derivation would insert a term and its negative into one expression to reach the other side
+(as in $Y_i = Y_i - \mean(x_i) + \mean(x_i)$),
+start from the other side instead
+(expand $\mean_i + \cdev_i$ with the definitions, then simplify one operation per line),
+or solve a definition for the term you want.
+Adding the same term to both sides of an equation is an ordinary step, not this pattern.
+Each line then follows from a definition or a simplification,
+with no term pulled from nowhere.
+
+Give each theorem, corollary or lemma div one result.
+Two results joined by a semicolon,
+or set side by side with `\qquad` in one display,
+usually belong in two divs,
+each with its own exercise and proof.
+
+## Definitions and results: prose plus a display equation, compact and general, then examples
+
+Keep each definition div to its defining statement, stated in the most general form the page needs
+(for example, define the residual sum of squares as $\sum_i r_i^2$ for any fitted model, not only for a line).
+State every technical definition and every result (theorem, corollary, lemma) in both prose and math: one sentence saying what it means,
+and the formula as a display equation inside the same div, built from terms already defined
+(for example, $R^2 \eqdef 1 - \text{RSS} / \text{TSS}$, not the two sums written out,
+and the OLS estimate as $\est{\vth} \eqdef \argmin_{\vth} \text{RSS}(\vth)$, not only in words).
+Define a regression model by the distribution of the outcome conditional on the covariates,
+centered on a named mean function built from semantic macros
+(for example, $Y_i \mid X_i = x_i \simind \ndist{\mean_i, \sigma^2}$ with $\mean_i \eqdef \mean(x_i)$ and $\mean(x) \eqdef \intcoef + \coef{x} x$),
+not as $Y_i = \mean_i + \cdev_i$ with a distribution on $\cdev_i$.
+Define the deviation $\cdev_i \eqdef Y_i - \mean(x_i)$ separately,
+and state $Y_i = \mean_i + \cdev_i$ as a result that follows from the definitions.
+Put special cases in example divs right after it, from the most general to the most specific
+(the simple linear regression case, then a numerical example),
+each linking back to the definition.
+Put commentary (scope, orientation, relations to other quantities) in a remark div after the definition, never inside it.
+Never nest one theorem-type div inside another.
+
 ## Code Chunks
+
+### Every visible chunk shows a result
+
+A code chunk that readers can see should produce a visible result:
+a figure, a table, or console output.
+A chunk that only assigns (for example `hers <- rmb::hers |> haven::as_factor()`)
+shows code with nothing to connect it to.
+End it with an expression that displays what it made
+(`hers |> head()`, the estimate it computed, a call to the function it defined),
+or merge it into the chunk that displays the result.
+Chunks hidden with `#| include: false` are exempt.
+
 
 ### Code Folding
 

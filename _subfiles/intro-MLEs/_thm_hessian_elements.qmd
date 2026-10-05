@@ -10,10 +10,7 @@ whose $ij$th entry is:
 :::
 
 ::: proof
-$\deriv{\vth\'}\llik$ is the $1 \times p$ row vector
-whose $j$th entry is $\deriv{\th_j}\llik$.
-Differentiating each entry with respect to the $p \times 1$ vector $\vth$
-gives a $p \times 1$ column of derivatives per entry,
-so $\deriv{\vth}\deriv{\vth\'}\llik$ is $p \times p$,
-with $ij$th entry $\deriv{\th_i}\deriv{\th_j}\llik$.
+
+This is the solution to @exr-hessian-elements.
+
 :::

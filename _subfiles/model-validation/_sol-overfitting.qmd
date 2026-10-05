@@ -32,6 +32,8 @@ best_train <- overfitting_results$degree[
 best_held_out <- overfitting_results$degree[
   which.min(overfitting_results$held_out_RMSE)
 ]
+
+c(best_train = best_train, best_held_out = best_held_out)
 ```
 
 1. The smallest training RMSE is at degree `r best_train`.

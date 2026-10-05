@@ -1,0 +1,8 @@
+::: {#def-fitted-value}
+#### Fitted value
+
+The **fitted value** $\fitted_i$ of observation $i$
+is the [prediction](#def-prediction) at its own covariate value $x_i$:
+
+$$\fitted_i \eqdef \fitted(x_i).$$
+:::

@@ -1,0 +1,117 @@
+:::{#exr-slr-deviation-dist}
+#### Distribution of the deviations
+
+Show that in a conditional Gaussian model (@def-cond-gaussian),
+given the covariate values,
+the deviations (@def-slr-deviation) are independent
+and each is Gaussian with mean 0 and the same variance $\sigma_i^2$ as $Y_i$:
+$\cdev_i \mid X_i = x_i \simind \ndist{0, \sigma_i^2}$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-slr-deviation-dist}
+
+Every probability, CDF and density in this solution is
+[conditional](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf)
+on $X_i = x_i$;
+the condition is left out of the notation to keep the lines short.
+Write $F_{\cdev}$ and $f_{\cdev}$ for the CDF and density of $\cdev_i$,
+and $F_Y$ and $f_Y$ for those of $Y_i$.
+
+First, the CDF of $\cdev_i$:
+
+$$
+\begin{aligned}
+F_{\cdev}(t)
+&= \Prf{\cdev_i \le t}
+&& \text{(definition of a CDF)}\\
+&= \Prf{Y_i - \mean(x_i) \le t}
+&& \text{(definition of $\cdev_i$)}\\
+&= \Prf{Y_i - \mean_i \le t}
+&& \text{(definition of $\mean_i$)}\\
+&= \Prf{Y_i \le t + \mean_i}
+&& \text{(add $\mean_i$ to both sides of the inequality)}\\
+&= F_Y(t + \mean_i)
+&& \text{(definition of a CDF)}
+\end{aligned}
+$$
+
+{{< slidebreak >}}
+
+Differentiating gives the density:
+
+$$
+\begin{aligned}
+f_{\cdev}(t)
+&= \deriv{t} F_{\cdev}(t)
+&& \text{(a density is the derivative of its CDF)}\\
+&= \deriv{t} F_Y(t + \mean_i)
+&& \text{(CDF of $\cdev_i$)}\\
+&= f_Y(t + \mean_i) \deriv{t} (t + \mean_i)
+&& \text{(chain rule)}
+\end{aligned}
+$$
+
+The inner derivative:
+
+$$
+\begin{aligned}
+\deriv{t} (t + \mean_i)
+&= \deriv{t} t + \deriv{t} \mean_i
+&& \text{(derivative of a sum)}\\
+&= 1 + 0
+&& \text{($\mean_i$ does not depend on $t$)}\\
+&= 1
+&& \text{(add)}
+\end{aligned}
+$$
+
+{{< slidebreak >}}
+
+Plugging the inner derivative back in,
+and using the [Gaussian density](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
+of $Y_i$, which has mean $\mean_i = \mean(x_i)$
+and variance $\sigma_i^2$ (@def-cond-gaussian):
+
+$$
+\begin{aligned}
+f_{\cdev}(t)
+&= f_Y(t + \mean_i) \cdot 1
+&& \text{(inner derivative is 1)}\\
+&= f_Y(t + \mean_i)
+&& \text{(multiply by 1)}\\
+&= \frac{1}{\sigma_i \sqrt{2 \pi}}
+  \ef{-\frac{\paren{(t + \mean_i) - \mean_i}^2}{2 \sigma_i^2}}
+&& \text{(Gaussian density with mean $\mean_i$)}\\
+&= \frac{1}{\sigma_i \sqrt{2 \pi}}
+  \ef{-\frac{t^2}{2 \sigma_i^2}}
+&& \text{(subtract)}
+\end{aligned}
+$$
+
+The last line is the density of $\ndist{0, \sigma_i^2}$,
+so $\cdev_i \mid X_i = x_i \sim \ndist{0, \sigma_i^2}$.
+
+{{< slidebreak >}}
+
+For independence, factor the joint CDF of $\cdev_1, \ldots, \cdev_n$,
+using the same CDF step as above for each $i$
+and the independence of the $Y_i$ given the covariates (@def-cond-gaussian):
+
+$$
+\begin{aligned}
+\Prf{\cdev_1 \le t_1, \ldots, \cdev_n \le t_n}
+&= \Prf{Y_1 \le t_1 + \mean_1, \ldots, Y_n \le t_n + \mean_n}
+&& \text{(add $\mean_i$ to both sides of each inequality)}\\
+&= \prod_{i=1}^n \Prf{Y_i \le t_i + \mean_i}
+&& \text{(the $Y_i$ are independent)}\\
+&= \prod_{i=1}^n \Prf{\cdev_i \le t_i}
+&& \text{(subtract $\mean_i$ from both sides of each inequality)}
+\end{aligned}
+$$
+
+The joint CDF is the product of the marginal CDFs,
+so $\cdev_1, \ldots, \cdev_n$ are independent.
+
+:::

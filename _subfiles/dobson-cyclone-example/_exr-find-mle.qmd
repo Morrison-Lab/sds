@@ -6,7 +6,7 @@ Draw conclusions about the MLE of $\lambda$.
 
 {{< slidebreak >}}
 
-:::: {.solution}
+:::{#sol-find-mle}
 
 Since $\ell''(\tilde \lambda; \vx) < 0$,
 $\tilde \lambda$ is a local maximizer of the log-likelihood.
@@ -20,8 +20,9 @@ So $\tilde \lambda$ maximizes $\ell$, and therefore $\Lik$:
 #| label: calc-mle
 #| code-fold: false
 mle <- mean(cyclones$number)
+mle
 ```
 
 $$\hat{\lambda}_{\text{ML}} = \bar x = `r round(mle, 3)`$$
 
-::::
+:::

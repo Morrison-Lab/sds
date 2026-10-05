@@ -1,0 +1,10 @@
+::: {#def-prediction}
+#### Prediction
+
+A **prediction** (or **predicted value**) $\fitted(x)$
+of an outcome $Y$ with covariate value $X = x$
+is a number computed from $x$ and from data $(x_1, y_1), \ldots, (x_n, y_n)$
+by a rule $g$, and used as a guess of $Y$:
+
+$$\fitted(x) \eqdef g\paren{x; (x_1, y_1), \ldots, (x_n, y_n)}.$$
+:::

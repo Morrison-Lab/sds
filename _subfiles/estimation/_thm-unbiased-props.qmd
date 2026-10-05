@@ -11,31 +11,7 @@ $$\mselr{\hth} = \var{\hth}$$ {#eq-unbiased-mse}
 
 ::: proof
 
-For @eq-unbiased-exp, apply @thm-bias-exprs:
-
-$$
-\begin{aligned}
-0 &= \bias{\hth}
-&& \text{(definition of unbiased)}\\
-&= \E{\hth} - \th
-&& \text{(bias equals expectation minus truth)}
-\end{aligned}
-$$
-
-Adding $\th$ to both sides gives $\E{\hth} = \th$.
-
-For @eq-unbiased-mse, apply @thm-mse-bias-variance:
-
-$$
-\begin{aligned}
-\mselr{\hth}
-&= \sqf{\bias{\hth}} + \var{\hth}
-&& \text{(MSE equals bias squared plus variance)}\\
-&= 0^2 + \var{\hth}
-&& \text{(definition of unbiased)}\\
-&= \var{\hth}
-&& \text{($0^2 = 0$)}
-\end{aligned}
-$$
+@eq-unbiased-exp is the solution to @exr-unbiased-exp,
+and @eq-unbiased-mse is the solution to @exr-unbiased-mse.
 
 :::

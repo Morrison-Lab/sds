@@ -26,8 +26,27 @@ slr_fit <- lm(glucose ~ BMI, data = hers)
 summary(slr_fit)
 ```
 
+@fig-hers-slr shows the data with the fitted line.
+
+::: {#fig-hers-slr}
+
+```{r}
+ggplot2::ggplot(hers_bmi, ggplot2::aes(x = BMI, y = glucose)) +
+  ggplot2::geom_point(alpha = 0.2) +
+  ggplot2::geom_abline(
+    intercept = coef(slr_fit)[[1]],
+    slope = coef(slr_fit)[["BMI"]],
+    color = "firebrick"
+  ) +
+  ggplot2::labs(x = "BMI (kg/m^2)", y = "Fasting glucose (mg/dL)")
+```
+
+Fasting glucose against BMI in HERS, with the OLS line
+
+:::
+
 The estimated slope is
-$\hat\beta_1 = `r round(coef(slr_fit)[["BMI"]], 2)`$ mg/dL per kg/m^2^:
+$\hcoef{\text{BMI}} = `r round(coef(slr_fit)[["BMI"]], 2)`$ mg/dL per kg/m^2^:
 mean fasting glucose is about `r round(coef(slr_fit)[["BMI"]], 1)` mg/dL higher
 among participants whose BMI is 1 kg/m^2^ higher.
 The t statistic for the slope equals the correlation test statistic

@@ -5,7 +5,9 @@ The built-in `mtcars` data frame has $n = 32$ cars.
 Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`,
 of degree 1, 2, 3, and 4,
 using only the first 20 rows as the training set.
-For each model, compute the root mean squared error (RMSE)
+For each model, compute the root mean squared error (RMSE),
+the square root of the
+[mean squared error of its predictions](estimation.qmd#def-prediction-mse),
 on the 20 training rows
 and on the remaining 12 rows.
 

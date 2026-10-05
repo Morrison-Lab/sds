@@ -10,9 +10,9 @@ format:
     output-file: estimation-handout.docx
 ---
 
-## Scientific models
+{{< include sds/_subfiles/shared-config.qmd >}}
 
-{{< include latex-macros/macros.qmd >}}
+## Scientific models
 
 <!-- No slidebreak here: the heading shares its slide with the def-model div. -->
 
@@ -108,9 +108,52 @@ format:
 
 {{< slidebreak >}}
 
-### Residuals
+### Predictions, fitted values, residuals, and prediction errors {#residuals}
 
-{{< include sds/_subfiles/estimation/_prose-residuals.qmd >}}
+<!-- The explicit {#residuals} keeps the anchor this section had when its heading was "Residuals". -->
+<!-- No slidebreak here: the heading shares its slide with the def-prediction div. -->
+
+{{< include sds/_subfiles/estimation/_def-prediction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-prediction-cond-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-fitted-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-residual.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-prediction-error-residual.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_thm-prediction-error-residual.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_rem-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-prediction-mse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_rem-prediction-mse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-fitted-residual-error.qmd >}}
 
 {{< slidebreak >}}
 
@@ -119,6 +162,10 @@ format:
 <!-- No slidebreak here: the heading shares its slide with the def-bias div. -->
 
 {{< include sds/_subfiles/estimation/_def-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-bias-exprs.qmd >}}
 
 {{< slidebreak >}}
 
@@ -138,11 +185,21 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_exr-sq-bias-expand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-bias-sq-plus-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-mse-expand.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_thm-mse-bias-variance.qmd >}}
 
-::: proof
-{{< include sds/_subfiles/proof-mse-bias-variance.qmd >}}
-:::
+{{< include sds/_subfiles/estimation/_proof-mse-bias-variance.qmd >}}
 
 {{< slidebreak >}}
 
@@ -167,6 +224,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/estimation/_exm-biased-variance-mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-unbiased-exp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-unbiased-mse.qmd >}}
 
 {{< slidebreak >}}
 
@@ -198,13 +263,25 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_exr-se-error-sd.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_thm-se-error-sd.qmd >}}
 
 {{< include sds/_subfiles/estimation/_note-SE.qmd >}}
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_exr-var-mse-bias.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_cor-var-mse-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exr-se-rmse-unbiased.qmd >}}
 
 {{< slidebreak >}}
 

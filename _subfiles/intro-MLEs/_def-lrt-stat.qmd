@@ -1,0 +1,13 @@
+:::{#def-lrt-stat}
+#### Likelihood ratio statistic
+
+Suppose a null hypothesis $H_0$ imposes $q$ constraints on the parameter vector $\vth$.
+Let $\hthml$ be the unrestricted MLE
+and $\hat\th_0$ the MLE under $H_0$.
+The **likelihood ratio statistic** is
+
+$$
+\Lambda \eqdef 2\paren{\llik(\hthml) - \llik(\hat\th_0)}
+$$
+
+:::
