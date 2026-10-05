@@ -156,15 +156,18 @@ the book or paper an item follows,
 and the lab site (rme, lds, pds, ...) or person it was adapted from.
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
-Put the credit in an `attribution` div at the end of the item's own div,
-so it travels with the fragment when a host site includes it.
-It is a typed block like any other, so it gets its own div type,
-styled once in `styles.css` and `styles-reveal.scss`,
-not presentational classes on a plain paragraph:
+Follow PSW's
+[Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material):
+put the credit in a collapsed `.callout-note` titled "Source",
+which frames the credit and keeps it out of the way on the page.
+Place it at the end of the item's own div,
+so it travels with the fragment when a host site includes it:
 
 ```markdown
-::: {.attribution}
-Source: adapted from the rme notes'
+::: {.callout-note collapse="true"}
+#### Source
+
+Adapted from the rme notes'
 [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting);
 see also @james2021islr2e [sec. 5.1].
 :::

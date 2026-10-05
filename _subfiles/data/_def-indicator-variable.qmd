@@ -7,8 +7,10 @@ Dobson and Barnett: text checked in the PDF; page number not recorded.
 An **indicator variable** is a
 [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
 
-::: {.attribution}
-Source: adapted from the rme notes' [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation) ("Dummy variables with values 0 and 1 are also called indicator variables");
+::: {.callout-note collapse="true"}
+#### Source
+
+Adapted from the rme notes' [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation) ("Dummy variables with values 0 and 1 are also called indicator variables");
 @dobson4e [sec. 2.4] say the same.
 :::
 

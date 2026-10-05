@@ -12,8 +12,10 @@ $$
 \cvest{n} = \frac{1}{n} \sumin \sqf{\frac{\prederr_i}{1 - \lev{i}}}.
 $$ {#eq-loocv-shortcut}
 
-::: {.attribution}
-Source: @james2021islr2e [sec. 5.1.2] states this formula for least squares linear or polynomial regression,
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 5.1.2] states this formula for least squares linear or polynomial regression,
 and @hastie2009elements [sec. 7.10.1] for many linear fitting methods.
 :::
 

@@ -14,8 +14,10 @@ $$
 \lev{i} \eqdef \vxi^{\top} A^{-1} \vxi.
 $$ {#eq-leverage}
 
-::: {.attribution}
-Source: @james2021islr2e [sec. 3.3.3],
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 3.3.3],
 written here with the covariate vectors and the matrix $A$ of [the vector form of the OLS estimates](correlation-regression.qmd#thm-ols-slr-vector).
 In R, `hatvalues()` returns the leverages of an `lm` fit.
 :::

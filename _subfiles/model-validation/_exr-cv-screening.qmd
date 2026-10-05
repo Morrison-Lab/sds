@@ -24,8 +24,10 @@ Answer the following:
    using only that fold's training observations.
    What estimate does this give?
 
-::: {.attribution}
-Source: a regression version of the classification example in @hastie2009elements [sec. 7.10.2],
+::: {.callout-note collapse="true"}
+#### Source
+
+A regression version of the classification example in @hastie2009elements [sec. 7.10.2],
 "The Wrong and Right Way to Do Cross-validation".
 :::
 

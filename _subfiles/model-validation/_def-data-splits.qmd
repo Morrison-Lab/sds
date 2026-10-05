@@ -13,8 +13,10 @@ A **training/validation/test split** divides the data into three sets:
 - Use the *test set* once at the end
   to estimate final out-of-sample performance.
 
-::: {.attribution}
-Source: adapted from the rme notes' section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits),
+::: {.callout-note collapse="true"}
+#### Source
+
+Adapted from the rme notes' section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits),
 which follows @james2021islr2e [pp. 198--201].
 :::
 

@@ -12,8 +12,10 @@ $$
 \cvest{n} = \frac{1}{n} \sumin \sqf{\fittedwo{i}{x_i} - y_i}.
 $$ {#eq-loocv}
 
-::: {.attribution}
-Source: @james2021islr2e [sec. 5.1.2].
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 5.1.2].
 :::
 
 :::

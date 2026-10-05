@@ -12,8 +12,10 @@ The **min-max scaled value** of $x_i$ is
 
 $$\frac{x_i - x_{\min}}{x_{\max} - x_{\min}}$$
 
-::: {.attribution}
-Source: @geron2017hands [ch. 2].
+::: {.callout-note collapse="true"}
+#### Source
+
+@geron2017hands [ch. 2].
 :::
 
 :::

@@ -5,8 +5,10 @@ For $n \ge 2$ observations with $s > 0$,
 the [standardized values](#def-standardization) $z_1, \ldots, z_n$
 have sample mean $0$ and sample standard deviation $1$.
 
-::: {.attribution}
-Source: stated for the standardized Caravan variables in @james2021islr2e [sec. 4.7.6, p. 183];
+::: {.callout-note collapse="true"}
+#### Source
+
+Stated for the standardized Caravan variables in @james2021islr2e [sec. 4.7.6, p. 183];
 the proof is the elementary calculation.
 :::
 

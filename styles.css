@@ -235,11 +235,3 @@ body.quarto-dark code:not(pre > code) {
 .equation-anchor:hover {
   opacity: 1;
 }
-
-/* Source attributions: a typed div (`::: {.attribution}`) at the end of an
-   item, credited where readers can see it but set apart from its content. */
-.attribution {
-  font-size: 0.875em;
-  opacity: 0.75;
-  margin-top: 0.5rem;
-}
