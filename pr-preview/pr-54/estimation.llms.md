@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 12:10:52 (PDT)
+Last modified: 2026-10-04 22:11:37 (PDT)
 
 ## 1 Scientific models
 
@@ -160,7 +160,9 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Remark 2* (Prediction MSE, estimator MSE and RSS). [Definition 9](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](#def-mse) takes an expectation over repeated samples. On the data used to fit the model, \\e_i^2 = r_i^2\\ ([Remark 1](#rem-prediction-error)), so \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \sum\_{i=1}^nr_i^2\\: the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\.
+> *Remark 2* (Prediction MSE, estimator MSE and RSS). [Definition 9](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([mean squared error and RSS](correlation-regression.llms.md#thm-mse-rss)):
+>
+> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\tilde{\theta}}), \qquad \text{RSS}(\hat{\tilde{\theta}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
 > **NOTE:**
 >
