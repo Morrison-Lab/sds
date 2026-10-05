@@ -1,21 +1,3 @@
 The same estimates follow from a derivation in vector notation,
 which treats $(\intcoef, \coef{x})$ as a single vector
 instead of differentiating with respect to each component separately.
-
-Use the coefficient vector $\vcoef = \tp{\paren{\intcoef, \coef{x}}}$
-from @exm-normal-equations-slr,
-and give each observation a covariate vector
-with a leading 1 for the intercept:
-
-$$
-\vxi \eqdef \begin{pmatrix} 1 \\ x_i \end{pmatrix}.
-$$
-
-Each conditional mean is then a dot product,
-$\mean(x_i) = \intcoef + \coef{x} x_i = \dprod{\vxi}{\vcoef}$,
-so with $\vth = \vcoef$ the residual sum of squares (@exm-rss-slr)
-is a function of $\vcoef$:
-
-$$
-\text{RSS}(\vcoef) = \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2.
-$$

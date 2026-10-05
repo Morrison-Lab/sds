@@ -176,6 +176,20 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-ols-slr-vector-setup.qmd >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_def-slr-covariate-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-slr-mean-dot-product.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-slr-mean-dot-product.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-rss-vector.qmd >}}
+
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-gradient-vector.qmd >}}

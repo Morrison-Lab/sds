@@ -1,7 +1,8 @@
 :::{#exr-rss-gradient-vector}
 #### Gradient of RSS in vector notation
 
-Find the gradient $\deriv{\vcoef} \text{RSS}(\vcoef)$
+Find the gradient of the residual sum of squares in vector notation (@exm-rss-vector),
+$\deriv{\vcoef} \text{RSS}(\vcoef)$,
 by differentiating with respect to the vector $\vcoef$ directly,
 rather than one component at a time.
 :::
@@ -11,7 +12,7 @@ rather than one component at a time.
 :::{#sol-rss-gradient-vector}
 
 Differentiate one operation at a time,
-starting from the definition of $\text{RSS}(\vcoef)$:
+starting from $\text{RSS}(\vcoef)$ in vector notation (@exm-rss-vector):
 
 $$
 \begin{aligned}

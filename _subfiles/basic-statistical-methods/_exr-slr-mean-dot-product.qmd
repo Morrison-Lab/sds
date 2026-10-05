@@ -1,0 +1,37 @@
+:::{#exr-slr-mean-dot-product}
+#### Mean as a dot product
+
+Show that in simple linear regression (@def-slr),
+the conditional mean $\mean(x_i)$ is the dot product
+of the covariate vector $\vxi$ (@def-slr-covariate-vector)
+and the coefficient vector $\vcoef = \tp{\paren{\intcoef, \coef{x}}}$ (@exm-normal-equations-slr):
+$\mean(x_i) = \dprod{\vxi}{\vcoef}$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-slr-mean-dot-product}
+
+Start from the dot product:
+
+$$
+\begin{aligned}
+\dprod{\vxi}{\vcoef}
+&= \dprod{\begin{pmatrix} 1 \\ x_i \end{pmatrix}}{\vcoef}
+&& \text{(definition of $\vxi$)}\\
+&= \dprod{\begin{pmatrix} 1 \\ x_i \end{pmatrix}}{\begin{pmatrix} \intcoef \\ \coef{x} \end{pmatrix}}
+&& \text{(definition of $\vcoef$, written as a column)}\\
+&= 1 \cdot \intcoef + x_i \coef{x}
+&& \text{(definition of the dot product)}\\
+&= \intcoef + x_i \coef{x}
+&& \text{($1 \cdot a = a$)}\\
+&= \intcoef + \coef{x} x_i
+&& \text{(reorder the factors)}\\
+&= \mean(x_i)
+&& \text{(definition of $\mean(x)$)}
+\end{aligned}
+$$
+
+So $\mean(x_i) = \dprod{\vxi}{\vcoef}$.
+
+:::
