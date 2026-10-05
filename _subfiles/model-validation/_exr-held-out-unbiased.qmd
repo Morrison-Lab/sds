@@ -1,0 +1,18 @@
+:::{#exr-held-out-unbiased}
+#### A held-out set estimates the generalization error
+
+A prediction rule $\fitted$ is fitted to a training set $\mathcal{T}$.
+A held-out set of $m$ observations
+$(x_{0,1}, y_{0,1}), \ldots, (x_{0,m}, y_{0,m})$
+is drawn from the same population as the new observation $(X_0, Y_0)$
+of @def-generalization-error,
+each independently of $\mathcal{T}$.
+Write $\prederr_{0,j} \eqdef \fitted(x_{0,j}) - y_{0,j}$
+for the [prediction error](estimation.qmd#def-prediction-error)
+on held-out observation $j$.
+
+Show that, given $\mathcal{T}$,
+the expected [mean squared error](estimation.qmd#def-prediction-mse)
+of the held-out predictions is $\generr_{\mathcal{T}}$.
+
+:::

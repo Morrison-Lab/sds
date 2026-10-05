@@ -1,0 +1,15 @@
+:::{#rem-training-mse-optimistic}
+#### Training error is optimistic
+
+The same argument fails for the training set.
+The training pairs are not independent of $\mathcal{T}$:
+they are $\mathcal{T}$,
+and $\fitted$ was fitted to make their prediction errors small.
+So the third line of @sol-held-out-unbiased does not hold for them,
+and the training mean squared error is typically *smaller*
+than $\generr_{\mathcal{T}}$ [@hastie2009elements, sec. 7.4].
+@exr-overfitting shows the pattern:
+training RMSE keeps falling as the degree grows,
+while held-out RMSE does not.
+
+:::

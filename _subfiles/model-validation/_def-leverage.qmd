@@ -1,0 +1,24 @@
+<!--
+Source: James, Witten, Hastie and Tibshirani (2021), ISLR 2e,
+section 3.3.3 (leverage) and section 5.1.2 (its use in LOOCV).
+Written with the covariate vectors and the matrix A of the sds
+OLS derivation (correlation-regression.qmd, @thm-ols-slr-vector),
+extended to any linear model whose covariate vector starts with a 1.
+In R, stats::hatvalues() returns these values for an lm fit.
+-->
+:::{#def-leverage}
+#### Leverage
+
+Consider a linear model fitted by [ordinary least squares](correlation-regression.qmd#def-ols),
+in which observation $i$ has
+[covariate vector](correlation-regression.qmd#def-slr-covariate-vector) $\vxi$
+(a 1 for the intercept, followed by the model's terms at observation $i$,
+such as $x_i$ and $x_i^2$),
+and $A \eqdef \sumin \soprod{\vxi}$ is invertible.
+The **leverage** of observation $i$ is
+
+$$
+\lev{i} \eqdef \vxi^{\top} A^{-1} \vxi.
+$$ {#eq-leverage}
+
+:::

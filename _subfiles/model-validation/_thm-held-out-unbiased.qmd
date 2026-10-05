@@ -1,0 +1,19 @@
+:::{#thm-held-out-unbiased}
+#### Held-out mean squared error is unbiased
+
+If a held-out set is drawn from the same population as $(X_0, Y_0)$
+and independently of the training set $\mathcal{T}$,
+then the [mean squared error](estimation.qmd#def-prediction-mse)
+of the held-out predictions
+is a conditionally [unbiased](estimation.qmd#def-unbiased) estimator
+of the [generalization error](#def-generalization-error):
+
+$$
+\E{\frac{1}{m} \sum_{j=1}^m \prederr_{0,j}^2 \mid \mathcal{T}} = \generr_{\mathcal{T}}.
+$$
+
+:::
+
+::: proof
+This is @sol-held-out-unbiased.
+:::

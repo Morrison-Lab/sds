@@ -1,0 +1,30 @@
+<!--
+Source: James, Witten, Hastie and Tibshirani (2021), ISLR 2e,
+section 5.1.2, which states the formula for least squares
+linear or polynomial regression.
+Hastie, Tibshirani and Friedman (2009), ESL 2e, section 7.10.1,
+states the same identity for linear fitting methods.
+Checked numerically in @exm-loocv-shortcut.
+-->
+:::{#thm-loocv-shortcut}
+#### Leave-one-out cross-validation for least squares
+
+For a linear model fitted by [ordinary least squares](correlation-regression.qmd#def-ols)
+with every [leverage](#def-leverage) $\lev{i} < 1$,
+the [leave-one-out estimate](#def-loocv)
+can be computed from the single fit to all $n$ observations,
+from its [prediction errors](estimation.qmd#def-prediction-error)
+$\prederr_i = \fitted_i - y_i$ and its leverages:
+
+$$
+\cvest{n} = \frac{1}{n} \sumin \sqf{\frac{\prederr_i}{1 - \lev{i}}}.
+$$ {#eq-loocv-shortcut}
+
+:::
+
+::: proof
+We state this without proof;
+see @james2021islr2e [sec. 5.1.2]
+and @hastie2009elements [sec. 7.10.1].
+@exm-loocv-shortcut checks it numerically.
+:::

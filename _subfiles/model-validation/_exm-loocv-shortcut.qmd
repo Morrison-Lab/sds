@@ -1,0 +1,59 @@
+:::{#exm-loocv-shortcut}
+#### Leave-one-out cross-validation of the `mtcars` polynomials
+
+This example computes $\cvest{32}$ for the four `mtcars` polynomials
+of @exr-overfitting in two ways:
+by fitting each model 32 times, as in @eq-loocv,
+and by the single-fit formula of @thm-loocv-shortcut,
+with the leverages from `hatvalues()`.
+
+```{r}
+#| label: loocv-mtcars
+#| code-fold: false
+loocv_by_refitting <- function(formula, data) {
+  y <- stats::model.response(stats::model.frame(formula, data))
+  sq_errors <- purrr::map_dbl(seq_len(nrow(data)), \(i) {
+    fit <- lm(formula, data = data[-i, ])
+    (predict(fit, newdata = data[i, ]) - y[i])^2
+  })
+  mean(sq_errors)
+}
+
+loocv_by_formula <- function(formula, data) {
+  fit <- lm(formula, data = data)
+  pred_error <- fitted(fit) - stats::model.response(model.frame(fit))
+  mean((pred_error / (1 - hatvalues(fit)))^2)
+}
+
+mtcars_loocv <- tibble::tibble(degree = mtcars_degrees) |>
+  dplyr::mutate(
+    refitting = purrr::map_dbl(
+      degree,
+      \(d) loocv_by_refitting(mpg ~ poly(wt, d), mtcars)
+    ),
+    formula = purrr::map_dbl(
+      degree,
+      \(d) loocv_by_formula(mpg ~ poly(wt, d), mtcars)
+    ),
+    loocv_rmse = sqrt(formula)
+  )
+
+mtcars_loocv
+```
+
+```{r}
+#| label: loocv-mtcars-check
+loocv_max_diff <- max(abs(mtcars_loocv$refitting - mtcars_loocv$formula))
+mtcars_best_loocv <-
+  mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
+c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
+```
+
+The two columns differ by at most `r format(signif(loocv_max_diff, 2), scientific = TRUE)`,
+which is rounding error.
+The single-fit formula needs one fit per model instead of 32.
+LOOCV picks degree `r mtcars_best_loocv`,
+and because LOOCV is not random (@sol-loocv),
+rerunning it always gives the same choice.
+
+:::

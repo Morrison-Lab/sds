@@ -1,0 +1,23 @@
+:::{#rem-cv-every-step}
+#### Cross-validate the whole procedure
+
+Every step that uses the outcome is part of fitting,
+and must be repeated inside each fold
+using only that fold's training observations
+[@hastie2009elements, sec. 7.10.2].
+Such steps include:
+
+- screening or selecting predictors, as in @exr-cv-screening;
+- choosing transformations or a polynomial degree;
+- tuning a penalty or other hyperparameter.
+
+@hastie2009elements [sec. 7.10.2] note that steps using only the predictors,
+such as dropping predictors with almost no variation,
+can be done once on all the data before the folds are formed.
+Repeating such a step inside each fold is never wrong, though,
+and it scores each held-out fold the way new data would be scored.
+Examples are estimating the mean and standard deviation used for
+[standardization](exploratory-descriptive.qmd#def-standardization),
+and the values used to fill in missing data.
+
+:::

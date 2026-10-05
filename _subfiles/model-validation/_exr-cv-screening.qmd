@@ -1,0 +1,32 @@
+<!--
+Source: the regression analogue of the classification example in
+Hastie, Tibshirani and Friedman (2009), ESL 2e, section 7.10.2,
+"The Wrong and Right Way to Do Cross-validation".
+-->
+:::{#exr-cv-screening}
+#### Screening predictors before cross-validating
+
+A data set has $n = 50$ observations of an outcome $Y$
+and of $p = 1000$ candidate predictors.
+In fact every variable is independent standard normal noise,
+so no predictor carries any information about $Y$.
+
+An analyst
+
+1. picks the 10 predictors most correlated with $Y$ in all 50 observations,
+   then
+2. estimates the prediction error of a linear model in those 10 predictors
+   by 5-fold cross-validation.
+
+Answer the following:
+
+1. What is the smallest possible generalization error (@eq-generalization-error)
+   of any prediction rule for $Y$ here?
+2. Simulate the analyst's procedure.
+   What cross-validation estimate does it report?
+3. Repeat the simulation,
+   but carry out step 1 inside each fold,
+   using only that fold's training observations.
+   What estimate does this give?
+
+:::

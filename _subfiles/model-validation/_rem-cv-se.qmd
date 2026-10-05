@@ -1,0 +1,13 @@
+:::{#rem-cv-se}
+#### The standard error is only a rough guide
+
+@eq-cv-se treats the $k$ fold errors
+as if they were independent,
+which they are not:
+every pair of folds shares $k - 2$ folds of training data.
+So $\operatorname{SE}_{\text{CV}}$ is a rough indication
+of how much $\cvest{k}$ might change with a different sample,
+not an exact [standard error](estimation.qmd#def-SE)
+[@hastie2009elements, sec. 7.10.1].
+
+:::

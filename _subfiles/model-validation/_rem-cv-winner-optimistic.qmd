@@ -1,0 +1,22 @@
+<!--
+Source: ported from lds (Morrison-Lab/lds),
+chapters/_subfiles/big-ideas/_rem-cv-is-a-dev-set.qmd.
+-->
+:::{#rem-cv-winner-optimistic}
+#### Cross-validation replaces the validation set, not the test set
+
+Used to choose between models,
+cross-validation takes the place of the *validation* set
+of @def-data-splits,
+the one consulted again and again,
+and not of the test set, which stays unused until the end.
+The cross-validation estimate of the winning model is optimistic:
+that model won partly because its folds happened to suit it,
+so its estimate is the smallest of several noisy estimates
+[@hastie2009elements, sec. 7.10].
+An honest estimate of the chosen model's error needs data
+that took no part in the choice,
+such as a test set, or an outer cross-validation loop
+that repeats the whole selection inside each of its folds.
+
+:::

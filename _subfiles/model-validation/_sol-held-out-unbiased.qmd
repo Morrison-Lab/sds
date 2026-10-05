@@ -1,0 +1,34 @@
+:::{#sol-held-out-unbiased}
+
+Given $\mathcal{T}$, the rule $\fitted$ is fixed.
+Each held-out pair has the same distribution as $(X_0, Y_0)$
+and is independent of $\mathcal{T}$,
+so each squared prediction error has conditional expectation
+$\E{\prederr_{0,j}^2 \mid \mathcal{T}} = \generr_{\mathcal{T}}$
+by @eq-generalization-error.
+Then
+
+$$
+\ba
+\E{\frac{1}{m} \sum_{j=1}^m \prederr_{0,j}^2 \mid \mathcal{T}}
+&= \frac{1}{m} \E{\sum_{j=1}^m \prederr_{0,j}^2 \mid \mathcal{T}}
+&& \text{(factor out the constant } 1/m \text{)}
+\\
+&= \frac{1}{m} \sum_{j=1}^m \E{\prederr_{0,j}^2 \mid \mathcal{T}}
+&& \text{(expectation of a sum)}
+\\
+&= \frac{1}{m} \sum_{j=1}^m \generr_{\mathcal{T}}
+&& \text{(each term, as above)}
+\\
+&= \frac{1}{m} \cdot m \, \generr_{\mathcal{T}}
+&& \text{(sum of } m \text{ equal terms)}
+\\
+&= \generr_{\mathcal{T}}
+&& (\tfrac{1}{m} \cdot m = 1)
+\ea
+$$
+
+The third line is the one that needs the held-out set
+to be independent of $\mathcal{T}$.
+
+:::

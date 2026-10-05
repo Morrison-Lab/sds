@@ -1,0 +1,26 @@
+:::{#rem-choosing-k}
+#### Choosing the number of folds
+
+The number of folds $k$ trades bias against variance
+in the cross-validation estimate itself
+[@james2021islr2e, sec. 5.1.4]:
+
+- **Bias.**
+  Each rule in @eq-cv-estimate is fitted to about $n (k - 1) / k$ observations.
+  A rule fitted to fewer observations usually predicts worse,
+  so $\cvest{k}$ tends to overstate the error of a rule fitted to all $n$.
+  The overstatement shrinks as $k$ grows.
+- **Variance.**
+  As $k$ grows,
+  the $k$ training sets overlap more,
+  so the $k$ fitted rules are more alike
+  and their errors are more strongly correlated.
+  An average of strongly correlated errors varies more
+  from one data set to another than an average of weakly correlated ones.
+- **Computation.**
+  The model is fitted $k$ times.
+
+$k = 5$ or $k = 10$ is the usual compromise.
+The largest choice, $k = n$, is the subject of @sec-loocv.
+
+:::

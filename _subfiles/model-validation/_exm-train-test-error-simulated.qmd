@@ -1,0 +1,121 @@
+<!--
+Simulation in the spirit of the lds figure
+chapters/_subfiles/big-ideas/_fig-train-vs-held-out.qmd (Morrison-Lab/lds),
+rewritten in R with a known true mean function,
+so the generalization error can be estimated
+from a large held-out set (@thm-held-out-unbiased).
+-->
+:::{#exm-train-test-error-simulated}
+#### Training error and generalization error by degree
+
+Real data never reveal $\generr_{\mathcal{T}}$,
+but a simulation can,
+because it can draw as many new observations as we like.
+Here the population is known:
+$X \sim \text{Uniform}(0, 1)$ and,
+given $X = x$,
+$Y$ is normal with mean $\sin(2 \pi x)$
+and standard deviation $\sigma = 0.3$.
+We draw one training set of $n = 30$ observations,
+fit a polynomial in $x$ of each degree from 1 to 10 by least squares,
+and score each fit on the training set
+and on $10{,}000$ new observations.
+By @thm-held-out-unbiased,
+the second score is an unbiased estimate of $\generr_{\mathcal{T}}$,
+and with $10{,}000$ observations it is a precise one.
+
+```{r}
+#| label: sim-train-test-setup
+#| code-fold: false
+sim_sigma <- 0.3
+sim_truth <- function(x) sin(2 * pi * x)
+sim_draw <- function(n) {
+  x <- stats::runif(n)
+  tibble::tibble(x = x, y = sim_truth(x) + stats::rnorm(n, sd = sim_sigma))
+}
+mse <- function(model, data) {
+  mean((predict(model, newdata = data) - data$y)^2)
+}
+
+set.seed(1)
+sim_train <- sim_draw(30)
+sim_new <- sim_draw(10000)
+sim_degrees <- 1:10
+
+sim_errors <- tibble::tibble(degree = sim_degrees) |>
+  dplyr::mutate(
+    fit = purrr::map(degree, \(d) lm(y ~ poly(x, d), data = sim_train)),
+    training = purrr::map_dbl(fit, mse, data = sim_train),
+    generalization = purrr::map_dbl(fit, mse, data = sim_new)
+  ) |>
+  dplyr::select(-fit)
+
+sim_errors
+```
+
+:::{#fig-train-test-error}
+
+```{r}
+#| label: train-test-error-plot
+#| fig-alt: Mean squared error against polynomial degree from 1 to 10.
+#|   The training error falls as the degree grows.
+#|   The estimated generalization error drops sharply at degree 3,
+#|   is smallest at a middle degree,
+#|   and creeps up for the highest degrees.
+#|   A dashed horizontal line marks the noise variance, 0.09.
+sim_errors |>
+  tidyr::pivot_longer(
+    c(training, generalization),
+    names_to = "error",
+    values_to = "mse"
+  ) |>
+  ggplot2::ggplot(ggplot2::aes(degree, mse, colour = error, shape = error)) +
+  ggplot2::geom_hline(yintercept = sim_sigma^2, linetype = "dashed") +
+  ggplot2::geom_line() +
+  ggplot2::geom_point(size = 2) +
+  ggplot2::scale_x_continuous(breaks = sim_degrees) +
+  ggplot2::scale_y_log10() +
+  ggplot2::labs(
+    x = "polynomial degree",
+    y = "mean squared error (log scale)",
+    colour = NULL,
+    shape = NULL
+  ) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "top")
+```
+
+Training mean squared error and estimated generalization error
+(mean squared error on $10{,}000$ new observations)
+of polynomial fits to one simulated training set of $n = 30$.
+The dashed line is the noise variance $\sigma^2$,
+the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error).
+:::
+
+```{r}
+#| label: sim-train-test-summary
+sim_best_generalization <-
+  sim_errors$degree[which.min(sim_errors$generalization)]
+sim_best_training <- sim_errors$degree[which.min(sim_errors$training)]
+sim_n_below <- c(
+  training = sum(sim_errors$training < sim_sigma^2),
+  generalization = sum(sim_errors$generalization < sim_sigma^2)
+)
+c(
+  best_by_training = sim_best_training,
+  best_by_generalization = sim_best_generalization,
+  n_below_sigma2 = sim_n_below
+)
+```
+
+The training error is smallest at degree `r sim_best_training`
+and never rises as the degree grows,
+because each polynomial family contains the one before it.
+The generalization error is smallest at degree `r sim_best_generalization`.
+No prediction rule can have generalization error below $\sigma^2 = `r sim_sigma^2`$.
+Yet the training error falls below $\sigma^2$
+at `r sim_n_below[["training"]]` of the ten degrees,
+and the estimated generalization error at `r sim_n_below[["generalization"]]`:
+the training error is [optimistic](#rem-training-mse-optimistic).
+
+:::

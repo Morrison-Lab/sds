@@ -1,0 +1,18 @@
+<!--
+Source: James, Witten, Hastie and Tibshirani (2021), ISLR 2e, section 5.1.2.
+-->
+:::{#def-loocv}
+#### Leave-one-out cross-validation
+
+**Leave-one-out cross-validation (LOOCV)**
+is [$k$-fold cross-validation](#def-kfold) with $k = n$,
+so that each fold holds one observation.
+Writing $\fittedwo{i}{\cdot}$ for the rule fitted
+to all observations except observation $i$,
+its estimate (@eq-cv-estimate) is
+
+$$
+\cvest{n} \eqdef \frac{1}{n} \sumin \sqf{\fittedwo{i}{x_i} - y_i}.
+$$ {#eq-loocv}
+
+:::

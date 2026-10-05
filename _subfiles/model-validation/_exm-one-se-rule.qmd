@@ -1,0 +1,93 @@
+:::{#exm-one-se-rule}
+#### The one-standard-error rule for the simulated polynomials
+
+This example applies 10-fold cross-validation
+to the simulated training set of @exm-train-test-error-simulated,
+records the mean squared error in each fold,
+and applies @def-one-se-rule to the ten degrees.
+
+```{r}
+#| label: one-se-simulated
+cv_fold_mse <- function(formula, data, folds) {
+  y <- stats::model.response(stats::model.frame(formula, data))
+  purrr::map_dbl(sort(unique(folds)), \(j) {
+    in_fold <- folds == j
+    fit <- lm(formula, data = data[!in_fold, ])
+    mean((predict(fit, newdata = data[in_fold, ]) - y[in_fold])^2)
+  })
+}
+
+set.seed(10)
+sim_folds_ten <- assign_folds(nrow(sim_train), k = 10)
+
+sim_cv_ten <- tibble::tibble(degree = sim_degrees) |>
+  dplyr::mutate(
+    fold_mse = purrr::map(
+      degree,
+      \(d) cv_fold_mse(y ~ poly(x, d), sim_train, sim_folds_ten)
+    ),
+    cv = purrr::map_dbl(fold_mse, mean),
+    se = purrr::map_dbl(fold_mse, \(v) sd(v) / sqrt(length(v)))
+  ) |>
+  dplyr::select(-fold_mse)
+
+sim_min <- dplyr::slice_min(sim_cv_ten, cv, n = 1)
+sim_one_se <-
+  sim_cv_ten |>
+  dplyr::filter(cv <= sim_min$cv + sim_min$se) |>
+  dplyr::slice_min(degree, n = 1)
+
+sim_cv_ten
+```
+
+With 30 observations and 10 folds,
+each fold holds 3 observations,
+so all ten folds have equal size
+and `cv` is $\cvest{10}$ (@rem-cv-estimate).
+
+:::{#fig-one-se-rule}
+
+```{r}
+#| label: one-se-rule-plot
+#| fig-alt: Ten-fold cross-validation estimate against polynomial degree
+#|   from 1 to 10, with error bars of one standard error.
+#|   A dashed horizontal line sits one standard error above the
+#|   smallest estimate.
+sim_cv_ten |>
+  ggplot2::ggplot(ggplot2::aes(degree, cv)) +
+  ggplot2::geom_hline(
+    yintercept = sim_min$cv + sim_min$se,
+    linetype = "dashed"
+  ) +
+  ggplot2::geom_errorbar(
+    ggplot2::aes(ymin = cv - se, ymax = cv + se),
+    width = 0.2
+  ) +
+  ggplot2::geom_point(size = 2) +
+  ggplot2::scale_x_continuous(breaks = sim_degrees) +
+  ggplot2::scale_y_log10() +
+  ggplot2::labs(
+    x = "polynomial degree",
+    y = "10-fold CV estimate (log scale)"
+  ) +
+  ggplot2::theme_bw()
+```
+
+10-fold cross-validation estimates,
+with bars of one standard error (@eq-cv-se).
+The dashed line is one standard error above the smallest estimate.
+:::
+
+The smallest estimate is at degree `r sim_min$degree`.
+The least flexible degree within one standard error of it
+is degree `r sim_one_se$degree`,
+which is the one-standard-error rule's choice.
+The rule prefers the simpler model
+when the data cannot clearly tell the two apart.
+Because the data are simulated,
+we can check both choices against
+the estimated generalization errors of @exm-train-test-error-simulated:
+`r round(sim_errors$generalization[sim_min$degree], 3)` for degree `r sim_min$degree`
+and `r round(sim_errors$generalization[sim_one_se$degree], 3)` for degree `r sim_one_se$degree`.
+
+:::

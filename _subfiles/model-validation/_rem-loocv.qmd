@@ -1,0 +1,15 @@
+:::{#rem-loocv}
+#### When to use leave-one-out cross-validation
+
+LOOCV is the $k = n$ end of @rem-choosing-k:
+each rule is fitted to $n - 1$ observations,
+so its bias is the smallest of any $k$,
+but the $n$ training sets are nearly identical,
+so its variance can be larger than that of 5- or 10-fold cross-validation
+[@james2021islr2e, sec. 5.1.4].
+For least squares fits,
+@thm-loocv-shortcut removes its computational cost;
+for most other fitting methods,
+it requires $n$ fits.
+
+:::

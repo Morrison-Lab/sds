@@ -1,0 +1,84 @@
+:::{#exm-kfold-mtcars}
+#### Four-fold cross-validation of the `mtcars` polynomials
+
+This example applies the $k = 4$ folds of @exr-kfold
+to the four polynomial models of @exr-overfitting,
+now using all $n = 32$ cars
+and the `cv_mse()` function of @exm-kfold-simulated.
+The fold assignment is random,
+so the estimate is too;
+to show how much,
+we repeat the whole procedure with 5 different random fold assignments.
+
+```{r}
+#| label: cv-mtcars
+mtcars_degrees <- 1:4
+n_repeats <- 5
+
+set.seed(32)
+mtcars_cv <-
+  tidyr::expand_grid(repeat_id = seq_len(n_repeats), degree = mtcars_degrees) |>
+  dplyr::group_by(repeat_id) |>
+  dplyr::mutate(
+    rmse = {
+      folds <- assign_folds(nrow(mtcars), k = 4)
+      purrr::map_dbl(
+        degree,
+        \(d) sqrt(cv_mse(mpg ~ poly(wt, d), mtcars, folds))
+      )
+    }
+  ) |>
+  dplyr::ungroup() |>
+  tidyr::pivot_wider(
+    names_from = degree,
+    values_from = rmse,
+    names_prefix = "degree_"
+  )
+
+mtcars_cv
+```
+
+:::{#tbl-cv-mtcars}
+
+```{r}
+#| label: cv-mtcars-best
+mtcars_cv_best <-
+  mtcars_cv |>
+  tidyr::pivot_longer(
+    -repeat_id,
+    names_to = "degree",
+    names_prefix = "degree_",
+    values_to = "rmse"
+  ) |>
+  dplyr::group_by(repeat_id) |>
+  dplyr::slice_min(rmse, n = 1) |>
+  dplyr::ungroup()
+
+mtcars_cv_best
+```
+
+Degree with the smallest 4-fold cross-validated RMSE
+in each of `r n_repeats` random fold assignments
+:::
+
+```{r}
+#| label: cv-mtcars-summary
+mtcars_cv_range <-
+  mtcars_cv |>
+  dplyr::summarise(
+    dplyr::across(dplyr::starts_with("degree_"), \(v) diff(range(v)))
+  )
+mtcars_cv_range
+```
+
+Each row of the first table holds, for each degree,
+the square root of $\cvest{4}$ (@eq-cv-estimate) for one fold assignment.
+Across fold assignments,
+the estimate for one degree varies by as much as
+`r round(max(unlist(mtcars_cv_range)), 2)` mpg,
+and the chosen degree is `r knitr::combine_words(sort(unique(mtcars_cv_best$degree)), and = " or ")`.
+With only 32 cars,
+the choice between neighboring degrees
+depends partly on how the cars happen to be split.
+
+:::

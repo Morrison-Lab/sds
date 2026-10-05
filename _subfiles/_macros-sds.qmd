@@ -11,3 +11,8 @@
 \providecommand{\fitted}{\hy}
 \providecommand{\prederr}{e}
 \providecommand{\cdev}{\eps}
+\providecommand{\generr}{\operatorname{Err}}
+\providecommand{\cvest}[1]{\operatorname{CV}_{(#1)}}
+\providecommand{\foldof}[1]{\kappa(#1)}
+\providecommand{\fittedwo}[2]{\fitted^{(-#1)}\paren{#2}}
+\providecommand{\lev}[1]{h_{#1}}

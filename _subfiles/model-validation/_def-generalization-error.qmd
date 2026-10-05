@@ -1,0 +1,22 @@
+<!--
+Source: ported from lds (Morrison-Lab/lds),
+chapters/_subfiles/big-ideas/_def-risk.qmd and _exr-define-risk.qmd,
+rewritten for a prediction rule fitted to a training set held fixed.
+The conditional form and the name "test error" follow
+Hastie, Tibshirani and Friedman (2009), ESL 2e, section 7.2.
+-->
+:::{#def-generalization-error}
+#### Generalization error
+
+The **generalization error** of a prediction rule $\fitted$
+fitted to a training set $\mathcal{T}$
+is its expected squared [prediction error](estimation.qmd#def-prediction-error)
+on a new observation $(X_0, Y_0)$
+drawn from the same population independently of $\mathcal{T}$,
+with $\mathcal{T}$ held fixed:
+
+$$
+\generr_{\mathcal{T}} \eqdef \E{\sqf{\fitted(X_0) - Y_0} \mid \mathcal{T}}.
+$$ {#eq-generalization-error}
+
+:::

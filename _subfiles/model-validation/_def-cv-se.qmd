@@ -1,0 +1,21 @@
+<!--
+Source: Hastie, Tibshirani and Friedman (2009), ESL 2e, section 7.10.1,
+which computes standard-error bars for the CV curve from the K per-fold
+errors and states the one-standard-error rule.
+-->
+:::{#def-cv-se}
+#### Standard error of a cross-validation estimate
+
+Let $\operatorname{MSE}_1, \ldots, \operatorname{MSE}_k$
+be the [mean squared errors](estimation.qmd#def-prediction-mse)
+of the predictions for the observations in folds $1, \ldots, k$
+of [$k$-fold cross-validation](#def-kfold),
+and let $s_{\text{CV}}$ be their
+[sample standard deviation](exploratory-descriptive.qmd#def-sample-sd).
+The **standard error** of the cross-validation estimate is
+
+$$
+\operatorname{SE}_{\text{CV}} \eqdef \frac{s_{\text{CV}}}{\sqrt{k}}.
+$$ {#eq-cv-se}
+
+:::
