@@ -1,9 +1,5 @@
 <!--
-Source: ported from rme (Morrison-Lab/rme),
-_subfiles/Linear-models-overview/_sec_linreg_model_selection.qmd,
-#exm-train-validation-test-split. The page citations
-(James et al. 2021, ISLR 2e, p. 213, the validation set approach lab)
-are carried over from rme; the section heading on p. 213 was checked in the PDF.
+The section heading on ISLR p. 213 was checked in the PDF.
 The four near-identical figure chunks of the rme version
 are replaced by one plotting helper.
 -->
@@ -261,6 +257,11 @@ performance_comparison
 
 Validation and test RMSE
 for the chosen model
+:::
+
+::: {.small .text-muted}
+Source: adapted from the rme notes' [numerical example](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#exm-train-validation-test-split),
+which follows the validation-set lab of @james2021islr2e [p. 213].
 :::
 
 :::

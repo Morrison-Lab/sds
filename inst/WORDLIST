@@ -39,6 +39,7 @@ Hutchinson
 Intcoef
 invertible
 kfold
+lds
 lev
 lfloor
 Lik
@@ -57,6 +58,7 @@ SBP
 SERG
 Satterthwaite
 Sherman
+Sizemore
 Slutsky's
 soprod
 Stata

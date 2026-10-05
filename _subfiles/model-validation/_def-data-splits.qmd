@@ -1,9 +1,5 @@
 <!--
-Source: ported from rme (Morrison-Lab/rme),
-_subfiles/Linear-models-overview/_sec_linreg_model_selection.qmd,
-section "Train/validation/test splits", which follows
-James et al. (2021), ISLR 2e, pp. 198-201 (the validation set approach;
-heading verified in the PDF, text paraphrased in rme).
+The ISLR section heading was verified in the PDF; rme paraphrases its text.
 -->
 :::{#def-data-splits}
 #### Training/validation/test split
@@ -16,6 +12,11 @@ A **training/validation/test split** divides the data into three sets:
   or tune hyperparameters.
 - Use the *test set* once at the end
   to estimate final out-of-sample performance.
+
+::: {.small .text-muted}
+Source: adapted from the rme notes' section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits),
+which follows @james2021islr2e [pp. 198--201].
+:::
 
 :::
 

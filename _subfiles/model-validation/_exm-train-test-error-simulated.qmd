@@ -1,10 +1,3 @@
-<!--
-Simulation in the spirit of the lds figure
-chapters/_subfiles/big-ideas/_fig-train-vs-held-out.qmd (Morrison-Lab/lds),
-rewritten in R with a known true mean function,
-so the generalization error can be estimated
-from a large held-out set (@thm-held-out-unbiased).
--->
 :::{#exm-train-test-error-simulated}
 #### Training error and generalization error by degree
 
@@ -116,5 +109,10 @@ at `r sim_n_below[["training"]]` of the ten degrees,
 while the estimated generalization error falls below it
 at `r sim_n_below[["generalization"]]` of them:
 the training error is [optimistic](#rem-training-mse-optimistic).
+
+::: {.small .text-muted}
+Source: modeled on the lds notes' interactive [figure of training and held-out error](https://morrison-lab.github.io/lds/chapters/big-ideas.html#fig-train-vs-held-out),
+rewritten in R with a known true mean function.
+:::
 
 :::

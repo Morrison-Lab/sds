@@ -1,8 +1,3 @@
-<!--
-Source: Hastie, Tibshirani and Friedman (2009), ESL 2e, section 7.10.1,
-which computes standard-error bars for the CV curve from the K per-fold
-errors and states the one-standard-error rule.
--->
 :::{#def-cv-se}
 #### Standard error of a cross-validation estimate
 
@@ -17,5 +12,9 @@ The **standard error** of the cross-validation estimate is
 $$
 \cvse \eqdef \frac{\cvsd}{\sqrt{k}}.
 $$ {#eq-cv-se}
+
+::: {.small .text-muted}
+Source: @hastie2009elements [sec. 7.10.1].
+:::
 
 :::

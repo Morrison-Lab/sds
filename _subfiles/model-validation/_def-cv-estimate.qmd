@@ -1,10 +1,3 @@
-<!--
-Source: James, Witten, Hastie and Tibshirani (2021), ISLR 2e, section 5.1.3
-(the k-fold CV estimate as an average of fold MSEs), and
-Hastie, Tibshirani and Friedman (2009), ESL 2e, section 7.10.1
-(the indexing function kappa and the per-observation form used here).
-The two forms agree when the folds have equal size.
--->
 :::{#def-cv-estimate}
 #### Cross-validation estimate
 
@@ -20,5 +13,10 @@ from the rule fitted without its fold:
 $$
 \cvest{k} \eqdef \frac{1}{n} \sumin \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}.
 $$ {#eq-cv-estimate}
+
+::: {.small .text-muted}
+Source: @james2021islr2e [sec. 5.1.3] for the average of fold mean squared errors;
+@hastie2009elements [sec. 7.10.1] for the per-observation form with the fold index $\foldof{i}$.
+:::
 
 :::

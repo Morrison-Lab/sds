@@ -1,10 +1,3 @@
-<!--
-Source: ported from lds (Morrison-Lab/lds),
-chapters/_subfiles/big-ideas/_def-risk.qmd and _exr-define-risk.qmd,
-rewritten for a prediction rule fitted to a training set held fixed.
-The conditional form and the name "test error" follow
-Hastie, Tibshirani and Friedman (2009), ESL 2e, section 7.2.
--->
 :::{#def-generalization-error}
 #### Generalization error
 
@@ -18,5 +11,12 @@ with $\mathcal{T}$ held fixed:
 $$
 \generr_{\mathcal{T}} \eqdef \E{\sqf{\fitted(X_0) - Y_0} \mid \mathcal{T}}.
 $$ {#eq-generalization-error}
+
+::: {.small .text-muted}
+Source: adapted from the lds notes' [definition of risk](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-risk),
+which adapts Brian Hutchinson's Fall 2025 lecture notes;
+the conditional form, with the training set held fixed,
+follows @hastie2009elements [sec. 7.2].
+:::
 
 :::

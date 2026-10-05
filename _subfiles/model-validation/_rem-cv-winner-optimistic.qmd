@@ -1,7 +1,3 @@
-<!--
-Source: ported from lds (Morrison-Lab/lds),
-chapters/_subfiles/big-ideas/_rem-cv-is-a-dev-set.qmd.
--->
 :::{#rem-cv-winner-optimistic}
 #### Cross-validation replaces the validation set, not the test set
 
@@ -18,5 +14,10 @@ that took no part in the choice
 [@hastie2009elements, sec. 7.2],
 such as a test set, or an outer cross-validation loop
 that repeats the whole selection inside each of its folds.
+
+::: {.small .text-muted}
+Source: adapted from the remark [Cross-validation replaces the development set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#rem-cv-is-a-dev-set) in the lds notes,
+in a section those notes base on a Spring 2025 lecture on generalization by Logan Sizemore.
+:::
 
 :::

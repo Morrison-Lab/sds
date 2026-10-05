@@ -1,11 +1,3 @@
-<!--
-Source: James, Witten, Hastie and Tibshirani (2021), ISLR 2e,
-section 3.3.3 (leverage) and section 5.1.2 (its use in LOOCV).
-Written with the covariate vectors and the matrix A of the sds
-OLS derivation (correlation-regression.qmd, @thm-ols-slr-vector),
-extended to any linear model.
-In R, stats::hatvalues() returns these values for an lm fit.
--->
 :::{#def-leverage}
 #### Leverage
 
@@ -21,5 +13,11 @@ The **leverage** of observation $i$ is
 $$
 \lev{i} \eqdef \vxi^{\top} A^{-1} \vxi.
 $$ {#eq-leverage}
+
+::: {.small .text-muted}
+Source: @james2021islr2e [sec. 3.3.3],
+written here with the covariate vectors and the matrix $A$ of [the vector form of the OLS estimates](correlation-regression.qmd#thm-ols-slr-vector).
+In R, `hatvalues()` returns the leverages of an `lm` fit.
+:::
 
 :::

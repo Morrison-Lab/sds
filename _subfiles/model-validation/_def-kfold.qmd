@@ -1,6 +1,4 @@
 <!--
-Source: ported from rme (Morrison-Lab/rme),
-_subfiles/predictor-selection/_sec-pred-sel-prediction.qmd, #def-kfold.
 The only wording edit: step 3 says "prediction-error measure"
 where rme says "PE measure", since sds does not define PE.
 -->
@@ -16,6 +14,10 @@ In **$k$-fold cross-validation**:
 3. Compute a summary prediction-error measure across all folds.
 
 Values of $k = 5$ or $k = 10$ are typical.
+
+::: {.small .text-muted}
+Source: the rme notes' [definition of $k$-fold cross-validation](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-kfold).
+:::
 
 :::
 
