@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 23:26:19 (PDT)
+Last modified: 2026-10-04 23:32:25 (PDT)
 
 ## 1 Scientific models
 
@@ -56,7 +56,9 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> **Definition 3 (Estimate/estimated value)** In statistics, an **estimate** or **estimated value** \\\hat\theta\\ is an informed guess of an [estimand](#def-estimand) \\\theta\\’s value, computed from observed data \\x_1, \ldots, x_n\\.
+> **Definition 3 (Estimate/estimated value)** In statistics, an **estimate** or **estimated value** \\\hat\theta\\ is an informed guess of an [estimand](#def-estimand) \\\theta\\’s value, computed from the observed data \\x_1, \ldots, x_n\\:
+>
+> \\ \hat\theta= \hat\theta(x_1, \ldots, x_n). \\
 
 > **NOTE:**
 >
@@ -66,7 +68,9 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> **Definition 4 (Estimator)** An **estimator** is a function \\\hat\theta(x_1, \ldots, x_n)\\ that transforms data \\x_1, \ldots, x_n\\ into an [estimate](#def-estimate).
+> **Definition 4 (Estimator)** An **estimator** is the function \\\hat\theta(\cdot)\\ that transforms data into an [estimate](#def-estimate); applied to a random sample \\X_1, \ldots, X_n\\, it is a random variable:
+>
+> \\ \hat\theta(X_1, \ldots, X_n). \\
 
 > **NOTE:**
 >
@@ -152,7 +156,11 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Remark 1* (Prediction errors and residuals). The prediction in [Definition 8](#def-prediction-error) can be a [fitted value](#def-fitted-value) or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value. For an observation that was used to fit the model, the prediction error is the negative of the [residual](#def-residual):
+> *Remark 1* (Prediction errors and residuals). The prediction in [Definition 8](#def-prediction-error) can be a [fitted value](#def-fitted-value) or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value.
+>
+> \\ \begin{aligned} e&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat\theta\right)\mathclose{} &= \hat\theta- \theta && \text{(estimation error)} \end{aligned} \\
+>
+> For an observation that was used to fit the model, the prediction error is the negative of the [residual](#def-residual):
 >
 > \\ \begin{aligned} e_i &= \hat y_i - y_i && \text{(definition of prediction error)}\\ &= -(y_i - \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
 
@@ -323,7 +331,11 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Definition 13 (Unbiased estimator)** An estimator \\\hat\theta\\ is **unbiased** if its [bias](#def-bias) is zero: \\\operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} = 0\\. An estimator whose bias is not zero is **biased**.
+> **Definition 13 (Unbiased estimator)** An estimator \\\hat\theta\\ is **unbiased** if its [bias](#def-bias) is zero:
+>
+> \\ \operatorname{Bias}\mathopen{}\left(\hat\theta\right)\mathclose{} = 0 \\
+>
+> An estimator whose bias is not zero is **biased**.
 
 > **NOTE:**
 >

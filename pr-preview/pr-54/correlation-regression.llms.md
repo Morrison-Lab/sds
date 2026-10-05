@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 23:26:19 (PDT)
+Last modified: 2026-10-04 23:32:25 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -41,7 +41,9 @@ The [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearso
 
 > **NOTE:**
 >
-> **Theorem 1 (Null distribution of the correlation t statistic)** Let the pairs \\(X_1, Y_1), \ldots, (X_n, Y_n)\\ be independent, and let each \\Y_i\\, given \\X_1, \ldots, X_n\\, be Gaussian with a mean and variance that do not depend on the \\X\\ values. Then the statistic \\t\\ of [Definition 2](#def-pearson-test) has the \\t\_{n-2}\\ distribution ([Hogg et al. 2019, sec. 9.6](#ref-hoggtanis2015), pp. 472-473).
+> **Theorem 1 (Null distribution of the correlation t statistic)** Let the pairs \\(X_1, Y_1), \ldots, (X_n, Y_n)\\ be independent, and let each \\Y_i\\, given \\X_1, \ldots, X_n\\, be Gaussian with a mean and variance that do not depend on the \\X\\ values. Then the statistic \\t\\ of [Definition 2](#def-pearson-test) has the \\t\_{n-2}\\ distribution ([Hogg et al. 2019, sec. 9.6](#ref-hoggtanis2015), pp. 472-473):
+>
+> \\ t \sim t\_{n-2}. \\
 
 The conditions of [Theorem 1](#thm-pearson-test-null) hold, for example, when the pairs are independent draws from a bivariate Gaussian distribution with \\\rho = 0\\.
 
@@ -103,7 +105,9 @@ The conditions of [Theorem 1](#thm-pearson-test-null) hold, for example, when t
 
 > **NOTE:**
 >
-> **Definition 3 (Spearman rank correlation)** Replace each \\x_i\\ by its rank among \\x_1, \ldots, x_n\\, and each \\y_i\\ by its rank among \\y_1, \ldots, y_n\\, giving tied values the average of the ranks they span. The **Spearman rank correlation** \\r_S\\ is the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) of the ranks.
+> **Definition 3 (Spearman rank correlation)** Replace each \\x_i\\ by its rank \\u_i\\ among \\x_1, \ldots, x_n\\, and each \\y_i\\ by its rank \\v_i\\ among \\y_1, \ldots, y_n\\, giving tied values the average of the ranks they span. The **Spearman rank correlation** \\r_S\\ is the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) evaluated at the rank pairs:
+>
+> \\ r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\right)\mathclose{}. \\
 
 Because ranks depend only on the ordering of the values, \\r_S\\ measures how close the association is to monotone, whether or not it is linear, and a single extreme value moves \\r_S\\ less than it moves \\r\\.
 
@@ -767,7 +771,9 @@ Each conditional mean is then a dot product, \\\mu(x_i) = \beta\_{0}+ \beta\_{x}
 
 > **NOTE:**
 >
-> **Theorem 6 (\\R^2\\ of a simple linear regression)** For the OLS fit of a simple linear regression, with \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), \\R^2 = r^2\\, where \\r\\ is the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) of the \\x_i\\ and \\y_i\\. In particular, \\0 \le R^2 \le 1\\.
+> **Theorem 6 (\\R^2\\ of a simple linear regression)** For the OLS fit of a simple linear regression, with \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), \\R^2\\ is the square of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ of the \\x_i\\ and \\y_i\\, and so lies between 0 and 1:
+>
+> \\ \begin{aligned} R^2 &= r^2, & 0 \le R^2 &\le 1. \end{aligned} \\
 
 > **NOTE:**
 >

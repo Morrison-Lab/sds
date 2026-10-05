@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-04 23:26:19 (PDT)
+Last modified: 2026-10-04 23:32:25 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -121,7 +121,9 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Definition 5 (Critical point)** A **critical point** of a differentiable function \\f\\ is an input value \\x_0\\ where \\f'(x_0) = 0\\; for a function of a vector, a point where the gradient is the zero vector.
+> **Definition 5 (Critical point)** A **critical point** of a differentiable function \\f\\ is an input value \\x_0\\ where the derivative of \\f\\ is zero, or, for a function of a vector, a point \\\tilde{x}\_0\\ where the gradient \\f'\\ of \\f\\ is the zero vector:
+>
+> \\ \begin{aligned} f'(x_0) &= 0 && \text{(scalar input)}\\ f'(\tilde{x}\_0) &= \tilde{0}&& \text{(vector input)} \end{aligned} \\
 
 From calculus: if \\f(x)\\ is differentiable, its maximum over an interval of input values can occur only at an endpoint of the interval or at a [critical point](#def-critical-point). At a critical point \\x_0\\, \\f''(x_0) \< 0\\ is sufficient for \\x_0\\ to be a local maximum, but not necessary: \\f(x) = -x^4\\ has a maximum at \\x_0 = 0\\, where \\f''(0) = 0\\. For a function of a vector, a negative definite Hessian matrix at a critical point is sufficient for a local maximum.
 
@@ -287,7 +289,9 @@ This pattern is no coincidence. With the mean as the parameter, each of these fo
 
 > **NOTE:**
 >
-> **Definition 8 (Score equation)** The **score equation** (also called the estimating equation) is the equation \\\ell'(\tilde{\theta}) = \mathbf{0}\_{p \times 1}\\, which sets the [score function](#def-score) to zero.
+> **Definition 8 (Score equation)** The **score equation** (also called the estimating equation) is the equation that sets the [score function](#def-score) to zero:
+>
+> \\ \ell'(\tilde{\theta}) = \tilde{0} \\
 
 > **NOTE:**
 >
@@ -615,7 +619,9 @@ The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inferen
 
 > **NOTE:**
 >
-> **Definition 15 (Prediction interval)** A \\100(1-\alpha)\\\\ **prediction interval** for a future random quantity \\Y^\*\\ is a pair of statistics \\L\\ and \\U\\, computed from the observed data, such that \\\Pr(L \le Y^\* \le U) = 1 - \alpha\\, where the probability accounts for the randomness of both the observed data and \\Y^\*\\.
+> **Definition 15 (Prediction interval)** A \\100(1-\alpha)\\\\ **prediction interval** for a future random quantity \\Y^\*\\ is a pair of statistics \\L\\ and \\U\\, computed from the observed data, such that the interval from \\L\\ to \\U\\ contains \\Y^\*\\ with probability \\1 - \alpha\\, where the probability accounts for the randomness of both the observed data and \\Y^\*\\:
+>
+> \\ \Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{} = 1 - \alpha \\
 
 Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat\mu = \bar X\\, and the prediction error \\\bar X^\* - \hat\mu\\ is a difference of independent Gaussian variables, so:
 
