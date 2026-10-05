@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 03:46:28 (PDT)
+Last modified: 2026-10-05 11:30:32 (PDT)
 
 ## 1 Introduction
 
@@ -692,6 +692,8 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 16 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
+>
+> Source: James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
@@ -700,6 +702,8 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **NOTE:**
 >
 > **Theorem 2 (Standardized values have mean 0 and standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
+>
+> Source: stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
 
 > **NOTE:**
 >
@@ -724,6 +728,8 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 17 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
+>
+> Source: Géron ([2017](#ref-geron2017hands), ch. 2).
 
 > **NOTE:**
 >
@@ -780,6 +786,8 @@ Table 5: Summary of selected WCGS variables
 ## References
 
 Géron, Aurélien. 2017. *Hands-on Machine Learning with Scikit-Learn and TensorFlow*. 1st ed. O’Reilly Media.
+
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
 
 Rosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. “Coronary Heart Disease in the Western Collaborative Group Study: Final Follow-up Experience of 8 1/2 Years.” *JAMA* 233 (8): 872–77. <https://doi.org/10.1001/jama.1975.03260080034016>.
 

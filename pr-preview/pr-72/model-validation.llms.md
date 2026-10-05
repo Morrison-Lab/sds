@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 03:46:28 (PDT)
+Last modified: 2026-10-05 11:30:32 (PDT)
 
 ## 1 Overfitting
 
@@ -76,6 +76,8 @@ Last modified: 2026-10-05 03:46:28 (PDT)
 > **NOTE:**
 >
 > **Definition 1 (Overfitting)** **Overfitting** occurs when a model fits the training data well but predicts poorly for new observations. It results from including too many predictors relative to the effective sample size.
+>
+> Source: the rme notes’ [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting).
 
 In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 training cars more closely but do not predict the 12 held-out cars better. The effect is small here: it is the beginning of overfitting, not a dramatic case.
 
@@ -106,6 +108,8 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 > **Definition 2 (Generalization error)** The **generalization error** of a prediction rule \\\hat y\\ fitted to a training set \\\mathcal{T}\\ is its expected squared [prediction error](estimation.llms.md#def-prediction-error) on a new observation \\(X_0, Y_0)\\ drawn from the same population independently of \\\mathcal{T}\\, with \\\mathcal{T}\\ held fixed:
 >
 > \\ \operatorname{Err}\_{\mathcal{T}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{}. \tag{1}\\
+>
+> Source: adapted from the lds notes’ [definition of risk](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-risk), which adapts Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)).
 
 > **NOTE:**
 >
@@ -223,6 +227,8 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 > ```
 >
 > The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The generalization error is smallest at degree 5. No prediction rule can have generalization error below \\\sigma^2 = 0.09\\. Yet the training error falls below \\\sigma^2\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
+>
+> Source: modeled on the lds notes’ interactive [figure of training and held-out error](https://morrison-lab.github.io/lds/chapters/big-ideas.html#fig-train-vs-held-out), rewritten in R with a known true mean function.
 
 ## 3 Training, validation, and test sets
 
@@ -241,6 +247,8 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 > - Use the *training set* to estimate model parameters.
 > - Use the *validation set* to compare candidate models, choose transformations, or tune hyperparameters.
 > - Use the *test set* once at the end to estimate final out-of-sample performance.
+>
+> Source: adapted from the rme notes’ section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits), which follows James et al. ([2021, 198–201](#ref-james2021islr2e)).
 
 This validation approach extends the basic train/test split by separating model tuning from final model assessment. It follows James et al. ([2021, 198–201](#ref-james2021islr2e)).
 
@@ -459,6 +467,8 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 > ```
 >
 > Table 3: Validation and test RMSE for the chosen model
+>
+> Source: adapted from the rme notes’ [numerical example](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#exm-train-validation-test-split), which follows the validation-set lab of James et al. ([2021, 213](#ref-james2021islr2e)).
 
 ## 4 \\k\\-fold cross-validation
 
@@ -491,6 +501,8 @@ Keeping the test set untouched during model building helps avoid optimistic bias
 > 3.  Compute a summary prediction-error measure across all folds.
 >
 > Values of \\k = 5\\ or \\k = 10\\ are typical.
+>
+> Source: the rme notes’ [definition of \\k\\-fold cross-validation](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-kfold).
 
 If data are limited, \\k\\-fold cross-validation can replace the single validation set of [Definition 3](#def-data-splits) for more stable tuning. In [Exercise 5](#exr-kfold), \\k = 4\\ folds of 8 cars each give 4 fits on 24 cars each.
 
@@ -499,6 +511,8 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 > **Definition 5 (Cross-validation estimate)** Let \\\kappa(i) \in \mathopen{}\left\\1, \ldots, k\right\\\mathclose{}\\ be the fold that observation \\i\\ is assigned to in [\\k\\-fold cross-validation](#def-kfold), and let \\\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\\ be the prediction rule fitted to all observations except those in fold \\j\\. The **\\k\\-fold cross-validation estimate** of prediction error is the [mean squared error](estimation.llms.md#def-prediction-mse) of the predictions that each observation receives from the rule fitted without its fold:
 >
 > \\ \operatorname{CV}\_{(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^n\mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{}. \tag{2}\\
+>
+> Source: James et al. ([2021, sec. 5.1.3](#ref-james2021islr2e)) for the average of fold mean squared errors; Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)) for the per-observation form with the fold index \\\kappa(i)\\.
 
 > **NOTE:**
 >
@@ -720,22 +734,28 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 > **Definition 6 (Leave-one-out cross-validation)** **Leave-one-out cross-validation (LOOCV)** is [\\k\\-fold cross-validation](#def-kfold) with \\k = n\\, so that each fold holds one observation. Writing \\\hat y^{(-i)}\mathopen{}\left(\cdot\right)\mathclose{}\\ for the rule fitted to all observations except observation \\i\\, its [cross-validation estimate](#def-cv-estimate) ([Equation 2](#eq-cv-estimate) with \\k = n\\) is
 >
 > \\ \operatorname{CV}\_{(n)} = \frac{1}{n} \sum\_{i=1}^n\mathopen{}\left(\hat y^{(-i)}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{}. \tag{3}\\
+>
+> Source: James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
 > **Definition 7 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), in which observation \\i\\ has [covariate vector](correlation-regression.llms.md#def-slr-covariate-vector) \\\tilde{x}\_i\\ (the model’s terms at observation \\i\\; for a model with an intercept, a 1 followed by terms such as \\x_i\\ and \\x_i^2\\), and \\A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ is invertible. The **leverage** of observation \\i\\ is
 >
 > \\ h\_{i} \stackrel{\text{def}}{=}\tilde{x}\_i^{\top} A^{-1} \tilde{x}\_i. \tag{4}\\
+>
+> Source: James et al. ([2021, sec. 3.3.3](#ref-james2021islr2e)), written here with the covariate vectors and the matrix \\A\\ of [the vector form of the OLS estimates](correlation-regression.llms.md#thm-ols-slr-vector). In R, [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html) returns the leverages of an `lm` fit.
 
 > **NOTE:**
 >
 > **Theorem 2 (Leave-one-out cross-validation for least squares)** For a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols) with every [leverage](#def-leverage) \\h\_{i} \< 1\\, the [leave-one-out estimate](#def-loocv) can be computed from the single fit to all \\n\\ observations, from its [prediction errors](estimation.llms.md#def-prediction-error) \\e_i = \hat y_i - y_i\\ and its leverages:
 >
 > \\ \operatorname{CV}\_{(n)} = \frac{1}{n} \sum\_{i=1}^n\mathopen{}\left(\frac{e_i}{1 - h\_{i}}\right)^2\mathclose{}. \tag{5}\\
+>
+> Source: James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)) states this formula for least squares linear or polynomial regression, and Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)) for many linear fitting methods.
 
 > **NOTE:**
 >
-> *Proof*. See James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)) and Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)); [Remark 5](#rem-loocv-shortcut-proof) says why it is not derived here.
+> *Proof*. Not derived here; see the sources named under the theorem. [Remark 5](#rem-loocv-shortcut-proof) says why.
 
 > **NOTE:**
 >
@@ -799,12 +819,16 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 > **NOTE:**
 >
 > *Remark 7* (Cross-validation replaces the validation set, not the test set). Used to choose between models, cross-validation takes the place of the *validation* set of [Definition 3](#def-data-splits), the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice ([Hastie et al. 2009, sec. 7.2](#ref-hastie2009elements)), such as a test set, or an outer cross-validation loop that repeats the whole selection inside each of its folds.
+>
+> Source: adapted from the remark [Cross-validation replaces the development set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#rem-cv-is-a-dev-set) in the lds notes, in a section those notes base on a Spring 2025 lecture on generalization by Logan Sizemore.
 
 > **NOTE:**
 >
 > **Definition 8 (Standard error of a cross-validation estimate)** Let \\\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\\ be the [mean squared errors](estimation.llms.md#def-prediction-mse) of the predictions for the observations in folds \\1, \ldots, k\\ of [\\k\\-fold cross-validation](#def-kfold), and let \\s\_{\text{CV}}\\ be their [sample standard deviation](exploratory-descriptive.llms.md#def-sample-sd). The **standard error** of the cross-validation estimate is
 >
 > \\ \operatorname{SE}\_{\text{CV}}\stackrel{\text{def}}{=}\frac{s\_{\text{CV}}}{\sqrt{k}}. \tag{6}\\
+>
+> Source: Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)).
 
 > **NOTE:**
 >
@@ -815,6 +839,8 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 > **Definition 9 (One-standard-error rule)** Let \\M_1, \ldots, M_L\\ be candidate models ordered from least to most flexible. Write \\\operatorname{CV}\_{(k)}(M_l)\\ for the [cross-validation estimate](#def-cv-estimate) of model \\M_l\\ and \\\operatorname{SE}\_{\text{CV}}(M_l)\\ for its [standard error](#def-cv-se), all computed with the same folds, and let \\M\_{l^\*}\\ be the model with the smallest estimate. The **one-standard-error rule** chooses the least flexible model \\M_l\\ whose estimate is within one standard error of the smallest:
 >
 > \\ \operatorname{CV}\_{(k)}(M_l) \le \operatorname{CV}\_{(k)}(M\_{l^\*}) + \operatorname{SE}\_{\text{CV}}(M\_{l^\*}). \tag{7}\\
+>
+> Source: Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)); James et al. ([2021, sec. 6.1.3](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
@@ -902,6 +928,8 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 > 1.  What is the smallest possible generalization error ([Equation 1](#eq-generalization-error)) of any prediction rule for \\Y\\ here?
 > 2.  Simulate the analyst’s procedure. What cross-validation estimate does it report?
 > 3.  Repeat the simulation, but carry out step 1 inside each fold, using only that fold’s training observations. What estimate does this give?
+>
+> Source: a regression version of the classification example in Hastie et al. ([2009, sec. 7.10.2](#ref-hastie2009elements)), “The Wrong and Right Way to Do Cross-validation”.
 
 > **NOTE:**
 >

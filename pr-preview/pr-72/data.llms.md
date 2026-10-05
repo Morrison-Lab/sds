@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 03:46:28 (PDT)
+Last modified: 2026-10-05 11:30:32 (PDT)
 
 ## 1 Types of variables
 
@@ -107,6 +107,8 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > **NOTE:**
 >
 > **Definition 10 (Dummy variables)** **Dummy variables** are numeric variables that, together, are a numeric representation of a categorical variable.
+>
+> Source: adapted from the rme notes’ [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation); Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)) use the same terms.
 
 > **NOTE:**
 >
@@ -119,6 +121,8 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > **NOTE:**
 >
 > **Definition 11 (Indicator variable)** An **indicator variable** is a [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
+>
+> Source: adapted from the rme notes’ [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation) (“Dummy variables with values 0 and 1 are also called indicator variables”); Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)) say the same.
 
 > **NOTE:**
 >
@@ -127,6 +131,8 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > **NOTE:**
 >
 > **Definition 12 (Reference level)** The **reference level** of a categorical variable is the category that does not have its own [indicator variable](#def-indicator-variable). An observation in the reference level has the value 0 for every indicator variable of that categorical variable.
+>
+> Source: the term is used in the rme notes’ [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation); Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)) call this the corner point parameterization.
 
 > **NOTE:**
 >
