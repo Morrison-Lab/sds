@@ -1,7 +1,7 @@
 :::{#exr-slr-additive}
 #### Outcome as mean plus deviation
 
-Show that each outcome in a simple linear regression model (@def-slr)
+Show that each outcome in a conditional Gaussian model (@def-cond-gaussian)
 is its conditional mean plus its deviation (@def-slr-deviation):
 $Y_i = \mean_i + \cdev_i$.
 :::

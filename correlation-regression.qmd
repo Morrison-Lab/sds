@@ -60,22 +60,6 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/basic-statistical-methods/_def-homoskedastic.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/basic-statistical-methods/_def-linear-regression.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/basic-statistical-methods/_def-slr.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/basic-statistical-methods/_rem-slr-parameters.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/basic-statistical-methods/_def-slr-deviation.qmd >}}
 
 {{< slidebreak >}}
@@ -89,6 +73,26 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_thm-slr-additive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-homoskedastic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_cor-homoskedastic-deviations.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-linear-regression.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-slr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_rem-slr-parameters.qmd >}}
 
 {{< slidebreak >}}
 
