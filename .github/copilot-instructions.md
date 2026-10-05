@@ -114,10 +114,12 @@ and $1 \cdot b = b$.
 Prove any fact a step relies on (such as deviations from the mean summing to zero)
 in its own exercise before citing it.
 
-When a derivation would add and subtract a term to reach the other side
+When a derivation would insert a term and its negative into one expression to reach the other side
 (as in $Y_i = Y_i - \mean(x_i) + \mean(x_i)$),
-start from the other side instead:
-expand $\mean_i + \cdev_i$ with the definitions, then simplify one operation per line.
+start from the other side instead
+(expand $\mean_i + \cdev_i$ with the definitions, then simplify one operation per line),
+or solve a definition for the term you want.
+Adding the same term to both sides of an equation is an ordinary step, not this pattern.
 Each line then follows from a definition or a simplification,
 with no term pulled from nowhere.
 
