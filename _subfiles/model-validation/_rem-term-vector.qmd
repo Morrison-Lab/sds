@@ -1,0 +1,8 @@
+:::{#rem-term-vector}
+#### The term vector of simple linear regression
+
+In simple linear regression the terms are $1$ and $x$,
+so the [term vector](#def-term-vector) $\termvec{i}$
+is the [covariate vector](correlation-regression.qmd#def-slr-covariate-vector) $\vxi$.
+
+:::

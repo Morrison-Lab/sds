@@ -1,0 +1,150 @@
+:::{#exr-rss-hessian}
+#### Second derivatives of RSS
+
+Find the matrix of second derivatives of
+$\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
+with respect to $\intcoef$ and $\coef{x}$,
+and show that it is positive definite when $S_{xx} > 0$ (@def-centered-sums).
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-rss-hessian}
+
+Differentiate each first derivative again.
+
+**Derivatives of $\partial \text{RSS} / \partial \intcoef$.**
+By @exr-rss-deriv-intercept,
+$\partial \text{RSS} / \partial \intcoef
+= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}$.
+Differentiating with respect to $\intcoef$:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \text{RSS}}{\partial \intcoef^2}
+&= -2 \frac{\partial}{\partial \intcoef}
+  \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
+&& \text{(constant factor)}\\
+&= -2 \paren{
+  \frac{\partial (n \bar{y})}{\partial \intcoef}
+  - \frac{\partial (n \intcoef)}{\partial \intcoef}
+  - \frac{\partial (\coef{x} n \bar{x})}{\partial \intcoef}}
+&& \text{(derivative of a sum)}\\
+&= -2 (0 - n - 0)
+&& \text{(differentiate each term)}\\
+&= -2 (-n)
+&& \text{(drop the zeros)}\\
+&= 2n
+&& \text{(multiply)}
+\end{aligned}
+$$
+
+Differentiating with respect to $\coef{x}$:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \text{RSS}}{\partial \coef{x} \, \partial \intcoef}
+&= -2 \frac{\partial}{\partial \coef{x}}
+  \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
+&& \text{(constant factor)}\\
+&= -2 \paren{
+  \frac{\partial (n \bar{y})}{\partial \coef{x}}
+  - \frac{\partial (n \intcoef)}{\partial \coef{x}}
+  - \frac{\partial (\coef{x} n \bar{x})}{\partial \coef{x}}}
+&& \text{(derivative of a sum)}\\
+&= -2 (0 - 0 - n \bar{x})
+&& \text{(differentiate each term)}\\
+&= -2 (-n \bar{x})
+&& \text{(drop the zeros)}\\
+&= 2 n \bar{x}
+&& \text{(multiply)}
+\end{aligned}
+$$
+
+{{< slidebreak >}}
+
+**Derivatives of $\partial \text{RSS} / \partial \coef{x}$.**
+By @exr-rss-deriv-slope,
+$\partial \text{RSS} / \partial \coef{x}
+= -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i)$.
+Differentiating with respect to $\intcoef$,
+and reusing the inner derivative $-1$ from @exr-rss-deriv-intercept:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \text{RSS}}{\partial \intcoef \, \partial \coef{x}}
+&= -2 \frac{\partial}{\partial \intcoef} \sumin x_i (y_i - \intcoef - \coef{x} x_i)
+&& \text{(constant factor)}\\
+&= -2 \sumin \frac{\partial}{\partial \intcoef} \paren{x_i (y_i - \intcoef - \coef{x} x_i)}
+&& \text{(derivative of a sum)}\\
+&= -2 \sumin x_i \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)
+&& \text{($x_i$ does not depend on $\intcoef$)}\\
+&= -2 \sumin x_i (-1)
+&& \text{(inner derivative is $-1$)}\\
+&= -2 \sumin (-x_i)
+&& \text{(multiply)}\\
+&= -2 \paren{-\sumin x_i}
+&& \text{(constant factor out of the sum)}\\
+&= 2 \sumin x_i
+&& \text{(multiply)}\\
+&= 2 n \bar{x}
+&& \text{($\sumin x_i = n \bar{x}$)}
+\end{aligned}
+$$
+
+Differentiating with respect to $\coef{x}$,
+and reusing the inner derivative $-x_i$ from @exr-rss-deriv-slope:
+
+$$
+\begin{aligned}
+\frac{\partial^2 \text{RSS}}{\partial \coef{x}^2}
+&= -2 \frac{\partial}{\partial \coef{x}} \sumin x_i (y_i - \intcoef - \coef{x} x_i)
+&& \text{(constant factor)}\\
+&= -2 \sumin \frac{\partial}{\partial \coef{x}} \paren{x_i (y_i - \intcoef - \coef{x} x_i)}
+&& \text{(derivative of a sum)}\\
+&= -2 \sumin x_i \frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i)
+&& \text{($x_i$ does not depend on $\coef{x}$)}\\
+&= -2 \sumin x_i (-x_i)
+&& \text{(inner derivative is $-x_i$)}\\
+&= -2 \sumin \paren{-x_i^2}
+&& \text{(multiply)}\\
+&= -2 \paren{-\sumin x_i^2}
+&& \text{(constant factor out of the sum)}\\
+&= 2 \sumin x_i^2
+&& \text{(multiply)}
+\end{aligned}
+$$
+
+{{< slidebreak >}}
+
+**The matrix.**
+Collecting the four second derivatives,
+the matrix of second derivatives is
+
+$$
+\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin x_i^2 \end{pmatrix}.
+$$
+
+Its top-left entry, $2n$, is positive.
+Its determinant,
+using the expanded form of $S_{xx}$ from @exr-sxx-expand, is
+
+$$
+\begin{aligned}
+\det \begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin x_i^2 \end{pmatrix}
+&= (2n) \paren{2 \sumin x_i^2} - (2 n \bar{x}) (2 n \bar{x})
+&& \text{($2 \times 2$ determinant)}\\
+&= 4 n \sumin x_i^2 - 4 n^2 \bar{x}^2
+&& \text{(multiply)}\\
+&= 4 n \paren{\sumin x_i^2 - n \bar{x}^2}
+&& \text{(factor out $4n$)}\\
+&= 4 n S_{xx}
+&& \text{(expanded form of $S_{xx}$)}
+\end{aligned}
+$$
+
+which is positive when $S_{xx} > 0$.
+A symmetric $2 \times 2$ matrix with a positive top-left entry
+and a positive determinant is positive definite.
+
+:::

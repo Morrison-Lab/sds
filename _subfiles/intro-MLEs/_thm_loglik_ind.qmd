@@ -11,17 +11,7 @@ each term is $\log{\p(X = x_i \mid \theta)}$.
 :::
 
 :::{.proof}
-$$
-\begin{aligned}
-\ell(\theta)
-&\eqdef \log{\Lik(\theta)}
-&& \text{(definition of log-likelihood)}\\
-&= \log{\prod_{i=1}^n \p(X_i = x_i \mid \theta)}
-&& \text{(likelihood of an independent sample)}\\
-&= \sum_{i=1}^n \log{\p(X_i = x_i \mid \theta)}
-&& \text{(log of a product is a sum of logs)}
-\end{aligned}
-$$
 
-With a common distribution, $\p(X_i = x_i \mid \theta) = \p(X = x_i \mid \theta)$.
+This is the solution to @exr-loglik-iid.
+
 :::

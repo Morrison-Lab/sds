@@ -1,0 +1,11 @@
+:::{#exr-kfold}
+#### Folds of the `mtcars` data
+
+Suppose we use $k = 4$-fold cross-validation on the $n = 32$ cars in `mtcars`.
+
+1. How many cars are in each fold?
+2. Each time a model is fit, how many cars are used to fit it?
+3. How many models are fit in total?
+4. How many times is a given car used for fitting, and how many times for prediction?
+
+:::

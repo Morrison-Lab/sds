@@ -2,6 +2,9 @@
 #### Score equation
 
 The **score equation** (also called the estimating equation)
-is the equation $\score(\vth) = \mathbf{0}_{p \times 1}$,
-which sets the [score function](#def-score) to zero.
+is the equation that sets the [score function](#def-score) to zero:
+
+$$
+\score(\vth) = \vzero
+$$
 :::

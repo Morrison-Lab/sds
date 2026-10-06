@@ -1,0 +1,14 @@
+:::{#rem-overfitting-causes}
+#### Coefficients per observation
+
+Adding coefficients to a least-squares fit makes it
+[at least as flexible](#def-flexibility) as before.
+With few observations per coefficient,
+the variance this adds can outweigh the squared bias it removes,
+which is the overfitting side of @rem-overfitting-tradeoff.
+In @exr-overfitting,
+each added power of `wt`, like an added predictor,
+is one more coefficient fitted to the same 20 cars:
+the degree-4 fit has five coefficients for those 20 cars.
+
+:::

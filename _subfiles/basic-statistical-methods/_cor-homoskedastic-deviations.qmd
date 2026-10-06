@@ -1,0 +1,13 @@
+::: {#cor-homoskedastic-deviations}
+#### Deviations in a homoskedastic model
+
+In a homoskedastic model (@def-homoskedastic),
+the deviations (@def-slr-deviation) all have the same variance $\sigma^2$:
+
+$$\cdev_i \mid X_i = x_i \simind \ndist{0, \sigma^2}.$$
+:::
+
+::: proof
+By @thm-slr-deviation-dist, $\cdev_i \mid X_i = x_i \simind \ndist{0, \sigma_i^2}$,
+and @def-homoskedastic sets $\sigma_i^2 = \sigma^2$ for all $i$.
+:::

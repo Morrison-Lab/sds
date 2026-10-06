@@ -1,0 +1,12 @@
+::: {#exr-standardize}
+#### A standardized cholesterol value
+
+In the WCGS data,
+cholesterol (`chol`) is measured in mg/dL.
+
+1. Compute the sample mean and sample standard deviation of `chol`.
+2. A man has `chol` equal to 250 mg/dL.
+   By how many standard deviations does his value differ from the sample mean,
+   and in which direction?
+3. What are the units of your answer to part 2?
+:::

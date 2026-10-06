@@ -1,0 +1,14 @@
+::: {#exr-dummy-coding}
+#### Dummy coding
+
+The Western Collaborative Group Study (WCGS) variable `behpat`
+(behavioral pattern) has four categories:
+A1, A2, B3, and B4.
+
+(a) How many indicator variables are needed to represent `behpat`
+if A1 is the reference level?
+(b) Write the values of those indicator variables,
+in the order A2, B3, B4,
+for a person in category B3,
+and for a person in category A1.
+:::

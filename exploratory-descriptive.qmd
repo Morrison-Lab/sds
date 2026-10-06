@@ -235,6 +235,30 @@ continuous variable across the groups defined by a categorical variable
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-transformations.qmd >}}
 
+### Rescaling a variable {#sec-rescaling}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exr-standardize.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_sol-standardize.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-standardization.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_thm-standardized-mean-sd.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-min-max-scaling.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-min-max-wcgs.qmd >}}
+
 ## An exploratory data analysis workflow
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-workflow.qmd >}}

@@ -1,0 +1,10 @@
+:::{#exr-data-splits}
+#### Sizes of a three-way split
+
+The `mtcars` data frame has $N = 32$ cars.
+Suppose we assign $\lfloor 0.6 N \rfloor$ cars to a training set,
+$\lfloor 0.2 N \rfloor$ cars to a validation set,
+and all remaining cars to a test set.
+How many cars are in each set?
+
+:::

@@ -6,7 +6,7 @@ Graph the likelihood as a function of $\lambda$.
 
 {{< slidebreak >}}
 
-:::: {.solution}
+::::{#sol-graph-likelihood}
 
 ::: {#fig-cyclone-lik}
 

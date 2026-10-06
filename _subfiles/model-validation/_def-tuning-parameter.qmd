@@ -1,0 +1,12 @@
+:::{#def-tuning-parameter}
+#### Tuning parameter
+
+A **tuning parameter** of a [fitting procedure](#def-fitting-procedure)
+is a setting $\lambda$ that the procedure needs
+but does not compute from the [training set](#def-training-set):
+
+$$
+\fitted(x) = g_{\lambda}\paren{x; \trainset}.
+$$ {#eq-tuning-parameter}
+
+:::

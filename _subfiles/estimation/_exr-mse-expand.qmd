@@ -1,0 +1,30 @@
+:::{#exr-mse-expand}
+#### Expanding the mean squared error
+
+Write the [mean squared error](#def-mse) $\mselr{\hth}$
+in terms of $\E{\hth^2}$, $\E{\hth}$, and the estimand $\th$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-mse-expand}
+
+$$
+\begin{aligned}
+\mselr{\hth}
+&\eqdef \E{\sqf{\erf{\hth}}}
+&& \text{(definition of MSE)}\\
+&= \E{(\hth - \th)^2}
+&& \text{(definition of estimation error)}\\
+&= \E{\hth^2 - 2\hth\th + \th^2}
+&& \text{(expand the binomial square)}\\
+&= \E{\hth^2} - \E{2\hth\th} + \E{\th^2}
+&& \text{(linearity of expectation)}\\
+&= \E{\hth^2} - 2\E{\hth}\th + \E{\th^2}
+&& \text{(factor the constant $2\th$ out of the middle expectation)}\\
+&= \E{\hth^2} - 2\E{\hth}\th + \th^2
+&& \text{(the expectation of a constant is that constant)}
+\end{aligned}
+$$
+
+:::

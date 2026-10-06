@@ -1,0 +1,23 @@
+:::{#def-epe}
+#### Expected squared prediction error at a covariate value
+
+The **expected squared prediction error at $x$**
+of a [fitting procedure](#def-fitting-procedure) $g$
+at training-set size $n$
+is the mean squared [prediction error](estimation.qmd#def-prediction-error)
+of its prediction at $x$ for a new outcome $Y_0$ with $X_0 = x$,
+averaged over random [training sets](#def-training-set) $\trainset$ of $n$ observations
+drawn independently of $(X_0, Y_0)$,
+and over $Y_0$:
+
+$$
+\epe{g}{n}{x} \eqdef \E{\sqf{g\paren{x; \trainset} - Y_0} \mid X_0 = x}.
+$$ {#eq-epe}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@hastie2009elements [sec. 7.3], who write this quantity as $\generr(x_0)$.
+:::
+
+:::

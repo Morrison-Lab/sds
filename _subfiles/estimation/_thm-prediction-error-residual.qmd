@@ -1,0 +1,13 @@
+::: {#thm-prediction-error-residual}
+#### Prediction error is the negative of the residual
+
+For an observation $i$ that was used to fit the model,
+the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value)
+is the negative of its [residual](#def-residual):
+
+$$\prederr_i = -\resid_i.$$
+:::
+
+::: proof
+This is the solution to @exr-prediction-error-residual.
+:::

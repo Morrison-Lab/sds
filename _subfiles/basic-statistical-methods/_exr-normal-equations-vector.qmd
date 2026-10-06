@@ -1,0 +1,79 @@
+:::{#exr-normal-equations-vector}
+#### Normal equations in vector notation
+
+Define the matrix and vector
+
+$$
+A \eqdef \sumin \soprod{\vxi},
+\qquad
+\v{c} \eqdef \sumin \vxi y_i.
+$$
+
+Using @exr-rss-gradient-vector,
+show that the [normal equations](#def-normal-equations)
+can be written as $A \vcoef = \v{c}$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-normal-equations-vector}
+
+Distribute the sum in the gradient from @exr-rss-gradient-vector:
+
+$$
+\begin{aligned}
+\deriv{\vcoef} \text{RSS}(\vcoef)
+&= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
+&& \text{(gradient of RSS)}\\
+&= -2 \sumin \paren{\vxi y_i - \vxi \paren{\dprod{\vxi}{\vcoef}}}
+&& \text{(distribute $\vxi$)}\\
+&= -2 \paren{\sumin \vxi y_i - \sumin \vxi \paren{\dprod{\vxi}{\vcoef}}}
+&& \text{(sum of differences)}
+\end{aligned}
+$$
+
+Each term of the second sum regroups as a matrix times $\vcoef$:
+
+$$
+\begin{aligned}
+\vxi \paren{\dprod{\vxi}{\vcoef}}
+&= \vxi \paren{\tprod{\vxi}{\vcoef}}
+&& \text{(dot product as a transpose product)}\\
+&= \paren{\soprod{\vxi}} \vcoef
+&& \text{(matrix multiplication is associative)}
+\end{aligned}
+$$
+
+So the gradient is
+
+$$
+\begin{aligned}
+\deriv{\vcoef} \text{RSS}(\vcoef)
+&= -2 \paren{\v{c} - \sumin \vxi \paren{\dprod{\vxi}{\vcoef}}}
+&& \text{(definition of $\v{c}$)}\\
+&= -2 \paren{\v{c} - \sumin \paren{\soprod{\vxi}} \vcoef}
+&& \text{(regroup each term)}\\
+&= -2 \paren{\v{c} - \paren{\sumin \soprod{\vxi}} \vcoef}
+&& \text{(factor $\vcoef$ out of the sum)}\\
+&= -2 \paren{\v{c} - A \vcoef}
+&& \text{(definition of $A$)}
+\end{aligned}
+$$
+
+The normal equations set this gradient equal to $\vzero$.
+Solving for $A \vcoef$ one operation at a time:
+
+$$
+\begin{aligned}
+-2 \paren{\v{c} - A \vcoef} &= \vzero
+&& \text{(normal equations)}\\
+\v{c} - A \vcoef &= \vzero
+&& \text{(divide both sides by $-2$)}\\
+\v{c} &= A \vcoef
+&& \text{(add $A \vcoef$ to both sides)}\\
+A \vcoef &= \v{c}
+&& \text{(swap the sides)}
+\end{aligned}
+$$
+
+:::

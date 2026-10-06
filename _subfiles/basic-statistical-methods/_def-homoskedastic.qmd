@@ -1,0 +1,9 @@
+::: {#def-homoskedastic}
+#### Homoskedastic model
+
+A conditional Gaussian model (@def-cond-gaussian) is **homoskedastic**
+if all outcomes share one variance $\sigma^2$,
+which does not depend on $i$:
+
+$$\sigma_i^2 = \sigma^2 \text{ for all } i.$$
+:::

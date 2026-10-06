@@ -27,6 +27,7 @@ Imports:
     haven,
     knitr,
     plotly,
+    purrr,
     rjags,
     rmb,
     scales,

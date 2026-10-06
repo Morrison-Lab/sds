@@ -1,0 +1,19 @@
+:::{#rem-generalization-error}
+#### Other names, and how the expected error splits
+
+@hastie2009elements [sec. 7.2] also call $\generr_{\trainset}$ the *test error*,
+and in sec. 7.12 the *conditional* test error.
+It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk)
+of the prediction $\fitted(X_0)$
+under squared error [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function),
+computed with the training set held fixed.
+
+The argument $n$ of the [expected generalization error](#def-expected-generalization-error)
+$\expgenerr{g}{n}$ of a fitting procedure $g$
+records that it depends on how many observations each training set has.
+By @thm-expected-error-epe, $\expgenerr{g}{n}$ averages
+the expected squared prediction error at each covariate value,
+and @thm-epe-decomposition splits that error
+into a squared bias, a variance and a noise variance.
+
+:::

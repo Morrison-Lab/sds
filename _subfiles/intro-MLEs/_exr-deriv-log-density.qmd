@@ -1,0 +1,46 @@
+:::{#exr-deriv-log-density}
+#### Derivative of a density through its logarithm
+
+Let $\p(\vx \mid \th)$ be a density
+that is positive and differentiable in a scalar parameter $\th$.
+Write $\deriv{\th}\p(\vx \mid \th)$
+in terms of $\deriv{\th}\log \p(\vx \mid \th)$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-deriv-log-density}
+
+By the chain rule,
+with outer function $\log u$ and inner function $u = \p(\vx \mid \th)$:
+
+$$
+\deriv{\th} \log \p(\vx \mid \th)
+= \paren{\frac{d}{du} \log u}\bigg|_{u = \p(\vx \mid \th)} \deriv{\th}\p(\vx \mid \th).
+$$
+
+The inner derivative $\deriv{\th}\p(\vx \mid \th)$ is the quantity we want,
+so only the outer derivative needs working out:
+
+$$
+\begin{aligned}
+\frac{d}{du} \log u
+&= \frac{1}{u}
+&& \text{(derivative of the natural logarithm)}
+\end{aligned}
+$$
+
+Plugging the outer derivative back in:
+
+$$
+\begin{aligned}
+\deriv{\th} \log \p(\vx \mid \th)
+&= \frac{1}{\p(\vx \mid \th)} \deriv{\th}\p(\vx \mid \th)
+&& \text{(outer derivative is $1/u$)}\\
+\deriv{\th}\p(\vx \mid \th)
+&= \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th)
+&& \text{(multiply both sides by $\p(\vx \mid \th) > 0$)}
+\end{aligned}
+$$
+
+:::

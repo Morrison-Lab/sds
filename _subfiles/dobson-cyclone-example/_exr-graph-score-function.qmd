@@ -6,7 +6,7 @@ Graph the score function.
 
 {{< slidebreak >}}
 
-::::{.solution}
+::::{#sol-graph-score-function}
 
 ::: {#fig-cyclone-score}
 

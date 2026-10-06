@@ -1,9 +1,9 @@
 ::: {#cor-ols-slope-r}
 #### OLS slope in terms of the correlation
 
-If $S_{xx} > 0$ and $S_{yy} > 0$, then
+If $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums), then
 
-$$\hat\beta_1 = r \, \frac{s_y}{s_x},$$
+$$\hcoef{x} = r \, \frac{s_y}{s_x},$$
 
 where $r$ is the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r)
@@ -14,24 +14,6 @@ of the $x_i$ and the $y_i$.
 
 ::: proof
 
-With the notation of @thm-ols-slr,
-$r = S_{xy} / \sqrt{S_{xx} S_{yy}}$,
-$s_x = \sqrt{S_{xx} / (n-1)}$, and $s_y = \sqrt{S_{yy} / (n-1)}$. So:
-
-$$
-\begin{aligned}
-r \, \frac{s_y}{s_x}
-&= \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}} \cdot
-  \frac{\sqrt{S_{yy} / (n-1)}}{\sqrt{S_{xx} / (n-1)}}
-&& \text{(substitute $r$, $s_x$, $s_y$)}\\
-&= \frac{S_{xy}}{\sqrt{S_{xx}} \sqrt{S_{yy}}} \cdot
-  \frac{\sqrt{S_{yy}}}{\sqrt{S_{xx}}}
-&& \text{(cancel the factors of $n - 1$)}\\
-&= \frac{S_{xy}}{S_{xx}}
-&& \text{(cancel $\sqrt{S_{yy}}$)}\\
-&= \hat\beta_1
-&& \text{(closed-form OLS slope)}
-\end{aligned}
-$$
+This is the solution to @exr-ols-slope-r.
 
 :::

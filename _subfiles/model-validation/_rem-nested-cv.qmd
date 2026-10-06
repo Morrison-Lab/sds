@@ -1,0 +1,11 @@
+:::{#rem-nested-cv}
+#### What is nested
+
+Each fold-out rule of $g^{\text{CV}}$
+is computed from the observations outside one outer [fold](#def-folds) $\fold{j}$,
+so the whole choice,
+including the cross-validation that $g^{\text{CV}}$ runs inside those observations,
+never sees $\fold{j}$.
+That inner cross-validation is the nested one.
+
+:::

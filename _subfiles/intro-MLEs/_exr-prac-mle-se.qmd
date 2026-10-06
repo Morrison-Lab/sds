@@ -13,7 +13,7 @@ Let $X_1, \ldots, X_n \siid \Pois(\rate)$.
 using the asymptotic normal distribution of the MLE.
 :::
 
-::: {.solution}
+:::{#sol-prac-mle-se}
 
 **(a)**
 
@@ -23,15 +23,48 @@ $$
 \ba
 \ell''(\rate; \vx)
 &= \deriv{\rate}\sb{\frac{n\bar{x}}{\rate} - n}
+&& \text{(Poisson score)}
+\\
+&= \deriv{\rate}\sb{n\bar{x}\rate^{-1} - n}
+&& \text{(write $\tfrac{n\bar{x}}{\rate}$ as $n\bar{x}\rate^{-1}$)}
+\\
+&= \deriv{\rate}\sb{n\bar{x}\rate^{-1}} - \deriv{\rate} n
+&& \text{(linearity of differentiation)}
+\\
+&= \deriv{\rate}\sb{n\bar{x}\rate^{-1}} - 0
+&& \text{(derivative of a constant)}
+\\
+&= \deriv{\rate}\sb{n\bar{x}\rate^{-1}}
+&& \text{(drop the zero term)}
+\\
+&= n\bar{x}\deriv{\rate}\rate^{-1}
+&& \text{(constant multiple rule)}
+\\
+&= n\bar{x}\paren{-\rate^{-2}}
+&& \text{(power rule)}
+\\
+&= -n\bar{x}\rate^{-2}
+&& \text{(multiply)}
 \\
 &= -\frac{n\bar{x}}{\rate^2}
+&& \text{(write the negative power as a fraction)}
 \ea
 $$
 
 **(b)**
 
 $$
-\oinf(\rate; \vx) = -\ell''(\rate; \vx) = \frac{n\bar{x}}{\rate^2}
+\ba
+\oinf(\rate; \vx)
+&= -\ell''(\rate; \vx)
+&& \text{(observed information is the negative Hessian)}
+\\
+&= -\paren{-\frac{n\bar{x}}{\rate^2}}
+&& \text{(Hessian from (a))}
+\\
+&= \frac{n\bar{x}}{\rate^2}
+&& \text{(two negatives make a positive)}
+\ea
 $$
 
 **(c)**
@@ -41,7 +74,14 @@ Assuming $\bar{x} > 0$
 substituting $\hat\rate_{ML} = \bar{x}$:
 
 $$
-\oinf(\hat\rate_{ML}; \vx) = \frac{n\bar{x}}{\bar{x}^2} = \frac{n}{\bar{x}}
+\ba
+\oinf(\hat\rate_{ML}; \vx)
+&= \frac{n\bar{x}}{\bar{x}^2}
+&& \text{(observed information at $\rate = \bar{x}$)}
+\\
+&= \frac{n}{\bar{x}}
+&& \text{(cancel one factor of $\bar{x}$)}
+\ea
 $$
 
 **(d)**
