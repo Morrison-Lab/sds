@@ -12,16 +12,16 @@ $$
 \ba
 \E{\frac{1}{m} \sum_{j=1}^m \prederr_{0,j}^2 \mid \mathcal{T}}
 &= \frac{1}{m} \E{\sum_{j=1}^m \prederr_{0,j}^2 \mid \mathcal{T}}
-&& \text{(factor out the constant } 1/m \text{)}
+&& \text{(pull out } 1/m \text{)}
 \\
 &= \frac{1}{m} \sum_{j=1}^m \E{\prederr_{0,j}^2 \mid \mathcal{T}}
-&& \text{(expectation of a sum)}
+&& \text{(sum rule)}
 \\
 &= \frac{1}{m} \sum_{j=1}^m \generr_{\mathcal{T}}
 && \text{(each term, as above)}
 \\
 &= \frac{1}{m} \paren{m \, \generr_{\mathcal{T}}}
-&& \text{(sum of } m \text{ equal terms)}
+&& \text{(} m \text{ equal terms)}
 \\
 &= \paren{\frac{1}{m} \cdot m} \generr_{\mathcal{T}}
 && \text{(regroup the product)}

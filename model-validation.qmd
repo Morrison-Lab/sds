@@ -102,6 +102,18 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_exr-cv-estimate-by-fold.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-cv-estimate-by-fold.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_thm-cv-estimate-by-fold.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_rem-cv-estimate.qmd >}}
 
 {{< slidebreak >}}
