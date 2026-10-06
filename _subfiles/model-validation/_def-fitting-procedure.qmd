@@ -1,0 +1,11 @@
+:::{#def-fitting-procedure}
+#### Fitting procedure
+
+A **fitting procedure** is a method that turns any training set $\mathcal{T}$
+into a prediction rule $\fitted$:
+
+$$
+\mathcal{T} \mapsto \fitted.
+$$ {#eq-fitting-procedure}
+
+:::

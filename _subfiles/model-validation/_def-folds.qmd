@@ -4,19 +4,12 @@
 A division of observations $1, \ldots, n$ into $k$ **folds**
 is a partition of $\set{1, \ldots, n}$ into $k$ nonempty, disjoint subsets
 $\fold{1}, \ldots, \fold{k}$,
-with $\foldsize{j}$ observations in fold $\fold{j}$,
-so that $\foldsize{1} + \cdots + \foldsize{k} = n$.
-The **fold assignment** $\foldof{i}$ of observation $i$
-is the index of the fold that contains it:
+with $\foldsize{j}$ observations in fold $\fold{j}$:
 
 $$
-i \in \fold{\foldof{i}}.
-$$ {#eq-fold-assignment}
-
-::: {.callout-note collapse="true"}
-#### Source
-
-The fold-assignment function $\foldof{i}$ follows @hastie2009elements [sec. 7.10.1].
-:::
+\fold{1} \cup \cdots \cup \fold{k} = \set{1, \ldots, n},
+\quad
+\foldsize{1} + \cdots + \foldsize{k} = n.
+$$ {#eq-folds}
 
 :::

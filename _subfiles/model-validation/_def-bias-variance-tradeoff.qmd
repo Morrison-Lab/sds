@@ -1,0 +1,16 @@
+:::{#def-bias-variance-tradeoff}
+#### Bias--variance trade-off
+
+The **bias--variance trade-off** is the pattern,
+across models of increasing flexibility,
+in which the squared bias of their predictions falls and the variance rises,
+so that the [expected generalization error](#def-expected-generalization-error)
+is smallest at an intermediate flexibility.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 2.2.2].
+:::
+
+:::

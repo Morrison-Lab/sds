@@ -21,5 +21,4 @@
 \providecommand{\fittedwo}[2]{\fitted^{(-#1)}\paren{#2}}
 \providecommand{\lev}[1]{h_{#1}}
 \providecommand{\foldmse}[1]{\operatorname{MSE}_{#1}}
-\providecommand{\cvsd}{s_{\text{CV}}}
 \providecommand{\cvse}{\operatorname{SE}_{\text{CV}}}

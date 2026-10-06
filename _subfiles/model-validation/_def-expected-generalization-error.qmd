@@ -1,9 +1,7 @@
 :::{#def-expected-generalization-error}
 #### Expected generalization error
 
-A fitting procedure is a method
-that turns any training set $\mathcal{T}$ into a prediction rule $\fitted$.
-The **expected generalization error** of a fitting procedure
+The **expected generalization error** of a [fitting procedure](#def-fitting-procedure)
 at training-set size $n$
 is the mean of the [generalization error](#def-generalization-error)
 of the rule it produces,

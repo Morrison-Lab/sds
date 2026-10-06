@@ -1,0 +1,9 @@
+:::{#rem-overfitting-tradeoff}
+#### Overfitting and the trade-off
+
+[Overfitting](#def-overfitting) is the flexible end
+of the [bias--variance trade-off](#def-bias-variance-tradeoff):
+a model past the best flexibility has lowered its bias
+less than it has raised its variance.
+
+:::

@@ -16,12 +16,12 @@ Covf
 cv
 cvest
 cvestof
-cvsd
 cvse
 DOCX
 Dobson
 ECL
 EDA
+Ep
 EQF
 Ef
 Epi
@@ -37,6 +37,7 @@ Gelman
 generr
 Geron
 homoskedastic
+hSD
 HSE
 Hutchinson
 Intcoef
@@ -47,8 +48,10 @@ lev
 lfloor
 Lik
 loocv
+mapsto
 MH
 mtcars
+notin
 PSC
 Pois
 quartic

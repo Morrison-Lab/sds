@@ -38,11 +38,23 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-expected-generalization-error.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_rem-generalization-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-bias-variance-tradeoff.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-overfitting-tradeoff.qmd >}}
 
 {{< slidebreak >}}
 
@@ -91,6 +103,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-folds.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-fold-assignment.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-fold-out-rule.qmd >}}
 
 {{< slidebreak >}}
 
@@ -159,6 +179,10 @@ format:
 ## Choosing a model by cross-validation {#sec-cv-model-choice}
 
 {{< include sds/_subfiles/model-validation/_rem-cv-winner-optimistic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-fold-mse.qmd >}}
 
 {{< slidebreak >}}
 

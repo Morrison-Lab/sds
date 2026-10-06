@@ -1,0 +1,13 @@
+:::{#def-fold-out-rule}
+#### Fold-out rule
+
+For [fold](#def-folds) $\fold{j}$,
+the **fold-out rule** $\fittedwo{j}{\cdot}$ is the prediction rule
+that a [fitting procedure](#def-fitting-procedure) produces
+from the observations outside that fold:
+
+$$
+\set{(x_i, y_i) : i \notin \fold{j}} \mapsto \fittedwo{j}{\cdot}.
+$$ {#eq-fold-out-rule}
+
+:::
