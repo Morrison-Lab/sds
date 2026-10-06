@@ -48,7 +48,9 @@ Methods, illustrated with the HERS data:
 - [Correlation and simple linear regression](correlation-regression.qmd);
 - [The bootstrap](bootstrap.qmd);
 - [Validating predictions](model-validation.qmd):
-  overfitting, training/validation/test splits, and cross-validation.
+  overfitting, generalization error, training/validation/test splits,
+  $k$-fold and leave-one-out cross-validation,
+  and choosing a model by cross-validation.
 
 Bayesian:
 

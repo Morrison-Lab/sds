@@ -149,6 +149,50 @@ each linking back to the definition.
 Put commentary (scope, orientation, relations to other quantities) in a remark div after the definition, never inside it.
 Never nest one theorem-type div inside another.
 
+## Attributions are reader-visible
+
+Credit every source a reader would want to know about where readers can see it:
+
+- the book or paper an item follows;
+- another course's site, notes, or repository it was adapted from;
+- the person whose lecture, notes or code it was adapted from.
+
+When a source credits its own upstream,
+carry that credit along.
+
+Content taken from the maintainer's own repositories (rme, lds, pds, ...)
+does not have to be credited to them
+(maintainer directive, 2026-10-05).
+The exemption covers only that hop:
+whatever such a repository credits
+(a book, a paper, or any person other than the maintainer)
+is still credited.
+The sister-repository credit may be left out of new work,
+but an existing one is not removed unless the maintainer asks.
+An HTML comment is not an attribution,
+because no reader of the website, slides or handout ever sees it.
+Follow PSW's
+[Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material):
+put the credit in a collapsed `.callout-note` titled "Source",
+which frames the credit and keeps it out of the way on the page.
+Place it at the end of the item's own div,
+so it travels with the fragment when a host site includes it:
+
+```markdown
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 5.1].
+:::
+```
+
+Cite books and papers through `references.bib` (`@key [locator]`),
+and link an outside site's rendered page at the item's anchor,
+checking that the anchor exists and holds the text the credit points to.
+Comments are still the place for maintainer-only notes
+that are not attributions,
+such as what was checked in a PDF or a wording edit made while porting.
+
 ## Code Chunks
 
 ### Every visible chunk shows a result

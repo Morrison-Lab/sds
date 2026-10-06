@@ -1,0 +1,24 @@
+:::{#thm-held-out-unbiased}
+#### Held-out mean squared error estimates the generalization error
+
+Let a [prediction rule](#def-prediction-rule) $\fitted$
+be fitted to a [training set](#def-training-set) $\trainset$,
+and let a [held-out set](#def-held-out-set) of $m$ observations
+$(X_{0,1}, Y_{0,1}), \ldots, (X_{0,m}, Y_{0,m})$
+be drawn from the same population as $(X_0, Y_0)$,
+each independently of $\trainset$.
+Then, given $\trainset$,
+the expected [mean squared error](estimation.qmd#def-prediction-mse)
+of the held-out predictions
+is the [generalization error](#def-generalization-error):
+
+$$
+\E{\frac{1}{m} \sum_{j=1}^m \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+= \generr_{\trainset}.
+$$
+
+:::
+
+::: proof
+This is @sol-held-out-unbiased.
+:::

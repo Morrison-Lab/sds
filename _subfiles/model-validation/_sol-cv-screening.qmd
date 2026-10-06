@@ -1,0 +1,89 @@
+<!--
+This fragment's R chunks use objects made by earlier fragments
+of model-validation.qmd, so it renders only after them:
+assign_folds(), from _exm-kfold-simulated.qmd.
+-->
+:::{#sol-cv-screening}
+
+1. $Y$ is independent of every predictor,
+   with mean 0 and variance 1.
+   The best prediction is the constant 0,
+   and its generalization error is $\Var{Y} = 1$.
+   Every other rule does worse,
+   so any honest estimate should be near or above 1.
+
+2. and 3.
+   The function below runs one data set through both procedures.
+   The only difference is whether the screening step
+   sees the whole data set (`"outside"`)
+   or only the training folds (`"inside"`).
+
+```{r}
+#| label: cv-screening
+#| code-fold: false
+top_predictors <- function(x, y, n_keep) {
+  order(abs(stats::cor(x, y)), decreasing = TRUE)[seq_len(n_keep)]
+}
+
+screened_cv <- function(x, y, folds, n_keep, screen) {
+  if (screen == "outside") {
+    keep <- top_predictors(x, y, n_keep)
+  }
+  sq_errors <- numeric(length(y))
+  for (j in unique(folds)) {
+    in_fold <- folds == j
+    if (screen == "inside") {
+      keep <- top_predictors(x[!in_fold, ], y[!in_fold], n_keep)
+    }
+    train <- data.frame(y = y[!in_fold], x[!in_fold, keep])
+    fit <- lm(y ~ ., data = train)
+    held_out <- data.frame(x[in_fold, keep])
+    sq_errors[in_fold] <- (predict(fit, newdata = held_out) - y[in_fold])^2
+  }
+  mean(sq_errors)
+}
+
+set.seed(7102)
+n_obs <- 50
+n_predictors <- 1000
+n_sims <- 50
+
+screening_results <- purrr::map(seq_len(n_sims), \(s) {
+  x <- matrix(stats::rnorm(n_obs * n_predictors), n_obs, n_predictors)
+  colnames(x) <- paste0("x", seq_len(n_predictors))
+  y <- stats::rnorm(n_obs)
+  folds <- assign_folds(n_obs, k = 5)
+  tibble::tibble(
+    sim = s,
+    outside = screened_cv(x, y, folds, n_keep = 10, screen = "outside"),
+    inside = screened_cv(x, y, folds, n_keep = 10, screen = "inside")
+  )
+}) |>
+  purrr::list_rbind()
+
+screening_summary <-
+  screening_results |>
+  dplyr::summarise(
+    dplyr::across(c(outside, inside), mean)
+  )
+
+screening_summary
+```
+
+Averaged over `r n_sims` simulated data sets:
+
+- Screening outside the folds gives a mean CV estimate of
+  `r round(screening_summary$outside, 2)`,
+  well below the smallest possible generalization error of 1.
+  The procedure reports that pure noise predicts $Y$.
+- Screening inside the folds gives
+  `r round(screening_summary$inside, 2)`,
+  above 1, as an honest estimate for a rule built from noise should be.
+
+The 10 predictors chosen from all 50 observations
+were chosen *because* they happen to correlate with $Y$
+in the very observations that later serve as held-out folds.
+Those observations were not held out from the whole fitting procedure,
+so the independence that @thm-held-out-unbiased needs fails.
+
+:::
