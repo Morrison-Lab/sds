@@ -54,9 +54,49 @@ format:
 
 ### Model specification {#sec-slr-model}
 
-<!-- No slidebreak here: the heading shares its slide with the def-slr div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-cond-gaussian div. -->
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-cond-gaussian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-slr-deviation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-slr-additive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-slr-additive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-slr-deviation-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-slr-deviation-dist.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-homoskedastic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_cor-homoskedastic-deviations.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-linear-regression.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_def-slr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_rem-slr-parameters.qmd >}}
 
 {{< slidebreak >}}
 
@@ -68,7 +108,19 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_exm-rss-slr.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exm-rss.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-mse-rss.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-mse-rss.qmd >}}
 
 {{< slidebreak >}}
 
@@ -76,9 +128,91 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_exm-ols-slr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-normal-equations.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-normal-equations-slr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-centered-sums.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-sum-deviations-zero.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-sxx-expand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-intercept.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-slope.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-solve-normal-equations.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_thm-ols-slr.qmd >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_proof-ols-slr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_prose-ols-slr-vector-setup.qmd >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-slr-covariate-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-slr-mean-dot-product.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-slr-mean-dot-product.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exm-rss-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-gradient-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-normal-equations-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-solve-normal-equations-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_thm-ols-slr-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-ols-slope-r.qmd >}}
 
 {{< slidebreak >}}
 
@@ -115,6 +249,14 @@ The login for the video site is posted
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_def-r-squared.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-rss-ols-fit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_exr-r-squared-slr.qmd >}}
 
 {{< slidebreak >}}
 

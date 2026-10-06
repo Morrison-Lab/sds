@@ -1,0 +1,16 @@
+::: {#rem-prediction-mse}
+#### Prediction MSE, estimator MSE and RSS
+
+@def-prediction-mse averages squared errors over observations,
+where the [mean squared error of an estimator](#def-mse)
+takes an expectation over repeated samples.
+On the data used to fit the model,
+the mean squared error of the fitted values is the
+[residual sum of squares](correlation-regression.qmd#def-rss)
+divided by $n$
+([mean squared error and RSS](correlation-regression.qmd#thm-mse-rss)):
+
+$$\mselr{\fitted} = \frac{1}{n} \text{RSS}(\est{\vth}),
+\qquad
+\text{RSS}(\est{\vth}) = n \, \mselr{\fitted}.$$
+:::

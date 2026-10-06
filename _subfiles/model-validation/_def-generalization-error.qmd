@@ -1,0 +1,23 @@
+:::{#def-generalization-error}
+#### Generalization error
+
+The **generalization error** of a [prediction rule](#def-prediction-rule) $\fitted$
+fitted to a [training set](#def-training-set) $\trainset$
+is its expected squared [prediction error](estimation.qmd#def-prediction-error)
+on a new observation $(X_0, Y_0)$
+drawn from the same population independently of $\trainset$,
+with $\trainset$ held fixed:
+
+$$
+\generr_{\trainset} \eqdef \E{\sqf{\fitted(X_0) - Y_0} \mid \trainset}.
+$$ {#eq-generalization-error}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+The risk form follows Brian Hutchinson's Fall 2025 lecture notes;
+the conditional form, with the training set held fixed,
+follows @hastie2009elements [sec. 7.2].
+:::
+
+:::

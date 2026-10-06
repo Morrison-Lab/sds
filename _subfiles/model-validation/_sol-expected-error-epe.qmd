@@ -1,0 +1,39 @@
+:::{#sol-expected-error-epe}
+
+$$
+\ba
+& \expgenerr{g}{n}
+\\
+&\quad = \E{\generr_{\trainset}}
+&& \text{(definition)}
+\\
+&\quad = \E{\E{\sqf{\fitted(X_0) - Y_0} \mid \trainset}}
+&& \text{(definition)}
+\\
+&\quad = \E{\E{\sqf{g\paren{X_0; \trainset} - Y_0} \mid \trainset}}
+&& \text{(prediction rule)}
+\\
+&\quad = \E{\sqf{g\paren{X_0; \trainset} - Y_0}}
+&& \text{(iterated expectations)}
+\\
+&\quad = \E{\E{\sqf{g\paren{X_0; \trainset} - Y_0} \mid X_0}}
+&& \text{(iterated expectations)}
+\\
+&\quad = \E{\epe{g}{n}{X_0}}
+&& \text{(definition)}
+\ea
+$$
+
+The steps labeled "definition" apply
+@eq-expected-generalization-error, @eq-generalization-error and @eq-epe, in that order,
+and the step labeled "prediction rule" applies @eq-prediction-rule,
+$\fitted(X_0) = g\paren{X_0; \trainset}$.
+The two steps labeled "iterated expectations" use the
+[law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie),
+the first conditioning on $\trainset$ and the second on $X_0$.
+The last line needs $\trainset$ to be independent of $(X_0, Y_0)$:
+then, given $X_0 = x$,
+$\trainset$ still has its unconditional distribution,
+as @def-epe requires.
+
+:::

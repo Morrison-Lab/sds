@@ -14,18 +14,38 @@ $$
 \maelr{\hth}
 &= \E{\abs{\tau Z}}
 && \text{(definition of MAE)}\\
+&= \E{\tau \abs{Z}}
+&& \text{($\abs{\tau Z} = \tau \abs{Z}$ because $\tau > 0$)}\\
 &= \tau \E{\abs{Z}}
-&& \text{($\tau > 0$ and linearity of expectation)}\\
+&& \text{(factor the constant $\tau$ out of the expectation)}\\
 &= \tau \int_{-\infty}^{\infty} \abs{z} \phi(z) \, dz
 && \text{(expectation of a function of $Z$)}\\
-&= 2\tau \int_{0}^{\infty} z \phi(z) \, dz
+&= \tau \cdot 2 \int_{0}^{\infty} \abs{z} \phi(z) \, dz
 && \text{($\abs{z}\phi(z)$ is symmetric about 0)}\\
-&= 2\tau \sb{-\phi(z)}_{0}^{\infty}
+&= \tau \cdot 2 \int_{0}^{\infty} z \phi(z) \, dz
+&& \text{($\abs{z} = z$ for $z \ge 0$)}\\
+&= \tau \cdot 2 \sb{-\phi(z)}_{0}^{\infty}
 && \text{($\phi'(z) = -z\phi(z)$)}\\
-&= 2\tau \phi(0)
+&= \tau \cdot 2 \paren{\lim_{z \to \infty} \sb{-\phi(z)} - \paren{-\phi(0)}}
+&& \text{(evaluate at the limits)}\\
+&= \tau \cdot 2 \paren{\lim_{z \to \infty} \sb{-\phi(z)} + \phi(0)}
+&& \text{(subtracting a negative is adding)}\\
+&= \tau \cdot 2 \paren{0 + \phi(0)}
 && \text{($\phi(z) \to 0$ as $z \to \infty$)}\\
+&= \tau \cdot 2 \phi(0)
+&& \text{(drop the zero term)}\\
+&= \tau \cdot 2 (2\pi)^{-1/2}
+&& \text{($\phi(0) = (2\pi)^{-1/2}$)}\\
+&= \tau \cdot 2 \cdot \frac{1}{\sqrt{2\pi}}
+&& \text{(write $(2\pi)^{-1/2}$ as $1/\sqrt{2\pi}$)}\\
+&= \tau \cdot \frac{2}{\sqrt{2\pi}}
+&& \text{(multiply)}\\
+&= \tau \cdot \frac{\sqrt{4}}{\sqrt{2\pi}}
+&& \text{(write $2$ as $\sqrt{4}$)}\\
+&= \tau \sqrt{4/(2\pi)}
+&& \text{(quotient of square roots)}\\
 &= \tau \sqrt{2/\pi}
-&& \text{($\phi(0) = (2\pi)^{-1/2}$)}
+&& \text{(cancel the common factor 2 in $4/(2\pi)$)}
 \end{aligned}
 $$
 

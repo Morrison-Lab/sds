@@ -1,0 +1,12 @@
+:::{#def-cross-product-matrix}
+#### Cross-product matrix
+
+The **cross-product matrix** $A$ of [term vectors](#def-term-vector)
+$\termvec{i}$, $i \in I$, of a training set indexed by $I$,
+is the sum of their outer products:
+
+$$
+A \eqdef \sum_{i \in I} \soprod{\termvec{i}}.
+$$ {#eq-cross-product-matrix}
+
+:::

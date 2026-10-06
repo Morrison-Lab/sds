@@ -6,7 +6,7 @@ Derive the [Hessian](intro-MLEs.qmd#def-hessian).
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-hessian}
 
 With one parameter,
 the Hessian is the second derivative of the log-likelihood,
@@ -25,4 +25,4 @@ $$
 $$
 
 For the cyclone data, $\ell''(\lambda; \vx) = -`r sumx`/\lambda^2$.
-::::
+:::

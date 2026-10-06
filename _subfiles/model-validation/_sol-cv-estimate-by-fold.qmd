@@ -1,0 +1,28 @@
+:::{#sol-cv-estimate-by-fold}
+
+The folds $\fold{1}, \ldots, \fold{k}$ partition $I$ (@def-folds),
+so summing over the observations of each fold and then over the folds
+adds each term of @eq-cv-estimate exactly once.
+For $i \in \fold{j}$, @eq-fold-assignment also puts $i$ in $\fold{\foldof{i}}$,
+and the folds are disjoint,
+so $\foldof{i} = j$.
+Then
+
+$$
+\ba
+\cvest{k}
+&= \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}
+&& \text{(definition)}
+\\
+&= \frac{1}{n} \sum_{j=1}^k \sum_{i \in \fold{j}} \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}
+&& \text{(group by fold)}
+\\
+&= \frac{1}{n} \sum_{j=1}^k \sum_{i \in \fold{j}} \sqf{\fittedwo{j}{x_i} - y_i}
+&& (\foldof{i} = j \text{ for } i \in \fold{j})
+\ea
+$$
+
+In the last line, the rule $\fittedwo{j}{\cdot}$ depends only on the outer index,
+so each inner sum uses a single fitted rule.
+
+:::

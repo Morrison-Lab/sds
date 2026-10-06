@@ -9,7 +9,7 @@ treating the variance $\ss$ as known.
 
 {{< slidebreak >}}
 
-::::{#sol-gauss-score-fn}
+:::{#sol-gauss-score-fn}
 
 $$
 \begin{aligned}
@@ -18,15 +18,53 @@ $$
 && \text{(definition of the score)}\\
 &= \deriv{\pmean}\paren{\frac{-1}{2}\paren{\logf{2\pi\ss} + \frac{(x - \pmean)^2}{\ss}}}
 && \text{(Gaussian log-likelihood)}\\
+&= \frac{-1}{2}\deriv{\pmean}\paren{\logf{2\pi\ss} + \frac{(x - \pmean)^2}{\ss}}
+&& \text{(constant multiple rule)}\\
 &= \frac{-1}{2}\paren{\deriv{\pmean}\logf{2\pi\ss} + \deriv{\pmean}\frac{(x - \pmean)^2}{\ss}}
 && \text{(linearity of differentiation)}\\
-&= \frac{-1}{2}\paren{0 + \frac{-2(x - \pmean)}{\ss}}
-&& \text{(constant; chain rule)}\\
-&= \frac{x - \pmean}{\ss}
-&& \text{(simplify)}\\
-&= \frac{x - \E{X}}{\Var{X}}
-&& \text{($\E{X} = \pmean$ and $\Var{X} = \ss$)}
+&= \frac{-1}{2}\paren{0 + \deriv{\pmean}\frac{(x - \pmean)^2}{\ss}}
+&& \text{(derivative of a constant)}\\
+&= \frac{-1}{2}\paren{0 + \frac{1}{\ss}\deriv{\pmean}(x - \pmean)^2}
+&& \text{(constant multiple rule)}\\
+&= \frac{-1}{2}\paren{0 + \frac{1}{\ss} \cdot 2(x - \pmean) \deriv{\pmean}(x - \pmean)}
+&& \text{(chain rule, outer function $u^2$)}
 \end{aligned}
 $$
 
-::::
+The inner derivative is:
+
+$$
+\begin{aligned}
+\deriv{\pmean}(x - \pmean)
+&= \deriv{\pmean} x - \deriv{\pmean} \pmean
+&& \text{(linearity of differentiation)}\\
+&= 0 - \deriv{\pmean} \pmean
+&& \text{($x$ does not depend on $\pmean$)}\\
+&= 0 - 1
+&& \text{(derivative of $\pmean$ with respect to itself)}\\
+&= -1
+&& \text{(subtract)}
+\end{aligned}
+$$
+
+Substituting the inner derivative back in:
+
+$$
+\begin{aligned}
+\score
+&= \frac{-1}{2}\paren{0 + \frac{1}{\ss} \cdot 2(x - \pmean) \cdot (-1)}
+&& \text{(inner derivative is $-1$)}\\
+&= \frac{-1}{2}\paren{0 + \frac{-2(x - \pmean)}{\ss}}
+&& \text{(multiply)}\\
+&= \frac{-1}{2} \cdot \frac{-2(x - \pmean)}{\ss}
+&& \text{(drop the zero term)}\\
+&= \frac{x - \pmean}{\ss}
+&& \text{(multiply)}\\
+&= \frac{x - \E{X}}{\ss}
+&& \text{($\E{X} = \pmean$)}\\
+&= \frac{x - \E{X}}{\Var{X}}
+&& \text{($\Var{X} = \ss$)}
+\end{aligned}
+$$
+
+:::

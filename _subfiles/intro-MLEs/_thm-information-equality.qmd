@@ -19,46 +19,9 @@ $\p(\vx \mid \th)$;
 the vector case applies the same steps to each pair of entries,
 and a discrete $\vX$ replaces integrals with sums.
 
-For @eq-score-mean-zero:
-
-$$
-\begin{aligned}
-\E{\score}
-&= \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
-&& \text{(definition of expectation)}\\
-&= \int \frac{\deriv{\th} \p(\vx \mid \th)}{\p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
-&& \text{(chain rule for $\log$)}\\
-&= \int \deriv{\th} \p(\vx \mid \th) \, d\vx
-&& \text{(cancel $\p(\vx \mid \th)$)}\\
-&= \deriv{\th} \int \p(\vx \mid \th) \, d\vx
-&& \text{(exchange derivative and integral)}\\
-&= \deriv{\th} 1
-&& \text{(a density integrates to 1)}\\
-&= 0
-\end{aligned}
-$$
-
+@eq-score-mean-zero is the solution to @exr-score-mean-zero.
 For @eq-information-equality,
-differentiate the identity
-$0 = \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx$
-from the first line with respect to $\th$:
-
-$$
-\begin{aligned}
-0
-&= \int \deriv{\th}\sb{\paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th)} d\vx
-&& \text{(exchange derivative and integral)}\\
-&= \int \paren{\frac{\partial^2}{\partial \th^2} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
- + \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \deriv{\th}\p(\vx \mid \th) \, d\vx
-&& \text{(product rule)}\\
-&= \E{\hess} + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
-&& \text{($\deriv{\th}\p = \paren{\deriv{\th}\log \p} \p$)}\\
-&= \E{\hess} + \E{\score^2}
-&& \text{(definition of expectation)}
-\end{aligned}
-$$
-
-So $\einf(\th) = \E{-\hess} = \E{\score^2}$,
+@exr-score-second-moment gives $\einf(\th) = \E{\score^2}$,
 and because $\E{\score} = 0$,
 $\E{\score^2} = \E{\score^2} - \sqf{\E{\score}} = \Var{\score}$.
 :::

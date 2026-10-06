@@ -6,7 +6,7 @@ Graph the log-likelihood as a function of $\lambda$.
 
 {{< slidebreak >}}
 
-:::: {.solution}
+::::{#sol-graph-loglikelihood}
 
 ::: {#fig-cyclone-llik}
 

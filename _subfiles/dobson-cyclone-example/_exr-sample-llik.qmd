@@ -6,7 +6,7 @@ Write down the log-likelihood of the full dataset.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-sample-llik}
 
 $$
 \begin{aligned}
@@ -26,4 +26,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

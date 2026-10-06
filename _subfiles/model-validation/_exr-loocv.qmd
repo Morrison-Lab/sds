@@ -1,0 +1,13 @@
+:::{#exr-loocv}
+#### The largest number of folds
+
+Suppose we take $k = n$ in [$k$-fold cross-validation](#def-kfold)
+on the $n = 32$ cars in `mtcars`.
+
+1. How many cars are in each fold?
+2. How many models are fit, and how many cars is each fitted to?
+3. If we run the procedure twice,
+   with two different random fold assignments,
+   can the two values of $\cvest{32}$ (@eq-cv-estimate) differ?
+
+:::

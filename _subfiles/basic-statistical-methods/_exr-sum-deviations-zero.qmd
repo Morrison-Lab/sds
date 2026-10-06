@@ -1,0 +1,28 @@
+:::{#exr-sum-deviations-zero}
+#### Deviations from the mean sum to zero
+
+Show that $\sumin (x_i - \bar{x}) = 0$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-sum-deviations-zero}
+
+$$
+\begin{aligned}
+\sumin (x_i - \bar{x})
+&= \sumin x_i - \sumin \bar{x}
+&& \text{(split the sum)}\\
+&= \sumin x_i - n \bar{x}
+&& \text{(sum of a constant)}\\
+&= n \bar{x} - n \bar{x}
+&& \text{($\sumin x_i = n \bar{x}$)}\\
+&= 0
+&& \text{(subtract)}
+\end{aligned}
+$$
+
+The same steps with $y_i$ in place of $x_i$
+show that $\sumin (y_i - \bar{y}) = 0$.
+
+:::

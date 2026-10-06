@@ -2,6 +2,10 @@
 #### Unbiased estimator
 
 An estimator $\hth$ is **unbiased** if its [bias](#def-bias) is zero:
-$\bias{\hth} = 0$.
+
+$$
+\bias{\hth} = 0
+$$
+
 An estimator whose bias is not zero is **biased**.
 :::

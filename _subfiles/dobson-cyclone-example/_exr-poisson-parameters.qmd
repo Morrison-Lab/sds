@@ -6,9 +6,9 @@ Write down the vector of parameters in the model.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-poisson-parameters}
 
 There is only one parameter, $\lambda$:
 
 $$\theta = (\lambda)$$
-::::
+:::

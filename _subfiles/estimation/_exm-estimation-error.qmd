@@ -15,6 +15,7 @@ $$
 &= 175 - 172
 && \text{(substitute the estimate and the estimand)}\\
 &= 3 \text{ cm}
+&& \text{(subtract)}
 \end{aligned}
 $$
 

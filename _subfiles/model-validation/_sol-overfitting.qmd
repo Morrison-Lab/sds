@@ -6,8 +6,14 @@
 train_cars <- mtcars[1:20, ]
 held_out_cars <- mtcars[21:32, ]
 
+prediction_mse <- function(model, data) {
+  response_only <- stats::update(stats::formula(model), . ~ 1)
+  y <- stats::model.response(stats::model.frame(response_only, data))
+  mean((predict(model, newdata = data) - y)^2)
+}
+
 rmse <- function(model, data) {
-  sqrt(mean((data$mpg - predict(model, newdata = data))^2))
+  sqrt(prediction_mse(model, data))
 }
 
 overfitting_results <- tibble::tibble(degree = 1:4) |>
@@ -32,6 +38,8 @@ best_train <- overfitting_results$degree[
 best_held_out <- overfitting_results$degree[
   which.min(overfitting_results$held_out_RMSE)
 ]
+
+c(best_train = best_train, best_held_out = best_held_out)
 ```
 
 1. The smallest training RMSE is at degree `r best_train`.

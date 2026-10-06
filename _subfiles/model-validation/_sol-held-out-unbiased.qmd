@@ -1,0 +1,41 @@
+:::{#sol-held-out-unbiased}
+
+Given $\trainset$, the rule $\fitted$ is fixed.
+Each held-out pair has the same distribution as $(X_0, Y_0)$
+and is independent of $\trainset$,
+so each squared prediction error has conditional expectation
+$\E{\sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset} = \generr_{\trainset}$
+by @eq-generalization-error.
+Then
+
+$$
+\ba
+& \E{\frac{1}{m} \sum_{j=1}^m \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+\\
+&\quad = \frac{1}{m} \E{\sum_{j=1}^m \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+&& \text{(constant } 1/m \text{ out)}
+\\
+&\quad = \frac{1}{m} \sum_{j=1}^m \E{\sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+&& \text{(linearity of } \Ep \text{)}
+\\
+&\quad = \frac{1}{m} \sum_{j=1}^m \generr_{\trainset}
+&& \text{(each term, as above)}
+\\
+&\quad = \frac{1}{m} \paren{m \, \generr_{\trainset}}
+&& \text{(} m \text{ equal terms)}
+\\
+&\quad = \paren{\frac{1}{m} \cdot m} \generr_{\trainset}
+&& \text{(regroup the product)}
+\\
+&\quad = 1 \cdot \generr_{\trainset}
+&& (\tfrac{1}{m} \cdot m = 1)
+\\
+&\quad = \generr_{\trainset}
+&& (1 \cdot b = b)
+\ea
+$$
+
+The step labeled "each term, as above" is the one that needs the held-out set
+to be independent of $\trainset$.
+
+:::

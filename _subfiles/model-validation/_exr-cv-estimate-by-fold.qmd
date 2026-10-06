@@ -1,0 +1,10 @@
+:::{#exr-cv-estimate-by-fold}
+#### The cross-validation estimate, fold by fold
+
+Rewrite the [cross-validation estimate](#def-cv-estimate) @eq-cv-estimate
+as $1/n$ times a double sum:
+an outer sum over the fold numbers $j = 1, \ldots, k$
+and an inner sum over the observations $i$ in [fold](#def-folds) $\fold{j}$.
+Then simplify the summand, so that it no longer uses the fold assignment $\foldof{i}$.
+
+:::

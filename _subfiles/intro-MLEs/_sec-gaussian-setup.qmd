@@ -16,10 +16,31 @@ and by @thm-loglik-iid, the log-likelihood is:
 $$
 \begin{aligned}
 \ell(\mu, \sigma^2)
-&= \sum_{i=1}^n \paren{-\frac{1}{2}\logf{2\pi\sigma^2} - \frac{(x_i - \mu)^2}{2\sigma^2}}
+&= \sum_{i=1}^n \logf{(2\pi\sigma^2)^{-1/2}
+\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}
 && \text{(log of each Gaussian density)}\\
+&= \sum_{i=1}^n \paren{\logf{(2\pi\sigma^2)^{-1/2}}
+ + \logf{\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}}
+&& \text{(log of a product)}\\
+&= \sum_{i=1}^n \paren{-\frac{1}{2}\logf{2\pi\sigma^2}
+ + \logf{\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}}
+&& \text{(log of a power)}\\
+&= \sum_{i=1}^n \paren{-\frac{1}{2}\logf{2\pi\sigma^2} - \frac{(x_i - \mu)^2}{2\sigma^2}}
+&& \text{($\logt$ undoes $\expt$)}\\
+&= \sum_{i=1}^n \paren{-\frac{1}{2}\logf{2\pi\sigma^2}}
+ - \sum_{i=1}^n \frac{(x_i - \mu)^2}{2\sigma^2}
+&& \text{(split the sum)}\\
+&= -\frac{n}{2}\logf{2\pi\sigma^2}
+ - \sum_{i=1}^n \frac{(x_i - \mu)^2}{2\sigma^2}
+&& \text{(sum of $n$ identical terms)}\\
+&= -\frac{n}{2}\logf{2\pi\sigma^2}
+ - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(factor the constant $\tfrac{1}{2\sigma^2}$ out of the sum)}\\
+&= -\frac{n}{2}\paren{\logf{2\pi} + \logf{\sigma^2}}
+ - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2
+&& \text{(log of a product)}\\
 &= -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
  - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2
-&& \text{(split the sum; log of a product)}
+&& \text{(distribute $-\tfrac{n}{2}$)}
 \end{aligned}
 $$

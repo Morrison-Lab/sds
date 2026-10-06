@@ -8,7 +8,7 @@ with respect to its mean parameter $\rate$.
 
 {{< slidebreak >}}
 
-::::{#sol-pois-score-fn}
+:::{#sol-pois-score-fn}
 
 The log-likelihood of one Poisson observation is
 $\loglik = x \logf{\rate} - \rate - \logf{x!}$, so:
@@ -16,17 +16,33 @@ $\loglik = x \logf{\rate} - \rate - \logf{x!}$, so:
 $$
 \begin{aligned}
 \score
-&\eqdef \deriv{\rate}\paren{x\logf{\rate} - \rate - \logf{x!}}
+&\eqdef \deriv{\rate}\loglik
 && \text{(definition of the score)}\\
-&= x\deriv{\rate}\logf{\rate} - \deriv{\rate}\rate - \deriv{\rate}\logf{x!}
+&= \deriv{\rate}\paren{x\logf{\rate} - \rate - \logf{x!}}
+&& \text{(Poisson log-likelihood)}\\
+&= \deriv{\rate}\paren{x\logf{\rate}} - \deriv{\rate}\rate - \deriv{\rate}\logf{x!}
 && \text{(linearity of differentiation)}\\
-&= \frac{x}{\rate} - 1 - 0
-&& \text{(derivatives of $\log \rate$, $\rate$, and a constant)}\\
+&= \deriv{\rate}\paren{x\logf{\rate}} - \deriv{\rate}\rate - 0
+&& \text{(derivative of a constant)}\\
+&= \deriv{\rate}\paren{x\logf{\rate}} - \deriv{\rate}\rate
+&& \text{(drop the zero term)}\\
+&= x\deriv{\rate}\logf{\rate} - \deriv{\rate}\rate
+&& \text{(constant multiple rule)}\\
+&= x\rate^{-1} - \deriv{\rate}\rate
+&& \text{(derivative of $\log \rate$)}\\
+&= x\rate^{-1} - 1
+&& \text{(derivative of $\rate$ with respect to itself)}\\
+&= \frac{x}{\rate} - 1
+&& \text{(write the negative power as a fraction)}\\
+&= \frac{x}{\rate} - \frac{\rate}{\rate}
+&& \text{(write both terms over the common denominator)}\\
 &= \frac{x - \rate}{\rate}
-&& \text{(common denominator)}\\
+&& \text{(combine the fractions)}\\
+&= \frac{x - \E{X}}{\rate}
+&& \text{($\E{X} = \rate$)}\\
 &= \frac{x - \E{X}}{\Var{X}}
-&& \text{($\E{X} = \Var{X} = \rate$)}
+&& \text{($\Var{X} = \rate$)}
 \end{aligned}
 $$
 
-::::
+:::

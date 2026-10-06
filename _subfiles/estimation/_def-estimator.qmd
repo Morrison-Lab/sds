@@ -1,7 +1,12 @@
 ::: {#def-estimator}
 #### Estimator
 
-An **estimator** is a function $\hth(x_1, \ldots, x_n)$
-that transforms data $x_1, \ldots, x_n$ into an [estimate](#def-estimate).
+An **estimator** is the function $\hth(\cdot)$
+that transforms data into an [estimate](#def-estimate);
+applied to a random sample $X_1, \ldots, X_n$,
+it is a random variable:
 
+$$
+\hth(X_1, \ldots, X_n).
+$$
 :::

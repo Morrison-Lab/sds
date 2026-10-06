@@ -13,6 +13,9 @@ loglik <- function(mu, sigma, x) {
 }
 
 lik <- function(...) exp(loglik(...))
+
+# log-likelihood at the MLEs:
+loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 ```
 
 {{< slidebreak >}}

@@ -6,7 +6,7 @@ Graph the log-likelihood with the MLE superimposed.
 
 {{< slidebreak >}}
 
-::::{.solution}
+::::{#sol-graph-mle}
 
 ::: {#fig-cyclone-llik-mle}
 

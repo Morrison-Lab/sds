@@ -1,0 +1,26 @@
+:::{#exr-hessian-score}
+#### Hessian from the score
+
+Write the [Hessian](#def-hessian) $\hess$
+as a derivative of the [score function](#def-score) $\score$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-hessian-score}
+
+By @def-score, $\score = \deriv{\vth}\llik$,
+so $\pt{\score} = \deriv{\vth\'}\llik$.
+Then:
+
+$$
+\begin{aligned}
+\deriv{\vth}\pt{\score}
+&= \deriv{\vth}\deriv{\vth\'}\llik
+&& \text{(transpose of the score)}\\
+&= \hess
+&& \text{(definition of the Hessian)}
+\end{aligned}
+$$
+
+:::

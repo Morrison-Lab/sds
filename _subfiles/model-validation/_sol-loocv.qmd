@@ -1,0 +1,14 @@
+:::{#sol-loocv}
+
+1. $32 / 32 = 1$ car per fold.
+2. One model per fold, so $32$ models,
+   each fitted to the $32 - 1 = 31$ other cars.
+3. No.
+   With one car per fold,
+   every assignment of cars to folds produces the same 32 fits,
+   only numbered differently,
+   and @eq-cv-estimate does not depend on the numbering.
+   Unlike @exm-kfold-mtcars,
+   the estimate is not random.
+
+:::

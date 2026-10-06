@@ -1,0 +1,23 @@
+:::{#exr-sq-bias-expand}
+#### Expanding the squared bias
+
+Using @thm-bias-exprs,
+expand the squared [bias](#def-bias) $\sqf{\bias{\hth}}$
+in terms of $\E{\hth}$ and the estimand $\th$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-sq-bias-expand}
+
+$$
+\begin{aligned}
+\sqf{\bias{\hth}}
+&= \sqf{\E{\hth} - \th}
+&& \text{(bias equals expectation minus truth)}\\
+&= \sqf{\E{\hth}} - 2\E{\hth}\th + \th^2
+&& \text{(expand the binomial square)}
+\end{aligned}
+$$
+
+:::

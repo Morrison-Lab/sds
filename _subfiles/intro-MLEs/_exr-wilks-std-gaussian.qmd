@@ -1,0 +1,56 @@
+:::{#exr-wilks-std-gaussian}
+#### Standardizing an approximately Gaussian estimate
+
+Suppose $\hthml \dsim \ndist{\th_0, \einf(\th_0)^{-1}}$,
+and define $Z \eqdef \sqrt{\einf(\th_0)}\,(\hthml - \th_0)$.
+Show that $Z$ is approximately standard Gaussian,
+and find the approximate distribution of $Z^2$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-wilks-std-gaussian}
+
+$Z$ is a linear function of $\hthml$,
+so it is approximately Gaussian,
+with approximate mean and variance:
+
+$$
+\begin{aligned}
+\E{Z}
+&= \E{\sqrt{\einf(\th_0)}\,(\hthml - \th_0)}
+&& \text{(definition of $Z$)}\\
+&= \sqrt{\einf(\th_0)}\,\E{\hthml - \th_0}
+&& \text{(factor the constant $\sqrt{\einf(\th_0)}$ out of the expectation)}\\
+&= \sqrt{\einf(\th_0)}\,\paren{\E{\hthml} - \E{\th_0}}
+&& \text{(linearity of expectation)}\\
+&= \sqrt{\einf(\th_0)}\,\paren{\E{\hthml} - \th_0}
+&& \text{(the expectation of a constant is that constant)}\\
+&\approx \sqrt{\einf(\th_0)}\,(\th_0 - \th_0)
+&& \text{(approximate mean of $\hthml$)}\\
+&= \sqrt{\einf(\th_0)} \cdot 0
+&& \text{(subtract)}\\
+&= 0
+&& \text{(multiply by zero)}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+\Var{Z}
+&= \Var{\sqrt{\einf(\th_0)}\,(\hthml - \th_0)}
+&& \text{(definition of $Z$)}\\
+&= \einf(\th_0) \Var{\hthml}
+&& \text{($\Var{aY + b} = a^2 \Var{Y}$)}\\
+&\approx \einf(\th_0) \einf(\th_0)^{-1}
+&& \text{(approximate variance of $\hthml$)}\\
+&= 1
+&& \text{(a number times its inverse is 1)}
+\end{aligned}
+$$
+
+So $Z \dsim \ndist{0, 1}$.
+The square of a standard Gaussian variable has a $\chi^2_1$ distribution,
+so $Z^2$ has approximately a $\chi^2_1$ distribution.
+
+:::

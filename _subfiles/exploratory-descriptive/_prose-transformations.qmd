@@ -58,6 +58,7 @@ sbp_skew <- c(
   raw = skewness(wcgs$sbp),
   log = skewness(wcgs$lnsbp)
 )
+sbp_skew
 ```
 
 The log-transformed SBP is less skewed than the raw SBP

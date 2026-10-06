@@ -1,0 +1,12 @@
+:::{#def-test-set}
+#### Test set
+
+The **test set** of a [training/validation/test split](#def-data-splits)
+is the [held-out set](#def-held-out-set) of observations indexed by $I_{\text{test}}$,
+on which the rule of the [validation choice](#def-validation-choice) $g_{\est{l}}$ is scored:
+
+$$
+\paren{(x_i, y_i)}_{i \in I_{\text{test}}}.
+$$ {#eq-test-set}
+
+:::

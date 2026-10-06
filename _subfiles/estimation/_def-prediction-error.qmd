@@ -1,0 +1,9 @@
+::: {#def-prediction-error}
+#### Prediction error
+
+The **prediction error** of a [prediction](#def-prediction) $\fitted$
+(such as $\fitted(x)$ or a fitted value $\fitted_i$)
+of an observed outcome $y$ is the prediction minus the outcome:
+
+$$\prederr \eqdef \fitted - y.$$
+:::
