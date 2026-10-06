@@ -5,7 +5,7 @@
 # line, and already skips drafts, Dependabot bumps, fork PRs, and PRs that
 # edit this workflow file itself (the action can't review its own diff --
 # see gha's own comments on the App-token validation 401). This caller only
-# supplies qwt's Quarto/R-specific review guidance on top.
+# supplies sds's Quarto/R-specific review guidance on top.
 # See https://github.com/Morrison-Lab/gha for inputs and versioning.
 #
 # Secrets are passed explicitly rather than via `secrets: inherit`: GitHub
