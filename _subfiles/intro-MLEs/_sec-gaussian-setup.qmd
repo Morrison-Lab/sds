@@ -26,7 +26,7 @@ $$
  + \logf{\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}}
 && \text{(log of a power)}\\
 &= \sum_{i=1}^n \paren{-\frac{1}{2}\logf{2\pi\sigma^2} - \frac{(x_i - \mu)^2}{2\sigma^2}}
-&& \text{($\log$ undoes $\exp$)}\\
+&& \text{($\logt$ undoes $\expt$)}\\
 &= \sum_{i=1}^n \paren{-\frac{1}{2}\logf{2\pi\sigma^2}}
  - \sum_{i=1}^n \frac{(x_i - \mu)^2}{2\sigma^2}
 && \text{(split the sum)}\\
