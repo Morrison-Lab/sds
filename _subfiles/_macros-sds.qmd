@@ -14,6 +14,7 @@
 \providecommand{\generr}{\operatorname{Err}}
 \providecommand{\expgenerr}[1]{\generr\paren{#1}}
 \providecommand{\cvest}[1]{\Est{\generr}_{\text{CV}(#1)}}
+\providecommand{\cvestof}[2]{\Est{\generr}^{#2}_{\text{CV}(#1)}}
 \providecommand{\fold}[1]{\mathcal{F}_{#1}}
 \providecommand{\foldsize}[1]{n_{#1}}
 \providecommand{\foldof}[1]{\kappa(#1)}

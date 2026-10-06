@@ -13,4 +13,10 @@ $$
 i \in \fold{\foldof{i}}.
 $$ {#eq-fold-assignment}
 
+::: {.callout-note collapse="true"}
+#### Source
+
+The fold-assignment function $\foldof{i}$ follows @hastie2009elements [sec. 7.10.1].
+:::
+
 :::

@@ -1,21 +1,27 @@
 :::{#def-expected-generalization-error}
 #### Expected generalization error
 
+A **fitting procedure** turns any training set $\mathcal{T}$ into a prediction rule $\fitted$.
 The **expected generalization error** of a fitting procedure
 at training-set size $n$
-is the mean of its [generalization error](#def-generalization-error)
-over training sets $\mathcal{T}$ of $n$ observations
+is the mean of the [generalization error](#def-generalization-error)
+of the rule it produces,
+over training sets of $n$ observations
 drawn independently from the population:
 
 $$
-\expgenerr{n} \eqdef \E{\generr_{\mathcal{T}}}.
+\expgenerr{n} \eqdef \E{\generr_{\mathcal{T}}},
+\quad
+\mathcal{T} = \set{(X_1, Y_1), \ldots, (X_n, Y_n)}.
 $$ {#eq-expected-generalization-error}
 
 ::: {.callout-note collapse="true"}
 #### Source
 
-@hastie2009elements [sec. 7.2] call this quantity the *expected test error* and write it $\operatorname{Err}$;
-the argument $n$ is added here because @rem-cv-estimate compares training sets of different sizes.
+@hastie2009elements [sec. 7.2] call this quantity the *expected prediction error*
+(or *expected test error*) and write it $\generr$;
+the argument $n$ is added here
+because cross-validation fits rules to training sets smaller than $n$.
 :::
 
 :::

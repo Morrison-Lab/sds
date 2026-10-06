@@ -1,7 +1,7 @@
 :::{#thm-cv-estimate-by-fold}
-#### The cross-validation estimate as a sum over folds
+#### The cross-validation estimate, fold by fold
 
-The [cross-validation estimate](#def-cv-estimate) adds up,
+The [cross-validation estimate](#def-cv-estimate) averages,
 fold by fold,
 the squared errors of each fold's observations
 under the rule fitted without that [fold](#def-folds):

@@ -38,11 +38,11 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_rem-generalization-error.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-expected-generalization-error.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-expected-generalization-error.qmd >}}
+{{< include sds/_subfiles/model-validation/_rem-generalization-error.qmd >}}
 
 {{< slidebreak >}}
 

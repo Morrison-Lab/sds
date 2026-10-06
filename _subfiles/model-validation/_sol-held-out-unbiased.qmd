@@ -12,10 +12,10 @@ $$
 \ba
 \E{\frac{1}{m} \sum_{j=1}^m \prederr_{0,j}^2 \mid \mathcal{T}}
 &= \frac{1}{m} \E{\sum_{j=1}^m \prederr_{0,j}^2 \mid \mathcal{T}}
-&& \text{(pull out } 1/m \text{)}
+&& \text{(constant } 1/m \text{ out)}
 \\
 &= \frac{1}{m} \sum_{j=1}^m \E{\prederr_{0,j}^2 \mid \mathcal{T}}
-&& \text{(sum rule)}
+&& \text{(linearity of } \operatorname{E} \text{)}
 \\
 &= \frac{1}{m} \sum_{j=1}^m \generr_{\mathcal{T}}
 && \text{(each term, as above)}

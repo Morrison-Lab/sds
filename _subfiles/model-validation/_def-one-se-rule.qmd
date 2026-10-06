@@ -2,7 +2,7 @@
 #### One-standard-error rule
 
 Let $M_1, \ldots, M_L$ be candidate models ordered from least to most flexible.
-Write $\cvest{k}(M_l)$ for the [cross-validation estimate](#def-cv-estimate) of model $M_l$
+Write $\cvestof{k}{M_l}$ for the [cross-validation estimate](#def-cv-estimate) of model $M_l$
 and $\cvse(M_l)$ for its [standard error](#def-cv-se),
 all computed with the same folds,
 and let $M_{l^*}$ be the model with the smallest estimate.
@@ -10,7 +10,7 @@ The **one-standard-error rule** chooses the least flexible model $M_l$
 whose estimate is within one standard error of the smallest:
 
 $$
-\cvest{k}(M_l) \le \cvest{k}(M_{l^*}) + \cvse(M_{l^*}).
+\cvestof{k}{M_l} \le \cvestof{k}{M_{l^*}} + \cvse(M_{l^*}).
 $$ {#eq-one-se-rule}
 
 ::: {.callout-note collapse="true"}

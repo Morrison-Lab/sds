@@ -4,7 +4,8 @@
 Each prediction in @eq-cv-estimate comes from a rule
 that did not see the observation it predicts,
 so each squared error is scored as in @thm-held-out-unbiased.
-But each of those rules was fitted to about $n (k - 1) / k$ observations,
+But the rule for fold $\fold{j}$ was fitted to $n - \foldsize{j}$ observations,
+which is $n (k - 1) / k$ when every fold has $n / k$,
 not $n$,
 and the $k$ rules differ from one another and from the rule fitted to all $n$.
 So $\cvest{k}$ estimates the [expected generalization error](#def-expected-generalization-error)

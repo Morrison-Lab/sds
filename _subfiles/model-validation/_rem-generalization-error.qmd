@@ -9,12 +9,13 @@ under squared error [loss](https://morrison-lab.github.io/pds/expectation.html#d
 computed with the training set held fixed.
 
 Averaging $\generr_{\mathcal{T}}$ over training sets as well
-gives the expected squared prediction error of the fitting *procedure*.
+gives the [expected generalization error](#def-expected-generalization-error) $\expgenerr{n}$
+of the fitting procedure.
 At a fixed covariate value,
 that average splits into a squared bias, a variance and an irreducible noise term
 ([expected squared prediction error theorem](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error)).
 A more flexible model usually lowers the bias and raises the variance,
-so the generalization error is smallest at an intermediate flexibility:
+so the expected generalization error is smallest at an intermediate flexibility:
 the *bias--variance trade-off* [@james2021islr2e, sec. 2.2.2].
 [Overfitting](#def-overfitting) is the flexible end of that trade-off.
 
