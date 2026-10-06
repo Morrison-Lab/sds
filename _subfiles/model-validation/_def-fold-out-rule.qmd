@@ -8,7 +8,7 @@ that a [fitting procedure](#def-fitting-procedure) $g$ produces
 from the observations outside that fold:
 
 $$
-\fittedwo{j}{x} \eqdef g\paren{x; \paren{(x_i, y_i)}_{i \notin \fold{j}}}.
+\fittedwo{j}{x} \eqdef g\paren{x; \paren{(x_i, y_i)}_{i \in I \setminus \fold{j}}}.
 $$ {#eq-fold-out-rule}
 
 ::: {.callout-note collapse="true"}

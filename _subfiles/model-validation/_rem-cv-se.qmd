@@ -7,7 +7,7 @@ That formula treats the $k$ fold errors
 as if they were independent,
 which they are not:
 every pair of folds shares $k - 2$ folds of training data.
-So $\cvse$ is a rough indication
+So $\cvse{k}$ is a rough indication
 of how much $\cvest{k}$ might change with a different sample,
 not a [standard error](estimation.qmd#def-SE) of $\cvest{k}$.
 

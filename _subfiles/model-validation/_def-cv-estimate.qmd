@@ -3,13 +3,13 @@
 
 The **$k$-fold cross-validation estimate** $\cvest{k}$
 is the [mean squared error](estimation.qmd#def-prediction-mse)
-of the predictions that each observation $i$ receives
+of the predictions that each observation $i \in I$ of the training set receives
 from the [fold-out rule](#def-fold-out-rule) of its
 [fold assignment](#def-fold-assignment) $\foldof{i}$
 in [$k$-fold cross-validation](#def-kfold):
 
 $$
-\cvest{k} \eqdef \frac{1}{n} \sumin \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}.
+\cvest{k} \eqdef \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}.
 $$ {#eq-cv-estimate}
 
 ::: {.callout-note collapse="true"}

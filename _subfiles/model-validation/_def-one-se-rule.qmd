@@ -11,7 +11,7 @@ whose estimate is within one [fold-based standard error](#def-cv-se-indexed)
 of the smallest:
 
 $$
-\cvestof{k}{g_l}\paren{\trainset} \le \cvestof{k}{g_{l^*}}\paren{\trainset} + \cvseof{g_{l^*}}.
+\cvestof{k}{g_l}\paren{\trainset} \le \cvestof{k}{g_{l^*}}\paren{\trainset} + \cvseof{k}{g_{l^*}}\paren{\trainset}.
 $$ {#eq-one-se-rule}
 
 ::: {.callout-note collapse="true"}

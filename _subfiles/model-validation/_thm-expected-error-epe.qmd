@@ -9,7 +9,7 @@ is the mean of its [expected squared prediction error at $x$](#def-epe)
 over the distribution of $X_0$:
 
 $$
-\expgenerr{n} = \E{\epe{g}{n}{X_0}}.
+\expgenerr{g}{n} = \E{\epe{g}{n}{X_0}}.
 $$ {#eq-expected-error-epe}
 
 :::

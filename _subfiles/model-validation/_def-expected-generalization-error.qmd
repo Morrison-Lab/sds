@@ -10,7 +10,7 @@ of the [generalization error](#def-generalization-error)
 of the [prediction rule](#def-prediction-rule) that $g$ produces from $\trainset$:
 
 $$
-\expgenerr{n} \eqdef \E{\generr_{\trainset}},
+\expgenerr{g}{n} \eqdef \E{\generr_{\trainset}},
 \quad
 \trainset = \paren{(X_1, Y_1), \ldots, (X_n, Y_n)}.
 $$ {#eq-expected-generalization-error}

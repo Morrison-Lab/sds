@@ -11,7 +11,7 @@ $\prederr_i = \fitted_i - y_i$,
 and the leverages:
 
 $$
-\cvest{n} = \frac{1}{n} \sumin \sqf{\frac{\prederr_i}{1 - \lev{i}}}.
+\cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\frac{\prederr_i}{1 - \lev{i}}}.
 $$ {#eq-loocv-shortcut}
 
 ::: {.callout-note collapse="true"}

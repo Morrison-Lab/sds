@@ -2,13 +2,13 @@
 #### Fitting procedure
 
 A **fitting procedure** is a rule $g$ that,
-given any data $(x_1, y_1), \ldots, (x_n, y_n)$ and any covariate value $x$,
+given any data $\paren{(x_i, y_i)}_{i \in I}$ and any covariate value $x$,
 computes a [prediction](estimation.qmd#def-prediction) of the outcome at $x$:
 
 $$
-\paren{x; (x_1, y_1), \ldots, (x_n, y_n)}
+\paren{x; \paren{(x_i, y_i)}_{i \in I}}
 \mapsto
-g\paren{x; (x_1, y_1), \ldots, (x_n, y_n)}.
+g\paren{x; \paren{(x_i, y_i)}_{i \in I}}.
 $$ {#eq-fitting-procedure}
 
 ::: {.callout-note collapse="true"}

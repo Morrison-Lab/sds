@@ -1,14 +1,14 @@
 :::{#def-cv-se}
 #### Fold-based standard error
 
-The **fold-based standard error** $\cvse$
+The **fold-based standard error** $\cvse{k}$
 of a $k$-fold [cross-validation estimate](#def-cv-estimate)
 is the [sample standard deviation](exploratory-descriptive.qmd#def-sample-sd)
 of the $k$ [fold mean squared errors](#def-fold-mse),
 divided by $\sqrt{k}$:
 
 $$
-\cvse \eqdef \frac{\hSD{\foldmse{1}, \ldots, \foldmse{k}}}{\sqrt{k}}.
+\cvse{k} \eqdef \frac{\hSD{\foldmse{1}, \ldots, \foldmse{k}}}{\sqrt{k}}.
 $$ {#eq-cv-se}
 
 ::: {.callout-note collapse="true"}

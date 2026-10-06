@@ -7,7 +7,7 @@ computed with the [fold-out rule](#def-fold-out-rule) that $g$ produces:
 
 $$
 \foldmseof{j}{g} \eqdef \frac{1}{\foldsize{j}} \sum_{i \in \fold{j}}
-\sqf{g\paren{x_i; \paren{(x_{i'}, y_{i'})}_{i' \notin \fold{j}}} - y_i}.
+\sqf{g\paren{x_i; \paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \fold{j}}} - y_i}.
 $$ {#eq-fold-mse-indexed}
 
 :::

@@ -1,12 +1,13 @@
 :::{#def-folds}
 #### Folds
 
-A division of observations $1, \ldots, n$ into $k$ **folds**
-is a partition of $\set{1, \ldots, n}$ into $k$ nonempty, disjoint subsets
+A division of a [training set](#def-training-set) $\trainset$,
+indexed by $I$, into $k$ **folds**
+is a partition of $I$ into $k$ nonempty, disjoint subsets
 $\fold{1}, \ldots, \fold{k}$:
 
 $$
-\fold{1} \cup \cdots \cup \fold{k} = \set{1, \ldots, n}.
+\fold{1} \cup \cdots \cup \fold{k} = I.
 $$ {#eq-folds}
 
 ::: {.callout-note collapse="true"}

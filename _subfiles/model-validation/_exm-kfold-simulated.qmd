@@ -138,7 +138,8 @@ the cross-validation estimate is
 
 Part of that gap is expected:
 by @rem-cv-estimate,
-the cross-validation estimate targets $\expgenerr{`r sim_n_fit`}$,
+with $g$ the least-squares fit of a degree-`r max(sim_degrees)` polynomial,
+the cross-validation estimate targets $\expgenerr{g}{`r sim_n_fit`}$,
 not the error of a fit to 30 points.
 A simulation of many training sets of each size
 shows how much the size alone matters at this degree.
@@ -192,7 +193,7 @@ for fits to `r nrow(sim_train)` points,
 and 90th percentiles of
 `r round(sim_size_effect$quantile_90[[1]], 2)`
 and `r round(sim_size_effect$quantile_90[[2]], 2)`.
-The sample means are no guide to $\expgenerr{`r sim_n_fit`}$ here:
+The sample means are no guide to $\expgenerr{g}{`r sim_n_fit`}$ here:
 the largest single value among the fits to `r sim_n_fit` points is
 `r format(signif(sim_size_effect$largest[[1]], 2), big.mark = ",", scientific = FALSE)`,
 from one fit that is wildly wrong away from the data,

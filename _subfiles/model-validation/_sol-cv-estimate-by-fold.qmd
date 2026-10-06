@@ -1,6 +1,6 @@
 :::{#sol-cv-estimate-by-fold}
 
-The folds $\fold{1}, \ldots, \fold{k}$ partition $\set{1, \ldots, n}$ (@def-folds),
+The folds $\fold{1}, \ldots, \fold{k}$ partition $I$ (@def-folds),
 so summing over the observations of each fold and then over the folds
 adds each term of @eq-cv-estimate exactly once.
 For $i \in \fold{j}$, @eq-fold-assignment also puts $i$ in $\fold{\foldof{i}}$,
@@ -11,7 +11,7 @@ Then
 $$
 \ba
 \cvest{k}
-&= \frac{1}{n} \sumin \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}
+&= \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}
 && \text{(definition)}
 \\
 &= \frac{1}{n} \sum_{j=1}^k \sum_{i \in \fold{j}} \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}

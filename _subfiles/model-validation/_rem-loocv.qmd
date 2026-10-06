@@ -2,9 +2,9 @@
 #### When to use leave-one-out cross-validation
 
 LOOCV is the $k = n$ end of @rem-choosing-k.
-By @rem-cv-estimate, $\cvest{n}$ estimates $\expgenerr{n - 1}$:
+By @rem-cv-estimate, $\cvest{n}$ estimates $\expgenerr{g}{n - 1}$ for the fitting procedure $g$:
 each rule is fitted to $n - 1$ observations,
-so the bias of $\cvest{n}$ as an estimate of $\expgenerr{n}$ is the smallest of any $k$.
+so the bias of $\cvest{n}$ as an estimate of $\expgenerr{g}{n}$ is the smallest of any $k$.
 But the $n$ training sets are nearly identical,
 so the variance of $\cvest{n}$ can be larger than that of 5- or 10-fold cross-validation
 [@james2021islr2e, sec. 5.1.4].

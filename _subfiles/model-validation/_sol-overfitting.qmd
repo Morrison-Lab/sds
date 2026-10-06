@@ -7,7 +7,8 @@ train_cars <- mtcars[1:20, ]
 held_out_cars <- mtcars[21:32, ]
 
 prediction_mse <- function(model, data) {
-  y <- data[[all.vars(stats::formula(model))[[1]]]]
+  response_only <- stats::update(stats::formula(model), . ~ 1)
+  y <- stats::model.response(stats::model.frame(response_only, data))
   mean((predict(model, newdata = data) - y)^2)
 }
 

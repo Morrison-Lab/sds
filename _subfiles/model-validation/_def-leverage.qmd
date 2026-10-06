@@ -2,7 +2,7 @@
 #### Leverage
 
 Consider a linear model fitted by [ordinary least squares](correlation-regression.qmd#def-ols),
-with [term vectors](#def-term-vector) $\termvec{1}, \ldots, \termvec{n}$
+with [term vectors](#def-term-vector) $\termvec{i}$, $i \in I$,
 and an invertible [cross-product matrix](#def-cross-product-matrix) $A$.
 The **leverage** of observation $i$ is
 

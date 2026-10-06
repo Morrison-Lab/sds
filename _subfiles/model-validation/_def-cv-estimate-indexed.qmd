@@ -1,16 +1,16 @@
 :::{#def-cv-estimate-indexed}
 #### Cross-validation estimate of a named procedure
 
-Let $\trainset = \paren{(x_1, y_1), \ldots, (x_n, y_n)}$ be a [training set](#def-training-set)
-divided into [folds](#def-folds) $\fold{1}, \ldots, \fold{k}$.
+Let a [training set](#def-training-set) $\trainset$, indexed by $I$,
+be divided into [folds](#def-folds) $\fold{1}, \ldots, \fold{k}$.
 The **cross-validation estimate of procedure** $g$ on $\trainset$,
 $\cvestof{k}{g}\paren{\trainset}$,
 is the [cross-validation estimate](#def-cv-estimate)
 computed with [fold-out rules](#def-fold-out-rule) that $g$ produces from $\trainset$:
 
 $$
-\cvestof{k}{g}\paren{\trainset} \eqdef \frac{1}{n} \sumin
-\sqf{g\paren{x_i; \paren{(x_{i'}, y_{i'})}_{i' \notin \fold{\foldof{i}}}} - y_i}.
+\cvestof{k}{g}\paren{\trainset} \eqdef \frac{1}{n} \sum_{i \in I}
+\sqf{g\paren{x_i; \paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \fold{\foldof{i}}}} - y_i}.
 $$ {#eq-cv-estimate-indexed}
 
 :::

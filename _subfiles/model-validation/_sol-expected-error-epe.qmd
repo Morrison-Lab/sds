@@ -1,17 +1,17 @@
 :::{#sol-expected-error-epe}
 
-By @eq-prediction-rule, the rule fitted to $\trainset$ predicts $g\paren{X_0; \trainset}$ at $X_0$.
-Then
-
 $$
 \ba
-& \expgenerr{n}
+& \expgenerr{g}{n}
 \\
 &\quad = \E{\generr_{\trainset}}
 && \text{(definition)}
 \\
-&\quad = \E{\E{\sqf{g\paren{X_0; \trainset} - Y_0} \mid \trainset}}
+&\quad = \E{\E{\sqf{\fitted(X_0) - Y_0} \mid \trainset}}
 && \text{(definition)}
+\\
+&\quad = \E{\E{\sqf{g\paren{X_0; \trainset} - Y_0} \mid \trainset}}
+&& \text{(prediction rule)}
 \\
 &\quad = \E{\sqf{g\paren{X_0; \trainset} - Y_0}}
 && \text{(iterated expectations)}
@@ -25,7 +25,9 @@ $$
 $$
 
 The steps labeled "definition" apply
-@eq-expected-generalization-error, @eq-generalization-error and @eq-epe, in that order.
+@eq-expected-generalization-error, @eq-generalization-error and @eq-epe, in that order,
+and the step labeled "prediction rule" applies @eq-prediction-rule,
+$\fitted(X_0) = g\paren{X_0; \trainset}$.
 The two steps labeled "iterated expectations" use the
 [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie),
 the first conditioning on $\trainset$ and the second on $X_0$.
