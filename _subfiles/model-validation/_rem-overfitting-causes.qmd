@@ -1,0 +1,11 @@
+:::{#rem-overfitting-causes}
+#### When overfitting happens
+
+The rme notes' [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting)
+adds that it results from including too many predictors
+relative to the number of observations.
+@exr-overfitting adds powers of `wt` rather than new predictors,
+but each power is another coefficient fitted to the same 20 cars,
+and the effect is the same.
+
+:::

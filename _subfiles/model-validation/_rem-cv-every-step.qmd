@@ -9,7 +9,7 @@ Such steps include:
 
 - screening or selecting predictors, as in @exr-cv-screening;
 - choosing transformations or a polynomial degree;
-- tuning a penalty or other hyperparameter.
+- choosing a penalty or another [tuning parameter](#def-tuning-parameter).
 
 @hastie2009elements [sec. 7.10.2] note that steps using only the predictors,
 such as dropping predictors with almost no variation,

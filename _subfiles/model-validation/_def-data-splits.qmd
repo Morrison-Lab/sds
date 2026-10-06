@@ -4,14 +4,15 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 :::{#def-data-splits}
 #### Training/validation/test split
 
-A **training/validation/test split** divides the data into three sets:
+A **training/validation/test split** divides the observations $1, \ldots, n$
+into three disjoint sets of indices:
+$I_{\text{train}}$ for the [training set](#def-training-set),
+$I_{\text{val}}$ for the [validation set](#def-validation-set),
+and $I_{\text{test}}$ for the [test set](#def-test-set):
 
-- Use the *training set* to estimate model parameters.
-- Use the *validation set* to compare candidate models,
-  choose transformations,
-  or tune hyperparameters.
-- Use the *test set* once at the end
-  to estimate final out-of-sample performance.
+$$
+I_{\text{train}} \cup I_{\text{val}} \cup I_{\text{test}} = \set{1, \ldots, n}.
+$$ {#eq-data-splits}
 
 ::: {.callout-note collapse="true"}
 #### Source

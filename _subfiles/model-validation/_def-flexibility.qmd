@@ -1,0 +1,23 @@
+:::{#def-flexibility}
+#### Flexibility
+
+Let $g_1$ and $g_2$ be [fitting procedures](#def-fitting-procedure)
+that each choose, by least squares,
+a [prediction rule](#def-prediction-rule) from a set of candidate functions,
+$\mathcal{G}_1$ and $\mathcal{G}_2$ respectively.
+The procedure $g_2$ is **at least as flexible** as $g_1$
+if every candidate of $g_1$ is also a candidate of $g_2$:
+
+$$
+\mathcal{G}_1 \subseteq \mathcal{G}_2.
+$$ {#eq-flexibility}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 2.1.3] use flexibility without a formal definition.
+The nested form given here is a narrower one,
+chosen so that the procedures on this page are exactly ordered.
+:::
+
+:::

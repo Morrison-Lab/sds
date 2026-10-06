@@ -1,5 +1,6 @@
 ABO
 Acknowledgements
+argmin
 BAX
 BCa
 BMA
@@ -17,6 +18,7 @@ cv
 cvest
 cvestof
 cvse
+cvseof
 DOCX
 Dobson
 ECL
@@ -60,6 +62,7 @@ Regcoef
 Reparametrizing
 RevealJS
 rfloor
+rmse
 SBP
 SERG
 Satterthwaite
@@ -69,6 +72,8 @@ Slutsky's
 soprod
 Stata
 summand
+trainerr
+trainset
 TSS
 TinyTeX
 UC

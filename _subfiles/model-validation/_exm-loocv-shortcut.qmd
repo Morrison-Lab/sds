@@ -1,3 +1,8 @@
+<!--
+This fragment's R chunks use objects made by earlier fragments
+of model-validation.qmd, so it renders only after them:
+mtcars_degrees, from _exm-kfold-mtcars.qmd.
+-->
 :::{#exm-loocv-shortcut}
 #### Leave-one-out cross-validation of the `mtcars` polynomials
 

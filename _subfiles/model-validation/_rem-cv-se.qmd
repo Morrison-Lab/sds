@@ -1,5 +1,5 @@
 :::{#rem-cv-se}
-#### The standard error is only a rough guide
+#### The fold-based standard error is only a rough guide
 
 @hastie2009elements [sec. 7.10.1] draw standard-error bars
 computed from the per-fold errors as in @eq-cv-se.
@@ -9,6 +9,6 @@ which they are not:
 every pair of folds shares $k - 2$ folds of training data.
 So $\cvse$ is a rough indication
 of how much $\cvest{k}$ might change with a different sample,
-not an exact [standard error](estimation.qmd#def-SE).
+not a [standard error](estimation.qmd#def-SE) of $\cvest{k}$.
 
 :::

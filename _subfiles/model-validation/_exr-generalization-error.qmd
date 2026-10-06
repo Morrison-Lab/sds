@@ -1,22 +1,20 @@
 :::{#exr-generalization-error}
 #### Score a fitted model on a car it has not seen
 
-A prediction rule $\fitted(\cdot)$ has been fitted to a training set $\mathcal{T}$
-of $n$ observations $(x_1, y_1), \ldots, (x_n, y_n)$,
+A [prediction rule](#def-prediction-rule) $\fitted$
+has been fitted to a [training set](#def-training-set) $\trainset$ of $n$ observations,
 such as the 20 training cars of @exr-overfitting.
 A new car $(X_0, Y_0)$ is then drawn from the same population,
-independently of $\mathcal{T}$.
+independently of $\trainset$.
 
-1. Holding $\mathcal{T}$ fixed,
+1. Holding $\trainset$ fixed,
    write the average squared [prediction error](estimation.qmd#def-prediction-error)
    that $\fitted$ would make over all such new cars,
    as an expectation.
 2. Which parts of your expression do you know,
    and which do you not know?
 3. The training RMSE of @exr-overfitting
-   is the square root of the
-   [mean squared error of the predictions](estimation.qmd#def-prediction-mse)
-   $\fitted(x_1), \ldots, \fitted(x_n)$.
-   What does that mean squared error use in place of your expectation?
+   is the square root of the [training error](#def-training-mse) $\trainerr$.
+   What does $\trainerr$ use in place of your expectation?
 
 :::

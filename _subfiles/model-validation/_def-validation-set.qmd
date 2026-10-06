@@ -1,0 +1,17 @@
+:::{#def-validation-set}
+#### Validation set
+
+A **validation set** is a [held-out set](#def-held-out-set)
+$\paren{(x^{\text{val}}_1, y^{\text{val}}_1), \ldots, (x^{\text{val}}_m, y^{\text{val}}_m)}$
+used to choose among candidate [fitting procedures](#def-fitting-procedure)
+$g_1, \ldots, g_L$,
+such as one procedure at several values of a [tuning parameter](#def-tuning-parameter),
+by the [mean squared error](estimation.qmd#def-prediction-mse)
+of each procedure's rule on it:
+
+$$
+\est{l} \eqdef \argmin_{l} \frac{1}{m} \sum_{j=1}^m
+\sqf{g_l\paren{x^{\text{val}}_j; \trainset} - y^{\text{val}}_j}.
+$$ {#eq-validation-set}
+
+:::

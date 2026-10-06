@@ -1,9 +1,11 @@
 <!--
-Two wording edits: step 3 says "prediction-error measure"
+Wording edits from rme: step 3 says "prediction-error measure"
 where rme says "PE measure", since sds does not define PE;
-and step 1 links "folds" to @def-folds and allows nearly equal sizes,
+step 1 links "folds" to @def-folds and allows nearly equal sizes,
 since n need not be a multiple of k;
-and step 2 indexes folds by j, as @def-folds does.
+step 2 indexes folds by j, as @def-folds does,
+and names the fold-out rule of @def-fold-out-rule;
+rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 -->
 :::{#def-kfold}
 #### $k$-fold cross-validation
@@ -12,11 +14,10 @@ In **$k$-fold cross-validation**:
 
 1. The data are randomly divided into $k$ [folds](#def-folds) of equal, or nearly equal, size.
 2. For each fold $\fold{j}$, $j = 1, \ldots, k$:
-   - Fit the model using all data *except* fold $\fold{j}$.
+   - Fit the model to all data *except* fold $\fold{j}$,
+     giving the [fold-out rule](#def-fold-out-rule) $\fittedwo{j}{\cdot}$.
    - Compute predicted values for the observations in fold $\fold{j}$.
 3. Compute a summary prediction-error measure across all folds.
-
-Values of $k = 5$ or $k = 10$ are typical.
 
 ::: {.callout-note collapse="true"}
 #### Source

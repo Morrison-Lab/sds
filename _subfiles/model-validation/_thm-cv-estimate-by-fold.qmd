@@ -1,10 +1,11 @@
 :::{#thm-cv-estimate-by-fold}
 #### The cross-validation estimate, fold by fold
 
-The [cross-validation estimate](#def-cv-estimate) averages,
+The [cross-validation estimate](#def-cv-estimate) sums,
 fold by fold,
 the squared errors of each fold's observations
-under the rule fitted without that [fold](#def-folds):
+under the rule fitted without that [fold](#def-folds),
+and divides the total by $n$:
 
 $$
 \cvest{k} = \frac{1}{n} \sum_{j=1}^k \sum_{i \in \fold{j}} \sqf{\fittedwo{j}{x_i} - y_i}.

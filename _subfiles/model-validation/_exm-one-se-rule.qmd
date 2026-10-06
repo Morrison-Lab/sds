@@ -1,3 +1,10 @@
+<!--
+This fragment's R chunks use objects made by earlier fragments
+of model-validation.qmd, so it renders only after them:
+assign_folds(), from _exm-kfold-simulated.qmd,
+and sim_train, sim_degrees and sim_errors,
+from _exm-train-test-error-simulated.qmd.
+-->
 :::{#exm-one-se-rule}
 #### The one-standard-error rule for the simulated polynomials
 
@@ -50,9 +57,9 @@ and `cv` is $\cvest{10}$ (@rem-cv-estimate).
 ```{r}
 #| label: one-se-rule-plot
 #| fig-alt: Ten-fold cross-validation estimate against polynomial degree
-#|   from 1 to 10, with error bars of one standard error.
-#|   A dashed horizontal line sits one standard error above the
-#|   smallest estimate.
+#|   from 1 to 10, with error bars of one fold-based standard error.
+#|   A dashed horizontal line sits one fold-based standard error
+#|   above the smallest estimate.
 sim_cv_ten |>
   ggplot2::ggplot(ggplot2::aes(degree, cv)) +
   ggplot2::geom_hline(
@@ -74,16 +81,16 @@ sim_cv_ten |>
 ```
 
 10-fold cross-validation estimates,
-with bars of one standard error (@eq-cv-se).
-The dashed line is one standard error above the smallest estimate.
+with bars of one [fold-based standard error](#def-cv-se) (@eq-cv-se).
+The dashed line is one fold-based standard error above the smallest estimate.
 :::
 
 The smallest estimate is at degree `r sim_min$degree`.
-The least flexible degree within one standard error of it
+The least flexible degree within one fold-based standard error of it
 is degree `r sim_one_se$degree`,
 which is the one-standard-error rule's choice.
 The rule prefers the simpler model
-when the data cannot clearly tell the two apart.
+when the data cannot clearly tell it apart from the degree with the smallest estimate.
 Because the data are simulated,
 we can check both choices against
 the estimated generalization errors of @exm-train-test-error-simulated:

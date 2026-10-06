@@ -21,6 +21,5 @@ in the cross-validation estimate itself
   The model is fitted $k$ times.
 
 $k = 5$ or $k = 10$ is the usual compromise.
-The largest choice, $k = n$, is the subject of @sec-loocv.
 
 :::

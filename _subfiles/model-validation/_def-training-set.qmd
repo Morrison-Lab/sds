@@ -1,0 +1,18 @@
+:::{#def-training-set}
+#### Training set
+
+A **training set** is the data
+to which a [fitting procedure](#def-fitting-procedure) is applied,
+written as an ordered list of $n$ observations:
+
+$$
+\trainset \eqdef \paren{(x_1, y_1), \ldots, (x_n, y_n)}.
+$$ {#eq-training-set}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@hastie2009elements [sec. 7.2], who also write the training set as $\mathcal{T}$.
+:::
+
+:::

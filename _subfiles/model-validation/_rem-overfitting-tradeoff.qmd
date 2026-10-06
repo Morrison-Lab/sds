@@ -1,9 +1,23 @@
 :::{#rem-overfitting-tradeoff}
 #### Overfitting and the trade-off
 
-[Overfitting](#def-overfitting) is the flexible end
-of the [bias--variance trade-off](#def-bias-variance-tradeoff):
-a model past the best flexibility has lowered its bias
-less than it has raised its variance.
+By @rem-generalization-error,
+the expected squared prediction error at $x$
+is the squared bias plus the variance plus the noise variance.
+Under a [bias--variance trade-off](#def-bias-variance-tradeoff),
+moving to the next, more flexible procedure
+lowers that error when the squared bias falls by more than the variance rises,
+and raises it otherwise.
+The error is often smallest at an intermediate flexibility
+[@james2021islr2e, sec. 2.2.2],
+but not always:
+if the true mean function is a candidate of the least flexible procedure,
+that procedure's squared bias can be zero,
+and then no more flexible procedure has a smaller squared bias,
+and under the trade-off none has a smaller variance,
+so none has a smaller expected squared prediction error.
+[Overfitting](#def-overfitting) is the flexible side of the smallest error:
+a procedure there has lowered its squared bias
+by less than it has raised its variance.
 
 :::

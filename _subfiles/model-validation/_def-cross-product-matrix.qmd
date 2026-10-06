@@ -1,0 +1,12 @@
+:::{#def-cross-product-matrix}
+#### Cross-product matrix
+
+The **cross-product matrix** $A$ of [covariate vectors](#def-covariate-vector)
+$\vecf{x}_1, \ldots, \vecf{x}_n$
+is the sum of their outer products:
+
+$$
+A \eqdef \sumin \soprod{\vxi}.
+$$ {#eq-cross-product-matrix}
+
+:::

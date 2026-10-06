@@ -1,7 +1,5 @@
 <!--
-Geron: page number not verified. Geron's text says standardization
-divides by "the variance"; the standard deviation is used here,
-as in James et al. (2021), p. 183.
+Geron: page number not verified.
 -->
 ::: {#def-min-max-scaling}
 #### Min-max scaling

@@ -1,0 +1,15 @@
+:::{#def-test-set}
+#### Test set
+
+A **test set** is a [held-out set](#def-held-out-set)
+$\paren{(x^{\text{test}}_1, y^{\text{test}}_1), \ldots, (x^{\text{test}}_{m'}, y^{\text{test}}_{m'})}$,
+disjoint from the [validation set](#def-validation-set),
+on which the rule of the chosen procedure $g_{\est{l}}$ is scored once,
+after the choice is made:
+
+$$
+\frac{1}{m'} \sum_{j=1}^{m'}
+\sqf{g_{\est{l}}\paren{x^{\text{test}}_j; \trainset} - y^{\text{test}}_j}.
+$$ {#eq-test-set}
+
+:::

@@ -12,6 +12,30 @@ format:
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
+## Fitting and scoring prediction rules {#sec-prediction-rules}
+
+{{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-training-set.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-prediction-rule.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-held-out-set.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-prediction-rmse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-training-mse.qmd >}}
+
 ## Overfitting
 
 {{< include sds/_subfiles/model-validation/_exr-overfitting.qmd >}}
@@ -23,6 +47,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-overfitting.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-overfitting-causes.qmd >}}
 
 ## Generalization error {#sec-generalization-error}
 
@@ -38,15 +66,19 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/model-validation/_def-expected-generalization-error.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_rem-generalization-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-flexibility.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-flexibility.qmd >}}
 
 {{< slidebreak >}}
 
@@ -86,7 +118,23 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-tuning-parameter.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-validation-set.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-test-set.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-data-splits.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-data-splits.qmd >}}
 
 {{< slidebreak >}}
 
@@ -103,6 +151,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-folds.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-fold-size.qmd >}}
 
 {{< slidebreak >}}
 
@@ -134,6 +186,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-fold-mse.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_rem-cv-estimate.qmd >}}
 
 {{< slidebreak >}}
@@ -162,7 +218,19 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-covariate-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-cross-product-matrix.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-leverage.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-loocv-shortcut-proof.qmd >}}
 
 {{< slidebreak >}}
 
@@ -178,11 +246,11 @@ format:
 
 ## Choosing a model by cross-validation {#sec-cv-model-choice}
 
-{{< include sds/_subfiles/model-validation/_rem-cv-winner-optimistic.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-nested-cv.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-fold-mse.qmd >}}
+{{< include sds/_subfiles/model-validation/_rem-cv-winner-optimistic.qmd >}}
 
 {{< slidebreak >}}
 
@@ -191,6 +259,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_rem-cv-se.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-cv-estimate-indexed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-cv-se-indexed.qmd >}}
 
 {{< slidebreak >}}
 

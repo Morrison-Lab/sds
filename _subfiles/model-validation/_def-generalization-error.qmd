@@ -1,15 +1,15 @@
 :::{#def-generalization-error}
 #### Generalization error
 
-The **generalization error** of a prediction rule $\fitted$
-fitted to a training set $\mathcal{T}$
+The **generalization error** of a [prediction rule](#def-prediction-rule) $\fitted$
+fitted to a [training set](#def-training-set) $\trainset$
 is its expected squared [prediction error](estimation.qmd#def-prediction-error)
 on a new observation $(X_0, Y_0)$
-drawn from the same population independently of $\mathcal{T}$,
-with $\mathcal{T}$ held fixed:
+drawn from the same population independently of $\trainset$,
+with $\trainset$ held fixed:
 
 $$
-\generr_{\mathcal{T}} \eqdef \E{\sqf{\fitted(X_0) - Y_0} \mid \mathcal{T}}.
+\generr_{\trainset} \eqdef \E{\sqf{\fitted(X_0) - Y_0} \mid \trainset}.
 $$ {#eq-generalization-error}
 
 ::: {.callout-note collapse="true"}

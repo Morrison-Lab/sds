@@ -22,3 +22,6 @@
 \providecommand{\lev}[1]{h_{#1}}
 \providecommand{\foldmse}[1]{\operatorname{MSE}_{#1}}
 \providecommand{\cvse}{\operatorname{SE}_{\text{CV}}}
+\providecommand{\cvseof}[1]{\operatorname{SE}^{#1}_{\text{CV}}}
+\providecommand{\trainset}{\mathcal{T}}
+\providecommand{\trainerr}{\overline{\operatorname{err}}}

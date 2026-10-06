@@ -12,8 +12,8 @@ so its estimate is the smallest of several noisy estimates.
 An honest estimate of the chosen model's error needs data
 that took no part in the choice
 [@hastie2009elements, sec. 7.2],
-such as a test set, or an outer cross-validation loop
-that repeats the whole selection inside each of its folds.
+such as a [test set](#def-test-set),
+or the outer folds of [nested cross-validation](#def-nested-cv).
 
 ::: {.callout-note collapse="true"}
 #### Source

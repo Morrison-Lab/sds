@@ -1,0 +1,21 @@
+:::{#def-held-out-set}
+#### Held-out set
+
+A **held-out set** for a [training set](#def-training-set) $\trainset$
+is a list of $m$ further observations,
+none of them in $\trainset$,
+that the [fitting procedure](#def-fitting-procedure) does not use
+and on which the [prediction rule](#def-prediction-rule) $\fitted$ is scored:
+
+$$
+\paren{(x_{0,1}, y_{0,1}), \ldots, (x_{0,m}, y_{0,m})}.
+$$ {#eq-held-out-set}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+The rme notes' section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits),
+and @james2021islr2e [sec. 5.1.1], who call it a hold-out set.
+:::
+
+:::

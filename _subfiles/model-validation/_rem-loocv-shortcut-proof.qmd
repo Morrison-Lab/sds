@@ -1,0 +1,11 @@
+:::{#rem-loocv-shortcut-proof}
+#### A result cited rather than derived
+
+The next theorem is cited, not derived.
+Its derivation needs a formula for how the inverse of the
+[cross-product matrix](#def-cross-product-matrix) $A$
+changes when one observation's outer product $\soprod{\vxi}$ is removed from it
+(the Sherman--Morrison formula),
+which this page does not develop.
+
+:::

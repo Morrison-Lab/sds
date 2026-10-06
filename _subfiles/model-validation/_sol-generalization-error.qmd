@@ -1,9 +1,9 @@
 :::{#sol-generalization-error}
 
 1. Average the squared prediction error over the distribution of $(X_0, Y_0)$,
-   with $\mathcal{T}$, and so the rule $\fitted$, held fixed:
+   with $\trainset$, and so the rule $\fitted$, held fixed:
 
-   $$\E{\sqf{\fitted(X_0) - Y_0} \mid \mathcal{T}}.$$
+   $$\E{\sqf{\fitted(X_0) - Y_0} \mid \trainset}.$$
 
 2. The rule $\fitted$ is known, because we fitted it.
    The joint distribution of $(X_0, Y_0)$ is unknown,
@@ -11,12 +11,12 @@
    If we knew that distribution,
    we would not need data to build a prediction rule.
 
-3. The training mean squared error replaces the expectation
+3. The training error $\trainerr$ replaces the expectation
    over new cars
    with an average over the $n$ training cars.
    Those cars are draws from the same population,
-   but they are not independent of $\mathcal{T}$:
-   they *are* $\mathcal{T}$,
+   but they are not independent of $\trainset$:
+   they *are* $\trainset$,
    and $\fitted$ was chosen to fit them.
 
 :::

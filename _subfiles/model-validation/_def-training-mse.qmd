@@ -1,0 +1,22 @@
+:::{#def-training-mse}
+#### Training error
+
+The **training error** of a [prediction rule](#def-prediction-rule) $\fitted$
+fitted to a [training set](#def-training-set) $\trainset$
+is the [mean squared error](estimation.qmd#def-prediction-mse)
+of its [fitted values](estimation.qmd#def-fitted-value)
+$\fitted_1, \ldots, \fitted_n$
+as predictions of the training outcomes $y_1, \ldots, y_n$:
+
+$$
+\trainerr \eqdef \frac{1}{n} \sumin \sqf{\fitted_i - y_i}.
+$$ {#eq-training-mse}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@hastie2009elements [sec. 7.2], who write the training error as $\overline{\text{err}}$
+and define it for any loss.
+:::
+
+:::

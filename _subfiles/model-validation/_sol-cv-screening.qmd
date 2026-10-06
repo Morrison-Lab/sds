@@ -1,3 +1,8 @@
+<!--
+This fragment's R chunks use objects made by earlier fragments
+of model-validation.qmd, so it renders only after them:
+assign_folds(), from _exm-kfold-simulated.qmd.
+-->
 :::{#sol-cv-screening}
 
 1. $Y$ is independent of every predictor,

@@ -2,24 +2,20 @@
 #### Leverage
 
 Consider a linear model fitted by [ordinary least squares](correlation-regression.qmd#def-ols),
-in which observation $i$ has
-[covariate vector](correlation-regression.qmd#def-slr-covariate-vector) $\vxi$
-(the model's terms at observation $i$;
-for a model with an intercept,
-a 1 followed by terms such as $x_i$ and $x_i^2$),
-and $A \eqdef \sumin \soprod{\vxi}$ is invertible.
+with [covariate vectors](#def-covariate-vector) $\vecf{x}_1, \ldots, \vecf{x}_n$
+and an invertible [cross-product matrix](#def-cross-product-matrix) $A$.
 The **leverage** of observation $i$ is
 
 $$
-\lev{i} \eqdef \vxi^{\top} A^{-1} \vxi.
+\lev{i} \eqdef \tp{\vxi} A^{-1} \vxi.
 $$ {#eq-leverage}
 
 ::: {.callout-note collapse="true"}
 #### Source
 
 @james2021islr2e [sec. 3.3.3],
-written here with the covariate vectors and the matrix $A$ of [the vector form of the OLS estimates](correlation-regression.qmd#thm-ols-slr-vector).
-In R, `hatvalues()` returns the leverages of an `lm` fit.
+written here with covariate vectors and the matrix $A$,
+as in [the vector form of the OLS estimates](correlation-regression.qmd#thm-ols-slr-vector).
 :::
 
 :::

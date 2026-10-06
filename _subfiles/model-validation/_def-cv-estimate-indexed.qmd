@@ -1,0 +1,16 @@
+:::{#def-cv-estimate-indexed}
+#### Cross-validation estimate of a named procedure
+
+When several [fitting procedures](#def-fitting-procedure) are cross-validated
+with the same [folds](#def-folds),
+the **cross-validation estimate of procedure** $g$,
+$\cvestof{k}{g}$,
+is the [cross-validation estimate](#def-cv-estimate)
+computed with [fold-out rules](#def-fold-out-rule) produced by $g$:
+
+$$
+\cvestof{k}{g} \eqdef \frac{1}{n} \sumin
+\sqf{g\paren{x_i; \paren{(x_{i'}, y_{i'})}_{i' \notin \fold{\foldof{i}}}} - y_i}.
+$$ {#eq-cv-estimate-indexed}
+
+:::

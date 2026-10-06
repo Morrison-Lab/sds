@@ -3,13 +3,17 @@
 
 A division of observations $1, \ldots, n$ into $k$ **folds**
 is a partition of $\set{1, \ldots, n}$ into $k$ nonempty, disjoint subsets
-$\fold{1}, \ldots, \fold{k}$,
-with $\foldsize{j}$ observations in fold $\fold{j}$:
+$\fold{1}, \ldots, \fold{k}$:
 
 $$
-\fold{1} \cup \cdots \cup \fold{k} = \set{1, \ldots, n},
-\quad
-\foldsize{1} + \cdots + \foldsize{k} = n.
+\fold{1} \cup \cdots \cup \fold{k} = \set{1, \ldots, n}.
 $$ {#eq-folds}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 5.1.3] and @hastie2009elements [sec. 7.10.1],
+who split the data into $k$ roughly equal-sized parts.
+:::
 
 :::
