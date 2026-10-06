@@ -151,13 +151,15 @@ Never nest one theorem-type div inside another.
 
 ## Attributions are reader-visible
 
-Credit every outside source where readers can see it:
+Credit every source where readers can see it:
 the book or paper an item follows,
-or the person outside the lab it was adapted from.
-Content taken from the lab's own sites (rme, lds, pds, ...) needs no attribution
+or the person whose lecture or notes it was adapted from.
+Content taken from the maintainer's own sites (rme, lds, pds, ...)
+need not be credited to those sites
 (maintainer directive, 2026-10-05),
-but a person or source outside the lab that such a site credits
-is still credited, without naming the lab site.
+but whatever such a site credits
+(a book, a paper, or any person other than the maintainer)
+is still credited, without naming the site.
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
 Follow PSW's
