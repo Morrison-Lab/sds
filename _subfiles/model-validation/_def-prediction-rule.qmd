@@ -1,13 +1,14 @@
 :::{#def-prediction-rule}
 #### Prediction rule
 
-The **prediction rule** that a [fitting procedure](#def-fitting-procedure) $g$
+The **prediction rule** $\fitted$
+that a [fitting procedure](#def-fitting-procedure) $g$
 produces from a [training set](#def-training-set) $\trainset$
-is the function that gives the [prediction](estimation.qmd#def-prediction)
-at each covariate value $x$:
+is the function that maps each covariate value $x$
+to the [prediction](estimation.qmd#def-prediction) that $g$ computes from $x$ and $\trainset$:
 
 $$
-\fitted(x) \eqdef g\paren{x; \trainset}.
+\fitted : x \mapsto g\paren{x; \trainset}.
 $$ {#eq-prediction-rule}
 
 :::

@@ -14,8 +14,7 @@ $$ {#eq-fitting-procedure}
 ::: {.callout-note collapse="true"}
 #### Source
 
-The rule $g$ of the [definition of a prediction](estimation.qmd#def-prediction),
-given a name here because this page compares several such rules.
+The rule $g$ of the [definition of a prediction](estimation.qmd#def-prediction).
 @hastie2009elements [sec. 7.2] write the model estimated from a training set as $\hat f$.
 :::
 

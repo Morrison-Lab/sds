@@ -1,0 +1,13 @@
+:::{#def-fold-mse-indexed}
+#### Fold mean squared error of a named procedure
+
+The **fold mean squared error of procedure** $g$ for [fold](#def-folds) $\fold{j}$
+is the [fold mean squared error](#def-fold-mse)
+computed with the [fold-out rule](#def-fold-out-rule) that $g$ produces:
+
+$$
+\foldmseof{j}{g} \eqdef \frac{1}{\foldsize{j}} \sum_{i \in \fold{j}}
+\sqf{g\paren{x_i; \paren{(x_{i'}, y_{i'})}_{i' \notin \fold{j}}} - y_i}.
+$$ {#eq-fold-mse-indexed}
+
+:::

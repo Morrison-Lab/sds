@@ -1,12 +1,12 @@
 :::{#def-cross-product-matrix}
 #### Cross-product matrix
 
-The **cross-product matrix** $A$ of [covariate vectors](#def-covariate-vector)
-$\vecf{x}_1, \ldots, \vecf{x}_n$
+The **cross-product matrix** $A$ of [term vectors](#def-term-vector)
+$\termvec{1}, \ldots, \termvec{n}$
 is the sum of their outer products:
 
 $$
-A \eqdef \sumin \soprod{\vxi}.
+A \eqdef \sumin \soprod{\termvec{i}}.
 $$ {#eq-cross-product-matrix}
 
 :::

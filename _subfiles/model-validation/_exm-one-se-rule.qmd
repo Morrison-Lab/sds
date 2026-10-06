@@ -86,7 +86,7 @@ The dashed line is one fold-based standard error above the smallest estimate.
 :::
 
 The smallest estimate is at degree `r sim_min$degree`.
-The least flexible degree within one fold-based standard error of it
+The lowest degree within one fold-based standard error of it
 is degree `r sim_one_se$degree`,
 which is the one-standard-error rule's choice.
 The rule prefers the simpler model

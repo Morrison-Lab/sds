@@ -2,17 +2,11 @@
 #### Nested cross-validation
 
 **Nested cross-validation** is [$k$-fold cross-validation](#def-kfold)
-of a [fitting procedure](#def-fitting-procedure) that itself
-chooses among candidate fitting procedures by cross-validation
-and then applies the chosen one.
-So for each outer [fold](#def-folds) $\fold{j}$,
-the whole choice, inner cross-validation included,
-uses only the observations outside $\fold{j}$,
-and its [fold-out rule](#def-fold-out-rule) $\fittedwo{j}{\cdot}$
-is scored on $\fold{j}$ as in @eq-cv-estimate-by-fold:
+of the [cross-validation choice procedure](#def-cv-choice) $g^{\text{CV}}$:
+its estimate is
 
 $$
-\frac{1}{n} \sum_{j=1}^k \sum_{i \in \fold{j}} \sqf{\fittedwo{j}{x_i} - y_i}.
+\cvestof{k}{g^{\text{CV}}}.
 $$ {#eq-nested-cv}
 
 ::: {.callout-note collapse="true"}

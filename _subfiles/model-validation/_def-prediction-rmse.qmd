@@ -7,7 +7,7 @@ of observed outcomes $y_1, \ldots, y_n$
 is the square root of their [mean squared error](estimation.qmd#def-prediction-mse):
 
 $$
-\operatorname{RMSE}\paren{\fitted} \eqdef \sqrt{\mselr{\fitted}}.
+\rmselr{\fitted} \eqdef \sqrt{\mselr{\fitted}}.
 $$ {#eq-prediction-rmse}
 
 :::

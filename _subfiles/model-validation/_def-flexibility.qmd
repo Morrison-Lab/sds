@@ -16,8 +16,6 @@ $$ {#eq-flexibility}
 #### Source
 
 @james2021islr2e [sec. 2.1.3] use flexibility without a formal definition.
-The nested form given here is a narrower one,
-chosen so that the procedures on this page are exactly ordered.
 :::
 
 :::

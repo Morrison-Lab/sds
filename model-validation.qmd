@@ -70,6 +70,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-epe.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_thm-epe-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_rem-generalization-error.qmd >}}
 
 {{< slidebreak >}}
@@ -118,7 +126,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-data-splits.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-tuning-parameter.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-tuning-parameter.qmd >}}
 
 {{< slidebreak >}}
 
@@ -126,11 +142,11 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-test-set.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-validation-choice.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-data-splits.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-test-set.qmd >}}
 
 {{< slidebreak >}}
 
@@ -218,7 +234,11 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-covariate-vector.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-term-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-term-vector.qmd >}}
 
 {{< slidebreak >}}
 
@@ -227,10 +247,6 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-leverage.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_rem-loocv-shortcut-proof.qmd >}}
 
 {{< slidebreak >}}
 
@@ -246,7 +262,19 @@ format:
 
 ## Choosing a model by cross-validation {#sec-cv-model-choice}
 
+{{< include sds/_subfiles/model-validation/_def-cv-estimate-indexed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-cv-choice.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-nested-cv.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-nested-cv.qmd >}}
 
 {{< slidebreak >}}
 
@@ -262,7 +290,7 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-cv-estimate-indexed.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-fold-mse-indexed.qmd >}}
 
 {{< slidebreak >}}
 

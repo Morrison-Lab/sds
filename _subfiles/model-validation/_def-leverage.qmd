@@ -2,19 +2,19 @@
 #### Leverage
 
 Consider a linear model fitted by [ordinary least squares](correlation-regression.qmd#def-ols),
-with [covariate vectors](#def-covariate-vector) $\vecf{x}_1, \ldots, \vecf{x}_n$
+with [term vectors](#def-term-vector) $\termvec{1}, \ldots, \termvec{n}$
 and an invertible [cross-product matrix](#def-cross-product-matrix) $A$.
 The **leverage** of observation $i$ is
 
 $$
-\lev{i} \eqdef \tp{\vxi} A^{-1} \vxi.
+\lev{i} \eqdef \tp{\termvec{i}} A^{-1} \termvec{i}.
 $$ {#eq-leverage}
 
 ::: {.callout-note collapse="true"}
 #### Source
 
 @james2021islr2e [sec. 3.3.3],
-written here with covariate vectors and the matrix $A$,
+written here with term vectors and the matrix $A$,
 as in [the vector form of the OLS estimates](correlation-regression.qmd#thm-ols-slr-vector).
 :::
 

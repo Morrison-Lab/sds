@@ -1,5 +1,5 @@
 :::{#rem-generalization-error}
-#### Other names, and where the error comes from
+#### Other names, and how the expected error splits
 
 @hastie2009elements [sec. 7.2] also call $\generr_{\trainset}$ the *test error*,
 and in sec. 7.12 the *conditional* test error.
@@ -11,14 +11,11 @@ computed with the training set held fixed.
 The argument $n$ of the [expected generalization error](#def-expected-generalization-error)
 $\expgenerr{n}$
 records that it depends on how many observations each training set has.
-Suppose that, given $X_0 = x$,
-$Y_0 = f(x) + \varepsilon$
-with $\E{\varepsilon} = 0$, $\Var{\varepsilon} = \sigma^2$,
-and $\varepsilon$ independent of the training set.
-Then the squared prediction error at $x$,
-averaged over training sets as well as over $Y_0$,
-is the squared bias of $\fitted(x)$ plus its variance plus $\sigma^2$
-([expected squared prediction error theorem](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error)).
-$\expgenerr{n}$ is the average of that sum over the distribution of $X_0$.
+Averaging over the training set first and over $X_0$ last,
+$\expgenerr{n}$ is the mean of the
+[expected squared prediction error at $x$](#def-epe) over the distribution of $X_0$,
+$\expgenerr{n} = \E{\epe{X_0}}$,
+and @thm-epe-decomposition splits each $\epe{x}$
+into a squared bias, a variance and a noise variance.
 
 :::

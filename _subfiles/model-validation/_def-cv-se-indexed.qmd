@@ -1,13 +1,12 @@
 :::{#def-cv-se-indexed}
 #### Fold-based standard error of a named procedure
 
-The **fold-based standard error of procedure** $g$, $\cvseof{g}$,
-is the [fold-based standard error](#def-cv-se) of @eq-cv-se,
-with each [fold mean squared error](#def-fold-mse) $\foldmse{j}$
-computed from the [fold-out rule](#def-fold-out-rule) that $g$ produces:
+The **fold-based standard error of procedure** $g$
+is the [fold-based standard error](#def-cv-se)
+computed from the [fold mean squared errors of $g$](#def-fold-mse-indexed):
 
 $$
-\cvseof{g} \eqdef \frac{\hSD{\foldmse{1}, \ldots, \foldmse{k}}}{\sqrt{k}}.
+\cvseof{g} \eqdef \frac{\hSD{\foldmseof{1}{g}, \ldots, \foldmseof{k}{g}}}{\sqrt{k}}.
 $$ {#eq-cv-se-indexed}
 
 :::

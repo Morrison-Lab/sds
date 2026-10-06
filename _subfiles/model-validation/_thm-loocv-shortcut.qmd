@@ -24,6 +24,11 @@ and @hastie2009elements [sec. 7.10.1] for many linear fitting methods.
 :::
 
 ::: proof
-Not derived here (@rem-loocv-shortcut-proof);
+Not derived here;
 see the sources named under the theorem.
+The derivation needs a formula for how the inverse of the
+[cross-product matrix](#def-cross-product-matrix) $A$
+changes when one observation's outer product $\soprod{\termvec{i}}$ is removed from it
+(the Sherman--Morrison formula),
+which this page does not develop.
 :::

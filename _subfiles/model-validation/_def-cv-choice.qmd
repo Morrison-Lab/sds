@@ -1,0 +1,17 @@
+:::{#def-cv-choice}
+#### Cross-validation choice procedure
+
+Given candidate [fitting procedures](#def-fitting-procedure) $g_1, \ldots, g_L$,
+the **cross-validation choice procedure** $g^{\text{CV}}$
+is the fitting procedure that,
+applied to a [training set](#def-training-set) $\trainset$,
+computes each candidate's [cross-validation estimate](#def-cv-estimate-indexed)
+on $\trainset$,
+and applies the candidate with the smallest one to $\trainset$:
+
+$$
+g^{\text{CV}}\paren{x; \trainset} \eqdef
+g_{\argmin_{l} \cvestof{k}{g_l}}\paren{x; \trainset}.
+$$ {#eq-cv-choice}
+
+:::

@@ -5,10 +5,12 @@ Let $g_1, \ldots, g_L$ be [fitting procedures](#def-fitting-procedure),
 each [at least as flexible](#def-flexibility) as the one before,
 and let $\trainset$ be a random [training set](#def-training-set).
 At a covariate value $x$,
+with $\mean(x)$ the mean of a new outcome $Y_0$ given $X_0 = x$
+as in @thm-epe-decomposition,
 there is a **bias--variance trade-off** among them
 when, from each procedure to the next,
 the squared [bias](https://morrison-lab.github.io/pds/variance-covariance.html#def-prediction-bias)
-of the prediction does not rise
+of the prediction, as a prediction of $\mean(x)$, does not rise
 and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance)
 does not fall:
 
