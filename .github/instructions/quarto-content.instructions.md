@@ -23,7 +23,7 @@ description: "Use when editing Quarto pages, chapters, slides, handouts, or narr
 - Write math notation through semantic macros (for example `\coef{x}`,
   `\intcoef`), not hard-coded symbols; see "Math Notation" in
   [copilot-instructions.md](../copilot-instructions.md).
-- Credit outside sources (content from the lab's own sites needs none) where readers can see them: a collapsed
+- Credit sources where readers can see them (a credit to the maintainer's own sites is optional, but what they credit is still carried): a collapsed
   `.callout-note` titled "Source" at the end of the item's div, not an HTML comment; see
   "Attributions are reader-visible" in
   [copilot-instructions.md](../copilot-instructions.md).

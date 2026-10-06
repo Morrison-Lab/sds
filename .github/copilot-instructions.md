@@ -151,15 +151,24 @@ Never nest one theorem-type div inside another.
 
 ## Attributions are reader-visible
 
-Credit every source where readers can see it:
-the book or paper an item follows,
-or the person whose lecture or notes it was adapted from.
-Content taken from the maintainer's own sites (rme, lds, pds, ...)
-need not be credited to those sites
-(maintainer directive, 2026-10-05),
-but whatever such a site credits
+Credit every source a reader would want to know about where readers can see it:
+
+- the book or paper an item follows;
+- another course's site, notes, or repository it was adapted from;
+- the person whose lecture, notes or code it was adapted from.
+
+When a source credits its own upstream,
+carry that credit along.
+
+Content taken from the maintainer's own repositories (rme, lds, pds, ...)
+does not have to be credited to them
+(maintainer directive, 2026-10-05).
+The exemption covers only that hop:
+whatever such a repository credits
 (a book, a paper, or any person other than the maintainer)
-is still credited, without naming the site.
+is still credited.
+The sister-repository credit may be left out of new work,
+but an existing one is not removed unless the maintainer asks.
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
 Follow PSW's
