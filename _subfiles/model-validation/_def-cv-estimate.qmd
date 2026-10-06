@@ -1,11 +1,12 @@
 :::{#def-cv-estimate}
 #### Cross-validation estimate
 
-Let $\foldof{i} \in \set{1, \ldots, k}$ be the fold
-that observation $i$ is assigned to in [$k$-fold cross-validation](#def-kfold),
+Let $\foldof{i}$ be the [fold assignment](#def-folds) of observation $i$
+in [$k$-fold cross-validation](#def-kfold),
 and let $\fittedwo{j}{\cdot}$ be the prediction rule
-fitted to all observations except those in fold $j$.
-The **$k$-fold cross-validation estimate** of prediction error
+fitted to all observations except those in fold $\fold{j}$.
+The **$k$-fold cross-validation estimate**
+of the [expected generalization error](#def-expected-generalization-error)
 is the [mean squared error](estimation.qmd#def-prediction-mse)
 of the predictions that each observation receives
 from the rule fitted without its fold:

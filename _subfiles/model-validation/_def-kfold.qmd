@@ -1,13 +1,15 @@
 <!--
-The only wording edit: step 3 says "prediction-error measure"
-where rme says "PE measure", since sds does not define PE.
+Two wording edits: step 3 says "prediction-error measure"
+where rme says "PE measure", since sds does not define PE;
+and step 1 links "folds" to @def-folds and allows nearly equal sizes,
+since n need not be a multiple of k.
 -->
 :::{#def-kfold}
 #### $k$-fold cross-validation
 
 In **$k$-fold cross-validation**:
 
-1. The data are randomly divided into $k$ equal-sized subsets ("folds").
+1. The data are randomly divided into $k$ [folds](#def-folds) of equal, or nearly equal, size.
 2. For each fold $i = 1, \ldots, k$:
    - Fit the model using all data *except* fold $i$.
    - Compute predicted values for the observations in fold $i$.

@@ -1,12 +1,18 @@
 :::{#def-cv-se}
 #### Standard error of a cross-validation estimate
 
-Let $\foldmse{1}, \ldots, \foldmse{k}$
-be the [mean squared errors](estimation.qmd#def-prediction-mse)
-of the predictions for the observations in folds $1, \ldots, k$
-of [$k$-fold cross-validation](#def-kfold),
-and let $\cvsd$ be their
-[sample standard deviation](exploratory-descriptive.qmd#def-sample-sd).
+In [$k$-fold cross-validation](#def-kfold),
+let $\foldmse{j}$ be the [mean squared error](estimation.qmd#def-prediction-mse)
+of the predictions for the $\foldsize{j}$ observations in [fold](#def-folds) $\fold{j}$,
+each from the rule $\fittedwo{j}{\cdot}$ of @def-cv-estimate:
+
+$$
+\foldmse{j} \eqdef \frac{1}{\foldsize{j}} \sum_{i \in \fold{j}} \sqf{\fittedwo{j}{x_i} - y_i}.
+$$ {#eq-fold-mse}
+
+Let $\cvsd$ be the
+[sample standard deviation](exploratory-descriptive.qmd#def-sample-sd)
+of $\foldmse{1}, \ldots, \foldmse{k}$.
 The **standard error** of the cross-validation estimate is
 
 $$

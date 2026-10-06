@@ -42,6 +42,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-expected-generalization-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_exr-held-out-unbiased.qmd >}}
 
 {{< slidebreak >}}
@@ -83,6 +87,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_sol-kfold.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-folds.qmd >}}
 
 {{< slidebreak >}}
 

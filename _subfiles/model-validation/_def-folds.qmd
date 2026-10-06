@@ -1,0 +1,16 @@
+:::{#def-folds}
+#### Folds
+
+A division of observations $1, \ldots, n$ into $k$ **folds**
+is a partition of $\set{1, \ldots, n}$ into $k$ nonempty, disjoint subsets
+$\fold{1}, \ldots, \fold{k}$,
+with $\foldsize{j}$ observations in fold $\fold{j}$,
+so that $\foldsize{1} + \cdots + \foldsize{k} = n$.
+The **fold assignment** $\foldof{i}$ of observation $i$
+is the index of the fold that contains it:
+
+$$
+i \in \fold{\foldof{i}}.
+$$ {#eq-fold-assignment}
+
+:::
