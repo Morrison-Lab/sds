@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 19:53:18 (PDT)
+Last modified: 2026-10-05 20:55:31 (PDT)
 
 ## 1 Types of variables
 
@@ -110,7 +110,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > > **NOTE:**
 > >
-> > Adapted from the rme notes’ [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation); Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)) use the same terms.
+> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
 
 > **NOTE:**
 >
@@ -126,7 +126,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > > **NOTE:**
 > >
-> > Adapted from the rme notes’ [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation) (“Dummy variables with values 0 and 1 are also called indicator variables”); Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)) say the same.
+> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
 
 > **NOTE:**
 >
@@ -138,7 +138,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > > **NOTE:**
 > >
-> > The term is used in the rme notes’ [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation); Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)) call this the corner point parameterization.
+> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)), who call this the corner point parameterization.
 
 > **NOTE:**
 >

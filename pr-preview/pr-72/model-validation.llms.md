@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-05 19:53:18 (PDT)
+Last modified: 2026-10-05 20:55:31 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -52,7 +52,7 @@ Last modified: 2026-10-05 19:53:18 (PDT)
 >
 > > **NOTE:**
 > >
-> > The rme notes’ section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits), and James et al. ([2021, sec. 5.1.1](#ref-james2021islr2e)), who call it a hold-out set.
+> > James et al. ([2021, sec. 5.1.1](#ref-james2021islr2e)), who call it a hold-out set.
 
 > **NOTE:**
 >
@@ -136,20 +136,8 @@ Last modified: 2026-10-05 19:53:18 (PDT)
 > **NOTE:**
 >
 > **Definition 7 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-prediction-rule) fits its [training set](#def-training-set) well but predicts poorly for new observations.
->
-> > **NOTE:**
-> >
-> > The rme notes’ [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting).
 
 In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 training cars more closely but do not predict the 12 held-out cars better. The effect is small here: it is the beginning of overfitting, not a dramatic case.
-
-> **NOTE:**
->
-> *Remark 1* (Coefficients per observation). The rme notes tie overfitting to how many predictors a model has relative to the data they are fitted to (see Source). In [Exercise 1](#exr-overfitting), each added power of `wt`, like an added predictor, is one more coefficient fitted to the same 20 cars: the degree-4 fit has five coefficients for those 20 cars.
->
-> > **NOTE:**
-> >
-> > The rme notes’ [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting), which says that overfitting “results from including too many predictors relative to the effective sample size”.
 
 ## 3 Generalization error
 
@@ -181,7 +169,7 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 >
 > > **NOTE:**
 > >
-> > Adapted from the lds notes’ [definition of risk](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-risk), which adapts Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)).
+> > The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)).
 
 > **NOTE:**
 >
@@ -198,10 +186,6 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 > **Definition 10 (Mean function)** The **mean function** \\\mu\\ of an outcome \\Y\\ given a covariate \\X\\ maps each covariate value \\x\\ to the mean of \\Y\\ given \\X = x\\:
 >
 > \\ \mu(x) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}. \tag{9}\\
->
-> > **NOTE:**
-> >
-> > The pds notes’ [conditional expectation function](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation-function), written here as a function of \\x\\.
 
 > **NOTE:**
 >
@@ -247,7 +231,7 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 
 > **NOTE:**
 >
-> *Remark 2* (Other names, and how the expected error splits). Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) also call \\\operatorname{Err}\_{\mathcal{T}}\\ the *test error*, and in sec. 7.12 the *conditional* test error. It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) of the prediction \\\hat y(X_0)\\ under squared error [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function), computed with the training set held fixed.
+> *Remark 1* (Other names, and how the expected error splits). Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) also call \\\operatorname{Err}\_{\mathcal{T}}\\ the *test error*, and in sec. 7.12 the *conditional* test error. It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) of the prediction \\\hat y(X_0)\\ under squared error [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function), computed with the training set held fixed.
 >
 > The argument \\n\\ of the [expected generalization error](#def-expected-generalization-error) \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ of a fitting procedure \\g\\ records that it depends on how many observations each training set has. By [Theorem 1](#thm-expected-error-epe), \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ averages the expected squared prediction error at each covariate value, and [Theorem 2](#thm-epe-decomposition) splits that error into a squared bias, a variance and a noise variance.
 
@@ -263,7 +247,7 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 
 > **NOTE:**
 >
-> *Remark 3* (Polynomial degree orders flexibility). Least-squares polynomial fits are ordered by degree: a polynomial of degree \\d\\ is also a polynomial of degree \\d + 1\\ whose coefficient of \\x^{d + 1}\\ is zero, so the fit of degree \\d + 1\\ is [at least as flexible](#def-flexibility) as the fit of degree \\d\\. The four fits of [Exercise 1](#exr-overfitting) are ordered this way. [Definition 12](#def-flexibility) is narrower than the informal use of the word in James et al. ([2021, sec. 2.1.3](#ref-james2021islr2e)): it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters ([Hastie et al. 2009, sec. 7.6](#ref-hastie2009elements)).
+> *Remark 2* (Polynomial degree orders flexibility). Least-squares polynomial fits are ordered by degree: a polynomial of degree \\d\\ is also a polynomial of degree \\d + 1\\ whose coefficient of \\x^{d + 1}\\ is zero, so the fit of degree \\d + 1\\ is [at least as flexible](#def-flexibility) as the fit of degree \\d\\. The four fits of [Exercise 1](#exr-overfitting) are ordered this way. [Definition 12](#def-flexibility) is narrower than the informal use of the word in James et al. ([2021, sec. 2.1.3](#ref-james2021islr2e)): it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters ([Hastie et al. 2009, sec. 7.6](#ref-hastie2009elements)).
 
 > **NOTE:**
 >
@@ -277,7 +261,11 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 
 > **NOTE:**
 >
-> *Remark 4* (Overfitting and the trade-off). By [Theorem 2](#thm-epe-decomposition), \\\operatorname{EPE}^{g_l}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is the squared bias plus the variance plus \\\sigma^2\\. Under a [bias–variance trade-off](#def-bias-variance-tradeoff) among \\g_1, \ldots, g_L\\, moving from \\g_l\\ to \\g\_{l+1}\\ lowers the expected squared prediction error at \\x\\ when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of \\\operatorname{EPE}^{g_1}\_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g_L}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is often at some \\g_l\\ with \\1 \< l \< L\\ ([James et al. 2021, sec. 2.2.2](#ref-james2021islr2e)), but not always: if the mean function \\\mu\\ is a candidate of \\g_1\\, the squared bias of \\g_1\\ can be zero, and then no later \\g_l\\ has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. The procedures past the smallest error have lowered their squared bias by less than they have raised their variance, and the rules they produce tend to [overfit](#def-overfitting): they fit their training sets more closely than the procedure with the smallest error but predict new observations worse.
+> *Remark 3* (Overfitting and the trade-off). By [Theorem 2](#thm-epe-decomposition), \\\operatorname{EPE}^{g_l}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is the squared bias plus the variance plus \\\sigma^2\\. Under a [bias–variance trade-off](#def-bias-variance-tradeoff) among \\g_1, \ldots, g_L\\, moving from \\g_l\\ to \\g\_{l+1}\\ lowers the expected squared prediction error at \\x\\ when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of \\\operatorname{EPE}^{g_1}\_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g_L}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is often at some \\g_l\\ with \\1 \< l \< L\\ ([James et al. 2021, sec. 2.2.2](#ref-james2021islr2e)), but not always: if the mean function \\\mu\\ is a candidate of \\g_1\\, the squared bias of \\g_1\\ can be zero, and then no later \\g_l\\ has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. The procedures past the smallest error have lowered their squared bias by less than they have raised their variance, and the rules they produce tend to [overfit](#def-overfitting): they fit their training sets more closely than the procedure with the smallest error but predict new observations worse.
+
+> **NOTE:**
+>
+> *Remark 4* (Coefficients per observation). Adding coefficients to a least-squares fit makes it [at least as flexible](#def-flexibility) as before. With few observations per coefficient, the variance this adds can outweigh the squared bias it removes, which is the overfitting side of [Remark 3](#rem-overfitting-tradeoff). In [Exercise 1](#exr-overfitting), each added power of `wt`, like an added predictor, is one more coefficient fitted to the same 20 cars: the degree-4 fit has five coefficients for those 20 cars.
 
 > **NOTE:**
 >
@@ -388,10 +376,6 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 > ```
 >
 > The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization error below \\\sigma^2 = 0.09\\. Yet the training error falls below \\\sigma^2\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
->
-> > **NOTE:**
-> >
-> > Modeled on the lds notes’ interactive [figure of training and held-out error](https://morrison-lab.github.io/lds/chapters/big-ideas.html#fig-train-vs-held-out), rewritten in R with a known true mean function.
 
 ## 4 Training, validation, and test sets
 
@@ -411,7 +395,7 @@ In [Exercise 1](#exr-overfitting), the terms beyond degree 2 fit the 20 trainin
 >
 > > **NOTE:**
 > >
-> > Adapted from the rme notes’ section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits), which follows James et al. ([2021, 198–201](#ref-james2021islr2e)).
+> > James et al. ([2021, 198–201](#ref-james2021islr2e)).
 
 In [Exercise 5](#exr-data-splits), a rule of 60% / 20% / 20% on \\N = 32\\ cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.
 
@@ -665,7 +649,7 @@ In [Exercise 5](#exr-data-splits), a rule of 60% / 20% / 20% on \\N = 32\\ cars
 >
 > > **NOTE:**
 > >
-> > Adapted from the rme notes’ [numerical example](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#exm-train-validation-test-split), which follows the validation-set lab of James et al. ([2021, 213](#ref-james2021islr2e)).
+> > The validation-set lab of James et al. ([2021, 213](#ref-james2021islr2e)).
 
 ## 5 \\k\\-fold cross-validation
 
@@ -732,10 +716,6 @@ In [Exercise 5](#exr-data-splits), a rule of 60% / 20% / 20% on \\N = 32\\ cars
 >     - Fit the model to all data *except* fold \\\mathcal{F}\_{j}\\, giving the [fold-out rule](#def-fold-out-rule) \\\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\\.
 >     - Compute predicted values for the observations in fold \\\mathcal{F}\_{j}\\.
 > 3.  Compute a summary prediction-error measure across all folds.
->
-> > **NOTE:**
-> >
-> > The rme notes’ [definition of \\k\\-fold cross-validation](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-kfold).
 
 If data are limited, \\k\\-fold cross-validation can replace the single validation set of [Definition 14](#def-data-splits) for more stable tuning. In [Exercise 6](#exr-kfold), \\k = 4\\ folds of 8 cars each give 4 fits on 24 cars each.
 
@@ -1172,7 +1152,7 @@ If data are limited, \\k\\-fold cross-validation can replace the single validati
 >
 > > **NOTE:**
 > >
-> > Adapted from the remark [Cross-validation replaces the development set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#rem-cv-is-a-dev-set) in the lds notes, in a section those notes base on a Spring 2025 lecture on generalization by Logan Sizemore.
+> > Based on a Spring 2025 lecture on generalization by Logan Sizemore.
 
 > **NOTE:**
 >
