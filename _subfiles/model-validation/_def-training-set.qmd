@@ -2,11 +2,12 @@
 #### Training set
 
 A **training set** is the data
-to which a [fitting procedure](#def-fitting-procedure) is applied,
-written as an ordered list of $n$ observations:
+to which a [fitting procedure](#def-fitting-procedure) is applied:
+$n$ observations,
+written as an ordered list indexed by a set $I$ of $n$ observation numbers:
 
 $$
-\trainset \eqdef \paren{(x_1, y_1), \ldots, (x_n, y_n)}.
+\trainset \eqdef \paren{(x_i, y_i)}_{i \in I}, \quad \abs{I} = n.
 $$ {#eq-training-set}
 
 ::: {.callout-note collapse="true"}

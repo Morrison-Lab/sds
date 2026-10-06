@@ -1,0 +1,18 @@
+:::{#def-mean-function}
+#### Mean function
+
+The **mean function** $\mean$ of an outcome $Y$ given a covariate $X$
+maps each covariate value $x$ to the mean of $Y$ given $X = x$:
+
+$$
+\mean(x) \eqdef \E{Y \mid X = x}.
+$$ {#eq-mean-function}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+The pds notes' [conditional expectation function](https://morrison-lab.github.io/pds/expectation.html#def-cond-expectation-function),
+written here as a function of $x$.
+:::
+
+:::

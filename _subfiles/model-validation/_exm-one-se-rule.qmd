@@ -1,7 +1,7 @@
 <!--
 This fragment's R chunks use objects made by earlier fragments
 of model-validation.qmd, so it renders only after them:
-assign_folds(), from _exm-kfold-simulated.qmd,
+assign_folds() and cv_squared_errors(), from _exm-kfold-simulated.qmd,
 and sim_train, sim_degrees and sim_errors,
 from _exm-train-test-error-simulated.qmd.
 -->
@@ -15,15 +15,6 @@ and applies @def-one-se-rule to the ten degrees.
 
 ```{r}
 #| label: one-se-simulated
-cv_fold_mse <- function(formula, data, folds) {
-  y <- stats::model.response(stats::model.frame(formula, data))
-  purrr::map_dbl(sort(unique(folds)), \(j) {
-    in_fold <- folds == j
-    fit <- lm(formula, data = data[!in_fold, ])
-    mean((predict(fit, newdata = data[in_fold, ]) - y[in_fold])^2)
-  })
-}
-
 set.seed(10)
 sim_folds_ten <- assign_folds(nrow(sim_train), k = 10)
 
@@ -31,7 +22,10 @@ sim_cv_ten <- tibble::tibble(degree = sim_degrees) |>
   dplyr::mutate(
     fold_mse = purrr::map(
       degree,
-      \(d) cv_fold_mse(y ~ poly(x, d), sim_train, sim_folds_ten)
+      \(d) {
+        sq_errors <- cv_squared_errors(y ~ poly(x, d), sim_train, sim_folds_ten)
+        as.numeric(tapply(sq_errors, sim_folds_ten, mean))
+      }
     ),
     cv = purrr::map_dbl(fold_mse, mean),
     se = purrr::map_dbl(fold_mse, \(v) sd(v) / sqrt(length(v)))

@@ -1,4 +1,9 @@
 <!--
+This fragment's R chunks use objects made by earlier fragments
+of model-validation.qmd, so it renders only after them:
+rmse(), from _sol-overfitting.qmd.
+-->
+<!--
 The section heading on ISLR p. 213 was checked in the PDF.
 The four near-identical figure chunks of the rme version
 are replaced by one plotting helper.
@@ -65,10 +70,6 @@ model_quartic <- lm(
   data = train_dat
 )
 
-compute_rmse <- function(model, data) {
-  sqrt(mean((data$mpg - predict(model, newdata = data))^2))
-}
-
 candidate_models <- list(
   linear = model_linear,
   quadratic = model_quadratic,
@@ -82,11 +83,11 @@ validation_results <- tibble::tibble(
   dplyr::mutate(
     training_RMSE = purrr::map_dbl(
       model,
-      \(model_name) compute_rmse(candidate_models[[model_name]], train_dat)
+      \(model_name) rmse(candidate_models[[model_name]], train_dat)
     ),
     validation_RMSE = purrr::map_dbl(
       model,
-      \(model_name) compute_rmse(candidate_models[[model_name]], valid_dat)
+      \(model_name) rmse(candidate_models[[model_name]], valid_dat)
     )
   )
 
@@ -106,14 +107,14 @@ chosen_model_name <-
 chosen_model_label <- model_labels[[chosen_model_name]]
 
 chosen_model <- candidate_models[[chosen_model_name]]
-chosen_model_validation_rmse <- compute_rmse(chosen_model, valid_dat)
+chosen_model_validation_rmse <- rmse(chosen_model, valid_dat)
 
 performance_comparison <- tibble::tibble(
   split = c("validation", "test"),
   model = chosen_model_name,
   RMSE = c(
     chosen_model_validation_rmse,
-    compute_rmse(chosen_model, test_dat)
+    rmse(chosen_model, test_dat)
   )
 )
 

@@ -2,22 +2,26 @@
 #### Overfitting and the trade-off
 
 By @thm-epe-decomposition,
-$\epe{x}$ is the squared bias plus the variance plus $\sigma^2$.
+$\epe{g_l}{n}{x}$ is the squared bias plus the variance plus $\sigma^2$.
 Under a [bias--variance trade-off](#def-bias-variance-tradeoff)
 among $g_1, \ldots, g_L$,
 moving from $g_l$ to $g_{l+1}$
-lowers $\epe{x}$ when the squared bias falls by more than the variance rises,
+lowers the expected squared prediction error at $x$
+when the squared bias falls by more than the variance rises,
 and raises it otherwise.
-The smallest $\epe{x}$ is often at some $g_l$ with $1 < l < L$
+The smallest of $\epe{g_1}{n}{x}, \ldots, \epe{g_L}{n}{x}$
+is often at some $g_l$ with $1 < l < L$
 [@james2021islr2e, sec. 2.2.2],
 but not always:
 if the mean function $\mean$ is a candidate of $g_1$,
 the squared bias of $g_1$ can be zero,
 and then no later $g_l$ has a smaller squared bias
 and, under the trade-off, none has a smaller variance,
-so none has a smaller $\epe{x}$.
-[Overfitting](#def-overfitting) is what happens past the smallest error:
-a procedure there has lowered its squared bias
-by less than it has raised its variance.
+so none has a smaller expected squared prediction error.
+The procedures past the smallest error
+have lowered their squared bias by less than they have raised their variance,
+and the rules they produce tend to [overfit](#def-overfitting):
+they fit their training sets more closely than the procedure with the smallest error
+but predict new observations worse.
 
 :::

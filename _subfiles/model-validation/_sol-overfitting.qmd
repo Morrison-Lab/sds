@@ -6,8 +6,13 @@
 train_cars <- mtcars[1:20, ]
 held_out_cars <- mtcars[21:32, ]
 
+prediction_mse <- function(model, data) {
+  y <- data[[all.vars(stats::formula(model))[[1]]]]
+  mean((predict(model, newdata = data) - y)^2)
+}
+
 rmse <- function(model, data) {
-  sqrt(mean((data$mpg - predict(model, newdata = data))^2))
+  sqrt(prediction_mse(model, data))
 }
 
 overfitting_results <- tibble::tibble(degree = 1:4) |>

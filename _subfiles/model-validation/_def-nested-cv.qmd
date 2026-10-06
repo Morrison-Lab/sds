@@ -3,10 +3,10 @@
 
 **Nested cross-validation** is [$k$-fold cross-validation](#def-kfold)
 of the [cross-validation choice procedure](#def-cv-choice) $g^{\text{CV}}$:
-its estimate is
+its estimate on a training set $\trainset$ is
 
 $$
-\cvestof{k}{g^{\text{CV}}}.
+\cvestof{k}{g^{\text{CV}}}\paren{\trainset}.
 $$ {#eq-nested-cv}
 
 ::: {.callout-note collapse="true"}

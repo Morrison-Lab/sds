@@ -11,7 +11,7 @@ drawn independently of $(X_0, Y_0)$,
 and over $Y_0$:
 
 $$
-\epe{x} \eqdef \E{\sqf{g\paren{x; \trainset} - Y_0} \mid X_0 = x}.
+\epe{g}{n}{x} \eqdef \E{\sqf{g\paren{x; \trainset} - Y_0} \mid X_0 = x}.
 $$ {#eq-epe}
 
 ::: {.callout-note collapse="true"}

@@ -3,7 +3,7 @@
 
 Let $g_1, \ldots, g_L$ be candidate [fitting procedures](#def-fitting-procedure),
 each [at least as flexible](#def-flexibility) as the one before,
-cross-validated with the same folds,
+cross-validated on a training set $\trainset$ with the same folds,
 and let $g_{l^*}$ be the one with the smallest
 [cross-validation estimate](#def-cv-estimate-indexed).
 The **one-standard-error rule** chooses the smallest $l$
@@ -11,7 +11,7 @@ whose estimate is within one [fold-based standard error](#def-cv-se-indexed)
 of the smallest:
 
 $$
-\cvestof{k}{g_l} \le \cvestof{k}{g_{l^*}} + \cvseof{g_{l^*}}.
+\cvestof{k}{g_l}\paren{\trainset} \le \cvestof{k}{g_{l^*}}\paren{\trainset} + \cvseof{g_{l^*}}.
 $$ {#eq-one-se-rule}
 
 ::: {.callout-note collapse="true"}

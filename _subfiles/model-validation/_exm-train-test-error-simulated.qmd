@@ -1,3 +1,8 @@
+<!--
+This fragment's R chunks use objects made by earlier fragments
+of model-validation.qmd, so it renders only after them:
+prediction_mse(), from _sol-overfitting.qmd.
+-->
 :::{#exm-train-test-error-simulated}
 #### Training error and generalization error by degree
 
@@ -25,9 +30,6 @@ sim_draw <- function(n) {
   x <- stats::runif(n)
   tibble::tibble(x = x, y = sim_truth(x) + stats::rnorm(n, sd = sim_sigma))
 }
-mse <- function(model, data) {
-  mean((predict(model, newdata = data) - data$y)^2)
-}
 
 set.seed(1)
 sim_train <- sim_draw(30)
@@ -37,8 +39,8 @@ sim_degrees <- 1:10
 sim_errors <- tibble::tibble(degree = sim_degrees) |>
   dplyr::mutate(
     fit = purrr::map(degree, \(d) lm(y ~ poly(x, d), data = sim_train)),
-    training = purrr::map_dbl(fit, mse, data = sim_train),
-    generalization = purrr::map_dbl(fit, mse, data = sim_new)
+    training = purrr::map_dbl(fit, prediction_mse, data = sim_train),
+    generalization = purrr::map_dbl(fit, prediction_mse, data = sim_new)
   ) |>
   dplyr::select(-fit)
 

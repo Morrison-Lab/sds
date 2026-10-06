@@ -1,9 +1,10 @@
 :::{#thm-epe-decomposition}
 #### Bias, variance and noise
 
+Let $\mean$ be the [mean function](#def-mean-function) of the outcome given the covariate.
 Suppose that, given $X_0 = x$,
-the new outcome $Y_0$ has mean $\mean(x)$ and variance $\sigma^2$
-and is independent of the training set $\trainset$,
+the new outcome $Y_0$ has variance $\sigma^2$
+and is independent of the random training set $\trainset$,
 and that $\E{g\paren{x; \trainset}^2} < \infty$.
 Then the [expected squared prediction error at $x$](#def-epe)
 is the squared [bias](https://morrison-lab.github.io/pds/variance-covariance.html#def-prediction-bias)
@@ -12,7 +13,7 @@ plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#
 plus $\sigma^2$:
 
 $$
-\epe{x} = \sqf{\E{g\paren{x; \trainset}} - \mean(x)}
+\epe{g}{n}{x} = \sqf{\E{g\paren{x; \trainset}} - \mean(x)}
 + \Var{g\paren{x; \trainset}} + \sigma^2.
 $$ {#eq-epe-decomposition}
 
@@ -25,7 +26,7 @@ with $f(x_0) = \mean(x)$,
 prediction $\hat f(x_0) = g\paren{x; \trainset}$,
 and noise $\varepsilon = Y_0 - \mean(x)$,
 applied conditionally on $X_0 = x$.
-Given $X_0 = x$, that noise has mean 0 and variance $\sigma^2$,
+Given $X_0 = x$, that noise has mean 0 by @eq-mean-function and variance $\sigma^2$,
 and it is independent of $g\paren{x; \trainset}$
 because $Y_0$ is independent of $\trainset$.
 :::

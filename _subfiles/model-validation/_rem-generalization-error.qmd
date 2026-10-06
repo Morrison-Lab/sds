@@ -11,11 +11,9 @@ computed with the training set held fixed.
 The argument $n$ of the [expected generalization error](#def-expected-generalization-error)
 $\expgenerr{n}$
 records that it depends on how many observations each training set has.
-Averaging over the training set first and over $X_0$ last,
-$\expgenerr{n}$ is the mean of the
-[expected squared prediction error at $x$](#def-epe) over the distribution of $X_0$,
-$\expgenerr{n} = \E{\epe{X_0}}$,
-and @thm-epe-decomposition splits each $\epe{x}$
+By @thm-expected-error-epe, $\expgenerr{n}$ averages
+the expected squared prediction error at each covariate value,
+and @thm-epe-decomposition splits that error
 into a squared bias, a variance and a noise variance.
 
 :::

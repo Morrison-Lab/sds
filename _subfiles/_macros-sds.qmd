@@ -25,7 +25,7 @@
 \providecommand{\cvseof}[1]{\operatorname{SE}^{#1}_{\text{CV}}}
 \providecommand{\trainset}{\mathcal{T}}
 \providecommand{\rmselr}[1]{\operatorname{RMSE}\paren{#1}}
-\providecommand{\epe}[1]{\operatorname{EPE}\paren{#1}}
+\providecommand{\epe}[3]{\operatorname{EPE}^{#1}_{#2}\paren{#3}}
 \providecommand{\foldmseof}[2]{\operatorname{MSE}^{#2}_{#1}}
 \providecommand{\termvec}[1]{\v{t}_{#1}}
 \providecommand{\trainerr}{\overline{\operatorname{err}}}

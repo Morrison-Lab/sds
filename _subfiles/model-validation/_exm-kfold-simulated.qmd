@@ -2,8 +2,9 @@
 This fragment's R chunks use objects made by earlier fragments
 of model-validation.qmd, so it renders only after them:
 sim_train, sim_new, sim_errors, sim_sigma, sim_degrees,
-sim_draw(), mse() and sim_best_generalization,
-from the chunks of _exm-train-test-error-simulated.qmd.
+sim_draw() and sim_best_generalization,
+from the chunks of _exm-train-test-error-simulated.qmd,
+and prediction_mse(), from _sol-overfitting.qmd.
 -->
 :::{#exm-kfold-simulated}
 #### Cross-validation versus the generalization error
@@ -13,9 +14,9 @@ with $k = 5$
 to the simulated training set of @exm-train-test-error-simulated,
 using only those 30 observations.
 The function `assign_folds()` assigns each observation to a fold at random,
-and `cv_mse()` computes @eq-cv-estimate for a given assignment:
-it fits the model once per fold without that fold
-and averages the squared prediction errors.
+`cv_squared_errors()` fits the model once per fold without that fold
+and returns each observation's squared prediction error,
+and `cv_mse()` averages them, which is @eq-cv-estimate.
 
 ```{r}
 #| label: cv-mse-function
@@ -24,7 +25,7 @@ assign_folds <- function(n, k) {
   sample(rep_len(seq_len(k), n))
 }
 
-cv_mse <- function(formula, data, folds) {
+cv_squared_errors <- function(formula, data, folds) {
   y <- stats::model.response(stats::model.frame(formula, data))
   sq_errors <- numeric(nrow(data))
   for (j in unique(folds)) {
@@ -33,7 +34,11 @@ cv_mse <- function(formula, data, folds) {
     pred <- predict(fit, newdata = data[in_fold, ])
     sq_errors[in_fold] <- (pred - y[in_fold])^2
   }
-  mean(sq_errors)
+  sq_errors
+}
+
+cv_mse <- function(formula, data, folds) {
+  mean(cv_squared_errors(formula, data, folds))
 }
 
 set.seed(5)
@@ -160,7 +165,7 @@ sim_size_effect <- tibble::tibble(
       \(n) {
         sim_generalization_draws(
           n, max(sim_degrees), sim_n_reps,
-          draw = sim_draw, new_data = sim_new, score = mse
+          draw = sim_draw, new_data = sim_new, score = prediction_mse
         )
       }
     ),

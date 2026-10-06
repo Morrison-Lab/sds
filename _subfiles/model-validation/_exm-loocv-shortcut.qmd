@@ -1,7 +1,8 @@
 <!--
 This fragment's R chunks use objects made by earlier fragments
 of model-validation.qmd, so it renders only after them:
-mtcars_degrees, from _exm-kfold-mtcars.qmd.
+mtcars_degrees, from _exm-kfold-mtcars.qmd,
+and cv_mse(), from _exm-kfold-simulated.qmd.
 -->
 :::{#exm-loocv-shortcut}
 #### Leave-one-out cross-validation of the `mtcars` polynomials
@@ -15,15 +16,6 @@ with the leverages from `hatvalues()`.
 ```{r}
 #| label: loocv-mtcars
 #| code-fold: false
-loocv_by_refitting <- function(formula, data) {
-  y <- stats::model.response(stats::model.frame(formula, data))
-  sq_errors <- purrr::map_dbl(seq_len(nrow(data)), \(i) {
-    fit <- lm(formula, data = data[-i, ])
-    (predict(fit, newdata = data[i, ]) - y[i])^2
-  })
-  mean(sq_errors)
-}
-
 loocv_by_formula <- function(formula, data) {
   fit <- lm(formula, data = data)
   pred_error <- fitted(fit) - stats::model.response(model.frame(fit))
@@ -34,7 +26,7 @@ mtcars_loocv <- tibble::tibble(degree = mtcars_degrees) |>
   dplyr::mutate(
     refitting = purrr::map_dbl(
       degree,
-      \(d) loocv_by_refitting(mpg ~ poly(wt, d), mtcars)
+      \(d) cv_mse(mpg ~ poly(wt, d), mtcars, folds = seq_len(nrow(mtcars)))
     ),
     formula = purrr::map_dbl(
       degree,

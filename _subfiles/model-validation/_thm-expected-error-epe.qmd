@@ -1,0 +1,19 @@
+:::{#thm-expected-error-epe}
+#### The expected generalization error averages the error at each covariate value
+
+If the random [training set](#def-training-set) $\trainset$
+is independent of the new observation $(X_0, Y_0)$,
+the [expected generalization error](#def-expected-generalization-error)
+of a [fitting procedure](#def-fitting-procedure) $g$
+is the mean of its [expected squared prediction error at $x$](#def-epe)
+over the distribution of $X_0$:
+
+$$
+\expgenerr{n} = \E{\epe{g}{n}{X_0}}.
+$$ {#eq-expected-error-epe}
+
+:::
+
+::: proof
+This is @sol-expected-error-epe.
+:::

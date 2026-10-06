@@ -5,13 +5,15 @@ Given candidate [fitting procedures](#def-fitting-procedure) $g_1, \ldots, g_L$,
 the **cross-validation choice procedure** $g^{\text{CV}}$
 is the fitting procedure that,
 applied to a [training set](#def-training-set) $\trainset$,
+divides $\trainset$ into $k$ [folds](#def-folds),
 computes each candidate's [cross-validation estimate](#def-cv-estimate-indexed)
-on $\trainset$,
-and applies the candidate with the smallest one to $\trainset$:
+on $\trainset$ with those folds,
+and applies to $\trainset$ the candidate with the smallest estimate,
+taking the smallest $l$ if several tie:
 
 $$
 g^{\text{CV}}\paren{x; \trainset} \eqdef
-g_{\argmin_{l} \cvestof{k}{g_l}}\paren{x; \trainset}.
+g_{\min \argmin_{l} \cvestof{k}{g_l}\paren{\trainset}}\paren{x; \trainset}.
 $$ {#eq-cv-choice}
 
 :::
