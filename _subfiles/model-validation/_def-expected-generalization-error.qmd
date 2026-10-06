@@ -12,7 +12,7 @@ of the [prediction rule](#def-prediction-rule) that $g$ produces from $\trainset
 $$
 \expgenerr{g}{n} \eqdef \E{\generr_{\trainset}},
 \quad
-\trainset = \paren{(X_1, Y_1), \ldots, (X_n, Y_n)}.
+\trainset = \paren{(X_i, Y_i)}_{i \in I}, \quad \abs{I} = n.
 $$ {#eq-expected-generalization-error}
 
 ::: {.callout-note collapse="true"}

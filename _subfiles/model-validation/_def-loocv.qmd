@@ -3,13 +3,14 @@
 
 **Leave-one-out cross-validation (LOOCV)**
 is [$k$-fold cross-validation](#def-kfold) with $k = n$,
-so that each fold $\fold{i} = \set{i}$, $i \in I$, holds one observation
-and its [fold-out rule](#def-fold-out-rule) $\fittedwo{i}{\cdot}$
+so that each of the $n$ [folds](#def-folds) holds one observation,
+and the [fold-out rule](#def-fold-out-rule) $\fittedwo{\foldof{i}}{\cdot}$
+of observation $i$'s [fold](#def-fold-assignment)
 is fitted to all observations except observation $i$.
 Its [cross-validation estimate](#def-cv-estimate) (@eq-cv-estimate with $k = n$) is
 
 $$
-\cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{i}{x_i} - y_i}.
+\cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}.
 $$ {#eq-loocv}
 
 ::: {.callout-note collapse="true"}
