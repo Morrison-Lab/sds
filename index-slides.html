@@ -274,7 +274,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-06 01:35:15 (PDT)</p>
+  <p class="date">Last modified: 2026-10-06 01:50:41 (PDT)</p>
 </section>
 <section class="slide level2">
 
@@ -324,7 +324,7 @@
 </section>
 <section id="using-these-notes-in-another-site" class="slide level2" data-number="3">
 <h2><span class="header-section-number">3</span> Using these notes in another site</h2>
-<p>Course sites include these notes as a git submodule named <code>sds</code> at the site’s root, and include fragments with paths that start with <code>sds/</code>, for example <code>{{&lt; include sds/_subfiles/intro-MLEs/_def_mle.qmd &gt;}}</code>. This site includes its own fragments the same way, through an <code>sds</code> symlink that points at the repository root.</p>
+<p>Course sites link to these pages by URL; they do not include this repository as a git submodule. A host site that keeps a copy of this repository at its root, named <code>sds</code>, can still include fragments with paths that start with <code>sds/</code>, for example <code>{{&lt; include sds/_subfiles/intro-MLEs/_def_mle.qmd &gt;}}</code>. This site includes its own fragments the same way, through an <code>sds</code> symlink that points at the repository root.</p>
 <p>Quarto resolves <code>@id</code> cross-references only within one rendered page, so a host site that links to a result here uses an explicit link, such as <code>[text](estimation.qmd#def-bias)</code>.</p>
 
 

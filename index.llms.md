@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-06 01:35:15 (PDT)
+Last modified: 2026-10-06 01:50:41 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -52,7 +52,7 @@ Where these notes rely on probability or calculus, they link to the lab’s note
 
 ## 3 Using these notes in another site
 
-Course sites include these notes as a git submodule named `sds` at the site’s root, and include fragments with paths that start with `sds/`, for example `{{< include sds/_subfiles/intro-MLEs/_def_mle.qmd >}}`. This site includes its own fragments the same way, through an `sds` symlink that points at the repository root.
+Course sites link to these pages by URL; they do not include this repository as a git submodule. A host site that keeps a copy of this repository at its root, named `sds`, can still include fragments with paths that start with `sds/`, for example `{{< include sds/_subfiles/intro-MLEs/_def_mle.qmd >}}`. This site includes its own fragments the same way, through an `sds` symlink that points at the repository root.
 
 Quarto resolves `@id` cross-references only within one rendered page, so a host site that links to a result here uses an explicit link, such as `[text](estimation.qmd#def-bias)`.
 
