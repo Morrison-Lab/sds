@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-02 12:01:20 (PDT)
+Last modified: 2026-10-06 00:54:26 (PDT)
 
 ## 1 Introduction
 
@@ -76,6 +76,7 @@ The `rmb` R package includes the same file, which these notes use so that render
 
 ``` downlit
 wcgs <- rmb::wcgs |> haven::as_factor()
+wcgs |> head()
 ```
 
 Show R code
@@ -102,6 +103,22 @@ wcgs_labels <- c(
 for (var in names(wcgs_labels)) {
   attr(wcgs[[var]], "label") <- wcgs_labels[[var]]
 }
+
+wcgs_labels
+#>                                age                               chol 
+#>                      "Age (years)"              "Cholesterol (mg/dL)" 
+#>                                sbp                                dbp 
+#>               "Systolic BP (mmHg)"              "Diastolic BP (mmHg)" 
+#>                                bmi                             weight 
+#>                     "BMI (kg/m^2)"                     "Weight (lbs)" 
+#>                              ncigs                              chd69 
+#>               "Cigarettes per day"                "CHD event by 1969" 
+#>                              smoke                              arcus 
+#>                   "Current smoker"                    "Arcus senilis" 
+#>                             dibpat                             behpat 
+#>         "Behavioral pattern (A/B)" "Behavioral pattern (A1/A2/B3/B4)" 
+#>                            wghtcat                               agec 
+#>                  "Weight category"                        "Age group"
 ```
 
 The dataset has one row per participant:
@@ -634,6 +651,9 @@ sbp_skew <- c(
   raw = skewness(wcgs$sbp),
   log = skewness(wcgs$lnsbp)
 )
+sbp_skew
+#>      raw      log 
+#> 1.203824 0.739911
 ```
 
 The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 versus 1.2), but still not symmetric. Whether to transform a variable in a regression model depends on the assumptions of that model and on the scientific question.
@@ -672,6 +692,10 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 16 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
+>
+> > **NOTE:**
+> >
+> > James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
@@ -680,6 +704,10 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **NOTE:**
 >
 > **Theorem 2 (Standardized values have mean 0 and standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
+>
+> > **NOTE:**
+> >
+> > Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
 
 > **NOTE:**
 >
@@ -704,6 +732,10 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 17 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
+>
+> > **NOTE:**
+> >
+> > Géron ([2017](#ref-geron2017hands), ch. 2).
 
 > **NOTE:**
 >
@@ -760,6 +792,8 @@ Table 5: Summary of selected WCGS variables
 ## References
 
 Géron, Aurélien. 2017. *Hands-on Machine Learning with Scikit-Learn and TensorFlow*. 1st ed. O’Reilly Media.
+
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
 
 Rosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. “Coronary Heart Disease in the Western Collaborative Group Study: Final Follow-up Experience of 8 1/2 Years.” *JAMA* 233 (8): 872–77. <https://doi.org/10.1001/jama.1975.03260080034016>.
 

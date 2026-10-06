@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-02 12:01:20 (PDT)
+Last modified: 2026-10-06 00:54:26 (PDT)
 
 ## 1 Types of variables
 
@@ -107,6 +107,10 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > **NOTE:**
 >
 > **Definition 10 (Dummy variables)** **Dummy variables** are numeric variables that, together, are a numeric representation of a categorical variable.
+>
+> > **NOTE:**
+> >
+> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
 
 > **NOTE:**
 >
@@ -119,6 +123,10 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > **NOTE:**
 >
 > **Definition 11 (Indicator variable)** An **indicator variable** is a [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
+>
+> > **NOTE:**
+> >
+> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
 
 > **NOTE:**
 >
@@ -127,6 +135,10 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > **NOTE:**
 >
 > **Definition 12 (Reference level)** The **reference level** of a categorical variable is the category that does not have its own [indicator variable](#def-indicator-variable). An observation in the reference level has the value 0 for every indicator variable of that categorical variable.
+>
+> > **NOTE:**
+> >
+> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)), who call this the corner point parameterization.
 
 > **NOTE:**
 >
@@ -286,7 +298,7 @@ Table 1: Selected WCGS variables and their types
 
 > **NOTE:**
 >
-> *Solution*. Examples of binary outcomes include:
+> *Solution 2*. Examples of binary outcomes include:
 >
 > - exposure (exposed vs unexposed)
 > - disease status (diseased vs healthy)
@@ -309,7 +321,7 @@ Table 1: Selected WCGS variables and their types
 
 > **NOTE:**
 >
-> *Solution*. Examples of count variables include:
+> *Solution 3*. Examples of count variables include:
 >
 > - number of fish in a pond
 > - number of cyclones per season
