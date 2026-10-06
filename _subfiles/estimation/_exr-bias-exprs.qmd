@@ -1,0 +1,26 @@
+:::{#exr-bias-exprs}
+#### Bias in terms of the expectation
+
+Write the [bias](#def-bias) $\bias{\hth}$ of an estimator $\hth$
+in terms of its expected value $\E{\hth}$ and the estimand $\theta$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-bias-exprs}
+
+$$
+\begin{aligned}
+\bias{\hth}
+&\eqdef \E{\erf{\hth}}
+&& \text{(definition of bias)}\\
+&= \E{\hth - \theta}
+&& \text{(definition of estimation error)}\\
+&= \E{\hth} - \E{\theta}
+&& \text{(linearity of expectation)}\\
+&= \E{\hth} - \theta
+&& \text{($\theta$ is a constant)}
+\end{aligned}
+$$
+
+:::

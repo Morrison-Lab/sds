@@ -1,0 +1,10 @@
+::: {#def-slr-deviation}
+#### Deviation from the conditional mean
+
+In a conditional Gaussian model (@def-cond-gaussian),
+the **deviation** $\cdev_i$ of outcome $Y_i$
+is its [deviation from its mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean),
+taking the mean conditional on $X_i = x_i$:
+
+$$\cdev_i \eqdef Y_i - \mean(x_i).$$
+:::

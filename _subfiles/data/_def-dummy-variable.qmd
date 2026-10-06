@@ -1,8 +1,5 @@
 <!--
-Source: ported from rme (Morrison-Lab/rme),
-_subfiles/Linear-models-overview/_sec_linreg_understanding.qmd.
-Dobson and Barnett (2018), section 2.4, uses the same terms
-(text checked in the PDF; page number not recorded).
+Dobson and Barnett: text checked in the PDF; page number not recorded.
 The -1/1 example in the notes is an illustration written for this page.
 -->
 ::: {#def-dummy-variable}
@@ -10,6 +7,12 @@ The -1/1 example in the notes is an illustration written for this page.
 
 **Dummy variables** are numeric variables that, together,
 are a numeric representation of a categorical variable.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@dobson4e [sec. 2.4].
+:::
 
 :::
 

@@ -1,0 +1,11 @@
+::: {#def-slr-covariate-vector}
+#### Covariate vector
+
+In simple linear regression (@def-slr),
+the **covariate vector** $\vxi$ of observation $i$
+is its covariate value $x_i$, preceded by a 1 for the intercept:
+
+$$
+\vxi \eqdef \begin{pmatrix} 1 \\ x_i \end{pmatrix}.
+$$
+:::

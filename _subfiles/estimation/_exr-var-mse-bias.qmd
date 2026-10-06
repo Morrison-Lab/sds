@@ -1,0 +1,26 @@
+:::{#exr-var-mse-bias}
+#### Squared standard error from MSE and bias
+
+Using @thm-mse-bias-variance,
+write the squared [standard error](#def-SE) $\sqf{\SE{\hth}}$
+in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of $\hth$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-var-mse-bias}
+
+$$
+\begin{aligned}
+\mselr{\hth} &= \sqf{\bias{\hth}} + \Var{\hth}
+&& \text{(MSE equals bias squared plus variance)}\\
+\Var{\hth} &= \mselr{\hth} - \sqf{\bias{\hth}}
+&& \text{(subtract $\sqf{\bias{\hth}}$ from both sides)}\\
+\sqf{\SD{\hth}} &= \mselr{\hth} - \sqf{\bias{\hth}}
+&& \text{($\Var{\hth} = \sqf{\SD{\hth}}$)}\\
+\sqf{\SE{\hth}} &= \mselr{\hth} - \sqf{\bias{\hth}}
+&& \text{(definition of standard error: $\SE{\hth} = \SD{\hth}$)}
+\end{aligned}
+$$
+
+:::

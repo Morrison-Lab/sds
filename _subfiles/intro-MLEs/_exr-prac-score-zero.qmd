@@ -14,7 +14,7 @@ and verify that the score equals zero at the MLE.
 why does the score being zero at $\hat\rate_{ML}$ make sense?
 :::
 
-::: {.solution}
+:::{#sol-prac-score-zero}
 
 **(a)**
 
@@ -22,10 +22,31 @@ $$
 \ba
 \ell(\rate; \vx)
 &= \logf{\prod_{i=1}^n \frac{\rate^{x_i} e^{-\rate}}{x_i!}}
+&& \text{(log of the likelihood of an $\iid$ sample)}
+\\
+&= \sum_{i=1}^n \logf{\frac{\rate^{x_i} e^{-\rate}}{x_i!}}
+&& \text{(log of a product)}
+\\
+&= \sum_{i=1}^n \paren{\logf{\rate^{x_i} e^{-\rate}} - \logf{x_i!}}
+&& \text{(log of a quotient)}
+\\
+&= \sum_{i=1}^n \paren{\logf{\rate^{x_i}} + \logf{e^{-\rate}} - \logf{x_i!}}
+&& \text{(log of a product)}
+\\
+&= \sum_{i=1}^n \paren{x_i \logf{\rate} + \logf{e^{-\rate}} - \logf{x_i!}}
+&& \text{(log of a power)}
 \\
 &= \sum_{i=1}^n \paren{x_i \logf{\rate} - \rate - \logf{x_i!}}
+&& \text{($\logt$ undoes $\expt$)}
+\\
+&= \sum_{i=1}^n x_i \logf{\rate} - \sum_{i=1}^n \rate - \sum_{i=1}^n \logf{x_i!}
+&& \text{(split the sum)}
+\\
+&= \paren{\sum_{i=1}^n x_i}\logf{\rate} - \sum_{i=1}^n \rate - \sum_{i=1}^n \logf{x_i!}
+&& \text{(factor $\logf{\rate}$ out of the first sum)}
 \\
 &= \paren{\sum_{i=1}^n x_i}\logf{\rate} - n\rate - \sum_{i=1}^n \logf{x_i!}
+&& \text{(sum of $n$ copies of $\rate$)}
 \ea
 $$
 
@@ -34,11 +55,33 @@ $$
 $$
 \ba
 \ell'(\rate; \vx)
-&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate} - n\rate}
+&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate} - n\rate - \sum_{i=1}^n \logf{x_i!}}
+&& \text{(log-likelihood from (a))}
+\\
+&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate}
+   - \deriv{\rate}\sb{\sum_{i=1}^n \logf{x_i!}}
+&& \text{(linearity of differentiation)}
+\\
+&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate} - 0
+&& \text{(derivative of a constant)}
+\\
+&= \deriv{\rate}\sb{\paren{\sum_{i=1}^n x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate}
+&& \text{(drop the zero term)}
+\\
+&= \paren{\sum_{i=1}^n x_i}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate
+&& \text{(constant multiple rule)}
+\\
+&= \paren{\sum_{i=1}^n x_i}\rate^{-1} - n\deriv{\rate}\rate
+&& \text{(derivative of $\log$)}
+\\
+&= \paren{\sum_{i=1}^n x_i}\rate^{-1} - n
+&& \text{(derivative of $\rate$ with respect to itself)}
 \\
 &= \frac{\sum_{i=1}^n x_i}{\rate} - n
+&& \text{(write the negative power as a fraction)}
 \\
 &= \frac{n\bar{x}}{\rate} - n
+&& \text{($\textstyle\sum_{i=1}^n x_i = n\bar{x}$)}
 \ea
 $$
 
@@ -48,9 +91,17 @@ Setting $\ell'(\rate; \vx) = 0$:
 
 $$
 \ba
+0 &= \frac{n\bar{x}}{\rate} - n
+&& \text{(score from (b))}
+\\
 \frac{n\bar{x}}{\rate} &= n
+&& \text{(add $n$ to both sides)}
+\\
+n\bar{x} &= n\rate
+&& \text{(multiply both sides by $\rate$)}
 \\
 \hat\rate_{ML} &= \bar{x}
+&& \text{(divide both sides by $n$)}
 \ea
 $$
 
@@ -63,10 +114,13 @@ $$
 \ba
 \ell'(\bar{x}; \vx)
 &= \frac{n\bar{x}}{\bar{x}} - n
+&& \text{(score from (b) at $\rate = \bar{x}$)}
 \\
 &= n - n
+&& \text{(cancel $\bar{x}$, since $\bar{x} > 0$)}
 \\
-&= 0.
+&= 0
+&& \text{(subtract)}
 \ea
 $$
 

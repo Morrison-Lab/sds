@@ -1,0 +1,17 @@
+:::{#rem-flexibility}
+#### Polynomial degree orders flexibility
+
+Least-squares polynomial fits are ordered by degree:
+a polynomial of degree $d$ is also a polynomial of degree $d + 1$
+whose coefficient of $x^{d + 1}$ is zero,
+so the fit of degree $d + 1$ is [at least as flexible](#def-flexibility)
+as the fit of degree $d$.
+The four fits of @exr-overfitting are ordered this way.
+@def-flexibility is narrower than the informal use of the word
+in @james2021islr2e [sec. 2.1.3]:
+it orders only procedures whose candidate sets are nested.
+Other procedures can be compared by other measures,
+such as the effective number of parameters
+[@hastie2009elements, sec. 7.6].
+
+:::

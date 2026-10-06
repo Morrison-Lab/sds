@@ -1,12 +1,3 @@
-<!--
-Source: James, Witten, Hastie and Tibshirani (2021), An Introduction to
-Statistical Learning with Applications in R, 2nd ed., section 4.7.6, p. 183
-("standardize the data so that all variables are given a mean of zero and
-a standard deviation of one").
-Geron (2017), chapter 2, "Feature Scaling", describes the same operation
-but says it divides by "the variance"; the standard deviation is used here,
-as in James et al.
--->
 ::: {#def-standardization}
 #### Standardization
 
@@ -16,6 +7,14 @@ and [sample standard deviation](#def-sample-sd) $s > 0$.
 The **standardized value** of $x_i$ is
 
 $$z_i \eqdef \frac{x_i - \bar x}{s}$$
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 4.7.6, p. 183].
+@geron2017hands [ch. 2] describes the same operation but says it divides by the variance;
+the standard deviation is used here, as in @james2021islr2e.
+:::
 
 :::
 

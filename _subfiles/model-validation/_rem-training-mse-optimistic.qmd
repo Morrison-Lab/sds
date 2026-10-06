@@ -1,0 +1,15 @@
+:::{#rem-training-mse-optimistic}
+#### Training error is optimistic
+
+The same argument fails for the training set.
+The training pairs are not independent of $\trainset$:
+they are $\trainset$,
+and $\fitted$ was fitted to make their prediction errors small.
+So the step of @sol-held-out-unbiased labeled "each term, as above" does not hold for them,
+and the [training error](#def-training-mse) $\trainerr$ is typically *smaller*
+than $\generr_{\trainset}$ [@hastie2009elements, sec. 7.4].
+@exr-overfitting shows the pattern:
+training RMSE keeps falling as the degree grows,
+while held-out RMSE does not.
+
+:::

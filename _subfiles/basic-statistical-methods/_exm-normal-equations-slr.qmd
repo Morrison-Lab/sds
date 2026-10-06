@@ -1,0 +1,15 @@
+::: {#exm-normal-equations-slr}
+#### Normal equations of a simple linear regression
+
+For a simple linear regression,
+the parameter vector is $\vcoef \eqdef \tp{\paren{\intcoef, \coef{x}}}$,
+and $\text{RSS}(\vcoef)$ is $\text{RSS}(\intcoef, \coef{x})$ from @exm-rss-slr.
+Its gradient has one entry per coefficient,
+so the normal equations (@def-normal-equations) are two scalar equations:
+
+$$
+\frac{\partial \text{RSS}}{\partial \intcoef} = 0,
+\qquad
+\frac{\partial \text{RSS}}{\partial \coef{x}} = 0.
+$$
+:::

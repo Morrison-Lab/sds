@@ -33,6 +33,7 @@ Authoritative style guide: [UCD-SERG Lab Manual](https://ucd-serg.github.io/lab-
   symlink at all.
 - `_extensions/` --- vendored Quarto extensions
 - `latex-macros/` --- git submodule for shortcode/macro definitions (see `.gitmodules`)
+- `_subfiles/_macros-sds.qmd` --- repo-level semantic notation macros (for example `\coef{x}`, `\intcoef`) not yet in `latex-macros/`; included by `_subfiles/shared-config.qmd`
 - `R/`, `man/`, `DESCRIPTION`, `NAMESPACE` --- the project is also a small R package
 - `references.bib` --- BibTeX bibliography
 - `offwhite.scss`, `theme-picker.html` --- the website's Light / Off-white / Parchment / Dark theme dropdown (saved under `mln-theme`, shared with the slides and the other sites on this origin)
@@ -50,7 +51,12 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 
 - **Lists of 3+ items**: use bullet lists rather than comma-separated prose. Always leave a blank line before a markdown bullet list (especially in `.qmd` files).
 - **Code chunks**: HTML output folds code by default: `_quarto-website.yml` sets `code-fold: true` (with `code-tools: true`, so readers can show all code at once), as rme does. Keep the default when the *output* (plot, table) is the point and the code is incidental. Set `#| code-fold: false` on tutorial code, short examples, code that is the main focus, and chunks where the console output is the main content.
+- **Visible results**: every code chunk readers can see should produce a visible result (figure, table, or console output); end assignment-only chunks with an expression that shows what they made. See "Every visible chunk shows a result" in `.github/copilot-instructions.md`.
 - **R style**: respect `.lintr.R`. Run `lintr::lint_dir()` before declaring R changes done.
+- **Math notation**: use semantic macros (`\coef{x}`, `\intcoef`, ...), index coefficients by their variable ($\beta_x$, not $\beta_1$), write inner products as dot products (`\dprod`) rather than transpose products, and derive a chain rule's inner derivative in its own aligned block. See "Math Notation" in `.github/copilot-instructions.md`.
+- **Definitions and results**: a prose statement plus a display equation inside the same div, built from terms already defined, compact and general; regression models by their conditional distribution given the covariates, followed by examples from most general to most specific and a remark for any commentary. See "Definitions and results" in `.github/copilot-instructions.md`.
+- **Derivations**: present them as exercise -> solution -> theorem -> proof, one exercise per step, with the proof citing the exercises; one operation per displayed line, each with its own justification, and never "cancel" as one step (removing parentheses, reordering, grouping, $a - a = 0$ and $a + 0 = a$ each get a line); start from the side that simplifies rather than adding and subtracting a term; one result per theorem div (a semicolon joining two results is a sign to split). See "Derivations" in `.github/copilot-instructions.md`.
+- **Attributions**: credit sources where readers can see them (a credit to the maintainer's own rme, lds, pds, ... is optional, but what those sites credit is still carried), in a collapsed `.callout-note` titled "Source" at the end of the item's div (PSW's pattern), never only in an HTML comment. See "Attributions are reader-visible" in `.github/copilot-instructions.md`.
 - **Quarto chunks**: prefer chunk options as YAML-style `#|` directives, not as inline `r, opt = val` arguments.
 
 ## Working in this repo
@@ -82,6 +88,22 @@ read the rules from a clone of ai-config before content work, in particular:
 - `shared/coding/` --- R style, ASCII punctuation in source
 - `skills/quarto-authoring/references/divs-and-spans.md` --- no theorem-type div nested inside another
 
+## Where sds sits among the lab's sites
+
+The lab's course sites form a prerequisite sequence
+(canonical copy: `shared/writing/course-sequence.md` in [`Morrison-Lab/ai-config`](https://github.com/Morrison-Lab/ai-config), added by [Morrison-Lab/ai-config#4277](https://github.com/Morrison-Lab/ai-config/pull/4277)):
+
+```
+mds -> pds -> sds -+-> lds  (prediction-focused statistics)
+                   +-> rme  (model-inference-focused statistics) <-- win, cie (causal inference)
+```
+
+- sds is the shared trunk for lds and rme:
+  material both branches need belongs here, not duplicated in either.
+- sds may rely on mds and pds for content.
+- sds may link to lds, rme, win or cie only as further reading on advanced topics,
+  never to define or explain something an sds page needs.
+
 ## Relationship to rme
 
 This repository is the canonical home for the statistics prerequisites
@@ -94,6 +116,9 @@ rme will drop those appendices and point readers here
   much of it predates the lab's style rules.
   Check what you port, fix what is wrong, and bring it up to the current rules.
 - Keep rme's `#id`s, so rme's links can be repointed by changing only the path.
+- Don't outsource content to rme (see the sequence above):
+  define and explain core material here, or rely on mds/pds,
+  so rme can point to sds rather than the reverse.
 
 ## Things to avoid
 
