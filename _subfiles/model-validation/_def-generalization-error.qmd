@@ -15,9 +15,7 @@ $$ {#eq-generalization-error}
 ::: {.callout-note collapse="true"}
 #### Source
 
-Adapted from the lds notes' [definition of risk](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-risk),
-which adapts Brian Hutchinson's Fall 2025 lecture notes;
-the conditional form, with the training set held fixed,
+The conditional form, with the training set held fixed,
 follows @hastie2009elements [sec. 7.2].
 :::
 

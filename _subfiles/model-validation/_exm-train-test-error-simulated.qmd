@@ -112,11 +112,4 @@ while the estimated generalization error falls below it
 at `r sim_n_below[["generalization"]]` of them:
 the training error is [optimistic](#rem-training-mse-optimistic).
 
-::: {.callout-note collapse="true"}
-#### Source
-
-Modeled on the lds notes' interactive [figure of training and held-out error](https://morrison-lab.github.io/lds/chapters/big-ideas.html#fig-train-vs-held-out),
-rewritten in R with a known true mean function.
-:::
-
 :::

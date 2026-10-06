@@ -263,8 +263,7 @@ for the chosen model
 ::: {.callout-note collapse="true"}
 #### Source
 
-Adapted from the rme notes' [numerical example](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#exm-train-validation-test-split),
-which follows the validation-set lab of @james2021islr2e [p. 213].
+The validation-set lab of @james2021islr2e [p. 213].
 :::
 
 :::

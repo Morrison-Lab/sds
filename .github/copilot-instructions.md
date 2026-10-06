@@ -151,9 +151,11 @@ Never nest one theorem-type div inside another.
 
 ## Attributions are reader-visible
 
-Credit every source a reader would want to know about where readers can see it:
+Credit every outside source where readers can see it:
 the book or paper an item follows,
-and the lab site (rme, lds, pds, ...) or person it was adapted from.
+or the person outside the lab it was adapted from.
+Content taken from the lab's own sites (rme, lds, pds, ...) needs no attribution
+(maintainer directive, 2026-10-05).
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
 Follow PSW's
@@ -167,16 +169,11 @@ so it travels with the fragment when a host site includes it:
 ::: {.callout-note collapse="true"}
 #### Source
 
-Adapted from the rme notes'
-[definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting);
-see also @james2021islr2e [sec. 5.1].
+@james2021islr2e [sec. 5.1].
 :::
 ```
 
-Cite books and papers through `references.bib` (`@key [locator]`),
-and link a lab site's rendered page at the item's anchor.
-When the source credits its own upstream (a person's lecture notes, say),
-carry that credit too.
+Cite books and papers through `references.bib` (`@key [locator]`).
 Comments are still the place for maintainer-only notes
 that are not attributions,
 such as what was checked in a PDF or a wording edit made while porting.

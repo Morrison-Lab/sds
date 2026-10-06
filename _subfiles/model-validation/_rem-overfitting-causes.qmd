@@ -1,19 +1,11 @@
 :::{#rem-overfitting-causes}
 #### Coefficients per observation
 
-The rme notes tie overfitting to how many predictors a model has
-relative to the data they are fitted to (see Source).
+Overfitting results from fitting too many coefficients
+relative to the number of observations they are fitted to.
 In @exr-overfitting,
 each added power of `wt`, like an added predictor,
 is one more coefficient fitted to the same 20 cars:
 the degree-4 fit has five coefficients for those 20 cars.
-
-::: {.callout-note collapse="true"}
-#### Source
-
-The rme notes' [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting),
-which says that overfitting
-"results from including too many predictors relative to the effective sample size".
-:::
 
 :::

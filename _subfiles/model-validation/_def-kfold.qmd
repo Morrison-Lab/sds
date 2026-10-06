@@ -19,12 +19,6 @@ In **$k$-fold cross-validation**:
    - Compute predicted values for the observations in fold $\fold{j}$.
 3. Compute a summary prediction-error measure across all folds.
 
-::: {.callout-note collapse="true"}
-#### Source
-
-The rme notes' [definition of $k$-fold cross-validation](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-kfold).
-:::
-
 :::
 
 ::: notes

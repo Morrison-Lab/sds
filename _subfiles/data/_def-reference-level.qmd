@@ -14,8 +14,7 @@ for every indicator variable of that categorical variable.
 ::: {.callout-note collapse="true"}
 #### Source
 
-The term is used in the rme notes' [data notation for regression](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#data-notation);
-@dobson4e [sec. 2.4] call this the corner point parameterization.
+@dobson4e [sec. 2.4], who call this the corner point parameterization.
 :::
 
 :::

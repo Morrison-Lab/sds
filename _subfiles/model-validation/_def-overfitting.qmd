@@ -5,12 +5,6 @@
 fits its [training set](#def-training-set) well
 but predicts poorly for new observations.
 
-::: {.callout-note collapse="true"}
-#### Source
-
-The rme notes' [definition of overfitting](https://morrison-lab.github.io/rme/chapters/predictor-selection.html#def-overfitting).
-:::
-
 :::
 
 ::: notes

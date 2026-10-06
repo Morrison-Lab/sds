@@ -14,8 +14,7 @@ $$ {#eq-held-out-set}
 ::: {.callout-note collapse="true"}
 #### Source
 
-The rme notes' section [Train/validation/test splits](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#trainvalidationtest-splits),
-and @james2021islr2e [sec. 5.1.1], who call it a hold-out set.
+@james2021islr2e [sec. 5.1.1], who call it a hold-out set.
 :::
 
 :::
