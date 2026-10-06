@@ -5,8 +5,10 @@ For mutually independent data, @eq-Lik gives:
 $$
 \begin{aligned}
 \Lik'(\th)
-&= \deriv{\th} \Lik(\th)\\
+&= \deriv{\th} \Lik(\th)
+&& \text{(notation for the derivative)}\\
 &= \deriv{\th} \prod_{i=1}^n \p(X_i = x_i \mid \theta)
+&& \text{(likelihood of mutually independent data)}
 \end{aligned}
 $$ {#eq-deriv-Lik}
 

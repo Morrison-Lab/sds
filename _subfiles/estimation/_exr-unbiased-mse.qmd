@@ -1,0 +1,25 @@
+:::{#exr-unbiased-mse}
+#### Mean squared error of an unbiased estimator
+
+Using @thm-mse-bias-variance,
+write the [mean squared error](#def-mse) of an [unbiased](#def-unbiased) estimator $\hth$
+in terms of its variance.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-unbiased-mse}
+
+$$
+\begin{aligned}
+\mselr{\hth}
+&= \sqf{\bias{\hth}} + \var{\hth}
+&& \text{(MSE equals bias squared plus variance)}\\
+&= 0^2 + \var{\hth}
+&& \text{(definition of unbiased)}\\
+&= \var{\hth}
+&& \text{($0^2 = 0$)}
+\end{aligned}
+$$
+
+:::

@@ -1,0 +1,35 @@
+::: {#def-standardization}
+#### Standardization
+
+Let $x_1, \ldots, x_n$ be $n \ge 2$ observations of a variable
+with [sample mean](#def-sample-mean) $\bar x$
+and [sample standard deviation](#def-sample-sd) $s > 0$.
+The **standardized value** of $x_i$ is
+
+$$z_i \eqdef \frac{x_i - \bar x}{s}$$
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 4.7.6, p. 183].
+@geron2017hands [ch. 2] describes the same operation but says it divides by the variance;
+the standard deviation is used here, as in @james2021islr2e.
+:::
+
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-standardization-units}
+#### Standardized values have no units
+
+In @exr-standardize,
+the standardized value of a cholesterol of 250 mg/dL
+is the number of sample standard deviations
+between 250 and the sample mean.
+Standardizing puts variables measured in different units
+on a comparable scale.
+For example, a salary in dollars and an age in years
+both become unitless numbers of standard deviations.
+
+:::

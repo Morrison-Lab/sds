@@ -6,8 +6,8 @@ Write the [score equation](#def-score-equation).
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-score-equation}
 
 $$\ell'(\lambda; \vx) = 0$$
 
-::::
+:::

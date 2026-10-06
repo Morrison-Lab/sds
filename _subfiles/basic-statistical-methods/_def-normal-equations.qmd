@@ -1,0 +1,9 @@
+::: {#def-normal-equations}
+#### Normal equations
+
+For a model fitted by least squares with parameter vector $\vth$,
+the **normal equations** set the gradient
+of the [residual sum of squares](#def-rss) to zero:
+
+$$\deriv{\vth} \text{RSS}(\vth) = \vzero.$$
+:::

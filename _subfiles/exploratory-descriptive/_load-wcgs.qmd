@@ -19,6 +19,7 @@ which these notes use so that rendering does not depend on the website.
 #| label: load-wcgs-local
 #| code-fold: false
 wcgs <- rmb::wcgs |> haven::as_factor()
+wcgs |> head()
 ```
 
 ```{r}
@@ -45,6 +46,8 @@ wcgs_labels <- c(
 for (var in names(wcgs_labels)) {
   attr(wcgs[[var]], "label") <- wcgs_labels[[var]]
 }
+
+wcgs_labels
 ```
 
 The dataset has one row per participant:

@@ -13,11 +13,18 @@ $$
 && \text{(bias equals expectation minus truth)}\\
 &= \E{\frac{1}{n}\sum_{i=1}^n X_i} - \mu
 && \text{(definition of $\bar X$)}\\
+&= \frac{1}{n}\E{\sum_{i=1}^n X_i} - \mu
+&& \text{(factor the constant $\tfrac{1}{n}$ out of the expectation)}\\
 &= \frac{1}{n}\sum_{i=1}^n \E{X_i} - \mu
 && \text{(linearity of expectation)}\\
-&= \frac{1}{n} \cdot n\mu - \mu
+&= \frac{1}{n}\sum_{i=1}^n \mu - \mu
 && \text{($\E{X_i} = \mu$ for every $i$)}\\
+&= \frac{1}{n} \cdot n\mu - \mu
+&& \text{(sum of $n$ copies of $\mu$)}\\
+&= \mu - \mu
+&& \text{(cancel $n$)}\\
 &= 0
+&& \text{(subtract)}
 \end{aligned}
 $$
 
@@ -31,6 +38,7 @@ $$
 &= \mu - \mu
 && \text{($\E{X_1} = \mu$)}\\
 &= 0
+&& \text{(subtract)}
 \end{aligned}
 $$
 

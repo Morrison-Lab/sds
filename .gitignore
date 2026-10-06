@@ -8,6 +8,7 @@
 *.html
 # Source HTML partials we intentionally track (not build output).
 !qwt-reveal-toggle.html
+!theme-picker.html
 *_files/
 site_libs/
 
@@ -76,3 +77,10 @@ renv/staging/
 # Lychee link checker
 .lycheecache/
 lychee-output/
+
+# CI setup artifacts written by r-lib/actions/setup-r-dependencies.
+# The @claude workflow's auto-commit sweep (Morrison-Lab/gha claude.yml@v2)
+# runs `git add -A`, so without these entries it commits them (gha#983).
+# gha v3 also purges them before the sweep.
+.github/pkg.lock
+.github/r-depends.rds

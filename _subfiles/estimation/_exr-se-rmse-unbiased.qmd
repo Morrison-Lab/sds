@@ -1,0 +1,17 @@
+:::{#exr-se-rmse-unbiased}
+#### Standard error of an unbiased estimator
+
+Using @eq-unbiased-mse,
+write the [standard error](#def-SE) of an [unbiased](#def-unbiased) estimator $\hth$
+in terms of its [mean squared error](#def-mse).
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-se-rmse-unbiased}
+
+By @eq-unbiased-mse, $\mselr{\hth} = \Var{\hth}$.
+Taking square roots of both sides,
+$\sqrt{\mselr{\hth}} = \SD{\hth} = \SE{\hth}$.
+
+:::

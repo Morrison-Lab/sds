@@ -1,12 +1,16 @@
 ::: {#def-spearman-r}
 #### Spearman rank correlation
 
-Replace each $x_i$ by its rank among $x_1, \ldots, x_n$,
-and each $y_i$ by its rank among $y_1, \ldots, y_n$,
+Replace each $x_i$ by its rank $u_i$ among $x_1, \ldots, x_n$,
+and each $y_i$ by its rank $v_i$ among $y_1, \ldots, y_n$,
 giving tied values the average of the ranks they span.
 The **Spearman rank correlation** $r_S$ is the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r)
-of the ranks.
+evaluated at the rank pairs:
+
+$$
+r_S \eqdef r\paren{(u_1, v_1), \ldots, (u_n, v_n)}.
+$$
 :::
 
 ::: notes

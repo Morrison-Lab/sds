@@ -1,6 +1,11 @@
 ::: {#def-estimate}
 #### Estimate/estimated value
 
-In statistics, an **estimate** or **estimated value** is an informed
-guess of an [estimand](#def-estimand)'s value, based on observed data.
+In statistics, an **estimate** or **estimated value** $\hth$
+is an informed guess of an [estimand](#def-estimand) $\th$'s value,
+computed from the observed data $x_1, \ldots, x_n$:
+
+$$
+\hth = \hth(x_1, \ldots, x_n).
+$$
 :::

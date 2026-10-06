@@ -1,0 +1,213 @@
+<!--
+This fragment's R chunks use objects made by earlier fragments
+of model-validation.qmd, so it renders only after them:
+sim_train, sim_new, sim_errors, sim_sigma, sim_degrees,
+sim_draw() and sim_best_generalization,
+from the chunks of _exm-train-test-error-simulated.qmd,
+and prediction_mse(), from _sol-overfitting.qmd.
+-->
+:::{#exm-kfold-simulated}
+#### Cross-validation versus the generalization error
+
+This example applies [$k$-fold cross-validation](#def-kfold)
+with $k = 5$
+to the simulated training set of @exm-train-test-error-simulated,
+using only those 30 observations.
+The function `assign_folds()` assigns each observation to a fold at random,
+`cv_squared_errors()` fits the model once per fold without that fold
+and returns each observation's squared prediction error,
+and `cv_mse()` averages them, which is @eq-cv-estimate.
+
+```{r}
+#| label: cv-mse-function
+#| code-fold: false
+assign_folds <- function(n, k) {
+  sample(rep_len(seq_len(k), n))
+}
+
+cv_squared_errors <- function(formula, data, folds) {
+  y <- stats::model.response(stats::model.frame(formula, data))
+  sq_errors <- numeric(nrow(data))
+  for (j in unique(folds)) {
+    in_fold <- folds == j
+    fit <- lm(formula, data = data[!in_fold, ])
+    pred <- predict(fit, newdata = data[in_fold, ])
+    sq_errors[in_fold] <- (pred - y[in_fold])^2
+  }
+  sq_errors
+}
+
+cv_mse <- function(formula, data, folds) {
+  mean(cv_squared_errors(formula, data, folds))
+}
+
+set.seed(5)
+sim_folds <- assign_folds(nrow(sim_train), k = 5)
+table(fold = sim_folds)
+```
+
+The same fold assignment is used for every degree,
+so the degrees are compared on the same splits.
+
+```{r}
+#| label: cv-simulated-table
+sim_errors_cv <- sim_errors |>
+  dplyr::mutate(
+    cv_5 = purrr::map_dbl(
+      degree,
+      \(d) cv_mse(y ~ poly(x, d), sim_train, sim_folds)
+    )
+  )
+
+sim_errors_cv
+```
+
+:::{#fig-cv-simulated}
+
+```{r}
+#| label: cv-simulated-plot
+#| fig-alt: Mean squared error against polynomial degree from 1 to 10,
+#|   with three curves for the training error,
+#|   the estimated generalization error,
+#|   and the 5-fold cross-validation estimate.
+#|   The training error falls as the degree grows.
+#|   The other two curves fall at the low degrees,
+#|   then level off;
+#|   the cross-validation curve rises sharply at the highest degrees.
+sim_errors_cv |>
+  tidyr::pivot_longer(
+    c(training, generalization, cv_5),
+    names_to = "error",
+    values_to = "mse"
+  ) |>
+  dplyr::mutate(
+    error = factor(
+      error,
+      levels = c("training", "cv_5", "generalization"),
+      labels = c("training", "5-fold CV", "generalization")
+    )
+  ) |>
+  ggplot2::ggplot(ggplot2::aes(degree, mse, colour = error, shape = error)) +
+  ggplot2::geom_hline(yintercept = sim_sigma^2, linetype = "dashed") +
+  ggplot2::geom_line() +
+  ggplot2::geom_point(size = 2) +
+  ggplot2::scale_x_continuous(breaks = sim_degrees) +
+  ggplot2::scale_y_log10() +
+  ggplot2::labs(
+    x = "polynomial degree",
+    y = "mean squared error (log scale)",
+    colour = NULL,
+    shape = NULL
+  ) +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "top")
+```
+
+@fig-train-test-error with the 5-fold cross-validation estimate added.
+Only the training and cross-validation curves
+could be computed from real data.
+:::
+
+```{r}
+#| label: cv-simulated-summary
+sim_best_cv <- sim_errors_cv$degree[which.min(sim_errors_cv$cv_5)]
+sim_n_fit <- nrow(sim_train) - max(table(sim_folds))
+sim_top <- sim_errors_cv[sim_errors_cv$degree == max(sim_degrees), ]
+sim_cv_ratio_top <- sim_top$cv_5 / sim_top$generalization
+c(
+  best_by_cv = sim_best_cv,
+  best_by_generalization = sim_best_generalization,
+  n_per_fit = sim_n_fit,
+  cv_over_generalization_at_top_degree = sim_cv_ratio_top
+)
+```
+
+The cross-validation estimate is smallest at degree `r sim_best_cv`,
+and the estimated generalization error at degree `r sim_best_generalization`.
+Unlike the training error,
+the cross-validation estimate does not keep falling as the degree grows,
+so it does not simply reward higher degrees.
+It is not an estimate of $\generr_{\trainset}$ for the fit to all 30 observations, though
+(@rem-cv-estimate).
+Each of its fits uses only `r sim_n_fit` observations.
+At degree `r max(sim_degrees)`,
+polynomials fitted to `r sim_n_fit` points predict their held-out points
+much worse than the fit to all 30 predicts new data:
+the cross-validation estimate is
+`r round(sim_cv_ratio_top, 1)` times the estimated generalization error.
+
+Part of that gap is expected:
+by @rem-cv-estimate,
+with $g$ the least-squares fit of a degree-`r max(sim_degrees)` polynomial,
+the cross-validation estimate targets $\expgenerr{g}{`r sim_n_fit`}$,
+not the error of a fit to 30 points.
+A simulation of many training sets of each size
+shows how much the size alone matters at this degree.
+
+```{r}
+#| label: cv-simulated-size-effect
+sim_generalization_draws <- function(
+  n_train, degree, n_reps, draw, new_data, score
+) {
+  purrr::map_dbl(seq_len(n_reps), \(r) {
+    fit <- lm(y ~ poly(x, degree), data = draw(n_train))
+    score(fit, new_data)
+  })
+}
+
+sim_n_reps <- 500
+set.seed(24)
+sim_size_effect <- tibble::tibble(
+  n_train = c(sim_n_fit, nrow(sim_train))
+) |>
+  dplyr::mutate(
+    draws = purrr::map(
+      n_train,
+      \(n) {
+        sim_generalization_draws(
+          n, max(sim_degrees), sim_n_reps,
+          draw = sim_draw, new_data = sim_new, score = prediction_mse
+        )
+      }
+    ),
+    median = purrr::map_dbl(draws, stats::median),
+    quantile_90 = purrr::map_dbl(draws, \(v) stats::quantile(v, 0.9)),
+    mean = purrr::map_dbl(draws, mean),
+    largest = purrr::map_dbl(draws, max),
+    top_two_share = purrr::map_dbl(
+      draws,
+      \(v) sum(sort(v, decreasing = TRUE)[1:2]) / sum(v)
+    )
+  ) |>
+  dplyr::select(-draws)
+
+sim_size_effect
+```
+
+Over `r sim_n_reps` simulated training sets of each size,
+degree-`r max(sim_degrees)` fits to `r sim_n_fit` points
+have median generalization error
+`r round(sim_size_effect$median[[1]], 2)`,
+against `r round(sim_size_effect$median[[2]], 2)`
+for fits to `r nrow(sim_train)` points,
+and 90th percentiles of
+`r round(sim_size_effect$quantile_90[[1]], 2)`
+and `r round(sim_size_effect$quantile_90[[2]], 2)`.
+The sample means are no guide to $\expgenerr{g}{`r sim_n_fit`}$ here:
+the largest single value among the fits to `r sim_n_fit` points is
+`r format(signif(sim_size_effect$largest[[1]], 2), big.mark = ",", scientific = FALSE)`,
+from one fit that is wildly wrong away from the data,
+and the two largest values supply
+`r round(100 * sim_size_effect$top_two_share[[1]])`% and
+`r round(100 * sim_size_effect$top_two_share[[2]])`% of the two means.
+So fits of this degree to `r sim_n_fit` points
+are much worse than fits to `r nrow(sim_train)` points,
+and a large cross-validation estimate here is no surprise.
+How much of this particular gap comes from the training-set size,
+and how much from the chance of this one data set,
+a single run cannot say.
+The estimate also jumps around from one degree to the next,
+because it rests on only 30 observations
+rather than on $10{,}000$ new ones.
+
+:::

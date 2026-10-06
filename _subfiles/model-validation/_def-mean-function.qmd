@@ -1,0 +1,11 @@
+:::{#def-mean-function}
+#### Mean function
+
+The **mean function** $\mean$ of an outcome $Y$ given a covariate $X$
+maps each covariate value $x$ to the mean of $Y$ given $X = x$:
+
+$$
+\mean(x) \eqdef \E{Y \mid X = x}.
+$$ {#eq-mean-function}
+
+:::

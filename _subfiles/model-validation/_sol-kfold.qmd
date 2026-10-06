@@ -1,0 +1,12 @@
+:::{#sol-kfold}
+
+1. $32 / 4 = 8$ cars per fold.
+2. Each fit leaves out one fold,
+   so it uses $32 - 8 = 24$ cars.
+3. One model per fold, so $4$ models.
+4. A given car is in exactly one fold.
+   It is used for prediction once,
+   when its fold is left out,
+   and for fitting in the other $3$ fits.
+
+:::

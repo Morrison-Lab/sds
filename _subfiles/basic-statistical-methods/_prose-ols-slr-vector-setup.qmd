@@ -1,0 +1,3 @@
+The same estimates follow from a derivation in vector notation,
+which treats $(\intcoef, \coef{x})$ as a single vector
+instead of differentiating with respect to each component separately.

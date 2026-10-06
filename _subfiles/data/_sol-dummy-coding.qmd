@@ -1,0 +1,11 @@
+::: {#sol-dummy-coding}
+(a) 3 indicator variables,
+one for each non-reference category:
+A2, B3, and B4.
+
+(b) In the order (A2, B3, B4):
+for B3, the values are (0, 1, 0);
+for A1, the values are (0, 0, 0).
+
+The reference level is the case where all indicators are 0.
+:::

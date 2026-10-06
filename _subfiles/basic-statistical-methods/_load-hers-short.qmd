@@ -7,4 +7,5 @@ The `rmb` R package includes the dataset;
 #| label: load-hers
 #| code-fold: false
 hers <- rmb::hers |> haven::as_factor()
+hers |> head()
 ```

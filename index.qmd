@@ -46,7 +46,11 @@ Methods, illustrated with the HERS data:
 - [Comparing proportions](categorical-tests.qmd):
   the chi-square test and Fisher's exact test;
 - [Correlation and simple linear regression](correlation-regression.qmd);
-- [The bootstrap](bootstrap.qmd).
+- [The bootstrap](bootstrap.qmd);
+- [Validating predictions](model-validation.qmd):
+  overfitting, generalization error, training/validation/test splits,
+  $k$-fold and leave-one-out cross-validation,
+  and choosing a model by cross-validation.
 
 Bayesian:
 

@@ -2,7 +2,15 @@ By @sec-covariance-matrix,
 the estimated standard error of $\hat\mu_{\text{ML}}$ is
 
 $$
-\HSE{\hat\mu} = \sqrt{\sb{\inv{\oinf(\hat\mu, \hat\sigma^2)}}_{11}} = \frac{\hat\sigma}{\sqrt{n}}
+\begin{aligned}
+\HSE{\hat\mu}
+&= \sqrt{\sb{\inv{\oinf(\hat\mu, \hat\sigma^2)}}_{11}}
+&& \text{(estimated standard error from the inverse information)}\\
+&= \sqrt{\frac{\hat\sigma^2}{n}}
+&& \text{(first diagonal entry of the inverse information)}\\
+&= \frac{\hat\sigma}{\sqrt{n}}
+&& \text{(square root of a quotient)}
+\end{aligned}
 $$
 
 which shrinks in proportion to $1/\sqrt{n}$

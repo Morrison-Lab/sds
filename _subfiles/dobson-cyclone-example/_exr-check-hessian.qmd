@@ -8,7 +8,7 @@ when evaluated at $\tilde \lambda$, using @exr-hessian.
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-check-hessian}
 
 $$
 \begin{aligned}
@@ -24,4 +24,4 @@ $$
 \end{aligned}
 $$
 
-::::
+:::

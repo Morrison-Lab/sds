@@ -1,0 +1,39 @@
+<!--
+The ISLR section heading was verified in the PDF; rme paraphrases its text.
+-->
+:::{#def-data-splits}
+#### Training/validation/test split
+
+A **training/validation/test split** divides the observations $1, \ldots, N$ of a data set
+into three disjoint sets of indices,
+$I_{\text{train}}$, $I_{\text{val}}$ and $I_{\text{test}}$,
+and takes the observations in $I_{\text{train}}$
+as the [training set](#def-training-set):
+
+$$
+\ba
+& I_{\text{train}} \cup I_{\text{val}} \cup I_{\text{test}} = \set{1, \ldots, N},
+\\
+& I_{\text{train}} \cap I_{\text{val}}
+= I_{\text{train}} \cap I_{\text{test}}
+= I_{\text{val}} \cap I_{\text{test}}
+= \emptyset,
+\\
+& \trainset = \paren{(x_i, y_i)}_{i \in I_{\text{train}}}.
+\ea
+$$ {#eq-data-splits}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [pp. 198--201].
+:::
+
+:::
+
+::: notes
+In @exr-data-splits,
+a rule of 60% / 20% / 20% on $N = 32$ cars
+gives sets of 19, 6, and 7 cars,
+and the 7 test cars are used only once, after the model is chosen.
+:::

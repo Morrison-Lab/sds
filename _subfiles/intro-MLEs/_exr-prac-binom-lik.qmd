@@ -22,7 +22,7 @@ Confirm that $\hat\pi_{ML} = y/n$.
 confirming a maximum.
 :::
 
-::: {.solution}
+:::{#sol-prac-binom-lik}
 
 **(a)**
 
@@ -30,8 +30,13 @@ $$
 \ba
 \ell(\pi; y)
 &= \logf{\binom{n}{y} \pi^y (1-\pi)^{n-y}}
+&& \text{(log of the binomial PMF)}
+\\
+&= \logf{\binom{n}{y}} + \logf{\pi^y} + \logf{(1-\pi)^{n-y}}
+&& \text{(log of a product)}
 \\
 &= \logf{\binom{n}{y}} + y\logf{\pi} + (n-y)\logf{1-\pi}
+&& \text{(log of a power)}
 \ea
 $$
 
@@ -44,12 +49,72 @@ $$
 \ba
 \ell'(\pi; y)
 &= \deriv{\pi}\sb{\logf{\binom{n}{y}} + y\logf{\pi} + (n-y)\logf{1-\pi}}
+&& \text{(log-likelihood from (a))}
+\\
+&= \deriv{\pi}\logf{\binom{n}{y}} + \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
+&& \text{(linearity of differentiation)}
+\\
+&= 0 + \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
+&& \text{(derivative of a constant)}
+\\
+&= \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
+&& \text{(drop the zero term)}
+\\
+&= y\deriv{\pi}\logf{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
+&& \text{(constant multiple rule)}
+\\
+&= y\frac{1}{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
+&& \text{(derivative of $\log$)}
+\\
+&= y\frac{1}{\pi} + (n-y)\frac{1}{1-\pi}\deriv{\pi}(1-\pi)
+&& \text{(chain rule)}
+\ea
+$$
+
+The inner derivative is:
+
+$$
+\ba
+\deriv{\pi}(1-\pi)
+&= \deriv{\pi} 1 - \deriv{\pi} \pi
+&& \text{(linearity of differentiation)}
+\\
+&= 0 - \deriv{\pi} \pi
+&& \text{(derivative of a constant)}
+\\
+&= 0 - 1
+&& \text{(derivative of $\pi$ with respect to itself)}
+\\
+&= -1
+&& \text{(subtract)}
+\ea
+$$
+
+Substituting the inner derivative back in:
+
+$$
+\ba
+\ell'(\pi; y)
+&= y\frac{1}{\pi} + (n-y)\frac{1}{1-\pi}(-1)
+&& \text{(inner derivative is $-1$)}
+\\
+&= y\frac{1}{\pi} - (n-y)\frac{1}{1-\pi}
+&& \text{(multiply by $-1$)}
 \\
 &= \frac{y}{\pi} - \frac{n-y}{1-\pi}
+&& \text{(multiply)}
+\\
+&= \frac{y(1-\pi)}{\pi(1-\pi)} - \frac{(n-y)\pi}{\pi(1-\pi)}
+&& \text{(write both terms over the common denominator)}
 \\
 &= \frac{y(1-\pi) - (n-y)\pi}{\pi(1-\pi)}
+&& \text{(combine the fractions)}
+\\
+&= \frac{y - y\pi - n\pi + y\pi}{\pi(1-\pi)}
+&& \text{(expand the numerator)}
 \\
 &= \frac{y - n\pi}{\pi(1-\pi)}
+&& \text{(cancel $y\pi$)}
 \ea
 $$
 
@@ -60,10 +125,16 @@ Setting $\ell'(\pi; y) = 0$:
 $$
 \ba
 0 &= \frac{y - n\pi}{\pi(1-\pi)}
+&& \text{(score from (b))}
+\\
+0 &= y - n\pi
+&& \text{(multiply both sides by $\pi(1-\pi)$)}
 \\
 y &= n\pi
+&& \text{(add $n\pi$ to both sides)}
 \\
 \hat\pi_{ML} &= \frac{y}{n}
+&& \text{(divide both sides by $n$)}
 \ea
 $$
 
@@ -73,8 +144,31 @@ $$
 \ba
 \ell''(\pi; y)
 &= \deriv{\pi}\sb{\frac{y}{\pi} - \frac{n-y}{1-\pi}}
+&& \text{(score from (b))}
+\\
+&= \deriv{\pi}\sb{y\pi^{-1} - (n-y)(1-\pi)^{-1}}
+&& \text{(write the fractions as negative powers)}
+\\
+&= \deriv{\pi}\sb{y\pi^{-1}} - \deriv{\pi}\sb{(n-y)(1-\pi)^{-1}}
+&& \text{(linearity of differentiation)}
+\\
+&= y\deriv{\pi}\pi^{-1} - (n-y)\deriv{\pi}(1-\pi)^{-1}
+&& \text{(constant multiple rule)}
+\\
+&= y\paren{-\pi^{-2}} - (n-y)\deriv{\pi}(1-\pi)^{-1}
+&& \text{(power rule)}
+\\
+&= y\paren{-\pi^{-2}} - (n-y)\paren{-(1-\pi)^{-2}}\deriv{\pi}(1-\pi)
+&& \text{(chain rule, outer function $u^{-1}$)}
+\\
+&= y\paren{-\pi^{-2}} - (n-y)\paren{-(1-\pi)^{-2}}(-1)
+&& \text{(inner derivative from (b) is $-1$)}
+\\
+&= -y\pi^{-2} - (n-y)(1-\pi)^{-2}
+&& \text{(multiply)}
 \\
 &= -\frac{y}{\pi^2} - \frac{n-y}{(1-\pi)^2}
+&& \text{(write the negative powers as fractions)}
 \ea
 $$
 

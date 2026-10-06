@@ -58,6 +58,8 @@ website:
             href: categorical-tests.qmd
           - text: "Correlation & Regression"
             href: correlation-regression.qmd
+          - text: "Validating Predictions"
+            href: model-validation.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
       - text: "Bayesian"
@@ -104,6 +106,8 @@ website:
             href: categorical-tests.qmd
           - text: "Correlation & Regression"
             href: correlation-regression.qmd
+          - text: "Validating Predictions"
+            href: model-validation.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
       - section: "Bayesian"
@@ -212,8 +216,10 @@ format:
       - sun123zxy/callouty-theorem
       - coatless-quarto/custom-callout
     theme:
-      light: cosmo
+      light: [cosmo, offwhite.scss]
       dark: darkly
+    # Replaces Quarto's two-way toggle with a Light / Off-white / Parchment / Dark dropdown.
+    include-in-header: theme-picker.html
     css: styles.css
     toc: true
     anchor-sections: true
@@ -250,7 +256,6 @@ format:
     lightbox: true
     fig-cap-location: top
     html-math-method: mathjax
-    smaller: true
     number-sections: true
     progress: true
     incremental: false

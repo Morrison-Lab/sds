@@ -1,0 +1,76 @@
+:::{#exr-rss-ols-fit}
+#### Residual sum of squares of the OLS fit
+
+Assuming $S_{xx} > 0$ (@def-centered-sums),
+write the [residual sum of squares](#def-rss)
+at the OLS estimates (@thm-ols-slr),
+$\text{RSS}(\hintcoef, \hcoef{x}) = \sumin \resid_i^2$,
+in terms of $S_{xx}$, $S_{yy}$ and $S_{xy}$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-rss-ols-fit}
+
+The [fitted values](estimation.qmd#def-fitted-value)
+of the OLS fit are $\fitted_i = \hintcoef + \hcoef{x} x_i$,
+so each [residual](estimation.qmd#def-residual) is
+
+$$
+\begin{aligned}
+\resid_i
+&= y_i - \fitted_i
+&& \text{(definition of a residual)}\\
+&= y_i - \paren{\hintcoef + \hcoef{x} x_i}
+&& \text{(substitute $\fitted_i$)}\\
+&= y_i - \paren{\bar{y} - \hcoef{x} \bar{x} + \hcoef{x} x_i}
+&& \text{(substitute $\hintcoef$)}\\
+&= y_i - \bar{y} + \hcoef{x} \bar{x} - \hcoef{x} x_i
+&& \text{(distribute the minus sign)}\\
+&= (y_i - \bar{y}) - \paren{\hcoef{x} x_i - \hcoef{x} \bar{x}}
+&& \text{(group terms)}\\
+&= (y_i - \bar{y}) - \hcoef{x} (x_i - \bar{x})
+&& \text{(factor out $\hcoef{x}$)}
+\end{aligned}
+$$
+
+Squaring and summing:
+
+$$
+\begin{aligned}
+\sumin \resid_i^2
+&= \sumin \paren{(y_i - \bar{y}) - \hcoef{x} (x_i - \bar{x})}^2
+&& \text{(substitute $\resid_i$)}\\
+&= \sumin \paren{(y_i - \bar{y})^2 - 2 \hcoef{x} (x_i - \bar{x})(y_i - \bar{y})
+  + \hcoef{x}^2 (x_i - \bar{x})^2}
+&& \text{(expand the square)}\\
+&= \sumin (y_i - \bar{y})^2 - \sumin 2 \hcoef{x} (x_i - \bar{x})(y_i - \bar{y})
+  + \sumin \hcoef{x}^2 (x_i - \bar{x})^2
+&& \text{(sum of a sum)}\\
+&= \sumin (y_i - \bar{y})^2 - 2 \hcoef{x} \sumin (x_i - \bar{x})(y_i - \bar{y})
+  + \sumin \hcoef{x}^2 (x_i - \bar{x})^2
+&& \text{(constant factor out of the sum)}\\
+&= \sumin (y_i - \bar{y})^2 - 2 \hcoef{x} \sumin (x_i - \bar{x})(y_i - \bar{y})
+  + \hcoef{x}^2 \sumin (x_i - \bar{x})^2
+&& \text{(constant factor out of the sum)}\\
+&= S_{yy} - 2 \hcoef{x} \sumin (x_i - \bar{x})(y_i - \bar{y})
+  + \hcoef{x}^2 \sumin (x_i - \bar{x})^2
+&& \text{(definition of $S_{yy}$)}\\
+&= S_{yy} - 2 \hcoef{x} S_{xy} + \hcoef{x}^2 \sumin (x_i - \bar{x})^2
+&& \text{(definition of $S_{xy}$)}\\
+&= S_{yy} - 2 \hcoef{x} S_{xy} + \hcoef{x}^2 S_{xx}
+&& \text{(definition of $S_{xx}$)}\\
+&= S_{yy} - 2 \frac{S_{xy}}{S_{xx}} S_{xy} + \paren{\frac{S_{xy}}{S_{xx}}}^2 S_{xx}
+&& \text{(substitute $\hcoef{x} = S_{xy} / S_{xx}$)}\\
+&= S_{yy} - 2 \frac{S_{xy}^2}{S_{xx}} + \paren{\frac{S_{xy}}{S_{xx}}}^2 S_{xx}
+&& \text{(multiply)}\\
+&= S_{yy} - 2 \frac{S_{xy}^2}{S_{xx}} + \frac{S_{xy}^2}{S_{xx}^2} S_{xx}
+&& \text{(square of a quotient)}\\
+&= S_{yy} - 2 \frac{S_{xy}^2}{S_{xx}} + \frac{S_{xy}^2}{S_{xx}}
+&& \text{(cancel one factor of $S_{xx}$)}\\
+&= S_{yy} - \frac{S_{xy}^2}{S_{xx}}
+&& \text{(combine like terms)}
+\end{aligned}
+$$
+
+:::

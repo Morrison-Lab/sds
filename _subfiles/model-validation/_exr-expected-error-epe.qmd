@@ -1,0 +1,15 @@
+:::{#exr-expected-error-epe}
+#### The expected generalization error, covariate value by covariate value
+
+Let $g$ be a [fitting procedure](#def-fitting-procedure),
+and let the random [training set](#def-training-set) $\trainset$ of $n$ observations
+be independent of the new observation $(X_0, Y_0)$.
+Show that the [expected generalization error](#def-expected-generalization-error)
+is the mean of the [expected squared prediction error at $x$](#def-epe)
+over the distribution of $X_0$:
+
+$$
+\expgenerr{g}{n} = \E{\epe{g}{n}{X_0}}.
+$$
+
+:::

@@ -8,8 +8,7 @@ $$
 :::
 
 ::: proof
-By @def-score, $\score = \deriv{\vth}\llik$,
-so $\pt{\score} = \deriv{\vth\'}\llik$,
-and $\deriv{\vth}\pt{\score} = \deriv{\vth}\deriv{\vth\'}\llik = \hess$
-by @def-hessian.
+
+This is the solution to @exr-hessian-score.
+
 :::

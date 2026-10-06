@@ -1,0 +1,51 @@
+:::{#exr-r-squared-slr}
+#### $R^2$ and the correlation
+
+Assuming $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums),
+use @exr-rss-ols-fit to write the
+[coefficient of determination](#def-r-squared) $R^2$ of the OLS fit
+in terms of the
+[Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r) $r$,
+and show that $0 \le R^2 \le 1$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-r-squared-slr}
+
+The [total sum of squares](#def-tss) is $S_{yy}$ (@def-centered-sums),
+and @exr-rss-ols-fit gives the residual sum of squares, so:
+
+$$
+\begin{aligned}
+R^2
+&= 1 - \frac{\text{RSS}(\est{\vth})}{\text{TSS}}
+&& \text{(definition of $R^2$)}\\
+&= 1 - \frac{\text{RSS}(\hintcoef, \hcoef{x})}{\text{TSS}}
+&& \text{(the OLS estimate is $(\hintcoef, \hcoef{x})$)}\\
+&= 1 - \frac{\text{RSS}(\hintcoef, \hcoef{x})}{S_{yy}}
+&& \text{(TSS is $S_{yy}$)}\\
+&= 1 - \frac{S_{yy} - S_{xy}^2 / S_{xx}}{S_{yy}}
+&& \text{(residual sum of squares of the OLS fit)}\\
+&= 1 - \paren{\frac{S_{yy}}{S_{yy}} - \frac{S_{xy}^2 / S_{xx}}{S_{yy}}}
+&& \text{(split the fraction)}\\
+&= 1 - \paren{1 - \frac{S_{xy}^2 / S_{xx}}{S_{yy}}}
+&& \text{($S_{yy} / S_{yy} = 1$)}\\
+&= 1 - 1 + \frac{S_{xy}^2 / S_{xx}}{S_{yy}}
+&& \text{(distribute the minus sign)}\\
+&= \frac{S_{xy}^2 / S_{xx}}{S_{yy}}
+&& \text{($1 - 1 = 0$)}\\
+&= \frac{S_{xy}^2}{S_{xx} S_{yy}}
+&& \text{(divide a fraction by $S_{yy}$)}\\
+&= \paren{\frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}}}^2
+&& \text{(write as a square)}\\
+&= r^2
+&& \text{($r = S_{xy} / \sqrt{S_{xx} S_{yy}}$)}
+\end{aligned}
+$$
+
+Since $-1 \le r \le 1$
+([range of the correlation coefficient](exploratory-descriptive.qmd#thm-pearson-r-range)),
+$0 \le r^2 \le 1$.
+
+:::

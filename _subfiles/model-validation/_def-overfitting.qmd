@@ -1,0 +1,16 @@
+:::{#def-overfitting}
+#### Overfitting
+
+**Overfitting** occurs when a [prediction rule](#def-prediction-rule)
+fits its [training set](#def-training-set) well
+but predicts poorly for new observations.
+
+:::
+
+::: notes
+In @exr-overfitting,
+the terms beyond degree 2 fit the 20 training cars more closely
+but do not predict the 12 held-out cars better.
+The effect is small here:
+it is the beginning of overfitting, not a dramatic case.
+:::

@@ -57,7 +57,7 @@ jobs:
           path: _freeze
           key: ${{ runner.os }}-quarto-freezer-${{ github.ref_name }}-${{ github.sha }}
 
-      - name: Deploy 🚀
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site/
