@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-01 13:23:01 (PDT)
+Last modified: 2026-10-06 01:45:06 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -59,11 +59,11 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 
 ## 2 Binary outcomes: logistic regression
 
-For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = {\tilde{x}\_i}^{\top}\tilde{\beta}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\tilde{\beta}\\ and samples the posterior \\\operatorname{p}(\tilde{\beta}\mid \tilde{y})\\ by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 318). Each \\\beta_j\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta_j}\\, or of any other function of \\\tilde{\beta}\\, is obtained by transforming the draws.
+For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \tilde{x}\_i \cdot \tilde{\beta}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\tilde{\beta}\\ and samples the posterior \\\operatorname{p}(\tilde{\beta}\mid \tilde{y})\\ by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 318). Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\tilde{\beta}\\, is obtained by transforming the draws.
 
 > **NOTE:**
 >
-> **Example 2 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta_0 = -0.5\\ and slope \\\beta_1 = 1.2\\, and place a diffuse \\\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta_1}\\ for a one-unit increase in \\x\\.
+> **Example 2 (Logistic regression fitted by Bayesian inference)** We simulate \\N = 200\\ observations from a logistic model with one continuous predictor, intercept \\\beta\_{0}= -0.5\\ and slope \\\beta\_{x} = 1.2\\, and place a diffuse \\\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}\\ prior on each coefficient (precision \\0.01\\ in JAGS). The JAGS program also monitors the odds ratio \\e^{\beta\_{x}}\\ for a one-unit increase in \\x\\. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
 >
 > ``` downlit
 > set.seed(2024)
@@ -135,11 +135,11 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 > **NOTE:**
 >
-> **Example 3 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i = \operatorname{exp}\mathopen{}\left\\\beta_0 + \beta_1 x_i\right\\\mathclose{}\\, where the log baseline hazard is \\\beta_0 = \log 0.05\\ and the log hazard ratio is \\\beta_1 = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_i e^{-{\lambda}\_i t}\\ and its survival function is \\e^{-{\lambda}\_i t}\\, so observation \\i\\ contributes the log-likelihood
+> **Example 3 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i = \operatorname{exp}\mathopen{}\left\\\beta\_{0}+ \beta\_{x} x_i\right\\\mathclose{}\\, where the log baseline hazard is \\\beta\_{0}= \log 0.05\\ and the log hazard ratio is \\\beta\_{x} = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_i e^{-{\lambda}\_i t}\\ and its survival function is \\e^{-{\lambda}\_i t}\\, so observation \\i\\ contributes the log-likelihood
 >
 > \\ \ell_i \stackrel{\text{def}}{=}\delta_i \log {\lambda}\_i - {\lambda}\_i t_i. \\
 >
-> JAGS has no built-in distribution for this contribution, so we fit it with the zeros trick.
+> JAGS has no built-in distribution for this contribution, so we fit it with the zeros trick. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
 >
 > ``` downlit
 > set.seed(2026)
@@ -197,7 +197,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 > #> beta1 -0.529 -0.941 -0.133    1
 > ```
 >
-> About 50% of the follow-up times end in an event. The 95% credible interval for \\\beta_1\\ contains the true \\-0.7\\, though the posterior mean is some distance from it. The maximum likelihood estimates, from the same log-likelihood, show that the gap is sampling variation in this data set rather than an effect of the prior:
+> About 50% of the follow-up times end in an event. The 95% credible interval for \\\beta\_{x}\\ contains the true \\-0.7\\, though the posterior mean is some distance from it. The maximum likelihood estimates, from the same log-likelihood, show that the gap is sampling variation in this data set rather than an effect of the prior:
 >
 > ``` downlit
 > neg_loglik <- function(beta) {
@@ -211,7 +211,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 > #> -3.112 -0.524
 > ```
 >
-> The monitored \\e^{\beta_1}\\ gives the hazard ratio and its credible interval directly.
+> The monitored \\e^{\beta\_{x}}\\ gives the hazard ratio and its credible interval directly.
 
 ## 4 Random effects
 
@@ -346,6 +346,15 @@ When several candidate models are plausible, committing to a single “best” o
 > bic <- vapply(models, stats::BIC, numeric(1))
 > weight <- exp(-0.5 * (bic - min(bic)))
 > weight <- weight / sum(weight)
+>
+> tibble::tibble(
+>   model = vapply(
+>     subsets,
+>     function(s) if (length(s) > 0) paste(s, collapse = " + ") else "(none)",
+>     character(1)
+>   ),
+>   weight = round(weight, 3)
+> )
 > ```
 >
 > Subtracting the smallest BIC before exponentiating leaves the normalized weights unchanged and avoids numerical underflow. The [posterior inclusion probability](#def-pip) of each predictor sums the weights of the models that contain it:

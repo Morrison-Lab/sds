@@ -101,9 +101,9 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-761fc14e25ebc0e942fc86aa4dfe65fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-761fc14e25ebc0e942fc86aa4dfe65fb.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -151,18 +151,70 @@ cookieconsent.run({
 "language":"en"
   });
 });
+</script><script>
+// Theme dropdown: Light, Off-white, Parchment, Dark. Quarto's own toggle
+// handles light/dark and remembers it; the two tinted palettes are a
+// data-palette attribute on <html>. The choice is kept under "mln-theme".
+// Off-white is the default for a first visit.
+(function () {
+  var KEY = "mln-theme";
+  var OPTIONS = [["light", "Light"], ["offwhite", "Off-white"], ["parchment", "Parchment"], ["dark", "Dark"]];
+  function stored() {
+    try { return localStorage.getItem(KEY); } catch (e) { return null; }
+  }
+  function isDark() { return document.body.classList.contains("quarto-dark"); }
+  function apply(choice, remember) {
+    if (choice === "offwhite" || choice === "parchment") {
+      document.documentElement.setAttribute("data-palette", choice);
+    } else {
+      document.documentElement.removeAttribute("data-palette");
+    }
+    if ((choice === "dark") !== isDark() && window.quartoToggleColorScheme) {
+      window.quartoToggleColorScheme();
+    }
+    if (remember) { try { localStorage.setItem(KEY, choice); } catch (e) {} }
+    mark(choice);
+  }
+  function mark(choice) {
+    document.querySelectorAll(".theme-picker [data-theme-choice]").forEach(function (b) {
+      var on = b.getAttribute("data-theme-choice") === choice;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-checked", on ? "true" : "false");
+    });
+  }
+  // Set the palette before first paint to avoid a flash.
+  var early = stored();
+  if (early !== "light" && early !== "dark" && early !== "parchment") early = "offwhite";
+  if (early === "offwhite" || early === "parchment") {
+    document.documentElement.setAttribute("data-palette", early);
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    var toggles = document.querySelectorAll(".quarto-color-scheme-toggle");
+    if (!toggles.length) return;
+    var tools = toggles[0];
+    var wrap = document.createElement("div");
+    wrap.className = "theme-picker dropdown";
+    wrap.innerHTML =
+      '<button type="button" class="nav-link dropdown-toggle px-1 border-0 bg-transparent" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Colour theme"><i class="bi bi-palette"></i></button>' +
+      '<ul class="dropdown-menu dropdown-menu-end" role="menu">' +
+      OPTIONS.map(function (o) {
+        return '<li role="none"><button type="button" class="dropdown-item" role="menuitemradio" aria-checked="false" data-theme-choice="' + o[0] + '">' + o[1] + "</button></li>";
+      }).join("") + "</ul>";
+    tools.parentNode.insertBefore(wrap, tools);
+    toggles.forEach(function (t) { t.style.display = "none"; });
+    wrap.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-theme-choice]");
+      if (b) apply(b.getAttribute("data-theme-choice"), true);
+    });
+    var choice = stored();
+    if (OPTIONS.every(function (o) { return o[0] !== choice; })) {
+      choice = isDark() ? "dark" : "offwhite";
+    }
+    apply(choice, false);
+  });
+})();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-proof.callout {
   border-left-color: #37474F;
 }
@@ -172,16 +224,6 @@ div.callout-proof.callout-style-default .callout-header {
 div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-cor.callout {
   border-left-color: #00838F;
@@ -193,6 +235,16 @@ div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-cnj.callout {
   border-left-color: #558B2F;
 }
@@ -203,25 +255,25 @@ div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-lem.callout {
-  border-left-color: #1565C0;
+div.callout-exr.callout {
+  border-left-color: #FFA500;
 }
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
 }
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-remark.callout {
-  border-left-color: #AD1457;
+div.callout-prp.callout {
+  border-left-color: #827717;
 }
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
 }
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-def.callout {
   border-left-color: #1B5E20;
@@ -233,15 +285,25 @@ div.callout-def .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exr.callout {
-  border-left-color: #FFA500;
+div.callout-remark.callout {
+  border-left-color: #AD1457;
 }
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
 }
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-solution.callout {
   border-left-color: #4E342E;
@@ -514,6 +576,10 @@ window.Quarto = {
  <span class="dropdown-text">Correlation &amp; Regression</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./model-validation.html">
+ <span class="dropdown-text">Validating Predictions</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./bootstrap.html">
  <span class="dropdown-text">The Bootstrap</span></a>
   </li>  
@@ -655,6 +721,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./model-validation.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
+ <span class="menu-text">Validating Predictions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./bootstrap.html" class="sidebar-item-text sidebar-link" preview-toc-changed>
  <span class="menu-text">The Bootstrap</span></a>
   </div>
@@ -724,7 +796,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: <mark class="preview-text-changed">2026-10-01</mark> <mark class="preview-text-changed">13:23:01</mark> (PDT)</p>
+      <p class="date">Last modified: 2026-10-06 <mark class="preview-text-changed">01:45:06</mark> (PDT)</p>
     </div>
   </div>
   
@@ -733,7 +805,7 @@ window.Quarto = {
   
 
 
-</header><style>
+</header><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
@@ -743,7 +815,15 @@ text-align: center;
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hers</span> <span class="op">&lt;-</span> <span class="fu">rmb</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/rmb/man/hers.html">hers</a></span> <span class="op">|&gt;</span> <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hers</span> <span class="op">&lt;-</span> <span class="fu">rmb</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/rmb/man/hers.html">hers</a></span> <span class="op">|&gt;</span> <span class="fu">haven</span><span class="fu">::</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">hers</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["HT"],"name":[1],"type":["fct"],"align":["left"]},{"label":["age"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["raceth"],"name":[3],"type":["fct"],"align":["left"]},{"label":["nonwhite"],"name":[4],"type":["fct"],"align":["left"]},{"label":["smoking"],"name":[5],"type":["fct"],"align":["left"]},{"label":["drinkany"],"name":[6],"type":["fct"],"align":["left"]},{"label":["exercise"],"name":[7],"type":["fct"],"align":["left"]},{"label":["physact"],"name":[8],"type":["fct"],"align":["left"]},{"label":["globrat"],"name":[9],"type":["fct"],"align":["left"]},{"label":["poorfair"],"name":[10],"type":["fct"],"align":["left"]},{"label":["medcond"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["htnmeds"],"name":[12],"type":["fct"],"align":["left"]},{"label":["statins"],"name":[13],"type":["fct"],"align":["left"]},{"label":["diabetes"],"name":[14],"type":["fct"],"align":["left"]},{"label":["dmpills"],"name":[15],"type":["fct"],"align":["left"]},{"label":["insulin"],"name":[16],"type":["fct"],"align":["left"]},{"label":["weight"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["BMI"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["waist"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["WHR"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["glucose"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["weight1"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["BMI1"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["waist1"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["WHR1"],"name":[25],"type":["dbl"],"align":["right"]},{"label":["glucose1"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["tchol"],"name":[27],"type":["dbl"],"align":["right"]},{"label":["LDL"],"name":[28],"type":["dbl"],"align":["right"]},{"label":["HDL"],"name":[29],"type":["dbl"],"align":["right"]},{"label":["TG"],"name":[30],"type":["dbl"],"align":["right"]},{"label":["tchol1"],"name":[31],"type":["dbl"],"align":["right"]},{"label":["LDL1"],"name":[32],"type":["dbl"],"align":["right"]},{"label":["HDL1"],"name":[33],"type":["dbl"],"align":["right"]},{"label":["TG1"],"name":[34],"type":["dbl"],"align":["right"]},{"label":["SBP"],"name":[35],"type":["dbl"],"align":["right"]},{"label":["DBP"],"name":[36],"type":["dbl"],"align":["right"]},{"label":["age10"],"name":[37],"type":["dbl"],"align":["right"]}],"data":[{"1":"placebo","2":"70","3":"African American","4":"yes","5":"no","6":"no","7":"no","8":"much more active","9":"good","10":"no","11":"0","12":"yes","13":"yes","14":"no","15":"no","16":"no","17":"73.8","18":"23.69","19":"96.0","20":"0.932","21":"84","22":"73.6","23":"23.63","24":"93.0","25":"0.912","26":"94","27":"189","28":"122.4","29":"52","30":"73","31":"201","32":"137.6","33":"48","34":"77","35":"138","36":"78","37":"7.0"},{"1":"placebo","2":"62","3":"African American","4":"yes","5":"no","6":"no","7":"no","8":"much less active","9":"good","10":"no","11":"1","12":"yes","13":"no","14":"no","15":"no","16":"no","17":"70.9","18":"28.62","19":"93.0","20":"0.964","21":"111","22":"73.4","23":"28.89","24":"95.0","25":"0.964","26":"78","27":"307","28":"241.6","29":"44","30":"107","31":"216","32":"150.6","33":"48","34":"87","35":"118","36":"70","37":"6.2"},{"1":"hormone therapy","2":"69","3":"White","4":"no","5":"no","6":"no","7":"no","8":"about as active","9":"good","10":"no","11":"0","12":"yes","13":"no","14":"yes","15":"no","16":"no","17":"102.0","18":"42.51","19":"110.2","20":"0.782","21":"114","22":"96.1","23":"40.73","24":"103.0","25":"0.774","26":"98","27":"254","28":"166.2","29":"57","30":"154","31":"254","32":"156.0","33":"66","34":"160","35":"134","36":"78","37":"6.9"},{"1":"placebo","2":"64","3":"White","4":"no","5":"yes","6":"yes","7":"no","8":"much less active","9":"good","10":"no","11":"1","12":"yes","13":"no","14":"no","15":"no","16":"no","17":"64.4","18":"24.39","19":"87.0","20":"0.877","21":"94","22":"58.6","23":"22.52","24":"77.0","25":"0.802","26":"93","27":"204","28":"116.2","29":"56","30":"159","31":"207","32":"122.6","33":"57","34":"137","35":"152","36":"72","37":"6.4"},{"1":"placebo","2":"65","3":"White","4":"no","5":"no","6":"no","7":"no","8":"somewhat less active","9":"good","10":"no","11":"0","12":"no","13":"no","14":"no","15":"no","16":"no","17":"57.9","18":"21.90","19":"77.0","20":"0.794","21":"101","22":"58.9","23":"22.28","24":"76.5","25":"0.757","26":"92","27":"214","28":"150.6","29":"42","30":"107","31":"235","32":"172.2","33":"35","34":"139","35":"175","36":"95","37":"6.5"},{"1":"hormone therapy","2":"68","3":"African American","4":"yes","5":"no","6":"yes","7":"no","8":"about as active","9":"good","10":"no","11":"0","12":"no","13":"no","14":"no","15":"no","16":"no","17":"60.9","18":"29.05","19":"96.0","20":"1.000","21":"116","22":"57.7","23":"27.52","24":"86.0","25":"0.910","26":"115","27":"212","28":"137.8","29":"52","30":"111","31":"202","32":"126.6","33":"53","34":"112","35":"174","36":"98","37":"6.8"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
 </div>
 </section><section id="sec-two-group-categorical" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="sec-two-group-categorical">
 <span class="header-section-number">2</span> Comparing two groups: categorical outcomes</h2>
@@ -774,23 +854,23 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
 </mark></figcaption><div aria-describedby="tbl-hers-crosstab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="ffdwolvwce" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style><mark class="preview-text-changed">#ff</mark>dwolvwce table {
+<div id="vekyqqzjhs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style><mark class="preview-text-changed">#ve</mark>kyqqzjhs table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: graysc<mark class="preview-text-changed">ale;
 }
 
-#ff</mark>dwolvwce<mark class="preview-text-changed"> thead, #ff</mark>dwolvwce<mark class="preview-text-changed"> tbody, #ff</mark>dwolvwce<mark class="preview-text-changed"> tfoot, #ff</mark>dwolv<mark class="preview-text-changed">wce tr, #ff</mark>dwolv<mark class="preview-text-changed">wce td, #ff</mark>dwolvwce th {
+#ve</mark>kyqqzjhs<mark class="preview-text-changed"> thead, #ve</mark>kyqqzjhs<mark class="preview-text-changed"> tbody, #ve</mark>kyqqzjhs<mark class="preview-text-changed"> tfoot, #ve</mark>kyqqz<mark class="preview-text-changed">jhs tr, #ve</mark>kyqqz<mark class="preview-text-changed">jhs td, #ve</mark>kyqqzjhs th {
   border-style: n<mark class="preview-text-changed">one;
 }
 
-#ff</mark>dwolvwce p {
+#ve</mark>kyqqzjhs p {
   margin: 0;
   padding<mark class="preview-text-changed">: 0;
 }
 
-#ff</mark>dwolvwce .gt_table {
+#ve</mark>kyqqzjhs .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -816,12 +896,12 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-left-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_caption {
+#ve</mark>kyqqzjhs .gt_caption {
   padding-top: 4px;
   padding-bottom: <mark class="preview-text-changed">4px;
 }
 
-#ff</mark>dwolvwce .gt_title {
+#ve</mark>kyqqzjhs .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -833,7 +913,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-bottom-width<mark class="preview-text-changed">: 0;
 }
 
-#ff</mark>dwolvwce .gt_subtitle {
+#ve</mark>kyqqzjhs .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -845,7 +925,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-top-width<mark class="preview-text-changed">: 0;
 }
 
-#ff</mark>dwolvwce .gt_heading {
+#ve</mark>kyqqzjhs .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -857,13 +937,13 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-right-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_bottom_border {
+#ve</mark>kyqqzjhs .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_col_headings {
+#ve</mark>kyqqzjhs .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -878,7 +958,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-right-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_col_heading {
+#ve</mark>kyqqzjhs .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -898,7 +978,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   overflow-x: hid<mark class="preview-text-changed">den;
 }
 
-#ff</mark>dwolvwce .gt_column_spanner_outer {
+#ve</mark>kyqqzjhs .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -910,15 +990,15 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   padding-right: <mark class="preview-text-changed">4px;
 }
 
-#ff</mark>dwolvwce .gt_column_spanner_outer:first-child {
+#ve</mark>kyqqzjhs .gt_column_spanner_outer:first-child {
   padding-left<mark class="preview-text-changed">: 0;
 }
 
-#ff</mark>dwolvwce .gt_column_spanner_outer:last-child {
+#ve</mark>kyqqzjhs .gt_column_spanner_outer:last-child {
   padding-right<mark class="preview-text-changed">: 0;
 }
 
-#ff</mark>dwolvwce .gt_column_spanner {
+#ve</mark>kyqqzjhs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -930,11 +1010,11 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   width: 1<mark class="preview-text-changed">00%;
 }
 
-#ff</mark>dwolvwce .gt_spanner_row {
+#ve</mark>kyqqzjhs .gt_spanner_row {
   border-bottom-style: hid<mark class="preview-text-changed">den;
 }
 
-#ff</mark>dwolvwce .gt_group_heading {
+#ve</mark>kyqqzjhs .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -960,7 +1040,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   text-align: l<mark class="preview-text-changed">eft;
 }
 
-#ff</mark>dwolvwce .gt_empty_group_heading {
+#ve</mark>kyqqzjhs .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -975,15 +1055,15 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   vertical-align: mid<mark class="preview-text-changed">dle;
 }
 
-#ff</mark>dwolvwce .gt_from_md > :first-child {
+#ve</mark>kyqqzjhs .gt_from_md > :first-child {
   margin-top<mark class="preview-text-changed">: 0;
 }
 
-#ff</mark>dwolvwce .gt_from_md > :last-child {
+#ve</mark>kyqqzjhs .gt_from_md > :last-child {
   margin-bottom<mark class="preview-text-changed">: 0;
 }
 
-#ff</mark>dwolvwce .gt_row {
+#ve</mark>kyqqzjhs .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1002,7 +1082,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   overflow-x: hid<mark class="preview-text-changed">den;
 }
 
-#ff</mark>dwolvwce .gt_stub {
+#ve</mark>kyqqzjhs .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1015,7 +1095,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   padding-right: <mark class="preview-text-changed">5px;
 }
 
-#ff</mark>dwolvwce .gt_stub_row_group {
+#ve</mark>kyqqzjhs .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1029,15 +1109,15 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   vertical-align: <mark class="preview-text-changed">top;
 }
 
-#ff</mark>dwolvwce .gt_row_group_first td {
+#ve</mark>kyqqzjhs .gt_row_group_first td {
   border-top-width: <mark class="preview-text-changed">2px;
 }
 
-#ff</mark>dwolvwce .gt_row_group_first th {
+#ve</mark>kyqqzjhs .gt_row_group_first th {
   border-top-width: <mark class="preview-text-changed">2px;
 }
 
-#ff</mark>dwolvwce .gt_summary_row {
+#ve</mark>kyqqzjhs .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1047,16 +1127,16 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   padding-right: <mark class="preview-text-changed">5px;
 }
 
-#ff</mark>dwolvwce .gt_first_summary_row {
+#ve</mark>kyqqzjhs .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_first_summary_row.thick {
+#ve</mark>kyqqzjhs .gt_first_summary_row.thick {
   border-top-width: <mark class="preview-text-changed">2px;
 }
 
-#ff</mark>dwolvwce .gt_last_summary_row {
+#ve</mark>kyqqzjhs .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1066,7 +1146,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-bottom-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_grand_summary_row {
+#ve</mark>kyqqzjhs .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1076,7 +1156,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   padding-right: <mark class="preview-text-changed">5px;
 }
 
-#ff</mark>dwolvwce .gt_first_grand_summary_row {
+#ve</mark>kyqqzjhs .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1086,7 +1166,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-top-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_last_grand_summary_row_top {
+#ve</mark>kyqqzjhs .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1096,11 +1176,11 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-bottom-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_striped {
+#ve</mark>kyqqzjhs .gt_striped {
   background-color: rgba(128, 128, 128, 0.<mark class="preview-text-changed">05);
 }
 
-#ff</mark>dwolvwce .gt_table_body {
+#ve</mark>kyqqzjhs .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1109,7 +1189,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-bottom-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_footnotes {
+#ve</mark>kyqqzjhs .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1123,7 +1203,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-right-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_footnote {
+#ve</mark>kyqqzjhs .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1132,7 +1212,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   padding-right: <mark class="preview-text-changed">5px;
 }
 
-#ff</mark>dwolvwce .gt_sourcenotes {
+#ve</mark>kyqqzjhs .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1146,7 +1226,7 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   border-right-color: #D3D<mark class="preview-text-changed">3D3;
 }
 
-#ff</mark>dwolvwce .gt_sourcenote {
+#ve</mark>kyqqzjhs .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1154,72 +1234,72 @@ Table&nbsp;1: Exercise by treatment group in H<mark class="preview-text-changed"
   padding-right: <mark class="preview-text-changed">5px;
 }
 
-#ff</mark>dwolvwce .gt_left {
+#ve</mark>kyqqzjhs .gt_left {
   text-align: l<mark class="preview-text-changed">eft;
 }
 
-#ff</mark>dwolvwce .gt_center {
+#ve</mark>kyqqzjhs .gt_center {
   text-align: cen<mark class="preview-text-changed">ter;
 }
 
-#ff</mark>dwolvwce .gt_right {
+#ve</mark>kyqqzjhs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-n<mark class="preview-text-changed">ums;
 }
 
-#ff</mark>dwolvwce .gt_font_normal {
+#ve</mark>kyqqzjhs .gt_font_normal {
   font-weight: nor<mark class="preview-text-changed">mal;
 }
 
-#ff</mark>dwolvwce .gt_font_bold {
+#ve</mark>kyqqzjhs .gt_font_bold {
   font-weight: b<mark class="preview-text-changed">old;
 }
 
-#ff</mark>dwolvwce .gt_font_italic {
+#ve</mark>kyqqzjhs .gt_font_italic {
   font-style: ita<mark class="preview-text-changed">lic;
 }
 
-#ff</mark>dwolvwce .gt_super {
+#ve</mark>kyqqzjhs .gt_super {
   font-size: <mark class="preview-text-changed">65%;
 }
 
-#ff</mark>dwolvwce .gt_footnote_marks {
+#ve</mark>kyqqzjhs .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: init<mark class="preview-text-changed">ial;
 }
 
-#ff</mark>dwolvwce .gt_asterisk {
+#ve</mark>kyqqzjhs .gt_asterisk {
   font-size: 100%;
   vertical-align<mark class="preview-text-changed">: 0;
 }
 
-#ff</mark>dwolvwce .gt_indent_1 {
+#ve</mark>kyqqzjhs .gt_indent_1 {
   text-indent: <mark class="preview-text-changed">5px;
 }
 
-#ff</mark>dwolvwce .gt_indent_2 {
+#ve</mark>kyqqzjhs .gt_indent_2 {
   text-indent: 1<mark class="preview-text-changed">0px;
 }
 
-#ff</mark>dwolvwce .gt_indent_3 {
+#ve</mark>kyqqzjhs .gt_indent_3 {
   text-indent: 1<mark class="preview-text-changed">5px;
 }
 
-#ff</mark>dwolvwce .gt_indent_4 {
+#ve</mark>kyqqzjhs .gt_indent_4 {
   text-indent: 2<mark class="preview-text-changed">0px;
 }
 
-#ff</mark>dwolvwce .gt_indent_5 {
+#ve</mark>kyqqzjhs .gt_indent_5 {
   text-indent: 2<mark class="preview-text-changed">5px;
 }
 
-#ff</mark>dwolvwce .katex-display {
+#ve</mark>kyqqzjhs .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !import<mark class="preview-text-changed">ant;
 }
 
-#ff</mark>dwolvwce div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ve</mark>kyqqzjhs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>

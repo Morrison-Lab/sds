@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-01 13:23:01 (PDT)
+Last modified: 2026-10-06 01:45:06 (PDT)
 
 ## 1 Introduction
 
@@ -40,6 +40,7 @@ The `rmb` R package includes the same file, which these notes use so that render
 
 ``` downlit
 hers <- rmb::hers |> haven::as_factor()
+hers |> head()
 ```
 
 The examples on this page use these variables:

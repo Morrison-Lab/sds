@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-01 13:23:01 (PDT)
+Last modified: 2026-10-06 01:45:06 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)).
 

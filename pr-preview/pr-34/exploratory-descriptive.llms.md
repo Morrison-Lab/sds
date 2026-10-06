@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-01 13:23:01 (PDT)
+Last modified: 2026-10-06 01:45:06 (PDT)
 
 ## 1 Introduction
 
@@ -76,6 +76,7 @@ The `rmb` R package includes the same file, which these notes use so that render
 
 ``` downlit
 wcgs <- rmb::wcgs |> haven::as_factor()
+wcgs |> head()
 ```
 
 Show R code
@@ -102,6 +103,22 @@ wcgs_labels <- c(
 for (var in names(wcgs_labels)) {
   attr(wcgs[[var]], "label") <- wcgs_labels[[var]]
 }
+
+wcgs_labels
+#>                                age                               chol 
+#>                      "Age (years)"              "Cholesterol (mg/dL)" 
+#>                                sbp                                dbp 
+#>               "Systolic BP (mmHg)"              "Diastolic BP (mmHg)" 
+#>                                bmi                             weight 
+#>                     "BMI (kg/m^2)"                     "Weight (lbs)" 
+#>                              ncigs                              chd69 
+#>               "Cigarettes per day"                "CHD event by 1969" 
+#>                              smoke                              arcus 
+#>                   "Current smoker"                    "Arcus senilis" 
+#>                             dibpat                             behpat 
+#>         "Behavioral pattern (A/B)" "Behavioral pattern (A1/A2/B3/B4)" 
+#>                            wghtcat                               agec 
+#>                  "Weight category"                        "Age group"
 ```
 
 The dataset has one row per participant:
@@ -634,9 +651,110 @@ sbp_skew <- c(
   raw = skewness(wcgs$sbp),
   log = skewness(wcgs$lnsbp)
 )
+sbp_skew
+#>      raw      log 
+#> 1.203824 0.739911
 ```
 
 The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 versus 1.2), but still not symmetric. Whether to transform a variable in a regression model depends on the assumptions of that model and on the scientific question.
+
+### 5.1 Rescaling a variable
+
+> **NOTE:**
+>
+> **Exercise 2 (A standardized cholesterol value)** In the WCGS data, cholesterol (`chol`) is measured in mg/dL.
+>
+> 1.  Compute the sample mean and sample standard deviation of `chol`.
+> 2.  A man has `chol` equal to 250 mg/dL. By how many standard deviations does his value differ from the sample mean, and in which direction?
+> 3.  What are the units of your answer to part 2?
+
+> **NOTE:**
+>
+> *Solution 2*.
+>
+> ``` downlit
+> chol_mean <- mean(wcgs$chol, na.rm = TRUE)
+> chol_sd <- sd(wcgs$chol, na.rm = TRUE)
+> chol_z <- (250 - chol_mean) / chol_sd
+> c(mean = chol_mean, sd = chol_sd, z_250 = chol_z)
+> #>       mean         sd      z_250 
+> #> 226.372374  43.420426   0.544159
+> ```
+>
+> 1.  The sample mean is 226.4 mg/dL and the sample standard deviation is 43.4 mg/dL.
+>
+> 2.  \\(250 - \bar x) / s\\ is 0.54: his cholesterol is 0.54 standard deviations above the sample mean.
+>
+> 3.  The numerator is in mg/dL and the denominator is in mg/dL, so the answer has no units.
+
+> **NOTE:**
+>
+> **Definition 16 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
+>
+> \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
+>
+> > **NOTE:**
+> >
+> > James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
+
+> **NOTE:**
+>
+> *Remark 1* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
+
+> **NOTE:**
+>
+> **Theorem 2 (Standardized values have mean 0 and standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
+>
+> > **NOTE:**
+> >
+> > Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
+
+> **NOTE:**
+>
+> *Proof*. The sample mean of the \\z_i\\ is \\\frac{1}{n} \sum\_{i=1}^n \frac{x_i - \bar x}{s} = \frac{1}{s} \mathopen{}\left(\frac{1}{n} \sum\_{i=1}^n x_i - \bar x\right)\mathclose{} = \frac{1}{s} (\bar x - \bar x) = 0.\\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\\frac{1}{n-1} \sum\_{i=1}^n z_i^2 = \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n (x_i - \bar x)^2 = \frac{s^2}{s^2} = 1,\\ so their sample standard deviation is \\\sqrt{1} = 1\\.
+
+> **NOTE:**
+>
+> **Example 8 (Standardizing cholesterol in R)** In R, [`scale()`](https://rdrr.io/r/base/scale.html) returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values:
+>
+> ``` downlit
+> z <- scale(wcgs$chol)[, 1]
+> mean(z, na.rm = TRUE)
+> #> [1] 2.79926e-16
+> sd(z, na.rm = TRUE)
+> #> [1] 1
+> ```
+>
+> The mean is \\0\\ up to rounding error, and the standard deviation is \\1\\, as [Theorem 2](#thm-standardized-mean-sd) says. The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
+
+> **NOTE:**
+>
+> **Definition 17 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
+>
+> \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
+>
+> > **NOTE:**
+> >
+> > Géron ([2017](#ref-geron2017hands), ch. 2).
+
+> **NOTE:**
+>
+> *Remark 2* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+>
+> Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
+
+> **NOTE:**
+>
+> **Example 9 (Min-max scaling of cholesterol in the WCGS)**  
+>
+> ``` downlit
+> chol_range <- range(wcgs$chol, na.rm = TRUE)
+> chol_minmax <- (wcgs$chol - chol_range[1]) / diff(chol_range)
+> range(chol_minmax, na.rm = TRUE)
+> #> [1] 0 1
+> ```
+>
+> The smallest cholesterol value maps to 0 and the largest maps to 1. The scaled values keep the shape of the distribution but have no units.
 
 ## 6 An exploratory data analysis workflow
 
@@ -672,6 +790,10 @@ wcgs |>
 Table 5: Summary of selected WCGS variables
 
 ## References
+
+Géron, Aurélien. 2017. *Hands-on Machine Learning with Scikit-Learn and TensorFlow*. 1st ed. O’Reilly Media.
+
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
 
 Rosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. “Coronary Heart Disease in the Western Collaborative Group Study: Final Follow-up Experience of 8 1/2 Years.” *JAMA* 233 (8): 872–77. <https://doi.org/10.1001/jama.1975.03260080034016>.
 
