@@ -155,7 +155,9 @@ Credit every outside source where readers can see it:
 the book or paper an item follows,
 or the person outside the lab it was adapted from.
 Content taken from the lab's own sites (rme, lds, pds, ...) needs no attribution
-(maintainer directive, 2026-10-05).
+(maintainer directive, 2026-10-05),
+but a person or source outside the lab that such a site credits
+is still credited, without naming the lab site.
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
 Follow PSW's

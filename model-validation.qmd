@@ -48,10 +48,6 @@ format:
 
 {{< include sds/_subfiles/model-validation/_def-overfitting.qmd >}}
 
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_rem-overfitting-causes.qmd >}}
-
 ## Generalization error {#sec-generalization-error}
 
 {{< include sds/_subfiles/model-validation/_exr-generalization-error.qmd >}}
@@ -111,6 +107,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_rem-overfitting-tradeoff.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-overfitting-causes.qmd >}}
 
 {{< slidebreak >}}
 

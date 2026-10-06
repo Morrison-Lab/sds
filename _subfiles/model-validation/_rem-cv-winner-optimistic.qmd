@@ -15,4 +15,10 @@ that took no part in the choice
 such as a [test set](#def-test-set),
 or the outer folds of [nested cross-validation](#def-nested-cv).
 
+::: {.callout-note collapse="true"}
+#### Source
+
+Based on a Spring 2025 lecture on generalization by Logan Sizemore.
+:::
+
 :::
