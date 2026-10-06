@@ -186,7 +186,9 @@ so it travels with the fragment when a host site includes it:
 :::
 ```
 
-Cite books and papers through `references.bib` (`@key [locator]`).
+Cite books and papers through `references.bib` (`@key [locator]`),
+and link an outside site's rendered page at the item's anchor,
+checking that the anchor exists and holds the text the credit points to.
 Comments are still the place for maintainer-only notes
 that are not attributions,
 such as what was checked in a PDF or a wording edit made while porting.
