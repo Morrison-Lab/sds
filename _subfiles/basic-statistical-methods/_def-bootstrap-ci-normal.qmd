@@ -9,12 +9,16 @@ where $\widehat{\text{SE}}_\text{boot}$ is the
 bootstrap standard error (@def-bootstrap-se).
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-bootstrap-ci-normal-assumptions}
+#### When the normal bootstrap interval is reliable
+
 This interval assumes that the sampling distribution of $\hat\theta$
 is approximately Gaussian and centered at $\theta$,
 so it can be unreliable when that distribution is skewed.
 It needs only a standard error,
 which takes fewer bootstrap replicates to estimate well
-than the tail quantiles used by the next two intervals
+than the tail quantiles used by the percentile and BCa intervals
 [@efron1993introduction].
 :::

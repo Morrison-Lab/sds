@@ -16,7 +16,11 @@ or an approximation to it.
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-p-value-not-posterior}
+#### A p-value is not the probability that the null hypothesis is true
+
 A p-value is computed assuming $H_0$ is true,
 so it is not the probability that $H_0$ is true given the data.
 :::

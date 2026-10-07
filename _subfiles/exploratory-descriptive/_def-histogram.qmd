@@ -7,6 +7,10 @@ and drawing a bar over each interval
 whose height is the number (or proportion) of observations in that interval.
 :::
 
-::: notes
-The intervals are often called *bins*.
+{{< slidebreak >}}
+
+::: {#def-bin}
+#### Bin
+
+A **bin** of a histogram is one of its intervals.
 :::

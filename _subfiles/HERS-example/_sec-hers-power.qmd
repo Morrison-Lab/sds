@@ -71,7 +71,11 @@ by sample size
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-observed-power}
+#### Choosing the alternative, and observed power
+
 The alternative $\mu_1$ should be chosen before seeing the data,
 as a difference worth detecting.
 Power computed at $\mu_1 = \hat\mu$ ("observed power")

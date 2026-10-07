@@ -7,14 +7,18 @@ are the sample 0.25 and 0.75 quantiles
 also called the 25th and 75th percentiles.
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-quartile-software}
+#### Quartiles in software
+
 With an odd number of observations,
 the sample 0.5 quantile equals the [sample median](#def-sample-median);
 with an even number they can differ,
 because the median averages the two middle order statistics.
 Software packages compute quartiles with different quantile definitions,
 so they can disagree slightly for the same data
-([quantile conventions](nonparametric-models.qmd#quantile-conventions));
-R's `quantile(type = 1)` matches these notes' definition,
+([quantile conventions](nonparametric-models.qmd#rem-quantile-conventions));
+R's `quantile(type = 1)` matches this definition,
 and R's default, `type = 7`, interpolates.
 :::

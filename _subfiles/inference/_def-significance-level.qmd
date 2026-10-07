@@ -6,7 +6,11 @@ rejects the [null hypothesis](#def-null-hypothesis)
 when the [p-value](#def-p-value) is at most $\alpha$.
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-significance-level-convention}
+#### Choosing a significance level
+
 $\alpha = 0.05$ is a common convention, not a rule.
 When $H_0$ is true and the p-value is computed exactly,
 a test with significance level $\alpha$ rejects $H_0$

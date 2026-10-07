@@ -35,7 +35,11 @@ $$
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-t-statistic-nongaussian}
+#### Non-Gaussian data
+
 When the observations are not Gaussian,
 $T$ still has approximately the standard Gaussian distribution
 when $n$ is large,

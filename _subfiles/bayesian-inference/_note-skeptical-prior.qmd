@@ -1,4 +1,8 @@
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-skeptical-prior-meaning}
+#### What a skeptical prior asks
+
 A skeptical prior asks how strong the data must be
 to overturn a default of no effect.
 :::

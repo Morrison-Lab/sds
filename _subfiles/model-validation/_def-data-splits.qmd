@@ -31,7 +31,11 @@ $$ {#eq-data-splits}
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#exm-data-splits-sizes}
+#### Split sizes for 32 cars
+
 In @exr-data-splits,
 a rule of 60% / 20% / 20% on $N = 32$ cars
 gives sets of 19, 6, and 7 cars,

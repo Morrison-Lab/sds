@@ -1,4 +1,8 @@
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-score-notation}
+#### Notation for the score function
+
 We often omit the arguments $\vx$ and $\theta$,
 writing $\ell' \eqdef \ell'(\vx \mid \theta) \eqdef \ell'(\theta)$.
 Some sources write $U$ or $S$ for the score function instead of $\ell'$;
