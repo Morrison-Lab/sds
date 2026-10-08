@@ -88,6 +88,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_exm-map-beta-bernoulli.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/bayesian-inference/_cor-map-penalized.qmd >}}
 
 {{< slidebreak >}}

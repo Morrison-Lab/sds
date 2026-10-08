@@ -1,0 +1,47 @@
+::: {#exm-map-beta-bernoulli}
+#### The MAP estimate of a proportion
+
+In [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli),
+the posterior of $\pi$ after $r$ successes in $n$ trials is
+$\operatorname{Beta}(a + r,\; b + n - r)$.
+Write $\alpha = a + r$ and $\beta = b + n - r$ for its two parameters.
+For $\alpha, \beta > 1$, the log of the posterior density, up to a constant, is
+$(\alpha - 1)\log \pi + (\beta - 1)\log(1 - \pi)$.
+Setting its derivative with respect to $\pi$ to zero gives
+
+$$
+\ba
+0
+&= \frac{\alpha - 1}{\pi} - \frac{\beta - 1}{1 - \pi}
+&& \text{(derivative of the log density)}\\
+(\alpha - 1)(1 - \pi)
+&= (\beta - 1)\pi
+&& \text{(multiplying by $\pi(1-\pi)$ and rearranging)}\\
+\alpha - 1
+&= (\alpha + \beta - 2)\pi
+&& \text{(collecting the terms in $\pi$)},
+\ea
+$$
+
+so $\hth_{\text{MAP}} = \frac{\alpha - 1}{\alpha + \beta - 2}$.
+With the uniform prior $\operatorname{Beta}(1, 1)$,
+$r = 55$ successes and $n = 91$ trials,
+the posterior is $\operatorname{Beta}(56, 37)$.
+Its mode and its mean are:
+
+```{r}
+#| label: map-beta-bernoulli
+#| code-fold: false
+a_post <- 1 + 55
+b_post <- 1 + 91 - 55
+c(
+  mode = (a_post - 1) / (a_post + b_post - 2),
+  mean = a_post / (a_post + b_post)
+) |>
+  round(3)
+```
+
+The mode equals the sample proportion $r / n$,
+because the uniform prior adds no pseudo-counts that pull it away.
+The mean is a little closer to $\frac{1}{2}$.
+:::
