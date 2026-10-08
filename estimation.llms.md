@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 ## 1 Scientific models
 
@@ -464,7 +464,9 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > *Proof*. This is the solution to [Exercise 8](#exr-se-error-sd).
 
-“Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the [estimation error](#def-estimation-error) (although [Theorem 5](#thm-se-error-sd) shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.
+> **NOTE:**
+>
+> *Remark 3* (The name “standard error”). “Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the [estimation error](#def-estimation-error) (although [Theorem 5](#thm-se-error-sd) shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.
 
 > **NOTE:**
 >

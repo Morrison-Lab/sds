@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 ## 1 Empirical CDF
 
@@ -87,7 +87,9 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 > #>   3   7
 > ```
 
-Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s [`quantile()`](https://rdrr.io/r/stats/quantile.html) offers nine definitions through its `type` argument, and its default (`type = 7`) interpolates, so `quantile(c(4, 1, 7, 3), 0.5)` returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use [Definition 3](#def-sample-quantile), which always returns one of the observed values.
+> **NOTE:**
+>
+> *Remark 1* (Quantile conventions). Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s [`quantile()`](https://rdrr.io/r/stats/quantile.html) offers nine definitions through its `type` argument, and its default (`type = 7`) interpolates, so `quantile(c(4, 1, 7, 3), 0.5)` returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use [Definition 3](#def-sample-quantile), which always returns one of the observed values.
 
 ## 4 The empirical CDF and quantile function as generalized inverses
 

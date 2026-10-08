@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-07 17:50:26 (PDT)</p>
+  <p class="date">Last modified: 2026-10-07 20:21:34 (PDT)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -419,32 +419,16 @@ text-align: center;
 <p><span class="math display">\[p \stackrel{\text{def}}{=}\Pr_{H_0}(T \ge t)\]</span></p>
 <p>If the null hypothesis allows more than one distribution (a <em>composite</em> null hypothesis, such as <span class="math inline">\(H_0: \mu_1 = \mu_0\)</span> with unknown variances), the p-value is the largest such probability over those distributions, or an approximation to it.</p>
 </div>
-<aside class="notes"><p>A p-value is computed assuming <span class="math inline">\(H_0\)</span> is true, so it is not the probability that <span class="math inline">\(H_0\)</span> is true given the data.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section class="slide level2"><div id="def-significance-level" class="theorem definition">
+</section><section class="slide level2"><div id="rem-p-value-not-posterior" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (A p-value is not the probability that the null hypothesis is true). </span>A p-value is computed assuming <span class="math inline">\(H_0\)</span> is true, so it is not the probability that <span class="math inline">\(H_0\)</span> is true given the data.</p>
+</div>
+</section><section class="slide level2"><div id="def-significance-level" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Significance level)</strong></span> A hypothesis test with <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> rejects the <a href="#/def-null-hypothesis">null hypothesis</a> when the <a href="#/def-p-value">p-value</a> is at most <span class="math inline">\(\alpha\)</span>.</p>
 </div>
-<aside class="notes"><p><span class="math inline">\(\alpha = 0.05\)</span> is a common convention, not a rule. When <span class="math inline">\(H_0\)</span> is true and the p-value is computed exactly, a test with significance level <span class="math inline">\(\alpha\)</span> rejects <span class="math inline">\(H_0\)</span> with probability at most <span class="math inline">\(\alpha\)</span>; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section class="slide level2"><div id="def-statistically-significant" class="theorem definition">
+</section><section class="slide level2"><div id="rem-significance-level-convention" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Choosing a significance level). </span><span class="math inline">\(\alpha = 0.05\)</span> is a common convention, not a rule. When <span class="math inline">\(H_0\)</span> is true and the p-value is computed exactly, a test with significance level <span class="math inline">\(\alpha\)</span> rejects <span class="math inline">\(H_0\)</span> with probability at most <span class="math inline">\(\alpha\)</span>; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.</p>
+</div>
+</section><section class="slide level2"><div id="def-statistically-significant" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Statistically significant)</strong></span> A result is <strong>statistically significant</strong> at level <span class="math inline">\(\alpha\)</span> if it leads a test with <a href="#/def-significance-level">significance level</a> <span class="math inline">\(\alpha\)</span> to reject the null hypothesis.</p>
 </div>
 </section><section class="slide level2"><div id="exm-p-value-wcgs" class="theorem example">

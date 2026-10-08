@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -225,7 +225,9 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 >
 > \\\ell'\stackrel{\text{def}}{=}\frac{\partial}{\partial \theta} \ell(\tilde{x}\|\theta) \tag{7}\\
 
-We often omit the arguments \\\tilde{x}\\ and \\\theta\\, writing \\\ell' \stackrel{\text{def}}{=}\ell'(\tilde{x}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\\. Some sources write \\U\\ or \\S\\ for the score function instead of \\\ell'\\; for example, Dobson and Barnett ([2018](#ref-dobson4e)) write \\U\\. These notes use \\\ell'\\, which keeps \\U\\ and \\S\\ free for other uses and needs no extra symbol to memorize.
+> **NOTE:**
+>
+> *Remark 1* (Notation for the score function). We often omit the arguments \\\tilde{x}\\ and \\\theta\\, writing \\\ell' \stackrel{\text{def}}{=}\ell'(\tilde{x}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\\. Some sources write \\U\\ or \\S\\ for the score function instead of \\\ell'\\; for example, Dobson and Barnett ([2018](#ref-dobson4e)) write \\U\\. These notes use \\\ell'\\, which keeps \\U\\ and \\S\\ free for other uses and needs no extra symbol to memorize.
 
 > **NOTE:**
 >
@@ -285,7 +287,9 @@ In all four examples ([Exercise 8](#exr-derive-bernoulli-score), [Exercise 9](
 
 \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\
 
-This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in \\x\\; for every such family, the score with respect to the mean is \\(x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape \\k \ne 1\\, do not have this form. Exponential-family distributions share many special properties ([Hogg et al. 2019, sec. 6.7](#ref-hoggtanis2015); [Dobson and Barnett 2018, chap. 3](#ref-dobson4e)).
+> **NOTE:**
+>
+> *Remark 2* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in \\x\\; for every such family, the score with respect to the mean is \\(x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape \\k \ne 1\\, do not have this form. Exponential-family distributions share many special properties ([Hogg et al. 2019, sec. 6.7](#ref-hoggtanis2015); [Dobson and Barnett 2018, chap. 3](#ref-dobson4e)).
 
 > **NOTE:**
 >
@@ -453,7 +457,9 @@ Table 1: Notation for information matrices in several sources
 >
 > *Proof*. The proof is beyond the scope of these notes; see ([Lehmann 1999](#ref-lehmannELST), Theorem 7.5.2, p. 501) and ([Newey and McFadden 1994](#ref-newey1994large)).
 
-These conditions guarantee a consistent root of the score equation; that root is the global maximizer of the likelihood under further conditions, for example when the log-likelihood is strictly concave, as for Poisson data, whose Hessian is negative for every \\{\lambda}\\ ([Example 5](#exm-information-poisson)).
+> **NOTE:**
+>
+> *Remark 3* (Consistent roots and global maximizers). These conditions guarantee a consistent root of the score equation; that root is the global maximizer of the likelihood under further conditions, for example when the log-likelihood is strictly concave, as for Poisson data, whose Hessian is negative for every \\{\lambda}\\ ([Example 5](#exm-information-poisson)).
 
 > **NOTE:**
 >
@@ -469,7 +475,9 @@ These conditions guarantee a consistent root of the score equation; that root is
 
 where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta})\\ we chose.
 
-Using the observed information is often more convenient, and there are settings where it is provably better by some criteria ([Efron and Hinkley 1978](#ref-efron1978assessing)).
+> **NOTE:**
+>
+> *Remark 4* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria ([Efron and Hinkley 1978](#ref-efron1978assessing)).
 
 ### 1.9 Quantifying uncertainty about MLEs
 
@@ -574,7 +582,9 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 >
 > With \\q\\ constraints, the same argument in matrix form makes \\\Lambda\\ approximately a sum of \\q\\ squared, independent standard Gaussian variables, which has a \\\chi^2_q\\ distribution; this sketch does not derive the matrix form.
 
-Equivalently, in terms of nested models: if a full model \\M_1\\ has \\p\\ free parameters, and a nested model \\M_0 \subset M_1\\, obtained by imposing \\q\\ constraints on \\M_1\\, has \\p_0 = p - q\\ free parameters, then when \\M_0\\ is true, \\\Lambda = 2\mathopen{}\left(\ell\_{M_1}(\hat\theta\_{\text{ML}}) - \ell\_{M_0}(\hat\theta_0)\right)\mathclose{}\\ converges in distribution to \\\chi^2_q\\.
+> **NOTE:**
+>
+> *Remark 5* (Wilks’ theorem for nested models). Equivalently, in terms of nested models: if a full model \\M_1\\ has \\p\\ free parameters, and a nested model \\M_0 \subset M_1\\, obtained by imposing \\q\\ constraints on \\M_1\\, has \\p_0 = p - q\\ free parameters, then when \\M_0\\ is true, \\\Lambda = 2\mathopen{}\left(\ell\_{M_1}(\hat\theta\_{\text{ML}}) - \ell\_{M_0}(\hat\theta_0)\right)\mathclose{}\\ converges in distribution to \\\chi^2_q\\.
 
 > **NOTE:**
 >
@@ -613,7 +623,9 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 
 Table 2: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
 
-The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 9](#thm-dist-mle), Gaussian or not.
+> **NOTE:**
+>
+> *Remark 6* (Exact and approximate tests). The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 9](#thm-dist-mle), Gaussian or not.
 
 #### 1.9.5 Prediction intervals
 
@@ -635,7 +647,7 @@ Usually \\m = 1\\. The term \\1/n\\ accounts for the uncertainty in \\\hat\mu\\,
 
 > **NOTE:**
 >
-> *Remark 1* (Prediction intervals versus confidence intervals). A [confidence interval](inference.llms.md#def-confidence-interval) covers a fixed parameter, such as the mean \\\mu\\. A prediction interval ([Definition 15](#def-prediction-interval)) covers a random quantity, such as a new outcome, or, in the example above, the mean \\\bar X^\*\\ of \\m\\ new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.
+> *Remark 7* (Prediction intervals versus confidence intervals). A [confidence interval](inference.llms.md#def-confidence-interval) covers a fixed parameter, such as the mean \\\mu\\. A prediction interval ([Definition 15](#def-prediction-interval)) covers a random quantity, such as a new outcome, or, in the example above, the mean \\\bar X^\*\\ of \\m\\ new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.
 >
 > In the Gaussian example above, the standard error of \\\hat\mu = \bar X\\ is \\\sigma / \sqrt{n}\\, so the two intervals, the [Wald confidence interval](#def-wald-ci) for \\\mu\\ and the prediction interval for \\\bar X^\*\\, are
 >
@@ -1436,9 +1448,13 @@ Substituting the maximizer \\\mu = \bar x\\, which does not depend on \\\sigma^2
 
 The profile log-likelihood, \\\ell_p(\sigma^2) = -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{n\hat\sigma^2\_{\text{ML}}}{2\sigma^2}\\, increases for \\\sigma^2 \< \hat\sigma^2\_{\text{ML}}\\ and decreases for \\\sigma^2 \> \hat\sigma^2\_{\text{ML}}\\, because its derivative, \\\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\mathopen{}\left(\hat\sigma^2\_{\text{ML}} - \sigma^2\right)\mathclose{}\\, has the sign of \\\hat\sigma^2\_{\text{ML}} - \sigma^2\\. So \\(\bar x, \hat\sigma^2\_{\text{ML}})\\ is the global maximizer, provided the \\x_i\\ are not all equal.
 
-Differentiating with respect to \\\sigma^2\\ as a single variable, rather than with respect to \\\sigma\\, keeps the algebra short. Replacing \\\sigma^2\\ with the precision \\\tau \stackrel{\text{def}}{=}1/\sigma^2\\ and differentiating with respect to \\\tau\\ can be shorter still, because \\\tau\\ enters the log-likelihood as \\\frac{n}{2}\log\tau - \frac{\tau}{2}\sum\_{i=1}^n (x_i - \mu)^2\\. By the invariance of maximum likelihood estimates, \\\hat\tau\_{\text{ML}} = 1/\hat\sigma^2\_{\text{ML}}\\.
+> **NOTE:**
+>
+> *Remark 8* (Differentiating with respect to the variance or the precision). Differentiating with respect to \\\sigma^2\\ as a single variable, rather than with respect to \\\sigma\\, keeps the algebra short. Replacing \\\sigma^2\\ with the precision \\\tau \stackrel{\text{def}}{=}1/\sigma^2\\ and differentiating with respect to \\\tau\\ can be shorter still, because \\\tau\\ enters the log-likelihood as \\\frac{n}{2}\log\tau - \frac{\tau}{2}\sum\_{i=1}^n (x_i - \mu)^2\\. By the invariance of maximum likelihood estimates, \\\hat\tau\_{\text{ML}} = 1/\hat\sigma^2\_{\text{ML}}\\.
 
-This MLE divides by \\n\\, so it is a biased estimator of \\\sigma^2\\ ([bias of the divide-by-\\n\\ estimator](estimation.llms.md#exm-biased-variance-mle)).
+> **NOTE:**
+>
+> *Remark 9* (The Gaussian variance MLE is biased). This MLE divides by \\n\\, so it is a biased estimator of \\\sigma^2\\ ([bias of the divide-by-\\n\\ estimator](estimation.llms.md#exm-biased-variance-mle)).
 
 ### 3.4 Second derivatives
 
@@ -1788,7 +1804,9 @@ ggplot2::ggplot() +
 
 Figure 20: Power of the test of \\H_0: \mu = 95\\ against \\\mu_1 = 100\\ mg/dL, by sample size
 
-The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat\mu\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed ([Hoenig and Heisey 2001](#ref-hoenig2001abuse)).
+> **NOTE:**
+>
+> *Remark 10* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat\mu\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed ([Hoenig and Heisey 2001](#ref-hoenig2001abuse)).
 
 ### 4.7 Simulation
 

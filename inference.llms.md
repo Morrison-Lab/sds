@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 ## 1 Inference
 
@@ -64,13 +64,17 @@ There are two predominant paradigms for statistical inference:
 >
 > If the null hypothesis allows more than one distribution (a *composite* null hypothesis, such as \\H_0: \mu_1 = \mu_0\\ with unknown variances), the p-value is the largest such probability over those distributions, or an approximation to it.
 
-A p-value is computed assuming \\H_0\\ is true, so it is not the probability that \\H_0\\ is true given the data.
+> **NOTE:**
+>
+> *Remark 1* (A p-value is not the probability that the null hypothesis is true). A p-value is computed assuming \\H_0\\ is true, so it is not the probability that \\H_0\\ is true given the data.
 
 > **NOTE:**
 >
 > **Definition 7 (Significance level)** A hypothesis test with **significance level** \\\alpha\\ rejects the [null hypothesis](#def-null-hypothesis) when the [p-value](#def-p-value) is at most \\\alpha\\.
 
-\\\alpha = 0.05\\ is a common convention, not a rule. When \\H_0\\ is true and the p-value is computed exactly, a test with significance level \\\alpha\\ rejects \\H_0\\ with probability at most \\\alpha\\; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.
+> **NOTE:**
+>
+> *Remark 2* (Choosing a significance level). \\\alpha = 0.05\\ is a common convention, not a rule. When \\H_0\\ is true and the p-value is computed exactly, a test with significance level \\\alpha\\ rejects \\H_0\\ with probability at most \\\alpha\\; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.
 
 > **NOTE:**
 >

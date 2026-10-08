@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-07 17:50:26 (PDT)</p>
+  <p class="date">Last modified: 2026-10-07 20:21:34 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -386,18 +386,10 @@ text-align: center;
 <p><span class="math display">\[\rho \stackrel{\text{def}}{=}\frac{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}{\sqrt{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} \operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}},\]</span></p>
 <p>where <span class="math inline">\(\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}\)</span> is their <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-cov">covariance</a>.</p>
 </div>
-<aside class="notes"><p>The <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> <span class="math inline">\(r\)</span> of a sample is the corresponding sample statistic, and estimates <span class="math inline">\(\rho\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section class="slide level2"><div id="def-pearson-test" class="theorem definition">
+</section><section class="slide level2"><div id="rem-sample-correlation-estimates-rho" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (The sample correlation estimates the population correlation). </span>The <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> <span class="math inline">\(r\)</span> of a sample is the corresponding sample statistic, and estimates <span class="math inline">\(\rho\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="def-pearson-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Test of zero correlation)</strong></span> Let <span class="math inline">\(r\)</span> be the <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> of <span class="math inline">\(n \ge 3\)</span> pairs, with <span class="math inline">\(\mathopen{}\left|r\right|\mathclose{} &lt; 1\)</span>. The <strong>t-test of zero correlation</strong> of <span class="math inline">\(H_0: \rho = 0\)</span> against <span class="math inline">\(H_1: \rho \neq 0\)</span> (<a href="#/def-population-correlation" class="quarto-xref">Definition&nbsp;1</a>) uses the statistic</p>
 <p><span class="math display">\[t \stackrel{\text{def}}{=}\frac{r \sqrt{n - 2}}{\sqrt{1 - r^2}}.\]</span></p>
 <p>Its p-value is <span class="math inline">\(\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t\right|\mathclose{})\)</span>, where <span class="math inline">\(T\)</span> has the <span class="math inline">\(t_{n-2}\)</span> distribution (<a href="./inference.html#def-t-dist">t-distribution</a>).</p>
@@ -408,18 +400,10 @@ text-align: center;
 t \sim t_{n-2}.
 \]</span></p>
 </div>
-<aside class="notes"><p>The conditions of <a href="#/thm-pearson-test-null" class="quarto-xref">Theorem&nbsp;1</a> hold, for example, when the pairs are independent draws from a bivariate Gaussian distribution with <span class="math inline">\(\rho = 0\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section class="slide level2"><div id="exm-hers-cor" class="theorem example">
+</section><section class="slide level2"><div id="rem-pearson-test-conditions" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (When the conditions hold). </span>The conditions of <a href="#/thm-pearson-test-null" class="quarto-xref">Theorem&nbsp;1</a> hold, for example, when the pairs are independent draws from a bivariate Gaussian distribution with <span class="math inline">\(\rho = 0\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-hers-cor" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Correlation between BMI and fasting glucose in HERS)</strong></span> <a href="#/fig-hers-scatter" class="quarto-xref">Figure&nbsp;1</a> plots baseline fasting glucose against BMI.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI)) <span class="sc">|&gt;</span></span>
@@ -482,18 +466,10 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
 r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\right)\mathclose{}.
 \]</span></p>
 </div>
-<aside class="notes"><p>Because ranks depend only on the ordering of the values, <span class="math inline">\(r_S\)</span> measures how close the association is to monotone, whether or not it is linear, and a single extreme value moves <span class="math inline">\(r_S\)</span> less than it moves <span class="math inline">\(r\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section class="slide level2"><div id="exm-hers-spearman" class="theorem example">
+</section><section class="slide level2"><div id="rem-spearman-monotone" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (What the Spearman correlation measures). </span>Because ranks depend only on the ordering of the values, <span class="math inline">\(r_S\)</span> measures how close the association is to monotone, whether or not it is linear, and a single extreme value moves <span class="math inline">\(r_S\)</span> less than it moves <span class="math inline">\(r\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-hers-spearman" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Spearman correlation between BMI and fasting glucose in HERS)</strong></span> The Pearson correlation of the ranks (<a href="#/def-spearman-r" class="quarto-xref">Definition&nbsp;3</a>), and <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code>’s Spearman test (<code>exact = FALSE</code>, because tied values rule out the exact p-value):</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>hers_bmi <span class="ot">&lt;-</span> hers <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(BMI))</span>
@@ -702,7 +678,7 @@ f_{\varepsilon}(t)
 <p><span class="math display">\[\mu(x) \stackrel{\text{def}}{=}\beta_{0}+ \beta_{x} x.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-slr-parameters" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Interpreting the parameters). </span></p>
+<p><span class="proof-title"><em>Remark 4</em> (Interpreting the parameters). </span></p>
 <ul>
 <li>
 <span class="math inline">\(\beta_{0}= \mu(0)\)</span> is the <strong>intercept</strong>: the mean of <span class="math inline">\(Y\)</span> among observations with <span class="math inline">\(X = 0\)</span>.</li>
@@ -824,7 +800,7 @@ n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
 <p><span class="proof-title"><em>Proof</em>. </span>Both equations are derived in <a href="#/exr-mse-rss" class="quarto-xref">Exercise&nbsp;3</a>.</p>
 </div>
 <div id="rem-mse-rss" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (The same observations on both sides). </span>The identities in <a href="#/thm-mse-rss" class="quarto-xref">Theorem&nbsp;4</a> need the mean squared error and the residual sum of squares to be taken over the same <span class="math inline">\(n\)</span> observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by <span class="math inline">\(n\)</span> gives the mean squared error on the fitting data, not the mean squared error of predictions of new outcomes.</p>
+<p><span class="proof-title"><em>Remark 5</em> (The same observations on both sides). </span>The identities in <a href="#/thm-mse-rss" class="quarto-xref">Theorem&nbsp;4</a> need the mean squared error and the residual sum of squares to be taken over the same <span class="math inline">\(n\)</span> observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by <span class="math inline">\(n\)</span> gives the mean squared error on the fitting data, not the mean squared error of predictions of new outcomes.</p>
 </div>
 </section><section class="slide level2"><div id="def-ols" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Ordinary least squares)</strong></span> The <strong>ordinary least squares (OLS) estimate</strong> of a model’s parameter vector <span class="math inline">\(\tilde{\theta}\)</span> is the value of <span class="math inline">\(\tilde{\theta}\)</span> that minimizes the <a href="#/def-rss">residual sum of squares</a>:</p>
@@ -1816,18 +1792,10 @@ Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
 <p><span class="theorem-title"><strong>Definition 15 (Coefficient of determination)</strong></span> The <strong>coefficient of determination</strong> of a model fitted with parameter estimate <span class="math inline">\(\hat{\tilde{\theta}}\)</span> is one minus the ratio of its <a href="#/def-rss">residual sum of squares</a> at <span class="math inline">\(\hat{\tilde{\theta}}\)</span> to the <a href="#/def-tss">total sum of squares</a> of its outcomes:</p>
 <p><span class="math display">\[R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}}.\]</span></p>
 </div>
-<aside class="notes"><p><span class="math inline">\(R^2\)</span> is often described as the proportion of the variation in <span class="math inline">\(Y\)</span> explained by the regression on <span class="math inline">\(X\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section class="slide level2"><div id="exr-rss-ols-fit" class="theorem exercise">
+</section><section class="slide level2"><div id="rem-r-squared-interpretation" class="proof remark">
+<p><span class="proof-title"><em>Remark 6</em> (Interpreting the coefficient of determination). </span><span class="math inline">\(R^2\)</span> is often described as the proportion of the variation in <span class="math inline">\(Y\)</span> explained by the regression on <span class="math inline">\(X\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exr-rss-ols-fit" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 16 (Residual sum of squares of the OLS fit)</strong></span> Assuming <span class="math inline">\(S_{xx} &gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;12</a>), write the <a href="#/def-rss">residual sum of squares</a> at the OLS estimates (<a href="#/thm-ols-slr" class="quarto-xref">Theorem&nbsp;5</a>), <span class="math inline">\(\text{RSS}(\hat{\beta}_{0}, \hat{\beta}_{x}) = \sum_{i=1}^nr_i^2\)</span>, in terms of <span class="math inline">\(S_{xx}\)</span>, <span class="math inline">\(S_{yy}\)</span> and <span class="math inline">\(S_{xy}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-rss-ols-fit" class="proof solution">

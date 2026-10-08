@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 ## 1 Introduction
 
@@ -152,7 +152,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > \\ \begin{aligned} \frac{Z}{\sqrt{V/(n-1)}} &= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{\sqrt{S^2 / \sigma^2}} && \text{(substitute \$Z\$ and \$V\$)}\\ &= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{S / \sigma} && \text{(\$\sqrt{S^2} = S\$, since \$S \ge 0\$)}\\ &= \frac{\bar X - \mu_0}{S / \sqrt{n}} && \text{(the factors of \$\sigma\$ cancel)}\\ &= T. \end{aligned} \\
 
-When the observations are not Gaussian, \\T\\ still has approximately the standard Gaussian distribution when \\n\\ is large, by the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), and then \\t\_{n-1}\\ is close to the standard Gaussian distribution ([t quantiles approach Gaussian quantiles](inference.llms.md#exm-t-dist)).
+> **NOTE:**
+>
+> *Remark 1* (Non-Gaussian data). When the observations are not Gaussian, \\T\\ still has approximately the standard Gaussian distribution when \\n\\ is large, by the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), and then \\t\_{n-1}\\ is close to the standard Gaussian distribution ([t quantiles approach Gaussian quantiles](inference.llms.md#exm-t-dist)).
 
 ### 4.3 Paired t-test
 
@@ -214,7 +216,9 @@ When the observations are not Gaussian, \\T\\ still has approximately the standa
 >
 > Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat\nu}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 
-Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat\nu}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
+> **NOTE:**
+>
+> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat\nu}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
 
 > **NOTE:**
 >
@@ -302,7 +306,9 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 >
 > **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance \\\sigma^2\\. Then \\t_p\\ ([Definition 5](#def-pooled-t-test)), computed from these random variables, has the \\t\_{n_1 + n_2 - 2}\\ distribution ([Hogg et al. 2019, sec. 8.2](#ref-hoggtanis2015), p. 371).
 
-[Theorem 2](#thm-pooled-t-null) needs equal variances in the two groups, and Welch’s test ([Definition 3](#def-two-sample-t-test)) does not, so these notes use Welch’s test by default.
+> **NOTE:**
+>
+> *Remark 3* (The equal-variance assumption). [Theorem 2](#thm-pooled-t-null) needs equal variances in the two groups, and Welch’s test ([Definition 3](#def-two-sample-t-test)) does not, so these notes use Welch’s test by default.
 
 > **NOTE:**
 >
@@ -388,7 +394,9 @@ Welch’s test does not assume that the two groups have equal variances. Even fo
 >
 > Its p-value is \\\Pr(F^\* \ge F)\\, where \\F^\*\\ has the \\F\_{k-1,\\ n-k}\\ distribution ([F-distribution](inference.llms.md#def-f-dist)).
 
-Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares), \\F = 13.5 / 1 = 13.5\\.
+> **NOTE:**
+>
+> *Remark 4* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares), \\F = 13.5 / 1 = 13.5\\.
 
 > **NOTE:**
 >
@@ -440,16 +448,18 @@ Large values of \\F\\ mean that the group means are spread out more than the var
 >
 > The p-value is far below 0.05: mean fasting glucose differs among the three race/ethnicity groups.
 
-The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of [Theorem 3](#thm-anova-null) is questionable. [`oneway.test()`](https://rdrr.io/r/stats/oneway.test.html) performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:
-
-``` downlit
-oneway.test(glucose ~ raceth, data = hers)
-#> 
-#>  One-way analysis of means (not assuming equal variances)
-#> 
-#> data:  glucose and raceth
-#> F = 12.49, num df = 2.0, denom df = 185.7, p-value = 8.17e-06
-```
+> **NOTE:**
+>
+> *Remark 5* (Unequal variances in the HERS glucose groups). The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of [Theorem 3](#thm-anova-null) is questionable. [`oneway.test()`](https://rdrr.io/r/stats/oneway.test.html) performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:
+>
+> ``` downlit
+> oneway.test(glucose ~ raceth, data = hers)
+> #> 
+> #>  One-way analysis of means (not assuming equal variances)
+> #> 
+> #> data:  glucose and raceth
+> #> F = 12.49, num df = 2.0, denom df = 185.7, p-value = 8.17e-06
+> ```
 
 One-way ANOVA is a special case of linear regression: it is the F-test comparing a linear regression model with a single categorical predictor to the model with an intercept only ([Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-understand-LMs)). [`lm()`](https://rdrr.io/r/stats/lm.html) gives the same F statistic as [`aov()`](https://rdrr.io/r/stats/aov.html):
 

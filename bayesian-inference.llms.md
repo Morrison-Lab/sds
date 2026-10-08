@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)).
 
@@ -36,7 +36,9 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > Under this prior, the prior probability that fewer than 10% of adults smoke is \\\Pr(\pi \< 0.1) = \int_0^{0.1} 1 \\ d\pi = 0.1\\.
 
-The two paradigms answer different questions. A frequentist asks, “for which parameter values would these data be unsurprising?”; a Bayesian asks, “given these data, what should I now believe about the parameter?”. Neither question is wrong, and they call for different machinery.
+> **NOTE:**
+>
+> *Remark 1* (Two paradigms, two questions). The two paradigms answer different questions. A frequentist asks, “for which parameter values would these data be unsurprising?”; a Bayesian asks, “given these data, what should I now believe about the parameter?”. Neither question is wrong, and they call for different machinery.
 
 ## 2 Bayes’ theorem for parameters
 
@@ -270,7 +272,9 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 >
 > **Definition 10 (Informative prior)** An **informative prior** is a [prior](#def-prior) that concentrates its probability in a region of the parameter space singled out by knowledge from outside the current data, such as previous studies, biological limits, or expert judgment.
 
-An informative prior pulls the posterior toward its region, most strongly when the data are sparse.
+> **NOTE:**
+>
+> *Remark 2* (An informative prior pulls the posterior). An informative prior pulls the posterior toward its region, most strongly when the data are sparse.
 
 > **NOTE:**
 >
@@ -337,7 +341,9 @@ An informative prior pulls the posterior toward its region, most strongly when t
 >
 > *Proof*. By [Corollary 1](#cor-bayes-proportional), \\\operatorname{p}(\theta \mid \tilde{y}) \propto \mathcal{L}(\theta)\\ \operatorname{p}(\theta)\\, and \\\operatorname{p}(\theta)\\ is the same constant for every \\\theta \in \Theta\\. Multiplying a function by a positive constant does not change where it is maximized.
 
-A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improper](#def-improper-prior), so it does not define a joint distribution of \\\theta\\ and \\\tilde{Y}\\, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
+> **NOTE:**
+>
+> *Remark 3* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improper](#def-improper-prior), so it does not define a joint distribution of \\\theta\\ and \\\tilde{Y}\\, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
 
 > **NOTE:**
 >
@@ -349,7 +355,9 @@ A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improp
 >
 > **Definition 14 (Skeptical prior)** A **skeptical prior** is an [informative prior](#def-informative-prior) centered on the parameter value that represents no effect, and concentrated near that value ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 277).
 
-A skeptical prior asks how strong the data must be to overturn a default of no effect.
+> **NOTE:**
+>
+> *Remark 4* (What a skeptical prior asks). A skeptical prior asks how strong the data must be to overturn a default of no effect.
 
 > **NOTE:**
 >
@@ -379,7 +387,9 @@ A skeptical prior asks how strong the data must be to overturn a default of no e
 >
 > **Definition 15 (Hierarchical model)** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
 
-A hierarchical model is a model structure, not an inference method: it can be fit by maximum likelihood or by Bayesian inference. Bayesian inference also gives the further unknown parameters a prior (a *hyperprior*).
+> **NOTE:**
+>
+> *Remark 5* (A hierarchical model is a model structure). A hierarchical model is a model structure, not an inference method: it can be fit by maximum likelihood or by Bayesian inference. Bayesian inference also gives the further unknown parameters a prior (a *hyperprior*).
 
 > **NOTE:**
 >

@@ -336,7 +336,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-07 17:50:26 (PDT)</p>
+  <p class="date">Last modified: 2026-10-07 20:21:34 (PDT)</p>
 </section><section id="empirical-cdf" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical CDF</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -432,18 +432,10 @@ text-align: center;
 <span id="cb1-3"><a aria-label="3"></a><span class="co">#&gt;   3   7</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<aside id="quantile-conventions" class="notes"><p>Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> offers nine definitions through its <code>type</code> argument, and its default (<code>type = 7</code>) interpolates, so <code>quantile(c(4, 1, 7, 3), 0.5)</code> returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use <a href="#/def-sample-quantile" class="quarto-xref">Definition&nbsp;3</a>, which always returns one of the observed values.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="the-empirical-cdf-and-quantile-function-as-generalized-inverses" class="slide level2" data-number="4"><h2>
+</section><section class="slide level2"><div id="rem-quantile-conventions" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Quantile conventions). </span>Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> offers nine definitions through its <code>type</code> argument, and its default (<code>type = 7</code>) interpolates, so <code>quantile(c(4, 1, 7, 3), 0.5)</code> returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use <a href="#/def-sample-quantile" class="quarto-xref">Definition&nbsp;3</a>, which always returns one of the observed values.</p>
+</div>
+</section><section id="the-empirical-cdf-and-quantile-function-as-generalized-inverses" class="slide level2" data-number="4"><h2>
 <span class="header-section-number">4</span> The empirical CDF and quantile function as generalized inverses</h2>
 <div id="fig-ecdf-sample-quantile-example" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-ecdf-sample-quantile-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

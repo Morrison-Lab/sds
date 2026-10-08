@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page.
 
@@ -356,7 +356,9 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 >
 > \\ D(\tilde{\theta}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\tilde{y}\mid \tilde{\theta}). \\
 
-This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on \\\tilde{\theta}\\, so the two differ by a constant that cancels in comparisons between models of the same data.
+> **NOTE:**
+>
+> *Remark 1* (Bayesian deviance and the generalized linear model deviance). This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on \\\tilde{\theta}\\, so the two differ by a constant that cancels in comparisons between models of the same data.
 
 > **NOTE:**
 >
@@ -403,7 +405,9 @@ The term \\D(\bar{\tilde{\theta}})\\ rewards fit, while \\p_D\\ penalizes comple
 >
 > The model has one parameter, and its effective number of parameters \\p_D\\ is close to 1.
 
-DIC should be used with care: it can behave poorly for models with weakly identified parameters or markedly non-Gaussian posteriors ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306).
+> **NOTE:**
+>
+> *Remark 2* (Cautions about DIC). DIC should be used with care: it can behave poorly for models with weakly identified parameters or markedly non-Gaussian posteriors ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306).
 
 ## References
 

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
@@ -33,7 +33,9 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > **Definition 1 (Bootstrap sample)** A **bootstrap sample** from observed data \\x_1, \ldots, x_n\\ is a sample of size \\n\\ drawn with replacement from \\\mathopen{}\left\\x_1, \ldots, x_n\right\\\mathclose{}\\, each draw choosing each of the \\n\\ observations with probability \\1/n\\.
 
-Because the draws are with replacement, a bootstrap sample usually contains some observations more than once and omits others.
+> **NOTE:**
+>
+> *Remark 1* (Repeated observations in a bootstrap sample). Because the draws are with replacement, a bootstrap sample usually contains some observations more than once and omits others. For example, a bootstrap sample from the data \\1, 2, 3\\ might be \\2, 2, 3\\.
 
 > **NOTE:**
 >
@@ -61,7 +63,9 @@ Because the draws are with replacement, a bootstrap sample usually contains some
 >
 > **Definition 2 (Bootstrap distribution)** Let \\\hat\theta\\ be a statistic computed from the observed data. Draw \\B\\ independent [bootstrap samples](#def-bootstrap-sample), and compute the statistic on each one, giving \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\. The **bootstrap distribution** of \\\hat\theta\\ is the empirical distribution of \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\.
 
-The bootstrap distribution estimates the sampling distribution of \\\hat\theta\\. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.
+> **NOTE:**
+>
+> *Remark 2* (What the bootstrap distribution estimates). The bootstrap distribution estimates the sampling distribution of \\\hat\theta\\. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.
 
 > **NOTE:**
 >
@@ -116,7 +120,9 @@ There are three common methods for turning a bootstrap distribution into a \\100
 >
 > where \\\widehat{\text{SE}}\_\text{boot}\\ is the bootstrap standard error ([Definition 3](#def-bootstrap-se)).
 
-This interval assumes that the sampling distribution of \\\hat\theta\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the next two intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
+> **NOTE:**
+>
+> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the sampling distribution of \\\hat\theta\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
 
 > **NOTE:**
 >
@@ -135,7 +141,9 @@ This interval assumes that the sampling distribution of \\\hat\theta\\ is approx
 >
 > **Definition 5 (Percentile bootstrap confidence interval)** The **percentile bootstrap confidence interval** runs from the \\\alpha/2\\ quantile to the \\1 - \alpha/2\\ quantile of the bootstrap replicates \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)).
 
-The extreme quantiles of \\B\\ replicates are noisy estimates, so percentile-based intervals need more replicates than the normal interval; \\B\\ of at least \\1{,}000\\ is a common choice.
+> **NOTE:**
+>
+> *Remark 4* (Number of bootstrap replicates for percentile intervals). The extreme quantiles of \\B\\ replicates are noisy estimates, so percentile-based intervals need more replicates than the [normal interval](#def-bootstrap-ci-normal); \\B\\ of at least \\1{,}000\\ is a common choice.
 
 > **NOTE:**
 >
@@ -181,7 +189,9 @@ The extreme quantiles of \\B\\ replicates are noisy estimates, so percentile-bas
 >
 > The **bias-corrected and accelerated (BCa) bootstrap confidence interval** runs from the \\\alpha\_{\alpha/2}\\ quantile to the \\\alpha\_{1 - \alpha/2}\\ quantile of the bootstrap replicates ([Efron and Tibshirani 1993, chap. 14](#ref-efron1993introduction)).
 
-When \\\hat{z}\_0 = 0\\ and \\\hat{a} = 0\\, \\\alpha_q = q\\ and the BCa interval is the percentile interval ([Definition 5](#def-bootstrap-ci-percentile)). \\\hat{z}\_0\\ measures how far the bootstrap distribution’s median sits from \\\hat\theta\\, and \\\hat{a}\\ measures its skewness, so the BCa interval shifts the percentile interval to correct for both.
+> **NOTE:**
+>
+> *Remark 5* (What the BCa interval corrects). When \\\hat{z}\_0 = 0\\ and \\\hat{a} = 0\\, \\\alpha_q = q\\ and the BCa interval is the percentile interval ([Definition 5](#def-bootstrap-ci-percentile)). \\\hat{z}\_0\\ measures how far the bootstrap distribution’s median sits from \\\hat\theta\\, and \\\hat{a}\\ measures its skewness, so the BCa interval shifts the percentile interval to correct for both.
 
 > **NOTE:**
 >

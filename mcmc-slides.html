@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-07 17:50:26 (PDT)</p>
+  <p class="date">Last modified: 2026-10-07 20:21:34 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -708,18 +708,10 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^m \mathopen{}\left(\ba
 D(\tilde{\theta}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\tilde{y}\mid \tilde{\theta}).
 \]</span></p>
 </div>
-<aside class="notes"><p>This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on <span class="math inline">\(\tilde{\theta}\)</span>, so the two differ by a constant that cancels in comparisons between models of the same data.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section class="slide level2"><div id="def-effective-parameters" class="theorem definition">
+</section><section class="slide level2"><div id="rem-bayes-deviance-constant" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Bayesian deviance and the generalized linear model deviance). </span>This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on <span class="math inline">\(\tilde{\theta}\)</span>, so the two differ by a constant that cancels in comparisons between models of the same data.</p>
+</div>
+</section><section class="slide level2"><div id="def-effective-parameters" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 15 (Effective number of parameters)</strong></span> Let <span class="math inline">\(\overline{D} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[D(\tilde{\theta}) \mid \tilde{y}\right]\mathclose{}\)</span> be the posterior mean of the <a href="#/def-bayes-deviance">deviance</a>, and let <span class="math inline">\(\bar{\tilde{\theta}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\tilde{\theta}\mid \tilde{y}\right]\mathclose{}\)</span> be the posterior mean of the parameters. The <strong>effective number of parameters</strong> is</p>
 <p><span class="math display">\[
 p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}).
@@ -769,18 +761,10 @@ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}).
 </div>
 <p>The model has one parameter, and its effective number of parameters <span class="math inline">\(p_D\)</span> is close to 1.</p>
 </div>
-<aside class="notes"><p>DIC should be used with care: it can behave poorly for models with weakly identified parameters or markedly non-Gaussian posteriors <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;306)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
+</section><section class="slide level2"><div id="rem-dic-caveats" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Cautions about DIC). </span>DIC should be used with care: it can behave poorly for models with weakly identified parameters or markedly non-Gaussian posteriors <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;306)</span>.</p>
+</div>
+</section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-CaseBerg01" class="csl-entry" role="listitem">
 Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.

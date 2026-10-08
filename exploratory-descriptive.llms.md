@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 ## 1 Introduction
 
@@ -202,7 +202,9 @@ dplyr::glimpse(wcgs)
 >
 > \\s \stackrel{\text{def}}{=}\sqrt{s^2}\\
 
-The standard deviation has the same units as the observations, which makes it easier to interpret than the variance, whose units are squared.
+> **NOTE:**
+>
+> *Remark 1* (Units of the standard deviation). The standard deviation has the same units as the observations, which makes it easier to interpret than the variance, whose units are squared.
 
 > **NOTE:**
 >
@@ -221,7 +223,9 @@ The standard deviation has the same units as the observations, which makes it ea
 >
 > **Definition 5 (Quartiles)** The **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\ are the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)), also called the 25th and 75th percentiles.
 
-With an odd number of observations, the sample 0.5 quantile equals the [sample median](#def-sample-median); with an even number they can differ, because the median averages the two middle order statistics. Software packages compute quartiles with different quantile definitions, so they can disagree slightly for the same data ([quantile conventions](nonparametric-models.llms.md#quantile-conventions)); R’s `quantile(type = 1)` matches these notes’ definition, and R’s default, `type = 7`, interpolates.
+> **NOTE:**
+>
+> *Remark 2* (Quartiles in software). With an odd number of observations, the sample 0.5 quantile equals the [sample median](#def-sample-median); with an even number they can differ, because the median averages the two middle order statistics. Software packages compute quartiles with different quantile definitions, so they can disagree slightly for the same data ([quantile conventions](nonparametric-models.llms.md#rem-quantile-conventions)); R’s `quantile(type = 1)` matches this definition, and R’s default, `type = 7`, interpolates.
 
 > **NOTE:**
 >
@@ -329,7 +333,9 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 >
 > **Definition 8 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.
 
-The intervals are often called *bins*.
+> **NOTE:**
+>
+> **Definition 9 (Bin)** A **bin** of a histogram is one of its intervals.
 
 Show R code
 
@@ -351,7 +357,7 @@ Figure 1: Histogram of total cholesterol in the WCGS dataset
 
 > **NOTE:**
 >
-> **Definition 9 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
+> **Definition 10 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
 
 Show R code
 
@@ -371,14 +377,16 @@ Figure 2: Density plot of total cholesterol in the WCGS dataset
 
 > **NOTE:**
 >
-> **Definition 10 (Box plot)** A **box plot** (or box-and-whisker plot) summarizes the distribution of a continuous variable:
+> **Definition 11 (Box plot)** A **box plot** (or box-and-whisker plot) summarizes the distribution of a continuous variable:
 >
 > - the box spans the first to the third [quartile](#def-quartiles), so its length is the [IQR](#def-IQR);
 > - a line inside the box marks the [median](#def-sample-median);
 > - the whiskers extend from the box to the most extreme observations within \\1.5 \times \text{IQR}\\ of the box;
 > - observations beyond the whiskers are plotted individually, as potential outliers.
 
-The \\1.5 \times \text{IQR}\\ whisker rule is the default in R’s [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html) and [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html); other software and authors use other rules, such as whiskers that run to the minimum and maximum.
+> **NOTE:**
+>
+> *Remark 3* (Whisker rules). The \\1.5 \times \text{IQR}\\ whisker rule is the default in R’s [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html) and [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html); other software and authors use other rules, such as whiskers that run to the minimum and maximum.
 
 Show R code
 
@@ -399,7 +407,7 @@ Figure 3: Box plot of total cholesterol in the WCGS dataset
 
 > **NOTE:**
 >
-> **Definition 11 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
+> **Definition 12 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
 
 Show R code
 
@@ -419,7 +427,7 @@ Figure 4: Bar chart of behavioral pattern in the WCGS dataset
 
 > **NOTE:**
 >
-> **Definition 12 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
+> **Definition 13 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
 
 Show R code
 
@@ -444,7 +452,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 13 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
+> **Definition 14 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
 
 Show R code
 
@@ -463,7 +471,7 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 
 > **NOTE:**
 >
-> **Definition 14 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
+> **Definition 15 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
 >
 > \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})} {\sqrt{\sum\_{i=1}^n (x_i - \bar{x})^2} \sqrt{\sum\_{i=1}^n (y_i - \bar{y})^2}}\\
 >
@@ -554,7 +562,7 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 
 > **NOTE:**
 >
-> **Definition 15 (Contingency table)** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
+> **Definition 16 (Contingency table)** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
 >
 > |              | Outcome = 1 | Outcome = 0 |   Total   |
 > |--------------|:-----------:|:-----------:|:---------:|
@@ -689,7 +697,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 16 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
+> **Definition 17 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
 >
@@ -699,7 +707,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Remark 1* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
+> *Remark 4* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
 
 > **NOTE:**
 >
@@ -729,7 +737,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 17 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
+> **Definition 18 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
 >
@@ -739,7 +747,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Remark 2* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+> *Remark 5* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
 >
 > Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
 

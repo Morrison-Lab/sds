@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 17:50:26 (PDT)
+Last modified: 2026-10-07 20:21:34 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -29,7 +29,9 @@ hers |> head()
 >
 > where \\\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}\\ is their [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
 
-The [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ of a sample is the corresponding sample statistic, and estimates \\\rho\\.
+> **NOTE:**
+>
+> *Remark 1* (The sample correlation estimates the population correlation). The [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ of a sample is the corresponding sample statistic, and estimates \\\rho\\.
 
 > **NOTE:**
 >
@@ -45,7 +47,9 @@ The [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearso
 >
 > \\ t \sim t\_{n-2}. \\
 
-The conditions of [Theorem 1](#thm-pearson-test-null) hold, for example, when the pairs are independent draws from a bivariate Gaussian distribution with \\\rho = 0\\.
+> **NOTE:**
+>
+> *Remark 2* (When the conditions hold). The conditions of [Theorem 1](#thm-pearson-test-null) hold, for example, when the pairs are independent draws from a bivariate Gaussian distribution with \\\rho = 0\\.
 
 > **NOTE:**
 >
@@ -109,7 +113,9 @@ The conditions of [Theorem 1](#thm-pearson-test-null) hold, for example, when t
 >
 > \\ r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\right)\mathclose{}. \\
 
-Because ranks depend only on the ordering of the values, \\r_S\\ measures how close the association is to monotone, whether or not it is linear, and a single extreme value moves \\r_S\\ less than it moves \\r\\.
+> **NOTE:**
+>
+> *Remark 3* (What the Spearman correlation measures). Because ranks depend only on the ordering of the values, \\r_S\\ measures how close the association is to monotone, whether or not it is linear, and a single extreme value moves \\r_S\\ less than it moves \\r\\.
 
 > **NOTE:**
 >
@@ -247,7 +253,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> *Remark 1* (Interpreting the parameters).
+> *Remark 4* (Interpreting the parameters).
 >
 > - \\\beta\_{0}= \mu(0)\\ is the **intercept**: the mean of \\Y\\ among observations with \\X = 0\\.
 > - \\\beta\_{x} = \mu(x + 1) - \mu(x)\\ is the **slope**: the difference in the mean of \\Y\\ between two groups whose values of \\X\\ differ by one unit.
@@ -328,7 +334,7 @@ Because ranks depend only on the ordering of the values, \\r_S\\ measures how cl
 
 > **NOTE:**
 >
-> *Remark 2* (The same observations on both sides). The identities in [Theorem 4](#thm-mse-rss) need the mean squared error and the residual sum of squares to be taken over the same \\n\\ observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by \\n\\ gives the mean squared error on the fitting data, not the mean squared error of predictions of new outcomes.
+> *Remark 5* (The same observations on both sides). The identities in [Theorem 4](#thm-mse-rss) need the mean squared error and the residual sum of squares to be taken over the same \\n\\ observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by \\n\\ gives the mean squared error on the fitting data, not the mean squared error of predictions of new outcomes.
 
 > **NOTE:**
 >
@@ -785,7 +791,9 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > \\R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}}.\\
 
-\\R^2\\ is often described as the proportion of the variation in \\Y\\ explained by the regression on \\X\\.
+> **NOTE:**
+>
+> *Remark 6* (Interpreting the coefficient of determination). \\R^2\\ is often described as the proportion of the variation in \\Y\\ explained by the regression on \\X\\.
 
 > **NOTE:**
 >
