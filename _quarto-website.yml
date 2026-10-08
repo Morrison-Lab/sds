@@ -228,7 +228,6 @@ format:
     code-fold: true
     code-tools: true
     code-link: true
-    code-line-numbers: true
     code-summary: "Show R code"
     highlight-style: arrow
     lightbox: true
