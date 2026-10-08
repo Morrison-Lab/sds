@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 00:00:37 (PDT)
+Last modified: 2026-10-08 01:49:46 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)).
 
@@ -128,6 +128,28 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
+> **Example 6 (The MAP estimate of a proportion)** In [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), the posterior of \\\pi\\ after \\r\\ successes in \\n\\ trials is \\\operatorname{Beta}(a + r,\\ b + n - r)\\. Write \\\alpha = a + r\\ and \\\beta = b + n - r\\ for its two parameters. For \\\alpha, \beta \> 1\\, the log of the posterior density, up to a constant, is \\(\alpha - 1)\log \pi + (\beta - 1)\log(1 - \pi)\\. Setting its derivative with respect to \\\pi\\ to zero gives
+>
+> \\ \begin{aligned} 0 &= \frac{\alpha - 1}{\pi} - \frac{\beta - 1}{1 - \pi} && \text{(derivative of the log density)}\\ 0 &= (\alpha - 1)(1 - \pi) - (\beta - 1)\pi && \text{(multiplying by \$\pi(1-\pi)\$)}\\ (\alpha - 1)(1 - \pi) &= (\beta - 1)\pi && \text{(adding \$(\beta - 1)\pi\$ to both sides)}\\ (\alpha - 1) - (\alpha - 1)\pi &= (\beta - 1)\pi && \text{(expanding the product on the left)}\\ \alpha - 1 &= (\alpha - 1)\pi + (\beta - 1)\pi && \text{(adding \$(\alpha - 1)\pi\$ to both sides)}\\ \alpha - 1 &= (\alpha + \beta - 2)\pi && \text{(collecting the terms in \$\pi\$)}, \end{aligned} \\
+>
+> so \\\hat\theta\_{\text{MAP}} = \frac{\alpha - 1}{\alpha + \beta - 2}\\. With the uniform prior \\\operatorname{Beta}(1, 1)\\, \\r = 55\\ successes and \\n = 91\\ trials, the posterior is \\\operatorname{Beta}(56, 37)\\. Its mode and its mean are:
+>
+> ``` downlit
+> a_post <- 1 + 55
+> b_post <- 1 + 91 - 55
+> c(
+>   mode = (a_post - 1) / (a_post + b_post - 2),
+>   mean = a_post / (a_post + b_post)
+> ) |>
+>   round(3)
+> #>  mode  mean 
+> #> 0.604 0.602
+> ```
+>
+> The mode equals the sample proportion \\r / n\\, because the uniform prior adds no pseudo-counts that pull it away. The mean is a little closer to \\\frac{1}{2}\\.
+
+> **NOTE:**
+>
 > **Corollary 2 (The MAP estimate minimizes the negative log-likelihood plus a penalty)** The [MAP estimate](#def-map) satisfies
 >
 > \\ \hat\theta\_{\text{MAP}} = \arg \min\_\theta \mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\operatorname{p}(\tilde{y}\mid \theta)\right\\\mathclose{} - \operatorname{log}\mathopen{}\left\\\operatorname{p}(\theta)\right\\\mathclose{}\right)\mathclose{}. \tag{4}\\
@@ -144,7 +166,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 6 (The MAP estimate of a Gaussian mean)** In [Example 5](#exm-normal-normal), the posterior is \\\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x}, \frac{1}{n+1}\right)\mathclose{}\\. A Gaussian density is largest at its mean, so
+> **Example 7 (The MAP estimate of a Gaussian mean)** In [Example 5](#exm-normal-normal), the posterior is \\\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x}, \frac{1}{n+1}\right)\mathclose{}\\. A Gaussian density is largest at its mean, so
 >
 > \\\hat\theta\_{\text{MAP}} = \frac{n}{n+1}\bar{x}.\\
 >
@@ -203,11 +225,11 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 
 > **NOTE:**
 >
-> **Example 7 (Equal-tailed interval for a Gaussian posterior)** In [Example 5](#exm-normal-normal), the posterior of \\\mu\\ is Gaussian with mean \\\frac{n}{n+1}\bar x\\ and standard deviation \\1/\sqrt{n+1}\\, so the 95% equal-tailed credible interval is \\\frac{n}{n+1}\bar x \pm 1.96/\sqrt{n+1}\\. With \\n = 20\\, the interval’s half-width is \\1.96/\sqrt{21} \approx 0.43\\.
+> **Example 8 (Equal-tailed interval for a Gaussian posterior)** In [Example 5](#exm-normal-normal), the posterior of \\\mu\\ is Gaussian with mean \\\frac{n}{n+1}\bar x\\ and standard deviation \\1/\sqrt{n+1}\\, so the 95% equal-tailed credible interval is \\\frac{n}{n+1}\bar x \pm 1.96/\sqrt{n+1}\\. With \\n = 20\\, the interval’s half-width is \\1.96/\sqrt{21} \approx 0.43\\.
 
 > **NOTE:**
 >
-> **Example 8 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 5](#exm-normal-normal), with true mean \\\mu = 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\\ \frac{1}{n+1}\right)\mathclose{}\\ posterior:
+> **Example 9 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 5](#exm-normal-normal), with true mean \\\mu = 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\\ \frac{1}{n+1}\right)\mathclose{}\\ posterior:
 >
 > ``` downlit
 > set.seed(1)
@@ -250,9 +272,9 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >   ggplot2::labs(x = expression(mu), y = "density", colour = NULL)
 > ```
 >
-> [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The \operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 8.")
+> [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The \operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 9.")
 >
-> Figure 2: The \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \\\mu\\, for the data of [Example 8](#exm-normal-credible-vs-confidence).
+> Figure 2: The \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \\\mu\\, for the data of [Example 9](#exm-normal-credible-vs-confidence).
 >
 > Because \\\mu\\ has a distribution, the Bayesian can also compute the posterior probability that \\\mu\\ lies in the realized *confidence* interval:
 >
@@ -274,7 +296,7 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 
 > **NOTE:**
 >
-> **Example 9 (Parameter spaces and priors that respect them)**  
+> **Example 10 (Parameter spaces and priors that respect them)**  
 >
 > - A probability \\\pi\\ has parameter space \\(0, 1)\\, so its prior should be a distribution on the unit interval, such as the uniform prior of [Example 2](#exm-prior).
 > - A variance \\\sigma^2\\ has parameter space \\(0, \infty)\\, so its prior should be a distribution on the positive half-line.
@@ -290,7 +312,7 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 
 > **NOTE:**
 >
-> **Example 10 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on \\(0, 0.5)\\ for the smoking probability \\\pi\\. By [Corollary 3](#cor-prior-support), the posterior then gives probability 0 to \\\pi \> 0.5\\, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
+> **Example 11 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on \\(0, 0.5)\\ for the smoking probability \\\pi\\. By [Corollary 3](#cor-prior-support), the posterior then gives probability 0 to \\\pi \> 0.5\\, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
 
 ## 3 Priors
 
@@ -306,7 +328,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 
 > **NOTE:**
 >
-> **Example 11 (Beta-Bernoulli updating)** Let \\Y_1, \ldots, Y_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Bernoulli}(\pi)\\ given \\\pi\\, with \\r = \sum\_{i=1}^n y_i\\ successes, and let the prior for \\\pi\\ be a \\\operatorname{Beta}(a, b)\\ distribution, whose density is proportional to \\\pi^{a-1}(1-\pi)^{b-1}\\ on \\(0, 1)\\. The likelihood is
+> **Example 12 (Beta-Bernoulli updating)** Let \\Y_1, \ldots, Y_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Bernoulli}(\pi)\\ given \\\pi\\, with \\r = \sum\_{i=1}^n y_i\\ successes, and let the prior for \\\pi\\ be a \\\operatorname{Beta}(a, b)\\ distribution, whose density is proportional to \\\pi^{a-1}(1-\pi)^{b-1}\\ on \\(0, 1)\\. The likelihood is
 >
 > \\ \begin{aligned} \operatorname{p}(\tilde{y}\mid \pi) &= \prod\_{i=1}^n \pi^{y_i}(1-\pi)^{1-y_i} && \text{(independent Bernoulli observations)}\\ &= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i} && \text{(adding exponents)}\\ &= \pi^{r}(1-\pi)^{n-r} && \text{(definition of \$r\$)}. \end{aligned} \\
 >
@@ -359,7 +381,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 12 (Three priors for a log odds ratio)** Let \\\beta\\ be the log odds ratio of disease for exposed versus unexposed people, so the odds ratio is \\e^\beta\\, and \\\beta\\ can be any real number.
+> **Example 13 (Three priors for a log odds ratio)** Let \\\beta\\ be the log odds ratio of disease for exposed versus unexposed people, so the odds ratio is \\e^\beta\\, and \\\beta\\ can be any real number.
 >
 > - [Informative](#def-informative-prior): a previous study estimated the odds ratio as 1.5, with a standard error of 0.2 for its logarithm, so an analyst adopts the prior \\\beta \sim \operatorname{N}\mathopen{}\left(\log 1.5,\\ 0.2^2\right)\mathclose{}\\.
 > - [Weakly informative](#def-weakly-informative-prior): an analyst with no previous study, who nonetheless regards odds ratios above 100 as implausible, adopts \\\beta \sim \operatorname{N}\mathopen{}\left(0,\\ 2.5^2\right)\mathclose{}\\.
@@ -388,7 +410,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 13 (A flat prior on a probability is not flat on its log-odds)** A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated. Let \\\pi\\ have the uniform prior of [Example 2](#exm-prior), and let \\\eta \stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ be its log-odds, so that \\\pi = \operatorname{expit}(\eta) = 1 / (1 + e^{-\eta})\\. The derivative of \\\operatorname{expit}\\ is
+> **Example 14 (A flat prior on a probability is not flat on its log-odds)** A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated. Let \\\pi\\ have the uniform prior of [Example 2](#exm-prior), and let \\\eta \stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ be its log-odds, so that \\\pi = \operatorname{expit}(\eta) = 1 / (1 + e^{-\eta})\\. The derivative of \\\operatorname{expit}\\ is
 >
 > \\ \begin{aligned} \frac{d}{d\eta} \operatorname{expit}(\eta) &= \frac{d}{d\eta} (1 + e^{-\eta})^{-1}\\ &= -(1 + e^{-\eta})^{-2} \cdot (-e^{-\eta}) && \text{(chain rule)}\\ &= \frac{1}{1 + e^{-\eta}} \cdot \frac{e^{-\eta}}{1 + e^{-\eta}} && \text{(splitting the fraction)}\\ &= \operatorname{expit}(\eta)\\ \mathopen{}\left(1 - \operatorname{expit}(\eta)\right)\mathclose{} && \text{(\$\tfrac{e^{-\eta}}{1 + e^{-\eta}} = 1 - \tfrac{1}{1 + e^{-\eta}}\$)}. \end{aligned} \\
 >
@@ -416,7 +438,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 14 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 11](#exm-beta-bernoulli) the prior is uniform on \\(0, 1)\\, so by [Corollary 4](#cor-flat-prior-posterior) the posterior density, proportional to \\\pi^{55}(1-\pi)^{36}\\, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood \\r \log \pi + (n - r)\log(1 - \pi)\\, which is \\r/\pi - (n - r)/(1 - \pi)\\, to zero gives \\\hat\pi = r/n = 55/91 \approx 0.604\\. The posterior *mean*, \\56/93 \approx 0.602\\, is not the maximum likelihood estimate: [Corollary 4](#cor-flat-prior-posterior) concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.
+> **Example 15 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 12](#exm-beta-bernoulli) the prior is uniform on \\(0, 1)\\, so by [Corollary 4](#cor-flat-prior-posterior) the posterior density, proportional to \\\pi^{55}(1-\pi)^{36}\\, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood \\r \log \pi + (n - r)\log(1 - \pi)\\, which is \\r/\pi - (n - r)/(1 - \pi)\\, to zero gives \\\hat\pi = r/n = 55/91 \approx 0.604\\. The posterior *mean*, \\56/93 \approx 0.602\\, is not the maximum likelihood estimate: [Corollary 4](#cor-flat-prior-posterior) concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.
 
 ### 3.3 A skeptical prior
 
@@ -430,7 +452,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 15 (A skeptical prior for a Gaussian mean)** In the model of [Example 5](#exm-normal-normal), replace the \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior by the [skeptical prior](#def-skeptical-prior) \\\mu \sim \operatorname{N}\mathopen{}\left(0, \tau^2\right)\mathclose{}\\, whose standard deviation \\\tau\\ sets how skeptical it is. Its density is proportional to \\\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mu^2/\tau^2\right\\\mathclose{}\\. Let \\m\_\tau \stackrel{\text{def}}{=}\frac{n \bar x}{n + 1/\tau^2}\\. Reusing the likelihood from [Example 5](#exm-normal-normal):
+> **Example 16 (A skeptical prior for a Gaussian mean)** In the model of [Example 5](#exm-normal-normal), replace the \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior by the [skeptical prior](#def-skeptical-prior) \\\mu \sim \operatorname{N}\mathopen{}\left(0, \tau^2\right)\mathclose{}\\, whose standard deviation \\\tau\\ sets how skeptical it is. Its density is proportional to \\\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mu^2/\tau^2\right\\\mathclose{}\\. Let \\m\_\tau \stackrel{\text{def}}{=}\frac{n \bar x}{n + 1/\tau^2}\\. Reusing the likelihood from [Example 5](#exm-normal-normal):
 >
 > \\ \begin{aligned} \operatorname{p}(\mu \mid \tilde{x}) &\propto \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{} \cdot \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\frac{\mu^2}{\tau^2}\right\\\mathclose{} && \text{(likelihood times prior)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{} && \text{(adding exponents)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mathopen{}\left(\mu^2 - 2 \mu m\_\tau\right)\mathclose{}\right\\\mathclose{} && \text{(factoring; definition of \$m\_\tau\$)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mathopen{}\left((\mu - m\_\tau)^2 - m\_\tau^2\right)\mathclose{}\right\\\mathclose{} && \text{(completing the square)}\\ &\propto \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}(\mu - m\_\tau)^2\right\\\mathclose{} && \text{(dropping a factor that does not involve \$\mu\$)}. \end{aligned} \\
 >
@@ -470,7 +492,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 16 (A two-level Gaussian model)** Observations \\Y\_{ij}\\ come from groups \\j = 1, \ldots, J\\, and each group has its own mean \\\theta_j\\. A two-level model specifies
+> **Example 17 (A two-level Gaussian model)** Observations \\Y\_{ij}\\ come from groups \\j = 1, \ldots, J\\, and each group has its own mean \\\theta_j\\. A two-level model specifies
 >
 > \\ \begin{aligned} Y\_{ij} \mid \theta_j &\sim \operatorname{N}\mathopen{}\left(\theta_j,\\ \sigma^2\right)\mathclose{} && \text{(data given group means)}\\ \theta_j \mid \mu, \tau &\sim \operatorname{N}\mathopen{}\left(\mu,\\ \tau^2\right)\mathclose{} && \text{(group means given hyperparameters)}. \end{aligned} \\
 >
