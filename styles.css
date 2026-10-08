@@ -235,3 +235,31 @@ body.quarto-dark code:not(pre > code) {
 .equation-anchor:hover {
   opacity: 1;
 }
+
+/* Number the lines of every code block, so a line can be named in class.
+   Quarto's own `code-line-numbers: true` would do this, but downlit cannot link
+   R functions to their documentation (`code-link`) in a numbered block, so the
+   numbers are drawn here instead, from the one <span> Quarto writes per line.
+   The ::before text is not part of the code, so copying a block leaves it out.
+   Slide decks number their lines themselves (`pre.number-lines`). */
+pre.sourceCode:not(.number-lines) > code {
+  counter-reset: code-line;
+}
+
+pre.sourceCode:not(.number-lines) > code > span {
+  counter-increment: code-line;
+}
+
+pre.sourceCode:not(.number-lines) > code > span::before {
+  content: counter(code-line);
+  /* Empty alternative text: screen readers skip the number. Browsers that
+     do not know this syntax drop the line and keep the one above. */
+  content: counter(code-line) / "";
+  display: inline-block;
+  width: 2em;
+  margin-right: 1em;
+  text-align: right;
+  text-indent: 0;
+  opacity: 0.5;
+  user-select: none;
+}
