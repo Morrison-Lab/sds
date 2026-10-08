@@ -80,6 +80,22 @@ format:
 
 {{< slidebreak >}}
 
+### The posterior mode {#sec-bayes-map}
+
+<!-- No slidebreak here: the heading shares its slide with the def-map div. -->
+
+{{< include sds/_subfiles/bayesian-inference/_def-map.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_cor-map-penalized.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-map-normal-normal.qmd >}}
+
+{{< slidebreak >}}
+
 ### Two readings of an interval estimate {#sec-bayes-interval-interp}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-interval-interp.qmd >}}
