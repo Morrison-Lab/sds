@@ -8,6 +8,6 @@ that has the same meaning in every model
 by its posterior distribution averaged over the models:
 
 $$
-\p(\Delta \mid \vy) \eqdef \sum_{k=1}^K \p(\Delta \mid M_k, \vy)\, \p(M_k \mid \vy).
+\p(\Delta \mid \vy) \eqdef \sumto{k}{K} \p(\Delta \mid M_k, \vy)\, \p(M_k \mid \vy).
 $$
 :::

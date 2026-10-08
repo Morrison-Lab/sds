@@ -14,7 +14,7 @@ $$
 \end{aligned}
 $$
 
-Let $\vy \eqdef (y_1, \ldots, y_n)$ be a dataset of
+Let $\vy \eqdef (\dsn{y})$ be a dataset of
 mutually independent binary outcomes,
 all with the same event probability $\pi$:
 $Y_i \simind \Ber(\pi)$.
@@ -29,9 +29,9 @@ Write the likelihood of $\vy$.
 $$
 \begin{aligned}
 \Lik(\pi; \vy)
-&= \prod_{i=1}^n \Lik_i(\pi)
+&= \prodin \Lik_i(\pi)
 && \text{(product of likelihood components)}\\
-&= \prod_{i=1}^n \Pr(Y_i = y_i)
+&= \prodin \Pr(Y_i = y_i)
 && \text{(definition of likelihood components)}\\
 &= \prodin \pi^{y_i} (1 - \pi)^{1 - y_i}
 && \text{(Bernoulli PMF)}\\

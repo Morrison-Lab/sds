@@ -1,7 +1,7 @@
 ::: {#exm-biased-variance-mle}
 #### A biased estimator of the variance
 
-Let $X_1, \ldots, X_n$ be mutually independent,
+Let $\dsn{X}$ be mutually independent,
 each with expectation $\mu$ and variance $\sigma^2$,
 and let $n \ge 2$.
 Consider two estimators of $\sigma^2$:
@@ -9,7 +9,7 @@ Consider two estimators of $\sigma^2$:
 - the [sample variance](exploratory-descriptive.qmd#def-sample-variance)
   $S^2 \eqdef \frac{1}{n-1} \sumin (X_i - \bar X)^2$;
 - the divide-by-$n$ estimator
-  $\hat\sigma^2 \eqdef \frac{1}{n} \sumin (X_i - \bar X)^2$.
+  $\hat\sigma^2 \eqdef \avgin (X_i - \bar X)^2$.
 
 Both estimators are built from the sum of squared deviations
 $\sumin (X_i - \bar X)^2$,

@@ -1,7 +1,7 @@
 :::{#exm-wald-poisson}
 #### Wald interval and test for a Poisson rate
 
-For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+For $\dsn{X} \siid \Pois(\rate)$,
 $\hat\rate_{\text{ML}} = \bar x$ and $\einf(\rate) = n/\rate$
 (@exm-dist-mle-poisson),
 so $\HSE{\hat\rate} = \sqrt{\bar x/n}$.

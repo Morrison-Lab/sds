@@ -1,9 +1,9 @@
 ::: callout-note
 #### Estimators are random variables
 
-When an estimator is applied to random variables $X_1, \ldots, X_n$
+When an estimator is applied to random variables $\dsn{X}$
 rather than to their observed values,
-the result $\hth(X_1, \ldots, X_n)$ is also a random variable.
+the result $\hth(\dsn{X})$ is also a random variable.
 :::
 
 ::: callout-note
@@ -14,6 +14,6 @@ the corresponding estimand; for example, $\hth$.
 
 Usually, their dependence on the data is implicit:
 
-$$\hth \eqdef \hth(x_1, \ldots, x_n)$$
+$$\hth \eqdef \hth(\dsn{x})$$
 
 :::

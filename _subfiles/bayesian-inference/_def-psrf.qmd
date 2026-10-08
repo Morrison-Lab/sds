@@ -9,9 +9,9 @@ Let
 
 $$
 \ba
-W &\eqdef \frac{1}{m} \sum_{j=1}^m s_j^2
+W &\eqdef \frac{1}{m} \sumto{j}{m} s_j^2
 && \text{(within-chain variance)}\\
-B &\eqdef \frac{n}{m - 1} \sum_{j=1}^m \paren{\bar\theta_j - \bar\theta}^2
+B &\eqdef \frac{n}{m - 1} \sumto{j}{m} \paren{\bar\theta_j - \bar\theta}^2
 && \text{(between-chain variance)}\\
 \hat V &\eqdef \frac{n - 1}{n} W + \frac{1}{n} B
 && \text{(pooled variance estimate)}.

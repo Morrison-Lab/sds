@@ -1,7 +1,7 @@
 :::{#def-order-statistics}
 #### Order statistics
 
-For observed values $x_1, \ldots, x_n$,
+For observed values $\dsn{x}$,
 the **order statistics** are the same values sorted in increasing order,
 written
 

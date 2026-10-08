@@ -1,7 +1,7 @@
 :::{#exm-information-equality-fails}
 #### When the support depends on the parameter
 
-Let $X_1, \ldots, X_n \siid \text{Uniform}(0, \th)$.
+Let $\dsn{X} \siid \text{Uniform}(0, \th)$.
 The likelihood is $\Lik(\th) = \th^{-n}$ for $\th \ge \max_i x_i$
 (and 0 otherwise),
 so on that range $\llik(\th) = -n \log \th$

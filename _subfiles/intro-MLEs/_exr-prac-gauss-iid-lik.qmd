@@ -1,10 +1,10 @@
 ::: {#exr-prac-gauss-iid-lik}
 #### Gaussian log-likelihood (adapted from @kleinbaum2014applied, Chapter 5)
 
-Let $X_1, \ldots, X_n \siid \Normal(\mu, \sigma^2)$.
+Let $\dsn{X} \siid \Normal(\mu, \sigma^2)$.
 
 **(a)** Write the likelihood $\Lik(\mu, \sigma^2; \vx)$
-for the observed data $\vx = (x_1, \ldots, x_n)$.
+for the observed data $\vx = (\dsn{x})$.
 
 **(b)** Write the log-likelihood $\ell(\mu, \sigma^2; \vx)$.
 Show that it can be written as
@@ -25,16 +25,16 @@ $$
 $$
 \ba
 \Lik(\mu, \sigma^2; \vx)
-&= \prod_{i=1}^n (2\pi\sigma^2)^{-1/2}
+&= \prodin (2\pi\sigma^2)^{-1/2}
   \expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}
 && \text{(likelihood of an $\iid$ sample)}
 \\
-&= \paren{\prod_{i=1}^n (2\pi\sigma^2)^{-1/2}}
-  \paren{\prod_{i=1}^n \expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}
+&= \paren{\prodin (2\pi\sigma^2)^{-1/2}}
+  \paren{\prodin \expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}
 && \text{(regroup the factors of the product)}
 \\
 &= (2\pi\sigma^2)^{-n/2}
-  \prod_{i=1}^n \expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}
+  \prodin \expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}
 && \text{(product of $n$ copies of a power)}
 \\
 &= (2\pi\sigma^2)^{-n/2}
@@ -149,7 +149,7 @@ $$
 \ea
 $$
 
-Setting this to zero: $\hat\mu_{ML} = \bar{x} \eqdef \frac{1}{n}\sumin x_i$.
+Setting this to zero: $\hat\mu_{ML} = \bar{x} \eqdef \avgin x_i$.
 
 **Deriving $\hat\sigma^2_{ML}$:**
 
@@ -236,7 +236,7 @@ n\sigma^2
 && \text{($(\sigma^2)^{-2}(\sigma^2)^2 = 1$)}
 \\
 \sigma^2
-&= \frac{1}{n}\sumin (x_i - \mu)^2
+&= \avgin (x_i - \mu)^2
 && \text{(divide both sides by $n$)}
 \ea
 $$
@@ -244,7 +244,7 @@ $$
 Substituting $\hat\mu_{ML} = \bar{x}$:
 
 $$
-\hat\sigma^2_{ML} = \frac{1}{n}\sumin (x_i - \bar{x})^2
+\hat\sigma^2_{ML} = \avgin (x_i - \bar{x})^2
 $$
 
 Note: this maximum likelihood estimator is a biased estimator of $\sigma^2$;

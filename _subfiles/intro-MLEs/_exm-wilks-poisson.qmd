@@ -1,7 +1,7 @@
 :::{#exm-wilks-poisson}
 #### Likelihood ratio test for a Poisson rate
 
-For $X_1, \ldots, X_n \siid \Pois(\rate)$
+For $\dsn{X} \siid \Pois(\rate)$
 and $H_0: \rate = \rate_0$,
 the log-likelihood is $\llik(\rate) = n\bar x \log\rate - n\rate - \sum_i \log x_i!$
 and $\hat\rate_{\text{ML}} = \bar x$, so:

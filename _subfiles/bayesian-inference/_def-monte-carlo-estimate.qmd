@@ -6,6 +6,6 @@ and a function $g$,
 the **Monte Carlo estimate** of the posterior expectation $\E{g(\vth) \mid \vy}$ is
 
 $$
-\frac{1}{M} \sum_{m=1}^{M} g\paren{\vth^{(m)}}.
+\frac{1}{M} \sumto{m}{M} g\paren{\vth^{(m)}}.
 $$
 :::

@@ -2,9 +2,9 @@
 #### Mean squared error of predictions
 
 The **mean squared error** of predictions
-$\fitted_1, \ldots, \fitted_n$
-of observed outcomes $y_1, \ldots, y_n$
+$\dsn{\fitted}$
+of observed outcomes $\dsn{y}$
 is the mean of their squared [prediction errors](#def-prediction-error):
 
-$$\mselr{\fitted} \eqdef \frac{1}{n} \sumin \prederr_i^2.$$
+$$\mselr{\fitted} \eqdef \avgin \prederr_i^2.$$
 :::

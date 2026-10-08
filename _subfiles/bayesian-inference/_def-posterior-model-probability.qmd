@@ -9,7 +9,7 @@ The **posterior model probability** of $M_k$ is
 
 $$
 \p(M_k \mid \vy) \eqdef
-\frac{\p(\vy \mid M_k)\, \p(M_k)}{\sum_{l=1}^K \p(\vy \mid M_l)\, \p(M_l)}.
+\frac{\p(\vy \mid M_k)\, \p(M_k)}{\sumto{l}{K} \p(\vy \mid M_l)\, \p(M_l)}.
 $$
 
 :::

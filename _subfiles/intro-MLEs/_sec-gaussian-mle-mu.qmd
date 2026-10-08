@@ -8,7 +8,7 @@ $$
 && \text{(multiply both sides by $\sigma^2$)}\\
 n\mu &= \sumin x_i
 && \text{(add $n\mu$ to both sides)}\\
-\mu &= \frac{1}{n}\sumin x_i
+\mu &= \avgin x_i
 && \text{(divide by $n$)}\\
 \mu &= \bar x
 && \text{(definition of $\bar x$)}
