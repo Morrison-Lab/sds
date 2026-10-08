@@ -37,7 +37,7 @@ c(r = r, t = t_cor, p_value = 2 * pt(-abs(t_cor), df = n - 2))
 ```
 
 `cor.test()` reports the same values,
-and a confidence interval for $\rho$:
+and a confidence interval for $\corpar$:
 
 ```{r}
 #| code-fold: false

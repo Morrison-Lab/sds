@@ -1,12 +1,12 @@
 ::: {#def-confidence-interval}
 #### Confidence interval
 
-A $100(1-\alpha)\%$ **confidence interval** for a parameter $\theta$
+A $100(1-\siglevel)\%$ **confidence interval** for a parameter $\param$
 is a pair of statistics $L$ and $U$, computed from the data,
-such that for every possible value of $\theta$:
+such that for every possible value of $\param$:
 
-$$\Pr(L \le \theta \le U) = 1 - \alpha$$
+$$\Pr(L \le \param \le U) = 1 - \siglevel$$
 
 The probability is over repeated samples from the data-generating process,
-with $\theta$ held fixed.
+with $\param$ held fixed.
 :::

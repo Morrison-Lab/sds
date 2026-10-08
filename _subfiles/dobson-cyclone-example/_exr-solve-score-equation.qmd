@@ -1,7 +1,7 @@
 :::{#exr-solve-score-equation}
 #### Solving the score equation
 
-Solve the score equation from @exr-score-equation for $\lambda$, using the score from @exr-cyclone-score-fn.
+Solve the score equation from @exr-score-equation for $\rate$, using the score from @exr-cyclone-score-fn.
 :::
 
 {{< slidebreak >}}
@@ -10,19 +10,19 @@ Solve the score equation from @exr-score-equation for $\lambda$, using the score
 
 $$
 \begin{aligned}
-0 &= \frac{n \bar x}{\lambda} - n
+0 &= \frac{n \bar x}{\rate} - n
 && \text{(score of the dataset)}\\
-n &= \frac{n \bar x}{\lambda}
+n &= \frac{n \bar x}{\rate}
 && \text{(add $n$ to both sides)}\\
-n\lambda &= n \bar x
-&& \text{(multiply both sides by $\lambda > 0$)}\\
-\lambda &= \bar x
+n\rate &= n \bar x
+&& \text{(multiply both sides by $\rate > 0$)}\\
+\rate &= \bar x
 && \text{(divide both sides by $n$)}
 \end{aligned}
 $$
 
 :::
 
-Call this solution of the score equation $\tilde \lambda$ for now:
+Call this solution of the score equation $\tilde \rate$ for now:
 
-$$\tilde \lambda \eqdef \bar x$$
+$$\tilde \rate \eqdef \bar x$$

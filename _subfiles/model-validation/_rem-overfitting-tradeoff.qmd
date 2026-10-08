@@ -2,7 +2,7 @@
 #### Overfitting and the trade-off
 
 By @thm-epe-decomposition,
-$\epe{g_l}{n}{x}$ is the squared bias plus the variance plus $\sigma^2$.
+$\epe{g_l}{n}{x}$ is the squared bias plus the variance plus $\varpar$.
 Under a [bias--variance trade-off](#def-bias-variance-tradeoff)
 among $g_1, \ldots, g_L$,
 moving from $g_l$ to $g_{l+1}$

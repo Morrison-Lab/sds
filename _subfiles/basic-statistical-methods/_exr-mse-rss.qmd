@@ -1,13 +1,13 @@
 :::{#exr-mse-rss}
 #### Mean squared error and residual sum of squares
 
-For a regression model with conditional mean $\mean(x; \vth)$,
-let $\fitted_i \eqdef \mean(x_i; \vth)$
+For a regression model with conditional mean $\mean(x; \vparam)$,
+let $\fitted_i \eqdef \mean(x_i; \vparam)$
 be its predictions of $n \ge 1$ outcomes $\dsn{y}$,
-and let $\text{RSS}(\vth)$ (@def-rss) be taken over those same outcomes.
+and let $\text{RSS}(\vparam)$ (@def-rss) be taken over those same outcomes.
 Write the [mean squared error](estimation.qmd#def-prediction-mse)
-of these predictions in terms of $\text{RSS}(\vth)$,
-and $\text{RSS}(\vth)$ in terms of that mean squared error.
+of these predictions in terms of $\text{RSS}(\vparam)$,
+and $\text{RSS}(\vparam)$ in terms of that mean squared error.
 :::
 
 {{< slidebreak >}}
@@ -15,20 +15,20 @@ and $\text{RSS}(\vth)$ in terms of that mean squared error.
 :::{#sol-mse-rss}
 
 First, each squared [prediction error](estimation.qmd#def-prediction-error)
-equals the squared residual at $\vth$:
+equals the squared residual at $\vparam$:
 
 $$
 \begin{aligned}
 \prederr_i^2
 &= (\fitted_i - y_i)^2
 && \text{(definition of prediction error)}\\
-&= \paren{\mean(x_i; \vth) - y_i}^2
+&= \paren{\mean(x_i; \vparam) - y_i}^2
 && \text{(definition of $\fitted_i$)}\\
-&= \paren{-\paren{y_i - \mean(x_i; \vth)}}^2
+&= \paren{-\paren{y_i - \mean(x_i; \vparam)}}^2
 && \text{(factor out $-1$)}\\
-&= \paren{-\resid_i(\vth)}^2
-&& \text{(definition of $\resid_i(\vth)$)}\\
-&= \resid_i(\vth)^2
+&= \paren{-\resid_i(\vparam)}^2
+&& \text{(definition of $\resid_i(\vparam)$)}\\
+&= \resid_i(\vparam)^2
 && \text{($(-a)^2 = a^2$)}
 \end{aligned}
 $$
@@ -42,24 +42,24 @@ $$
 \mselr{\fitted}
 &= \avgin \prederr_i^2
 && \text{(definition of mean squared error)}\\
-&= \avgin \resid_i(\vth)^2
-&& \text{($\prederr_i^2 = \resid_i(\vth)^2$)}\\
-&= \frac{1}{n} \text{RSS}(\vth)
+&= \avgin \resid_i(\vparam)^2
+&& \text{($\prederr_i^2 = \resid_i(\vparam)^2$)}\\
+&= \frac{1}{n} \text{RSS}(\vparam)
 && \text{(definition of RSS)}
 \end{aligned}
 $$
 
-Solving for $\text{RSS}(\vth)$:
+Solving for $\text{RSS}(\vparam)$:
 
 $$
 \begin{aligned}
 \mselr{\fitted}
-&= \frac{1}{n} \text{RSS}(\vth)
+&= \frac{1}{n} \text{RSS}(\vparam)
 && \text{(result above)}\\
 n \, \mselr{\fitted}
-&= \text{RSS}(\vth)
+&= \text{RSS}(\vparam)
 && \text{(multiply both sides by $n$)}\\
-\text{RSS}(\vth)
+\text{RSS}(\vparam)
 &= n \, \mselr{\fitted}
 && \text{(swap the two sides)}
 \end{aligned}

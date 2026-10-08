@@ -4,7 +4,7 @@
 With the [mean squares](#def-mean-squares) of $k \ge 2$ groups
 and $n > k$ observations in all,
 the **one-way analysis of variance (ANOVA)** F-test of
-$H_0: \mu_1 = \mu_2 = \cdots = \mu_k$
+$H_0: \mean_1 = \mean_2 = \cdots = \mean_k$
 against the alternative that at least two group means differ
 uses the statistic
 

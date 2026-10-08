@@ -14,19 +14,19 @@ from @exr-sample-llik:
 
 $$
 \begin{aligned}
-\ell'(\lambda; \vx)
-&\eqdef \deriv{\lambda}\paren{\paren{\sumin x_i}\logf{\lambda} - n\lambda - \sumin \logf{x_i!}}
+\ell'(\rate; \vx)
+&\eqdef \deriv{\rate}\paren{\paren{\sumin x_i}\logf{\rate} - n\rate - \sumin \logf{x_i!}}
 && \text{(definition of the score)}\\
-&= \paren{\sumin x_i}\deriv{\lambda}\logf{\lambda} - n\deriv{\lambda}\lambda - \deriv{\lambda}\sumin \logf{x_i!}
+&= \paren{\sumin x_i}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate - \deriv{\rate}\sumin \logf{x_i!}
 && \text{(linearity of differentiation)}\\
-&= \paren{\sumin x_i}\frac{1}{\lambda} - n - 0
-&& \text{(derivatives of $\log \lambda$, $\lambda$, and a constant)}\\
-&= \frac{n \bar x}{\lambda} - n
+&= \paren{\sumin x_i}\frac{1}{\rate} - n - 0
+&& \text{(derivatives of $\log \rate$, $\rate$, and a constant)}\\
+&= \frac{n \bar x}{\rate} - n
 && \text{($\textstyle\sumin x_i = n \bar x$)}
 \end{aligned}
 $$
 
 For the cyclone data, $n = `r n`$ and $n \bar x = `r sumx`$,
-so $\ell'(\lambda; \vx) = `r sumx`/\lambda - `r n`$.
+so $\ell'(\rate; \vx) = `r sumx`/\rate - `r n`$.
 
 :::

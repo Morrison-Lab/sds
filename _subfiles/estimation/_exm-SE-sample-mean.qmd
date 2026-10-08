@@ -2,9 +2,9 @@
 #### Standard error of the sample mean
 
 In @exm-mse-sample-mean,
-$\Var{\bar X} = \sigma^2 / n$,
-so $\SE{\bar X} = \sqrt{\sigma^2 / n} = \sigma / \sqrt{n}$.
+$\Var{\bar X} = \varpar / n$,
+so $\SE{\bar X} = \sqrt{\sdpar^2 / n} = \sdpar / \sqrt{n}$.
 With $n = 50$ students,
 the standard error of the sample mean height
-is $\sigma / \sqrt{50} \approx 0.14\sigma$.
+is $\sdpar / \sqrt{50} \approx 0.14\sdpar$.
 :::

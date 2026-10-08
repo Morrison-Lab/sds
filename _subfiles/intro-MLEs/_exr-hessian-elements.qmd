@@ -1,9 +1,9 @@
 :::{#exr-hessian-elements}
 #### Entries of the Hessian
 
-If $\vth$ is a $p \times 1$ vector,
+If $\vparam$ is a $p \times 1$ vector,
 find the dimensions of the [Hessian](#def-hessian)
-$\deriv{\vth}\deriv{\vth\'}\llik$
+$\deriv{\vparam}\deriv{\vparam\'}\llik$
 and an expression for its $ij$th entry.
 :::
 
@@ -11,11 +11,11 @@ and an expression for its $ij$th entry.
 
 :::{#sol-hessian-elements}
 
-$\deriv{\vth\'}\llik$ is the $1 \times p$ row vector
-whose $j$th entry is $\deriv{\th_j}\llik$.
-Differentiating each entry with respect to the $p \times 1$ vector $\vth$
+$\deriv{\vparam\'}\llik$ is the $1 \times p$ row vector
+whose $j$th entry is $\deriv{\param_j}\llik$.
+Differentiating each entry with respect to the $p \times 1$ vector $\vparam$
 gives a $p \times 1$ column of derivatives per entry,
-so $\deriv{\vth}\deriv{\vth\'}\llik$ is $p \times p$,
-with $ij$th entry $\deriv{\th_i}\deriv{\th_j}\llik$.
+so $\deriv{\vparam}\deriv{\vparam\'}\llik$ is $p \times p$,
+with $ij$th entry $\deriv{\param_i}\deriv{\param_j}\llik$.
 
 :::

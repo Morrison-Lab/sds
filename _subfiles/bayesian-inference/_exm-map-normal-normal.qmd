@@ -6,28 +6,28 @@ the posterior is $\ndist{\frac{n}{n+1}\bar{x}, \frac{1}{n+1}}$.
 A Gaussian density is largest at its mean,
 so
 
-$$\hth_{\text{MAP}} = \frac{n}{n+1}\bar{x}.$$
+$$\hparam_{\text{MAP}} = \frac{n}{n+1}\bar{x}.$$
 
 @cor-map-penalized gives the same answer from the penalized form.
-Up to terms that do not involve $\mu$,
-the negative log-likelihood is $\frac{1}{2}\sumin (x_i - \mu)^2$
-and the penalty is $\frac{1}{2}\mu^2$.
+Up to terms that do not involve $\mean$,
+the negative log-likelihood is $\frac{1}{2}\sumin (x_i - \mean)^2$
+and the penalty is $\frac{1}{2}\mean^2$.
 Setting the derivative of their sum to zero gives
 
 $$
 \ba
 0
-&= -\sumin (x_i - \mu) + \mu
-&& \text{(derivative of the sum with respect to $\mu$)}\\
-&= -n\bar{x} + n\mu + \mu
+&= -\sumin (x_i - \mean) + \mean
+&& \text{(derivative of the sum with respect to $\mean$)}\\
+&= -n\bar{x} + n\mean + \mean
 && \text{($\sum_i x_i = n\bar{x}$)}\\
-&= (n+1)\mu - n\bar{x},
-&& \text{(collecting the terms in $\mu$)}
+&= (n+1)\mean - n\bar{x},
+&& \text{(collecting the terms in $\mean$)}
 \ea
 $$
 
-so $\mu = \frac{n}{n+1}\bar{x}$.
-The penalty $\frac{1}{2}\mu^2$ pulls the estimate toward the prior mean $0$,
+so $\mean = \frac{n}{n+1}\bar{x}$.
+The penalty $\frac{1}{2}\mean^2$ pulls the estimate toward the prior mean $0$,
 and its pull weakens relative to the data as $n$ grows.
 
 @fig-map-penalized shows the penalized form for simulated data

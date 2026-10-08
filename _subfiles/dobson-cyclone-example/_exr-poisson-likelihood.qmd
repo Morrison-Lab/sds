@@ -11,10 +11,10 @@ of a single observation $x$, according to the Poisson model.
 
 $$
 \begin{aligned}
-\Lik(\lambda; x)
+\Lik(\rate; x)
 &\eqdef \Pr(X = x)
 && \text{(definition of likelihood)}\\
-&= \frac{\lambda^x e^{-\lambda}}{x!}
+&= \frac{\rate^x e^{-\rate}}{x!}
 && \text{(Poisson PMF)}
 \end{aligned}
 $$

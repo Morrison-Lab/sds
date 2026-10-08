@@ -2,7 +2,7 @@
 #### Hessian is the derivative of the transposed score
 
 $$
-\hess(\vx \mid \vth) = \deriv{\vth} \pt{\score(\vx \mid \vth)}
+\hess(\vx \mid \vparam) = \deriv{\vparam} \pt{\score(\vx \mid \vparam)}
 $$
 
 :::

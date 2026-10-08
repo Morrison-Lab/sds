@@ -24,7 +24,7 @@ c(
   round(3)
 ```
 
-Here `stats::var(colMeans(chains))` is $\frac{1}{m-1}\sum_j (\bar\theta_j - \bar\theta)^2$,
+Here `stats::var(colMeans(chains))` is $\frac{1}{m-1}\sum_j (\bar\param_j - \bar\param)^2$,
 so `b` is $B$.
 While the chains are still approaching the posterior from opposite ends,
 $\hR$ is well above 1;

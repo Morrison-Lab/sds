@@ -3,8 +3,8 @@
 
 We sample the posterior of [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli)
 ($r = 55$ successes in $n = 91$ trials, uniform prior)
-with a Gaussian random-walk proposal $\pi^* = \pi^{(t)} + \varepsilon$,
-$\varepsilon \sim \ndist{0, 0.05^2}$.
+with a Gaussian random-walk proposal $\prob^* = \prob^{(t)} + \propstep$,
+$\propstep \sim \ndist{0, 0.05^2}$.
 The proposal is symmetric,
 and the uniform prior density is 1 on $(0, 1)$,
 so the log of the acceptance ratio is the difference of log-likelihoods,
@@ -44,9 +44,9 @@ c(
   round(3)
 ```
 
-Comparing $\log u$, for $u$ uniform on $(0, 1)$, with $\log \alpha$
-accepts with probability $\min(1, \alpha)$,
-and avoids computing $\alpha$ itself,
+Comparing $\log u$, for $u$ uniform on $(0, 1)$, with $\log \accept$
+accepts with probability $\min(1, \accept)$,
+and avoids computing $\accept$ itself,
 which can overflow or underflow.
 Every accepted proposal changes the chain's value,
 so the fraction of iterations that change estimates the acceptance rate.

@@ -1,12 +1,12 @@
 ::: {#def-map}
 #### Maximum a posteriori estimate
 
-The **maximum a posteriori** (MAP) estimate of a parameter $\theta$,
+The **maximum a posteriori** (MAP) estimate of a parameter $\param$,
 given observed data $\vY = \vy$,
-written $\hth_{\text{MAP}}$,
-is the value of $\theta$ that maximizes the [posterior density](#def-posterior):
+written $\hparam_{\text{MAP}}$,
+is the value of $\param$ that maximizes the [posterior density](#def-posterior):
 
-$$\hth_{\text{MAP}} \eqdef \argmax_\theta \p(\theta \mid \vy)$$ {#eq-map}
+$$\hparam_{\text{MAP}} \eqdef \argmax_\param \p(\param \mid \vy)$$ {#eq-map}
 
 The MAP estimate is the mode of the posterior distribution.
 :::

@@ -1,27 +1,27 @@
 :::{#thm-information-equality}
 #### Mean and variance of the score
 
-Suppose the set of possible data values does not depend on $\vth$,
-and the order of differentiation with respect to $\vth$
+Suppose the set of possible data values does not depend on $\vparam$,
+and the order of differentiation with respect to $\vparam$
 and integration over the data can be exchanged.
 Then the score has mean zero,
 and its variance is the expected information:
 
-$$\E{\score(\vX \mid \vth)} = \mathbf{0}_{p \times 1}$$ {#eq-score-mean-zero}
+$$\E{\score(\vX \mid \vparam)} = \mathbf{0}_{p \times 1}$$ {#eq-score-mean-zero}
 
-$$\einf(\vth) = \Covf{\score(\vX \mid \vth)} = \E{\score \tp{\score}}$$ {#eq-information-equality}
+$$\einf(\vparam) = \Covf{\score(\vX \mid \vparam)} = \E{\score \tp{\score}}$$ {#eq-information-equality}
 
 :::
 
 ::: proof
-We give the proof for a scalar $\th$ and a continuous $\vX$ with density
-$\p(\vx \mid \th)$;
+We give the proof for a scalar $\param$ and a continuous $\vX$ with density
+$\p(\vx \mid \param)$;
 the vector case applies the same steps to each pair of entries,
 and a discrete $\vX$ replaces integrals with sums.
 
 @eq-score-mean-zero is the solution to @exr-score-mean-zero.
 For @eq-information-equality,
-@exr-score-second-moment gives $\einf(\th) = \E{\score^2}$,
+@exr-score-second-moment gives $\einf(\param) = \E{\score^2}$,
 and because $\E{\score} = 0$,
 $\E{\score^2} = \E{\score^2} - \sqf{\E{\score}} = \Var{\score}$.
 :::

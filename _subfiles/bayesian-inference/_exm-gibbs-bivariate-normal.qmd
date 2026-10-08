@@ -1,29 +1,29 @@
 ::: {#exm-gibbs-bivariate-normal}
 #### Gibbs sampling from a correlated Gaussian target
 
-Let the target be the bivariate Gaussian distribution of $(\theta_1, \theta_2)$
-with means 0, variances 1 and correlation $\rho$,
+Let the target be the bivariate Gaussian distribution of $(\param_1, \param_2)$
+with means 0, variances 1 and correlation $\corpar$,
 whose density is proportional to
-$\expf{-\frac{\theta_1^2 - 2\rho\theta_1\theta_2 + \theta_2^2}{2(1-\rho^2)}}$
+$\expf{-\frac{\param_1^2 - 2\corpar\param_1\param_2 + \param_2^2}{2(1-\corpar^2)}}$
 [@CaseBerg01, Definition 4.5.10].
-As a function of $\theta_1$,
+As a function of $\param_1$,
 
 $$
 \ba
-\p(\theta_1 \mid \theta_2)
-&\propto \expf{-\frac{\theta_1^2 - 2\rho\theta_1\theta_2}{2(1-\rho^2)}}
-&& \text{(dropping the factor with $\theta_2^2$ only)}\\
-&= \expf{-\frac{(\theta_1 - \rho\theta_2)^2 - \rho^2\theta_2^2}{2(1-\rho^2)}}
+\p(\param_1 \mid \param_2)
+&\propto \expf{-\frac{\param_1^2 - 2\corpar\param_1\param_2}{2(1-\corpar^2)}}
+&& \text{(dropping the factor with $\param_2^2$ only)}\\
+&= \expf{-\frac{(\param_1 - \corpar\param_2)^2 - \corpar^2\param_2^2}{2(1-\corpar^2)}}
 && \text{(completing the square)}\\
-&\propto \expf{-\frac{(\theta_1 - \rho\theta_2)^2}{2(1-\rho^2)}}
-&& \text{(dropping the factor with $\theta_2^2$ only)},
+&\propto \expf{-\frac{(\param_1 - \corpar\param_2)^2}{2(1-\corpar^2)}}
+&& \text{(dropping the factor with $\param_2^2$ only)},
 \ea
 $$
 
-so the [full conditional](#def-full-conditional) of $\theta_1$
-is $\ndist{\rho\theta_2,\, 1 - \rho^2}$,
-and by symmetry that of $\theta_2$ is $\ndist{\rho\theta_1,\, 1 - \rho^2}$.
-We run the Gibbs sampler with $\rho = 0$ and with $\rho = 0.99$:
+so the [full conditional](#def-full-conditional) of $\param_1$
+is $\ndist{\corpar\param_2,\, 1 - \corpar^2}$,
+and by symmetry that of $\param_2$ is $\ndist{\corpar\param_1,\, 1 - \corpar^2}$.
+We run the Gibbs sampler with $\corpar = 0$ and with $\corpar = 0.99$:
 
 ```{r}
 #| label: gibbs-bivariate-normal
@@ -51,9 +51,9 @@ c(
   round(3)
 ```
 
-With $\rho = 0$,
-successive draws of $\theta_1$ are nearly uncorrelated.
-With $\rho = 0.99$,
+With $\corpar = 0$,
+successive draws of $\param_1$ are nearly uncorrelated.
+With $\corpar = 0.99$,
 each full conditional has standard deviation $\sqrt{1 - 0.99^2} \approx 0.14$,
 so each update moves only a short way along the narrow ridge
 where the target puts its probability,

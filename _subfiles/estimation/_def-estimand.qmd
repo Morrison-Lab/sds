@@ -1,6 +1,6 @@
 ::: {#def-estimand}
 #### Estimand
 
-An **estimand** is an unknown quantity $\th$ whose value we want to know
+An **estimand** is an unknown quantity $\param$ whose value we want to know
 [@pohl2021estimands; @lawrance2020estimand].
 :::

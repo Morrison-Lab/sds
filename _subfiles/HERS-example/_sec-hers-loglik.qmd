@@ -21,8 +21,8 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 {{< slidebreak >}}
 
 @fig-hers-lik-mu graphs the likelihood and log-likelihood
-as functions of $\mu$,
-with $\sigma$ fixed at $\hat\sigma_{\text{ML}}$.
+as functions of $\mean$,
+with $\sdpar$ fixed at $\hsdpar_{\text{ML}}$.
 
 ::: {#fig-hers-lik-mu layout-ncol="2"}
 
@@ -62,15 +62,15 @@ Log-likelihood
 
 :::
 
-Likelihood and log-likelihood of the HERS glucose data as functions of $\mu$,
-with $\sigma = \hat\sigma_{\text{ML}}$; the red line marks $\hat\mu_{\text{ML}}$
+Likelihood and log-likelihood of the HERS glucose data as functions of $\mean$,
+with $\sdpar = \hsdpar_{\text{ML}}$; the red line marks $\hmean_{\text{ML}}$
 
 :::
 
 {{< slidebreak >}}
 
-@fig-hers-lik-sigma graphs them as functions of $\sigma$,
-with $\mu$ fixed at $\hat\mu_{\text{ML}}$.
+@fig-hers-lik-sigma graphs them as functions of $\sdpar$,
+with $\mean$ fixed at $\hmean_{\text{ML}}$.
 
 ::: {#fig-hers-lik-sigma layout-ncol="2"}
 
@@ -110,7 +110,7 @@ Log-likelihood
 
 :::
 
-Likelihood and log-likelihood of the HERS glucose data as functions of $\sigma$,
-with $\mu = \hat\mu_{\text{ML}}$; the red line marks $\hat\sigma_{\text{ML}}$
+Likelihood and log-likelihood of the HERS glucose data as functions of $\sdpar$,
+with $\mean = \hmean_{\text{ML}}$; the red line marks $\hsdpar_{\text{ML}}$
 
 :::

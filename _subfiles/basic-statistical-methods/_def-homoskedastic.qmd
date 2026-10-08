@@ -2,8 +2,8 @@
 #### Homoskedastic model
 
 A conditional Gaussian model (@def-cond-gaussian) is **homoskedastic**
-if all outcomes share one variance $\sigma^2$,
+if all outcomes share one variance $\varpar$,
 which does not depend on $i$:
 
-$$\sigma_i^2 = \sigma^2 \text{ for all } i.$$
+$$\varpar_i = \varpar \text{ for all } i.$$
 :::

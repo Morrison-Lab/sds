@@ -2,7 +2,7 @@ If a confidence interval includes the null value,
 or a hypothesis test fails to reject the null hypothesis,
 that result does not *necessarily* mean that the null hypothesis is true.
 (When the interval and the test are built from the same statistic,
-with coverage $1 - \alpha$ and significance level $\alpha$,
+with coverage $1 - \siglevel$ and significance level $\siglevel$,
 the two results coincide.)
 So we should not interpret such results as
 "the odds (or risks, hazards, or means) are not significantly different".

@@ -10,7 +10,7 @@ the mean squared error of the fitted values is the
 divided by $n$
 ([mean squared error and RSS](correlation-regression.qmd#thm-mse-rss)):
 
-$$\mselr{\fitted} = \frac{1}{n} \text{RSS}(\est{\vth}),
+$$\mselr{\fitted} = \frac{1}{n} \text{RSS}(\est{\vparam}),
 \qquad
-\text{RSS}(\est{\vth}) = n \, \mselr{\fitted}.$$
+\text{RSS}(\est{\vparam}) = n \, \mselr{\fitted}.$$
 :::

@@ -3,10 +3,10 @@
 
 For mutually independent data $\dsn{X}$,
 use @thm-lik-iid
-to write the [log-likelihood](#def-loglik) $\ell(\theta)$
+to write the [log-likelihood](#def-loglik) $\ell(\param)$
 as a sum over the observations.
 What does each term become
-if the $X_i$ also share a common distribution $\p(X = x \mid \theta)$?
+if the $X_i$ also share a common distribution $\p(X = x \mid \param)$?
 :::
 
 {{< slidebreak >}}
@@ -15,17 +15,17 @@ if the $X_i$ also share a common distribution $\p(X = x \mid \theta)$?
 
 $$
 \begin{aligned}
-\ell(\theta)
-&\eqdef \log{\Lik(\theta)}
+\ell(\param)
+&\eqdef \log{\Lik(\param)}
 && \text{(definition of log-likelihood)}\\
-&= \log{\prodin \p(X_i = x_i \mid \theta)}
+&= \log{\prodin \p(X_i = x_i \mid \param)}
 && \text{(likelihood of an independent sample)}\\
-&= \sumin \log{\p(X_i = x_i \mid \theta)}
+&= \sumin \log{\p(X_i = x_i \mid \param)}
 && \text{(log of a product is a sum of logs)}
 \end{aligned}
 $$
 
-With a common distribution, $\p(X_i = x_i \mid \theta) = \p(X = x_i \mid \theta)$,
-so each term is $\log{\p(X = x_i \mid \theta)}$.
+With a common distribution, $\p(X_i = x_i \mid \param) = \p(X = x_i \mid \param)$,
+so each term is $\log{\p(X = x_i \mid \param)}$.
 
 :::

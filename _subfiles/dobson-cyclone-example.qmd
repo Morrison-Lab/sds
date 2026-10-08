@@ -30,7 +30,7 @@ Adapted from [@dobson4e, Section 1.6.5].
 
 ### Estimating the model parameters using maximum likelihood
 
-We can estimate the parameter $\lambda$ using maximum likelihood estimation.
+We can estimate the parameter $\rate$ using maximum likelihood estimation.
 
 {{< slidebreak >}}
 
@@ -89,7 +89,7 @@ We can estimate the parameter $\lambda$ using maximum likelihood estimation.
 ### Finding the MLE analytically
 
 In this example,
-we can find the MLE of $\lambda$ by solving the score equation
+we can find the MLE of $\rate$ by solving the score equation
 algebraically.
 
 {{< slidebreak >}}

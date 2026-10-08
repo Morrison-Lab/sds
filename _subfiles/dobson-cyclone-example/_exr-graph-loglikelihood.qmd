@@ -1,7 +1,7 @@
 ::: {#exr-graph-loglikelihood}
 #### Graphing the log-likelihood
 
-Graph the log-likelihood as a function of $\lambda$.
+Graph the log-likelihood as a function of $\rate$.
 :::
 
 {{< slidebreak >}}

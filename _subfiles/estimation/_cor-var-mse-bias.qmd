@@ -4,7 +4,7 @@
 The squared standard error is what remains of the mean squared error
 after the squared bias is removed:
 
-$$\sqf{\SE{\hth}} = \mselr{\hth} - \sqf{\bias{\hth}}$$
+$$\sqf{\SE{\hparam}} = \mselr{\hparam} - \sqf{\bias{\hparam}}$$
 
 :::
 

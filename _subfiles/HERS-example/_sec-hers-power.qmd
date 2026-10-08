@@ -1,13 +1,13 @@
-Suppose we test the null hypothesis $H_0: \mu = \mu_0$,
-with $\mu_0 = 95$ mg/dL,
-at significance level $\alpha = 0.05$,
-and suppose for simplicity that $\sigma$ is known,
-equal to $\hat\sigma_{\text{ML}}$.
-Then under $H_0$, $\bar X \sim \ndist{\mu_0, \sigma^2/n}$,
+Suppose we test the null hypothesis $H_0: \mean = \mean_0$,
+with $\mean_0 = 95$ mg/dL,
+at significance level $\siglevel = 0.05$,
+and suppose for simplicity that $\sdpar$ is known,
+equal to $\hsdpar_{\text{ML}}$.
+Then under $H_0$, $\bar X \sim \ndist{\mean_0, \varpar/n}$,
 and the test rejects $H_0$ when $\bar x$ falls outside the
 non-rejection interval
 
-$$\mu_0 \pm z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}$$
+$$\mean_0 \pm z_{1 - \siglevel/2} \frac{\sdpar}{\sqrt{n}}$$
 
 ```{r}
 #| code-fold: false
@@ -24,16 +24,16 @@ bounds
 
 {{< slidebreak >}}
 
-For this test, under $\mu = \mu_1$, $\bar X \sim \ndist{\mu_1, \sigma^2/n}$, so:
+For this test, under $\mean = \mean_1$, $\bar X \sim \ndist{\mean_1, \varpar/n}$, so:
 
 $$
-\text{power}(\mu_1) =
-\Phi\paren{\frac{\mu_0 - z_{1-\alpha/2}\,\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}}
-+ 1 - \Phi\paren{\frac{\mu_0 + z_{1-\alpha/2}\,\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}}
+\text{power}(\mean_1) =
+\normcdf\paren{\frac{\mean_0 - z_{1-\siglevel/2}\,\sdpar/\sqrt{n} - \mean_1}{\sdpar/\sqrt{n}}}
++ 1 - \normcdf\paren{\frac{\mean_0 + z_{1-\siglevel/2}\,\sdpar/\sqrt{n} - \mean_1}{\sdpar/\sqrt{n}}}
 $$
 
-where $\Phi$ is the standard Gaussian CDF.
-For example, the power against $\mu_1 = 100$ mg/dL is:
+where $\normcdf$ is the standard Gaussian CDF.
+For example, the power against $\mean_1 = 100$ mg/dL is:
 
 ```{r}
 #| code-fold: false
@@ -66,7 +66,7 @@ ggplot2::ggplot() +
   ggplot2::xlab("n")
 ```
 
-Power of the test of $H_0: \mu = 95$ against $\mu_1 = 100$ mg/dL,
+Power of the test of $H_0: \mean = 95$ against $\mean_1 = 100$ mg/dL,
 by sample size
 
 :::
@@ -76,9 +76,9 @@ by sample size
 ::: {#rem-observed-power}
 #### Choosing the alternative, and observed power
 
-The alternative $\mu_1$ should be chosen before seeing the data,
+The alternative $\mean_1$ should be chosen before seeing the data,
 as a difference worth detecting.
-Power computed at $\mu_1 = \hat\mu$ ("observed power")
+Power computed at $\mean_1 = \hmean$ ("observed power")
 is a function of the p-value,
 so it adds no information about the data already analyzed
 [@hoenig2001abuse].

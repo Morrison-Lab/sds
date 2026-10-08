@@ -2,7 +2,7 @@
 #### Two-sided alternative
 
 For a null hypothesis that a parameter equals a value,
-such as $H_0: \theta = \theta_0$,
+such as $H_0: \param = \param_0$,
 the **two-sided alternative** is that the parameter differs from that value
-in either direction: $H_1: \theta \ne \theta_0$.
+in either direction: $H_1: \param \ne \param_0$.
 :::

@@ -5,9 +5,9 @@ analyze each one,
 and summarize the results.
 
 `do_one_sim()` simulates and analyzes one dataset:
-it computes $\hat\mu$, its estimated standard error,
-a 95% $t$-based confidence interval for $\mu$,
-and the $t$-test of $H_0: \mu = \mu_0$.
+it computes $\hmean$, its estimated standard error,
+a 95% $t$-based confidence interval for $\mean$,
+and the $t$-test of $H_0: \mean = \mean_0$.
 
 ```{r}
 #| code-fold: false
@@ -127,20 +127,20 @@ sim_summary
 
 Across `r nrow(sim_results)` simulated datasets:
 
-- the average error of $\hat\mu$ is
+- the average error of $\hmean$ is
   `r signif(sim_summary$bias_mu_hat, 2)` mg/dL,
   small relative to its standard error of
   `r signif(sim_summary$true_se, 3)` mg/dL,
-  consistent with $\hat\mu$ being unbiased;
-- the standard deviation of the $\hat\mu$ values,
+  consistent with $\hmean$ being unbiased;
+- the standard deviation of the $\hmean$ values,
   `r signif(sim_summary$sd_mu_hat, 3)`,
   is close to the true standard error;
-- the 95% confidence intervals covered the true $\mu$ in
+- the 95% confidence intervals covered the true $\mean$ in
   `r round(100 * sim_summary$coverage, 1)`% of datasets,
   close to their nominal 95%;
-- the test of $H_0: \mu = 0.9\,\hat\mu$ rejected in
+- the test of $H_0: \mean = 0.9\,\hmean$ rejected in
   `r round(100 * sim_summary$power, 1)`% of datasets:
   with $n = 100$, a 10% difference in the mean is easy to detect.
 
-Changing the sample size, the true $\mu$, or $\sigma^2$
+Changing the sample size, the true $\mean$, or $\varpar$
 in `do_n_sims()` shows how these properties depend on them.

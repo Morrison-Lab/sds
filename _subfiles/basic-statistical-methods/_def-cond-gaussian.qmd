@@ -8,11 +8,11 @@ says that, given the covariates,
 the outcomes are independent and Gaussian:
 outcome $Y_i$ is centered on a mean function $\mean(x)$
 evaluated at $x_i$,
-and has its own variance $\sigma_i^2$:
+and has its own variance $\varpar_i$:
 
 $$
 \begin{aligned}
-Y_i \mid X_i = x_i &\simind \ndist{\mean_i, \sigma_i^2},\\
+Y_i \mid X_i = x_i &\simind \ndist{\mean_i, \varpar_i},\\
 \mean_i &\eqdef \mean(x_i).
 \end{aligned}
 $$

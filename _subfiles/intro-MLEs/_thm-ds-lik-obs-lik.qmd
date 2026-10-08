@@ -5,7 +5,7 @@ For mutually independent data $\vx \eqdef \x1n$,
 the likelihood of the dataset is the product
 of the observations' [likelihood components](#def-lik-factor):
 
-$$\Lik(\theta) = \prodin \Lik_i(\theta)$$
+$$\Lik(\param) = \prodin \Lik_i(\param)$$
 :::
 
 ::: proof

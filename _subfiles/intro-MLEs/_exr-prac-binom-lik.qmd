@@ -1,24 +1,24 @@
 ::: {#exr-prac-binom-lik}
 #### Binomial likelihood (adapted from @dobson4e, Chapter 3)
 
-Let $Y \sim \text{Binomial}(n, \pi)$,
+Let $Y \sim \text{Binomial}(n, \prob)$,
 so that
 
 $$
-\p(Y = y \mid \pi) = \binom{n}{y} \pi^y (1-\pi)^{n-y},
+\p(Y = y \mid \prob) = \binom{n}{y} \prob^y (1-\prob)^{n-y},
 \quad y \in \{0, 1, \ldots, n\}.
 $$
 
 Assume $0 < y < n$ so the MLE lies in the interior of $(0, 1)$.
 
-**(a)** Write the log-likelihood $\ell(\pi; y)$ for a single observation $y$.
+**(a)** Write the log-likelihood $\ell(\prob; y)$ for a single observation $y$.
 
-**(b)** Derive the score function $\ell'(\pi; y) \eqdef \deriv{\pi}\ell(\pi; y)$.
+**(b)** Derive the score function $\ell'(\prob; y) \eqdef \deriv{\prob}\ell(\prob; y)$.
 
-**(c)** Set the score equal to zero and solve for $\hat\pi_{ML}$.
-Confirm that $\hat\pi_{ML} = y/n$.
+**(c)** Set the score equal to zero and solve for $\hprob_{ML}$.
+Confirm that $\hprob_{ML} = y/n$.
 
-**(d)** Compute the second derivative $\ell''(\pi; y)$ and verify that it is negative,
+**(d)** Compute the second derivative $\ell''(\prob; y)$ and verify that it is negative,
 confirming a maximum.
 :::
 
@@ -28,45 +28,45 @@ confirming a maximum.
 
 $$
 \ba
-\ell(\pi; y)
-&= \logf{\binom{n}{y} \pi^y (1-\pi)^{n-y}}
+\ell(\prob; y)
+&= \logf{\binom{n}{y} \prob^y (1-\prob)^{n-y}}
 && \text{(log of the binomial PMF)}
 \\
-&= \logf{\binom{n}{y}} + \logf{\pi^y} + \logf{(1-\pi)^{n-y}}
+&= \logf{\binom{n}{y}} + \logf{\prob^y} + \logf{(1-\prob)^{n-y}}
 && \text{(log of a product)}
 \\
-&= \logf{\binom{n}{y}} + y\logf{\pi} + (n-y)\logf{1-\pi}
+&= \logf{\binom{n}{y}} + y\logf{\prob} + (n-y)\logf{1-\prob}
 && \text{(log of a power)}
 \ea
 $$
 
-The first term does not depend on $\pi$,
-so it drops out of every derivative with respect to $\pi$.
+The first term does not depend on $\prob$,
+so it drops out of every derivative with respect to $\prob$.
 
 **(b)**
 
 $$
 \ba
-\ell'(\pi; y)
-&= \deriv{\pi}\sb{\logf{\binom{n}{y}} + y\logf{\pi} + (n-y)\logf{1-\pi}}
+\ell'(\prob; y)
+&= \deriv{\prob}\sb{\logf{\binom{n}{y}} + y\logf{\prob} + (n-y)\logf{1-\prob}}
 && \text{(log-likelihood from (a))}
 \\
-&= \deriv{\pi}\logf{\binom{n}{y}} + \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
+&= \deriv{\prob}\logf{\binom{n}{y}} + \deriv{\prob}\sb{y\logf{\prob}} + \deriv{\prob}\sb{(n-y)\logf{1-\prob}}
 && \text{(linearity of differentiation)}
 \\
-&= 0 + \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
+&= 0 + \deriv{\prob}\sb{y\logf{\prob}} + \deriv{\prob}\sb{(n-y)\logf{1-\prob}}
 && \text{(derivative of a constant)}
 \\
-&= \deriv{\pi}\sb{y\logf{\pi}} + \deriv{\pi}\sb{(n-y)\logf{1-\pi}}
+&= \deriv{\prob}\sb{y\logf{\prob}} + \deriv{\prob}\sb{(n-y)\logf{1-\prob}}
 && \text{(drop the zero term)}
 \\
-&= y\deriv{\pi}\logf{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
+&= y\deriv{\prob}\logf{\prob} + (n-y)\deriv{\prob}\logf{1-\prob}
 && \text{(constant multiple rule)}
 \\
-&= y\frac{1}{\pi} + (n-y)\deriv{\pi}\logf{1-\pi}
+&= y\frac{1}{\prob} + (n-y)\deriv{\prob}\logf{1-\prob}
 && \text{(derivative of $\log$)}
 \\
-&= y\frac{1}{\pi} + (n-y)\frac{1}{1-\pi}\deriv{\pi}(1-\pi)
+&= y\frac{1}{\prob} + (n-y)\frac{1}{1-\prob}\deriv{\prob}(1-\prob)
 && \text{(chain rule)}
 \ea
 $$
@@ -75,15 +75,15 @@ The inner derivative is:
 
 $$
 \ba
-\deriv{\pi}(1-\pi)
-&= \deriv{\pi} 1 - \deriv{\pi} \pi
+\deriv{\prob}(1-\prob)
+&= \deriv{\prob} 1 - \deriv{\prob} \prob
 && \text{(linearity of differentiation)}
 \\
-&= 0 - \deriv{\pi} \pi
+&= 0 - \deriv{\prob} \prob
 && \text{(derivative of a constant)}
 \\
 &= 0 - 1
-&& \text{(derivative of $\pi$ with respect to itself)}
+&& \text{(derivative of $\prob$ with respect to itself)}
 \\
 &= -1
 && \text{(subtract)}
@@ -94,46 +94,46 @@ Substituting the inner derivative back in:
 
 $$
 \ba
-\ell'(\pi; y)
-&= y\frac{1}{\pi} + (n-y)\frac{1}{1-\pi}(-1)
+\ell'(\prob; y)
+&= y\frac{1}{\prob} + (n-y)\frac{1}{1-\prob}(-1)
 && \text{(inner derivative is $-1$)}
 \\
-&= y\frac{1}{\pi} - (n-y)\frac{1}{1-\pi}
+&= y\frac{1}{\prob} - (n-y)\frac{1}{1-\prob}
 && \text{(multiply by $-1$)}
 \\
-&= \frac{y}{\pi} - \frac{n-y}{1-\pi}
+&= \frac{y}{\prob} - \frac{n-y}{1-\prob}
 && \text{(multiply)}
 \\
-&= \frac{y(1-\pi)}{\pi(1-\pi)} - \frac{(n-y)\pi}{\pi(1-\pi)}
+&= \frac{y(1-\prob)}{\prob(1-\prob)} - \frac{(n-y)\prob}{\prob(1-\prob)}
 && \text{(write both terms over the common denominator)}
 \\
-&= \frac{y(1-\pi) - (n-y)\pi}{\pi(1-\pi)}
+&= \frac{y(1-\prob) - (n-y)\prob}{\prob(1-\prob)}
 && \text{(combine the fractions)}
 \\
-&= \frac{y - y\pi - n\pi + y\pi}{\pi(1-\pi)}
+&= \frac{y - y\prob - n\prob + y\prob}{\prob(1-\prob)}
 && \text{(expand the numerator)}
 \\
-&= \frac{y - n\pi}{\pi(1-\pi)}
-&& \text{(cancel $y\pi$)}
+&= \frac{y - n\prob}{\prob(1-\prob)}
+&& \text{(cancel $y\prob$)}
 \ea
 $$
 
 **(c)**
 
-Setting $\ell'(\pi; y) = 0$:
+Setting $\ell'(\prob; y) = 0$:
 
 $$
 \ba
-0 &= \frac{y - n\pi}{\pi(1-\pi)}
+0 &= \frac{y - n\prob}{\prob(1-\prob)}
 && \text{(score from (b))}
 \\
-0 &= y - n\pi
-&& \text{(multiply both sides by $\pi(1-\pi)$)}
+0 &= y - n\prob
+&& \text{(multiply both sides by $\prob(1-\prob)$)}
 \\
-y &= n\pi
-&& \text{(add $n\pi$ to both sides)}
+y &= n\prob
+&& \text{(add $n\prob$ to both sides)}
 \\
-\hat\pi_{ML} &= \frac{y}{n}
+\hprob_{ML} &= \frac{y}{n}
 && \text{(divide both sides by $n$)}
 \ea
 $$
@@ -142,39 +142,39 @@ $$
 
 $$
 \ba
-\ell''(\pi; y)
-&= \deriv{\pi}\sb{\frac{y}{\pi} - \frac{n-y}{1-\pi}}
+\ell''(\prob; y)
+&= \deriv{\prob}\sb{\frac{y}{\prob} - \frac{n-y}{1-\prob}}
 && \text{(score from (b))}
 \\
-&= \deriv{\pi}\sb{y\pi^{-1} - (n-y)(1-\pi)^{-1}}
+&= \deriv{\prob}\sb{y\prob^{-1} - (n-y)(1-\prob)^{-1}}
 && \text{(write the fractions as negative powers)}
 \\
-&= \deriv{\pi}\sb{y\pi^{-1}} - \deriv{\pi}\sb{(n-y)(1-\pi)^{-1}}
+&= \deriv{\prob}\sb{y\prob^{-1}} - \deriv{\prob}\sb{(n-y)(1-\prob)^{-1}}
 && \text{(linearity of differentiation)}
 \\
-&= y\deriv{\pi}\pi^{-1} - (n-y)\deriv{\pi}(1-\pi)^{-1}
+&= y\deriv{\prob}\prob^{-1} - (n-y)\deriv{\prob}(1-\prob)^{-1}
 && \text{(constant multiple rule)}
 \\
-&= y\paren{-\pi^{-2}} - (n-y)\deriv{\pi}(1-\pi)^{-1}
+&= y\paren{-\prob^{-2}} - (n-y)\deriv{\prob}(1-\prob)^{-1}
 && \text{(power rule)}
 \\
-&= y\paren{-\pi^{-2}} - (n-y)\paren{-(1-\pi)^{-2}}\deriv{\pi}(1-\pi)
+&= y\paren{-\prob^{-2}} - (n-y)\paren{-(1-\prob)^{-2}}\deriv{\prob}(1-\prob)
 && \text{(chain rule, outer function $u^{-1}$)}
 \\
-&= y\paren{-\pi^{-2}} - (n-y)\paren{-(1-\pi)^{-2}}(-1)
+&= y\paren{-\prob^{-2}} - (n-y)\paren{-(1-\prob)^{-2}}(-1)
 && \text{(inner derivative from (b) is $-1$)}
 \\
-&= -y\pi^{-2} - (n-y)(1-\pi)^{-2}
+&= -y\prob^{-2} - (n-y)(1-\prob)^{-2}
 && \text{(multiply)}
 \\
-&= -\frac{y}{\pi^2} - \frac{n-y}{(1-\pi)^2}
+&= -\frac{y}{\prob^2} - \frac{n-y}{(1-\prob)^2}
 && \text{(write the negative powers as fractions)}
 \ea
 $$
 
 Since $y \geq 0$, $n - y \geq 0$, and $y$ and $n - y$ are not both zero,
-$\ell''(\pi; y) < 0$ for every $\pi \in (0,1)$.
+$\ell''(\prob; y) < 0$ for every $\prob \in (0,1)$.
 So $\ell$ is strictly concave,
-and its critical point $\hat\pi_{ML} = y/n$ is its global maximum.
+and its critical point $\hprob_{ML} = y/n$ is its global maximum.
 
 :::

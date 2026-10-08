@@ -1,6 +1,6 @@
 ::: {#def-parameter-space}
 #### Parameter space
 
-The **parameter space** $\Theta$ of a model
-is the set of values that its parameter $\theta$ can take.
+The **parameter space** $\Paramspace$ of a model
+is the set of values that its parameter $\param$ can take.
 :::

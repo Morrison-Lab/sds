@@ -1,9 +1,9 @@
 ::: {#exm-hers-ttest}
 #### Baseline fasting glucose by treatment group in HERS
 
-We test $H_0: \mu_\text{HT} = \mu_\text{placebo}$
-against $H_1: \mu_\text{HT} \neq \mu_\text{placebo}$,
-where $\mu_\text{HT}$ and $\mu_\text{placebo}$
+We test $H_0: \mean_\text{HT} = \mean_\text{placebo}$
+against $H_1: \mean_\text{HT} \neq \mean_\text{placebo}$,
+where $\mean_\text{HT}$ and $\mean_\text{placebo}$
 are the mean baseline fasting glucose levels
 in the hormone therapy and placebo populations.
 @fig-hers-boxplot compares the two groups' distributions.

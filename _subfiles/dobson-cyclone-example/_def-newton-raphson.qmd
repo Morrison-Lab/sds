@@ -2,15 +2,15 @@
 #### Newton-Raphson algorithm
 
 The **Newton-Raphson algorithm** for solving the score equation
-$\score(\th) = 0$
-starts from an initial guess $\esttmp{\th}$
+$\score(\param) = 0$
+starts from an initial guess $\esttmp{\param}$
 and repeats the update
 
 $$
 \begin{aligned}
-\esttmp{\th}
-&\leftarrow \esttmp{\th} - \inv{\hessf{\vx; \esttmp{\th}}} \scoref{\vx; \esttmp{\th}}\\
-&= \esttmp{\th} + \inv{\oinff{\vx; \esttmp{\th}}} \scoref{\vx; \esttmp{\th}}
+\esttmp{\param}
+&\leftarrow \esttmp{\param} - \inv{\hessf{\vx; \esttmp{\param}}} \scoref{\vx; \esttmp{\param}}\\
+&= \esttmp{\param} + \inv{\oinff{\vx; \esttmp{\param}}} \scoref{\vx; \esttmp{\param}}
 \end{aligned}
 $$
 

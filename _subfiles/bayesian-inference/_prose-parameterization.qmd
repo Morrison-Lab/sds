@@ -5,7 +5,7 @@ can produce chains with very different autocorrelation.
 Strong posterior correlation between parameters slows a sampler
 that updates one component at a time,
 because each update can move only a short way along a narrow, tilted ridge,
-as @exm-gibbs-bivariate-normal shows with $\rho = 0.99$.
+as @exm-gibbs-bivariate-normal shows with $\corpar = 0.99$.
 
 Common remedies include *centering* predictors
 (subtracting their means),

@@ -1,11 +1,11 @@
 ::: {#thm-unbiased-props}
 #### Properties of unbiased estimators
 
-If $\hth$ is an [unbiased](#def-unbiased) estimator of $\th$, then:
+If $\hparam$ is an [unbiased](#def-unbiased) estimator of $\param$, then:
 
-$$\E{\hth} = \th$$ {#eq-unbiased-exp}
+$$\E{\hparam} = \param$$ {#eq-unbiased-exp}
 
-$$\mselr{\hth} = \var{\hth}$$ {#eq-unbiased-mse}
+$$\mselr{\hparam} = \var{\hparam}$$ {#eq-unbiased-mse}
 
 :::
 

@@ -1,15 +1,15 @@
 ::: {#def-marginal-likelihood}
 #### Marginal likelihood
 
-Given a prior $\p(\theta)$
-and a model $\p(\vy \mid \theta)$ for the data given $\theta$,
+Given a prior $\p(\param)$
+and a model $\p(\vy \mid \param)$ for the data given $\param$,
 the **marginal likelihood** (also called the **evidence**)
 of observed data $\vy$ is
 
 $$
-\p(\vy) \eqdef \int \p(\vy \mid \theta)\, \p(\theta)\, d\theta,
+\p(\vy) \eqdef \int \p(\vy \mid \param)\, \p(\param)\, d\param,
 $$
 
-with the integral replaced by a sum over the possible values of $\theta$
-when $\theta$ is discrete.
+with the integral replaced by a sum over the possible values of $\param$
+when $\param$ is discrete.
 :::

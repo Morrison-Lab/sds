@@ -2,18 +2,18 @@
 #### Mean height of students
 
 Suppose we want to estimate the mean height of students at our school,
-which we will represent as $\mu$,
+which we will represent as $\mean$,
 and we measure the heights of
 $n = 50$ randomly sampled students as random variables $\dsn{X}$.
 Then we could use the function
 
-$$\hat\mu(\dsn{X}) \eqdef \avgin X_i \eqdef \bar X$$
+$$\hmean(\dsn{X}) \eqdef \avgin X_i \eqdef \bar X$$
 
-as an [*estimator*](#def-estimator) to produce an *estimate* $\hat\mu = \bar x$ of $\mu$.
+as an [*estimator*](#def-estimator) to produce an *estimate* $\hmean = \bar x$ of $\mean$.
 
 Another estimator would be just the height of the first student sampled:
 
-$$\hat\mu^{(2)}(\dsn{X}) \eqdef X_1$$
+$$\hmean^{(2)}(\dsn{X}) \eqdef X_1$$
 
 A third possible estimator would be the mean of all sampled students'
 heights, except for the two most extreme.
@@ -23,7 +23,7 @@ $X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}$
 this estimator drops $X_{(1)}$ and $X_{(n)}$
 and averages the remaining $n - 2$ observations:
 
-$$\hat\mu^{(3)}(\dsn{X}) \eqdef \frac{1}{n-2}\sum_{i=2}^{n-1} X_{(i)}$$
+$$\hmean^{(3)}(\dsn{X}) \eqdef \frac{1}{n-2}\sum_{i=2}^{n-1} X_{(i)}$$
 
 Which of these estimators is best?
 The answer depends on how we evaluate them

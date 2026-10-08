@@ -4,9 +4,9 @@
 In a conditional Gaussian model (@def-cond-gaussian),
 given the covariates,
 the deviations (@def-slr-deviation) are independent and Gaussian
-with mean 0 and variance $\sigma_i^2$:
+with mean 0 and variance $\varpar_i$:
 
-$$\cdev_i \mid X_i = x_i \simind \ndist{0, \sigma_i^2}.$$
+$$\cdev_i \mid X_i = x_i \simind \ndist{0, \varpar_i}.$$
 :::
 
 ::: proof

@@ -14,22 +14,22 @@ Starting from the likelihood in @sol-bernoulli-likelihood-one-group:
 
 $$
 \begin{aligned}
-\ell(\pi; \vy)
-&= \logf{\pi^{\sumin y_i} (1 - \pi)^{n - \sumin y_i}}
+\ell(\prob; \vy)
+&= \logf{\prob^{\sumin y_i} (1 - \prob)^{n - \sumin y_i}}
 && \text{(log of the likelihood)}\\
-&= \logf{\pi^{\sumin y_i}} + \logf{(1 - \pi)^{n - \sumin y_i}}
+&= \logf{\prob^{\sumin y_i}} + \logf{(1 - \prob)^{n - \sumin y_i}}
 && \text{(log of a product)}\\
-&= \paren{\sumin y_i} \logf{\pi} + \paren{n - \sumin y_i} \logf{1 - \pi}
+&= \paren{\sumin y_i} \logf{\prob} + \paren{n - \sumin y_i} \logf{1 - \prob}
 && \text{(log of a power)}\\
-&= \paren{\sumin y_i} \logf{\pi} + n \logf{1 - \pi} - \paren{\sumin y_i} \logf{1 - \pi}
-&& \text{(distribute $\logf{1 - \pi}$)}\\
-&= \paren{\sumin y_i} \logf{\pi} - \paren{\sumin y_i} \logf{1 - \pi} + n \logf{1 - \pi}
+&= \paren{\sumin y_i} \logf{\prob} + n \logf{1 - \prob} - \paren{\sumin y_i} \logf{1 - \prob}
+&& \text{(distribute $\logf{1 - \prob}$)}\\
+&= \paren{\sumin y_i} \logf{\prob} - \paren{\sumin y_i} \logf{1 - \prob} + n \logf{1 - \prob}
 && \text{(reorder the terms)}\\
-&= \paren{\sumin y_i} \paren{\logf{\pi} - \logf{1 - \pi}} + n \logf{1 - \pi}
+&= \paren{\sumin y_i} \paren{\logf{\prob} - \logf{1 - \prob}} + n \logf{1 - \prob}
 && \text{(collect the terms in $\textstyle\sumin y_i$)}\\
-&= \paren{\sumin y_i} \logf{\frac{\pi}{1 - \pi}} + n \logf{1 - \pi}
+&= \paren{\sumin y_i} \logf{\frac{\prob}{1 - \prob}} + n \logf{1 - \prob}
 && \text{(log of a quotient)}\\
-&= \paren{\sumin y_i} \logit(\pi) + n \logf{1 - \pi}
+&= \paren{\sumin y_i} \logit(\prob) + n \logf{1 - \prob}
 && \text{(definition of $\logit$)}
 \end{aligned}
 $$

@@ -1,11 +1,11 @@
 :::{#thm-mle-use-log}
 #### Maximize the log-likelihood instead of the likelihood
 
-If $\Lik(\th) > 0$ for every $\th$,
+If $\Lik(\param) > 0$ for every $\param$,
 the likelihood and log-likelihood have the same maximizers:
 
 $$
-\am_\th \Lik(\th) = \am_\th \lik(\th)
+\am_\param \Lik(\param) = \am_\param \lik(\param)
 $$
 :::
 

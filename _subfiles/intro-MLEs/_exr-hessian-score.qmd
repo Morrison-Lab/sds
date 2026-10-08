@@ -9,14 +9,14 @@ as a derivative of the [score function](#def-score) $\score$.
 
 :::{#sol-hessian-score}
 
-By @def-score, $\score = \deriv{\vth}\llik$,
-so $\pt{\score} = \deriv{\vth\'}\llik$.
+By @def-score, $\score = \deriv{\vparam}\llik$,
+so $\pt{\score} = \deriv{\vparam\'}\llik$.
 Then:
 
 $$
 \begin{aligned}
-\deriv{\vth}\pt{\score}
-&= \deriv{\vth}\deriv{\vth\'}\llik
+\deriv{\vparam}\pt{\score}
+&= \deriv{\vparam}\deriv{\vparam\'}\llik
 && \text{(transpose of the score)}\\
 &= \hess
 && \text{(definition of the Hessian)}

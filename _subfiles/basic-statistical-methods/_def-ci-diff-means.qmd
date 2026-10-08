@@ -2,13 +2,13 @@
 #### Welch confidence interval for a difference in means
 
 With the notation of @def-two-sample-t-test,
-the **Welch $100(1-\alpha)\%$ confidence interval** for $\mu_1 - \mu_2$ is
+the **Welch $100(1-\siglevel)\%$ confidence interval** for $\mean_1 - \mean_2$ is
 
-$$(\bar{x}_1 - \bar{x}_2) \pm t_{\hat\nu,\, 1 - \alpha/2}
+$$(\bar{x}_1 - \bar{x}_2) \pm t_{\hdf,\, 1 - \siglevel/2}
 \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},$$
 
-where $t_{\hat\nu,\, 1 - \alpha/2}$ is the $1 - \alpha/2$ quantile
-of the $t_{\hat\nu}$ distribution.
+where $t_{\hdf,\, 1 - \siglevel/2}$ is the $1 - \siglevel/2$ quantile
+of the $t_{\hdf}$ distribution.
 It is an approximate
 [confidence interval](inference.qmd#def-confidence-interval).
 :::

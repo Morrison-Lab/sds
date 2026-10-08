@@ -8,7 +8,7 @@ Write down the vector of parameters in the model.
 
 :::{#sol-poisson-parameters}
 
-There is only one parameter, $\lambda$:
+There is only one parameter, $\rate$:
 
-$$\theta = (\lambda)$$
+$$\param = (\rate)$$
 :::

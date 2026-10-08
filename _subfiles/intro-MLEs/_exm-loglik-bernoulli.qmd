@@ -1,6 +1,6 @@
 :::{#exm-loglik-bernoulli}
 #### Log-likelihood of one Bernoulli observation
 
-In @exm-lik-obs, $\Lik(\pi) = \pi$, so $\ell(\pi) = \log \pi$;
+In @exm-lik-obs, $\Lik(\prob) = \prob$, so $\ell(\prob) = \log \prob$;
 for example, $\ell(0.7) = \log 0.7 \approx -0.357$.
 :::

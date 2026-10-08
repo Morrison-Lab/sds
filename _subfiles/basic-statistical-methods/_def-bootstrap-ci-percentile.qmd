@@ -2,9 +2,9 @@
 #### Percentile bootstrap confidence interval
 
 The **percentile bootstrap confidence interval**
-runs from the $\alpha/2$ quantile
-to the $1 - \alpha/2$ quantile
-of the bootstrap replicates $\hat\theta^*_1, \ldots, \hat\theta^*_B$
+runs from the $\siglevel/2$ quantile
+to the $1 - \siglevel/2$ quantile
+of the bootstrap replicates $\hparam^*_1, \ldots, \hparam^*_B$
 (@def-bootstrap-distribution).
 :::
 

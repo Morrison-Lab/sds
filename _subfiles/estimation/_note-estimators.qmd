@@ -3,17 +3,17 @@
 
 When an estimator is applied to random variables $\dsn{X}$
 rather than to their observed values,
-the result $\hth(\dsn{X})$ is also a random variable.
+the result $\hparam(\dsn{X})$ is also a random variable.
 :::
 
 ::: callout-note
 #### Notation for estimators
 
 Estimators are often symbolized by placing a \^ ("hat") symbol on top of
-the corresponding estimand; for example, $\hth$.
+the corresponding estimand; for example, $\hparam$.
 
 Usually, their dependence on the data is implicit:
 
-$$\hth \eqdef \hth(\dsn{x})$$
+$$\hparam \eqdef \hparam(\dsn{x})$$
 
 :::

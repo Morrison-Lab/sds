@@ -1,8 +1,8 @@
 :::{#exr-mse-expand}
 #### Expanding the mean squared error
 
-Write the [mean squared error](#def-mse) $\mselr{\hth}$
-in terms of $\E{\hth^2}$, $\E{\hth}$, and the estimand $\th$.
+Write the [mean squared error](#def-mse) $\mselr{\hparam}$
+in terms of $\E{\hparam^2}$, $\E{\hparam}$, and the estimand $\param$.
 :::
 
 {{< slidebreak >}}
@@ -11,18 +11,18 @@ in terms of $\E{\hth^2}$, $\E{\hth}$, and the estimand $\th$.
 
 $$
 \begin{aligned}
-\mselr{\hth}
-&\eqdef \E{\sqf{\erf{\hth}}}
+\mselr{\hparam}
+&\eqdef \E{\sqf{\erf{\hparam}}}
 && \text{(definition of MSE)}\\
-&= \E{(\hth - \th)^2}
+&= \E{(\hparam - \param)^2}
 && \text{(definition of estimation error)}\\
-&= \E{\hth^2 - 2\hth\th + \th^2}
+&= \E{\hparam^2 - 2\hparam\param + \param^2}
 && \text{(expand the binomial square)}\\
-&= \E{\hth^2} - \E{2\hth\th} + \E{\th^2}
+&= \E{\hparam^2} - \E{2\hparam\param} + \E{\param^2}
 && \text{(linearity of expectation)}\\
-&= \E{\hth^2} - 2\E{\hth}\th + \E{\th^2}
-&& \text{(factor the constant $2\th$ out of the middle expectation)}\\
-&= \E{\hth^2} - 2\E{\hth}\th + \th^2
+&= \E{\hparam^2} - 2\E{\hparam}\param + \E{\param^2}
+&& \text{(factor the constant $2\param$ out of the middle expectation)}\\
+&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2
 && \text{(the expectation of a constant is that constant)}
 \end{aligned}
 $$

@@ -1,14 +1,14 @@
 :::{#def-wald-ci}
 #### Wald confidence interval
 
-The approximate $100(1-\alpha)\%$ **Wald confidence interval**
-for the $k$th entry $\theta_k$ of a parameter vector is
+The approximate $100(1-\siglevel)\%$ **Wald confidence interval**
+for the $k$th entry $\param_k$ of a parameter vector is
 
 $$
-\hth_k \pm z_{1 - \alpha/2} \times \HSE{\hth_k}
+\hparam_k \pm z_{1 - \siglevel/2} \times \HSE{\hparam_k}
 $$
 
-where $\hth_k$ is the $k$th entry of $\hthml$,
-$\HSE{\hth_k}$ is its estimated standard error,
-and $z_{\beta}$ is the $\beta$ quantile of the standard Gaussian distribution.
+where $\hparam_k$ is the $k$th entry of $\hthml$,
+$\HSE{\hparam_k}$ is its estimated standard error,
+and $z_{\quantlevel}$ is the $\quantlevel$ quantile of the standard Gaussian distribution.
 :::

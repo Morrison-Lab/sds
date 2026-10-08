@@ -1,19 +1,19 @@
 ::: {#exm-prior-spectrum}
 #### Three priors for a log odds ratio
 
-Let $\beta$ be the log odds ratio of disease for exposed versus unexposed people,
-so the odds ratio is $e^\beta$,
-and $\beta$ can be any real number.
+Let $\regcoef$ be the log odds ratio of disease for exposed versus unexposed people,
+so the odds ratio is $e^\regcoef$,
+and $\regcoef$ can be any real number.
 
 - [Informative](#def-informative-prior): a previous study estimated the odds ratio as 1.5,
   with a standard error of 0.2 for its logarithm,
-  so an analyst adopts the prior $\beta \sim \ndist{\log 1.5,\; 0.2^2}$.
+  so an analyst adopts the prior $\regcoef \sim \ndist{\log 1.5,\; 0.2^2}$.
 - [Weakly informative](#def-weakly-informative-prior): an analyst with no previous study,
   who nonetheless regards odds ratios above 100 as implausible,
-  adopts $\beta \sim \ndist{0,\; 2.5^2}$.
-- [Flat](#def-flat-prior): $\p(\beta) \propto 1$ on the whole real line.
+  adopts $\regcoef \sim \ndist{0,\; 2.5^2}$.
+- [Flat](#def-flat-prior): $\p(\regcoef) \propto 1$ on the whole real line.
   This prior is [improper](#def-improper-prior),
-  since $\int_{-\infty}^{\infty} 1 \, d\beta = \infty$;
+  since $\int_{-\infty}^{\infty} 1 \, d\regcoef = \infty$;
   it gives an odds ratio of $10^6$ the same density as an odds ratio of $1$.
 
 The two proper priors' probabilities for large odds ratios:

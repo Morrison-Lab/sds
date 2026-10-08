@@ -1,11 +1,11 @@
 ::: {#def-r-squared}
 #### Coefficient of determination
 
-The **coefficient of determination** of a model fitted with parameter estimate $\est{\vth}$
-is one minus the ratio of its [residual sum of squares](#def-rss) at $\est{\vth}$
+The **coefficient of determination** of a model fitted with parameter estimate $\est{\vparam}$
+is one minus the ratio of its [residual sum of squares](#def-rss) at $\est{\vparam}$
 to the [total sum of squares](#def-tss) of its outcomes:
 
-$$R^2 \eqdef 1 - \frac{\text{RSS}(\est{\vth})}{\text{TSS}}.$$
+$$R^2 \eqdef 1 - \frac{\text{RSS}(\est{\vparam})}{\text{TSS}}.$$
 :::
 
 {{< slidebreak >}}

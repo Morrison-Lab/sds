@@ -1,8 +1,8 @@
-For $\iid$ data, $\frac{1}{n}\oinf_e(\th; \vx)$
+For $\iid$ data, $\frac{1}{n}\oinf_e(\param; \vx)$
 is the sample covariance matrix (with divisor $n$)
 of the observations' scores,
 so it estimates the covariance matrix of one observation's score,
-$\einf(\th)/n$
+$\einf(\param)/n$
 (@thm-information-equality).
 The empirical information needs only first derivatives,
 so it can be easier to compute than the observed information,

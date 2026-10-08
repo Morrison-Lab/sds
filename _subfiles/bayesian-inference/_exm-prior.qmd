@@ -1,14 +1,14 @@
 ::: {#exm-prior}
 #### A uniform prior for a probability
 
-Let $\pi$ be the probability that a randomly chosen adult in some population smokes.
+Let $\prob$ be the probability that a randomly chosen adult in some population smokes.
 Before collecting any data,
-an analyst who considers every value of $\pi$ in $(0, 1)$ equally plausible
+an analyst who considers every value of $\prob$ in $(0, 1)$ equally plausible
 could use the uniform prior
 
-$$\p(\pi) = 1, \quad 0 < \pi < 1.$$
+$$\p(\prob) = 1, \quad 0 < \prob < 1.$$
 
 Under this prior,
 the prior probability that fewer than 10% of adults smoke is
-$\Pr(\pi < 0.1) = \int_0^{0.1} 1 \, d\pi = 0.1$.
+$\Pr(\prob < 0.1) = \int_0^{0.1} 1 \, d\prob = 0.1$.
 :::

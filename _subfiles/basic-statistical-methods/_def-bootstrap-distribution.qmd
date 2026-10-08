@@ -1,12 +1,12 @@
 ::: {#def-bootstrap-distribution}
 #### Bootstrap distribution
 
-Let $\hat\theta$ be a statistic computed from the observed data.
+Let $\hparam$ be a statistic computed from the observed data.
 Draw $B$ independent [bootstrap samples](#def-bootstrap-sample),
 and compute the statistic on each one,
-giving $\hat\theta^*_1, \ldots, \hat\theta^*_B$.
-The **bootstrap distribution** of $\hat\theta$
-is the empirical distribution of $\hat\theta^*_1, \ldots, \hat\theta^*_B$.
+giving $\hparam^*_1, \ldots, \hparam^*_B$.
+The **bootstrap distribution** of $\hparam$
+is the empirical distribution of $\hparam^*_1, \ldots, \hparam^*_B$.
 :::
 
 {{< slidebreak >}}
@@ -15,7 +15,7 @@ is the empirical distribution of $\hat\theta^*_1, \ldots, \hat\theta^*_B$.
 #### What the bootstrap distribution estimates
 
 The bootstrap distribution estimates the sampling distribution
-of $\hat\theta$.
+of $\hparam$.
 The observed sample stands in for the population,
 and resampling from it stands in for drawing new samples
 from the population.

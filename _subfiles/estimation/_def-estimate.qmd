@@ -1,11 +1,11 @@
 ::: {#def-estimate}
 #### Estimate/estimated value
 
-In statistics, an **estimate** or **estimated value** $\hth$
-is an informed guess of an [estimand](#def-estimand) $\th$'s value,
+In statistics, an **estimate** or **estimated value** $\hparam$
+is an informed guess of an [estimand](#def-estimand) $\param$'s value,
 computed from the observed data $\dsn{x}$:
 
 $$
-\hth = \hth(\dsn{x}).
+\hparam = \hparam(\dsn{x}).
 $$
 :::

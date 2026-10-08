@@ -1,10 +1,10 @@
 ::: {#exm-normal-normal}
 #### Posterior for a Gaussian mean
 
-Suppose that, given the mean $\mu$,
-$\dsn{X} \siid \ndist{\mu, 1}$,
+Suppose that, given the mean $\mean$,
+$\dsn{X} \siid \ndist{\mean, 1}$,
 so the variance is known,
-and that the prior for $\mu$ is $\ndist{0, 1}$.
+and that the prior for $\mean$ is $\ndist{0, 1}$.
 Let $\vx = (\dsn{x})$ be the observed data,
 with sample mean $\bar x$.
 
@@ -12,37 +12,37 @@ The likelihood is
 
 $$
 \ba
-\p(\vx \mid \mu)
-&= \prodin (2\pi)^{-1/2} \expf{-\frac{1}{2}(x_i - \mu)^2}
+\p(\vx \mid \mean)
+&= \prodin (2\pi)^{-1/2} \expf{-\frac{1}{2}(x_i - \mean)^2}
 && \text{(independent Gaussian observations)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin (x_i - \mu)^2}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin (x_i - \mean)^2}
 && \text{(combining the exponents)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mu n \bar x + n \mu^2}}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mean n \bar x + n \mean^2}}
 && \text{(expanding the square; $\sum_i x_i = n \bar x$)}\\
-&\propto \expf{-\frac{1}{2}\paren{n \mu^2 - 2 \mu n \bar x}}
-&& \text{(dropping factors that do not involve $\mu$)},
+&\propto \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
+&& \text{(dropping factors that do not involve $\mean$)},
 \ea
 $$
 
-and the prior density is $\p(\mu) \propto \expf{-\frac{1}{2}\mu^2}$.
+and the prior density is $\p(\mean) \propto \expf{-\frac{1}{2}\mean^2}$.
 Let $m \eqdef \frac{n}{n+1} \bar x$.
 By @cor-bayes-proportional,
 
 $$
 \ba
-\p(\mu \mid \vx)
-&\propto \p(\vx \mid \mu)\, \p(\mu)
+\p(\mean \mid \vx)
+&\propto \p(\vx \mid \mean)\, \p(\mean)
 && \text{(posterior is proportional to likelihood times prior)}\\
-&\propto \expf{-\frac{1}{2}\paren{n \mu^2 - 2 \mu n \bar x}}
-  \cdot \expf{-\frac{1}{2}\mu^2}
+&\propto \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
+  \cdot \expf{-\frac{1}{2}\mean^2}
 && \text{(substituting likelihood and prior)}\\
-&= \expf{-\frac{1}{2}\paren{(n+1)\mu^2 - 2 \mu n \bar x}}
+&= \expf{-\frac{1}{2}\paren{(n+1)\mean^2 - 2 \mean n \bar x}}
 && \text{(adding exponents)}\\
-&= \expf{-\frac{1}{2}(n+1)\paren{\mu^2 - 2 \mu m}}
+&= \expf{-\frac{1}{2}(n+1)\paren{\mean^2 - 2 \mean m}}
 && \text{(factoring out $n+1$; definition of $m$)}\\
-&= \expf{-\frac{1}{2}(n+1)\paren{(\mu - m)^2 - m^2}}
+&= \expf{-\frac{1}{2}(n+1)\paren{(\mean - m)^2 - m^2}}
 && \text{(completing the square)}\\
-&\propto \expf{-\frac{1}{2}(n+1)(\mu - m)^2}
+&\propto \expf{-\frac{1}{2}(n+1)(\mean - m)^2}
 && \text{(dropping the factor $\expf{\tfrac{1}{2}(n+1)m^2}$)}.
 \ea
 $$
@@ -53,7 +53,7 @@ the density of a Gaussian distribution with mean $m$ and variance $1/(n+1)$,
 so the posterior is
 
 $$
-\mu \mid \vx \;\sim\; \ndist{\frac{n}{n+1}\bar{x},\; \frac{1}{n+1}}.
+\mean \mid \vx \;\sim\; \ndist{\frac{n}{n+1}\bar{x},\; \frac{1}{n+1}}.
 $$
 
 The posterior mean $\frac{n}{n+1}\bar{x}$ is the sample mean

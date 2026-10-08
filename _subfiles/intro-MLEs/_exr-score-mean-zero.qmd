@@ -1,10 +1,10 @@
 :::{#exr-score-mean-zero}
 #### Mean of the score
 
-Let $\vX$ be continuous with density $\p(\vx \mid \th)$
-for a scalar parameter $\th$.
-Suppose the set of possible data values does not depend on $\th$,
-and the order of differentiation with respect to $\th$
+Let $\vX$ be continuous with density $\p(\vx \mid \param)$
+for a scalar parameter $\param$.
+Suppose the set of possible data values does not depend on $\param$,
+and the order of differentiation with respect to $\param$
 and integration over the data can be exchanged.
 Show that the [score](#def-score) has mean zero.
 :::
@@ -13,22 +13,22 @@ Show that the [score](#def-score) has mean zero.
 
 :::{#sol-score-mean-zero}
 
-The step that rewrites the derivative of $\log \p(\vx \mid \th)$ uses @exr-deriv-log-density:
+The step that rewrites the derivative of $\log \p(\vx \mid \param)$ uses @exr-deriv-log-density:
 
 $$
 \begin{aligned}
 \E{\score}
-&= \int \score \, \p(\vx \mid \th) \, d\vx
+&= \int \score \, \p(\vx \mid \param) \, d\vx
 && \text{(definition of expectation)}\\
-&= \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+&= \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{(definition of the score)}\\
-&= \int \frac{\deriv{\th} \p(\vx \mid \th)}{\p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+&= \int \frac{\deriv{\param} \p(\vx \mid \param)}{\p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{(chain rule for $\log$)}\\
-&= \int \deriv{\th} \p(\vx \mid \th) \, d\vx
-&& \text{(cancel $\p(\vx \mid \th)$)}\\
-&= \deriv{\th} \int \p(\vx \mid \th) \, d\vx
+&= \int \deriv{\param} \p(\vx \mid \param) \, d\vx
+&& \text{(cancel $\p(\vx \mid \param)$)}\\
+&= \deriv{\param} \int \p(\vx \mid \param) \, d\vx
 && \text{(exchange derivative and integral)}\\
-&= \deriv{\th} 1
+&= \deriv{\param} 1
 && \text{(a density integrates to 1)}\\
 &= 0
 && \text{(derivative of a constant)}

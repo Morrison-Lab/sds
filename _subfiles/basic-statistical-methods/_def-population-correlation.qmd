@@ -4,7 +4,7 @@
 The **population correlation** of two random variables $X$ and $Y$
 with positive variances is
 
-$$\rho \eqdef \frac{\Cov{X, Y}}{\sqrt{\Var{X} \Var{Y}}},$$
+$$\corpar \eqdef \frac{\Cov{X, Y}}{\sqrt{\Var{X} \Var{Y}}},$$
 
 where $\Cov{X, Y}$ is their
 [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
@@ -17,5 +17,5 @@ where $\Cov{X, Y}$ is their
 
 The [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r)
 $r$ of a sample is the corresponding sample statistic,
-and estimates $\rho$.
+and estimates $\corpar$.
 :::

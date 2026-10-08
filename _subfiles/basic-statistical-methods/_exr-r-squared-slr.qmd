@@ -19,7 +19,7 @@ and @exr-rss-ols-fit gives the residual sum of squares, so:
 $$
 \begin{aligned}
 R^2
-&= 1 - \frac{\text{RSS}(\est{\vth})}{\text{TSS}}
+&= 1 - \frac{\text{RSS}(\est{\vparam})}{\text{TSS}}
 && \text{(definition of $R^2$)}\\
 &= 1 - \frac{\text{RSS}(\hintcoef, \hcoef{x})}{\text{TSS}}
 && \text{(the OLS estimate is $(\hintcoef, \hcoef{x})$)}\\

@@ -1,1 +1,1 @@
-$$\einf(\vth) \eqdef \E{\oinf(\vX \mid \vth)}$${#eq-def-einf}
+$$\einf(\vparam) \eqdef \E{\oinf(\vX \mid \vparam)}$${#eq-def-einf}

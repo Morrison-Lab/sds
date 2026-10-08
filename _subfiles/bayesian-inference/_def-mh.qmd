@@ -1,14 +1,14 @@
 ::: {#def-mh}
 #### Metropolis--Hastings algorithm
 
-Given a target posterior $\p(\vth \mid \vy)$,
-a [proposal distribution](#def-proposal-distribution) $q(\cdot \mid \vth)$,
-and a starting value $\vth^{(1)}$,
-the **Metropolis--Hastings algorithm** produces $\vth^{(t+1)}$ from $\vth^{(t)}$ as follows
+Given a target posterior $\p(\vparam \mid \vy)$,
+a [proposal distribution](#def-proposal-distribution) $q(\cdot \mid \vparam)$,
+and a starting value $\vparam^{(1)}$,
+the **Metropolis--Hastings algorithm** produces $\vparam^{(t+1)}$ from $\vparam^{(t)}$ as follows
 [@dobson4e, Chapter 13, p. 291]:
 
-1. Draw a candidate $\vth^* \sim q(\cdot \mid \vth^{(t)})$.
-2. Compute the [acceptance ratio](#def-acceptance-ratio) $\alpha$.
-3. With probability $\min(1, \alpha)$, set $\vth^{(t+1)} = \vth^*$ (accept the candidate);
-   otherwise set $\vth^{(t+1)} = \vth^{(t)}$ (reject it).
+1. Draw a candidate $\vparam^* \sim q(\cdot \mid \vparam^{(t)})$.
+2. Compute the [acceptance ratio](#def-acceptance-ratio) $\accept$.
+3. With probability $\min(1, \accept)$, set $\vparam^{(t+1)} = \vparam^*$ (accept the candidate);
+   otherwise set $\vparam^{(t+1)} = \vparam^{(t)}$ (reject it).
 :::

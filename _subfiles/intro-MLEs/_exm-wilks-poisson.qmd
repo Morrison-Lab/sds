@@ -4,13 +4,13 @@
 For $\dsn{X} \siid \Pois(\rate)$
 and $H_0: \rate = \rate_0$,
 the log-likelihood is $\llik(\rate) = n\bar x \log\rate - n\rate - \sum_i \log x_i!$
-and $\hat\rate_{\text{ML}} = \bar x$, so:
+and $\hrate_{\text{ML}} = \bar x$, so:
 
 $$
 \begin{aligned}
-\Lambda
+\lrstat
 &= 2\paren{\llik(\bar x) - \llik(\rate_0)}
-&& \text{(definition of $\Lambda$)}\\
+&& \text{(definition of $\lrstat$)}\\
 &= 2\paren{\paren{n\bar x \log \bar x - n\bar x - \sum_i \log x_i!}
  - \paren{n\bar x \log\rate_0 - n\rate_0 - \sum_i \log x_i!}}
 && \text{(substitute $\llik(\bar x)$ and $\llik(\rate_0)$)}\\

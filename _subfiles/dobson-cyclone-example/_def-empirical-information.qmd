@@ -6,7 +6,7 @@ the **empirical information matrix** is
 [@mclachlan2007em]:
 
 $$
-\oinf_e(\th; \vx) \eqdef
+\oinf_e(\param; \vx) \eqdef
 \sumin \score_i \tp{\score_i}
 - \frac{1}{n} \score \tp{\score}
 $$
