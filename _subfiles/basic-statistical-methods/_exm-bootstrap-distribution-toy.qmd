@@ -21,7 +21,7 @@ c(
 The bootstrap standard error (@def-bootstrap-se)
 is close to the usual estimate $s / \sqrt{n}$.
 Each bootstrap draw has variance
-$\hat\sigma^2 \eqdef \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2$
+$\hat\sigma^2 \eqdef \frac{1}{n} \sumin (x_i - \bar{x})^2$
 around $\bar{x}$, and the $n$ draws are independent,
 so as $B$ grows the bootstrap standard error of the mean
 approaches $\hat\sigma / \sqrt{n}$ (`divide_by_n_se`),

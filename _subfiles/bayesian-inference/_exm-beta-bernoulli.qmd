@@ -2,7 +2,7 @@
 #### Beta-Bernoulli updating
 
 Let $Y_1, \ldots, Y_n \siid \Bernoulli(\pi)$ given $\pi$,
-with $r = \sum_{i=1}^n y_i$ successes,
+with $r = \sumin y_i$ successes,
 and let the prior for $\pi$ be a $\operatorname{Beta}(a, b)$ distribution,
 whose density is proportional to $\pi^{a-1}(1-\pi)^{b-1}$ on $(0, 1)$.
 The likelihood is

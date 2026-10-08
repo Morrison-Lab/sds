@@ -28,15 +28,15 @@ $$
 $$
 
 For the inner derivative, we need the gradient of a linear function.
-For any constant vector $\v{a} = \tp{(a_0, a_x)}$:
+For any constant vector $\va = \tp{(a_0, a_x)}$:
 
 $$
 \begin{aligned}
-\deriv{\vcoef} \dprod{\v{a}}{\vcoef}
+\deriv{\vcoef} \dprod{\va}{\vcoef}
 &= \deriv{\vcoef} \paren{a_0 \intcoef + a_x \coef{x}}
 && \text{(write out the dot product)}\\
 &= \begin{pmatrix}
-  \frac{\partial}{\partial \intcoef} \paren{a_0 \intcoef + a_x \coef{x}} \\
+  \deriv{\intcoef} \paren{a_0 \intcoef + a_x \coef{x}} \\
   \frac{\partial}{\partial \coef{x}} \paren{a_0 \intcoef + a_x \coef{x}}
   \end{pmatrix}
 && \text{(definition of the gradient)}\\
@@ -44,12 +44,12 @@ $$
 && \text{(derivative of each term)}\\
 &= \begin{pmatrix} a_0 \\ a_x \end{pmatrix}
 && \text{(add zero)}\\
-&= \v{a}
-&& \text{(definition of $\v{a}$)}
+&= \va
+&& \text{(definition of $\va$)}
 \end{aligned}
 $$
 
-With $\v{a} = \vxi$:
+With $\va = \vxi$:
 
 $$
 \begin{aligned}

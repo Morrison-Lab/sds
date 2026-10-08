@@ -15,14 +15,14 @@ from @exr-sample-llik:
 $$
 \begin{aligned}
 \ell'(\lambda; \vx)
-&\eqdef \deriv{\lambda}\paren{\paren{\sum_{i = 1}^n x_i}\logf{\lambda} - n\lambda - \sum_{i = 1}^n \logf{x_i!}}
+&\eqdef \deriv{\lambda}\paren{\paren{\sumin x_i}\logf{\lambda} - n\lambda - \sumin \logf{x_i!}}
 && \text{(definition of the score)}\\
-&= \paren{\sum_{i = 1}^n x_i}\deriv{\lambda}\logf{\lambda} - n\deriv{\lambda}\lambda - \deriv{\lambda}\sum_{i = 1}^n \logf{x_i!}
+&= \paren{\sumin x_i}\deriv{\lambda}\logf{\lambda} - n\deriv{\lambda}\lambda - \deriv{\lambda}\sumin \logf{x_i!}
 && \text{(linearity of differentiation)}\\
-&= \paren{\sum_{i = 1}^n x_i}\frac{1}{\lambda} - n - 0
+&= \paren{\sumin x_i}\frac{1}{\lambda} - n - 0
 && \text{(derivatives of $\log \lambda$, $\lambda$, and a constant)}\\
 &= \frac{n \bar x}{\lambda} - n
-&& \text{($\textstyle\sum_{i=1}^n x_i = n \bar x$)}
+&& \text{($\textstyle\sumin x_i = n \bar x$)}
 \end{aligned}
 $$
 

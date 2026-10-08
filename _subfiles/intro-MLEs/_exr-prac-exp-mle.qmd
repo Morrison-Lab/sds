@@ -31,29 +31,29 @@ $$
 &= \logf{\prod_{i=1}^n \frac{1}{\pmean} e^{-x_i/\pmean}}
 && \text{(log of the likelihood of an $\iid$ sample)}
 \\
-&= \sum_{i=1}^n \logf{\frac{1}{\pmean} e^{-x_i/\pmean}}
+&= \sumin \logf{\frac{1}{\pmean} e^{-x_i/\pmean}}
 && \text{(log of a product)}
 \\
-&= \sum_{i=1}^n \paren{\logf{\frac{1}{\pmean}} + \logf{e^{-x_i/\pmean}}}
+&= \sumin \paren{\logf{\frac{1}{\pmean}} + \logf{e^{-x_i/\pmean}}}
 && \text{(log of a product)}
 \\
-&= \sum_{i=1}^n \paren{-\logf{\pmean} + \logf{e^{-x_i/\pmean}}}
+&= \sumin \paren{-\logf{\pmean} + \logf{e^{-x_i/\pmean}}}
 && \text{(log of a reciprocal)}
 \\
-&= \sum_{i=1}^n \paren{-\logf{\pmean} - \frac{x_i}{\pmean}}
+&= \sumin \paren{-\logf{\pmean} - \frac{x_i}{\pmean}}
 && \text{($\logt$ undoes $\expt$)}
 \\
-&= \sum_{i=1}^n \paren{-\logf{\pmean}} - \sum_{i=1}^n \frac{x_i}{\pmean}
+&= \sumin \paren{-\logf{\pmean}} - \sumin \frac{x_i}{\pmean}
 && \text{(split the sum)}
 \\
-&= -n\logf{\pmean} - \sum_{i=1}^n \frac{x_i}{\pmean}
+&= -n\logf{\pmean} - \sumin \frac{x_i}{\pmean}
 && \text{(sum of $n$ identical terms)}
 \\
-&= -n\logf{\pmean} - \frac{1}{\pmean}\sum_{i=1}^n x_i
+&= -n\logf{\pmean} - \frac{1}{\pmean}\sumin x_i
 && \text{(factor the constant $\tfrac{1}{\pmean}$ out of the sum)}
 \\
 &= -n\logf{\pmean} - \frac{n\bar{x}}{\pmean}
-&& \text{($\textstyle\sum_{i=1}^n x_i = n\bar{x}$)}
+&& \text{($\textstyle\sumin x_i = n\bar{x}$)}
 \ea
 $$
 

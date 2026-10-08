@@ -11,7 +11,7 @@ $$
 &= \ell(\bar x, \sigma^2)
 && \text{(definition of the profile log-likelihood)}\\
 &= -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
- - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \bar x)^2
+ - \frac{1}{2\sigma^2}\sumin (x_i - \bar x)^2
 && \text{(Gaussian log-likelihood at $\mu = \bar x$)}
 \end{aligned}
 $$

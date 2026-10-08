@@ -6,7 +6,7 @@ and let $\hat\theta_{(\cdot)}$ be the mean of
 $\hat\theta_{(1)}, \ldots, \hat\theta_{(n)}$.
 The **acceleration** is
 
-$$\hat{a} \eqdef \frac{\sum_{i=1}^n \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^3}
-{6 \paren{\sum_{i=1}^n \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^2}^{3/2}}.$$
+$$\hat{a} \eqdef \frac{\sumin \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^3}
+{6 \paren{\sumin \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^2}^{3/2}}.$$
 
 :::

@@ -7,5 +7,5 @@ whose mean function is linear in $p$ covariates,
 where observation $i$ has covariate values
 $x_i = (x_{i1}, \ldots, x_{ip})$:
 
-$$\mean(x_1, \ldots, x_p) \eqdef \intcoef + \sum_{j=1}^p \coef{x_j} x_j.$$
+$$\mean(x_1, \ldots, x_p) \eqdef \intcoef + \sumjp \coef{x_j} x_j.$$
 :::

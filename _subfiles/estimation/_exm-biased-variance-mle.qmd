@@ -7,12 +7,12 @@ and let $n \ge 2$.
 Consider two estimators of $\sigma^2$:
 
 - the [sample variance](exploratory-descriptive.qmd#def-sample-variance)
-  $S^2 \eqdef \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar X)^2$;
+  $S^2 \eqdef \frac{1}{n-1} \sumin (X_i - \bar X)^2$;
 - the divide-by-$n$ estimator
-  $\hat\sigma^2 \eqdef \frac{1}{n} \sum_{i=1}^n (X_i - \bar X)^2$.
+  $\hat\sigma^2 \eqdef \frac{1}{n} \sumin (X_i - \bar X)^2$.
 
 Both estimators are built from the sum of squared deviations
-$\sum_{i=1}^n (X_i - \bar X)^2$,
+$\sumin (X_i - \bar X)^2$,
 so we first find its expectation.
 Using $\E{X_i^2} = \Var{X_i} + \sqf{\E{X_i}} = \sigma^2 + \mu^2$
 and $\E{\bar X^2} = \Var{\bar X} + \sqf{\E{\bar X}} = \sigma^2/n + \mu^2$
@@ -20,28 +20,28 @@ and $\E{\bar X^2} = \Var{\bar X} + \sqf{\E{\bar X}} = \sigma^2/n + \mu^2$
 
 $$
 \begin{aligned}
-\E{\sum_{i=1}^n (X_i - \bar X)^2}
-&= \E{\sum_{i=1}^n \paren{X_i^2 - 2 X_i \bar X + \bar X^2}}
+\E{\sumin (X_i - \bar X)^2}
+&= \E{\sumin \paren{X_i^2 - 2 X_i \bar X + \bar X^2}}
 && \text{(expand each square)}\\
-&= \E{\sum_{i=1}^n X_i^2 - \sum_{i=1}^n 2 X_i \bar X + \sum_{i=1}^n \bar X^2}
+&= \E{\sumin X_i^2 - \sumin 2 X_i \bar X + \sumin \bar X^2}
 && \text{(split the sum)}\\
-&= \E{\sum_{i=1}^n X_i^2 - 2\bar X \sum_{i=1}^n X_i + \sum_{i=1}^n \bar X^2}
+&= \E{\sumin X_i^2 - 2\bar X \sumin X_i + \sumin \bar X^2}
 && \text{(factor $2\bar X$ out of the middle sum)}\\
-&= \E{\sum_{i=1}^n X_i^2 - 2\bar X \sum_{i=1}^n X_i + n \bar X^2}
+&= \E{\sumin X_i^2 - 2\bar X \sumin X_i + n \bar X^2}
 && \text{(sum of $n$ copies of $\bar X^2$)}\\
-&= \E{\sum_{i=1}^n X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2}
-&& \text{($\textstyle\sum_{i=1}^n X_i = n \bar X$)}\\
-&= \E{\sum_{i=1}^n X_i^2 - 2n \bar X^2 + n \bar X^2}
+&= \E{\sumin X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2}
+&& \text{($\textstyle\sumin X_i = n \bar X$)}\\
+&= \E{\sumin X_i^2 - 2n \bar X^2 + n \bar X^2}
 && \text{(multiply $2\bar X \cdot n \bar X$)}\\
-&= \E{\sum_{i=1}^n X_i^2 - n \bar X^2}
+&= \E{\sumin X_i^2 - n \bar X^2}
 && \text{(collect the $\bar X^2$ terms)}\\
-&= \E{\sum_{i=1}^n X_i^2} - \E{n \bar X^2}
+&= \E{\sumin X_i^2} - \E{n \bar X^2}
 && \text{(linearity of expectation)}\\
-&= \sum_{i=1}^n \E{X_i^2} - \E{n \bar X^2}
+&= \sumin \E{X_i^2} - \E{n \bar X^2}
 && \text{(linearity of expectation)}\\
-&= \sum_{i=1}^n \E{X_i^2} - n \E{\bar X^2}
+&= \sumin \E{X_i^2} - n \E{\bar X^2}
 && \text{(factor the constant $n$ out of the expectation)}\\
-&= \sum_{i=1}^n (\sigma^2 + \mu^2) - n \E{\bar X^2}
+&= \sumin (\sigma^2 + \mu^2) - n \E{\bar X^2}
 && \text{(substitute $\E{X_i^2}$)}\\
 &= n(\sigma^2 + \mu^2) - n \E{\bar X^2}
 && \text{(sum of $n$ copies of $\sigma^2 + \mu^2$)}\\

@@ -2,13 +2,13 @@ Setting $\deriv{\mu}\ell = 0$:
 
 $$
 \begin{aligned}
-0 &= \frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - n\mu}
+0 &= \frac{1}{\sigma^2}\paren{\sumin x_i - n\mu}
 && \text{(score for $\mu$)}\\
-0 &= \sum_{i=1}^n x_i - n\mu
+0 &= \sumin x_i - n\mu
 && \text{(multiply both sides by $\sigma^2$)}\\
-n\mu &= \sum_{i=1}^n x_i
+n\mu &= \sumin x_i
 && \text{(add $n\mu$ to both sides)}\\
-\mu &= \frac{1}{n}\sum_{i=1}^n x_i
+\mu &= \frac{1}{n}\sumin x_i
 && \text{(divide by $n$)}\\
 \mu &= \bar x
 && \text{(definition of $\bar x$)}
@@ -21,14 +21,14 @@ The second derivative is
 $$
 \begin{aligned}
 \frac{\partial^2 \ell}{\partial \mu^2}
-&= \deriv{\mu}\paren{\frac{1}{\sigma^2}\paren{\sum_{i=1}^n x_i - n\mu}}
+&= \deriv{\mu}\paren{\frac{1}{\sigma^2}\paren{\sumin x_i - n\mu}}
 && \text{(differentiate the score for $\mu$)}\\
-&= \frac{1}{\sigma^2}\deriv{\mu}\paren{\sum_{i=1}^n x_i - n\mu}
+&= \frac{1}{\sigma^2}\deriv{\mu}\paren{\sumin x_i - n\mu}
 && \text{(constant multiple rule)}\\
-&= \frac{1}{\sigma^2}\paren{\deriv{\mu}\sum_{i=1}^n x_i - \deriv{\mu}\paren{n\mu}}
+&= \frac{1}{\sigma^2}\paren{\deriv{\mu}\sumin x_i - \deriv{\mu}\paren{n\mu}}
 && \text{(linearity of differentiation)}\\
 &= \frac{1}{\sigma^2}\paren{0 - \deriv{\mu}\paren{n\mu}}
-&& \text{($\textstyle\sum_{i=1}^n x_i$ does not depend on $\mu$)}\\
+&& \text{($\textstyle\sumin x_i$ does not depend on $\mu$)}\\
 &= \frac{1}{\sigma^2}\paren{0 - n\deriv{\mu}\mu}
 && \text{(constant multiple rule)}\\
 &= \frac{1}{\sigma^2}\paren{0 - n}

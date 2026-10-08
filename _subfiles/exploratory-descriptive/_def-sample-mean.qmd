@@ -3,5 +3,5 @@
 
 The **sample mean** of $n$ observations $x_1, \ldots, x_n$ is:
 
-$$\bar{x} \eqdef \frac{1}{n} \sum_{i=1}^{n} x_i$$
+$$\bar{x} \eqdef \frac{1}{n} \sumin x_i$$
 :::

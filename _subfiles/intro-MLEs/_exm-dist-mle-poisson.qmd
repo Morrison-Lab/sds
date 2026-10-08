@@ -2,7 +2,7 @@
 #### Approximate distribution of the Poisson MLE
 
 For $X_1, \ldots, X_n \siid \Pois(\rate)$,
-setting the score $\sum_{i=1}^n X_i/\rate - n$ (@exm-information-equality)
+setting the score $\sumin X_i/\rate - n$ (@exm-information-equality)
 to zero gives $\hat\rate_{\text{ML}} = \bar X$,
 and $\einf(\rate) = n/\rate$ (@exm-information-poisson),
 so @thm-dist-mle says that for large $n$:

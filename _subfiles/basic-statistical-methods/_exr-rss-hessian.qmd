@@ -22,7 +22,7 @@ Differentiating with respect to $\intcoef$:
 $$
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \intcoef^2}
-&= -2 \frac{\partial}{\partial \intcoef}
+&= -2 \deriv{\intcoef}
   \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
 && \text{(constant factor)}\\
 &= -2 \paren{
@@ -73,11 +73,11 @@ and reusing the inner derivative $-1$ from @exr-rss-deriv-intercept:
 $$
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \intcoef \, \partial \coef{x}}
-&= -2 \frac{\partial}{\partial \intcoef} \sumin x_i (y_i - \intcoef - \coef{x} x_i)
+&= -2 \deriv{\intcoef} \sumin x_i (y_i - \intcoef - \coef{x} x_i)
 && \text{(constant factor)}\\
-&= -2 \sumin \frac{\partial}{\partial \intcoef} \paren{x_i (y_i - \intcoef - \coef{x} x_i)}
+&= -2 \sumin \deriv{\intcoef} \paren{x_i (y_i - \intcoef - \coef{x} x_i)}
 && \text{(derivative of a sum)}\\
-&= -2 \sumin x_i \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)
+&= -2 \sumin x_i \deriv{\intcoef} (y_i - \intcoef - \coef{x} x_i)
 && \text{($x_i$ does not depend on $\intcoef$)}\\
 &= -2 \sumin x_i (-1)
 && \text{(inner derivative is $-1$)}\\

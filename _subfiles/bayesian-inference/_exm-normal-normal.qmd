@@ -15,9 +15,9 @@ $$
 \p(\vx \mid \mu)
 &= \prod_{i=1}^n (2\pi)^{-1/2} \expf{-\frac{1}{2}(x_i - \mu)^2}
 && \text{(independent Gaussian observations)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin (x_i - \mu)^2}
 && \text{(combining the exponents)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sum_{i=1}^n x_i^2 - 2 \mu n \bar x + n \mu^2}}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mu n \bar x + n \mu^2}}
 && \text{(expanding the square; $\sum_i x_i = n \bar x$)}\\
 &\propto \expf{-\frac{1}{2}\paren{n \mu^2 - 2 \mu n \bar x}}
 && \text{(dropping factors that do not involve $\mu$)},

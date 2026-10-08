@@ -4,12 +4,12 @@
 A **critical point** of a differentiable function $f$
 is an input value $x_0$ where the derivative of $f$ is zero,
 or, for a function of a vector,
-a point $\vec{x}_0$ where the gradient $f'$ of $f$ is the zero vector:
+a point $\vx_0$ where the gradient $f'$ of $f$ is the zero vector:
 
 $$
 \begin{aligned}
 f'(x_0) &= 0 && \text{(scalar input)}\\
-f'(\vec{x}_0) &= \vzero && \text{(vector input)}
+f'(\vx_0) &= \vzero && \text{(vector input)}
 \end{aligned}
 $$
 :::

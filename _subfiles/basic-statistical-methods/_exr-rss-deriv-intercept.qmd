@@ -17,12 +17,12 @@ starting from the definition (@exm-rss-slr):
 $$
 \begin{aligned}
 \frac{\partial \text{RSS}}{\partial \intcoef}
-&= \frac{\partial}{\partial \intcoef} \sumin (y_i - \intcoef - \coef{x} x_i)^2
+&= \deriv{\intcoef} \sumin (y_i - \intcoef - \coef{x} x_i)^2
 && \text{(definition of RSS)}\\
-&= \sumin \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)^2
+&= \sumin \deriv{\intcoef} (y_i - \intcoef - \coef{x} x_i)^2
 && \text{(derivative of a sum)}\\
 &= \sumin 2 (y_i - \intcoef - \coef{x} x_i)
-  \frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)
+  \deriv{\intcoef} (y_i - \intcoef - \coef{x} x_i)
 && \text{(chain rule)}
 \end{aligned}
 $$
@@ -31,7 +31,7 @@ The inner derivative:
 
 $$
 \begin{aligned}
-\frac{\partial}{\partial \intcoef} (y_i - \intcoef - \coef{x} x_i)
+\deriv{\intcoef} (y_i - \intcoef - \coef{x} x_i)
 &= \frac{\partial y_i}{\partial \intcoef}
   - \frac{\partial \intcoef}{\partial \intcoef}
   - \frac{\partial (\coef{x} x_i)}{\partial \intcoef}
