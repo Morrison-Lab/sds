@@ -1,0 +1,74 @@
+::: {#exm-map-normal-normal}
+#### The MAP estimate of a Gaussian mean
+
+In @exm-normal-normal,
+the posterior is $\ndist{\frac{n}{n+1}\bar{x}, \frac{1}{n+1}}$.
+A Gaussian density is largest at its mean,
+so
+
+$$\hth_{\text{MAP}} = \frac{n}{n+1}\bar{x}.$$
+
+@cor-map-penalized gives the same answer from the penalized form.
+Up to terms that do not involve $\mu$,
+the negative log-likelihood is $\frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2$
+and the penalty is $\frac{1}{2}\mu^2$.
+Setting the derivative of their sum to zero gives
+
+$$
+\ba
+0
+&= -\sum_{i=1}^n (x_i - \mu) + \mu
+&& \text{(derivative of the sum with respect to $\mu$)}\\
+&= -n\bar{x} + n\mu + \mu
+&& \text{($\sum_i x_i = n\bar{x}$)}\\
+&= (n+1)\mu - n\bar{x},
+&& \text{(collecting the terms in $\mu$)}
+\ea
+$$
+
+so $\mu = \frac{n}{n+1}\bar{x}$.
+The penalty $\frac{1}{2}\mu^2$ pulls the estimate toward the prior mean $0$,
+and its pull weakens relative to the data as $n$ grows.
+
+@fig-map-penalized shows the penalized form for simulated data
+($n = 20$, true mean $2$).
+The penalty is a parabola centered at the prior mean $0$.
+Adding it to the negative log-likelihood moves the minimizer
+from the sample mean toward $0$.
+
+::: {#fig-map-penalized}
+
+```{r}
+#| code-fold: true
+#| fig-alt: >-
+#|   Three curves over the mean mu. The negative log-likelihood is a parabola
+#|   with its minimum at the sample mean, near 2.2. The penalty is a parabola
+#|   with its minimum at 0. Their sum is a parabola with its minimum between
+#|   the two, slightly left of the sample mean. Vertical lines mark the
+#|   sample mean and the MAP estimate.
+set.seed(1)
+n <- 20
+x <- rnorm(n = n, mean = 2, sd = 1)
+xbar <- mean(x)
+map_est <- n / (n + 1) * xbar
+mu_grid <- seq(-1, 4, length.out = 501)
+nll <- vapply(mu_grid, function(m) sum((x - m)^2) / 2, numeric(1))
+curves <- tibble::tibble(
+  mu = rep(mu_grid, times = 3),
+  curve = rep(
+    c("negative log-likelihood", "penalty", "sum"),
+    each = length(mu_grid)
+  ),
+  value = c(nll, mu_grid^2 / 2, nll + mu_grid^2 / 2)
+)
+ggplot2::ggplot(curves) +
+  ggplot2::aes(x = mu, y = value, colour = curve) +
+  ggplot2::geom_line() +
+  ggplot2::geom_vline(xintercept = c(xbar, map_est), linetype = "dashed") +
+  ggplot2::labs(x = expression(mu), y = NULL, colour = NULL)
+```
+
+Negative log-likelihood, penalty, and their sum, up to constants.
+The dashed lines mark the sample mean (right) and the MAP estimate (left).
+:::
+:::

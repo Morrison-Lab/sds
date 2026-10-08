@@ -1,0 +1,29 @@
+::: {#cor-map-penalized}
+#### The MAP estimate minimizes the negative log-likelihood plus a penalty
+
+The [MAP estimate](#def-map) satisfies
+
+$$
+\hth_{\text{MAP}}
+= \argmin_\theta \paren{-\logf{\p(\vy \mid \theta)} - \logf{\p(\theta)}}.
+$$ {#eq-map-penalized}
+
+The first term is the negative log-likelihood.
+The second term, $-\logf{\p(\theta)}$, is the penalty that the prior adds.
+:::
+
+::: proof
+By @cor-bayes-proportional,
+$\p(\theta \mid \vy) \propto \p(\vy \mid \theta)\, \p(\theta)$,
+and a positive constant does not change where a function is maximized.
+The logarithm is an increasing function,
+so it does not change where a positive function is maximized either.
+Therefore
+
+$$
+\argmax_\theta \p(\theta \mid \vy)
+= \argmax_\theta \paren{\logf{\p(\vy \mid \theta)} + \logf{\p(\theta)}}.
+$$
+
+Maximizing a function is the same as minimizing its negative.
+:::
