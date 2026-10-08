@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 15:00:32 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 15:39:20 (PDT)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -454,7 +454,7 @@ text-align: center;
 <span class="header-section-number">3</span> Reference distributions</h2>
 <p>The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>.</p>
 </section><section class="slide level2"><div id="def-chi-square-dist" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Chi-square distribution)</strong></span> Let <span class="math inline">\(Z_1, \ldots, Z_k\)</span> be independent random variables, each with the standard Gaussian distribution. The distribution of <span class="math inline">\(\sum_{j=1}^k Z_j^2\)</span> is the <strong>chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom</strong>, written <span class="math inline">\(\chi^2_k\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 9 (Chi-square distribution)</strong></span> Let <span class="math inline">\(Z_1, \ldots, Z_k\)</span> be independent random variables, each with the standard Gaussian distribution. The distribution of <span class="math inline">\(\sum_{j=1}^{k} Z_j^2\)</span> is the <strong>chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom</strong>, written <span class="math inline">\(\chi^2_k\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-chi-square-dist" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (The 0.95 quantile of <span class="math inline">\(\chi^2_1\)</span>)</strong></span> By <a href="#/def-chi-square-dist" class="quarto-xref">Definition&nbsp;9</a>, a <span class="math inline">\(\chi^2_1\)</span> random variable is <span class="math inline">\(Z^2\)</span> for a standard Gaussian <span class="math inline">\(Z\)</span>. So <span class="math inline">\(\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})\)</span>, and the 0.95 quantile of <span class="math inline">\(\chi^2_1\)</span> is the square of the 0.975 quantile of the standard Gaussian distribution:</p>

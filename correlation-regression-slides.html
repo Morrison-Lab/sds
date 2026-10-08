@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 15:00:32 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 15:39:20 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -643,9 +643,9 @@ f_{\varepsilon}(t)
 \Pr\mathopen{}\left(\varepsilon_1 \le t_1, \ldots, \varepsilon_n \le t_n\right)\mathclose{}
 &amp;= \Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{}
 &amp;&amp; \text{(add $\mu_i$ to both sides of each inequality)}\\
-&amp;= \prod_{i=1}^n \Pr\mathopen{}\left(Y_i \le t_i + \mu_i\right)\mathclose{}
+&amp;= \prod_{i=1}^n\Pr\mathopen{}\left(Y_i \le t_i + \mu_i\right)\mathclose{}
 &amp;&amp; \text{(the $Y_i$ are independent)}\\
-&amp;= \prod_{i=1}^n \Pr\mathopen{}\left(\varepsilon_i \le t_i\right)\mathclose{}
+&amp;= \prod_{i=1}^n\Pr\mathopen{}\left(\varepsilon_i \le t_i\right)\mathclose{}
 &amp;&amp; \text{(subtract $\mu_i$ from both sides of each inequality)}
 \end{aligned}
 \]</span></p>
@@ -767,9 +767,9 @@ e_i^2
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
-&amp;= \frac{1}{n} \sum_{i=1}^ne_i^2
+&amp;= \frac{1}{n}\sum_{i=1}^ne_i^2
 &amp;&amp; \text{(definition of mean squared error)}\\
-&amp;= \frac{1}{n} \sum_{i=1}^nr_i(\tilde{\theta})^2
+&amp;= \frac{1}{n}\sum_{i=1}^nr_i(\tilde{\theta})^2
 &amp;&amp; \text{($e_i^2 = r_i(\tilde{\theta})^2$)}\\
 &amp;= \frac{1}{n} \text{RSS}(\tilde{\theta})
 &amp;&amp; \text{(definition of RSS)}

@@ -352,7 +352,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 15:00:32 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 15:39:20 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -642,7 +642,7 @@ e^{-\phi_i}
 <p><span class="theorem-title"><strong>Definition 1 (Posterior model probability)</strong></span> Let <span class="math inline">\(M_1, \ldots, M_K\)</span> be candidate models with prior probabilities <span class="math inline">\(\operatorname{p}(M_k)\)</span> summing to 1, and let <span class="math inline">\(\operatorname{p}(\tilde{y}\mid M_k)\)</span> be the <a href="./bayesian-inference.html#def-marginal-likelihood">marginal likelihood</a> of the data under model <span class="math inline">\(M_k\)</span>. The <strong>posterior model probability</strong> of <span class="math inline">\(M_k\)</span> is</p>
 <p><span class="math display">\[
 \operatorname{p}(M_k \mid \tilde{y}) \stackrel{\text{def}}{=}
-\frac{\operatorname{p}(\tilde{y}\mid M_k)\, \operatorname{p}(M_k)}{\sum_{l=1}^K \operatorname{p}(\tilde{y}\mid M_l)\, \operatorname{p}(M_l)}.
+\frac{\operatorname{p}(\tilde{y}\mid M_k)\, \operatorname{p}(M_k)}{\sum_{l=1}^{K} \operatorname{p}(\tilde{y}\mid M_l)\, \operatorname{p}(M_l)}.
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-posterior-model-probability" class="theorem example">
@@ -651,7 +651,7 @@ e^{-\phi_i}
 </section><section class="slide level2"><div id="def-bma" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Bayesian model averaging)</strong></span> With the <a href="#/def-posterior-model-probability">posterior model probabilities</a> <span class="math inline">\(\operatorname{p}(M_k \mid \tilde{y})\)</span> of candidate models <span class="math inline">\(M_1, \ldots, M_K\)</span>, <strong>Bayesian model averaging</strong> estimates a quantity <span class="math inline">\(\Delta\)</span> that has the same meaning in every model by its posterior distribution averaged over the models:</p>
 <p><span class="math display">\[
-\operatorname{p}(\Delta \mid \tilde{y}) \stackrel{\text{def}}{=}\sum_{k=1}^K \operatorname{p}(\Delta \mid M_k, \tilde{y})\, \operatorname{p}(M_k \mid \tilde{y}).
+\operatorname{p}(\Delta \mid \tilde{y}) \stackrel{\text{def}}{=}\sum_{k=1}^{K} \operatorname{p}(\Delta \mid M_k, \tilde{y})\, \operatorname{p}(M_k \mid \tilde{y}).
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-pip" class="theorem definition">
@@ -661,7 +661,7 @@ e^{-\phi_i}
 <p><span class="theorem-title"><strong>Example 6 (A BIC approximation to Bayesian model averaging)</strong></span> Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the <a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic">Bayesian information criterion</a> gives a large-sample approximation to the posterior model probabilities <span class="citation" data-cites="schwarz1978estimating">(<a href="#/references" role="doc-biblioref" onclick="">Schwarz 1978</a>)</span>:</p>
 <p><span class="math display">\[
 \operatorname{p}(M_k \mid \tilde{y}) \approx
-\frac{\operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_k\right\}\mathclose{}}{\sum_{l=1}^K \operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_l\right\}\mathclose{}}.
+\frac{\operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_k\right\}\mathclose{}}{\sum_{l=1}^{K} \operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_l\right\}\mathclose{}}.
 \]</span></p>
 <p>We simulate data in which only <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> affect the outcome, fit a linear regression for every subset of the three predictors <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_3\)</span>, and compute these approximate posterior model probabilities:</p>
 <div class="cell">

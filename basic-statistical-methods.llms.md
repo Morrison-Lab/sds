@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 15:00:32 (PDT)
+Last modified: 2026-10-08 15:39:20 (PDT)
 
 ## 1 Introduction
 
@@ -356,9 +356,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 7 (Between-group sum of squares)** Let \\y\_{j1}, \ldots, y\_{jn_j}\\ be the \\n_j\\ observations in group \\j\\, for \\k \ge 2\\ groups with \\n \stackrel{\text{def}}{=}\sum\_{j=1}^k n_j\\ observations in all, let \\\bar{y}\_j\\ be the sample mean of group \\j\\, and let \\\bar{y}\\ be the sample mean of all \\n\\ observations. The **between-group sum of squares** is
+> **Definition 7 (Between-group sum of squares)** Let \\y\_{j1}, \ldots, y\_{jn_j}\\ be the \\n_j\\ observations in group \\j\\, for \\k \ge 2\\ groups with \\n \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j\\ observations in all, let \\\bar{y}\_j\\ be the sample mean of group \\j\\, and let \\\bar{y}\\ be the sample mean of all \\n\\ observations. The **between-group sum of squares** is
 >
-> \\\text{SS}\_\text{between} \stackrel{\text{def}}{=}\sum\_{j=1}^k n_j (\bar{y}\_j - \bar{y})^2.\\
+> \\\text{SS}\_\text{between} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j (\bar{y}\_j - \bar{y})^2.\\
 
 > **NOTE:**
 >
@@ -370,7 +370,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Definition 8 (Within-group sum of squares)** With the notation of [Definition 7](#def-ss-between), the **within-group sum of squares** is
 >
-> \\\text{SS}\_\text{within} \stackrel{\text{def}}{=}\sum\_{j=1}^k \sum\_{i=1}^{n_j} (y\_{ji} - \bar{y}\_j)^2.\\
+> \\\text{SS}\_\text{within} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} \sum\_{i=1}^{n_j} (y\_{ji} - \bar{y}\_j)^2.\\
 
 > **NOTE:**
 >

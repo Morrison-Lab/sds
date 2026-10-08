@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 15:00:32 (PDT)
+Last modified: 2026-10-08 15:39:20 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -60,7 +60,7 @@ hers |> head()
 >
 > **Definition 2 (Pearson’s chi-square test of independence)** With observed counts \\O\_{ij}\\ and [expected counts](#def-expected-count) \\E\_{ij}\\ in an \\r \times c\\ contingency table, **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the statistic
 >
-> \\X^2 \stackrel{\text{def}}{=}\sum\_{i=1}^r \sum\_{j=1}^c \frac{(O\_{ij} - E\_{ij})^2}{E\_{ij}}.\\
+> \\X^2 \stackrel{\text{def}}{=}\sum\_{i=1}^{r} \sum\_{j=1}^{c} \frac{(O\_{ij} - E\_{ij})^2}{E\_{ij}}.\\
 >
 > Its p-value is \\\Pr(W \ge X^2)\\, where \\W\\ has the \\\chi^2\_{(r-1)(c-1)}\\ distribution ([chi-square distribution](inference.llms.md#def-chi-square-dist)).
 

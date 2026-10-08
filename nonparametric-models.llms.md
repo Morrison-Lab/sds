@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 15:00:32 (PDT)
+Last modified: 2026-10-08 15:39:20 (PDT)
 
 ## 1 Empirical CDF
 
@@ -12,7 +12,7 @@ Last modified: 2026-10-08 15:00:32 (PDT)
 >
 > **Definition 1 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the function
 >
-> \\\hat F(t) \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{j=1}^n I(x_j \le t), \quad t \in \mathbb{R},\\
+> \\\hat F(t) \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\\
 >
 > where \\I(A)\\ is the indicator function: \\I(A) = 1\\ if \\A\\ holds, and \\I(A) = 0\\ otherwise.
 

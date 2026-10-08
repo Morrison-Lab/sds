@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 15:00:32 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 15:39:20 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -471,7 +471,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="exm-estimator" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Mean height of students)</strong></span> Suppose we want to estimate the mean height of students at our school, which we will represent as <span class="math inline">\(\mu\)</span>, and we measure the heights of <span class="math inline">\(n = 50\)</span> randomly sampled students as random variables <span class="math inline">\(X_1, \ldots, X_n\)</span>. Then we could use the function</p>
-<p><span class="math display">\[\hat\mu(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^nX_i \stackrel{\text{def}}{=}\bar X\]</span></p>
+<p><span class="math display">\[\hat\mu(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^nX_i \stackrel{\text{def}}{=}\bar X\]</span></p>
 <p>as an <a href="#/def-estimator"><em>estimator</em></a> to produce an <em>estimate</em> <span class="math inline">\(\hat\mu = \bar x\)</span> of <span class="math inline">\(\mu\)</span>.</p>
 <p>Another estimator would be just the height of the first student sampled:</p>
 <p><span class="math display">\[\hat\mu^{(2)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}X_1\]</span></p>
@@ -578,7 +578,7 @@ e&amp;= \hat y- y
 </div>
 </section><section class="slide level2"><div id="def-prediction-mse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Mean squared error of predictions)</strong></span> The <strong>mean squared error</strong> of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
-<p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^ne_i^2.\]</span></p>
+<p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^ne_i^2.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-mse" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Prediction MSE, estimator MSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;10</a> averages squared errors over observations, where the <a href="#/def-mse">mean squared error of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">mean squared error and RSS</a>):</p>
@@ -859,7 +859,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="theorem-title"><strong>Example 11 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
 <ul>
 <li>the <a href="./exploratory-descriptive.html#def-sample-variance">sample variance</a> <span class="math inline">\(S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n(X_i - \bar X)^2\)</span>;</li>
-<li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n(X_i - \bar X)^2\)</span>.</li>
+<li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n(X_i - \bar X)^2\)</span>.</li>
 </ul>
 <p>Both estimators are built from the sum of squared deviations <span class="math inline">\(\sum_{i=1}^n(X_i - \bar X)^2\)</span>, so we first find its expectation. Using <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{}\right)^2\mathclose{} = \sigma^2 + \mu^2\)</span> and <span class="math inline">\(\operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\)</span> (by <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;9</a> and <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;8</a>):</p>
 <p><span class="math display">\[

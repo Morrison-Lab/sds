@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 15:00:32 (PDT)
+Last modified: 2026-10-08 15:39:20 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -275,13 +275,13 @@ Last modified: 2026-10-08 15:00:32 (PDT)
 >
 > Show that, given \\\mathcal{T}\\, the expected [mean squared error](estimation.llms.md#def-prediction-mse) of the held-out predictions is \\\operatorname{Err}\_{\mathcal{T}}\\:
 >
-> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^m \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{T}}. \\
+> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{T}}. \\
 
 > **NOTE:**
 >
 > *Solution 4*. Given \\\mathcal{T}\\, the rule \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X_0, Y_0)\\ and is independent of \\\mathcal{T}\\, so each squared prediction error has conditional expectation \\\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{T}}\\ by [Equation 7](#eq-generalization-error). Then
 >
-> \\ \begin{aligned} & \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^m \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} \\ &\quad = \frac{1}{m} \operatorname{E}\mathopen{}\left\[\sum\_{j=1}^m \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} && \text{(constant } 1/m \text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^m \operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^m \operatorname{Err}\_{\mathcal{T}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m \\ \operatorname{Err}\_{\mathcal{T}}\right)\mathclose{} && \text{(} m \text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{T}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{T}} && (\tfrac{1}{m} \cdot m = 1) \\ &\quad = \operatorname{Err}\_{\mathcal{T}} && (1 \cdot b = b) \end{aligned} \\
+> \\ \begin{aligned} & \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} \\ &\quad = \frac{1}{m} \operatorname{E}\mathopen{}\left\[\sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} && \text{(constant } 1/m \text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{T}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m \\ \operatorname{Err}\_{\mathcal{T}}\right)\mathclose{} && \text{(} m \text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{T}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{T}} && (\tfrac{1}{m} \cdot m = 1) \\ &\quad = \operatorname{Err}\_{\mathcal{T}} && (1 \cdot b = b) \end{aligned} \\
 >
 > The step labeled “each term, as above” is the one that needs the held-out set to be independent of \\\mathcal{T}\\.
 
@@ -289,7 +289,7 @@ Last modified: 2026-10-08 15:00:32 (PDT)
 >
 > **Theorem 3 (Held-out mean squared error estimates the generalization error)** Let a [prediction rule](#def-prediction-rule) \\\hat y\\ be fitted to a [training set](#def-training-set) \\\mathcal{T}\\, and let a [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{0,1}, Y\_{0,1}), \ldots, (X\_{0,m}, Y\_{0,m})\\ be drawn from the same population as \\(X_0, Y_0)\\, each independently of \\\mathcal{T}\\. Then, given \\\mathcal{T}\\, the expected [mean squared error](estimation.llms.md#def-prediction-mse) of the held-out predictions is the [generalization error](#def-generalization-error):
 >
-> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^m \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{T}}. \\
+> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{T}}. \\
 
 > **NOTE:**
 >
@@ -743,7 +743,7 @@ Last modified: 2026-10-08 15:00:32 (PDT)
 >
 > *Solution 7*. The folds \\\mathcal{F}\_{1}, \ldots, \mathcal{F}\_{k}\\ partition \\I\\ ([Definition 19](#def-folds)), so summing over the observations of each fold and then over the folds adds each term of [Equation 24](#eq-cv-estimate) exactly once. For \\i \in \mathcal{F}\_{j}\\, [Equation 22](#eq-fold-assignment) also puts \\i\\ in \\\mathcal{F}\_{\kappa(i)}\\, and the folds are disjoint, so \\\kappa(i) = j\\. Then
 >
-> \\ \begin{aligned} \widehat{\operatorname{Err}}\_{\text{CV}(k)} &= \frac{1}{n} \sum\_{i \in I} \mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{} && \text{(definition)} \\ &= \frac{1}{n} \sum\_{j=1}^k \sum\_{i \in \mathcal{F}\_{j}} \mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{} && \text{(group by fold)} \\ &= \frac{1}{n} \sum\_{j=1}^k \sum\_{i \in \mathcal{F}\_{j}} \mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{} && (\kappa(i) = j \text{ for } i \in \mathcal{F}\_{j}) \end{aligned} \\
+> \\ \begin{aligned} \widehat{\operatorname{Err}}\_{\text{CV}(k)} &= \frac{1}{n} \sum\_{i \in I} \mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{} && \text{(definition)} \\ &= \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i \in \mathcal{F}\_{j}} \mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{} && \text{(group by fold)} \\ &= \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i \in \mathcal{F}\_{j}} \mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{} && (\kappa(i) = j \text{ for } i \in \mathcal{F}\_{j}) \end{aligned} \\
 >
 > In the last line, the rule \\\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\\ depends only on the outer index, so each inner sum uses a single fitted rule.
 
@@ -751,7 +751,7 @@ Last modified: 2026-10-08 15:00:32 (PDT)
 >
 > **Theorem 4 (The cross-validation estimate, fold by fold)** The [cross-validation estimate](#def-cv-estimate) sums, fold by fold, the squared errors of each fold’s observations under the rule fitted without that [fold](#def-folds), and divides the total by \\n\\:
 >
-> \\ \widehat{\operatorname{Err}}\_{\text{CV}(k)} = \frac{1}{n} \sum\_{j=1}^k \sum\_{i \in \mathcal{F}\_{j}} \mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{}. \tag{25}\\
+> \\ \widehat{\operatorname{Err}}\_{\text{CV}(k)} = \frac{1}{n} \sum\_{j=1}^{k} \sum\_{i \in \mathcal{F}\_{j}} \mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)^2\mathclose{}. \tag{25}\\
 
 > **NOTE:**
 >

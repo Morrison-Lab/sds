@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 15:00:32 (PDT)
+Last modified: 2026-10-08 15:39:20 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page.
 
@@ -277,7 +277,7 @@ Because MCMC draws are correlated, and a chain may take many iterations to reach
 >
 > **Definition 13 (Potential scale reduction factor)** Suppose \\m\\ chains each contribute \\n\\ draws of a parameter \\\theta\\ after burn-in, with chain means \\\bar\theta_1, \ldots, \bar\theta_m\\, overall mean \\\bar\theta\\, and within-chain sample variances \\s_1^2, \ldots, s_m^2\\. Let
 >
-> \\ \begin{aligned} W &\stackrel{\text{def}}{=}\frac{1}{m} \sum\_{j=1}^m s_j^2 && \text{(within-chain variance)}\\ B &\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum\_{j=1}^m \mathopen{}\left(\bar\theta_j - \bar\theta\right)\mathclose{}^2 && \text{(between-chain variance)}\\ \hat V &\stackrel{\text{def}}{=}\frac{n - 1}{n} W + \frac{1}{n} B && \text{(pooled variance estimate)}. \end{aligned} \\
+> \\ \begin{aligned} W &\stackrel{\text{def}}{=}\frac{1}{m} \sum\_{j=1}^{m} s_j^2 && \text{(within-chain variance)}\\ B &\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum\_{j=1}^{m} \mathopen{}\left(\bar\theta_j - \bar\theta\right)\mathclose{}^2 && \text{(between-chain variance)}\\ \hat V &\stackrel{\text{def}}{=}\frac{n - 1}{n} W + \frac{1}{n} B && \text{(pooled variance estimate)}. \end{aligned} \\
 >
 > The **Gelman–Rubin potential scale reduction factor** is
 >

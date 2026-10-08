@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 15:00:32 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 15:39:20 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -634,9 +634,9 @@ Figure&nbsp;1: <a href="#/def-trace-plot">Trace plots</a> of the first 200 itera
 <p><span class="theorem-title"><strong>Definition 13 (Potential scale reduction factor)</strong></span> Suppose <span class="math inline">\(m\)</span> chains each contribute <span class="math inline">\(n\)</span> draws of a parameter <span class="math inline">\(\theta\)</span> after burn-in, with chain means <span class="math inline">\(\bar\theta_1, \ldots, \bar\theta_m\)</span>, overall mean <span class="math inline">\(\bar\theta\)</span>, and within-chain sample variances <span class="math inline">\(s_1^2, \ldots, s_m^2\)</span>. Let</p>
 <p><span class="math display">\[
 \begin{aligned}
-W &amp;\stackrel{\text{def}}{=}\frac{1}{m} \sum_{j=1}^m s_j^2
+W &amp;\stackrel{\text{def}}{=}\frac{1}{m} \sum_{j=1}^{m} s_j^2
 &amp;&amp; \text{(within-chain variance)}\\
-B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^m \mathopen{}\left(\bar\theta_j - \bar\theta\right)\mathclose{}^2
+B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\bar\theta_j - \bar\theta\right)\mathclose{}^2
 &amp;&amp; \text{(between-chain variance)}\\
 \hat V &amp;\stackrel{\text{def}}{=}\frac{n - 1}{n} W + \frac{1}{n} B
 &amp;&amp; \text{(pooled variance estimate)}.
