@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 14:34:43 (PDT)
+Last modified: 2026-10-08 15:00:32 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)).
 
@@ -104,7 +104,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > The likelihood is
 >
-> \\ \begin{aligned} \operatorname{p}(\tilde{x}\mid \mu) &= \prod\_{i=1}^n (2\pi)^{-1/2} \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}(x_i - \mu)^2\right\\\mathclose{} && \text{(independent Gaussian observations)}\\ &= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\sum\_{i=1}^n (x_i - \mu)^2\right\\\mathclose{} && \text{(combining the exponents)}\\ &= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\sum\_{i=1}^n x_i^2 - 2 \mu n \bar x + n \mu^2\right)\mathclose{}\right\\\mathclose{} && \text{(expanding the square; \$\sum_i x_i = n \bar x\$)}\\ &\propto \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{} && \text{(dropping factors that do not involve \$\mu\$)}, \end{aligned} \\
+> \\ \begin{aligned} \operatorname{p}(\tilde{x}\mid \mu) &= \prod\_{i=1}^n (2\pi)^{-1/2} \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}(x_i - \mu)^2\right\\\mathclose{} && \text{(independent Gaussian observations)}\\ &= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2\right\\\mathclose{} && \text{(combining the exponents)}\\ &= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\sum\_{i=1}^nx_i^2 - 2 \mu n \bar x + n \mu^2\right)\mathclose{}\right\\\mathclose{} && \text{(expanding the square; \$\sum_i x_i = n \bar x\$)}\\ &\propto \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{} && \text{(dropping factors that do not involve \$\mu\$)}, \end{aligned} \\
 >
 > and the prior density is \\\operatorname{p}(\mu) \propto \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mu^2\right\\\mathclose{}\\. Let \\m \stackrel{\text{def}}{=}\frac{n}{n+1} \bar x\\. By [Corollary 1](#cor-bayes-proportional),
 >
@@ -170,9 +170,9 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > \\\hat\theta\_{\text{MAP}} = \frac{n}{n+1}\bar{x}.\\
 >
-> [Corollary 2](#cor-map-penalized) gives the same answer from the penalized form. Up to terms that do not involve \\\mu\\, the negative log-likelihood is \\\frac{1}{2}\sum\_{i=1}^n (x_i - \mu)^2\\ and the penalty is \\\frac{1}{2}\mu^2\\. Setting the derivative of their sum to zero gives
+> [Corollary 2](#cor-map-penalized) gives the same answer from the penalized form. Up to terms that do not involve \\\mu\\, the negative log-likelihood is \\\frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2\\ and the penalty is \\\frac{1}{2}\mu^2\\. Setting the derivative of their sum to zero gives
 >
-> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n (x_i - \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n\bar{x} + n\mu + \mu && \text{(\$\sum_i x_i = n\bar{x}\$)}\\ &= (n+1)\mu - n\bar{x}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n(x_i - \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n\bar{x} + n\mu + \mu && \text{(\$\sum_i x_i = n\bar{x}\$)}\\ &= (n+1)\mu - n\bar{x}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
 >
 > so \\\mu = \frac{n}{n+1}\bar{x}\\. The penalty \\\frac{1}{2}\mu^2\\ pulls the estimate toward the prior mean \\0\\, and its pull weakens relative to the data as \\n\\ grows.
 >
@@ -328,7 +328,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 
 > **NOTE:**
 >
-> **Example 12 (Beta-Bernoulli updating)** Let \\Y_1, \ldots, Y_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Bernoulli}(\pi)\\ given \\\pi\\, with \\r = \sum\_{i=1}^n y_i\\ successes, and let the prior for \\\pi\\ be a \\\operatorname{Beta}(a, b)\\ distribution, whose density is proportional to \\\pi^{a-1}(1-\pi)^{b-1}\\ on \\(0, 1)\\. The likelihood is
+> **Example 12 (Beta-Bernoulli updating)** Let \\Y_1, \ldots, Y_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Bernoulli}(\pi)\\ given \\\pi\\, with \\r = \sum\_{i=1}^ny_i\\ successes, and let the prior for \\\pi\\ be a \\\operatorname{Beta}(a, b)\\ distribution, whose density is proportional to \\\pi^{a-1}(1-\pi)^{b-1}\\ on \\(0, 1)\\. The likelihood is
 >
 > \\ \begin{aligned} \operatorname{p}(\tilde{y}\mid \pi) &= \prod\_{i=1}^n \pi^{y_i}(1-\pi)^{1-y_i} && \text{(independent Bernoulli observations)}\\ &= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i} && \text{(adding exponents)}\\ &= \pi^{r}(1-\pi)^{n-r} && \text{(definition of \$r\$)}. \end{aligned} \\
 >

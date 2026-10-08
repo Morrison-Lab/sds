@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 14:34:43 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 15:00:32 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -471,7 +471,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="exm-estimator" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Mean height of students)</strong></span> Suppose we want to estimate the mean height of students at our school, which we will represent as <span class="math inline">\(\mu\)</span>, and we measure the heights of <span class="math inline">\(n = 50\)</span> randomly sampled students as random variables <span class="math inline">\(X_1, \ldots, X_n\)</span>. Then we could use the function</p>
-<p><span class="math display">\[\hat\mu(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n X_i \stackrel{\text{def}}{=}\bar X\]</span></p>
+<p><span class="math display">\[\hat\mu(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^nX_i \stackrel{\text{def}}{=}\bar X\]</span></p>
 <p>as an <a href="#/def-estimator"><em>estimator</em></a> to produce an <em>estimate</em> <span class="math inline">\(\hat\mu = \bar x\)</span> of <span class="math inline">\(\mu\)</span>.</p>
 <p>Another estimator would be just the height of the first student sampled:</p>
 <p><span class="math display">\[\hat\mu^{(2)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}X_1\]</span></p>
@@ -708,13 +708,13 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 \operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}
 &amp;= \operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{} - \mu
 &amp;&amp; \text{(bias equals expectation minus truth)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\frac{1}{n}\sum_{i=1}^n X_i\right]\mathclose{} - \mu
+&amp;= \operatorname{E}\mathopen{}\left[\frac{1}{n}\sum_{i=1}^nX_i\right]\mathclose{} - \mu
 &amp;&amp; \text{(definition of $\bar X$)}\\
-&amp;= \frac{1}{n}\operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i\right]\mathclose{} - \mu
+&amp;= \frac{1}{n}\operatorname{E}\mathopen{}\left[\sum_{i=1}^nX_i\right]\mathclose{} - \mu
 &amp;&amp; \text{(factor the constant $\tfrac{1}{n}$ out of the expectation)}\\
-&amp;= \frac{1}{n}\sum_{i=1}^n \operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} - \mu
+&amp;= \frac{1}{n}\sum_{i=1}^n\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} - \mu
 &amp;&amp; \text{(linearity of expectation)}\\
-&amp;= \frac{1}{n}\sum_{i=1}^n \mu - \mu
+&amp;= \frac{1}{n}\sum_{i=1}^n\mu - \mu
 &amp;&amp; \text{($\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} = \mu$ for every $i$)}\\
 &amp;= \frac{1}{n} \cdot n\mu - \mu
 &amp;&amp; \text{(sum of $n$ copies of $\mu$)}\\
@@ -822,11 +822,11 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 &amp;&amp; \text{(zero bias)}\\
 &amp;= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}
 &amp;&amp; \text{($0^2 = 0$)}\\
-&amp;= \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum_{i=1}^n X_i\right)\mathclose{}
+&amp;= \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum_{i=1}^nX_i\right)\mathclose{}
 &amp;&amp; \text{(definition of $\bar X$)}\\
-&amp;= \frac{1}{n^2}\sum_{i=1}^n \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}
+&amp;= \frac{1}{n^2}\sum_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}
 &amp;&amp; \text{(variance of a linear combination of independent variables)}\\
-&amp;= \frac{1}{n^2}\sum_{i=1}^n \sigma^2
+&amp;= \frac{1}{n^2}\sum_{i=1}^n\sigma^2
 &amp;&amp; \text{($\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2$ for every $i$)}\\
 &amp;= \frac{1}{n^2} \cdot n\sigma^2
 &amp;&amp; \text{(sum of $n$ copies of $\sigma^2$)}\\
@@ -834,7 +834,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 &amp;&amp; \text{(cancel one factor of $n$)}
 \end{aligned}
 \]</span></p>
-<p>The step to <span class="math inline">\(\frac{1}{n^2}\sum_{i=1}^n \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}\)</span> uses the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom">variance of a linear combination</a>, whose covariance terms are all zero for independent variables.</p>
+<p>The step to <span class="math inline">\(\frac{1}{n^2}\sum_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}\)</span> uses the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom">variance of a linear combination</a>, whose covariance terms are all zero for independent variables.</p>
 <p>So for any sample size <span class="math inline">\(n &gt; 1\)</span>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/n &lt; \sigma^2 = \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}\)</span>: by mean squared error, the sample mean is the more accurate estimator. With <span class="math inline">\(n = 50\)</span> students, as in <a href="#/exm-estimator" class="quarto-xref">Example&nbsp;4</a>, the sample mean’s mean squared error is <span class="math inline">\(1/50\)</span> of <span class="math inline">\(X_1\)</span>’s.</p>
 </div>
 </section><section class="slide level2"><div id="def-rmse" class="theorem definition">
@@ -858,34 +858,34 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </section><section class="slide level2"><div id="exm-biased-variance-mle" class="theorem example">
 <p><span class="theorem-title"><strong>Example 11 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
 <ul>
-<li>the <a href="./exploratory-descriptive.html#def-sample-variance">sample variance</a> <span class="math inline">\(S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n (X_i - \bar X)^2\)</span>;</li>
-<li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n (X_i - \bar X)^2\)</span>.</li>
+<li>the <a href="./exploratory-descriptive.html#def-sample-variance">sample variance</a> <span class="math inline">\(S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n(X_i - \bar X)^2\)</span>;</li>
+<li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n(X_i - \bar X)^2\)</span>.</li>
 </ul>
-<p>Both estimators are built from the sum of squared deviations <span class="math inline">\(\sum_{i=1}^n (X_i - \bar X)^2\)</span>, so we first find its expectation. Using <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{}\right)^2\mathclose{} = \sigma^2 + \mu^2\)</span> and <span class="math inline">\(\operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\)</span> (by <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;9</a> and <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;8</a>):</p>
+<p>Both estimators are built from the sum of squared deviations <span class="math inline">\(\sum_{i=1}^n(X_i - \bar X)^2\)</span>, so we first find its expectation. Using <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{}\right)^2\mathclose{} = \sigma^2 + \mu^2\)</span> and <span class="math inline">\(\operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\)</span> (by <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;9</a> and <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;8</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{E}\mathopen{}\left[\sum_{i=1}^n (X_i - \bar X)^2\right]\mathclose{}
-&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n \mathopen{}\left(X_i^2 - 2 X_i \bar X + \bar X^2\right)\mathclose{}\right]\mathclose{}
+\operatorname{E}\mathopen{}\left[\sum_{i=1}^n(X_i - \bar X)^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n\mathopen{}\left(X_i^2 - 2 X_i \bar X + \bar X^2\right)\mathclose{}\right]\mathclose{}
 &amp;&amp; \text{(expand each square)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - \sum_{i=1}^n 2 X_i \bar X + \sum_{i=1}^n \bar X^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^nX_i^2 - \sum_{i=1}^n2 X_i \bar X + \sum_{i=1}^n\bar X^2\right]\mathclose{}
 &amp;&amp; \text{(split the sum)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - 2\bar X \sum_{i=1}^n X_i + \sum_{i=1}^n \bar X^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^nX_i^2 - 2\bar X \sum_{i=1}^nX_i + \sum_{i=1}^n\bar X^2\right]\mathclose{}
 &amp;&amp; \text{(factor $2\bar X$ out of the middle sum)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - 2\bar X \sum_{i=1}^n X_i + n \bar X^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^nX_i^2 - 2\bar X \sum_{i=1}^nX_i + n \bar X^2\right]\mathclose{}
 &amp;&amp; \text{(sum of $n$ copies of $\bar X^2$)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right]\mathclose{}
-&amp;&amp; \text{($\textstyle\sum_{i=1}^n X_i = n \bar X$)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - 2n \bar X^2 + n \bar X^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^nX_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right]\mathclose{}
+&amp;&amp; \text{($\textstyle\sum_{i=1}^nX_i = n \bar X$)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^nX_i^2 - 2n \bar X^2 + n \bar X^2\right]\mathclose{}
 &amp;&amp; \text{(multiply $2\bar X \cdot n \bar X$)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2 - n \bar X^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^nX_i^2 - n \bar X^2\right]\mathclose{}
 &amp;&amp; \text{(collect the $\bar X^2$ terms)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^n X_i^2\right]\mathclose{} - \operatorname{E}\mathopen{}\left[n \bar X^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\sum_{i=1}^nX_i^2\right]\mathclose{} - \operatorname{E}\mathopen{}\left[n \bar X^2\right]\mathclose{}
 &amp;&amp; \text{(linearity of expectation)}\\
-&amp;= \sum_{i=1}^n \operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} - \operatorname{E}\mathopen{}\left[n \bar X^2\right]\mathclose{}
+&amp;= \sum_{i=1}^n\operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} - \operatorname{E}\mathopen{}\left[n \bar X^2\right]\mathclose{}
 &amp;&amp; \text{(linearity of expectation)}\\
-&amp;= \sum_{i=1}^n \operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} - n \operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{}
+&amp;= \sum_{i=1}^n\operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} - n \operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{}
 &amp;&amp; \text{(factor the constant $n$ out of the expectation)}\\
-&amp;= \sum_{i=1}^n (\sigma^2 + \mu^2) - n \operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{}
+&amp;= \sum_{i=1}^n(\sigma^2 + \mu^2) - n \operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{}
 &amp;&amp; \text{(substitute $\operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{}$)}\\
 &amp;= n(\sigma^2 + \mu^2) - n \operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{}
 &amp;&amp; \text{(sum of $n$ copies of $\sigma^2 + \mu^2$)}\\

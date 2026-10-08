@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 14:34:43 (PDT)
+Last modified: 2026-10-08 15:00:32 (PDT)
 
 ## 1 Introduction
 
@@ -159,7 +159,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 1 (Sample mean)** The **sample mean** of \\n\\ observations \\x_1, \ldots, x_n\\ is:
 >
-> \\\bar{x} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^{n} x_i\\
+> \\\bar{x} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i=1}^nx_i\\
 
 > **NOTE:**
 >
@@ -194,7 +194,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 3 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
 >
-> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^{n} (x_i - \bar{x})^2\\
+> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar{x})^2\\
 
 > **NOTE:**
 >
@@ -473,7 +473,7 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 >
 > **Definition 15 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
 >
-> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})} {\sqrt{\sum\_{i=1}^n (x_i - \bar{x})^2} \sqrt{\sum\_{i=1}^n (y_i - \bar{y})^2}}\\
+> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i - \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i - \bar{y})^2}}\\
 >
 > It is defined when neither variable is constant, so that both sums of squares are positive.
 
@@ -719,7 +719,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Proof*. The sample mean of the \\z_i\\ is \\\frac{1}{n} \sum\_{i=1}^n \frac{x_i - \bar x}{s} = \frac{1}{s} \mathopen{}\left(\frac{1}{n} \sum\_{i=1}^n x_i - \bar x\right)\mathclose{} = \frac{1}{s} (\bar x - \bar x) = 0.\\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\\frac{1}{n-1} \sum\_{i=1}^n z_i^2 = \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n (x_i - \bar x)^2 = \frac{s^2}{s^2} = 1,\\ so their sample standard deviation is \\\sqrt{1} = 1\\.
+> *Proof*. The sample mean of the \\z_i\\ is \\\frac{1}{n} \sum\_{i=1}^n\frac{x_i - \bar x}{s} = \frac{1}{s} \mathopen{}\left(\frac{1}{n} \sum\_{i=1}^nx_i - \bar x\right)\mathclose{} = \frac{1}{s} (\bar x - \bar x) = 0.\\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\\frac{1}{n-1} \sum\_{i=1}^nz_i^2 = \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar x)^2 = \frac{s^2}{s^2} = 1,\\ so their sample standard deviation is \\\sqrt{1} = 1\\.
 
 > **NOTE:**
 >

@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 14:34:43 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 15:00:32 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -437,7 +437,7 @@ text-align: center;
 <span id="cb3-10"><a aria-label="10"></a><span class="co">#&gt;  observed_mean   bootstrap_se     formula_se divide_by_n_se </span></span>
 <span id="cb3-11"><a aria-label="11"></a><span class="co">#&gt;      103.80000        3.47992        3.61417        3.42870</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The bootstrap standard error (<a href="#/def-bootstrap-se" class="quarto-xref">Definition&nbsp;3</a>) is close to the usual estimate <span class="math inline">\(s / \sqrt{n}\)</span>. Each bootstrap draw has variance <span class="math inline">\(\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})^2\)</span> around <span class="math inline">\(\bar{x}\)</span>, and the <span class="math inline">\(n\)</span> draws are independent, so as <span class="math inline">\(B\)</span> grows the bootstrap standard error of the mean approaches <span class="math inline">\(\hat\sigma / \sqrt{n}\)</span> (<code>divide_by_n_se</code>), which is smaller than <span class="math inline">\(s / \sqrt{n}\)</span> by the factor <span class="math inline">\(\sqrt{(n-1)/n}\)</span>. <a href="#/fig-boot-dist-toy" class="quarto-xref">Figure&nbsp;1</a> shows the bootstrap distribution.</p>
+<p>The bootstrap standard error (<a href="#/def-bootstrap-se" class="quarto-xref">Definition&nbsp;3</a>) is close to the usual estimate <span class="math inline">\(s / \sqrt{n}\)</span>. Each bootstrap draw has variance <span class="math inline">\(\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i=1}^n(x_i - \bar{x})^2\)</span> around <span class="math inline">\(\bar{x}\)</span>, and the <span class="math inline">\(n\)</span> draws are independent, so as <span class="math inline">\(B\)</span> grows the bootstrap standard error of the mean approaches <span class="math inline">\(\hat\sigma / \sqrt{n}\)</span> (<code>divide_by_n_se</code>), which is smaller than <span class="math inline">\(s / \sqrt{n}\)</span> by the factor <span class="math inline">\(\sqrt{(n-1)/n}\)</span>. <a href="#/fig-boot-dist-toy" class="quarto-xref">Figure&nbsp;1</a> shows the bootstrap distribution.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">mean =</span> boot_means10) <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb4-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> mean) <span class="sc">+</span></span>
@@ -510,8 +510,8 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 </div>
 </section><section class="slide level2"><div id="def-bca-acceleration" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Acceleration of the BCa interval)</strong></span> Let <span class="math inline">\(\hat\theta_{(i)}\)</span> be the statistic computed with observation <span class="math inline">\(i\)</span> deleted, and let <span class="math inline">\(\hat\theta_{(\cdot)}\)</span> be the mean of <span class="math inline">\(\hat\theta_{(1)}, \ldots, \hat\theta_{(n)}\)</span>. The <strong>acceleration</strong> is</p>
-<p><span class="math display">\[\hat{a} \stackrel{\text{def}}{=}\frac{\sum_{i=1}^n \mathopen{}\left(\hat\theta_{(\cdot)} - \hat\theta_{(i)}\right)\mathclose{}^3}
-{6 \mathopen{}\left(\sum_{i=1}^n \mathopen{}\left(\hat\theta_{(\cdot)} - \hat\theta_{(i)}\right)\mathclose{}^2\right)\mathclose{}^{3/2}}.\]</span></p>
+<p><span class="math display">\[\hat{a} \stackrel{\text{def}}{=}\frac{\sum_{i=1}^n\mathopen{}\left(\hat\theta_{(\cdot)} - \hat\theta_{(i)}\right)\mathclose{}^3}
+{6 \mathopen{}\left(\sum_{i=1}^n\mathopen{}\left(\hat\theta_{(\cdot)} - \hat\theta_{(i)}\right)\mathclose{}^2\right)\mathclose{}^{3/2}}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-bca-acceleration" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Acceleration from three deleted estimates)</strong></span> If the differences <span class="math inline">\(\hat\theta_{(\cdot)} - \hat\theta_{(i)}\)</span> are <span class="math inline">\(1\)</span>, <span class="math inline">\(1\)</span>, and <span class="math inline">\(-2\)</span>, the sum of their cubes is <span class="math inline">\(1 + 1 - 8 = -6\)</span> and the sum of their squares is <span class="math inline">\(6\)</span>, so</p>

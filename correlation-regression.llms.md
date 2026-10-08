@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 14:34:43 (PDT)
+Last modified: 2026-10-08 15:00:32 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -243,7 +243,7 @@ hers |> head()
 >
 > **Definition 7 (Linear regression model)** A **linear regression model** is a homoskedastic ([Definition 6](#def-homoskedastic)) conditional Gaussian model ([Definition 4](#def-cond-gaussian)) whose mean function is linear in \\p\\ covariates, where observation \\i\\ has covariate values \\x_i = (x\_{i1}, \ldots, x\_{ip})\\:
 >
-> \\\mu(x_1, \ldots, x_p) \stackrel{\text{def}}{=}\beta\_{0}+ \sum\_{j=1}^p \beta\_{x_j} x_j.\\
+> \\\mu(x_1, \ldots, x_p) \stackrel{\text{def}}{=}\beta\_{0}+ \sum\_{j=1}^p\beta\_{x_j} x_j.\\
 
 > **NOTE:**
 >
@@ -580,11 +580,11 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) &= \frac{\partial}{\partial \tilde{\beta}} \sum\_{i=1}^n\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2 && \text{(RSS in vector form)}\\ &= \sum\_{i=1}^n\frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2 && \text{(derivative of a sum)}\\ &= \sum\_{i=1}^n2 \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} && \text{(chain rule)} \end{aligned} \\
 >
-> For the inner derivative, we need the gradient of a linear function. For any constant vector \\\tilde{a} = {(a_0, a_x)}^{\top}\\:
+> For the inner derivative, we need the gradient of a linear function. For any constant vector \\\tilde{a}= {(a_0, a_x)}^{\top}\\:
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \tilde{a} \cdot \tilde{\beta} &= \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} && \text{(write out the dot product)}\\ &= \begin{pmatrix} \frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} \\ \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} \end{pmatrix} && \text{(definition of the gradient)}\\ &= \begin{pmatrix} a_0 + 0 \\ 0 + a_x \end{pmatrix} && \text{(derivative of each term)}\\ &= \begin{pmatrix} a_0 \\ a_x \end{pmatrix} && \text{(add zero)}\\ &= \tilde{a} && \text{(definition of \$\tilde{a}\$)} \end{aligned} \\
 >
-> With \\\tilde{a} = \tilde{x}\_i\\:
+> With \\\tilde{a}= \tilde{x}\_i\\:
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} &= \frac{\partial}{\partial \tilde{\beta}} y_i - \frac{\partial}{\partial \tilde{\beta}} \tilde{x}\_i \cdot \tilde{\beta} && \text{(derivative of a difference)}\\ &= \tilde{0}- \frac{\partial}{\partial \tilde{\beta}} \tilde{x}\_i \cdot \tilde{\beta} && \text{(\$y_i\$ does not depend on \$\tilde{\beta}\$)}\\ &= \tilde{0}- \tilde{x}\_i && \text{(gradient of a linear function)}\\ &= -\tilde{x}\_i && \text{(subtract from zero)} \end{aligned} \\
 >
@@ -777,7 +777,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > **Definition 14 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
 >
-> \\\text{TSS} \stackrel{\text{def}}{=}\sum\_{i=1}^n (y_i - \bar{y})^2.\\
+> \\\text{TSS} \stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2.\\
 
 > **NOTE:**
 >
