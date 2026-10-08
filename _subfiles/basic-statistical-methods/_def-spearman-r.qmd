@@ -13,7 +13,11 @@ r_S \eqdef r\paren{(u_1, v_1), \ldots, (u_n, v_n)}.
 $$
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-spearman-monotone}
+#### What the Spearman correlation measures
+
 Because ranks depend only on the ordering of the values,
 $r_S$ measures how close the association is to monotone,
 whether or not it is linear,

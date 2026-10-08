@@ -8,7 +8,11 @@ with a distribution that depends on further unknown parameters
 [@dobson4e, Chapter 12, p. 281].
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-hierarchical-model-structure}
+#### A hierarchical model is a model structure
+
 A hierarchical model is a model structure,
 not an inference method:
 it can be fit by maximum likelihood or by Bayesian inference.

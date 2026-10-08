@@ -1,4 +1,8 @@
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-flat-prior-improper}
+#### Flat priors can be improper
+
 A flat prior on an unbounded parameter space, such as $\reals$, is [improper](#def-improper-prior),
 so it does not define a joint distribution of $\theta$ and $\vY$,
 and @def-posterior does not apply directly.

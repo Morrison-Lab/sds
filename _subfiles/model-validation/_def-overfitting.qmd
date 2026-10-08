@@ -7,7 +7,11 @@ but predicts poorly for new observations.
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#exm-overfitting-polynomial-cars}
+#### Overfitting in polynomial fits to cars
+
 In @exr-overfitting,
 the terms beyond degree 2 fit the 20 training cars more closely
 but do not predict the 12 held-out cars better.

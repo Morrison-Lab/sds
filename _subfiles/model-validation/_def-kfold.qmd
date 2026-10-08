@@ -21,7 +21,11 @@ In **$k$-fold cross-validation**:
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-kfold-vs-validation-set}
+#### Cross-validation instead of a single validation set
+
 If data are limited,
 $k$-fold cross-validation
 can replace the single validation set of @def-data-splits

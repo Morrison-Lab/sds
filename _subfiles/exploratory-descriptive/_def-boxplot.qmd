@@ -14,7 +14,11 @@ of a continuous variable:
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-whisker-rule}
+#### Whisker rules
+
 The $1.5 \times \text{IQR}$ whisker rule is the default in R's
 `boxplot()` and `ggplot2::geom_boxplot()`;
 other software and authors use other rules,

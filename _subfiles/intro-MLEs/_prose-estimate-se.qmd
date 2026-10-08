@@ -10,7 +10,11 @@ $$
 
 where $\hat{\einf}$ is whichever estimate of $\einf(\vth)$ we chose.
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-observed-information-se}
+#### Observed versus expected information
+
 Using the observed information is often more convenient,
 and there are settings where it is provably better by some criteria
 [@efron1978assessing].

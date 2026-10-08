@@ -8,7 +8,11 @@ to the [total sum of squares](#def-tss) of its outcomes:
 $$R^2 \eqdef 1 - \frac{\text{RSS}(\est{\vth})}{\text{TSS}}.$$
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-r-squared-interpretation}
+#### Interpreting the coefficient of determination
+
 $R^2$ is often described as the proportion of the variation in $Y$
 explained by the regression on $X$.
 :::

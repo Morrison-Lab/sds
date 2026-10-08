@@ -1,4 +1,8 @@
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-dic-caveats}
+#### Cautions about DIC
+
 DIC should be used with care:
 it can behave poorly for models with weakly identified parameters
 or markedly non-Gaussian posteriors

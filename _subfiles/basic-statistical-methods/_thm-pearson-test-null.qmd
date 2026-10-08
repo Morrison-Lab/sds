@@ -12,7 +12,11 @@ t \sim t_{n-2}.
 $$
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-pearson-test-conditions}
+#### When the conditions hold
+
 The conditions of @thm-pearson-test-null hold, for example,
 when the pairs are independent draws
 from a bivariate Gaussian distribution with $\rho = 0$.

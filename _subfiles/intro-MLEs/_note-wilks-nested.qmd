@@ -1,4 +1,8 @@
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-wilks-nested-models}
+#### Wilks' theorem for nested models
+
 Equivalently, in terms of nested models:
 if a full model $M_1$ has $p$ free parameters,
 and a nested model $M_0 \subset M_1$,

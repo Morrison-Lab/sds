@@ -19,7 +19,11 @@ the total probability of the tables with the same totals
 that are no more probable than the observed table.
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-fishers-exact-exactness}
+#### Why Fisher's exact test is exact
+
 The p-value is exact:
 it comes from the null distribution itself,
 not from a large-sample approximation,

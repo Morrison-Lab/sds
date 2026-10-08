@@ -14,7 +14,11 @@ Its p-value is $\Pr(F^* \ge F)$,
 where $F^*$ has the $F_{k-1,\, n-k}$ distribution ([F-distribution](inference.qmd#def-f-dist)).
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-f-statistic-size}
+#### Interpreting the F statistic
+
 Large values of $F$ mean that the group means are spread out
 more than the variation within groups would explain.
 For the groups of @exm-mean-squares, $F = 13.5 / 1 = 13.5$.

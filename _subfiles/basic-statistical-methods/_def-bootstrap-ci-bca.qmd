@@ -14,7 +14,11 @@ of the bootstrap replicates
 [@efron1993introduction, Chapter 14].
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-bca-interval-correction}
+#### What the BCa interval corrects
+
 When $\hat{z}_0 = 0$ and $\hat{a} = 0$,
 $\alpha_q = q$ and the BCa interval is the percentile interval
 (@def-bootstrap-ci-percentile).
