@@ -4,7 +4,7 @@
 For a regression model with conditional mean $\mean(x; \vth)$,
 the [mean squared error](estimation.qmd#def-prediction-mse)
 of its predictions $\fitted_i = \mean(x_i; \vth)$
-of $n \ge 1$ outcomes $y_1, \ldots, y_n$
+of $n \ge 1$ outcomes $\dsn{y}$
 and the residual sum of squares $\text{RSS}(\vth)$ (@def-rss)
 over those same $n$ outcomes satisfy
 

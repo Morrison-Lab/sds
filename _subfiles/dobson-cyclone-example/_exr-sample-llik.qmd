@@ -13,7 +13,7 @@ $$
 \ell(\lambda; \vx)
 &\eqdef \logf{\Lik(\lambda; \vx)}
 && \text{(definition of log-likelihood)}\\
-&= \logf{\prod_{i = 1}^n \frac{\lambda^{x_i} e^{-\lambda}}{x_i!}}
+&= \logf{\prodin \frac{\lambda^{x_i} e^{-\lambda}}{x_i!}}
 && \text{(likelihood of the dataset)}\\
 &= \sumin \logf{\frac{\lambda^{x_i} e^{-\lambda}}{x_i!}}
 && \text{(log of a product)}\\

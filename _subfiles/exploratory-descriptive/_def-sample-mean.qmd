@@ -1,7 +1,7 @@
 ::: {#def-sample-mean}
 #### Sample mean
 
-The **sample mean** of $n$ observations $x_1, \ldots, x_n$ is:
+The **sample mean** of $n$ observations $\dsn{x}$ is:
 
-$$\bar{x} \eqdef \frac{1}{n} \sumin x_i$$
+$$\bar{x} \eqdef \avgin x_i$$
 :::

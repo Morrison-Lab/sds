@@ -1,8 +1,8 @@
 ::: {#def-cond-gaussian}
 #### Conditional Gaussian model
 
-A **conditional Gaussian model** for outcomes $Y_1, \ldots, Y_n$
-with covariate values $x_1, \ldots, x_n$
+A **conditional Gaussian model** for outcomes $\dsn{Y}$
+with covariate values $\dsn{x}$
 (each a single value or a vector)
 says that, given the covariates,
 the outcomes are independent and Gaussian:

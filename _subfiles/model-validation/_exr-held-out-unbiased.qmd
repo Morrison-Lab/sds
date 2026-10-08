@@ -14,7 +14,7 @@ the expected [mean squared error](estimation.qmd#def-prediction-mse)
 of the held-out predictions is $\generr_{\trainset}$:
 
 $$
-\E{\frac{1}{m} \sum_{j=1}^m \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+\E{\frac{1}{m} \sumto{j}{m} \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
 = \generr_{\trainset}.
 $$
 

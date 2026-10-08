@@ -1,7 +1,7 @@
 ::: {#def-standardization}
 #### Standardization
 
-Let $x_1, \ldots, x_n$ be $n \ge 2$ observations of a variable
+Let $\dsn{x}$ be $n \ge 2$ observations of a variable
 with [sample mean](#def-sample-mean) $\bar x$
 and [sample standard deviation](#def-sample-sd) $s > 0$.
 The **standardized value** of $x_i$ is

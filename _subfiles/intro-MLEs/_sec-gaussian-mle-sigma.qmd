@@ -10,7 +10,7 @@ $$
 && \text{(add $\tfrac{n}{2}(\sigma^2)^{-1}$)}\\
 n\sigma^2 &= \sumin (x_i - \mu)^2
 && \text{(multiply both sides by $2(\sigma^2)^2$)}\\
-\sigma^2 &= \frac{1}{n}\sumin (x_i - \mu)^2
+\sigma^2 &= \avgin (x_i - \mu)^2
 && \text{(divide both sides by $n$)}
 \end{aligned}
 $$
@@ -20,7 +20,7 @@ which does not depend on $\sigma^2$,
 maximizes the [profile log-likelihood](#def-profile-loglik)
 of @exm-profile-loglik, and gives:
 
-$$\hat{\sigma}^2_{\text{ML}} = \frac{1}{n}\sumin (x_i - \bar x)^2$$
+$$\hat{\sigma}^2_{\text{ML}} = \avgin (x_i - \bar x)^2$$
 
 The profile log-likelihood,
 $\ell_p(\sigma^2) = -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2} - \frac{n\hat\sigma^2_{\text{ML}}}{2\sigma^2}$,

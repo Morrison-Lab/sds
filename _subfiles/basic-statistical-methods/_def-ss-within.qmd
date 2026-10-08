@@ -4,6 +4,6 @@
 With the notation of @def-ss-between,
 the **within-group sum of squares** is
 
-$$\text{SS}_\text{within} \eqdef \sum_{j=1}^k \sum_{i=1}^{n_j} (y_{ji} - \bar{y}_j)^2.$$
+$$\text{SS}_\text{within} \eqdef \sumto{j}{k} \sumto{i}{n_j} (y_{ji} - \bar{y}_j)^2.$$
 
 :::

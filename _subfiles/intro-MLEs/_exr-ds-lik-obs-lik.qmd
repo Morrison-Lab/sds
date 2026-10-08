@@ -14,7 +14,7 @@ in terms of the observations' [likelihood components](#def-lik-factor).
 $$
 \begin{aligned}
 \Lik(\theta)
-&= \prod_{i=1}^n \p(X_i = x_i \mid \theta)
+&= \prodin \p(X_i = x_i \mid \theta)
 && \text{(likelihood of an independent sample)}\\
 &= \prodin \Lik_i(\theta)
 && \text{(definition of likelihood components)}

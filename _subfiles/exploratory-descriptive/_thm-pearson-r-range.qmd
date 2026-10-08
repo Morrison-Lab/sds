@@ -14,7 +14,7 @@ so that $r = \sum_i a_i b_i / \paren{\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}}$.
 The Cauchy--Schwarz inequality states that
 $\abs{\sum_i a_i b_i} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}$,
 with equality if and only if one of the vectors
-$(a_1, \ldots, a_n)$ and $(b_1, \ldots, b_n)$
+$(\dsn{a})$ and $(\dsn{b})$
 is a scalar multiple of the other.
 Dividing both sides by the (positive) right-hand side gives $\abs{r} \le 1$.
 

@@ -1,7 +1,7 @@
 :::{#exm-fisher-scoring-poisson}
 #### Fisher scoring for Poisson data
 
-For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+For $\dsn{X} \siid \Pois(\rate)$,
 the score is $\score(\rate) = n\bar x/\rate - n$
 and the expected information is $\einf(\rate) = n/\rate$
 (@exm-information-poisson), so one Fisher scoring step from any $\esttmpl > 0$ gives:

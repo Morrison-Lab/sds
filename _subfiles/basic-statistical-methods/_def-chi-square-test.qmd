@@ -7,7 +7,7 @@ in an $r \times c$ contingency table,
 that the row and column variables are independent
 uses the statistic
 
-$$X^2 \eqdef \sum_{i=1}^r \sum_{j=1}^c \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.$$
+$$X^2 \eqdef \sumto{i}{r} \sumto{j}{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.$$
 
 Its p-value is $\Pr(W \ge X^2)$,
 where $W$ has the $\chi^2_{(r-1)(c-1)}$ distribution
