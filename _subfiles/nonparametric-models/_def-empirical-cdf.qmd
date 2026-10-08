@@ -5,7 +5,7 @@ For observed values $x_1, \ldots, x_n$,
 the **empirical cumulative distribution function** (**empirical CDF**)
 is the function
 
-$$\hat F(t) \eqdef \frac{1}{n}\sum_{j=1}^n I(x_j \le t), \quad t \in \mathbb{R},$$
+$$\hat F(t) \eqdef \frac{1}{n}\sum_{j=1}^n I(x_j \le t), \quad t \in \reals,$$
 
 where $I(A)$ is the indicator function:
 $I(A) = 1$ if $A$ holds,

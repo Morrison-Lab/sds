@@ -7,7 +7,7 @@ and we measure the heights of
 $n = 50$ randomly sampled students as random variables $X_1, \ldots, X_n$.
 Then we could use the function
 
-$$\hat\mu(X_1, \ldots, X_n) \eqdef \frac{1}{n} \sum_{i=1}^n X_i \eqdef \bar X$$
+$$\hat\mu(X_1, \ldots, X_n) \eqdef \frac{1}{n} \sumin X_i \eqdef \bar X$$
 
 as an [*estimator*](#def-estimator) to produce an *estimate* $\hat\mu = \bar x$ of $\mu$.
 

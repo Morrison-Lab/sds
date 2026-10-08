@@ -15,13 +15,13 @@ $$
 && \text{(definition of log-likelihood)}\\
 &= \logf{\prod_{i = 1}^n \frac{\lambda^{x_i} e^{-\lambda}}{x_i!}}
 && \text{(likelihood of the dataset)}\\
-&= \sum_{i = 1}^n \logf{\frac{\lambda^{x_i} e^{-\lambda}}{x_i!}}
+&= \sumin \logf{\frac{\lambda^{x_i} e^{-\lambda}}{x_i!}}
 && \text{(log of a product)}\\
-&= \sum_{i = 1}^n \paren{\logf{\lambda^{x_i}} + \logf{e^{-\lambda}} - \logf{x_i!}}
+&= \sumin \paren{\logf{\lambda^{x_i}} + \logf{e^{-\lambda}} - \logf{x_i!}}
 && \text{(log of a product and of a quotient)}\\
-&= \sum_{i = 1}^n \paren{x_i \logf{\lambda} - \lambda - \logf{x_i!}}
+&= \sumin \paren{x_i \logf{\lambda} - \lambda - \logf{x_i!}}
 && \text{(log of a power; $\log e^{a} = a$)}\\
-&= \paren{\sum_{i = 1}^n x_i} \logf{\lambda} - n\lambda - \sum_{i = 1}^n \logf{x_i!}
+&= \paren{\sumin x_i} \logf{\lambda} - n\lambda - \sumin \logf{x_i!}
 && \text{(split the sum)}
 \end{aligned}
 $$

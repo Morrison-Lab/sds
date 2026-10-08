@@ -21,11 +21,11 @@ $$
 && \text{(zero bias)}\\
 &= \Var{\bar X}
 && \text{($0^2 = 0$)}\\
-&= \Var{\frac{1}{n}\sum_{i=1}^n X_i}
+&= \Var{\frac{1}{n}\sumin X_i}
 && \text{(definition of $\bar X$)}\\
-&= \frac{1}{n^2}\sum_{i=1}^n \Var{X_i}
+&= \frac{1}{n^2}\sumin \Var{X_i}
 && \text{(variance of a linear combination of independent variables)}\\
-&= \frac{1}{n^2}\sum_{i=1}^n \sigma^2
+&= \frac{1}{n^2}\sumin \sigma^2
 && \text{($\Var{X_i} = \sigma^2$ for every $i$)}\\
 &= \frac{1}{n^2} \cdot n\sigma^2
 && \text{(sum of $n$ copies of $\sigma^2$)}\\
@@ -34,7 +34,7 @@ $$
 \end{aligned}
 $$
 
-The step to $\frac{1}{n^2}\sum_{i=1}^n \Var{X_i}$ uses
+The step to $\frac{1}{n^2}\sumin \Var{X_i}$ uses
 the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom),
 whose covariance terms are all zero for independent variables.
 

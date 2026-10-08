@@ -10,14 +10,14 @@ $$\hth_{\text{MAP}} = \frac{n}{n+1}\bar{x}.$$
 
 @cor-map-penalized gives the same answer from the penalized form.
 Up to terms that do not involve $\mu$,
-the negative log-likelihood is $\frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2$
+the negative log-likelihood is $\frac{1}{2}\sumin (x_i - \mu)^2$
 and the penalty is $\frac{1}{2}\mu^2$.
 Setting the derivative of their sum to zero gives
 
 $$
 \ba
 0
-&= -\sum_{i=1}^n (x_i - \mu) + \mu
+&= -\sumin (x_i - \mu) + \mu
 && \text{(derivative of the sum with respect to $\mu$)}\\
 &= -n\bar{x} + n\mu + \mu
 && \text{($\sum_i x_i = n\bar{x}$)}\\

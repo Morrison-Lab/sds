@@ -4,62 +4,62 @@ $$
 \begin{aligned}
 \frac{\partial^2 \ell}{\partial (\sigma^2)^2}
 &= \deriv{\sigma^2}\paren{-\frac{n}{2}\paren{\sigma^2}^{-1}
- + \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2}
+ + \frac{1}{2}\paren{\sigma^2}^{-2}\sumin (x_i - \mu)^2}
 && \text{(differentiate the score for $\sigma^2$)}\\
 &= \deriv{\sigma^2}\paren{-\frac{n}{2}\paren{\sigma^2}^{-1}}
- + \deriv{\sigma^2}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2}
+ + \deriv{\sigma^2}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sumin (x_i - \mu)^2}
 && \text{(linearity of differentiation)}\\
 &= \deriv{\sigma^2}\paren{-\frac{n}{2}\paren{\sigma^2}^{-1}}
- + \deriv{\sigma^2}\paren{\frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \paren{\sigma^2}^{-2}}
+ + \deriv{\sigma^2}\paren{\frac{1}{2}\sumin (x_i - \mu)^2 \paren{\sigma^2}^{-2}}
 && \text{(reorder the factors)}\\
 &= -\frac{n}{2}\deriv{\sigma^2}\paren{\sigma^2}^{-1}
- + \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-2}
+ + \frac{1}{2}\sumin (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-2}
 && \text{(constant multiple rule)}\\
 &= -\frac{n}{2}\paren{-\paren{\sigma^2}^{-2}}
- + \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-2}
+ + \frac{1}{2}\sumin (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-2}
 && \text{(power rule for $v^{-1}$)}\\
 &= -\frac{n}{2}\paren{-\paren{\sigma^2}^{-2}}
- + \frac{1}{2}\sum_{i=1}^n (x_i - \mu)^2 \paren{-2\paren{\sigma^2}^{-3}}
+ + \frac{1}{2}\sumin (x_i - \mu)^2 \paren{-2\paren{\sigma^2}^{-3}}
 && \text{(power rule for $v^{-2}$)}\\
-&= \frac{n}{2}\paren{\sigma^2}^{-2} - \sum_{i=1}^n (x_i - \mu)^2 \paren{\sigma^2}^{-3}
+&= \frac{n}{2}\paren{\sigma^2}^{-2} - \sumin (x_i - \mu)^2 \paren{\sigma^2}^{-3}
 && \text{(multiply the constants)}\\
-&= \frac{n}{2}\paren{\sigma^2}^{-2} - \paren{\sigma^2}^{-3}\sum_{i=1}^n (x_i - \mu)^2
+&= \frac{n}{2}\paren{\sigma^2}^{-2} - \paren{\sigma^2}^{-3}\sumin (x_i - \mu)^2
 && \text{(reorder the factors)}\\
 \frac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2}
 &= \deriv{\mu}\paren{-\frac{n}{2}\paren{\sigma^2}^{-1}
- + \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2}
+ + \frac{1}{2}\paren{\sigma^2}^{-2}\sumin (x_i - \mu)^2}
 && \text{(differentiate the score for $\sigma^2$)}\\
 &= \deriv{\mu}\paren{-\frac{n}{2}\paren{\sigma^2}^{-1}}
- + \deriv{\mu}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2}
+ + \deriv{\mu}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sumin (x_i - \mu)^2}
 && \text{(linearity of differentiation)}\\
-&= 0 + \deriv{\mu}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2}
+&= 0 + \deriv{\mu}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sumin (x_i - \mu)^2}
 && \text{(derivative of a constant)}\\
-&= \deriv{\mu}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2}
+&= \deriv{\mu}\paren{\frac{1}{2}\paren{\sigma^2}^{-2}\sumin (x_i - \mu)^2}
 && \text{(drop the zero term)}\\
-&= \frac{1}{2}\paren{\sigma^2}^{-2}\deriv{\mu}\sum_{i=1}^n (x_i - \mu)^2
+&= \frac{1}{2}\paren{\sigma^2}^{-2}\deriv{\mu}\sumin (x_i - \mu)^2
 && \text{(constant multiple rule)}\\
-&= \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n \deriv{\mu}(x_i - \mu)^2
+&= \frac{1}{2}\paren{\sigma^2}^{-2}\sumin \deriv{\mu}(x_i - \mu)^2
 && \text{(derivative of a sum is the sum of derivatives)}\\
-&= \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n -2(x_i - \mu)
+&= \frac{1}{2}\paren{\sigma^2}^{-2}\sumin -2(x_i - \mu)
 && \text{(chain-rule result from the score for $\mu$)}\\
-&= \frac{1}{2}\paren{\sigma^2}^{-2} \cdot (-2) \sum_{i=1}^n (x_i - \mu)
+&= \frac{1}{2}\paren{\sigma^2}^{-2} \cdot (-2) \sumin (x_i - \mu)
 && \text{(factor the constant $-2$ out of the sum)}\\
-&= -\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)
+&= -\paren{\sigma^2}^{-2}\sumin (x_i - \mu)
 && \text{(multiply the constants)}
 \end{aligned}
 $$
 
-At the MLE, $\sum_{i=1}^n (x_i - \bar x) = 0$
-and $\sum_{i=1}^n (x_i - \bar x)^2 = n\hat\sigma^2$
+At the MLE, $\sumin (x_i - \bar x) = 0$
+and $\sumin (x_i - \bar x)^2 = n\hat\sigma^2$
 (writing $\hat\sigma^2$ for $\hat\sigma^2_{\text{ML}}$), so:
 
 $$
 \begin{aligned}
 \frac{\partial^2 \ell}{\partial (\sigma^2)^2}\bigg|_{\text{MLE}}
-&= \frac{n}{2}\paren{\hat\sigma^2}^{-2} - \paren{\hat\sigma^2}^{-3}\sum_{i=1}^n (x_i - \bar x)^2
+&= \frac{n}{2}\paren{\hat\sigma^2}^{-2} - \paren{\hat\sigma^2}^{-3}\sumin (x_i - \bar x)^2
 && \text{(evaluate at $\mu = \bar x$, $\sigma^2 = \hat\sigma^2$)}\\
 &= \frac{n}{2}\paren{\hat\sigma^2}^{-2} - \paren{\hat\sigma^2}^{-3} n\hat\sigma^2
-&& \text{(substitute $\textstyle\sum_{i=1}^n (x_i - \bar x)^2 = n\hat\sigma^2$)}\\
+&& \text{(substitute $\textstyle\sumin (x_i - \bar x)^2 = n\hat\sigma^2$)}\\
 &= \frac{n}{2}\paren{\hat\sigma^2}^{-2} - n\paren{\hat\sigma^2}^{-3}\hat\sigma^2
 && \text{(reorder the factors)}\\
 &= \frac{n}{2}\paren{\hat\sigma^2}^{-2} - n\paren{\hat\sigma^2}^{-2}
@@ -67,10 +67,10 @@ $$
 &= -\frac{n}{2}\paren{\hat\sigma^2}^{-2}
 && \text{(combine like terms)}\\
 \frac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2}\bigg|_{\text{MLE}}
-&= -\paren{\hat\sigma^2}^{-2}\sum_{i=1}^n (x_i - \bar x)
+&= -\paren{\hat\sigma^2}^{-2}\sumin (x_i - \bar x)
 && \text{(evaluate at $\mu = \bar x$, $\sigma^2 = \hat\sigma^2$)}\\
 &= -\paren{\hat\sigma^2}^{-2} \cdot 0
-&& \text{(substitute $\textstyle\sum_{i=1}^n (x_i - \bar x) = 0$)}\\
+&& \text{(substitute $\textstyle\sumin (x_i - \bar x) = 0$)}\\
 &= 0
 && \text{(multiply by zero)}
 \end{aligned}
