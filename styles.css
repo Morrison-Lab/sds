@@ -252,6 +252,9 @@ pre.sourceCode:not(.number-lines) > code > span {
 
 pre.sourceCode:not(.number-lines) > code > span::before {
   content: counter(code-line);
+  /* Empty alternative text: screen readers skip the number. Browsers that
+     do not know this syntax drop the line and keep the one above. */
+  content: counter(code-line) / "";
   display: inline-block;
   width: 2em;
   margin-right: 1em;
