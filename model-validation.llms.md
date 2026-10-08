@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-07 23:40:32 (PDT)
+Last modified: 2026-10-08 02:08:11 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -1115,10 +1115,10 @@ Last modified: 2026-10-07 23:40:32 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 8](#sol-loocv)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 8](#sol-loocv)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
