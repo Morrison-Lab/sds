@@ -18,14 +18,11 @@ The `rmb` R package includes the same file,
 which these notes use so that rendering does not depend on the website
 (@tbl-HERS):
 
-```{r}
-#| code-fold: false
-hers <- rmb::hers |> haven::zap_labels()
-```
-
 ::: {#tbl-HERS}
 
 ```{r}
+#| code-fold: false
+hers <- rmb::hers |> haven::zap_labels()
 hers |> head()
 ```
 
@@ -53,6 +50,8 @@ data1 <-
   head(n_obs)
 
 glucose_data <- data1$glucose
+
+summary(glucose_data)
 ```
 
 ::: {#fig-hers-glucose-hist}

@@ -6,7 +6,7 @@ Solve the score equation from @exr-score-equation for $\lambda$, using the score
 
 {{< slidebreak >}}
 
-::::{.solution}
+:::{#sol-solve-score-equation}
 
 $$
 \begin{aligned}
@@ -21,7 +21,7 @@ n\lambda &= n \bar x
 \end{aligned}
 $$
 
-::::
+:::
 
 Call this solution of the score equation $\tilde \lambda$ for now:
 

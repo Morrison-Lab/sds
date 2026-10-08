@@ -1,16 +1,18 @@
 ::: {#def-r-squared}
 #### Coefficient of determination
 
-For a fitted regression with fitted values $\hat{y}_i$,
-the **coefficient of determination** is
+The **coefficient of determination** of a model fitted with parameter estimate $\est{\vth}$
+is one minus the ratio of its [residual sum of squares](#def-rss) at $\est{\vth}$
+to the [total sum of squares](#def-tss) of its outcomes:
 
-$$R^2 \eqdef 1 - \frac{\sum_{i=1}^n (y_i - \hat{y}_i)^2}{\sum_{i=1}^n (y_i - \bar{y})^2}.$$
-
-The numerator is the [residual sum of squares](#def-rss) of the fit,
-and the denominator is the [total sum of squares](#def-tss) of the $y_i$.
+$$R^2 \eqdef 1 - \frac{\text{RSS}(\est{\vth})}{\text{TSS}}.$$
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-r-squared-interpretation}
+#### Interpreting the coefficient of determination
+
 $R^2$ is often described as the proportion of the variation in $Y$
 explained by the regression on $X$.
 :::

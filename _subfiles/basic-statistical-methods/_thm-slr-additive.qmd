@@ -1,0 +1,12 @@
+::: {#thm-slr-additive}
+#### Additive form of the conditional Gaussian model
+
+In a conditional Gaussian model (@def-cond-gaussian),
+each outcome is its conditional mean plus its deviation (@def-slr-deviation):
+
+$$Y_i = \mean_i + \cdev_i.$$
+:::
+
+::: proof
+This is the solution to @exr-slr-additive.
+:::

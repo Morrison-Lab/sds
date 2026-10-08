@@ -1,35 +1,43 @@
 <!--
-Source: ported from rme (Morrison-Lab/rme),
-_subfiles/Linear-models-overview/_sec_linreg_model_selection.qmd,
-section "Train/validation/test splits", which follows
-James et al. (2021), ISLR 2e, pp. 198-201 (the validation set approach;
-heading verified in the PDF, text paraphrased in rme).
+The ISLR section heading was verified in the PDF; rme paraphrases its text.
 -->
 :::{#def-data-splits}
 #### Training/validation/test split
 
-A **training/validation/test split** divides the data into three sets:
+A **training/validation/test split** divides the observations $1, \ldots, N$ of a data set
+into three disjoint sets of indices,
+$I_{\text{train}}$, $I_{\text{val}}$ and $I_{\text{test}}$,
+and takes the observations in $I_{\text{train}}$
+as the [training set](#def-training-set):
 
-- Use the *training set* to estimate model parameters.
-- Use the *validation set* to compare candidate models,
-  choose transformations,
-  or tune hyperparameters.
-- Use the *test set* once at the end
-  to estimate final out-of-sample performance.
+$$
+\ba
+& I_{\text{train}} \cup I_{\text{val}} \cup I_{\text{test}} = \set{1, \ldots, N},
+\\
+& I_{\text{train}} \cap I_{\text{val}}
+= I_{\text{train}} \cap I_{\text{test}}
+= I_{\text{val}} \cap I_{\text{test}}
+= \emptyset,
+\\
+& \trainset = \paren{(x_i, y_i)}_{i \in I_{\text{train}}}.
+\ea
+$$ {#eq-data-splits}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [pp. 198--201].
+:::
 
 :::
 
-::: notes
-This validation approach extends the basic train/test split
-by separating model tuning
-from final model assessment.
-It follows @james2021islr2e [pp. 198-201].
+{{< slidebreak >}}
 
-Keeping the test set untouched during model building
-helps avoid optimistic bias
-from repeatedly trying many models.
+::: {#exm-data-splits-sizes}
+#### Split sizes for 32 cars
+
 In @exr-data-splits,
-a rule of 60% / 20% / 20% on $n = 32$ cars
+a rule of 60% / 20% / 20% on $N = 32$ cars
 gives sets of 19, 6, and 7 cars,
 and the 7 test cars are used only once, after the model is chosen.
 :::

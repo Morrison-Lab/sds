@@ -30,7 +30,11 @@ the data give no evidence that exercise depends on treatment group,
 as randomization would lead us to expect.
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-yates-correction}
+#### Yates' continuity correction
+
 For a $2 \times 2$ table, `chisq.test()` applies
 Yates' continuity correction by default,
 which subtracts 0.5 from each $\abs{O_{ij} - E_{ij}}$ before squaring,

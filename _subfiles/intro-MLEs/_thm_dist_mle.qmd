@@ -23,7 +23,11 @@ see [@lehmannELST, Theorem 7.5.2, p. 501]
 and [@newey1994large].
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-mle-clt-conditions}
+#### Consistent roots and global maximizers
+
 These conditions guarantee a consistent root of the score equation;
 that root is the global maximizer of the likelihood
 under further conditions,

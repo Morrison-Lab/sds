@@ -6,7 +6,7 @@ Graph the Hessian.
 
 {{< slidebreak >}}
 
-::::{.solution}
+::::{#sol-graph-hessian}
 
 ::: {#fig-cyclone-hessian}
 

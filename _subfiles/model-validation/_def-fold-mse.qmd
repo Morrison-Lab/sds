@@ -1,0 +1,20 @@
+:::{#def-fold-mse}
+#### Fold mean squared error
+
+The **fold mean squared error** $\foldmse{j}$ of [fold](#def-folds) $\fold{j}$
+is the [mean squared error](estimation.qmd#def-prediction-mse)
+of the [fold-out rule](#def-fold-out-rule)'s predictions
+for the $\foldsize{j}$ ([fold size](#def-fold-size)) observations in that fold:
+
+$$
+\foldmse{j} \eqdef \frac{1}{\foldsize{j}} \sum_{i \in \fold{j}} \sqf{\fittedwo{j}{x_i} - y_i}.
+$$ {#eq-fold-mse}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 5.1.3], who write the fold mean squared errors as
+$\text{MSE}_1, \ldots, \text{MSE}_k$.
+:::
+
+:::

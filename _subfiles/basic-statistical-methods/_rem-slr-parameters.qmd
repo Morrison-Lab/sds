@@ -1,0 +1,10 @@
+::: {#rem-slr-parameters}
+#### Interpreting the parameters
+
+- $\intcoef = \mean(0)$ is the **intercept**:
+  the mean of $Y$ among observations with $X = 0$.
+- $\coef{x} = \mean(x + 1) - \mean(x)$ is the **slope**:
+  the difference in the mean of $Y$
+  between two groups whose values of $X$ differ by one unit.
+- $\sigma^2$ is the variance of $Y$ around its mean at each value of $X$.
+:::

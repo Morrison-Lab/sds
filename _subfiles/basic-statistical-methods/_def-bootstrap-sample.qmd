@@ -8,8 +8,13 @@ each draw choosing each of the $n$ observations
 with probability $1/n$.
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-bootstrap-sample-repeats}
+#### Repeated observations in a bootstrap sample
+
 Because the draws are with replacement,
 a bootstrap sample usually contains some observations more than once
 and omits others.
+For example, a bootstrap sample from the data $1, 2, 3$ might be $2, 2, 3$.
 :::

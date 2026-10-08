@@ -7,7 +7,11 @@ Then $t_p$ (@def-pooled-t-test), computed from these random variables,
 has the $t_{n_1 + n_2 - 2}$ distribution [@hoggtanis2015, Section 8.2, p. 371].
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-pooled-t-equal-variances}
+#### The equal-variance assumption
+
 @thm-pooled-t-null needs equal variances in the two groups,
 and Welch's test (@def-two-sample-t-test) does not,
 so these notes use Welch's test by default.

@@ -1,0 +1,38 @@
+<!--
+Geron: page number not verified.
+-->
+::: {#def-min-max-scaling}
+#### Min-max scaling
+
+Let $x_1, \ldots, x_n$ be observations of a variable
+with minimum $x_{\min}$ and maximum $x_{\max} > x_{\min}$.
+The **min-max scaled value** of $x_i$ is
+
+$$\frac{x_i - x_{\min}}{x_{\max} - x_{\min}}$$
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@geron2017hands [ch. 2].
+:::
+
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-min-max-outliers}
+#### Min-max scaling and outliers
+
+Every min-max scaled value lies in $[0, 1]$:
+the minimum maps to $0$ and the maximum maps to $1$.
+For example, if median incomes range from 0 to 15,
+an income of 0 maps to $0$, and an income of 15 maps to $1$.
+
+Min-max scaling is sensitive to outliers.
+For example, suppose one income of 100 is recorded by mistake.
+The maximum is then 100,
+so min-max scaling maps all the other incomes into $[0, 0.15]$.
+[Standardization](#def-standardization) changes them much less
+[@geron2017hands, chapter 2, "Feature Scaling"].
+
+:::

@@ -1,0 +1,106 @@
+<!--
+This fragment's R chunks use objects made by earlier fragments
+of model-validation.qmd, so it renders only after them:
+assign_folds() and cv_mse(), from _exm-kfold-simulated.qmd.
+-->
+:::{#exm-kfold-mtcars}
+#### Four-fold cross-validation of the `mtcars` polynomials
+
+This example applies the $k = 4$ folds of @exr-kfold
+to the four polynomial models of @exr-overfitting,
+now using all $n = 32$ cars
+and the `cv_mse()` function of @exm-kfold-simulated.
+The fold assignment is random,
+so the estimate is too;
+to show how much,
+we repeat the whole procedure with 5 different random fold assignments.
+
+:::{#tbl-cv-mtcars-repeats}
+
+```{r}
+#| label: cv-mtcars
+mtcars_degrees <- 1:4
+n_repeats <- 5
+
+set.seed(32)
+mtcars_cv <-
+  tidyr::expand_grid(repeat_id = seq_len(n_repeats), degree = mtcars_degrees) |>
+  dplyr::mutate(
+    rmse = {
+      folds <- assign_folds(nrow(mtcars), k = 4)
+      purrr::map_dbl(
+        degree,
+        \(d) sqrt(cv_mse(mpg ~ poly(wt, d), mtcars, folds))
+      )
+    },
+    .by = repeat_id
+  ) |>
+  tidyr::pivot_wider(
+    names_from = degree,
+    values_from = rmse,
+    names_prefix = "degree_"
+  )
+
+mtcars_cv
+```
+
+Square root of the 4-fold cross-validation estimate, by degree,
+for each of `r n_repeats` random fold assignments
+:::
+
+:::{#tbl-cv-mtcars}
+
+```{r}
+#| label: cv-mtcars-best
+mtcars_cv_best <-
+  mtcars_cv |>
+  tidyr::pivot_longer(
+    -repeat_id,
+    names_to = "degree",
+    names_prefix = "degree_",
+    values_to = "rmse"
+  ) |>
+  dplyr::slice_min(rmse, n = 1, by = repeat_id)
+
+mtcars_cv_best
+```
+
+Degree with the smallest 4-fold cross-validated RMSE
+in each of `r n_repeats` random fold assignments
+:::
+
+```{r}
+#| label: cv-mtcars-summary
+mtcars_cv_range <-
+  mtcars_cv |>
+  dplyr::summarise(
+    dplyr::across(dplyr::starts_with("degree_"), \(v) diff(range(v)))
+  )
+mtcars_chosen <- sort(unique(mtcars_cv_best$degree))
+mtcars_choice_text <- if (length(mtcars_chosen) == 1) {
+  paste0(
+    "but every assignment chose degree ", mtcars_chosen,
+    ": the estimates moved, and the winner did not"
+  )
+} else {
+  paste0(
+    "and the chosen degree was ",
+    knitr::combine_words(mtcars_chosen, and = " or "),
+    ", depending on how the cars happened to be split"
+  )
+}
+mtcars_cv_range
+```
+
+Each row of @tbl-cv-mtcars-repeats holds, for each degree,
+the square root of $\cvest{4}$ (@eq-cv-estimate) for one fold assignment.
+Across fold assignments,
+the estimate for one degree varied by as much as
+`r round(max(unlist(mtcars_cv_range)), 2)` mpg,
+`r mtcars_choice_text`.
+A single run of $k$-fold cross-validation
+reports one of these rows,
+so a small difference between two models' estimates
+may not survive a different split.
+
+:::

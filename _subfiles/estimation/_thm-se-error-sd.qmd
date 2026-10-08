@@ -7,17 +7,6 @@ $$\SE{\hth} = \SD{\erf{\hth}}$$
 
 ::: proof
 
-$$
-\begin{aligned}
-\Var{\erf{\hth}}
-&= \Var{\hth - \th}
-&& \text{(definition of estimation error)}\\
-&= \Var{\hth}
-&& \text{(subtracting a constant does not change a variance)}
-\end{aligned}
-$$
-
-Taking square roots of both sides,
-$\SD{\erf{\hth}} = \SD{\hth} = \SE{\hth}$.
+This is the solution to @exr-se-error-sd.
 
 :::

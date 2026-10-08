@@ -1,4 +1,8 @@
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-bayes-deviance-constant}
+#### Bayesian deviance and the generalized linear model deviance
+
 This deviance is minus twice the log-likelihood.
 A generalized linear model's deviance subtracts the same quantity for the saturated model,
 which does not depend on $\vth$,

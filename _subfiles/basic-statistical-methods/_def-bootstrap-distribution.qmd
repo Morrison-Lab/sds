@@ -9,7 +9,11 @@ The **bootstrap distribution** of $\hat\theta$
 is the empirical distribution of $\hat\theta^*_1, \ldots, \hat\theta^*_B$.
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-bootstrap-distribution-role}
+#### What the bootstrap distribution estimates
+
 The bootstrap distribution estimates the sampling distribution
 of $\hat\theta$.
 The observed sample stands in for the population,

@@ -1,4 +1,8 @@
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-standard-error-name}
+#### The name "standard error"
+
 "Standard error" is a confusing name in two ways.
 It is defined through the estimator's own spread,
 not through the [estimation error](#def-estimation-error)

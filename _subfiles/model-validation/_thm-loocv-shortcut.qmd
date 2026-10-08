@@ -1,0 +1,34 @@
+:::{#thm-loocv-shortcut}
+#### Leave-one-out cross-validation for least squares
+
+For a linear model fitted by [ordinary least squares](correlation-regression.qmd#def-ols)
+with every [leverage](#def-leverage) $\lev{i} < 1$,
+the [leave-one-out estimate](#def-loocv)
+can be computed from the single fit to all $n$ observations,
+from its [fitted values](estimation.qmd#def-fitted-value) $\fitted_i$,
+their [prediction errors](estimation.qmd#def-prediction-error)
+$\prederr_i = \fitted_i - y_i$,
+and the leverages:
+
+$$
+\cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\frac{\prederr_i}{1 - \lev{i}}}.
+$$ {#eq-loocv-shortcut}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 5.1.2] states this formula for least squares linear or polynomial regression,
+and @hastie2009elements [sec. 7.10.1] for many linear fitting methods.
+:::
+
+:::
+
+::: proof
+Not derived here;
+see the sources named under the theorem.
+The derivation needs a formula for how the inverse of the
+[cross-product matrix](#def-cross-product-matrix) $A$
+changes when one observation's outer product $\soprod{\termvec{i}}$ is removed from it
+(the Sherman--Morrison formula),
+which this page does not develop.
+:::

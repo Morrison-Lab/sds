@@ -5,7 +5,11 @@ the score function with respect to the mean turned out to be:
 
 $$\score = \frac{x - \E{X}}{\Var{X}}$$
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-score-natural-exponential-family}
+#### The score function in natural exponential families
+
 This pattern is no coincidence.
 With the mean as the parameter,
 each of these four models is a one-parameter

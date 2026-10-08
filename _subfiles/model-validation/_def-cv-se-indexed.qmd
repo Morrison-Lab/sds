@@ -1,0 +1,13 @@
+:::{#def-cv-se-indexed}
+#### Fold-based standard error of a named procedure
+
+The **fold-based standard error of procedure** $g$ on a training set $\trainset$,
+$\cvseof{k}{g}\paren{\trainset}$,
+is the [fold-based standard error](#def-cv-se)
+computed from the [fold mean squared errors of $g$](#def-fold-mse-indexed):
+
+$$
+\cvseof{k}{g}\paren{\trainset} \eqdef \frac{\hSD{\foldmseof{1}{g}\paren{\trainset}, \ldots, \foldmseof{k}{g}\paren{\trainset}}}{\sqrt{k}}.
+$$ {#eq-cv-se-indexed}
+
+:::

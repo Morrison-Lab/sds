@@ -40,6 +40,15 @@ models <- lapply(subsets, function(vars) {
 bic <- vapply(models, stats::BIC, numeric(1))
 weight <- exp(-0.5 * (bic - min(bic)))
 weight <- weight / sum(weight)
+
+tibble::tibble(
+  model = vapply(
+    subsets,
+    function(s) if (length(s) > 0) paste(s, collapse = " + ") else "(none)",
+    character(1)
+  ),
+  weight = round(weight, 3)
+)
 ```
 
 Subtracting the smallest BIC before exponentiating

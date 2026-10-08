@@ -18,7 +18,11 @@ Its p-value is $\Pr(\abs{T} \ge \abs{t})$,
 where $T$ has the $t_{\hat\nu}$ distribution ([t-distribution](inference.qmd#def-t-dist)).
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-welch-test-properties}
+#### Properties of Welch's test
+
 Welch's test does not assume that the two groups have equal variances.
 Even for Gaussian data,
 $t_{\hat\nu}$ is only an approximation to the null distribution of $t$.

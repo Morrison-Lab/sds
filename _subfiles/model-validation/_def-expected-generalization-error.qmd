@@ -1,0 +1,25 @@
+:::{#def-expected-generalization-error}
+#### Expected generalization error
+
+The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) $g$
+at training-set size $n$
+is the mean,
+over [training sets](#def-training-set) $\trainset$ of $n$ observations
+drawn independently from the population,
+of the [generalization error](#def-generalization-error)
+of the [prediction rule](#def-prediction-rule) that $g$ produces from $\trainset$:
+
+$$
+\expgenerr{g}{n} \eqdef \E{\generr_{\trainset}},
+\quad
+\trainset = \paren{(X_i, Y_i)}_{i \in I}, \quad \abs{I} = n.
+$$ {#eq-expected-generalization-error}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@hastie2009elements [sec. 7.2] call this quantity the *expected prediction error*
+(or *expected test error*) and write it $\generr$, without the argument $n$.
+:::
+
+:::

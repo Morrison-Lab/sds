@@ -1,0 +1,31 @@
+:::{#def-bias-variance-tradeoff}
+#### Bias--variance trade-off
+
+Let $g_1, \ldots, g_L$ be [fitting procedures](#def-fitting-procedure),
+each [at least as flexible](#def-flexibility) as the one before,
+and let $\trainset$ be a random [training set](#def-training-set).
+At a covariate value $x$,
+with $\mean$ the [mean function](#def-mean-function),
+there is a **bias--variance trade-off** among them
+when, from each procedure to the next,
+the squared [bias](https://morrison-lab.github.io/pds/variance-covariance.html#def-prediction-bias)
+of the prediction, as a prediction of $\mean(x)$, does not rise
+and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance)
+does not fall:
+
+$$
+\ba
+\sqf{\bias{g_{l+1}\paren{x; \trainset}}} &\le \sqf{\bias{g_l\paren{x; \trainset}}},
+\\
+\Var{g_{l+1}\paren{x; \trainset}} &\ge \Var{g_l\paren{x; \trainset}},
+\qquad l = 1, \ldots, L - 1.
+\ea
+$$ {#eq-bias-variance-tradeoff}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@james2021islr2e [sec. 2.2.2].
+:::
+
+:::

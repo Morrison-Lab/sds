@@ -8,8 +8,10 @@ $$
 \frac{n}{2}\paren{\sigma^2}^{-1}
 &= \frac{1}{2}\paren{\sigma^2}^{-2}\sum_{i=1}^n (x_i - \mu)^2
 && \text{(add $\tfrac{n}{2}(\sigma^2)^{-1}$)}\\
+n\sigma^2 &= \sum_{i=1}^n (x_i - \mu)^2
+&& \text{(multiply both sides by $2(\sigma^2)^2$)}\\
 \sigma^2 &= \frac{1}{n}\sum_{i=1}^n (x_i - \mu)^2
-&& \text{(multiply by $2(\sigma^2)^2/n$)}
+&& \text{(divide both sides by $n$)}
 \end{aligned}
 $$
 
@@ -29,7 +31,11 @@ has the sign of $\hat\sigma^2_{\text{ML}} - \sigma^2$.
 So $(\bar x, \hat\sigma^2_{\text{ML}})$ is the global maximizer,
 provided the $x_i$ are not all equal.
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-gaussian-variance-precision}
+#### Differentiating with respect to the variance or the precision
+
 Differentiating with respect to $\sigma^2$ as a single variable,
 rather than with respect to $\sigma$, keeps the algebra short.
 Replacing $\sigma^2$ with the precision $\tau \eqdef 1/\sigma^2$
@@ -41,7 +47,11 @@ By the invariance of maximum likelihood estimates,
 $\hat\tau_{\text{ML}} = 1/\hat\sigma^2_{\text{ML}}$.
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-gaussian-mle-sigma-bias}
+#### The Gaussian variance MLE is biased
+
 This MLE divides by $n$,
 so it is a biased estimator of $\sigma^2$
 ([bias of the divide-by-$n$ estimator](estimation.qmd#exm-biased-variance-mle)).

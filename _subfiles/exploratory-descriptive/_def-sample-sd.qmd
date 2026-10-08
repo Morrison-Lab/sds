@@ -8,7 +8,11 @@ $$s \eqdef \sqrt{s^2}$$
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-sd-units}
+#### Units of the standard deviation
+
 The standard deviation has the same units as the observations,
 which makes it easier to interpret than the variance,
 whose units are squared.

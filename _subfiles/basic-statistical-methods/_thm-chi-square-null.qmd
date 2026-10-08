@@ -10,7 +10,11 @@ converges to the $\chi^2_{(r-1)(c-1)}$ distribution
 [@hoggtanis2015, Section 9.2, p. 440].
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-expected-count-rule}
+#### Small expected counts
+
 The chi-square approximation is poor when some expected counts are small.
 A common rule of thumb asks for every $E_{ij}$ to be at least 5.
 :::

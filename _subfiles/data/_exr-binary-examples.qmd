@@ -4,7 +4,7 @@
 What are some examples of binary variables in health sciences and data science?
 :::
 
-::: {.solution}
+:::{#sol-binary-examples}
 Examples of binary outcomes include:
 
 - exposure (exposed vs unexposed)

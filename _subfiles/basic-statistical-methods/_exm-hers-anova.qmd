@@ -49,7 +49,11 @@ The p-value is far below 0.05:
 mean fasting glucose differs among the three race/ethnicity groups.
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-hers-anova-variances}
+#### Unequal variances in the HERS glucose groups
+
 The group standard deviations differ,
 from `r round(min(tapply(hers$glucose, hers$raceth, sd)))`
 to `r round(max(tapply(hers$glucose, hers$raceth, sd)))` mg/dL,
@@ -62,5 +66,4 @@ and reaches the same conclusion:
 #| code-fold: false
 oneway.test(glucose ~ raceth, data = hers)
 ```
-
 :::

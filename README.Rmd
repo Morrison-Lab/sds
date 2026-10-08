@@ -18,16 +18,13 @@ as [Quarto](https://quarto.org/) fragments:
 - basic statistical methods, such as t-tests, chi-square tests, and the bootstrap.
 
 It renders on its own as a website,
-and course sites include it as a git submodule.
+and course sites link to its pages by URL.
 
 ## Using these notes in another site
 
-Add this repository as a git submodule named `sds` at the root of the host site,
-and include fragments with paths that start with `sds/`:
-
-```sh
-git submodule add https://github.com/Morrison-Lab/sds.git sds
-```
+Link to the pages by URL.
+A host site that keeps a copy of this repository at its root, named `sds`,
+can also include fragments with paths that start with `sds/`.
 
 Quarto resolves `@id` cross-references only within one rendered page,
 so a host site that links to a result here

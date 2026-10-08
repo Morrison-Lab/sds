@@ -48,7 +48,9 @@ Methods, illustrated with the HERS data:
 - [Correlation and simple linear regression](correlation-regression.qmd);
 - [The bootstrap](bootstrap.qmd);
 - [Validating predictions](model-validation.qmd):
-  overfitting, training/validation/test splits, and cross-validation.
+  overfitting, generalization error, training/validation/test splits,
+  $k$-fold and leave-one-out cross-validation,
+  and choosing a model by cross-validation.
 
 Bayesian:
 
@@ -102,9 +104,10 @@ which are the canonical home for the probability and mathematics appendices of r
 
 ## Using these notes in another site
 
-Course sites include these notes as a git submodule named `sds`
-at the site's root,
-and include fragments with paths that start with `sds/`,
+Course sites link to these pages by URL;
+they do not include this repository as a git submodule.
+A host site that keeps a copy of this repository at its root, named `sds`,
+can still include fragments with paths that start with `sds/`,
 for example `{{</* include sds/_subfiles/intro-MLEs/_def_mle.qmd */>}}`.
 This site includes its own fragments the same way,
 through an `sds` symlink that points at the repository root.

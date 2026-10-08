@@ -15,7 +15,11 @@ $p$ is the number of regression coefficients.
 
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-exact-vs-approximate-tests}
+#### Exact and approximate tests
+
 The $t$ and $F$ distributions are defined in
 [Statistical Inference](inference.qmd#sec-reference-distributions).
 The exact tests assume $Y_i \simind N(\mu_i, \sigma^2)$,

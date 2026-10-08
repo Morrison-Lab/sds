@@ -1,4 +1,8 @@
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-two-paradigms}
+#### Two paradigms, two questions
+
 The two paradigms answer different questions.
 A frequentist asks,
 "for which parameter values would these data be unsurprising?";

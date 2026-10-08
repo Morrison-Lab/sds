@@ -1,0 +1,16 @@
+:::{#def-validation-choice}
+#### Validation choice
+
+Given candidate [fitting procedures](#def-fitting-procedure) $g_1, \ldots, g_L$,
+the **validation choice** $\est{l}$
+is the index of the candidate whose [prediction rule](#def-prediction-rule),
+fitted to the training set $\trainset$,
+has the smallest [mean squared error](estimation.qmd#def-prediction-mse)
+on the [validation set](#def-validation-set):
+
+$$
+\est{l} \eqdef \argmin_{l} \frac{1}{\abs{I_{\text{val}}}} \sum_{i \in I_{\text{val}}}
+\sqf{g_l\paren{x_i; \trainset} - y_i}.
+$$ {#eq-validation-choice}
+
+:::

@@ -11,10 +11,22 @@ $$
 \Lambda
 &= 2\paren{\llik(\bar x) - \llik(\rate_0)}
 && \text{(definition of $\Lambda$)}\\
+&= 2\paren{\paren{n\bar x \log \bar x - n\bar x - \sum_i \log x_i!}
+ - \paren{n\bar x \log\rate_0 - n\rate_0 - \sum_i \log x_i!}}
+&& \text{(substitute $\llik(\bar x)$ and $\llik(\rate_0)$)}\\
+&= 2\paren{n\bar x \log \bar x - n\bar x - \sum_i \log x_i!
+ - n\bar x \log\rate_0 + n\rate_0 + \sum_i \log x_i!}
+&& \text{(distribute the minus sign)}\\
 &= 2\paren{n\bar x \log \bar x - n\bar x - n\bar x \log\rate_0 + n\rate_0}
-&& \text{(substitute; the $\log x_i!$ terms cancel)}\\
+&& \text{(the $\log x_i!$ terms cancel)}\\
+&= 2n\paren{\bar x \log \bar x - \bar x - \bar x \log\rate_0 + \rate_0}
+&& \text{(factor out $n$)}\\
+&= 2n\paren{\bar x \log \bar x - \bar x \log\rate_0 - \bar x + \rate_0}
+&& \text{(reorder the terms)}\\
+&= 2n\paren{\bar x \paren{\log \bar x - \log\rate_0} - \bar x + \rate_0}
+&& \text{(factor $\bar x$ out of the two log terms)}\\
 &= 2n\paren{\bar x \log\frac{\bar x}{\rate_0} - \bar x + \rate_0}
-&& \text{(factor out $n$; log of a quotient)}
+&& \text{(log of a quotient)}
 \end{aligned}
 $$
 

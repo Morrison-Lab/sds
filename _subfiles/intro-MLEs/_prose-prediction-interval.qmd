@@ -3,7 +3,8 @@ and we want to predict the mean $\bar X^*$ of $m$ new observations
 from the same distribution,
 independent of the first $n$.
 The MLE of $\mu$ is $\hat\mu = \bar X$,
-and the prediction error $\bar X^* - \hat\mu$
+and the difference $\bar X^* - \hat\mu$
+(the negative of the [prediction error](estimation.qmd#def-prediction-error))
 is a difference of independent Gaussian variables, so:
 
 $$

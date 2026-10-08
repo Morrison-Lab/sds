@@ -8,9 +8,13 @@ of the bootstrap replicates $\hat\theta^*_1, \ldots, \hat\theta^*_B$
 (@def-bootstrap-distribution).
 :::
 
-::: notes
+{{< slidebreak >}}
+
+::: {#rem-bootstrap-replicates}
+#### Number of bootstrap replicates for percentile intervals
+
 The extreme quantiles of $B$ replicates are noisy estimates,
 so percentile-based intervals need more replicates
-than the normal interval;
+than the [normal interval](#def-bootstrap-ci-normal);
 $B$ of at least $1{,}000$ is a common choice.
 :::

@@ -1,0 +1,29 @@
+<!--
+Dobson and Barnett: text checked in the PDF; page number not recorded.
+-->
+::: {#def-indicator-variable}
+#### Indicator variable
+
+An **indicator variable** is a
+[dummy variable](#def-dummy-variable) whose only values are 0 and 1.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@dobson4e [sec. 2.4].
+:::
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-indicator-sex}
+#### Indicator variables for chromosomal sex
+
+In @exm-dummy-sex,
+$M$ and $F$ are indicator variables:
+each takes only the values 0 and 1.
+A dummy variable that uses the values $-1$ and $1$
+(@rem-dummy-other-codings) is not an indicator variable.
+
+:::
