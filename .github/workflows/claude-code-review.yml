@@ -43,6 +43,7 @@ jobs:
       issues: write
       id-token: write        # required by claude-code-action for the App-token exchange
       actions: read          # lets the reviewer read CI status
+      checks: read           # required by gha v3's reviewer job (gha#833); without it the call fails at startup
     uses: Morrison-Lab/gha/.github/workflows/claude-code-review.yml@v3
     secrets:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}   # Max-plan OAuth; empty when using API key
