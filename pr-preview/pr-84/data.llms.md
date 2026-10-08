@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 ## 1 Types of variables
 
@@ -154,7 +154,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 Show R code
 
-``` numberSource
+``` downlit
 nodes <- tibble::tribble(
   ~id,   ~x,    ~y,   ~label,
   "V",    5,    4.5,  "Variables",
@@ -244,7 +244,7 @@ Figure 1: Taxonomy of variable types. Count variables are discrete and numerica
 
 Show R code
 
-``` numberSource
+``` downlit
 tibble::tribble(
   ~Variable, ~Description, ~Type, ~Scale,
   "`age`", "Age (years)", "Continuous", "Ratio",

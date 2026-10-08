@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -12,7 +12,7 @@ This page reviews two ways to relate two continuous variables: correlation coeff
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
 
-``` numberSource
+``` downlit
 hers <- rmb::hers |> haven::as_factor()
 hers |> head()
 ```
@@ -57,7 +57,7 @@ hers |> head()
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > hers |>
 >   dplyr::filter(!is.na(BMI)) |>
 >   ggplot2::ggplot() +
@@ -76,7 +76,7 @@ hers |> head()
 >
 > The statistic of [Definition 2](#def-pearson-test), using the 2758 participants with a BMI measurement:
 >
-> ``` numberSource
+> ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
 > r <- cor(hers_bmi$BMI, hers_bmi$glucose)
 > n <- nrow(hers_bmi)
@@ -88,7 +88,7 @@ hers |> head()
 >
 > [`cor.test()`](https://rdrr.io/r/stats/cor.test.html) reports the same values, and a confidence interval for \\\rho\\:
 >
-> ``` numberSource
+> ``` downlit
 > cor.test(hers$BMI, hers$glucose, method = "pearson")
 > #> 
 > #>  Pearson's product-moment correlation
@@ -121,7 +121,7 @@ hers |> head()
 >
 > **Example 2 (Spearman correlation between BMI and fasting glucose in HERS)** The Pearson correlation of the ranks ([Definition 3](#def-spearman-r)), and [`cor.test()`](https://rdrr.io/r/stats/cor.test.html)’s Spearman test (`exact = FALSE`, because tied values rule out the exact p-value):
 >
-> ``` numberSource
+> ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
 > cor(rank(hers_bmi$BMI), rank(hers_bmi$glucose))
 > #> [1] 0.333751
@@ -281,7 +281,7 @@ hers |> head()
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > rss_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>
 >   dplyr::mutate(fitted = 1 + 0.5 * x)
 >
@@ -348,7 +348,7 @@ hers |> head()
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > rss_grid <- expand.grid(
 >   b0 = seq(0, 2.5, length.out = 101),
 >   bx = seq(-0.5, 1.5, length.out = 101)
@@ -379,7 +379,7 @@ hers |> head()
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 >
 > ols_coefs
 > #> (Intercept)           x 
@@ -710,7 +710,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > **Example 8 (Regression of fasting glucose on BMI in HERS)** The OLS estimates from [Theorem 5](#thm-ols-slr), and the slope from [Corollary 2](#cor-ols-slope-r), for the participants with a BMI measurement:
 >
-> ``` numberSource
+> ``` downlit
 > hers_bmi <- hers |> dplyr::filter(!is.na(BMI))
 > x <- hers_bmi$BMI
 > y <- hers_bmi$glucose
@@ -726,7 +726,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > [`lm()`](https://rdrr.io/r/stats/lm.html) gives the same estimates:
 >
-> ``` numberSource
+> ``` downlit
 > slr_fit <- lm(glucose ~ BMI, data = hers)
 > summary(slr_fit)
 > #> 
@@ -754,7 +754,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > ggplot2::ggplot(hers_bmi, ggplot2::aes(x = BMI, y = glucose)) +
 >   ggplot2::geom_point(alpha = 0.2) +
 >   ggplot2::geom_abline(
@@ -835,7 +835,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > **Example 10 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 8](#exm-hers-slr), \\R^2\\ computed from [Definition 15](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
 >
-> ``` numberSource
+> ``` downlit
 > fit <- lm(glucose ~ BMI, data = hers)
 > y <- fit$model$glucose
 > c(

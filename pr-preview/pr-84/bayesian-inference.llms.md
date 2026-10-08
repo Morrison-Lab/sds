@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)).
 
@@ -134,7 +134,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > so \\\hat\theta\_{\text{MAP}} = \frac{\alpha - 1}{\alpha + \beta - 2}\\. With the uniform prior \\\operatorname{Beta}(1, 1)\\, \\r = 55\\ successes and \\n = 91\\ trials, the posterior is \\\operatorname{Beta}(56, 37)\\. Its mode and its mean are:
 >
-> ``` numberSource
+> ``` downlit
 > a_post <- 1 + 55
 > b_post <- 1 + 91 - 55
 > c(
@@ -180,7 +180,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > set.seed(1)
 > n <- 20
 > x <- rnorm(n = n, mean = 2, sd = 1)
@@ -231,7 +231,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > **Example 9 (Credible and confidence intervals for a Gaussian mean)** We simulate \\n = 20\\ observations from the model of [Example 5](#exm-normal-normal), with true mean \\\mu = 2\\, and compute both a 95% confidence interval, \\\bar x \pm 1.96 / \sqrt{n}\\ (the variance is known to be 1), and the equal-tailed 95% credible interval from the \\\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x},\\ \frac{1}{n+1}\right)\mathclose{}\\ posterior:
 >
-> ``` numberSource
+> ``` downlit
 > set.seed(1)
 > mu_true <- 2
 > n <- 20
@@ -255,7 +255,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > mu_grid <- seq(-3, 5, length.out = 801)
 > curves <- tibble::tibble(
 >   mu = rep(mu_grid, times = 3),
@@ -278,7 +278,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > Because \\\mu\\ has a distribution, the Bayesian can also compute the posterior probability that \\\mu\\ lies in the realized *confidence* interval:
 >
-> ``` numberSource
+> ``` downlit
 > pr_in_ci <- stats::pnorm(ci_freq, mean = post_mean, sd = post_sd) |> diff()
 > round(pr_in_ci, 3)
 > #> [1] 0.931
@@ -340,7 +340,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 >
 > The uniform prior of [Example 2](#exm-prior) is \\\operatorname{Beta}(1, 1)\\. With that prior and \\r = 55\\ successes in \\n = 91\\ trials, the posterior is \\\operatorname{Beta}(56, 37)\\, with this mean and equal-tailed 95% [credible interval](#def-credible-interval):
 >
-> ``` numberSource
+> ``` downlit
 > a_post <- 1 + 55
 > b_post <- 1 + 91 - 55
 > c(
@@ -389,7 +389,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 >
 > The two proper priors’ probabilities for large odds ratios:
 >
-> ``` numberSource
+> ``` downlit
 > or_cutoffs <- c(10, 100, 1e6)
 > rbind(
 >   informative = stats::pnorm(log(or_cutoffs), log(1.5), 0.2,
@@ -462,7 +462,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 >
 > is a weighted average of the sample mean and the prior mean \\0\\, weighted by the precision \\n\\ of the data and the precision \\1/\tau^2\\ of the prior (a precision is a reciprocal variance). The more skeptical the prior (the smaller \\\tau\\), the more the posterior mean shrinks toward \\0\\. With \\\bar x = 2\\ and \\n = 20\\ held fixed:
 >
-> ``` numberSource
+> ``` downlit
 > xbar <- 2
 > n <- 20
 > tau <- c(0.1, 0.25, 0.5, 1, 2, 10)

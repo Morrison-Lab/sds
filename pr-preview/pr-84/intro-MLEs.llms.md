@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -507,7 +507,7 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 >
 > **Example 9 (Wald interval and test for a Poisson rate)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, \\\hat{\lambda}\_{\text{ML}} = \bar x\\ and \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 8](#exm-dist-mle-poisson)), so \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\lambda}\right)\mathclose{} = \sqrt{\bar x/n}\\. With \\n = 13\\ and \\\bar x = 72/13\\, the 95% Wald interval for \\{\lambda}\\, and the Wald test of \\H_0: {\lambda}= 4\\, are:
 >
-> ``` numberSource
+> ``` downlit
 > n_obs <- 13
 > xbar_obs <- 72 / 13
 > se_rate <- sqrt(xbar_obs / n_obs)
@@ -594,7 +594,7 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 >
 > For example, with \\n = 13\\, \\\bar x = 72/13\\, and \\{\lambda}\_0 = 4\\:
 >
-> ``` numberSource
+> ``` downlit
 > n_obs <- 13
 > xbar_obs <- 72 / 13
 > lambda0 <- 4
@@ -665,7 +665,7 @@ Adapted from ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)).
 
 Show R code
 
-``` numberSource
+``` downlit
 cyclones <- tibble::tibble(
   years = c(
     "1956/7", "1957/8", "1958/9", "1959/60", "1960/1", "1961/2", "1962/3",
@@ -701,7 +701,7 @@ Suppose we want to learn how many cyclones to expect per season.
 
 Show R code
 
-``` numberSource
+``` downlit
 cyclones |>
   dplyr::mutate(years = factor(years, levels = years)) |>
   ggplot2::ggplot() +
@@ -724,7 +724,7 @@ Figure 1: Number of tropical cyclones per season in northeastern Australia, 195
 
 Show R code
 
-``` numberSource
+``` downlit
 cyclones |>
   ggplot2::ggplot() +
   ggplot2::aes(x = number) +
@@ -742,7 +742,7 @@ Figure 2: Bar plot of cyclones per season
 
 Show R code
 
-``` numberSource
+``` downlit
 n <- nrow(cyclones)
 sumx <- sum(cyclones$number)
 xbar <- mean(cyclones$number)
@@ -836,7 +836,7 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > # `cyclones` is defined earlier on the page:
 > # nolint next: object_usage_linter.
 > lik <- function(lambda, y = cyclones$number, n = length(y)) {
@@ -875,7 +875,7 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > # `cyclones` is defined earlier on the page:
 > # nolint next: object_usage_linter.
 > loglik <- function(lambda, y = cyclones$number, n = length(y)) {
@@ -918,7 +918,7 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > # `cyclones` is defined earlier on the page:
 > # nolint next: object_usage_linter.
 > score <- function(lambda, y = cyclones$number, n = length(y)) {
@@ -961,7 +961,7 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > # `cyclones` is defined earlier on the page:
 > # nolint next: object_usage_linter.
 > hessian <- function(lambda, y = cyclones$number, n = length(y)) {
@@ -1020,7 +1020,7 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 >
 > *Solution 36*. Since \\\ell''(\tilde \lambda; \tilde{x}) \< 0\\, \\\tilde \lambda\\ is a local maximizer of the log-likelihood. Moreover, \\\ell''(\lambda; \tilde{x}) = -n\bar x/\lambda^2 \< 0\\ for every \\\lambda \> 0\\, so the log-likelihood is strictly concave, and a local maximizer of a strictly concave function is its unique global maximizer. So \\\tilde \lambda\\ maximizes \\\ell\\, and therefore \\\mathcal{L}\\:
 >
-> ``` numberSource
+> ``` downlit
 > mle <- mean(cyclones$number)
 > mle
 > #> [1] 5.53846
@@ -1038,7 +1038,7 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > mle_data <- tibble::tibble(x = mle, y = loglik(mle))
 > ll_plot +
 >   ggplot2::geom_point(data = mle_data, ggplot2::aes(x = x, y = y), col = "red")
@@ -1052,7 +1052,7 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 
 Show R code
 
-``` numberSource
+``` downlit
 obs_inf <- function(...) -hessian(...) # nolint: object_usage_linter.
 ggplot2::ggplot() +
   ggplot2::geom_function(fun = obs_inf, n = 1001) +
@@ -1124,7 +1124,7 @@ For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \tilde{x})\\ is the sa
 >
 > **Example 12 (Finding the MLE using the Newton-Raphson algorithm)** We found the MLE \\\hat{\lambda} = \bar{x}\\ by solving the score equation \\\ell'(\lambda) = 0\\ algebraically ([Exercise 34](#exr-solve-score-equation)). If we could not have solved it, we could instead start from an initial guess such as \\{\widehat{\lambda}}^\*= 3\\ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
 >
-> ``` numberSource
+> ``` downlit
 > cur_lambda_est <- 3
 > cur_lambda_est
 > #> [1] 3
@@ -1142,7 +1142,7 @@ So the first-order Taylor approximation of the score function around \\{\widehat
 
 Show R code
 
-``` numberSource
+``` downlit
 # score(), hessian() and loglik() are defined earlier on the page
 # nolint start: object_usage_linter.
 approx_score <- function(lambda, lhat, ...) {
@@ -1194,7 +1194,7 @@ Approximating the score function by a linear function is equivalent to approxima
 
 Show R code
 
-``` numberSource
+``` downlit
 # nolint start: object_usage_linter.
 approx_loglik <- function(lambda, lhat, ...) {
   loglik(lambda = lhat, ...) +
@@ -1241,7 +1241,7 @@ Solving the approximate score equation \\\ell'^\*(\lambda) = 0\\ gives the next 
 
 \\ \begin{aligned} \lambda &= {\widehat{\lambda}}^\*- \ell'({\widehat{\lambda}}^\*) \cdot\mathopen{}\left(\ell''({\widehat{\lambda}}^\*)\right)^{-1}\mathclose{}\\ &= 4.375 \end{aligned} \\
 
-``` numberSource
+``` downlit
 new_lambda_est <-
   cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
 new_lambda_est
@@ -1250,7 +1250,7 @@ new_lambda_est
 
 Show R code
 
-``` numberSource
+``` downlit
 plot2 <- plot1 +
   ggplot2::geom_point(
     size = point_size,
@@ -1279,7 +1279,7 @@ We update \\{\widehat{\lambda}}^\*\leftarrow 4.375\\ and repeat the process ([Fi
 
 Show R code
 
-``` numberSource
+``` downlit
 plot2 +
   ggplot2::geom_function(
     fun = approx_score,
@@ -1302,7 +1302,7 @@ Figure 12: The approximate score function at the updated estimate
 
 We repeat this process until the log-likelihood stops changing ([Table 5](#tbl-mle-converge)).
 
-``` numberSource
+``` downlit
 cur_lambda_est <- 3 # restart from the initial guess
 tolerance <- 10^-4
 max_iter <- 100
@@ -1357,7 +1357,7 @@ The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise�
 
 Show R code
 
-``` numberSource
+``` downlit
 ll_plot +
   ggplot2::geom_segment(
     data = nr_info,
@@ -1496,7 +1496,7 @@ We model the distribution of fasting glucose among HERS participants who do not 
 
 The HERS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website:
 
-``` numberSource
+``` downlit
 # one unbroken string, so that link checkers test the whole URL:
 url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta" # nolint: line_length_linter.
 hers <- haven::read_dta(url)
@@ -1504,7 +1504,7 @@ hers <- haven::read_dta(url)
 
 The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website ([Table 6](#tbl-HERS)):
 
-``` numberSource
+``` downlit
 hers <- rmb::hers |> haven::zap_labels()
 hers |> head()
 ```
@@ -1515,7 +1515,7 @@ To keep the likelihood graphs readable, we use only the first 100 eligible parti
 
 Show R code
 
-``` numberSource
+``` downlit
 n_obs <- 100
 
 data1 <-
@@ -1535,7 +1535,7 @@ summary(glucose_data)
 
 Show R code
 
-``` numberSource
+``` downlit
 plot1 <-
   data1 |>
   ggplot2::ggplot() +
@@ -1559,7 +1559,7 @@ The histogram is irregular, as histograms of 100 observations often are, with a 
 
 By the [Gaussian MLEs](#sec-gaussian-mle), \\\hat\mu\_{\text{ML}} = \bar x\\ and \\\hat\sigma^2\_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2\\:
 
-``` numberSource
+``` downlit
 mu_hat <- mean(glucose_data)
 sigma_sq_hat <- mean((glucose_data - mu_hat)^2)
 sigma_hat <- sqrt(sigma_sq_hat)
@@ -1572,7 +1572,7 @@ c(mu_hat = mu_hat, sigma_sq_hat = sigma_sq_hat)
 
 Show R code
 
-``` numberSource
+``` downlit
 plot1 +
   ggplot2::geom_function(
     fun = function(x) dnorm(x, mean = mu_hat, sd = sigma_hat),
@@ -1590,7 +1590,7 @@ The fitted curve follows the overall shape of the histogram, but it underestimat
 
 It is numerically better to compute the log-likelihood first and exponentiate it to get the likelihood, because a product of 100 densities can underflow to zero:
 
-``` numberSource
+``` downlit
 loglik <- function(mu, sigma, x) {
   n <- length(x)
   normalizing_constant <- -n / 2 * log(2 * pi * sigma^2)
@@ -1610,7 +1610,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 
 Show R code
 
-``` numberSource
+``` downlit
 ggplot2::ggplot() +
   ggplot2::geom_function(
     fun = lik,
@@ -1628,7 +1628,7 @@ ggplot2::ggplot() +
 
 Show R code
 
-``` numberSource
+``` downlit
 ggplot2::ggplot() +
   ggplot2::geom_function(
     fun = loglik,
@@ -1650,7 +1650,7 @@ Figure 16: Likelihood and log-likelihood of the HERS glucose data as functions 
 
 Show R code
 
-``` numberSource
+``` downlit
 ggplot2::ggplot() +
   ggplot2::geom_function(
     fun = lik,
@@ -1668,7 +1668,7 @@ ggplot2::ggplot() +
 
 Show R code
 
-``` numberSource
+``` downlit
 ggplot2::ggplot() +
   ggplot2::geom_function(
     fun = loglik,
@@ -1692,7 +1692,7 @@ Figure 17: Likelihood and log-likelihood of the HERS glucose data as functions 
 
 Show R code
 
-``` numberSource
+``` downlit
 n_points <- 25
 mu_grid <- seq(94, 104, length.out = n_points)
 sigma_grid <- seq(7, 15, length.out = n_points)
@@ -1728,7 +1728,7 @@ which shrinks in proportion to \\1/\sqrt{n}\\ ([Figure 19](#fig-hers-se-by-n)).
 
 Show R code
 
-``` numberSource
+``` downlit
 se_mu_hat <- function(n, sigma) sigma / sqrt(n)
 ggplot2::ggplot() +
   ggplot2::geom_function(fun = se_mu_hat, args = list(sigma = sigma_hat)) +
@@ -1749,7 +1749,7 @@ Suppose we test the null hypothesis \\H_0: \mu = \mu_0\\, with \\\mu_0 = 95\\ mg
 
 \\\mu_0 \pm z\_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\\
 
-``` numberSource
+``` downlit
 mu0 <- 95
 se <- se_mu_hat(n = n_obs, sigma = sigma_hat)
 margin <- qnorm(0.975) * se
@@ -1771,7 +1771,7 @@ For this test, under \\\mu = \mu_1\\, \\\bar X \sim \operatorname{N}\mathopen{}\
 
 where \\\Phi\\ is the standard Gaussian CDF. For example, the power against \\\mu_1 = 100\\ mg/dL is:
 
-``` numberSource
+``` downlit
 power <- function(n, null, alt, sigma) {
   se <- sigma / sqrt(n)
   lower <- null - qnorm(0.975) * se
@@ -1787,7 +1787,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 Show R code
 
-``` numberSource
+``` downlit
 ggplot2::ggplot() +
   ggplot2::geom_function(
     fun = power,
@@ -1814,7 +1814,7 @@ To check how maximum likelihood estimation behaves for this model, we simulate m
 
 `do_one_sim()` simulates and analyzes one dataset: it computes \\\hat\mu\\, its estimated standard error, a 95% \\t\\-based confidence interval for \\\mu\\, and the \\t\\-test of \\H_0: \mu = \mu_0\\.
 
-``` numberSource
+``` downlit
 do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
   # generate data
   x <- rnorm(n = n, mean = mu, sd = sqrt(sigma2))
@@ -1852,7 +1852,7 @@ do_one_sim(n = 10, mu = 0, mu0 = 0, sigma2 = 1)
 
 To check `do_one_sim()`, we compare its output with [`stats::t.test()`](https://rdrr.io/r/stats/t.test.html) on the same simulated data:
 
-``` numberSource
+``` downlit
 set.seed(1)
 sim_output <- do_one_sim(
   n = 100, mu = mu_hat, mu0 = 80, sigma2 = sigma_sq_hat,
@@ -1878,7 +1878,7 @@ The two rows agree.
 
 `do_n_sims()` repeats the simulation `n_sims` times, with a different random seed for each dataset:
 
-``` numberSource
+``` downlit
 do_n_sims <- function(n_sims = 1000, ...) {
   lapply(seq_len(n_sims), function(i) {
     set.seed(i)
@@ -1897,7 +1897,7 @@ sim_results
 
 `summarize_sim()` compares the simulation results with the true data-generating parameters:
 
-``` numberSource
+``` downlit
 summarize_sim <- function(sim_results, mu, sigma2, n) {
   true_se <- sqrt(sigma2 / n)
   tibble::tibble(

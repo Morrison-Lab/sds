@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 ## 1 Introduction
 
@@ -66,7 +66,7 @@ Later surveys added anthropometry, triglycerides, the Jenkins Activity Survey, a
 
 The WCGS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website, as a Stata file that R can read directly:
 
-``` numberSource
+``` downlit
 # one unbroken string, so that link checkers test the whole URL:
 url <- "https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/wcgs.dta" # nolint: line_length_linter.
 wcgs <- haven::read_dta(url)
@@ -74,14 +74,14 @@ wcgs <- haven::read_dta(url)
 
 The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website. [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts the Stata value labels to factors:
 
-``` numberSource
+``` downlit
 wcgs <- rmb::wcgs |> haven::as_factor()
 wcgs |> head()
 ```
 
 Show R code
 
-``` numberSource
+``` downlit
 # attach a descriptive label to each variable;
 # gtsummary tables print these labels instead of the column names:
 wcgs_labels <- c(
@@ -123,7 +123,7 @@ wcgs_labels
 
 The dataset has one row per participant:
 
-``` numberSource
+``` downlit
 dplyr::glimpse(wcgs)
 #> Rows: 3,154
 #> Columns: 22
@@ -165,7 +165,7 @@ dplyr::glimpse(wcgs)
 >
 > **Example 1 (Mean cholesterol in the WCGS)** Total cholesterol (`chol`) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:
 >
-> ``` numberSource
+> ``` downlit
 > mean(wcgs$chol, na.rm = TRUE)
 > #> [1] 226.372
 > ```
@@ -181,7 +181,7 @@ dplyr::glimpse(wcgs)
 >
 > **Example 2 (Median cholesterol in the WCGS)**  
 >
-> ``` numberSource
+> ``` downlit
 > median(wcgs$chol, na.rm = TRUE)
 > #> [1] 223
 > ```
@@ -210,7 +210,7 @@ dplyr::glimpse(wcgs)
 >
 > **Example 3 (Variance and standard deviation of cholesterol in the WCGS)**  
 >
-> ``` numberSource
+> ``` downlit
 > var(wcgs$chol, na.rm = TRUE)
 > #> [1] 1885.33
 > sd(wcgs$chol, na.rm = TRUE)
@@ -237,7 +237,7 @@ dplyr::glimpse(wcgs)
 >
 > **Example 4 (Quartiles and IQR of cholesterol in the WCGS)**  
 >
-> ``` numberSource
+> ``` downlit
 > quantile(wcgs$chol, probs = c(0.25, 0.75), na.rm = TRUE, type = 1)
 > #> 25% 75% 
 > #> 197 253
@@ -251,7 +251,7 @@ dplyr::glimpse(wcgs)
 
 The [`summary()`](https://rdrr.io/r/base/summary.html) function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (`type = 7`), so they can differ slightly from [Definition 5](#def-quartiles):
 
-``` numberSource
+``` downlit
 summary(wcgs$chol)
 #>    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs 
 #>     103     197     223     226     253     645      12
@@ -259,7 +259,7 @@ summary(wcgs$chol)
 
 For a formatted table of several variables at once, [`gtsummary::tbl_summary()`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html) is useful ([Table 1](#tbl-wcgs-summary-continuous)).
 
-``` numberSource
+``` downlit
 wcgs |>
   dplyr::select(age, chol, sbp, dbp, bmi, weight) |>
   gtsummary::tbl_summary(
@@ -298,7 +298,7 @@ Table 1: WCGS: descriptive statistics for continuous variables
 >
 > **Example 5 (Proportion of WCGS participants with a CHD event)**  
 >
-> ``` numberSource
+> ``` downlit
 > table(wcgs$chd69)
 > #> 
 > #>   No  Yes 
@@ -313,7 +313,7 @@ For categorical variables with more than two levels, the natural descriptive sta
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   dplyr::select(chd69, smoke, dibpat, behpat, wghtcat) |>
   gtsummary::tbl_summary()
@@ -339,7 +339,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = chol) +
@@ -361,7 +361,7 @@ Figure 1: Histogram of total cholesterol in the WCGS dataset
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = chol) +
@@ -390,7 +390,7 @@ Figure 2: Density plot of total cholesterol in the WCGS dataset
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(y = chol) +
@@ -411,7 +411,7 @@ Figure 3: Box plot of total cholesterol in the WCGS dataset
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = behpat) +
@@ -431,7 +431,7 @@ Figure 4: Bar chart of behavioral pattern in the WCGS dataset
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(sample = chol) +
@@ -456,7 +456,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = sbp, y = chol) +
@@ -491,7 +491,7 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 >
 > **Example 6 (Correlation between cholesterol and blood pressure in the WCGS)**  
 >
-> ``` numberSource
+> ``` downlit
 > cor(wcgs$chol, wcgs$sbp, use = "complete.obs")
 > #> [1] 0.123061
 > ```
@@ -508,7 +508,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = smoke, y = chol, fill = smoke) +
@@ -523,7 +523,7 @@ Figure 7: Box plots of cholesterol by smoking status in the WCGS dataset
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = behpat, y = chol, fill = behpat) +
@@ -540,7 +540,7 @@ Figure 8: Box plots of cholesterol by behavioral pattern in the WCGS dataset
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   dplyr::select(chol, sbp, bmi, chd69) |>
   gtsummary::tbl_summary(
@@ -574,7 +574,7 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 >
 > **Example 7 (Smoking and CHD in the WCGS)**  
 >
-> ``` numberSource
+> ``` downlit
 > table(Smoking = wcgs$smoke, CHD = wcgs$chd69)
 > #>        CHD
 > #> Smoking   No  Yes
@@ -584,7 +584,7 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 >
 > Row proportions give the distribution of CHD status within each smoking group:
 >
-> ``` numberSource
+> ``` downlit
 > table(Smoking = wcgs$smoke, CHD = wcgs$chd69) |>
 >   prop.table(margin = 1)
 > #>        CHD
@@ -597,7 +597,7 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > wcgs |>
 >   dplyr::select(smoke, chd69) |>
 >   gtsummary::tbl_summary(by = chd69) |>
@@ -619,7 +619,7 @@ The WCGS dataset already contains log-transformed versions of two variables:
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = sbp) +
@@ -633,7 +633,7 @@ wcgs |>
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = lnsbp) +
@@ -649,7 +649,7 @@ Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales
 
 Show R code
 
-``` numberSource
+``` downlit
 # sample skewness: mean cubed deviation, divided by the cubed SD
 skewness <- function(x) {
   x <- x[!is.na(x)]
@@ -680,7 +680,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > *Solution 2*.
 >
-> ``` numberSource
+> ``` downlit
 > chol_mean <- mean(wcgs$chol, na.rm = TRUE)
 > chol_sd <- sd(wcgs$chol, na.rm = TRUE)
 > chol_z <- (250 - chol_mean) / chol_sd
@@ -725,7 +725,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > **Example 8 (Standardizing cholesterol in R)** In R, [`scale()`](https://rdrr.io/r/base/scale.html) returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values:
 >
-> ``` numberSource
+> ``` downlit
 > z <- scale(wcgs$chol)[, 1]
 > mean(z, na.rm = TRUE)
 > #> [1] 2.79926e-16
@@ -755,7 +755,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > **Example 9 (Min-max scaling of cholesterol in the WCGS)**  
 >
-> ``` numberSource
+> ``` downlit
 > chol_range <- range(wcgs$chol, na.rm = TRUE)
 > chol_minmax <- (wcgs$chol - chol_range[1]) / diff(chol_range)
 > range(chol_minmax, na.rm = TRUE)
@@ -784,7 +784,7 @@ A typical exploratory data analysis proceeds as follows:
 
 Show R code
 
-``` numberSource
+``` downlit
 wcgs |>
   dplyr::select(
     age, chol, sbp, dbp, bmi, weight, ncigs,

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 ## 1 Empirical CDF
 
@@ -81,7 +81,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 >
 > So \\\hat Q(0.5) = 3\\ and \\\hat Q(0.9) = 7\\. R’s [`quantile()`](https://rdrr.io/r/stats/quantile.html) function computes this definition when called with `type = 1`:
 >
-> ``` numberSource
+> ``` downlit
 > quantile(c(4, 1, 7, 3), probs = c(0.5, 0.9), type = 1)
 > #> 50% 90% 
 > #>   3   7
@@ -95,7 +95,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 Show R code
 
-``` numberSource
+``` downlit
 x <- c(4, 1, 7, 3)
 n <- length(x)
 x_ord <- sort(x)
@@ -128,7 +128,7 @@ points(x_ord, f_levels[seq_len(n) + 1], pch = 19, col = "blue")
 
 Show R code
 
-``` numberSource
+``` downlit
 eqf_y_padding <- 0.5
 q_left <- c(0, p_ord[-n])
 q_right <- p_ord

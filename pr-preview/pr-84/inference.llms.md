@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 ## 1 Inference
 
@@ -88,7 +88,7 @@ There are two predominant paradigms for statistical inference:
 >
 > has approximately a standard Gaussian distribution. Extreme values in either direction are evidence for the two-sided \\H_1\\, so the test statistic is \\T = \mathopen{}\left\|Z\right\|\mathclose{}\\, and the p-value is \\\Pr(\mathopen{}\left\|Z\right\|\mathclose{} \ge \mathopen{}\left\|z\right\|\mathclose{}) = 2\Phi(-\mathopen{}\left\|z\right\|\mathclose{})\\, where \\\Phi\\ is the standard Gaussian CDF.
 >
-> ``` numberSource
+> ``` downlit
 > chol_by_chd <- split(wcgs$chol, wcgs$chd69) |>
 >   lapply(function(x) x[!is.na(x)])
 > x1 <- chol_by_chd[["Yes"]]
@@ -116,7 +116,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Example 4 (The 0.95 quantile of \\\chi^2_1\\)** By [Definition 9](#def-chi-square-dist), a \\\chi^2_1\\ random variable is \\Z^2\\ for a standard Gaussian \\Z\\. So \\\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})\\, and the 0.95 quantile of \\\chi^2_1\\ is the square of the 0.975 quantile of the standard Gaussian distribution:
 >
-> ``` numberSource
+> ``` downlit
 > c(chisq = qchisq(0.95, df = 1), gaussian_squared = qnorm(0.975)^2)
 > #>            chisq gaussian_squared 
 > #>          3.84146          3.84146
@@ -134,7 +134,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Example 5 (t quantiles approach Gaussian quantiles)** The 0.975 quantile of \\t_k\\ is larger than the standard Gaussian’s 0.975 quantile, 1.96, and approaches it as \\k\\ grows:
 >
-> ``` numberSource
+> ``` downlit
 > k <- c(4, 9, 29, 99, 2760)
 > tibble::tibble(k = k, t_quantile = qt(0.975, df = k))
 > ```
@@ -157,7 +157,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > where \\Z^2\\ has the \\\chi^2_1\\ distribution ([Definition 9](#def-chi-square-dist)) and is independent of \\V\\. So \\T^2\\ has the \\F\_{1, k}\\ distribution ([Definition 11](#def-f-dist)), and the 0.95 quantile of \\F\_{1, k}\\ is the square of the 0.975 quantile of \\t_k\\:
 >
-> ``` numberSource
+> ``` downlit
 > c(f = qf(0.95, df1 = 1, df2 = 9), t_squared = qt(0.975, df = 9)^2)
 > #>         f t_squared 
 > #>   5.11736   5.11736
@@ -185,7 +185,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Example 7 (Confidence interval for mean cholesterol in the WCGS)** By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
 >
-> ``` numberSource
+> ``` downlit
 > chol <- wcgs$chol[!is.na(wcgs$chol)]
 > se_chol <- sd(chol) / sqrt(length(chol))
 > mean(chol) + c(lower = -1, upper = 1) * qnorm(0.975) * se_chol
@@ -226,7 +226,7 @@ Conversely, even statistically significant evidence of a non-null value does not
 
 Show R code
 
-``` numberSource
+``` downlit
 ci_scenarios <- tibble::tribble(
   ~scenario, ~lower, ~upper,
   "not enough data: we know almost nothing", 0.2, 5,

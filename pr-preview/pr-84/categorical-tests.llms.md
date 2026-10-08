@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -12,7 +12,7 @@ This page reviews tests for comparing groups on a categorical outcome: the chi-s
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
 
-``` numberSource
+``` downlit
 hers <- rmb::hers |> haven::as_factor()
 hers |> head()
 ```
@@ -27,7 +27,7 @@ hers |> head()
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > hers |>
 >   gtsummary::tbl_cross(
 >     row = exercise,
@@ -76,7 +76,7 @@ hers |> head()
 >
 > **Example 3 (Chi-square test of exercise by treatment group in HERS)** The expected counts and statistic of [Definition 2](#def-chi-square-test) for [Table 1](#tbl-hers-crosstab):
 >
-> ``` numberSource
+> ``` downlit
 > observed <- table(hers$exercise, hers$HT)
 > expected <- outer(rowSums(observed), colSums(observed)) / sum(observed)
 > x_squared <- sum((observed - expected)^2 / expected)
@@ -94,7 +94,7 @@ hers |> head()
 >
 > Every expected count is large, so the \\\chi^2_1\\ approximation of [Theorem 1](#thm-chi-square-null) is reasonable. [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) with `correct = FALSE` reports the same values:
 >
-> ``` numberSource
+> ``` downlit
 > chisq.test(hers$exercise, hers$HT, correct = FALSE)
 > #> 
 > #>  Pearson's Chi-squared test
@@ -131,7 +131,7 @@ hers |> head()
 >
 > **Example 4 (Fisher’s exact test of exercise by treatment group in HERS)** The p-value of [Definition 3](#def-fishers-exact) for [Table 1](#tbl-hers-crosstab), computed from the hypergeometric probabilities with [`dhyper()`](https://rdrr.io/r/stats/Hypergeometric.html):
 >
-> ``` numberSource
+> ``` downlit
 > a <- observed[1, 1]
 > row1 <- sum(observed[1, ])
 > row2 <- sum(observed[2, ])
@@ -145,7 +145,7 @@ hers |> head()
 >
 > The tolerance `1e-7` keeps tables whose probability equals \\p(a)\\ up to rounding error, as [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) does. [`fisher.test()`](https://rdrr.io/r/stats/fisher.test.html) reports the same p-value:
 >
-> ``` numberSource
+> ``` downlit
 > fisher.test(hers$exercise, hers$HT)
 > #> 
 > #>  Fisher's Exact Test for Count Data

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 ## 1 Scientific models
 
@@ -218,7 +218,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > fre_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>
 >   dplyr::mutate(fitted = 1 + 0.5 * x)
 >

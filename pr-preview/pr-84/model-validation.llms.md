@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -84,7 +84,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > *Solution 1*.
 >
-> ``` numberSource
+> ``` downlit
 > train_cars <- mtcars[1:20, ]
 > held_out_cars <- mtcars[21:32, ]
 >
@@ -114,7 +114,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > best_train <- overfitting_results$degree[
 >   which.min(overfitting_results$training_RMSE)
 > ]
@@ -303,7 +303,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > **Example 2 (Training error and generalization error by degree)** Real data never reveal \\\operatorname{Err}\_{\mathcal{T}}\\, but a simulation can, because it can draw as many new observations as we like. Here the population is known: \\X \sim \operatorname{Uniform}(0, 1)\\ and \\Y \mid X = x \sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\\, with \\\sigma = 0.3\\. We draw one training set of \\n = 30\\ observations, fit a polynomial in \\x\\ of each degree from 1 to 10 by least squares, and score each fit on the training set and on \\10{,}000\\ new observations. By [Theorem 3](#thm-held-out-unbiased), the second score has expectation \\\operatorname{Err}\_{\mathcal{T}}\\ given the training set, and with \\10{,}000\\ observations it is a precise estimate of it.
 >
-> ``` numberSource
+> ``` downlit
 > sim_sigma <- 0.3
 > sim_truth <- function(x) sin(2 * pi * x)
 > sim_draw <- function(n) {
@@ -329,7 +329,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > sim_errors |>
 >   tidyr::pivot_longer(
 >     c(training, generalization),
@@ -358,7 +358,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > sim_best_generalization <-
 >   sim_errors$degree[which.min(sim_errors$generalization)]
 > sim_best_training <- sim_errors$degree[which.min(sim_errors$training)]
@@ -445,7 +445,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > **Example 5 (Numerical example)** This example ([Example 5](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test RMSE on untouched test data ([James et al. 2021, 213](#ref-james2021islr2e)).
 >
-> ``` numberSource
+> ``` downlit
 > set.seed(108)
 > n <- nrow(mtcars)
 >
@@ -469,7 +469,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > train_dat <- mtcars[idx_train, ]
 > valid_dat <- mtcars[idx_valid, ]
 > test_dat <- mtcars[idx_test, ]
@@ -536,7 +536,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > partition_colors <- c(
 >   training = "#1b9e77",
 >   validation = "#d95f02",
@@ -595,7 +595,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > plot_partitions_with_fit(model_linear, "linear fit")
 > ```
 >
@@ -605,7 +605,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > plot_partitions_with_fit(model_quadratic, "quadratic fit")
 > ```
 >
@@ -615,7 +615,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > plot_partitions_with_fit(model_cubic, "cubic fit")
 > ```
 >
@@ -625,7 +625,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > plot_partitions_with_fit(model_quartic, "quartic fit")
 > ```
 >
@@ -635,7 +635,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > validation_results
 > ```
 >
@@ -645,7 +645,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > performance_comparison
 > ```
 >
@@ -787,7 +787,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > **Example 6 (Cross-validation versus the generalization error)** This example applies [\\k\\-fold cross-validation](#def-kfold) with \\k = 5\\ to the simulated training set of [Example 2](#exm-train-test-error-simulated), using only those 30 observations. The function `assign_folds()` assigns each observation to a fold at random, `cv_squared_errors()` fits the model once per fold without that fold and returns each observation’s squared prediction error, and `cv_mse()` averages them, which is [Equation 24](#eq-cv-estimate).
 >
-> ``` numberSource
+> ``` downlit
 > assign_folds <- function(n, k) {
 >   sample(rep_len(seq_len(k), n))
 > }
@@ -820,7 +820,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > sim_errors_cv <- sim_errors |>
 >   dplyr::mutate(
 >     cv_5 = purrr::map_dbl(
@@ -834,7 +834,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > sim_errors_cv |>
 >   tidyr::pivot_longer(
 >     c(training, generalization, cv_5),
@@ -870,7 +870,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > sim_best_cv <- sim_errors_cv$degree[which.min(sim_errors_cv$cv_5)]
 > sim_n_fit <- nrow(sim_train) - max(table(sim_folds))
 > sim_top <- sim_errors_cv[sim_errors_cv$degree == max(sim_degrees), ]
@@ -893,7 +893,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > sim_generalization_draws <- function(
 >   n_train, degree, n_reps, draw, new_data, score
 > ) {
@@ -940,7 +940,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > mtcars_degrees <- 1:4
 > n_repeats <- 5
 >
@@ -970,7 +970,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > mtcars_cv_best <-
 >   mtcars_cv |>
 >   tidyr::pivot_longer(
@@ -988,7 +988,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > mtcars_cv_range <-
 >   mtcars_cv |>
 >   dplyr::summarise(
@@ -1084,7 +1084,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > **Example 8 (Leave-one-out cross-validation of the `mtcars` polynomials)** This example computes \\\widehat{\operatorname{Err}}\_{\text{CV}(32)}\\ for the four `mtcars` polynomials of [Exercise 1](#exr-overfitting) in two ways: by fitting each model 32 times, as in [Equation 27](#eq-loocv), and by the single-fit formula of [Theorem 5](#thm-loocv-shortcut), with the leverages from [`hatvalues()`](https://rdrr.io/r/stats/influence.measures.html).
 >
-> ``` numberSource
+> ``` downlit
 > loocv_by_formula <- function(formula, data) {
 >   fit <- lm(formula, data = data)
 >   pred_error <- fitted(fit) - stats::model.response(model.frame(fit))
@@ -1109,7 +1109,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > loocv_max_diff <- max(abs(mtcars_loocv$refitting - mtcars_loocv$formula))
 > mtcars_best_loocv <-
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
@@ -1202,7 +1202,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > set.seed(10)
 > sim_folds_ten <- assign_folds(nrow(sim_train), k = 10)
 >
@@ -1233,7 +1233,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > sim_cv_ten |>
 >   ggplot2::ggplot(ggplot2::aes(degree, cv)) +
 >   ggplot2::geom_hline(
@@ -1289,7 +1289,7 @@ Last modified: 2026-10-08 11:09:33 (PDT)
 >
 > 2.  and 3. The function below runs one data set through both procedures. The only difference is whether the screening step sees the whole data set (`"outside"`) or only the training folds (`"inside"`).
 >
-> ``` numberSource
+> ``` downlit
 > top_predictors <- function(x, y, n_keep) {
 >   order(abs(stats::cor(x, y)), decreasing = TRUE)[seq_len(n_keep)]
 > }

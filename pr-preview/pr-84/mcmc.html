@@ -218,6 +218,16 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-cor.callout {
   border-left-color: #00838F;
 }
@@ -238,26 +248,6 @@ div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-def.callout {
   border-left-color: #1B5E20;
 }
@@ -267,16 +257,6 @@ div.callout-def.callout-style-default .callout-header {
 div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -288,25 +268,25 @@ div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-prp.callout {
+  border-left-color: #827717;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-lem.callout {
-  border-left-color: #1565C0;
+div.callout-proof.callout {
+  border-left-color: #37474F;
 }
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
 }
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-remark.callout {
   border-left-color: #AD1457;
@@ -317,6 +297,26 @@ div.callout-remark.callout-style-default .callout-header {
 div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -801,18 +801,7 @@ window.Quarto = {
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/mcmc.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/mcmc.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="mcmc-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="mcmc-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="mcmc-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-<div class="preview-combined-banner">
-    <p style="margin: 0;">
-        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~25% of content changed).
-        <br>
-        <strong>🎨 Highlighting Legend:</strong> 
-        <mark class="preview-text-changed" style="display: inline; padding: 1px 3px;">Modified text (yellow)</mark> shows changed words/phrases with tooltips of original text, 
-        <mark class="preview-text-added" style="display: inline; padding: 1px 3px;">added text (green)</mark> shows new content, and 
-        <mark class="preview-element-added" style="display: inline; padding: 1px 3px;">new sections (blue)</mark> highlight entirely new paragraphs.
-    </p>
-</div>
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bayesian-inference.html">Bayesian</a></li><li class="breadcrumb-item"><a href="./mcmc.html">Markov Chain Monte Carlo</a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bayesian-inference.html">Bayesian</a></li><li class="breadcrumb-item"><a href="./mcmc.html">Markov Chain Monte Carlo</a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Markov Chain Monte Carlo</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
@@ -824,7 +813,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-08 <mark class="preview-text-changed">11:09:33</mark> (PDT)</p>
+      <p class="date">Last modified: 2026-10-08 <mark class="preview-text-changed">11:23:15</mark> (PDT)</p>
     </div>
   </div>
   
@@ -899,23 +888,23 @@ text-align: center;
 <div id="exm-mc-bernoulli" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Monte Carlo posterior summaries for a Bernoulli model)</strong></span> The posterior in <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a> is <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span>. We draw <span class="math inline">\(M = 5{,}000\)</span> values from it, and compare Monte Carlo estimates with the exact values:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-label="2"></a>pi_draws <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">5000</span>, <span class="at">shape1 =</span> <span class="dv">56</span>, <span class="at">shape2 =</span> <span class="dv">37</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-label="3"></a><span class="fu">rbind</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-label="4"></a>  <span class="at">exact =</span> <span class="fu">c</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>    <span class="at">mean =</span> <span class="dv">56</span> <span class="sc">/</span> (<span class="dv">56</span> <span class="sc">+</span> <span class="dv">37</span>),</span>
-<span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>    <span class="at">lower =</span> stats<span class="sc">::</span><span class="fu">qbeta</span>(<span class="fl">0.025</span>, <span class="dv">56</span>, <span class="dv">37</span>),</span>
-<span id="cb1-7"><a href="#cb1-7" aria-label="7"></a>    <span class="at">upper =</span> stats<span class="sc">::</span><span class="fu">qbeta</span>(<span class="fl">0.975</span>, <span class="dv">56</span>, <span class="dv">37</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-label="8"></a>  ),</span>
-<span id="cb1-9"><a href="#cb1-9" aria-label="9"></a>  <span class="at">monte_carlo =</span> <span class="fu">c</span>(</span>
-<span id="cb1-10"><a href="#cb1-10" aria-label="10"></a>    <span class="fu">mean</span>(pi_draws),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-label="11"></a>    stats<span class="sc">::</span><span class="fu">quantile</span>(pi_draws, <span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</span>
-<span id="cb1-12"><a href="#cb1-12" aria-label="12"></a>  )</span>
-<span id="cb1-13"><a href="#cb1-13" aria-label="13"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-label="14"></a>  <span class="fu">round</span>(<span class="dv">4</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-label="15"></a><span class="co">#&gt;               mean  lower  upper</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-label="16"></a><span class="co">#&gt; exact       0.6022 0.5014 0.6988</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-label="17"></a><span class="co">#&gt; monte_carlo 0.6022 0.5011 0.7013</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">42</span><span class="op">)</span></span>
+<span><span class="va">pi_draws</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5000</span>, shape1 <span class="op">=</span> <span class="fl">56</span>, shape2 <span class="op">=</span> <span class="fl">37</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span></span>
+<span>  exact <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    mean <span class="op">=</span> <span class="fl">56</span> <span class="op">/</span> <span class="op">(</span><span class="fl">56</span> <span class="op">+</span> <span class="fl">37</span><span class="op">)</span>,</span>
+<span>    lower <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">qbeta</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">56</span>, <span class="fl">37</span><span class="op">)</span>,</span>
+<span>    upper <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">qbeta</a></span><span class="op">(</span><span class="fl">0.975</span>, <span class="fl">56</span>, <span class="fl">37</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  monte_carlo <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pi_draws</span><span class="op">)</span>,</span>
+<span>    <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">pi_draws</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt;               mean  lower  upper</span></span>
+<span><span class="co">#&gt; exact       0.6022 0.5014 0.6988</span></span>
+<span><span class="co">#&gt; monte_carlo 0.6022 0.5011 0.7013</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The two agree to about two decimal places, and the agreement improves as <span class="math inline">\(M\)</span> grows.</p>
 </div>
@@ -974,16 +963,16 @@ text-align: center;
 \]</span></p>
 <p>so <span class="math inline">\(0.6\, \pi_{\text{dry}} = 0.5\)</span> and <span class="math inline">\(\pi_{\text{dry}} = 5/6\)</span>. The <a href="#def-stationary-distribution">stationary distribution</a> is dry with probability <span class="math inline">\(5/6\)</span> and wet with probability <span class="math inline">\(1/6\)</span>. A simulated chain, started on a wet day, spends about that fraction of its days dry:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">7</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-label="2"></a>n_days <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-label="3"></a>dry <span class="ot">&lt;-</span> <span class="fu">logical</span>(n_days)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-label="4"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">2</span>, n_days)) {</span>
-<span id="cb2-5"><a href="#cb2-5" aria-label="5"></a>  p_dry <span class="ot">&lt;-</span> <span class="cf">if</span> (dry[t <span class="sc">-</span> <span class="dv">1</span>]) <span class="fl">0.9</span> <span class="cf">else</span> <span class="fl">0.5</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-label="6"></a>  dry[t] <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">runif</span>(<span class="dv">1</span>) <span class="sc">&lt;</span> p_dry</span>
-<span id="cb2-7"><a href="#cb2-7" aria-label="7"></a>}</span>
-<span id="cb2-8"><a href="#cb2-8" aria-label="8"></a><span class="fu">c</span>(<span class="at">simulated =</span> <span class="fu">mean</span>(dry), <span class="at">stationary =</span> <span class="dv">5</span> <span class="sc">/</span> <span class="dv">6</span>) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-label="9"></a><span class="co">#&gt;  simulated stationary </span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-label="10"></a><span class="co">#&gt;      0.833      0.833</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">7</span><span class="op">)</span></span>
+<span><span class="va">n_days</span> <span class="op">&lt;-</span> <span class="fl">10000</span></span>
+<span><span class="va">dry</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/logical.html">logical</a></span><span class="op">(</span><span class="va">n_days</span><span class="op">)</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="va">n_days</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">p_dry</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">dry</span><span class="op">[</span><span class="va">t</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="fl">0.9</span> <span class="kw">else</span> <span class="fl">0.5</span></span>
+<span>  <span class="va">dry</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">&lt;</span> <span class="va">p_dry</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>simulated <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">dry</span><span class="op">)</span>, stationary <span class="op">=</span> <span class="fl">5</span> <span class="op">/</span> <span class="fl">6</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  simulated stationary </span></span>
+<span><span class="co">#&gt;      0.833      0.833</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1100,37 +1089,37 @@ text-align: center;
 <div id="exm-mh-bernoulli" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Metropolis–Hastings for a Bernoulli model)</strong></span> We sample the posterior of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a> (<span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, uniform prior) with a Gaussian random-walk proposal <span class="math inline">\(\pi^* = \pi^{(t)} + \varepsilon\)</span>, <span class="math inline">\(\varepsilon \sim \operatorname{N}\mathopen{}\left(0, 0.05^2\right)\mathclose{}\)</span>. The proposal is symmetric, and the uniform prior density is 1 on <span class="math inline">\((0, 1)\)</span>, so the log of the acceptance ratio is the difference of log-likelihoods, and a proposal outside <span class="math inline">\((0, 1)\)</span> is always rejected.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-label="1"></a>log_post_unnorm <span class="ot">&lt;-</span> <span class="cf">function</span>(pi, r, n) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-label="2"></a>  <span class="cf">if</span> (pi <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">||</span> pi <span class="sc">&gt;=</span> <span class="dv">1</span>) {</span>
-<span id="cb3-3"><a href="#cb3-3" aria-label="3"></a>    <span class="fu">return</span>(<span class="sc">-</span><span class="cn">Inf</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-label="4"></a>  }</span>
-<span id="cb3-5"><a href="#cb3-5" aria-label="5"></a>  r <span class="sc">*</span> <span class="fu">log</span>(pi) <span class="sc">+</span> (n <span class="sc">-</span> r) <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> pi)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-label="6"></a>}</span>
-<span id="cb3-7"><a href="#cb3-7" aria-label="7"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-label="8"></a>mh_bernoulli <span class="ot">&lt;-</span> <span class="cf">function</span>(n_iter, r, n, pi_init, <span class="at">step_sd =</span> <span class="fl">0.05</span>) {</span>
-<span id="cb3-9"><a href="#cb3-9" aria-label="9"></a>  chain <span class="ot">&lt;-</span> <span class="fu">numeric</span>(n_iter)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-label="10"></a>  chain[<span class="dv">1</span>] <span class="ot">&lt;-</span> pi_init</span>
-<span id="cb3-11"><a href="#cb3-11" aria-label="11"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">2</span>, n_iter)) {</span>
-<span id="cb3-12"><a href="#cb3-12" aria-label="12"></a>    pi_curr <span class="ot">&lt;-</span> chain[t <span class="sc">-</span> <span class="dv">1</span>]</span>
-<span id="cb3-13"><a href="#cb3-13" aria-label="13"></a>    pi_prop <span class="ot">&lt;-</span> pi_curr <span class="sc">+</span> stats<span class="sc">::</span><span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">sd =</span> step_sd)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-label="14"></a>    log_alpha <span class="ot">&lt;-</span> <span class="fu">log_post_unnorm</span>(pi_prop, r, n) <span class="sc">-</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-label="15"></a>      <span class="fu">log_post_unnorm</span>(pi_curr, r, n)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-label="16"></a>    accept <span class="ot">&lt;-</span> <span class="fu">log</span>(stats<span class="sc">::</span><span class="fu">runif</span>(<span class="dv">1</span>)) <span class="sc">&lt;</span> log_alpha</span>
-<span id="cb3-17"><a href="#cb3-17" aria-label="17"></a>    chain[t] <span class="ot">&lt;-</span> <span class="cf">if</span> (accept) pi_prop <span class="cf">else</span> pi_curr</span>
-<span id="cb3-18"><a href="#cb3-18" aria-label="18"></a>  }</span>
-<span id="cb3-19"><a href="#cb3-19" aria-label="19"></a>  chain</span>
-<span id="cb3-20"><a href="#cb3-20" aria-label="20"></a>}</span>
-<span id="cb3-21"><a href="#cb3-21" aria-label="21"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-label="22"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-label="23"></a>mh_chain <span class="ot">&lt;-</span> <span class="fu">mh_bernoulli</span>(<span class="at">n_iter =</span> <span class="dv">5000</span>, <span class="at">r =</span> <span class="dv">55</span>, <span class="at">n =</span> <span class="dv">91</span>, <span class="at">pi_init =</span> <span class="fl">0.5</span>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-label="24"></a><span class="fu">c</span>(</span>
-<span id="cb3-25"><a href="#cb3-25" aria-label="25"></a>  <span class="at">acceptance_rate =</span> <span class="fu">mean</span>(<span class="fu">diff</span>(mh_chain) <span class="sc">!=</span> <span class="dv">0</span>),</span>
-<span id="cb3-26"><a href="#cb3-26" aria-label="26"></a>  <span class="at">mh_mean =</span> <span class="fu">mean</span>(mh_chain),</span>
-<span id="cb3-27"><a href="#cb3-27" aria-label="27"></a>  <span class="at">exact_mean =</span> <span class="dv">56</span> <span class="sc">/</span> <span class="dv">93</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-label="28"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-label="29"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb3-30"><a href="#cb3-30" aria-label="30"></a><span class="co">#&gt; acceptance_rate         mh_mean      exact_mean </span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-label="31"></a><span class="co">#&gt;           0.710           0.601           0.602</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">log_post_unnorm</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">pi</span>, <span class="va">r</span>, <span class="va">n</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">pi</span> <span class="op">&lt;=</span> <span class="fl">0</span> <span class="op">||</span> <span class="va">pi</span> <span class="op">&gt;=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="op">-</span><span class="cn">Inf</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="va">r</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">pi</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="va">r</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">pi</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">mh_bernoulli</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n_iter</span>, <span class="va">r</span>, <span class="va">n</span>, <span class="va">pi_init</span>, <span class="va">step_sd</span> <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">chain</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="va">n_iter</span><span class="op">)</span></span>
+<span>  <span class="va">chain</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">pi_init</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="va">n_iter</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">pi_curr</span> <span class="op">&lt;-</span> <span class="va">chain</span><span class="op">[</span><span class="va">t</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span></span>
+<span>    <span class="va">pi_prop</span> <span class="op">&lt;-</span> <span class="va">pi_curr</span> <span class="op">+</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1</span>, sd <span class="op">=</span> <span class="va">step_sd</span><span class="op">)</span></span>
+<span>    <span class="va">log_alpha</span> <span class="op">&lt;-</span> <span class="fu">log_post_unnorm</span><span class="op">(</span><span class="va">pi_prop</span>, <span class="va">r</span>, <span class="va">n</span><span class="op">)</span> <span class="op">-</span></span>
+<span>      <span class="fu">log_post_unnorm</span><span class="op">(</span><span class="va">pi_curr</span>, <span class="va">r</span>, <span class="va">n</span><span class="op">)</span></span>
+<span>    <span class="va">accept</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html">runif</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">&lt;</span> <span class="va">log_alpha</span></span>
+<span>    <span class="va">chain</span><span class="op">[</span><span class="va">t</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">accept</span><span class="op">)</span> <span class="va">pi_prop</span> <span class="kw">else</span> <span class="va">pi_curr</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="va">chain</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">mh_chain</span> <span class="op">&lt;-</span> <span class="fu">mh_bernoulli</span><span class="op">(</span>n_iter <span class="op">=</span> <span class="fl">5000</span>, r <span class="op">=</span> <span class="fl">55</span>, n <span class="op">=</span> <span class="fl">91</span>, pi_init <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  acceptance_rate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="va">mh_chain</span><span class="op">)</span> <span class="op">!=</span> <span class="fl">0</span><span class="op">)</span>,</span>
+<span>  mh_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mh_chain</span><span class="op">)</span>,</span>
+<span>  exact_mean <span class="op">=</span> <span class="fl">56</span> <span class="op">/</span> <span class="fl">93</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; acceptance_rate         mh_mean      exact_mean </span></span>
+<span><span class="co">#&gt;           0.710           0.601           0.602</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Comparing <span class="math inline">\(\log u\)</span>, for <span class="math inline">\(u\)</span> uniform on <span class="math inline">\((0, 1)\)</span>, with <span class="math inline">\(\log \alpha\)</span> accepts with probability <span class="math inline">\(\min(1, \alpha)\)</span>, and avoids computing <span class="math inline">\(\alpha\)</span> itself, which can overflow or underflow. Every accepted proposal changes the chain’s value, so the fraction of iterations that change estimates the acceptance rate. The chain’s mean is close to the exact posterior mean <span class="math inline">\(56/93\)</span>.</p>
 </div>
@@ -1173,19 +1162,19 @@ text-align: center;
 <div class="callout-body-container">
 <div id="exm-burnin" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Burn-in for the Bernoulli sampler)</strong></span> Continuing <a href="#exm-mh-bernoulli" class="quarto-xref">Example&nbsp;6</a>, we start two more chains at the extreme values <span class="math inline">\(0.05\)</span> and <span class="math inline">\(0.95\)</span>. <a href="#fig-mh-burnin" class="quarto-xref">Figure&nbsp;1</a> shows their first 200 iterations.</p>
-<details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-label="2"></a>chain_low <span class="ot">&lt;-</span> <span class="fu">mh_bernoulli</span>(<span class="at">n_iter =</span> <span class="dv">5000</span>, <span class="at">r =</span> <span class="dv">55</span>, <span class="at">n =</span> <span class="dv">91</span>, <span class="at">pi_init =</span> <span class="fl">0.05</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-label="3"></a>chain_high <span class="ot">&lt;-</span> <span class="fu">mh_bernoulli</span>(<span class="at">n_iter =</span> <span class="dv">5000</span>, <span class="at">r =</span> <span class="dv">55</span>, <span class="at">n =</span> <span class="dv">91</span>, <span class="at">pi_init =</span> <span class="fl">0.95</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-label="4"></a>shown <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">200</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-label="5"></a>traces <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb4-6"><a href="#cb4-6" aria-label="6"></a>  <span class="at">iteration =</span> <span class="fu">rep</span>(shown, <span class="at">times =</span> <span class="dv">2</span>),</span>
-<span id="cb4-7"><a href="#cb4-7" aria-label="7"></a>  <span class="at">pi =</span> <span class="fu">c</span>(chain_low[shown], chain_high[shown]),</span>
-<span id="cb4-8"><a href="#cb4-8" aria-label="8"></a>  <span class="at">start =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"0.05"</span>, <span class="st">"0.95"</span>), <span class="at">each =</span> <span class="fu">length</span>(shown))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-label="9"></a>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-label="10"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(traces) <span class="sc">+</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-label="11"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> iteration, <span class="at">y =</span> pi, <span class="at">colour =</span> start) <span class="sc">+</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-label="12"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(pi), <span class="at">colour =</span> <span class="st">"starting value"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">chain_low</span> <span class="op">&lt;-</span> <span class="fu">mh_bernoulli</span><span class="op">(</span>n_iter <span class="op">=</span> <span class="fl">5000</span>, r <span class="op">=</span> <span class="fl">55</span>, n <span class="op">=</span> <span class="fl">91</span>, pi_init <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span>
+<span><span class="va">chain_high</span> <span class="op">&lt;-</span> <span class="fu">mh_bernoulli</span><span class="op">(</span>n_iter <span class="op">=</span> <span class="fl">5000</span>, r <span class="op">=</span> <span class="fl">55</span>, n <span class="op">=</span> <span class="fl">91</span>, pi_init <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span><span class="va">shown</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">200</span></span>
+<span><span class="va">traces</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  iteration <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">shown</span>, times <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  pi <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">chain_low</span><span class="op">[</span><span class="va">shown</span><span class="op">]</span>, <span class="va">chain_high</span><span class="op">[</span><span class="va">shown</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>  start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"0.05"</span>, <span class="st">"0.95"</span><span class="op">)</span>, each <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">shown</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">traces</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">iteration</span>, y <span class="op">=</span> <span class="va">pi</span>, colour <span class="op">=</span> <span class="va">start</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">pi</span><span class="op">)</span>, colour <span class="op">=</span> <span class="st">"starting value"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-mh-burnin" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-mh-burnin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: <a href="#def-trace-plot">Trace plots</a> of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at <span class="math inline">\(\pi = 0.05\)</span> and <span class="math inline">\(\pi = 0.95\)</span>.
@@ -1255,29 +1244,29 @@ Figure&nbsp;1: <a href="#def-trace-plot">Trace plots</a> of the first 200 iterat
 \]</span></p>
 <p>so the <a href="#def-full-conditional">full conditional</a> of <span class="math inline">\(\theta_1\)</span> is <span class="math inline">\(\operatorname{N}\mathopen{}\left(\rho\theta_2,\, 1 - \rho^2\right)\mathclose{}\)</span>, and by symmetry that of <span class="math inline">\(\theta_2\)</span> is <span class="math inline">\(\operatorname{N}\mathopen{}\left(\rho\theta_1,\, 1 - \rho^2\right)\mathclose{}\)</span>. We run the Gibbs sampler with <span class="math inline">\(\rho = 0\)</span> and with <span class="math inline">\(\rho = 0.99\)</span>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-label="1"></a>gibbs_bvn <span class="ot">&lt;-</span> <span class="cf">function</span>(n_iter, rho) {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-label="2"></a>  draws <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA_real_</span>, <span class="at">nrow =</span> n_iter, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-label="3"></a>  theta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-label="4"></a>  cond_sd <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> rho<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-label="5"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="fu">seq_len</span>(n_iter)) {</span>
-<span id="cb5-6"><a href="#cb5-6" aria-label="6"></a>    theta[<span class="dv">1</span>] <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> rho <span class="sc">*</span> theta[<span class="dv">2</span>], <span class="at">sd =</span> cond_sd)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-label="7"></a>    theta[<span class="dv">2</span>] <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> rho <span class="sc">*</span> theta[<span class="dv">1</span>], <span class="at">sd =</span> cond_sd)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-label="8"></a>    draws[t, ] <span class="ot">&lt;-</span> theta</span>
-<span id="cb5-9"><a href="#cb5-9" aria-label="9"></a>  }</span>
-<span id="cb5-10"><a href="#cb5-10" aria-label="10"></a>  draws</span>
-<span id="cb5-11"><a href="#cb5-11" aria-label="11"></a>}</span>
-<span id="cb5-12"><a href="#cb5-12" aria-label="12"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-label="13"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-label="14"></a>draws_indep <span class="ot">&lt;-</span> <span class="fu">gibbs_bvn</span>(<span class="at">n_iter =</span> <span class="dv">2000</span>, <span class="at">rho =</span> <span class="dv">0</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-label="15"></a>draws_corr <span class="ot">&lt;-</span> <span class="fu">gibbs_bvn</span>(<span class="at">n_iter =</span> <span class="dv">2000</span>, <span class="at">rho =</span> <span class="fl">0.99</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-label="16"></a>lag1_autocorrelation <span class="ot">&lt;-</span> <span class="cf">function</span>(x) stats<span class="sc">::</span><span class="fu">cor</span>(x[<span class="sc">-</span><span class="dv">1</span>], x[<span class="sc">-</span><span class="fu">length</span>(x)])</span>
-<span id="cb5-17"><a href="#cb5-17" aria-label="17"></a><span class="fu">c</span>(</span>
-<span id="cb5-18"><a href="#cb5-18" aria-label="18"></a>  <span class="at">rho_0 =</span> <span class="fu">lag1_autocorrelation</span>(draws_indep[, <span class="dv">1</span>]),</span>
-<span id="cb5-19"><a href="#cb5-19" aria-label="19"></a>  <span class="at">rho_0.99 =</span> <span class="fu">lag1_autocorrelation</span>(draws_corr[, <span class="dv">1</span>])</span>
-<span id="cb5-20"><a href="#cb5-20" aria-label="20"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-label="21"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb5-22"><a href="#cb5-22" aria-label="22"></a><span class="co">#&gt;    rho_0 rho_0.99 </span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-label="23"></a><span class="co">#&gt;    0.020    0.971</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">gibbs_bvn</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n_iter</span>, <span class="va">rho</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="cn">NA_real_</span>, nrow <span class="op">=</span> <span class="va">n_iter</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span>  <span class="va">theta</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span></span>
+<span>  <span class="va">cond_sd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">rho</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">t</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="va">n_iter</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">theta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1</span>, mean <span class="op">=</span> <span class="va">rho</span> <span class="op">*</span> <span class="va">theta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, sd <span class="op">=</span> <span class="va">cond_sd</span><span class="op">)</span></span>
+<span>    <span class="va">theta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1</span>, mean <span class="op">=</span> <span class="va">rho</span> <span class="op">*</span> <span class="va">theta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, sd <span class="op">=</span> <span class="va">cond_sd</span><span class="op">)</span></span>
+<span>    <span class="va">draws</span><span class="op">[</span><span class="va">t</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="va">theta</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="va">draws</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="va">draws_indep</span> <span class="op">&lt;-</span> <span class="fu">gibbs_bvn</span><span class="op">(</span>n_iter <span class="op">=</span> <span class="fl">2000</span>, rho <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
+<span><span class="va">draws_corr</span> <span class="op">&lt;-</span> <span class="fu">gibbs_bvn</span><span class="op">(</span>n_iter <span class="op">=</span> <span class="fl">2000</span>, rho <span class="op">=</span> <span class="fl">0.99</span><span class="op">)</span></span>
+<span><span class="va">lag1_autocorrelation</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span><span class="op">(</span><span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span>, <span class="va">x</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  rho_0 <span class="op">=</span> <span class="fu">lag1_autocorrelation</span><span class="op">(</span><span class="va">draws_indep</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>  rho_0.99 <span class="op">=</span> <span class="fu">lag1_autocorrelation</span><span class="op">(</span><span class="va">draws_corr</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    rho_0 rho_0.99 </span></span>
+<span><span class="co">#&gt;    0.020    0.971</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>With <span class="math inline">\(\rho = 0\)</span>, successive draws of <span class="math inline">\(\theta_1\)</span> are nearly uncorrelated. With <span class="math inline">\(\rho = 0.99\)</span>, each full conditional has standard deviation <span class="math inline">\(\sqrt{1 - 0.99^2} \approx 0.14\)</span>, so each update moves only a short way along the narrow ridge where the target puts its probability, and successive draws are almost perfectly correlated: 2,000 such draws carry far less information about the target than 2,000 independent ones.</p>
 </div>
@@ -1323,21 +1312,21 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^m \mathopen{}\left(\ba
 <div id="exm-psrf" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Potential scale reduction factor for the Bernoulli sampler)</strong></span> Continuing <a href="#exm-burnin" class="quarto-xref">Example&nbsp;7</a>, we compute <span class="math inline">\(\hat{R}\)</span> for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-label="1"></a>psrf <span class="ot">&lt;-</span> <span class="cf">function</span>(chains) {</span>
-<span id="cb6-2"><a href="#cb6-2" aria-label="2"></a>  n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(chains)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-label="3"></a>  w <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">apply</span>(chains, <span class="dv">2</span>, stats<span class="sc">::</span>var))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-label="4"></a>  b <span class="ot">&lt;-</span> n <span class="sc">*</span> stats<span class="sc">::</span><span class="fu">var</span>(<span class="fu">colMeans</span>(chains))</span>
-<span id="cb6-5"><a href="#cb6-5" aria-label="5"></a>  v_hat <span class="ot">&lt;-</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> n <span class="sc">*</span> w <span class="sc">+</span> b <span class="sc">/</span> n</span>
-<span id="cb6-6"><a href="#cb6-6" aria-label="6"></a>  <span class="fu">sqrt</span>(v_hat <span class="sc">/</span> w)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-label="7"></a>}</span>
-<span id="cb6-8"><a href="#cb6-8" aria-label="8"></a>chains <span class="ot">&lt;-</span> <span class="fu">cbind</span>(chain_low, chain_high)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-label="9"></a><span class="fu">c</span>(</span>
-<span id="cb6-10"><a href="#cb6-10" aria-label="10"></a>  <span class="at">first_50 =</span> <span class="fu">psrf</span>(chains[<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, ]),</span>
-<span id="cb6-11"><a href="#cb6-11" aria-label="11"></a>  <span class="at">after_burnin =</span> <span class="fu">psrf</span>(chains[<span class="dv">501</span><span class="sc">:</span><span class="dv">5000</span>, ])</span>
-<span id="cb6-12"><a href="#cb6-12" aria-label="12"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-label="13"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-label="14"></a><span class="co">#&gt;     first_50 after_burnin </span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-label="15"></a><span class="co">#&gt;        1.648        1.001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">psrf</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">chains</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">chains</span><span class="op">)</span></span>
+<span>  <span class="va">w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">chains</span>, <span class="fl">2</span>, <span class="fu">stats</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">b</span> <span class="op">&lt;-</span> <span class="va">n</span> <span class="op">*</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colMeans</a></span><span class="op">(</span><span class="va">chains</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="va">v_hat</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="fl">1</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span> <span class="op">*</span> <span class="va">w</span> <span class="op">+</span> <span class="va">b</span> <span class="op">/</span> <span class="va">n</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">v_hat</span> <span class="op">/</span> <span class="va">w</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="va">chains</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">chain_low</span>, <span class="va">chain_high</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  first_50 <span class="op">=</span> <span class="fu">psrf</span><span class="op">(</span><span class="va">chains</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>, <span class="op">]</span><span class="op">)</span>,</span>
+<span>  after_burnin <span class="op">=</span> <span class="fu">psrf</span><span class="op">(</span><span class="va">chains</span><span class="op">[</span><span class="fl">501</span><span class="op">:</span><span class="fl">5000</span>, <span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     first_50 after_burnin </span></span>
+<span><span class="co">#&gt;        1.648        1.001</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Here <code>stats::var(colMeans(chains))</code> is <span class="math inline">\(\frac{1}{m-1}\sum_j (\bar\theta_j - \bar\theta)^2\)</span>, so <code>b</code> is <span class="math inline">\(B\)</span>. While the chains are still approaching the posterior from opposite ends, <span class="math inline">\(\hat{R}\)</span> is well above 1; after burn-in it is essentially 1.</p>
 </div>
@@ -1356,22 +1345,22 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^m \mathopen{}\left(\ba
 <div id="exm-mcmc-vs-mle" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Posterior mean and maximum likelihood estimate for a Bernoulli model)</strong></span> With <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, the maximum likelihood estimate is <span class="math inline">\(\hat\pi = r / n\)</span>, with estimated standard error <span class="math inline">\(\sqrt{\hat\pi(1 - \hat\pi)/n}\)</span>. Under the uniform prior, the posterior is <span class="math inline">\(\operatorname{Beta}(r + 1, n - r + 1)\)</span> (<a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>), whose mean is <span class="math inline">\((r + 1)/(n + 2)\)</span> and whose standard deviation is <span class="math inline">\(\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\)</span> with <span class="math inline">\(a = r + 1\)</span> and <span class="math inline">\(b = n - r + 1\)</span> <span class="citation" data-cites="CaseBerg01">(<a href="#ref-CaseBerg01" role="doc-biblioref">Casella and Berger 2002, sec. 3.3</a>, p.&nbsp;107)</span>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-label="1"></a>r <span class="ot">&lt;-</span> <span class="dv">55</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-label="2"></a>n <span class="ot">&lt;-</span> <span class="dv">91</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-label="3"></a>pi_hat <span class="ot">&lt;-</span> r <span class="sc">/</span> n</span>
-<span id="cb7-4"><a href="#cb7-4" aria-label="4"></a>a <span class="ot">&lt;-</span> r <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-label="5"></a>b <span class="ot">&lt;-</span> n <span class="sc">-</span> r <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-label="6"></a><span class="fu">rbind</span>(</span>
-<span id="cb7-7"><a href="#cb7-7" aria-label="7"></a>  <span class="at">maximum_likelihood =</span> <span class="fu">c</span>(</span>
-<span id="cb7-8"><a href="#cb7-8" aria-label="8"></a>    <span class="at">estimate =</span> pi_hat,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-label="9"></a>    <span class="at">spread =</span> <span class="fu">sqrt</span>(pi_hat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> pi_hat) <span class="sc">/</span> n)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-label="10"></a>  ),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-label="11"></a>  <span class="at">posterior =</span> <span class="fu">c</span>(a <span class="sc">/</span> (a <span class="sc">+</span> b), <span class="fu">sqrt</span>(a <span class="sc">*</span> b <span class="sc">/</span> ((a <span class="sc">+</span> b)<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> (a <span class="sc">+</span> b <span class="sc">+</span> <span class="dv">1</span>))))</span>
-<span id="cb7-12"><a href="#cb7-12" aria-label="12"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-label="13"></a>  <span class="fu">round</span>(<span class="dv">4</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-label="14"></a><span class="co">#&gt;                    estimate spread</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-label="15"></a><span class="co">#&gt; maximum_likelihood   0.6044 0.0513</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-label="16"></a><span class="co">#&gt; posterior            0.6022 0.0505</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">r</span> <span class="op">&lt;-</span> <span class="fl">55</span></span>
+<span><span class="va">n</span> <span class="op">&lt;-</span> <span class="fl">91</span></span>
+<span><span class="va">pi_hat</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op">/</span> <span class="va">n</span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="va">r</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="va">n</span> <span class="op">-</span> <span class="va">r</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span></span>
+<span>  maximum_likelihood <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>    estimate <span class="op">=</span> <span class="va">pi_hat</span>,</span>
+<span>    spread <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">pi_hat</span> <span class="op">*</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">pi_hat</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  posterior <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">a</span> <span class="op">/</span> <span class="op">(</span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">a</span> <span class="op">*</span> <span class="va">b</span> <span class="op">/</span> <span class="op">(</span><span class="op">(</span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">*</span> <span class="op">(</span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt;                    estimate spread</span></span>
+<span><span class="co">#&gt; maximum_likelihood   0.6044 0.0513</span></span>
+<span><span class="co">#&gt; posterior            0.6022 0.0505</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The two estimates differ only through the prior’s pseudo-counts, and so do the two measures of spread; both differences vanish as <span class="math inline">\(n\)</span> grows. The MCMC mean in <a href="#exm-mh-bernoulli" class="quarto-xref">Example&nbsp;6</a> agrees with the exact posterior mean, and so with the maximum likelihood estimate to about two decimal places.</p>
 </div>
@@ -1468,22 +1457,22 @@ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}).
 <div id="exm-dic-bernoulli" class="theorem example">
 <p><span class="theorem-title"><strong>Example 11 (DIC for the Bernoulli model)</strong></span> For <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, <span class="math inline">\(D(\pi) = -2\mathopen{}\left(r \log \pi + (n - r) \log(1 - \pi)\right)\mathclose{}\)</span>. We estimate <span class="math inline">\(\overline{D}\)</span> and <span class="math inline">\(\bar\pi\)</span> from 5,000 draws from the <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span> posterior of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-label="1"></a>deviance_bernoulli <span class="ot">&lt;-</span> <span class="cf">function</span>(pi, <span class="at">r =</span> <span class="dv">55</span>, <span class="at">n =</span> <span class="dv">91</span>) {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-label="2"></a>  <span class="sc">-</span><span class="dv">2</span> <span class="sc">*</span> (r <span class="sc">*</span> <span class="fu">log</span>(pi) <span class="sc">+</span> (n <span class="sc">-</span> r) <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> pi))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-label="3"></a>}</span>
-<span id="cb8-4"><a href="#cb8-4" aria-label="4"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-label="5"></a>pi_draws <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rbeta</span>(<span class="dv">5000</span>, <span class="at">shape1 =</span> <span class="dv">56</span>, <span class="at">shape2 =</span> <span class="dv">37</span>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-label="6"></a>d_bar <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">deviance_bernoulli</span>(pi_draws))</span>
-<span id="cb8-7"><a href="#cb8-7" aria-label="7"></a>d_at_mean <span class="ot">&lt;-</span> <span class="fu">deviance_bernoulli</span>(<span class="fu">mean</span>(pi_draws))</span>
-<span id="cb8-8"><a href="#cb8-8" aria-label="8"></a><span class="fu">c</span>(</span>
-<span id="cb8-9"><a href="#cb8-9" aria-label="9"></a>  <span class="at">d_bar =</span> d_bar,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-label="10"></a>  <span class="at">d_at_mean =</span> d_at_mean,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-label="11"></a>  <span class="at">p_d =</span> d_bar <span class="sc">-</span> d_at_mean,</span>
-<span id="cb8-12"><a href="#cb8-12" aria-label="12"></a>  <span class="at">dic =</span> <span class="dv">2</span> <span class="sc">*</span> d_bar <span class="sc">-</span> d_at_mean</span>
-<span id="cb8-13"><a href="#cb8-13" aria-label="13"></a>) <span class="sc">|&gt;</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-label="14"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-label="15"></a><span class="co">#&gt;     d_bar d_at_mean       p_d       dic </span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-label="16"></a><span class="co">#&gt;    123.13    122.16      0.97    124.10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">deviance_bernoulli</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">pi</span>, <span class="va">r</span> <span class="op">=</span> <span class="fl">55</span>, <span class="va">n</span> <span class="op">=</span> <span class="fl">91</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="op">-</span><span class="fl">2</span> <span class="op">*</span> <span class="op">(</span><span class="va">r</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">pi</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="va">n</span> <span class="op">-</span> <span class="va">r</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="va">pi</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="va">pi_draws</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">rbeta</a></span><span class="op">(</span><span class="fl">5000</span>, shape1 <span class="op">=</span> <span class="fl">56</span>, shape2 <span class="op">=</span> <span class="fl">37</span><span class="op">)</span></span>
+<span><span class="va">d_bar</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu">deviance_bernoulli</span><span class="op">(</span><span class="va">pi_draws</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">d_at_mean</span> <span class="op">&lt;-</span> <span class="fu">deviance_bernoulli</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">pi_draws</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  d_bar <span class="op">=</span> <span class="va">d_bar</span>,</span>
+<span>  d_at_mean <span class="op">=</span> <span class="va">d_at_mean</span>,</span>
+<span>  p_d <span class="op">=</span> <span class="va">d_bar</span> <span class="op">-</span> <span class="va">d_at_mean</span>,</span>
+<span>  dic <span class="op">=</span> <span class="fl">2</span> <span class="op">*</span> <span class="va">d_bar</span> <span class="op">-</span> <span class="va">d_at_mean</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">#&gt;     d_bar d_at_mean       p_d       dic </span></span>
+<span><span class="co">#&gt;    123.13    122.16      0.97    124.10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The model has one parameter, and its effective number of parameters <span class="math inline">\(p_D\)</span> is close to 1.</p>
 </div>
@@ -2245,220 +2234,220 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-label="1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-label="2"></a><span class="an">title:</span><span class="co"> "Markov Chain Monte Carlo"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-label="3"></a><span class="an">format:</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-label="4"></a><span class="co">  html: default</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-label="5"></a><span class="co">  revealjs:</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-label="6"></a><span class="co">    output-file: mcmc-slides.html</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-label="7"></a><span class="co">  pdf:</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-label="8"></a><span class="co">    output-file: mcmc-handout.pdf</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-label="9"></a><span class="co">  docx:</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-label="10"></a><span class="co">    output-file: mcmc-handout.docx</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-label="11"></a><span class="an">preview-changed:</span><span class="co"> true</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-label="12"></a><span class="co">---</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-label="13"></a>{{&lt; include sds/_subfiles/shared-config.qmd &gt;}}</span>
-<span id="cb9-14"><a href="#cb9-14" aria-label="14"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-label="15"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-overview.qmd &gt;}}</span>
-<span id="cb9-16"><a href="#cb9-16" aria-label="16"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-label="17"></a><span class="fu">## Foundations of MCMC {#sec-foundations}</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-label="18"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-label="19"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-intro.qmd &gt;}}</span>
-<span id="cb9-20"><a href="#cb9-20" aria-label="20"></a></span>
-<span id="cb9-21"><a href="#cb9-21" aria-label="21"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-22"><a href="#cb9-22" aria-label="22"></a></span>
-<span id="cb9-23"><a href="#cb9-23" aria-label="23"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-mcmc.qmd &gt;}}</span>
-<span id="cb9-24"><a href="#cb9-24" aria-label="24"></a></span>
-<span id="cb9-25"><a href="#cb9-25" aria-label="25"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-26"><a href="#cb9-26" aria-label="26"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-label="27"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-mcmc.qmd &gt;}}</span>
-<span id="cb9-28"><a href="#cb9-28" aria-label="28"></a></span>
-<span id="cb9-29"><a href="#cb9-29" aria-label="29"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-30"><a href="#cb9-30" aria-label="30"></a></span>
-<span id="cb9-31"><a href="#cb9-31" aria-label="31"></a><span class="fu">### Why the normalizing constant is hard to compute</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-label="32"></a></span>
-<span id="cb9-33"><a href="#cb9-33" aria-label="33"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-normalizing-constant.qmd &gt;}}</span>
-<span id="cb9-34"><a href="#cb9-34" aria-label="34"></a></span>
-<span id="cb9-35"><a href="#cb9-35" aria-label="35"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-36"><a href="#cb9-36" aria-label="36"></a></span>
-<span id="cb9-37"><a href="#cb9-37" aria-label="37"></a><span class="fu">### Monte Carlo integration</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-label="38"></a></span>
-<span id="cb9-39"><a href="#cb9-39" aria-label="39"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-monte-carlo-estimate div. --&gt;</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-label="40"></a></span>
-<span id="cb9-41"><a href="#cb9-41" aria-label="41"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-monte-carlo-estimate.qmd &gt;}}</span>
-<span id="cb9-42"><a href="#cb9-42" aria-label="42"></a></span>
-<span id="cb9-43"><a href="#cb9-43" aria-label="43"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-44"><a href="#cb9-44" aria-label="44"></a></span>
-<span id="cb9-45"><a href="#cb9-45" aria-label="45"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-monte-carlo.qmd &gt;}}</span>
-<span id="cb9-46"><a href="#cb9-46" aria-label="46"></a></span>
-<span id="cb9-47"><a href="#cb9-47" aria-label="47"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-48"><a href="#cb9-48" aria-label="48"></a></span>
-<span id="cb9-49"><a href="#cb9-49" aria-label="49"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-mc-bernoulli.qmd &gt;}}</span>
-<span id="cb9-50"><a href="#cb9-50" aria-label="50"></a></span>
-<span id="cb9-51"><a href="#cb9-51" aria-label="51"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-52"><a href="#cb9-52" aria-label="52"></a></span>
-<span id="cb9-53"><a href="#cb9-53" aria-label="53"></a><span class="fu">### Markov chains</span></span>
-<span id="cb9-54"><a href="#cb9-54" aria-label="54"></a></span>
-<span id="cb9-55"><a href="#cb9-55" aria-label="55"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-markov-chain div. --&gt;</span></span>
-<span id="cb9-56"><a href="#cb9-56" aria-label="56"></a></span>
-<span id="cb9-57"><a href="#cb9-57" aria-label="57"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-markov-chain.qmd &gt;}}</span>
-<span id="cb9-58"><a href="#cb9-58" aria-label="58"></a></span>
-<span id="cb9-59"><a href="#cb9-59" aria-label="59"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-60"><a href="#cb9-60" aria-label="60"></a></span>
-<span id="cb9-61"><a href="#cb9-61" aria-label="61"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-stationary-distribution.qmd &gt;}}</span>
-<span id="cb9-62"><a href="#cb9-62" aria-label="62"></a></span>
-<span id="cb9-63"><a href="#cb9-63" aria-label="63"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-64"><a href="#cb9-64" aria-label="64"></a></span>
-<span id="cb9-65"><a href="#cb9-65" aria-label="65"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-two-state-chain.qmd &gt;}}</span>
-<span id="cb9-66"><a href="#cb9-66" aria-label="66"></a></span>
-<span id="cb9-67"><a href="#cb9-67" aria-label="67"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-68"><a href="#cb9-68" aria-label="68"></a></span>
-<span id="cb9-69"><a href="#cb9-69" aria-label="69"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-target.qmd &gt;}}</span>
-<span id="cb9-70"><a href="#cb9-70" aria-label="70"></a></span>
-<span id="cb9-71"><a href="#cb9-71" aria-label="71"></a><span class="fu">## MCMC samplers {#sec-samplers}</span></span>
-<span id="cb9-72"><a href="#cb9-72" aria-label="72"></a></span>
-<span id="cb9-73"><a href="#cb9-73" aria-label="73"></a><span class="fu">### The Metropolis--Hastings algorithm</span></span>
-<span id="cb9-74"><a href="#cb9-74" aria-label="74"></a></span>
-<span id="cb9-75"><a href="#cb9-75" aria-label="75"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-proposal-distribution div. --&gt;</span></span>
-<span id="cb9-76"><a href="#cb9-76" aria-label="76"></a></span>
-<span id="cb9-77"><a href="#cb9-77" aria-label="77"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-proposal-distribution.qmd &gt;}}</span>
-<span id="cb9-78"><a href="#cb9-78" aria-label="78"></a></span>
-<span id="cb9-79"><a href="#cb9-79" aria-label="79"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-80"><a href="#cb9-80" aria-label="80"></a></span>
-<span id="cb9-81"><a href="#cb9-81" aria-label="81"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-symmetric-proposal.qmd &gt;}}</span>
-<span id="cb9-82"><a href="#cb9-82" aria-label="82"></a></span>
-<span id="cb9-83"><a href="#cb9-83" aria-label="83"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-84"><a href="#cb9-84" aria-label="84"></a></span>
-<span id="cb9-85"><a href="#cb9-85" aria-label="85"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-proposal-distribution.qmd &gt;}}</span>
-<span id="cb9-86"><a href="#cb9-86" aria-label="86"></a></span>
-<span id="cb9-87"><a href="#cb9-87" aria-label="87"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-88"><a href="#cb9-88" aria-label="88"></a></span>
-<span id="cb9-89"><a href="#cb9-89" aria-label="89"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-acceptance-ratio.qmd &gt;}}</span>
-<span id="cb9-90"><a href="#cb9-90" aria-label="90"></a></span>
-<span id="cb9-91"><a href="#cb9-91" aria-label="91"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-92"><a href="#cb9-92" aria-label="92"></a></span>
-<span id="cb9-93"><a href="#cb9-93" aria-label="93"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-acceptance-ratio.qmd &gt;}}</span>
-<span id="cb9-94"><a href="#cb9-94" aria-label="94"></a></span>
-<span id="cb9-95"><a href="#cb9-95" aria-label="95"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-96"><a href="#cb9-96" aria-label="96"></a></span>
-<span id="cb9-97"><a href="#cb9-97" aria-label="97"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-mh.qmd &gt;}}</span>
-<span id="cb9-98"><a href="#cb9-98" aria-label="98"></a></span>
-<span id="cb9-99"><a href="#cb9-99" aria-label="99"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-100"><a href="#cb9-100" aria-label="100"></a></span>
-<span id="cb9-101"><a href="#cb9-101" aria-label="101"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mh.qmd &gt;}}</span>
-<span id="cb9-102"><a href="#cb9-102" aria-label="102"></a></span>
-<span id="cb9-103"><a href="#cb9-103" aria-label="103"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-104"><a href="#cb9-104" aria-label="104"></a></span>
-<span id="cb9-105"><a href="#cb9-105" aria-label="105"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-mh-bernoulli.qmd &gt;}}</span>
-<span id="cb9-106"><a href="#cb9-106" aria-label="106"></a></span>
-<span id="cb9-107"><a href="#cb9-107" aria-label="107"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-108"><a href="#cb9-108" aria-label="108"></a></span>
-<span id="cb9-109"><a href="#cb9-109" aria-label="109"></a><span class="fu">### Trace plots and burn-in {#sec-burnin}</span></span>
-<span id="cb9-110"><a href="#cb9-110" aria-label="110"></a></span>
-<span id="cb9-111"><a href="#cb9-111" aria-label="111"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-trace-plot div. --&gt;</span></span>
-<span id="cb9-112"><a href="#cb9-112" aria-label="112"></a></span>
-<span id="cb9-113"><a href="#cb9-113" aria-label="113"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-trace-plot.qmd &gt;}}</span>
-<span id="cb9-114"><a href="#cb9-114" aria-label="114"></a></span>
-<span id="cb9-115"><a href="#cb9-115" aria-label="115"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-116"><a href="#cb9-116" aria-label="116"></a></span>
-<span id="cb9-117"><a href="#cb9-117" aria-label="117"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-burnin.qmd &gt;}}</span>
-<span id="cb9-118"><a href="#cb9-118" aria-label="118"></a></span>
-<span id="cb9-119"><a href="#cb9-119" aria-label="119"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-120"><a href="#cb9-120" aria-label="120"></a></span>
-<span id="cb9-121"><a href="#cb9-121" aria-label="121"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-burnin.qmd &gt;}}</span>
-<span id="cb9-122"><a href="#cb9-122" aria-label="122"></a></span>
-<span id="cb9-123"><a href="#cb9-123" aria-label="123"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-124"><a href="#cb9-124" aria-label="124"></a></span>
-<span id="cb9-125"><a href="#cb9-125" aria-label="125"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-burnin.qmd &gt;}}</span>
-<span id="cb9-126"><a href="#cb9-126" aria-label="126"></a></span>
-<span id="cb9-127"><a href="#cb9-127" aria-label="127"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-128"><a href="#cb9-128" aria-label="128"></a></span>
-<span id="cb9-129"><a href="#cb9-129" aria-label="129"></a><span class="fu">### The Gibbs sampler</span></span>
-<span id="cb9-130"><a href="#cb9-130" aria-label="130"></a></span>
-<span id="cb9-131"><a href="#cb9-131" aria-label="131"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-full-conditional div. --&gt;</span></span>
-<span id="cb9-132"><a href="#cb9-132" aria-label="132"></a></span>
-<span id="cb9-133"><a href="#cb9-133" aria-label="133"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-full-conditional.qmd &gt;}}</span>
-<span id="cb9-134"><a href="#cb9-134" aria-label="134"></a></span>
-<span id="cb9-135"><a href="#cb9-135" aria-label="135"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-136"><a href="#cb9-136" aria-label="136"></a></span>
-<span id="cb9-137"><a href="#cb9-137" aria-label="137"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-gibbs-sampler.qmd &gt;}}</span>
-<span id="cb9-138"><a href="#cb9-138" aria-label="138"></a></span>
-<span id="cb9-139"><a href="#cb9-139" aria-label="139"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-140"><a href="#cb9-140" aria-label="140"></a></span>
-<span id="cb9-141"><a href="#cb9-141" aria-label="141"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-gibbs.qmd &gt;}}</span>
-<span id="cb9-142"><a href="#cb9-142" aria-label="142"></a></span>
-<span id="cb9-143"><a href="#cb9-143" aria-label="143"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-144"><a href="#cb9-144" aria-label="144"></a></span>
-<span id="cb9-145"><a href="#cb9-145" aria-label="145"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-gibbs-bivariate-normal.qmd &gt;}}</span>
-<span id="cb9-146"><a href="#cb9-146" aria-label="146"></a></span>
-<span id="cb9-147"><a href="#cb9-147" aria-label="147"></a><span class="fu">## Checking and improving MCMC {#sec-diagnostics}</span></span>
-<span id="cb9-148"><a href="#cb9-148" aria-label="148"></a></span>
-<span id="cb9-149"><a href="#cb9-149" aria-label="149"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-diagnostics.qmd &gt;}}</span>
-<span id="cb9-150"><a href="#cb9-150" aria-label="150"></a></span>
-<span id="cb9-151"><a href="#cb9-151" aria-label="151"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-152"><a href="#cb9-152" aria-label="152"></a></span>
-<span id="cb9-153"><a href="#cb9-153" aria-label="153"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-psrf.qmd &gt;}}</span>
-<span id="cb9-154"><a href="#cb9-154" aria-label="154"></a></span>
-<span id="cb9-155"><a href="#cb9-155" aria-label="155"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-156"><a href="#cb9-156" aria-label="156"></a></span>
-<span id="cb9-157"><a href="#cb9-157" aria-label="157"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-psrf.qmd &gt;}}</span>
-<span id="cb9-158"><a href="#cb9-158" aria-label="158"></a></span>
-<span id="cb9-159"><a href="#cb9-159" aria-label="159"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-160"><a href="#cb9-160" aria-label="160"></a></span>
-<span id="cb9-161"><a href="#cb9-161" aria-label="161"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-psrf.qmd &gt;}}</span>
-<span id="cb9-162"><a href="#cb9-162" aria-label="162"></a></span>
-<span id="cb9-163"><a href="#cb9-163" aria-label="163"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-164"><a href="#cb9-164" aria-label="164"></a></span>
-<span id="cb9-165"><a href="#cb9-165" aria-label="165"></a><span class="fu">### Comparing MCMC estimates to maximum likelihood {#sec-mcmc-vs-mle}</span></span>
-<span id="cb9-166"><a href="#cb9-166" aria-label="166"></a></span>
-<span id="cb9-167"><a href="#cb9-167" aria-label="167"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-vs-mle.qmd &gt;}}</span>
-<span id="cb9-168"><a href="#cb9-168" aria-label="168"></a></span>
-<span id="cb9-169"><a href="#cb9-169" aria-label="169"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-170"><a href="#cb9-170" aria-label="170"></a></span>
-<span id="cb9-171"><a href="#cb9-171" aria-label="171"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-mcmc-vs-mle.qmd &gt;}}</span>
-<span id="cb9-172"><a href="#cb9-172" aria-label="172"></a></span>
-<span id="cb9-173"><a href="#cb9-173" aria-label="173"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-174"><a href="#cb9-174" aria-label="174"></a></span>
-<span id="cb9-175"><a href="#cb9-175" aria-label="175"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-discrepancy.qmd &gt;}}</span>
-<span id="cb9-176"><a href="#cb9-176" aria-label="176"></a></span>
-<span id="cb9-177"><a href="#cb9-177" aria-label="177"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-178"><a href="#cb9-178" aria-label="178"></a></span>
-<span id="cb9-179"><a href="#cb9-179" aria-label="179"></a><span class="fu">### The importance of parameterization {#sec-mcmc-parameterization}</span></span>
-<span id="cb9-180"><a href="#cb9-180" aria-label="180"></a></span>
-<span id="cb9-181"><a href="#cb9-181" aria-label="181"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-parameterization.qmd &gt;}}</span>
-<span id="cb9-182"><a href="#cb9-182" aria-label="182"></a></span>
-<span id="cb9-183"><a href="#cb9-183" aria-label="183"></a><span class="fu">## Deviance information criterion {#sec-dic}</span></span>
-<span id="cb9-184"><a href="#cb9-184" aria-label="184"></a></span>
-<span id="cb9-185"><a href="#cb9-185" aria-label="185"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-dic-intro.qmd &gt;}}</span>
-<span id="cb9-186"><a href="#cb9-186" aria-label="186"></a></span>
-<span id="cb9-187"><a href="#cb9-187" aria-label="187"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-188"><a href="#cb9-188" aria-label="188"></a></span>
-<span id="cb9-189"><a href="#cb9-189" aria-label="189"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-bayes-deviance.qmd &gt;}}</span>
-<span id="cb9-190"><a href="#cb9-190" aria-label="190"></a></span>
-<span id="cb9-191"><a href="#cb9-191" aria-label="191"></a>{{&lt; include sds/_subfiles/bayesian-inference/_note-bayes-deviance.qmd &gt;}}</span>
-<span id="cb9-192"><a href="#cb9-192" aria-label="192"></a></span>
-<span id="cb9-193"><a href="#cb9-193" aria-label="193"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-194"><a href="#cb9-194" aria-label="194"></a></span>
-<span id="cb9-195"><a href="#cb9-195" aria-label="195"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-effective-parameters.qmd &gt;}}</span>
-<span id="cb9-196"><a href="#cb9-196" aria-label="196"></a></span>
-<span id="cb9-197"><a href="#cb9-197" aria-label="197"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-198"><a href="#cb9-198" aria-label="198"></a></span>
-<span id="cb9-199"><a href="#cb9-199" aria-label="199"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-dic.qmd &gt;}}</span>
-<span id="cb9-200"><a href="#cb9-200" aria-label="200"></a></span>
-<span id="cb9-201"><a href="#cb9-201" aria-label="201"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-202"><a href="#cb9-202" aria-label="202"></a></span>
-<span id="cb9-203"><a href="#cb9-203" aria-label="203"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-dic.qmd &gt;}}</span>
-<span id="cb9-204"><a href="#cb9-204" aria-label="204"></a></span>
-<span id="cb9-205"><a href="#cb9-205" aria-label="205"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb9-206"><a href="#cb9-206" aria-label="206"></a></span>
-<span id="cb9-207"><a href="#cb9-207" aria-label="207"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-dic-bernoulli.qmd &gt;}}</span>
-<span id="cb9-208"><a href="#cb9-208" aria-label="208"></a></span>
-<span id="cb9-209"><a href="#cb9-209" aria-label="209"></a>{{&lt; include sds/_subfiles/bayesian-inference/_note-dic-caveats.qmd &gt;}}</span>
-<span id="cb9-210"><a href="#cb9-210" aria-label="210"></a></span>
-<span id="cb9-211"><a href="#cb9-211" aria-label="211"></a><span class="fu">## References {.unnumbered}</span></span>
-<span id="cb9-212"><a href="#cb9-212" aria-label="212"></a></span>
-<span id="cb9-213"><a href="#cb9-213" aria-label="213"></a>::: {#refs}</span>
-<span id="cb9-214"><a href="#cb9-214" aria-label="214"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Markov Chain Monte Carlo"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">  revealjs:</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: mcmc-slides.html</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: mcmc-handout.pdf</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: mcmc-handout.docx</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="an">preview-changed:</span><span class="co"> true</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/shared-config.qmd &gt;}}</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-overview.qmd &gt;}}</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## Foundations of MCMC {#sec-foundations}</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-intro.qmd &gt;}}</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-mcmc.qmd &gt;}}</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-mcmc.qmd &gt;}}</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="fu">### Why the normalizing constant is hard to compute</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-normalizing-constant.qmd &gt;}}</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="fu">### Monte Carlo integration</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-monte-carlo-estimate div. --&gt;</span></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-monte-carlo-estimate.qmd &gt;}}</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-monte-carlo.qmd &gt;}}</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-mc-bernoulli.qmd &gt;}}</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Markov chains</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-markov-chain div. --&gt;</span></span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-markov-chain.qmd &gt;}}</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-stationary-distribution.qmd &gt;}}</span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-two-state-chain.qmd &gt;}}</span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-target.qmd &gt;}}</span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a><span class="fu">## MCMC samplers {#sec-samplers}</span></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Metropolis--Hastings algorithm</span></span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-proposal-distribution div. --&gt;</span></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-proposal-distribution.qmd &gt;}}</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-symmetric-proposal.qmd &gt;}}</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-proposal-distribution.qmd &gt;}}</span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-acceptance-ratio.qmd &gt;}}</span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-acceptance-ratio.qmd &gt;}}</span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-mh.qmd &gt;}}</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mh.qmd &gt;}}</span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-mh-bernoulli.qmd &gt;}}</span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Trace plots and burn-in {#sec-burnin}</span></span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-trace-plot div. --&gt;</span></span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-trace-plot.qmd &gt;}}</span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-burnin.qmd &gt;}}</span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-burnin.qmd &gt;}}</span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-burnin.qmd &gt;}}</span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Gibbs sampler</span></span>
+<span id="cb9-130"><a href="#cb9-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-131"><a href="#cb9-131" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-full-conditional div. --&gt;</span></span>
+<span id="cb9-132"><a href="#cb9-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-133"><a href="#cb9-133" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-full-conditional.qmd &gt;}}</span>
+<span id="cb9-134"><a href="#cb9-134" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-135"><a href="#cb9-135" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-136"><a href="#cb9-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-137"><a href="#cb9-137" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-gibbs-sampler.qmd &gt;}}</span>
+<span id="cb9-138"><a href="#cb9-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-139"><a href="#cb9-139" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-140"><a href="#cb9-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-141"><a href="#cb9-141" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-gibbs.qmd &gt;}}</span>
+<span id="cb9-142"><a href="#cb9-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-143"><a href="#cb9-143" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-144"><a href="#cb9-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-145"><a href="#cb9-145" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-gibbs-bivariate-normal.qmd &gt;}}</span>
+<span id="cb9-146"><a href="#cb9-146" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-147"><a href="#cb9-147" aria-hidden="true" tabindex="-1"></a><span class="fu">## Checking and improving MCMC {#sec-diagnostics}</span></span>
+<span id="cb9-148"><a href="#cb9-148" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-149"><a href="#cb9-149" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-diagnostics.qmd &gt;}}</span>
+<span id="cb9-150"><a href="#cb9-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-151"><a href="#cb9-151" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-152"><a href="#cb9-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-153"><a href="#cb9-153" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-psrf.qmd &gt;}}</span>
+<span id="cb9-154"><a href="#cb9-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-155"><a href="#cb9-155" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-156"><a href="#cb9-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-157"><a href="#cb9-157" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-psrf.qmd &gt;}}</span>
+<span id="cb9-158"><a href="#cb9-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-159"><a href="#cb9-159" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-160"><a href="#cb9-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-161"><a href="#cb9-161" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-psrf.qmd &gt;}}</span>
+<span id="cb9-162"><a href="#cb9-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-163"><a href="#cb9-163" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-164"><a href="#cb9-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-165"><a href="#cb9-165" aria-hidden="true" tabindex="-1"></a><span class="fu">### Comparing MCMC estimates to maximum likelihood {#sec-mcmc-vs-mle}</span></span>
+<span id="cb9-166"><a href="#cb9-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-167"><a href="#cb9-167" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-vs-mle.qmd &gt;}}</span>
+<span id="cb9-168"><a href="#cb9-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-169"><a href="#cb9-169" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-170"><a href="#cb9-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-171"><a href="#cb9-171" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-mcmc-vs-mle.qmd &gt;}}</span>
+<span id="cb9-172"><a href="#cb9-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-173"><a href="#cb9-173" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-174"><a href="#cb9-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-175"><a href="#cb9-175" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-mcmc-discrepancy.qmd &gt;}}</span>
+<span id="cb9-176"><a href="#cb9-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-177"><a href="#cb9-177" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-178"><a href="#cb9-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-179"><a href="#cb9-179" aria-hidden="true" tabindex="-1"></a><span class="fu">### The importance of parameterization {#sec-mcmc-parameterization}</span></span>
+<span id="cb9-180"><a href="#cb9-180" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-181"><a href="#cb9-181" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-parameterization.qmd &gt;}}</span>
+<span id="cb9-182"><a href="#cb9-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-183"><a href="#cb9-183" aria-hidden="true" tabindex="-1"></a><span class="fu">## Deviance information criterion {#sec-dic}</span></span>
+<span id="cb9-184"><a href="#cb9-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-185"><a href="#cb9-185" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-dic-intro.qmd &gt;}}</span>
+<span id="cb9-186"><a href="#cb9-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-187"><a href="#cb9-187" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-188"><a href="#cb9-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-189"><a href="#cb9-189" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-bayes-deviance.qmd &gt;}}</span>
+<span id="cb9-190"><a href="#cb9-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-191"><a href="#cb9-191" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_note-bayes-deviance.qmd &gt;}}</span>
+<span id="cb9-192"><a href="#cb9-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-193"><a href="#cb9-193" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-194"><a href="#cb9-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-195"><a href="#cb9-195" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-effective-parameters.qmd &gt;}}</span>
+<span id="cb9-196"><a href="#cb9-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-197"><a href="#cb9-197" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-198"><a href="#cb9-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-199"><a href="#cb9-199" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-dic.qmd &gt;}}</span>
+<span id="cb9-200"><a href="#cb9-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-201"><a href="#cb9-201" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-202"><a href="#cb9-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-203"><a href="#cb9-203" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-dic.qmd &gt;}}</span>
+<span id="cb9-204"><a href="#cb9-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-205"><a href="#cb9-205" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb9-206"><a href="#cb9-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-207"><a href="#cb9-207" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-dic-bernoulli.qmd &gt;}}</span>
+<span id="cb9-208"><a href="#cb9-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-209"><a href="#cb9-209" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_note-dic-caveats.qmd &gt;}}</span>
+<span id="cb9-210"><a href="#cb9-210" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-211"><a href="#cb9-211" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb9-212"><a href="#cb9-212" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-213"><a href="#cb9-213" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb9-214"><a href="#cb9-214" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

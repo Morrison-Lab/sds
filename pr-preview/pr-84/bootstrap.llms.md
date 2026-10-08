@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 11:09:33 (PDT)
+Last modified: 2026-10-08 11:23:15 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
@@ -12,7 +12,7 @@ This page reviews the bootstrap, a resampling method for standard errors and con
 
 The examples on this page use the HERS data, which the [Comparing Means](basic-statistical-methods.llms.md#sec-hers-intro) page describes. The `rmb` R package includes the dataset; [`haven::as_factor()`](https://forcats.tidyverse.org/reference/as_factor.html) converts its Stata value labels to factors:
 
-``` numberSource
+``` downlit
 hers <- rmb::hers |> haven::as_factor()
 hers |> head()
 ```
@@ -41,7 +41,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > **Example 1 (Bootstrap samples of five glucose values)** Take the baseline fasting glucose values of the first five HERS participants, and draw two bootstrap samples from them:
 >
-> ``` numberSource
+> ``` downlit
 > glucose5 <- hers$glucose[1:5]
 > glucose5
 > #> [1]  84 111 114  94 101
@@ -75,7 +75,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > **Example 2 (Bootstrap distribution of a mean of ten glucose values)** Take the baseline fasting glucose values of the first ten HERS participants, and compute the sample mean of each of \\B = 1{,}000\\ bootstrap samples:
 >
-> ``` numberSource
+> ``` downlit
 > glucose10 <- hers$glucose[1:10]
 > set.seed(42)
 > boot_means10 <- replicate(1000, mean(sample(glucose10, replace = TRUE)))
@@ -93,7 +93,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > Show R code
 >
-> ``` numberSource
+> ``` downlit
 > tibble::tibble(mean = boot_means10) |>
 >   ggplot2::ggplot() +
 >   ggplot2::aes(x = mean) +
@@ -128,7 +128,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 >
 > **Example 3 (Normal bootstrap interval for the mean of ten glucose values)** Continuing [Example 2](#exm-bootstrap-distribution-toy), the 95% interval of [Definition 4](#def-bootstrap-ci-normal) is:
 >
-> ``` numberSource
+> ``` downlit
 > mean(glucose10) +
 >   c(lower = -1, upper = 1) * qnorm(0.975) * sd(boot_means10)
 > #>    lower    upper 
@@ -149,7 +149,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 >
 > **Example 4 (Percentile bootstrap interval for the mean of ten glucose values)** Continuing [Example 2](#exm-bootstrap-distribution-toy), the 95% interval of [Definition 5](#def-bootstrap-ci-percentile) is:
 >
-> ``` numberSource
+> ``` downlit
 > quantile(boot_means10, c(0.025, 0.975))
 > #>  2.5% 97.5% 
 > #>  96.5 110.4
@@ -197,7 +197,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 >
 > **Example 7 (BCa bootstrap interval for the mean of ten glucose values)** Continuing [Example 2](#exm-bootstrap-distribution-toy), the quantities of [Definition 8](#def-bootstrap-ci-bca), step by step:
 >
-> ``` numberSource
+> ``` downlit
 > z0 <- qnorm(mean(boot_means10 < mean(glucose10)))
 > jackknife_means <- vapply(1:10, \(i) mean(glucose10[-i]), numeric(1))
 > dev <- mean(jackknife_means) - jackknife_means
@@ -227,7 +227,7 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 >
 > **Example 8 (Bootstrap confidence intervals for the slope of SBP on age in HERS)** We regress systolic blood pressure (`SBP`) on `age` by [ordinary least squares](correlation-regression.llms.md#def-ols), and bootstrap the slope, resampling participants (adapted from [Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)). The statistic function takes the data and the row indices of one bootstrap sample:
 >
-> ``` numberSource
+> ``` downlit
 > slope_sbp_age <- function(data, indices) {
 >   fit <- lm(SBP ~ age, data = data[indices, ])
 >   coef(fit)[["age"]]
@@ -251,7 +251,7 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 >
 > The bootstrap standard error is close to the model-based standard error from [`lm()`](https://rdrr.io/r/stats/lm.html), and the three bootstrap intervals are close to the model-based 95% confidence interval:
 >
-> ``` numberSource
+> ``` downlit
 > fit_sbp_age <- lm(SBP ~ age, data = hers)
 > summary(fit_sbp_age)$coefficients["age", ]
 > #>    Estimate  Std. Error     t value    Pr(>|t|) 
