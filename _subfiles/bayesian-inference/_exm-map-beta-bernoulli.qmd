@@ -14,9 +14,15 @@ $$
 0
 &= \frac{\alpha - 1}{\pi} - \frac{\beta - 1}{1 - \pi}
 && \text{(derivative of the log density)}\\
+0
+&= (\alpha - 1)(1 - \pi) - (\beta - 1)\pi
+&& \text{(multiplying by $\pi(1-\pi)$)}\\
 (\alpha - 1)(1 - \pi)
 &= (\beta - 1)\pi
-&& \text{(multiplying by $\pi(1-\pi)$ and rearranging)}\\
+&& \text{(adding $(\beta - 1)\pi$ to both sides)}\\
+\alpha - 1
+&= (\alpha - 1)\pi + (\beta - 1)\pi
+&& \text{(adding $(\alpha - 1)\pi$ to both sides)}\\
 \alpha - 1
 &= (\alpha + \beta - 2)\pi
 && \text{(collecting the terms in $\pi$)},
