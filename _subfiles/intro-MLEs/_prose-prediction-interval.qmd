@@ -1,4 +1,4 @@
-Suppose $X_1, \ldots, X_n \siid \ndist{\mu, \sigma^2}$ with $\sigma^2$ known,
+Suppose $\dsn{X} \siid \ndist{\mu, \sigma^2}$ with $\sigma^2$ known,
 and we want to predict the mean $\bar X^*$ of $m$ new observations
 from the same distribution,
 independent of the first $n$.

@@ -1,7 +1,7 @@
 :::{#exm-information-equality}
 #### Checking the information equality for Poisson data
 
-For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+For $\dsn{X} \siid \Pois(\rate)$,
 the score is $\score = \sumin X_i/\rate - n$
 (@exm-information-poisson). Then:
 

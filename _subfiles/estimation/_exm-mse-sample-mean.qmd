@@ -2,7 +2,7 @@
 #### Mean squared error of two estimators of a mean
 
 Continuing @exm-bias-sample-mean,
-suppose also that $X_1, \ldots, X_n$ are mutually independent,
+suppose also that $\dsn{X}$ are mutually independent,
 each with variance $\Var{X_i} = \sigma^2$.
 Both $\bar X$ and $X_1$ have zero bias,
 so by @thm-mse-bias-variance each estimator's mean squared error
@@ -21,7 +21,7 @@ $$
 && \text{(zero bias)}\\
 &= \Var{\bar X}
 && \text{($0^2 = 0$)}\\
-&= \Var{\frac{1}{n}\sumin X_i}
+&= \Var{\avgin X_i}
 && \text{(definition of $\bar X$)}\\
 &= \frac{1}{n^2}\sumin \Var{X_i}
 && \text{(variance of a linear combination of independent variables)}\\

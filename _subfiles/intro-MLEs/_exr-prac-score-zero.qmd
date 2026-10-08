@@ -1,7 +1,7 @@
 ::: {#exr-prac-score-zero}
 #### Score at the MLE (adapted from @dobson4e, Chapter 3)
 
-Let $X_1, \ldots, X_n \siid \Pois(\rate)$.
+Let $\dsn{X} \siid \Pois(\rate)$.
 
 **(a)** Write the log-likelihood $\ell(\rate; \vx)$.
 
@@ -21,7 +21,7 @@ why does the score being zero at $\hat\rate_{ML}$ make sense?
 $$
 \ba
 \ell(\rate; \vx)
-&= \logf{\prod_{i=1}^n \frac{\rate^{x_i} e^{-\rate}}{x_i!}}
+&= \logf{\prodin \frac{\rate^{x_i} e^{-\rate}}{x_i!}}
 && \text{(log of the likelihood of an $\iid$ sample)}
 \\
 &= \sumin \logf{\frac{\rate^{x_i} e^{-\rate}}{x_i!}}

@@ -3,7 +3,7 @@
 
 For a regression model with conditional mean $\mean(x; \vth)$,
 let $\fitted_i \eqdef \mean(x_i; \vth)$
-be its predictions of $n \ge 1$ outcomes $y_1, \ldots, y_n$,
+be its predictions of $n \ge 1$ outcomes $\dsn{y}$,
 and let $\text{RSS}(\vth)$ (@def-rss) be taken over those same outcomes.
 Write the [mean squared error](estimation.qmd#def-prediction-mse)
 of these predictions in terms of $\text{RSS}(\vth)$,
@@ -40,9 +40,9 @@ So the mean squared error is the residual sum of squares divided by $n$:
 $$
 \begin{aligned}
 \mselr{\fitted}
-&= \frac{1}{n} \sumin \prederr_i^2
+&= \avgin \prederr_i^2
 && \text{(definition of mean squared error)}\\
-&= \frac{1}{n} \sumin \resid_i(\vth)^2
+&= \avgin \resid_i(\vth)^2
 && \text{($\prederr_i^2 = \resid_i(\vth)^2$)}\\
 &= \frac{1}{n} \text{RSS}(\vth)
 && \text{(definition of RSS)}

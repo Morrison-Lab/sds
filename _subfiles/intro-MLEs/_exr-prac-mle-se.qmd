@@ -1,7 +1,7 @@
 ::: {#exr-prac-mle-se}
 #### Standard error of an MLE (adapted from @dobson4e, Chapter 5)
 
-Let $X_1, \ldots, X_n \siid \Pois(\rate)$.
+Let $\dsn{X} \siid \Pois(\rate)$.
 
 **(a)** Derive the Hessian $\ell''(\rate; \vx) = \deriv[2]{\rate}\ell(\rate;\vx)$.
 

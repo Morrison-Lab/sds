@@ -9,7 +9,7 @@ gives a large-sample approximation to the posterior model probabilities
 
 $$
 \p(M_k \mid \vy) \approx
-\frac{\expf{-\tfrac{1}{2}\operatorname{BIC}_k}}{\sum_{l=1}^K \expf{-\tfrac{1}{2}\operatorname{BIC}_l}}.
+\frac{\expf{-\tfrac{1}{2}\operatorname{BIC}_k}}{\sumto{l}{K} \expf{-\tfrac{1}{2}\operatorname{BIC}_l}}.
 $$
 
 We simulate data in which only $x_1$ and $x_2$ affect the outcome,

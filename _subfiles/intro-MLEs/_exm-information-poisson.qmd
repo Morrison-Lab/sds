@@ -1,7 +1,7 @@
 :::{#exm-information-poisson}
 #### Information for Poisson data
 
-For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+For $\dsn{X} \siid \Pois(\rate)$,
 one observation's score is $x/\rate - 1$ (@exr-pois-score-fn),
 whose derivative with respect to $\rate$ is $-x/\rate^2$.
 Summing over the observations (@thm-deriv-llik-iid),

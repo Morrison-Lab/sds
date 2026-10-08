@@ -8,5 +8,5 @@ and let $d_i \eqdef x_{i,2} - x_{i,1}$ be the within-pair differences,
 with population mean $\mu_d$.
 The **paired t-test** of $H_0: \mu_d = 0$ against $H_1: \mu_d \neq 0$
 is the one-sample t-test (@def-one-sample-t-test)
-of $H_0: \mu = 0$ applied to $d_1, \ldots, d_n$.
+of $H_0: \mu = 0$ applied to $\dsn{d}$.
 :::

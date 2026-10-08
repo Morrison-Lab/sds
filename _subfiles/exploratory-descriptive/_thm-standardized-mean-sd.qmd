@@ -2,7 +2,7 @@
 #### Standardized values have mean 0 and standard deviation 1
 
 For $n \ge 2$ observations with $s > 0$,
-the [standardized values](#def-standardization) $z_1, \ldots, z_n$
+the [standardized values](#def-standardization) $\dsn{z}$
 have sample mean $0$ and sample standard deviation $1$.
 
 ::: {.callout-note collapse="true"}
@@ -17,8 +17,8 @@ the proof is the elementary calculation.
 ::: proof
 
 The sample mean of the $z_i$ is
-$$\frac{1}{n} \sumin \frac{x_i - \bar x}{s}
-= \frac{1}{s} \paren{\frac{1}{n} \sumin x_i - \bar x}
+$$\avgin \frac{x_i - \bar x}{s}
+= \frac{1}{s} \paren{\avgin x_i - \bar x}
 = \frac{1}{s} (\bar x - \bar x) = 0.$$
 Since the mean of the $z_i$ is $0$,
 their sample variance is

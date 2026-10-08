@@ -95,7 +95,7 @@ so $\cdev_i \mid X_i = x_i \sim \ndist{0, \sigma_i^2}$.
 
 {{< slidebreak >}}
 
-For independence, factor the joint CDF of $\cdev_1, \ldots, \cdev_n$,
+For independence, factor the joint CDF of $\dsn{\cdev}$,
 using the same CDF step as above for each $i$
 and the independence of the $Y_i$ given the covariates (@def-cond-gaussian):
 
@@ -104,14 +104,14 @@ $$
 \Prf{\cdev_1 \le t_1, \ldots, \cdev_n \le t_n}
 &= \Prf{Y_1 \le t_1 + \mean_1, \ldots, Y_n \le t_n + \mean_n}
 && \text{(add $\mean_i$ to both sides of each inequality)}\\
-&= \prod_{i=1}^n \Prf{Y_i \le t_i + \mean_i}
+&= \prodin \Prf{Y_i \le t_i + \mean_i}
 && \text{(the $Y_i$ are independent)}\\
-&= \prod_{i=1}^n \Prf{\cdev_i \le t_i}
+&= \prodin \Prf{\cdev_i \le t_i}
 && \text{(subtract $\mean_i$ from both sides of each inequality)}
 \end{aligned}
 $$
 
 The joint CDF is the product of the marginal CDFs,
-so $\cdev_1, \ldots, \cdev_n$ are independent.
+so $\dsn{\cdev}$ are independent.
 
 :::

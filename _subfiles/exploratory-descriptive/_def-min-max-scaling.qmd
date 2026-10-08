@@ -4,7 +4,7 @@ Geron: page number not verified.
 ::: {#def-min-max-scaling}
 #### Min-max scaling
 
-Let $x_1, \ldots, x_n$ be observations of a variable
+Let $\dsn{x}$ be observations of a variable
 with minimum $x_{\min}$ and maximum $x_{\max} > x_{\min}$.
 The **min-max scaled value** of $x_i$ is
 

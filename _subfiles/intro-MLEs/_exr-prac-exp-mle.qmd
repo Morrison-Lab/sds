@@ -1,7 +1,7 @@
 ::: {#exr-prac-exp-mle}
 #### Exponential MLE (adapted from @dobson4e, Chapter 3)
 
-Let $X_1, \ldots, X_n \siid \text{Exponential}(\pmean)$,
+Let $\dsn{X} \siid \text{Exponential}(\pmean)$,
 so that
 $$
 \p(X = x \mid \pmean) = \frac{1}{\pmean} e^{-x/\pmean},
@@ -9,7 +9,7 @@ $$
 $$
 
 **(a)** Write the log-likelihood $\ell(\pmean; \vx)$
-for the observed data $\vx = (x_1, \ldots, x_n)$.
+for the observed data $\vx = (\dsn{x})$.
 
 **(b)** Derive the score function $\ell'(\pmean; \vx) = \deriv{\pmean}\ell(\pmean; \vx)$.
 
@@ -28,7 +28,7 @@ and give an approximate 95% confidence interval for $\pmean$.
 $$
 \ba
 \ell(\pmean; \vx)
-&= \logf{\prod_{i=1}^n \frac{1}{\pmean} e^{-x_i/\pmean}}
+&= \logf{\prodin \frac{1}{\pmean} e^{-x_i/\pmean}}
 && \text{(log of the likelihood of an $\iid$ sample)}
 \\
 &= \sumin \logf{\frac{1}{\pmean} e^{-x_i/\pmean}}

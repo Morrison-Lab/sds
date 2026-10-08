@@ -1,7 +1,7 @@
 ::: {#exm-bias-sample-mean}
 #### Bias of two estimators of a mean
 
-Let $X_1, \ldots, X_n$ each have expectation $\E{X_i} = \mu$,
+Let $\dsn{X}$ each have expectation $\E{X_i} = \mu$,
 as in @exm-estimator.
 By @thm-bias-exprs,
 the bias of the sample mean $\bar X$ is:
@@ -11,13 +11,13 @@ $$
 \bias{\bar X}
 &= \E{\bar X} - \mu
 && \text{(bias equals expectation minus truth)}\\
-&= \E{\frac{1}{n}\sumin X_i} - \mu
+&= \E{\avgin X_i} - \mu
 && \text{(definition of $\bar X$)}\\
 &= \frac{1}{n}\E{\sumin X_i} - \mu
 && \text{(factor the constant $\tfrac{1}{n}$ out of the expectation)}\\
-&= \frac{1}{n}\sumin \E{X_i} - \mu
+&= \avgin \E{X_i} - \mu
 && \text{(linearity of expectation)}\\
-&= \frac{1}{n}\sumin \mu - \mu
+&= \avgin \mu - \mu
 && \text{($\E{X_i} = \mu$ for every $i$)}\\
 &= \frac{1}{n} \cdot n\mu - \mu
 && \text{(sum of $n$ copies of $\mu$)}\\

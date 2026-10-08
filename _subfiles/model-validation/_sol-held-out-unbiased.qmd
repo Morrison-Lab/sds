@@ -10,15 +10,15 @@ Then
 
 $$
 \ba
-& \E{\frac{1}{m} \sum_{j=1}^m \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+& \E{\frac{1}{m} \sumto{j}{m} \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
 \\
-&\quad = \frac{1}{m} \E{\sum_{j=1}^m \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+&\quad = \frac{1}{m} \E{\sumto{j}{m} \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
 && \text{(constant } 1/m \text{ out)}
 \\
-&\quad = \frac{1}{m} \sum_{j=1}^m \E{\sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+&\quad = \frac{1}{m} \sumto{j}{m} \E{\sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
 && \text{(linearity of } \Ep \text{)}
 \\
-&\quad = \frac{1}{m} \sum_{j=1}^m \generr_{\trainset}
+&\quad = \frac{1}{m} \sumto{j}{m} \generr_{\trainset}
 && \text{(each term, as above)}
 \\
 &\quad = \frac{1}{m} \paren{m \, \generr_{\trainset}}

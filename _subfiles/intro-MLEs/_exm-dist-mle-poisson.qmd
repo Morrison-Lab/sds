@@ -1,7 +1,7 @@
 :::{#exm-dist-mle-poisson}
 #### Approximate distribution of the Poisson MLE
 
-For $X_1, \ldots, X_n \siid \Pois(\rate)$,
+For $\dsn{X} \siid \Pois(\rate)$,
 setting the score $\sumin X_i/\rate - n$ (@exm-information-equality)
 to zero gives $\hat\rate_{\text{ML}} = \bar X$,
 and $\einf(\rate) = n/\rate$ (@exm-information-poisson),

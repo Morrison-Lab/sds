@@ -3,10 +3,10 @@
 
 An **estimator** is the function $\hth(\cdot)$
 that transforms data into an [estimate](#def-estimate);
-applied to a random sample $X_1, \ldots, X_n$,
+applied to a random sample $\dsn{X}$,
 it is a random variable:
 
 $$
-\hth(X_1, \ldots, X_n).
+\hth(\dsn{X}).
 $$
 :::

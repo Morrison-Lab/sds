@@ -2,8 +2,8 @@
 #### Root mean squared error of predictions
 
 The **root mean squared error** (RMSE) of predictions
-$\fitted_1, \ldots, \fitted_n$
-of observed outcomes $y_1, \ldots, y_n$
+$\dsn{\fitted}$
+of observed outcomes $\dsn{y}$
 is the square root of their [mean squared error](estimation.qmd#def-prediction-mse):
 
 $$

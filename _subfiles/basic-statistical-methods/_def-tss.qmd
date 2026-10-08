@@ -1,7 +1,7 @@
 ::: {#def-tss}
 #### Total sum of squares
 
-The **total sum of squares** of $y_1, \ldots, y_n$ is
+The **total sum of squares** of $\dsn{y}$ is
 
 $$\text{TSS} \eqdef \sumin (y_i - \bar{y})^2.$$
 
