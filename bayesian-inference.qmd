@@ -72,6 +72,10 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_exm-marginal-likelihood-uniform.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/bayesian-inference/_cor-bayes-proportional.qmd >}}
 
 {{< slidebreak >}}
