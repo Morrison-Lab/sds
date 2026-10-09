@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 19:32:38 (PDT)
+Last modified: 2026-10-09 01:12:45 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -59,7 +59,7 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 
 ## 2 Binary outcomes: logistic regression
 
-For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \tilde{x}\_i \cdot \tilde{\beta}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\tilde{\beta}\\ and samples the posterior \\\operatorname{p}(\tilde{\beta}\mid \tilde{y})\\ by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 318). Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\tilde{\beta}\\, is obtained by transforming the draws.
+For a binary outcome \\Y_i \sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \tilde{x}\_i \cdot \tilde{\beta}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\tilde{\beta}\\ and samples the posterior \\\operatorname{p}(\tilde{\beta}\mid \tilde{y})\\ by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 318). Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\tilde{\beta}\\, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture [*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c) (Statistical Rethinking 2026, Lecture A09).
 
 > **NOTE:**
 >
