@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 19:03:31 (PDT)
+Last modified: 2026-10-08 19:33:33 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -370,7 +370,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > #> 0.602 0.501 0.699
 > ```
 >
-> The mean uses the \\\operatorname{Beta}(a, b)\\ mean \\a / (a + b)\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107). By [Definition 7](#def-credible-interval), the interval is read as a probability statement about \\\pi\\ itself: given these 91 trials, the posterior probability that \\\pi\\ lies between 0.501 and 0.699 is 0.95. A 95% confidence interval computed from the same data supports no such statement, as [Section 2.3](#sec-bayes-interval-interp) explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains \\\pi\\ or does not.
+> The mean uses the \\\operatorname{Beta}(a, b)\\ mean \\a / (a + b)\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107). By [Definition 7](#def-credible-interval), the interval is read as a probability statement about \\\pi\\ itself: given these 91 trials, the posterior probability that \\\pi\\ lies between 0.501 and 0.699 is 0.95 (approximately, since those endpoints are rounded to three decimals). A 95% confidence interval computed from the same data supports no such statement, as [Section 2.3](#sec-bayes-interval-interp) explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains \\\pi\\ or does not.
 
 > **NOTE:**
 >

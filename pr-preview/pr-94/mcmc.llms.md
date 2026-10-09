@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 19:03:31 (PDT)
+Last modified: 2026-10-08 19:33:33 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -127,7 +127,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > The stationary distribution is \\\operatorname{N}\mathopen{}\left(0, \sigma^2 / (1 - \rho^2)\right)\mathclose{}\\. If instead \\\mathopen{}\left\|\rho\right\|\mathclose{} \ge 1\\, then \\(1 - \rho^2)\\ v \le 0 \< \sigma^2\\ for every \\v \> 0\\, so no \\\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\\ distribution is stationary.
 >
-> With \\\rho= 0.9\\ and \\\sigma = 1\\, the stationary variance is \\1 / (1 - 0.81) \approx 5.26\\. A simulated chain started far from \\0\\, at \\\theta^{(1)} = 10\\, has mean near 0 and variance near that value once its first 1,000 values are discarded:
+> With \\\rho= 0.9\\ and \\\sigma = 1\\, the stationary variance is \\1 / (1 - 0.9^2) = 1 / (1 - 0.81) = 1 / 0.19 \approx 5.26\\. A simulated chain started far from \\0\\, at \\\theta^{(1)} = 10\\, has mean near 0 and variance near that value once its first 1,000 values are discarded:
 >
 > ``` downlit
 > set.seed(11)
@@ -148,6 +148,16 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 > #>                mean            variance stationary_variance 
 > #>                0.05                5.07                5.26
 > ```
+
+> **NOTE:**
+>
+> **Theorem 1 (Stationary distribution of the autoregressive chain)** For the chain of [Example 4](#exm-ar1-chain) with \\\mathopen{}\left\|\rho\right\|\mathclose{} \< 1\\, the normal distribution with mean 0 and variance \\\sigma^2 / (1 - \rho^2)\\ is a [stationary distribution](#def-stationary-distribution):
+>
+> \\ \operatorname{N}\mathopen{}\left(0, \frac{\sigma^2}{1 - \rho^2}\right)\mathclose{}. \\
+
+> **NOTE:**
+>
+> *Proof*. This result is the solution to [Exercise 1](#exr-ar1-stationary).
 
 Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\tilde{\theta}^{(t)}\\ converges to it ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), p. 279; [Robert and Casella 2004, sec. 6.6.1](#ref-robert2004mcsm), Theorem 6.51, p. 234). Averages along the chain also converge to expectations under that distribution, even though successive values are correlated ([Robert and Casella 2004, sec. 6.7.1](#ref-robert2004mcsm), Theorem 6.63, p. 241; [Robert and Casella 2004, sec. 7.2](#ref-robert2004mcsm), p. 269). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\ ([Gelman et al. 2013, chap. 11](#ref-gelman2013bda), p. 275), so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 

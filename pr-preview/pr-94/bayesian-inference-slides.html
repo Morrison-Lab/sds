@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 19:03:31 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 19:33:33 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -837,7 +837,7 @@ Figure&nbsp;2: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <span id="cb6-10"><a aria-label="10"></a><span class="co">#&gt;  mean lower upper </span></span>
 <span id="cb6-11"><a aria-label="11"></a><span class="co">#&gt; 0.602 0.501 0.699</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The mean uses the <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> mean <span class="math inline">\(a / (a + b)\)</span> <span class="citation" data-cites="CaseBerg01">(<a href="#/references" role="doc-biblioref" onclick="">Casella and Berger 2002, sec. 3.3</a>, p.&nbsp;107)</span>. By <a href="#/def-credible-interval" class="quarto-xref">Definition&nbsp;7</a>, the interval is read as a probability statement about <span class="math inline">\(\pi\)</span> itself: given these 91 trials, the posterior probability that <span class="math inline">\(\pi\)</span> lies between 0.501 and 0.699 is 0.95. A 95% confidence interval computed from the same data supports no such statement, as <a href="#/sec-bayes-interval-interp" class="quarto-xref">Section&nbsp;2.3</a> explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains <span class="math inline">\(\pi\)</span> or does not.</p>
+<p>The mean uses the <span class="math inline">\(\operatorname{Beta}(a, b)\)</span> mean <span class="math inline">\(a / (a + b)\)</span> <span class="citation" data-cites="CaseBerg01">(<a href="#/references" role="doc-biblioref" onclick="">Casella and Berger 2002, sec. 3.3</a>, p.&nbsp;107)</span>. By <a href="#/def-credible-interval" class="quarto-xref">Definition&nbsp;7</a>, the interval is read as a probability statement about <span class="math inline">\(\pi\)</span> itself: given these 91 trials, the posterior probability that <span class="math inline">\(\pi\)</span> lies between 0.501 and 0.699 is 0.95 (approximately, since those endpoints are rounded to three decimals). A 95% confidence interval computed from the same data supports no such statement, as <a href="#/sec-bayes-interval-interp" class="quarto-xref">Section&nbsp;2.3</a> explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains <span class="math inline">\(\pi\)</span> or does not.</p>
 </div>
 </section><section class="slide level2"><div id="exm-prior-posterior-figure" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14 (Prior and posterior, with and without a known truth)</strong></span> Plotting the prior and posterior densities together shows how much the data moved our beliefs. We use the Beta-Bernoulli model of <a href="#/exm-beta-bernoulli" class="quarto-xref">Example&nbsp;13</a> with the uniform <span class="math inline">\(\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\)</span> prior of <a href="#/exm-prior" class="quarto-xref">Example&nbsp;2</a> on two data sets:</p>
