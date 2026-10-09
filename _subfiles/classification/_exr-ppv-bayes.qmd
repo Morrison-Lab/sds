@@ -2,10 +2,11 @@
 #### PPV from Bayes' theorem
 
 Write the [positive predictive value](#def-ppv) of a diagnostic test
-in terms of its
-[sensitivity](#def-sensitivity),
-[specificity](#def-specificity),
-and the [prevalence](#def-prevalence) of the disease.
+in terms of:
+
+- its [sensitivity](#def-sensitivity);
+- its [specificity](#def-specificity);
+- the [prevalence](#def-prevalence) of the disease.
 :::
 
 {{< slidebreak >}}

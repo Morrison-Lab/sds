@@ -2,10 +2,11 @@
 #### Probability of a positive test
 
 Write the probability $\Pr(+)$ that a diagnostic test is positive
-in terms of the test's
-[sensitivity](#def-sensitivity),
-[specificity](#def-specificity),
-and the [prevalence](#def-prevalence) of the disease.
+in terms of:
+
+- the test's [sensitivity](#def-sensitivity);
+- the test's [specificity](#def-specificity);
+- the [prevalence](#def-prevalence) of the disease.
 :::
 
 {{< slidebreak >}}
