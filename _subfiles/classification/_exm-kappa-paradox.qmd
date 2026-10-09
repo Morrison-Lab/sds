@@ -1,0 +1,47 @@
+:::{#exm-kappa-paradox}
+#### High agreement but low kappa
+
+Now apply the same test to $n = 100{,}000$ people
+in a population where the prevalence is only 0.5%.
+Then:
+
+- $0.005 \times 100{,}000 = 500$ people have COVID-19
+  and $100{,}000 - 500 = 99{,}500$ do not;
+- with 99% sensitivity,
+  the test is positive for $a = 0.99 \times 500 = 495$ people with COVID-19
+  and negative for $c = 500 - 495 = 5$;
+- with 99% specificity,
+  the false positive rate is $1 - 0.99 = 0.01$,
+  so the test is positive for $b = 0.01 \times 99{,}500 = 995$ people without COVID-19
+  and negative for $d = 99{,}500 - 995 = 98{,}505$.
+
+```{r}
+#| code-fold: false
+agree_rare <- c(a = 495, b = 995, c = 5, d = 98505)
+rare_metrics <- with(as.list(agree_rare), c(
+  overall = (a + d) / (a + b + c + d),
+  positive = 2 * a / (2 * a + b + c),
+  negative = 2 * d / (2 * d + b + c),
+  kappa = kappa_from_table(a, b, c, d)
+))
+round(rare_metrics, 4)
+```
+
+The overall agreement is still `r round(rare_metrics[["overall"]], 2)`,
+but kappa drops to about `r round(rare_metrics[["kappa"]], 2)`
+and the positive agreement to about
+`r format(round(rare_metrics[["positive"]], 2), nsmall = 2)`,
+while the negative agreement stays at about
+`r format(round(rare_metrics[["negative"]], 3), nsmall = 3)`.
+The two specific agreements show where the disagreement lies:
+the test and the reference agree on negatives
+and disagree on about half of the positive calls.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+High overall agreement with low kappa is the first paradox
+described by @feinstein1990high.
+:::
+
+:::

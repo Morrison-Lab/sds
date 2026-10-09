@@ -93,3 +93,117 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/classification/_rem-ppv-prevalence.qmd >}}
+
+## Agreement between two classifiers
+
+{{< include sds/_subfiles/classification/_prose-agreement-intro.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-agreement-table.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-agreement-table.qmd >}}
+
+## Agreement proportions
+
+<!-- No slidebreak here: the heading shares its slide with the def-overall-agreement div. -->
+
+{{< include sds/_subfiles/classification/_def-overall-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-overall-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-positive-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-positive-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-negative-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-negative-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-agent-only-rate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-agent-only-rate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-agreement-test-measures.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-agreement-test-measures.qmd >}}
+
+## Positive and negative agreement as harmonic means
+
+<!-- No slidebreak here: the heading shares its slide with the def-harmonic-mean div. -->
+
+{{< include sds/_subfiles/classification/_def-harmonic-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-harmonic-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exr-pos-agreement-harmonic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_thm-pos-agreement-harmonic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-pos-agreement-harmonic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exr-neg-agreement-harmonic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_thm-neg-agreement-harmonic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-neg-agreement-harmonic.qmd >}}
+
+## Cohen's kappa
+
+<!-- No slidebreak here: the heading shares its slide with the def-chance-agreement div. -->
+
+{{< include sds/_subfiles/classification/_def-chance-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-chance-agreement.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-cohen-kappa.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-cohen-kappa.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-kappa-paradox.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_rem-kappa-prevalence.qmd >}}

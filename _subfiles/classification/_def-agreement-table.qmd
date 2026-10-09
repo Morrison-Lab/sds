@@ -1,0 +1,20 @@
+:::{#def-agreement-table}
+#### Agreement table
+
+For $n$ observations that an agent and a reference
+each classify as positive or negative,
+the **agreement table** counts the four combinations:
+
+| | Reference positive | Reference negative | Total |
+|---|---:|---:|---:|
+| **Agent positive** | $a$ | $b$ | $a + b$ |
+| **Agent negative** | $c$ | $d$ | $c + d$ |
+| **Total** | $a + c$ | $b + d$ | $n$ |
+
+The cells $a$ and $d$ count agreements,
+the cells $b$ and $c$ count disagreements,
+and the four cells together count every observation:
+
+$$n \eqdef a + b + c + d$$ {#eq-agreement-table-n}
+
+:::

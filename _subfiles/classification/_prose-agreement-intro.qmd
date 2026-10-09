@@ -1,0 +1,7 @@
+So far, we have compared a test with the true disease status.
+The same tools apply whenever we compare two classifiers
+that label the same observations:
+for example, a new diagnostic test against a reference test,
+or an automated grader (an "agent") against a human grader.
+We call the classifier being evaluated the **agent**
+and the one we compare it with the **reference**.

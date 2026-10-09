@@ -1,0 +1,29 @@
+:::{#exm-agreement-table-covid}
+#### Agreement table for a COVID-19 test
+
+Apply the COVID-19 test of @exm-sensitivity and @exm-specificity
+to $n = 10{,}000$ people from the population of @exm-prevalence,
+with the true disease status as the reference.
+With 7% prevalence,
+$0.07 \times 10{,}000 = 700$ people have COVID-19
+and $10{,}000 - 700 = 9{,}300$ do not.
+With 99% sensitivity,
+the test is positive for $0.99 \times 700 = 693$ of the 700;
+with 99% specificity,
+it is negative for $0.99 \times 9{,}300 = 9{,}207$ of the 9,300.
+So the test is positive for $9{,}300 - 9{,}207 = 93$ people without COVID-19
+and negative for $700 - 693 = 7$ people with it.
+The agreement table (@def-agreement-table) is:
+
+| | COVID-19 | No COVID-19 | Total |
+|---|---:|---:|---:|
+| **Test positive** | $a = 693$ | $b = 93$ | $786$ |
+| **Test negative** | $c = 7$ | $d = 9{,}207$ | $9{,}214$ |
+| **Total** | $700$ | $9{,}300$ | $10{,}000$ |
+
+```{r}
+agree_covid <- c(a = 693, b = 93, c = 7, d = 9207)
+agree_covid
+```
+
+:::

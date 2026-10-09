@@ -1,0 +1,25 @@
+:::{#exm-negative-agreement}
+#### Negative agreement for the COVID-19 test
+
+For the agreement table of @exm-agreement-table-covid,
+the negative agreement (@def-negative-agreement) is:
+
+$$
+\ba
+p_{\text{neg}}
+&= \frac{2 \times 9{,}207}{2 \times 9{,}207 + 93 + 7}
+&& \text{(definition of } p_{\text{neg}} \text{, with the table's counts)} \\
+&= \frac{18{,}414}{18{,}414 + 93 + 7}
+&& \text{(multiply)} \\
+&= \frac{18{,}414}{18{,}514}
+&& \text{(add)} \\
+&\approx 0.995
+&& \text{(divide)}
+\ea
+$$ {#eq-exm-negative-agreement}
+
+The negative agreement is even higher than the overall agreement (@exm-overall-agreement),
+because the 100 disagreements are small
+relative to the 9,207 shared negative calls.
+
+:::

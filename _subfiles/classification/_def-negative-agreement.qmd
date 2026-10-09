@@ -1,0 +1,20 @@
+:::{#def-negative-agreement}
+#### Negative agreement
+
+The **negative agreement**
+(also called the *average negative agreement*)
+of an agreement table (@def-agreement-table)
+with $2d + b + c > 0$
+is the number of negative calls the agent and the reference share,
+counted once for each classifier,
+as a proportion of all their negative calls:
+
+$$p_{\text{neg}} \eqdef \frac{2d}{2d + b + c}$$ {#eq-negative-agreement}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@cicchetti1990high.
+:::
+
+:::

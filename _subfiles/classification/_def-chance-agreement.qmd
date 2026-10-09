@@ -1,0 +1,17 @@
+:::{#def-chance-agreement}
+#### Chance agreement
+
+The **chance agreement** of an agreement table (@def-agreement-table)
+is the overall agreement we would expect
+if the agent and the reference classified independently,
+each with its observed proportion of positive calls:
+
+$$p_e \eqdef \frac{(a + b)(a + c) + (c + d)(b + d)}{n^2}$$ {#eq-chance-agreement}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@cohen1960coefficient.
+:::
+
+:::

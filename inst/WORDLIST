@@ -120,6 +120,7 @@ cdots
 chisq
 ci
 coef
+cohen
 covs
 crosstab
 dL
@@ -226,6 +227,7 @@ pearson
 pmatrix
 pmean
 pois
+pos
 prac
 pre
 prederr

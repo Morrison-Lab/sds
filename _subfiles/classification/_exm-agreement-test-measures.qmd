@@ -1,0 +1,27 @@
+:::{#exm-agreement-test-measures}
+#### Test measures for the COVID-19 test
+
+For the agreement table of @exm-agreement-table-covid,
+@def-agreement-test-measures gives:
+
+```{r}
+#| code-fold: false
+test_measures <- with(as.list(agree_covid), c(
+  sensitivity = a / (a + c),
+  specificity = d / (b + d),
+  ppv = a / (a + b),
+  npv = d / (c + d)
+))
+round(test_measures, 4)
+```
+
+These estimates match
+the test's sensitivity (`r round(test_measures[["sensitivity"]], 2)`)
+and specificity (`r round(test_measures[["specificity"]], 2)`),
+its positive predictive value
+(about `r round(test_measures[["ppv"]], 2)`, @exm-ppv),
+and its negative predictive value
+(about `r round(test_measures[["npv"]], 3)`, @exm-npv),
+because the table's counts are the expected counts for those values.
+
+:::
