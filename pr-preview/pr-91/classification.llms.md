@@ -4,11 +4,15 @@ Code
 
 Published
 
-Last modified: 2026-10-08 17:44:04 (PDT)
+Last modified: 2026-10-08 19:32:20 (PDT)
 
 ## 1 Introduction
 
-Classification is a core problem in statistics and machine learning: we seek to assign individuals or observations to one of several discrete categories based on available data. In medicine and epidemiology, classification problems arise constantly; for example, a clinician decides whether a patient has a disease based on test results, biomarkers, or clinical signs.
+Classification is a core problem in statistics and machine learning: we seek to assign individuals or observations to one of several discrete categories based on available data. In medicine and epidemiology, classification problems arise constantly; for example, a clinician decides whether a patient has a disease based on evidence such as:
+
+- test results;
+- biomarkers;
+- clinical signs.
 
 A test can look highly accurate in isolation, yet its predictive value for an individual patient depends heavily on the prevalence of the condition in the population being tested. Understanding this interplay requires [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes) and the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob).
 
@@ -140,7 +144,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Theorem 1 (PPV in terms of sensitivity, specificity, and prevalence)** The positive predictive value of a diagnostic test with positive sensitivity depends on its sensitivity, its specificity, and the prevalence of the disease only through the ratio of the false positive rate to the sensitivity and the ratio of non-diseased to diseased people in the population:
+> **Theorem 1 (PPV in terms of sensitivity, specificity, and prevalence)** The positive predictive value of a diagnostic test with positive sensitivity, used in a population with positive prevalence, depends on its sensitivity, its specificity, and the prevalence of the disease only through the ratio of the false positive rate to the sensitivity and the ratio of non-diseased to diseased people in the population:
 >
 > \\ \text{PPV} = \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \text{prev}}{\text{prev}}} \\
 
@@ -158,9 +162,9 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > If the same test were used in a population with prevalence 0.1% instead, the ratio of non-diseased to diseased people would be \\0.999 / 0.001 = 999\\, and the PPV would fall to
 >
-> \\ \frac{1}{1 + \frac{0.01}{0.99} \cdot 999} \approx \frac{1}{1 + 10.09} \approx 0.09: \\
+> \\ \begin{aligned} \text{PPV} &= \frac{1}{1 + \frac{0.01}{0.99} \cdot 999} && \text{(PPV in terms of the two ratios, with the new prevalence)} \\ &\approx \frac{1}{1 + 0.0101 \cdot 999} && \text{(divide)} \\ &\approx \frac{1}{1 + 10.09} && \text{(multiply)} \\ &= \frac{1}{11.09} && \text{(add)} \\ &\approx 0.09 && \text{(divide)} \end{aligned} \\
 >
-> about 9 in 10 positive results would be false positives.
+> so about 9 in 10 positive results would be false positives.
 
 > **NOTE:**
 >

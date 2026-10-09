@@ -355,13 +355,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 17:44:04 (PDT)</p>
+  <p class="date">Last modified: 2026-10-08 19:32:20 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
-<p>This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 13</a>)</span>. It builds on the priors and posteriors defined on the <a href="./bayesian-inference.html">Bayesian Inference</a> page.</p>
+<p>This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 13</a>)</span>. It builds on the priors and posteriors defined on the <a href="./bayesian-inference.html">Bayesian Inference</a> page. For a video introduction, see Richard McElreath’s lecture <a href="https://www.youtube.com/watch?v=N_LRQUrdHag"><em>MCMC and Item Response Models</em></a> (Statistical Rethinking 2026, Lecture A08).</p>
 </section><section id="sec-foundations" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Foundations of MCMC</h2>
 <p>When the posterior has a known closed form, as in <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>, we can compute its summaries exactly or sample from it directly. In most real-world models, however, the <a href="./bayesian-inference.html#def-marginal-likelihood">marginal likelihood</a> <span class="math inline">\(\operatorname{p}(\tilde{y})\)</span> that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. Markov chain Monte Carlo methods get around this problem: instead of independent draws from the posterior, they generate a correlated sequence of draws whose distribution converges to the posterior <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;287)</span>.</p>
