@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:13:53 (PDT)
+Last modified: 2026-10-09 10:25:47 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -54,7 +54,9 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Example 2 (Expected count in a 2 x 2 table)** In a table with \\n = 100\\, first-row total \\R_1 = 30\\, and first-column total \\C_1 = 40\\, the expected count in cell \\(1, 1)\\ is \\E\_{11} = 30 \cdot 40 / 100 = 12\\.
+> **Example 2 (Expected count in a 2 x 2 table)** In a table with \\n = 100\\, first-row total \\R_1 = 30\\, and first-column total \\C_1 = 40\\, the expected count in cell \\(1, 1)\\ is
+>
+> \\ \begin{aligned} E\_{11} &= 30 \cdot 40 / 100 \\ &= 12. \end{aligned} \\
 
 > **NOTE:**
 >

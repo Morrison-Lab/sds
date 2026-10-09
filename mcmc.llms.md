@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:13:53 (PDT)
+Last modified: 2026-10-09 10:25:47 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -127,7 +127,11 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > The stationary distribution is \\\operatorname{N}\mathopen{}\left(0, \sigma^2 / (1 - \rho^2)\right)\mathclose{}\\. If instead \\\mathopen{}\left\|\rho\right\|\mathclose{} \ge 1\\, then \\(1 - \rho^2)\\ v \le 0 \< \sigma^2\\ for every \\v \> 0\\, so no \\\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\\ distribution is stationary.
 >
-> With \\\rho= 0.9\\ and \\\sigma = 1\\, the stationary variance is \\1 / (1 - 0.9^2) = 1 / (1 - 0.81) = 1 / 0.19 \approx 5.26\\. A simulated chain started far from \\0\\, at \\\theta^{(1)} = 10\\, has mean near 0 and variance near that value once its first 1,000 values are discarded:
+> With \\\rho= 0.9\\ and \\\sigma = 1\\, the stationary variance is
+>
+> \\ \begin{aligned} 1 / (1 - 0.9^2) &= 1 / (1 - 0.81) \\ &= 1 / 0.19 \\ &\approx 5.26. \end{aligned} \\
+>
+> A simulated chain started far from \\0\\, at \\\theta^{(1)} = 10\\, has mean near 0 and variance near that value once its first 1,000 values are discarded:
 >
 > ``` downlit
 > set.seed(11)

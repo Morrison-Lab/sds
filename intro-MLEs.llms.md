@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:13:53 (PDT)
+Last modified: 2026-10-09 10:25:47 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -32,7 +32,11 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Example 1 (Likelihood of one Bernoulli observation)** If \\X \sim \operatorname{Ber}(\pi)\\, then \\\operatorname{p}\_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x}\\ for \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. If we observe \\x = 1\\, the likelihood is \\\mathcal{L}(\pi) = \pi\\: for example, \\\mathcal{L}(0.2) = 0.2\\ and \\\mathcal{L}(0.7) = 0.7\\, so the observation \\x = 1\\ is more likely under \\\pi= 0.7\\ than under \\\pi= 0.2\\.
+> **Example 1 (Likelihood of one Bernoulli observation)** If \\X \sim \operatorname{Ber}(\pi)\\, then
+>
+> \\ \operatorname{p}\_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x} \\
+>
+> for \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. If we observe \\x = 1\\, the likelihood is \\\mathcal{L}(\pi) = \pi\\: for example, \\\mathcal{L}(0.2) = 0.2\\ and \\\mathcal{L}(0.7) = 0.7\\, so the observation \\x = 1\\ is more likely under \\\pi= 0.7\\ than under \\\pi= 0.2\\.
 
 > **NOTE:**
 >
@@ -173,7 +177,11 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 >
 > *Solution 5*. \\ \begin{aligned} \ell(\theta) &\stackrel{\text{def}}{=}\log{\mathcal{L}(\theta)} && \text{(definition of log-likelihood)}\\ &= \log{\prod\_{i=1}^n\operatorname{p}(X_i = x_i \mid \theta)} && \text{(likelihood of an independent sample)}\\ &= \sum\_{i=1}^n\log{\operatorname{p}(X_i = x_i \mid \theta)} && \text{(log of a product is a sum of logs)} \end{aligned} \\
 >
-> With a common distribution, \\\operatorname{p}(X_i = x_i \mid \theta) = \operatorname{p}(X = x_i \mid \theta)\\, so each term is \\\log{\operatorname{p}(X = x_i \mid \theta)}\\.
+> With a common distribution,
+>
+> \\ \operatorname{p}(X_i = x_i \mid \theta) = \operatorname{p}(X = x_i \mid \theta), \\
+>
+> so each term is \\\log{\operatorname{p}(X = x_i \mid \theta)}\\.
 
 > **NOTE:**
 >
@@ -279,7 +287,11 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> *Solution 11*. The exponential density with mean \\\mu\\ is \\\operatorname{p}(X = x) = \mu^{-1} e^{-x/\mu}\\ for \\x \> 0\\, so \\\ell= -\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - \frac{x}{\mu}\\, and:
+> *Solution 11*. The exponential density with mean \\\mu\\ is
+>
+> \\ \operatorname{p}(X = x) = \mu^{-1} e^{-x/\mu} \\
+>
+> for \\x \> 0\\, so \\\ell= -\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - \frac{x}{\mu}\\, and:
 >
 > \\ \begin{aligned} \ell' &\stackrel{\text{def}}{=}\frac{\partial}{\partial \mu}\ell && \text{(definition of the score)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - \frac{x}{\mu}\right)\mathclose{} && \text{(exponential log-likelihood)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - x \mu^{-1}\right)\mathclose{} && \text{(write \$\frac{x}{\mu}\$ as \$x \mu^{-1}\$)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}\right)\mathclose{} - \frac{\partial}{\partial \mu}\mathopen{}\left(x \mu^{-1}\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= -\frac{\partial}{\partial \mu}\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - x \frac{\partial}{\partial \mu} \mu^{-1} && \text{(constant multiple rule)}\\ &= -\mu^{-1} - x \frac{\partial}{\partial \mu} \mu^{-1} && \text{(derivative of \$\log \mu\$)}\\ &= -\mu^{-1} - x \mathopen{}\left(-\mu^{-2}\right)\mathclose{} && \text{(power rule)}\\ &= -\mu^{-1} + x \mu^{-2} && \text{(multiply)}\\ &= -\frac{1}{\mu} + \frac{x}{\mu^2} && \text{(write the negative powers as fractions)}\\ &= -\frac{\mu}{\mu^2} + \frac{x}{\mu^2} && \text{(write both terms over the common denominator)}\\ &= \frac{-\mu+ x}{\mu^2} && \text{(combine the fractions)}\\ &= \frac{x - \mu}{\mu^2} && \text{(reorder the numerator)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\mu^2} && \text{(\$\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{} = \mu\$)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} && \text{(\$\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \mu^2\$)} \end{aligned} \\
 
@@ -419,7 +431,9 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > *Proof*. We give the proof for a scalar \\\theta\\ and a continuous \\\tilde{X}\\ with density \\\operatorname{p}(\tilde{x}\mid \theta)\\; the vector case applies the same steps to each pair of entries, and a discrete \\\tilde{X}\\ replaces integrals with sums.
 >
-> [Equation 12](#eq-score-mean-zero) is the solution to [Exercise 15](#exr-score-mean-zero). For [Equation 13](#eq-information-equality), [Exercise 16](#exr-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\, \\\operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)^2\mathclose{} = \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}\\.
+> [Equation 12](#eq-score-mean-zero) is the solution to [Exercise 15](#exr-score-mean-zero). For [Equation 13](#eq-information-equality), [Exercise 16](#exr-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\,
+>
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)^2\mathclose{} \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
 
 > **NOTE:**
 >

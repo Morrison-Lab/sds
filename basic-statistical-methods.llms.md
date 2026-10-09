@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:13:53 (PDT)
+Last modified: 2026-10-09 10:25:47 (PDT)
 
 ## 1 Introduction
 
@@ -384,11 +384,21 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Example 9 (Mean squares of two small groups)** For the groups of [Example 7](#exm-ss-between), \\k = 2\\ and \\n = 6\\, so \\\text{MS}\_\text{between} = 13.5 / 1 = 13.5\\ and \\\text{MS}\_\text{within} = 4 / 4 = 1\\.
+> **Example 9 (Mean squares of two small groups)** For the groups of [Example 7](#exm-ss-between), \\k = 2\\ and \\n = 6\\, so
+>
+> \\ \begin{aligned} \text{MS}\_\text{between} &= 13.5 / 1 \\ &= 13.5 \end{aligned} \\
+>
+> and
+>
+> \\ \begin{aligned} \text{MS}\_\text{within} &= 4 / 4 \\ &= 1. \end{aligned} \\
 
 > **NOTE:**
 >
-> **Definition 10 (One-way analysis of variance)** With the [mean squares](#def-mean-squares) of \\k \ge 2\\ groups and \\n \> k\\ observations in all, the **one-way analysis of variance (ANOVA)** F-test of \\H_0: \mu_1 = \mu_2 = \cdots = \mu_k\\ against the alternative that at least two group means differ uses the statistic
+> **Definition 10 (One-way analysis of variance)** With the [mean squares](#def-mean-squares) of \\k \ge 2\\ groups and \\n \> k\\ observations in all, the **one-way analysis of variance (ANOVA)** F-test of
+>
+> \\ \begin{aligned} H_0: \mu_1 &= \mu_2 \\ &= \cdots \\ &= \mu_k \end{aligned} \\
+>
+> against the alternative that at least two group means differ uses the statistic
 >
 > \\F \stackrel{\text{def}}{=}\frac{\text{MS}\_\text{between}}{\text{MS}\_\text{within}}.\\
 >
@@ -396,11 +406,17 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Remark 4* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares), \\F = 13.5 / 1 = 13.5\\.
+> *Remark 4* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares),
+>
+> \\ \begin{aligned} F &= 13.5 / 1 \\ &= 13.5. \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If \\H_0: \mu_1 = \cdots = \mu_k\\ holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2019, sec. 9.3](#ref-hoggtanis2015), p. 449).
+> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If
+>
+> \\ \begin{aligned} H_0: \mu_1 &= \cdots \\ &= \mu_k \end{aligned} \\
+>
+> holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2019, sec. 9.3](#ref-hoggtanis2015), p. 449).
 
 > **NOTE:**
 >

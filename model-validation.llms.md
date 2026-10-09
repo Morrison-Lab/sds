@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:13:53 (PDT)
+Last modified: 2026-10-09 10:25:47 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -387,7 +387,13 @@ Last modified: 2026-10-09 10:13:53 (PDT)
 
 > **NOTE:**
 >
-> *Solution 5*. \\\lfloor 0.6 \cdot 32 \rfloor = \lfloor 19.2 \rfloor = 19\\ training cars, \\\lfloor 0.2 \cdot 32 \rfloor = \lfloor 6.4 \rfloor = 6\\ validation cars, and \\32 - 19 - 6 = 7\\ test cars.
+> *Solution 5*. \\ \begin{aligned} \lfloor 0.6 \cdot 32 \rfloor &= \lfloor 19.2 \rfloor \\ &= 19 \end{aligned} \\
+>
+> training cars,
+>
+> \\ \begin{aligned} \lfloor 0.2 \cdot 32 \rfloor &= \lfloor 6.4 \rfloor \\ &= 6 \end{aligned} \\
+>
+> validation cars, and \\32 - 19 - 6 = 7\\ test cars.
 
 > **NOTE:**
 >

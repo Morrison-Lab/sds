@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 10:13:53 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 10:25:47 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -865,7 +865,20 @@ Figure&nbsp;1: Training mean squared error and estimated generalization error (m
 <p><span class="theorem-title"><strong>Exercise 5 (Sizes of a three-way split)</strong></span> The <code>mtcars</code> data frame has <span class="math inline">\(N = 32\)</span> cars. Suppose we assign <span class="math inline">\(\lfloor 0.6 N \rfloor\)</span> cars to a training set, <span class="math inline">\(\lfloor 0.2 N \rfloor\)</span> cars to a validation set, and all remaining cars to a test set. How many cars are in each set?</p>
 </div>
 </section><section class="slide level2"><div id="sol-data-splits" class="proof solution">
-<p><span class="proof-title"><em>Solution 5</em>. </span><span class="math inline">\(\lfloor 0.6 \cdot 32 \rfloor = \lfloor 19.2 \rfloor = 19\)</span> training cars, <span class="math inline">\(\lfloor 0.2 \cdot 32 \rfloor = \lfloor 6.4 \rfloor = 6\)</span> validation cars, and <span class="math inline">\(32 - 19 - 6 = 7\)</span> test cars.</p>
+<p><span class="proof-title"><em>Solution 5</em>. </span><span class="math display">\[
+\begin{aligned}
+  \lfloor 0.6 \cdot 32 \rfloor &amp;= \lfloor 19.2 \rfloor \\
+  &amp;= 19
+\end{aligned}
+\]</span></p>
+<p>training cars,</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \lfloor 0.2 \cdot 32 \rfloor &amp;= \lfloor 6.4 \rfloor \\
+  &amp;= 6
+\end{aligned}
+\]</span></p>
+<p>validation cars, and <span class="math inline">\(32 - 19 - 6 = 7\)</span> test cars.</p>
 </div>
 </section><section class="slide level2"><!--
 The ISLR section heading was verified in the PDF; rme paraphrases its text.

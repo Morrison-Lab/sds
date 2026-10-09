@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 10:13:53 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 10:25:47 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -506,7 +506,13 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 <p>where <span class="math inline">\(\Phi\)</span> is the standard Gaussian CDF.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bca-bias-correction" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Bias correction when 40% of replicates fall below the estimate)</strong></span> If 400 of <span class="math inline">\(B = 1{,}000\)</span> replicates are below <span class="math inline">\(\hat{\theta}\)</span>, then <span class="math inline">\(\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\)</span>. If exactly half were below, <span class="math inline">\(\hat z_0 = \Phi^{-1}(0.5) = 0\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 5 (Bias correction when 40% of replicates fall below the estimate)</strong></span> If 400 of <span class="math inline">\(B = 1{,}000\)</span> replicates are below <span class="math inline">\(\hat{\theta}\)</span>, then <span class="math inline">\(\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\)</span>. If exactly half were below,</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \hat z_0 &amp;= \Phi^{-1}(0.5) \\
+  &amp;= 0.
+\end{aligned}
+\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-bca-acceleration" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Acceleration of the BCa interval)</strong></span> Let <span class="math inline">\(\hat{\theta}_{(i)}\)</span> be the statistic computed with observation <span class="math inline">\(i\)</span> deleted, and let <span class="math inline">\(\hat{\theta}_{(\cdot)}\)</span> be the mean of <span class="math inline">\(\hat{\theta}_{(1)}, \ldots, \hat{\theta}_{(n)}\)</span>. The <strong>acceleration</strong> is</p>

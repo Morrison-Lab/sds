@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 10:13:53 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 10:25:47 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -380,7 +380,13 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-prior" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (A uniform prior for a probability)</strong></span> Let <span class="math inline">\(\pi\)</span> be the probability that a randomly chosen adult in some population smokes. Before collecting any data, an analyst who considers every value of <span class="math inline">\(\pi\)</span> in <span class="math inline">\((0, 1)\)</span> equally plausible could use the uniform prior</p>
 <p><span class="math display">\[\operatorname{p}(\pi) = 1, \quad 0 &lt; \pi&lt; 1.\]</span></p>
-<p>Under this prior, the prior probability that fewer than 10% of adults smoke is <span class="math inline">\(\Pr(\pi&lt; 0.1) = \int_0^{0.1} 1 \, d\pi= 0.1\)</span>.</p>
+<p>Under this prior, the prior probability that fewer than 10% of adults smoke is</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \Pr(\pi&lt; 0.1) &amp;= \int_0^{0.1} 1 \, d\pi\\
+  &amp;= 0.1.
+\end{aligned}
+\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-two-paradigms" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Two paradigms, two questions). </span>The two paradigms answer different questions. A frequentist asks, “for which parameter values would these data be unsurprising?”; a Bayesian asks, “given these data, what should I now believe about the parameter?”. Neither question is wrong, and they call for different machinery.</p>
@@ -445,7 +451,11 @@ text-align: center;
 <p>and <span class="math inline">\(\operatorname{p}(0.5 \mid \tilde{y}) = 0.1125 / 0.1637 \approx 0.687\)</span>. Three heads in a row raise the probability that the coin is biased from <span class="math inline">\(0.1\)</span> to about <span class="math inline">\(0.31\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-marginal-likelihood-uniform" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Posterior for a coin’s probability of heads under a uniform prior)</strong></span> As in <a href="#/exm-posterior" class="quarto-xref">Example&nbsp;3</a>, let <span class="math inline">\(\theta\)</span> be a coin’s probability of heads, now allowed to take any value in <span class="math inline">\((0, 1)\)</span>, with the uniform prior density <span class="math inline">\(\operatorname{p}(\theta) = 1\)</span> for <span class="math inline">\(\theta\in (0, 1)\)</span>. One toss lands heads; call that observation <span class="math inline">\(y = 1\)</span>, so <span class="math inline">\(\operatorname{p}(y = 1 \mid \theta) = \theta\)</span>. The <a href="#/def-marginal-likelihood">marginal likelihood</a> is an integral over <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="theorem-title"><strong>Example 5 (Posterior for a coin’s probability of heads under a uniform prior)</strong></span> As in <a href="#/exm-posterior" class="quarto-xref">Example&nbsp;3</a>, let <span class="math inline">\(\theta\)</span> be a coin’s probability of heads, now allowed to take any value in <span class="math inline">\((0, 1)\)</span>, with the uniform prior density <span class="math inline">\(\operatorname{p}(\theta) = 1\)</span> for <span class="math inline">\(\theta\in (0, 1)\)</span>. One toss lands heads; call that observation <span class="math inline">\(y = 1\)</span>, so</p>
+<p><span class="math display">\[
+\operatorname{p}(y = 1 \mid \theta) = \theta.
+\]</span></p>
+<p>The <a href="#/def-marginal-likelihood">marginal likelihood</a> is an integral over <span class="math inline">\(\theta\)</span>:</p>
 <p><span id="eq-marginal-likelihood-uniform-exm"><span class="math display">\[
 \begin{aligned}
 \operatorname{p}(y = 1)
@@ -1097,7 +1107,14 @@ Figure&nbsp;3: Prior and posterior densities of <span class="math inline">\(\pi\
 <p>The informative prior all but rules out an odds ratio of 10; the weakly informative prior leaves a few percent of its probability above 100, and effectively none above <span class="math inline">\(10^6\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-flat-prior-reparam" class="theorem example">
-<p><span class="theorem-title"><strong>Example 16 (A flat prior on a probability is not flat on its log-odds)</strong></span> A <a href="#/def-flat-prior">flat prior</a> is flat only on the scale on which it is stated. Let <span class="math inline">\(\pi\)</span> have the uniform prior of <a href="#/exm-prior" class="quarto-xref">Example&nbsp;2</a>, and let <span class="math inline">\(\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\)</span> be its log-odds, so that <span class="math inline">\(\pi= \operatorname{expit}(\eta) = 1 / (1 + e^{-\eta})\)</span>. The derivative of <span class="math inline">\(\operatorname{expit}\)</span> is</p>
+<p><span class="theorem-title"><strong>Example 16 (A flat prior on a probability is not flat on its log-odds)</strong></span> A <a href="#/def-flat-prior">flat prior</a> is flat only on the scale on which it is stated. Let <span class="math inline">\(\pi\)</span> have the uniform prior of <a href="#/exm-prior" class="quarto-xref">Example&nbsp;2</a>, and let <span class="math inline">\(\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\)</span> be its log-odds, so that</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \pi&amp;= \operatorname{expit}(\eta) \\
+  &amp;= 1 / (1 + e^{-\eta}).
+\end{aligned}
+\]</span></p>
+<p>The derivative of <span class="math inline">\(\operatorname{expit}\)</span> is</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{d}{d\eta} \operatorname{expit}(\eta)
@@ -1136,7 +1153,15 @@ Figure&nbsp;3: Prior and posterior densities of <span class="math inline">\(\pi\
 <p><span class="proof-title"><em>Remark 3</em> (Flat priors can be improper). </span>A flat prior on an unbounded parameter space, such as <span class="math inline">\(\mathbb{R}\)</span>, is <a href="#/def-improper-prior">improper</a>, so it does not define a joint distribution of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\tilde{Y}\)</span>, and <a href="#/def-posterior" class="quarto-xref">Definition&nbsp;4</a> does not apply directly. In practice the posterior is then <em>defined</em> as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.</p>
 </div>
 </section><section class="slide level2"><div id="exm-flat-prior-posterior" class="theorem example">
-<p><span class="theorem-title"><strong>Example 17 (Posterior mode and maximum likelihood estimate for a probability)</strong></span> In <a href="#/exm-beta-bernoulli" class="quarto-xref">Example&nbsp;13</a> the prior is uniform on <span class="math inline">\((0, 1)\)</span>, so by <a href="#/cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> the posterior density, proportional to <span class="math inline">\(\pi^{55}(1-\pi)^{36}\)</span>, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood <span class="math inline">\(r \log \pi+ (n - r)\log(1 - \pi)\)</span>, which is <span class="math inline">\(r/\pi- (n - r)/(1 - \pi)\)</span>, to zero gives <span class="math inline">\(\hat{\pi}= r/n = 55/91 \approx 0.604\)</span>. The posterior <em>mean</em>, <span class="math inline">\(56/93 \approx 0.602\)</span>, is not the maximum likelihood estimate: <a href="#/cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.</p>
+<p><span class="theorem-title"><strong>Example 17 (Posterior mode and maximum likelihood estimate for a probability)</strong></span> In <a href="#/exm-beta-bernoulli" class="quarto-xref">Example&nbsp;13</a> the prior is uniform on <span class="math inline">\((0, 1)\)</span>, so by <a href="#/cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> the posterior density, proportional to <span class="math inline">\(\pi^{55}(1-\pi)^{36}\)</span>, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood <span class="math inline">\(r \log \pi+ (n - r)\log(1 - \pi)\)</span>, which is <span class="math inline">\(r/\pi- (n - r)/(1 - \pi)\)</span>, to zero gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \hat{\pi}&amp;= r/n \\
+  &amp;= 55/91 \\
+  &amp;\approx 0.604.
+\end{aligned}
+\]</span></p>
+<p>The posterior <em>mean</em>, <span class="math inline">\(56/93 \approx 0.602\)</span>, is not the maximum likelihood estimate: <a href="#/cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.3" id="sec-bayes-skeptical">
 <span class="header-section-number">3.3</span> A skeptical prior</h3>
@@ -1263,7 +1288,11 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 <p>where <span class="math inline">\(Y^{\mathrm{new}}\)</span> and <span class="math inline">\(\tilde{Y}\)</span> are independent given <span class="math inline">\(\theta\)</span> <span class="citation" data-cites="gelman2013bda">(<a href="#/references" role="doc-biblioref" onclick="">Gelman et al. 2013, sec. 1.3</a>, p.&nbsp;7, eq. 1.4)</span>. The same formula, with <span class="math inline">\(y^{\mathrm{new}}\)</span> replaced by a whole replicated data set <span class="math inline">\(\tilde{y}^{\mathrm{rep}}\)</span> of the same size as <span class="math inline">\(\tilde{y}\)</span>, gives the posterior predictive distribution of replicated data.</p>
 </div>
 </section><section class="slide level2"><div id="exm-posterior-predictive" class="theorem example">
-<p><span class="theorem-title"><strong>Example 20 (Will the next mother smoke?)</strong></span> Let <span class="math inline">\(Y^{\mathrm{new}} = 1\)</span> if one more mother from the <code>birthwt</code> population smoked during pregnancy, and <span class="math inline">\(Y^{\mathrm{new}} = 0\)</span> if she did not. Given <span class="math inline">\(\pi\)</span>, <span class="math inline">\(\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{} = \pi\)</span>. With the posterior <span class="math inline">\(\operatorname{p}(\pi\mid \tilde{y})\)</span> of <a href="#/exm-prior-posterior-figure" class="quarto-xref">Example&nbsp;14</a>,</p>
+<p><span class="theorem-title"><strong>Example 20 (Will the next mother smoke?)</strong></span> Let <span class="math inline">\(Y^{\mathrm{new}} = 1\)</span> if one more mother from the <code>birthwt</code> population smoked during pregnancy, and <span class="math inline">\(Y^{\mathrm{new}} = 0\)</span> if she did not. Given <span class="math inline">\(\pi\)</span>,</p>
+<p><span class="math display">\[
+\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{} = \pi.
+\]</span></p>
+<p>With the posterior <span class="math inline">\(\operatorname{p}(\pi\mid \tilde{y})\)</span> of <a href="#/exm-prior-posterior-figure" class="quarto-xref">Example&nbsp;14</a>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \tilde{y}\right)\mathclose{}

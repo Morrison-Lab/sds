@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 10:13:53 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 10:25:47 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -713,7 +713,14 @@ f_{\varepsilon}(t)
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-rss" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4 (Residual sum of squares of a line through three points)</strong></span> For the points <span class="math inline">\((0, 1)\)</span>, <span class="math inline">\((1, 2)\)</span>, <span class="math inline">\((2, 2)\)</span> and the line with <span class="math inline">\(\beta_{0}= 1\)</span> and <span class="math inline">\(\beta_{x} = 0.5\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>), the residuals are <span class="math inline">\(1 - 1 = 0\)</span>, <span class="math inline">\(2 - 1.5 = 0.5\)</span>, and <span class="math inline">\(2 - 2 = 0\)</span>, so <span class="math inline">\(\text{RSS}(1, 0.5) = 0^2 + 0.5^2 + 0^2 = 0.25\)</span> (<a href="#/fig-rss-three-points" class="quarto-xref">Figure&nbsp;2</a>).</p>
+<p><span class="theorem-title"><strong>Example 4 (Residual sum of squares of a line through three points)</strong></span> For the points <span class="math inline">\((0, 1)\)</span>, <span class="math inline">\((1, 2)\)</span>, <span class="math inline">\((2, 2)\)</span> and the line with <span class="math inline">\(\beta_{0}= 1\)</span> and <span class="math inline">\(\beta_{x} = 0.5\)</span> (<a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>), the residuals are <span class="math inline">\(1 - 1 = 0\)</span>, <span class="math inline">\(2 - 1.5 = 0.5\)</span>, and <span class="math inline">\(2 - 2 = 0\)</span>, so</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \text{RSS}(1, 0.5) &amp;= 0^2 + 0.5^2 + 0^2 \\
+  &amp;= 0.25
+\end{aligned}
+\]</span></p>
+<p>(<a href="#/fig-rss-three-points" class="quarto-xref">Figure&nbsp;2</a>).</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>rss_points <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">fitted =</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> x)</span>
 <span id="cb6-3"><a aria-label="3"></a></span>

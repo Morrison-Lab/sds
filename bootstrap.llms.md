@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:13:53 (PDT)
+Last modified: 2026-10-09 10:25:47 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
@@ -167,7 +167,9 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> **Example 5 (Bias correction when 40% of replicates fall below the estimate)** If 400 of \\B = 1{,}000\\ replicates are below \\\hat{\theta}\\, then \\\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\\. If exactly half were below, \\\hat z_0 = \Phi^{-1}(0.5) = 0\\.
+> **Example 5 (Bias correction when 40% of replicates fall below the estimate)** If 400 of \\B = 1{,}000\\ replicates are below \\\hat{\theta}\\, then \\\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\\. If exactly half were below,
+>
+> \\ \begin{aligned} \hat z_0 &= \Phi^{-1}(0.5) \\ &= 0. \end{aligned} \\
 
 > **NOTE:**
 >

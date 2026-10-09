@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:13:53 (PDT)
+Last modified: 2026-10-09 10:25:47 (PDT)
 
 ## 1 Scientific models
 
@@ -405,7 +405,9 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Example 10 (Mean squared error of two estimators of a mean)** Continuing [Example 9](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 3](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
 >
-> For \\X_1\\, \\\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} = 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} = \sigma^2\\.
+> For \\X_1\\,
+>
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} &= 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} \\ &= \sigma^2. \end{aligned} \\
 >
 > For \\\bar X\\:
 >
@@ -413,7 +415,11 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > The step to \\\frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}\\ uses the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom), whose covariance terms are all zero for independent variables.
 >
-> So for any sample size \\n \> 1\\, \\\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/n \< \sigma^2= \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}\\: by mean squared error, the sample mean is the more accurate estimator. With \\n = 50\\ students, as in [Example 4](#exm-estimator), the sample mean’s mean squared error is \\1/50\\ of \\X_1\\’s.
+> So for any sample size \\n \> 1\\,
+>
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &= \sigma^2/n \\ &\< \sigma^2\\ &= \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}: \end{aligned} \\
+>
+> by mean squared error, the sample mean is the more accurate estimator. With \\n = 50\\ students, as in [Example 4](#exm-estimator), the sample mean’s mean squared error is \\1/50\\ of \\X_1\\’s.
 
 > **NOTE:**
 >
@@ -444,11 +450,23 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 > - the [sample variance](exploratory-descriptive.llms.md#def-sample-variance) \\S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(X_i - \bar X)^2\\;
 > - the divide-by-\\n\\ estimator \\\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(X_i - \bar X)^2\\.
 >
-> Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n(X_i - \bar X)^2\\, so we first find its expectation. Using \\\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2+ \mu^2\\ and \\\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\\ (by [Example 10](#exm-mse-sample-mean) and [Example 9](#exm-bias-sample-mean)):
+> Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n(X_i - \bar X)^2\\, so we first find its expectation. Using
+>
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} &= \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)^2\mathclose{} \\ &= \sigma^2+ \mu^2 \end{aligned} \\
+>
+> and
+>
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}\right)^2\mathclose{} \\ &= \sigma^2/n + \mu^2 \end{aligned} \\
+>
+> (by [Example 10](#exm-mse-sample-mean) and [Example 9](#exm-bias-sample-mean)):
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n(X_i - \bar X)^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n\mathopen{}\left(X_i^2 - 2 X_i \bar X + \bar X^2\right)\mathclose{}\right\]\mathclose{} && \text{(expand each square)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - \sum\_{i=1}^n2 X_i \bar X + \sum\_{i=1}^n\bar X^2\right\]\mathclose{} && \text{(split the sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i + \sum\_{i=1}^n\bar X^2\right\]\mathclose{} && \text{(factor \$2\bar X\$ out of the middle sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i + n \bar X^2\right\]\mathclose{} && \text{(sum of \$n\$ copies of \$\bar X^2\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right\]\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^nX_i = n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2n \bar X^2 + n \bar X^2\right\]\mathclose{} && \text{(multiply \$2\bar X \cdot n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - n \bar X^2\right\]\mathclose{} && \text{(collect the \$\bar X^2\$ terms)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(factor the constant \$n\$ out of the expectation)}\\ &= \sum\_{i=1}^n(\sigma^2+ \mu^2) - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(substitute \$\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}\$)}\\ &= n(\sigma^2+ \mu^2) - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(sum of \$n\$ copies of \$\sigma^2+ \mu^2\$)}\\ &= n(\sigma^2+ \mu^2) - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(substitute \$\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}\$)}\\ &= n\sigma^2+ n\mu^2 - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\sigma^2+ \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(n \cdot \frac{\sigma^2}{n} + n\mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\frac{\sigma^2}{n} + \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(\sigma^2+ n\mu^2\right)\mathclose{} && \text{(cancel \$n\$ in \$n \cdot \frac{\sigma^2}{n}\$)}\\ &= n\sigma^2+ n\mu^2 - \sigma^2- n\mu^2 && \text{(distribute the minus sign)}\\ &= n\sigma^2- \sigma^2 && \text{(cancel \$n\mu^2\$)}\\ &= (n - 1)\sigma^2 && \text{(factor out \$\sigma^2\$)} \end{aligned} \\
 >
-> So \\\operatorname{E}\mathopen{}\left\[S^2\right\]\mathclose{} = \frac{1}{n-1}(n-1)\sigma^2= \sigma^2\\, and by [Theorem 2](#thm-bias-exprs), \\\operatorname{Bias}\mathopen{}\left(S^2\right)\mathclose{} = 0\\: the sample variance is [unbiased](#def-unbiased).
+> So
+>
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[S^2\right\]\mathclose{} &= \frac{1}{n-1}(n-1)\sigma^2\\ &= \sigma^2, \end{aligned} \\
+>
+> and by [Theorem 2](#thm-bias-exprs), \\\operatorname{Bias}\mathopen{}\left(S^2\right)\mathclose{} = 0\\: the sample variance is [unbiased](#def-unbiased).
 >
 > For the divide-by-\\n\\ estimator, \\\operatorname{E}\mathopen{}\left\[\hat{\sigma}^2\right\]\mathclose{} = \frac{1}{n}(n-1)\sigma^2\\, so:
 >
@@ -512,7 +530,11 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Example 14 (Standard error of the sample mean)** In [Example 10](#exm-mse-sample-mean), \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\\, so \\\operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} = \sqrt{\sigma^2 / n} = \sigma/ \sqrt{n}\\. With \\n = 50\\ students, the standard error of the sample mean height is \\\sigma/ \sqrt{50} \approx 0.14\sigma\\.
+> **Example 14 (Standard error of the sample mean)** In [Example 10](#exm-mse-sample-mean), \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\\, so
+>
+> \\ \begin{aligned} \operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} &= \sqrt{\sigma^2 / n} \\ &= \sigma/ \sqrt{n}. \end{aligned} \\
+>
+> With \\n = 50\\ students, the standard error of the sample mean height is \\\sigma/ \sqrt{50} \approx 0.14\sigma\\.
 
 > **NOTE:**
 >
@@ -522,7 +544,9 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > *Solution 8*. \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{} && \text{(definition of estimation error)}\\ &= \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(subtracting a constant does not change a variance)} \end{aligned} \\
 >
-> Taking square roots of both sides, \\\operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\.
+> Taking square roots of both sides,
+>
+> \\ \begin{aligned} \operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{} &= \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \\ &= \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}. \end{aligned} \\
 
 > **NOTE:**
 >
@@ -560,7 +584,9 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Solution 10*. By [Equation 6](#eq-unbiased-mse), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\. Taking square roots of both sides, \\\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\.
+> *Solution 10*. By [Equation 6](#eq-unbiased-mse), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\. Taking square roots of both sides,
+>
+> \\ \begin{aligned} \sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \\ &= \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}. \end{aligned} \\
 
 > **NOTE:**
 >

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:13:53 (PDT)
+Last modified: 2026-10-09 10:25:47 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -304,7 +304,15 @@ When several candidate models are plausible, committing to a single “best” o
 
 > **NOTE:**
 >
-> **Example 5 (Posterior probabilities of two models)** Two models with equal prior probabilities \\\operatorname{p}(M_1) = \operatorname{p}(M_2) = 0.5\\ and marginal likelihoods \\\operatorname{p}(\tilde{y}\mid M_1) = 0.02\\ and \\\operatorname{p}(\tilde{y}\mid M_2) = 0.06\\ have posterior probabilities \\\operatorname{p}(M_1 \mid \tilde{y}) = 0.01 / (0.01 + 0.03) = 0.25\\ and \\\operatorname{p}(M_2 \mid \tilde{y}) = 0.75\\.
+> **Example 5 (Posterior probabilities of two models)** Two models with equal prior probabilities
+>
+> \\ \begin{aligned} \operatorname{p}(M_1) &= \operatorname{p}(M_2) \\ &= 0.5 \end{aligned} \\
+>
+> and marginal likelihoods \\\operatorname{p}(\tilde{y}\mid M_1) = 0.02\\ and \\\operatorname{p}(\tilde{y}\mid M_2) = 0.06\\ have posterior probabilities
+>
+> \\ \begin{aligned} \operatorname{p}(M_1 \mid \tilde{y}) &= 0.01 / (0.01 + 0.03) \\ &= 0.25 \end{aligned} \\
+>
+> and \\\operatorname{p}(M_2 \mid \tilde{y}) = 0.75\\.
 
 > **NOTE:**
 >
