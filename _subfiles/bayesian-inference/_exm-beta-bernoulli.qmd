@@ -62,7 +62,8 @@ By @def-credible-interval,
 the interval is read as a probability statement about $\prob$ itself:
 given these 91 trials,
 the posterior probability that $\prob$ lies between
-`r post_summary[["lower"]]` and `r post_summary[["upper"]]` is 0.95.
+`r post_summary[["lower"]]` and `r post_summary[["upper"]]` is 0.95
+(approximately, since those endpoints are rounded to three decimals).
 A 95% confidence interval computed from the same data
 supports no such statement,
 as @sec-bayes-interval-interp explains:
