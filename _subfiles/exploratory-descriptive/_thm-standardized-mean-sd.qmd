@@ -17,14 +17,24 @@ the proof is the elementary calculation.
 ::: proof
 
 The sample mean of the $z_i$ is
-$$\avgin \frac{x_i - \bar x}{s}
-= \frac{1}{s} \paren{\avgin x_i - \bar x}
-= \frac{1}{s} (\bar x - \bar x) = 0.$$
+$$
+\ba
+\avgin \frac{x_i - \bar x}{s}
+&= \frac{1}{s} \paren{\avgin x_i - \bar x}\\
+&= \frac{1}{s} (\bar x - \bar x)\\
+&= 0.
+\ea
+$$
 Since the mean of the $z_i$ is $0$,
 their sample variance is
-$$\frac{1}{n-1} \sumin z_i^2
-= \frac{1}{s^2} \cdot \frac{1}{n-1} \sumin (x_i - \bar x)^2
-= \frac{s^2}{s^2} = 1,$$
+$$
+\ba
+\frac{1}{n-1} \sumin z_i^2
+&= \frac{1}{s^2} \cdot \frac{1}{n-1} \sumin (x_i - \bar x)^2\\
+&= \frac{s^2}{s^2}\\
+&= 1,
+\ea
+$$
 so their sample standard deviation is $\sqrt{1} = 1$.
 
 :::

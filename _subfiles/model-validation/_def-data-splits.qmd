@@ -14,10 +14,11 @@ $$
 \ba
 & I_{\text{train}} \cup I_{\text{val}} \cup I_{\text{test}} = \set{1, \ldots, N},
 \\
-& I_{\text{train}} \cap I_{\text{val}}
-= I_{\text{train}} \cap I_{\text{test}}
-= I_{\text{val}} \cap I_{\text{test}}
-= \emptyset,
+& I_{\text{train}} \cap I_{\text{val}} = \emptyset,
+\\
+& I_{\text{train}} \cap I_{\text{test}} = \emptyset,
+\\
+& I_{\text{val}} \cap I_{\text{test}} = \emptyset,
 \\
 & \trainset = \paren{(x_i, y_i)}_{i \in I_{\text{train}}}.
 \ea
