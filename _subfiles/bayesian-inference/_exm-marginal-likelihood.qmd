@@ -19,10 +19,12 @@ $$
 By @thm-bayes-posterior,
 
 $$
+\ba
 \p(0.8 \mid \vy)
-= \frac{\p(\vy \mid 0.8)\, \p(0.8)}{\p(\vy)}
-= \frac{0.0512}{0.1637}
-\approx 0.313,
+&= \frac{\p(\vy \mid 0.8)\, \p(0.8)}{\p(\vy)}\\
+&= \frac{0.0512}{0.1637}\\
+&\approx 0.313,
+\ea
 $$
 
 and $\p(0.5 \mid \vy) = 0.1125 / 0.1637 \approx 0.687$.
