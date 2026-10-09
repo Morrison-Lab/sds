@@ -4,6 +4,7 @@
 The **positive agreement**
 (also called the *average positive agreement*)
 of an agreement table (@def-agreement-table)
+with $2a + b + c > 0$
 is the number of positive calls the agent and the reference share,
 counted once for each classifier,
 as a proportion of all their positive calls:

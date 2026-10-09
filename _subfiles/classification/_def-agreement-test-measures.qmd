@@ -3,11 +3,15 @@
 
 Treating the reference as the truth,
 an agreement table (@def-agreement-table) estimates
-the agent's [sensitivity](#def-sensitivity),
-[specificity](#def-specificity),
-[positive predictive value](#def-ppv),
-and [negative predictive value](#def-npv)
-by the matching proportions of its cells:
+four measures of the agent:
+
+- its [sensitivity](#def-sensitivity);
+- its [specificity](#def-specificity);
+- its [positive predictive value](#def-ppv);
+- its [negative predictive value](#def-npv).
+
+Each estimate is the matching proportion of the table's cells,
+defined when its denominator is positive:
 
 $$
 \ba

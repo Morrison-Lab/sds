@@ -3,9 +3,17 @@
 
 Now apply the same test to $n = 100{,}000$ people
 in a population where the prevalence is only 0.5%.
-Then $0.005 \times 100{,}000 = 500$ people have COVID-19,
-the test is positive for $0.99 \times 500 = 495$ of them,
-and it is positive for $0.01 \times 99{,}500 = 995$ of the 99,500 people without it:
+Then:
+
+- $0.005 \times 100{,}000 = 500$ people have COVID-19
+  and $100{,}000 - 500 = 99{,}500$ do not;
+- with 99% sensitivity,
+  the test is positive for $a = 0.99 \times 500 = 495$ people with COVID-19
+  and negative for $c = 500 - 495 = 5$;
+- with 99% specificity,
+  the false positive rate is $1 - 0.99 = 0.01$,
+  so the test is positive for $b = 0.01 \times 99{,}500 = 995$ people without COVID-19
+  and negative for $d = 99{,}500 - 995 = 98{,}505$.
 
 ```{r}
 agree_rare <- c(a = 495, b = 995, c = 5, d = 98505)
@@ -29,8 +37,8 @@ and disagree on about half of the positive calls.
 ::: {.callout-note collapse="true"}
 #### Source
 
-The pattern follows @feinstein1990high
-and @cicchetti1990high.
+High overall agreement with low kappa is the first paradox
+described by @feinstein1990high.
 :::
 
 :::

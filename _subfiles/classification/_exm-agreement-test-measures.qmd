@@ -14,8 +14,9 @@ with(as.list(agree_covid), c(
   round(4)
 ```
 
-These estimates match the test's sensitivity and specificity (0.99)
-and its positive predictive value (about 0.88, @exm-ppv),
+These estimates match the test's sensitivity and specificity (0.99),
+its positive predictive value (about 0.88, @exm-ppv),
+and its negative predictive value (about 0.999, @exm-npv),
 because the table's counts are the expected counts for those values.
 
 :::

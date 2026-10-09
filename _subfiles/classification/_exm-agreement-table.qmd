@@ -11,6 +11,8 @@ With 99% sensitivity,
 the test is positive for $0.99 \times 700 = 693$ of the 700;
 with 99% specificity,
 it is negative for $0.99 \times 9{,}300 = 9{,}207$ of the 9,300.
+So the test is positive for $9{,}300 - 9{,}207 = 93$ people without COVID-19
+and negative for $700 - 693 = 7$ people with it.
 The agreement table (@def-agreement-table) is:
 
 | | COVID-19 | No COVID-19 | Total |

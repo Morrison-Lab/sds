@@ -1,6 +1,7 @@
 :::{#def-cohen-kappa}
 #### Cohen's kappa
 
+For an agreement table with $p_e < 1$,
 **Cohen's kappa** is the agreement beyond chance,
 as a fraction of the largest possible agreement beyond chance,
 built from the overall agreement (@def-overall-agreement)

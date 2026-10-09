@@ -14,6 +14,7 @@ p_{\text{agent}}
 \ea
 $$
 
-so the test flags about 9 people in 1,000 whom the reference calls negative.
+so about 9 of every 1,000 people tested
+are called positive by the test and negative by the reference.
 
 :::

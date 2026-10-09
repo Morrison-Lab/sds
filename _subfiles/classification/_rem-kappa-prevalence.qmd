@@ -1,7 +1,7 @@
 :::{#rem-kappa-prevalence}
 #### Kappa depends on prevalence
 
-When one category is rare,
+When both classifiers call one category rarely,
 the chance agreement $p_e$ is close to 1,
 so the same overall agreement leaves little room for agreement beyond chance,
 and kappa can be low even when the overall agreement is high,
