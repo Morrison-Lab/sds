@@ -11,3 +11,6 @@ The Bayesian *inference method* differs
 only in placing a hyperprior on $\mean$ and $\sdbetween$
 and returning a full posterior for them,
 rather than point estimates of the variance components.
+For a video introduction, see Richard McElreath's lecture
+[*Multilevel Models*](https://www.youtube.com/watch?v=jh3RltVrQ-Q)
+(Statistical Rethinking 2026, Lecture B01).
