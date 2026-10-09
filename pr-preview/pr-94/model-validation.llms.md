@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 19:54:47 (PDT)
+Last modified: 2026-10-09 01:53:04 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -393,7 +393,7 @@ Last modified: 2026-10-08 19:54:47 (PDT)
 >
 > **Definition 14 (Training/validation/test split)** A **training/validation/test split** divides the observations \\1, \ldots, N\\ of a data set into three disjoint sets of indices, \\I\_{\text{train}}\\, \\I\_{\text{val}}\\ and \\I\_{\text{test}}\\, and takes the observations in \\I\_{\text{train}}\\ as the [training set](#def-training-set):
 >
-> \\ \begin{aligned} & I\_{\text{train}} \cup I\_{\text{val}} \cup I\_{\text{test}} = \mathopen{}\left\\1, \ldots, N\right\\\mathclose{}, \\ & I\_{\text{train}} \cap I\_{\text{val}} = I\_{\text{train}} \cap I\_{\text{test}} = I\_{\text{val}} \cap I\_{\text{test}} = \emptyset, \\ & \mathcal{T}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}\_{i \in I\_{\text{train}}}. \end{aligned} \tag{15}\\
+> \\ \begin{aligned} & I\_{\text{train}} \cup I\_{\text{val}} \cup I\_{\text{test}} = \mathopen{}\left\\1, \ldots, N\right\\\mathclose{}, \\ & I\_{\text{train}} \cap I\_{\text{val}} = \emptyset, \\ & I\_{\text{train}} \cap I\_{\text{test}} = \emptyset, \\ & I\_{\text{val}} \cap I\_{\text{test}} = \emptyset, \\ & \mathcal{T}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}\_{i \in I\_{\text{train}}}. \end{aligned} \tag{15}\\
 >
 > > **NOTE:**
 > >
@@ -1115,10 +1115,10 @@ Last modified: 2026-10-08 19:54:47 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 8](#sol-loocv)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 8](#sol-loocv)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >

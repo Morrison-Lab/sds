@@ -347,6 +347,19 @@
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
+<!-- gha-preview-page-banner:start -->
+<div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
+    <p style="margin: 0;">
+        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~100% of content changed).
+        <br>
+        <strong>🎨 Highlighting Legend:</strong> 
+        <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 3px; border-radius: 2px;">Modified text (yellow)</mark> shows changed words/phrases, 
+        <mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 3px; border-radius: 2px;">added text (green)</mark> shows new content, and 
+        <mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 3px; border-radius: 2px;">new sections (blue)</mark> highlight entirely new paragraphs.
+    </p>
+</div>
+<!-- gha-preview-page-banner:end -->
+
   <div class="reveal">
     <div class="slides">
 
@@ -355,7 +368,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 19:54:47 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 01:53:04 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -454,7 +467,7 @@ text-align: center;
 <p><span id="eq-ar1-chain-exm"><span class="math display">\[
 \theta^{(t+1)} \stackrel{\text{def}}{=}\rho\, \theta^{(t)} + \varepsilon^{(t+1)}.
 \tag{1}\]</span></span></p>
-<p>The sequence <span class="math inline">\(\theta^{(1)}, \theta^{(2)}, \ldots\)</span> is a <strong>first-order autoregressive</strong> process. Each of <span class="math inline">\(\theta^{(1)}, \ldots, \theta^{(t)}\)</span> is a function of <span class="math inline">\(\theta^{(1)}, \varepsilon^{(2)}, \ldots, \varepsilon^{(t)}\)</span>, so <span class="math inline">\(\varepsilon^{(t+1)}\)</span> is independent of all of them. So, given <span class="math inline">\(\theta^{(t)} = s\)</span> and any earlier values, <span class="math inline">\(\theta^{(t+1)} = \rho\, s + \varepsilon^{(t+1)}\)</span> has the <span class="math inline">\(\operatorname{N}\mathopen{}\left(\rho\, s, \sigma^2\right)\mathclose{}\)</span> distribution, which depends only on the current state <span class="math inline">\(s\)</span>. The sequence is therefore a <a href="#/def-markov-chain">Markov chain</a>. Unlike the chain of <a href="#/exm-two-state-chain" class="quarto-xref">Example&nbsp;3</a>, its states can be any real number, as are the states of the chains that MCMC builds for a continuous parameter.</p>
+<p>The sequence <span class="math inline">\(\theta^{(1)}, \theta^{(2)}, \ldots\)</span> is a <strong>first-order autoregressive</strong> process. Each of <span class="math inline">\(\theta^{(1)}, \ldots, \theta^{(t)}\)</span> is a function of <span class="math inline">\(\theta^{(1)}, \varepsilon^{(2)}, \ldots, \varepsilon^{(t)}\)</span>, so <span class="math inline">\(\varepsilon^{(t+1)}\)</span> is independent of all of them. So, given <span class="math inline">\(\theta^{(t)} = s\)</span> and any earlier values, <span class="math inline">\(\theta^{(t+1)} = \rho\, s + \varepsilon^{(t+1)}\)</span> has the <span class="math inline">\(\operatorname{N}\mathopen{}\left(\rho\, s, \sigma^2\right)\mathclose{}\)</span> distribution, which depends only on the current state <span class="math inline">\(s\)</span>. The sequence is therefore a <a href="#/def-markov-chain">Markov chain</a>. Unlike the chain of <a href="#/exm-two-state-chain" class="quarto-xref">Example&nbsp;3</a>, its states can be any real number, so it has a continuous state space, like the chains that MCMC builds for a continuous parameter, whose values lie in the parameter space.</p>
 </div>
 </section><section class="slide level2"><div id="exr-ar1-stationary" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1 (Stationary distribution of the autoregressive chain)</strong></span> For the chain of <a href="#/exm-ar1-chain" class="quarto-xref">Example&nbsp;4</a> with <span class="math inline">\(\mathopen{}\left|\rho\right|\mathclose{} &lt; 1\)</span>, find the variance <span class="math inline">\(v &gt; 0\)</span> for which <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\)</span> is a <a href="#/def-stationary-distribution">stationary distribution</a>.</p>
@@ -530,6 +543,19 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 <span id="cb3-15"><a aria-label="15"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span>
 <span id="cb3-16"><a aria-label="16"></a><span class="co">#&gt;                mean            variance stationary_variance </span></span>
 <span id="cb3-17"><a aria-label="17"></a><span class="co">#&gt;                0.05                5.07                5.26</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Source</strong></p>
+</div>
+<div class="callout-content">
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">That a linear combination of independent normal random variables is normal is <span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>, Corollary 4.6.10)</span>.</mark></p>
+</div>
+</div>
 </div>
 </div>
 </section><section class="slide level2"><div id="thm-ar1-stationary" class="theorem">

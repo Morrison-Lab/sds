@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 19:54:47 (PDT)
+Last modified: 2026-10-09 01:53:04 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -105,7 +105,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > \\ \theta^{(t+1)} \stackrel{\text{def}}{=}\rho\\ \theta^{(t)} + \varepsilon^{(t+1)}. \tag{1}\\
 >
-> The sequence \\\theta^{(1)}, \theta^{(2)}, \ldots\\ is a **first-order autoregressive** process. Each of \\\theta^{(1)}, \ldots, \theta^{(t)}\\ is a function of \\\theta^{(1)}, \varepsilon^{(2)}, \ldots, \varepsilon^{(t)}\\, so \\\varepsilon^{(t+1)}\\ is independent of all of them. So, given \\\theta^{(t)} = s\\ and any earlier values, \\\theta^{(t+1)} = \rho\\ s + \varepsilon^{(t+1)}\\ has the \\\operatorname{N}\mathopen{}\left(\rho\\ s, \sigma^2\right)\mathclose{}\\ distribution, which depends only on the current state \\s\\. The sequence is therefore a [Markov chain](#def-markov-chain). Unlike the chain of [Example 3](#exm-two-state-chain), its states can be any real number, as are the states of the chains that MCMC builds for a continuous parameter.
+> The sequence \\\theta^{(1)}, \theta^{(2)}, \ldots\\ is a **first-order autoregressive** process. Each of \\\theta^{(1)}, \ldots, \theta^{(t)}\\ is a function of \\\theta^{(1)}, \varepsilon^{(2)}, \ldots, \varepsilon^{(t)}\\, so \\\varepsilon^{(t+1)}\\ is independent of all of them. So, given \\\theta^{(t)} = s\\ and any earlier values, \\\theta^{(t+1)} = \rho\\ s + \varepsilon^{(t+1)}\\ has the \\\operatorname{N}\mathopen{}\left(\rho\\ s, \sigma^2\right)\mathclose{}\\ distribution, which depends only on the current state \\s\\. The sequence is therefore a [Markov chain](#def-markov-chain). Unlike the chain of [Example 3](#exm-two-state-chain), its states can be any real number, so it has a continuous state space, like the chains that MCMC builds for a continuous parameter, whose values lie in the parameter space.
 
 > **NOTE:**
 >
@@ -148,6 +148,10 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 > #>                mean            variance stationary_variance 
 > #>                0.05                5.07                5.26
 > ```
+>
+> > **NOTE:**
+> >
+> > That a linear combination of independent normal random variables is normal is Casella and Berger ([2002](#ref-CaseBerg01), Corollary 4.6.10).
 
 > **NOTE:**
 >
