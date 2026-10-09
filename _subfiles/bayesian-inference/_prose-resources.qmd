@@ -29,7 +29,10 @@ The following resources cover Bayesian inference in more depth.
   and has published
   [video lectures](https://www.youtube.com/@rmcelreath/playlists),
   most recently the [2026 course](https://www.youtube.com/playlist?list=PLDcUM9US4XdNOlqSyhe38US8mFgmqzI14),
-  and [course materials](https://github.com/rmcelreath/stat_rethinking_2024)
+  and [course materials](https://github.com/rmcelreath/stat_rethinking_2024);
+  the Data Science Learning Community's
+  [book club](https://www.youtube.com/playlist?list=PL3x6DOfs2NGhiIU3mxd_gUyqzmbLesmjh)
+  recorded its discussion of the first twelve chapters
 - @korner.bayes.ecology
 - @CowlesMaryKathryn2013ABSW
 - @kery-bayes-pop
