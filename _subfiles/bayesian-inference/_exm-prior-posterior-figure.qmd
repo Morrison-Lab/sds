@@ -1,0 +1,264 @@
+::: {#exm-prior-posterior-figure}
+#### Prior and posterior, with and without a known truth
+
+Plotting the prior and posterior densities together
+shows how much the data moved our beliefs.
+We use the Beta-Bernoulli model of @exm-beta-bernoulli
+with the uniform $\dBetaf{1, 1}$ prior of @exm-prior
+on two data sets:
+
+- **Simulated data.**
+  We choose the true value of $\prob$ ourselves,
+  draw Bernoulli observations with that probability,
+  and then check where the posterior puts the truth.
+- **Real data.**
+  We use the `birthwt` data on `r nrow(MASS::birthwt)` births
+  at Baystate Medical Center in Springfield, Massachusetts, in 1986
+  [@hosmer1989applied; @venables2002modern, Section 7.2].
+  Here $\prob$ is the probability that a mother in this population smoked during pregnancy,
+  and its true value is unknown.
+  The data ship with R's `MASS` package as `MASS::birthwt`;
+  the Python code reads `data/birthwt.csv`, a copy of the same table,
+  which is also posted as a CSV file by the
+  [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: prior-posterior-setup
+#| code-fold: false
+prior_a <- 1
+prior_b <- 1
+
+set.seed(1)
+sim_truth <- 0.3
+sim_y <- stats::rbinom(50, size = 1, prob = sim_truth)
+smoke_y <- MASS::birthwt$smoke
+
+beta_posterior <- function(y, a = prior_a, b = prior_b) {
+  c(a = a + sum(y), b = b + length(y) - sum(y))
+}
+
+post_params <- rbind(
+  simulated = beta_posterior(sim_y),
+  `real (birthwt)` = beta_posterior(smoke_y)
+)
+post_summary <- data.frame(
+  n = c(length(sim_y), length(smoke_y)),
+  successes = c(sum(sim_y), sum(smoke_y)),
+  post_a = post_params[, "a"],
+  post_b = post_params[, "b"],
+  mean = post_params[, "a"] / rowSums(post_params),
+  lower = stats::qbeta(0.025, post_params[, "a"], post_params[, "b"]),
+  upper = stats::qbeta(0.975, post_params[, "a"], post_params[, "b"])
+)
+post_summary
+```
+
+##### Python
+
+```{python}
+#| label: prior-posterior-setup-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+from scipy import stats
+
+prior_a, prior_b = 1, 1
+
+rng = np.random.default_rng(1)
+sim_truth = 0.3
+sim_y = rng.binomial(1, sim_truth, size=50)
+smoke_y = pd.read_csv("data/birthwt.csv")["smoke"].to_numpy()
+
+
+def beta_posterior(y, a=prior_a, b=prior_b):
+    return a + y.sum(), b + len(y) - y.sum()
+
+
+rows = []
+for name, y in {"simulated": sim_y, "real (birthwt)": smoke_y}.items():
+    post_a, post_b = beta_posterior(y)
+    rows.append({
+        "data": name,
+        "n": len(y),
+        "successes": y.sum(),
+        "post_a": post_a,
+        "post_b": post_b,
+        "mean": post_a / (post_a + post_b),
+        "lower": stats.beta.ppf(0.025, post_a, post_b),
+        "upper": stats.beta.ppf(0.975, post_a, post_b),
+    })
+pd.DataFrame(rows).set_index("data")
+```
+
+:::
+
+R and Python use different random-number generators,
+so their simulated draws differ, and their summaries can differ too;
+the numbers in the text below come from the R code.
+
+{{< slidebreak >}}
+
+@fig-prior-posterior plots each prior and posterior density.
+
+::: {#fig-prior-posterior}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: prior-posterior-plot
+#| fig-alt: !expr paste0(
+#|   "Two side-by-side panels of densities for the probability of a success, ",
+#|   "each on the interval from 0 to 1. ",
+#|   "In both panels the uniform prior is a flat line at height 1, ",
+#|   "and the posterior is a hump. ",
+#|   "In the left panel (simulated data, ", length(sim_y), " observations), ",
+#|   "a dashed vertical line at the true value ", sim_truth,
+#|   " passes through the posterior hump, which is centred near ",
+#|   round(post_summary["simulated", "mean"], 2), ". ",
+#|   "In the right panel (real birthwt data, ", length(smoke_y), " births), ",
+#|   "the posterior hump is narrower, centred near ",
+#|   round(post_summary["real (birthwt)", "mean"], 2),
+#|   ", and no true value is marked."
+#|   )
+prob_grid <- seq(0.001, 0.999, length.out = 500)
+density_curves <- do.call(
+  rbind,
+  lapply(rownames(post_params), \(data_set) {
+    rbind(
+      data.frame(
+        data_set = data_set,
+        prob = prob_grid,
+        distribution = "prior",
+        density = stats::dbeta(prob_grid, prior_a, prior_b)
+      ),
+      data.frame(
+        data_set = data_set,
+        prob = prob_grid,
+        distribution = "posterior",
+        density = stats::dbeta(
+          prob_grid,
+          post_params[data_set, "a"],
+          post_params[data_set, "b"]
+        )
+      )
+    )
+  })
+)
+density_curves$data_set <- factor(
+  density_curves$data_set,
+  levels = rownames(post_params)
+)
+density_curves$distribution <- factor(
+  density_curves$distribution,
+  levels = c("prior", "posterior")
+)
+
+ggplot2::ggplot(
+  density_curves,
+  ggplot2::aes(prob, density, colour = distribution, linetype = distribution)
+) +
+  ggplot2::geom_line(linewidth = 0.8) +
+  ggplot2::geom_vline(
+    data = data.frame(
+      data_set = factor("simulated", levels = rownames(post_params)),
+      truth = sim_truth
+    ),
+    ggplot2::aes(xintercept = truth),
+    linetype = "dashed"
+  ) +
+  ggplot2::facet_wrap(~data_set) +
+  ggplot2::labs(
+    x = "probability of a success",
+    y = "density",
+    colour = NULL,
+    linetype = NULL
+  )
+```
+
+##### Python
+
+```{python}
+#| label: prior-posterior-plot-py
+#| code-summary: "Show Python code"
+#| fig-alt: Two side-by-side panels of densities for the probability of a success,
+#|   each on the interval from 0 to 1.
+#|   In both panels the uniform prior is a flat line,
+#|   and the posterior is a hump.
+#|   In the left panel (simulated data)
+#|   a dotted vertical line marks the true value.
+#|   In the right panel (real birthwt data)
+#|   the posterior hump is narrower, and no true value is marked.
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy import stats
+
+prob_grid = np.linspace(0.001, 0.999, 500)
+data_sets = {"simulated": sim_y, "real (birthwt)": smoke_y}
+fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
+for ax, (name, y) in zip(axes, data_sets.items()):
+    post_a, post_b = beta_posterior(y)
+    ax.plot(prob_grid, stats.beta.pdf(prob_grid, prior_a, prior_b),
+            label="prior")
+    ax.plot(prob_grid, stats.beta.pdf(prob_grid, post_a, post_b),
+            linestyle="--", label="posterior")
+    if name == "simulated":
+        ax.axvline(sim_truth, color="black", linestyle=":", label="truth")
+    ax.set_title(name)
+    ax.set_xlabel("probability of a success")
+axes[0].set_ylabel("density")
+axes[0].legend()
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+Prior and posterior densities of $\prob$
+under a uniform $\dBetaf{1, 1}$ prior.
+Left: `r post_summary["simulated", "n"]` simulated Bernoulli observations,
+drawn with true $\prob = `r sim_truth`$ (vertical line).
+Right: whether each of the `r post_summary["real (birthwt)", "n"]` mothers
+in the `birthwt` data smoked during pregnancy;
+the true $\prob$ is unknown.
+:::
+
+{{< slidebreak >}}
+
+In the simulated panel,
+`r post_summary["simulated", "successes"]` of the
+`r post_summary["simulated", "n"]` draws were successes,
+so the posterior is
+$\dBetaf{`r post_summary["simulated", "post_a"]`, `r post_summary["simulated", "post_b"]`}$.
+Its mean is `r round(post_summary["simulated", "mean"], 3)`,
+and its equal-tailed 95% [credible interval](#def-credible-interval)
+runs from `r round(post_summary["simulated", "lower"], 3)`
+to `r round(post_summary["simulated", "upper"], 3)`,
+which `r if (post_summary["simulated", "lower"] <= sim_truth && sim_truth <= post_summary["simulated", "upper"]) "contains" else "misses"`
+the true value `r sim_truth`.
+Because we chose the truth,
+we can check the posterior against it.
+
+In the real panel,
+`r post_summary["real (birthwt)", "successes"]` of the
+`r post_summary["real (birthwt)", "n"]` mothers smoked,
+so the posterior is
+$\dBetaf{`r post_summary["real (birthwt)", "post_a"]`, `r post_summary["real (birthwt)", "post_b"]`}$,
+with mean `r round(post_summary["real (birthwt)", "mean"], 3)`
+and 95% credible interval
+from `r round(post_summary["real (birthwt)", "lower"], 3)`
+to `r round(post_summary["real (birthwt)", "upper"], 3)`.
+No true value is available to check it against:
+the posterior is all we have to describe what the data say about $\prob$.
+
+In both panels,
+the posterior is much narrower than the flat prior,
+and the real-data posterior,
+based on more observations,
+is the narrower of the two.
+:::
