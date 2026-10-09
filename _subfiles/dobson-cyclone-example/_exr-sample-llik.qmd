@@ -10,7 +10,7 @@ Write down the log-likelihood of the full dataset.
 
 $$
 \begin{aligned}
-\ell(\rate; \vx)
+\llik(\rate; \vx)
 &\eqdef \logf{\Lik(\rate; \vx)}
 && \text{(definition of log-likelihood)}\\
 &= \logf{\prodin \frac{\rate^{x_i} e^{-\rate}}{x_i!}}

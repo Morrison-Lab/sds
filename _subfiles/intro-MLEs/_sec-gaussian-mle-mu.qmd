@@ -1,4 +1,4 @@
-Setting $\deriv{\mean}\ell = 0$:
+Setting $\deriv{\mean}\llik = 0$:
 
 $$
 \begin{aligned}
@@ -20,7 +20,7 @@ The second derivative is
 
 $$
 \begin{aligned}
-\frac{\partial^2 \ell}{\partial \mean^2}
+\frac{\partial^2 \llik}{\partial \mean^2}
 &= \deriv{\mean}\paren{\frac{1}{\varpar}\paren{\sumin x_i - n\mean}}
 && \text{(differentiate the score for $\mean$)}\\
 &= \frac{1}{\varpar}\deriv{\mean}\paren{\sumin x_i - n\mean}
@@ -42,5 +42,5 @@ $$
 \end{aligned}
 $$
 
-so for every fixed $\varpar$, $\ell$ is maximized over $\mean$ at $\bar x$,
+so for every fixed $\varpar$, $\llik$ is maximized over $\mean$ at $\bar x$,
 and $\hmean_{\text{ML}} = \bar x$.

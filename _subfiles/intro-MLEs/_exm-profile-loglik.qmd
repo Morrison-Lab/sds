@@ -1,14 +1,14 @@
 :::{#exm-profile-loglik}
 #### Profile log-likelihood of a Gaussian variance
 
-In the Gaussian model, $\hmean = \bar x$ maximizes $\ell$ over $\mean$
+In the Gaussian model, $\hmean = \bar x$ maximizes $\llik$ over $\mean$
 for every value of $\varpar$ (@sec-gaussian-mle),
 so the profile log-likelihood of $\varpar$ is
 
 $$
 \begin{aligned}
-\ell_p(\varpar)
-&= \ell(\bar x, \varpar)
+\llik_p(\varpar)
+&= \llik(\bar x, \varpar)
 && \text{(definition of the profile log-likelihood)}\\
 &= -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
  - \frac{1}{2\varpar}\sumin (x_i - \bar x)^2

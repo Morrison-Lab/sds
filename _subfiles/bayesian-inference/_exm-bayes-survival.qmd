@@ -13,7 +13,7 @@ and its survival function is $e^{-\haz_i t}$,
 so observation $i$ contributes the log-likelihood
 
 $$
-\ell_i \eqdef \event_i \log \haz_i - \haz_i t_i.
+\llik_i \eqdef \event_i \log \haz_i - \haz_i t_i.
 $$
 
 JAGS has no built-in distribution for this contribution,
