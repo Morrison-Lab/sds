@@ -336,7 +336,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 02:07:19 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 13:24:16 (PDT)</p>
 </section><section id="empirical-cdf" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical CDF</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -455,18 +455,24 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 <span id="cb2-10"><a aria-label="10"></a>x_right <span class="ot">&lt;-</span> <span class="fu">c</span>(x_ord, x_max)</span>
 <span id="cb2-11"><a aria-label="11"></a>f_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, p_ord)</span>
 <span id="cb2-12"><a aria-label="12"></a></span>
-<span id="cb2-13"><a aria-label="13"></a><span class="fu">plot</span>(</span>
-<span id="cb2-14"><a aria-label="14"></a>  <span class="dv">0</span>,</span>
-<span id="cb2-15"><a aria-label="15"></a>  <span class="dv">0</span>,</span>
-<span id="cb2-16"><a aria-label="16"></a>  <span class="at">type =</span> <span class="st">"n"</span>,</span>
-<span id="cb2-17"><a aria-label="17"></a>  <span class="at">xlim =</span> <span class="fu">c</span>(x_min, x_max),</span>
-<span id="cb2-18"><a aria-label="18"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.05</span>),</span>
-<span id="cb2-19"><a aria-label="19"></a>  <span class="at">xlab =</span> <span class="st">"t"</span>,</span>
-<span id="cb2-20"><a aria-label="20"></a>  <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(<span class="fu">plain</span>(<span class="st">"F"</span>))(t))</span>
-<span id="cb2-21"><a aria-label="21"></a>)</span>
-<span id="cb2-22"><a aria-label="22"></a><span class="fu">segments</span>(x_left, f_levels, x_right, f_levels, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
-<span id="cb2-23"><a aria-label="23"></a><span class="fu">points</span>(x_ord, f_levels[<span class="fu">seq_len</span>(n)], <span class="at">pch =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
-<span id="cb2-24"><a aria-label="24"></a><span class="fu">points</span>(x_ord, f_levels[<span class="fu">seq_len</span>(n) <span class="sc">+</span> <span class="dv">1</span>], <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-13"><a aria-label="13"></a>ecdf_pieces <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x_left, <span class="at">xend =</span> x_right, <span class="at">y =</span> f_levels)</span>
+<span id="cb2-14"><a aria-label="14"></a>ecdf_open <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x_ord, <span class="at">y =</span> f_levels[<span class="fu">seq_len</span>(n)])</span>
+<span id="cb2-15"><a aria-label="15"></a>ecdf_closed <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x_ord, <span class="at">y =</span> f_levels[<span class="fu">seq_len</span>(n) <span class="sc">+</span> <span class="dv">1</span>])</span>
+<span id="cb2-16"><a aria-label="16"></a></span>
+<span id="cb2-17"><a aria-label="17"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-18"><a aria-label="18"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_segment</span>(</span>
+<span id="cb2-19"><a aria-label="19"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">xend =</span> xend, <span class="at">y =</span> y, <span class="at">yend =</span> y),</span>
+<span id="cb2-20"><a aria-label="20"></a>    <span class="at">data =</span> ecdf_pieces, <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb2-21"><a aria-label="21"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-22"><a aria-label="22"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(</span>
+<span id="cb2-23"><a aria-label="23"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">data =</span> ecdf_open, <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb2-24"><a aria-label="24"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-25"><a aria-label="25"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(</span>
+<span id="cb2-26"><a aria-label="26"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">data =</span> ecdf_closed, <span class="at">shape =</span> <span class="dv">19</span>, <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb2-27"><a aria-label="27"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-28"><a aria-label="28"></a>  ggplot2<span class="sc">::</span><span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(x_min, x_max), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1.05</span>)) <span class="sc">+</span></span>
+<span id="cb2-29"><a aria-label="29"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"t"</span>, <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(<span class="fu">plain</span>(<span class="st">"F"</span>))(t))) <span class="sc">+</span></span>
+<span id="cb2-30"><a aria-label="30"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-ecdf-example" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-subfloat-fig"><figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-fig" id="fig-ecdf-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (a) Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.
@@ -487,18 +493,23 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>eqf_y_padding <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
 <span id="cb3-2"><a aria-label="2"></a>q_left <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, p_ord[<span class="sc">-</span>n])</span>
 <span id="cb3-3"><a aria-label="3"></a>q_right <span class="ot">&lt;-</span> p_ord</span>
-<span id="cb3-4"><a aria-label="4"></a><span class="fu">plot</span>(</span>
-<span id="cb3-5"><a aria-label="5"></a>  <span class="dv">0</span>,</span>
-<span id="cb3-6"><a aria-label="6"></a>  <span class="dv">0</span>,</span>
-<span id="cb3-7"><a aria-label="7"></a>  <span class="at">type =</span> <span class="st">"n"</span>,</span>
-<span id="cb3-8"><a aria-label="8"></a>  <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
-<span id="cb3-9"><a aria-label="9"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(x_ord) <span class="sc">-</span> eqf_y_padding, <span class="fu">max</span>(x_ord) <span class="sc">+</span> eqf_y_padding),</span>
-<span id="cb3-10"><a aria-label="10"></a>  <span class="at">xlab =</span> <span class="st">"p"</span>,</span>
-<span id="cb3-11"><a aria-label="11"></a>  <span class="at">ylab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Q)(p))</span>
-<span id="cb3-12"><a aria-label="12"></a>)</span>
-<span id="cb3-13"><a aria-label="13"></a><span class="fu">segments</span>(q_left, x_ord, q_right, x_ord, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
-<span id="cb3-14"><a aria-label="14"></a><span class="fu">points</span>(q_left, x_ord, <span class="at">pch =</span> <span class="dv">1</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span>
-<span id="cb3-15"><a aria-label="15"></a><span class="fu">points</span>(q_right, x_ord, <span class="at">pch =</span> <span class="dv">19</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-4"><a aria-label="4"></a>eqf_pieces <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> q_left, <span class="at">xend =</span> q_right, <span class="at">y =</span> x_ord)</span>
+<span id="cb3-5"><a aria-label="5"></a></span>
+<span id="cb3-6"><a aria-label="6"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(eqf_pieces) <span class="sc">+</span></span>
+<span id="cb3-7"><a aria-label="7"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_segment</span>(</span>
+<span id="cb3-8"><a aria-label="8"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">xend =</span> xend, <span class="at">y =</span> y, <span class="at">yend =</span> y),</span>
+<span id="cb3-9"><a aria-label="9"></a>    <span class="at">linewidth =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb3-10"><a aria-label="10"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-11"><a aria-label="11"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">shape =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb3-12"><a aria-label="12"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(</span>
+<span id="cb3-13"><a aria-label="13"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> xend, <span class="at">y =</span> y), <span class="at">shape =</span> <span class="dv">19</span>, <span class="at">color =</span> <span class="st">"blue"</span></span>
+<span id="cb3-14"><a aria-label="14"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-15"><a aria-label="15"></a>  ggplot2<span class="sc">::</span><span class="fu">coord_cartesian</span>(</span>
+<span id="cb3-16"><a aria-label="16"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb3-17"><a aria-label="17"></a>    <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fu">min</span>(x_ord) <span class="sc">-</span> eqf_y_padding, <span class="fu">max</span>(x_ord) <span class="sc">+</span> eqf_y_padding)</span>
+<span id="cb3-18"><a aria-label="18"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-19"><a aria-label="19"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"p"</span>, <span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(Q)(p))) <span class="sc">+</span></span>
+<span id="cb3-20"><a aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-eqf-example" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-subfloat-fig"><figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-fig" id="fig-eqf-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 (b) Sample quantile function, horizontal pieces only. Open circles mark excluded left endpoints; closed circles mark included right endpoints.

@@ -352,7 +352,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 02:07:19 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 13:24:16 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -646,7 +646,21 @@ e^{-\phi_i}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-posterior-model-probability" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Posterior probabilities of two models)</strong></span> Two models with equal prior probabilities <span class="math inline">\(\operatorname{p}(M_1) = \operatorname{p}(M_2) = 0.5\)</span> and marginal likelihoods <span class="math inline">\(\operatorname{p}(\tilde{y}\mid M_1) = 0.02\)</span> and <span class="math inline">\(\operatorname{p}(\tilde{y}\mid M_2) = 0.06\)</span> have posterior probabilities <span class="math inline">\(\operatorname{p}(M_1 \mid \tilde{y}) = 0.01 / (0.01 + 0.03) = 0.25\)</span> and <span class="math inline">\(\operatorname{p}(M_2 \mid \tilde{y}) = 0.75\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 5 (Posterior probabilities of two models)</strong></span> Two models with equal prior probabilities</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{p}(M_1) &amp;= \operatorname{p}(M_2) \\
+  &amp;= 0.5
+\end{aligned}
+\]</span></p>
+<p>and marginal likelihoods <span class="math inline">\(\operatorname{p}(\tilde{y}\mid M_1) = 0.02\)</span> and <span class="math inline">\(\operatorname{p}(\tilde{y}\mid M_2) = 0.06\)</span> have posterior probabilities</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{p}(M_1 \mid \tilde{y}) &amp;= 0.01 / (0.01 + 0.03) \\
+  &amp;= 0.25
+\end{aligned}
+\]</span></p>
+<p>and <span class="math inline">\(\operatorname{p}(M_2 \mid \tilde{y}) = 0.75\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-bma" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Bayesian model averaging)</strong></span> With the <a href="#/def-posterior-model-probability">posterior model probabilities</a> <span class="math inline">\(\operatorname{p}(M_k \mid \tilde{y})\)</span> of candidate models <span class="math inline">\(M_1, \ldots, M_K\)</span>, <strong>Bayesian model averaging</strong> estimates a quantity <span class="math inline">\(\Delta\)</span> that has the same meaning in every model by its posterior distribution averaged over the models:</p>

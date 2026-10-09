@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 02:07:19 (PDT)
+Last modified: 2026-10-09 13:24:16 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -34,7 +34,9 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > \\\operatorname{p}(\pi) = 1, \quad 0 \< \pi\< 1.\\
 >
-> Under this prior, the prior probability that fewer than 10% of adults smoke is \\\Pr(\pi\< 0.1) = \int_0^{0.1} 1 \\ d\pi= 0.1\\.
+> Under this prior, the prior probability that fewer than 10% of adults smoke is
+>
+> \\ \begin{aligned} \Pr(\pi\< 0.1) &= \int_0^{0.1} 1 \\ d\pi\\ &= 0.1. \end{aligned} \\
 
 > **NOTE:**
 >
@@ -86,7 +88,11 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Example 5 (Posterior for a coin’s probability of heads under a uniform prior)** As in [Example 3](#exm-posterior), let \\\theta\\ be a coin’s probability of heads, now allowed to take any value in \\(0, 1)\\, with the uniform prior density \\\operatorname{p}(\theta) = 1\\ for \\\theta\in (0, 1)\\. One toss lands heads; call that observation \\y = 1\\, so \\\operatorname{p}(y = 1 \mid \theta) = \theta\\. The [marginal likelihood](#def-marginal-likelihood) is an integral over \\\theta\\:
+> **Example 5 (Posterior for a coin’s probability of heads under a uniform prior)** As in [Example 3](#exm-posterior), let \\\theta\\ be a coin’s probability of heads, now allowed to take any value in \\(0, 1)\\, with the uniform prior density \\\operatorname{p}(\theta) = 1\\ for \\\theta\in (0, 1)\\. One toss lands heads; call that observation \\y = 1\\, so
+>
+> \\ \operatorname{p}(y = 1 \mid \theta) = \theta. \\
+>
+> The [marginal likelihood](#def-marginal-likelihood) is an integral over \\\theta\\:
 >
 > \\ \begin{aligned} \operatorname{p}(y = 1) &= \int_0^1 \operatorname{p}(y = 1 \mid \theta)\\ \operatorname{p}(\theta)\\ d\theta && \text{(definition of the marginal likelihood)}\\ &= \int_0^1 \theta\cdot 1\\ d\theta && \text{(substituting the likelihood and the prior)}\\ &= \int_0^1 \theta\\ d\theta && \text{(\$\theta\cdot 1 = \theta\$)}\\ &= \mathopen{}\left\[\frac{\theta^2}{2}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$\theta\$)}\\ &= \frac{1^2}{2} - \frac{0^2}{2} && \text{(evaluating at the limits)}\\ &= \frac{1}{2} && \text{(arithmetic)}. \end{aligned} \tag{2}\\
 >
@@ -377,7 +383,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > **Example 14 (Prior and posterior, with and without a known truth)** Plotting the prior and posterior densities together shows how much the data moved our beliefs. We use the Beta-Bernoulli model of [Example 13](#exm-beta-bernoulli) with the uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior of [Example 2](#exm-prior) on two data sets:
 >
 > - **Simulated data.** We choose the true value of \\\pi\\ ourselves, draw Bernoulli observations with that probability, and then check where the posterior puts the truth.
-> - **Real data.** We use the `birthwt` data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied); [Venables and Ripley 2002, sec. 7.2](#ref-venables2002modern)). Here \\\pi\\ is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s `MASS` package as [`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html); the Python code reads `data/birthwt.csv`, a copy of the same table, which is also posted as a CSV file by the [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
+> - **Real data.** We use the `birthwt` data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied); [Venables and Ripley 2002, sec. 7.2](#ref-venables2002modern)). Here \\\pi\\ is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s `MASS` package as [`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html); the Python code reads [`data/birthwt.csv`](data/birthwt.csv), a copy of the same table on this site, which is also posted as a CSV file by the [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
 >
 > ## R
 >
@@ -457,17 +463,16 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 >
 > ``` downlit
 > prob_grid <- seq(0.001, 0.999, length.out = 500)
-> density_curves <- do.call(
->   rbind,
+> density_curves <- dplyr::bind_rows(
 >   lapply(rownames(post_params), \(data_set) {
->     rbind(
->       data.frame(
+>     dplyr::bind_rows(
+>       tibble::tibble(
 >         data_set = data_set,
 >         prob = prob_grid,
 >         distribution = "prior",
 >         density = stats::dbeta(prob_grid, prior_a, prior_b)
 >       ),
->       data.frame(
+>       tibble::tibble(
 >         data_set = data_set,
 >         prob = prob_grid,
 >         distribution = "posterior",
@@ -495,7 +500,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > ) +
 >   ggplot2::geom_line(linewidth = 0.8) +
 >   ggplot2::geom_vline(
->     data = data.frame(
+>     data = tibble::tibble(
 >       data_set = factor("simulated", levels = rownames(post_params)),
 >       truth = sim_truth
 >     ),
@@ -608,7 +613,11 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 16 (A flat prior on a probability is not flat on its log-odds)** A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated. Let \\\pi\\ have the uniform prior of [Example 2](#exm-prior), and let \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ be its log-odds, so that \\\pi= \operatorname{expit}(\eta) = 1 / (1 + e^{-\eta})\\. The derivative of \\\operatorname{expit}\\ is
+> **Example 16 (A flat prior on a probability is not flat on its log-odds)** A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated. Let \\\pi\\ have the uniform prior of [Example 2](#exm-prior), and let \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ be its log-odds, so that
+>
+> \\ \begin{aligned} \pi&= \operatorname{expit}(\eta) \\ &= 1 / (1 + e^{-\eta}). \end{aligned} \\
+>
+> The derivative of \\\operatorname{expit}\\ is
 >
 > \\ \begin{aligned} \frac{d}{d\eta} \operatorname{expit}(\eta) &= \frac{d}{d\eta} (1 + e^{-\eta})^{-1}\\ &= -(1 + e^{-\eta})^{-2} \cdot (-e^{-\eta}) && \text{(chain rule)}\\ &= \frac{1}{1 + e^{-\eta}} \cdot \frac{e^{-\eta}}{1 + e^{-\eta}} && \text{(splitting the fraction)}\\ &= \operatorname{expit}(\eta)\\ \mathopen{}\left(1 - \operatorname{expit}(\eta)\right)\mathclose{} && \text{(\$\tfrac{e^{-\eta}}{1 + e^{-\eta}} = 1 - \tfrac{1}{1 + e^{-\eta}}\$)}. \end{aligned} \\
 >
@@ -636,7 +645,11 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 17 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 13](#exm-beta-bernoulli) the prior is uniform on \\(0, 1)\\, so by [Corollary 4](#cor-flat-prior-posterior) the posterior density, proportional to \\\pi^{55}(1-\pi)^{36}\\, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood \\r \log \pi+ (n - r)\log(1 - \pi)\\, which is \\r/\pi- (n - r)/(1 - \pi)\\, to zero gives \\\hat{\pi}= r/n = 55/91 \approx 0.604\\. The posterior *mean*, \\56/93 \approx 0.602\\, is not the maximum likelihood estimate: [Corollary 4](#cor-flat-prior-posterior) concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.
+> **Example 17 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 13](#exm-beta-bernoulli) the prior is uniform on \\(0, 1)\\, so by [Corollary 4](#cor-flat-prior-posterior) the posterior density, proportional to \\\pi^{55}(1-\pi)^{36}\\, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood \\r \log \pi+ (n - r)\log(1 - \pi)\\, which is \\r/\pi- (n - r)/(1 - \pi)\\, to zero gives
+>
+> \\ \begin{aligned} \hat{\pi}&= r/n \\ &= 55/91 \\ &\approx 0.604. \end{aligned} \\
+>
+> The posterior *mean*, \\56/93 \approx 0.602\\, is not the maximum likelihood estimate: [Corollary 4](#cor-flat-prior-posterior) concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.
 
 ### 3.3 A skeptical prior
 
@@ -734,7 +747,11 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Example 20 (Will the next mother smoke?)** Let \\Y^{\mathrm{new}} = 1\\ if one more mother from the `birthwt` population smoked during pregnancy, and \\Y^{\mathrm{new}} = 0\\ if she did not. Given \\\pi\\, \\\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{} = \pi\\. With the posterior \\\operatorname{p}(\pi\mid \tilde{y})\\ of [Example 14](#exm-prior-posterior-figure),
+> **Example 20 (Will the next mother smoke?)** Let \\Y^{\mathrm{new}} = 1\\ if one more mother from the `birthwt` population smoked during pregnancy, and \\Y^{\mathrm{new}} = 0\\ if she did not. Given \\\pi\\,
+>
+> \\ \Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{} = \pi. \\
+>
+> With the posterior \\\operatorname{p}(\pi\mid \tilde{y})\\ of [Example 14](#exm-prior-posterior-figure),
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \tilde{y}\right)\mathclose{} &= \int_0^1 \Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}\\ \operatorname{p}(\pi\mid \tilde{y})\\ d\pi && \text{(definition of the posterior predictive distribution)}\\ &= \int_0^1 \pi\\ \operatorname{p}(\pi\mid \tilde{y})\\ d\pi && \text{(Bernoulli model)}\\ &= \operatorname{E}\mathopen{}\left\[\pi\mid \tilde{y}\right\]\mathclose{} && \text{(definition of the posterior mean)}. \end{aligned} \\
 >
@@ -856,12 +873,11 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >   `Beta(1, 19)` = c(a = 1, b = 19)
 > )
 > set.seed(3)
-> prior_pred_counts <- do.call(
->   rbind,
+> prior_pred_counts <- dplyr::bind_rows(
 >   lapply(names(check_priors), \(prior_name) {
 >     ab <- check_priors[[prior_name]]
 >     prob_draws <- stats::rbeta(4000, ab[["a"]], ab[["b"]])
->     data.frame(
+>     tibble::tibble(
 >       prior = prior_name,
 >       count = stats::rbinom(4000, size = n_mothers, prob = prob_draws)
 >     )

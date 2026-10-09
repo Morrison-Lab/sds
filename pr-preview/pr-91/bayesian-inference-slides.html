@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 02:07:19 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 13:24:16 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -380,7 +380,13 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-prior" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (A uniform prior for a probability)</strong></span> Let <span class="math inline">\(\pi\)</span> be the probability that a randomly chosen adult in some population smokes. Before collecting any data, an analyst who considers every value of <span class="math inline">\(\pi\)</span> in <span class="math inline">\((0, 1)\)</span> equally plausible could use the uniform prior</p>
 <p><span class="math display">\[\operatorname{p}(\pi) = 1, \quad 0 &lt; \pi&lt; 1.\]</span></p>
-<p>Under this prior, the prior probability that fewer than 10% of adults smoke is <span class="math inline">\(\Pr(\pi&lt; 0.1) = \int_0^{0.1} 1 \, d\pi= 0.1\)</span>.</p>
+<p>Under this prior, the prior probability that fewer than 10% of adults smoke is</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \Pr(\pi&lt; 0.1) &amp;= \int_0^{0.1} 1 \, d\pi\\
+  &amp;= 0.1.
+\end{aligned}
+\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-two-paradigms" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Two paradigms, two questions). </span>The two paradigms answer different questions. A frequentist asks, “for which parameter values would these data be unsurprising?”; a Bayesian asks, “given these data, what should I now believe about the parameter?”. Neither question is wrong, and they call for different machinery.</p>
@@ -445,7 +451,11 @@ text-align: center;
 <p>and <span class="math inline">\(\operatorname{p}(0.5 \mid \tilde{y}) = 0.1125 / 0.1637 \approx 0.687\)</span>. Three heads in a row raise the probability that the coin is biased from <span class="math inline">\(0.1\)</span> to about <span class="math inline">\(0.31\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-marginal-likelihood-uniform" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Posterior for a coin’s probability of heads under a uniform prior)</strong></span> As in <a href="#/exm-posterior" class="quarto-xref">Example&nbsp;3</a>, let <span class="math inline">\(\theta\)</span> be a coin’s probability of heads, now allowed to take any value in <span class="math inline">\((0, 1)\)</span>, with the uniform prior density <span class="math inline">\(\operatorname{p}(\theta) = 1\)</span> for <span class="math inline">\(\theta\in (0, 1)\)</span>. One toss lands heads; call that observation <span class="math inline">\(y = 1\)</span>, so <span class="math inline">\(\operatorname{p}(y = 1 \mid \theta) = \theta\)</span>. The <a href="#/def-marginal-likelihood">marginal likelihood</a> is an integral over <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="theorem-title"><strong>Example 5 (Posterior for a coin’s probability of heads under a uniform prior)</strong></span> As in <a href="#/exm-posterior" class="quarto-xref">Example&nbsp;3</a>, let <span class="math inline">\(\theta\)</span> be a coin’s probability of heads, now allowed to take any value in <span class="math inline">\((0, 1)\)</span>, with the uniform prior density <span class="math inline">\(\operatorname{p}(\theta) = 1\)</span> for <span class="math inline">\(\theta\in (0, 1)\)</span>. One toss lands heads; call that observation <span class="math inline">\(y = 1\)</span>, so</p>
+<p><span class="math display">\[
+\operatorname{p}(y = 1 \mid \theta) = \theta.
+\]</span></p>
+<p>The <a href="#/def-marginal-likelihood">marginal likelihood</a> is an integral over <span class="math inline">\(\theta\)</span>:</p>
 <p><span id="eq-marginal-likelihood-uniform-exm"><span class="math display">\[
 \begin{aligned}
 \operatorname{p}(y = 1)
@@ -847,7 +857,7 @@ Figure&nbsp;2: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <li>
 <strong>Simulated data.</strong> We choose the true value of <span class="math inline">\(\pi\)</span> ourselves, draw Bernoulli observations with that probability, and then check where the posterior puts the truth.</li>
 <li>
-<strong>Real data.</strong> We use the <code>birthwt</code> data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 <span class="citation" data-cites="hosmer1989applied venables2002modern">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>; <a href="#/references" role="doc-biblioref" onclick="">Venables and Ripley 2002, sec. 7.2</a>)</span>. Here <span class="math inline">\(\pi\)</span> is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s <code>MASS</code> package as <code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>; the Python code reads <code>data/birthwt.csv</code>, a copy of the same table, which is also posted as a CSV file by the <a href="https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv">Rdatasets project</a>.</li>
+<strong>Real data.</strong> We use the <code>birthwt</code> data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 <span class="citation" data-cites="hosmer1989applied venables2002modern">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>; <a href="#/references" role="doc-biblioref" onclick="">Venables and Ripley 2002, sec. 7.2</a>)</span>. Here <span class="math inline">\(\pi\)</span> is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s <code>MASS</code> package as <code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>; the Python code reads <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>, a copy of the same table on this site, which is also posted as a CSV file by the <a href="https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv">Rdatasets project</a>.</li>
 </ul>
 <div class="panel-tabset" data-group="language">
 <ul id="tabset-1" class="panel-tabset-tabby">
@@ -936,58 +946,57 @@ Figure&nbsp;2: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <hr>
 <p><a href="#/fig-prior-posterior" class="quarto-xref">Figure&nbsp;3</a> plots each prior and posterior density.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>prob_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
-<span id="cb9-2"><a aria-label="2"></a>density_curves <span class="ot">&lt;-</span> <span class="fu">do.call</span>(</span>
-<span id="cb9-3"><a aria-label="3"></a>  rbind,</span>
-<span id="cb9-4"><a aria-label="4"></a>  <span class="fu">lapply</span>(<span class="fu">rownames</span>(post_params), \(data_set) {</span>
-<span id="cb9-5"><a aria-label="5"></a>    <span class="fu">rbind</span>(</span>
-<span id="cb9-6"><a aria-label="6"></a>      <span class="fu">data.frame</span>(</span>
-<span id="cb9-7"><a aria-label="7"></a>        <span class="at">data_set =</span> data_set,</span>
-<span id="cb9-8"><a aria-label="8"></a>        <span class="at">prob =</span> prob_grid,</span>
-<span id="cb9-9"><a aria-label="9"></a>        <span class="at">distribution =</span> <span class="st">"prior"</span>,</span>
-<span id="cb9-10"><a aria-label="10"></a>        <span class="at">density =</span> stats<span class="sc">::</span><span class="fu">dbeta</span>(prob_grid, prior_a, prior_b)</span>
-<span id="cb9-11"><a aria-label="11"></a>      ),</span>
-<span id="cb9-12"><a aria-label="12"></a>      <span class="fu">data.frame</span>(</span>
-<span id="cb9-13"><a aria-label="13"></a>        <span class="at">data_set =</span> data_set,</span>
-<span id="cb9-14"><a aria-label="14"></a>        <span class="at">prob =</span> prob_grid,</span>
-<span id="cb9-15"><a aria-label="15"></a>        <span class="at">distribution =</span> <span class="st">"posterior"</span>,</span>
-<span id="cb9-16"><a aria-label="16"></a>        <span class="at">density =</span> stats<span class="sc">::</span><span class="fu">dbeta</span>(</span>
-<span id="cb9-17"><a aria-label="17"></a>          prob_grid,</span>
-<span id="cb9-18"><a aria-label="18"></a>          post_params[data_set, <span class="st">"a"</span>],</span>
-<span id="cb9-19"><a aria-label="19"></a>          post_params[data_set, <span class="st">"b"</span>]</span>
-<span id="cb9-20"><a aria-label="20"></a>        )</span>
-<span id="cb9-21"><a aria-label="21"></a>      )</span>
-<span id="cb9-22"><a aria-label="22"></a>    )</span>
-<span id="cb9-23"><a aria-label="23"></a>  })</span>
-<span id="cb9-24"><a aria-label="24"></a>)</span>
-<span id="cb9-25"><a aria-label="25"></a>density_curves<span class="sc">$</span>data_set <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb9-26"><a aria-label="26"></a>  density_curves<span class="sc">$</span>data_set,</span>
-<span id="cb9-27"><a aria-label="27"></a>  <span class="at">levels =</span> <span class="fu">rownames</span>(post_params)</span>
-<span id="cb9-28"><a aria-label="28"></a>)</span>
-<span id="cb9-29"><a aria-label="29"></a>density_curves<span class="sc">$</span>distribution <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb9-30"><a aria-label="30"></a>  density_curves<span class="sc">$</span>distribution,</span>
-<span id="cb9-31"><a aria-label="31"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"prior"</span>, <span class="st">"posterior"</span>)</span>
-<span id="cb9-32"><a aria-label="32"></a>)</span>
-<span id="cb9-33"><a aria-label="33"></a></span>
-<span id="cb9-34"><a aria-label="34"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(</span>
-<span id="cb9-35"><a aria-label="35"></a>  density_curves,</span>
-<span id="cb9-36"><a aria-label="36"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(prob, density, <span class="at">colour =</span> distribution, <span class="at">linetype =</span> distribution)</span>
-<span id="cb9-37"><a aria-label="37"></a>) <span class="sc">+</span></span>
-<span id="cb9-38"><a aria-label="38"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb9-39"><a aria-label="39"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_vline</span>(</span>
-<span id="cb9-40"><a aria-label="40"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-41"><a aria-label="41"></a>      <span class="at">data_set =</span> <span class="fu">factor</span>(<span class="st">"simulated"</span>, <span class="at">levels =</span> <span class="fu">rownames</span>(post_params)),</span>
-<span id="cb9-42"><a aria-label="42"></a>      <span class="at">truth =</span> sim_truth</span>
-<span id="cb9-43"><a aria-label="43"></a>    ),</span>
-<span id="cb9-44"><a aria-label="44"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">xintercept =</span> truth),</span>
-<span id="cb9-45"><a aria-label="45"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
-<span id="cb9-46"><a aria-label="46"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-47"><a aria-label="47"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>data_set) <span class="sc">+</span></span>
-<span id="cb9-48"><a aria-label="48"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
-<span id="cb9-49"><a aria-label="49"></a>    <span class="at">x =</span> <span class="st">"probability of a success"</span>,</span>
-<span id="cb9-50"><a aria-label="50"></a>    <span class="at">y =</span> <span class="st">"density"</span>,</span>
-<span id="cb9-51"><a aria-label="51"></a>    <span class="at">colour =</span> <span class="cn">NULL</span>,</span>
-<span id="cb9-52"><a aria-label="52"></a>    <span class="at">linetype =</span> <span class="cn">NULL</span></span>
-<span id="cb9-53"><a aria-label="53"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a aria-label="2"></a>density_curves <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
+<span id="cb9-3"><a aria-label="3"></a>  <span class="fu">lapply</span>(<span class="fu">rownames</span>(post_params), \(data_set) {</span>
+<span id="cb9-4"><a aria-label="4"></a>    dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
+<span id="cb9-5"><a aria-label="5"></a>      tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb9-6"><a aria-label="6"></a>        <span class="at">data_set =</span> data_set,</span>
+<span id="cb9-7"><a aria-label="7"></a>        <span class="at">prob =</span> prob_grid,</span>
+<span id="cb9-8"><a aria-label="8"></a>        <span class="at">distribution =</span> <span class="st">"prior"</span>,</span>
+<span id="cb9-9"><a aria-label="9"></a>        <span class="at">density =</span> stats<span class="sc">::</span><span class="fu">dbeta</span>(prob_grid, prior_a, prior_b)</span>
+<span id="cb9-10"><a aria-label="10"></a>      ),</span>
+<span id="cb9-11"><a aria-label="11"></a>      tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb9-12"><a aria-label="12"></a>        <span class="at">data_set =</span> data_set,</span>
+<span id="cb9-13"><a aria-label="13"></a>        <span class="at">prob =</span> prob_grid,</span>
+<span id="cb9-14"><a aria-label="14"></a>        <span class="at">distribution =</span> <span class="st">"posterior"</span>,</span>
+<span id="cb9-15"><a aria-label="15"></a>        <span class="at">density =</span> stats<span class="sc">::</span><span class="fu">dbeta</span>(</span>
+<span id="cb9-16"><a aria-label="16"></a>          prob_grid,</span>
+<span id="cb9-17"><a aria-label="17"></a>          post_params[data_set, <span class="st">"a"</span>],</span>
+<span id="cb9-18"><a aria-label="18"></a>          post_params[data_set, <span class="st">"b"</span>]</span>
+<span id="cb9-19"><a aria-label="19"></a>        )</span>
+<span id="cb9-20"><a aria-label="20"></a>      )</span>
+<span id="cb9-21"><a aria-label="21"></a>    )</span>
+<span id="cb9-22"><a aria-label="22"></a>  })</span>
+<span id="cb9-23"><a aria-label="23"></a>)</span>
+<span id="cb9-24"><a aria-label="24"></a>density_curves<span class="sc">$</span>data_set <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb9-25"><a aria-label="25"></a>  density_curves<span class="sc">$</span>data_set,</span>
+<span id="cb9-26"><a aria-label="26"></a>  <span class="at">levels =</span> <span class="fu">rownames</span>(post_params)</span>
+<span id="cb9-27"><a aria-label="27"></a>)</span>
+<span id="cb9-28"><a aria-label="28"></a>density_curves<span class="sc">$</span>distribution <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb9-29"><a aria-label="29"></a>  density_curves<span class="sc">$</span>distribution,</span>
+<span id="cb9-30"><a aria-label="30"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"prior"</span>, <span class="st">"posterior"</span>)</span>
+<span id="cb9-31"><a aria-label="31"></a>)</span>
+<span id="cb9-32"><a aria-label="32"></a></span>
+<span id="cb9-33"><a aria-label="33"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(</span>
+<span id="cb9-34"><a aria-label="34"></a>  density_curves,</span>
+<span id="cb9-35"><a aria-label="35"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(prob, density, <span class="at">colour =</span> distribution, <span class="at">linetype =</span> distribution)</span>
+<span id="cb9-36"><a aria-label="36"></a>) <span class="sc">+</span></span>
+<span id="cb9-37"><a aria-label="37"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb9-38"><a aria-label="38"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_vline</span>(</span>
+<span id="cb9-39"><a aria-label="39"></a>    <span class="at">data =</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb9-40"><a aria-label="40"></a>      <span class="at">data_set =</span> <span class="fu">factor</span>(<span class="st">"simulated"</span>, <span class="at">levels =</span> <span class="fu">rownames</span>(post_params)),</span>
+<span id="cb9-41"><a aria-label="41"></a>      <span class="at">truth =</span> sim_truth</span>
+<span id="cb9-42"><a aria-label="42"></a>    ),</span>
+<span id="cb9-43"><a aria-label="43"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">xintercept =</span> truth),</span>
+<span id="cb9-44"><a aria-label="44"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
+<span id="cb9-45"><a aria-label="45"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-46"><a aria-label="46"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>data_set) <span class="sc">+</span></span>
+<span id="cb9-47"><a aria-label="47"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb9-48"><a aria-label="48"></a>    <span class="at">x =</span> <span class="st">"probability of a success"</span>,</span>
+<span id="cb9-49"><a aria-label="49"></a>    <span class="at">y =</span> <span class="st">"density"</span>,</span>
+<span id="cb9-50"><a aria-label="50"></a>    <span class="at">colour =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-51"><a aria-label="51"></a>    <span class="at">linetype =</span> <span class="cn">NULL</span></span>
+<span id="cb9-52"><a aria-label="52"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><details class="code-fold"><summary>Show Python code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-2"><a aria-label="2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-3"><a aria-label="3"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
@@ -1097,7 +1106,14 @@ Figure&nbsp;3: Prior and posterior densities of <span class="math inline">\(\pi\
 <p>The informative prior all but rules out an odds ratio of 10; the weakly informative prior leaves a few percent of its probability above 100, and effectively none above <span class="math inline">\(10^6\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-flat-prior-reparam" class="theorem example">
-<p><span class="theorem-title"><strong>Example 16 (A flat prior on a probability is not flat on its log-odds)</strong></span> A <a href="#/def-flat-prior">flat prior</a> is flat only on the scale on which it is stated. Let <span class="math inline">\(\pi\)</span> have the uniform prior of <a href="#/exm-prior" class="quarto-xref">Example&nbsp;2</a>, and let <span class="math inline">\(\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\)</span> be its log-odds, so that <span class="math inline">\(\pi= \operatorname{expit}(\eta) = 1 / (1 + e^{-\eta})\)</span>. The derivative of <span class="math inline">\(\operatorname{expit}\)</span> is</p>
+<p><span class="theorem-title"><strong>Example 16 (A flat prior on a probability is not flat on its log-odds)</strong></span> A <a href="#/def-flat-prior">flat prior</a> is flat only on the scale on which it is stated. Let <span class="math inline">\(\pi\)</span> have the uniform prior of <a href="#/exm-prior" class="quarto-xref">Example&nbsp;2</a>, and let <span class="math inline">\(\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\)</span> be its log-odds, so that</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \pi&amp;= \operatorname{expit}(\eta) \\
+  &amp;= 1 / (1 + e^{-\eta}).
+\end{aligned}
+\]</span></p>
+<p>The derivative of <span class="math inline">\(\operatorname{expit}\)</span> is</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{d}{d\eta} \operatorname{expit}(\eta)
@@ -1136,7 +1152,15 @@ Figure&nbsp;3: Prior and posterior densities of <span class="math inline">\(\pi\
 <p><span class="proof-title"><em>Remark 3</em> (Flat priors can be improper). </span>A flat prior on an unbounded parameter space, such as <span class="math inline">\(\mathbb{R}\)</span>, is <a href="#/def-improper-prior">improper</a>, so it does not define a joint distribution of <span class="math inline">\(\theta\)</span> and <span class="math inline">\(\tilde{Y}\)</span>, and <a href="#/def-posterior" class="quarto-xref">Definition&nbsp;4</a> does not apply directly. In practice the posterior is then <em>defined</em> as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.</p>
 </div>
 </section><section class="slide level2"><div id="exm-flat-prior-posterior" class="theorem example">
-<p><span class="theorem-title"><strong>Example 17 (Posterior mode and maximum likelihood estimate for a probability)</strong></span> In <a href="#/exm-beta-bernoulli" class="quarto-xref">Example&nbsp;13</a> the prior is uniform on <span class="math inline">\((0, 1)\)</span>, so by <a href="#/cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> the posterior density, proportional to <span class="math inline">\(\pi^{55}(1-\pi)^{36}\)</span>, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood <span class="math inline">\(r \log \pi+ (n - r)\log(1 - \pi)\)</span>, which is <span class="math inline">\(r/\pi- (n - r)/(1 - \pi)\)</span>, to zero gives <span class="math inline">\(\hat{\pi}= r/n = 55/91 \approx 0.604\)</span>. The posterior <em>mean</em>, <span class="math inline">\(56/93 \approx 0.602\)</span>, is not the maximum likelihood estimate: <a href="#/cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.</p>
+<p><span class="theorem-title"><strong>Example 17 (Posterior mode and maximum likelihood estimate for a probability)</strong></span> In <a href="#/exm-beta-bernoulli" class="quarto-xref">Example&nbsp;13</a> the prior is uniform on <span class="math inline">\((0, 1)\)</span>, so by <a href="#/cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> the posterior density, proportional to <span class="math inline">\(\pi^{55}(1-\pi)^{36}\)</span>, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood <span class="math inline">\(r \log \pi+ (n - r)\log(1 - \pi)\)</span>, which is <span class="math inline">\(r/\pi- (n - r)/(1 - \pi)\)</span>, to zero gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \hat{\pi}&amp;= r/n \\
+  &amp;= 55/91 \\
+  &amp;\approx 0.604.
+\end{aligned}
+\]</span></p>
+<p>The posterior <em>mean</em>, <span class="math inline">\(56/93 \approx 0.602\)</span>, is not the maximum likelihood estimate: <a href="#/cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> concerns the posterior’s shape, and so its mode, but a mean depends on the whole distribution.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.3" id="sec-bayes-skeptical">
 <span class="header-section-number">3.3</span> A skeptical prior</h3>
@@ -1263,7 +1287,11 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 <p>where <span class="math inline">\(Y^{\mathrm{new}}\)</span> and <span class="math inline">\(\tilde{Y}\)</span> are independent given <span class="math inline">\(\theta\)</span> <span class="citation" data-cites="gelman2013bda">(<a href="#/references" role="doc-biblioref" onclick="">Gelman et al. 2013, sec. 1.3</a>, p.&nbsp;7, eq. 1.4)</span>. The same formula, with <span class="math inline">\(y^{\mathrm{new}}\)</span> replaced by a whole replicated data set <span class="math inline">\(\tilde{y}^{\mathrm{rep}}\)</span> of the same size as <span class="math inline">\(\tilde{y}\)</span>, gives the posterior predictive distribution of replicated data.</p>
 </div>
 </section><section class="slide level2"><div id="exm-posterior-predictive" class="theorem example">
-<p><span class="theorem-title"><strong>Example 20 (Will the next mother smoke?)</strong></span> Let <span class="math inline">\(Y^{\mathrm{new}} = 1\)</span> if one more mother from the <code>birthwt</code> population smoked during pregnancy, and <span class="math inline">\(Y^{\mathrm{new}} = 0\)</span> if she did not. Given <span class="math inline">\(\pi\)</span>, <span class="math inline">\(\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{} = \pi\)</span>. With the posterior <span class="math inline">\(\operatorname{p}(\pi\mid \tilde{y})\)</span> of <a href="#/exm-prior-posterior-figure" class="quarto-xref">Example&nbsp;14</a>,</p>
+<p><span class="theorem-title"><strong>Example 20 (Will the next mother smoke?)</strong></span> Let <span class="math inline">\(Y^{\mathrm{new}} = 1\)</span> if one more mother from the <code>birthwt</code> population smoked during pregnancy, and <span class="math inline">\(Y^{\mathrm{new}} = 0\)</span> if she did not. Given <span class="math inline">\(\pi\)</span>,</p>
+<p><span class="math display">\[
+\Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{} = \pi.
+\]</span></p>
+<p>With the posterior <span class="math inline">\(\operatorname{p}(\pi\mid \tilde{y})\)</span> of <a href="#/exm-prior-posterior-figure" class="quarto-xref">Example&nbsp;14</a>,</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \tilde{y}\right)\mathclose{}
@@ -1405,29 +1433,28 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 <span id="cb19-3"><a aria-label="3"></a>  <span class="st">`</span><span class="at">Beta(1, 19)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">19</span>)</span>
 <span id="cb19-4"><a aria-label="4"></a>)</span>
 <span id="cb19-5"><a aria-label="5"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
-<span id="cb19-6"><a aria-label="6"></a>prior_pred_counts <span class="ot">&lt;-</span> <span class="fu">do.call</span>(</span>
-<span id="cb19-7"><a aria-label="7"></a>  rbind,</span>
-<span id="cb19-8"><a aria-label="8"></a>  <span class="fu">lapply</span>(<span class="fu">names</span>(check_priors), \(prior_name) {</span>
-<span id="cb19-9"><a aria-label="9"></a>    ab <span class="ot">&lt;-</span> check_priors[[prior_name]]</span>
-<span id="cb19-10"><a aria-label="10"></a>    prob_draws <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rbeta</span>(<span class="dv">4000</span>, ab[[<span class="st">"a"</span>]], ab[[<span class="st">"b"</span>]])</span>
-<span id="cb19-11"><a aria-label="11"></a>    <span class="fu">data.frame</span>(</span>
-<span id="cb19-12"><a aria-label="12"></a>      <span class="at">prior =</span> prior_name,</span>
-<span id="cb19-13"><a aria-label="13"></a>      <span class="at">count =</span> stats<span class="sc">::</span><span class="fu">rbinom</span>(<span class="dv">4000</span>, <span class="at">size =</span> n_mothers, <span class="at">prob =</span> prob_draws)</span>
-<span id="cb19-14"><a aria-label="14"></a>    )</span>
-<span id="cb19-15"><a aria-label="15"></a>  })</span>
-<span id="cb19-16"><a aria-label="16"></a>)</span>
-<span id="cb19-17"><a aria-label="17"></a>prior_pred_counts<span class="sc">$</span>prior <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb19-18"><a aria-label="18"></a>  prior_pred_counts<span class="sc">$</span>prior,</span>
-<span id="cb19-19"><a aria-label="19"></a>  <span class="at">levels =</span> <span class="fu">names</span>(check_priors)</span>
-<span id="cb19-20"><a aria-label="20"></a>)</span>
-<span id="cb19-21"><a aria-label="21"></a>prior_tail <span class="ot">&lt;-</span> <span class="fu">tapply</span>(</span>
-<span id="cb19-22"><a aria-label="22"></a>  prior_pred_counts<span class="sc">$</span>count <span class="sc">&gt;=</span> <span class="fu">t_count</span>(smoke_y),</span>
-<span id="cb19-23"><a aria-label="23"></a>  prior_pred_counts<span class="sc">$</span>prior,</span>
-<span id="cb19-24"><a aria-label="24"></a>  mean</span>
-<span id="cb19-25"><a aria-label="25"></a>)</span>
-<span id="cb19-26"><a aria-label="26"></a>prior_tail</span>
-<span id="cb19-27"><a aria-label="27"></a><span class="co">#&gt; uniform Beta(1, 1)        Beta(1, 19) </span></span>
-<span id="cb19-28"><a aria-label="28"></a><span class="co">#&gt;             0.6110             0.0005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-6"><a aria-label="6"></a>prior_pred_counts <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
+<span id="cb19-7"><a aria-label="7"></a>  <span class="fu">lapply</span>(<span class="fu">names</span>(check_priors), \(prior_name) {</span>
+<span id="cb19-8"><a aria-label="8"></a>    ab <span class="ot">&lt;-</span> check_priors[[prior_name]]</span>
+<span id="cb19-9"><a aria-label="9"></a>    prob_draws <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rbeta</span>(<span class="dv">4000</span>, ab[[<span class="st">"a"</span>]], ab[[<span class="st">"b"</span>]])</span>
+<span id="cb19-10"><a aria-label="10"></a>    tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb19-11"><a aria-label="11"></a>      <span class="at">prior =</span> prior_name,</span>
+<span id="cb19-12"><a aria-label="12"></a>      <span class="at">count =</span> stats<span class="sc">::</span><span class="fu">rbinom</span>(<span class="dv">4000</span>, <span class="at">size =</span> n_mothers, <span class="at">prob =</span> prob_draws)</span>
+<span id="cb19-13"><a aria-label="13"></a>    )</span>
+<span id="cb19-14"><a aria-label="14"></a>  })</span>
+<span id="cb19-15"><a aria-label="15"></a>)</span>
+<span id="cb19-16"><a aria-label="16"></a>prior_pred_counts<span class="sc">$</span>prior <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb19-17"><a aria-label="17"></a>  prior_pred_counts<span class="sc">$</span>prior,</span>
+<span id="cb19-18"><a aria-label="18"></a>  <span class="at">levels =</span> <span class="fu">names</span>(check_priors)</span>
+<span id="cb19-19"><a aria-label="19"></a>)</span>
+<span id="cb19-20"><a aria-label="20"></a>prior_tail <span class="ot">&lt;-</span> <span class="fu">tapply</span>(</span>
+<span id="cb19-21"><a aria-label="21"></a>  prior_pred_counts<span class="sc">$</span>count <span class="sc">&gt;=</span> <span class="fu">t_count</span>(smoke_y),</span>
+<span id="cb19-22"><a aria-label="22"></a>  prior_pred_counts<span class="sc">$</span>prior,</span>
+<span id="cb19-23"><a aria-label="23"></a>  mean</span>
+<span id="cb19-24"><a aria-label="24"></a>)</span>
+<span id="cb19-25"><a aria-label="25"></a>prior_tail</span>
+<span id="cb19-26"><a aria-label="26"></a><span class="co">#&gt; uniform Beta(1, 1)        Beta(1, 19) </span></span>
+<span id="cb19-27"><a aria-label="27"></a><span class="co">#&gt;             0.6110             0.0005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-6-2">

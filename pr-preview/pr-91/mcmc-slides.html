@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 02:07:19 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 13:24:16 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -511,7 +511,15 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 \end{aligned}
 \tag{4}\]</span></span></p>
 <p>The stationary distribution is <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, \sigma^2 / (1 - \rho^2)\right)\mathclose{}\)</span>. If instead <span class="math inline">\(\mathopen{}\left|\rho\right|\mathclose{} \ge 1\)</span>, then <span class="math inline">\((1 - \rho^2)\, v \le 0 &lt; \sigma^2\)</span> for every <span class="math inline">\(v &gt; 0\)</span>, so no <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\)</span> distribution is stationary.</p>
-<p>With <span class="math inline">\(\rho= 0.9\)</span> and <span class="math inline">\(\sigma = 1\)</span>, the stationary variance is <span class="math inline">\(1 / (1 - 0.9^2) = 1 / (1 - 0.81) = 1 / 0.19 \approx 5.26\)</span>. A simulated chain started far from <span class="math inline">\(0\)</span>, at <span class="math inline">\(\theta^{(1)} = 10\)</span>, has mean near 0 and variance near that value once its first 1,000 values are discarded:</p>
+<p>With <span class="math inline">\(\rho= 0.9\)</span> and <span class="math inline">\(\sigma = 1\)</span>, the stationary variance is</p>
+<p><span class="math display">\[
+\begin{aligned}
+  1 / (1 - 0.9^2) &amp;= 1 / (1 - 0.81) \\
+  &amp;= 1 / 0.19 \\
+  &amp;\approx 5.26.
+\end{aligned}
+\]</span></p>
+<p>A simulated chain started far from <span class="math inline">\(0\)</span>, at <span class="math inline">\(\theta^{(1)} = 10\)</span>, has mean near 0 and variance near that value once its first 1,000 values are discarded:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">11</span>)</span>
 <span id="cb3-2"><a aria-label="2"></a>n_iter <span class="ot">&lt;-</span> <span class="dv">100000</span></span>

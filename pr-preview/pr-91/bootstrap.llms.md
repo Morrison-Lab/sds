@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 02:07:19 (PDT)
+Last modified: 2026-10-09 13:24:16 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
@@ -167,7 +167,9 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> **Example 5 (Bias correction when 40% of replicates fall below the estimate)** If 400 of \\B = 1{,}000\\ replicates are below \\\hat{\theta}\\, then \\\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\\. If exactly half were below, \\\hat z_0 = \Phi^{-1}(0.5) = 0\\.
+> **Example 5 (Bias correction when 40% of replicates fall below the estimate)** If 400 of \\B = 1{,}000\\ replicates are below \\\hat{\theta}\\, then \\\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\\. If exactly half were below,
+>
+> \\ \begin{aligned} \hat z_0 &= \Phi^{-1}(0.5) \\ &= 0. \end{aligned} \\
 
 > **NOTE:**
 >
@@ -253,12 +255,16 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 >
 > ``` downlit
 > fit_sbp_age <- lm(SBP ~ age, data = hers)
-> summary(fit_sbp_age)$coefficients["age", ]
-> #>    Estimate  Std. Error     t value    Pr(>|t|) 
-> #> 4.71728e-01 5.36838e-02 8.78716e+00 2.64196e-18
-> confint(fit_sbp_age)["age", ]
-> #>    2.5 %   97.5 % 
-> #> 0.366464 0.576993
+> parameters::parameters(fit_sbp_age) |>
+>   parameters::print_md(digits = 3, ci_digits = 3)
+> ```
+>
+> | Parameter   | Coefficient |  SE   |      95% CI       | t(2761) |    p    |
+> |:------------|:-----------:|:-----:|:-----------------:|:-------:|:-------:|
+> | (Intercept) |   103.629   | 3.596 | (96.579, 110.680) | 28.820  | \< .001 |
+> | age         |    0.472    | 0.054 |  (0.366, 0.577)   |  8.787  | \< .001 |
+>
+> ``` downlit
 > boot::boot.ci(boot_result, type = c("norm", "perc", "bca"))
 > #> BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 > #> Based on 1000 bootstrap replicates

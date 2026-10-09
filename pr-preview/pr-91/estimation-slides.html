@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 02:07:19 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 13:24:16 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -572,7 +572,7 @@ e_i
 <p><span class="proof-title"><em>Proof</em>. </span>Multiply both sides of <a href="#/thm-prediction-error-residual" class="quarto-xref">Theorem&nbsp;1</a> by <span class="math inline">\(-1\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-residual-prediction-error" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Residuals and prediction errors for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>)</span>. They ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this repository holds a copy at <code>data/birthwt.csv</code>.</p>
+<p><span class="theorem-title"><strong>Example 7 (Residuals and prediction errors for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>)</span>. They ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
 <p>The code below fits a line predicting birth weight from mother’s weight, then compares each residual with the negative of its prediction error.</p>
 <div class="panel-tabset" data-group="language">
 <ul id="tabset-1" class="panel-tabset-tabby">
@@ -889,7 +889,13 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </section><section class="slide level2"><div id="exm-mse-sample-mean" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Mean squared error of two estimators of a mean)</strong></span> Continuing <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;9</a>, suppose also that <span class="math inline">\(X_1, \ldots, X_n\)</span> are mutually independent, each with variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\)</span>. Both <span class="math inline">\(\bar X\)</span> and <span class="math inline">\(X_1\)</span> have zero bias, so by <a href="#/thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;3</a> each estimator’s mean squared error equals its variance.</p>
-<p>For <span class="math inline">\(X_1\)</span>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} = 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} = \sigma^2\)</span>.</p>
+<p>For <span class="math inline">\(X_1\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} &amp;= 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} \\
+  &amp;= \sigma^2.
+\end{aligned}
+\]</span></p>
 <p>For <span class="math inline">\(\bar X\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -913,7 +919,15 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 \end{aligned}
 \]</span></p>
 <p>The step to <span class="math inline">\(\frac{1}{n^2}\sum_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}\)</span> uses the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom">variance of a linear combination</a>, whose covariance terms are all zero for independent variables.</p>
-<p>So for any sample size <span class="math inline">\(n &gt; 1\)</span>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/n &lt; \sigma^2= \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}\)</span>: by mean squared error, the sample mean is the more accurate estimator. With <span class="math inline">\(n = 50\)</span> students, as in <a href="#/exm-estimator" class="quarto-xref">Example&nbsp;4</a>, the sample mean’s mean squared error is <span class="math inline">\(1/50\)</span> of <span class="math inline">\(X_1\)</span>’s.</p>
+<p>So for any sample size <span class="math inline">\(n &gt; 1\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &amp;= \sigma^2/n \\
+  &amp;&lt; \sigma^2\\
+  &amp;= \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}:
+\end{aligned}
+\]</span></p>
+<p>by mean squared error, the sample mean is the more accurate estimator. With <span class="math inline">\(n = 50\)</span> students, as in <a href="#/exm-estimator" class="quarto-xref">Example&nbsp;4</a>, the sample mean’s mean squared error is <span class="math inline">\(1/50\)</span> of <span class="math inline">\(X_1\)</span>’s.</p>
 </div>
 </section><section class="slide level2"><div id="def-rmse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Root mean squared error)</strong></span> The <strong>root mean squared error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the square root of its <a href="#/def-mse">mean squared error</a>:</p>
@@ -939,7 +953,21 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <li>the <a href="./exploratory-descriptive.html#def-sample-variance">sample variance</a> <span class="math inline">\(S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n(X_i - \bar X)^2\)</span>;</li>
 <li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n(X_i - \bar X)^2\)</span>.</li>
 </ul>
-<p>Both estimators are built from the sum of squared deviations <span class="math inline">\(\sum_{i=1}^n(X_i - \bar X)^2\)</span>, so we first find its expectation. Using <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{}\right)^2\mathclose{} = \sigma^2+ \mu^2\)</span> and <span class="math inline">\(\operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{} = \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{}\right)^2\mathclose{} = \sigma^2/n + \mu^2\)</span> (by <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;10</a> and <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;9</a>):</p>
+<p>Both estimators are built from the sum of squared deviations <span class="math inline">\(\sum_{i=1}^n(X_i - \bar X)^2\)</span>, so we first find its expectation. Using</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{E}\mathopen{}\left[X_i^2\right]\mathclose{} &amp;= \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{}\right)^2\mathclose{} \\
+  &amp;= \sigma^2+ \mu^2
+\end{aligned}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{E}\mathopen{}\left[\bar X^2\right]\mathclose{} &amp;= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{}\right)^2\mathclose{} \\
+  &amp;= \sigma^2/n + \mu^2
+\end{aligned}
+\]</span></p>
+<p>(by <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;10</a> and <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;9</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{E}\mathopen{}\left[\sum_{i=1}^n(X_i - \bar X)^2\right]\mathclose{}
@@ -983,7 +1011,14 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 &amp;&amp; \text{(factor out $\sigma^2$)}
 \end{aligned}
 \]</span></p>
-<p>So <span class="math inline">\(\operatorname{E}\mathopen{}\left[S^2\right]\mathclose{} = \frac{1}{n-1}(n-1)\sigma^2= \sigma^2\)</span>, and by <a href="#/thm-bias-exprs" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(S^2\right)\mathclose{} = 0\)</span>: the sample variance is <a href="#/def-unbiased">unbiased</a>.</p>
+<p>So</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{E}\mathopen{}\left[S^2\right]\mathclose{} &amp;= \frac{1}{n-1}(n-1)\sigma^2\\
+  &amp;= \sigma^2,
+\end{aligned}
+\]</span></p>
+<p>and by <a href="#/thm-bias-exprs" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(S^2\right)\mathclose{} = 0\)</span>: the sample variance is <a href="#/def-unbiased">unbiased</a>.</p>
 <p>For the divide-by-<span class="math inline">\(n\)</span> estimator, <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\sigma}^2\right]\mathclose{} = \frac{1}{n}(n-1)\sigma^2\)</span>, so:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1102,7 +1137,14 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-SE-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14 (Standard error of the sample mean)</strong></span> In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>, so <span class="math inline">\(\operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} = \sqrt{\sigma^2 / n} = \sigma/ \sqrt{n}\)</span>. With <span class="math inline">\(n = 50\)</span> students, the standard error of the sample mean height is <span class="math inline">\(\sigma/ \sqrt{50} \approx 0.14\sigma\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 14 (Standard error of the sample mean)</strong></span> In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>, so</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} &amp;= \sqrt{\sigma^2 / n} \\
+  &amp;= \sigma/ \sqrt{n}.
+\end{aligned}
+\]</span></p>
+<p>With <span class="math inline">\(n = 50\)</span> students, the standard error of the sample mean height is <span class="math inline">\(\sigma/ \sqrt{50} \approx 0.14\sigma\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-se-error-sd" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8 (Spread of the estimation error)</strong></span> Show that the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of the <a href="#/def-estimation-error">estimation error</a> <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> equals the <a href="#/def-SE">standard error</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>
@@ -1117,7 +1159,13 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 &amp;&amp; \text{(subtracting a constant does not change a variance)}
 \end{aligned}
 \]</span></p>
-<p>Taking square roots of both sides, <span class="math inline">\(\operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>.</p>
+<p>Taking square roots of both sides,</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{} &amp;= \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \\
+  &amp;= \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}.
+\end{aligned}
+\]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-se-error-sd" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5 (Standard error is the spread of the estimation error)</strong></span> <span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}\]</span></p>
@@ -1156,7 +1204,13 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="theorem-title"><strong>Exercise 10 (Standard error of an unbiased estimator)</strong></span> Using <a href="#/eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a>, write the <a href="#/def-SE">standard error</a> of an <a href="#/def-unbiased">unbiased</a> estimator <span class="math inline">\(\hat{\theta}\)</span> in terms of its <a href="#/def-mse">mean squared error</a>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-se-rmse-unbiased" class="proof solution">
-<p><span class="proof-title"><em>Solution 10</em>. </span>By <a href="#/eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>. Taking square roots of both sides, <span class="math inline">\(\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>.</p>
+<p><span class="proof-title"><em>Solution 10</em>. </span>By <a href="#/eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>. Taking square roots of both sides,</p>
+<p><span class="math display">\[
+\begin{aligned}
+  \sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &amp;= \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \\
+  &amp;= \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}.
+\end{aligned}
+\]</span></p>
 </div>
 </section><section class="slide level2"><div id="cor-se-rmse-unbiased" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 3 (For unbiased estimators, SE equals root MSE)</strong></span> If <span class="math inline">\(\hat{\theta}\)</span> is <a href="#/def-unbiased">unbiased</a>, then its standard error equals its <a href="#/def-rmse">root mean squared error</a>:</p>
