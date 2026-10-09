@@ -22,5 +22,7 @@ which depends only on the current state $s$.
 The sequence is therefore a [Markov chain](#def-markov-chain).
 Unlike the chain of @exm-two-state-chain,
 its states can be any real number,
-as are the states of the chains that MCMC builds for a continuous parameter.
+so it has a continuous state space,
+like the chains that MCMC builds for a continuous parameter,
+whose values lie in the parameter space.
 :::
