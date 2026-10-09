@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 23:15:22 (PDT)
+Last modified: 2026-10-09 01:37:12 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -1135,7 +1135,7 @@ The following resources cover Bayesian inference in more depth.
 
 - Ross ([2022](#ref-rossbayes)), a free online textbook
 - Aragon ([2018](#ref-aragon2018population)), on population health thinking with Bayesian networks
-- McElreath ([2020](#ref-statrethink2e)), which [ECL 234](https://catalog.ucdavis.edu/search/?q=ECL+234) uses; its author was formerly a UC Davis professor, and has published [video lectures](https://www.youtube.com/@rmcelreath/playlists), most recently the [2026 course](https://www.youtube.com/playlist?list=PLDcUM9US4XdNOlqSyhe38US8mFgmqzI14), and [course materials](https://github.com/rmcelreath/stat_rethinking_2024)
+- McElreath ([2020](#ref-statrethink2e)), which [ECL 234](https://catalog.ucdavis.edu/search/?q=ECL+234) uses; its author was formerly a UC Davis professor, and has published [video lectures](https://www.youtube.com/@rmcelreath/playlists), most recently the [2026 course](https://www.youtube.com/playlist?list=PLDcUM9US4XdNOlqSyhe38US8mFgmqzI14), and [course materials](https://github.com/rmcelreath/stat_rethinking_2024); the Data Science Learning Community’s [book club](https://www.youtube.com/playlist?list=PL3x6DOfs2NGhiIU3mxd_gUyqzmbLesmjh) recorded its discussion of the first twelve chapters
 - Korner-Nievergelt and Korner-Nievergelt ([2015](#ref-korner.bayes.ecology))
 - Cowles ([2013](#ref-CowlesMaryKathryn2013ABSW))
 - Kéry et al. ([2012](#ref-kery-bayes-pop))
