@@ -107,4 +107,11 @@ c(
 ) |>
   round(2)
 ```
+
+::: {.callout-note collapse="true"}
+#### Source
+
+That a linear combination of independent normal random variables is normal is
+@CaseBerg01 [Corollary 4.6.10].
+:::
 :::
