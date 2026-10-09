@@ -23,6 +23,12 @@ mle <- mean(cyclones$number)
 mle
 ```
 
-$$\hrate_{\text{ML}} = \bar x = `r round(mle, 3)`$$
+$$
+\ba
+\hrate_{\text{ML}}
+&= \bar x\\
+&= `r round(mle, 3)`
+\ea
+$$
 
 :::

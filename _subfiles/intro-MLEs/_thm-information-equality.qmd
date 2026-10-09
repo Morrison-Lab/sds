@@ -9,7 +9,13 @@ and its variance is the expected information:
 
 $$\E{\score(\vX \mid \vparam)} = \mathbf{0}_{p \times 1}$$ {#eq-score-mean-zero}
 
-$$\einf(\vparam) = \Covf{\score(\vX \mid \vparam)} = \E{\score \tp{\score}}$$ {#eq-information-equality}
+$$
+\ba
+\einf(\vparam)
+&= \Covf{\score(\vX \mid \vparam)}\\
+&= \E{\score \tp{\score}}
+\ea
+$$ {#eq-information-equality}
 
 :::
 

@@ -48,10 +48,12 @@ which points up from its fitted value to its observed outcome
 The mean squared error of these predictions is
 
 $$
+\ba
 \mselr{\fitted}
-= \frac{0^2 + (-0.5)^2 + 0^2}{3}
-= \frac{0.25}{3}
-\approx 0.083,
+&= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\
+&= \frac{0.25}{3}\\
+&\approx 0.083,
+\ea
 $$
 
 the residual sum of squares, $0.25$, divided by $n = 3$.
