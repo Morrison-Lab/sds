@@ -112,7 +112,7 @@ could be computed from real data.
 #| label: cv-simulated-summary
 sim_best_cv <- sim_errors_cv$degree[which.min(sim_errors_cv$cv_5)]
 sim_n_fit <- nrow(sim_train) - max(table(sim_folds))
-sim_top <- sim_errors_cv[sim_errors_cv$degree == max(sim_degrees), ]
+sim_top <- dplyr::filter(sim_errors_cv, degree == max(sim_degrees))
 sim_cv_ratio_top <- sim_top$cv_5 / sim_top$generalization
 c(
   best_by_cv = sim_best_cv,

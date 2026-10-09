@@ -127,17 +127,16 @@ the numbers in the text below come from the R code.
 #|   ", and no true value is marked."
 #|   )
 prob_grid <- seq(0.001, 0.999, length.out = 500)
-density_curves <- do.call(
-  rbind,
+density_curves <- dplyr::bind_rows(
   lapply(rownames(post_params), \(data_set) {
-    rbind(
-      data.frame(
+    dplyr::bind_rows(
+      tibble::tibble(
         data_set = data_set,
         prob = prob_grid,
         distribution = "prior",
         density = stats::dbeta(prob_grid, prior_a, prior_b)
       ),
-      data.frame(
+      tibble::tibble(
         data_set = data_set,
         prob = prob_grid,
         distribution = "posterior",
@@ -165,7 +164,7 @@ ggplot2::ggplot(
 ) +
   ggplot2::geom_line(linewidth = 0.8) +
   ggplot2::geom_vline(
-    data = data.frame(
+    data = tibble::tibble(
       data_set = factor("simulated", levels = rownames(post_params)),
       truth = sim_truth
     ),

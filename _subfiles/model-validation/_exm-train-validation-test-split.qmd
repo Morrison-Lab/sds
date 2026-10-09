@@ -147,9 +147,9 @@ partition_data <- dplyr::bind_rows(
 plot_partitions_with_fit <- function(model, fit_label) {
   series_levels <- c(names(partition_colors), fit_label)
   partition_data$series <- factor(partition_data$series, levels = series_levels)
-  fitted_curve <- data.frame(
+  fitted_curve <- tibble::tibble(
     wt = wt_grid,
-    mpg = predict(model, newdata = data.frame(wt = wt_grid)),
+    mpg = predict(model, newdata = tibble::tibble(wt = wt_grid)),
     series = factor(fit_label, levels = series_levels)
   )
   # nolint start: object_usage_linter.

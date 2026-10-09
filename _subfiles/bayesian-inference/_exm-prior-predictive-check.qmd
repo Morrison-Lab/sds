@@ -24,12 +24,11 @@ check_priors <- list(
   `Beta(1, 19)` = c(a = 1, b = 19)
 )
 set.seed(3)
-prior_pred_counts <- do.call(
-  rbind,
+prior_pred_counts <- dplyr::bind_rows(
   lapply(names(check_priors), \(prior_name) {
     ab <- check_priors[[prior_name]]
     prob_draws <- stats::rbeta(4000, ab[["a"]], ab[["b"]])
-    data.frame(
+    tibble::tibble(
       prior = prior_name,
       count = stats::rbinom(4000, size = n_mothers, prob = prob_draws)
     )
