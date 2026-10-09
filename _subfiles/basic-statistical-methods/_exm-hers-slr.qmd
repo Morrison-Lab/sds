@@ -23,7 +23,10 @@ c(
 ```{r}
 #| code-fold: false
 slr_fit <- lm(glucose ~ BMI, data = hers)
-summary(slr_fit)
+parameters::parameters(slr_fit) |>
+  parameters::print_md(digits = 3)
+performance::model_performance(slr_fit) |>
+  insight::print_md(digits = 3)
 ```
 
 @fig-hers-slr shows the data with the fitted line.
