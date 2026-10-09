@@ -47,14 +47,26 @@ with this mean and equal-tailed 95% [credible interval](#def-credible-interval):
 #| code-fold: false
 a_post <- 1 + 55
 b_post <- 1 + 91 - 55
-c(
+post_summary <- c(
   mean = a_post / (a_post + b_post),
   lower = stats::qbeta(0.025, a_post, b_post),
   upper = stats::qbeta(0.975, a_post, b_post)
 ) |>
   round(3)
+post_summary
 ```
 
 The mean uses the $\operatorname{Beta}(a, b)$ mean $a / (a + b)$
 [@CaseBerg01, Section 3.3, p. 107].
+By @def-credible-interval,
+the interval is read as a probability statement about $\prob$ itself:
+given these 91 trials,
+the posterior probability that $\prob$ lies between
+`r post_summary[["lower"]]` and `r post_summary[["upper"]]` is 0.95
+(approximately, since those endpoints are rounded to three decimals).
+A 95% confidence interval computed from the same data
+supports no such statement,
+as @sec-bayes-interval-interp explains:
+its 0.95 describes the procedure over repeated samples,
+and the realized interval either contains $\prob$ or does not.
 :::

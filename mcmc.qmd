@@ -66,6 +66,18 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_exm-ar1-chain.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exr-ar1-stationary.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_thm-ar1-stationary.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/bayesian-inference/_prose-mcmc-target.qmd >}}
 
 ## MCMC samplers {#sec-samplers}

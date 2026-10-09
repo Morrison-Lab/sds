@@ -1,0 +1,117 @@
+::: {#exr-ar1-stationary}
+#### Stationary distribution of the autoregressive chain
+
+For the chain of @exm-ar1-chain with $\abs{\arcoef} < 1$,
+find the variance $v > 0$ for which $\ndist{0, v}$
+is a [stationary distribution](#def-stationary-distribution).
+:::
+
+{{< slidebreak >}}
+
+::: {#sol-ar1-stationary}
+
+Suppose $\param^{(t)} \sim \ndist{0, v}$.
+By @exm-ar1-chain, $\eps^{(t+1)}$ is independent of $\param^{(t)}$,
+so $\param^{(t+1)} = \arcoef\, \param^{(t)} + \eps^{(t+1)}$,
+a linear combination of independent Gaussian random variables,
+is Gaussian [@CaseBerg01, Corollary 4.6.10].
+By [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation),
+its mean is
+
+$$
+\ba
+\E{\param^{(t+1)}}
+&= \E{\arcoef\, \param^{(t)} + \eps^{(t+1)}}
+&& \text{(definition of the chain)}\\
+&= \arcoef\, \E{\param^{(t)}} + \E{\eps^{(t+1)}}
+&& \text{(linearity of expectation)}\\
+&= \arcoef \cdot 0 + 0
+&& \text{(substituting the two means)}\\
+&= 0
+&& \text{(arithmetic)}.
+\ea
+$$ {#eq-ar1-stationary-exr}
+
+Independent random variables are
+[uncorrelated](https://morrison-lab.github.io/pds/variance-covariance.html#thm-indpt-uncorrelated),
+so $\Cov{\param^{(t)}, \eps^{(t+1)}} = 0$,
+and by the [variance of a sum of two random variables](https://morrison-lab.github.io/pds/variance-covariance.html#cor-var-lincom2),
+the variance is
+
+$$
+\ba
+\Var{\param^{(t+1)}}
+&= \Var{\arcoef\, \param^{(t)} + 1 \cdot \eps^{(t+1)}}
+&& \text{(definition of the chain)}\\
+&= \arcoef^2 \Var{\param^{(t)}} + 1^2 \Var{\eps^{(t+1)}}
+  + 2 (\arcoef \cdot 1) \Cov{\param^{(t)}, \eps^{(t+1)}}
+&& \text{(variance of a sum of two random variables)}\\
+&= \arcoef^2 \Var{\param^{(t)}} + 1^2 \Var{\eps^{(t+1)}} + 2 (\arcoef \cdot 1) \cdot 0
+&& \text{(the covariance is 0)}\\
+&= \arcoef^2 \Var{\param^{(t)}} + 1^2 \Var{\eps^{(t+1)}} + 0
+&& \text{($a \cdot 0 = 0$)}\\
+&= \arcoef^2 \Var{\param^{(t)}} + 1^2 \Var{\eps^{(t+1)}}
+&& \text{($a + 0 = a$)}\\
+&= \arcoef^2 \Var{\param^{(t)}} + \Var{\eps^{(t+1)}}
+&& \text{($1^2 = 1$)}\\
+&= \arcoef^2 v + \Var{\eps^{(t+1)}}
+&& \text{(substituting $\Var{\param^{(t)}} = v$)}\\
+&= \arcoef^2 v + \sigma^2
+&& \text{(substituting $\Var{\eps^{(t+1)}} = \sigma^2$)}.
+\ea
+$$ {#eq-ar1-stationary-exr-2}
+
+So $\param^{(t+1)} \sim \ndist{0, \arcoef^2 v + \sigma^2}$,
+and $\ndist{0, v}$ is stationary exactly when $\arcoef^2 v + \sigma^2 = v$.
+Solving for $v$:
+
+$$
+\ba
+v &= \arcoef^2 v + \sigma^2
+&& \text{(stationarity condition)}\\
+v - \arcoef^2 v &= \sigma^2
+&& \text{(subtracting $\arcoef^2 v$ from both sides)}\\
+(1 - \arcoef^2)\, v &= \sigma^2
+&& \text{(factoring out $v$)}\\
+v &= \frac{\sigma^2}{1 - \arcoef^2}
+&& \text{(dividing both sides by $1 - \arcoef^2$, which is positive because $\abs{\arcoef} < 1$)}.
+\ea
+$$ {#eq-ar1-stationary-exr-3}
+
+The stationary distribution is $\ndist{0, \sigma^2 / (1 - \arcoef^2)}$.
+If instead $\abs{\arcoef} \ge 1$,
+then $(1 - \arcoef^2)\, v \le 0 < \sigma^2$ for every $v > 0$,
+so no $\ndist{0, v}$ distribution is stationary.
+
+With $\arcoef = 0.9$ and $\sigma = 1$,
+the stationary variance is $1 / (1 - 0.9^2) = 1 / (1 - `r 0.9^2`) = 1 / `r 1 - 0.9^2` \approx `r round(1 / (1 - 0.9^2), 2)`$.
+A simulated chain started far from $0$, at $\param^{(1)} = 10$,
+has mean near 0 and variance near that value once its first 1,000 values are discarded:
+
+```{r}
+#| label: ar1-chain
+#| code-fold: false
+set.seed(11)
+n_iter <- 100000
+rho <- 0.9
+theta <- numeric(n_iter)
+theta[1] <- 10
+for (t in seq(2, n_iter)) {
+  theta[t] <- rho * theta[t - 1] + stats::rnorm(1)
+}
+kept <- theta[-(1:1000)]
+c(
+  mean = mean(kept),
+  variance = stats::var(kept),
+  stationary_variance = 1 / (1 - rho^2)
+) |>
+  round(2)
+```
+
+::: {.callout-note collapse="true"}
+#### Source
+
+That a linear combination of independent normal random variables is normal is
+@CaseBerg01 [Corollary 4.6.10].
+:::
+:::
