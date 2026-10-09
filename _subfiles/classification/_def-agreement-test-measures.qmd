@@ -15,9 +15,12 @@ defined when its denominator is positive:
 
 $$
 \ba
-\Est{\text{sensitivity}} &\eqdef \frac{a}{a + c}, &
-\Est{\text{specificity}} &\eqdef \frac{d}{b + d}, \\
-\Est{\text{PPV}} &\eqdef \frac{a}{a + b}, &
+\Est{\text{sensitivity}} &\eqdef \frac{a}{a + c},
+\\
+\Est{\text{specificity}} &\eqdef \frac{d}{b + d},
+\\
+\Est{\text{PPV}} &\eqdef \frac{a}{a + b},
+\\
 \Est{\text{NPV}} &\eqdef \frac{d}{c + d}.
 \ea
 $$ {#eq-agreement-test-measures}
