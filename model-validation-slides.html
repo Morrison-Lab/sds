@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 10:25:47 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 10:39:54 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1074,46 +1074,63 @@ Table&nbsp;1: Sizes of the training, validation, and test splits
 <span id="cb8-12"><a aria-label="12"></a>mpg_range <span class="ot">&lt;-</span> <span class="fu">range</span>(<span class="fu">c</span>(train_dat<span class="sc">$</span>mpg, valid_dat<span class="sc">$</span>mpg, test_dat<span class="sc">$</span>mpg))</span>
 <span id="cb8-13"><a aria-label="13"></a>wt_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(wt_range[<span class="dv">1</span>], wt_range[<span class="dv">2</span>], <span class="at">length.out =</span> <span class="dv">200</span>)</span>
 <span id="cb8-14"><a aria-label="14"></a></span>
-<span id="cb8-15"><a aria-label="15"></a>plot_partitions_with_fit <span class="ot">&lt;-</span> <span class="cf">function</span>(model, fit_label) {</span>
-<span id="cb8-16"><a aria-label="16"></a>  <span class="fu">plot</span>(</span>
-<span id="cb8-17"><a aria-label="17"></a>    train_dat<span class="sc">$</span>wt,</span>
-<span id="cb8-18"><a aria-label="18"></a>    train_dat<span class="sc">$</span>mpg,</span>
-<span id="cb8-19"><a aria-label="19"></a>    <span class="at">xlab =</span> <span class="st">"wt"</span>,</span>
-<span id="cb8-20"><a aria-label="20"></a>    <span class="at">ylab =</span> <span class="st">"mpg"</span>,</span>
-<span id="cb8-21"><a aria-label="21"></a>    <span class="at">pch =</span> partition_shapes[[<span class="st">"training"</span>]],</span>
-<span id="cb8-22"><a aria-label="22"></a>    <span class="at">xlim =</span> wt_range,</span>
-<span id="cb8-23"><a aria-label="23"></a>    <span class="at">ylim =</span> mpg_range,</span>
-<span id="cb8-24"><a aria-label="24"></a>    <span class="at">col =</span> partition_colors[[<span class="st">"training"</span>]]</span>
-<span id="cb8-25"><a aria-label="25"></a>  )</span>
-<span id="cb8-26"><a aria-label="26"></a>  <span class="fu">points</span>(</span>
-<span id="cb8-27"><a aria-label="27"></a>    valid_dat<span class="sc">$</span>wt,</span>
-<span id="cb8-28"><a aria-label="28"></a>    valid_dat<span class="sc">$</span>mpg,</span>
-<span id="cb8-29"><a aria-label="29"></a>    <span class="at">pch =</span> partition_shapes[[<span class="st">"validation"</span>]],</span>
-<span id="cb8-30"><a aria-label="30"></a>    <span class="at">col =</span> partition_colors[[<span class="st">"validation"</span>]]</span>
-<span id="cb8-31"><a aria-label="31"></a>  )</span>
-<span id="cb8-32"><a aria-label="32"></a>  <span class="fu">points</span>(</span>
-<span id="cb8-33"><a aria-label="33"></a>    test_dat<span class="sc">$</span>wt,</span>
-<span id="cb8-34"><a aria-label="34"></a>    test_dat<span class="sc">$</span>mpg,</span>
-<span id="cb8-35"><a aria-label="35"></a>    <span class="at">pch =</span> partition_shapes[[<span class="st">"test"</span>]],</span>
-<span id="cb8-36"><a aria-label="36"></a>    <span class="at">col =</span> partition_colors[[<span class="st">"test"</span>]]</span>
-<span id="cb8-37"><a aria-label="37"></a>  )</span>
-<span id="cb8-38"><a aria-label="38"></a>  fitted_curve <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">wt =</span> wt_grid))</span>
-<span id="cb8-39"><a aria-label="39"></a>  <span class="fu">lines</span>(wt_grid, fitted_curve, <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb8-40"><a aria-label="40"></a>  <span class="fu">legend</span>(</span>
-<span id="cb8-41"><a aria-label="41"></a>    <span class="st">"topright"</span>,</span>
-<span id="cb8-42"><a aria-label="42"></a>    <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"training"</span>, <span class="st">"validation"</span>, <span class="st">"test"</span>, fit_label),</span>
-<span id="cb8-43"><a aria-label="43"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="fu">unname</span>(partition_colors), <span class="st">"blue"</span>),</span>
-<span id="cb8-44"><a aria-label="44"></a>    <span class="at">pch =</span> <span class="fu">c</span>(<span class="fu">unname</span>(partition_shapes), <span class="cn">NA</span>),</span>
-<span id="cb8-45"><a aria-label="45"></a>    <span class="at">lty =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">1</span>),</span>
-<span id="cb8-46"><a aria-label="46"></a>    <span class="at">lwd =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="dv">2</span>),</span>
-<span id="cb8-47"><a aria-label="47"></a>    <span class="at">bty =</span> <span class="st">"n"</span></span>
-<span id="cb8-48"><a aria-label="48"></a>  )</span>
-<span id="cb8-49"><a aria-label="49"></a>}</span>
-<span id="cb8-50"><a aria-label="50"></a></span>
-<span id="cb8-51"><a aria-label="51"></a><span class="fu">rbind</span>(<span class="at">wt =</span> wt_range, <span class="at">mpg =</span> mpg_range)</span>
-<span id="cb8-52"><a aria-label="52"></a><span class="co">#&gt;       [,1]   [,2]</span></span>
-<span id="cb8-53"><a aria-label="53"></a><span class="co">#&gt; wt   1.513  5.424</span></span>
-<span id="cb8-54"><a aria-label="54"></a><span class="co">#&gt; mpg 10.400 33.900</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-15"><a aria-label="15"></a>partition_data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
+<span id="cb8-16"><a aria-label="16"></a>  <span class="at">training =</span> train_dat,</span>
+<span id="cb8-17"><a aria-label="17"></a>  <span class="at">validation =</span> valid_dat,</span>
+<span id="cb8-18"><a aria-label="18"></a>  <span class="at">test =</span> test_dat,</span>
+<span id="cb8-19"><a aria-label="19"></a>  <span class="at">.id =</span> <span class="st">"series"</span></span>
+<span id="cb8-20"><a aria-label="20"></a>)</span>
+<span id="cb8-21"><a aria-label="21"></a></span>
+<span id="cb8-22"><a aria-label="22"></a>plot_partitions_with_fit <span class="ot">&lt;-</span> <span class="cf">function</span>(model, fit_label) {</span>
+<span id="cb8-23"><a aria-label="23"></a>  series_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">names</span>(partition_colors), fit_label)</span>
+<span id="cb8-24"><a aria-label="24"></a>  partition_data<span class="sc">$</span>series <span class="ot">&lt;-</span> <span class="fu">factor</span>(partition_data<span class="sc">$</span>series, <span class="at">levels =</span> series_levels)</span>
+<span id="cb8-25"><a aria-label="25"></a>  fitted_curve <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb8-26"><a aria-label="26"></a>    <span class="at">wt =</span> wt_grid,</span>
+<span id="cb8-27"><a aria-label="27"></a>    <span class="at">mpg =</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">wt =</span> wt_grid)),</span>
+<span id="cb8-28"><a aria-label="28"></a>    <span class="at">series =</span> <span class="fu">factor</span>(fit_label, <span class="at">levels =</span> series_levels)</span>
+<span id="cb8-29"><a aria-label="29"></a>  )</span>
+<span id="cb8-30"><a aria-label="30"></a>  <span class="co"># nolint start: object_usage_linter.</span></span>
+<span id="cb8-31"><a aria-label="31"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(</span>
+<span id="cb8-32"><a aria-label="32"></a>    partition_data,</span>
+<span id="cb8-33"><a aria-label="33"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(</span>
+<span id="cb8-34"><a aria-label="34"></a>      <span class="at">x =</span> wt,</span>
+<span id="cb8-35"><a aria-label="35"></a>      <span class="at">y =</span> mpg,</span>
+<span id="cb8-36"><a aria-label="36"></a>      <span class="at">color =</span> series,</span>
+<span id="cb8-37"><a aria-label="37"></a>      <span class="at">shape =</span> series</span>
+<span id="cb8-38"><a aria-label="38"></a>    )</span>
+<span id="cb8-39"><a aria-label="39"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-40"><a aria-label="40"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-41"><a aria-label="41"></a>    ggplot2<span class="sc">::</span><span class="fu">geom_line</span>(</span>
+<span id="cb8-42"><a aria-label="42"></a>      ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">linetype =</span> series),</span>
+<span id="cb8-43"><a aria-label="43"></a>      <span class="at">data =</span> fitted_curve,</span>
+<span id="cb8-44"><a aria-label="44"></a>      <span class="at">linewidth =</span> <span class="dv">1</span></span>
+<span id="cb8-45"><a aria-label="45"></a>    ) <span class="sc">+</span></span>
+<span id="cb8-46"><a aria-label="46"></a>    ggplot2<span class="sc">::</span><span class="fu">scale_color_manual</span>(</span>
+<span id="cb8-47"><a aria-label="47"></a>      <span class="at">limits =</span> series_levels,</span>
+<span id="cb8-48"><a aria-label="48"></a>      <span class="at">values =</span> <span class="fu">c</span>(partition_colors, stats<span class="sc">::</span><span class="fu">setNames</span>(<span class="st">"blue"</span>, fit_label))</span>
+<span id="cb8-49"><a aria-label="49"></a>    ) <span class="sc">+</span></span>
+<span id="cb8-50"><a aria-label="50"></a>    ggplot2<span class="sc">::</span><span class="fu">scale_shape_manual</span>(</span>
+<span id="cb8-51"><a aria-label="51"></a>      <span class="at">limits =</span> series_levels,</span>
+<span id="cb8-52"><a aria-label="52"></a>      <span class="at">values =</span> <span class="fu">c</span>(partition_shapes, stats<span class="sc">::</span><span class="fu">setNames</span>(<span class="cn">NA</span>, fit_label))</span>
+<span id="cb8-53"><a aria-label="53"></a>    ) <span class="sc">+</span></span>
+<span id="cb8-54"><a aria-label="54"></a>    ggplot2<span class="sc">::</span><span class="fu">scale_linetype_manual</span>(</span>
+<span id="cb8-55"><a aria-label="55"></a>      <span class="at">limits =</span> series_levels,</span>
+<span id="cb8-56"><a aria-label="56"></a>      <span class="at">values =</span> stats<span class="sc">::</span><span class="fu">setNames</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>), series_levels)</span>
+<span id="cb8-57"><a aria-label="57"></a>    ) <span class="sc">+</span></span>
+<span id="cb8-58"><a aria-label="58"></a>    ggplot2<span class="sc">::</span><span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> wt_range, <span class="at">ylim =</span> mpg_range) <span class="sc">+</span></span>
+<span id="cb8-59"><a aria-label="59"></a>    ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">color =</span> <span class="cn">NULL</span>, <span class="at">shape =</span> <span class="cn">NULL</span>, <span class="at">linetype =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb8-60"><a aria-label="60"></a>    ggplot2<span class="sc">::</span><span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-61"><a aria-label="61"></a>    ggplot2<span class="sc">::</span><span class="fu">theme</span>(</span>
+<span id="cb8-62"><a aria-label="62"></a>      <span class="at">legend.position =</span> <span class="st">"inside"</span>,</span>
+<span id="cb8-63"><a aria-label="63"></a>      <span class="at">legend.position.inside =</span> <span class="fu">c</span>(<span class="fl">0.85</span>, <span class="fl">0.8</span>)</span>
+<span id="cb8-64"><a aria-label="64"></a>    )</span>
+<span id="cb8-65"><a aria-label="65"></a>  <span class="co"># nolint end</span></span>
+<span id="cb8-66"><a aria-label="66"></a>}</span>
+<span id="cb8-67"><a aria-label="67"></a></span>
+<span id="cb8-68"><a aria-label="68"></a><span class="fu">rbind</span>(<span class="at">wt =</span> wt_range, <span class="at">mpg =</span> mpg_range)</span>
+<span id="cb8-69"><a aria-label="69"></a><span class="co">#&gt;       [,1]   [,2]</span></span>
+<span id="cb8-70"><a aria-label="70"></a><span class="co">#&gt; wt   1.513  5.424</span></span>
+<span id="cb8-71"><a aria-label="71"></a><span class="co">#&gt; mpg 10.400 33.900</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">plot_partitions_with_fit</span>(model_linear, <span class="st">"linear fit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1124,7 +1141,7 @@ Figure&nbsp;2: Linear model fit superimposed on data partitions
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><a href="model-validation_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Linear model fit superimposed on data partitions"><img data-src="model-validation_files/figure-html/unnamed-chunk-3-1.png" alt="Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted linear regression line is superimposed." width="672"></a></p>
+<figure><p><a href="model-validation_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: Linear model fit superimposed on data partitions"><img data-src="model-validation_files/figure-html/unnamed-chunk-3-1.png" alt="Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted linear regression line is superimposed." width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1140,7 +1157,7 @@ Figure&nbsp;3: Quadratic model fit superimposed on data partitions
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><a href="model-validation_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Quadratic model fit superimposed on data partitions"><img data-src="model-validation_files/figure-html/unnamed-chunk-4-1.png" alt="Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted quadratic curve is superimposed." width="672"></a></p>
+<figure><p><a href="model-validation_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Quadratic model fit superimposed on data partitions"><img data-src="model-validation_files/figure-html/unnamed-chunk-4-1.png" alt="Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quadratic curve is superimposed." width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1156,7 +1173,7 @@ Figure&nbsp;4: Cubic model fit superimposed on data partitions
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><a href="model-validation_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Cubic model fit superimposed on data partitions"><img data-src="model-validation_files/figure-html/unnamed-chunk-5-1.png" alt="Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted cubic curve is superimposed." width="672"></a></p>
+<figure><p><a href="model-validation_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;4: Cubic model fit superimposed on data partitions"><img data-src="model-validation_files/figure-html/unnamed-chunk-5-1.png" alt="Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted cubic curve is superimposed." width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1172,7 +1189,7 @@ Figure&nbsp;5: Quartic model fit superimposed on data partitions
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><a href="model-validation_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Quartic model fit superimposed on data partitions"><img data-src="model-validation_files/figure-html/unnamed-chunk-6-1.png" alt="Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted quartic curve is superimposed." width="672"></a></p>
+<figure><p><a href="model-validation_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;5: Quartic model fit superimposed on data partitions"><img data-src="model-validation_files/figure-html/unnamed-chunk-6-1.png" alt="Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quartic curve is superimposed." width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1822,10 +1839,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb24-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb24-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb24-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb24-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;8</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;8</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 11</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k = n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;9</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;8</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n - 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n - 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>

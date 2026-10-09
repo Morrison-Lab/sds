@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:25:47 (PDT)
+Last modified: 2026-10-09 10:39:54 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -557,40 +557,57 @@ Last modified: 2026-10-09 10:25:47 (PDT)
 > mpg_range <- range(c(train_dat$mpg, valid_dat$mpg, test_dat$mpg))
 > wt_grid <- seq(wt_range[1], wt_range[2], length.out = 200)
 >
+> partition_data <- dplyr::bind_rows(
+>   training = train_dat,
+>   validation = valid_dat,
+>   test = test_dat,
+>   .id = "series"
+> )
+>
 > plot_partitions_with_fit <- function(model, fit_label) {
->   plot(
->     train_dat$wt,
->     train_dat$mpg,
->     xlab = "wt",
->     ylab = "mpg",
->     pch = partition_shapes[["training"]],
->     xlim = wt_range,
->     ylim = mpg_range,
->     col = partition_colors[["training"]]
+>   series_levels <- c(names(partition_colors), fit_label)
+>   partition_data$series <- factor(partition_data$series, levels = series_levels)
+>   fitted_curve <- data.frame(
+>     wt = wt_grid,
+>     mpg = predict(model, newdata = data.frame(wt = wt_grid)),
+>     series = factor(fit_label, levels = series_levels)
 >   )
->   points(
->     valid_dat$wt,
->     valid_dat$mpg,
->     pch = partition_shapes[["validation"]],
->     col = partition_colors[["validation"]]
->   )
->   points(
->     test_dat$wt,
->     test_dat$mpg,
->     pch = partition_shapes[["test"]],
->     col = partition_colors[["test"]]
->   )
->   fitted_curve <- predict(model, newdata = data.frame(wt = wt_grid))
->   lines(wt_grid, fitted_curve, col = "blue", lwd = 2)
->   legend(
->     "topright",
->     legend = c("training", "validation", "test", fit_label),
->     col = c(unname(partition_colors), "blue"),
->     pch = c(unname(partition_shapes), NA),
->     lty = c(NA, NA, NA, 1),
->     lwd = c(NA, NA, NA, 2),
->     bty = "n"
->   )
+>   # nolint start: object_usage_linter.
+>   ggplot2::ggplot(
+>     partition_data,
+>     ggplot2::aes(
+>       x = wt,
+>       y = mpg,
+>       color = series,
+>       shape = series
+>     )
+>   ) +
+>     ggplot2::geom_point() +
+>     ggplot2::geom_line(
+>       ggplot2::aes(linetype = series),
+>       data = fitted_curve,
+>       linewidth = 1
+>     ) +
+>     ggplot2::scale_color_manual(
+>       limits = series_levels,
+>       values = c(partition_colors, stats::setNames("blue", fit_label))
+>     ) +
+>     ggplot2::scale_shape_manual(
+>       limits = series_levels,
+>       values = c(partition_shapes, stats::setNames(NA, fit_label))
+>     ) +
+>     ggplot2::scale_linetype_manual(
+>       limits = series_levels,
+>       values = stats::setNames(c(0, 0, 0, 1), series_levels)
+>     ) +
+>     ggplot2::coord_cartesian(xlim = wt_range, ylim = mpg_range) +
+>     ggplot2::labs(color = NULL, shape = NULL, linetype = NULL) +
+>     ggplot2::theme_minimal() +
+>     ggplot2::theme(
+>       legend.position = "inside",
+>       legend.position.inside = c(0.85, 0.8)
+>     )
+>   # nolint end
 > }
 >
 > rbind(wt = wt_range, mpg = mpg_range)
@@ -605,7 +622,7 @@ Last modified: 2026-10-09 10:25:47 (PDT)
 > plot_partitions_with_fit(model_linear, "linear fit")
 > ```
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted linear regression line is superimposed.](model-validation_files/figure-html/unnamed-chunk-3-1.png)](model-validation_files/figure-html/unnamed-chunk-3-1.png "Figure 2: Linear model fit superimposed on data partitions")
+> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted linear regression line is superimposed.](model-validation_files/figure-html/unnamed-chunk-3-1.png)](model-validation_files/figure-html/unnamed-chunk-3-1.png "Figure 2: Linear model fit superimposed on data partitions")
 >
 > Figure 2: Linear model fit superimposed on data partitions
 >
@@ -615,7 +632,7 @@ Last modified: 2026-10-09 10:25:47 (PDT)
 > plot_partitions_with_fit(model_quadratic, "quadratic fit")
 > ```
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted quadratic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-4-1.png)](model-validation_files/figure-html/unnamed-chunk-4-1.png "Figure 3: Quadratic model fit superimposed on data partitions")
+> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quadratic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-4-1.png)](model-validation_files/figure-html/unnamed-chunk-4-1.png "Figure 3: Quadratic model fit superimposed on data partitions")
 >
 > Figure 3: Quadratic model fit superimposed on data partitions
 >
@@ -625,7 +642,7 @@ Last modified: 2026-10-09 10:25:47 (PDT)
 > plot_partitions_with_fit(model_cubic, "cubic fit")
 > ```
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted cubic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-5-1.png)](model-validation_files/figure-html/unnamed-chunk-5-1.png "Figure 4: Cubic model fit superimposed on data partitions")
+> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted cubic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-5-1.png)](model-validation_files/figure-html/unnamed-chunk-5-1.png "Figure 4: Cubic model fit superimposed on data partitions")
 >
 > Figure 4: Cubic model fit superimposed on data partitions
 >
@@ -635,7 +652,7 @@ Last modified: 2026-10-09 10:25:47 (PDT)
 > plot_partitions_with_fit(model_quartic, "quartic fit")
 > ```
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions. The fitted quartic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-6-1.png)](model-validation_files/figure-html/unnamed-chunk-6-1.png "Figure 5: Quartic model fit superimposed on data partitions")
+> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quartic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-6-1.png)](model-validation_files/figure-html/unnamed-chunk-6-1.png "Figure 5: Quartic model fit superimposed on data partitions")
 >
 > Figure 5: Quartic model fit superimposed on data partitions
 >
@@ -1121,10 +1138,10 @@ Last modified: 2026-10-09 10:25:47 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 8](#sol-loocv)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 8](#sol-loocv)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
