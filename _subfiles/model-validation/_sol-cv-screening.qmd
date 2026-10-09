@@ -35,9 +35,12 @@ screened_cv <- function(x, y, folds, n_keep, screen) {
     if (screen == "inside") {
       keep <- top_predictors(x[!in_fold, ], y[!in_fold], n_keep)
     }
-    train <- data.frame(y = y[!in_fold], x[!in_fold, keep])
+    train <- tibble::tibble(
+      y = y[!in_fold],
+      tibble::as_tibble(x[!in_fold, keep])
+    )
     fit <- lm(y ~ ., data = train)
-    held_out <- data.frame(x[in_fold, keep])
+    held_out <- tibble::as_tibble(x[in_fold, keep])
     sq_errors[in_fold] <- (predict(fit, newdata = held_out) - y[in_fold])^2
   }
   mean(sq_errors)
