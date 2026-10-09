@@ -33,6 +33,6 @@ $$
 &= \frac{\text{sens} \cd \text{prev}}{\text{sens} \cd \text{prev} + \paren{1 - \text{spec}} \cd \paren{1 - \text{prev}}}
 && \text{(probability of a positive test)}
 \ea
-$$
+$$ {#eq-ppv-bayes-exr}
 
 :::

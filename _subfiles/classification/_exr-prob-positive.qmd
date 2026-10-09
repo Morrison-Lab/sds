@@ -34,6 +34,6 @@ $$
 &= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \text{specificity}} \cd \paren{1 - \text{prevalence}}
 && \text{(definition of prevalence)}
 \ea
-$$
+$$ {#eq-prob-positive-exr}
 
 :::

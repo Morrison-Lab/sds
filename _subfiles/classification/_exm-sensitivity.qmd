@@ -6,6 +6,6 @@ Let $D$ be the event "the person has COVID-19"
 and $+$ the event "the test is positive".
 Then the test's sensitivity (@def-sensitivity) is:
 
-$$\Pr(+ \mid D) = 0.99$$
+$$\Pr(+ \mid D) = 0.99$$ {#eq-sensitivity-exm}
 
 :::

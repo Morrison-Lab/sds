@@ -17,6 +17,6 @@ c(x) \eqdef
 \text{has COVID-19} & \text{if } x = + \\
 \text{does not have COVID-19} & \text{if } x = \neg +
 \end{cases}
-$$
+$$ {#eq-classification-exm}
 
 :::

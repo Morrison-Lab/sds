@@ -21,7 +21,7 @@ $$
 &\approx 0.88
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-ppv-sens-spec-prev-exm}
 
 This value matches @exm-ppv.
 
@@ -43,7 +43,7 @@ $$
 &\approx 0.09
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-ppv-sens-spec-prev-exm-2}
 
 so about 9 in 10 positive results would be false positives.
 

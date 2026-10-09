@@ -17,7 +17,7 @@ $$
 &= 0.01
 && \text{(subtract)}
 \ea
-$$
+$$ {#eq-npv-exm}
 
 By
 [Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes),
@@ -42,7 +42,7 @@ $$
 &\approx 0.9992
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-npv-exm-2}
 
 A negative result from this test is very reliable:
 only about 8 in 10,000 people who test negative have COVID-19.
