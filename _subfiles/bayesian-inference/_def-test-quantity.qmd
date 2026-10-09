@@ -1,0 +1,7 @@
+::: {#def-test-quantity}
+#### Test quantity
+
+A **test quantity** $T(\vy)$ is a number computed from a data set
+that summarizes an aspect of the data we want the model to reproduce
+[@gelman2013bda, Section 6.3, p. 145].
+:::

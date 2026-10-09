@@ -236,6 +236,58 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< include sds/_subfiles/bayesian-inference/_exm-skeptical-prior.qmd >}}
 
+## Predictive checks {#sec-bayes-predictive-checks}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-predictive-overview.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-prior-predictive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-prior-predictive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-posterior-predictive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-posterior-predictive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-test-quantity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-test-quantity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-prior-predictive-check.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-prior-predictive-check.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-posterior-predictive-check.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-posterior-predictive-check.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-ppp-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-ppp-value.qmd >}}
+
 ## Distributions and hierarchies {#sec-bayes-hierarchies}
 
 <!-- No slidebreak here: the heading shares its slide with the def-hierarchical-model div. -->

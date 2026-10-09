@@ -1,0 +1,10 @@
+::: {#def-prior-predictive-check}
+#### Prior predictive check
+
+A **prior predictive check** compares a [test quantity](#def-test-quantity) $T(\vy)$
+of the observed data
+with the distribution of $T(\vY)$ under the [prior predictive distribution](#def-prior-predictive).
+If the observed value would be very unlikely under that distribution,
+the prior and the data disagree
+[@statrethink2e, Section 4.3.2, pp. 82-83].
+:::

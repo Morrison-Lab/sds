@@ -1,0 +1,13 @@
+::: {#def-posterior-predictive-check}
+#### Posterior predictive check
+
+A **posterior predictive check** compares a [test quantity](#def-test-quantity) $T(\vy)$
+of the observed data
+with the distribution of $T(\vY^{\mathrm{rep}})$,
+where $\vY^{\mathrm{rep}}$ is a replicated data set
+drawn from the [posterior predictive distribution](#def-posterior-predictive).
+If the model fits,
+replicated data should look like the observed data,
+so a systematic difference points to a way the model fails
+[@gelman2013bda, Section 6.3, pp. 143-145].
+:::
