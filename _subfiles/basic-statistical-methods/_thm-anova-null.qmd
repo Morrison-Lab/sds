@@ -4,7 +4,16 @@
 Let all $n$ observations be independent,
 with observation $y_{ji}$ Gaussian with mean $\mean_j$
 and the same variance $\varpar$ in every group.
-If $H_0: \mean_1 = \cdots = \mean_k$ holds,
+If
+
+$$
+\begin{aligned}
+  H_0: \mean_1 &= \cdots \\
+  &= \mean_k
+\end{aligned}
+$$
+
+holds,
 then $F$ (@def-one-way-anova), computed from these random variables,
 has the $F_{k-1,\, n-k}$ distribution [@hoggtanis2015, Section 9.3, p. 449].
 :::

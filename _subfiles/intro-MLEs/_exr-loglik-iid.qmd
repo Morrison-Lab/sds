@@ -25,7 +25,12 @@ $$
 \end{aligned}
 $$
 
-With a common distribution, $\p(X_i = x_i \mid \param) = \p(X = x_i \mid \param)$,
+With a common distribution,
+
+$$
+\p(X_i = x_i \mid \param) = \p(X = x_i \mid \param),
+$$
+
 so each term is $\log{\p(X = x_i \mid \param)}$.
 
 :::
