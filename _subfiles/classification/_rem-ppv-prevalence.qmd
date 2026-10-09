@@ -4,7 +4,7 @@
 The sensitivity and specificity describe the test's performance in a specified setting,
 and may differ across settings
 (for example, with the case mix of the people tested or the threshold used to call a result positive),
-but the ratio $\frac{1 - \text{prev}}{\text{prev}}$ in @thm-ppv-sens-spec-prev
+but the ratio $\frac{1 - \prev}{\prev}$ in @thm-ppv-sens-spec-prev
 describes the population being tested.
 When the disease is rare, that ratio is large,
 so even a small false positive rate can make the PPV low,

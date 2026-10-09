@@ -5,7 +5,7 @@ Rewrite the expression for the positive predictive value from @exr-ppv-bayes
 so that the sensitivity, specificity, and prevalence appear only through
 the ratio $\frac{1 - \text{spec}}{\text{sens}}$
 of the false positive rate to the sensitivity
-and the ratio $\frac{1 - \text{prev}}{\text{prev}}$
+and the ratio $\frac{1 - \prev}{\prev}$
 of non-diseased to diseased people in the population.
 :::
 
@@ -13,8 +13,8 @@ of non-diseased to diseased people in the population.
 
 :::{#sol-ppv-ratio-form}
 
-Write $a \eqdef \text{sens} \cd \text{prev}$
-and $b \eqdef \paren{1 - \text{spec}} \cd \paren{1 - \text{prev}}$,
+Write $a \eqdef \text{sens} \cd \prev$
+and $b \eqdef \paren{1 - \text{spec}} \cd \paren{1 - \prev}$,
 so that @exr-ppv-bayes reads $\text{PPV} = \frac{a}{a + b}$,
 with $a > 0$ whenever the sensitivity and prevalence are positive.
 Then:
@@ -30,9 +30,9 @@ $$
 && \text{(split the fraction over the sum in its numerator)} \\
 &= \frac{1}{1 + \frac{b}{a}}
 && \text{(} \tfrac{a}{a} = 1 \text{)} \\
-&= \frac{1}{1 + \frac{\paren{1 - \text{spec}} \cd \paren{1 - \text{prev}}}{\text{sens} \cd \text{prev}}}
+&= \frac{1}{1 + \frac{\paren{1 - \text{spec}} \cd \paren{1 - \prev}}{\text{sens} \cd \prev}}
 && \text{(substitute the definitions of } a \text{ and } b \text{)} \\
-&= \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cd \frac{1 - \text{prev}}{\text{prev}}}
+&= \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cd \frac{1 - \prev}{\prev}}
 && \text{(a quotient of products is the product of the quotients)}
 \ea
 $$ {#eq-ppv-ratio-form-exr}

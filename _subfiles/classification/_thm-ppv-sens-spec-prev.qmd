@@ -9,7 +9,7 @@ and the ratio of non-diseased to diseased people in the population:
 
 $$
 \text{PPV} =
-\frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cd \frac{1 - \text{prev}}{\text{prev}}}
+\frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cd \frac{1 - \prev}{\prev}}
 $$ {#eq-ppv-sens-spec-prev}
 
 :::

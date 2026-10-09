@@ -12,8 +12,10 @@ $$
 && \text{(PPV in terms of the two ratios, with the given values)} \\
 &= \frac{1}{1 + \frac{0.01}{0.99} \cd \frac{0.93}{0.07}}
 && \text{(subtract in each numerator)} \\
+&\approx \frac{1}{1 + 0.0101 \cd \frac{0.93}{0.07}}
+&& \text{(divide $0.01 / 0.99$)} \\
 &\approx \frac{1}{1 + 0.0101 \cd 13.29}
-&& \text{(divide in each ratio)} \\
+&& \text{(divide $0.93 / 0.07$)} \\
 &\approx \frac{1}{1 + 0.134}
 && \text{(multiply)} \\
 &= \frac{1}{1.134}
