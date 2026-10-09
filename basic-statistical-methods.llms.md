@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:02:46 (PDT)
+Last modified: 2026-10-09 10:13:53 (PDT)
 
 ## 1 Introduction
 
@@ -438,13 +438,17 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > \\\text{SS}\_\text{between}\\ is summed here over observations rather than groups: each observation in group \\j\\ contributes \\(\bar{y}\_j - \bar{y})^2\\, which gives the \\n_j\\ weights of [Definition 10](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
 >
 > ``` downlit
-> aov(glucose ~ raceth, data = hers) |> summary()
-> #>               Df  Sum Sq Mean Sq F value  Pr(>F)    
-> #> raceth         2   45919   22959    17.1 4.1e-08 ***
-> #> Residuals   2760 3704543    1342                    
-> #> ---
-> #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> aov(glucose ~ raceth, data = hers) |>
+>   parameters::parameters() |>
+>   parameters::print_md(digits = 3)
 > ```
+>
+> | Parameter | Sum_Squares |  df  | Mean_Square |   F    |    p    |
+> |:----------|:-----------:|:----:|:-----------:|:------:|:-------:|
+> | raceth    |  45918.814  |  2   |  22959.407  | 17.105 | \< .001 |
+> | Residuals |  3.705e+06  | 2760 |  1342.226   |        |         |
+>
+> Anova Table (Type 1 tests)
 >
 > The p-value is far below 0.05: mean fasting glucose differs among the three race/ethnicity groups.
 
@@ -464,8 +468,16 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 One-way ANOVA is a special case of linear regression: it is the F-test comparing a linear regression model with a single categorical predictor to the model with an intercept only ([Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-understand-LMs)). [`lm()`](https://rdrr.io/r/stats/lm.html) gives the same F statistic as [`aov()`](https://rdrr.io/r/stats/aov.html):
 
 ``` downlit
-lm(glucose ~ raceth, data = hers) |> anova()
+lm(glucose ~ raceth, data = hers) |>
+  anova() |>
+  parameters::parameters() |>
+  parameters::print_md(digits = 3, footer = "")
 ```
+
+| Parameter | Sum_Squares |  df  | Mean_Square |   F    |    p    |
+|:----------|:-----------:|:----:|:-----------:|:------:|:-------:|
+| raceth    |  45918.814  |  2   |  22959.407  | 17.105 | \< .001 |
+| Residuals |  3.705e+06  | 2760 |  1342.226   |        |         |
 
 With \\k = 2\\ groups, the ANOVA F statistic equals the square of the pooled t statistic ([Definition 5](#def-pooled-t-test)), as the two treatment groups of [Example 5](#exm-hers-pooled-ttest) show:
 

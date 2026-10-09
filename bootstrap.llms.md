@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:02:46 (PDT)
+Last modified: 2026-10-09 10:13:53 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
@@ -253,12 +253,16 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 >
 > ``` downlit
 > fit_sbp_age <- lm(SBP ~ age, data = hers)
-> summary(fit_sbp_age)$coefficients["age", ]
-> #>    Estimate  Std. Error     t value    Pr(>|t|) 
-> #> 4.71728e-01 5.36838e-02 8.78716e+00 2.64196e-18
-> confint(fit_sbp_age)["age", ]
-> #>    2.5 %   97.5 % 
-> #> 0.366464 0.576993
+> parameters::parameters(fit_sbp_age) |>
+>   parameters::print_md(digits = 3, ci_digits = 3)
+> ```
+>
+> | Parameter   | Coefficient |  SE   |      95% CI       | t(2761) |    p    |
+> |:------------|:-----------:|:-----:|:-----------------:|:-------:|:-------:|
+> | (Intercept) |   103.629   | 3.596 | (96.579, 110.680) | 28.820  | \< .001 |
+> | age         |    0.472    | 0.054 |  (0.366, 0.577)   |  8.787  | \< .001 |
+>
+> ``` downlit
 > boot::boot.ci(boot_result, type = c("norm", "perc", "bca"))
 > #> BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
 > #> Based on 1000 bootstrap replicates
