@@ -1,9 +1,9 @@
 ::: {#def-coverage-probability}
 #### Coverage probability
 
-The **coverage probability** of an interval $[L, U]$ for a parameter $\theta$
-is $\Pr(L \le \theta \le U)$,
-computed over repeated samples with $\theta$ held fixed.
-A $100(1-\alpha)\%$ [confidence interval](#def-confidence-interval)
-has coverage probability $1 - \alpha$.
+The **coverage probability** of an interval $[L, U]$ for a parameter $\param$
+is $\Pr(L \le \param \le U)$,
+computed over repeated samples with $\param$ held fixed.
+A $100(1-\siglevel)\%$ [confidence interval](#def-confidence-interval)
+has coverage probability $1 - \siglevel$.
 :::

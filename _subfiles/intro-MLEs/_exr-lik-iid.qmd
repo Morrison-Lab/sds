@@ -3,7 +3,7 @@
 
 For [mutually independent](https://morrison-lab.github.io/pds/independence.html#def-indpt)
 data $\dsn{X}$,
-write the [likelihood](#def-lik) $\Lik(\theta)$
+write the [likelihood](#def-lik) $\Lik(\param)$
 in terms of the distributions of the individual $X_i$.
 :::
 
@@ -13,10 +13,10 @@ in terms of the distributions of the individual $X_i$.
 
 $$
 \begin{aligned}
-\Lik(\theta)
-&\eqdef \p(X_1 = x_1, \ldots, X_n = x_n \mid \theta)
+\Lik(\param)
+&\eqdef \p(X_1 = x_1, \ldots, X_n = x_n \mid \param)
 && \text{(definition of likelihood)}\\
-&= \prodin \p(X_i = x_i \mid \theta)
+&= \prodin \p(X_i = x_i \mid \param)
 && \text{(definition of mutual independence)}
 \end{aligned}
 $$

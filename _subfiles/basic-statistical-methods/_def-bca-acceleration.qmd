@@ -1,12 +1,12 @@
 ::: {#def-bca-acceleration}
 #### Acceleration of the BCa interval
 
-Let $\hat\theta_{(i)}$ be the statistic computed with observation $i$ deleted,
-and let $\hat\theta_{(\cdot)}$ be the mean of
-$\hat\theta_{(1)}, \ldots, \hat\theta_{(n)}$.
+Let $\hparam_{(i)}$ be the statistic computed with observation $i$ deleted,
+and let $\hparam_{(\cdot)}$ be the mean of
+$\hparam_{(1)}, \ldots, \hparam_{(n)}$.
 The **acceleration** is
 
-$$\hat{a} \eqdef \frac{\sumin \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^3}
-{6 \paren{\sumin \paren{\hat\theta_{(\cdot)} - \hat\theta_{(i)}}^2}^{3/2}}.$$
+$$\hat{a} \eqdef \frac{\sumin \paren{\hparam_{(\cdot)} - \hparam_{(i)}}^3}
+{6 \paren{\sumin \paren{\hparam_{(\cdot)} - \hparam_{(i)}}^2}^{3/2}}.$$
 
 :::

@@ -2,7 +2,7 @@
 #### Expected value of an unbiased estimator
 
 Using @thm-bias-exprs,
-find $\E{\hth}$ for an [unbiased](#def-unbiased) estimator $\hth$ of $\th$.
+find $\E{\hparam}$ for an [unbiased](#def-unbiased) estimator $\hparam$ of $\param$.
 :::
 
 {{< slidebreak >}}
@@ -11,13 +11,13 @@ find $\E{\hth}$ for an [unbiased](#def-unbiased) estimator $\hth$ of $\th$.
 
 $$
 \begin{aligned}
-0 &= \bias{\hth}
+0 &= \bias{\hparam}
 && \text{(definition of unbiased)}\\
-&= \E{\hth} - \th
+&= \E{\hparam} - \param
 && \text{(bias equals expectation minus truth)}
 \end{aligned}
 $$
 
-Adding $\th$ to both sides gives $\E{\hth} = \th$.
+Adding $\param$ to both sides gives $\E{\hparam} = \param$.
 
 :::

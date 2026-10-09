@@ -9,6 +9,6 @@ Write down the Poisson distribution's probability mass function.
 
 :::{#sol-def-poisson}
 
-$$\Pr(X = x) = \frac{\lambda^{x} e^{-\lambda}}{x!}, \quad x \in \cb{0, 1, 2, \ldots}$$ {#eq-iid-model}
+$$\Pr(X = x) = \frac{\rate^{x} e^{-\rate}}{x!}, \quad x \in \cb{0, 1, 2, \ldots}$$ {#eq-iid-model}
 
 :::

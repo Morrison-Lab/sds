@@ -1,7 +1,7 @@
 ::: {#def-stationary-distribution}
 #### Stationary distribution
 
-A distribution $\pi$ is a **stationary distribution** of a [Markov chain](#def-markov-chain)
-if, whenever $\vth^{(t)}$ has distribution $\pi$,
-$\vth^{(t+1)}$ also has distribution $\pi$.
+A distribution $\stationary$ is a **stationary distribution** of a [Markov chain](#def-markov-chain)
+if, whenever $\vparam^{(t)}$ has distribution $\stationary$,
+$\vparam^{(t+1)}$ also has distribution $\stationary$.
 :::

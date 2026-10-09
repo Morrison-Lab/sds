@@ -6,14 +6,14 @@ with a binary covariate $x_i$ (say, treatment)
 and hazard $\haz_i = \expf{\intcoef + \coef{x} x_i}$,
 where the log baseline hazard is $\intcoef = \log 0.05$
 and the log hazard ratio is $\coef{x} = -0.7$.
-With event indicator $\delta_i$ (1 for an event, 0 for a censored time)
+With event indicator $\event_i$ (1 for an event, 0 for a censored time)
 and follow-up time $t_i$,
 the exponential density is $\haz_i e^{-\haz_i t}$
 and its survival function is $e^{-\haz_i t}$,
 so observation $i$ contributes the log-likelihood
 
 $$
-\ell_i \eqdef \delta_i \log \haz_i - \haz_i t_i.
+\ell_i \eqdef \event_i \log \haz_i - \haz_i t_i.
 $$
 
 JAGS has no built-in distribution for this contribution,

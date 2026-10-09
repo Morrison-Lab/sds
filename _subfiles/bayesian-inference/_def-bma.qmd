@@ -3,11 +3,11 @@
 
 With the [posterior model probabilities](#def-posterior-model-probability)
 $\p(M_k \mid \vy)$ of candidate models $M_1, \ldots, M_K$,
-**Bayesian model averaging** estimates a quantity $\Delta$
+**Bayesian model averaging** estimates a quantity $\estimand$
 that has the same meaning in every model
 by its posterior distribution averaged over the models:
 
 $$
-\p(\Delta \mid \vy) \eqdef \sumto{k}{K} \p(\Delta \mid M_k, \vy)\, \p(M_k \mid \vy).
+\p(\estimand \mid \vy) \eqdef \sumto{k}{K} \p(\estimand \mid M_k, \vy)\, \p(M_k \mid \vy).
 $$
 :::

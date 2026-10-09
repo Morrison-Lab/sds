@@ -22,7 +22,7 @@ $p$ is the number of regression coefficients.
 
 The $t$ and $F$ distributions are defined in
 [Statistical Inference](inference.qmd#sec-reference-distributions).
-The exact tests assume $Y_i \simind N(\mu_i, \sigma^2)$,
+The exact tests assume $Y_i \simind N(\mean_i, \varpar)$,
 with a common variance.
 The approximate tests hold asymptotically,
 for any model that is correctly specified

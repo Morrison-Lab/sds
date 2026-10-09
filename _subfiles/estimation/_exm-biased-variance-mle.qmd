@@ -2,20 +2,20 @@
 #### A biased estimator of the variance
 
 Let $\dsn{X}$ be mutually independent,
-each with expectation $\mu$ and variance $\sigma^2$,
+each with expectation $\mean$ and variance $\varpar$,
 and let $n \ge 2$.
-Consider two estimators of $\sigma^2$:
+Consider two estimators of $\varpar$:
 
 - the [sample variance](exploratory-descriptive.qmd#def-sample-variance)
   $S^2 \eqdef \frac{1}{n-1} \sumin (X_i - \bar X)^2$;
 - the divide-by-$n$ estimator
-  $\hat\sigma^2 \eqdef \avgin (X_i - \bar X)^2$.
+  $\hvarpar \eqdef \avgin (X_i - \bar X)^2$.
 
 Both estimators are built from the sum of squared deviations
 $\sumin (X_i - \bar X)^2$,
 so we first find its expectation.
-Using $\E{X_i^2} = \Var{X_i} + \sqf{\E{X_i}} = \sigma^2 + \mu^2$
-and $\E{\bar X^2} = \Var{\bar X} + \sqf{\E{\bar X}} = \sigma^2/n + \mu^2$
+Using $\E{X_i^2} = \Var{X_i} + \sqf{\E{X_i}} = \varpar + \mean^2$
+and $\E{\bar X^2} = \Var{\bar X} + \sqf{\E{\bar X}} = \varpar/n + \mean^2$
 (by @exm-mse-sample-mean and @exm-bias-sample-mean):
 
 $$
@@ -41,54 +41,54 @@ $$
 && \text{(linearity of expectation)}\\
 &= \sumin \E{X_i^2} - n \E{\bar X^2}
 && \text{(factor the constant $n$ out of the expectation)}\\
-&= \sumin (\sigma^2 + \mu^2) - n \E{\bar X^2}
+&= \sumin (\varpar + \mean^2) - n \E{\bar X^2}
 && \text{(substitute $\E{X_i^2}$)}\\
-&= n(\sigma^2 + \mu^2) - n \E{\bar X^2}
-&& \text{(sum of $n$ copies of $\sigma^2 + \mu^2$)}\\
-&= n(\sigma^2 + \mu^2) - n\paren{\frac{\sigma^2}{n} + \mu^2}
+&= n(\varpar + \mean^2) - n \E{\bar X^2}
+&& \text{(sum of $n$ copies of $\varpar + \mean^2$)}\\
+&= n(\varpar + \mean^2) - n\paren{\frac{\varpar}{n} + \mean^2}
 && \text{(substitute $\E{\bar X^2}$)}\\
-&= n\sigma^2 + n\mu^2 - n\paren{\frac{\sigma^2}{n} + \mu^2}
-&& \text{(distribute $n$ over $\sigma^2 + \mu^2$)}\\
-&= n\sigma^2 + n\mu^2 - \paren{n \cdot \frac{\sigma^2}{n} + n\mu^2}
-&& \text{(distribute $n$ over $\frac{\sigma^2}{n} + \mu^2$)}\\
-&= n\sigma^2 + n\mu^2 - \paren{\sigma^2 + n\mu^2}
-&& \text{(cancel $n$ in $n \cdot \frac{\sigma^2}{n}$)}\\
-&= n\sigma^2 + n\mu^2 - \sigma^2 - n\mu^2
+&= n\varpar + n\mean^2 - n\paren{\frac{\varpar}{n} + \mean^2}
+&& \text{(distribute $n$ over $\varpar + \mean^2$)}\\
+&= n\varpar + n\mean^2 - \paren{n \cdot \frac{\varpar}{n} + n\mean^2}
+&& \text{(distribute $n$ over $\frac{\varpar}{n} + \mean^2$)}\\
+&= n\varpar + n\mean^2 - \paren{\varpar + n\mean^2}
+&& \text{(cancel $n$ in $n \cdot \frac{\varpar}{n}$)}\\
+&= n\varpar + n\mean^2 - \varpar - n\mean^2
 && \text{(distribute the minus sign)}\\
-&= n\sigma^2 - \sigma^2
-&& \text{(cancel $n\mu^2$)}\\
-&= (n - 1)\sigma^2
-&& \text{(factor out $\sigma^2$)}
+&= n\varpar - \varpar
+&& \text{(cancel $n\mean^2$)}\\
+&= (n - 1)\varpar
+&& \text{(factor out $\varpar$)}
 \end{aligned}
 $$
 
-So $\E{S^2} = \frac{1}{n-1}(n-1)\sigma^2 = \sigma^2$,
+So $\E{S^2} = \frac{1}{n-1}(n-1)\varpar = \varpar$,
 and by @thm-bias-exprs,
 $\bias{S^2} = 0$:
 the sample variance is [unbiased](#def-unbiased).
 
 For the divide-by-$n$ estimator,
-$\E{\hat\sigma^2} = \frac{1}{n}(n-1)\sigma^2$, so:
+$\E{\hvarpar} = \frac{1}{n}(n-1)\varpar$, so:
 
 $$
 \begin{aligned}
-\bias{\hat\sigma^2}
-&= \E{\hat\sigma^2} - \sigma^2
+\bias{\hvarpar}
+&= \E{\hvarpar} - \varpar
 && \text{(bias equals expectation minus truth)}\\
-&= \frac{n-1}{n}\sigma^2 - \sigma^2
-&& \text{(substitute $\E{\hat\sigma^2}$)}\\
-&= \frac{n-1}{n}\sigma^2 - \frac{n}{n}\sigma^2
-&& \text{(write $\sigma^2$ over the common denominator $n$)}\\
-&= \frac{n - 1 - n}{n}\sigma^2
+&= \frac{n-1}{n}\varpar - \varpar
+&& \text{(substitute $\E{\hvarpar}$)}\\
+&= \frac{n-1}{n}\varpar - \frac{n}{n}\varpar
+&& \text{(write $\varpar$ over the common denominator $n$)}\\
+&= \frac{n - 1 - n}{n}\varpar
 && \text{(combine the fractions)}\\
-&= \frac{-1}{n}\sigma^2
+&= \frac{-1}{n}\varpar
 && \text{($n - 1 - n = -1$)}\\
-&= -\frac{\sigma^2}{n}
+&= -\frac{\varpar}{n}
 && \text{(multiply)}
 \end{aligned}
 $$
 
 This estimator is biased:
-on average it underestimates $\sigma^2$,
+on average it underestimates $\varpar$,
 by an amount that shrinks to zero as $n$ grows.
 :::

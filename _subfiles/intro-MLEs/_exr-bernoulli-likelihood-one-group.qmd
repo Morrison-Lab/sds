@@ -1,23 +1,23 @@
 :::{#exr-bernoulli-likelihood-one-group}
 #### Likelihood of binary outcomes with one event probability
 
-A binary outcome $Y$ with event probability $\pi$ has
+A binary outcome $Y$ with event probability $\prob$ has
 
 $$
 \begin{aligned}
-\Pr(Y = 1) &= \pi
+\Pr(Y = 1) &= \prob
 && \text{(definition of the event probability)}\\
-\Pr(Y = 0) &= 1 - \pi
+\Pr(Y = 0) &= 1 - \prob
 && \text{(complement rule)}\\
-\Pr(Y = y) &= \pi^y (1 - \pi)^{1 - y}, \quad y \in \cb{0, 1}
+\Pr(Y = y) &= \prob^y (1 - \prob)^{1 - y}, \quad y \in \cb{0, 1}
 && \text{(combine the two cases)}
 \end{aligned}
 $$
 
 Let $\vy \eqdef (\dsn{y})$ be a dataset of
 mutually independent binary outcomes,
-all with the same event probability $\pi$:
-$Y_i \simind \Ber(\pi)$.
+all with the same event probability $\prob$:
+$Y_i \simind \Ber(\prob)$.
 Write the likelihood of $\vy$.
 
 :::
@@ -28,20 +28,20 @@ Write the likelihood of $\vy$.
 
 $$
 \begin{aligned}
-\Lik(\pi; \vy)
-&= \prodin \Lik_i(\pi)
+\Lik(\prob; \vy)
+&= \prodin \Lik_i(\prob)
 && \text{(product of likelihood components)}\\
 &= \prodin \Pr(Y_i = y_i)
 && \text{(definition of likelihood components)}\\
-&= \prodin \pi^{y_i} (1 - \pi)^{1 - y_i}
+&= \prodin \prob^{y_i} (1 - \prob)^{1 - y_i}
 && \text{(Bernoulli PMF)}\\
-&= \paren{\prodin \pi^{y_i}} \paren{\prodin (1 - \pi)^{1 - y_i}}
+&= \paren{\prodin \prob^{y_i}} \paren{\prodin (1 - \prob)^{1 - y_i}}
 && \text{(regroup the factors of the product)}\\
-&= \pi^{\sumin y_i} (1 - \pi)^{\sumin (1 - y_i)}
+&= \prob^{\sumin y_i} (1 - \prob)^{\sumin (1 - y_i)}
 && \text{(product of powers of a common base)}\\
-&= \pi^{\sumin y_i} (1 - \pi)^{\sumin 1 - \sumin y_i}
+&= \prob^{\sumin y_i} (1 - \prob)^{\sumin 1 - \sumin y_i}
 && \text{(split the sum in the exponent)}\\
-&= \pi^{\sumin y_i} (1 - \pi)^{n - \sumin y_i}
+&= \prob^{\sumin y_i} (1 - \prob)^{n - \sumin y_i}
 && \text{($\textstyle\sumin 1 = n$)}
 \end{aligned}
 $$

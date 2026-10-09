@@ -1,20 +1,20 @@
 ::: {#exr-find-mle}
 #### Identifying the MLE
 
-Draw conclusions about the MLE of $\lambda$.
+Draw conclusions about the MLE of $\rate$.
 :::
 
 {{< slidebreak >}}
 
 :::{#sol-find-mle}
 
-Since $\ell''(\tilde \lambda; \vx) < 0$,
-$\tilde \lambda$ is a local maximizer of the log-likelihood.
-Moreover, $\ell''(\lambda; \vx) = -n\bar x/\lambda^2 < 0$ for every $\lambda > 0$,
+Since $\ell''(\tilde \rate; \vx) < 0$,
+$\tilde \rate$ is a local maximizer of the log-likelihood.
+Moreover, $\ell''(\rate; \vx) = -n\bar x/\rate^2 < 0$ for every $\rate > 0$,
 so the log-likelihood is strictly concave,
 and a local maximizer of a strictly concave function
 is its unique global maximizer.
-So $\tilde \lambda$ maximizes $\ell$, and therefore $\Lik$:
+So $\tilde \rate$ maximizes $\ell$, and therefore $\Lik$:
 
 ```{r}
 #| label: calc-mle
@@ -23,6 +23,6 @@ mle <- mean(cyclones$number)
 mle
 ```
 
-$$\hat{\lambda}_{\text{ML}} = \bar x = `r round(mle, 3)`$$
+$$\hrate_{\text{ML}} = \bar x = `r round(mle, 3)`$$
 
 :::

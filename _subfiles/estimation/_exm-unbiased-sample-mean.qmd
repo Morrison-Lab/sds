@@ -5,5 +5,5 @@ By @exm-bias-sample-mean,
 $\bias{\bar X} = 0$ and $\bias{X_1} = 0$,
 so both the sample mean $\bar X$
 and the single-observation estimator $X_1$
-are [unbiased](#def-unbiased) estimators of $\mu$.
+are [unbiased](#def-unbiased) estimators of $\mean$.
 :::

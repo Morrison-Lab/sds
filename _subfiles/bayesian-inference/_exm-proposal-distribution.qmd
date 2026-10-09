@@ -1,9 +1,9 @@
 ::: {#exm-proposal-distribution}
 #### A Gaussian random-walk proposal
 
-For a scalar parameter $\pi$,
-the proposal $\pi^* \mid \pi \sim \ndist{\pi, 0.05^2}$
-draws a candidate within about $\pm 0.1$ of the current value $\pi$.
-It is [symmetric](#def-symmetric-proposal): $q(\pi^* \mid \pi) = q(\pi \mid \pi^*)$,
-because the Gaussian density depends on $\pi^* - \pi$ only through its square.
+For a scalar parameter $\prob$,
+the proposal $\prob^* \mid \prob \sim \ndist{\prob, 0.05^2}$
+draws a candidate within about $\pm 0.1$ of the current value $\prob$.
+It is [symmetric](#def-symmetric-proposal): $q(\prob^* \mid \prob) = q(\prob \mid \prob^*)$,
+because the Gaussian density depends on $\prob^* - \prob$ only through its square.
 :::

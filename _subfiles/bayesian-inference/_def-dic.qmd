@@ -4,7 +4,7 @@
 The **deviance information criterion** is
 
 $$
-\operatorname{DIC} \eqdef D(\bar{\vth}) + 2\,p_D,
+\operatorname{DIC} \eqdef D(\bar{\vparam}) + 2\,p_D,
 $$
 
 with $D$ from @def-bayes-deviance

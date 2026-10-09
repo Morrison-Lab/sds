@@ -2,8 +2,8 @@
 #### Score equation of a Bernoulli sample
 
 For $n$ independent Bernoulli observations with $r = \sum_i y_i$ successes,
-the score is $\sumin (y_i - \pi)/\paren{\pi(1 - \pi)} = (r - n\pi)/\paren{\pi(1-\pi)}$
+the score is $\sumin (y_i - \prob)/\paren{\prob(1 - \prob)} = (r - n\prob)/\paren{\prob(1-\prob)}$
 (summing @exr-derive-bernoulli-score over the observations),
-so for $0 < r < n$ the score equation $(r - n\pi)/\paren{\pi(1-\pi)} = 0$
-has the single solution $\pi = r/n$.
+so for $0 < r < n$ the score equation $(r - n\prob)/\paren{\prob(1-\prob)} = 0$
+has the single solution $\prob = r/n$.
 :::

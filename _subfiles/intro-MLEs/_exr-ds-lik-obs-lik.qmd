@@ -13,10 +13,10 @@ in terms of the observations' [likelihood components](#def-lik-factor).
 
 $$
 \begin{aligned}
-\Lik(\theta)
-&= \prodin \p(X_i = x_i \mid \theta)
+\Lik(\param)
+&= \prodin \p(X_i = x_i \mid \param)
 && \text{(likelihood of an independent sample)}\\
-&= \prodin \Lik_i(\theta)
+&= \prodin \Lik_i(\param)
 && \text{(definition of likelihood components)}
 \end{aligned}
 $$

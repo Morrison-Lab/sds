@@ -1,8 +1,8 @@
 ::: {#thm-mse-bias-variance}
 #### Mean squared error equals bias squared plus variance
 
-For any one-dimensional estimator $\hth$:
+For any one-dimensional estimator $\hparam$:
 
-$$\mselr{\hth} = \sqf{\bias{\hth}} + \var{\hth}$$ {#eq-mse}
+$$\mselr{\hparam} = \sqf{\bias{\hparam}} + \var{\hparam}$$ {#eq-mse}
 
 :::

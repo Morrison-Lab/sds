@@ -8,6 +8,6 @@ Write the [score equation](#def-score-equation).
 
 :::{#sol-score-equation}
 
-$$\ell'(\lambda; \vx) = 0$$
+$$\ell'(\rate; \vx) = 0$$
 
 :::

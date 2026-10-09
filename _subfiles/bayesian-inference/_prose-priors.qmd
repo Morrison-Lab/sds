@@ -1,4 +1,4 @@
-The [prior](#def-prior) encodes what is known about $\theta$
+The [prior](#def-prior) encodes what is known about $\param$
 before the current data are seen.
 Choosing it is the step that most distinguishes Bayesian practice
 from frequentist practice,

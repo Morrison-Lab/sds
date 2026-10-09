@@ -1,8 +1,8 @@
 :::{#exr-check-hessian}
 #### Checking the second derivative
 
-Confirm that the Hessian $\ell''(\lambda; \vx)$ is negative
-when evaluated at $\tilde \lambda$, using @exr-hessian.
+Confirm that the Hessian $\ell''(\rate; \vx)$ is negative
+when evaluated at $\tilde \rate$, using @exr-hessian.
 
 :::
 
@@ -12,11 +12,11 @@ when evaluated at $\tilde \lambda$, using @exr-hessian.
 
 $$
 \begin{aligned}
-\ell''(\tilde\lambda; \vx)
-&= -\frac{n \bar x}{\tilde\lambda^2}
+\ell''(\tilde\rate; \vx)
+&= -\frac{n \bar x}{\tilde\rate^2}
 && \text{(Hessian of the log-likelihood)}\\
 &= -\frac{n \bar x}{\bar x^2}
-&& \text{(substitute $\tilde\lambda = \bar x$)}\\
+&& \text{(substitute $\tilde\rate = \bar x$)}\\
 &= -\frac{n}{\bar x}
 && \text{(cancel one factor of $\bar x$)}\\
 &< 0

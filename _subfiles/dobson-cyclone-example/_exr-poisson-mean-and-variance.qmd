@@ -9,8 +9,8 @@ from the model, as functions of the parameters.
 
 :::{#sol-poisson-mean-and-variance}
 
-- Population mean: $\E{X} = \lambda$.
-- Population variance: $\Var{X} = \lambda$.
+- Population mean: $\E{X} = \rate$.
+- Population variance: $\Var{X} = \rate$.
 
 The sample mean and variance in @tbl-dobson-cyclones-sumstat
 are of similar size, as the model implies.

@@ -1,4 +1,4 @@
-Because the Bayesian treats $\theta$ as random,
+Because the Bayesian treats $\param$ as random,
 the prior and posterior are distributions over the parameter space
 [@dobson4e, Chapter 12, p. 273],
 and the prior has to respect it.

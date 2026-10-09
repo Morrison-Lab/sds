@@ -1,56 +1,56 @@
 ::: {#exm-mae-gaussian}
 #### Mean absolute error of a Gaussian estimator
 
-Suppose an estimator $\hth$ has a Gaussian distribution
-with mean $\th$ and standard deviation $\tau$,
-so that its estimation error $\erf{\hth} = \hth - \th$
-has the same distribution as $\tau Z$,
+Suppose an estimator $\hparam$ has a Gaussian distribution
+with mean $\param$ and standard deviation $\sdest$,
+so that its estimation error $\erf{\hparam} = \hparam - \param$
+has the same distribution as $\sdest Z$,
 where $Z$ has a standard Gaussian distribution
-with density $\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}$.
+with density $\normpdf(z) = (2\pi)^{-1/2} e^{-z^2/2}$.
 Then:
 
 $$
 \begin{aligned}
-\maelr{\hth}
-&= \E{\abs{\tau Z}}
+\maelr{\hparam}
+&= \E{\abs{\sdest Z}}
 && \text{(definition of MAE)}\\
-&= \E{\tau \abs{Z}}
-&& \text{($\abs{\tau Z} = \tau \abs{Z}$ because $\tau > 0$)}\\
-&= \tau \E{\abs{Z}}
-&& \text{(factor the constant $\tau$ out of the expectation)}\\
-&= \tau \int_{-\infty}^{\infty} \abs{z} \phi(z) \, dz
+&= \E{\sdest \abs{Z}}
+&& \text{($\abs{\sdest Z} = \sdest \abs{Z}$ because $\sdest > 0$)}\\
+&= \sdest \E{\abs{Z}}
+&& \text{(factor the constant $\sdest$ out of the expectation)}\\
+&= \sdest \int_{-\infty}^{\infty} \abs{z} \normpdf(z) \, dz
 && \text{(expectation of a function of $Z$)}\\
-&= \tau \cdot 2 \int_{0}^{\infty} \abs{z} \phi(z) \, dz
-&& \text{($\abs{z}\phi(z)$ is symmetric about 0)}\\
-&= \tau \cdot 2 \int_{0}^{\infty} z \phi(z) \, dz
+&= \sdest \cdot 2 \int_{0}^{\infty} \abs{z} \normpdf(z) \, dz
+&& \text{($\abs{z}\normpdf(z)$ is symmetric about 0)}\\
+&= \sdest \cdot 2 \int_{0}^{\infty} z \normpdf(z) \, dz
 && \text{($\abs{z} = z$ for $z \ge 0$)}\\
-&= \tau \cdot 2 \sb{-\phi(z)}_{0}^{\infty}
-&& \text{($\phi'(z) = -z\phi(z)$)}\\
-&= \tau \cdot 2 \paren{\lim_{z \to \infty} \sb{-\phi(z)} - \paren{-\phi(0)}}
+&= \sdest \cdot 2 \sb{-\normpdf(z)}_{0}^{\infty}
+&& \text{($\normpdf'(z) = -z\normpdf(z)$)}\\
+&= \sdest \cdot 2 \paren{\lim_{z \to \infty} \sb{-\normpdf(z)} - \paren{-\normpdf(0)}}
 && \text{(evaluate at the limits)}\\
-&= \tau \cdot 2 \paren{\lim_{z \to \infty} \sb{-\phi(z)} + \phi(0)}
+&= \sdest \cdot 2 \paren{\lim_{z \to \infty} \sb{-\normpdf(z)} + \normpdf(0)}
 && \text{(subtracting a negative is adding)}\\
-&= \tau \cdot 2 \paren{0 + \phi(0)}
-&& \text{($\phi(z) \to 0$ as $z \to \infty$)}\\
-&= \tau \cdot 2 \phi(0)
+&= \sdest \cdot 2 \paren{0 + \normpdf(0)}
+&& \text{($\normpdf(z) \to 0$ as $z \to \infty$)}\\
+&= \sdest \cdot 2 \normpdf(0)
 && \text{(drop the zero term)}\\
-&= \tau \cdot 2 (2\pi)^{-1/2}
-&& \text{($\phi(0) = (2\pi)^{-1/2}$)}\\
-&= \tau \cdot 2 \cdot \frac{1}{\sqrt{2\pi}}
+&= \sdest \cdot 2 (2\pi)^{-1/2}
+&& \text{($\normpdf(0) = (2\pi)^{-1/2}$)}\\
+&= \sdest \cdot 2 \cdot \frac{1}{\sqrt{2\pi}}
 && \text{(write $(2\pi)^{-1/2}$ as $1/\sqrt{2\pi}$)}\\
-&= \tau \cdot \frac{2}{\sqrt{2\pi}}
+&= \sdest \cdot \frac{2}{\sqrt{2\pi}}
 && \text{(multiply)}\\
-&= \tau \cdot \frac{\sqrt{4}}{\sqrt{2\pi}}
+&= \sdest \cdot \frac{\sqrt{4}}{\sqrt{2\pi}}
 && \text{(write $2$ as $\sqrt{4}$)}\\
-&= \tau \sqrt{4/(2\pi)}
+&= \sdest \sqrt{4/(2\pi)}
 && \text{(quotient of square roots)}\\
-&= \tau \sqrt{2/\pi}
+&= \sdest \sqrt{2/\pi}
 && \text{(cancel the common factor 2 in $4/(2\pi)$)}
 \end{aligned}
 $$
 
 So for an [unbiased](#def-unbiased) Gaussian estimator,
-the mean absolute error is about $0.80$ times the standard deviation $\tau$,
-while the [root mean squared error](#def-rmse) is $\tau$ itself
+the mean absolute error is about $0.80$ times the standard deviation $\sdest$,
+while the [root mean squared error](#def-rmse) is $\sdest$ itself
 (@thm-unbiased-props).
 :::

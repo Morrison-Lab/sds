@@ -3,24 +3,24 @@ Substituting @def-effective-parameters gives an equivalent form:
 $$
 \ba
 \operatorname{DIC}
-&= D(\bar{\vth}) + 2\paren{\overline{D} - D(\bar{\vth})}
+&= D(\bar{\vparam}) + 2\paren{\overline{D} - D(\bar{\vparam})}
 && \text{(definition of $p_D$)}\\
-&= 2\overline{D} - D(\bar{\vth})
+&= 2\overline{D} - D(\bar{\vparam})
 && \text{(collecting terms)}\\
-&= \overline{D} + \paren{\overline{D} - D(\bar{\vth})}
+&= \overline{D} + \paren{\overline{D} - D(\bar{\vparam})}
 && \text{(splitting $2\overline{D}$)}\\
 &= \overline{D} + p_D
 && \text{(definition of $p_D$)}.
 \ea
 $$
 
-The term $D(\bar{\vth})$ rewards fit,
+The term $D(\bar{\vparam})$ rewards fit,
 while $p_D$ penalizes complexity:
 it measures how much the deviance is reduced, on average,
 by letting the parameters adapt to the data.
 As with Akaike's criterion, lower DIC is better,
 and only differences in DIC between models fit to the same data are meaningful
 [@dobson4e, Chapter 13, p. 306].
-Both $\overline{D}$ and $\bar{\vth}$ are [Monte Carlo estimates](#def-monte-carlo-estimate)
+Both $\overline{D}$ and $\bar{\vparam}$ are [Monte Carlo estimates](#def-monte-carlo-estimate)
 from the posterior draws,
 so DIC is a by-product of an MCMC run.

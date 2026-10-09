@@ -1,13 +1,13 @@
-With a parameter vector $\vth$,
+With a parameter vector $\vparam$,
 the normalizing constant of the posterior is
 
-$$\p(\vy) = \int \p(\vy \mid \vth)\, \p(\vth)\, d\vth,$$
+$$\p(\vy) = \int \p(\vy \mid \vparam)\, \p(\vparam)\, d\vparam,$$
 
-an integral over every dimension of $\vth$
+an integral over every dimension of $\vparam$
 that typically has no closed form.
-Computing it numerically becomes infeasible as the dimension of $\vth$ grows
+Computing it numerically becomes infeasible as the dimension of $\vparam$ grows
 [@dobson4e, Chapter 13, p. 287].
 MCMC sidesteps the problem:
 MCMC samplers use the posterior only through ratios
-$\p(\vth^* \mid \vy) / \p(\vth \mid \vy)$,
+$\p(\vparam^* \mid \vy) / \p(\vparam \mid \vy)$,
 in which the normalizing constant cancels.

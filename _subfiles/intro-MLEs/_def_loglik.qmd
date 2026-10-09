@@ -2,8 +2,8 @@
 
 #### Log-likelihood
 
-The **log-likelihood** of parameter value $\theta$,
-for model $\p_{\Theta}(\vX)$ and data $\vX = \vx$,
+The **log-likelihood** of parameter value $\param$,
+for model $\p_{\Param}(\vX)$ and data $\vX = \vx$,
 is the natural logarithm of the likelihood:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_loglik.qmd >}}

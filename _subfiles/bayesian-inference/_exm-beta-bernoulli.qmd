@@ -1,20 +1,20 @@
 ::: {#exm-beta-bernoulli}
 #### Beta-Bernoulli updating
 
-Let $\dsn{Y} \siid \Bernoulli(\pi)$ given $\pi$,
+Let $\dsn{Y} \siid \Bernoulli(\prob)$ given $\prob$,
 with $r = \sumin y_i$ successes,
-and let the prior for $\pi$ be a $\operatorname{Beta}(a, b)$ distribution,
-whose density is proportional to $\pi^{a-1}(1-\pi)^{b-1}$ on $(0, 1)$.
+and let the prior for $\prob$ be a $\operatorname{Beta}(a, b)$ distribution,
+whose density is proportional to $\prob^{a-1}(1-\prob)^{b-1}$ on $(0, 1)$.
 The likelihood is
 
 $$
 \ba
-\p(\vy \mid \pi)
-&= \prodin \pi^{y_i}(1-\pi)^{1-y_i}
+\p(\vy \mid \prob)
+&= \prodin \prob^{y_i}(1-\prob)^{1-y_i}
 && \text{(independent Bernoulli observations)}\\
-&= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i}
+&= \prob^{\sum_i y_i}(1-\prob)^{n - \sum_i y_i}
 && \text{(adding exponents)}\\
-&= \pi^{r}(1-\pi)^{n-r}
+&= \prob^{r}(1-\prob)^{n-r}
 && \text{(definition of $r$)}.
 \ea
 $$
@@ -23,10 +23,10 @@ By @cor-bayes-proportional,
 
 $$
 \ba
-\p(\pi \mid \vy)
-&\propto \pi^{r}(1-\pi)^{n-r} \cdot \pi^{a-1}(1-\pi)^{b-1}
+\p(\prob \mid \vy)
+&\propto \prob^{r}(1-\prob)^{n-r} \cdot \prob^{a-1}(1-\prob)^{b-1}
 && \text{(likelihood times prior)}\\
-&= \pi^{a + r - 1}(1-\pi)^{b + n - r - 1}
+&= \prob^{a + r - 1}(1-\prob)^{b + n - r - 1}
 && \text{(adding exponents)},
 \ea
 $$

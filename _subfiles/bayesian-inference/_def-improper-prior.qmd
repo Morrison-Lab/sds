@@ -1,7 +1,7 @@
 ::: {#def-improper-prior}
 #### Improper prior
 
-An **improper prior** is a nonnegative function $\p(\theta)$,
+An **improper prior** is a nonnegative function $\p(\param)$,
 used in place of a prior density,
 whose integral over the parameter space is infinite,
 so that it is not a probability density.

@@ -3,13 +3,13 @@
 
 With the [bias correction](#def-bca-bias-correction) $\hat z_0$
 and the [acceleration](#def-bca-acceleration) $\hat a$,
-for $q \in \cb{\alpha/2, 1 - \alpha/2}$, let
+for $q \in \cb{\siglevel/2, 1 - \siglevel/2}$, let
 
-$$\alpha_q \eqdef \Phi\paren{\hat{z}_0 + \frac{\hat{z}_0 + z_q}{1 - \hat{a}(\hat{z}_0 + z_q)}}.$$
+$$\adjlevel_q \eqdef \normcdf\paren{\hat{z}_0 + \frac{\hat{z}_0 + z_q}{1 - \hat{a}(\hat{z}_0 + z_q)}}.$$
 
 The **bias-corrected and accelerated (BCa) bootstrap confidence interval**
-runs from the $\alpha_{\alpha/2}$ quantile
-to the $\alpha_{1 - \alpha/2}$ quantile
+runs from the $\adjlevel_{\adjlevel/2}$ quantile
+to the $\adjlevel_{1 - \adjlevel/2}$ quantile
 of the bootstrap replicates
 [@efron1993introduction, Chapter 14].
 :::
@@ -20,10 +20,10 @@ of the bootstrap replicates
 #### What the BCa interval corrects
 
 When $\hat{z}_0 = 0$ and $\hat{a} = 0$,
-$\alpha_q = q$ and the BCa interval is the percentile interval
+$\adjlevel_q = q$ and the BCa interval is the percentile interval
 (@def-bootstrap-ci-percentile).
 $\hat{z}_0$ measures how far the bootstrap distribution's median
-sits from $\hat\theta$,
+sits from $\hparam$,
 and $\hat{a}$ measures its skewness,
 so the BCa interval shifts the percentile interval
 to correct for both.

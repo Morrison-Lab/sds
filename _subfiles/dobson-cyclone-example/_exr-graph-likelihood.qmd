@@ -1,7 +1,7 @@
 ::: {#exr-graph-likelihood}
 #### Graphing the likelihood
 
-Graph the likelihood as a function of $\lambda$.
+Graph the likelihood as a function of $\rate$.
 :::
 
 {{< slidebreak >}}

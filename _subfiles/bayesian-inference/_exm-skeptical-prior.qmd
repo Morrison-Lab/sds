@@ -3,41 +3,41 @@
 
 In the model of @exm-normal-normal,
 replace the $\ndist{0, 1}$ prior by the [skeptical prior](#def-skeptical-prior)
-$\mu \sim \ndist{0, \tau^2}$,
-whose standard deviation $\tau$ sets how skeptical it is.
-Its density is proportional to $\expf{-\frac{1}{2}\mu^2/\tau^2}$.
-Let $m_\tau \eqdef \frac{n \bar x}{n + 1/\tau^2}$.
+$\mean \sim \ndist{0, \sdprior^2}$,
+whose standard deviation $\sdprior$ sets how skeptical it is.
+Its density is proportional to $\expf{-\frac{1}{2}\mean^2/\sdprior^2}$.
+Let $m_\sdprior \eqdef \frac{n \bar x}{n + 1/\sdprior^2}$.
 Reusing the likelihood from @exm-normal-normal:
 
 $$
 \ba
-\p(\mu \mid \vx)
-&\propto \expf{-\frac{1}{2}\paren{n \mu^2 - 2 \mu n \bar x}}
-  \cdot \expf{-\frac{1}{2}\frac{\mu^2}{\tau^2}}
+\p(\mean \mid \vx)
+&\propto \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
+  \cdot \expf{-\frac{1}{2}\frac{\mean^2}{\sdprior^2}}
 && \text{(likelihood times prior)}\\
-&= \expf{-\frac{1}{2}\paren{\paren{n + \frac{1}{\tau^2}}\mu^2 - 2 \mu n \bar x}}
+&= \expf{-\frac{1}{2}\paren{\paren{n + \frac{1}{\sdprior^2}}\mean^2 - 2 \mean n \bar x}}
 && \text{(adding exponents)}\\
-&= \expf{-\frac{1}{2}\paren{n + \frac{1}{\tau^2}}\paren{\mu^2 - 2 \mu m_\tau}}
-&& \text{(factoring; definition of $m_\tau$)}\\
-&= \expf{-\frac{1}{2}\paren{n + \frac{1}{\tau^2}}\paren{(\mu - m_\tau)^2 - m_\tau^2}}
+&= \expf{-\frac{1}{2}\paren{n + \frac{1}{\sdprior^2}}\paren{\mean^2 - 2 \mean m_\sdprior}}
+&& \text{(factoring; definition of $m_\sdprior$)}\\
+&= \expf{-\frac{1}{2}\paren{n + \frac{1}{\sdprior^2}}\paren{(\mean - m_\sdprior)^2 - m_\sdprior^2}}
 && \text{(completing the square)}\\
-&\propto \expf{-\frac{1}{2}\paren{n + \frac{1}{\tau^2}}(\mu - m_\tau)^2}
-&& \text{(dropping a factor that does not involve $\mu$)}.
+&\propto \expf{-\frac{1}{2}\paren{n + \frac{1}{\sdprior^2}}(\mean - m_\sdprior)^2}
+&& \text{(dropping a factor that does not involve $\mean$)}.
 \ea
 $$
 
-So $\mu \mid \vx \sim \ndist{m_\tau,\; 1 / (n + 1/\tau^2)}$,
-and $\tau = 1$ recovers @exm-normal-normal.
+So $\mean \mid \vx \sim \ndist{m_\sdprior,\; 1 / (n + 1/\sdprior^2)}$,
+and $\sdprior = 1$ recovers @exm-normal-normal.
 The posterior mean
 
 $$
-m_\tau = \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
+m_\sdprior = \frac{n \cdot \bar x + \frac{1}{\sdprior^2} \cdot 0}{n + \frac{1}{\sdprior^2}}
 $$
 
 is a weighted average of the sample mean and the prior mean $0$,
-weighted by the precision $n$ of the data and the precision $1/\tau^2$ of the prior
+weighted by the precision $n$ of the data and the precision $1/\sdprior^2$ of the prior
 (a precision is a reciprocal variance).
-The more skeptical the prior (the smaller $\tau$),
+The more skeptical the prior (the smaller $\sdprior$),
 the more the posterior mean shrinks toward $0$.
 With $\bar x = 2$ and $n = 20$ held fixed:
 
@@ -51,7 +51,7 @@ data.frame(prior_sd = tau, posterior_mean = n * xbar / (n + 1 / tau^2)) |>
   round(3)
 ```
 
-The most skeptical prior ($\tau = 0.1$) pulls the posterior mean
+The most skeptical prior ($\sdprior = 0.1$) pulls the posterior mean
 down to one sixth of the sample mean,
-while the most diffuse ($\tau = 10$) leaves it essentially at $\bar x$.
+while the most diffuse ($\sdprior = 10$) leaves it essentially at $\bar x$.
 :::

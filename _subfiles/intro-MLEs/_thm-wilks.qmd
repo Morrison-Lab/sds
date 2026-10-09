@@ -3,12 +3,12 @@
 #### Wilks' theorem
 
 Suppose the conditions of @thm-dist-mle hold,
-and a null hypothesis $H_0$ imposes $q$ constraints on the parameter vector $\vth$.
+and a null hypothesis $H_0$ imposes $q$ constraints on the parameter vector $\vparam$.
 Then, if $H_0$ is true, as $n \to \infty$,
-the [likelihood ratio statistic](#def-lrt-stat) $\Lambda$ satisfies:
+the [likelihood ratio statistic](#def-lrt-stat) $\lrstat$ satisfies:
 
 $$
-\Lambda
+\lrstat
 \overset{d}{\to}
 \chi^2_q
 $$

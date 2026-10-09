@@ -2,10 +2,10 @@
 #### Predicting with an estimated conditional mean
 
 Suppose a model specifies the conditional mean $\E{Y \mid X = x}$
-as a function $\mean(x; \vth)$ of a parameter vector $\vth$,
-and $\est{\vth}$ is an estimate of $\vth$.
+as a function $\mean(x; \vparam)$ of a parameter vector $\vparam$,
+and $\est{\vparam}$ is an estimate of $\vparam$.
 The usual prediction (@def-prediction) of $Y$ at $X = x$
 is the estimated conditional mean:
 
-$$\fitted(x) = \mean(x; \est{\vth}).$$
+$$\fitted(x) = \mean(x; \est{\vparam}).$$
 :::

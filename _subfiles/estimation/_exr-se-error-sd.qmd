@@ -2,8 +2,8 @@
 #### Spread of the estimation error
 
 Show that the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd)
-of the [estimation error](#def-estimation-error) $\erf{\hth}$
-equals the [standard error](#def-SE) of $\hth$.
+of the [estimation error](#def-estimation-error) $\erf{\hparam}$
+equals the [standard error](#def-SE) of $\hparam$.
 :::
 
 {{< slidebreak >}}
@@ -12,15 +12,15 @@ equals the [standard error](#def-SE) of $\hth$.
 
 $$
 \begin{aligned}
-\Var{\erf{\hth}}
-&= \Var{\hth - \th}
+\Var{\erf{\hparam}}
+&= \Var{\hparam - \param}
 && \text{(definition of estimation error)}\\
-&= \Var{\hth}
+&= \Var{\hparam}
 && \text{(subtracting a constant does not change a variance)}
 \end{aligned}
 $$
 
 Taking square roots of both sides,
-$\SD{\erf{\hth}} = \SD{\hth} = \SE{\hth}$.
+$\SD{\erf{\hparam}} = \SD{\hparam} = \SE{\hparam}$.
 
 :::

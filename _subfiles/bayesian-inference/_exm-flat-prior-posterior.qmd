@@ -3,12 +3,12 @@
 
 In @exm-beta-bernoulli the prior is uniform on $(0, 1)$,
 so by @cor-flat-prior-posterior the posterior density,
-proportional to $\pi^{55}(1-\pi)^{36}$,
+proportional to $\prob^{55}(1-\prob)^{36}$,
 is maximized at the maximum likelihood estimate.
-Setting the derivative of the log-likelihood $r \log \pi + (n - r)\log(1 - \pi)$,
-which is $r/\pi - (n - r)/(1 - \pi)$,
+Setting the derivative of the log-likelihood $r \log \prob + (n - r)\log(1 - \prob)$,
+which is $r/\prob - (n - r)/(1 - \prob)$,
 to zero gives
-$\hat\pi = r/n = 55/91 \approx `r round(55 / 91, 3)`$.
+$\hprob = r/n = 55/91 \approx `r round(55 / 91, 3)`$.
 The posterior *mean*, $56/93 \approx `r round(56 / 93, 3)`$,
 is not the maximum likelihood estimate:
 @cor-flat-prior-posterior concerns the posterior's shape,

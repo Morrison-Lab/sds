@@ -341,13 +341,13 @@ See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesso
 
 {{< slidebreak >}}
 
-### MLE of $\mu$
+### MLE of $\mean$
 
 {{< include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd >}}
 
 {{< slidebreak >}}
 
-### MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}
+### MLE of $\varpar$ {#sec-gaussian-mle-sigma}
 
 {{< include sds/_subfiles/intro-MLEs/_def-profile-loglik.qmd >}}
 

@@ -1,7 +1,7 @@
 :::{#thm-hessian-elements}
 #### Elements of the Hessian matrix
 
-If $\vth$ is a $p \times 1$ vector,
+If $\vparam$ is a $p \times 1$ vector,
 then the Hessian is a $p \times p$ matrix,
 whose $ij$th entry is:
 

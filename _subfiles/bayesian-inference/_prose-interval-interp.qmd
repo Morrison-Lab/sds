@@ -2,10 +2,10 @@ The two paradigms differ most visibly in how they interpret an interval estimate
 [@dobson4e, Chapter 12, p. 272].
 A frequentist 95% [confidence interval](inference.qmd#def-confidence-interval)
 is a random interval whose coverage probability,
-over repeated samples with $\theta$ held fixed,
+over repeated samples with $\param$ held fixed,
 is 0.95.
-Any one realized interval either contains $\theta$ or does not;
+Any one realized interval either contains $\param$ or does not;
 the 0.95 describes the procedure, not that interval.
 A Bayesian interval estimate instead makes a probability statement
-about $\theta$ itself,
+about $\param$ itself,
 given the data actually observed.

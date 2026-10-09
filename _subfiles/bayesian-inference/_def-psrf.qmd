@@ -1,9 +1,9 @@
 ::: {#def-psrf}
 #### Potential scale reduction factor
 
-Suppose $m$ chains each contribute $n$ draws of a parameter $\theta$ after burn-in,
-with chain means $\bar\theta_1, \ldots, \bar\theta_m$,
-overall mean $\bar\theta$,
+Suppose $m$ chains each contribute $n$ draws of a parameter $\param$ after burn-in,
+with chain means $\bar\param_1, \ldots, \bar\param_m$,
+overall mean $\bar\param$,
 and within-chain sample variances $s_1^2, \ldots, s_m^2$.
 Let
 
@@ -11,7 +11,7 @@ $$
 \ba
 W &\eqdef \frac{1}{m} \sumto{j}{m} s_j^2
 && \text{(within-chain variance)}\\
-B &\eqdef \frac{n}{m - 1} \sumto{j}{m} \paren{\bar\theta_j - \bar\theta}^2
+B &\eqdef \frac{n}{m - 1} \sumto{j}{m} \paren{\bar\param_j - \bar\param}^2
 && \text{(between-chain variance)}\\
 \hat V &\eqdef \frac{n - 1}{n} W + \frac{1}{n} B
 && \text{(pooled variance estimate)}.

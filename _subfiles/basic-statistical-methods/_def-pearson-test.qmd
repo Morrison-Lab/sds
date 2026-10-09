@@ -5,7 +5,7 @@ Let $r$ be the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r)
 of $n \ge 3$ pairs, with $\abs{r} < 1$.
 The **t-test of zero correlation**
-of $H_0: \rho = 0$ against $H_1: \rho \neq 0$
+of $H_0: \corpar = 0$ against $H_1: \corpar \neq 0$
 (@def-population-correlation) uses the statistic
 
 $$t \eqdef \frac{r \sqrt{n - 2}}{\sqrt{1 - r^2}}.$$
