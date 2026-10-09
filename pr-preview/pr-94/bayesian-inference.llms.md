@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 19:33:33 (PDT)
+Last modified: 2026-10-08 19:54:47 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -88,15 +88,15 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > **Example 5 (Posterior for a coin’s probability of heads under a uniform prior)** As in [Example 3](#exm-posterior), let \\\theta\\ be a coin’s probability of heads, now allowed to take any value in \\(0, 1)\\, with the uniform prior density \\\operatorname{p}(\theta) = 1\\ for \\\theta\in (0, 1)\\. One toss lands heads; call that observation \\y = 1\\, so \\\operatorname{p}(y = 1 \mid \theta) = \theta\\. The [marginal likelihood](#def-marginal-likelihood) is an integral over \\\theta\\:
 >
-> \\ \begin{aligned} \operatorname{p}(y = 1) &= \int_0^1 \operatorname{p}(y = 1 \mid \theta)\\ \operatorname{p}(\theta)\\ d\theta && \text{(definition of the marginal likelihood)}\\ &= \int_0^1 \theta\cdot 1\\ d\theta && \text{(substituting the likelihood and the prior)}\\ &= \int_0^1 \theta\\ d\theta && \text{(\$\theta\cdot 1 = \theta\$)}\\ &= \mathopen{}\left\[\frac{\theta^2}{2}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$\theta\$)}\\ &= \frac{1^2}{2} - \frac{0^2}{2} && \text{(evaluating at the limits)}\\ &= \frac{1}{2} && \text{(arithmetic)}. \end{aligned} \\
+> \\ \begin{aligned} \operatorname{p}(y = 1) &= \int_0^1 \operatorname{p}(y = 1 \mid \theta)\\ \operatorname{p}(\theta)\\ d\theta && \text{(definition of the marginal likelihood)}\\ &= \int_0^1 \theta\cdot 1\\ d\theta && \text{(substituting the likelihood and the prior)}\\ &= \int_0^1 \theta\\ d\theta && \text{(\$\theta\cdot 1 = \theta\$)}\\ &= \mathopen{}\left\[\frac{\theta^2}{2}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$\theta\$)}\\ &= \frac{1^2}{2} - \frac{0^2}{2} && \text{(evaluating at the limits)}\\ &= \frac{1}{2} && \text{(arithmetic)}. \end{aligned} \tag{2}\\
 >
 > By [Theorem 1](#thm-bayes-posterior), for \\\theta\in (0, 1)\\:
 >
-> \\ \begin{aligned} \operatorname{p}(\theta\mid y = 1) &= \frac{\operatorname{p}(y = 1 \mid \theta)\\ \operatorname{p}(\theta)}{\operatorname{p}(y = 1)} && \text{(Bayes' theorem for parameters)}\\ &= \frac{\theta\cdot 1}{1/2} && \text{(substituting the likelihood, prior, and marginal likelihood)}\\ &= \frac{\theta}{1/2} && \text{(\$\theta\cdot 1 = \theta\$)}\\ &= 2\theta && \text{(dividing by \$1/2\$ is multiplying by 2)}. \end{aligned} \\
+> \\ \begin{aligned} \operatorname{p}(\theta\mid y = 1) &= \frac{\operatorname{p}(y = 1 \mid \theta)\\ \operatorname{p}(\theta)}{\operatorname{p}(y = 1)} && \text{(Bayes' theorem for parameters)}\\ &= \frac{\theta\cdot 1}{1/2} && \text{(substituting the likelihood, prior, and marginal likelihood)}\\ &= \frac{\theta}{1/2} && \text{(\$\theta\cdot 1 = \theta\$)}\\ &= 2\theta && \text{(dividing by \$1/2\$ is multiplying by 2)}. \end{aligned} \tag{3}\\
 >
 > One head moves the posterior density toward large values of \\\theta\\. The posterior mean is
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\theta\mid y = 1\right\]\mathclose{} &= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\\ d\theta && \text{(expectation under the posterior density)}\\ &= \int_0^1 \theta\cdot 2\theta\\ d\theta && \text{(substituting the posterior density)}\\ &= \int_0^1 2\theta^2\\ d\theta && \text{(\$\theta\cdot \theta= \theta^2\$)}\\ &= \mathopen{}\left\[\frac{2\theta^3}{3}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$2\theta^2\$)}\\ &= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3} && \text{(evaluating at the limits)}\\ &= \frac{2}{3} && \text{(arithmetic)}, \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\theta\mid y = 1\right\]\mathclose{} &= \int_0^1 \theta\cdot \operatorname{p}(\theta\mid y = 1)\\ d\theta && \text{(expectation under the posterior density)}\\ &= \int_0^1 \theta\cdot 2\theta\\ d\theta && \text{(substituting the posterior density)}\\ &= \int_0^1 2\theta^2\\ d\theta && \text{(\$\theta\cdot \theta= \theta^2\$)}\\ &= \mathopen{}\left\[\frac{2\theta^3}{3}\right\]\mathclose{}\_0^1 && \text{(antiderivative of \$2\theta^2\$)}\\ &= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3} && \text{(evaluating at the limits)}\\ &= \frac{2}{3} && \text{(arithmetic)}, \end{aligned} \tag{4}\\
 >
 > up from the prior mean of \\1/2\\.
 
@@ -104,7 +104,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > **Corollary 1 (The posterior is proportional to likelihood times prior)** As a function of \\\theta\\, with the data \\\tilde{y}\\ held fixed,
 >
-> \\ \underbrace{\operatorname{p}(\theta\mid \tilde{y})}\_{\text{posterior}} \\\propto\\ \underbrace{\operatorname{p}(\tilde{y}\mid \theta)}\_{\text{likelihood}} \cdot \underbrace{\operatorname{p}(\theta)}\_{\text{prior}}. \tag{2}\\
+> \\ \underbrace{\operatorname{p}(\theta\mid \tilde{y})}\_{\text{posterior}} \\\propto\\ \underbrace{\operatorname{p}(\tilde{y}\mid \theta)}\_{\text{likelihood}} \cdot \underbrace{\operatorname{p}(\theta)}\_{\text{prior}}. \tag{5}\\
 
 > **NOTE:**
 >
@@ -138,7 +138,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > **Definition 6 (Maximum a posteriori estimate)** The **maximum a posteriori** (MAP) estimate of a parameter \\\theta\\, given observed data \\\tilde{Y}= \tilde{y}\\, written \\\hat{\theta}\_{\text{MAP}}\\, is the value of \\\theta\\ that maximizes the [posterior density](#def-posterior):
 >
-> \\\hat{\theta}\_{\text{MAP}} \stackrel{\text{def}}{=}\arg \max\_\theta\operatorname{p}(\theta\mid \tilde{y}) \tag{3}\\
+> \\\hat{\theta}\_{\text{MAP}} \stackrel{\text{def}}{=}\arg \max\_\theta\operatorname{p}(\theta\mid \tilde{y}) \tag{6}\\
 >
 > The MAP estimate is the mode of the posterior distribution.
 
@@ -168,7 +168,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > **Corollary 2 (The MAP estimate minimizes the negative log-likelihood plus a penalty)** The [MAP estimate](#def-map) satisfies
 >
-> \\ \hat{\theta}\_{\text{MAP}} = \arg \min\_\theta\mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\operatorname{p}(\tilde{y}\mid \theta)\right\\\mathclose{} - \operatorname{log}\mathopen{}\left\\\operatorname{p}(\theta)\right\\\mathclose{}\right)\mathclose{}. \tag{4}\\
+> \\ \hat{\theta}\_{\text{MAP}} = \arg \min\_\theta\mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\operatorname{p}(\tilde{y}\mid \theta)\right\\\mathclose{} - \operatorname{log}\mathopen{}\left\\\operatorname{p}(\theta)\right\\\mathclose{}\right)\mathclose{}. \tag{7}\\
 >
 > The first term is the negative log-likelihood. The second term, \\-\operatorname{log}\mathopen{}\left\\\operatorname{p}(\theta)\right\\\mathclose{}\\, is the penalty that the prior adds.
 
