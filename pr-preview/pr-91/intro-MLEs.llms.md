@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 19:43:37 (PDT)
+Last modified: 2026-10-09 02:07:19 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -413,7 +413,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > \\\operatorname{E}\mathopen{}\left\[\ell'(\tilde{X}\mid \tilde{\theta})\right\]\mathclose{} = \mathbf{0}\_{p \times 1} \tag{12}\\
 >
-> \\\mathcal{I}(\tilde{\theta}) = \operatorname{Cov}\mathopen{}\left(\ell'(\tilde{X}\mid \tilde{\theta})\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\ell'{\ell'}^{\top}\right\]\mathclose{} \tag{13}\\
+> \\ \begin{aligned} \mathcal{I}(\tilde{\theta}) &= \operatorname{Cov}\mathopen{}\left(\ell'(\tilde{X}\mid \tilde{\theta})\right)\mathclose{}\\ &= \operatorname{E}\mathopen{}\left\[\ell'{\ell'}^{\top}\right\]\mathclose{} \end{aligned} \tag{13}\\
 
 > **NOTE:**
 >
@@ -1026,7 +1026,7 @@ Call this solution of the score equation \\\tilde {\lambda}\\ for now:
 > #> [1] 5.53846
 > ```
 >
-> \\\hat{{\lambda}}\_{\text{ML}} = \bar x = 5.538\\
+> \\ \begin{aligned} \hat{{\lambda}}\_{\text{ML}} &= \bar x\\ &= 5.538 \end{aligned} \\
 
 > **NOTE:**
 >

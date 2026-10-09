@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 19:43:37 (PDT)
+Last modified: 2026-10-09 02:07:19 (PDT)
 
 ## 1 Introduction
 
@@ -719,7 +719,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Proof*. The sample mean of the \\z_i\\ is \\\frac{1}{n}\sum\_{i=1}^n\frac{x_i - \bar x}{s} = \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i - \bar x\right)\mathclose{} = \frac{1}{s} (\bar x - \bar x) = 0.\\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\\frac{1}{n-1} \sum\_{i=1}^nz_i^2 = \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar x)^2 = \frac{s^2}{s^2} = 1,\\ so their sample standard deviation is \\\sqrt{1} = 1\\.
+> *Proof*. The sample mean of the \\z_i\\ is \\ \begin{aligned} \frac{1}{n}\sum\_{i=1}^n\frac{x_i - \bar x}{s} &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i - \bar x\right)\mathclose{}\\ &= \frac{1}{s} (\bar x - \bar x)\\ &= 0. \end{aligned} \\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\ \begin{aligned} \frac{1}{n-1} \sum\_{i=1}^nz_i^2 &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar x)^2\\ &= \frac{s^2}{s^2}\\ &= 1, \end{aligned} \\ so their sample standard deviation is \\\sqrt{1} = 1\\.
 
 > **NOTE:**
 >
