@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:39:54 (PDT)
+Last modified: 2026-10-09 12:07:46 (PDT)
 
 ## 1 Empirical CDF
 
@@ -108,9 +108,9 @@ x_left <- c(x_min, x_ord)
 x_right <- c(x_ord, x_max)
 f_levels <- c(0, p_ord)
 
-ecdf_pieces <- data.frame(x = x_left, xend = x_right, y = f_levels)
-ecdf_open <- data.frame(x = x_ord, y = f_levels[seq_len(n)])
-ecdf_closed <- data.frame(x = x_ord, y = f_levels[seq_len(n) + 1])
+ecdf_pieces <- tibble::tibble(x = x_left, xend = x_right, y = f_levels)
+ecdf_open <- tibble::tibble(x = x_ord, y = f_levels[seq_len(n)])
+ecdf_closed <- tibble::tibble(x = x_ord, y = f_levels[seq_len(n) + 1])
 
 ggplot2::ggplot() +
   ggplot2::geom_segment(
@@ -138,7 +138,7 @@ Show R code
 eqf_y_padding <- 0.5
 q_left <- c(0, p_ord[-n])
 q_right <- p_ord
-eqf_pieces <- data.frame(x = q_left, xend = q_right, y = x_ord)
+eqf_pieces <- tibble::tibble(x = q_left, xend = q_right, y = x_ord)
 
 ggplot2::ggplot(eqf_pieces) +
   ggplot2::geom_segment(

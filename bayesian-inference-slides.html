@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 10:39:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 12:07:46 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -946,58 +946,57 @@ Figure&nbsp;2: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 <hr>
 <p><a href="#/fig-prior-posterior" class="quarto-xref">Figure&nbsp;3</a> plots each prior and posterior density.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>prob_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="at">length.out =</span> <span class="dv">500</span>)</span>
-<span id="cb9-2"><a aria-label="2"></a>density_curves <span class="ot">&lt;-</span> <span class="fu">do.call</span>(</span>
-<span id="cb9-3"><a aria-label="3"></a>  rbind,</span>
-<span id="cb9-4"><a aria-label="4"></a>  <span class="fu">lapply</span>(<span class="fu">rownames</span>(post_params), \(data_set) {</span>
-<span id="cb9-5"><a aria-label="5"></a>    <span class="fu">rbind</span>(</span>
-<span id="cb9-6"><a aria-label="6"></a>      <span class="fu">data.frame</span>(</span>
-<span id="cb9-7"><a aria-label="7"></a>        <span class="at">data_set =</span> data_set,</span>
-<span id="cb9-8"><a aria-label="8"></a>        <span class="at">prob =</span> prob_grid,</span>
-<span id="cb9-9"><a aria-label="9"></a>        <span class="at">distribution =</span> <span class="st">"prior"</span>,</span>
-<span id="cb9-10"><a aria-label="10"></a>        <span class="at">density =</span> stats<span class="sc">::</span><span class="fu">dbeta</span>(prob_grid, prior_a, prior_b)</span>
-<span id="cb9-11"><a aria-label="11"></a>      ),</span>
-<span id="cb9-12"><a aria-label="12"></a>      <span class="fu">data.frame</span>(</span>
-<span id="cb9-13"><a aria-label="13"></a>        <span class="at">data_set =</span> data_set,</span>
-<span id="cb9-14"><a aria-label="14"></a>        <span class="at">prob =</span> prob_grid,</span>
-<span id="cb9-15"><a aria-label="15"></a>        <span class="at">distribution =</span> <span class="st">"posterior"</span>,</span>
-<span id="cb9-16"><a aria-label="16"></a>        <span class="at">density =</span> stats<span class="sc">::</span><span class="fu">dbeta</span>(</span>
-<span id="cb9-17"><a aria-label="17"></a>          prob_grid,</span>
-<span id="cb9-18"><a aria-label="18"></a>          post_params[data_set, <span class="st">"a"</span>],</span>
-<span id="cb9-19"><a aria-label="19"></a>          post_params[data_set, <span class="st">"b"</span>]</span>
-<span id="cb9-20"><a aria-label="20"></a>        )</span>
-<span id="cb9-21"><a aria-label="21"></a>      )</span>
-<span id="cb9-22"><a aria-label="22"></a>    )</span>
-<span id="cb9-23"><a aria-label="23"></a>  })</span>
-<span id="cb9-24"><a aria-label="24"></a>)</span>
-<span id="cb9-25"><a aria-label="25"></a>density_curves<span class="sc">$</span>data_set <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb9-26"><a aria-label="26"></a>  density_curves<span class="sc">$</span>data_set,</span>
-<span id="cb9-27"><a aria-label="27"></a>  <span class="at">levels =</span> <span class="fu">rownames</span>(post_params)</span>
-<span id="cb9-28"><a aria-label="28"></a>)</span>
-<span id="cb9-29"><a aria-label="29"></a>density_curves<span class="sc">$</span>distribution <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb9-30"><a aria-label="30"></a>  density_curves<span class="sc">$</span>distribution,</span>
-<span id="cb9-31"><a aria-label="31"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"prior"</span>, <span class="st">"posterior"</span>)</span>
-<span id="cb9-32"><a aria-label="32"></a>)</span>
-<span id="cb9-33"><a aria-label="33"></a></span>
-<span id="cb9-34"><a aria-label="34"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(</span>
-<span id="cb9-35"><a aria-label="35"></a>  density_curves,</span>
-<span id="cb9-36"><a aria-label="36"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(prob, density, <span class="at">colour =</span> distribution, <span class="at">linetype =</span> distribution)</span>
-<span id="cb9-37"><a aria-label="37"></a>) <span class="sc">+</span></span>
-<span id="cb9-38"><a aria-label="38"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb9-39"><a aria-label="39"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_vline</span>(</span>
-<span id="cb9-40"><a aria-label="40"></a>    <span class="at">data =</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-41"><a aria-label="41"></a>      <span class="at">data_set =</span> <span class="fu">factor</span>(<span class="st">"simulated"</span>, <span class="at">levels =</span> <span class="fu">rownames</span>(post_params)),</span>
-<span id="cb9-42"><a aria-label="42"></a>      <span class="at">truth =</span> sim_truth</span>
-<span id="cb9-43"><a aria-label="43"></a>    ),</span>
-<span id="cb9-44"><a aria-label="44"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">xintercept =</span> truth),</span>
-<span id="cb9-45"><a aria-label="45"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
-<span id="cb9-46"><a aria-label="46"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-47"><a aria-label="47"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>data_set) <span class="sc">+</span></span>
-<span id="cb9-48"><a aria-label="48"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
-<span id="cb9-49"><a aria-label="49"></a>    <span class="at">x =</span> <span class="st">"probability of a success"</span>,</span>
-<span id="cb9-50"><a aria-label="50"></a>    <span class="at">y =</span> <span class="st">"density"</span>,</span>
-<span id="cb9-51"><a aria-label="51"></a>    <span class="at">colour =</span> <span class="cn">NULL</span>,</span>
-<span id="cb9-52"><a aria-label="52"></a>    <span class="at">linetype =</span> <span class="cn">NULL</span></span>
-<span id="cb9-53"><a aria-label="53"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a aria-label="2"></a>density_curves <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
+<span id="cb9-3"><a aria-label="3"></a>  <span class="fu">lapply</span>(<span class="fu">rownames</span>(post_params), \(data_set) {</span>
+<span id="cb9-4"><a aria-label="4"></a>    dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
+<span id="cb9-5"><a aria-label="5"></a>      tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb9-6"><a aria-label="6"></a>        <span class="at">data_set =</span> data_set,</span>
+<span id="cb9-7"><a aria-label="7"></a>        <span class="at">prob =</span> prob_grid,</span>
+<span id="cb9-8"><a aria-label="8"></a>        <span class="at">distribution =</span> <span class="st">"prior"</span>,</span>
+<span id="cb9-9"><a aria-label="9"></a>        <span class="at">density =</span> stats<span class="sc">::</span><span class="fu">dbeta</span>(prob_grid, prior_a, prior_b)</span>
+<span id="cb9-10"><a aria-label="10"></a>      ),</span>
+<span id="cb9-11"><a aria-label="11"></a>      tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb9-12"><a aria-label="12"></a>        <span class="at">data_set =</span> data_set,</span>
+<span id="cb9-13"><a aria-label="13"></a>        <span class="at">prob =</span> prob_grid,</span>
+<span id="cb9-14"><a aria-label="14"></a>        <span class="at">distribution =</span> <span class="st">"posterior"</span>,</span>
+<span id="cb9-15"><a aria-label="15"></a>        <span class="at">density =</span> stats<span class="sc">::</span><span class="fu">dbeta</span>(</span>
+<span id="cb9-16"><a aria-label="16"></a>          prob_grid,</span>
+<span id="cb9-17"><a aria-label="17"></a>          post_params[data_set, <span class="st">"a"</span>],</span>
+<span id="cb9-18"><a aria-label="18"></a>          post_params[data_set, <span class="st">"b"</span>]</span>
+<span id="cb9-19"><a aria-label="19"></a>        )</span>
+<span id="cb9-20"><a aria-label="20"></a>      )</span>
+<span id="cb9-21"><a aria-label="21"></a>    )</span>
+<span id="cb9-22"><a aria-label="22"></a>  })</span>
+<span id="cb9-23"><a aria-label="23"></a>)</span>
+<span id="cb9-24"><a aria-label="24"></a>density_curves<span class="sc">$</span>data_set <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb9-25"><a aria-label="25"></a>  density_curves<span class="sc">$</span>data_set,</span>
+<span id="cb9-26"><a aria-label="26"></a>  <span class="at">levels =</span> <span class="fu">rownames</span>(post_params)</span>
+<span id="cb9-27"><a aria-label="27"></a>)</span>
+<span id="cb9-28"><a aria-label="28"></a>density_curves<span class="sc">$</span>distribution <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb9-29"><a aria-label="29"></a>  density_curves<span class="sc">$</span>distribution,</span>
+<span id="cb9-30"><a aria-label="30"></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"prior"</span>, <span class="st">"posterior"</span>)</span>
+<span id="cb9-31"><a aria-label="31"></a>)</span>
+<span id="cb9-32"><a aria-label="32"></a></span>
+<span id="cb9-33"><a aria-label="33"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(</span>
+<span id="cb9-34"><a aria-label="34"></a>  density_curves,</span>
+<span id="cb9-35"><a aria-label="35"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(prob, density, <span class="at">colour =</span> distribution, <span class="at">linetype =</span> distribution)</span>
+<span id="cb9-36"><a aria-label="36"></a>) <span class="sc">+</span></span>
+<span id="cb9-37"><a aria-label="37"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb9-38"><a aria-label="38"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_vline</span>(</span>
+<span id="cb9-39"><a aria-label="39"></a>    <span class="at">data =</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb9-40"><a aria-label="40"></a>      <span class="at">data_set =</span> <span class="fu">factor</span>(<span class="st">"simulated"</span>, <span class="at">levels =</span> <span class="fu">rownames</span>(post_params)),</span>
+<span id="cb9-41"><a aria-label="41"></a>      <span class="at">truth =</span> sim_truth</span>
+<span id="cb9-42"><a aria-label="42"></a>    ),</span>
+<span id="cb9-43"><a aria-label="43"></a>    ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">xintercept =</span> truth),</span>
+<span id="cb9-44"><a aria-label="44"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span></span>
+<span id="cb9-45"><a aria-label="45"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-46"><a aria-label="46"></a>  ggplot2<span class="sc">::</span><span class="fu">facet_wrap</span>(<span class="sc">~</span>data_set) <span class="sc">+</span></span>
+<span id="cb9-47"><a aria-label="47"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
+<span id="cb9-48"><a aria-label="48"></a>    <span class="at">x =</span> <span class="st">"probability of a success"</span>,</span>
+<span id="cb9-49"><a aria-label="49"></a>    <span class="at">y =</span> <span class="st">"density"</span>,</span>
+<span id="cb9-50"><a aria-label="50"></a>    <span class="at">colour =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-51"><a aria-label="51"></a>    <span class="at">linetype =</span> <span class="cn">NULL</span></span>
+<span id="cb9-52"><a aria-label="52"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><details class="code-fold"><summary>Show Python code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a aria-label="1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-2"><a aria-label="2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-3"><a aria-label="3"></a><span class="im">from</span> scipy <span class="im">import</span> stats</span>
@@ -1434,29 +1433,28 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 <span id="cb19-3"><a aria-label="3"></a>  <span class="st">`</span><span class="at">Beta(1, 19)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="at">a =</span> <span class="dv">1</span>, <span class="at">b =</span> <span class="dv">19</span>)</span>
 <span id="cb19-4"><a aria-label="4"></a>)</span>
 <span id="cb19-5"><a aria-label="5"></a><span class="fu">set.seed</span>(<span class="dv">3</span>)</span>
-<span id="cb19-6"><a aria-label="6"></a>prior_pred_counts <span class="ot">&lt;-</span> <span class="fu">do.call</span>(</span>
-<span id="cb19-7"><a aria-label="7"></a>  rbind,</span>
-<span id="cb19-8"><a aria-label="8"></a>  <span class="fu">lapply</span>(<span class="fu">names</span>(check_priors), \(prior_name) {</span>
-<span id="cb19-9"><a aria-label="9"></a>    ab <span class="ot">&lt;-</span> check_priors[[prior_name]]</span>
-<span id="cb19-10"><a aria-label="10"></a>    prob_draws <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rbeta</span>(<span class="dv">4000</span>, ab[[<span class="st">"a"</span>]], ab[[<span class="st">"b"</span>]])</span>
-<span id="cb19-11"><a aria-label="11"></a>    <span class="fu">data.frame</span>(</span>
-<span id="cb19-12"><a aria-label="12"></a>      <span class="at">prior =</span> prior_name,</span>
-<span id="cb19-13"><a aria-label="13"></a>      <span class="at">count =</span> stats<span class="sc">::</span><span class="fu">rbinom</span>(<span class="dv">4000</span>, <span class="at">size =</span> n_mothers, <span class="at">prob =</span> prob_draws)</span>
-<span id="cb19-14"><a aria-label="14"></a>    )</span>
-<span id="cb19-15"><a aria-label="15"></a>  })</span>
-<span id="cb19-16"><a aria-label="16"></a>)</span>
-<span id="cb19-17"><a aria-label="17"></a>prior_pred_counts<span class="sc">$</span>prior <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
-<span id="cb19-18"><a aria-label="18"></a>  prior_pred_counts<span class="sc">$</span>prior,</span>
-<span id="cb19-19"><a aria-label="19"></a>  <span class="at">levels =</span> <span class="fu">names</span>(check_priors)</span>
-<span id="cb19-20"><a aria-label="20"></a>)</span>
-<span id="cb19-21"><a aria-label="21"></a>prior_tail <span class="ot">&lt;-</span> <span class="fu">tapply</span>(</span>
-<span id="cb19-22"><a aria-label="22"></a>  prior_pred_counts<span class="sc">$</span>count <span class="sc">&gt;=</span> <span class="fu">t_count</span>(smoke_y),</span>
-<span id="cb19-23"><a aria-label="23"></a>  prior_pred_counts<span class="sc">$</span>prior,</span>
-<span id="cb19-24"><a aria-label="24"></a>  mean</span>
-<span id="cb19-25"><a aria-label="25"></a>)</span>
-<span id="cb19-26"><a aria-label="26"></a>prior_tail</span>
-<span id="cb19-27"><a aria-label="27"></a><span class="co">#&gt; uniform Beta(1, 1)        Beta(1, 19) </span></span>
-<span id="cb19-28"><a aria-label="28"></a><span class="co">#&gt;             0.6110             0.0005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb19-6"><a aria-label="6"></a>prior_pred_counts <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(</span>
+<span id="cb19-7"><a aria-label="7"></a>  <span class="fu">lapply</span>(<span class="fu">names</span>(check_priors), \(prior_name) {</span>
+<span id="cb19-8"><a aria-label="8"></a>    ab <span class="ot">&lt;-</span> check_priors[[prior_name]]</span>
+<span id="cb19-9"><a aria-label="9"></a>    prob_draws <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rbeta</span>(<span class="dv">4000</span>, ab[[<span class="st">"a"</span>]], ab[[<span class="st">"b"</span>]])</span>
+<span id="cb19-10"><a aria-label="10"></a>    tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb19-11"><a aria-label="11"></a>      <span class="at">prior =</span> prior_name,</span>
+<span id="cb19-12"><a aria-label="12"></a>      <span class="at">count =</span> stats<span class="sc">::</span><span class="fu">rbinom</span>(<span class="dv">4000</span>, <span class="at">size =</span> n_mothers, <span class="at">prob =</span> prob_draws)</span>
+<span id="cb19-13"><a aria-label="13"></a>    )</span>
+<span id="cb19-14"><a aria-label="14"></a>  })</span>
+<span id="cb19-15"><a aria-label="15"></a>)</span>
+<span id="cb19-16"><a aria-label="16"></a>prior_pred_counts<span class="sc">$</span>prior <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb19-17"><a aria-label="17"></a>  prior_pred_counts<span class="sc">$</span>prior,</span>
+<span id="cb19-18"><a aria-label="18"></a>  <span class="at">levels =</span> <span class="fu">names</span>(check_priors)</span>
+<span id="cb19-19"><a aria-label="19"></a>)</span>
+<span id="cb19-20"><a aria-label="20"></a>prior_tail <span class="ot">&lt;-</span> <span class="fu">tapply</span>(</span>
+<span id="cb19-21"><a aria-label="21"></a>  prior_pred_counts<span class="sc">$</span>count <span class="sc">&gt;=</span> <span class="fu">t_count</span>(smoke_y),</span>
+<span id="cb19-22"><a aria-label="22"></a>  prior_pred_counts<span class="sc">$</span>prior,</span>
+<span id="cb19-23"><a aria-label="23"></a>  mean</span>
+<span id="cb19-24"><a aria-label="24"></a>)</span>
+<span id="cb19-25"><a aria-label="25"></a>prior_tail</span>
+<span id="cb19-26"><a aria-label="26"></a><span class="co">#&gt; uniform Beta(1, 1)        Beta(1, 19) </span></span>
+<span id="cb19-27"><a aria-label="27"></a><span class="co">#&gt;             0.6110             0.0005</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div id="tabset-6-2">

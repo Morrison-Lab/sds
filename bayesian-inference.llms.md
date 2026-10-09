@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:39:54 (PDT)
+Last modified: 2026-10-09 12:07:46 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -463,17 +463,16 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 >
 > ``` downlit
 > prob_grid <- seq(0.001, 0.999, length.out = 500)
-> density_curves <- do.call(
->   rbind,
+> density_curves <- dplyr::bind_rows(
 >   lapply(rownames(post_params), \(data_set) {
->     rbind(
->       data.frame(
+>     dplyr::bind_rows(
+>       tibble::tibble(
 >         data_set = data_set,
 >         prob = prob_grid,
 >         distribution = "prior",
 >         density = stats::dbeta(prob_grid, prior_a, prior_b)
 >       ),
->       data.frame(
+>       tibble::tibble(
 >         data_set = data_set,
 >         prob = prob_grid,
 >         distribution = "posterior",
@@ -501,7 +500,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > ) +
 >   ggplot2::geom_line(linewidth = 0.8) +
 >   ggplot2::geom_vline(
->     data = data.frame(
+>     data = tibble::tibble(
 >       data_set = factor("simulated", levels = rownames(post_params)),
 >       truth = sim_truth
 >     ),
@@ -874,12 +873,11 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >   `Beta(1, 19)` = c(a = 1, b = 19)
 > )
 > set.seed(3)
-> prior_pred_counts <- do.call(
->   rbind,
+> prior_pred_counts <- dplyr::bind_rows(
 >   lapply(names(check_priors), \(prior_name) {
 >     ab <- check_priors[[prior_name]]
 >     prob_draws <- stats::rbeta(4000, ab[["a"]], ab[["b"]])
->     data.frame(
+>     tibble::tibble(
 >       prior = prior_name,
 >       count = stats::rbinom(4000, size = n_mothers, prob = prob_draws)
 >     )

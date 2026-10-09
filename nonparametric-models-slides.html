@@ -336,7 +336,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 10:39:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 12:07:46 (PDT)</p>
 </section><section id="empirical-cdf" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical CDF</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -455,9 +455,9 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 <span id="cb2-10"><a aria-label="10"></a>x_right <span class="ot">&lt;-</span> <span class="fu">c</span>(x_ord, x_max)</span>
 <span id="cb2-11"><a aria-label="11"></a>f_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, p_ord)</span>
 <span id="cb2-12"><a aria-label="12"></a></span>
-<span id="cb2-13"><a aria-label="13"></a>ecdf_pieces <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x_left, <span class="at">xend =</span> x_right, <span class="at">y =</span> f_levels)</span>
-<span id="cb2-14"><a aria-label="14"></a>ecdf_open <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x_ord, <span class="at">y =</span> f_levels[<span class="fu">seq_len</span>(n)])</span>
-<span id="cb2-15"><a aria-label="15"></a>ecdf_closed <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> x_ord, <span class="at">y =</span> f_levels[<span class="fu">seq_len</span>(n) <span class="sc">+</span> <span class="dv">1</span>])</span>
+<span id="cb2-13"><a aria-label="13"></a>ecdf_pieces <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x_left, <span class="at">xend =</span> x_right, <span class="at">y =</span> f_levels)</span>
+<span id="cb2-14"><a aria-label="14"></a>ecdf_open <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x_ord, <span class="at">y =</span> f_levels[<span class="fu">seq_len</span>(n)])</span>
+<span id="cb2-15"><a aria-label="15"></a>ecdf_closed <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> x_ord, <span class="at">y =</span> f_levels[<span class="fu">seq_len</span>(n) <span class="sc">+</span> <span class="dv">1</span>])</span>
 <span id="cb2-16"><a aria-label="16"></a></span>
 <span id="cb2-17"><a aria-label="17"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb2-18"><a aria-label="18"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_segment</span>(</span>
@@ -493,7 +493,7 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>eqf_y_padding <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
 <span id="cb3-2"><a aria-label="2"></a>q_left <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, p_ord[<span class="sc">-</span>n])</span>
 <span id="cb3-3"><a aria-label="3"></a>q_right <span class="ot">&lt;-</span> p_ord</span>
-<span id="cb3-4"><a aria-label="4"></a>eqf_pieces <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> q_left, <span class="at">xend =</span> q_right, <span class="at">y =</span> x_ord)</span>
+<span id="cb3-4"><a aria-label="4"></a>eqf_pieces <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">x =</span> q_left, <span class="at">xend =</span> q_right, <span class="at">y =</span> x_ord)</span>
 <span id="cb3-5"><a aria-label="5"></a></span>
 <span id="cb3-6"><a aria-label="6"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(eqf_pieces) <span class="sc">+</span></span>
 <span id="cb3-7"><a aria-label="7"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_segment</span>(</span>

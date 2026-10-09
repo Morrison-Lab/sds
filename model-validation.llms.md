@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 10:39:54 (PDT)
+Last modified: 2026-10-09 12:07:46 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -566,10 +566,14 @@ Last modified: 2026-10-09 10:39:54 (PDT)
 >
 > plot_partitions_with_fit <- function(model, fit_label) {
 >   series_levels <- c(names(partition_colors), fit_label)
->   partition_data$series <- factor(partition_data$series, levels = series_levels)
->   fitted_curve <- data.frame(
+>   partition_data <- partition_data |>
+>     dplyr::mutate(
+>       series = factor(partition_data$series, levels = series_levels)
+>     )
+>   grid_data <- tibble::tibble(wt = wt_grid)
+>   fitted_curve <- tibble::tibble(
 >     wt = wt_grid,
->     mpg = predict(model, newdata = data.frame(wt = wt_grid)),
+>     mpg = predict(model, newdata = grid_data),
 >     series = factor(fit_label, levels = series_levels)
 >   )
 >   # nolint start: object_usage_linter.
@@ -896,7 +900,7 @@ Last modified: 2026-10-09 10:39:54 (PDT)
 > ``` downlit
 > sim_best_cv <- sim_errors_cv$degree[which.min(sim_errors_cv$cv_5)]
 > sim_n_fit <- nrow(sim_train) - max(table(sim_folds))
-> sim_top <- sim_errors_cv[sim_errors_cv$degree == max(sim_degrees), ]
+> sim_top <- dplyr::filter(sim_errors_cv, degree == max(sim_degrees))
 > sim_cv_ratio_top <- sim_top$cv_5 / sim_top$generalization
 > c(
 >   best_by_cv = sim_best_cv,
@@ -1327,9 +1331,12 @@ Last modified: 2026-10-09 10:39:54 (PDT)
 >     if (screen == "inside") {
 >       keep <- top_predictors(x[!in_fold, ], y[!in_fold], n_keep)
 >     }
->     train <- data.frame(y = y[!in_fold], x[!in_fold, keep])
+>     train <- tibble::tibble(
+>       y = y[!in_fold],
+>       tibble::as_tibble(x[!in_fold, keep])
+>     )
 >     fit <- lm(y ~ ., data = train)
->     held_out <- data.frame(x[in_fold, keep])
+>     held_out <- tibble::as_tibble(x[in_fold, keep])
 >     sq_errors[in_fold] <- (predict(fit, newdata = held_out) - y[in_fold])^2
 >   }
 >   mean(sq_errors)
