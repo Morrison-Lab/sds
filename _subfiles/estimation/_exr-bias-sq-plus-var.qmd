@@ -24,10 +24,14 @@ $$
 && \text{(substitute the squared bias)}\\
 &= \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2 + \E{\hparam^2} - \sqf{\E{\hparam}}
 && \text{(substitute the variance)}\\
-&= - 2\E{\hparam}\param + \param^2 + \E{\hparam^2}
-&& \text{(cancel $\sqf{\E{\hparam}}$)}\\
+&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + \sqf{\E{\hparam}} - \sqf{\E{\hparam}}
+&& \text{(reorder the terms)}\\
+&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + \paren{\sqf{\E{\hparam}} - \sqf{\E{\hparam}}}
+&& \text{(group the last two terms)}\\
+&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2 + 0
+&& \text{($a - a = 0$)}\\
 &= \E{\hparam^2} - 2\E{\hparam}\param + \param^2
-&& \text{(reorder the terms)}
+&& \text{($a + 0 = a$)}
 \end{aligned}
 $$
 

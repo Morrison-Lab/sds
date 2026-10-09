@@ -17,8 +17,23 @@ $$
 && \text{(independent Gaussian observations)}\\
 &= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin (x_i - \mean)^2}
 && \text{(combining the exponents)}\\
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin \paren{x_i^2 - 2 \mean x_i + \mean^2}}
+&& \text{(expanding each square)}\\
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - \sumin 2 \mean x_i + \sumin \mean^2}}
+&& \text{(splitting the sum)}\\
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mean \sumin x_i + \sumin \mean^2}}
+&& \text{(factoring the constant $2 \mean$ out of the middle sum)}\\
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mean \sumin x_i + n \mean^2}}
+&& \text{(summing the constant $\mean^2$ over $n$ terms)}\\
 &= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mean n \bar x + n \mean^2}}
-&& \text{(expanding the square; $\sum_i x_i = n \bar x$)}\\
+&& \text{(substituting $\sumin x_i = n \bar x$)}\\
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 + \paren{n \mean^2 - 2 \mean n \bar x}}}
+&& \text{(reordering and grouping the terms that involve $\mean$)}\\
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin x_i^2 - \frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
+&& \text{(distributing $-\tfrac{1}{2}$)}\\
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin x_i^2}
+  \cdot \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
+&& \text{(writing the exponential of a sum as a product of exponentials)}\\
 &\propto \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
 && \text{(dropping factors that do not involve $\mean$)},
 \ea
@@ -36,10 +51,18 @@ $$
 &\propto \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
   \cdot \expf{-\frac{1}{2}\mean^2}
 && \text{(substituting likelihood and prior)}\\
+&= \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x} - \frac{1}{2}\mean^2}
+&& \text{(writing a product of exponentials as the exponential of a sum)}\\
+&= \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x + \mean^2}}
+&& \text{(factoring out $-\tfrac{1}{2}$)}\\
+&= \expf{-\frac{1}{2}\paren{n \mean^2 + \mean^2 - 2 \mean n \bar x}}
+&& \text{(reordering the terms)}\\
 &= \expf{-\frac{1}{2}\paren{(n+1)\mean^2 - 2 \mean n \bar x}}
-&& \text{(adding exponents)}\\
+&& \text{(collecting the $\mean^2$ terms)}\\
+&= \expf{-\frac{1}{2}(n+1)\paren{\mean^2 - 2 \mean \frac{n}{n+1} \bar x}}
+&& \text{(factoring out $n+1$)}\\
 &= \expf{-\frac{1}{2}(n+1)\paren{\mean^2 - 2 \mean m}}
-&& \text{(factoring out $n+1$; definition of $m$)}\\
+&& \text{(definition of $m$)}\\
 &= \expf{-\frac{1}{2}(n+1)\paren{(\mean - m)^2 - m^2}}
 && \text{(completing the square)}\\
 &\propto \expf{-\frac{1}{2}(n+1)(\mean - m)^2}
