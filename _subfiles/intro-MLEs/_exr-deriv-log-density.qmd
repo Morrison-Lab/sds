@@ -16,7 +16,7 @@ with outer function $\log u$ and inner function $u = \p(\vx \mid \param)$:
 
 $$
 \deriv{\param} \log \p(\vx \mid \param)
-= \paren{\frac{d}{du} \log u}\bigg|_{u = \p(\vx \mid \param)} \deriv{\param}\p(\vx \mid \param).
+= \evalAt{\paren{\frac{d}{du} \log u}}{u = \p(\vx \mid \param)} \deriv{\param}\p(\vx \mid \param).
 $$
 
 The inner derivative $\deriv{\param}\p(\vx \mid \param)$ is the quantity we want,

@@ -28,8 +28,8 @@ the model-based 95% confidence interval:
 ```{r}
 #| code-fold: false
 fit_sbp_age <- lm(SBP ~ age, data = hers)
-summary(fit_sbp_age)$coefficients["age", ]
-confint(fit_sbp_age)["age", ]
+parameters::parameters(fit_sbp_age) |>
+  parameters::print_md(digits = 3, ci_digits = 3)
 boot::boot.ci(boot_result, type = c("norm", "perc", "bca"))
 ```
 

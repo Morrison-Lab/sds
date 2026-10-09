@@ -29,3 +29,4 @@
 \providecommand{\foldmseof}[2]{\operatorname{MSE}^{#2}_{#1}}
 \providecommand{\termvec}[1]{\v{t}_{#1}}
 \providecommand{\trainerr}{\overline{\operatorname{err}}}
+\providecommand{\arcoef}{\rho}
