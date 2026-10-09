@@ -8,9 +8,17 @@ format:
     output-file: estimation-handout.pdf
   docx:
     output-file: estimation-handout.docx
+resources:
+  - data/birthwt.csv
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| label: python-packages
+#| include: false
+reticulate::py_require(c("numpy", "pandas"))
+```
 
 ## Scientific models
 
@@ -138,6 +146,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/estimation/_thm-prediction-error-residual.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_cor-residual-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-residual-prediction-error.qmd >}}
 
 {{< slidebreak >}}
 
