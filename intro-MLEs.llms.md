@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 02:03:36 (PDT)
+Last modified: 2026-10-09 09:51:12 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -227,7 +227,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> *Remark 1* (Notation for the score function). We often omit the arguments \\\tilde{x}\\ and \\\theta\\, writing \\\ell' \stackrel{\text{def}}{=}\ell'(\tilde{x}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\\. Some sources write \\U\\ or \\S\\ for the score function instead of \\\ell'\\; for example, Dobson and Barnett ([2018](#ref-dobson4e)) write \\U\\. These notes use \\\ell'\\, which keeps \\U\\ and \\S\\ free for other uses and needs no extra symbol to memorize.
+> *Remark 1* (Notation for the score function). We often omit the arguments \\\tilde{x}\\ and \\\theta\\, writing \\\ell'\stackrel{\text{def}}{=}\ell'(\tilde{x}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\\. Some sources write \\U\\ or \\S\\ for the score function instead of \\\ell'\\; for example, Dobson and Barnett ([2018](#ref-dobson4e)) write \\U\\. These notes use \\\ell'\\, which keeps \\U\\ and \\S\\ free for other uses and needs no extra symbol to memorize.
 
 > **NOTE:**
 >
@@ -1414,7 +1414,7 @@ For the second entry, write \\\sigma^2\\ as a single variable \\v\\, so that \\\
 
 ### 3.2 MLE of \\\mu\\
 
-Setting \\\frac{\partial}{\partial \mu}\ell = 0\\:
+Setting \\\frac{\partial}{\partial \mu}\ell= 0\\:
 
 \\ \begin{aligned} 0 &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i - n\mu\right)\mathclose{} && \text{(score for \$\mu\$)}\\ 0 &= \sum\_{i=1}^nx_i - n\mu && \text{(multiply both sides by \$\sigma^2\$)}\\ n\mu&= \sum\_{i=1}^nx_i && \text{(add \$n\mu\$ to both sides)}\\ \mu&= \frac{1}{n}\sum\_{i=1}^nx_i && \text{(divide by \$n\$)}\\ \mu&= \bar x && \text{(definition of \$\bar x\$)} \end{aligned} \\
 
@@ -1438,7 +1438,7 @@ so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\
 >
 > \\ \begin{aligned} \ell_p(\sigma^2) &= \ell(\bar x, \sigma^2) && \text{(definition of the profile log-likelihood)}\\ &= -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \bar x)^2 && \text{(Gaussian log-likelihood at \$\mu= \bar x\$)} \end{aligned} \\
 
-Setting \\\frac{\partial}{\partial \sigma^2}\ell = 0\\:
+Setting \\\frac{\partial}{\partial \sigma^2}\ell= 0\\:
 
 \\ \begin{aligned} 0 &= -\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(score for \$\sigma^2\$)}\\ \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(add \$\tfrac{n}{2}(\sigma^2)^{-1}\$)}\\ n\sigma^2&= \sum\_{i=1}^n(x_i - \mu)^2 && \text{(multiply both sides by \$2(\sigma^2)^2\$)}\\ \sigma^2&= \frac{1}{n}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(divide both sides by \$n\$)} \end{aligned} \\
 
