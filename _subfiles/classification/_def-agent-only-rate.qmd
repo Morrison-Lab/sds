@@ -1,0 +1,10 @@
+:::{#def-agent-only-rate}
+#### Agent-only rate
+
+The **agent-only rate** of an agreement table (@def-agreement-table)
+is the proportion of observations
+that the agent calls positive and the reference calls negative:
+
+$$p_{\text{agent}} \eqdef \frac{b}{n}$$
+
+:::

@@ -1,0 +1,20 @@
+:::{#rem-kappa-prevalence}
+#### Kappa depends on prevalence
+
+When one category is rare,
+the chance agreement $p_e$ is close to 1,
+so the same overall agreement leaves little room for agreement beyond chance,
+and kappa can be low even when the overall agreement is high,
+as @exm-kappa-paradox shows.
+@cicchetti1990high recommend reporting
+the positive and negative agreements alongside kappa,
+so that poor agreement on the rarer category is not hidden.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@feinstein1990high;
+@cicchetti1990high.
+:::
+
+:::

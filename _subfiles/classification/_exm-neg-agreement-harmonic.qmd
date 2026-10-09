@@ -1,0 +1,32 @@
+:::{#exm-neg-agreement-harmonic}
+#### Negative agreement of the COVID-19 test as a harmonic mean
+
+For the agreement table of @exm-agreement-table-covid,
+the estimated negative predictive value is $9{,}207 / 9{,}214$
+and the estimated specificity is $9{,}207 / 9{,}300$
+(@exm-agreement-test-measures).
+@thm-neg-agreement-harmonic gives:
+
+$$
+\ba
+p_{\text{neg}}
+&= \frac{2}{\frac{1}{9{,}207 / 9{,}214} + \frac{1}{9{,}207 / 9{,}300}}
+&& \text{(harmonic mean of the two estimates)} \\
+&= \frac{2}{\frac{9{,}214}{9{,}207} + \frac{1}{9{,}207 / 9{,}300}}
+&& \text{(reciprocal of a fraction)} \\
+&= \frac{2}{\frac{9{,}214}{9{,}207} + \frac{9{,}300}{9{,}207}}
+&& \text{(reciprocal of a fraction)} \\
+&= \frac{2}{\frac{18{,}514}{9{,}207}}
+&& \text{(add fractions with a common denominator)} \\
+&= 2 \cd \frac{9{,}207}{18{,}514}
+&& \text{(dividing by a fraction multiplies by its reciprocal)} \\
+&= \frac{18{,}414}{18{,}514}
+&& \text{(multiply)} \\
+&\approx 0.995
+&& \text{(divide)}
+\ea
+$$
+
+which matches @exm-negative-agreement.
+
+:::

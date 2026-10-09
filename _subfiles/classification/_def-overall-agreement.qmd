@@ -1,0 +1,10 @@
+:::{#def-overall-agreement}
+#### Overall agreement
+
+The **overall agreement** of an agreement table (@def-agreement-table)
+is the proportion of observations
+on which the agent and the reference agree:
+
+$$p_o \eqdef \frac{a + d}{n}$$
+
+:::

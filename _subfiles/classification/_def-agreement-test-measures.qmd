@@ -1,0 +1,21 @@
+:::{#def-agreement-test-measures}
+#### Test measures estimated from an agreement table
+
+Treating the reference as the truth,
+an agreement table (@def-agreement-table) estimates
+the agent's [sensitivity](#def-sensitivity),
+[specificity](#def-specificity),
+[positive predictive value](#def-ppv),
+and [negative predictive value](#def-npv)
+by the matching proportions of its cells:
+
+$$
+\ba
+\Est{\text{sensitivity}} &\eqdef \frac{a}{a + c}, &
+\Est{\text{specificity}} &\eqdef \frac{d}{b + d}, \\
+\Est{\text{PPV}} &\eqdef \frac{a}{a + b}, &
+\Est{\text{NPV}} &\eqdef \frac{d}{c + d}.
+\ea
+$$
+
+:::

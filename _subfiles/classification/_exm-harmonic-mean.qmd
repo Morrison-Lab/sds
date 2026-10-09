@@ -1,0 +1,23 @@
+:::{#exm-harmonic-mean}
+#### Harmonic mean of 0.5 and 1
+
+By @def-harmonic-mean:
+
+$$
+\ba
+H(0.5, 1)
+&= \frac{2}{\frac{1}{0.5} + \frac{1}{1}}
+&& \text{(definition of } H \text{)} \\
+&= \frac{2}{2 + 1}
+&& \text{(take each reciprocal)} \\
+&= \frac{2}{3}
+&& \text{(add)} \\
+&\approx 0.667
+&& \text{(divide)}
+\ea
+$$
+
+The ordinary average of 0.5 and 1 is 0.75;
+the harmonic mean sits closer to the smaller number.
+
+:::

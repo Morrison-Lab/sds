@@ -1,0 +1,19 @@
+:::{#exm-agent-only-rate}
+#### Agent-only rate for the COVID-19 test
+
+For the agreement table of @exm-agreement-table-covid,
+the agent-only rate (@def-agent-only-rate) is:
+
+$$
+\ba
+p_{\text{agent}}
+&= \frac{93}{10{,}000}
+&& \text{(definition of } p_{\text{agent}} \text{, with the table's counts)} \\
+&= 0.0093
+&& \text{(divide)}
+\ea
+$$
+
+so the test flags about 9 people in 1,000 whom the reference calls negative.
+
+:::

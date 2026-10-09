@@ -1,0 +1,19 @@
+:::{#def-positive-agreement}
+#### Positive agreement
+
+The **positive agreement**
+(also called the *average positive agreement*)
+of an agreement table (@def-agreement-table)
+is the number of positive calls the agent and the reference share,
+counted once for each classifier,
+as a proportion of all their positive calls:
+
+$$p_{\text{pos}} \eqdef \frac{2a}{2a + b + c}$$
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@cicchetti1990high.
+:::
+
+:::

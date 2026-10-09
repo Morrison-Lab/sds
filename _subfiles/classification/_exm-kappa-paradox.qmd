@@ -1,0 +1,36 @@
+:::{#exm-kappa-paradox}
+#### High agreement but low kappa
+
+Now apply the same test to $n = 100{,}000$ people
+in a population where the prevalence is only 0.5%.
+Then $0.005 \times 100{,}000 = 500$ people have COVID-19,
+the test is positive for $0.99 \times 500 = 495$ of them,
+and it is positive for $0.01 \times 99{,}500 = 995$ of the 99,500 people without it:
+
+```{r}
+agree_rare <- c(a = 495, b = 995, c = 5, d = 98505)
+with(as.list(agree_rare), c(
+  overall = (a + d) / (a + b + c + d),
+  positive = 2 * a / (2 * a + b + c),
+  negative = 2 * d / (2 * d + b + c),
+  kappa = kappa_from_table(a, b, c, d)
+)) |>
+  round(4)
+```
+
+The overall agreement is still 0.99,
+but kappa drops to about 0.49
+and the positive agreement to about 0.50,
+while the negative agreement stays near 1.
+The two specific agreements show where the disagreement lies:
+the test and the reference agree on negatives
+and disagree on about half of the positive calls.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+The pattern follows @feinstein1990high
+and @cicchetti1990high.
+:::
+
+:::

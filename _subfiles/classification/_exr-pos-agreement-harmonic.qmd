@@ -1,0 +1,47 @@
+:::{#exr-pos-agreement-harmonic}
+#### Positive agreement from PPV and sensitivity
+
+For an agreement table (@def-agreement-table) with $a > 0$,
+write the [harmonic mean](#def-harmonic-mean)
+of the estimated positive predictive value and sensitivity
+(@def-agreement-test-measures)
+in terms of the table's cells.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-pos-agreement-harmonic}
+
+Because $a > 0$,
+both $a + b$ and $a + c$ are positive,
+so both estimates are defined and positive:
+
+$$
+\ba
+H\paren{\Est{\text{PPV}}, \Est{\text{sensitivity}}}
+&= \frac{2}{\frac{1}{\Est{\text{PPV}}} + \frac{1}{\Est{\text{sensitivity}}}}
+&& \text{(definition of } H \text{)} \\
+&= \frac{2}{\frac{1}{a / (a + b)} + \frac{1}{\Est{\text{sensitivity}}}}
+&& \text{(definition of } \Est{\text{PPV}} \text{)} \\
+&= \frac{2}{\frac{1}{a / (a + b)} + \frac{1}{a / (a + c)}}
+&& \text{(definition of } \Est{\text{sensitivity}} \text{)} \\
+&= \frac{2}{\frac{a + b}{a} + \frac{1}{a / (a + c)}}
+&& \text{(reciprocal of a fraction)} \\
+&= \frac{2}{\frac{a + b}{a} + \frac{a + c}{a}}
+&& \text{(reciprocal of a fraction)} \\
+&= \frac{2}{\frac{(a + b) + (a + c)}{a}}
+&& \text{(add fractions with a common denominator)} \\
+&= \frac{2}{\frac{a + b + a + c}{a}}
+&& \text{(remove parentheses)} \\
+&= \frac{2}{\frac{a + a + b + c}{a}}
+&& \text{(reorder terms)} \\
+&= \frac{2}{\frac{2a + b + c}{a}}
+&& \text{(} a + a = 2a \text{)} \\
+&= 2 \cd \frac{a}{2a + b + c}
+&& \text{(dividing by a fraction multiplies by its reciprocal)} \\
+&= \frac{2a}{2a + b + c}
+&& \text{(multiply)}
+\ea
+$$
+
+:::

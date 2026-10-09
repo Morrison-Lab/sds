@@ -1,0 +1,21 @@
+:::{#exm-agreement-test-measures}
+#### Test measures for the COVID-19 test
+
+For the agreement table of @exm-agreement-table-covid,
+@def-agreement-test-measures gives:
+
+```{r}
+with(as.list(agree_covid), c(
+  sensitivity = a / (a + c),
+  specificity = d / (b + d),
+  ppv = a / (a + b),
+  npv = d / (c + d)
+)) |>
+  round(4)
+```
+
+These estimates match the test's sensitivity and specificity (0.99)
+and its positive predictive value (about 0.88, @exm-ppv),
+because the table's counts are the expected counts for those values.
+
+:::

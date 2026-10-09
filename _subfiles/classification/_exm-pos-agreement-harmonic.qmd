@@ -1,0 +1,35 @@
+:::{#exm-pos-agreement-harmonic}
+#### Positive agreement of the COVID-19 test as a harmonic mean
+
+For the agreement table of @exm-agreement-table-covid,
+the estimated positive predictive value is $693 / 786$
+and the estimated sensitivity is $693 / 700$
+(@exm-agreement-test-measures).
+@thm-pos-agreement-harmonic gives:
+
+$$
+\ba
+p_{\text{pos}}
+&= \frac{2}{\frac{1}{693 / 786} + \frac{1}{693 / 700}}
+&& \text{(harmonic mean of the two estimates)} \\
+&= \frac{2}{\frac{786}{693} + \frac{1}{693 / 700}}
+&& \text{(reciprocal of a fraction)} \\
+&= \frac{2}{\frac{786}{693} + \frac{700}{693}}
+&& \text{(reciprocal of a fraction)} \\
+&= \frac{2}{\frac{1{,}486}{693}}
+&& \text{(add fractions with a common denominator)} \\
+&= 2 \cd \frac{693}{1{,}486}
+&& \text{(dividing by a fraction multiplies by its reciprocal)} \\
+&= \frac{1{,}386}{1{,}486}
+&& \text{(multiply)} \\
+&\approx 0.933
+&& \text{(divide)}
+\ea
+$$
+
+which matches @exm-positive-agreement.
+The lower positive predictive value (about 0.88)
+pulls the positive agreement down from the sensitivity (0.99),
+as in @exm-harmonic-mean.
+
+:::

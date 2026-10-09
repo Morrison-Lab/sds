@@ -1,0 +1,25 @@
+:::{#exm-positive-agreement}
+#### Positive agreement for the COVID-19 test
+
+For the agreement table of @exm-agreement-table-covid,
+the positive agreement (@def-positive-agreement) is:
+
+$$
+\ba
+p_{\text{pos}}
+&= \frac{2 \times 693}{2 \times 693 + 93 + 7}
+&& \text{(definition of } p_{\text{pos}} \text{, with the table's counts)} \\
+&= \frac{1{,}386}{1{,}386 + 93 + 7}
+&& \text{(multiply)} \\
+&= \frac{1{,}386}{1{,}486}
+&& \text{(add)} \\
+&\approx 0.933
+&& \text{(divide)}
+\ea
+$$
+
+The positive agreement is lower than the overall agreement (@exm-overall-agreement),
+because the 93 false positives are large
+relative to the 693 true positives.
+
+:::
