@@ -1,0 +1,13 @@
+::: {#cor-residual-prediction-error}
+#### The residual is the negative of the prediction error
+
+For an observation $i$ that was used to fit the model,
+its [residual](#def-residual) is the negative of
+the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
+
+$$\resid_i = -\prederr_i.$$
+:::
+
+::: proof
+Multiply both sides of @thm-prediction-error-residual by $-1$.
+:::

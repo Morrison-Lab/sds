@@ -1,0 +1,66 @@
+::: {#exm-residual-prediction-error}
+#### Residuals and prediction errors for birth weights
+
+The `birthwt` data record the birth weight (grams) of `r nrow(read.csv("data/birthwt.csv"))` babies
+and their mothers' weight at the last menstrual period (pounds),
+from a study at Baystate Medical Center in Springfield, Massachusetts
+[@hosmer1989applied].
+They ship with the R package [`MASS`](https://cran.r-project.org/package=MASS)
+(`MASS::birthwt`),
+and this repository holds a copy at `data/birthwt.csv`.
+
+The code below fits a line predicting birth weight from mother's weight,
+then compares each residual with the negative of its prediction error.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: residual-prediction-error
+#| code-fold: false
+birthwt <- read.csv("data/birthwt.csv")
+fit <- lm(bwt ~ lwt, data = birthwt)
+fitted_bwt <- fitted(fit)
+residual <- birthwt$bwt - fitted_bwt
+prediction_error <- fitted_bwt - birthwt$bwt
+head(data.frame(
+  bwt = birthwt$bwt,
+  fitted = round(fitted_bwt, 1),
+  residual = round(residual, 1),
+  minus_prediction_error = round(-prediction_error, 1)
+))
+max(abs(residual - (-prediction_error)))
+```
+
+##### Python
+
+```{python}
+#| label: residual-prediction-error-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+
+birthwt = pd.read_csv("data/birthwt.csv")
+X = np.column_stack([np.ones(len(birthwt)), birthwt["lwt"]])
+y = birthwt["bwt"].to_numpy(dtype=float)
+coef = np.linalg.lstsq(X, y, rcond=None)[0]
+fitted_bwt = X @ coef
+residual = y - fitted_bwt
+prediction_error = fitted_bwt - y
+print(pd.DataFrame({
+    "bwt": y,
+    "fitted": fitted_bwt.round(1),
+    "residual": residual.round(1),
+    "minus_prediction_error": (-prediction_error).round(1),
+}).head())
+print(np.max(np.abs(residual - (-prediction_error))))
+```
+
+:::
+
+The last two columns agree in every row,
+and the largest difference between them over all
+`r nrow(birthwt)` babies is `r max(abs(residual - (-prediction_error)))`,
+as @cor-residual-prediction-error says.
+:::
