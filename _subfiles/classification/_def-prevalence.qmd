@@ -1,0 +1,10 @@
+:::{#def-prevalence}
+#### Prevalence
+
+The **prevalence** of a disease in a population
+is the probability that a person drawn from that population
+has the disease ($D$):
+
+$$\text{prevalence} \eqdef \Pr(D)$$ {#eq-prevalence}
+
+:::

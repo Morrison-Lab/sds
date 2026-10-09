@@ -1,0 +1,40 @@
+:::{#exr-prob-positive}
+#### Probability of a positive test
+
+Write the probability $\Pr(+)$ that a diagnostic test is positive
+in terms of:
+
+- the test's [sensitivity](#def-sensitivity);
+- the test's [specificity](#def-specificity);
+- the [prevalence](#def-prevalence) of the disease.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-prob-positive}
+
+By the
+[law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob)
+over the partition $\set{D, \neg D}$:
+
+$$
+\ba
+\Pr(+)
+&= \Pr(+ \mid D) \cd \Pr(D) + \Pr(+ \mid \neg D) \cd \Pr(\neg D)
+&& \text{(law of total probability)} \\
+&= \text{sensitivity} \cd \Pr(D) + \Pr(+ \mid \neg D) \cd \Pr(\neg D)
+&& \text{(definition of sensitivity)} \\
+&= \text{sensitivity} \cd \text{prevalence} + \Pr(+ \mid \neg D) \cd \Pr(\neg D)
+&& \text{(definition of prevalence)} \\
+&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \Pr(\neg + \mid \neg D)} \cd \Pr(\neg D)
+&& \text{(complement rule, conditional on } \neg D \text{)} \\
+&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \text{specificity}} \cd \Pr(\neg D)
+&& \text{(definition of specificity)} \\
+&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \text{specificity}} \cd \paren{1 - \Pr(D)}
+&& \text{(complement rule)} \\
+&= \text{sensitivity} \cd \text{prevalence} + \paren{1 - \text{specificity}} \cd \paren{1 - \text{prevalence}}
+&& \text{(definition of prevalence)}
+\ea
+$$ {#eq-prob-positive-exr}
+
+:::

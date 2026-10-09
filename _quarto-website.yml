@@ -60,6 +60,8 @@ website:
             href: correlation-regression.qmd
           - text: "Validating Predictions"
             href: model-validation.qmd
+          - text: "Classification"
+            href: classification.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
       - text: "Bayesian"
@@ -108,6 +110,8 @@ website:
             href: correlation-regression.qmd
           - text: "Validating Predictions"
             href: model-validation.qmd
+          - text: "Classification"
+            href: classification.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
       - section: "Bayesian"

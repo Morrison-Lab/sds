@@ -1,0 +1,95 @@
+---
+title: "Classification and Diagnostic Tests"
+format:
+  html: default
+  revealjs:
+    output-file: classification-slides.html
+  pdf:
+    output-file: classification-handout.pdf
+  docx:
+    output-file: classification-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+## Introduction
+
+{{< include sds/_subfiles/classification/_prose-intro.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-classification.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-classification.qmd >}}
+
+## Diagnostic test characteristics
+
+<!-- No slidebreak here: the heading shares its slide with the def-sensitivity div. -->
+
+{{< include sds/_subfiles/classification/_def-sensitivity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-sensitivity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-specificity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-specificity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-prevalence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-prevalence.qmd >}}
+
+## Predictive values
+
+<!-- No slidebreak here: the heading shares its slide with the def-ppv div. -->
+
+{{< include sds/_subfiles/classification/_def-ppv.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-ppv.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_def-npv.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-npv.qmd >}}
+
+## PPV in terms of sensitivity, specificity, and prevalence
+
+<!-- No slidebreak here: the heading shares its slide with the exr-prob-positive div. -->
+
+{{< include sds/_subfiles/classification/_exr-prob-positive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exr-ppv-bayes.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exr-ppv-ratio-form.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_thm-ppv-sens-spec-prev.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_exm-ppv-sens-spec-prev.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_rem-ppv-prevalence.qmd >}}

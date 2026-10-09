@@ -1,0 +1,50 @@
+:::{#exm-npv}
+#### NPV of a COVID-19 test
+
+For the COVID-19 test of @exm-sensitivity and @exm-specificity,
+used in the population of @exm-prevalence,
+the probability of a negative test for a person with COVID-19 is,
+by the
+[complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0):
+
+$$
+\ba
+\Pr(\neg + \mid D)
+&= 1 - \Pr(+ \mid D)
+&& \text{(complement rule, conditional on } D \text{)} \\
+&= 1 - 0.99
+&& \text{(substitute the sensitivity)} \\
+&= 0.01
+&& \text{(subtract)}
+\ea
+$$ {#eq-npv-exm}
+
+By
+[Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes),
+with the denominator expanded by the
+[law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob)
+over the partition $\set{D, \neg D}$,
+the negative predictive value (@def-npv) is:
+
+$$
+\ba
+\Pr(\neg D \mid \neg +)
+&= \frac{\Pr(\neg + \mid \neg D) \cd \Pr(\neg D)}{\Pr(\neg +)}
+&& \text{(Bayes' theorem)} \\
+&= \frac{\Pr(\neg + \mid \neg D) \cd \Pr(\neg D)}{\Pr(\neg + \mid \neg D) \cd \Pr(\neg D) + \Pr(\neg + \mid D) \cd \Pr(D)}
+&& \text{(law of total probability)} \\
+&= \frac{0.99 \cd 0.93}{0.99 \cd 0.93 + 0.01 \cd 0.07}
+&& \text{(substitute the given values)} \\
+&= \frac{0.9207}{0.9207 + 0.0007}
+&& \text{(multiply each term in the numerator and denominator)} \\
+&= \frac{0.9207}{0.9214}
+&& \text{(add the denominator's two terms)} \\
+&\approx 0.9992
+&& \text{(divide)}
+\ea
+$$ {#eq-npv-exm-2}
+
+A negative result from this test is very reliable:
+only about 8 in 10,000 people who test negative have COVID-19.
+
+:::

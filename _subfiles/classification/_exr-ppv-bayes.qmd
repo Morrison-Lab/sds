@@ -1,0 +1,39 @@
+:::{#exr-ppv-bayes}
+#### PPV from Bayes' theorem
+
+Write the [positive predictive value](#def-ppv) of a diagnostic test
+in terms of:
+
+- its [sensitivity](#def-sensitivity);
+- its [specificity](#def-specificity);
+- the [prevalence](#def-prevalence) of the disease.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-ppv-bayes}
+
+Abbreviate the sensitivity as $\text{sens}$,
+the specificity as $\text{spec}$,
+and the prevalence as $\prev$.
+By
+[Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes),
+with the probability of a positive test from @exr-prob-positive:
+
+$$
+\ba
+\text{PPV}
+&\eqdef \Pr(D \mid +)
+&& \text{(definition of PPV)} \\
+&= \frac{\Pr(+ \mid D) \cd \Pr(D)}{\Pr(+)}
+&& \text{(Bayes' theorem)} \\
+&= \frac{\text{sens} \cd \Pr(D)}{\Pr(+)}
+&& \text{(definition of sensitivity)} \\
+&= \frac{\text{sens} \cd \prev}{\Pr(+)}
+&& \text{(definition of prevalence)} \\
+&= \frac{\text{sens} \cd \prev}{\text{sens} \cd \prev + \paren{1 - \text{spec}} \cd \paren{1 - \prev}}
+&& \text{(probability of a positive test)}
+\ea
+$$ {#eq-ppv-bayes-exr}
+
+:::

@@ -1,0 +1,53 @@
+:::{#exm-ppv-sens-spec-prev}
+#### PPV of a COVID-19 test, from the two ratios
+
+For the COVID-19 test of @exm-sensitivity and @exm-specificity,
+used in the population of @exm-prevalence,
+@thm-ppv-sens-spec-prev gives:
+
+$$
+\ba
+\text{PPV}
+&= \frac{1}{1 + \frac{1 - 0.99}{0.99} \cd \frac{1 - 0.07}{0.07}}
+&& \text{(PPV in terms of the two ratios, with the given values)} \\
+&= \frac{1}{1 + \frac{0.01}{0.99} \cd \frac{0.93}{0.07}}
+&& \text{(subtract in each numerator)} \\
+&\approx \frac{1}{1 + 0.0101 \cd \frac{0.93}{0.07}}
+&& \text{(divide $0.01 / 0.99$)} \\
+&\approx \frac{1}{1 + 0.0101 \cd 13.29}
+&& \text{(divide $0.93 / 0.07$)} \\
+&\approx \frac{1}{1 + 0.134}
+&& \text{(multiply)} \\
+&= \frac{1}{1.134}
+&& \text{(add)} \\
+&\approx 0.88
+&& \text{(divide)}
+\ea
+$$ {#eq-ppv-sens-spec-prev-exm}
+
+This value matches @exm-ppv.
+
+If the same test were used in a population with prevalence 0.1% instead,
+and its sensitivity and specificity were still 99% in that population,
+the ratio of non-diseased to diseased people would be $0.999 / 0.001 = 999$,
+and the PPV would fall to
+
+$$
+\ba
+\text{PPV}
+&= \frac{1}{1 + \frac{0.01}{0.99} \cd 999}
+&& \text{(PPV in terms of the two ratios, with the new prevalence)} \\
+&\approx \frac{1}{1 + 0.0101 \cd 999}
+&& \text{(divide)} \\
+&\approx \frac{1}{1 + 10.09}
+&& \text{(multiply)} \\
+&= \frac{1}{11.09}
+&& \text{(add)} \\
+&\approx 0.09
+&& \text{(divide)}
+\ea
+$$ {#eq-ppv-sens-spec-prev-exm-2}
+
+so about 9 in 10 positive results would be false positives.
+
+:::

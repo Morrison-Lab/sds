@@ -1,0 +1,11 @@
+:::{#exm-sensitivity}
+#### Sensitivity of a COVID-19 test
+
+Suppose a COVID-19 test is positive for 99% of the people who have COVID-19.
+Let $D$ be the event "the person has COVID-19"
+and $+$ the event "the test is positive".
+Then the test's sensitivity (@def-sensitivity) is:
+
+$$\Pr(+ \mid D) = 0.99$$ {#eq-sensitivity-exm}
+
+:::

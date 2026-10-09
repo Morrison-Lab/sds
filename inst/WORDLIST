@@ -4,6 +4,7 @@ argmax
 argmin
 BAX
 BCa
+biomarkers
 BMA
 BMI
 Ber
@@ -15,6 +16,7 @@ Canvas
 Coef
 Cov
 Covf
+COVID
 cv
 cvest
 cvestof
@@ -56,8 +58,13 @@ loocv
 mapsto
 MH
 mtcars
+npv
+NPV
 overfit
 pds
+ppv
+PPV
+prev
 PSC
 Pois
 quartic
