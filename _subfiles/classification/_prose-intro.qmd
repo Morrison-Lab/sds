@@ -1,0 +1,18 @@
+Classification is a core problem in statistics and machine learning:
+we seek to assign individuals or observations to one of several discrete categories
+based on available data.
+In medicine and epidemiology,
+classification problems arise constantly;
+for example,
+a clinician decides whether a patient has a disease
+based on test results,
+biomarkers,
+or clinical signs.
+
+A test can look highly accurate in isolation,
+yet its predictive value for an individual patient depends heavily on the
+prevalence of the condition in the population being tested.
+Understanding this interplay requires
+[Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes)
+and the
+[law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob).

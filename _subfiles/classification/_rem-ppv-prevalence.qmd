@@ -1,0 +1,11 @@
+:::{#rem-ppv-prevalence}
+#### The PPV depends on the population, not only on the test
+
+The sensitivity and specificity describe the test itself,
+but the ratio $\frac{1 - \text{prev}}{\text{prev}}$ in @thm-ppv-sens-spec-prev
+describes the population being tested.
+When the disease is rare, that ratio is large,
+so even a small false positive rate can make the PPV low,
+as @exm-ppv-sens-spec-prev shows.
+
+:::

@@ -50,7 +50,10 @@ Methods, illustrated with the HERS data:
 - [Validating predictions](model-validation.qmd):
   overfitting, generalization error, training/validation/test splits,
   $k$-fold and leave-one-out cross-validation,
-  and choosing a model by cross-validation.
+  and choosing a model by cross-validation;
+- [Classification and diagnostic tests](classification.qmd):
+  sensitivity, specificity, prevalence,
+  and positive and negative predictive values.
 
 Bayesian:
 

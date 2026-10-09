@@ -1,0 +1,22 @@
+:::{#exm-classification}
+#### A diagnostic test as a classification rule
+
+A COVID-19 test assigns each person tested to one of $K = 2$ classes,
+"has COVID-19" or "does not have COVID-19",
+based on a single feature $x$:
+the test's result,
+positive ($+$) or negative ($\neg +$).
+The test is the classification rule
+(@def-classification)
+that assigns a positive result to "has COVID-19"
+and a negative result to "does not have COVID-19":
+
+$$
+c(x) \eqdef
+\begin{cases}
+\text{has COVID-19} & \text{if } x = + \\
+\text{does not have COVID-19} & \text{if } x = \neg +
+\end{cases}
+$$
+
+:::
