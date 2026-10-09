@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 11:32:26 (PDT)
+Last modified: 2026-10-09 11:57:11 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -566,10 +566,14 @@ Last modified: 2026-10-09 11:32:26 (PDT)
 >
 > plot_partitions_with_fit <- function(model, fit_label) {
 >   series_levels <- c(names(partition_colors), fit_label)
->   partition_data$series <- factor(partition_data$series, levels = series_levels)
+>   partition_data <- partition_data |>
+>     dplyr::mutate(
+>       series = factor(partition_data$series, levels = series_levels)
+>     )
+>   grid_data <- tibble::tibble(wt = wt_grid)
 >   fitted_curve <- tibble::tibble(
 >     wt = wt_grid,
->     mpg = predict(model, newdata = tibble::tibble(wt = wt_grid)),
+>     mpg = predict(model, newdata = grid_data),
 >     series = factor(fit_label, levels = series_levels)
 >   )
 >   # nolint start: object_usage_linter.
