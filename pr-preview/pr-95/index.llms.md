@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 01:12:45 (PDT)
+Last modified: 2026-10-09 16:39:05 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -24,7 +24,7 @@ Inference:
 - [Statistical inference](inference.llms.md): hypothesis tests, p-values, the \\t\\, chi-square, and \\F\\ distributions, confidence intervals, and how to interpret negative findings;
 - [Maximum likelihood inference](intro-MLEs.llms.md): likelihood, score, information, the asymptotic distribution of MLEs, Wald and likelihood ratio tests, and Newton-Raphson, with worked examples.
 
-Methods, illustrated with the HERS data:
+Methods:
 
 - [Comparing means](basic-statistical-methods.llms.md): t-tests and one-way ANOVA;
 - [Comparing proportions](categorical-tests.llms.md): the chi-square test and Fisher’s exact test;

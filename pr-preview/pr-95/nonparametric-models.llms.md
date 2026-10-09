@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 01:12:45 (PDT)
+Last modified: 2026-10-09 16:39:05 (PDT)
 
 ## 1 Empirical CDF
 
@@ -108,18 +108,24 @@ x_left <- c(x_min, x_ord)
 x_right <- c(x_ord, x_max)
 f_levels <- c(0, p_ord)
 
-plot(
-  0,
-  0,
-  type = "n",
-  xlim = c(x_min, x_max),
-  ylim = c(0, 1.05),
-  xlab = "t",
-  ylab = expression(hat(plain("F"))(t))
-)
-segments(x_left, f_levels, x_right, f_levels, lwd = 2, col = "blue")
-points(x_ord, f_levels[seq_len(n)], pch = 1, col = "blue")
-points(x_ord, f_levels[seq_len(n) + 1], pch = 19, col = "blue")
+ecdf_pieces <- tibble::tibble(x = x_left, xend = x_right, y = f_levels)
+ecdf_open <- tibble::tibble(x = x_ord, y = f_levels[seq_len(n)])
+ecdf_closed <- tibble::tibble(x = x_ord, y = f_levels[seq_len(n) + 1])
+
+ggplot2::ggplot() +
+  ggplot2::geom_segment(
+    ggplot2::aes(x = x, xend = xend, y = y, yend = y),
+    data = ecdf_pieces, linewidth = 1, color = "blue"
+  ) +
+  ggplot2::geom_point(
+    ggplot2::aes(x = x, y = y), data = ecdf_open, shape = 1, color = "blue"
+  ) +
+  ggplot2::geom_point(
+    ggplot2::aes(x = x, y = y), data = ecdf_closed, shape = 19, color = "blue"
+  ) +
+  ggplot2::coord_cartesian(xlim = c(x_min, x_max), ylim = c(0, 1.05)) +
+  ggplot2::labs(x = "t", y = expression(hat(plain("F"))(t))) +
+  ggplot2::theme_minimal()
 ```
 
 [![](nonparametric-models_files/figure-html/unnamed-chunk-2-1.png)](nonparametric-models_files/figure-html/unnamed-chunk-2-1.png "Figure 1 (a): Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.")
@@ -132,18 +138,23 @@ Show R code
 eqf_y_padding <- 0.5
 q_left <- c(0, p_ord[-n])
 q_right <- p_ord
-plot(
-  0,
-  0,
-  type = "n",
-  xlim = c(0, 1),
-  ylim = c(min(x_ord) - eqf_y_padding, max(x_ord) + eqf_y_padding),
-  xlab = "p",
-  ylab = expression(hat(Q)(p))
-)
-segments(q_left, x_ord, q_right, x_ord, lwd = 2, col = "blue")
-points(q_left, x_ord, pch = 1, col = "blue")
-points(q_right, x_ord, pch = 19, col = "blue")
+eqf_pieces <- tibble::tibble(x = q_left, xend = q_right, y = x_ord)
+
+ggplot2::ggplot(eqf_pieces) +
+  ggplot2::geom_segment(
+    ggplot2::aes(x = x, xend = xend, y = y, yend = y),
+    linewidth = 1, color = "blue"
+  ) +
+  ggplot2::geom_point(ggplot2::aes(x = x, y = y), shape = 1, color = "blue") +
+  ggplot2::geom_point(
+    ggplot2::aes(x = xend, y = y), shape = 19, color = "blue"
+  ) +
+  ggplot2::coord_cartesian(
+    xlim = c(0, 1),
+    ylim = c(min(x_ord) - eqf_y_padding, max(x_ord) + eqf_y_padding)
+  ) +
+  ggplot2::labs(x = "p", y = expression(hat(Q)(p))) +
+  ggplot2::theme_minimal()
 ```
 
 [![](nonparametric-models_files/figure-html/unnamed-chunk-3-1.png)](nonparametric-models_files/figure-html/unnamed-chunk-3-1.png "Figure 1 (b): Sample quantile function, horizontal pieces only. Open circles mark excluded left endpoints; closed circles mark included right endpoints.")

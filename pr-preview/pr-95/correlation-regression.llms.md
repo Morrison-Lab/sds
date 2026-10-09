@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 01:12:45 (PDT)
+Last modified: 2026-10-09 16:39:05 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -277,7 +277,11 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Example 4 (Residual sum of squares of a line through three points)** For the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ ([Example 3](#exm-rss-slr)), the residuals are \\1 - 1 = 0\\, \\2 - 1.5 = 0.5\\, and \\2 - 2 = 0\\, so \\\text{RSS}(1, 0.5) = 0^2 + 0.5^2 + 0^2 = 0.25\\ ([Figure 2](#fig-rss-three-points)).
+> **Example 4 (Residual sum of squares of a line through three points)** For the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ ([Example 3](#exm-rss-slr)), the residuals are \\1 - 1 = 0\\, \\2 - 1.5 = 0.5\\, and \\2 - 2 = 0\\, so
+>
+> \\ \begin{aligned} \text{RSS}(1, 0.5) &= 0^2 + 0.5^2 + 0^2 \\ &= 0.25 \end{aligned} \\
+>
+> ([Figure 2](#fig-rss-three-points)).
 >
 > Show R code
 >
@@ -728,27 +732,25 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > ``` downlit
 > slr_fit <- lm(glucose ~ BMI, data = hers)
-> summary(slr_fit)
-> #> 
-> #> Call:
-> #> lm(formula = glucose ~ BMI, data = hers)
-> #> 
-> #> Residuals:
-> #>    Min     1Q Median     3Q    Max 
-> #> -81.55 -18.98 -10.35   3.76 190.81 
-> #> 
-> #> Coefficients:
-> #>             Estimate Std. Error t value Pr(>|t|)    
-> #> (Intercept)   60.074      3.565    16.9   <2e-16 ***
-> #> BMI            1.822      0.122    14.9   <2e-16 ***
-> #> ---
-> #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-> #> 
-> #> Residual standard error: 35.5 on 2756 degrees of freedom
-> #>   (5 observations deleted due to missingness)
-> #> Multiple R-squared:  0.0743, Adjusted R-squared:  0.074 
-> #> F-statistic:  221 on 1 and 2756 DF,  p-value: <2e-16
+> parameters::parameters(slr_fit) |>
+>   parameters::print_md(digits = 3)
 > ```
+>
+> | Parameter   | Coefficient |  SE   |      95% CI      | t(2756) |    p    |
+> |:------------|:-----------:|:-----:|:----------------:|:-------:|:-------:|
+> | (Intercept) |   60.074    | 3.565 | (53.084, 67.064) | 16.852  | \< .001 |
+> | BMI         |    1.822    | 0.122 |  (1.582, 2.062)  | 14.878  | \< .001 |
+>
+> ``` downlit
+> performance::model_performance(slr_fit) |>
+>   insight::print_md(digits = 3)
+> ```
+>
+> | AIC     |  AICc   |   BIC   |  R2   | R2 (adj.) |  RMSE  | Sigma  |
+> |:--------|:-------:|:-------:|:-----:|:---------:|:------:|:------:|
+> | 27517.9 | 27517.9 | 27535.7 | 0.074 |   0.074   | 35.471 | 35.484 |
+>
+> Indices of model performance {.caption-top .table .table-sm .table-striped .small}
 >
 > [Figure 4](#fig-hers-slr) shows the data with the fitted line.
 >

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 01:12:45 (PDT)
+Last modified: 2026-10-09 16:39:05 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -99,6 +99,74 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 > #>      0.833      0.833
 > ```
 
+> **NOTE:**
+>
+> **Example 4 (A first-order autoregressive chain)** Let \\\rho\\ and \\\sigma \> 0\\ be constants, let \\\varepsilon^{(2)}, \varepsilon^{(3)}, \ldots \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}\\, and let the starting value \\\theta^{(1)}\\ be independent of them. For each \\t \ge 1\\, let
+>
+> \\ \theta^{(t+1)} \stackrel{\text{def}}{=}\rho\\ \theta^{(t)} + \varepsilon^{(t+1)}. \tag{1}\\
+>
+> The sequence \\\theta^{(1)}, \theta^{(2)}, \ldots\\ is a **first-order autoregressive** process. Each of \\\theta^{(1)}, \ldots, \theta^{(t)}\\ is a function of \\\theta^{(1)}, \varepsilon^{(2)}, \ldots, \varepsilon^{(t)}\\, so \\\varepsilon^{(t+1)}\\ is independent of all of them. So, given \\\theta^{(t)} = s\\ and any earlier values, \\\theta^{(t+1)} = \rho\\ s + \varepsilon^{(t+1)}\\ has the \\\operatorname{N}\mathopen{}\left(\rho\\ s, \sigma^2\right)\mathclose{}\\ distribution, which depends only on the current state \\s\\. The sequence is therefore a [Markov chain](#def-markov-chain). Unlike the chain of [Example 3](#exm-two-state-chain), its states can be any real number, so it has a continuous state space, like the chains that MCMC builds for a continuous parameter, whose values lie in the parameter space.
+
+> **NOTE:**
+>
+> **Exercise 1 (Stationary distribution of the autoregressive chain)** For the chain of [Example 4](#exm-ar1-chain) with \\\mathopen{}\left\|\rho\right\|\mathclose{} \< 1\\, find the variance \\v \> 0\\ for which \\\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\\ is a [stationary distribution](#def-stationary-distribution).
+
+> **NOTE:**
+>
+> *Solution 1*. Suppose \\\theta^{(t)} \sim \operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\\. By [Example 4](#exm-ar1-chain), \\\varepsilon^{(t+1)}\\ is independent of \\\theta^{(t)}\\, so \\\theta^{(t+1)} = \rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\\, a linear combination of independent Gaussian random variables, is Gaussian ([Casella and Berger 2002](#ref-CaseBerg01), Corollary 4.6.10). By [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation), its mean is
+>
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\theta^{(t+1)}\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\right\]\mathclose{} && \text{(definition of the chain)}\\ &= \rho\\ \operatorname{E}\mathopen{}\left\[\theta^{(t)}\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\varepsilon^{(t+1)}\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \rho\cdot 0 + 0 && \text{(substituting the two means)}\\ &= 0 && \text{(arithmetic)}. \end{aligned} \tag{2}\\
+>
+> Independent random variables are [uncorrelated](https://morrison-lab.github.io/pds/variance-covariance.html#thm-indpt-uncorrelated), so \\\operatorname{Cov}\mathopen{}\left(\theta^{(t)}, \varepsilon^{(t+1)}\right)\mathclose{} = 0\\, and by the [variance of a sum of two random variables](https://morrison-lab.github.io/pds/variance-covariance.html#cor-var-lincom2), the variance is
+>
+> \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\theta^{(t+1)}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left(\rho\\ \theta^{(t)} + 1 \cdot \varepsilon^{(t+1)}\right)\mathclose{} && \text{(definition of the chain)}\\ &= \rho^2 \operatorname{Var}\mathopen{}\left(\theta^{(t)}\right)\mathclose{} + 1^2 \operatorname{Var}\mathopen{}\left(\varepsilon^{(t+1)}\right)\mathclose{} + 2 (\rho\cdot 1) \operatorname{Cov}\mathopen{}\left(\theta^{(t)}, \varepsilon^{(t+1)}\right)\mathclose{} && \text{(variance of a sum of two random variables)}\\ &= \rho^2 \operatorname{Var}\mathopen{}\left(\theta^{(t)}\right)\mathclose{} + 1^2 \operatorname{Var}\mathopen{}\left(\varepsilon^{(t+1)}\right)\mathclose{} + 2 (\rho\cdot 1) \cdot 0 && \text{(the covariance is 0)}\\ &= \rho^2 \operatorname{Var}\mathopen{}\left(\theta^{(t)}\right)\mathclose{} + 1^2 \operatorname{Var}\mathopen{}\left(\varepsilon^{(t+1)}\right)\mathclose{} + 0 && \text{(\$a \cdot 0 = 0\$)}\\ &= \rho^2 \operatorname{Var}\mathopen{}\left(\theta^{(t)}\right)\mathclose{} + 1^2 \operatorname{Var}\mathopen{}\left(\varepsilon^{(t+1)}\right)\mathclose{} && \text{(\$a + 0 = a\$)}\\ &= \rho^2 \operatorname{Var}\mathopen{}\left(\theta^{(t)}\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\varepsilon^{(t+1)}\right)\mathclose{} && \text{(\$1^2 = 1\$)}\\ &= \rho^2 v + \operatorname{Var}\mathopen{}\left(\varepsilon^{(t+1)}\right)\mathclose{} && \text{(substituting \$\operatorname{Var}\mathopen{}\left(\theta^{(t)}\right)\mathclose{} = v\$)}\\ &= \rho^2 v + \sigma^2 && \text{(substituting \$\operatorname{Var}\mathopen{}\left(\varepsilon^{(t+1)}\right)\mathclose{} = \sigma^2\$)}. \end{aligned} \tag{3}\\
+>
+> So \\\theta^{(t+1)} \sim \operatorname{N}\mathopen{}\left(0, \rho^2 v + \sigma^2\right)\mathclose{}\\, and \\\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\\ is stationary exactly when \\\rho^2 v + \sigma^2 = v\\. Solving for \\v\\:
+>
+> \\ \begin{aligned} v &= \rho^2 v + \sigma^2 && \text{(stationarity condition)}\\ v - \rho^2 v &= \sigma^2 && \text{(subtracting \$\rho^2 v\$ from both sides)}\\ (1 - \rho^2)\\ v &= \sigma^2 && \text{(factoring out \$v\$)}\\ v &= \frac{\sigma^2}{1 - \rho^2} && \text{(dividing both sides by \$1 - \rho^2\$, which is positive because \$\mathopen{}\left\|\rho\right\|\mathclose{} \< 1\$)}. \end{aligned} \tag{4}\\
+>
+> The stationary distribution is \\\operatorname{N}\mathopen{}\left(0, \sigma^2 / (1 - \rho^2)\right)\mathclose{}\\. If instead \\\mathopen{}\left\|\rho\right\|\mathclose{} \ge 1\\, then \\(1 - \rho^2)\\ v \le 0 \< \sigma^2\\ for every \\v \> 0\\, so no \\\operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\\ distribution is stationary.
+>
+> With \\\rho= 0.9\\ and \\\sigma = 1\\, the stationary variance is
+>
+> \\ \begin{aligned} 1 / (1 - 0.9^2) &= 1 / (1 - 0.81) \\ &= 1 / 0.19 \\ &\approx 5.26. \end{aligned} \\
+>
+> A simulated chain started far from \\0\\, at \\\theta^{(1)} = 10\\, has mean near 0 and variance near that value once its first 1,000 values are discarded:
+>
+> ``` downlit
+> set.seed(11)
+> n_iter <- 100000
+> rho <- 0.9
+> theta <- numeric(n_iter)
+> theta[1] <- 10
+> for (t in seq(2, n_iter)) {
+>   theta[t] <- rho * theta[t - 1] + stats::rnorm(1)
+> }
+> kept <- theta[-(1:1000)]
+> c(
+>   mean = mean(kept),
+>   variance = stats::var(kept),
+>   stationary_variance = 1 / (1 - rho^2)
+> ) |>
+>   round(2)
+> #>                mean            variance stationary_variance 
+> #>                0.05                5.07                5.26
+> ```
+>
+> > **NOTE:**
+> >
+> > That a linear combination of independent normal random variables is normal is Casella and Berger ([2002](#ref-CaseBerg01), Corollary 4.6.10).
+
+> **NOTE:**
+>
+> **Theorem 1 (Stationary distribution of the autoregressive chain)** For the chain of [Example 4](#exm-ar1-chain) with \\\mathopen{}\left\|\rho\right\|\mathclose{} \< 1\\, the normal distribution with mean 0 and variance \\\sigma^2 / (1 - \rho^2)\\ is a [stationary distribution](#def-stationary-distribution):
+>
+> \\ \operatorname{N}\mathopen{}\left(0, \frac{\sigma^2}{1 - \rho^2}\right)\mathclose{}. \tag{5}\\
+
+> **NOTE:**
+>
+> *Proof*. This result is the solution to [Exercise 1](#exr-ar1-stationary).
+
 Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\tilde{\theta}^{(t)}\\ converges to it ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), p. 279; [Robert and Casella 2004, sec. 6.6.1](#ref-robert2004mcsm), Theorem 6.51, p. 234). Averages along the chain also converge to expectations under that distribution, even though successive values are correlated ([Robert and Casella 2004, sec. 6.7.1](#ref-robert2004mcsm), Theorem 6.63, p. 241; [Robert and Casella 2004, sec. 7.2](#ref-robert2004mcsm), p. 269). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\ ([Gelman et al. 2013, chap. 11](#ref-gelman2013bda), p. 275), so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 
 ## 2 MCMC samplers
@@ -115,7 +183,7 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 
 > **NOTE:**
 >
-> **Example 4 (A Gaussian random-walk proposal)** For a scalar parameter \\\pi\\, the proposal \\\pi^\* \mid \pi\sim \operatorname{N}\mathopen{}\left(\pi, 0.05^2\right)\mathclose{}\\ draws a candidate within about \\\pm 0.1\\ of the current value \\\pi\\. It is [symmetric](#def-symmetric-proposal): \\q(\pi^\* \mid \pi) = q(\pi\mid \pi^\*)\\, because the Gaussian density depends on \\\pi^\* - \pi\\ only through its square.
+> **Example 5 (A Gaussian random-walk proposal)** For a scalar parameter \\\pi\\, the proposal \\\pi^\* \mid \pi\sim \operatorname{N}\mathopen{}\left(\pi, 0.05^2\right)\mathclose{}\\ draws a candidate within about \\\pm 0.1\\ of the current value \\\pi\\. It is [symmetric](#def-symmetric-proposal): \\q(\pi^\* \mid \pi) = q(\pi\mid \pi^\*)\\, because the Gaussian density depends on \\\pi^\* - \pi\\ only through its square.
 
 > **NOTE:**
 >
@@ -125,7 +193,7 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 
 > **NOTE:**
 >
-> **Example 5 (Acceptance ratio for a Bernoulli posterior)** With \\r = 55\\ successes in \\n = 91\\ trials, a uniform prior, and the [symmetric](#def-symmetric-proposal) proposal of [Example 4](#exm-proposal-distribution), the \\q\\ terms cancel and the prior is constant, so moving from \\\pi^{(t)} = 0.5\\ to \\\pi^\* = 0.6\\ gives
+> **Example 6 (Acceptance ratio for a Bernoulli posterior)** With \\r = 55\\ successes in \\n = 91\\ trials, a uniform prior, and the [symmetric](#def-symmetric-proposal) proposal of [Example 5](#exm-proposal-distribution), the \\q\\ terms cancel and the prior is constant, so moving from \\\pi^{(t)} = 0.5\\ to \\\pi^\* = 0.6\\ gives
 >
 > \\ \begin{aligned} \alpha &= \frac{0.6^{55}\\ 0.4^{36}}{0.5^{55}\\ 0.5^{36}} && \text{(Bernoulli likelihood ratio)}\\ &= 1.2^{55}\\ 0.8^{36} && \text{(combine the powers)}\\ &\approx 7.35 && \text{(arithmetic)} \end{aligned} \\
 >
@@ -143,7 +211,7 @@ The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\*
 
 > **NOTE:**
 >
-> **Example 6 (Metropolis–Hastings for a Bernoulli model)** We sample the posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) (\\r = 55\\ successes in \\n = 91\\ trials, uniform prior) with a Gaussian random-walk proposal \\\pi^\* = \pi^{(t)} + \varepsilon\\, \\\varepsilon\sim \operatorname{N}\mathopen{}\left(0, 0.05^2\right)\mathclose{}\\. The proposal is symmetric, and the uniform prior density is 1 on \\(0, 1)\\, so the log of the acceptance ratio is the difference of log-likelihoods, and a proposal outside \\(0, 1)\\ is always rejected.
+> **Example 7 (Metropolis–Hastings for a Bernoulli model)** We sample the posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) (\\r = 55\\ successes in \\n = 91\\ trials, uniform prior) with a Gaussian random-walk proposal \\\pi^\* = \pi^{(t)} + \varepsilon\\, \\\varepsilon\sim \operatorname{N}\mathopen{}\left(0, 0.05^2\right)\mathclose{}\\. The proposal is symmetric, and the uniform prior density is 1 on \\(0, 1)\\, so the log of the acceptance ratio is the difference of log-likelihoods, and a proposal outside \\(0, 1)\\ is always rejected.
 >
 > ``` downlit
 > log_post_unnorm <- function(pi, r, n) {
@@ -195,7 +263,7 @@ A chain started far from where the posterior puts its probability takes some ite
 
 > **NOTE:**
 >
-> **Example 7 (Burn-in for the Bernoulli sampler)** Continuing [Example 6](#exm-mh-bernoulli), we start two more chains at the extreme values \\0.05\\ and \\0.95\\. [Figure 1](#fig-mh-burnin) shows their first 200 iterations.
+> **Example 8 (Burn-in for the Bernoulli sampler)** Continuing [Example 7](#exm-mh-bernoulli), we start two more chains at the extreme values \\0.05\\ and \\0.95\\. [Figure 1](#fig-mh-burnin) shows their first 200 iterations.
 >
 > Show R code
 >
@@ -235,7 +303,7 @@ The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#de
 
 > **NOTE:**
 >
-> **Example 8 (Gibbs sampling from a correlated Gaussian target)** Let the target be the bivariate Gaussian distribution of \\(\theta_1, \theta_2)\\ with means 0, variances 1 and correlation \\\rho\\, whose density is proportional to \\\operatorname{exp}\mathopen{}\left\\-\frac{\theta_1^2 - 2\rho\theta_1\theta_2 + \theta_2^2}{2(1-\rho^2)}\right\\\mathclose{}\\ ([Casella and Berger 2002](#ref-CaseBerg01), Definition 4.5.10). As a function of \\\theta_1\\,
+> **Example 9 (Gibbs sampling from a correlated Gaussian target)** Let the target be the bivariate Gaussian distribution of \\(\theta_1, \theta_2)\\ with means 0, variances 1 and correlation \\\rho\\, whose density is proportional to \\\operatorname{exp}\mathopen{}\left\\-\frac{\theta_1^2 - 2\rho\theta_1\theta_2 + \theta_2^2}{2(1-\rho^2)}\right\\\mathclose{}\\ ([Casella and Berger 2002](#ref-CaseBerg01), Definition 4.5.10). As a function of \\\theta_1\\,
 >
 > \\ \begin{aligned} \operatorname{p}(\theta_1 \mid \theta_2) &\propto \operatorname{exp}\mathopen{}\left\\-\frac{\theta_1^2 - 2\rho\theta_1\theta_2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(dropping the factor with \$\theta_2^2\$ only)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{(\theta_1 - \rho\theta_2)^2 - \rho^2\theta_2^2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(completing the square)}\\ &\propto \operatorname{exp}\mathopen{}\left\\-\frac{(\theta_1 - \rho\theta_2)^2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(dropping the factor with \$\theta_2^2\$ only)}, \end{aligned} \\
 >
@@ -287,7 +355,7 @@ If the chains have all converged to the posterior, \\\hat V\\ estimates the post
 
 > **NOTE:**
 >
-> **Example 9 (Potential scale reduction factor for the Bernoulli sampler)** Continuing [Example 7](#exm-burnin), we compute \\\hat{R}\\ for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:
+> **Example 10 (Potential scale reduction factor for the Bernoulli sampler)** Continuing [Example 8](#exm-burnin), we compute \\\hat{R}\\ for the two chains, first over their first 50 iterations, which include the burn-in, and then over iterations 501 to 5,000:
 >
 > ``` downlit
 > psrf <- function(chains) {
@@ -315,7 +383,7 @@ When the prior is weak and the sample is moderate or large, the posterior mean f
 
 > **NOTE:**
 >
-> **Example 10 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat{\pi}= r / n\\, with estimated standard error \\\sqrt{\hat{\pi}(1 - \hat{\pi})/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107):
+> **Example 11 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat{\pi}= r / n\\, with estimated standard error \\\sqrt{\hat{\pi}(1 - \hat{\pi})/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107):
 >
 > ``` downlit
 > r <- 55
@@ -336,13 +404,13 @@ When the prior is weak and the sample is moderate or large, the posterior mean f
 > #> posterior            0.6022 0.0505
 > ```
 >
-> The two estimates differ only through the prior’s pseudo-counts, and so do the two measures of spread; both differences vanish as \\n\\ grows. The MCMC mean in [Example 6](#exm-mh-bernoulli) agrees with the exact posterior mean, and so with the maximum likelihood estimate to about two decimal places.
+> The two estimates differ only through the prior’s pseudo-counts, and so do the two measures of spread; both differences vanish as \\n\\ grows. The MCMC mean in [Example 7](#exm-mh-bernoulli) agrees with the exact posterior mean, and so with the maximum likelihood estimate to about two decimal places.
 
 A persistent discrepancy between the two is a signal worth investigating: it may reflect a genuinely informative prior, an unconverged chain, or a coding error in the model.
 
 ### 3.2 The importance of parameterization
 
-How a model is written affects how well its sampler mixes ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 299). Two algebraically equivalent parameterizations of the same model can produce chains with very different autocorrelation. Strong posterior correlation between parameters slows a sampler that updates one component at a time, because each update can move only a short way along a narrow, tilted ridge, as [Example 8](#exm-gibbs-bivariate-normal) shows with \\\rho= 0.99\\.
+How a model is written affects how well its sampler mixes ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 299). Two algebraically equivalent parameterizations of the same model can produce chains with very different autocorrelation. Strong posterior correlation between parameters slows a sampler that updates one component at a time, because each update can move only a short way along a narrow, tilted ridge, as [Example 9](#exm-gibbs-bivariate-normal) shows with \\\rho= 0.99\\.
 
 Common remedies include *centering* predictors (subtracting their means), so that the intercept and slopes are less correlated, and *reparameterizing* variance components on a scale on which the posterior is more nearly symmetric. These changes leave the model, and so the scientific conclusions, unchanged; they alter only the geometry the sampler must explore.
 
@@ -382,7 +450,7 @@ The term \\D(\bar{\tilde{\theta}})\\ rewards fit, while \\p_D\\ penalizes comple
 
 > **NOTE:**
 >
-> **Example 11 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\D(\pi) = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\\. We estimate \\\overline{D}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
+> **Example 12 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\D(\pi) = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\\. We estimate \\\overline{D}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
 >
 > ``` downlit
 > deviance_bernoulli <- function(pi, r = 55, n = 91) {

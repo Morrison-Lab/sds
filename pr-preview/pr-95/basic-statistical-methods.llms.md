@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 01:12:45 (PDT)
+Last modified: 2026-10-09 16:39:05 (PDT)
 
 ## 1 Introduction
 
@@ -384,11 +384,21 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Example 9 (Mean squares of two small groups)** For the groups of [Example 7](#exm-ss-between), \\k = 2\\ and \\n = 6\\, so \\\text{MS}\_\text{between} = 13.5 / 1 = 13.5\\ and \\\text{MS}\_\text{within} = 4 / 4 = 1\\.
+> **Example 9 (Mean squares of two small groups)** For the groups of [Example 7](#exm-ss-between), \\k = 2\\ and \\n = 6\\, so
+>
+> \\ \begin{aligned} \text{MS}\_\text{between} &= 13.5 / 1 \\ &= 13.5 \end{aligned} \\
+>
+> and
+>
+> \\ \begin{aligned} \text{MS}\_\text{within} &= 4 / 4 \\ &= 1. \end{aligned} \\
 
 > **NOTE:**
 >
-> **Definition 10 (One-way analysis of variance)** With the [mean squares](#def-mean-squares) of \\k \ge 2\\ groups and \\n \> k\\ observations in all, the **one-way analysis of variance (ANOVA)** F-test of \\H_0: \mu_1 = \mu_2 = \cdots = \mu_k\\ against the alternative that at least two group means differ uses the statistic
+> **Definition 10 (One-way analysis of variance)** With the [mean squares](#def-mean-squares) of \\k \ge 2\\ groups and \\n \> k\\ observations in all, the **one-way analysis of variance (ANOVA)** F-test of
+>
+> \\ \begin{aligned} H_0: \mu_1 &= \mu_2 \\ &= \cdots \\ &= \mu_k \end{aligned} \\
+>
+> against the alternative that at least two group means differ uses the statistic
 >
 > \\F \stackrel{\text{def}}{=}\frac{\text{MS}\_\text{between}}{\text{MS}\_\text{within}}.\\
 >
@@ -396,11 +406,17 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Remark 4* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares), \\F = 13.5 / 1 = 13.5\\.
+> *Remark 4* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares),
+>
+> \\ \begin{aligned} F &= 13.5 / 1 \\ &= 13.5. \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If \\H_0: \mu_1 = \cdots = \mu_k\\ holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2019, sec. 9.3](#ref-hoggtanis2015), p. 449).
+> **Theorem 3 (Null distribution of the ANOVA F statistic)** Let all \\n\\ observations be independent, with observation \\y\_{ji}\\ Gaussian with mean \\\mu_j\\ and the same variance \\\sigma^2\\ in every group. If
+>
+> \\ \begin{aligned} H_0: \mu_1 &= \cdots \\ &= \mu_k \end{aligned} \\
+>
+> holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2019, sec. 9.3](#ref-hoggtanis2015), p. 449).
 
 > **NOTE:**
 >
@@ -438,13 +454,17 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > \\\text{SS}\_\text{between}\\ is summed here over observations rather than groups: each observation in group \\j\\ contributes \\(\bar{y}\_j - \bar{y})^2\\, which gives the \\n_j\\ weights of [Definition 10](#def-one-way-anova). [`aov()`](https://rdrr.io/r/stats/aov.html) reports the same sums of squares, F statistic, and p-value:
 >
 > ``` downlit
-> aov(glucose ~ raceth, data = hers) |> summary()
-> #>               Df  Sum Sq Mean Sq F value  Pr(>F)    
-> #> raceth         2   45919   22959    17.1 4.1e-08 ***
-> #> Residuals   2760 3704543    1342                    
-> #> ---
-> #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+> aov(glucose ~ raceth, data = hers) |>
+>   parameters::parameters() |>
+>   parameters::print_md(digits = 3)
 > ```
+>
+> | Parameter | Sum_Squares |  df  | Mean_Square |   F    |    p    |
+> |:----------|:-----------:|:----:|:-----------:|:------:|:-------:|
+> | raceth    |  45918.814  |  2   |  22959.407  | 17.105 | \< .001 |
+> | Residuals |  3.705e+06  | 2760 |  1342.226   |        |         |
+>
+> Anova Table (Type 1 tests)
 >
 > The p-value is far below 0.05: mean fasting glucose differs among the three race/ethnicity groups.
 
@@ -464,8 +484,16 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 One-way ANOVA is a special case of linear regression: it is the F-test comparing a linear regression model with a single categorical predictor to the model with an intercept only ([Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#sec-understand-LMs)). [`lm()`](https://rdrr.io/r/stats/lm.html) gives the same F statistic as [`aov()`](https://rdrr.io/r/stats/aov.html):
 
 ``` downlit
-lm(glucose ~ raceth, data = hers) |> anova()
+lm(glucose ~ raceth, data = hers) |>
+  anova() |>
+  parameters::parameters() |>
+  parameters::print_md(digits = 3, footer = "")
 ```
+
+| Parameter | Sum_Squares |  df  | Mean_Square |   F    |    p    |
+|:----------|:-----------:|:----:|:-----------:|:------:|:-------:|
+| raceth    |  45918.814  |  2   |  22959.407  | 17.105 | \< .001 |
+| Residuals |  3.705e+06  | 2760 |  1342.226   |        |         |
 
 With \\k = 2\\ groups, the ANOVA F statistic equals the square of the pooled t statistic ([Definition 5](#def-pooled-t-test)), as the two treatment groups of [Example 5](#exm-hers-pooled-ttest) show:
 
