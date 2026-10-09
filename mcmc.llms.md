@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 12:07:46 (PDT)
+Last modified: 2026-10-09 13:41:56 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
