@@ -26,6 +26,7 @@ $$ {#eq-ppv-sens-spec-prev-exm}
 This value matches @exm-ppv.
 
 If the same test were used in a population with prevalence 0.1% instead,
+and its sensitivity and specificity were still 99% in that population,
 the ratio of non-diseased to diseased people would be $0.999 / 0.001 = 999$,
 and the PPV would fall to
 
