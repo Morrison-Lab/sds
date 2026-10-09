@@ -1,7 +1,7 @@
 :::{#exr-check-hessian}
 #### Checking the second derivative
 
-Confirm that the Hessian $\ell''(\rate; \vx)$ is negative
+Confirm that the Hessian $\hess(\rate; \vx)$ is negative
 when evaluated at $\tilde \rate$, using @exr-hessian.
 
 :::
@@ -12,7 +12,7 @@ when evaluated at $\tilde \rate$, using @exr-hessian.
 
 $$
 \begin{aligned}
-\ell''(\tilde\rate; \vx)
+\hess(\tilde\rate; \vx)
 &= -\frac{n \bar x}{\tilde\rate^2}
 && \text{(Hessian of the log-likelihood)}\\
 &= -\frac{n \bar x}{\bar x^2}

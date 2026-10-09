@@ -1,4 +1,4 @@
-Setting $\deriv{\varpar}\ell = 0$:
+Setting $\deriv{\varpar}\llik = 0$:
 
 $$
 \begin{aligned}
@@ -23,7 +23,7 @@ of @exm-profile-loglik, and gives:
 $$\hsdpar^2_{\text{ML}} = \avgin (x_i - \bar x)^2$$
 
 The profile log-likelihood,
-$\ell_p(\varpar) = -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar} - \frac{n\hvarpar_{\text{ML}}}{2\varpar}$,
+$\llik_p(\varpar) = -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar} - \frac{n\hvarpar_{\text{ML}}}{2\varpar}$,
 increases for $\varpar < \hvarpar_{\text{ML}}$
 and decreases for $\varpar > \hvarpar_{\text{ML}}$,
 because its derivative, $\frac{n}{2}\paren{\varpar}^{-2}\paren{\hvarpar_{\text{ML}} - \varpar}$,

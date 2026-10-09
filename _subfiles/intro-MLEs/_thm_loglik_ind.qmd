@@ -4,7 +4,7 @@
 
 For mutually independent data $\dsn{X}$:
 
-$$\ell(\param) = \sumin \log{\p(X_i = x_i \mid \param)}$$ {#eq-loglik-ind}
+$$\llik(\param) = \sumin \log{\p(X_i = x_i \mid \param)}$$ {#eq-loglik-ind}
 
 If the $X_i$ also share a common distribution $\p(X = x \mid \param)$,
 each term is $\log{\p(X = x_i \mid \param)}$.
