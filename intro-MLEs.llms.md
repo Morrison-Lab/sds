@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 23:14:25 (UTC)
+Last modified: 2026-10-09 00:28:12 (UTC)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -32,13 +32,13 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Example 1 (Likelihood of one Bernoulli observation)** If \\X \sim \operatorname{Ber}(\pi)\\, then \\\operatorname{p}\_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x}\\ for \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. If we observe \\x = 1\\, the likelihood is \\\mathcal{L}(\pi) = \pi\\: for example, \\\mathcal{L}(0.2) = 0.2\\ and \\\mathcal{L}(0.7) = 0.7\\, so the observation \\x = 1\\ is more likely under \\\pi = 0.7\\ than under \\\pi = 0.2\\.
+> **Example 1 (Likelihood of one Bernoulli observation)** If \\X \sim \operatorname{Ber}(\pi)\\, then \\\operatorname{p}\_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x}\\ for \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. If we observe \\x = 1\\, the likelihood is \\\mathcal{L}(\pi) = \pi\\: for example, \\\mathcal{L}(0.2) = 0.2\\ and \\\mathcal{L}(0.7) = 0.7\\, so the observation \\x = 1\\ is more likely under \\\pi= 0.7\\ than under \\\pi= 0.2\\.
 
 > **NOTE:**
 >
 > **Definition 2 (Likelihood of a dataset)** Let \\\tilde{x}\stackrel{\text{def}}{=}x_1, \ldots, x_n\\ be a dataset with corresponding random vector \\\tilde{X}\\, and let \\\operatorname{p}\_{\Theta}(\tilde{X}= \tilde{x})\\ be a probability model for the distribution of \\\tilde{X}\\, with unknown parameter vector \\\Theta\\. The **likelihood** of the parameter value \\\theta\\, for model \\\operatorname{p}\_{\Theta}\\ and data \\\tilde{X}= \tilde{x}\\, is the *joint probability* (or joint density) of \\\tilde{X}= \tilde{x}\\ when \\\Theta= \theta\\:
 >
-> \\ \begin{aligned} \mathcal{L}(\theta) &\stackrel{\text{def}}{=}\operatorname{p}(\tilde{X}= \tilde{x}\mid \Theta = \theta) && \text{(definition of the likelihood)}\\ &= \operatorname{p}(X_1 = x_1, \ldots, X_n = x_n \mid \Theta = \theta) && \text{(write \$\tilde{X}= \tilde{x}\$ componentwise)} \end{aligned} \\
+> \\ \begin{aligned} \mathcal{L}(\theta) &\stackrel{\text{def}}{=}\operatorname{p}(\tilde{X}= \tilde{x}\mid \Theta= \theta) && \text{(definition of the likelihood)}\\ &= \operatorname{p}(X_1 = x_1, \ldots, X_n = x_n \mid \Theta= \theta) && \text{(write \$\tilde{X}= \tilde{x}\$ componentwise)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -115,7 +115,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Example 2 (MLE for one Bernoulli observation)** In [Example 1](#exm-lik-obs), the likelihood of the observation \\x = 1\\ is \\\mathcal{L}(\pi) = \pi\\ for \\\pi \in \[0, 1\]\\. This function is increasing, so it is maximized at the upper edge of the parameter space: \\\hat\pi\_{\text{ML}} = 1\\.
+> **Example 2 (MLE for one Bernoulli observation)** In [Example 1](#exm-lik-obs), the likelihood of the observation \\x = 1\\ is \\\mathcal{L}(\pi) = \pi\\ for \\\pi\in \[0, 1\]\\. This function is increasing, so it is maximized at the upper edge of the parameter space: \\\hat{\pi}\_{\text{ML}} = 1\\.
 
 ### 1.3 Finding the maximum of a function
 
@@ -245,7 +245,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 >
 > Substituting the inner derivative back in:
 >
-> \\ \begin{aligned} \ell' &= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} (-1) && \text{(inner derivative is \$-1\$)}\\ &= x \frac{1}{\pi} - (1 - x) \frac{1}{1 - \pi} && \text{(multiply by \$-1\$)}\\ &= \frac{x}{\pi} - \frac{1 - x}{1 - \pi} && \text{(multiply)}\\ &= \frac{x(1 - \pi)}{\pi(1 - \pi)} - \frac{(1 - x)\pi}{\pi(1 - \pi)} && \text{(write both terms over the common denominator)}\\ &= \frac{x(1 - \pi) - (1 - x)\pi}{\pi(1 - \pi)} && \text{(combine the fractions)}\\ &= \frac{x - x\pi - \pi + x\pi}{\pi(1 - \pi)} && \text{(expand the numerator)}\\ &= \frac{x - \pi}{\pi(1 - \pi)} && \text{(cancel \$x\pi\$)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\pi(1 - \pi)} && \text{(\$\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{} = \pi\$)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} && \text{(\$\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \pi(1 - \pi)\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell' &= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} (-1) && \text{(inner derivative is \$-1\$)}\\ &= x \frac{1}{\pi} - (1 - x) \frac{1}{1 - \pi} && \text{(multiply by \$-1\$)}\\ &= \frac{x}{\pi} - \frac{1 - x}{1 - \pi} && \text{(multiply)}\\ &= \frac{x(1 - \pi)}{\pi(1 - \pi)} - \frac{(1 - x)\pi}{\pi(1 - \pi)} && \text{(write both terms over the common denominator)}\\ &= \frac{x(1 - \pi) - (1 - x)\pi}{\pi(1 - \pi)} && \text{(combine the fractions)}\\ &= \frac{x - x\pi- \pi+ x\pi}{\pi(1 - \pi)} && \text{(expand the numerator)}\\ &= \frac{x - \pi}{\pi(1 - \pi)} && \text{(cancel \$x\pi\$)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\pi(1 - \pi)} && \text{(\$\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{} = \pi\$)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} && \text{(\$\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \pi(1 - \pi)\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -299,7 +299,7 @@ In all four examples ([Exercise 8](#exr-derive-bernoulli-score), [Exercise 9](
 
 > **NOTE:**
 >
-> **Example 4 (Score equation of a Bernoulli sample)** For \\n\\ independent Bernoulli observations with \\r = \sum_i y_i\\ successes, the score is \\\sum\_{i=1}^n(y_i - \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\\ (summing [Exercise 8](#exr-derive-bernoulli-score) over the observations), so for \\0 \< r \< n\\ the score equation \\(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\\ has the single solution \\\pi = r/n\\.
+> **Example 4 (Score equation of a Bernoulli sample)** For \\n\\ independent Bernoulli observations with \\r = \sum_i y_i\\ successes, the score is \\\sum\_{i=1}^n(y_i - \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\\ (summing [Exercise 8](#exr-derive-bernoulli-score) over the observations), so for \\0 \< r \< n\\ the score equation \\(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\\ has the single solution \\\pi= r/n\\.
 
 ### 1.7 Information matrices
 
@@ -471,7 +471,7 @@ Table 1: Notation for information matrices in several sources
 
 [Theorem 9](#thm-dist-mle) involves the unknown \\\tilde{\theta}\\, so to use it we estimate \\\mathcal{I}(\tilde{\theta})\\, by either the expected information at the MLE, \\\mathcal{I}(\hat\theta\_{\text{ML}})\\, or the observed information at the MLE, \\I(\tilde{x}; \hat\theta\_{\text{ML}})\\. Either way, the estimated standard error of the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\ is:
 
-\\ \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{} = \sqrt{\mathopen{}\left\[\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\right\]\mathclose{}\_{kk}} \\
+\\ \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{} = \sqrt{\mathopen{}\left\[\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\right\]\mathclose{}\_{kk}} \\
 
 where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta})\\ we chose.
 
@@ -487,11 +487,11 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta
 >
 > **Definition 12 (Wald confidence interval)** The approximate \\100(1-\alpha)\\\\ **Wald confidence interval** for the \\k\\th entry \\\theta_k\\ of a parameter vector is
 >
-> \\ \hat\theta_k \pm z\_{1 - \alpha/2} \times \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{} \\
+> \\ \hat{\theta}\_k \pm z\_{1 - \alpha/2} \times \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{} \\
 >
-> where \\\hat\theta_k\\ is the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\, \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}\\ is its estimated standard error, and \\z\_{\beta}\\ is the \\\beta\\ quantile of the standard Gaussian distribution.
+> where \\\hat{\theta}\_k\\ is the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\, \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ is its estimated standard error, and \\z\_{\beta}\\ is the \\\beta\\ quantile of the standard Gaussian distribution.
 
-By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}\\ has approximately a standard Gaussian distribution in large samples, so the Wald interval is an [approximate confidence interval](inference.llms.md#def-approximate-ci) for \\\theta_k\\. For a 95% interval, \\z\_{0.975} \approx 1.96\\.
+By [Theorem 9](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ has approximately a standard Gaussian distribution in large samples, so the Wald interval is an [approximate confidence interval](inference.llms.md#def-approximate-ci) for \\\theta_k\\. For a 95% interval, \\z\_{0.975} \approx 1.96\\.
 
 #### 1.9.2 Wald tests
 
@@ -499,7 +499,7 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 >
 > **Definition 13 (Wald test)** The **Wald test** of \\H_0: \theta_k = \theta\_{k,0}\\ uses the test statistic
 >
-> \\Z \stackrel{\text{def}}{=}\frac{\hat\theta_k - \theta\_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}}\\
+> \\Z \stackrel{\text{def}}{=}\frac{\hat{\theta}\_k - \theta\_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}}\\
 >
 > which, by [Theorem 9](#thm-dist-mle), has approximately a standard Gaussian distribution under \\H_0\\ in large samples. For \\q\\ constraints \\H_0: \tilde{\theta}\_{(q)} = \tilde{\theta}\_{(q),0}\\ on a \\q \times 1\\ subvector, the Wald statistic is \\{\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}}^{\top}\\\mathopen{}\left(\hat{V}\_{(q)}\right)^{-1}\mathclose{}\\\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}\\, where \\\hat V\_{(q)}\\ is the corresponding \\q \times q\\ block of \\\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\\; it has approximately a \\\chi^2_q\\ distribution under \\H_0\\.
 
@@ -526,9 +526,9 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 
 > **NOTE:**
 >
-> **Definition 14 (Likelihood ratio statistic)** Suppose a null hypothesis \\H_0\\ imposes \\q\\ constraints on the parameter vector \\\tilde{\theta}\\. Let \\\hat\theta\_{\text{ML}}\\ be the unrestricted MLE and \\\hat\theta_0\\ the MLE under \\H_0\\. The **likelihood ratio statistic** is
+> **Definition 14 (Likelihood ratio statistic)** Suppose a null hypothesis \\H_0\\ imposes \\q\\ constraints on the parameter vector \\\tilde{\theta}\\. Let \\\hat\theta\_{\text{ML}}\\ be the unrestricted MLE and \\\hat{\theta}\_0\\ the MLE under \\H_0\\. The **likelihood ratio statistic** is
 >
-> \\ \Lambda \stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat\theta_0)\right)\mathclose{} \\
+> \\ \Lambda\stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat{\theta}\_0)\right)\mathclose{} \\
 
 > **NOTE:**
 >
@@ -546,9 +546,9 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 
 > **NOTE:**
 >
-> *Solution 18*. Under \\H_0\\, the only allowed value is \\\theta_0\\, so the restricted MLE is \\\hat\theta_0 = \theta_0\\. Substituting the approximation from [Exercise 17](#exr-wilks-taylor):
+> *Solution 18*. Under \\H_0\\, the only allowed value is \\\theta_0\\, so the restricted MLE is \\\hat{\theta}\_0 = \theta_0\\. Substituting the approximation from [Exercise 17](#exr-wilks-taylor):
 >
-> \\ \begin{aligned} \Lambda &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat\theta_0)\right)\mathclose{} && \text{(definition of \$\Lambda\$)}\\ &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\theta_0)\right)\mathclose{} && \text{(\$\hat\theta_0 = \theta_0\$)}\\ &\approx 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) + \frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{}\right)\mathclose{} && \text{(substitute the expansion)}\\ &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat\theta\_{\text{ML}}) - \frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{} && \text{(distribute the minus sign)}\\ &= 2\mathopen{}\left(-\frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{} && \text{(cancel \$\ell(\hat\theta\_{\text{ML}})\$)}\\ &= -\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2 && \text{(multiply by 2)}\\ &= -\ell''(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(\$(a - b)^2 = (b - a)^2\$)}\\ &= I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(observed information is the negative Hessian)} \end{aligned} \\
+> \\ \begin{aligned} \Lambda &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat{\theta}\_0)\right)\mathclose{} && \text{(definition of \$\Lambda\$)}\\ &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\theta_0)\right)\mathclose{} && \text{(\$\hat{\theta}\_0 = \theta_0\$)}\\ &\approx 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) + \frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{}\right)\mathclose{} && \text{(substitute the expansion)}\\ &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat\theta\_{\text{ML}}) - \frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{} && \text{(distribute the minus sign)}\\ &= 2\mathopen{}\left(-\frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{} && \text{(cancel \$\ell(\hat\theta\_{\text{ML}})\$)}\\ &= -\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2 && \text{(multiply by 2)}\\ &= -\ell''(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(\$(a - b)^2 = (b - a)^2\$)}\\ &= I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(observed information is the negative Hessian)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -574,21 +574,21 @@ By [Theorem 9](#thm-dist-mle), \\(\hat\theta_k - \theta_k)/\mathop{\widehat{\op
 >
 > *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. For the full proof, see ([Wilks 1938](#ref-wilks1938)) or ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)).
 >
-> By [Exercise 18](#exr-wilks-lrt-quadratic), \\\Lambda \approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\. Under the regularity conditions, \\I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\\ in probability, by the law of large numbers and the consistency of \\\hat\theta\_{\text{ML}}\\; this sketch assumes that step rather than proving it. So, with \\Z\\ as in [Exercise 19](#exr-wilks-std-gaussian):
+> By [Exercise 18](#exr-wilks-lrt-quadratic), \\\Lambda\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\. Under the regularity conditions, \\I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\\ in probability, by the law of large numbers and the consistency of \\\hat\theta\_{\text{ML}}\\; this sketch assumes that step rather than proving it. So, with \\Z\\ as in [Exercise 19](#exr-wilks-std-gaussian):
 >
 > \\ \begin{aligned} \Lambda &\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(quadratic approximation to \$\Lambda\$)}\\ &\approx \mathcal{I}(\theta_0)(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(\$I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\$)}\\ &= \mathopen{}\left(\sqrt{\mathcal{I}(\theta_0)}\\(\hat\theta\_{\text{ML}}- \theta_0)\right)\mathclose{}^2 && \text{(write the product as a square)}\\ &= Z^2 && \text{(definition of \$Z\$)} \end{aligned} \\
 >
-> By [Theorem 9](#thm-dist-mle), \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\ under \\H_0\\, so by [Exercise 19](#exr-wilks-std-gaussian), \\\Lambda \approx Z^2\\ has approximately a \\\chi^2_1\\ distribution.
+> By [Theorem 9](#thm-dist-mle), \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\ under \\H_0\\, so by [Exercise 19](#exr-wilks-std-gaussian), \\\Lambda\approx Z^2\\ has approximately a \\\chi^2_1\\ distribution.
 >
 > With \\q\\ constraints, the same argument in matrix form makes \\\Lambda\\ approximately a sum of \\q\\ squared, independent standard Gaussian variables, which has a \\\chi^2_q\\ distribution; this sketch does not derive the matrix form.
 
 > **NOTE:**
 >
-> *Remark 5* (Wilks’ theorem for nested models). Equivalently, in terms of nested models: if a full model \\M_1\\ has \\p\\ free parameters, and a nested model \\M_0 \subset M_1\\, obtained by imposing \\q\\ constraints on \\M_1\\, has \\p_0 = p - q\\ free parameters, then when \\M_0\\ is true, \\\Lambda = 2\mathopen{}\left(\ell\_{M_1}(\hat\theta\_{\text{ML}}) - \ell\_{M_0}(\hat\theta_0)\right)\mathclose{}\\ converges in distribution to \\\chi^2_q\\.
+> *Remark 5* (Wilks’ theorem for nested models). Equivalently, in terms of nested models: if a full model \\M_1\\ has \\p\\ free parameters, and a nested model \\M_0 \subset M_1\\, obtained by imposing \\q\\ constraints on \\M_1\\, has \\p_0 = p - q\\ free parameters, then when \\M_0\\ is true, \\\Lambda= 2\mathopen{}\left(\ell\_{M_1}(\hat\theta\_{\text{ML}}) - \ell\_{M_0}(\hat{\theta}\_0)\right)\mathclose{}\\ converges in distribution to \\\chi^2_q\\.
 
 > **NOTE:**
 >
-> **Example 10 (Likelihood ratio test for a Poisson rate)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\ and \\H_0: {\lambda}= {\lambda}\_0\\, the log-likelihood is \\\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_i \log x_i!\\ and \\\hat{\lambda}\_{\text{ML}} = \bar x\\, so:
+> **Example 10 (Likelihood ratio test for a Poisson rate)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\ and \\H_0: {\lambda}= {\lambda}\_0\\, the log-likelihood is \\\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_i \log x_i!\\ and \\\hat{{\lambda}}\_{\text{ML}} = \bar x\\, so:
 >
 > \\ \begin{aligned} \Lambda &= 2\mathopen{}\left(\ell(\bar x) - \ell({\lambda}\_0)\right)\mathclose{} && \text{(definition of \$\Lambda\$)}\\ &= 2\mathopen{}\left(\mathopen{}\left(n\bar x \log \bar x - n\bar x - \sum_i \log x_i!\right)\mathclose{} - \mathopen{}\left(n\bar x \log{\lambda}\_0 - n{\lambda}\_0 - \sum_i \log x_i!\right)\mathclose{}\right)\mathclose{} && \text{(substitute \$\ell(\bar x)\$ and \$\ell({\lambda}\_0)\$)}\\ &= 2\mathopen{}\left(n\bar x \log \bar x - n\bar x - \sum_i \log x_i! - n\bar x \log{\lambda}\_0 + n{\lambda}\_0 + \sum_i \log x_i!\right)\mathclose{} && \text{(distribute the minus sign)}\\ &= 2\mathopen{}\left(n\bar x \log \bar x - n\bar x - n\bar x \log{\lambda}\_0 + n{\lambda}\_0\right)\mathclose{} && \text{(the \$\log x_i!\$ terms cancel)}\\ &= 2n\mathopen{}\left(\bar x \log \bar x - \bar x - \bar x \log{\lambda}\_0 + {\lambda}\_0\right)\mathclose{} && \text{(factor out \$n\$)}\\ &= 2n\mathopen{}\left(\bar x \log \bar x - \bar x \log{\lambda}\_0 - \bar x + {\lambda}\_0\right)\mathclose{} && \text{(reorder the terms)}\\ &= 2n\mathopen{}\left(\bar x \mathopen{}\left(\log \bar x - \log{\lambda}\_0\right)\mathclose{} - \bar x + {\lambda}\_0\right)\mathclose{} && \text{(factor \$\bar x\$ out of the two log terms)}\\ &= 2n\mathopen{}\left(\bar x \log\frac{\bar x}{{\lambda}\_0} - \bar x + {\lambda}\_0\right)\mathclose{} && \text{(log of a quotient)} \end{aligned} \\
 >
@@ -635,25 +635,25 @@ Table 2: Exact tests that assume Gaussian outcomes, and their approximate, larg
 >
 > \\ \Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{} = 1 - \alpha \\
 
-Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat\mu = \bar X\\, and the difference \\\bar X^\* - \hat\mu\\ (the negative of the [prediction error](estimation.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
+Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](estimation.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
-\\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\bar X^\* - \hat\mu\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X^\*\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\mu\right)\mathclose{} && \text{(variance of a difference of independent variables)}\\ &= \frac{\sigma^2}{m} + \frac{\sigma^2}{n} && \text{(variance of a sample mean)} \end{aligned} \\
+\\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\bar X^\* - \hat{\mu}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X^\*\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\mu}\right)\mathclose{} && \text{(variance of a difference of independent variables)}\\ &= \frac{\sigma^2}{m} + \frac{\sigma^2}{n} && \text{(variance of a sample mean)} \end{aligned} \\
 
-and \\\bar X^\* - \hat\mu \sim \operatorname{N}\mathopen{}\left(0, \sigma^2\mathopen{}\left(\frac{1}{m} + \frac{1}{n}\right)\mathclose{}\right)\mathclose{}\\. So a \\100(1 - \alpha)\\\\ prediction interval for \\\bar X^\*\\ is:
+and \\\bar X^\* - \hat{\mu}\sim \operatorname{N}\mathopen{}\left(0, \sigma^2\mathopen{}\left(\frac{1}{m} + \frac{1}{n}\right)\mathclose{}\right)\mathclose{}\\. So a \\100(1 - \alpha)\\\\ prediction interval for \\\bar X^\*\\ is:
 
-\\\hat\mu \pm z\_{1 - \alpha/2} \\ \sigma \sqrt{\frac{1}{m} + \frac{1}{n}}\\
+\\\hat{\mu}\pm z\_{1 - \alpha/2} \\ \sigma\sqrt{\frac{1}{m} + \frac{1}{n}}\\
 
-Usually \\m = 1\\. The term \\1/n\\ accounts for the uncertainty in \\\hat\mu\\, and becomes negligible when \\n\\ is much larger than \\m\\.
+Usually \\m = 1\\. The term \\1/n\\ accounts for the uncertainty in \\\hat{\mu}\\, and becomes negligible when \\n\\ is much larger than \\m\\.
 
 > **NOTE:**
 >
 > *Remark 7* (Prediction intervals versus confidence intervals). A [confidence interval](inference.llms.md#def-confidence-interval) covers a fixed parameter, such as the mean \\\mu\\. A prediction interval ([Definition 15](#def-prediction-interval)) covers a random quantity, such as a new outcome, or, in the example above, the mean \\\bar X^\*\\ of \\m\\ new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.
 >
-> In the Gaussian example above, the standard error of \\\hat\mu = \bar X\\ is \\\sigma / \sqrt{n}\\, so the two intervals, the [Wald confidence interval](#def-wald-ci) for \\\mu\\ and the prediction interval for \\\bar X^\*\\, are
+> In the Gaussian example above, the standard error of \\\hat{\mu}= \bar X\\ is \\\sigma/ \sqrt{n}\\, so the two intervals, the [Wald confidence interval](#def-wald-ci) for \\\mu\\ and the prediction interval for \\\bar X^\*\\, are
 >
-> \\ \begin{aligned} &\hat\mu \pm z\_{1 - \alpha/2} \\ \sigma \sqrt{\frac{1}{n}} && \text{(confidence interval for \$\mu\$)}\\ &\hat\mu \pm z\_{1 - \alpha/2} \\ \sigma \sqrt{\frac{1}{m} + \frac{1}{n}} && \text{(prediction interval for \$\bar X^\*\$)} \end{aligned} \\
+> \\ \begin{aligned} &\hat{\mu}\pm z\_{1 - \alpha/2} \\ \sigma\sqrt{\frac{1}{n}} && \text{(confidence interval for \$\mu\$)}\\ &\hat{\mu}\pm z\_{1 - \alpha/2} \\ \sigma\sqrt{\frac{1}{m} + \frac{1}{n}} && \text{(prediction interval for \$\bar X^\*\$)} \end{aligned} \\
 >
-> The prediction interval is always the wider of the two, because its variance has the extra term \\\sigma^2 / m\\, the variance of the new observations’ mean. As \\n\\ grows, the width of the confidence interval shrinks to 0, but the width of the prediction interval shrinks only to \\2 z\_{1 - \alpha/2} \\ \sigma / \sqrt{m}\\: more data pins down \\\mu\\, but cannot remove the randomness of the new observations. The same contrast holds in regression, between a confidence interval for the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ and a prediction interval for a new outcome \\Y\\ at \\X = x\\.
+> The prediction interval is always the wider of the two, because its variance has the extra term \\\sigma^2/ m\\, the variance of the new observations’ mean. As \\n\\ grows, the width of the confidence interval shrinks to 0, but the width of the prediction interval shrinks only to \\2 z\_{1 - \alpha/2} \\ \sigma/ \sqrt{m}\\: more data pins down \\\mu\\, but cannot remove the randomness of the new observations. The same contrast holds in regression, between a confidence interval for the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ and a prediction interval for a new outcome \\Y\\ at \\X = x\\.
 
 ## 2 Example: maximum likelihood for tropical cyclones in Australia
 
@@ -781,11 +781,11 @@ We could estimate \\\Pr(X = x)\\ for each value of \\x\\ in \\0, 1, 2, \ldots\\ 
 
 > **NOTE:**
 >
-> *Solution 21*. \\\Pr(X = x) = \frac{\lambda^{x} e^{-\lambda}}{x!}, \quad x \in \mathopen{}\left\\0, 1, 2, \ldots\right\\\mathclose{} \tag{15}\\
+> *Solution 21*. \\\Pr(X = x) = \frac{{\lambda}^{x} e^{-{\lambda}}}{x!}, \quad x \in \mathopen{}\left\\0, 1, 2, \ldots\right\\\mathclose{} \tag{15}\\
 
 ### 2.4 Estimating the model parameters using maximum likelihood
 
-We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
+We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 
 > **NOTE:**
 >
@@ -793,7 +793,7 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 
 > **NOTE:**
 >
-> *Solution 22*. \\ \begin{aligned} \mathcal{L}(\lambda; x) &\stackrel{\text{def}}{=}\Pr(X = x) && \text{(definition of likelihood)}\\ &= \frac{\lambda^x e^{-\lambda}}{x!} && \text{(Poisson PMF)} \end{aligned} \\
+> *Solution 22*. \\ \begin{aligned} \mathcal{L}({\lambda}; x) &\stackrel{\text{def}}{=}\Pr(X = x) && \text{(definition of likelihood)}\\ &= \frac{{\lambda}^x e^{-{\lambda}}}{x!} && \text{(Poisson PMF)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -801,9 +801,9 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 
 > **NOTE:**
 >
-> *Solution 23*. There is only one parameter, \\\lambda\\:
+> *Solution 23*. There is only one parameter, \\{\lambda}\\:
 >
-> \\\theta = (\lambda)\\
+> \\\theta= ({\lambda})\\
 
 > **NOTE:**
 >
@@ -813,8 +813,8 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > *Solution 24*.
 >
-> - Population mean: \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{} = \lambda\\.
-> - Population variance: \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \lambda\\.
+> - Population mean: \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{} = {\lambda}\\.
+> - Population variance: \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = {\lambda}\\.
 >
 > The sample mean and variance in [Table 4](#tbl-dobson-cyclones-sumstat) are of similar size, as the model implies.
 
@@ -824,11 +824,11 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 
 > **NOTE:**
 >
-> *Solution 25*. \\ \begin{aligned} \mathcal{L}(\lambda; \tilde{x}) &\stackrel{\text{def}}{=}\Pr(\tilde{X}= \tilde{x}) && \text{(definition of likelihood)}\\ &= \Pr(X_1 = x_1, X_2 = x_2, \ldots, X\_{13} = x\_{13}) && \text{(write out the vector)}\\ &= \prod\_{i=1}^{13} \Pr(X_i = x_i) && \text{(independence)}\\ &= \prod\_{i=1}^{13} \frac{\lambda^{x_i} e^{-\lambda}}{x_i!} && \text{(Poisson PMF)} \end{aligned} \\
+> *Solution 25*. \\ \begin{aligned} \mathcal{L}({\lambda}; \tilde{x}) &\stackrel{\text{def}}{=}\Pr(\tilde{X}= \tilde{x}) && \text{(definition of likelihood)}\\ &= \Pr(X_1 = x_1, X_2 = x_2, \ldots, X\_{13} = x\_{13}) && \text{(write out the vector)}\\ &= \prod\_{i=1}^{13} \Pr(X_i = x_i) && \text{(independence)}\\ &= \prod\_{i=1}^{13} \frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!} && \text{(Poisson PMF)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Exercise 26 (Graphing the likelihood)** Graph the likelihood as a function of \\\lambda\\.
+> **Exercise 26 (Graphing the likelihood)** Graph the likelihood as a function of \\{\lambda}\\.
 
 > **NOTE:**
 >
@@ -863,11 +863,11 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 
 > **NOTE:**
 >
-> *Solution 27*. \\ \begin{aligned} \ell(\lambda; \tilde{x}) &\stackrel{\text{def}}{=}\operatorname{log}\mathopen{}\left\\\mathcal{L}(\lambda; \tilde{x})\right\\\mathclose{} && \text{(definition of log-likelihood)}\\ &= \operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{\lambda^{x_i} e^{-\lambda}}{x_i!}\right\\\mathclose{} && \text{(likelihood of the dataset)}\\ &= \sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\\frac{\lambda^{x_i} e^{-\lambda}}{x_i!}\right\\\mathclose{} && \text{(log of a product)}\\ &= \sum\_{i=1}^n\mathopen{}\left(\operatorname{log}\mathopen{}\left\\\lambda^{x_i}\right\\\mathclose{} + \operatorname{log}\mathopen{}\left\\e^{-\lambda}\right\\\mathclose{} - \operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}\right)\mathclose{} && \text{(log of a product and of a quotient)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i \operatorname{log}\mathopen{}\left\\\lambda\right\\\mathclose{} - \lambda - \operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}\right)\mathclose{} && \text{(log of a power; \$\log e^{a} = a\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\lambda\right\\\mathclose{} - n\lambda - \sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{} && \text{(split the sum)} \end{aligned} \\
+> *Solution 27*. \\ \begin{aligned} \ell({\lambda}; \tilde{x}) &\stackrel{\text{def}}{=}\operatorname{log}\mathopen{}\left\\\mathcal{L}({\lambda}; \tilde{x})\right\\\mathclose{} && \text{(definition of log-likelihood)}\\ &= \operatorname{log}\mathopen{}\left\\\prod\_{i=1}^n\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\\\mathclose{} && \text{(likelihood of the dataset)}\\ &= \sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\\\mathclose{} && \text{(log of a product)}\\ &= \sum\_{i=1}^n\mathopen{}\left(\operatorname{log}\mathopen{}\left\\{\lambda}^{x_i}\right\\\mathclose{} + \operatorname{log}\mathopen{}\left\\e^{-{\lambda}}\right\\\mathclose{} - \operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}\right)\mathclose{} && \text{(log of a product and of a quotient)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i \operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{} - {\lambda}- \operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}\right)\mathclose{} && \text{(log of a power; \$\log e^{a} = a\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{} - n{\lambda}- \sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{} && \text{(split the sum)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Exercise 28 (Graphing the log-likelihood)** Graph the log-likelihood as a function of \\\lambda\\.
+> **Exercise 28 (Graphing the log-likelihood)** Graph the log-likelihood as a function of \\{\lambda}\\.
 
 > **NOTE:**
 >
@@ -904,9 +904,9 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > *Solution 29*. The score function is the first derivative of the log-likelihood from [Exercise 27](#exr-sample-llik):
 >
-> \\ \begin{aligned} \ell'(\lambda; \tilde{x}) &\stackrel{\text{def}}{=}\frac{\partial}{\partial \lambda}\mathopen{}\left(\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}\operatorname{log}\mathopen{}\left\\\lambda\right\\\mathclose{} - n\lambda - \sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}\right)\mathclose{} && \text{(definition of the score)}\\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}\frac{\partial}{\partial \lambda}\operatorname{log}\mathopen{}\left\\\lambda\right\\\mathclose{} - n\frac{\partial}{\partial \lambda}\lambda - \frac{\partial}{\partial \lambda}\sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{} && \text{(linearity of differentiation)}\\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}\frac{1}{\lambda} - n - 0 && \text{(derivatives of \$\log \lambda\$, \$\lambda\$, and a constant)}\\ &= \frac{n \bar x}{\lambda} - n && \text{(\$\textstyle\sum\_{i=1}^nx_i = n \bar x\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell'({\lambda}; \tilde{x}) &\stackrel{\text{def}}{=}\frac{\partial}{\partial {\lambda}}\mathopen{}\left(\mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{} - n{\lambda}- \sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{}\right)\mathclose{} && \text{(definition of the score)}\\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}\frac{\partial}{\partial {\lambda}}\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{} - n\frac{\partial}{\partial {\lambda}}{\lambda}- \frac{\partial}{\partial {\lambda}}\sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\x_i!\right\\\mathclose{} && \text{(linearity of differentiation)}\\ &= \mathopen{}\left(\sum\_{i=1}^nx_i\right)\mathclose{}\frac{1}{{\lambda}} - n - 0 && \text{(derivatives of \$\log {\lambda}\$, \${\lambda}\$, and a constant)}\\ &= \frac{n \bar x}{{\lambda}} - n && \text{(\$\textstyle\sum\_{i=1}^nx_i = n \bar x\$)} \end{aligned} \\
 >
-> For the cyclone data, \\n = 13\\ and \\n \bar x = 72\\, so \\\ell'(\lambda; \tilde{x}) = 72/\lambda - 13\\.
+> For the cyclone data, \\n = 13\\ and \\n \bar x = 72\\, so \\\ell'({\lambda}; \tilde{x}) = 72/{\lambda}- 13\\.
 
 > **NOTE:**
 >
@@ -947,9 +947,9 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 >
 > *Solution 31*. With one parameter, the Hessian is the second derivative of the log-likelihood, which is the derivative of the score from [Exercise 29](#exr-cyclone-score-fn):
 >
-> \\ \begin{aligned} \ell''(\lambda; \tilde{x}) &= \frac{\partial}{\partial \lambda}\mathopen{}\left(\frac{n \bar x}{\lambda} - n\right)\mathclose{} && \text{(differentiate the score)}\\ &= n \bar x \frac{\partial}{\partial \lambda}\frac{1}{\lambda} - \frac{\partial}{\partial \lambda} n && \text{(linearity of differentiation)}\\ &= -\frac{n \bar x}{\lambda^2} && \text{(\$\tfrac{d}{d\lambda}\lambda^{-1} = -\lambda^{-2}\$; \$n\$ is constant)} \end{aligned} \\
+> \\ \begin{aligned} \ell''({\lambda}; \tilde{x}) &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left(\frac{n \bar x}{{\lambda}} - n\right)\mathclose{} && \text{(differentiate the score)}\\ &= n \bar x \frac{\partial}{\partial {\lambda}}\frac{1}{{\lambda}} - \frac{\partial}{\partial {\lambda}} n && \text{(linearity of differentiation)}\\ &= -\frac{n \bar x}{{\lambda}^2} && \text{(\$\tfrac{d}{d{\lambda}}{\lambda}^{-1} = -{\lambda}^{-2}\$; \$n\$ is constant)} \end{aligned} \\
 >
-> For the cyclone data, \\\ell''(\lambda; \tilde{x}) = -72/\lambda^2\\.
+> For the cyclone data, \\\ell''({\lambda}; \tilde{x}) = -72/{\lambda}^2\\.
 
 > **NOTE:**
 >
@@ -986,39 +986,39 @@ We can estimate the parameter \\\lambda\\ using maximum likelihood estimation.
 
 > **NOTE:**
 >
-> *Solution 33*. \\\ell'(\lambda; \tilde{x}) = 0\\
+> *Solution 33*. \\\ell'({\lambda}; \tilde{x}) = 0\\
 
 ### 2.5 Finding the MLE analytically
 
-In this example, we can find the MLE of \\\lambda\\ by solving the score equation algebraically.
+In this example, we can find the MLE of \\{\lambda}\\ by solving the score equation algebraically.
 
 > **NOTE:**
 >
-> **Exercise 34 (Solving the score equation)** Solve the score equation from [Exercise 33](#exr-score-equation) for \\\lambda\\, using the score from [Exercise 29](#exr-cyclone-score-fn).
+> **Exercise 34 (Solving the score equation)** Solve the score equation from [Exercise 33](#exr-score-equation) for \\{\lambda}\\, using the score from [Exercise 29](#exr-cyclone-score-fn).
 
 > **NOTE:**
 >
-> *Solution 34*. \\ \begin{aligned} 0 &= \frac{n \bar x}{\lambda} - n && \text{(score of the dataset)}\\ n &= \frac{n \bar x}{\lambda} && \text{(add \$n\$ to both sides)}\\ n\lambda &= n \bar x && \text{(multiply both sides by \$\lambda \> 0\$)}\\ \lambda &= \bar x && \text{(divide both sides by \$n\$)} \end{aligned} \\
+> *Solution 34*. \\ \begin{aligned} 0 &= \frac{n \bar x}{{\lambda}} - n && \text{(score of the dataset)}\\ n &= \frac{n \bar x}{{\lambda}} && \text{(add \$n\$ to both sides)}\\ n{\lambda}&= n \bar x && \text{(multiply both sides by \${\lambda}\> 0\$)}\\ {\lambda}&= \bar x && \text{(divide both sides by \$n\$)} \end{aligned} \\
 
-Call this solution of the score equation \\\tilde \lambda\\ for now:
+Call this solution of the score equation \\\tilde {\lambda}\\ for now:
 
-\\\tilde \lambda \stackrel{\text{def}}{=}\bar x\\
-
-> **NOTE:**
->
-> **Exercise 35 (Checking the second derivative)** Confirm that the Hessian \\\ell''(\lambda; \tilde{x})\\ is negative when evaluated at \\\tilde \lambda\\, using [Exercise 31](#exr-hessian).
+\\\tilde {\lambda}\stackrel{\text{def}}{=}\bar x\\
 
 > **NOTE:**
 >
-> *Solution 35*. \\ \begin{aligned} \ell''(\tilde\lambda; \tilde{x}) &= -\frac{n \bar x}{\tilde\lambda^2} && \text{(Hessian of the log-likelihood)}\\ &= -\frac{n \bar x}{\bar x^2} && \text{(substitute \$\tilde\lambda = \bar x\$)}\\ &= -\frac{n}{\bar x} && \text{(cancel one factor of \$\bar x\$)}\\ &\< 0 && \text{(\$n \> 0\$ and \$\bar x \> 0\$)} \end{aligned} \\
+> **Exercise 35 (Checking the second derivative)** Confirm that the Hessian \\\ell''({\lambda}; \tilde{x})\\ is negative when evaluated at \\\tilde {\lambda}\\, using [Exercise 31](#exr-hessian).
 
 > **NOTE:**
 >
-> **Exercise 36 (Identifying the MLE)** Draw conclusions about the MLE of \\\lambda\\.
+> *Solution 35*. \\ \begin{aligned} \ell''(\tilde{\lambda}; \tilde{x}) &= -\frac{n \bar x}{\tilde{\lambda}^2} && \text{(Hessian of the log-likelihood)}\\ &= -\frac{n \bar x}{\bar x^2} && \text{(substitute \$\tilde{\lambda}= \bar x\$)}\\ &= -\frac{n}{\bar x} && \text{(cancel one factor of \$\bar x\$)}\\ &\< 0 && \text{(\$n \> 0\$ and \$\bar x \> 0\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> *Solution 36*. Since \\\ell''(\tilde \lambda; \tilde{x}) \< 0\\, \\\tilde \lambda\\ is a local maximizer of the log-likelihood. Moreover, \\\ell''(\lambda; \tilde{x}) = -n\bar x/\lambda^2 \< 0\\ for every \\\lambda \> 0\\, so the log-likelihood is strictly concave, and a local maximizer of a strictly concave function is its unique global maximizer. So \\\tilde \lambda\\ maximizes \\\ell\\, and therefore \\\mathcal{L}\\:
+> **Exercise 36 (Identifying the MLE)** Draw conclusions about the MLE of \\{\lambda}\\.
+
+> **NOTE:**
+>
+> *Solution 36*. Since \\\ell''(\tilde {\lambda}; \tilde{x}) \< 0\\, \\\tilde {\lambda}\\ is a local maximizer of the log-likelihood. Moreover, \\\ell''({\lambda}; \tilde{x}) = -n\bar x/{\lambda}^2 \< 0\\ for every \\{\lambda}\> 0\\, so the log-likelihood is strictly concave, and a local maximizer of a strictly concave function is its unique global maximizer. So \\\tilde {\lambda}\\ maximizes \\\ell\\, and therefore \\\mathcal{L}\\:
 >
 > ``` downlit
 > mle <- mean(cyclones$number)
@@ -1026,7 +1026,7 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 > #> [1] 5.53846
 > ```
 >
-> \\\hat{\lambda}\_{\text{ML}} = \bar x = 5.538\\
+> \\\hat{{\lambda}}\_{\text{ML}} = \bar x = 5.538\\
 
 > **NOTE:**
 >
@@ -1048,7 +1048,7 @@ Call this solution of the score equation \\\tilde \lambda\\ for now:
 >
 > Figure 7: Log-likelihood of the cyclone data, with the MLE marked in red
 
-[Figure 8](#fig-obs-inf-matrix) graphs the [observed information](intro-MLEs.llms.md#def-oinf), \\I(\lambda; \tilde{x}) = -\ell''(\lambda; \tilde{x})\\.
+[Figure 8](#fig-obs-inf-matrix) graphs the [observed information](intro-MLEs.llms.md#def-oinf), \\I({\lambda}; \tilde{x}) = -\ell''({\lambda}; \tilde{x})\\.
 
 Show R code
 
@@ -1122,7 +1122,7 @@ For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \tilde{x})\\ is the sa
 
 > **NOTE:**
 >
-> **Example 12 (Finding the MLE using the Newton-Raphson algorithm)** We found the MLE \\\hat{\lambda} = \bar{x}\\ by solving the score equation \\\ell'(\lambda) = 0\\ algebraically ([Exercise 34](#exr-solve-score-equation)). If we could not have solved it, we could instead start from an initial guess such as \\{\widehat{\lambda}}^\*= 3\\ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
+> **Example 12 (Finding the MLE using the Newton-Raphson algorithm)** We found the MLE \\\hat{{\lambda}}= \bar{x}\\ by solving the score equation \\\ell'({\lambda}) = 0\\ algebraically ([Exercise 34](#exr-solve-score-equation)). If we could not have solved it, we could instead start from an initial guess such as \\{\widehat{\lambda}}^\*= 3\\ and apply the [Newton-Raphson algorithm](#sec-newton-raphson).
 >
 > ``` downlit
 > cur_lambda_est <- 3
@@ -1132,11 +1132,11 @@ For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \tilde{x})\\ is the sa
 
 From [Exercise 29](#exr-cyclone-score-fn) and [Exercise 31](#exr-hessian), the score function and Hessian are:
 
-\\ \begin{aligned} \ell'(\lambda; \tilde{x}) &= \frac{72}{\lambda} - 13\\ \ell''(\lambda; \tilde{x}) &= -\frac{72}{\lambda^2} \end{aligned} \\
+\\ \begin{aligned} \ell'({\lambda}; \tilde{x}) &= \frac{72}{{\lambda}} - 13\\ \ell''({\lambda}; \tilde{x}) &= -\frac{72}{{\lambda}^2} \end{aligned} \\
 
 So the first-order Taylor approximation of the score function around \\{\widehat{\lambda}}^\*\\ is:
 
-\\ \begin{aligned} \ell'(\lambda) &\approx \ell'^\*(\lambda)\\ &\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^\*) + \ell''({\widehat{\lambda}}^\*)(\lambda - {\widehat{\lambda}}^\*)\\ &= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^\*} - 13\right)\mathclose{} + \mathopen{}\left(-\frac{72}{\mathopen{}\left({\widehat{\lambda}}^\*\right)^2\mathclose{}}\right)\mathclose{} (\lambda - {\widehat{\lambda}}^\*) \end{aligned} \\
+\\ \begin{aligned} \ell'({\lambda}) &\approx \ell'^\*({\lambda})\\ &\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^\*) + \ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)\\ &= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^\*} - 13\right)\mathclose{} + \mathopen{}\left(-\frac{72}{\mathopen{}\left({\widehat{\lambda}}^\*\right)^2\mathclose{}}\right)\mathclose{} ({\lambda}- {\widehat{\lambda}}^\*) \end{aligned} \\
 
 [Figure 9](#fig-cyclone-newton-step1) compares the score function and the approximate score function at \\{\widehat{\lambda}}^\*= 3\\.
 
@@ -1190,7 +1190,7 @@ Figure 9: Score function of the cyclone data and its first-order approximation 
 
 Approximating the score function by a linear function is equivalent to approximating the log-likelihood by a second-order Taylor polynomial ([Figure 10](#fig-cyclone-newton-step1-loglik)):
 
-\\ \ell^\*(\lambda) \stackrel{\text{def}}{=} \ell({\widehat{\lambda}}^\*) + (\lambda - {\widehat{\lambda}}^\*) \ell'({\widehat{\lambda}}^\*) + \frac{1}{2}\ell''({\widehat{\lambda}}^\*)(\lambda - {\widehat{\lambda}}^\*)^2 \\
+\\ \ell^\*({\lambda}) \stackrel{\text{def}}{=} \ell({\widehat{\lambda}}^\*) + ({\lambda}- {\widehat{\lambda}}^\*) \ell'({\widehat{\lambda}}^\*) + \frac{1}{2}\ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)^2 \\
 
 Show R code
 
@@ -1237,9 +1237,9 @@ print(plot_loglik)
 
 Figure 10: Log-likelihood of the cyclone data and its second-order approximation at the initial guess
 
-Solving the approximate score equation \\\ell'^\*(\lambda) = 0\\ gives the next estimate:
+Solving the approximate score equation \\\ell'^\*({\lambda}) = 0\\ gives the next estimate:
 
-\\ \begin{aligned} \lambda &= {\widehat{\lambda}}^\*- \ell'({\widehat{\lambda}}^\*) \cdot\mathopen{}\left(\ell''({\widehat{\lambda}}^\*)\right)^{-1}\mathclose{}\\ &= 4.375 \end{aligned} \\
+\\ \begin{aligned} {\lambda} &= {\widehat{\lambda}}^\*- \ell'({\widehat{\lambda}}^\*) \cdot\mathopen{}\left(\ell''({\widehat{\lambda}}^\*)\right)^{-1}\mathclose{}\\ &= 4.375 \end{aligned} \\
 
 ``` downlit
 new_lambda_est <-
@@ -1416,41 +1416,41 @@ For the second entry, write \\\sigma^2\\ as a single variable \\v\\, so that \\\
 
 Setting \\\frac{\partial}{\partial \mu}\ell = 0\\:
 
-\\ \begin{aligned} 0 &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i - n\mu\right)\mathclose{} && \text{(score for \$\mu\$)}\\ 0 &= \sum\_{i=1}^nx_i - n\mu && \text{(multiply both sides by \$\sigma^2\$)}\\ n\mu &= \sum\_{i=1}^nx_i && \text{(add \$n\mu\$ to both sides)}\\ \mu &= \frac{1}{n}\sum\_{i=1}^nx_i && \text{(divide by \$n\$)}\\ \mu &= \bar x && \text{(definition of \$\bar x\$)} \end{aligned} \\
+\\ \begin{aligned} 0 &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i - n\mu\right)\mathclose{} && \text{(score for \$\mu\$)}\\ 0 &= \sum\_{i=1}^nx_i - n\mu && \text{(multiply both sides by \$\sigma^2\$)}\\ n\mu&= \sum\_{i=1}^nx_i && \text{(add \$n\mu\$ to both sides)}\\ \mu&= \frac{1}{n}\sum\_{i=1}^nx_i && \text{(divide by \$n\$)}\\ \mu&= \bar x && \text{(definition of \$\bar x\$)} \end{aligned} \\
 
 This solution does not depend on \\\sigma^2\\. The second derivative is
 
-\\ \begin{aligned} \frac{\partial^2 \ell}{\partial \mu^2} &= \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i - n\mu\right)\mathclose{}\right)\mathclose{} && \text{(differentiate the score for \$\mu\$)}\\ &= \frac{1}{\sigma^2}\frac{\partial}{\partial \mu}\mathopen{}\left(\sum\_{i=1}^nx_i - n\mu\right)\mathclose{} && \text{(constant multiple rule)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(\frac{\partial}{\partial \mu}\sum\_{i=1}^nx_i - \frac{\partial}{\partial \mu}\mathopen{}\left(n\mu\right)\mathclose{}\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - \frac{\partial}{\partial \mu}\mathopen{}\left(n\mu\right)\mathclose{}\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^nx_i\$ does not depend on \$\mu\$)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - n\frac{\partial}{\partial \mu}\mu\right)\mathclose{} && \text{(constant multiple rule)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - n\right)\mathclose{} && \text{(derivative of \$\mu\$ with respect to itself)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(-n\right)\mathclose{} && \text{(subtract)}\\ &= -\frac{n}{\sigma^2} && \text{(multiply)}\\ &\< 0, && \text{(\$n \> 0\$ and \$\sigma^2 \> 0\$)} \end{aligned} \\
+\\ \begin{aligned} \frac{\partial^2 \ell}{\partial \mu^2} &= \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i - n\mu\right)\mathclose{}\right)\mathclose{} && \text{(differentiate the score for \$\mu\$)}\\ &= \frac{1}{\sigma^2}\frac{\partial}{\partial \mu}\mathopen{}\left(\sum\_{i=1}^nx_i - n\mu\right)\mathclose{} && \text{(constant multiple rule)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(\frac{\partial}{\partial \mu}\sum\_{i=1}^nx_i - \frac{\partial}{\partial \mu}\mathopen{}\left(n\mu\right)\mathclose{}\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - \frac{\partial}{\partial \mu}\mathopen{}\left(n\mu\right)\mathclose{}\right)\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^nx_i\$ does not depend on \$\mu\$)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - n\frac{\partial}{\partial \mu}\mu\right)\mathclose{} && \text{(constant multiple rule)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(0 - n\right)\mathclose{} && \text{(derivative of \$\mu\$ with respect to itself)}\\ &= \frac{1}{\sigma^2}\mathopen{}\left(-n\right)\mathclose{} && \text{(subtract)}\\ &= -\frac{n}{\sigma^2} && \text{(multiply)}\\ &\< 0, && \text{(\$n \> 0\$ and \$\sigma^2\> 0\$)} \end{aligned} \\
 
-so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\\, and \\\hat\mu\_{\text{ML}} = \bar x\\.
+so for every fixed \\\sigma^2\\, \\\ell\\ is maximized over \\\mu\\ at \\\bar x\\, and \\\hat{\mu}\_{\text{ML}} = \bar x\\.
 
 ### 3.3 MLE of \\\sigma^2\\
 
 > **NOTE:**
 >
-> **Definition 19 (Profile log-likelihood)** Split a parameter vector into \\(\psi, \lambda)\\, and for each fixed value of \\\psi\\ let \\\hat\lambda(\psi)\\ maximize \\\ell(\psi, \lambda)\\ over \\\lambda\\. The **profile log-likelihood** of \\\psi\\ is
+> **Definition 19 (Profile log-likelihood)** Split a parameter vector into \\(\psi, \lambda)\\, and for each fixed value of \\\psi\\ let \\\hat{\lambda}(\psi)\\ maximize \\\ell(\psi, \lambda)\\ over \\\lambda\\. The **profile log-likelihood** of \\\psi\\ is
 >
-> \\\ell_p(\psi) \stackrel{\text{def}}{=}\ell\mathopen{}\left(\psi, \hat\lambda(\psi)\right)\mathclose{}.\\
+> \\\ell_p(\psi) \stackrel{\text{def}}{=}\ell\mathopen{}\left(\psi, \hat{\lambda}(\psi)\right)\mathclose{}.\\
 
 > **NOTE:**
 >
-> **Example 13 (Profile log-likelihood of a Gaussian variance)** In the Gaussian model, \\\hat\mu = \bar x\\ maximizes \\\ell\\ over \\\mu\\ for every value of \\\sigma^2\\ ([Section 3](#sec-gaussian-mle)), so the profile log-likelihood of \\\sigma^2\\ is
+> **Example 13 (Profile log-likelihood of a Gaussian variance)** In the Gaussian model, \\\hat{\mu}= \bar x\\ maximizes \\\ell\\ over \\\mu\\ for every value of \\\sigma^2\\ ([Section 3](#sec-gaussian-mle)), so the profile log-likelihood of \\\sigma^2\\ is
 >
-> \\ \begin{aligned} \ell_p(\sigma^2) &= \ell(\bar x, \sigma^2) && \text{(definition of the profile log-likelihood)}\\ &= -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \bar x)^2 && \text{(Gaussian log-likelihood at \$\mu = \bar x\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell_p(\sigma^2) &= \ell(\bar x, \sigma^2) && \text{(definition of the profile log-likelihood)}\\ &= -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \bar x)^2 && \text{(Gaussian log-likelihood at \$\mu= \bar x\$)} \end{aligned} \\
 
 Setting \\\frac{\partial}{\partial \sigma^2}\ell = 0\\:
 
-\\ \begin{aligned} 0 &= -\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(score for \$\sigma^2\$)}\\ \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(add \$\tfrac{n}{2}(\sigma^2)^{-1}\$)}\\ n\sigma^2 &= \sum\_{i=1}^n(x_i - \mu)^2 && \text{(multiply both sides by \$2(\sigma^2)^2\$)}\\ \sigma^2 &= \frac{1}{n}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(divide both sides by \$n\$)} \end{aligned} \\
+\\ \begin{aligned} 0 &= -\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(score for \$\sigma^2\$)}\\ \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(add \$\tfrac{n}{2}(\sigma^2)^{-1}\$)}\\ n\sigma^2&= \sum\_{i=1}^n(x_i - \mu)^2 && \text{(multiply both sides by \$2(\sigma^2)^2\$)}\\ \sigma^2&= \frac{1}{n}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(divide both sides by \$n\$)} \end{aligned} \\
 
-Substituting the maximizer \\\mu = \bar x\\, which does not depend on \\\sigma^2\\, maximizes the [profile log-likelihood](#def-profile-loglik) of [Example 13](#exm-profile-loglik), and gives:
+Substituting the maximizer \\\mu= \bar x\\, which does not depend on \\\sigma^2\\, maximizes the [profile log-likelihood](#def-profile-loglik) of [Example 13](#exm-profile-loglik), and gives:
 
 \\\hat{\sigma}^2\_{\text{ML}} = \frac{1}{n}\sum\_{i=1}^n(x_i - \bar x)^2\\
 
-The profile log-likelihood, \\\ell_p(\sigma^2) = -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{n\hat\sigma^2\_{\text{ML}}}{2\sigma^2}\\, increases for \\\sigma^2 \< \hat\sigma^2\_{\text{ML}}\\ and decreases for \\\sigma^2 \> \hat\sigma^2\_{\text{ML}}\\, because its derivative, \\\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\mathopen{}\left(\hat\sigma^2\_{\text{ML}} - \sigma^2\right)\mathclose{}\\, has the sign of \\\hat\sigma^2\_{\text{ML}} - \sigma^2\\. So \\(\bar x, \hat\sigma^2\_{\text{ML}})\\ is the global maximizer, provided the \\x_i\\ are not all equal.
+The profile log-likelihood, \\\ell_p(\sigma^2) = -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{n\hat{\sigma}^2\_{\text{ML}}}{2\sigma^2}\\, increases for \\\sigma^2\< \hat{\sigma}^2\_{\text{ML}}\\ and decreases for \\\sigma^2\> \hat{\sigma}^2\_{\text{ML}}\\, because its derivative, \\\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\mathopen{}\left(\hat{\sigma}^2\_{\text{ML}} - \sigma^2\right)\mathclose{}\\, has the sign of \\\hat{\sigma}^2\_{\text{ML}} - \sigma^2\\. So \\(\bar x, \hat{\sigma}^2\_{\text{ML}})\\ is the global maximizer, provided the \\x_i\\ are not all equal.
 
 > **NOTE:**
 >
-> *Remark 8* (Differentiating with respect to the variance or the precision). Differentiating with respect to \\\sigma^2\\ as a single variable, rather than with respect to \\\sigma\\, keeps the algebra short. Replacing \\\sigma^2\\ with the precision \\\tau \stackrel{\text{def}}{=}1/\sigma^2\\ and differentiating with respect to \\\tau\\ can be shorter still, because \\\tau\\ enters the log-likelihood as \\\frac{n}{2}\log\tau - \frac{\tau}{2}\sum\_{i=1}^n(x_i - \mu)^2\\. By the invariance of maximum likelihood estimates, \\\hat\tau\_{\text{ML}} = 1/\hat\sigma^2\_{\text{ML}}\\.
+> *Remark 8* (Differentiating with respect to the variance or the precision). Differentiating with respect to \\\sigma^2\\ as a single variable, rather than with respect to \\\sigma\\, keeps the algebra short. Replacing \\\sigma^2\\ with the precision \\\tau\stackrel{\text{def}}{=}1/\sigma^2\\ and differentiating with respect to \\\tau\\ can be shorter still, because \\\tau\\ enters the log-likelihood as \\\frac{n}{2}\log\tau- \frac{\tau}{2}\sum\_{i=1}^n(x_i - \mu)^2\\. By the invariance of maximum likelihood estimates, \\\hat{\tau}\_{\text{ML}} = 1/\hat{\sigma}^2\_{\text{ML}}\\.
 
 > **NOTE:**
 >
@@ -1460,23 +1460,23 @@ The profile log-likelihood, \\\ell_p(\sigma^2) = -\frac{n}{2}\operatorname{log}\
 
 The remaining second derivatives are:
 
-\\ \begin{aligned} \frac{\partial^2 \ell}{\partial (\sigma^2)^2} &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(differentiate the score for \$\sigma^2\$)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} && \text{(reorder the factors)}\\ &= -\frac{n}{2}\frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} && \text{(constant multiple rule)}\\ &= -\frac{n}{2}\mathopen{}\left(-\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} + \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} && \text{(power rule for \$v^{-1}\$)}\\ &= -\frac{n}{2}\mathopen{}\left(-\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} + \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \mathopen{}\left(-2\mathopen{}\left(\sigma^2\right)\mathclose{}^{-3}\right)\mathclose{} && \text{(power rule for \$v^{-2}\$)}\\ &= \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} - \sum\_{i=1}^n(x_i - \mu)^2 \mathopen{}\left(\sigma^2\right)\mathclose{}^{-3} && \text{(multiply the constants)}\\ &= \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\sigma^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(reorder the factors)}\\ \frac{\partial^2 \ell}{\partial \mu \\ \partial \sigma^2} &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(differentiate the score for \$\sigma^2\$)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= 0 + \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(derivative of a constant)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(drop the zero term)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\frac{\partial}{\partial \mu}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(constant multiple rule)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n\frac{\partial}{\partial \mu}(x_i - \mu)^2 && \text{(derivative of a sum is the sum of derivatives)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n-2(x_i - \mu) && \text{(chain-rule result from the score for \$\mu\$)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} \cdot (-2) \sum\_{i=1}^n(x_i - \mu) && \text{(factor the constant \$-2\$ out of the sum)}\\ &= -\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu) && \text{(multiply the constants)} \end{aligned} \\
+\\ \begin{aligned} \frac{\partial^2 \ell}{\partial (\sigma^2)^2} &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(differentiate the score for \$\sigma^2\$)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} && \text{(reorder the factors)}\\ &= -\frac{n}{2}\frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} && \text{(constant multiple rule)}\\ &= -\frac{n}{2}\mathopen{}\left(-\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} + \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \frac{\partial}{\partial \sigma^2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} && \text{(power rule for \$v^{-1}\$)}\\ &= -\frac{n}{2}\mathopen{}\left(-\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\right)\mathclose{} + \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \mathopen{}\left(-2\mathopen{}\left(\sigma^2\right)\mathclose{}^{-3}\right)\mathclose{} && \text{(power rule for \$v^{-2}\$)}\\ &= \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} - \sum\_{i=1}^n(x_i - \mu)^2 \mathopen{}\left(\sigma^2\right)\mathclose{}^{-3} && \text{(multiply the constants)}\\ &= \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\sigma^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(reorder the factors)}\\ \frac{\partial^2 \ell}{\partial \mu\\ \partial \sigma^2} &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1} + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(differentiate the score for \$\sigma^2\$)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}\right)\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= 0 + \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(derivative of a constant)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(\frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu)^2\right)\mathclose{} && \text{(drop the zero term)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\frac{\partial}{\partial \mu}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(constant multiple rule)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n\frac{\partial}{\partial \mu}(x_i - \mu)^2 && \text{(derivative of a sum is the sum of derivatives)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n-2(x_i - \mu) && \text{(chain-rule result from the score for \$\mu\$)}\\ &= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} \cdot (-2) \sum\_{i=1}^n(x_i - \mu) && \text{(factor the constant \$-2\$ out of the sum)}\\ &= -\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \mu) && \text{(multiply the constants)} \end{aligned} \\
 
-At the MLE, \\\sum\_{i=1}^n(x_i - \bar x) = 0\\ and \\\sum\_{i=1}^n(x_i - \bar x)^2 = n\hat\sigma^2\\ (writing \\\hat\sigma^2\\ for \\\hat\sigma^2\_{\text{ML}}\\), so:
+At the MLE, \\\sum\_{i=1}^n(x_i - \bar x) = 0\\ and \\\sum\_{i=1}^n(x_i - \bar x)^2 = n\hat{\sigma}^2\\ (writing \\\hat{\sigma}^2\\ for \\\hat{\sigma}^2\_{\text{ML}}\\), so:
 
-\\ \begin{aligned} \frac{\partial^2 \ell}{\partial (\sigma^2)^2}\bigg\|\_{\text{MLE}} &= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i - \bar x)^2 && \text{(evaluate at \$\mu = \bar x\$, \$\sigma^2 = \hat\sigma^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-3} n\hat\sigma^2 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i - \bar x)^2 = n\hat\sigma^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-3}\hat\sigma^2 && \text{(reorder the factors)}\\ &= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} && \text{(cancel one factor of \$\hat\sigma^2\$)}\\ &= -\frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} && \text{(combine like terms)}\\ \frac{\partial^2 \ell}{\partial \mu \\ \partial \sigma^2}\bigg\|\_{\text{MLE}} &= -\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \bar x) && \text{(evaluate at \$\mu = \bar x\$, \$\sigma^2 = \hat\sigma^2\$)}\\ &= -\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} \cdot 0 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i - \bar x) = 0\$)}\\ &= 0 && \text{(multiply by zero)} \end{aligned} \\
+\\ \begin{aligned} \frac{\partial^2 \ell}{\partial (\sigma^2)^2}\bigg\|\_{\text{MLE}} &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i - \bar x)^2 && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3} n\hat{\sigma}^2 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i - \bar x)^2 = n\hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\hat{\sigma}^2 && \text{(reorder the factors)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(cancel one factor of \$\hat{\sigma}^2\$)}\\ &= -\frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(combine like terms)}\\ \frac{\partial^2 \ell}{\partial \mu\\ \partial \sigma^2}\bigg\|\_{\text{MLE}} &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \bar x) && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} \cdot 0 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i - \bar x) = 0\$)}\\ &= 0 && \text{(multiply by zero)} \end{aligned} \\
 
 ### 3.5 Information matrix and standard errors
 
 Collecting the second derivatives at the MLE, the [observed information](#def-oinf) is
 
-\\ I(\hat\mu, \hat\sigma^2) = \begin{bmatrix} \frac{n}{\hat\sigma^2} & 0 \\ 0 & \frac{n}{2\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^2} \end{bmatrix} \\
+\\ I(\hat{\mu}, \hat{\sigma}^2) = \begin{bmatrix} \frac{n}{\hat{\sigma}^2} & 0 \\ 0 & \frac{n}{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2} \end{bmatrix} \\
 
 Its diagonal entries are positive and its off-diagonal entries are zero, so it is positive definite, consistent with the MLE being a maximum. The inverse of a diagonal matrix inverts each diagonal entry, so:
 
-\\ \mathopen{}\left(I(\hat\mu, \hat\sigma^2)\right)^{-1}\mathclose{} = \begin{bmatrix} \frac{\hat\sigma^2}{n} & 0 \\ 0 & \frac{2\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^2}{n} \end{bmatrix} \\
+\\ \mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)^{-1}\mathclose{} = \begin{bmatrix} \frac{\hat{\sigma}^2}{n} & 0 \\ 0 & \frac{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}{n} \end{bmatrix} \\
 
-By [Theorem 9](#thm-dist-mle), the estimated standard errors are \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\mu\right)\mathclose{} = \hat\sigma/\sqrt{n}\\ and \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\sigma^2\right)\mathclose{} = \hat\sigma^2 \sqrt{2/n}\\, and the two estimates are approximately uncorrelated in large samples.
+By [Theorem 9](#thm-dist-mle), the estimated standard errors are \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} = \hat{\sigma}/\sqrt{n}\\ and \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{} = \hat{\sigma}^2\sqrt{2/n}\\, and the two estimates are approximately uncorrelated in large samples.
 
 See also ([Casella and Berger 2002](#ref-CaseBerg01), Example 7.2.12).
 
@@ -1557,7 +1557,7 @@ The histogram is irregular, as histograms of 100 observations often are, with a 
 
 ### 4.2 Maximum likelihood estimates
 
-By the [Gaussian MLEs](#sec-gaussian-mle), \\\hat\mu\_{\text{ML}} = \bar x\\ and \\\hat\sigma^2\_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2\\:
+By the [Gaussian MLEs](#sec-gaussian-mle), \\\hat{\mu}\_{\text{ML}} = \bar x\\ and \\\hat{\sigma}^2\_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2\\:
 
 ``` downlit
 mu_hat <- mean(glucose_data)
@@ -1606,7 +1606,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 #> [1] -374.47
 ```
 
-[Figure 16](#fig-hers-lik-mu) graphs the likelihood and log-likelihood as functions of \\\mu\\, with \\\sigma\\ fixed at \\\hat\sigma\_{\text{ML}}\\.
+[Figure 16](#fig-hers-lik-mu) graphs the likelihood and log-likelihood as functions of \\\mu\\, with \\\sigma\\ fixed at \\\hat{\sigma}\_{\text{ML}}\\.
 
 Show R code
 
@@ -1644,9 +1644,9 @@ ggplot2::ggplot() +
 
 \(b\) Log-likelihood
 
-Figure 16: Likelihood and log-likelihood of the HERS glucose data as functions of \\\mu\\, with \\\sigma = \hat\sigma\_{\text{ML}}\\; the red line marks \\\hat\mu\_{\text{ML}}\\
+Figure 16: Likelihood and log-likelihood of the HERS glucose data as functions of \\\mu\\, with \\\sigma= \hat{\sigma}\_{\text{ML}}\\; the red line marks \\\hat{\mu}\_{\text{ML}}\\
 
-[Figure 17](#fig-hers-lik-sigma) graphs them as functions of \\\sigma\\, with \\\mu\\ fixed at \\\hat\mu\_{\text{ML}}\\.
+[Figure 17](#fig-hers-lik-sigma) graphs them as functions of \\\sigma\\, with \\\mu\\ fixed at \\\hat{\mu}\_{\text{ML}}\\.
 
 Show R code
 
@@ -1684,7 +1684,7 @@ ggplot2::ggplot() +
 
 \(b\) Log-likelihood
 
-Figure 17: Likelihood and log-likelihood of the HERS glucose data as functions of \\\sigma\\, with \\\mu = \hat\mu\_{\text{ML}}\\; the red line marks \\\hat\sigma\_{\text{ML}}\\
+Figure 17: Likelihood and log-likelihood of the HERS glucose data as functions of \\\sigma\\, with \\\mu= \hat{\mu}\_{\text{ML}}\\; the red line marks \\\hat{\sigma}\_{\text{ML}}\\
 
 ### 4.4 Log-likelihood surface
 
@@ -1720,9 +1720,9 @@ Figure 18: Log-likelihood of the HERS glucose data as a function of \\\mu\\ and
 
 ### 4.5 Standard errors by sample size
 
-By [Section 3.5](#sec-covariance-matrix), the estimated standard error of \\\hat\mu\_{\text{ML}}\\ is
+By [Section 3.5](#sec-covariance-matrix), the estimated standard error of \\\hat{\mu}\_{\text{ML}}\\ is
 
-\\ \begin{aligned} \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\mu\right)\mathclose{} &= \sqrt{\mathopen{}\left\[\mathopen{}\left(I(\hat\mu, \hat\sigma^2)\right)^{-1}\mathclose{}\right\]\mathclose{}\_{11}} && \text{(estimated standard error from the inverse information)}\\ &= \sqrt{\frac{\hat\sigma^2}{n}} && \text{(first diagonal entry of the inverse information)}\\ &= \frac{\hat\sigma}{\sqrt{n}} && \text{(square root of a quotient)} \end{aligned} \\
+\\ \begin{aligned} \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} &= \sqrt{\mathopen{}\left\[\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)^{-1}\mathclose{}\right\]\mathclose{}\_{11}} && \text{(estimated standard error from the inverse information)}\\ &= \sqrt{\frac{\hat{\sigma}^2}{n}} && \text{(first diagonal entry of the inverse information)}\\ &= \frac{\hat{\sigma}}{\sqrt{n}} && \text{(square root of a quotient)} \end{aligned} \\
 
 which shrinks in proportion to \\1/\sqrt{n}\\ ([Figure 19](#fig-hers-se-by-n)).
 
@@ -1739,13 +1739,13 @@ ggplot2::ggplot() +
   ggplot2::ylab("Standard error of mu-hat (mg/dL)")
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png "Figure 19: Standard error of \hat\mu_{\text{ML}} as a function of sample size, with \sigma = \hat\sigma_{\text{ML}}")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png "Figure 19: Standard error of \hat{\mu}_{\text{ML}} as a function of sample size, with \sigma= \hat{\sigma}_{\text{ML}}")
 
-Figure 19: Standard error of \\\hat\mu\_{\text{ML}}\\ as a function of sample size, with \\\sigma = \hat\sigma\_{\text{ML}}\\
+Figure 19: Standard error of \\\hat{\mu}\_{\text{ML}}\\ as a function of sample size, with \\\sigma= \hat{\sigma}\_{\text{ML}}\\
 
 ### 4.6 Power
 
-Suppose we test the null hypothesis \\H_0: \mu = \mu_0\\, with \\\mu_0 = 95\\ mg/dL, at significance level \\\alpha = 0.05\\, and suppose for simplicity that \\\sigma\\ is known, equal to \\\hat\sigma\_{\text{ML}}\\. Then under \\H_0\\, \\\bar X \sim \operatorname{N}\mathopen{}\left(\mu_0, \sigma^2/n\right)\mathclose{}\\, and the test rejects \\H_0\\ when \\\bar x\\ falls outside the non-rejection interval
+Suppose we test the null hypothesis \\H_0: \mu= \mu_0\\, with \\\mu_0 = 95\\ mg/dL, at significance level \\\alpha= 0.05\\, and suppose for simplicity that \\\sigma\\ is known, equal to \\\hat{\sigma}\_{\text{ML}}\\. Then under \\H_0\\, \\\bar X \sim \operatorname{N}\mathopen{}\left(\mu_0, \sigma^2/n\right)\mathclose{}\\, and the test rejects \\H_0\\ when \\\bar x\\ falls outside the non-rejection interval
 
 \\\mu_0 \pm z\_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\\
 
@@ -1765,7 +1765,7 @@ bounds
 >
 > \\\text{power}(\theta_1) \stackrel{\text{def}}{=}\Pr\mathopen{}\left(\text{reject } H_0 \mid \theta= \theta_1\right)\mathclose{}.\\
 
-For this test, under \\\mu = \mu_1\\, \\\bar X \sim \operatorname{N}\mathopen{}\left(\mu_1, \sigma^2/n\right)\mathclose{}\\, so:
+For this test, under \\\mu= \mu_1\\, \\\bar X \sim \operatorname{N}\mathopen{}\left(\mu_1, \sigma^2/n\right)\mathclose{}\\, so:
 
 \\ \text{power}(\mu_1) = \Phi\mathopen{}\left(\frac{\mu_0 - z\_{1-\alpha/2}\\\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}\right)\mathclose{} + 1 - \Phi\mathopen{}\left(\frac{\mu_0 + z\_{1-\alpha/2}\\\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}\right)\mathclose{} \\
 
@@ -1800,19 +1800,19 @@ ggplot2::ggplot() +
   ggplot2::xlab("n")
 ```
 
-[![](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png "Figure 20: Power of the test of H_0: \mu = 95 against \mu_1 = 100 mg/dL, by sample size")
+[![](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png "Figure 20: Power of the test of H_0: \mu= 95 against \mu_1 = 100 mg/dL, by sample size")
 
-Figure 20: Power of the test of \\H_0: \mu = 95\\ against \\\mu_1 = 100\\ mg/dL, by sample size
+Figure 20: Power of the test of \\H_0: \mu= 95\\ against \\\mu_1 = 100\\ mg/dL, by sample size
 
 > **NOTE:**
 >
-> *Remark 10* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat\mu\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed ([Hoenig and Heisey 2001](#ref-hoenig2001abuse)).
+> *Remark 10* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed ([Hoenig and Heisey 2001](#ref-hoenig2001abuse)).
 
 ### 4.7 Simulation
 
 To check how maximum likelihood estimation behaves for this model, we simulate many datasets from a Gaussian distribution whose parameters equal the HERS estimates, analyze each one, and summarize the results.
 
-`do_one_sim()` simulates and analyzes one dataset: it computes \\\hat\mu\\, its estimated standard error, a 95% \\t\\-based confidence interval for \\\mu\\, and the \\t\\-test of \\H_0: \mu = \mu_0\\.
+`do_one_sim()` simulates and analyzes one dataset: it computes \\\hat{\mu}\\, its estimated standard error, a 95% \\t\\-based confidence interval for \\\mu\\, and the \\t\\-test of \\H_0: \mu= \mu_0\\.
 
 ``` downlit
 do_one_sim <- function(n, mu, mu0, sigma2, return_data = FALSE) {
@@ -1919,10 +1919,10 @@ sim_summary
 
 Across 1000 simulated datasets:
 
-- the average error of \\\hat\mu\\ is -0.005 mg/dL, small relative to its standard error of 1.02 mg/dL, consistent with \\\hat\mu\\ being unbiased;
-- the standard deviation of the \\\hat\mu\\ values, 0.996, is close to the true standard error;
+- the average error of \\\hat{\mu}\\ is -0.005 mg/dL, small relative to its standard error of 1.02 mg/dL, consistent with \\\hat{\mu}\\ being unbiased;
+- the standard deviation of the \\\hat{\mu}\\ values, 0.996, is close to the true standard error;
 - the 95% confidence intervals covered the true \\\mu\\ in 95.9% of datasets, close to their nominal 95%;
-- the test of \\H_0: \mu = 0.9\\\hat\mu\\ rejected in 100% of datasets: with \\n = 100\\, a 10% difference in the mean is easy to detect.
+- the test of \\H_0: \mu= 0.9\\\hat{\mu}\\ rejected in 100% of datasets: with \\n = 100\\, a 10% difference in the mean is easy to detect.
 
 Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` shows how these properties depend on them.
 
@@ -1940,7 +1940,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(b)** Derive the score function \\\ell'(\pi; y) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi}\ell(\pi; y)\\.
 >
-> **(c)** Set the score equal to zero and solve for \\\hat\pi\_{ML}\\. Confirm that \\\hat\pi\_{ML} = y/n\\.
+> **(c)** Set the score equal to zero and solve for \\\hat{\pi}\_{ML}\\. Confirm that \\\hat{\pi}\_{ML} = y/n\\.
 >
 > **(d)** Compute the second derivative \\\ell''(\pi; y)\\ and verify that it is negative, confirming a maximum.
 
@@ -1962,19 +1962,19 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > Substituting the inner derivative back in:
 >
-> \\ \begin{aligned} \ell'(\pi; y) &= y\frac{1}{\pi} + (n-y)\frac{1}{1-\pi}(-1) && \text{(inner derivative is \$-1\$)} \\ &= y\frac{1}{\pi} - (n-y)\frac{1}{1-\pi} && \text{(multiply by \$-1\$)} \\ &= \frac{y}{\pi} - \frac{n-y}{1-\pi} && \text{(multiply)} \\ &= \frac{y(1-\pi)}{\pi(1-\pi)} - \frac{(n-y)\pi}{\pi(1-\pi)} && \text{(write both terms over the common denominator)} \\ &= \frac{y(1-\pi) - (n-y)\pi}{\pi(1-\pi)} && \text{(combine the fractions)} \\ &= \frac{y - y\pi - n\pi + y\pi}{\pi(1-\pi)} && \text{(expand the numerator)} \\ &= \frac{y - n\pi}{\pi(1-\pi)} && \text{(cancel \$y\pi\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell'(\pi; y) &= y\frac{1}{\pi} + (n-y)\frac{1}{1-\pi}(-1) && \text{(inner derivative is \$-1\$)} \\ &= y\frac{1}{\pi} - (n-y)\frac{1}{1-\pi} && \text{(multiply by \$-1\$)} \\ &= \frac{y}{\pi} - \frac{n-y}{1-\pi} && \text{(multiply)} \\ &= \frac{y(1-\pi)}{\pi(1-\pi)} - \frac{(n-y)\pi}{\pi(1-\pi)} && \text{(write both terms over the common denominator)} \\ &= \frac{y(1-\pi) - (n-y)\pi}{\pi(1-\pi)} && \text{(combine the fractions)} \\ &= \frac{y - y\pi- n\pi+ y\pi}{\pi(1-\pi)} && \text{(expand the numerator)} \\ &= \frac{y - n\pi}{\pi(1-\pi)} && \text{(cancel \$y\pi\$)} \end{aligned} \\
 >
 > **(c)**
 >
 > Setting \\\ell'(\pi; y) = 0\\:
 >
-> \\ \begin{aligned} 0 &= \frac{y - n\pi}{\pi(1-\pi)} && \text{(score from (b))} \\ 0 &= y - n\pi && \text{(multiply both sides by \$\pi(1-\pi)\$)} \\ y &= n\pi && \text{(add \$n\pi\$ to both sides)} \\ \hat\pi\_{ML} &= \frac{y}{n} && \text{(divide both sides by \$n\$)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= \frac{y - n\pi}{\pi(1-\pi)} && \text{(score from (b))} \\ 0 &= y - n\pi && \text{(multiply both sides by \$\pi(1-\pi)\$)} \\ y &= n\pi && \text{(add \$n\pi\$ to both sides)} \\ \hat{\pi}\_{ML} &= \frac{y}{n} && \text{(divide both sides by \$n\$)} \end{aligned} \\
 >
 > **(d)**
 >
 > \\ \begin{aligned} \ell''(\pi; y) &= \frac{\partial}{\partial \pi}\mathopen{}\left\[\frac{y}{\pi} - \frac{n-y}{1-\pi}\right\]\mathclose{} && \text{(score from (b))} \\ &= \frac{\partial}{\partial \pi}\mathopen{}\left\[y\pi^{-1} - (n-y)(1-\pi)^{-1}\right\]\mathclose{} && \text{(write the fractions as negative powers)} \\ &= \frac{\partial}{\partial \pi}\mathopen{}\left\[y\pi^{-1}\right\]\mathclose{} - \frac{\partial}{\partial \pi}\mathopen{}\left\[(n-y)(1-\pi)^{-1}\right\]\mathclose{} && \text{(linearity of differentiation)} \\ &= y\frac{\partial}{\partial \pi}\pi^{-1} - (n-y)\frac{\partial}{\partial \pi}(1-\pi)^{-1} && \text{(constant multiple rule)} \\ &= y\mathopen{}\left(-\pi^{-2}\right)\mathclose{} - (n-y)\frac{\partial}{\partial \pi}(1-\pi)^{-1} && \text{(power rule)} \\ &= y\mathopen{}\left(-\pi^{-2}\right)\mathclose{} - (n-y)\mathopen{}\left(-(1-\pi)^{-2}\right)\mathclose{}\frac{\partial}{\partial \pi}(1-\pi) && \text{(chain rule, outer function \$u^{-1}\$)} \\ &= y\mathopen{}\left(-\pi^{-2}\right)\mathclose{} - (n-y)\mathopen{}\left(-(1-\pi)^{-2}\right)\mathclose{}(-1) && \text{(inner derivative from (b) is \$-1\$)} \\ &= -y\pi^{-2} - (n-y)(1-\pi)^{-2} && \text{(multiply)} \\ &= -\frac{y}{\pi^2} - \frac{n-y}{(1-\pi)^2} && \text{(write the negative powers as fractions)} \end{aligned} \\
 >
-> Since \\y \geq 0\\, \\n - y \geq 0\\, and \\y\\ and \\n - y\\ are not both zero, \\\ell''(\pi; y) \< 0\\ for every \\\pi \in (0,1)\\. So \\\ell\\ is strictly concave, and its critical point \\\hat\pi\_{ML} = y/n\\ is its global maximum.
+> Since \\y \geq 0\\, \\n - y \geq 0\\, and \\y\\ and \\n - y\\ are not both zero, \\\ell''(\pi; y) \< 0\\ for every \\\pi\in (0,1)\\. So \\\ell\\ is strictly concave, and its critical point \\\hat{\pi}\_{ML} = y/n\\ is its global maximum.
 
 > **NOTE:**
 >
@@ -1986,7 +1986,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > \\ \ell(\mu, \sigma^2; \tilde{x}) = -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2. \\
 >
-> **(c)** Derive the MLE \\\hat\mu\_{ML}\\ and \\\hat\sigma^2\_{ML}\\.
+> **(c)** Derive the MLE \\\hat{\mu}\_{ML}\\ and \\\hat{\sigma}^2\_{ML}\\.
 
 > **NOTE:**
 >
@@ -2000,7 +2000,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(c)**
 >
-> **Deriving \\\hat\mu\_{ML}\\:**
+> **Deriving \\\hat{\mu}\_{ML}\\:**
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \mu}\ell &= \frac{\partial}{\partial \mu}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(log-likelihood from (b))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}\right\]\mathclose{} + \frac{\partial}{\partial \mu}\mathopen{}\left\[-\frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(linearity of differentiation)} \\ &= 0 + \frac{\partial}{\partial \mu}\mathopen{}\left\[-\frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(derivative of a constant)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left\[-\frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(drop the zero term)} \\ &= -\frac{1}{2\sigma^2}\frac{\partial}{\partial \mu}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(constant multiple rule)} \\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n\frac{\partial}{\partial \mu}(x_i - \mu)^2 && \text{(derivative of a sum is the sum of derivatives)} \\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n2(x_i - \mu)\frac{\partial}{\partial \mu}(x_i - \mu) && \text{(chain rule, outer function \$u^2\$)} \end{aligned} \\
 >
@@ -2012,9 +2012,9 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \mu}\ell &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n2(x_i - \mu) \cdot (-1) && \text{(inner derivative is \$-1\$)} \\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n-2(x_i - \mu) && \text{(multiply)} \\ &= -\frac{1}{2\sigma^2} \cdot (-2) \sum\_{i=1}^n(x_i - \mu) && \text{(factor the constant \$-2\$ out of the sum)} \\ &= \frac{1}{\sigma^2}\sum\_{i=1}^n(x_i - \mu) && \text{(multiply the constants)} \\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i - \sum\_{i=1}^n\mu\right)\mathclose{} && \text{(split the sum)} \\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i - n\mu\right)\mathclose{} && \text{(sum of \$n\$ copies of \$\mu\$)} \end{aligned} \\
 >
-> Setting this to zero: \\\hat\mu\_{ML} = \bar{x} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\.
+> Setting this to zero: \\\hat{\mu}\_{ML} = \bar{x} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\.
 >
-> **Deriving \\\hat\sigma^2\_{ML}\\:**
+> **Deriving \\\hat{\sigma}^2\_{ML}\\:**
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \sigma^2}\ell &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(log-likelihood from (b))} \\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\mathopen{}\left(\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} + \operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}\right)\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(log of a product)} \\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(distribute \$-\tfrac{n}{2}\$)} \\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{1}{2}(\sigma^2)^{-1}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(write \$\tfrac{1}{2\sigma^2}\$ as \$\tfrac{1}{2}(\sigma^2)^{-1}\$)} \\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{}\right\]\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}\right\]\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{1}{2}(\sigma^2)^{-1}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(linearity of differentiation)} \\ &= 0 + \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}\right\]\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{1}{2}(\sigma^2)^{-1}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(derivative of a constant)} \\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}\right\]\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{1}{2}(\sigma^2)^{-1}\sum\_{i=1}^n(x_i - \mu)^2\right\]\mathclose{} && \text{(drop the zero term)} \\ &= \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}\right\]\mathclose{} + \frac{\partial}{\partial \sigma^2}\mathopen{}\left\[-\frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 (\sigma^2)^{-1}\right\]\mathclose{} && \text{(reorder the factors)} \\ &= -\frac{n}{2}\frac{\partial}{\partial \sigma^2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \frac{\partial}{\partial \sigma^2}(\sigma^2)^{-1} && \text{(constant multiple rule)} \\ &= -\frac{n}{2}(\sigma^2)^{-1} - \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \frac{\partial}{\partial \sigma^2}(\sigma^2)^{-1} && \text{(derivative of \$\log\$)} \\ &= -\frac{n}{2}(\sigma^2)^{-1} - \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 \mathopen{}\left(-(\sigma^2)^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -\frac{n}{2}(\sigma^2)^{-1} + \frac{1}{2}\sum\_{i=1}^n(x_i - \mu)^2 (\sigma^2)^{-2} && \text{(multiply)} \\ &= -\frac{n}{2}(\sigma^2)^{-1} + \frac{1}{2}(\sigma^2)^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(reorder the factors)} \end{aligned} \\
 >
@@ -2022,9 +2022,9 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > \\ \begin{aligned} 0 &= -\frac{n}{2}(\sigma^2)^{-1} + \frac{1}{2}(\sigma^2)^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(set the derivative to zero)} \\ \frac{n}{2}(\sigma^2)^{-1} &= \frac{1}{2}(\sigma^2)^{-2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(add \$\tfrac{n}{2}(\sigma^2)^{-1}\$ to both sides)} \\ n(\sigma^2)^{-1}(\sigma^2)^2 &= (\sigma^2)^{-2}(\sigma^2)^2\sum\_{i=1}^n(x_i - \mu)^2 && \text{(multiply both sides by \$2(\sigma^2)^2\$)} \\ n\sigma^2 &= (\sigma^2)^{-2}(\sigma^2)^2\sum\_{i=1}^n(x_i - \mu)^2 && \text{(\$(\sigma^2)^{-1}(\sigma^2)^2 = \sigma^2\$)} \\ n\sigma^2 &= \sum\_{i=1}^n(x_i - \mu)^2 && \text{(\$(\sigma^2)^{-2}(\sigma^2)^2 = 1\$)} \\ \sigma^2 &= \frac{1}{n}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(divide both sides by \$n\$)} \end{aligned} \\
 >
-> Substituting \\\hat\mu\_{ML} = \bar{x}\\:
+> Substituting \\\hat{\mu}\_{ML} = \bar{x}\\:
 >
-> \\ \hat\sigma^2\_{ML} = \frac{1}{n}\sum\_{i=1}^n(x_i - \bar{x})^2 \\
+> \\ \hat{\sigma}^2\_{ML} = \frac{1}{n}\sum\_{i=1}^n(x_i - \bar{x})^2 \\
 >
 > Note: this maximum likelihood estimator is a biased estimator of \\\sigma^2\\; the unbiased sample variance divides by \\n-1\\.
 

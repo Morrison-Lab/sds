@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 23:14:25 (UTC)
+Last modified: 2026-10-09 00:28:12 (UTC)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page.
 
@@ -36,7 +36,7 @@ an integral over every dimension of \\\tilde{\theta}\\ that typically has no clo
 >
 > \\ \frac{1}{M} \sum\_{m=1}^{M} g\mathopen{}\left(\tilde{\theta}^{(m)}\right)\mathclose{}. \\
 
-By the law of large numbers, a Monte Carlo estimate converges to the posterior expectation it estimates as the number of draws \\M\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 288). The posterior mean (\\g(\theta) = \theta\\) and posterior probabilities (\\g(\theta) = \text{1}\_{\theta \le c}\\, an indicator) are posterior expectations, so they are estimated by averages of the draws; posterior quantiles, and so credible-interval endpoints, are estimated by the corresponding quantiles of the draws.
+By the law of large numbers, a Monte Carlo estimate converges to the posterior expectation it estimates as the number of draws \\M\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 288). The posterior mean (\\g(\theta) = \theta\\) and posterior probabilities (\\g(\theta) = \text{1}\_{\theta\le c}\\, an indicator) are posterior expectations, so they are estimated by averages of the draws; posterior quantiles, and so credible-interval endpoints, are estimated by the corresponding quantiles of the draws.
 
 > **NOTE:**
 >
@@ -115,13 +115,13 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 
 > **NOTE:**
 >
-> **Example 4 (A Gaussian random-walk proposal)** For a scalar parameter \\\pi\\, the proposal \\\pi^\* \mid \pi \sim \operatorname{N}\mathopen{}\left(\pi, 0.05^2\right)\mathclose{}\\ draws a candidate within about \\\pm 0.1\\ of the current value \\\pi\\. It is [symmetric](#def-symmetric-proposal): \\q(\pi^\* \mid \pi) = q(\pi \mid \pi^\*)\\, because the Gaussian density depends on \\\pi^\* - \pi\\ only through its square.
+> **Example 4 (A Gaussian random-walk proposal)** For a scalar parameter \\\pi\\, the proposal \\\pi^\* \mid \pi\sim \operatorname{N}\mathopen{}\left(\pi, 0.05^2\right)\mathclose{}\\ draws a candidate within about \\\pm 0.1\\ of the current value \\\pi\\. It is [symmetric](#def-symmetric-proposal): \\q(\pi^\* \mid \pi) = q(\pi\mid \pi^\*)\\, because the Gaussian density depends on \\\pi^\* - \pi\\ only through its square.
 
 > **NOTE:**
 >
 > **Definition 7 (Acceptance ratio)** For a target posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y}) \propto \operatorname{p}(\tilde{y}\mid \tilde{\theta})\\ \operatorname{p}(\tilde{\theta})\\, a [proposal distribution](#def-proposal-distribution) \\q\\, a current value \\\tilde{\theta}^{(t)}\\, and a candidate \\\tilde{\theta}^\*\\, the **acceptance ratio** is
 >
-> \\ \alpha \stackrel{\text{def}}{=} \frac{\operatorname{p}(\tilde{y}\mid \tilde{\theta}^\*)\\ \operatorname{p}(\tilde{\theta}^\*)}{\operatorname{p}(\tilde{y}\mid \tilde{\theta}^{(t)})\\ \operatorname{p}(\tilde{\theta}^{(t)})} \cdot \frac{q(\tilde{\theta}^{(t)} \mid \tilde{\theta}^\*)}{q(\tilde{\theta}^\* \mid \tilde{\theta}^{(t)})}. \\
+> \\ \alpha\stackrel{\text{def}}{=} \frac{\operatorname{p}(\tilde{y}\mid \tilde{\theta}^\*)\\ \operatorname{p}(\tilde{\theta}^\*)}{\operatorname{p}(\tilde{y}\mid \tilde{\theta}^{(t)})\\ \operatorname{p}(\tilde{\theta}^{(t)})} \cdot \frac{q(\tilde{\theta}^{(t)} \mid \tilde{\theta}^\*)}{q(\tilde{\theta}^\* \mid \tilde{\theta}^{(t)})}. \\
 
 > **NOTE:**
 >
@@ -129,7 +129,7 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 >
 > \\ \begin{aligned} \alpha &= \frac{0.6^{55}\\ 0.4^{36}}{0.5^{55}\\ 0.5^{36}} && \text{(Bernoulli likelihood ratio)}\\ &= 1.2^{55}\\ 0.8^{36} && \text{(combine the powers)}\\ &\approx 7.35 && \text{(arithmetic)} \end{aligned} \\
 >
-> The reverse move, from \\0.6\\ to \\0.5\\, has \\\alpha \approx 1/7.35 \approx 0.136\\.
+> The reverse move, from \\0.6\\ to \\0.5\\, has \\\alpha\approx 1/7.35 \approx 0.136\\.
 
 > **NOTE:**
 >
@@ -143,7 +143,7 @@ The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\*
 
 > **NOTE:**
 >
-> **Example 6 (Metropolis–Hastings for a Bernoulli model)** We sample the posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) (\\r = 55\\ successes in \\n = 91\\ trials, uniform prior) with a Gaussian random-walk proposal \\\pi^\* = \pi^{(t)} + \varepsilon\\, \\\varepsilon \sim \operatorname{N}\mathopen{}\left(0, 0.05^2\right)\mathclose{}\\. The proposal is symmetric, and the uniform prior density is 1 on \\(0, 1)\\, so the log of the acceptance ratio is the difference of log-likelihoods, and a proposal outside \\(0, 1)\\ is always rejected.
+> **Example 6 (Metropolis–Hastings for a Bernoulli model)** We sample the posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli) (\\r = 55\\ successes in \\n = 91\\ trials, uniform prior) with a Gaussian random-walk proposal \\\pi^\* = \pi^{(t)} + \varepsilon\\, \\\varepsilon\sim \operatorname{N}\mathopen{}\left(0, 0.05^2\right)\mathclose{}\\. The proposal is symmetric, and the uniform prior density is 1 on \\(0, 1)\\, so the log of the acceptance ratio is the difference of log-likelihoods, and a proposal outside \\(0, 1)\\ is always rejected.
 >
 > ``` downlit
 > log_post_unnorm <- function(pi, r, n) {
@@ -215,9 +215,9 @@ A chain started far from where the posterior puts its probability takes some ite
 >   ggplot2::labs(y = expression(pi), colour = "starting value")
 > ```
 >
-> [![Two trace plots of pi against iteration. One chain starts at 0.05, the other at 0.95; both move to about 0.6 within a few dozen iterations and then fluctuate together between about 0.5 and 0.7.](mcmc_files/figure-html/unnamed-chunk-1-1.png)](mcmc_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Trace plots of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \pi = 0.05 and \pi = 0.95.")
+> [![Two trace plots of pi against iteration. One chain starts at 0.05, the other at 0.95; both move to about 0.6 within a few dozen iterations and then fluctuate together between about 0.5 and 0.7.](mcmc_files/figure-html/unnamed-chunk-1-1.png)](mcmc_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Trace plots of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \pi= 0.05 and \pi= 0.95.")
 >
-> Figure 1: [Trace plots](#def-trace-plot) of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \\\pi = 0.05\\ and \\\pi = 0.95\\.
+> Figure 1: [Trace plots](#def-trace-plot) of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \\\pi= 0.05\\ and \\\pi= 0.95\\.
 >
 > Both chains reach the region around \\0.6\\ within a few dozen iterations, and after that the two are indistinguishable, so discarding the first 500 iterations of each leaves a generous margin.
 
@@ -239,7 +239,7 @@ The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#de
 >
 > \\ \begin{aligned} \operatorname{p}(\theta_1 \mid \theta_2) &\propto \operatorname{exp}\mathopen{}\left\\-\frac{\theta_1^2 - 2\rho\theta_1\theta_2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(dropping the factor with \$\theta_2^2\$ only)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{(\theta_1 - \rho\theta_2)^2 - \rho^2\theta_2^2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(completing the square)}\\ &\propto \operatorname{exp}\mathopen{}\left\\-\frac{(\theta_1 - \rho\theta_2)^2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(dropping the factor with \$\theta_2^2\$ only)}, \end{aligned} \\
 >
-> so the [full conditional](#def-full-conditional) of \\\theta_1\\ is \\\operatorname{N}\mathopen{}\left(\rho\theta_2,\\ 1 - \rho^2\right)\mathclose{}\\, and by symmetry that of \\\theta_2\\ is \\\operatorname{N}\mathopen{}\left(\rho\theta_1,\\ 1 - \rho^2\right)\mathclose{}\\. We run the Gibbs sampler with \\\rho = 0\\ and with \\\rho = 0.99\\:
+> so the [full conditional](#def-full-conditional) of \\\theta_1\\ is \\\operatorname{N}\mathopen{}\left(\rho\theta_2,\\ 1 - \rho^2\right)\mathclose{}\\, and by symmetry that of \\\theta_2\\ is \\\operatorname{N}\mathopen{}\left(\rho\theta_1,\\ 1 - \rho^2\right)\mathclose{}\\. We run the Gibbs sampler with \\\rho= 0\\ and with \\\rho= 0.99\\:
 >
 > ``` downlit
 > gibbs_bvn <- function(n_iter, rho) {
@@ -267,7 +267,7 @@ The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#de
 > #>    0.020    0.971
 > ```
 >
-> With \\\rho = 0\\, successive draws of \\\theta_1\\ are nearly uncorrelated. With \\\rho = 0.99\\, each full conditional has standard deviation \\\sqrt{1 - 0.99^2} \approx 0.14\\, so each update moves only a short way along the narrow ridge where the target puts its probability, and successive draws are almost perfectly correlated: 2,000 such draws carry far less information about the target than 2,000 independent ones.
+> With \\\rho= 0\\, successive draws of \\\theta_1\\ are nearly uncorrelated. With \\\rho= 0.99\\, each full conditional has standard deviation \\\sqrt{1 - 0.99^2} \approx 0.14\\, so each update moves only a short way along the narrow ridge where the target puts its probability, and successive draws are almost perfectly correlated: 2,000 such draws carry far less information about the target than 2,000 independent ones.
 
 ## 3 Checking and improving MCMC
 
@@ -315,7 +315,7 @@ When the prior is weak and the sample is moderate or large, the posterior mean f
 
 > **NOTE:**
 >
-> **Example 10 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat\pi = r / n\\, with estimated standard error \\\sqrt{\hat\pi(1 - \hat\pi)/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107):
+> **Example 10 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat{\pi}= r / n\\, with estimated standard error \\\sqrt{\hat{\pi}(1 - \hat{\pi})/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107):
 >
 > ``` downlit
 > r <- 55
@@ -342,7 +342,7 @@ A persistent discrepancy between the two is a signal worth investigating: it may
 
 ### 3.2 The importance of parameterization
 
-How a model is written affects how well its sampler mixes ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 299). Two algebraically equivalent parameterizations of the same model can produce chains with very different autocorrelation. Strong posterior correlation between parameters slows a sampler that updates one component at a time, because each update can move only a short way along a narrow, tilted ridge, as [Example 8](#exm-gibbs-bivariate-normal) shows with \\\rho = 0.99\\.
+How a model is written affects how well its sampler mixes ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 299). Two algebraically equivalent parameterizations of the same model can produce chains with very different autocorrelation. Strong posterior correlation between parameters slows a sampler that updates one component at a time, because each update can move only a short way along a narrow, tilted ridge, as [Example 8](#exm-gibbs-bivariate-normal) shows with \\\rho= 0.99\\.
 
 Common remedies include *centering* predictors (subtracting their means), so that the intercept and slopes are less correlated, and *reparameterizing* variance components on a scale on which the posterior is more nearly symmetric. These changes leave the model, and so the scientific conclusions, unchanged; they alter only the geometry the sampler must explore.
 
@@ -382,7 +382,7 @@ The term \\D(\bar{\tilde{\theta}})\\ rewards fit, while \\p_D\\ penalizes comple
 
 > **NOTE:**
 >
-> **Example 11 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\D(\pi) = -2\mathopen{}\left(r \log \pi + (n - r) \log(1 - \pi)\right)\mathclose{}\\. We estimate \\\overline{D}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
+> **Example 11 (DIC for the Bernoulli model)** For \\r = 55\\ successes in \\n = 91\\ trials, \\D(\pi) = -2\mathopen{}\left(r \log \pi+ (n - r) \log(1 - \pi)\right)\mathclose{}\\. We estimate \\\overline{D}\\ and \\\bar\pi\\ from 5,000 draws from the \\\operatorname{Beta}(56, 37)\\ posterior of [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli):
 >
 > ``` downlit
 > deviance_bernoulli <- function(pi, r = 55, n = 91) {

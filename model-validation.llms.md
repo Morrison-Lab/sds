@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 23:14:25 (UTC)
+Last modified: 2026-10-09 00:28:12 (UTC)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -229,7 +229,7 @@ Last modified: 2026-10-08 23:14:25 (UTC)
 
 > **NOTE:**
 >
-> *Proof*. This is the [expected squared prediction error theorem](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error) of the pds notes, with \\f(x_0) = \mu(x)\\, prediction \\\hat f(x_0) = g\mathopen{}\left(x; \mathcal{T}\right)\mathclose{}\\, and noise \\\varepsilon = Y_0 - \mu(x)\\, applied conditionally on \\X_0 = x\\. Given \\X_0 = x\\, that noise has mean 0 by [Equation 9](#eq-mean-function) and variance \\\sigma^2\\, and it is independent of \\g\mathopen{}\left(x; \mathcal{T}\right)\mathclose{}\\ because \\Y_0\\ is independent of \\\mathcal{T}\\.
+> *Proof*. This is the [expected squared prediction error theorem](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error) of the pds notes, with \\f(x_0) = \mu(x)\\, prediction \\\hat f(x_0) = g\mathopen{}\left(x; \mathcal{T}\right)\mathclose{}\\, and noise \\\varepsilon= Y_0 - \mu(x)\\, applied conditionally on \\X_0 = x\\. Given \\X_0 = x\\, that noise has mean 0 by [Equation 9](#eq-mean-function) and variance \\\sigma^2\\, and it is independent of \\g\mathopen{}\left(x; \mathcal{T}\right)\mathclose{}\\ because \\Y_0\\ is independent of \\\mathcal{T}\\.
 
 > **NOTE:**
 >
@@ -301,7 +301,7 @@ Last modified: 2026-10-08 23:14:25 (UTC)
 
 > **NOTE:**
 >
-> **Example 2 (Training error and generalization error by degree)** Real data never reveal \\\operatorname{Err}\_{\mathcal{T}}\\, but a simulation can, because it can draw as many new observations as we like. Here the population is known: \\X \sim \operatorname{Uniform}(0, 1)\\ and \\Y \mid X = x \sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\\, with \\\sigma = 0.3\\. We draw one training set of \\n = 30\\ observations, fit a polynomial in \\x\\ of each degree from 1 to 10 by least squares, and score each fit on the training set and on \\10{,}000\\ new observations. By [Theorem 3](#thm-held-out-unbiased), the second score has expectation \\\operatorname{Err}\_{\mathcal{T}}\\ given the training set, and with \\10{,}000\\ observations it is a precise estimate of it.
+> **Example 2 (Training error and generalization error by degree)** Real data never reveal \\\operatorname{Err}\_{\mathcal{T}}\\, but a simulation can, because it can draw as many new observations as we like. Here the population is known: \\X \sim \operatorname{Uniform}(0, 1)\\ and \\Y \mid X = x \sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\\, with \\\sigma= 0.3\\. We draw one training set of \\n = 30\\ observations, fit a polynomial in \\x\\ of each degree from 1 to 10 by least squares, and score each fit on the training set and on \\10{,}000\\ new observations. By [Theorem 3](#thm-held-out-unbiased), the second score has expectation \\\operatorname{Err}\_{\mathcal{T}}\\ given the training set, and with \\10{,}000\\ observations it is a precise estimate of it.
 >
 > ``` downlit
 > sim_sigma <- 0.3
@@ -377,7 +377,7 @@ Last modified: 2026-10-08 23:14:25 (UTC)
 > #>                             8                             0
 > ```
 >
-> The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization error below \\\sigma^2 = 0.09\\. Yet the training error falls below \\\sigma^2\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
+> The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization error below \\\sigma^2= 0.09\\. Yet the training error falls below \\\sigma^2\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
 
 ## 4 Training, validation, and test sets
 
@@ -411,7 +411,7 @@ Last modified: 2026-10-08 23:14:25 (UTC)
 
 > **NOTE:**
 >
-> **Example 4 (Polynomial degree)** In [Exercise 1](#exr-overfitting), least squares computes the coefficients of each polynomial from the 20 training cars, but the degree \\d\\ is fixed before the fit. So the degree is a [tuning parameter](#def-tuning-parameter) of least-squares polynomial fitting, and the four fits are \\g_1, g_2, g_3, g_4\\ with \\\lambda = d\\.
+> **Example 4 (Polynomial degree)** In [Exercise 1](#exr-overfitting), least squares computes the coefficients of each polynomial from the 20 training cars, but the degree \\d\\ is fixed before the fit. So the degree is a [tuning parameter](#def-tuning-parameter) of least-squares polynomial fitting, and the four fits are \\g_1, g_2, g_3, g_4\\ with \\\lambda= d\\.
 
 > **NOTE:**
 >

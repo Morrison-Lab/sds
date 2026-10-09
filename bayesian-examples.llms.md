@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 23:14:25 (UTC)
+Last modified: 2026-10-09 00:28:12 (UTC)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -219,7 +219,7 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 
 > **NOTE:**
 >
-> **Example 4 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ (\\\mu = 5\\, \\\tau = 1.5\\) and within-group standard deviation \\\sigma = 2\\. The priors are a diffuse \\\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
+> **Example 4 (A random-intercept model fitted by Bayesian inference)** We simulate \\J = 8\\ groups of 12 observations each, with group means drawn from \\\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ (\\\mu= 5\\, \\\tau= 1.5\\) and within-group standard deviation \\\sigma= 2\\. The priors are a diffuse \\\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}\\ for \\\mu\\ and [flat priors](bayesian-inference.llms.md#def-flat-prior) on \\(0, 100)\\ for the standard deviations \\\tau\\ and \\\sigma\\. Being flat on the standard-deviation scale is a choice: as [a flat prior on the log-odds](bayesian-inference.llms.md#exm-flat-prior-reparam) shows for a probability, it is not flat on another scale, such as the variance.
 >
 > ``` downlit
 > set.seed(2025)
@@ -273,7 +273,7 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 > #> sigma 2.161 1.867 2.520 1.000
 > ```
 >
-> The 95% credible intervals contain the true \\\mu = 5\\, \\\tau = 1.5\\ and \\\sigma = 2\\. The interval for \\\tau\\ is wide: eight groups say little about how spread out group means are, and the posterior reports that uncertainty instead of a single estimate of the variance component.
+> The 95% credible intervals contain the true \\\mu= 5\\, \\\tau= 1.5\\ and \\\sigma= 2\\. The interval for \\\tau\\ is wide: eight groups say little about how spread out group means are, and the posterior reports that uncertainty instead of a single estimate of the variance component.
 >
 > Each group’s posterior mean lies between its sample mean and the overall sample mean:
 >
@@ -310,7 +310,7 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > **Definition 2 (Bayesian model averaging)** With the [posterior model probabilities](#def-posterior-model-probability) \\\operatorname{p}(M_k \mid \tilde{y})\\ of candidate models \\M_1, \ldots, M_K\\, **Bayesian model averaging** estimates a quantity \\\Delta\\ that has the same meaning in every model by its posterior distribution averaged over the models:
 >
-> \\ \operatorname{p}(\Delta \mid \tilde{y}) \stackrel{\text{def}}{=}\sum\_{k=1}^{K} \operatorname{p}(\Delta \mid M_k, \tilde{y})\\ \operatorname{p}(M_k \mid \tilde{y}). \\
+> \\ \operatorname{p}(\Delta\mid \tilde{y}) \stackrel{\text{def}}{=}\sum\_{k=1}^{K} \operatorname{p}(\Delta\mid M_k, \tilde{y})\\ \operatorname{p}(M_k \mid \tilde{y}). \\
 
 > **NOTE:**
 >

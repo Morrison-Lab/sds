@@ -221,35 +221,15 @@ cookieconsent.run({
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-lem.callout {
-  border-left-color: #1565C0;
+div.callout-proof.callout {
+  border-left-color: #37474F;
 }
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
 }
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -261,25 +241,15 @@ div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-remark.callout {
-  border-left-color: #AD1457;
+div.callout-prp.callout {
+  border-left-color: #827717;
 }
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
 }
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-cnj.callout {
   border-left-color: #558B2F;
@@ -291,15 +261,15 @@ div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-remark.callout {
+  border-left-color: #AD1457;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-cor.callout {
   border-left-color: #00838F;
@@ -311,6 +281,26 @@ div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-exm.callout {
   border-left-color: #6A1B9A;
 }
@@ -320,6 +310,16 @@ div.callout-exm.callout-style-default .callout-header {
 div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -861,7 +861,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-08 23:14:25 (UTC)</p>
+      <p class="date">Last modified: 2026-10-09 00:28:12 (UTC)</p>
     </div>
   </div>
   
@@ -905,7 +905,7 @@ text-align: center;
 </div>
 <div class="callout-body-container">
 <div id="exm-lik-obs" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Likelihood of one Bernoulli observation)</strong></span> If <span class="math inline">\(X \sim \operatorname{Ber}(\pi)\)</span>, then <span class="math inline">\(\operatorname{p}_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x}\)</span> for <span class="math inline">\(x \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. If we observe <span class="math inline">\(x = 1\)</span>, the likelihood is <span class="math inline">\(\mathcal{L}(\pi) = \pi\)</span>: for example, <span class="math inline">\(\mathcal{L}(0.2) = 0.2\)</span> and <span class="math inline">\(\mathcal{L}(0.7) = 0.7\)</span>, so the observation <span class="math inline">\(x = 1\)</span> is more likely under <span class="math inline">\(\pi = 0.7\)</span> than under <span class="math inline">\(\pi = 0.2\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 1 (Likelihood of one Bernoulli observation)</strong></span> If <span class="math inline">\(X \sim \operatorname{Ber}(\pi)\)</span>, then <span class="math inline">\(\operatorname{p}_{\pi}(X = x) = \pi^x (1 - \pi)^{1 - x}\)</span> for <span class="math inline">\(x \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. If we observe <span class="math inline">\(x = 1\)</span>, the likelihood is <span class="math inline">\(\mathcal{L}(\pi) = \pi\)</span>: for example, <span class="math inline">\(\mathcal{L}(0.2) = 0.2\)</span> and <span class="math inline">\(\mathcal{L}(0.7) = 0.7\)</span>, so the observation <span class="math inline">\(x = 1\)</span> is more likely under <span class="math inline">\(\pi= 0.7\)</span> than under <span class="math inline">\(\pi= 0.2\)</span>.</p>
 </div>
 </div>
 </div>
@@ -920,9 +920,9 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 2 (Likelihood of a dataset)</strong></span> Let <span class="math inline">\(\tilde{x}\stackrel{\text{def}}{=}x_1, \ldots, x_n\)</span> be a dataset with corresponding random vector <span class="math inline">\(\tilde{X}\)</span>, and let <span class="math inline">\(\operatorname{p}_{\Theta}(\tilde{X}= \tilde{x})\)</span> be a probability model for the distribution of <span class="math inline">\(\tilde{X}\)</span>, with unknown parameter vector <span class="math inline">\(\Theta\)</span>. The <strong>likelihood</strong> of the parameter value <span class="math inline">\(\theta\)</span>, for model <span class="math inline">\(\operatorname{p}_{\Theta}\)</span> and data <span class="math inline">\(\tilde{X}= \tilde{x}\)</span>, is the <em>joint probability</em> (or joint density) of <span class="math inline">\(\tilde{X}= \tilde{x}\)</span> when <span class="math inline">\(\Theta= \theta\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathcal{L}(\theta) &amp;\stackrel{\text{def}}{=}\operatorname{p}(\tilde{X}= \tilde{x}\mid \Theta = \theta)
+\mathcal{L}(\theta) &amp;\stackrel{\text{def}}{=}\operatorname{p}(\tilde{X}= \tilde{x}\mid \Theta= \theta)
 &amp;&amp; \text{(definition of the likelihood)}\\
-&amp;= \operatorname{p}(X_1 = x_1, \ldots, X_n = x_n \mid \Theta = \theta)
+&amp;= \operatorname{p}(X_1 = x_1, \ldots, X_n = x_n \mid \Theta= \theta)
 &amp;&amp; \text{(write $\tilde{X}= \tilde{x}$ componentwise)}
 \end{aligned}
 \]</span></p>
@@ -1187,7 +1187,7 @@ text-align: center;
 </div>
 <div class="callout-body-container">
 <div id="exm-mle-bernoulli" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (MLE for one Bernoulli observation)</strong></span> In <a href="#exm-lik-obs" class="quarto-xref">Example&nbsp;1</a>, the likelihood of the observation <span class="math inline">\(x = 1\)</span> is <span class="math inline">\(\mathcal{L}(\pi) = \pi\)</span> for <span class="math inline">\(\pi \in [0, 1]\)</span>. This function is increasing, so it is maximized at the upper edge of the parameter space: <span class="math inline">\(\hat\pi_{\text{ML}} = 1\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 2 (MLE for one Bernoulli observation)</strong></span> In <a href="#exm-lik-obs" class="quarto-xref">Example&nbsp;1</a>, the likelihood of the observation <span class="math inline">\(x = 1\)</span> is <span class="math inline">\(\mathcal{L}(\pi) = \pi\)</span> for <span class="math inline">\(\pi\in [0, 1]\)</span>. This function is increasing, so it is maximized at the upper edge of the parameter space: <span class="math inline">\(\hat{\pi}_{\text{ML}} = 1\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1613,7 +1613,7 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 &amp;&amp; \text{(write both terms over the common denominator)}\\
 &amp;= \frac{x(1 - \pi) - (1 - x)\pi}{\pi(1 - \pi)}
 &amp;&amp; \text{(combine the fractions)}\\
-&amp;= \frac{x - x\pi - \pi + x\pi}{\pi(1 - \pi)}
+&amp;= \frac{x - x\pi- \pi+ x\pi}{\pi(1 - \pi)}
 &amp;&amp; \text{(expand the numerator)}\\
 &amp;= \frac{x - \pi}{\pi(1 - \pi)}
 &amp;&amp; \text{(cancel $x\pi$)}\\
@@ -1867,7 +1867,7 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 </div>
 <div class="callout-body-container">
 <div id="exm-score-equation" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4 (Score equation of a Bernoulli sample)</strong></span> For <span class="math inline">\(n\)</span> independent Bernoulli observations with <span class="math inline">\(r = \sum_i y_i\)</span> successes, the score is <span class="math inline">\(\sum_{i=1}^n(y_i - \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\)</span> (summing <a href="#exr-derive-bernoulli-score" class="quarto-xref">Exercise&nbsp;8</a> over the observations), so for <span class="math inline">\(0 &lt; r &lt; n\)</span> the score equation <span class="math inline">\((r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\)</span> has the single solution <span class="math inline">\(\pi = r/n\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 4 (Score equation of a Bernoulli sample)</strong></span> For <span class="math inline">\(n\)</span> independent Bernoulli observations with <span class="math inline">\(r = \sum_i y_i\)</span> successes, the score is <span class="math inline">\(\sum_{i=1}^n(y_i - \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\)</span> (summing <a href="#exr-derive-bernoulli-score" class="quarto-xref">Exercise&nbsp;8</a> over the observations), so for <span class="math inline">\(0 &lt; r &lt; n\)</span> the score equation <span class="math inline">\((r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\)</span> has the single solution <span class="math inline">\(\pi= r/n\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2468,7 +2468,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 </div>
 <p><a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a> involves the unknown <span class="math inline">\(\tilde{\theta}\)</span>, so to use it we estimate <span class="math inline">\(\mathcal{I}(\tilde{\theta})\)</span>, by either the expected information at the MLE, <span class="math inline">\(\mathcal{I}(\hat\theta_{\text{ML}})\)</span>, or the observed information at the MLE, <span class="math inline">\(I(\tilde{x}; \hat\theta_{\text{ML}})\)</span>. Either way, the estimated standard error of the <span class="math inline">\(k\)</span>th entry of <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> is:</p>
 <p><span class="math display">\[
-\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{} = \sqrt{\mathopen{}\left[\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\right]\mathclose{}_{kk}}
+\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{} = \sqrt{\mathopen{}\left[\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\right]\mathclose{}_{kk}}
 \]</span></p>
 <p>where <span class="math inline">\(\hat{\mathcal{I}}\)</span> is whichever estimate of <span class="math inline">\(\mathcal{I}(\tilde{\theta})\)</span> we chose.</p>
 <div class="callout callout-style-simple callout-remark no-icon">
@@ -2497,14 +2497,14 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div id="def-wald-ci" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Wald confidence interval)</strong></span> The approximate <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>Wald confidence interval</strong> for the <span class="math inline">\(k\)</span>th entry <span class="math inline">\(\theta_k\)</span> of a parameter vector is</p>
 <p><span class="math display">\[
-\hat\theta_k \pm z_{1 - \alpha/2} \times \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}
+\hat{\theta}_k \pm z_{1 - \alpha/2} \times \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{}
 \]</span></p>
-<p>where <span class="math inline">\(\hat\theta_k\)</span> is the <span class="math inline">\(k\)</span>th entry of <span class="math inline">\(\hat\theta_{\text{ML}}\)</span>, <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}\)</span> is its estimated standard error, and <span class="math inline">\(z_{\beta}\)</span> is the <span class="math inline">\(\beta\)</span> quantile of the standard Gaussian distribution.</p>
+<p>where <span class="math inline">\(\hat{\theta}_k\)</span> is the <span class="math inline">\(k\)</span>th entry of <span class="math inline">\(\hat\theta_{\text{ML}}\)</span>, <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{}\)</span> is its estimated standard error, and <span class="math inline">\(z_{\beta}\)</span> is the <span class="math inline">\(\beta\)</span> quantile of the standard Gaussian distribution.</p>
 </div>
 </div>
 </div>
 </div>
-<p>By <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, <span class="math inline">\((\hat\theta_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}\)</span> has approximately a standard Gaussian distribution in large samples, so the Wald interval is an <a href="./inference.html#def-approximate-ci">approximate confidence interval</a> for <span class="math inline">\(\theta_k\)</span>. For a 95% interval, <span class="math inline">\(z_{0.975} \approx 1.96\)</span>.</p>
+<p>By <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, <span class="math inline">\((\hat{\theta}_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{}\)</span> has approximately a standard Gaussian distribution in large samples, so the Wald interval is an <a href="./inference.html#def-approximate-ci">approximate confidence interval</a> for <span class="math inline">\(\theta_k\)</span>. For a 95% interval, <span class="math inline">\(z_{0.975} \approx 1.96\)</span>.</p>
 </section><section id="wald-tests" class="level4" data-number="1.9.2"><h4 data-number="1.9.2" class="anchored" data-anchor-id="wald-tests">
 <span class="header-section-number">1.9.2</span> Wald tests</h4>
 <!-- No slidebreak here: the heading shares its slide with the def-wald-test div. -->
@@ -2516,7 +2516,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div class="callout-body-container">
 <div id="def-wald-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Wald test)</strong></span> The <strong>Wald test</strong> of <span class="math inline">\(H_0: \theta_k = \theta_{k,0}\)</span> uses the test statistic</p>
-<p><span class="math display">\[Z \stackrel{\text{def}}{=}\frac{\hat\theta_k - \theta_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\theta_k\right)\mathclose{}}\]</span></p>
+<p><span class="math display">\[Z \stackrel{\text{def}}{=}\frac{\hat{\theta}_k - \theta_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{}}\]</span></p>
 <p>which, by <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, has approximately a standard Gaussian distribution under <span class="math inline">\(H_0\)</span> in large samples. For <span class="math inline">\(q\)</span> constraints <span class="math inline">\(H_0: \tilde{\theta}_{(q)} = \tilde{\theta}_{(q),0}\)</span> on a <span class="math inline">\(q \times 1\)</span> subvector, the Wald statistic is <span class="math inline">\({\mathopen{}\left(\hat{\tilde{\theta}}_{(q)} - \tilde{\theta}_{(q),0}\right)\mathclose{}}^{\top}\,\mathopen{}\left(\hat{V}_{(q)}\right)^{-1}\mathclose{}\,\mathopen{}\left(\hat{\tilde{\theta}}_{(q)} - \tilde{\theta}_{(q),0}\right)\mathclose{}\)</span>, where <span class="math inline">\(\hat V_{(q)}\)</span> is the corresponding <span class="math inline">\(q \times q\)</span> block of <span class="math inline">\(\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\)</span>; it has approximately a <span class="math inline">\(\chi^2_q\)</span> distribution under <span class="math inline">\(H_0\)</span>.</p>
 </div>
 </div>
@@ -2558,9 +2558,9 @@ Table&nbsp;1: Notation for information matrices in several sources
 </div>
 <div class="callout-body-container">
 <div id="def-lrt-stat" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14 (Likelihood ratio statistic)</strong></span> Suppose a null hypothesis <span class="math inline">\(H_0\)</span> imposes <span class="math inline">\(q\)</span> constraints on the parameter vector <span class="math inline">\(\tilde{\theta}\)</span>. Let <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> be the unrestricted MLE and <span class="math inline">\(\hat\theta_0\)</span> the MLE under <span class="math inline">\(H_0\)</span>. The <strong>likelihood ratio statistic</strong> is</p>
+<p><span class="theorem-title"><strong>Definition 14 (Likelihood ratio statistic)</strong></span> Suppose a null hypothesis <span class="math inline">\(H_0\)</span> imposes <span class="math inline">\(q\)</span> constraints on the parameter vector <span class="math inline">\(\tilde{\theta}\)</span>. Let <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> be the unrestricted MLE and <span class="math inline">\(\hat{\theta}_0\)</span> the MLE under <span class="math inline">\(H_0\)</span>. The <strong>likelihood ratio statistic</strong> is</p>
 <p><span class="math display">\[
-\Lambda \stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat\theta_0)\right)\mathclose{}
+\Lambda\stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat{\theta}_0)\right)\mathclose{}
 \]</span></p>
 </div>
 </div>
@@ -2634,14 +2634,14 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div id="callout-28" class="callout-28-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-wilks-lrt-quadratic" class="proof solution">
-<p><span class="proof-title"><em>Solution 18</em>. </span>Under <span class="math inline">\(H_0\)</span>, the only allowed value is <span class="math inline">\(\theta_0\)</span>, so the restricted MLE is <span class="math inline">\(\hat\theta_0 = \theta_0\)</span>. Substituting the approximation from <a href="#exr-wilks-taylor" class="quarto-xref">Exercise&nbsp;17</a>:</p>
+<p><span class="proof-title"><em>Solution 18</em>. </span>Under <span class="math inline">\(H_0\)</span>, the only allowed value is <span class="math inline">\(\theta_0\)</span>, so the restricted MLE is <span class="math inline">\(\hat{\theta}_0 = \theta_0\)</span>. Substituting the approximation from <a href="#exr-wilks-taylor" class="quarto-xref">Exercise&nbsp;17</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Lambda
-&amp;= 2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat\theta_0)\right)\mathclose{}
+&amp;= 2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat{\theta}_0)\right)\mathclose{}
 &amp;&amp; \text{(definition of $\Lambda$)}\\
 &amp;= 2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\theta_0)\right)\mathclose{}
-&amp;&amp; \text{($\hat\theta_0 = \theta_0$)}\\
+&amp;&amp; \text{($\hat{\theta}_0 = \theta_0$)}\\
 &amp;\approx 2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \mathopen{}\left(\ell(\hat\theta_{\text{ML}}) + \frac{1}{2}\ell''(\hat\theta_{\text{ML}})(\theta_0 - \hat\theta_{\text{ML}})^2\right)\mathclose{}\right)\mathclose{}
 &amp;&amp; \text{(substitute the expansion)}\\
 &amp;= 2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat\theta_{\text{ML}}) - \frac{1}{2}\ell''(\hat\theta_{\text{ML}})(\theta_0 - \hat\theta_{\text{ML}})^2\right)\mathclose{}
@@ -2754,7 +2754,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>We sketch the argument for a scalar parameter and the point null hypothesis <span class="math inline">\(H_0: \theta= \theta_0\)</span>, which imposes <span class="math inline">\(q = 1\)</span> constraint. For the full proof, see <span class="citation" data-cites="wilks1938">(<a href="#ref-wilks1938" role="doc-biblioref">Wilks 1938</a>)</span> or <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 5.7</a>)</span>.</p>
-<p>By <a href="#exr-wilks-lrt-quadratic" class="quarto-xref">Exercise&nbsp;18</a>, <span class="math inline">\(\Lambda \approx I(\hat\theta_{\text{ML}})(\hat\theta_{\text{ML}}- \theta_0)^2\)</span>. Under the regularity conditions, <span class="math inline">\(I(\hat\theta_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\)</span> in probability, by the law of large numbers and the consistency of <span class="math inline">\(\hat\theta_{\text{ML}}\)</span>; this sketch assumes that step rather than proving it. So, with <span class="math inline">\(Z\)</span> as in <a href="#exr-wilks-std-gaussian" class="quarto-xref">Exercise&nbsp;19</a>:</p>
+<p>By <a href="#exr-wilks-lrt-quadratic" class="quarto-xref">Exercise&nbsp;18</a>, <span class="math inline">\(\Lambda\approx I(\hat\theta_{\text{ML}})(\hat\theta_{\text{ML}}- \theta_0)^2\)</span>. Under the regularity conditions, <span class="math inline">\(I(\hat\theta_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\)</span> in probability, by the law of large numbers and the consistency of <span class="math inline">\(\hat\theta_{\text{ML}}\)</span>; this sketch assumes that step rather than proving it. So, with <span class="math inline">\(Z\)</span> as in <a href="#exr-wilks-std-gaussian" class="quarto-xref">Exercise&nbsp;19</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Lambda
@@ -2768,7 +2768,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 &amp;&amp; \text{(definition of $Z$)}
 \end{aligned}
 \]</span></p>
-<p>By <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, <span class="math inline">\(\hat\theta_{\text{ML}}\ \dot{\sim} \ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\)</span> under <span class="math inline">\(H_0\)</span>, so by <a href="#exr-wilks-std-gaussian" class="quarto-xref">Exercise&nbsp;19</a>, <span class="math inline">\(\Lambda \approx Z^2\)</span> has approximately a <span class="math inline">\(\chi^2_1\)</span> distribution.</p>
+<p>By <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, <span class="math inline">\(\hat\theta_{\text{ML}}\ \dot{\sim} \ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\)</span> under <span class="math inline">\(H_0\)</span>, so by <a href="#exr-wilks-std-gaussian" class="quarto-xref">Exercise&nbsp;19</a>, <span class="math inline">\(\Lambda\approx Z^2\)</span> has approximately a <span class="math inline">\(\chi^2_1\)</span> distribution.</p>
 <p>With <span class="math inline">\(q\)</span> constraints, the same argument in matrix form makes <span class="math inline">\(\Lambda\)</span> approximately a sum of <span class="math inline">\(q\)</span> squared, independent standard Gaussian variables, which has a <span class="math inline">\(\chi^2_q\)</span> distribution; this sketch does not derive the matrix form.</p>
 </div>
 </div>
@@ -2781,7 +2781,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 </div>
 <div class="callout-body-container">
 <div id="rem-wilks-nested-models" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Wilks’ theorem for nested models). </span>Equivalently, in terms of nested models: if a full model <span class="math inline">\(M_1\)</span> has <span class="math inline">\(p\)</span> free parameters, and a nested model <span class="math inline">\(M_0 \subset M_1\)</span>, obtained by imposing <span class="math inline">\(q\)</span> constraints on <span class="math inline">\(M_1\)</span>, has <span class="math inline">\(p_0 = p - q\)</span> free parameters, then when <span class="math inline">\(M_0\)</span> is true, <span class="math inline">\(\Lambda = 2\mathopen{}\left(\ell_{M_1}(\hat\theta_{\text{ML}}) - \ell_{M_0}(\hat\theta_0)\right)\mathclose{}\)</span> converges in distribution to <span class="math inline">\(\chi^2_q\)</span>.</p>
+<p><span class="proof-title"><em>Remark 5</em> (Wilks’ theorem for nested models). </span>Equivalently, in terms of nested models: if a full model <span class="math inline">\(M_1\)</span> has <span class="math inline">\(p\)</span> free parameters, and a nested model <span class="math inline">\(M_0 \subset M_1\)</span>, obtained by imposing <span class="math inline">\(q\)</span> constraints on <span class="math inline">\(M_1\)</span>, has <span class="math inline">\(p_0 = p - q\)</span> free parameters, then when <span class="math inline">\(M_0\)</span> is true, <span class="math inline">\(\Lambda= 2\mathopen{}\left(\ell_{M_1}(\hat\theta_{\text{ML}}) - \ell_{M_0}(\hat{\theta}_0)\right)\mathclose{}\)</span> converges in distribution to <span class="math inline">\(\chi^2_q\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2793,7 +2793,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 </div>
 <div class="callout-body-container">
 <div id="exm-wilks-poisson" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10 (Likelihood ratio test for a Poisson rate)</strong></span> For <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span> and <span class="math inline">\(H_0: {\lambda}= {\lambda}_0\)</span>, the log-likelihood is <span class="math inline">\(\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_i \log x_i!\)</span> and <span class="math inline">\(\hat{\lambda}_{\text{ML}} = \bar x\)</span>, so:</p>
+<p><span class="theorem-title"><strong>Example 10 (Likelihood ratio test for a Poisson rate)</strong></span> For <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span> and <span class="math inline">\(H_0: {\lambda}= {\lambda}_0\)</span>, the log-likelihood is <span class="math inline">\(\ell({\lambda}) = n\bar x \log{\lambda}- n{\lambda}- \sum_i \log x_i!\)</span> and <span class="math inline">\(\hat{{\lambda}}_{\text{ML}} = \bar x\)</span>, so:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Lambda
@@ -2937,19 +2937,19 @@ Table&nbsp;2: Exact tests that assume Gaussian outcomes, and their approximate, 
 </div>
 </div>
 </div>
-<p>Suppose <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\)</span> with <span class="math inline">\(\sigma^2\)</span> known, and we want to predict the mean <span class="math inline">\(\bar X^*\)</span> of <span class="math inline">\(m\)</span> new observations from the same distribution, independent of the first <span class="math inline">\(n\)</span>. The MLE of <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\hat\mu = \bar X\)</span>, and the difference <span class="math inline">\(\bar X^* - \hat\mu\)</span> (the negative of the <a href="./estimation.html#def-prediction-error">prediction error</a>) is a difference of independent Gaussian variables, so:</p>
+<p>Suppose <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\)</span> with <span class="math inline">\(\sigma^2\)</span> known, and we want to predict the mean <span class="math inline">\(\bar X^*\)</span> of <span class="math inline">\(m\)</span> new observations from the same distribution, independent of the first <span class="math inline">\(n\)</span>. The MLE of <span class="math inline">\(\mu\)</span> is <span class="math inline">\(\hat{\mu}= \bar X\)</span>, and the difference <span class="math inline">\(\bar X^* - \hat{\mu}\)</span> (the negative of the <a href="./estimation.html#def-prediction-error">prediction error</a>) is a difference of independent Gaussian variables, so:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{Var}\mathopen{}\left(\bar X^* - \hat\mu\right)\mathclose{}
-&amp;= \operatorname{Var}\mathopen{}\left(\bar X^*\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat\mu\right)\mathclose{}
+\operatorname{Var}\mathopen{}\left(\bar X^* - \hat{\mu}\right)\mathclose{}
+&amp;= \operatorname{Var}\mathopen{}\left(\bar X^*\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\mu}\right)\mathclose{}
 &amp;&amp; \text{(variance of a difference of independent variables)}\\
 &amp;= \frac{\sigma^2}{m} + \frac{\sigma^2}{n}
 &amp;&amp; \text{(variance of a sample mean)}
 \end{aligned}
 \]</span></p>
-<p>and <span class="math inline">\(\bar X^* - \hat\mu \sim \operatorname{N}\mathopen{}\left(0, \sigma^2\mathopen{}\left(\frac{1}{m} + \frac{1}{n}\right)\mathclose{}\right)\mathclose{}\)</span>. So a <span class="math inline">\(100(1 - \alpha)\%\)</span> prediction interval for <span class="math inline">\(\bar X^*\)</span> is:</p>
-<p><span class="math display">\[\hat\mu \pm z_{1 - \alpha/2} \, \sigma \sqrt{\frac{1}{m} + \frac{1}{n}}\]</span></p>
-<p>Usually <span class="math inline">\(m = 1\)</span>. The term <span class="math inline">\(1/n\)</span> accounts for the uncertainty in <span class="math inline">\(\hat\mu\)</span>, and becomes negligible when <span class="math inline">\(n\)</span> is much larger than <span class="math inline">\(m\)</span>.</p>
+<p>and <span class="math inline">\(\bar X^* - \hat{\mu}\sim \operatorname{N}\mathopen{}\left(0, \sigma^2\mathopen{}\left(\frac{1}{m} + \frac{1}{n}\right)\mathclose{}\right)\mathclose{}\)</span>. So a <span class="math inline">\(100(1 - \alpha)\%\)</span> prediction interval for <span class="math inline">\(\bar X^*\)</span> is:</p>
+<p><span class="math display">\[\hat{\mu}\pm z_{1 - \alpha/2} \, \sigma\sqrt{\frac{1}{m} + \frac{1}{n}}\]</span></p>
+<p>Usually <span class="math inline">\(m = 1\)</span>. The term <span class="math inline">\(1/n\)</span> accounts for the uncertainty in <span class="math inline">\(\hat{\mu}\)</span>, and becomes negligible when <span class="math inline">\(n\)</span> is much larger than <span class="math inline">\(m\)</span>.</p>
 <div class="callout callout-style-simple callout-remark no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2958,16 +2958,16 @@ Table&nbsp;2: Exact tests that assume Gaussian outcomes, and their approximate, 
 <div class="callout-body-container">
 <div id="rem-prediction-vs-confidence-interval" class="proof remark">
 <p><span class="proof-title"><em>Remark 7</em> (Prediction intervals versus confidence intervals). </span>A <a href="./inference.html#def-confidence-interval">confidence interval</a> covers a fixed parameter, such as the mean <span class="math inline">\(\mu\)</span>. A prediction interval (<a href="#def-prediction-interval" class="quarto-xref">Definition&nbsp;15</a>) covers a random quantity, such as a new outcome, or, in the example above, the mean <span class="math inline">\(\bar X^*\)</span> of <span class="math inline">\(m\)</span> new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.</p>
-<p>In the Gaussian example above, the standard error of <span class="math inline">\(\hat\mu = \bar X\)</span> is <span class="math inline">\(\sigma / \sqrt{n}\)</span>, so the two intervals, the <a href="#def-wald-ci">Wald confidence interval</a> for <span class="math inline">\(\mu\)</span> and the prediction interval for <span class="math inline">\(\bar X^*\)</span>, are</p>
+<p>In the Gaussian example above, the standard error of <span class="math inline">\(\hat{\mu}= \bar X\)</span> is <span class="math inline">\(\sigma/ \sqrt{n}\)</span>, so the two intervals, the <a href="#def-wald-ci">Wald confidence interval</a> for <span class="math inline">\(\mu\)</span> and the prediction interval for <span class="math inline">\(\bar X^*\)</span>, are</p>
 <p><span class="math display">\[
 \begin{aligned}
-&amp;\hat\mu \pm z_{1 - \alpha/2} \, \sigma \sqrt{\frac{1}{n}}
+&amp;\hat{\mu}\pm z_{1 - \alpha/2} \, \sigma\sqrt{\frac{1}{n}}
 &amp;&amp; \text{(confidence interval for $\mu$)}\\
-&amp;\hat\mu \pm z_{1 - \alpha/2} \, \sigma \sqrt{\frac{1}{m} + \frac{1}{n}}
+&amp;\hat{\mu}\pm z_{1 - \alpha/2} \, \sigma\sqrt{\frac{1}{m} + \frac{1}{n}}
 &amp;&amp; \text{(prediction interval for $\bar X^*$)}
 \end{aligned}
 \]</span></p>
-<p>The prediction interval is always the wider of the two, because its variance has the extra term <span class="math inline">\(\sigma^2 / m\)</span>, the variance of the new observations’ mean. As <span class="math inline">\(n\)</span> grows, the width of the confidence interval shrinks to 0, but the width of the prediction interval shrinks only to <span class="math inline">\(2 z_{1 - \alpha/2} \, \sigma / \sqrt{m}\)</span>: more data pins down <span class="math inline">\(\mu\)</span>, but cannot remove the randomness of the new observations. The same contrast holds in regression, between a confidence interval for the conditional mean <span class="math inline">\(\operatorname{E}\mathopen{}\left[Y \mid X = x\right]\mathclose{}\)</span> and a prediction interval for a new outcome <span class="math inline">\(Y\)</span> at <span class="math inline">\(X = x\)</span>.</p>
+<p>The prediction interval is always the wider of the two, because its variance has the extra term <span class="math inline">\(\sigma^2/ m\)</span>, the variance of the new observations’ mean. As <span class="math inline">\(n\)</span> grows, the width of the confidence interval shrinks to 0, but the width of the prediction interval shrinks only to <span class="math inline">\(2 z_{1 - \alpha/2} \, \sigma/ \sqrt{m}\)</span>: more data pins down <span class="math inline">\(\mu\)</span>, but cannot remove the randomness of the new observations. The same contrast holds in regression, between a confidence interval for the conditional mean <span class="math inline">\(\operatorname{E}\mathopen{}\left[Y \mid X = x\right]\mathclose{}\)</span> and a prediction interval for a new outcome <span class="math inline">\(Y\)</span> at <span class="math inline">\(X = x\)</span>.</p>
 </div>
 </div>
 </div>
@@ -3221,14 +3221,14 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 <div id="callout-32" class="callout-32-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-def-poisson" class="proof solution">
-<p><span class="proof-title"><em>Solution 21</em>. </span><span id="eq-iid-model"><span class="math display">\[\Pr(X = x) = \frac{\lambda^{x} e^{-\lambda}}{x!}, \quad x \in \mathopen{}\left\{0, 1, 2, \ldots\right\}\mathclose{} \tag{15}\]</span></span></p>
+<p><span class="proof-title"><em>Solution 21</em>. </span><span id="eq-iid-model"><span class="math display">\[\Pr(X = x) = \frac{{\lambda}^{x} e^{-{\lambda}}}{x!}, \quad x \in \mathopen{}\left\{0, 1, 2, \ldots\right\}\mathclose{} \tag{15}\]</span></span></p>
 </div>
 </div>
 </div>
 </div>
 </section><section id="estimating-the-model-parameters-using-maximum-likelihood" class="level3" data-number="2.4"><h3 data-number="2.4" class="anchored" data-anchor-id="estimating-the-model-parameters-using-maximum-likelihood">
 <span class="header-section-number">2.4</span> Estimating the model parameters using maximum likelihood</h3>
-<p>We can estimate the parameter <span class="math inline">\(\lambda\)</span> using maximum likelihood estimation.</p>
+<p>We can estimate the parameter <span class="math inline">\({\lambda}\)</span> using maximum likelihood estimation.</p>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -3256,10 +3256,10 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 <div id="sol-poisson-likelihood" class="proof solution">
 <p><span class="proof-title"><em>Solution 22</em>. </span><span class="math display">\[
 \begin{aligned}
-\mathcal{L}(\lambda; x)
+\mathcal{L}({\lambda}; x)
 &amp;\stackrel{\text{def}}{=}\Pr(X = x)
 &amp;&amp; \text{(definition of likelihood)}\\
-&amp;= \frac{\lambda^x e^{-\lambda}}{x!}
+&amp;= \frac{{\lambda}^x e^{-{\lambda}}}{x!}
 &amp;&amp; \text{(Poisson PMF)}
 \end{aligned}
 \]</span></p>
@@ -3292,8 +3292,8 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 <div id="callout-34" class="callout-34-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-poisson-parameters" class="proof solution">
-<p><span class="proof-title"><em>Solution 23</em>. </span>There is only one parameter, <span class="math inline">\(\lambda\)</span>:</p>
-<p><span class="math display">\[\theta = (\lambda)\]</span></p>
+<p><span class="proof-title"><em>Solution 23</em>. </span>There is only one parameter, <span class="math inline">\({\lambda}\)</span>:</p>
+<p><span class="math display">\[\theta= ({\lambda})\]</span></p>
 </div>
 </div>
 </div>
@@ -3325,8 +3325,8 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 <div id="sol-poisson-mean-and-variance" class="proof solution">
 <p><span class="proof-title"><em>Solution 24</em>. </span></p>
 <ul>
-<li>Population mean: <span class="math inline">\(\operatorname{E}\mathopen{}\left[X\right]\mathclose{} = \lambda\)</span>.</li>
-<li>Population variance: <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \lambda\)</span>.</li>
+<li>Population mean: <span class="math inline">\(\operatorname{E}\mathopen{}\left[X\right]\mathclose{} = {\lambda}\)</span>.</li>
+<li>Population variance: <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = {\lambda}\)</span>.</li>
 </ul>
 <p>The sample mean and variance in <a href="#tbl-dobson-cyclones-sumstat" class="quarto-xref">Table&nbsp;4</a> are of similar size, as the model implies.</p>
 </div>
@@ -3360,14 +3360,14 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 <div id="sol-sample-likelihood" class="proof solution">
 <p><span class="proof-title"><em>Solution 25</em>. </span><span class="math display">\[
 \begin{aligned}
-\mathcal{L}(\lambda; \tilde{x})
+\mathcal{L}({\lambda}; \tilde{x})
 &amp;\stackrel{\text{def}}{=}\Pr(\tilde{X}= \tilde{x})
 &amp;&amp; \text{(definition of likelihood)}\\
 &amp;= \Pr(X_1 = x_1, X_2 = x_2, \ldots, X_{13} = x_{13})
 &amp;&amp; \text{(write out the vector)}\\
 &amp;= \prod_{i=1}^{13} \Pr(X_i = x_i)
 &amp;&amp; \text{(independence)}\\
-&amp;= \prod_{i=1}^{13} \frac{\lambda^{x_i} e^{-\lambda}}{x_i!}
+&amp;= \prod_{i=1}^{13} \frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}
 &amp;&amp; \text{(Poisson PMF)}
 \end{aligned}
 \]</span></p>
@@ -3382,7 +3382,7 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 </div>
 <div class="callout-body-container">
 <div id="exr-graph-likelihood" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 26 (Graphing the likelihood)</strong></span> Graph the likelihood as a function of <span class="math inline">\(\lambda\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 26 (Graphing the likelihood)</strong></span> Graph the likelihood as a function of <span class="math inline">\({\lambda}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -3461,18 +3461,18 @@ Figure&nbsp;3: Likelihood of the cyclone data
 <div id="sol-sample-llik" class="proof solution">
 <p><span class="proof-title"><em>Solution 27</em>. </span><span class="math display">\[
 \begin{aligned}
-\ell(\lambda; \tilde{x})
-&amp;\stackrel{\text{def}}{=}\operatorname{log}\mathopen{}\left\{\mathcal{L}(\lambda; \tilde{x})\right\}\mathclose{}
+\ell({\lambda}; \tilde{x})
+&amp;\stackrel{\text{def}}{=}\operatorname{log}\mathopen{}\left\{\mathcal{L}({\lambda}; \tilde{x})\right\}\mathclose{}
 &amp;&amp; \text{(definition of log-likelihood)}\\
-&amp;= \operatorname{log}\mathopen{}\left\{\prod_{i=1}^n\frac{\lambda^{x_i} e^{-\lambda}}{x_i!}\right\}\mathclose{}
+&amp;= \operatorname{log}\mathopen{}\left\{\prod_{i=1}^n\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\}\mathclose{}
 &amp;&amp; \text{(likelihood of the dataset)}\\
-&amp;= \sum_{i=1}^n\operatorname{log}\mathopen{}\left\{\frac{\lambda^{x_i} e^{-\lambda}}{x_i!}\right\}\mathclose{}
+&amp;= \sum_{i=1}^n\operatorname{log}\mathopen{}\left\{\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\}\mathclose{}
 &amp;&amp; \text{(log of a product)}\\
-&amp;= \sum_{i=1}^n\mathopen{}\left(\operatorname{log}\mathopen{}\left\{\lambda^{x_i}\right\}\mathclose{} + \operatorname{log}\mathopen{}\left\{e^{-\lambda}\right\}\mathclose{} - \operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}\right)\mathclose{}
+&amp;= \sum_{i=1}^n\mathopen{}\left(\operatorname{log}\mathopen{}\left\{{\lambda}^{x_i}\right\}\mathclose{} + \operatorname{log}\mathopen{}\left\{e^{-{\lambda}}\right\}\mathclose{} - \operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}\right)\mathclose{}
 &amp;&amp; \text{(log of a product and of a quotient)}\\
-&amp;= \sum_{i=1}^n\mathopen{}\left(x_i \operatorname{log}\mathopen{}\left\{\lambda\right\}\mathclose{} - \lambda - \operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}\right)\mathclose{}
+&amp;= \sum_{i=1}^n\mathopen{}\left(x_i \operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{} - {\lambda}- \operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}\right)\mathclose{}
 &amp;&amp; \text{(log of a power; $\log e^{a} = a$)}\\
-&amp;= \mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\{\lambda\right\}\mathclose{} - n\lambda - \sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}
+&amp;= \mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{} - n{\lambda}- \sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}
 &amp;&amp; \text{(split the sum)}
 \end{aligned}
 \]</span></p>
@@ -3487,7 +3487,7 @@ Figure&nbsp;3: Likelihood of the cyclone data
 </div>
 <div class="callout-body-container">
 <div id="exr-graph-loglikelihood" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 28 (Graphing the log-likelihood)</strong></span> Graph the log-likelihood as a function of <span class="math inline">\(\lambda\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 28 (Graphing the log-likelihood)</strong></span> Graph the log-likelihood as a function of <span class="math inline">\({\lambda}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -3567,18 +3567,18 @@ Figure&nbsp;4: Log-likelihood of the cyclone data
 <p><span class="proof-title"><em>Solution 29</em>. </span>The score function is the first derivative of the log-likelihood from <a href="#exr-sample-llik" class="quarto-xref">Exercise&nbsp;27</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell'(\lambda; \tilde{x})
-&amp;\stackrel{\text{def}}{=}\frac{\partial}{\partial \lambda}\mathopen{}\left(\mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\operatorname{log}\mathopen{}\left\{\lambda\right\}\mathclose{} - n\lambda - \sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}\right)\mathclose{}
+\ell'({\lambda}; \tilde{x})
+&amp;\stackrel{\text{def}}{=}\frac{\partial}{\partial {\lambda}}\mathopen{}\left(\mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{} - n{\lambda}- \sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}\right)\mathclose{}
 &amp;&amp; \text{(definition of the score)}\\
-&amp;= \mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\frac{\partial}{\partial \lambda}\operatorname{log}\mathopen{}\left\{\lambda\right\}\mathclose{} - n\frac{\partial}{\partial \lambda}\lambda - \frac{\partial}{\partial \lambda}\sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}
+&amp;= \mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\frac{\partial}{\partial {\lambda}}\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{} - n\frac{\partial}{\partial {\lambda}}{\lambda}- \frac{\partial}{\partial {\lambda}}\sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}
 &amp;&amp; \text{(linearity of differentiation)}\\
-&amp;= \mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\frac{1}{\lambda} - n - 0
-&amp;&amp; \text{(derivatives of $\log \lambda$, $\lambda$, and a constant)}\\
-&amp;= \frac{n \bar x}{\lambda} - n
+&amp;= \mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\frac{1}{{\lambda}} - n - 0
+&amp;&amp; \text{(derivatives of $\log {\lambda}$, ${\lambda}$, and a constant)}\\
+&amp;= \frac{n \bar x}{{\lambda}} - n
 &amp;&amp; \text{($\textstyle\sum_{i=1}^nx_i = n \bar x$)}
 \end{aligned}
 \]</span></p>
-<p>For the cyclone data, <span class="math inline">\(n = 13\)</span> and <span class="math inline">\(n \bar x = 72\)</span>, so <span class="math inline">\(\ell'(\lambda; \tilde{x}) = 72/\lambda - 13\)</span>.</p>
+<p>For the cyclone data, <span class="math inline">\(n = 13\)</span> and <span class="math inline">\(n \bar x = 72\)</span>, so <span class="math inline">\(\ell'({\lambda}; \tilde{x}) = 72/{\lambda}- 13\)</span>.</p>
 </div>
 </div>
 </div>
@@ -3670,16 +3670,16 @@ Figure&nbsp;5: Score function of the cyclone data
 <p><span class="proof-title"><em>Solution 31</em>. </span>With one parameter, the Hessian is the second derivative of the log-likelihood, which is the derivative of the score from <a href="#exr-cyclone-score-fn" class="quarto-xref">Exercise&nbsp;29</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell''(\lambda; \tilde{x})
-&amp;= \frac{\partial}{\partial \lambda}\mathopen{}\left(\frac{n \bar x}{\lambda} - n\right)\mathclose{}
+\ell''({\lambda}; \tilde{x})
+&amp;= \frac{\partial}{\partial {\lambda}}\mathopen{}\left(\frac{n \bar x}{{\lambda}} - n\right)\mathclose{}
 &amp;&amp; \text{(differentiate the score)}\\
-&amp;= n \bar x \frac{\partial}{\partial \lambda}\frac{1}{\lambda} - \frac{\partial}{\partial \lambda} n
+&amp;= n \bar x \frac{\partial}{\partial {\lambda}}\frac{1}{{\lambda}} - \frac{\partial}{\partial {\lambda}} n
 &amp;&amp; \text{(linearity of differentiation)}\\
-&amp;= -\frac{n \bar x}{\lambda^2}
-&amp;&amp; \text{($\tfrac{d}{d\lambda}\lambda^{-1} = -\lambda^{-2}$; $n$ is constant)}
+&amp;= -\frac{n \bar x}{{\lambda}^2}
+&amp;&amp; \text{($\tfrac{d}{d{\lambda}}{\lambda}^{-1} = -{\lambda}^{-2}$; $n$ is constant)}
 \end{aligned}
 \]</span></p>
-<p>For the cyclone data, <span class="math inline">\(\ell''(\lambda; \tilde{x}) = -72/\lambda^2\)</span>.</p>
+<p>For the cyclone data, <span class="math inline">\(\ell''({\lambda}; \tilde{x}) = -72/{\lambda}^2\)</span>.</p>
 </div>
 </div>
 </div>
@@ -3766,14 +3766,14 @@ Figure&nbsp;6: Hessian of the cyclone data’s log-likelihood
 <div id="callout-44" class="callout-44-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-score-equation" class="proof solution">
-<p><span class="proof-title"><em>Solution 33</em>. </span><span class="math display">\[\ell'(\lambda; \tilde{x}) = 0\]</span></p>
+<p><span class="proof-title"><em>Solution 33</em>. </span><span class="math display">\[\ell'({\lambda}; \tilde{x}) = 0\]</span></p>
 </div>
 </div>
 </div>
 </div>
 </section></section><section id="finding-the-mle-analytically" class="level3" data-number="2.5"><h3 data-number="2.5" class="anchored" data-anchor-id="finding-the-mle-analytically">
 <span class="header-section-number">2.5</span> Finding the MLE analytically</h3>
-<p>In this example, we can find the MLE of <span class="math inline">\(\lambda\)</span> by solving the score equation algebraically.</p>
+<p>In this example, we can find the MLE of <span class="math inline">\({\lambda}\)</span> by solving the score equation algebraically.</p>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -3781,7 +3781,7 @@ Figure&nbsp;6: Hessian of the cyclone data’s log-likelihood
 </div>
 <div class="callout-body-container">
 <div id="exr-solve-score-equation" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 34 (Solving the score equation)</strong></span> Solve the score equation from <a href="#exr-score-equation" class="quarto-xref">Exercise&nbsp;33</a> for <span class="math inline">\(\lambda\)</span>, using the score from <a href="#exr-cyclone-score-fn" class="quarto-xref">Exercise&nbsp;29</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 34 (Solving the score equation)</strong></span> Solve the score equation from <a href="#exr-score-equation" class="quarto-xref">Exercise&nbsp;33</a> for <span class="math inline">\({\lambda}\)</span>, using the score from <a href="#exr-cyclone-score-fn" class="quarto-xref">Exercise&nbsp;29</a>.</p>
 </div>
 </div>
 </div>
@@ -3801,13 +3801,13 @@ Figure&nbsp;6: Hessian of the cyclone data’s log-likelihood
 <div id="sol-solve-score-equation" class="proof solution">
 <p><span class="proof-title"><em>Solution 34</em>. </span><span class="math display">\[
 \begin{aligned}
-0 &amp;= \frac{n \bar x}{\lambda} - n
+0 &amp;= \frac{n \bar x}{{\lambda}} - n
 &amp;&amp; \text{(score of the dataset)}\\
-n &amp;= \frac{n \bar x}{\lambda}
+n &amp;= \frac{n \bar x}{{\lambda}}
 &amp;&amp; \text{(add $n$ to both sides)}\\
-n\lambda &amp;= n \bar x
-&amp;&amp; \text{(multiply both sides by $\lambda &gt; 0$)}\\
-\lambda &amp;= \bar x
+n{\lambda}&amp;= n \bar x
+&amp;&amp; \text{(multiply both sides by ${\lambda}&gt; 0$)}\\
+{\lambda}&amp;= \bar x
 &amp;&amp; \text{(divide both sides by $n$)}
 \end{aligned}
 \]</span></p>
@@ -3815,8 +3815,8 @@ n\lambda &amp;= n \bar x
 </div>
 </div>
 </div>
-<p>Call this solution of the score equation <span class="math inline">\(\tilde \lambda\)</span> for now:</p>
-<p><span class="math display">\[\tilde \lambda \stackrel{\text{def}}{=}\bar x\]</span></p>
+<p>Call this solution of the score equation <span class="math inline">\(\tilde {\lambda}\)</span> for now:</p>
+<p><span class="math display">\[\tilde {\lambda}\stackrel{\text{def}}{=}\bar x\]</span></p>
 <div class="callout callout-style-simple callout-exr no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -3824,7 +3824,7 @@ n\lambda &amp;= n \bar x
 </div>
 <div class="callout-body-container">
 <div id="exr-check-hessian" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 35 (Checking the second derivative)</strong></span> Confirm that the Hessian <span class="math inline">\(\ell''(\lambda; \tilde{x})\)</span> is negative when evaluated at <span class="math inline">\(\tilde \lambda\)</span>, using <a href="#exr-hessian" class="quarto-xref">Exercise&nbsp;31</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 35 (Checking the second derivative)</strong></span> Confirm that the Hessian <span class="math inline">\(\ell''({\lambda}; \tilde{x})\)</span> is negative when evaluated at <span class="math inline">\(\tilde {\lambda}\)</span>, using <a href="#exr-hessian" class="quarto-xref">Exercise&nbsp;31</a>.</p>
 </div>
 </div>
 </div>
@@ -3844,11 +3844,11 @@ n\lambda &amp;= n \bar x
 <div id="sol-check-hessian" class="proof solution">
 <p><span class="proof-title"><em>Solution 35</em>. </span><span class="math display">\[
 \begin{aligned}
-\ell''(\tilde\lambda; \tilde{x})
-&amp;= -\frac{n \bar x}{\tilde\lambda^2}
+\ell''(\tilde{\lambda}; \tilde{x})
+&amp;= -\frac{n \bar x}{\tilde{\lambda}^2}
 &amp;&amp; \text{(Hessian of the log-likelihood)}\\
 &amp;= -\frac{n \bar x}{\bar x^2}
-&amp;&amp; \text{(substitute $\tilde\lambda = \bar x$)}\\
+&amp;&amp; \text{(substitute $\tilde{\lambda}= \bar x$)}\\
 &amp;= -\frac{n}{\bar x}
 &amp;&amp; \text{(cancel one factor of $\bar x$)}\\
 &amp;&lt; 0
@@ -3866,7 +3866,7 @@ n\lambda &amp;= n \bar x
 </div>
 <div class="callout-body-container">
 <div id="exr-find-mle" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 36 (Identifying the MLE)</strong></span> Draw conclusions about the MLE of <span class="math inline">\(\lambda\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 36 (Identifying the MLE)</strong></span> Draw conclusions about the MLE of <span class="math inline">\({\lambda}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -3884,13 +3884,13 @@ n\lambda &amp;= n \bar x
 <div id="callout-47" class="callout-47-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-find-mle" class="proof solution">
-<p><span class="proof-title"><em>Solution 36</em>. </span>Since <span class="math inline">\(\ell''(\tilde \lambda; \tilde{x}) &lt; 0\)</span>, <span class="math inline">\(\tilde \lambda\)</span> is a local maximizer of the log-likelihood. Moreover, <span class="math inline">\(\ell''(\lambda; \tilde{x}) = -n\bar x/\lambda^2 &lt; 0\)</span> for every <span class="math inline">\(\lambda &gt; 0\)</span>, so the log-likelihood is strictly concave, and a local maximizer of a strictly concave function is its unique global maximizer. So <span class="math inline">\(\tilde \lambda\)</span> maximizes <span class="math inline">\(\ell\)</span>, and therefore <span class="math inline">\(\mathcal{L}\)</span>:</p>
+<p><span class="proof-title"><em>Solution 36</em>. </span>Since <span class="math inline">\(\ell''(\tilde {\lambda}; \tilde{x}) &lt; 0\)</span>, <span class="math inline">\(\tilde {\lambda}\)</span> is a local maximizer of the log-likelihood. Moreover, <span class="math inline">\(\ell''({\lambda}; \tilde{x}) = -n\bar x/{\lambda}^2 &lt; 0\)</span> for every <span class="math inline">\({\lambda}&gt; 0\)</span>, so the log-likelihood is strictly concave, and a local maximizer of a strictly concave function is its unique global maximizer. So <span class="math inline">\(\tilde {\lambda}\)</span> maximizes <span class="math inline">\(\ell\)</span>, and therefore <span class="math inline">\(\mathcal{L}\)</span>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mle</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">cyclones</span><span class="op">$</span><span class="va">number</span><span class="op">)</span></span>
 <span><span class="va">mle</span></span>
 <span><span class="co">#&gt; [1] 5.53846</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><span class="math display">\[\hat{\lambda}_{\text{ML}} = \bar x = 5.538\]</span></p>
+<p><span class="math display">\[\hat{{\lambda}}_{\text{ML}} = \bar x = 5.538\]</span></p>
 </div>
 </div>
 </div>
@@ -3943,7 +3943,7 @@ Figure&nbsp;7: Log-likelihood of the cyclone data, with the MLE marked in red
 </div>
 </div>
 </div>
-<p><a href="#fig-obs-inf-matrix" class="quarto-xref">Figure&nbsp;8</a> graphs the <a href="./intro-MLEs.html#def-oinf">observed information</a>, <span class="math inline">\(I(\lambda; \tilde{x}) = -\ell''(\lambda; \tilde{x})\)</span>.</p>
+<p><a href="#fig-obs-inf-matrix" class="quarto-xref">Figure&nbsp;8</a> graphs the <a href="./intro-MLEs.html#def-oinf">observed information</a>, <span class="math inline">\(I({\lambda}; \tilde{x}) = -\ell''({\lambda}; \tilde{x})\)</span>.</p>
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">obs_inf</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">-</span><span class="fu">hessian</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="co"># nolint: object_usage_linter.</span></span>
 <span><span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">geom_function</a></span><span class="op">(</span>fun <span class="op">=</span> <span class="va">obs_inf</span>, n <span class="op">=</span> <span class="fl">1001</span><span class="op">)</span> <span class="op">+</span></span>
@@ -4082,7 +4082,7 @@ I_e(\theta; \tilde{x}) \stackrel{\text{def}}{=}
 </div>
 <div class="callout-body-container">
 <div id="exm-dobson-cyclones-Newton" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 (Finding the MLE using the Newton-Raphson algorithm)</strong></span> We found the MLE <span class="math inline">\(\hat{\lambda} = \bar{x}\)</span> by solving the score equation <span class="math inline">\(\ell'(\lambda) = 0\)</span> algebraically (<a href="#exr-solve-score-equation" class="quarto-xref">Exercise&nbsp;34</a>). If we could not have solved it, we could instead start from an initial guess such as <span class="math inline">\({\widehat{\lambda}}^*= 3\)</span> and apply the <a href="#sec-newton-raphson">Newton-Raphson algorithm</a>.</p>
+<p><span class="theorem-title"><strong>Example 12 (Finding the MLE using the Newton-Raphson algorithm)</strong></span> We found the MLE <span class="math inline">\(\hat{{\lambda}}= \bar{x}\)</span> by solving the score equation <span class="math inline">\(\ell'({\lambda}) = 0\)</span> algebraically (<a href="#exr-solve-score-equation" class="quarto-xref">Exercise&nbsp;34</a>). If we could not have solved it, we could instead start from an initial guess such as <span class="math inline">\({\widehat{\lambda}}^*= 3\)</span> and apply the <a href="#sec-newton-raphson">Newton-Raphson algorithm</a>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cur_lambda_est</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
 <span><span class="va">cur_lambda_est</span></span>
@@ -4095,18 +4095,18 @@ I_e(\theta; \tilde{x}) \stackrel{\text{def}}{=}
 <p>From <a href="#exr-cyclone-score-fn" class="quarto-xref">Exercise&nbsp;29</a> and <a href="#exr-hessian" class="quarto-xref">Exercise&nbsp;31</a>, the score function and Hessian are:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell'(\lambda; \tilde{x}) &amp;= \frac{72}{\lambda} - 13\\
-\ell''(\lambda; \tilde{x}) &amp;= -\frac{72}{\lambda^2}
+\ell'({\lambda}; \tilde{x}) &amp;= \frac{72}{{\lambda}} - 13\\
+\ell''({\lambda}; \tilde{x}) &amp;= -\frac{72}{{\lambda}^2}
 \end{aligned}
 \]</span></p>
 <p>So the first-order Taylor approximation of the score function around <span class="math inline">\({\widehat{\lambda}}^*\)</span> is:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell'(\lambda)
-&amp;\approx \ell'^*(\lambda)\\
-&amp;\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^*) + \ell''({\widehat{\lambda}}^*)(\lambda - {\widehat{\lambda}}^*)\\
+\ell'({\lambda})
+&amp;\approx \ell'^*({\lambda})\\
+&amp;\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^*) + \ell''({\widehat{\lambda}}^*)({\lambda}- {\widehat{\lambda}}^*)\\
 &amp;= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^*} - 13\right)\mathclose{}
-+ \mathopen{}\left(-\frac{72}{\mathopen{}\left({\widehat{\lambda}}^*\right)^2\mathclose{}}\right)\mathclose{} (\lambda - {\widehat{\lambda}}^*)
++ \mathopen{}\left(-\frac{72}{\mathopen{}\left({\widehat{\lambda}}^*\right)^2\mathclose{}}\right)\mathclose{} ({\lambda}- {\widehat{\lambda}}^*)
 \end{aligned}
 \]</span></p>
 <p><a href="#fig-cyclone-newton-step1" class="quarto-xref">Figure&nbsp;9</a> compares the score function and the approximate score function at <span class="math inline">\({\widehat{\lambda}}^*= 3\)</span>.</p>
@@ -4166,10 +4166,10 @@ Figure&nbsp;9: Score function of the cyclone data and its first-order approximat
 </div>
 <p>Approximating the score function by a linear function is equivalent to approximating the log-likelihood by a second-order Taylor polynomial (<a href="#fig-cyclone-newton-step1-loglik" class="quarto-xref">Figure&nbsp;10</a>):</p>
 <p><span class="math display">\[
-\ell^*(\lambda) \stackrel{\text{def}}{=}
+\ell^*({\lambda}) \stackrel{\text{def}}{=}
 \ell({\widehat{\lambda}}^*) +
-(\lambda - {\widehat{\lambda}}^*) \ell'({\widehat{\lambda}}^*) +
-\frac{1}{2}\ell''({\widehat{\lambda}}^*)(\lambda - {\widehat{\lambda}}^*)^2
+({\lambda}- {\widehat{\lambda}}^*) \ell'({\widehat{\lambda}}^*) +
+\frac{1}{2}\ell''({\widehat{\lambda}}^*)({\lambda}- {\widehat{\lambda}}^*)^2
 \]</span></p>
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># nolint start: object_usage_linter.</span></span>
 <span><span class="va">approx_loglik</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">lambda</span>, <span class="va">lhat</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
@@ -4222,10 +4222,10 @@ Figure&nbsp;10: Log-likelihood of the cyclone data and its second-order approxim
 </div>
 </figure>
 </div>
-<p>Solving the approximate score equation <span class="math inline">\(\ell'^*(\lambda) = 0\)</span> gives the next estimate:</p>
+<p>Solving the approximate score equation <span class="math inline">\(\ell'^*({\lambda}) = 0\)</span> gives the next estimate:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\lambda
+{\lambda}
 &amp;= {\widehat{\lambda}}^*- \ell'({\widehat{\lambda}}^*) \cdot\mathopen{}\left(\ell''({\widehat{\lambda}}^*)\right)^{-1}\mathclose{}\\
 &amp;= 4.375
 \end{aligned}
@@ -4588,11 +4588,11 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 &amp;&amp; \text{(score for $\mu$)}\\
 0 &amp;= \sum_{i=1}^nx_i - n\mu
 &amp;&amp; \text{(multiply both sides by $\sigma^2$)}\\
-n\mu &amp;= \sum_{i=1}^nx_i
+n\mu&amp;= \sum_{i=1}^nx_i
 &amp;&amp; \text{(add $n\mu$ to both sides)}\\
-\mu &amp;= \frac{1}{n}\sum_{i=1}^nx_i
+\mu&amp;= \frac{1}{n}\sum_{i=1}^nx_i
 &amp;&amp; \text{(divide by $n$)}\\
-\mu &amp;= \bar x
+\mu&amp;= \bar x
 &amp;&amp; \text{(definition of $\bar x$)}
 \end{aligned}
 \]</span></p>
@@ -4617,10 +4617,10 @@ n\mu &amp;= \sum_{i=1}^nx_i
 &amp;= -\frac{n}{\sigma^2}
 &amp;&amp; \text{(multiply)}\\
 &amp;&lt; 0,
-&amp;&amp; \text{($n &gt; 0$ and $\sigma^2 &gt; 0$)}
+&amp;&amp; \text{($n &gt; 0$ and $\sigma^2&gt; 0$)}
 \end{aligned}
 \]</span></p>
-<p>so for every fixed <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\ell\)</span> is maximized over <span class="math inline">\(\mu\)</span> at <span class="math inline">\(\bar x\)</span>, and <span class="math inline">\(\hat\mu_{\text{ML}} = \bar x\)</span>.</p>
+<p>so for every fixed <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\ell\)</span> is maximized over <span class="math inline">\(\mu\)</span> at <span class="math inline">\(\bar x\)</span>, and <span class="math inline">\(\hat{\mu}_{\text{ML}} = \bar x\)</span>.</p>
 </section><section id="sec-gaussian-mle-sigma" class="level3" data-number="3.3"><h3 data-number="3.3" class="anchored" data-anchor-id="sec-gaussian-mle-sigma">
 <span class="header-section-number">3.3</span> MLE of <span class="math inline">\(\sigma^2\)</span>
 </h3>
@@ -4631,8 +4631,8 @@ n\mu &amp;= \sum_{i=1}^nx_i
 </div>
 <div class="callout-body-container">
 <div id="def-profile-loglik" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 19 (Profile log-likelihood)</strong></span> Split a parameter vector into <span class="math inline">\((\psi, \lambda)\)</span>, and for each fixed value of <span class="math inline">\(\psi\)</span> let <span class="math inline">\(\hat\lambda(\psi)\)</span> maximize <span class="math inline">\(\ell(\psi, \lambda)\)</span> over <span class="math inline">\(\lambda\)</span>. The <strong>profile log-likelihood</strong> of <span class="math inline">\(\psi\)</span> is</p>
-<p><span class="math display">\[\ell_p(\psi) \stackrel{\text{def}}{=}\ell\mathopen{}\left(\psi, \hat\lambda(\psi)\right)\mathclose{}.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 19 (Profile log-likelihood)</strong></span> Split a parameter vector into <span class="math inline">\((\psi, \lambda)\)</span>, and for each fixed value of <span class="math inline">\(\psi\)</span> let <span class="math inline">\(\hat{\lambda}(\psi)\)</span> maximize <span class="math inline">\(\ell(\psi, \lambda)\)</span> over <span class="math inline">\(\lambda\)</span>. The <strong>profile log-likelihood</strong> of <span class="math inline">\(\psi\)</span> is</p>
+<p><span class="math display">\[\ell_p(\psi) \stackrel{\text{def}}{=}\ell\mathopen{}\left(\psi, \hat{\lambda}(\psi)\right)\mathclose{}.\]</span></p>
 </div>
 </div>
 </div>
@@ -4644,7 +4644,7 @@ n\mu &amp;= \sum_{i=1}^nx_i
 </div>
 <div class="callout-body-container">
 <div id="exm-profile-loglik" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13 (Profile log-likelihood of a Gaussian variance)</strong></span> In the Gaussian model, <span class="math inline">\(\hat\mu = \bar x\)</span> maximizes <span class="math inline">\(\ell\)</span> over <span class="math inline">\(\mu\)</span> for every value of <span class="math inline">\(\sigma^2\)</span> (<a href="#sec-gaussian-mle" class="quarto-xref">Section&nbsp;3</a>), so the profile log-likelihood of <span class="math inline">\(\sigma^2\)</span> is</p>
+<p><span class="theorem-title"><strong>Example 13 (Profile log-likelihood of a Gaussian variance)</strong></span> In the Gaussian model, <span class="math inline">\(\hat{\mu}= \bar x\)</span> maximizes <span class="math inline">\(\ell\)</span> over <span class="math inline">\(\mu\)</span> for every value of <span class="math inline">\(\sigma^2\)</span> (<a href="#sec-gaussian-mle" class="quarto-xref">Section&nbsp;3</a>), so the profile log-likelihood of <span class="math inline">\(\sigma^2\)</span> is</p>
 <p><span class="math display">\[
 \begin{aligned}
 \ell_p(\sigma^2)
@@ -4652,7 +4652,7 @@ n\mu &amp;= \sum_{i=1}^nx_i
 &amp;&amp; \text{(definition of the profile log-likelihood)}\\
 &amp;= -\frac{n}{2}\operatorname{log}\mathopen{}\left\{2\pi\right\}\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\{\sigma^2\right\}\mathclose{}
 - \frac{1}{2\sigma^2}\sum_{i=1}^n(x_i - \bar x)^2
-&amp;&amp; \text{(Gaussian log-likelihood at $\mu = \bar x$)}
+&amp;&amp; \text{(Gaussian log-likelihood at $\mu= \bar x$)}
 \end{aligned}
 \]</span></p>
 </div>
@@ -4668,15 +4668,15 @@ n\mu &amp;= \sum_{i=1}^nx_i
 \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}
 &amp;= \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum_{i=1}^n(x_i - \mu)^2
 &amp;&amp; \text{(add $\tfrac{n}{2}(\sigma^2)^{-1}$)}\\
-n\sigma^2 &amp;= \sum_{i=1}^n(x_i - \mu)^2
+n\sigma^2&amp;= \sum_{i=1}^n(x_i - \mu)^2
 &amp;&amp; \text{(multiply both sides by $2(\sigma^2)^2$)}\\
-\sigma^2 &amp;= \frac{1}{n}\sum_{i=1}^n(x_i - \mu)^2
+\sigma^2&amp;= \frac{1}{n}\sum_{i=1}^n(x_i - \mu)^2
 &amp;&amp; \text{(divide both sides by $n$)}
 \end{aligned}
 \]</span></p>
-<p>Substituting the maximizer <span class="math inline">\(\mu = \bar x\)</span>, which does not depend on <span class="math inline">\(\sigma^2\)</span>, maximizes the <a href="#def-profile-loglik">profile log-likelihood</a> of <a href="#exm-profile-loglik" class="quarto-xref">Example&nbsp;13</a>, and gives:</p>
+<p>Substituting the maximizer <span class="math inline">\(\mu= \bar x\)</span>, which does not depend on <span class="math inline">\(\sigma^2\)</span>, maximizes the <a href="#def-profile-loglik">profile log-likelihood</a> of <a href="#exm-profile-loglik" class="quarto-xref">Example&nbsp;13</a>, and gives:</p>
 <p><span class="math display">\[\hat{\sigma}^2_{\text{ML}} = \frac{1}{n}\sum_{i=1}^n(x_i - \bar x)^2\]</span></p>
-<p>The profile log-likelihood, <span class="math inline">\(\ell_p(\sigma^2) = -\frac{n}{2}\operatorname{log}\mathopen{}\left\{2\pi\right\}\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\{\sigma^2\right\}\mathclose{} - \frac{n\hat\sigma^2_{\text{ML}}}{2\sigma^2}\)</span>, increases for <span class="math inline">\(\sigma^2 &lt; \hat\sigma^2_{\text{ML}}\)</span> and decreases for <span class="math inline">\(\sigma^2 &gt; \hat\sigma^2_{\text{ML}}\)</span>, because its derivative, <span class="math inline">\(\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\mathopen{}\left(\hat\sigma^2_{\text{ML}} - \sigma^2\right)\mathclose{}\)</span>, has the sign of <span class="math inline">\(\hat\sigma^2_{\text{ML}} - \sigma^2\)</span>. So <span class="math inline">\((\bar x, \hat\sigma^2_{\text{ML}})\)</span> is the global maximizer, provided the <span class="math inline">\(x_i\)</span> are not all equal.</p>
+<p>The profile log-likelihood, <span class="math inline">\(\ell_p(\sigma^2) = -\frac{n}{2}\operatorname{log}\mathopen{}\left\{2\pi\right\}\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\{\sigma^2\right\}\mathclose{} - \frac{n\hat{\sigma}^2_{\text{ML}}}{2\sigma^2}\)</span>, increases for <span class="math inline">\(\sigma^2&lt; \hat{\sigma}^2_{\text{ML}}\)</span> and decreases for <span class="math inline">\(\sigma^2&gt; \hat{\sigma}^2_{\text{ML}}\)</span>, because its derivative, <span class="math inline">\(\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\mathopen{}\left(\hat{\sigma}^2_{\text{ML}} - \sigma^2\right)\mathclose{}\)</span>, has the sign of <span class="math inline">\(\hat{\sigma}^2_{\text{ML}} - \sigma^2\)</span>. So <span class="math inline">\((\bar x, \hat{\sigma}^2_{\text{ML}})\)</span> is the global maximizer, provided the <span class="math inline">\(x_i\)</span> are not all equal.</p>
 <div class="callout callout-style-simple callout-remark no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -4684,7 +4684,7 @@ n\sigma^2 &amp;= \sum_{i=1}^n(x_i - \mu)^2
 </div>
 <div class="callout-body-container">
 <div id="rem-gaussian-variance-precision" class="proof remark">
-<p><span class="proof-title"><em>Remark 8</em> (Differentiating with respect to the variance or the precision). </span>Differentiating with respect to <span class="math inline">\(\sigma^2\)</span> as a single variable, rather than with respect to <span class="math inline">\(\sigma\)</span>, keeps the algebra short. Replacing <span class="math inline">\(\sigma^2\)</span> with the precision <span class="math inline">\(\tau \stackrel{\text{def}}{=}1/\sigma^2\)</span> and differentiating with respect to <span class="math inline">\(\tau\)</span> can be shorter still, because <span class="math inline">\(\tau\)</span> enters the log-likelihood as <span class="math inline">\(\frac{n}{2}\log\tau - \frac{\tau}{2}\sum_{i=1}^n(x_i - \mu)^2\)</span>. By the invariance of maximum likelihood estimates, <span class="math inline">\(\hat\tau_{\text{ML}} = 1/\hat\sigma^2_{\text{ML}}\)</span>.</p>
+<p><span class="proof-title"><em>Remark 8</em> (Differentiating with respect to the variance or the precision). </span>Differentiating with respect to <span class="math inline">\(\sigma^2\)</span> as a single variable, rather than with respect to <span class="math inline">\(\sigma\)</span>, keeps the algebra short. Replacing <span class="math inline">\(\sigma^2\)</span> with the precision <span class="math inline">\(\tau\stackrel{\text{def}}{=}1/\sigma^2\)</span> and differentiating with respect to <span class="math inline">\(\tau\)</span> can be shorter still, because <span class="math inline">\(\tau\)</span> enters the log-likelihood as <span class="math inline">\(\frac{n}{2}\log\tau- \frac{\tau}{2}\sum_{i=1}^n(x_i - \mu)^2\)</span>. By the invariance of maximum likelihood estimates, <span class="math inline">\(\hat{\tau}_{\text{ML}} = 1/\hat{\sigma}^2_{\text{ML}}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -4729,7 +4729,7 @@ n\sigma^2 &amp;= \sum_{i=1}^n(x_i - \mu)^2
 &amp;&amp; \text{(multiply the constants)}\\
 &amp;= \frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\sigma^2\right)\mathclose{}^{-3}\sum_{i=1}^n(x_i - \mu)^2
 &amp;&amp; \text{(reorder the factors)}\\
-\frac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2}
+\frac{\partial^2 \ell}{\partial \mu\, \partial \sigma^2}
 &amp;= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-1}
 + \frac{1}{2}\mathopen{}\left(\sigma^2\right)\mathclose{}^{-2}\sum_{i=1}^n(x_i - \mu)^2\right)\mathclose{}
 &amp;&amp; \text{(differentiate the score for $\sigma^2$)}\\
@@ -4752,24 +4752,24 @@ n\sigma^2 &amp;= \sum_{i=1}^n(x_i - \mu)^2
 &amp;&amp; \text{(multiply the constants)}
 \end{aligned}
 \]</span></p>
-<p>At the MLE, <span class="math inline">\(\sum_{i=1}^n(x_i - \bar x) = 0\)</span> and <span class="math inline">\(\sum_{i=1}^n(x_i - \bar x)^2 = n\hat\sigma^2\)</span> (writing <span class="math inline">\(\hat\sigma^2\)</span> for <span class="math inline">\(\hat\sigma^2_{\text{ML}}\)</span>), so:</p>
+<p>At the MLE, <span class="math inline">\(\sum_{i=1}^n(x_i - \bar x) = 0\)</span> and <span class="math inline">\(\sum_{i=1}^n(x_i - \bar x)^2 = n\hat{\sigma}^2\)</span> (writing <span class="math inline">\(\hat{\sigma}^2\)</span> for <span class="math inline">\(\hat{\sigma}^2_{\text{ML}}\)</span>), so:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{\partial^2 \ell}{\partial (\sigma^2)^2}\bigg|_{\text{MLE}}
-&amp;= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-3}\sum_{i=1}^n(x_i - \bar x)^2
-&amp;&amp; \text{(evaluate at $\mu = \bar x$, $\sigma^2 = \hat\sigma^2$)}\\
-&amp;= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-3} n\hat\sigma^2
-&amp;&amp; \text{(substitute $\textstyle\sum_{i=1}^n(x_i - \bar x)^2 = n\hat\sigma^2$)}\\
-&amp;= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-3}\hat\sigma^2
+&amp;= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\sum_{i=1}^n(x_i - \bar x)^2
+&amp;&amp; \text{(evaluate at $\mu= \bar x$, $\sigma^2= \hat{\sigma}^2$)}\\
+&amp;= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3} n\hat{\sigma}^2
+&amp;&amp; \text{(substitute $\textstyle\sum_{i=1}^n(x_i - \bar x)^2 = n\hat{\sigma}^2$)}\\
+&amp;= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\hat{\sigma}^2
 &amp;&amp; \text{(reorder the factors)}\\
-&amp;= \frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2}
-&amp;&amp; \text{(cancel one factor of $\hat\sigma^2$)}\\
-&amp;= -\frac{n}{2}\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2}
+&amp;= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2}
+&amp;&amp; \text{(cancel one factor of $\hat{\sigma}^2$)}\\
+&amp;= -\frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2}
 &amp;&amp; \text{(combine like terms)}\\
-\frac{\partial^2 \ell}{\partial \mu \, \partial \sigma^2}\bigg|_{\text{MLE}}
-&amp;= -\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2}\sum_{i=1}^n(x_i - \bar x)
-&amp;&amp; \text{(evaluate at $\mu = \bar x$, $\sigma^2 = \hat\sigma^2$)}\\
-&amp;= -\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^{-2} \cdot 0
+\frac{\partial^2 \ell}{\partial \mu\, \partial \sigma^2}\bigg|_{\text{MLE}}
+&amp;= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2}\sum_{i=1}^n(x_i - \bar x)
+&amp;&amp; \text{(evaluate at $\mu= \bar x$, $\sigma^2= \hat{\sigma}^2$)}\\
+&amp;= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} \cdot 0
 &amp;&amp; \text{(substitute $\textstyle\sum_{i=1}^n(x_i - \bar x) = 0$)}\\
 &amp;= 0
 &amp;&amp; \text{(multiply by zero)}
@@ -4779,21 +4779,21 @@ n\sigma^2 &amp;= \sum_{i=1}^n(x_i - \mu)^2
 <span class="header-section-number">3.5</span> Information matrix and standard errors</h3>
 <p>Collecting the second derivatives at the MLE, the <a href="#def-oinf">observed information</a> is</p>
 <p><span class="math display">\[
-I(\hat\mu, \hat\sigma^2) =
+I(\hat{\mu}, \hat{\sigma}^2) =
 \begin{bmatrix}
-\frac{n}{\hat\sigma^2} &amp; 0 \\
-0 &amp; \frac{n}{2\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^2}
+\frac{n}{\hat{\sigma}^2} &amp; 0 \\
+0 &amp; \frac{n}{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}
 \end{bmatrix}
 \]</span></p>
 <p>Its diagonal entries are positive and its off-diagonal entries are zero, so it is positive definite, consistent with the MLE being a maximum. The inverse of a diagonal matrix inverts each diagonal entry, so:</p>
 <p><span class="math display">\[
-\mathopen{}\left(I(\hat\mu, \hat\sigma^2)\right)^{-1}\mathclose{} =
+\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)^{-1}\mathclose{} =
 \begin{bmatrix}
-\frac{\hat\sigma^2}{n} &amp; 0 \\
-0 &amp; \frac{2\mathopen{}\left(\hat\sigma^2\right)\mathclose{}^2}{n}
+\frac{\hat{\sigma}^2}{n} &amp; 0 \\
+0 &amp; \frac{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}{n}
 \end{bmatrix}
 \]</span></p>
-<p>By <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, the estimated standard errors are <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\mu\right)\mathclose{} = \hat\sigma/\sqrt{n}\)</span> and <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\sigma^2\right)\mathclose{} = \hat\sigma^2 \sqrt{2/n}\)</span>, and the two estimates are approximately uncorrelated in large samples.</p>
+<p>By <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;9</a>, the estimated standard errors are <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} = \hat{\sigma}/\sqrt{n}\)</span> and <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{} = \hat{\sigma}^2\sqrt{2/n}\)</span>, and the two estimates are approximately uncorrelated in large samples.</p>
 <div class="notes">
 <p>See also <span class="citation" data-cites="CaseBerg01">(<a href="#ref-CaseBerg01" role="doc-biblioref">Casella and Berger 2002</a>, Example 7.2.12)</span>.</p>
 </div>
@@ -4879,7 +4879,7 @@ Figure&nbsp;14: Fasting glucose among 100 HERS participants without diabetes who
 <p>The histogram is irregular, as histograms of 100 observations often are, with a somewhat longer right tail than left tail. A Gaussian model is a rough but usable starting point.</p>
 </section><section id="maximum-likelihood-estimates" class="level3" data-number="4.2"><h3 data-number="4.2" class="anchored" data-anchor-id="maximum-likelihood-estimates">
 <span class="header-section-number">4.2</span> Maximum likelihood estimates</h3>
-<p>By the <a href="#sec-gaussian-mle">Gaussian MLEs</a>, <span class="math inline">\(\hat\mu_{\text{ML}} = \bar x\)</span> and <span class="math inline">\(\hat\sigma^2_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2\)</span>:</p>
+<p>By the <a href="#sec-gaussian-mle">Gaussian MLEs</a>, <span class="math inline">\(\hat{\mu}_{\text{ML}} = \bar x\)</span> and <span class="math inline">\(\hat{\sigma}^2_{\text{ML}} = \frac{1}{n}\sum_i (x_i - \bar x)^2\)</span>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mu_hat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">glucose_data</span><span class="op">)</span></span>
 <span><span class="va">sigma_sq_hat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="op">(</span><span class="va">glucose_data</span> <span class="op">-</span> <span class="va">mu_hat</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></span>
@@ -4928,10 +4928,10 @@ Figure&nbsp;15: Fasting glucose, with the fitted Gaussian density in red
 <span><span class="fu">loglik</span><span class="op">(</span>mu <span class="op">=</span> <span class="va">mu_hat</span>, sigma <span class="op">=</span> <span class="va">sigma_hat</span>, x <span class="op">=</span> <span class="va">glucose_data</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] -374.47</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><a href="#fig-hers-lik-mu" class="quarto-xref">Figure&nbsp;16</a> graphs the likelihood and log-likelihood as functions of <span class="math inline">\(\mu\)</span>, with <span class="math inline">\(\sigma\)</span> fixed at <span class="math inline">\(\hat\sigma_{\text{ML}}\)</span>.</p>
+<p><a href="#fig-hers-lik-mu" class="quarto-xref">Figure&nbsp;16</a> graphs the likelihood and log-likelihood as functions of <span class="math inline">\(\mu\)</span>, with <span class="math inline">\(\sigma\)</span> fixed at <span class="math inline">\(\hat{\sigma}_{\text{ML}}\)</span>.</p>
 <div id="fig-hers-lik-mu" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-hers-lik-mu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;16: Likelihood and log-likelihood of the HERS glucose data as functions of <span class="math inline">\(\mu\)</span>, with <span class="math inline">\(\sigma = \hat\sigma_{\text{ML}}\)</span>; the red line marks <span class="math inline">\(\hat\mu_{\text{ML}}\)</span>
+Figure&nbsp;16: Likelihood and log-likelihood of the HERS glucose data as functions of <span class="math inline">\(\mu\)</span>, with <span class="math inline">\(\sigma= \hat{\sigma}_{\text{ML}}\)</span>; the red line marks <span class="math inline">\(\hat{\mu}_{\text{ML}}\)</span>
 </figcaption><div aria-describedby="fig-hers-lik-mu-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hers-lik-mu" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -4990,10 +4990,10 @@ Figure&nbsp;16: Likelihood and log-likelihood of the HERS glucose data as functi
 </div>
 </figure>
 </div>
-<p><a href="#fig-hers-lik-sigma" class="quarto-xref">Figure&nbsp;17</a> graphs them as functions of <span class="math inline">\(\sigma\)</span>, with <span class="math inline">\(\mu\)</span> fixed at <span class="math inline">\(\hat\mu_{\text{ML}}\)</span>.</p>
+<p><a href="#fig-hers-lik-sigma" class="quarto-xref">Figure&nbsp;17</a> graphs them as functions of <span class="math inline">\(\sigma\)</span>, with <span class="math inline">\(\mu\)</span> fixed at <span class="math inline">\(\hat{\mu}_{\text{ML}}\)</span>.</p>
 <div id="fig-hers-lik-sigma" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-hers-lik-sigma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;17: Likelihood and log-likelihood of the HERS glucose data as functions of <span class="math inline">\(\sigma\)</span>, with <span class="math inline">\(\mu = \hat\mu_{\text{ML}}\)</span>; the red line marks <span class="math inline">\(\hat\sigma_{\text{ML}}\)</span>
+Figure&nbsp;17: Likelihood and log-likelihood of the HERS glucose data as functions of <span class="math inline">\(\sigma\)</span>, with <span class="math inline">\(\mu= \hat{\mu}_{\text{ML}}\)</span>; the red line marks <span class="math inline">\(\hat{\sigma}_{\text{ML}}\)</span>
 </figcaption><div aria-describedby="fig-hers-lik-sigma-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-hers-lik-sigma" style="flex-basis: 50.0%;justify-content: flex-start;">
@@ -5082,8 +5082,8 @@ Figure&nbsp;18: Log-likelihood of the HERS glucose data as a function of <span c
 </figcaption><div aria-describedby="fig-3d-llik-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-495a10da45b12be8b76a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-495a10da45b12be8b76a">{"x":{"visdat":{"347d3be4f30f":["function () ","plotlyVisDat"]},"cur_data":"347d3be4f30f","attrs":{"347d3be4f30f":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"mu"},"yaxis":{"title":"sigma"},"zaxis":{"title":"log-likelihood"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"t(lliks)","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.041666666666667","rgba(70,19,97,1)"],["0.0833333333333339","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.249999999999999","rgba(60,82,138,1)"],["0.291666666666666","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333334","rgba(79,191,110,1)"],["0.750000000000001","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666666","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[94,94.416666666666671,94.833333333333329,95.25,95.666666666666671,96.083333333333329,96.5,96.916666666666671,97.333333333333329,97.75,98.166666666666671,98.583333333333329,99,99.416666666666671,99.833333333333329,100.25,100.66666666666667,101.08333333333333,101.5,101.91666666666667,102.33333333333333,102.75,103.16666666666667,103.58333333333333,104],"y":[7,7.333333333333333,7.666666666666667,8,8.3333333333333339,8.6666666666666661,9,9.3333333333333321,9.6666666666666661,10,10.333333333333332,10.666666666666666,11,11.333333333333332,11.666666666666666,12,12.333333333333332,12.666666666666666,13,13.333333333333332,13.666666666666666,14,14.333333333333332,14.666666666666666,15],"z":[[-415.52568455252924,-411.74025371352673,-408.30913126454709,-405.23231720559045,-402.50981153665555,-400.14161425774478,-398.12772536885575,-396.46814486998971,-395.16287276114656,-394.21190904232515,-393.61525371352673,-393.37290677475119,-393.48486822599864,-393.95113806726783,-394.7717162985611,-395.94660291987617,-397.47579793121417,-399.35930133257511,-401.5971131239578,-404.18923330536347,-407.13566187679203,-410.43639883824352,-414.091444189718,-418.10079793121298,-422.46446006273334],[-408.71331607047961,-405.26419416965291,-402.13790284733886,-399.33444210353747,-396.85381193824765,-394.6960123514715,-392.86104334320692,-391.34890491345493,-390.15959706221565,-389.29311978948789,-388.74947309527278,-388.52865697957031,-388.63067144238045,-389.05551648370215,-389.80319210353758,-390.87369830188459,-392.26703507874424,-393.98320243411649,-396.02220036800031,-398.38402888039673,-401.06868797130585,-404.07617764072756,-407.40649788866193,-411.05964871510673,-415.0356301200664],[-403.15671523371685,-400.00099689723271,-397.14064718078657,-394.57566608437844,-392.3060536080074,-390.33180975167534,-388.65293451538037,-387.2694278991234,-386.18128990290444,-385.38852052672252,-384.8911197705786,-384.6890876344728,-384.78242411840495,-385.17112922237413,-385.85520294638235,-386.8346452904276,-388.10945625451092,-389.67963583863224,-391.54518404279054,-393.70610086698696,-396.16238631122133,-398.91404037549376,-401.96106305980425,-405.30345436415075,-408.94121428853725],[-398.6348824884509,-395.73666200233959,-393.10970887733959,-390.7540231134509,-388.66960471067262,-386.85645366900656,-385.3145699884509,-384.04395366900656,-383.04460471067353,-382.3165231134509,-381.85970887733959,-381.67416200233959,-381.7598824884509,-382.11687033567262,-382.74512554400656,-383.6446481134509,-384.81543804400656,-386.25749533567353,-387.9708199884509,-389.95541200233959,-392.21127137733959,-394.7383981134509,-397.53679221067353,-400.60645366900565,-403.9473824884509],[-394.97140694047636,-392.30040694047614,-389.87940694047614,-387.70840694047638,-385.78740694047588,-384.11640694047645,-382.69540694047635,-381.52440694047641,-380.6034069404767,-379.93240694047637,-379.51140694047615,-379.34040694047616,-379.41940694047634,-379.74840694047589,-380.32740694047646,-381.15640694047636,-382.23540694047642,-383.56440694047672,-385.14340694047632,-386.97240694047616,-389.05140694047617,-391.38040694047635,-393.9594069404767,-396.78840694047562,-399.86740694047637],[-392.02423091852643,-389.55474127355581,-387.31639068183983,-385.30917914337846,-383.53310665817094,-381.98817322621881,-380.67437884752047,-379.59172352207679,-378.7402072498877,-378.11983003095247,-377.73059186527178,-377.57249275284573,-377.64553269367434,-377.94971168775675,-378.48502973509454,-379.25148683568614,-380.24908298953244,-381.47781819663328,-382.93769245698797,-384.62870577059721,-386.55085813746115,-388.70414955757968,-391.08858003095281,-393.70414955757894,-396.55085813746132],[-389.67803944915096,-387.38808746012472,-385.31247017617409,-383.45118759729911,-381.80423972349899,-380.37162655477516,-379.1533480911263,-378.14940433255299,-377.35979527905528,-376.78452093063243,-376.42358128728523,-376.27697634901364,-376.34470611581764,-376.62677058769651,-377.12316976465172,-377.83390364668185,-378.75897223378752,-379.89837552596885,-381.25211352322503,-382.82018622555682,-384.60259363296427,-386.59933574544726,-388.81041256300591,-391.23582408563868,-393.87557031334848],[-387.83853465485021,-385.7092298079113,-383.77922343036028,-382.04851552219714,-380.51710608342125,-379.18499511403394,-378.05218261403388,-377.11866858342171,-376.38445302219742,-375.84953593036039,-375.5139173079113,-375.37759715485004,-375.44057547117671,-375.70285225689065,-376.16442751199315,-376.82530123648286,-377.6854734303605,-378.74494409362603,-380.00371322627876,-381.46178082831943,-383.11914689974799,-384.97581144056448,-387.03177445076886,-389.28703593035982,-391.74159587934003],[-386.42808141187567,-384.44309330248194,-382.64389591841535,-381.0304892596759,-379.60287332626297,-378.36104811817773,-377.30501363541907,-376.43476987798749,-375.75031684588305,-375.25165453910512,-374.93878295765433,-374.81170210153067,-374.87041197073415,-375.11491256526415,-375.54520388512185,-376.16128593030606,-376.96315870081747,-377.95082219665596,-379.12427641782097,-380.48352136431311,-382.02855703613233,-383.75938343327874,-385.67600055575224,-387.77840840355168,-390.06660697667945],[-385.38236261987186,-383.52750150876062,-381.84625150876059,-380.33861261987181,-379.00458484209372,-377.84416817542746,-376.85736261987182,-376.04416817542744,-375.40458484209432,-374.93861261987183,-374.6462515087606,-374.52750150876062,-374.58236261987184,-374.81083484209375,-375.21291817542749,-375.78861261987186,-376.53791817542748,-377.4608348420943,-378.55736261987181,-379.82750150876058,-381.2712515087606,-382.88861261987182,-384.6795848420943,-386.6441681754269,-388.78236261987183],[-384.64778610924691,-382.91066332048513,-381.33613158271197,-379.9241908959275,-378.67484126013113,-377.58808267532402,-376.66391514150502,-375.90233865867469,-375.303353226833,-374.86695884597952,-374.59315551611468,-374.48194323723851,-374.53332200935097,-374.74729183245165,-375.12385270654147,-375.66300463161946,-376.36474760768613,-377.22908163474148,-378.25600671278494,-379.44552284181702,-380.79763002183785,-382.31232825284735,-383.98961753484554,-385.82949786783126,-387.83196925180675],[-384.17945692112897,-382.54920789769136,-381.07154676487886,-379.74647352269147,-378.57398817112869,-377.55409071019153,-376.68678113987897,-375.97205946019153,-375.4099256711292,-375.00037977269147,-374.74342176487886,-374.63905164769136,-374.68726942112897,-374.88807508519119,-375.24146863987903,-375.74745008519147,-376.40601942112903,-377.2171766476917,-378.18092176487897,-379.29725477269136,-380.56617567112886,-381.98768446019147,-383.5617811398792,-385.28846571019102,-387.16773817112897],[-383.9395789474118,-382.40663588037773,-381.01717307046033,-379.77119051765976,-378.66868822197534,-377.70966618340816,-376.89412440195724,-376.22206287762305,-375.69348161040557,-375.30838060030436,-375.06675984731987,-374.96861935145211,-375.01395911270106,-375.20277913106628,-375.53507940654868,-376.01085993914734,-376.63012072886272,-377.39286177569483,-378.2990830796432,-379.34878464070829,-380.5419664588901,-381.87862853418864,-383.35877086660395,-384.98239345613496,-386.74949630278371],[-383.89618556579148,-382.45208954503016,-381.14315788413046,-379.96939058309249,-378.9307876419158,-378.02734906060124,-377.2590748391479,-376.62596497755624,-376.12801947582631,-375.76523833395754,-375.53762155195056,-375.44516912980521,-375.48788106752158,-375.66575736509918,-375.97879802253897,-376.42700303983992,-377.0103724170026,-377.72890615402696,-378.5826042509126,-379.57146670765991,-380.6954935242689,-381.95468470073956,-383.34904023707196,-384.87856013326513,-386.54324438932088],[-384.0221244801487,-382.65936937810778,-381.42416529647511,-380.31651223525074,-379.33641019443417,-378.48385917402629,-377.75885917402621,-377.16141019443444,-376.69151223525091,-376.34916529647523,-376.13436937810775,-376.04712448014857,-376.08743060259769,-376.25528774545455,-376.55069590872017,-376.97365509239359,-377.52416529647525,-378.20222652096521,-379.00783876586297,-379.94100203116898,-381.00171631688329,-382.18998162300585,-383.5057979495366,-384.9491652964748,-386.52008366382216],[-384.29424052148954,-383.00614252766229,-381.83860780544006,-380.79163635482286,-379.86522817581027,-379.05938326840317,-378.37410163260063,-377.80938326840317,-377.36522817581067,-377.04163635482286,-376.83860780544006,-376.75614252766229,-376.79424052148954,-376.95290178692142,-377.23212632395871,-377.63191413260063,-378.15226521284762,-378.79317956469959,-379.55465718815617,-380.43669808321783,-381.43930224988452,-382.56246968815617,-383.8062003980329,-385.17049437951385,-386.65535163260063],[-384.69271374583627,-383.47330176628907,-382.36802419141685,-381.37688102121973,-380.49987225569726,-379.73699789485016,-379.08825793867771,-378.55365238718031,-378.13318124035794,-377.82684449821022,-377.63464216073754,-377.5565742279399,-377.59264069981725,-377.74284157636924,-378.00717685759668,-378.38564654349875,-378.87825063407587,-379.48498912932803,-380.20586202925477,-381.04086933385662,-381.99001104313345,-383.05328715708532,-384.23069767571224,-385.5222425990134,-386.92792192699039],[-385.20052020468819,-384.04444333488203,-382.99657283626709,-382.05690870884331,-381.22545095261046,-380.50219956756911,-379.88715455371869,-379.38031591105943,-378.98168363959144,-378.69125773931421,-378.50903821022831,-378.43502505233357,-378.46921826563005,-378.61161785011734,-378.86222380579625,-379.22103613266603,-379.68805483072703,-380.26327989997924,-380.94671134042227,-381.73834915205657,-382.63819333488203,-383.64624388889871,-384.76250081410666,-385.98696411050503,-387.31963377809541],[-385.80299025005286,-384.70543929673261,-383.71061681152548,-382.81852279443154,-382.02915724545045,-381.34252016458282,-380.75861155182804,-380.27743140718638,-379.89897973065786,-379.62325652224223,-379.45026178193973,-379.37999550975036,-379.41245770567417,-379.54764836971077,-379.78556750186095,-380.12621510212387,-380.56959117049996,-381.11569570698924,-381.76452871159131,-382.51609018430656,-383.37038012513494,-384.32739853407656,-385.38714541113126,-386.54962075629845,-387.81482456957951],[-386.48744486504995,-385.44408549004987,-384.49838236504985,-383.65033549004994,-382.89994486504975,-382.24721049004995,-381.69213236504993,-381.23471049004996,-380.87494486505005,-380.61283549004992,-380.44838236504984,-380.38158549004987,-380.41244486504991,-380.54096049004971,-380.76713236504997,-381.09096049004989,-381.51244486504993,-382.03158549005008,-382.64838236504994,-383.36283549004986,-384.17494486504984,-385.08471049004993,-386.09213236505008,-387.19721049004966,-388.39994486504992],[-387.2428947766748,-386.24981030314706,-385.34967645424757,-384.5424932299764,-383.82826063033315,-383.20697865531849,-382.67864730493176,-382.24326657917334,-381.90083647804317,-381.65135700154093,-381.494828149667,-381.43124992242127,-381.46062231980386,-381.58294534181442,-381.79821898845353,-382.10644325972061,-382.50761815561594,-383.00174367613954,-383.58881982129105,-384.26884659107088,-385.04182398547903,-385.90775200451537,-386.86663064817998,-387.91845991647222,-389.06323980939339],[-388.05979036362578,-387.11343265387512,-386.25565204163024,-385.48644852689108,-384.80582210965736,-384.21377278992969,-383.71030056770741,-383.2954054429909,-382.96908741578011,-382.73134648607476,-382.58218265387512,-382.52159591918127,-382.54958628199313,-382.66615374231043,-382.87129830013373,-383.16501995546253,-383.54731870829704,-384.01819455863728,-384.57764750648295,-385.22567755183434,-385.96228469469145,-386.78746893505433,-387.70123027292294,-388.7035687082967,-389.7944842411768],[-388.9298128753652,-388.02695998190922,-387.20861222636569,-386.47476960873462,-385.82543212901567,-385.26059978720946,-384.78027258331542,-384.38445051733385,-384.07313358926473,-383.84632179910778,-383.70401514686324,-383.64621363253116,-383.67291725611153,-383.78412601760408,-383.97983991700937,-384.26005895432678,-384.6247831295567,-385.07401244269903,-385.60774689375353,-386.22598648272049,-386.92873120959985,-387.71598107439172,-388.587736077096,-389.54399621771216,-390.58476149624136],[-389.84569941573039,-388.98341894052368,-388.20184610994517,-387.50098092399486,-386.88082338267236,-386.34137348597835,-385.88263123391221,-385.50459662647421,-385.20726966366436,-384.99065034548244,-384.85473867192866,-384.79953464300303,-384.8250382587056,-384.93124951903599,-385.11816842399486,-385.3857949735816,-385.73412916779654,-386.16317100663957,-386.67292049011053,-387.26337761820963,-387.93454239093694,-388.68641480829234,-389.51899487027595,-390.43228257688713,-391.42627792812709],[-390.80109565291048,-389.97671293686102,-389.22949071463881,-388.5594289862438,-387.96652775167576,-387.45078701093519,-387.01220676402158,-386.65078701093518,-386.36652775167602,-386.15942898624382,-386.02949071463883,-385.97671293686102,-386.00109565291046,-386.10263886278688,-386.28134256649076,-386.53720676402156,-386.87023145537967,-387.28041664056491,-387.76776231957712,-388.33226849241657,-388.97393515908328,-389.69276231957713,-390.48874997389822,-391.36189812204606,-392.3122067640216]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-2a6beb426bec23ca3450" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-2a6beb426bec23ca3450">{"x":{"visdat":{"34342895fd2d":["function () ","plotlyVisDat"]},"cur_data":"34342895fd2d","attrs":{"34342895fd2d":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"mu"},"yaxis":{"title":"sigma"},"zaxis":{"title":"log-likelihood"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"t(lliks)","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.041666666666667","rgba(70,19,97,1)"],["0.0833333333333339","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.249999999999999","rgba(60,82,138,1)"],["0.291666666666666","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333334","rgba(79,191,110,1)"],["0.750000000000001","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666666","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[94,94.416666666666671,94.833333333333329,95.25,95.666666666666671,96.083333333333329,96.5,96.916666666666671,97.333333333333329,97.75,98.166666666666671,98.583333333333329,99,99.416666666666671,99.833333333333329,100.25,100.66666666666667,101.08333333333333,101.5,101.91666666666667,102.33333333333333,102.75,103.16666666666667,103.58333333333333,104],"y":[7,7.333333333333333,7.666666666666667,8,8.3333333333333339,8.6666666666666661,9,9.3333333333333321,9.6666666666666661,10,10.333333333333332,10.666666666666666,11,11.333333333333332,11.666666666666666,12,12.333333333333332,12.666666666666666,13,13.333333333333332,13.666666666666666,14,14.333333333333332,14.666666666666666,15],"z":[[-415.52568455252924,-411.74025371352673,-408.30913126454709,-405.23231720559045,-402.50981153665555,-400.14161425774478,-398.12772536885575,-396.46814486998971,-395.16287276114656,-394.21190904232515,-393.61525371352673,-393.37290677475119,-393.48486822599864,-393.95113806726783,-394.7717162985611,-395.94660291987617,-397.47579793121417,-399.35930133257511,-401.5971131239578,-404.18923330536347,-407.13566187679203,-410.43639883824352,-414.091444189718,-418.10079793121298,-422.46446006273334],[-408.71331607047961,-405.26419416965291,-402.13790284733886,-399.33444210353747,-396.85381193824765,-394.6960123514715,-392.86104334320692,-391.34890491345493,-390.15959706221565,-389.29311978948789,-388.74947309527278,-388.52865697957031,-388.63067144238045,-389.05551648370215,-389.80319210353758,-390.87369830188459,-392.26703507874424,-393.98320243411649,-396.02220036800031,-398.38402888039673,-401.06868797130585,-404.07617764072756,-407.40649788866193,-411.05964871510673,-415.0356301200664],[-403.15671523371685,-400.00099689723271,-397.14064718078657,-394.57566608437844,-392.3060536080074,-390.33180975167534,-388.65293451538037,-387.2694278991234,-386.18128990290444,-385.38852052672252,-384.8911197705786,-384.6890876344728,-384.78242411840495,-385.17112922237413,-385.85520294638235,-386.8346452904276,-388.10945625451092,-389.67963583863224,-391.54518404279054,-393.70610086698696,-396.16238631122133,-398.91404037549376,-401.96106305980425,-405.30345436415075,-408.94121428853725],[-398.6348824884509,-395.73666200233959,-393.10970887733959,-390.7540231134509,-388.66960471067262,-386.85645366900656,-385.3145699884509,-384.04395366900656,-383.04460471067353,-382.3165231134509,-381.85970887733959,-381.67416200233959,-381.7598824884509,-382.11687033567262,-382.74512554400656,-383.6446481134509,-384.81543804400656,-386.25749533567353,-387.9708199884509,-389.95541200233959,-392.21127137733959,-394.7383981134509,-397.53679221067353,-400.60645366900565,-403.9473824884509],[-394.97140694047636,-392.30040694047614,-389.87940694047614,-387.70840694047638,-385.78740694047588,-384.11640694047645,-382.69540694047635,-381.52440694047641,-380.6034069404767,-379.93240694047637,-379.51140694047615,-379.34040694047616,-379.41940694047634,-379.74840694047589,-380.32740694047646,-381.15640694047636,-382.23540694047642,-383.56440694047672,-385.14340694047632,-386.97240694047616,-389.05140694047617,-391.38040694047635,-393.9594069404767,-396.78840694047562,-399.86740694047637],[-392.02423091852643,-389.55474127355581,-387.31639068183983,-385.30917914337846,-383.53310665817094,-381.98817322621881,-380.67437884752047,-379.59172352207679,-378.7402072498877,-378.11983003095247,-377.73059186527178,-377.57249275284573,-377.64553269367434,-377.94971168775675,-378.48502973509454,-379.25148683568614,-380.24908298953244,-381.47781819663328,-382.93769245698797,-384.62870577059721,-386.55085813746115,-388.70414955757968,-391.08858003095281,-393.70414955757894,-396.55085813746132],[-389.67803944915096,-387.38808746012472,-385.31247017617409,-383.45118759729911,-381.80423972349899,-380.37162655477516,-379.1533480911263,-378.14940433255299,-377.35979527905528,-376.78452093063243,-376.42358128728523,-376.27697634901364,-376.34470611581764,-376.62677058769651,-377.12316976465172,-377.83390364668185,-378.75897223378752,-379.89837552596885,-381.25211352322503,-382.82018622555682,-384.60259363296427,-386.59933574544726,-388.81041256300591,-391.23582408563868,-393.87557031334848],[-387.83853465485021,-385.7092298079113,-383.77922343036028,-382.04851552219714,-380.51710608342125,-379.18499511403394,-378.05218261403388,-377.11866858342171,-376.38445302219742,-375.84953593036039,-375.5139173079113,-375.37759715485004,-375.44057547117671,-375.70285225689065,-376.16442751199315,-376.82530123648286,-377.6854734303605,-378.74494409362603,-380.00371322627876,-381.46178082831943,-383.11914689974799,-384.97581144056448,-387.03177445076886,-389.28703593035982,-391.74159587934003],[-386.42808141187567,-384.44309330248194,-382.64389591841535,-381.0304892596759,-379.60287332626297,-378.36104811817773,-377.30501363541907,-376.43476987798749,-375.75031684588305,-375.25165453910512,-374.93878295765433,-374.81170210153067,-374.87041197073415,-375.11491256526415,-375.54520388512185,-376.16128593030606,-376.96315870081747,-377.95082219665596,-379.12427641782097,-380.48352136431311,-382.02855703613233,-383.75938343327874,-385.67600055575224,-387.77840840355168,-390.06660697667945],[-385.38236261987186,-383.52750150876062,-381.84625150876059,-380.33861261987181,-379.00458484209372,-377.84416817542746,-376.85736261987182,-376.04416817542744,-375.40458484209432,-374.93861261987183,-374.6462515087606,-374.52750150876062,-374.58236261987184,-374.81083484209375,-375.21291817542749,-375.78861261987186,-376.53791817542748,-377.4608348420943,-378.55736261987181,-379.82750150876058,-381.2712515087606,-382.88861261987182,-384.6795848420943,-386.6441681754269,-388.78236261987183],[-384.64778610924691,-382.91066332048513,-381.33613158271197,-379.9241908959275,-378.67484126013113,-377.58808267532402,-376.66391514150502,-375.90233865867469,-375.303353226833,-374.86695884597952,-374.59315551611468,-374.48194323723851,-374.53332200935097,-374.74729183245165,-375.12385270654147,-375.66300463161946,-376.36474760768613,-377.22908163474148,-378.25600671278494,-379.44552284181702,-380.79763002183785,-382.31232825284735,-383.98961753484554,-385.82949786783126,-387.83196925180675],[-384.17945692112897,-382.54920789769136,-381.07154676487886,-379.74647352269147,-378.57398817112869,-377.55409071019153,-376.68678113987897,-375.97205946019153,-375.4099256711292,-375.00037977269147,-374.74342176487886,-374.63905164769136,-374.68726942112897,-374.88807508519119,-375.24146863987903,-375.74745008519147,-376.40601942112903,-377.2171766476917,-378.18092176487897,-379.29725477269136,-380.56617567112886,-381.98768446019147,-383.5617811398792,-385.28846571019102,-387.16773817112897],[-383.9395789474118,-382.40663588037773,-381.01717307046033,-379.77119051765976,-378.66868822197534,-377.70966618340816,-376.89412440195724,-376.22206287762305,-375.69348161040557,-375.30838060030436,-375.06675984731987,-374.96861935145211,-375.01395911270106,-375.20277913106628,-375.53507940654868,-376.01085993914734,-376.63012072886272,-377.39286177569483,-378.2990830796432,-379.34878464070829,-380.5419664588901,-381.87862853418864,-383.35877086660395,-384.98239345613496,-386.74949630278371],[-383.89618556579148,-382.45208954503016,-381.14315788413046,-379.96939058309249,-378.9307876419158,-378.02734906060124,-377.2590748391479,-376.62596497755624,-376.12801947582631,-375.76523833395754,-375.53762155195056,-375.44516912980521,-375.48788106752158,-375.66575736509918,-375.97879802253897,-376.42700303983992,-377.0103724170026,-377.72890615402696,-378.5826042509126,-379.57146670765991,-380.6954935242689,-381.95468470073956,-383.34904023707196,-384.87856013326513,-386.54324438932088],[-384.0221244801487,-382.65936937810778,-381.42416529647511,-380.31651223525074,-379.33641019443417,-378.48385917402629,-377.75885917402621,-377.16141019443444,-376.69151223525091,-376.34916529647523,-376.13436937810775,-376.04712448014857,-376.08743060259769,-376.25528774545455,-376.55069590872017,-376.97365509239359,-377.52416529647525,-378.20222652096521,-379.00783876586297,-379.94100203116898,-381.00171631688329,-382.18998162300585,-383.5057979495366,-384.9491652964748,-386.52008366382216],[-384.29424052148954,-383.00614252766229,-381.83860780544006,-380.79163635482286,-379.86522817581027,-379.05938326840317,-378.37410163260063,-377.80938326840317,-377.36522817581067,-377.04163635482286,-376.83860780544006,-376.75614252766229,-376.79424052148954,-376.95290178692142,-377.23212632395871,-377.63191413260063,-378.15226521284762,-378.79317956469959,-379.55465718815617,-380.43669808321783,-381.43930224988452,-382.56246968815617,-383.8062003980329,-385.17049437951385,-386.65535163260063],[-384.69271374583627,-383.47330176628907,-382.36802419141685,-381.37688102121973,-380.49987225569726,-379.73699789485016,-379.08825793867771,-378.55365238718031,-378.13318124035794,-377.82684449821022,-377.63464216073754,-377.5565742279399,-377.59264069981725,-377.74284157636924,-378.00717685759668,-378.38564654349875,-378.87825063407587,-379.48498912932803,-380.20586202925477,-381.04086933385662,-381.99001104313345,-383.05328715708532,-384.23069767571224,-385.5222425990134,-386.92792192699039],[-385.20052020468819,-384.04444333488203,-382.99657283626709,-382.05690870884331,-381.22545095261046,-380.50219956756911,-379.88715455371869,-379.38031591105943,-378.98168363959144,-378.69125773931421,-378.50903821022831,-378.43502505233357,-378.46921826563005,-378.61161785011734,-378.86222380579625,-379.22103613266603,-379.68805483072703,-380.26327989997924,-380.94671134042227,-381.73834915205657,-382.63819333488203,-383.64624388889871,-384.76250081410666,-385.98696411050503,-387.31963377809541],[-385.80299025005286,-384.70543929673261,-383.71061681152548,-382.81852279443154,-382.02915724545045,-381.34252016458282,-380.75861155182804,-380.27743140718638,-379.89897973065786,-379.62325652224223,-379.45026178193973,-379.37999550975036,-379.41245770567417,-379.54764836971077,-379.78556750186095,-380.12621510212387,-380.56959117049996,-381.11569570698924,-381.76452871159131,-382.51609018430656,-383.37038012513494,-384.32739853407656,-385.38714541113126,-386.54962075629845,-387.81482456957951],[-386.48744486504995,-385.44408549004987,-384.49838236504985,-383.65033549004994,-382.89994486504975,-382.24721049004995,-381.69213236504993,-381.23471049004996,-380.87494486505005,-380.61283549004992,-380.44838236504984,-380.38158549004987,-380.41244486504991,-380.54096049004971,-380.76713236504997,-381.09096049004989,-381.51244486504993,-382.03158549005008,-382.64838236504994,-383.36283549004986,-384.17494486504984,-385.08471049004993,-386.09213236505008,-387.19721049004966,-388.39994486504992],[-387.2428947766748,-386.24981030314706,-385.34967645424757,-384.5424932299764,-383.82826063033315,-383.20697865531849,-382.67864730493176,-382.24326657917334,-381.90083647804317,-381.65135700154093,-381.494828149667,-381.43124992242127,-381.46062231980386,-381.58294534181442,-381.79821898845353,-382.10644325972061,-382.50761815561594,-383.00174367613954,-383.58881982129105,-384.26884659107088,-385.04182398547903,-385.90775200451537,-386.86663064817998,-387.91845991647222,-389.06323980939339],[-388.05979036362578,-387.11343265387512,-386.25565204163024,-385.48644852689108,-384.80582210965736,-384.21377278992969,-383.71030056770741,-383.2954054429909,-382.96908741578011,-382.73134648607476,-382.58218265387512,-382.52159591918127,-382.54958628199313,-382.66615374231043,-382.87129830013373,-383.16501995546253,-383.54731870829704,-384.01819455863728,-384.57764750648295,-385.22567755183434,-385.96228469469145,-386.78746893505433,-387.70123027292294,-388.7035687082967,-389.7944842411768],[-388.9298128753652,-388.02695998190922,-387.20861222636569,-386.47476960873462,-385.82543212901567,-385.26059978720946,-384.78027258331542,-384.38445051733385,-384.07313358926473,-383.84632179910778,-383.70401514686324,-383.64621363253116,-383.67291725611153,-383.78412601760408,-383.97983991700937,-384.26005895432678,-384.6247831295567,-385.07401244269903,-385.60774689375353,-386.22598648272049,-386.92873120959985,-387.71598107439172,-388.587736077096,-389.54399621771216,-390.58476149624136],[-389.84569941573039,-388.98341894052368,-388.20184610994517,-387.50098092399486,-386.88082338267236,-386.34137348597835,-385.88263123391221,-385.50459662647421,-385.20726966366436,-384.99065034548244,-384.85473867192866,-384.79953464300303,-384.8250382587056,-384.93124951903599,-385.11816842399486,-385.3857949735816,-385.73412916779654,-386.16317100663957,-386.67292049011053,-387.26337761820963,-387.93454239093694,-388.68641480829234,-389.51899487027595,-390.43228257688713,-391.42627792812709],[-390.80109565291048,-389.97671293686102,-389.22949071463881,-388.5594289862438,-387.96652775167576,-387.45078701093519,-387.01220676402158,-386.65078701093518,-386.36652775167602,-386.15942898624382,-386.02949071463883,-385.97671293686102,-386.00109565291046,-386.10263886278688,-386.28134256649076,-386.53720676402156,-386.87023145537967,-387.28041664056491,-387.76776231957712,-388.33226849241657,-388.97393515908328,-389.69276231957713,-390.48874997389822,-391.36189812204606,-392.3122067640216]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -5091,15 +5091,15 @@ Figure&nbsp;18: Log-likelihood of the HERS glucose data as a function of <span c
 </div>
 </section><section id="standard-errors-by-sample-size" class="level3" data-number="4.5"><h3 data-number="4.5" class="anchored" data-anchor-id="standard-errors-by-sample-size">
 <span class="header-section-number">4.5</span> Standard errors by sample size</h3>
-<p>By <a href="#sec-covariance-matrix" class="quarto-xref">Section&nbsp;3.5</a>, the estimated standard error of <span class="math inline">\(\hat\mu_{\text{ML}}\)</span> is</p>
+<p>By <a href="#sec-covariance-matrix" class="quarto-xref">Section&nbsp;3.5</a>, the estimated standard error of <span class="math inline">\(\hat{\mu}_{\text{ML}}\)</span> is</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat\mu\right)\mathclose{}
-&amp;= \sqrt{\mathopen{}\left[\mathopen{}\left(I(\hat\mu, \hat\sigma^2)\right)^{-1}\mathclose{}\right]\mathclose{}_{11}}
+\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{}
+&amp;= \sqrt{\mathopen{}\left[\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)^{-1}\mathclose{}\right]\mathclose{}_{11}}
 &amp;&amp; \text{(estimated standard error from the inverse information)}\\
-&amp;= \sqrt{\frac{\hat\sigma^2}{n}}
+&amp;= \sqrt{\frac{\hat{\sigma}^2}{n}}
 &amp;&amp; \text{(first diagonal entry of the inverse information)}\\
-&amp;= \frac{\hat\sigma}{\sqrt{n}}
+&amp;= \frac{\hat{\sigma}}{\sqrt{n}}
 &amp;&amp; \text{(square root of a quotient)}
 \end{aligned}
 \]</span></p>
@@ -5114,12 +5114,12 @@ Figure&nbsp;18: Log-likelihood of the HERS glucose data as a function of <span c
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Standard error of mu-hat (mg/dL)"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-hers-se-by-n" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-hers-se-by-n-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;19: Standard error of <span class="math inline">\(\hat\mu_{\text{ML}}\)</span> as a function of sample size, with <span class="math inline">\(\sigma = \hat\sigma_{\text{ML}}\)</span>
+Figure&nbsp;19: Standard error of <span class="math inline">\(\hat{\mu}_{\text{ML}}\)</span> as a function of sample size, with <span class="math inline">\(\sigma= \hat{\sigma}_{\text{ML}}\)</span>
 </figcaption><div aria-describedby="fig-hers-se-by-n-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><a href="intro-MLEs_files/figure-html/unnamed-chunk-32-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;19: Standard error of \hat\mu_{\text{ML}} as a function of sample size, with \sigma = \hat\sigma_{\text{ML}}"><img src="intro-MLEs_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="intro-MLEs_files/figure-html/unnamed-chunk-32-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20" title="Figure&nbsp;19: Standard error of \hat{\mu}_{\text{ML}} as a function of sample size, with \sigma= \hat{\sigma}_{\text{ML}}"><img src="intro-MLEs_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -5129,7 +5129,7 @@ Figure&nbsp;19: Standard error of <span class="math inline">\(\hat\mu_{\text{ML}
 </div>
 </section><section id="power" class="level3" data-number="4.6"><h3 data-number="4.6" class="anchored" data-anchor-id="power">
 <span class="header-section-number">4.6</span> Power</h3>
-<p>Suppose we test the null hypothesis <span class="math inline">\(H_0: \mu = \mu_0\)</span>, with <span class="math inline">\(\mu_0 = 95\)</span> mg/dL, at significance level <span class="math inline">\(\alpha = 0.05\)</span>, and suppose for simplicity that <span class="math inline">\(\sigma\)</span> is known, equal to <span class="math inline">\(\hat\sigma_{\text{ML}}\)</span>. Then under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(\bar X \sim \operatorname{N}\mathopen{}\left(\mu_0, \sigma^2/n\right)\mathclose{}\)</span>, and the test rejects <span class="math inline">\(H_0\)</span> when <span class="math inline">\(\bar x\)</span> falls outside the non-rejection interval</p>
+<p>Suppose we test the null hypothesis <span class="math inline">\(H_0: \mu= \mu_0\)</span>, with <span class="math inline">\(\mu_0 = 95\)</span> mg/dL, at significance level <span class="math inline">\(\alpha= 0.05\)</span>, and suppose for simplicity that <span class="math inline">\(\sigma\)</span> is known, equal to <span class="math inline">\(\hat{\sigma}_{\text{ML}}\)</span>. Then under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(\bar X \sim \operatorname{N}\mathopen{}\left(\mu_0, \sigma^2/n\right)\mathclose{}\)</span>, and the test rejects <span class="math inline">\(H_0\)</span> when <span class="math inline">\(\bar x\)</span> falls outside the non-rejection interval</p>
 <p><span class="math display">\[\mu_0 \pm z_{1 - \alpha/2} \frac{\sigma}{\sqrt{n}}\]</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mu0</span> <span class="op">&lt;-</span> <span class="fl">95</span></span>
@@ -5153,7 +5153,7 @@ Figure&nbsp;19: Standard error of <span class="math inline">\(\hat\mu_{\text{ML}
 </div>
 </div>
 </div>
-<p>For this test, under <span class="math inline">\(\mu = \mu_1\)</span>, <span class="math inline">\(\bar X \sim \operatorname{N}\mathopen{}\left(\mu_1, \sigma^2/n\right)\mathclose{}\)</span>, so:</p>
+<p>For this test, under <span class="math inline">\(\mu= \mu_1\)</span>, <span class="math inline">\(\bar X \sim \operatorname{N}\mathopen{}\left(\mu_1, \sigma^2/n\right)\mathclose{}\)</span>, so:</p>
 <p><span class="math display">\[
 \text{power}(\mu_1) =
 \Phi\mathopen{}\left(\frac{\mu_0 - z_{1-\alpha/2}\,\sigma/\sqrt{n} - \mu_1}{\sigma/\sqrt{n}}\right)\mathclose{}
@@ -5184,12 +5184,12 @@ Figure&nbsp;19: Standard error of <span class="math inline">\(\hat\mu_{\text{ML}
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"n"</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-hers-power" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-hers-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)</span> against <span class="math inline">\(\mu_1 = 100\)</span> mg/dL, by sample size
+Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu= 95\)</span> against <span class="math inline">\(\mu_1 = 100\)</span> mg/dL, by sample size
 </figcaption><div aria-describedby="fig-hers-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure class="figure"><p><a href="intro-MLEs_files/figure-html/unnamed-chunk-35-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figure&nbsp;20: Power of the test of H_0: \mu = 95 against \mu_1 = 100 mg/dL, by sample size"><img src="intro-MLEs_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></a></p>
+<figure class="figure"><p><a href="intro-MLEs_files/figure-html/unnamed-chunk-35-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21" title="Figure&nbsp;20: Power of the test of H_0: \mu= 95 against \mu_1 = 100 mg/dL, by sample size"><img src="intro-MLEs_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -5204,7 +5204,7 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)
 </div>
 <div class="callout-body-container">
 <div id="rem-observed-power" class="proof remark">
-<p><span class="proof-title"><em>Remark 10</em> (Choosing the alternative, and observed power). </span>The alternative <span class="math inline">\(\mu_1\)</span> should be chosen before seeing the data, as a difference worth detecting. Power computed at <span class="math inline">\(\mu_1 = \hat\mu\)</span> (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed <span class="citation" data-cites="hoenig2001abuse">(<a href="#ref-hoenig2001abuse" role="doc-biblioref">Hoenig and Heisey 2001</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 10</em> (Choosing the alternative, and observed power). </span>The alternative <span class="math inline">\(\mu_1\)</span> should be chosen before seeing the data, as a difference worth detecting. Power computed at <span class="math inline">\(\mu_1 = \hat{\mu}\)</span> (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed <span class="citation" data-cites="hoenig2001abuse">(<a href="#ref-hoenig2001abuse" role="doc-biblioref">Hoenig and Heisey 2001</a>)</span>.</p>
 </div>
 </div>
 </div>
@@ -5212,7 +5212,7 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)
 </section><section id="simulation" class="level3" data-number="4.7"><h3 data-number="4.7" class="anchored" data-anchor-id="simulation">
 <span class="header-section-number">4.7</span> Simulation</h3>
 <p>To check how maximum likelihood estimation behaves for this model, we simulate many datasets from a Gaussian distribution whose parameters equal the HERS estimates, analyze each one, and summarize the results.</p>
-<p><code>do_one_sim()</code> simulates and analyzes one dataset: it computes <span class="math inline">\(\hat\mu\)</span>, its estimated standard error, a 95% <span class="math inline">\(t\)</span>-based confidence interval for <span class="math inline">\(\mu\)</span>, and the <span class="math inline">\(t\)</span>-test of <span class="math inline">\(H_0: \mu = \mu_0\)</span>.</p>
+<p><code>do_one_sim()</code> simulates and analyzes one dataset: it computes <span class="math inline">\(\hat{\mu}\)</span>, its estimated standard error, a 95% <span class="math inline">\(t\)</span>-based confidence interval for <span class="math inline">\(\mu\)</span>, and the <span class="math inline">\(t\)</span>-test of <span class="math inline">\(H_0: \mu= \mu_0\)</span>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">do_one_sim</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">mu</span>, <span class="va">mu0</span>, <span class="va">sigma2</span>, <span class="va">return_data</span> <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="co"># generate data</span></span>
@@ -5338,10 +5338,10 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)
 </div>
 <p>Across 1000 simulated datasets:</p>
 <ul>
-<li>the average error of <span class="math inline">\(\hat\mu\)</span> is -0.005 mg/dL, small relative to its standard error of 1.02 mg/dL, consistent with <span class="math inline">\(\hat\mu\)</span> being unbiased;</li>
-<li>the standard deviation of the <span class="math inline">\(\hat\mu\)</span> values, 0.996, is close to the true standard error;</li>
+<li>the average error of <span class="math inline">\(\hat{\mu}\)</span> is -0.005 mg/dL, small relative to its standard error of 1.02 mg/dL, consistent with <span class="math inline">\(\hat{\mu}\)</span> being unbiased;</li>
+<li>the standard deviation of the <span class="math inline">\(\hat{\mu}\)</span> values, 0.996, is close to the true standard error;</li>
 <li>the 95% confidence intervals covered the true <span class="math inline">\(\mu\)</span> in 95.9% of datasets, close to their nominal 95%;</li>
-<li>the test of <span class="math inline">\(H_0: \mu = 0.9\,\hat\mu\)</span> rejected in 100% of datasets: with <span class="math inline">\(n = 100\)</span>, a 10% difference in the mean is easy to detect.</li>
+<li>the test of <span class="math inline">\(H_0: \mu= 0.9\,\hat{\mu}\)</span> rejected in 100% of datasets: with <span class="math inline">\(n = 100\)</span>, a 10% difference in the mean is easy to detect.</li>
 </ul>
 <p>Changing the sample size, the true <span class="math inline">\(\mu\)</span>, or <span class="math inline">\(\sigma^2\)</span> in <code>do_n_sims()</code> shows how these properties depend on them.</p>
 </section></section><section id="sec-mle-practice" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="sec-mle-practice">
@@ -5361,7 +5361,7 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)
 <p>Assume <span class="math inline">\(0 &lt; y &lt; n\)</span> so the MLE lies in the interior of <span class="math inline">\((0, 1)\)</span>.</p>
 <p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell(\pi; y)\)</span> for a single observation <span class="math inline">\(y\)</span>.</p>
 <p><strong>(b)</strong> Derive the score function <span class="math inline">\(\ell'(\pi; y) \stackrel{\text{def}}{=}\frac{\partial}{\partial \pi}\ell(\pi; y)\)</span>.</p>
-<p><strong>(c)</strong> Set the score equal to zero and solve for <span class="math inline">\(\hat\pi_{ML}\)</span>. Confirm that <span class="math inline">\(\hat\pi_{ML} = y/n\)</span>.</p>
+<p><strong>(c)</strong> Set the score equal to zero and solve for <span class="math inline">\(\hat{\pi}_{ML}\)</span>. Confirm that <span class="math inline">\(\hat{\pi}_{ML} = y/n\)</span>.</p>
 <p><strong>(d)</strong> Compute the second derivative <span class="math inline">\(\ell''(\pi; y)\)</span> and verify that it is negative, confirming a maximum.</p>
 </div>
 </div>
@@ -5457,7 +5457,7 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)
 &amp;= \frac{y(1-\pi) - (n-y)\pi}{\pi(1-\pi)}
 &amp;&amp; \text{(combine the fractions)}
 \\
-&amp;= \frac{y - y\pi - n\pi + y\pi}{\pi(1-\pi)}
+&amp;= \frac{y - y\pi- n\pi+ y\pi}{\pi(1-\pi)}
 &amp;&amp; \text{(expand the numerator)}
 \\
 &amp;= \frac{y - n\pi}{\pi(1-\pi)}
@@ -5477,7 +5477,7 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu = 95\)
 y &amp;= n\pi
 &amp;&amp; \text{(add $n\pi$ to both sides)}
 \\
-\hat\pi_{ML} &amp;= \frac{y}{n}
+\hat{\pi}_{ML} &amp;= \frac{y}{n}
 &amp;&amp; \text{(divide both sides by $n$)}
 \end{aligned}
 \]</span></p>
@@ -5513,7 +5513,7 @@ y &amp;= n\pi
 &amp;&amp; \text{(write the negative powers as fractions)}
 \end{aligned}
 \]</span></p>
-<p>Since <span class="math inline">\(y \geq 0\)</span>, <span class="math inline">\(n - y \geq 0\)</span>, and <span class="math inline">\(y\)</span> and <span class="math inline">\(n - y\)</span> are not both zero, <span class="math inline">\(\ell''(\pi; y) &lt; 0\)</span> for every <span class="math inline">\(\pi \in (0,1)\)</span>. So <span class="math inline">\(\ell\)</span> is strictly concave, and its critical point <span class="math inline">\(\hat\pi_{ML} = y/n\)</span> is its global maximum.</p>
+<p>Since <span class="math inline">\(y \geq 0\)</span>, <span class="math inline">\(n - y \geq 0\)</span>, and <span class="math inline">\(y\)</span> and <span class="math inline">\(n - y\)</span> are not both zero, <span class="math inline">\(\ell''(\pi; y) &lt; 0\)</span> for every <span class="math inline">\(\pi\in (0,1)\)</span>. So <span class="math inline">\(\ell\)</span> is strictly concave, and its critical point <span class="math inline">\(\hat{\pi}_{ML} = y/n\)</span> is its global maximum.</p>
 </div>
 </div>
 </div>
@@ -5533,7 +5533,7 @@ y &amp;= n\pi
 = -\frac{n}{2}\operatorname{log}\mathopen{}\left\{2\pi\sigma^2\right\}\mathclose{}
   - \frac{1}{2\sigma^2}\sum_{i=1}^n(x_i - \mu)^2.
 \]</span></p>
-<p><strong>(c)</strong> Derive the MLE <span class="math inline">\(\hat\mu_{ML}\)</span> and <span class="math inline">\(\hat\sigma^2_{ML}\)</span>.</p>
+<p><strong>(c)</strong> Derive the MLE <span class="math inline">\(\hat{\mu}_{ML}\)</span> and <span class="math inline">\(\hat{\sigma}^2_{ML}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -5601,7 +5601,7 @@ y &amp;= n\pi
 \end{aligned}
 \]</span></p>
 <p><strong>(c)</strong></p>
-<p><strong>Deriving <span class="math inline">\(\hat\mu_{ML}\)</span>:</strong></p>
+<p><strong>Deriving <span class="math inline">\(\hat{\mu}_{ML}\)</span>:</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{\partial}{\partial \mu}\ell
@@ -5669,8 +5669,8 @@ y &amp;= n\pi
 &amp;&amp; \text{(sum of $n$ copies of $\mu$)}
 \end{aligned}
 \]</span></p>
-<p>Setting this to zero: <span class="math inline">\(\hat\mu_{ML} = \bar{x} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^nx_i\)</span>.</p>
-<p><strong>Deriving <span class="math inline">\(\hat\sigma^2_{ML}\)</span>:</strong></p>
+<p>Setting this to zero: <span class="math inline">\(\hat{\mu}_{ML} = \bar{x} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^nx_i\)</span>.</p>
+<p><strong>Deriving <span class="math inline">\(\hat{\sigma}^2_{ML}\)</span>:</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{\partial}{\partial \sigma^2}\ell
@@ -5756,9 +5756,9 @@ n\sigma^2
 &amp;&amp; \text{(divide both sides by $n$)}
 \end{aligned}
 \]</span></p>
-<p>Substituting <span class="math inline">\(\hat\mu_{ML} = \bar{x}\)</span>:</p>
+<p>Substituting <span class="math inline">\(\hat{\mu}_{ML} = \bar{x}\)</span>:</p>
 <p><span class="math display">\[
-\hat\sigma^2_{ML} = \frac{1}{n}\sum_{i=1}^n(x_i - \bar{x})^2
+\hat{\sigma}^2_{ML} = \frac{1}{n}\sum_{i=1}^n(x_i - \bar{x})^2
 \]</span></p>
 <p>Note: this maximum likelihood estimator is a biased estimator of <span class="math inline">\(\sigma^2\)</span>; the unbiased sample variance divides by <span class="math inline">\(n-1\)</span>.</p>
 </div>
@@ -7327,13 +7327,13 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb42-341"><a href="#cb42-341" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-342"><a href="#cb42-342" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb42-343"><a href="#cb42-343" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-344"><a href="#cb42-344" aria-hidden="true" tabindex="-1"></a><span class="fu">### MLE of $\mu$</span></span>
+<span id="cb42-344"><a href="#cb42-344" aria-hidden="true" tabindex="-1"></a><span class="fu">### MLE of $\mean$</span></span>
 <span id="cb42-345"><a href="#cb42-345" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-346"><a href="#cb42-346" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_sec-gaussian-mle-mu.qmd &gt;}}</span>
 <span id="cb42-347"><a href="#cb42-347" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-348"><a href="#cb42-348" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb42-349"><a href="#cb42-349" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-350"><a href="#cb42-350" aria-hidden="true" tabindex="-1"></a><span class="fu">### MLE of $\sigma^2$ {#sec-gaussian-mle-sigma}</span></span>
+<span id="cb42-350"><a href="#cb42-350" aria-hidden="true" tabindex="-1"></a><span class="fu">### MLE of $\varpar$ {#sec-gaussian-mle-sigma}</span></span>
 <span id="cb42-351"><a href="#cb42-351" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-352"><a href="#cb42-352" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/intro-MLEs/_def-profile-loglik.qmd &gt;}}</span>
 <span id="cb42-353"><a href="#cb42-353" aria-hidden="true" tabindex="-1"></a></span>

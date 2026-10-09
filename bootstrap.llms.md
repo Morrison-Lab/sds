@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 23:14:25 (UTC)
+Last modified: 2026-10-09 00:28:12 (UTC)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
@@ -61,15 +61,15 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 
 > **NOTE:**
 >
-> **Definition 2 (Bootstrap distribution)** Let \\\hat\theta\\ be a statistic computed from the observed data. Draw \\B\\ independent [bootstrap samples](#def-bootstrap-sample), and compute the statistic on each one, giving \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\. The **bootstrap distribution** of \\\hat\theta\\ is the empirical distribution of \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\.
+> **Definition 2 (Bootstrap distribution)** Let \\\hat{\theta}\\ be a statistic computed from the observed data. Draw \\B\\ independent [bootstrap samples](#def-bootstrap-sample), and compute the statistic on each one, giving \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\. The **bootstrap distribution** of \\\hat{\theta}\\ is the empirical distribution of \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\.
 
 > **NOTE:**
 >
-> *Remark 2* (What the bootstrap distribution estimates). The bootstrap distribution estimates the sampling distribution of \\\hat\theta\\. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.
+> *Remark 2* (What the bootstrap distribution estimates). The bootstrap distribution estimates the sampling distribution of \\\hat{\theta}\\. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.
 
 > **NOTE:**
 >
-> **Definition 3 (Bootstrap standard error)** The **bootstrap standard error** of a statistic \\\hat\theta\\, written \\\widehat{\text{SE}}\_\text{boot}\\, is the sample standard deviation of the bootstrap replicates \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)). It estimates the [standard error](estimation.llms.md#def-SE) of \\\hat\theta\\.
+> **Definition 3 (Bootstrap standard error)** The **bootstrap standard error** of a statistic \\\hat{\theta}\\, written \\\widehat{\text{SE}}\_\text{boot}\\, is the sample standard deviation of the bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)). It estimates the [standard error](estimation.llms.md#def-SE) of \\\hat{\theta}\\.
 
 > **NOTE:**
 >
@@ -89,7 +89,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 > #>      103.80000        3.47992        3.61417        3.42870
 > ```
 >
-> The bootstrap standard error ([Definition 3](#def-bootstrap-se)) is close to the usual estimate \\s / \sqrt{n}\\. Each bootstrap draw has variance \\\hat\sigma^2 \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(x_i - \bar{x})^2\\ around \\\bar{x}\\, and the \\n\\ draws are independent, so as \\B\\ grows the bootstrap standard error of the mean approaches \\\hat\sigma / \sqrt{n}\\ (`divide_by_n_se`), which is smaller than \\s / \sqrt{n}\\ by the factor \\\sqrt{(n-1)/n}\\. [Figure 1](#fig-boot-dist-toy) shows the bootstrap distribution.
+> The bootstrap standard error ([Definition 3](#def-bootstrap-se)) is close to the usual estimate \\s / \sqrt{n}\\. Each bootstrap draw has variance \\\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(x_i - \bar{x})^2\\ around \\\bar{x}\\, and the \\n\\ draws are independent, so as \\B\\ grows the bootstrap standard error of the mean approaches \\\hat{\sigma}/ \sqrt{n}\\ (`divide_by_n_se`), which is smaller than \\s / \sqrt{n}\\ by the factor \\\sqrt{(n-1)/n}\\. [Figure 1](#fig-boot-dist-toy) shows the bootstrap distribution.
 >
 > Show R code
 >
@@ -116,13 +116,13 @@ There are three common methods for turning a bootstrap distribution into a \\100
 >
 > **Definition 4 (Normal bootstrap confidence interval)** The **normal bootstrap confidence interval** is
 >
-> \\\hat\theta \pm z\_{1 - \alpha/2} \\ \widehat{\text{SE}}\_\text{boot},\\
+> \\\hat{\theta}\pm z\_{1 - \alpha/2} \\ \widehat{\text{SE}}\_\text{boot},\\
 >
 > where \\\widehat{\text{SE}}\_\text{boot}\\ is the bootstrap standard error ([Definition 3](#def-bootstrap-se)).
 
 > **NOTE:**
 >
-> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the sampling distribution of \\\hat\theta\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
+> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the sampling distribution of \\\hat{\theta}\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
 
 > **NOTE:**
 >
@@ -139,7 +139,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> **Definition 5 (Percentile bootstrap confidence interval)** The **percentile bootstrap confidence interval** runs from the \\\alpha/2\\ quantile to the \\1 - \alpha/2\\ quantile of the bootstrap replicates \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)).
+> **Definition 5 (Percentile bootstrap confidence interval)** The **percentile bootstrap confidence interval** runs from the \\\alpha/2\\ quantile to the \\1 - \alpha/2\\ quantile of the bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)).
 
 > **NOTE:**
 >
@@ -159,25 +159,25 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> **Definition 6 (Bias correction of the BCa interval)** For a statistic \\\hat\theta\\ and its bootstrap replicates \\\hat\theta^\*\_1, \ldots, \hat\theta^\*\_B\\, the **bias correction** is
+> **Definition 6 (Bias correction of the BCa interval)** For a statistic \\\hat{\theta}\\ and its bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\, the **bias correction** is
 >
-> \\\hat{z}\_0 \stackrel{\text{def}}{=}\Phi^{-1}\mathopen{}\left(\frac{\\\mathopen{}\left\\b : \hat\theta^\*\_b \< \hat\theta\right\\\mathclose{}}{B}\right)\mathclose{},\\
+> \\\hat{z}\_0 \stackrel{\text{def}}{=}\Phi^{-1}\mathopen{}\left(\frac{\\\mathopen{}\left\\b : \hat{\theta}^\*\_b \< \hat{\theta}\right\\\mathclose{}}{B}\right)\mathclose{},\\
 >
 > where \\\Phi\\ is the standard Gaussian CDF.
 
 > **NOTE:**
 >
-> **Example 5 (Bias correction when 40% of replicates fall below the estimate)** If 400 of \\B = 1{,}000\\ replicates are below \\\hat\theta\\, then \\\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\\. If exactly half were below, \\\hat z_0 = \Phi^{-1}(0.5) = 0\\.
+> **Example 5 (Bias correction when 40% of replicates fall below the estimate)** If 400 of \\B = 1{,}000\\ replicates are below \\\hat{\theta}\\, then \\\hat z_0 = \Phi^{-1}(0.4) \approx -0.253\\. If exactly half were below, \\\hat z_0 = \Phi^{-1}(0.5) = 0\\.
 
 > **NOTE:**
 >
-> **Definition 7 (Acceleration of the BCa interval)** Let \\\hat\theta\_{(i)}\\ be the statistic computed with observation \\i\\ deleted, and let \\\hat\theta\_{(\cdot)}\\ be the mean of \\\hat\theta\_{(1)}, \ldots, \hat\theta\_{(n)}\\. The **acceleration** is
+> **Definition 7 (Acceleration of the BCa interval)** Let \\\hat{\theta}\_{(i)}\\ be the statistic computed with observation \\i\\ deleted, and let \\\hat{\theta}\_{(\cdot)}\\ be the mean of \\\hat{\theta}\_{(1)}, \ldots, \hat{\theta}\_{(n)}\\. The **acceleration** is
 >
-> \\\hat{a} \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n\mathopen{}\left(\hat\theta\_{(\cdot)} - \hat\theta\_{(i)}\right)\mathclose{}^3} {6 \mathopen{}\left(\sum\_{i=1}^n\mathopen{}\left(\hat\theta\_{(\cdot)} - \hat\theta\_{(i)}\right)\mathclose{}^2\right)\mathclose{}^{3/2}}.\\
+> \\\hat{a} \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n\mathopen{}\left(\hat{\theta}\_{(\cdot)} - \hat{\theta}\_{(i)}\right)\mathclose{}^3} {6 \mathopen{}\left(\sum\_{i=1}^n\mathopen{}\left(\hat{\theta}\_{(\cdot)} - \hat{\theta}\_{(i)}\right)\mathclose{}^2\right)\mathclose{}^{3/2}}.\\
 
 > **NOTE:**
 >
-> **Example 6 (Acceleration from three deleted estimates)** If the differences \\\hat\theta\_{(\cdot)} - \hat\theta\_{(i)}\\ are \\1\\, \\1\\, and \\-2\\, the sum of their cubes is \\1 + 1 - 8 = -6\\ and the sum of their squares is \\6\\, so
+> **Example 6 (Acceleration from three deleted estimates)** If the differences \\\hat{\theta}\_{(\cdot)} - \hat{\theta}\_{(i)}\\ are \\1\\, \\1\\, and \\-2\\, the sum of their cubes is \\1 + 1 - 8 = -6\\ and the sum of their squares is \\6\\, so
 >
 > \\\hat a = \frac{-6}{6 \cdot 6^{3/2}} \approx -0.068.\\
 
@@ -191,7 +191,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> *Remark 5* (What the BCa interval corrects). When \\\hat{z}\_0 = 0\\ and \\\hat{a} = 0\\, \\\alpha_q = q\\ and the BCa interval is the percentile interval ([Definition 5](#def-bootstrap-ci-percentile)). \\\hat{z}\_0\\ measures how far the bootstrap distribution’s median sits from \\\hat\theta\\, and \\\hat{a}\\ measures its skewness, so the BCa interval shifts the percentile interval to correct for both.
+> *Remark 5* (What the BCa interval corrects). When \\\hat{z}\_0 = 0\\ and \\\hat{a} = 0\\, \\\alpha_q = q\\ and the BCa interval is the percentile interval ([Definition 5](#def-bootstrap-ci-percentile)). \\\hat{z}\_0\\ measures how far the bootstrap distribution’s median sits from \\\hat{\theta}\\, and \\\hat{a}\\ measures its skewness, so the BCa interval shifts the percentile interval to correct for both.
 
 > **NOTE:**
 >
@@ -218,7 +218,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a recommended package distributed with R, provides [`boot::boot()`](https://rdrr.io/pkg/boot/man/boot.html) to draw the bootstrap replicates and [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) to compute the three intervals. [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) differs from the definitions on this page in two small ways:
 
-- its normal interval (`type = "norm"`) is centered at \\\hat\theta\\ minus the bootstrap estimate of bias, \\\hat\theta - (\bar\theta^\* - \hat\theta)\\, where \\\bar\theta^\*\\ is the mean of the replicates, rather than at \\\hat\theta\\;
+- its normal interval (`type = "norm"`) is centered at \\\hat{\theta}\\ minus the bootstrap estimate of bias, \\\hat{\theta}- (\bar\theta^\* - \hat{\theta})\\, where \\\bar\theta^\*\\ is the mean of the replicates, rather than at \\\hat{\theta}\\;
 - it estimates quantiles of the replicates by interpolation, so its percentile and BCa endpoints can differ slightly from those computed with [`quantile()`](https://rdrr.io/r/stats/quantile.html).
 
 ### 2.5 Example: slope of SBP on age in HERS

@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 23:14:25 (UTC)</p>
+  <p class="date">Last modified: 2026-10-09 00:28:12 (UTC)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -383,14 +383,14 @@ text-align: center;
 <!-- No slidebreak here: the heading shares its slide with the def-population-correlation div. -->
 <div id="def-population-correlation" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Population correlation)</strong></span> The <strong>population correlation</strong> of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with positive variances is</p>
-<p><span class="math display">\[\rho \stackrel{\text{def}}{=}\frac{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}{\sqrt{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} \operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}},\]</span></p>
+<p><span class="math display">\[\rho\stackrel{\text{def}}{=}\frac{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}{\sqrt{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} \operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}},\]</span></p>
 <p>where <span class="math inline">\(\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}\)</span> is their <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-cov">covariance</a>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-sample-correlation-estimates-rho" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (The sample correlation estimates the population correlation). </span>The <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> <span class="math inline">\(r\)</span> of a sample is the corresponding sample statistic, and estimates <span class="math inline">\(\rho\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-pearson-test" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Test of zero correlation)</strong></span> Let <span class="math inline">\(r\)</span> be the <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> of <span class="math inline">\(n \ge 3\)</span> pairs, with <span class="math inline">\(\mathopen{}\left|r\right|\mathclose{} &lt; 1\)</span>. The <strong>t-test of zero correlation</strong> of <span class="math inline">\(H_0: \rho = 0\)</span> against <span class="math inline">\(H_1: \rho \neq 0\)</span> (<a href="#/def-population-correlation" class="quarto-xref">Definition&nbsp;1</a>) uses the statistic</p>
+<p><span class="theorem-title"><strong>Definition 2 (Test of zero correlation)</strong></span> Let <span class="math inline">\(r\)</span> be the <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> of <span class="math inline">\(n \ge 3\)</span> pairs, with <span class="math inline">\(\mathopen{}\left|r\right|\mathclose{} &lt; 1\)</span>. The <strong>t-test of zero correlation</strong> of <span class="math inline">\(H_0: \rho= 0\)</span> against <span class="math inline">\(H_1: \rho\neq 0\)</span> (<a href="#/def-population-correlation" class="quarto-xref">Definition&nbsp;1</a>) uses the statistic</p>
 <p><span class="math display">\[t \stackrel{\text{def}}{=}\frac{r \sqrt{n - 2}}{\sqrt{1 - r^2}}.\]</span></p>
 <p>Its p-value is <span class="math inline">\(\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t\right|\mathclose{})\)</span>, where <span class="math inline">\(T\)</span> has the <span class="math inline">\(t_{n-2}\)</span> distribution (<a href="./inference.html#def-t-dist">t-distribution</a>).</p>
 </div>
@@ -401,7 +401,7 @@ t \sim t_{n-2}.
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-pearson-test-conditions" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (When the conditions hold). </span>The conditions of <a href="#/thm-pearson-test-null" class="quarto-xref">Theorem&nbsp;1</a> hold, for example, when the pairs are independent draws from a bivariate Gaussian distribution with <span class="math inline">\(\rho = 0\)</span>.</p>
+<p><span class="proof-title"><em>Remark 2</em> (When the conditions hold). </span>The conditions of <a href="#/thm-pearson-test-null" class="quarto-xref">Theorem&nbsp;1</a> hold, for example, when the pairs are independent draws from a bivariate Gaussian distribution with <span class="math inline">\(\rho= 0\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-hers-cor" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Correlation between BMI and fasting glucose in HERS)</strong></span> <a href="#/fig-hers-scatter" class="quarto-xref">Figure&nbsp;1</a> plots baseline fasting glucose against BMI.</p>
@@ -494,10 +494,10 @@ r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\rig
 <span class="header-section-number">3.1</span> Model specification</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-cond-gaussian div. -->
 <div id="def-cond-gaussian" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Conditional Gaussian model)</strong></span> A <strong>conditional Gaussian model</strong> for outcomes <span class="math inline">\(Y_1, \ldots, Y_n\)</span> with covariate values <span class="math inline">\(x_1, \ldots, x_n\)</span> (each a single value or a vector) says that, given the covariates, the outcomes are independent and Gaussian: outcome <span class="math inline">\(Y_i\)</span> is centered on a mean function <span class="math inline">\(\mu(x)\)</span> evaluated at <span class="math inline">\(x_i\)</span>, and has its own variance <span class="math inline">\(\sigma_i^2\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 4 (Conditional Gaussian model)</strong></span> A <strong>conditional Gaussian model</strong> for outcomes <span class="math inline">\(Y_1, \ldots, Y_n\)</span> with covariate values <span class="math inline">\(x_1, \ldots, x_n\)</span> (each a single value or a vector) says that, given the covariates, the outcomes are independent and Gaussian: outcome <span class="math inline">\(Y_i\)</span> is centered on a mean function <span class="math inline">\(\mu(x)\)</span> evaluated at <span class="math inline">\(x_i\)</span>, and has its own variance <span class="math inline">\(\sigma^2_i\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-Y_i \mid X_i = x_i &amp;\ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(\mu_i, \sigma_i^2\right)\mathclose{},\\
+Y_i \mid X_i = x_i &amp;\ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(\mu_i, \sigma^2_i\right)\mathclose{},\\
 \mu_i &amp;\stackrel{\text{def}}{=}\mu(x_i).
 \end{aligned}
 \]</span></p>
@@ -573,7 +573,7 @@ Y_i
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-slr-additive" class="quarto-xref">Exercise&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-slr-deviation-dist" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (Distribution of the deviations)</strong></span> Show that in a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), given the covariate values, the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) are independent and each is Gaussian with mean 0 and the same variance <span class="math inline">\(\sigma_i^2\)</span> as <span class="math inline">\(Y_i\)</span>: <span class="math inline">\(\varepsilon_i \mid X_i = x_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 2 (Distribution of the deviations)</strong></span> Show that in a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), given the covariate values, the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) are independent and each is Gaussian with mean 0 and the same variance <span class="math inline">\(\sigma^2_i\)</span> as <span class="math inline">\(Y_i\)</span>: <span class="math inline">\(\varepsilon_i \mid X_i = x_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-slr-deviation-dist" class="proof solution">
 <p><span class="proof-title"><em>Solution 2</em>. </span>Every probability, CDF and density in this solution is <a href="https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf">conditional</a> on <span class="math inline">\(X_i = x_i\)</span>; the condition is left out of the notation to keep the lines short. Write <span class="math inline">\(F_{\varepsilon}\)</span> and <span class="math inline">\(f_{\varepsilon}\)</span> for the CDF and density of <span class="math inline">\(\varepsilon_i\)</span>, and <span class="math inline">\(F_Y\)</span> and <span class="math inline">\(f_Y\)</span> for those of <span class="math inline">\(Y_i\)</span>.</p>
@@ -619,7 +619,7 @@ f_{\varepsilon}(t)
 \end{aligned}
 \]</span></p>
 <hr>
-<p>Plugging the inner derivative back in, and using the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-normal">Gaussian density</a> of <span class="math inline">\(Y_i\)</span>, which has mean <span class="math inline">\(\mu_i = \mu(x_i)\)</span> and variance <span class="math inline">\(\sigma_i^2\)</span> (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>):</p>
+<p>Plugging the inner derivative back in, and using the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-normal">Gaussian density</a> of <span class="math inline">\(Y_i\)</span>, which has mean <span class="math inline">\(\mu_i = \mu(x_i)\)</span> and variance <span class="math inline">\(\sigma^2_i\)</span> (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
 f_{\varepsilon}(t)
@@ -628,14 +628,14 @@ f_{\varepsilon}(t)
 &amp;= f_Y(t + \mu_i)
 &amp;&amp; \text{(multiply by 1)}\\
 &amp;= \frac{1}{\sigma_i \sqrt{2 \pi}}
-  \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma_i^2}}
+  \text{e}^{-\frac{\mathopen{}\left((t + \mu_i) - \mu_i\right)\mathclose{}^2}{2 \sigma^2_i}}
 &amp;&amp; \text{(Gaussian density with mean $\mu_i$)}\\
 &amp;= \frac{1}{\sigma_i \sqrt{2 \pi}}
-  \text{e}^{-\frac{t^2}{2 \sigma_i^2}}
+  \text{e}^{-\frac{t^2}{2 \sigma^2_i}}
 &amp;&amp; \text{(subtract)}
 \end{aligned}
 \]</span></p>
-<p>The last line is the density of <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\)</span>, so <span class="math inline">\(\varepsilon_i \mid X_i = x_i \sim \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\)</span>.</p>
+<p>The last line is the density of <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\)</span>, so <span class="math inline">\(\varepsilon_i \mid X_i = x_i \sim \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\)</span>.</p>
 <hr>
 <p>For independence, factor the joint CDF of <span class="math inline">\(\varepsilon_1, \ldots, \varepsilon_n\)</span>, using the same CDF step as above for each <span class="math inline">\(i\)</span> and the independence of the <span class="math inline">\(Y_i\)</span> given the covariates (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>):</p>
 <p><span class="math display">\[
@@ -652,22 +652,22 @@ f_{\varepsilon}(t)
 <p>The joint CDF is the product of the marginal CDFs, so <span class="math inline">\(\varepsilon_1, \ldots, \varepsilon_n\)</span> are independent.</p>
 </div>
 </section><section class="slide level2"><div id="thm-slr-deviation-dist" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Distribution of the deviations)</strong></span> In a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), given the covariates, the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) are independent and Gaussian with mean 0 and variance <span class="math inline">\(\sigma_i^2\)</span>:</p>
-<p><span class="math display">\[\varepsilon_i \mid X_i = x_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}.\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 3 (Distribution of the deviations)</strong></span> In a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), given the covariates, the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) are independent and Gaussian with mean 0 and variance <span class="math inline">\(\sigma^2_i\)</span>:</p>
+<p><span class="math display">\[\varepsilon_i \mid X_i = x_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}.\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-slr-deviation-dist" class="quarto-xref">Exercise&nbsp;2</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-homoskedastic" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Homoskedastic model)</strong></span> A conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) is <strong>homoskedastic</strong> if all outcomes share one variance <span class="math inline">\(\sigma^2\)</span>, which does not depend on <span class="math inline">\(i\)</span>:</p>
-<p><span class="math display">\[\sigma_i^2 = \sigma^2 \text{ for all } i.\]</span></p>
+<p><span class="math display">\[\sigma^2_i = \sigma^2\text{ for all } i.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="cor-homoskedastic-deviations" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1 (Deviations in a homoskedastic model)</strong></span> In a homoskedastic model (<a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a>), the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) all have the same variance <span class="math inline">\(\sigma^2\)</span>:</p>
 <p><span class="math display">\[\varepsilon_i \mid X_i = x_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(0, \sigma^2\right)\mathclose{}.\]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-slr-deviation-dist" class="quarto-xref">Theorem&nbsp;3</a>, <span class="math inline">\(\varepsilon_i \mid X_i = x_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(0, \sigma_i^2\right)\mathclose{}\)</span>, and <a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a> sets <span class="math inline">\(\sigma_i^2 = \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-slr-deviation-dist" class="quarto-xref">Theorem&nbsp;3</a>, <span class="math inline">\(\varepsilon_i \mid X_i = x_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\)</span>, and <a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a> sets <span class="math inline">\(\sigma^2_i = \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-linear-regression" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Linear regression model)</strong></span> A <strong>linear regression model</strong> is a homoskedastic (<a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a>) conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) whose mean function is linear in <span class="math inline">\(p\)</span> covariates, where observation <span class="math inline">\(i\)</span> has covariate values <span class="math inline">\(x_i = (x_{i1}, \ldots, x_{ip})\)</span>:</p>

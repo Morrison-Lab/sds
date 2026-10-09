@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 23:14:25 (UTC)
+Last modified: 2026-10-09 00:28:12 (UTC)
 
 ## 1 Introduction
 
@@ -136,7 +136,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 1 (One-sample t-test)** Let \\x_1, \ldots, x_n\\ be observations with \\n \ge 2\\, sample mean \\\bar{x}\\, and sample standard deviation \\s\\. The **one-sample t-test** of \\H_0: \mu = \mu_0\\ against \\H_1: \mu \neq \mu_0\\ uses the statistic
+> **Definition 1 (One-sample t-test)** Let \\x_1, \ldots, x_n\\ be observations with \\n \ge 2\\, sample mean \\\bar{x}\\, and sample standard deviation \\s\\. The **one-sample t-test** of \\H_0: \mu= \mu_0\\ against \\H_1: \mu\neq \mu_0\\ uses the statistic
 >
 > \\t \stackrel{\text{def}}{=}\frac{\bar{x} - \mu_0}{s / \sqrt{n}}.\\
 >
@@ -148,9 +148,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Proof*. We use a standard fact about Gaussian samples ([Hogg et al. 2019, sec. 5.5](#ref-hoggtanis2015), pp. 203-205): \\\bar X\\ and \\S^2\\ are independent, and \\V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2\\ has the \\\chi^2\_{n-1}\\ distribution. Also, \\Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma / \sqrt{n})\\ has the standard Gaussian distribution, and \\Z\\ is independent of \\V\\ because \\\bar X\\ is independent of \\S^2\\. So by the [definition of the t-distribution](inference.llms.md#def-t-dist), \\Z / \sqrt{V / (n-1)}\\ has the \\t\_{n-1}\\ distribution, and this ratio equals \\T\\:
+> *Proof*. We use a standard fact about Gaussian samples ([Hogg et al. 2019, sec. 5.5](#ref-hoggtanis2015), pp. 203-205): \\\bar X\\ and \\S^2\\ are independent, and \\V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2\\ has the \\\chi^2\_{n-1}\\ distribution. Also, \\Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma/ \sqrt{n})\\ has the standard Gaussian distribution, and \\Z\\ is independent of \\V\\ because \\\bar X\\ is independent of \\S^2\\. So by the [definition of the t-distribution](inference.llms.md#def-t-dist), \\Z / \sqrt{V / (n-1)}\\ has the \\t\_{n-1}\\ distribution, and this ratio equals \\T\\:
 >
-> \\ \begin{aligned} \frac{Z}{\sqrt{V/(n-1)}} &= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{\sqrt{S^2 / \sigma^2}} && \text{(substitute \$Z\$ and \$V\$)}\\ &= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{S / \sigma} && \text{(\$\sqrt{S^2} = S\$, since \$S \ge 0\$)}\\ &= \frac{\bar X - \mu_0}{S / \sqrt{n}} && \text{(the factors of \$\sigma\$ cancel)}\\ &= T. \end{aligned} \\
+> \\ \begin{aligned} \frac{Z}{\sqrt{V/(n-1)}} &= \frac{(\bar X - \mu_0) / (\sigma/ \sqrt{n})}{\sqrt{S^2 / \sigma^2}} && \text{(substitute \$Z\$ and \$V\$)}\\ &= \frac{(\bar X - \mu_0) / (\sigma/ \sqrt{n})}{S / \sigma} && \text{(\$\sqrt{S^2} = S\$, since \$S \ge 0\$)}\\ &= \frac{\bar X - \mu_0}{S / \sqrt{n}} && \text{(the factors of \$\sigma\$ cancel)}\\ &= T. \end{aligned} \\
 
 > **NOTE:**
 >
@@ -160,7 +160,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 2 (Paired t-test)** Let \\(x\_{1,1}, x\_{1,2}), \ldots, (x\_{n,1}, x\_{n,2})\\ be pairs of related measurements, such as the same participants measured at two times, and let \\d_i \stackrel{\text{def}}{=}x\_{i,2} - x\_{i,1}\\ be the within-pair differences, with population mean \\\mu_d\\. The **paired t-test** of \\H_0: \mu_d = 0\\ against \\H_1: \mu_d \neq 0\\ is the one-sample t-test ([Definition 1](#def-one-sample-t-test)) of \\H_0: \mu = 0\\ applied to \\d_1, \ldots, d_n\\.
+> **Definition 2 (Paired t-test)** Let \\(x\_{1,1}, x\_{1,2}), \ldots, (x\_{n,1}, x\_{n,2})\\ be pairs of related measurements, such as the same participants measured at two times, and let \\d_i \stackrel{\text{def}}{=}x\_{i,2} - x\_{i,1}\\ be the within-pair differences, with population mean \\\mu_d\\. The **paired t-test** of \\H_0: \mu_d = 0\\ against \\H_1: \mu_d \neq 0\\ is the one-sample t-test ([Definition 1](#def-one-sample-t-test)) of \\H_0: \mu= 0\\ applied to \\d_1, \ldots, d_n\\.
 
 > **NOTE:**
 >
@@ -212,13 +212,13 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > and the Welch–Satterthwaite degrees of freedom
 >
-> \\\hat\nu \stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2} {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.\\
+> \\\hat{\nu}\stackrel{\text{def}}{=}\frac{\mathopen{}\left(\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}\right)\mathclose{}^2} {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.\\
 >
-> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat\nu}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
+> Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat{\nu}}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 
 > **NOTE:**
 >
-> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat\nu}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
+> *Remark 2* (Properties of Welch’s test). Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, \\t\_{\hat{\nu}}\\ is only an approximation to the null distribution of \\t\\. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under \\H_0\\, as in [the WCGS cholesterol example](inference.llms.md#exm-p-value-wcgs). Welch’s test is the default in R’s [`t.test()`](https://rdrr.io/r/stats/t.test.html).
 
 > **NOTE:**
 >
@@ -335,9 +335,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Definition 6 (Welch confidence interval for a difference in means)** With the notation of [Definition 3](#def-two-sample-t-test), the **Welch \\100(1-\alpha)\\\\ confidence interval** for \\\mu_1 - \mu_2\\ is
 >
-> \\(\bar{x}\_1 - \bar{x}\_2) \pm t\_{\hat\nu,\\ 1 - \alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\\
+> \\(\bar{x}\_1 - \bar{x}\_2) \pm t\_{\hat{\nu},\\ 1 - \alpha/2} \sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}},\\
 >
-> where \\t\_{\hat\nu,\\ 1 - \alpha/2}\\ is the \\1 - \alpha/2\\ quantile of the \\t\_{\hat\nu}\\ distribution. It is an approximate [confidence interval](inference.llms.md#def-confidence-interval).
+> where \\t\_{\hat{\nu},\\ 1 - \alpha/2}\\ is the \\1 - \alpha/2\\ quantile of the \\t\_{\hat{\nu}}\\ distribution. It is an approximate [confidence interval](inference.llms.md#def-confidence-interval).
 
 > **NOTE:**
 >

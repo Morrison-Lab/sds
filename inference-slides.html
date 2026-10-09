@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-08 23:14:25 (UTC)</p>
+  <p class="date">Last modified: 2026-10-09 00:28:12 (UTC)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -402,7 +402,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 3 (Alternative hypothesis)</strong></span> The <strong>alternative hypothesis</strong>, written <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_A\)</span>, is the claim that a hypothesis test weighs the data as evidence <em>for</em>, against the <a href="#/def-null-hypothesis">null hypothesis</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-two-sided-alternative" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Two-sided alternative)</strong></span> For a null hypothesis that a parameter equals a value, such as <span class="math inline">\(H_0: \theta = \theta_0\)</span>, the <strong>two-sided alternative</strong> is that the parameter differs from that value in either direction: <span class="math inline">\(H_1: \theta \ne \theta_0\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 4 (Two-sided alternative)</strong></span> For a null hypothesis that a parameter equals a value, such as <span class="math inline">\(H_0: \theta= \theta_0\)</span>, the <strong>two-sided alternative</strong> is that the parameter differs from that value in either direction: <span class="math inline">\(H_1: \theta\ne \theta_0\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-hypotheses-wcgs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Cholesterol and CHD in the WCGS)</strong></span> Let <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_0\)</span> be the mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the means are equal against the <a href="#/def-two-sided-alternative">two-sided alternative</a> that they differ:</p>
@@ -426,7 +426,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 7 (Significance level)</strong></span> A hypothesis test with <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> rejects the <a href="#/def-null-hypothesis">null hypothesis</a> when the <a href="#/def-p-value">p-value</a> is at most <span class="math inline">\(\alpha\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-significance-level-convention" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Choosing a significance level). </span><span class="math inline">\(\alpha = 0.05\)</span> is a common convention, not a rule. When <span class="math inline">\(H_0\)</span> is true and the p-value is computed exactly, a test with significance level <span class="math inline">\(\alpha\)</span> rejects <span class="math inline">\(H_0\)</span> with probability at most <span class="math inline">\(\alpha\)</span>; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.</p>
+<p><span class="proof-title"><em>Remark 2</em> (Choosing a significance level). </span><span class="math inline">\(\alpha= 0.05\)</span> is a common convention, not a rule. When <span class="math inline">\(H_0\)</span> is true and the p-value is computed exactly, a test with significance level <span class="math inline">\(\alpha\)</span> rejects <span class="math inline">\(H_0\)</span> with probability at most <span class="math inline">\(\alpha\)</span>; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.</p>
 </div>
 </section><section class="slide level2"><div id="def-statistically-significant" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Statistically significant)</strong></span> A result is <strong>statistically significant</strong> at level <span class="math inline">\(\alpha\)</span> if it leads a test with <a href="#/def-significance-level">significance level</a> <span class="math inline">\(\alpha\)</span> to reject the null hypothesis.</p>
@@ -504,11 +504,11 @@ text-align: center;
 <!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
 <div id="def-confidence-interval" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Confidence interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a pair of statistics <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span>, computed from the data, such that for every possible value of <span class="math inline">\(\theta\)</span>:</p>
-<p><span class="math display">\[\Pr(L \le \theta \le U) = 1 - \alpha\]</span></p>
+<p><span class="math display">\[\Pr(L \le \theta\le U) = 1 - \alpha\]</span></p>
 <p>The probability is over repeated samples from the data-generating process, with <span class="math inline">\(\theta\)</span> held fixed.</p>
 </div>
 </section><section class="slide level2"><div id="def-coverage-probability" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Coverage probability)</strong></span> The <strong>coverage probability</strong> of an interval <span class="math inline">\([L, U]\)</span> for a parameter <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\Pr(L \le \theta \le U)\)</span>, computed over repeated samples with <span class="math inline">\(\theta\)</span> held fixed. A <span class="math inline">\(100(1-\alpha)\%\)</span> <a href="#/def-confidence-interval">confidence interval</a> has coverage probability <span class="math inline">\(1 - \alpha\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 13 (Coverage probability)</strong></span> The <strong>coverage probability</strong> of an interval <span class="math inline">\([L, U]\)</span> for a parameter <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\Pr(L \le \theta\le U)\)</span>, computed over repeated samples with <span class="math inline">\(\theta\)</span> held fixed. A <span class="math inline">\(100(1-\alpha)\%\)</span> <a href="#/def-confidence-interval">confidence interval</a> has coverage probability <span class="math inline">\(1 - \alpha\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-approximate-ci" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Approximate confidence interval)</strong></span> An <strong>approximate</strong> <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval is an interval whose <a href="#/def-coverage-probability">coverage probability</a> is approximately <span class="math inline">\(1 - \alpha\)</span>, for example only in large samples.</p>

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 23:14:25 (UTC)
+Last modified: 2026-10-09 00:28:12 (UTC)
 
 ## 1 Inference
 
@@ -42,7 +42,7 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> **Definition 4 (Two-sided alternative)** For a null hypothesis that a parameter equals a value, such as \\H_0: \theta = \theta_0\\, the **two-sided alternative** is that the parameter differs from that value in either direction: \\H_1: \theta \ne \theta_0\\.
+> **Definition 4 (Two-sided alternative)** For a null hypothesis that a parameter equals a value, such as \\H_0: \theta= \theta_0\\, the **two-sided alternative** is that the parameter differs from that value in either direction: \\H_1: \theta\ne \theta_0\\.
 
 > **NOTE:**
 >
@@ -74,7 +74,7 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> *Remark 2* (Choosing a significance level). \\\alpha = 0.05\\ is a common convention, not a rule. When \\H_0\\ is true and the p-value is computed exactly, a test with significance level \\\alpha\\ rejects \\H_0\\ with probability at most \\\alpha\\; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.
+> *Remark 2* (Choosing a significance level). \\\alpha= 0.05\\ is a common convention, not a rule. When \\H_0\\ is true and the p-value is computed exactly, a test with significance level \\\alpha\\ rejects \\H_0\\ with probability at most \\\alpha\\; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.
 
 > **NOTE:**
 >
@@ -169,13 +169,13 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a pair of statistics \\L\\ and \\U\\, computed from the data, such that for every possible value of \\\theta\\:
 >
-> \\\Pr(L \le \theta \le U) = 1 - \alpha\\
+> \\\Pr(L \le \theta\le U) = 1 - \alpha\\
 >
 > The probability is over repeated samples from the data-generating process, with \\\theta\\ held fixed.
 
 > **NOTE:**
 >
-> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\\[L, U\]\\ for a parameter \\\theta\\ is \\\Pr(L \le \theta \le U)\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability \\1 - \alpha\\.
+> **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\\[L, U\]\\ for a parameter \\\theta\\ is \\\Pr(L \le \theta\le U)\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability \\1 - \alpha\\.
 
 > **NOTE:**
 >
