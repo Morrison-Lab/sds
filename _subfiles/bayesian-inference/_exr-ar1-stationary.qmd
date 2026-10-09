@@ -30,7 +30,7 @@ $$
 &= 0
 && \text{(arithmetic)}.
 \ea
-$$
+$$ {#eq-ar1-stationary-exr}
 
 Independent random variables are
 [uncorrelated](https://morrison-lab.github.io/pds/variance-covariance.html#thm-indpt-uncorrelated),
@@ -59,7 +59,7 @@ $$
 &= \arcoef^2 v + \sigma^2
 && \text{(substituting $\Var{\eps^{(t+1)}} = \sigma^2$)}.
 \ea
-$$
+$$ {#eq-ar1-stationary-exr-2}
 
 So $\param^{(t+1)} \sim \ndist{0, \arcoef^2 v + \sigma^2}$,
 and $\ndist{0, v}$ is stationary exactly when $\arcoef^2 v + \sigma^2 = v$.
@@ -76,7 +76,7 @@ v - \arcoef^2 v &= \sigma^2
 v &= \frac{\sigma^2}{1 - \arcoef^2}
 && \text{(dividing both sides by $1 - \arcoef^2$, which is positive because $\abs{\arcoef} < 1$)}.
 \ea
-$$
+$$ {#eq-ar1-stationary-exr-3}
 
 The stationary distribution is $\ndist{0, \sigma^2 / (1 - \arcoef^2)}$.
 If instead $\abs{\arcoef} \ge 1$,

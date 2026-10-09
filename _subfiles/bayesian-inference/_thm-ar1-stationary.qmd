@@ -7,7 +7,7 @@ is a [stationary distribution](#def-stationary-distribution):
 
 $$
 \ndist{0, \frac{\sigma^2}{1 - \arcoef^2}}.
-$$
+$$ {#eq-ar1-stationary}
 
 :::
 

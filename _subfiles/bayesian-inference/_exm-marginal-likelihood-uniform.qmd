@@ -26,7 +26,7 @@ $$
 &= \frac{1}{2}
 && \text{(arithmetic)}.
 \ea
-$$
+$$ {#eq-marginal-likelihood-uniform-exm}
 
 By @thm-bayes-posterior,
 for $\param \in (0, 1)$:
@@ -43,7 +43,7 @@ $$
 &= 2\param
 && \text{(dividing by $1/2$ is multiplying by 2)}.
 \ea
-$$
+$$ {#eq-marginal-likelihood-uniform-exm-2}
 
 One head moves the posterior density toward large values of $\param$.
 The posterior mean is
@@ -64,7 +64,7 @@ $$
 &= \frac{2}{3}
 && \text{(arithmetic)},
 \ea
-$$
+$$ {#eq-marginal-likelihood-uniform-exm-3}
 
 up from the prior mean of $1/2$.
 :::

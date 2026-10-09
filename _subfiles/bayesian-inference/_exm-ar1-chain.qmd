@@ -8,7 +8,7 @@ For each $t \ge 1$, let
 
 $$
 \param^{(t+1)} \eqdef \arcoef\, \param^{(t)} + \eps^{(t+1)}.
-$$
+$$ {#eq-ar1-chain-exm}
 
 The sequence $\param^{(1)}, \param^{(2)}, \ldots$ is a
 **first-order autoregressive** process.
