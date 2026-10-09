@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 01:43:36 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 10:13:46 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1720,36 +1720,81 @@ r \, \frac{s_y}{s_x}
 <p><code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> gives the same estimates:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>slr_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI, <span class="at">data =</span> hers)</span>
-<span id="cb10-2"><a aria-label="2"></a><span class="fu">summary</span>(slr_fit)</span>
-<span id="cb10-3"><a aria-label="3"></a><span class="co">#&gt; </span></span>
-<span id="cb10-4"><a aria-label="4"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb10-5"><a aria-label="5"></a><span class="co">#&gt; lm(formula = glucose ~ BMI, data = hers)</span></span>
-<span id="cb10-6"><a aria-label="6"></a><span class="co">#&gt; </span></span>
-<span id="cb10-7"><a aria-label="7"></a><span class="co">#&gt; Residuals:</span></span>
-<span id="cb10-8"><a aria-label="8"></a><span class="co">#&gt;    Min     1Q Median     3Q    Max </span></span>
-<span id="cb10-9"><a aria-label="9"></a><span class="co">#&gt; -81.55 -18.98 -10.35   3.76 190.81 </span></span>
-<span id="cb10-10"><a aria-label="10"></a><span class="co">#&gt; </span></span>
-<span id="cb10-11"><a aria-label="11"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb10-12"><a aria-label="12"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb10-13"><a aria-label="13"></a><span class="co">#&gt; (Intercept)   60.074      3.565    16.9   &lt;2e-16 ***</span></span>
-<span id="cb10-14"><a aria-label="14"></a><span class="co">#&gt; BMI            1.822      0.122    14.9   &lt;2e-16 ***</span></span>
-<span id="cb10-15"><a aria-label="15"></a><span class="co">#&gt; ---</span></span>
-<span id="cb10-16"><a aria-label="16"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
-<span id="cb10-17"><a aria-label="17"></a><span class="co">#&gt; </span></span>
-<span id="cb10-18"><a aria-label="18"></a><span class="co">#&gt; Residual standard error: 35.5 on 2756 degrees of freedom</span></span>
-<span id="cb10-19"><a aria-label="19"></a><span class="co">#&gt;   (5 observations deleted due to missingness)</span></span>
-<span id="cb10-20"><a aria-label="20"></a><span class="co">#&gt; Multiple R-squared:  0.0743, Adjusted R-squared:  0.074 </span></span>
-<span id="cb10-21"><a aria-label="21"></a><span class="co">#&gt; F-statistic:  221 on 1 and 2756 DF,  p-value: &lt;2e-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-2"><a aria-label="2"></a>parameters<span class="sc">::</span><span class="fu">parameters</span>(slr_fit) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a aria-label="3"></a>  parameters<span class="sc">::</span><span class="fu">print_md</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 10%">
+<col style="width: 26%">
+<col style="width: 13%">
+<col style="width: 11%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">Coefficient</th>
+<th style="text-align: center;">SE</th>
+<th style="text-align: center;">95% CI</th>
+<th style="text-align: center;">t(2756)</th>
+<th style="text-align: center;">p</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">60.074</td>
+<td style="text-align: center;">3.565</td>
+<td style="text-align: center;">(53.084, 67.064)</td>
+<td style="text-align: center;">16.852</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BMI</td>
+<td style="text-align: center;">1.822</td>
+<td style="text-align: center;">0.122</td>
+<td style="text-align: center;">(1.582, 2.062)</td>
+<td style="text-align: center;">14.878</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>performance<span class="sc">::</span><span class="fu">model_performance</span>(slr_fit) <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a aria-label="2"></a>  insight<span class="sc">::</span><span class="fu">print_md</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<caption>Indices of model performance</caption>
+<thead><tr class="header">
+<th style="text-align: left;">AIC</th>
+<th style="text-align: center;">AICc</th>
+<th style="text-align: center;">BIC</th>
+<th style="text-align: center;">R2</th>
+<th style="text-align: center;">R2 (adj.)</th>
+<th style="text-align: center;">RMSE</th>
+<th style="text-align: center;">Sigma</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: left;">27517.9</td>
+<td style="text-align: center;">27517.9</td>
+<td style="text-align: center;">27535.7</td>
+<td style="text-align: center;">0.074</td>
+<td style="text-align: center;">0.074</td>
+<td style="text-align: center;">35.471</td>
+<td style="text-align: center;">35.484</td>
+</tr></tbody>
+</table>
+</div>
 </div>
 <p><a href="#/fig-hers-slr" class="quarto-xref">Figure&nbsp;4</a> shows the data with the fitted line.</p>
-<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(hers_bmi, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> BMI, <span class="at">y =</span> glucose)) <span class="sc">+</span></span>
-<span id="cb11-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb11-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_abline</span>(</span>
-<span id="cb11-4"><a aria-label="4"></a>    <span class="at">intercept =</span> <span class="fu">coef</span>(slr_fit)[[<span class="dv">1</span>]],</span>
-<span id="cb11-5"><a aria-label="5"></a>    <span class="at">slope =</span> <span class="fu">coef</span>(slr_fit)[[<span class="st">"BMI"</span>]],</span>
-<span id="cb11-6"><a aria-label="6"></a>    <span class="at">color =</span> <span class="st">"firebrick"</span></span>
-<span id="cb11-7"><a aria-label="7"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-8"><a aria-label="8"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"BMI (kg/m^2)"</span>, <span class="at">y =</span> <span class="st">"Fasting glucose (mg/dL)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(hers_bmi, ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> BMI, <span class="at">y =</span> glucose)) <span class="sc">+</span></span>
+<span id="cb12-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_abline</span>(</span>
+<span id="cb12-4"><a aria-label="4"></a>    <span class="at">intercept =</span> <span class="fu">coef</span>(slr_fit)[[<span class="dv">1</span>]],</span>
+<span id="cb12-5"><a aria-label="5"></a>    <span class="at">slope =</span> <span class="fu">coef</span>(slr_fit)[[<span class="st">"BMI"</span>]],</span>
+<span id="cb12-6"><a aria-label="6"></a>    <span class="at">color =</span> <span class="st">"firebrick"</span></span>
+<span id="cb12-7"><a aria-label="7"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-8"><a aria-label="8"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"BMI (kg/m^2)"</span>, <span class="at">y =</span> <span class="st">"Fasting glucose (mg/dL)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-hers-slr" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-hers-slr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
@@ -1904,15 +1949,15 @@ R^2 &amp;= r^2, &amp;
 </section><section class="slide level2"><div id="exm-hers-r-squared" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (<span class="math inline">\(R^2\)</span> for the regression of glucose on BMI in HERS)</strong></span> For the fit in <a href="#/exm-hers-slr" class="quarto-xref">Example&nbsp;8</a>, <span class="math inline">\(R^2\)</span> computed from <a href="#/def-r-squared" class="quarto-xref">Definition&nbsp;15</a>, the square of the Pearson correlation, and <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>’s value agree:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI, <span class="at">data =</span> hers)</span>
-<span id="cb12-2"><a aria-label="2"></a>y <span class="ot">&lt;-</span> fit<span class="sc">$</span>model<span class="sc">$</span>glucose</span>
-<span id="cb12-3"><a aria-label="3"></a><span class="fu">c</span>(</span>
-<span id="cb12-4"><a aria-label="4"></a>  <span class="at">r_squared =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(fit)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sum</span>((y <span class="sc">-</span> <span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>),</span>
-<span id="cb12-5"><a aria-label="5"></a>  <span class="at">cor_squared =</span> <span class="fu">cor</span>(fit<span class="sc">$</span>model<span class="sc">$</span>BMI, y)<span class="sc">^</span><span class="dv">2</span>,</span>
-<span id="cb12-6"><a aria-label="6"></a>  <span class="at">lm =</span> <span class="fu">summary</span>(fit)<span class="sc">$</span>r.squared</span>
-<span id="cb12-7"><a aria-label="7"></a>)</span>
-<span id="cb12-8"><a aria-label="8"></a><span class="co">#&gt;   r_squared cor_squared          lm </span></span>
-<span id="cb12-9"><a aria-label="9"></a><span class="co">#&gt;   0.0743455   0.0743455   0.0743455</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(glucose <span class="sc">~</span> BMI, <span class="at">data =</span> hers)</span>
+<span id="cb13-2"><a aria-label="2"></a>y <span class="ot">&lt;-</span> fit<span class="sc">$</span>model<span class="sc">$</span>glucose</span>
+<span id="cb13-3"><a aria-label="3"></a><span class="fu">c</span>(</span>
+<span id="cb13-4"><a aria-label="4"></a>  <span class="at">r_squared =</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(<span class="fu">residuals</span>(fit)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">sum</span>((y <span class="sc">-</span> <span class="fu">mean</span>(y))<span class="sc">^</span><span class="dv">2</span>),</span>
+<span id="cb13-5"><a aria-label="5"></a>  <span class="at">cor_squared =</span> <span class="fu">cor</span>(fit<span class="sc">$</span>model<span class="sc">$</span>BMI, y)<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb13-6"><a aria-label="6"></a>  <span class="at">lm =</span> <span class="fu">summary</span>(fit)<span class="sc">$</span>r.squared</span>
+<span id="cb13-7"><a aria-label="7"></a>)</span>
+<span id="cb13-8"><a aria-label="8"></a><span class="co">#&gt;   r_squared cor_squared          lm </span></span>
+<span id="cb13-9"><a aria-label="9"></a><span class="co">#&gt;   0.0743455   0.0743455   0.0743455</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>BMI accounts for only about 7% of the variation in baseline fasting glucose.</p>
 </div>

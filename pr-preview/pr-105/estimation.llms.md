@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 01:43:36 (PDT)
+Last modified: 2026-10-09 10:13:46 (PDT)
 
 ## 1 Scientific models
 
@@ -196,7 +196,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Example 7 (Residuals and prediction errors for birth weights)** The `birthwt` data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)). They ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this repository holds a copy at `data/birthwt.csv`.
+> **Example 7 (Residuals and prediction errors for birth weights)** The `birthwt` data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)). They ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
 >
 > The code below fits a line predicting birth weight from mother’s weight, then compares each residual with the negative of its prediction error.
 >
@@ -377,11 +377,11 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > *Solution 4*. The variance is ([simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)):
 >
-> \\\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{}\\
+> \\\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} \tag{2}\\
 >
 > Add it to the squared bias from [Exercise 3](#exr-sq-bias-expand) and simplify:
 >
-> \\ \begin{aligned} \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(substitute the squared bias)}\\ &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} && \text{(substitute the variance)}\\ &= - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} && \text{(cancel \$\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{}\$)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(reorder the terms)} \end{aligned} \\
+> \\ \begin{aligned} \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(substitute the squared bias)}\\ &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} && \text{(substitute the variance)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} && \text{(reorder the terms)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \mathopen{}\left(\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{}\right)\mathclose{} && \text{(group the last two terms)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + 0 && \text{(\$a - a = 0\$)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(\$a + 0 = a\$)} \end{aligned} \tag{3}\\
 
 > **NOTE:**
 >
@@ -395,7 +395,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Theorem 3 (Mean squared error equals bias squared plus variance)** For any one-dimensional estimator \\\hat{\theta}\\:
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{2}\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
 
 > **NOTE:**
 >
@@ -478,13 +478,13 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Theorem 4 (Properties of unbiased estimators)** If \\\hat{\theta}\\ is an [unbiased](#def-unbiased) estimator of \\\theta\\, then:
 >
-> \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} = \theta \tag{3}\\
+> \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} = \theta \tag{5}\\
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{6}\\
 
 > **NOTE:**
 >
-> *Proof*. [Equation 3](#eq-unbiased-exp) is the solution to [Exercise 6](#exr-unbiased-exp), and [Equation 4](#eq-unbiased-mse) is the solution to [Exercise 7](#exr-unbiased-mse).
+> *Proof*. [Equation 5](#eq-unbiased-exp) is the solution to [Exercise 6](#exr-unbiased-exp), and [Equation 6](#eq-unbiased-mse) is the solution to [Exercise 7](#exr-unbiased-mse).
 
 ### 3.7 Mean absolute error
 
@@ -556,11 +556,11 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Exercise 10 (Standard error of an unbiased estimator)** Using [Equation 4](#eq-unbiased-mse), write the [standard error](#def-SE) of an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ in terms of its [mean squared error](#def-mse).
+> **Exercise 10 (Standard error of an unbiased estimator)** Using [Equation 6](#eq-unbiased-mse), write the [standard error](#def-SE) of an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ in terms of its [mean squared error](#def-mse).
 
 > **NOTE:**
 >
-> *Solution 10*. By [Equation 4](#eq-unbiased-mse), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\. Taking square roots of both sides, \\\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\.
+> *Solution 10*. By [Equation 6](#eq-unbiased-mse), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\. Taking square roots of both sides, \\\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\.
 
 > **NOTE:**
 >

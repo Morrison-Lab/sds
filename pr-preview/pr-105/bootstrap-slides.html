@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 01:43:36 (PDT)</p>
+  <p class="date">Last modified: 2026-10-09 10:13:46 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -578,24 +578,58 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 <p>The bootstrap standard error is close to the model-based standard error from <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>, and the three bootstrap intervals are close to the model-based 95% confidence interval:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>fit_sbp_age <span class="ot">&lt;-</span> <span class="fu">lm</span>(SBP <span class="sc">~</span> age, <span class="at">data =</span> hers)</span>
-<span id="cb9-2"><a aria-label="2"></a><span class="fu">summary</span>(fit_sbp_age)<span class="sc">$</span>coefficients[<span class="st">"age"</span>, ]</span>
-<span id="cb9-3"><a aria-label="3"></a><span class="co">#&gt;    Estimate  Std. Error     t value    Pr(&gt;|t|) </span></span>
-<span id="cb9-4"><a aria-label="4"></a><span class="co">#&gt; 4.71728e-01 5.36838e-02 8.78716e+00 2.64196e-18</span></span>
-<span id="cb9-5"><a aria-label="5"></a><span class="fu">confint</span>(fit_sbp_age)[<span class="st">"age"</span>, ]</span>
-<span id="cb9-6"><a aria-label="6"></a><span class="co">#&gt;    2.5 %   97.5 % </span></span>
-<span id="cb9-7"><a aria-label="7"></a><span class="co">#&gt; 0.366464 0.576993</span></span>
-<span id="cb9-8"><a aria-label="8"></a>boot<span class="sc">::</span><span class="fu">boot.ci</span>(boot_result, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"norm"</span>, <span class="st">"perc"</span>, <span class="st">"bca"</span>))</span>
-<span id="cb9-9"><a aria-label="9"></a><span class="co">#&gt; BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS</span></span>
-<span id="cb9-10"><a aria-label="10"></a><span class="co">#&gt; Based on 1000 bootstrap replicates</span></span>
-<span id="cb9-11"><a aria-label="11"></a><span class="co">#&gt; </span></span>
-<span id="cb9-12"><a aria-label="12"></a><span class="co">#&gt; CALL : </span></span>
-<span id="cb9-13"><a aria-label="13"></a><span class="co">#&gt; boot::boot.ci(boot.out = boot_result, type = c("norm", "perc", </span></span>
-<span id="cb9-14"><a aria-label="14"></a><span class="co">#&gt;     "bca"))</span></span>
-<span id="cb9-15"><a aria-label="15"></a><span class="co">#&gt; </span></span>
-<span id="cb9-16"><a aria-label="16"></a><span class="co">#&gt; Intervals : </span></span>
-<span id="cb9-17"><a aria-label="17"></a><span class="co">#&gt; Level      Normal             Percentile            BCa          </span></span>
-<span id="cb9-18"><a aria-label="18"></a><span class="co">#&gt; 95%   ( 0.3672,  0.5775 )   ( 0.3607,  0.5811 )   ( 0.3624,  0.5824 )  </span></span>
-<span id="cb9-19"><a aria-label="19"></a><span class="co">#&gt; Calculations and Intervals on Original Scale</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-2"><a aria-label="2"></a>parameters<span class="sc">::</span><span class="fu">parameters</span>(fit_sbp_age) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a aria-label="3"></a>  parameters<span class="sc">::</span><span class="fu">print_md</span>(<span class="at">digits =</span> <span class="dv">3</span>, <span class="at">ci_digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 19%">
+<col style="width: 10%">
+<col style="width: 27%">
+<col style="width: 13%">
+<col style="width: 11%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">Coefficient</th>
+<th style="text-align: center;">SE</th>
+<th style="text-align: center;">95% CI</th>
+<th style="text-align: center;">t(2761)</th>
+<th style="text-align: center;">p</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: center;">103.629</td>
+<td style="text-align: center;">3.596</td>
+<td style="text-align: center;">(96.579, 110.680)</td>
+<td style="text-align: center;">28.820</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">age</td>
+<td style="text-align: center;">0.472</td>
+<td style="text-align: center;">0.054</td>
+<td style="text-align: center;">(0.366, 0.577)</td>
+<td style="text-align: center;">8.787</td>
+<td style="text-align: center;">&lt; .001</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>boot<span class="sc">::</span><span class="fu">boot.ci</span>(boot_result, <span class="at">type =</span> <span class="fu">c</span>(<span class="st">"norm"</span>, <span class="st">"perc"</span>, <span class="st">"bca"</span>))</span>
+<span id="cb10-2"><a aria-label="2"></a><span class="co">#&gt; BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS</span></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="co">#&gt; Based on 1000 bootstrap replicates</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="co">#&gt; </span></span>
+<span id="cb10-5"><a aria-label="5"></a><span class="co">#&gt; CALL : </span></span>
+<span id="cb10-6"><a aria-label="6"></a><span class="co">#&gt; boot::boot.ci(boot.out = boot_result, type = c("norm", "perc", </span></span>
+<span id="cb10-7"><a aria-label="7"></a><span class="co">#&gt;     "bca"))</span></span>
+<span id="cb10-8"><a aria-label="8"></a><span class="co">#&gt; </span></span>
+<span id="cb10-9"><a aria-label="9"></a><span class="co">#&gt; Intervals : </span></span>
+<span id="cb10-10"><a aria-label="10"></a><span class="co">#&gt; Level      Normal             Percentile            BCa          </span></span>
+<span id="cb10-11"><a aria-label="11"></a><span class="co">#&gt; 95%   ( 0.3672,  0.5775 )   ( 0.3607,  0.5811 )   ( 0.3624,  0.5824 )  </span></span>
+<span id="cb10-12"><a aria-label="12"></a><span class="co">#&gt; Calculations and Intervals on Original Scale</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>All three intervals are similar here. When the bootstrap distribution is skewed, the intervals differ more, and the BCa interval, which corrects for skewness, is the better choice <span class="citation" data-cites="efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993, chap. 14</a>)</span>.</p>
 </div>
