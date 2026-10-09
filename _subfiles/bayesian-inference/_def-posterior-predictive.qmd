@@ -1,0 +1,18 @@
+::: {#def-posterior-predictive}
+#### Posterior predictive distribution
+
+The **posterior predictive distribution** of a new observation $Y^{\mathrm{new}}$,
+given observed data $\vY = \vy$,
+is the distribution of $Y^{\mathrm{new}}$ implied by the [posterior](#def-posterior) $\p(\param \mid \vy)$
+and the model $\p(y^{\mathrm{new}} \mid \param)$:
+
+$$
+\p(y^{\mathrm{new}} \mid \vy) = \int \p(y^{\mathrm{new}} \mid \param)\, \p(\param \mid \vy)\, d\param,
+$$
+
+where $Y^{\mathrm{new}}$ and $\vY$ are independent given $\param$
+[@gelman2013bda, Section 1.3, p. 7, eq. 1.4].
+The same formula, with $y^{\mathrm{new}}$ replaced by a whole replicated data set $\vy^{\mathrm{rep}}$
+of the same size as $\vy$,
+gives the posterior predictive distribution of replicated data.
+:::

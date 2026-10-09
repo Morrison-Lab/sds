@@ -1,0 +1,173 @@
+::: {#exm-posterior-predictive-check}
+#### Does one smoking probability fit every group?
+
+We check the Beta-Bernoulli model with the race-spread test quantity $T_2$
+of @exm-test-quantity,
+on two data sets:
+
+- **Simulated data.**
+  We draw `r n_mothers` Bernoulli observations with the same true $\prob = `r sim_truth`$ for every mother,
+  and attach the race labels of the `birthwt` mothers.
+  The model is true for these data.
+- **Real data.**
+  The smoking indicators of the `birthwt` mothers.
+
+For each data set,
+we draw $\prob$ from its posterior under the uniform prior,
+draw a replicated data set $\vY^{\mathrm{rep}}$ of the same size given that $\prob$,
+and compute $T_2(\vY^{\mathrm{rep}})$,
+4000 times.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: posterior-predictive-check
+#| code-fold: false
+set.seed(4)
+check_data <- list(
+  simulated = stats::rbinom(n_mothers, size = 1, prob = sim_truth),
+  `real (birthwt)` = smoke_y
+)
+ppc_draws <- do.call(
+  rbind,
+  lapply(names(check_data), \(data_name) {
+    y <- check_data[[data_name]]
+    ab <- beta_posterior(y)
+    prob_draws <- stats::rbeta(4000, ab[["a"]], ab[["b"]])
+    data.frame(
+      data_set = data_name,
+      t_rep = vapply(
+        prob_draws,
+        \(p) t_spread(stats::rbinom(n_mothers, size = 1, prob = p)),
+        numeric(1)
+      ),
+      t_obs = t_spread(y)
+    )
+  })
+)
+ppc_draws$data_set <- factor(ppc_draws$data_set, levels = names(check_data))
+ppc_obs <- unique(ppc_draws[c("data_set", "t_obs")])
+ppc_obs
+```
+
+##### Python
+
+```{python}
+#| label: posterior-predictive-check-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+
+birthwt = pd.read_csv("data/birthwt.csv")
+race = birthwt["race"].to_numpy()
+smoke_y = birthwt["smoke"].to_numpy()
+n_mothers = len(smoke_y)
+sim_truth = 0.3
+
+
+def t_spread(y):
+    group_means = pd.Series(y).groupby(race).mean()
+    return group_means.max() - group_means.min()
+
+
+rng = np.random.default_rng(4)
+check_data = {
+    "simulated": rng.binomial(1, sim_truth, size=n_mothers),
+    "real (birthwt)": smoke_y,
+}
+ppc_draws = {}
+for name, y in check_data.items():
+    post_a = 1 + y.sum()
+    post_b = 1 + len(y) - y.sum()
+    prob_draws = rng.beta(post_a, post_b, size=4000)
+    t_rep = np.array([t_spread(rng.binomial(1, p, size=n_mothers))
+                      for p in prob_draws])
+    ppc_draws[name] = (t_rep, t_spread(y))
+
+{name: t_obs for name, (t_rep, t_obs) in ppc_draws.items()}
+```
+
+:::
+
+{{< slidebreak >}}
+
+@fig-posterior-predictive-check compares the replicated and observed values of $T_2$.
+
+::: {#fig-posterior-predictive-check}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: posterior-predictive-check-plot
+#| fig-alt: !expr paste0(
+#|   "Two side-by-side histograms of the spread in smoking proportions ",
+#|   "across race groups, in data sets replicated from the posterior. ",
+#|   "In the left panel (simulated data), the observed spread of ",
+#|   round(ppc_obs$t_obs[1], 2),
+#|   ", marked by a dashed vertical line, falls inside the histogram. ",
+#|   "In the right panel (real birthwt data), the observed spread of ",
+#|   round(ppc_obs$t_obs[2], 2),
+#|   " lies to the right of nearly all the replicated values."
+#|   )
+ggplot2::ggplot(ppc_draws, ggplot2::aes(t_rep)) +
+  ggplot2::geom_histogram(bins = 40) +
+  ggplot2::geom_vline(
+    data = ppc_obs,
+    ggplot2::aes(xintercept = t_obs),
+    linetype = "dashed"
+  ) +
+  ggplot2::facet_wrap(~data_set) +
+  ggplot2::labs(
+    x = "spread of smoking proportions across race groups",
+    y = "number of simulations"
+  )
+```
+
+##### Python
+
+```{python}
+#| label: posterior-predictive-check-plot-py
+#| code-summary: "Show Python code"
+#| fig-alt: Two side-by-side histograms of the spread in smoking proportions
+#|   across race groups, in data sets replicated from the posterior.
+#|   In each panel a dashed vertical line marks the observed spread.
+#|   In the left panel (simulated data) it falls inside the histogram;
+#|   in the right panel (real birthwt data) it lies to the right of
+#|   nearly all the replicated values.
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
+for ax, (name, (t_rep, t_obs)) in zip(axes, ppc_draws.items()):
+    ax.hist(t_rep, bins=40, color="grey")
+    ax.axvline(t_obs, color="black", linestyle="--")
+    ax.set_title(name)
+    ax.set_xlabel("spread of smoking proportions across race groups")
+axes[0].set_ylabel("number of simulations")
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+Posterior predictive distributions of $T_2$,
+the spread of the smoking proportions across the three race groups,
+from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior.
+The dashed lines are the observed values.
+Left: `r n_mothers` simulated observations with the same true $\prob = `r sim_truth`$ for every mother.
+Right: the `birthwt` data.
+:::
+
+{{< slidebreak >}}
+
+For the simulated data,
+the observed spread looks like the replicated spreads,
+as it should, because the model generated those data.
+For the real data,
+the observed spread is larger than almost every replicated spread:
+the smoking proportion really does differ by race in these data,
+and a model with one $\prob$ for everyone cannot reproduce that.
+:::

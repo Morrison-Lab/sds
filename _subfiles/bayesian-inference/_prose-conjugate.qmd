@@ -2,3 +2,6 @@ A conjugate prior gives the posterior in closed form:
 updating the prior only changes the family's parameters.
 In @exm-normal-normal,
 a Gaussian prior for a Gaussian mean gave a Gaussian posterior.
+For a related video lecture, see Richard McElreath's
+[*Garden of Forking Data*](https://www.youtube.com/watch?v=pGVkCWlXnlg)
+(Statistical Rethinking 2026, Lecture A02).

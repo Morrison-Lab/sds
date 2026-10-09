@@ -6,3 +6,6 @@ and presents a criterion for comparing models
 [@dobson4e, Chapter 13].
 It builds on the priors and posteriors defined on the
 [Bayesian Inference](bayesian-inference.qmd) page.
+For a video introduction, see Richard McElreath's lecture
+[*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag)
+(Statistical Rethinking 2026, Lecture A08).
