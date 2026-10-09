@@ -18,7 +18,7 @@ $$
 &\approx 0.927
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-exm-cohen-kappa}
 
 ```{r}
 kappa_from_table <- function(a, b, c, d) {

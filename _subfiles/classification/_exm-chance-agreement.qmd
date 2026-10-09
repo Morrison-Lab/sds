@@ -18,7 +18,7 @@ p_e
 &= 0.862404
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-exm-chance-agreement}
 
 Because nearly everyone tests negative and is negative,
 two independent classifiers with these margins

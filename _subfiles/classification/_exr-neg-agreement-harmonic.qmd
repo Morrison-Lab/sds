@@ -42,6 +42,6 @@ H\paren{\Est{\text{NPV}}, \Est{\text{specificity}}}
 &= \frac{2d}{2d + b + c}
 && \text{(multiply)}
 \ea
-$$
+$$ {#eq-exr-neg-agreement-harmonic}
 
 :::

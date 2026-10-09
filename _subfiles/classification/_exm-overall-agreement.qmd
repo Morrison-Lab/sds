@@ -14,6 +14,6 @@ p_o
 &= 0.99
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-exm-overall-agreement}
 
 :::

@@ -15,7 +15,7 @@ H(0.5, 1)
 &\approx 0.667
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-exm-harmonic-mean}
 
 The ordinary average of 0.5 and 1 is 0.75;
 the harmonic mean sits closer to the smaller number.

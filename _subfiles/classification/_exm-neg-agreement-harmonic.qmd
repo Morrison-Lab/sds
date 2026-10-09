@@ -25,7 +25,7 @@ p_{\text{neg}}
 &\approx 0.995
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-exm-neg-agreement-harmonic}
 
 which matches @exm-negative-agreement.
 

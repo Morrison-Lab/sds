@@ -16,7 +16,7 @@ p_{\text{pos}}
 &\approx 0.933
 && \text{(divide)}
 \ea
-$$
+$$ {#eq-exm-positive-agreement}
 
 The positive agreement is lower than the overall agreement (@exm-overall-agreement),
 because the 93 false positives are large
