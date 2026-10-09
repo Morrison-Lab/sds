@@ -42,7 +42,9 @@ which gives the $n_j$ weights of @def-one-way-anova.
 
 ```{r}
 #| code-fold: false
-aov(glucose ~ raceth, data = hers) |> summary()
+aov(glucose ~ raceth, data = hers) |>
+  parameters::parameters() |>
+  parameters::print_md(digits = 3)
 ```
 
 The p-value is far below 0.05:
