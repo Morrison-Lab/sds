@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>Fitting Models by Bayesian Inference with JAGS – Statistics for Data Science</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./mcmc.html" rel="prev">
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b626d73c4c936ccc3cb08be7d45d1df6.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLDZY2T3JF"></script><script type="text/plain" cookie-consent="tracking">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-VLDZY2T3JF', { 'anonymize_ip': true});
+</script><script type="text/javascript" charset="UTF-8">
+document.addEventListener('DOMContentLoaded', function () {
+cookieconsent.run({
+  "notice_banner_type":"simple",
+  "consent_type":"implied",
+  "palette":"light",
+  "language":"en",
+  "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+  "notice_banner_reject_button_hide":false,
+  "preferences_center_close_button_hide":false,
+  "website_name":""
+  ,
+"language":"en"
+  });
+});
+</script><script>
+// Theme dropdown: Light, Off-white, Parchment, Dark. Quarto's own toggle
+// handles light/dark and remembers it; the two tinted palettes are a
+// data-palette attribute on <html>. The choice is kept under "mln-theme".
+// Off-white is the default for a first visit.
+(function () {
+  var KEY = "mln-theme";
+  var OPTIONS = [["light", "Light"], ["offwhite", "Off-white"], ["parchment", "Parchment"], ["dark", "Dark"]];
+  function stored() {
+    try { return localStorage.getItem(KEY); } catch (e) { return null; }
+  }
+  function isDark() { return document.body.classList.contains("quarto-dark"); }
+  function apply(choice, remember) {
+    if (choice === "offwhite" || choice === "parchment") {
+      document.documentElement.setAttribute("data-palette", choice);
+    } else {
+      document.documentElement.removeAttribute("data-palette");
+    }
+    if ((choice === "dark") !== isDark() && window.quartoToggleColorScheme) {
+      window.quartoToggleColorScheme();
+    }
+    if (remember) { try { localStorage.setItem(KEY, choice); } catch (e) {} }
+    mark(choice);
+  }
+  function mark(choice) {
+    document.querySelectorAll(".theme-picker [data-theme-choice]").forEach(function (b) {
+      var on = b.getAttribute("data-theme-choice") === choice;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-checked", on ? "true" : "false");
+    });
+  }
+  // Set the palette before first paint to avoid a flash.
+  var early = stored();
+  if (early !== "light" && early !== "dark" && early !== "parchment") early = "offwhite";
+  if (early === "offwhite" || early === "parchment") {
+    document.documentElement.setAttribute("data-palette", early);
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    var toggles = document.querySelectorAll(".quarto-color-scheme-toggle");
+    if (!toggles.length) return;
+    var tools = toggles[0];
+    var wrap = document.createElement("div");
+    wrap.className = "theme-picker dropdown";
+    wrap.innerHTML =
+      '<button type="button" class="nav-link dropdown-toggle px-1 border-0 bg-transparent" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Colour theme"><i class="bi bi-palette"></i></button>' +
+      '<ul class="dropdown-menu dropdown-menu-end" role="menu">' +
+      OPTIONS.map(function (o) {
+        return '<li role="none"><button type="button" class="dropdown-item" role="menuitemradio" aria-checked="false" data-theme-choice="' + o[0] + '">' + o[1] + "</button></li>";
+      }).join("") + "</ul>";
+    tools.parentNode.insertBefore(wrap, tools);
+    toggles.forEach(function (t) { t.style.display = "none"; });
+    wrap.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-theme-choice]");
+      if (b) apply(b.getAttribute("data-theme-choice"), true);
+    });
+    var choice = stored();
+    if (OPTIONS.every(function (o) { return o[0] !== choice; })) {
+      choice = isDark() ? "dark" : "offwhite";
+    }
+    apply(choice, false);
+  });
+})();
+</script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="styles.css">
+</head>
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Statistics for Data Science</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+<li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-describing-data" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Describing Data</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-describing-data">
+<li>
+    <a class="dropdown-item" href="./data.html">
+ <span class="dropdown-text">Types of Variables</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nonparametric-models.html">
+ <span class="dropdown-text">Nonparametric Models</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./exploratory-descriptive.html">
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-inference" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Inference</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-inference">
+<li>
+    <a class="dropdown-item" href="./estimation.html">
+ <span class="dropdown-text">Estimation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./inference.html">
+ <span class="dropdown-text">Statistical Inference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./intro-MLEs.html">
+ <span class="dropdown-text">Maximum Likelihood</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-methods" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Methods</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-methods">
+<li>
+    <a class="dropdown-item" href="./basic-statistical-methods.html">
+ <span class="dropdown-text">Comparing Means</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./categorical-tests.html">
+ <span class="dropdown-text">Comparing Proportions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./correlation-regression.html">
+ <span class="dropdown-text">Correlation &amp; Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./model-validation.html">
+ <span class="dropdown-text">Validating Predictions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./classification.html">
+ <span class="dropdown-text">Classification</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./bootstrap.html">
+ <span class="dropdown-text">The Bootstrap</span></a>
+  </li>  
+    </ul>
+</li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-bayesian" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Bayesian</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-bayesian">
+<li>
+    <a class="dropdown-item" href="./bayesian-inference.html">
+ <span class="dropdown-text">Bayesian Inference</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./mcmc.html">
+ <span class="dropdown-text">Markov Chain Monte Carlo</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./bayesian-examples.html">
+ <span class="dropdown-text">Fitting Models with JAGS</span></a>
+  </li>  
+    </ul>
+</li>
+</ul>
+<ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Morrison-Lab/sds"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bayesian-inference.html">Bayesian</a></li><li class="breadcrumb-item"><a href="./bayesian-examples.html">Fitting Models with JAGS</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Describing Data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Types of Variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./nonparametric-models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nonparametric Models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exploratory-descriptive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exploratory Data Analysis</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inference</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Statistical Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro-MLEs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maximum Likelihood</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic-statistical-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Means</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./categorical-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Comparing Proportions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./correlation-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Correlation &amp; Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./model-validation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Validating Predictions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bootstrap.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Bootstrap</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bayesian</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bayesian-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bayesian Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mcmc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Markov Chain Monte Carlo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bayesian-examples.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Fitting Models with JAGS</span></a>
+  </div>
+</li>
+      </ul>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#sec-bayes-examples" id="toc-sec-bayes-examples" class="nav-link active" data-scroll-target="#sec-bayes-examples"><span class="header-section-number">1</span> A first example: a single proportion</a></li>
+  <li><a href="#sec-bayes-examples-logistic" id="toc-sec-bayes-examples-logistic" class="nav-link" data-scroll-target="#sec-bayes-examples-logistic"><span class="header-section-number">2</span> Binary outcomes: logistic regression</a></li>
+  <li><a href="#sec-bayes-examples-survival" id="toc-sec-bayes-examples-survival" class="nav-link" data-scroll-target="#sec-bayes-examples-survival"><span class="header-section-number">3</span> Survival analysis</a></li>
+  <li><a href="#sec-bayes-examples-random-effects" id="toc-sec-bayes-examples-random-effects" class="nav-link" data-scroll-target="#sec-bayes-examples-random-effects"><span class="header-section-number">4</span> Random effects</a></li>
+  <li><a href="#sec-bayes-examples-bma" id="toc-sec-bayes-examples-bma" class="nav-link" data-scroll-target="#sec-bayes-examples-bma"><span class="header-section-number">5</span> Bayesian model averaging</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/bayesian-examples.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/bayesian-examples.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="bayesian-examples-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="bayesian-examples-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="bayesian-examples-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><!-- qwt-page-banners -->
+<div class="preview-changes-banner" style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 12px; margin: 16px 0;">
+    <p style="margin: 0;">
+        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="nonparametric-models.html">Nonparametric Models</a>
+        <br>
+        <strong>💡 Tip:</strong> If change highlighting is glitchy, add the <code>no-preview-highlights</code> label to this PR to disable it.
+    </p>
+</div>
+
+
+<div class="preview-page-formats-banner" style="background-color: #e7f3ff; border: 1px solid #b3d9ff; border-radius: 4px; padding: 12px; margin: 16px 0;">
+    <p style="margin: 0;">
+        <strong>📋 Other Formats:</strong> <a href="bayesian-examples-slides.html">🎞️ Slides</a>
+    </p>
+</div>
+
+<!-- gha-preview-page-banner:start -->
+<div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
+    <p style="margin: 0;">
+        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~1% of content changed).
+        <br>
+        <strong>🎨 Highlighting Legend:</strong> 
+        <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 3px; border-radius: 2px;">Modified text (yellow)</mark> shows changed words/phrases, 
+        <mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 3px; border-radius: 2px;">added text (green)</mark> shows new content, and 
+        <mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 3px; border-radius: 2px;">new sections (blue)</mark> highlight entirely new paragraphs.
+    </p>
+</div>
+<!-- gha-preview-page-banner:end -->
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bayesian-inference.html">Bayesian</a></li><li class="breadcrumb-item"><a href="./bayesian-examples.html">Fitting Models with JAGS</a></li></ol></nav><div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Fitting Models by Bayesian Inference with JAGS</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Last modified: <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">2026-10-08</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">17:44:04</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(PDT)</mark></p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
+.quarto-figure-center > figure {
+text-align: center;
+}
+</style>
+<p>This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 14</a>)</span>. It uses the priors of the <a href="./bayesian-inference.html">Bayesian Inference</a> page and the sampling and convergence checks of the <a href="./mcmc.html">Markov Chain Monte Carlo</a> page.</p>
+<section id="sec-bayes-examples" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="sec-bayes-examples">
+<span class="header-section-number">1</span> A first example: a single proportion</h2>
+<p>From here on, the models are fit by Bayesian inference with JAGS (“Just Another Gibbs Sampler”), a program that builds an MCMC sampler from a text description of a model <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>)</span>, driven from R through the <code>rjags</code> package. We begin with the simplest possible model, a single Bernoulli probability, whose exact posterior is known from <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>, so the output can be checked. The example shows the mechanics that every later analysis reuses: specifying a model, supplying data, running a burn-in, monitoring parameters, and summarizing and checking the draws. In JAGS, <code>dnorm(mean, precision)</code> is parameterized by the precision, the reciprocal of the variance.</p>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-bayes-proportion" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (A Bernoulli model fitted with JAGS)</strong></span> The data are <span class="math inline">\(r = 55\)</span> successes in <span class="math inline">\(n = 91\)</span> trials, and the prior is uniform, as in <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>. Each chain gets its own random-number generator seed, so the output is reproducible:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">0L</span><span class="op">)</span>, times <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">55L</span>, <span class="fl">36L</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">bernoulli_model</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">model {</span></span>
+<span><span class="st">  for (i in 1:N) {</span></span>
+<span><span class="st">    y[i] ~ dbern(p)</span></span>
+<span><span class="st">  }</span></span>
+<span><span class="st">  p ~ dbeta(1, 1)</span></span>
+<span><span class="st">}</span></span>
+<span><span class="st">"</span></span>
+<span><span class="va">inits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>.RNG.name <span class="op">=</span> <span class="st">"base::Mersenne-Twister"</span>, .RNG.seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>.RNG.name <span class="op">=</span> <span class="st">"base::Mersenne-Twister"</span>, .RNG.seed <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">rjags</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjags/man/jags.model.html">jags.model</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/textconnections.html">textConnection</a></span><span class="op">(</span><span class="va">bernoulli_model</span><span class="op">)</span>,</span>
+<span>  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, N <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  inits <span class="op">=</span> <span class="va">inits</span>,</span>
+<span>  n.chains <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">fit</span>, n.iter <span class="op">=</span> <span class="fl">1000</span>, progress.bar <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="co"># burn-in</span></span>
+<span><span class="va">draws</span> <span class="op">&lt;-</span> <span class="fu">rjags</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjags/man/coda.samples.html">coda.samples</a></span><span class="op">(</span></span>
+<span>  <span class="va">fit</span>,</span>
+<span>  variable.names <span class="op">=</span> <span class="st">"p"</span>,</span>
+<span>  n.iter <span class="op">=</span> <span class="fl">4000</span>,</span>
+<span>  progress.bar <span class="op">=</span> <span class="st">"none"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">p_draws</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">draws</span><span class="op">)</span><span class="op">[</span>, <span class="st">"p"</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">p_draws</span><span class="op">)</span>,</span>
+<span>  <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">p_draws</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  Rhat <span class="op">=</span> <span class="fu">coda</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/coda/man/gelman.diag.html">gelman.diag</a></span><span class="op">(</span><span class="va">draws</span><span class="op">)</span><span class="op">$</span><span class="va">psrf</span><span class="op">[</span><span class="fl">1</span>, <span class="st">"Point est."</span><span class="op">]</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  mean  2.5% 97.5%  Rhat </span></span>
+<span><span class="co">#&gt; 0.601 0.499 0.698 1.000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The posterior mean and equal-tailed 95% credible interval agree with the exact <span class="math inline">\(\operatorname{Beta}(56, 37)\)</span> values of <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a> to about two decimal places, and the <a href="./mcmc.html#def-psrf">potential scale reduction factor</a> is 1.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-bayes-examples-logistic" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="sec-bayes-examples-logistic">
+<span class="header-section-number">2</span> Binary outcomes: logistic regression</h2>
+<p>For a binary outcome <span class="math inline">\(Y_i \sim \operatorname{Bernoulli}(\pi_i)\)</span> with <span class="math inline">\(\operatorname{logit}(\pi_i) = \tilde{x}_i \cdot \tilde{\beta}\)</span>, the <a href="https://morrison-lab.github.io/rme/chapters/logistic-regression.html">logistic regression</a> model, a Bayesian analysis places a prior on the coefficient vector <span class="math inline">\(\tilde{\beta}\)</span> and samples the posterior <span class="math inline">\(\operatorname{p}(\tilde{\beta}\mid \tilde{y})\)</span> by MCMC <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 14</a>, p.&nbsp;318)</span>. Each <span class="math inline">\(\beta_{x_j}\)</span> is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio <span class="math inline">\(e^{\beta_{x_j}}\)</span>, or of any other function of <span class="math inline">\(\tilde{\beta}\)</span>, is obtained by transforming the draws.</p>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-bayes-logistic" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (Logistic regression fitted by Bayesian inference)</strong></span> We simulate <span class="math inline">\(N = 200\)</span> observations from a logistic model with one continuous predictor, intercept <span class="math inline">\(\beta_{0}= -0.5\)</span> and slope <span class="math inline">\(\beta_{x} = 1.2\)</span>, and place a diffuse <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}\)</span> prior on each coefficient (precision <span class="math inline">\(0.01\)</span> in JAGS). The JAGS program also monitors the odds ratio <span class="math inline">\(e^{\beta_{x}}\)</span> for a one-unit increase in <span class="math inline">\(x\)</span>. In the code, <code>beta0</code> and <code>beta1</code> are <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{x}\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2024</span><span class="op">)</span></span>
+<span><span class="va">n_obs</span> <span class="op">&lt;-</span> <span class="fl">200L</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n_obs</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span><span class="va">n_obs</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Logistic.html">plogis</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span> <span class="op">+</span> <span class="fl">1.2</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">logistic_model</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">model {</span></span>
+<span><span class="st">  for (i in 1:N) {</span></span>
+<span><span class="st">    y[i] ~ dbern(pi[i])</span></span>
+<span><span class="st">    logit(pi[i]) &lt;- beta0 + beta1 * x[i]</span></span>
+<span><span class="st">  }</span></span>
+<span><span class="st">  beta0 ~ dnorm(0, 0.01)</span></span>
+<span><span class="st">  beta1 ~ dnorm(0, 0.01)</span></span>
+<span><span class="st">  OR &lt;- exp(beta1)</span></span>
+<span><span class="st">}</span></span>
+<span><span class="st">"</span></span>
+<span><span class="va">inits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>.RNG.name <span class="op">=</span> <span class="st">"base::Mersenne-Twister"</span>, .RNG.seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>.RNG.name <span class="op">=</span> <span class="st">"base::Mersenne-Twister"</span>, .RNG.seed <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">rjags</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjags/man/jags.model.html">jags.model</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/textconnections.html">textConnection</a></span><span class="op">(</span><span class="va">logistic_model</span><span class="op">)</span>,</span>
+<span>  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, x <span class="op">=</span> <span class="va">x</span>, N <span class="op">=</span> <span class="va">n_obs</span><span class="op">)</span>,</span>
+<span>  inits <span class="op">=</span> <span class="va">inits</span>,</span>
+<span>  n.chains <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">fit</span>, n.iter <span class="op">=</span> <span class="fl">1000</span>, progress.bar <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span>
+<span><span class="va">draws</span> <span class="op">&lt;-</span> <span class="fu">rjags</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjags/man/coda.samples.html">coda.samples</a></span><span class="op">(</span></span>
+<span>  <span class="va">fit</span>,</span>
+<span>  variable.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"beta0"</span>, <span class="st">"beta1"</span>, <span class="st">"OR"</span><span class="op">)</span>,</span>
+<span>  n.iter <span class="op">=</span> <span class="fl">4000</span>,</span>
+<span>  progress.bar <span class="op">=</span> <span class="st">"none"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">draws_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">draws</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span></span>
+<span>  mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colMeans</a></span><span class="op">(</span><span class="va">draws_matrix</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">draws_matrix</span>, <span class="fl">2</span>, <span class="fu">stats</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  Rhat <span class="op">=</span> <span class="fu">coda</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/coda/man/gelman.diag.html">gelman.diag</a></span><span class="op">(</span><span class="va">draws</span>, multivariate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">psrf</span><span class="op">[</span>, <span class="st">"Point est."</span><span class="op">]</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;         mean   2.5%  97.5%  Rhat</span></span>
+<span><span class="co">#&gt; OR     3.417  2.275  5.132 1.000</span></span>
+<span><span class="co">#&gt; beta0 -0.654 -1.002 -0.316 1.001</span></span>
+<span><span class="co">#&gt; beta1  1.207  0.822  1.635 1.000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Each 95% credible interval contains its coefficient’s true value, and every <span class="math inline">\(\hat{R}\)</span> is near 1. As <a href="./mcmc.html#sec-mcmc-vs-mle">comparing MCMC estimates to maximum likelihood</a> leads us to expect, the posterior means are close to the maximum likelihood estimates:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/glm.html">glm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x</span>, family <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/family.html">binomial</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt; (Intercept)           x </span></span>
+<span><span class="co">#&gt;      -0.647       1.183</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-bayes-examples-survival" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="sec-bayes-examples-survival">
+<span class="header-section-number">3</span> Survival analysis</h2>
+<p>Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 14</a>, p.&nbsp;327)</span>. Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the <a href="https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring">likelihood with censoring</a>: an observed event at time <span class="math inline">\(t\)</span> contributes its density <span class="math inline">\({\lambda}(t)\,\operatorname{S}(t)\)</span>, and an observation right-censored at time <span class="math inline">\(t\)</span> contributes its survival probability <span class="math inline">\(\operatorname{S}(t)\)</span>, where <span class="math inline">\({\lambda}\)</span> is the hazard and <span class="math inline">\(\operatorname{S}\)</span> the survival function.</p>
+<p>When a model’s log-likelihood contribution <span class="math inline">\(\ell_i\)</span> for observation <span class="math inline">\(i\)</span> is not one of the distributions built into JAGS, the <em>zeros trick</em> supplies it. An observed value of 0 from a Poisson distribution with mean <span class="math inline">\(\phi_i\)</span> has probability <span class="math inline">\(e^{-\phi_i}\)</span>, and with <span class="math inline">\(\phi_i \stackrel{\text{def}}{=}C - \ell_i\)</span> for a constant <span class="math inline">\(C\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+e^{-\phi_i}
+&amp;= e^{-(C - \ell_i)}
+&amp;&amp; \text{(definition of $\phi_i$)}\\
+&amp;= e^{-C} e^{\ell_i}
+&amp;&amp; \text{(splitting the exponent)}\\
+&amp;\propto e^{\ell_i}
+&amp;&amp; \text{($C$ does not depend on the parameters)},
+\end{aligned}
+\]</span></p>
+<p>which is observation <span class="math inline">\(i\)</span>’s likelihood contribution. So declaring data <code>zeros[i] = 0</code> with <code>zeros[i] ~ dpois(C - loglik[i])</code> multiplies the likelihood by <span class="math inline">\(e^{\ell_i}\)</span>. The constant <span class="math inline">\(C\)</span> only has to be large enough to keep every <span class="math inline">\(\phi_i\)</span> positive.</p>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-bayes-survival" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Exponential survival regression fitted by Bayesian inference)</strong></span> We simulate <span class="math inline">\(N = 200\)</span> right-censored exponential survival times, with a binary covariate <span class="math inline">\(x_i\)</span> (say, treatment) and hazard <span class="math inline">\({\lambda}_i = \operatorname{exp}\mathopen{}\left\{\beta_{0}+ \beta_{x} x_i\right\}\mathclose{}\)</span>, where the log baseline hazard is <span class="math inline">\(\beta_{0}= \log 0.05\)</span> and the log hazard ratio is <span class="math inline">\(\beta_{x} = -0.7\)</span>. With event indicator <span class="math inline">\(\delta_i\)</span> (1 for an event, 0 for a censored time) and follow-up time <span class="math inline">\(t_i\)</span>, the exponential density is <span class="math inline">\({\lambda}_i e^{-{\lambda}_i t}\)</span> and its survival function is <span class="math inline">\(e^{-{\lambda}_i t}\)</span>, so observation <span class="math inline">\(i\)</span> contributes the log-likelihood</p>
+<p><span class="math display">\[
+\ell_i \stackrel{\text{def}}{=}\delta_i \log {\lambda}_i - {\lambda}_i t_i.
+\]</span></p>
+<p>JAGS has no built-in distribution for this contribution, so we fit it with the zeros trick. In the code, <code>beta0</code> and <code>beta1</code> are <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{x}\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2026</span><span class="op">)</span></span>
+<span><span class="va">n_obs</span> <span class="op">&lt;-</span> <span class="fl">200L</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">rbinom</a></span><span class="op">(</span><span class="va">n_obs</span>, size <span class="op">=</span> <span class="fl">1</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
+<span><span class="va">event_time</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">rexp</a></span><span class="op">(</span><span class="va">n_obs</span>, rate <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="fl">0.05</span><span class="op">)</span> <span class="op">-</span> <span class="fl">0.7</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">censor_time</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Exponential.html">rexp</a></span><span class="op">(</span><span class="va">n_obs</span>, rate <span class="op">=</span> <span class="fl">0.03</span><span class="op">)</span></span>
+<span><span class="va">follow_up</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">pmin</a></span><span class="op">(</span><span class="va">event_time</span>, <span class="va">censor_time</span><span class="op">)</span></span>
+<span><span class="va">event</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/integer.html">as.integer</a></span><span class="op">(</span><span class="va">event_time</span> <span class="op">&lt;=</span> <span class="va">censor_time</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">survival_model</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">model {</span></span>
+<span><span class="st">  C &lt;- 10000</span></span>
+<span><span class="st">  for (i in 1:N) {</span></span>
+<span><span class="st">    log(lambda[i]) &lt;- beta0 + beta1 * x[i]</span></span>
+<span><span class="st">    loglik[i] &lt;- event[i] * log(lambda[i]) - lambda[i] * follow_up[i]</span></span>
+<span><span class="st">    zeros[i] ~ dpois(C - loglik[i])</span></span>
+<span><span class="st">  }</span></span>
+<span><span class="st">  beta0 ~ dnorm(0, 0.01)</span></span>
+<span><span class="st">  beta1 ~ dnorm(0, 0.01)</span></span>
+<span><span class="st">  HR &lt;- exp(beta1)</span></span>
+<span><span class="st">}</span></span>
+<span><span class="st">"</span></span>
+<span><span class="va">inits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>.RNG.name <span class="op">=</span> <span class="st">"base::Mersenne-Twister"</span>, .RNG.seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>.RNG.name <span class="op">=</span> <span class="st">"base::Mersenne-Twister"</span>, .RNG.seed <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">rjags</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjags/man/jags.model.html">jags.model</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/textconnections.html">textConnection</a></span><span class="op">(</span><span class="va">survival_model</span><span class="op">)</span>,</span>
+<span>  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>    follow_up <span class="op">=</span> <span class="va">follow_up</span>, x <span class="op">=</span> <span class="va">x</span>, event <span class="op">=</span> <span class="va">event</span>,</span>
+<span>    N <span class="op">=</span> <span class="va">n_obs</span>, zeros <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">n_obs</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  inits <span class="op">=</span> <span class="va">inits</span>,</span>
+<span>  n.chains <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">fit</span>, n.iter <span class="op">=</span> <span class="fl">1000</span>, progress.bar <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span>
+<span><span class="va">draws</span> <span class="op">&lt;-</span> <span class="fu">rjags</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjags/man/coda.samples.html">coda.samples</a></span><span class="op">(</span></span>
+<span>  <span class="va">fit</span>,</span>
+<span>  variable.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"beta0"</span>, <span class="st">"beta1"</span>, <span class="st">"HR"</span><span class="op">)</span>,</span>
+<span>  n.iter <span class="op">=</span> <span class="fl">4000</span>,</span>
+<span>  progress.bar <span class="op">=</span> <span class="st">"none"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">draws_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">draws</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span></span>
+<span>  mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colMeans</a></span><span class="op">(</span><span class="va">draws_matrix</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">draws_matrix</span>, <span class="fl">2</span>, <span class="fu">stats</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  Rhat <span class="op">=</span> <span class="fu">coda</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/coda/man/gelman.diag.html">gelman.diag</a></span><span class="op">(</span><span class="va">draws</span>, multivariate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">psrf</span><span class="op">[</span>, <span class="st">"Point est."</span><span class="op">]</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;         mean   2.5%  97.5% Rhat</span></span>
+<span><span class="co">#&gt; HR     0.602  0.390  0.875    1</span></span>
+<span><span class="co">#&gt; beta0 -3.119 -3.391 -2.870    1</span></span>
+<span><span class="co">#&gt; beta1 -0.529 -0.941 -0.133    1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>About 50% of the follow-up times end in an event. The 95% credible interval for <span class="math inline">\(\beta_{x}\)</span> contains the true <span class="math inline">\(-0.7\)</span>, though the posterior mean is some distance from it. The maximum likelihood estimates, from the same log-likelihood, show that the gap is sampling variation in this data set rather than an effect of the prior:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">neg_loglik</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">beta</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">lambda</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">beta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">beta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">event</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">lambda</span><span class="op">)</span> <span class="op">-</span> <span class="va">lambda</span> <span class="op">*</span> <span class="va">follow_up</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/optim.html">optim</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, <span class="va">neg_loglik</span><span class="op">)</span><span class="op">$</span><span class="va">par</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/setNames.html">setNames</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"beta0"</span>, <span class="st">"beta1"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;  beta0  beta1 </span></span>
+<span><span class="co">#&gt; -3.112 -0.524</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The monitored <span class="math inline">\(e^{\beta_{x}}\)</span> gives the hazard ratio and its credible interval directly.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-bayes-examples-random-effects" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="sec-bayes-examples-random-effects">
+<span class="header-section-number">4</span> Random effects</h2>
+<p>The <a href="./bayesian-inference.html#def-hierarchical-model">hierarchical model</a> of <a href="./bayesian-inference.html#exm-two-level-normal">the two-level Gaussian example</a> is the random-effects <em>model structure</em>, with group-level parameters <span class="math inline">\(\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\)</span> drawn from a common distribution. What changes here from a maximum likelihood fit is the <em>inference method</em>: the Bayesian analysis places priors on the hyperparameters <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\tau\)</span> and samples their joint posterior together with the group-level parameters <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 14</a>, p.&nbsp;329)</span>. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through <span class="math inline">\(\tau\)</span>, and the posterior for <span class="math inline">\(\tau\)</span> carries the uncertainty about the between-group spread into every group-level summary.</p>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-bayes-random-effects" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (A random-intercept model fitted by Bayesian inference)</strong></span> We simulate <span class="math inline">\(J = 8\)</span> groups of 12 observations each, with group means drawn from <span class="math inline">\(\operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\)</span> (<span class="math inline">\(\mu= 5\)</span>, <span class="math inline">\(\tau= 1.5\)</span>) and within-group standard deviation <span class="math inline">\(\sigma= 2\)</span>. The priors are a diffuse <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, 100^2\right)\mathclose{}\)</span> for <span class="math inline">\(\mu\)</span> and <a href="./bayesian-inference.html#def-flat-prior">flat priors</a> on <span class="math inline">\((0, 100)\)</span> for the standard deviations <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\sigma\)</span>. Being flat on the standard-deviation scale is a choice: as <a href="./bayesian-inference.html#exm-flat-prior-reparam">a flat prior on the log-odds</a> shows for a probability, it is not flat on another scale, such as the variance.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2025</span><span class="op">)</span></span>
+<span><span class="va">n_groups</span> <span class="op">&lt;-</span> <span class="fl">8L</span></span>
+<span><span class="va">n_per_group</span> <span class="op">&lt;-</span> <span class="fl">12L</span></span>
+<span><span class="va">theta_true</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n_groups</span>, mean <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span></span>
+<span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="va">n_groups</span><span class="op">)</span>, each <span class="op">=</span> <span class="va">n_per_group</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n_groups</span> <span class="op">*</span> <span class="va">n_per_group</span>, mean <span class="op">=</span> <span class="va">theta_true</span><span class="op">[</span><span class="va">group</span><span class="op">]</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">random_intercept_model</span> <span class="op">&lt;-</span> <span class="st">"</span></span>
+<span><span class="st">model {</span></span>
+<span><span class="st">  for (i in 1:N) {</span></span>
+<span><span class="st">    y[i] ~ dnorm(theta[group[i]], 1 / sigma^2)</span></span>
+<span><span class="st">  }</span></span>
+<span><span class="st">  for (j in 1:J) {</span></span>
+<span><span class="st">    theta[j] ~ dnorm(mu, 1 / tau^2)</span></span>
+<span><span class="st">  }</span></span>
+<span><span class="st">  mu ~ dnorm(0, 1.0E-4)</span></span>
+<span><span class="st">  sigma ~ dunif(0, 100)</span></span>
+<span><span class="st">  tau ~ dunif(0, 100)</span></span>
+<span><span class="st">}</span></span>
+<span><span class="st">"</span></span>
+<span><span class="va">inits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>.RNG.name <span class="op">=</span> <span class="st">"base::Mersenne-Twister"</span>, .RNG.seed <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>.RNG.name <span class="op">=</span> <span class="st">"base::Mersenne-Twister"</span>, .RNG.seed <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu">rjags</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjags/man/jags.model.html">jags.model</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/textconnections.html">textConnection</a></span><span class="op">(</span><span class="va">random_intercept_model</span><span class="op">)</span>,</span>
+<span>  data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>y <span class="op">=</span> <span class="va">y</span>, group <span class="op">=</span> <span class="va">group</span>, N <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, J <span class="op">=</span> <span class="va">n_groups</span><span class="op">)</span>,</span>
+<span>  inits <span class="op">=</span> <span class="va">inits</span>,</span>
+<span>  n.chains <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  quiet <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">fit</span>, n.iter <span class="op">=</span> <span class="fl">2000</span>, progress.bar <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span>
+<span><span class="va">draws</span> <span class="op">&lt;-</span> <span class="fu">rjags</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rjags/man/coda.samples.html">coda.samples</a></span><span class="op">(</span></span>
+<span>  <span class="va">fit</span>,</span>
+<span>  variable.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mu"</span>, <span class="st">"tau"</span>, <span class="st">"sigma"</span>, <span class="st">"theta"</span><span class="op">)</span>,</span>
+<span>  n.iter <span class="op">=</span> <span class="fl">10000</span>,</span>
+<span>  progress.bar <span class="op">=</span> <span class="st">"none"</span></span>
+<span><span class="op">)</span></span>
+<span><span class="va">draws_matrix</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">draws</span><span class="op">)</span></span>
+<span><span class="va">posterior_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span></span>
+<span>  mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colMeans</a></span><span class="op">(</span><span class="va">draws_matrix</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="va">draws_matrix</span>, <span class="fl">2</span>, <span class="fu">stats</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span>, probs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  Rhat <span class="op">=</span> <span class="fu">coda</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/coda/man/gelman.diag.html">gelman.diag</a></span><span class="op">(</span><span class="va">draws</span>, multivariate <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">$</span><span class="va">psrf</span><span class="op">[</span>, <span class="st">"Point est."</span><span class="op">]</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">posterior_summary</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"mu"</span>, <span class="st">"tau"</span>, <span class="st">"sigma"</span><span class="op">)</span>, <span class="op">]</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        mean  2.5% 97.5%  Rhat</span></span>
+<span><span class="co">#&gt; mu    5.572 4.733 6.405 1.002</span></span>
+<span><span class="co">#&gt; tau   0.868 0.125 2.002 1.004</span></span>
+<span><span class="co">#&gt; sigma 2.161 1.867 2.520 1.000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The 95% credible intervals contain the true <span class="math inline">\(\mu= 5\)</span>, <span class="math inline">\(\tau= 1.5\)</span> and <span class="math inline">\(\sigma= 2\)</span>. The interval for <span class="math inline">\(\tau\)</span> is wide: eight groups say little about how spread out group means are, and the posterior reports that uncertainty instead of a single estimate of the variance component.</p>
+<p>Each group’s posterior mean lies between its sample mean and the overall sample mean:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_means</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/tapply.html">tapply</a></span><span class="op">(</span><span class="va">y</span>, <span class="va">group</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  group_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="va">n_groups</span><span class="op">)</span>,</span>
+<span>  sample_mean <span class="op">=</span> <span class="va">sample_means</span>,</span>
+<span>  posterior_mean <span class="op">=</span> <span class="va">posterior_summary</span><span class="op">[</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"theta["</span>, <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="va">n_groups</span><span class="op">)</span>, <span class="st">"]"</span><span class="op">)</span>, <span class="st">"mean"</span></span>
+<span>  <span class="op">]</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>overall_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["group_id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sample_mean"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["posterior_mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["overall_mean"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"6.08","3":"5.87","4":"5.56"},{"1":"2","2":"5.53","3":"5.55","4":"5.56"},{"1":"3","2":"6.14","3":"5.90","4":"5.56"},{"1":"4","2":"7.27","3":"6.57","4":"5.56"},{"1":"5","2":"5.10","3":"5.30","4":"5.56"},{"1":"6","2":"4.31","3":"4.85","4":"5.56"},{"1":"7","2":"5.51","3":"5.53","4":"5.56"},{"1":"8","2":"4.56","3":"4.99","4":"5.56"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>This is the borrowing of strength described in <a href="./bayesian-inference.html#sec-bayes-hierarchies">distributions and hierarchies</a>: group 4, with the largest sample mean, is pulled furthest toward the overall mean.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sec-bayes-examples-bma" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="sec-bayes-examples-bma">
+<span class="header-section-number">5</span> Bayesian model averaging</h2>
+<p>When several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. Bayesian model averaging instead averages over the models, weighting each by its posterior probability <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 14</a>, p.&nbsp;339)</span>. This approach carries <em>model</em> uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by <a href="https://morrison-lab.github.io/rme/chapters/predictor-selection.html">predictor selection</a>.</p>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-posterior-model-probability" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Posterior model probability)</strong></span> Let <span class="math inline">\(M_1, \ldots, M_K\)</span> be candidate models with prior probabilities <span class="math inline">\(\operatorname{p}(M_k)\)</span> summing to 1, and let <span class="math inline">\(\operatorname{p}(\tilde{y}\mid M_k)\)</span> be the <a href="./bayesian-inference.html#def-marginal-likelihood">marginal likelihood</a> of the data under model <span class="math inline">\(M_k\)</span>. The <strong>posterior model probability</strong> of <span class="math inline">\(M_k\)</span> is</p>
+<p><span class="math display">\[
+\operatorname{p}(M_k \mid \tilde{y}) \stackrel{\text{def}}{=}
+\frac{\operatorname{p}(\tilde{y}\mid M_k)\, \operatorname{p}(M_k)}{\sum_{l=1}^{K} \operatorname{p}(\tilde{y}\mid M_l)\, \operatorname{p}(M_l)}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-posterior-model-probability" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (Posterior probabilities of two models)</strong></span> Two models with equal prior probabilities <span class="math inline">\(\operatorname{p}(M_1) = \operatorname{p}(M_2) = 0.5\)</span> and marginal likelihoods <span class="math inline">\(\operatorname{p}(\tilde{y}\mid M_1) = 0.02\)</span> and <span class="math inline">\(\operatorname{p}(\tilde{y}\mid M_2) = 0.06\)</span> have posterior probabilities <span class="math inline">\(\operatorname{p}(M_1 \mid \tilde{y}) = 0.01 / (0.01 + 0.03) = 0.25\)</span> and <span class="math inline">\(\operatorname{p}(M_2 \mid \tilde{y}) = 0.75\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-bma" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Bayesian model averaging)</strong></span> With the <a href="#def-posterior-model-probability">posterior model probabilities</a> <span class="math inline">\(\operatorname{p}(M_k \mid \tilde{y})\)</span> of candidate models <span class="math inline">\(M_1, \ldots, M_K\)</span>, <strong>Bayesian model averaging</strong> estimates a quantity <span class="math inline">\(\Delta\)</span> that has the same meaning in every model by its posterior distribution averaged over the models:</p>
+<p><span class="math display">\[
+\operatorname{p}(\Delta\mid \tilde{y}) \stackrel{\text{def}}{=}\sum_{k=1}^{K} \operatorname{p}(\Delta\mid M_k, \tilde{y})\, \operatorname{p}(M_k \mid \tilde{y}).
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-def no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="def-pip" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Posterior inclusion probability)</strong></span> When the candidate models of <a href="#def-bma" class="quarto-xref">Definition&nbsp;2</a> differ in which predictors they include, the <strong>posterior inclusion probability</strong> of a predictor is the total posterior probability of the models that include it.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<div id="exm-bayes-bma" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (A BIC approximation to Bayesian model averaging)</strong></span> Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the <a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic">Bayesian information criterion</a> gives a large-sample approximation to the posterior model probabilities <span class="citation" data-cites="schwarz1978estimating">(<a href="#ref-schwarz1978estimating" role="doc-biblioref">Schwarz 1978</a>)</span>:</p>
+<p><span class="math display">\[
+\operatorname{p}(M_k \mid \tilde{y}) \approx
+\frac{\operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_k\right\}\mathclose{}}{\sum_{l=1}^{K} \operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_l\right\}\mathclose{}}.
+\]</span></p>
+<p>We simulate data in which only <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> affect the outcome, fit a linear regression for every subset of the three predictors <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_3\)</span>, and compute these approximate posterior model probabilities:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">2027</span><span class="op">)</span></span>
+<span><span class="va">n_obs</span> <span class="op">&lt;-</span> <span class="fl">120L</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  x1 <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n_obs</span><span class="op">)</span>,</span>
+<span>  x2 <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n_obs</span><span class="op">)</span>,</span>
+<span>  x3 <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n_obs</span><span class="op">)</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">0.8</span> <span class="op">*</span> <span class="va">x1</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> <span class="va">x2</span> <span class="op">+</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="va">n_obs</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">predictors</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x1"</span>, <span class="st">"x2"</span>, <span class="st">"x3"</span><span class="op">)</span></span>
+<span><span class="va">subsets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">0</span><span class="op">:</span><span class="fl">3</span>, <span class="kw">function</span><span class="op">(</span><span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/combn.html">combn</a></span><span class="op">(</span><span class="va">predictors</span>, <span class="va">k</span>, simplify <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span>recursive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="va">models</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">subsets</span>, <span class="kw">function</span><span class="op">(</span><span class="va">vars</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">rhs</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vars</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">vars</span>, collapse <span class="op">=</span> <span class="st">" + "</span><span class="op">)</span> <span class="kw">else</span> <span class="st">"1"</span></span>
+<span>  <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/formula.html">as.formula</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"y ~"</span>, <span class="va">rhs</span><span class="op">)</span><span class="op">)</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span><span class="va">bic</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span><span class="va">models</span>, <span class="fu">stats</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/r/stats/AIC.html">BIC</a></span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">weight</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> <span class="op">(</span><span class="va">bic</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">bic</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">weight</span> <span class="op">&lt;-</span> <span class="va">weight</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">weight</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span></span>
+<span>    <span class="va">subsets</span>,</span>
+<span>    <span class="kw">function</span><span class="op">(</span><span class="va">s</span><span class="op">)</span> <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">s</span>, collapse <span class="op">=</span> <span class="st">" + "</span><span class="op">)</span> <span class="kw">else</span> <span class="st">"(none)"</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/character.html">character</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  weight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">weight</span>, <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["model"],"name":[1],"type":["chr"],"align":["left"]},{"label":["weight"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"(none)","2":"0.000"},{"1":"x1","2":"0.000"},{"1":"x2","2":"0.000"},{"1":"x3","2":"0.000"},{"1":"x1 + x2","2":"0.848"},{"1":"x1 + x3","2":"0.000"},{"1":"x2 + x3","2":"0.000"},{"1":"x1 + x2 + x3","2":"0.152"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Subtracting the smallest BIC before exponentiating leaves the normalized weights unchanged and avoids numerical underflow. The <a href="#def-pip">posterior inclusion probability</a> of each predictor sums the weights of the models that contain it:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">includes</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span><span class="va">subsets</span>, <span class="kw">function</span><span class="op">(</span><span class="va">s</span><span class="op">)</span> <span class="va">v</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">s</span>, <span class="fu"><a href="https://rdrr.io/r/base/logical.html">logical</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span><span class="va">predictors</span>, <span class="kw">function</span><span class="op">(</span><span class="va">v</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">weight</span><span class="op">[</span><span class="fu">includes</span><span class="op">(</span><span class="va">v</span><span class="op">)</span><span class="op">]</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    x1    x2    x3 </span></span>
+<span><span class="co">#&gt; 1.000 1.000 0.152</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For the model-averaged slope of <span class="math inline">\(x_1\)</span>, we approximate its posterior mean within each model by the least-squares estimate, taken as <span class="math inline">\(0\)</span> in models that exclude <span class="math inline">\(x_1\)</span>, and average with the posterior model probabilities as weights:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beta_x1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">vapply</a></span><span class="op">(</span><span class="va">models</span>, <span class="kw">function</span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">cf</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="st">"x1"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cf</span><span class="op">)</span><span class="op">)</span> <span class="va">cf</span><span class="op">[[</span><span class="st">"x1"</span><span class="op">]</span><span class="op">]</span> <span class="kw">else</span> <span class="fl">0</span></span>
+<span><span class="op">}</span>, <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">numeric</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span></span>
+<span>  bma_slope_x1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">*</span> <span class="va">beta_x1</span><span class="op">)</span>,</span>
+<span>  least_squares_x1_x2 <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">y</span> <span class="op">~</span> <span class="va">x1</span> <span class="op">+</span> <span class="va">x2</span>, data <span class="op">=</span> <span class="va">dat</span><span class="op">)</span><span class="op">)</span><span class="op">[[</span><span class="st">"x1"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
+<span><span class="co">#&gt;        bma_slope_x1 least_squares_x1_x2 </span></span>
+<span><span class="co">#&gt;               0.947               0.948</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The predictors that affect the outcome, <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>, have inclusion probabilities near 1, and the irrelevant <span class="math inline">\(x_3\)</span> a much smaller one. The models without <span class="math inline">\(x_1\)</span> get almost no weight, so the model-averaged slope of <span class="math inline">\(x_1\)</span> is close to its least-squares estimate in the model with <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> only. Both differ from the true slope <span class="math inline">\(0.8\)</span> by sampling variation in this data set, not because of the averaging.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-dobson4e" class="csl-entry" role="listitem">
+Dobson, Annette J, and Adrian G Barnett. 2018. <em>An Introduction to Generalized Linear Models</em>. 4th ed. CRC press. <a href="https://doi.org/10.1201/9781315182780">https://doi.org/10.1201/9781315182780</a>.
+</div>
+<div id="ref-schwarz1978estimating" class="csl-entry" role="listitem">
+Schwarz, Gideon. 1978. <span>“Estimating the Dimension of a Model.”</span> <em>The Annals of Statistics</em> 6 (2): 461–64. <a href="https://doi.org/10.1214/aos/1176344136">https://doi.org/10.1214/aos/1176344136</a>.
+</div>
+</div>
+
+
+<!-- -->
+
+<script>
+const theoremLikeClasses = new Set([
+  "thm",
+  "theorem",
+  "lem",
+  "lemma",
+  "cor",
+  "corollary",
+  "prp",
+  "proposition",
+  "cnj",
+  "conjecture",
+  "def",
+  "definition",
+  "exm",
+  "example",
+  "exr",
+  "exercise",
+  "proof",
+  "rem",
+  "remark",
+  "sol",
+  "solution"
+]);
+const theoremLikePrefixes = [
+  "thm-",
+  "lem-",
+  "cor-",
+  "prp-",
+  "cnj-",
+  "def-",
+  "exm-",
+  "exr-",
+  "rem-",
+  "sol-"
+];
+const inlineAnchorSeparator = "\u00A0";
+const maxAnchorRetryAttempts = 5;
+const anchorRetryDelayMs = 50;
+
+const isTheoremLikeDiv = (div) =>
+  Array.from(div.classList).some((className) => theoremLikeClasses.has(className)) ||
+  (div.id && theoremLikePrefixes.some((prefix) => div.id.startsWith(prefix)));
+
+const addTheoremLikeDivAnchors = () => {
+  for (const theoremDiv of window.document.querySelectorAll("div[id]")) {
+    if (!isTheoremLikeDiv(theoremDiv)) {
+      continue;
+    }
+
+    if (!theoremDiv.classList.contains("anchored")) {
+      theoremDiv.classList.add("anchored");
+    }
+
+    if (!theoremDiv.dataset.anchorId) {
+      theoremDiv.dataset.anchorId = theoremDiv.id;
+    }
+  }
+};
+
+const ensureSectionHeadingAnchorAttributes = () => {
+  for (const sectionHeading of window.document.querySelectorAll(
+    "section[id] > h1, section[id] > h2, section[id] > h3, section[id] > h4, section[id] > h5, section[id] > h6"
+  )) {
+    if (!sectionHeading.classList.contains("anchored")) {
+      sectionHeading.classList.add("anchored");
+    }
+
+    if (!sectionHeading.dataset.anchorId) {
+      sectionHeading.dataset.anchorId = sectionHeading.parentElement.id;
+    }
+  }
+};
+
+const normalizeInternalAnchorLinkIcons = () => {
+  for (const link of window.document.querySelectorAll(
+    "a.anchorjs-link, a.quarto-xref"
+  )) {
+    if (link.classList.contains("quarto-xref")) {
+      link.classList.add("no-external");
+      link.classList.remove("external");
+      continue;
+    }
+
+    const href = link.getAttribute("href") || "";
+    if (!href.startsWith("#")) {
+      continue;
+    }
+
+    link.classList.add("no-external");
+    link.classList.remove("external");
+  }
+};
+
+const moveTheoremDivAnchorsInline = () => {
+  let hasPendingAnchors = false;
+
+  for (const theoremDiv of window.document.querySelectorAll("div[id]")) {
+    if (!isTheoremLikeDiv(theoremDiv)) {
+      continue;
+    }
+
+    const theoremTitle = theoremDiv.querySelector(".theorem-title, .proof-title");
+    if (!theoremTitle) {
+      continue;
+    }
+
+    const anchorLink = Array.from(
+      theoremDiv.querySelectorAll("a.anchorjs-link")
+    ).find((link) => {
+      const href = link.getAttribute("href") || "";
+      return href === `#${theoremDiv.id}` || href.endsWith(`#${theoremDiv.id}`);
+    });
+
+    if (anchorLink && anchorLink.parentElement === theoremTitle) {
+      continue;
+    }
+
+    if (!anchorLink) {
+      hasPendingAnchors = true;
+      continue;
+    }
+
+    anchorLink.classList.remove("external");
+
+    // If the title ends with whitespace (e.g. Quarto's proof-title ending in ". "),
+    // trim the trailing whitespace so the non-breaking separator and anchor stay attached
+    // to the title text, and ensure a trailing space separates the anchor from following content.
+    let lastTextNode = theoremTitle.lastChild;
+    while (lastTextNode && lastTextNode.nodeType !== Node.TEXT_NODE && lastTextNode.lastChild) {
+      lastTextNode = lastTextNode.lastChild;
+    }
+    if (lastTextNode && lastTextNode.nodeType === Node.TEXT_NODE && /\s+$/.test(lastTextNode.textContent)) {
+      lastTextNode.textContent = lastTextNode.textContent.replace(/\s+$/, "");
+      if (theoremTitle.nextSibling &&
+          !(theoremTitle.nextSibling.nodeType === Node.TEXT_NODE && /^\s/.test(theoremTitle.nextSibling.textContent))) {
+        theoremTitle.after(" ");
+      }
+    }
+
+    theoremTitle.append(inlineAnchorSeparator);
+    theoremTitle.append(anchorLink);
+  }
+
+  return hasPendingAnchors;
+};
+
+const moveTheoremDivAnchorsInlineWithRetry = (
+  attemptsRemaining = maxAnchorRetryAttempts
+) => {
+  const hasPendingAnchors = moveTheoremDivAnchorsInline();
+  if (hasPendingAnchors && attemptsRemaining > 0) {
+    window.setTimeout(() => {
+      moveTheoremDivAnchorsInlineWithRetry(attemptsRemaining - 1);
+    }, anchorRetryDelayMs);
+  }
+};
+
+if (window.document.readyState === "loading") {
+  window.document.addEventListener("DOMContentLoaded", () => {
+    addTheoremLikeDivAnchors();
+    ensureSectionHeadingAnchorAttributes();
+    normalizeInternalAnchorLinkIcons();
+    moveTheoremDivAnchorsInlineWithRetry();
+  });
+} else {
+  addTheoremLikeDivAnchors();
+  ensureSectionHeadingAnchorAttributes();
+  normalizeInternalAnchorLinkIcons();
+  moveTheoremDivAnchorsInlineWithRetry();
+}
+
+window.addEventListener("load", () => {
+  normalizeInternalAnchorLinkIcons();
+  moveTheoremDivAnchorsInlineWithRetry();
+});
+</script><script>
+const defaultAnchorIconFallback = "#";
+
+function getDefaultAnchorTemplate() {
+  const defaultAnchor = document.querySelector("a.anchorjs-link[data-anchorjs-icon]");
+  if (!defaultAnchor) {
+    return null;
+  }
+
+  return {
+    icon: defaultAnchor.getAttribute("data-anchorjs-icon"),
+    style: defaultAnchor.getAttribute("style")
+  };
+}
+
+function alignEquationAnchorWithDefault(anchor, template) {
+  if (!anchor) {
+    return;
+  }
+
+  anchor.classList.remove("external");
+
+  if (template && template.icon) {
+    anchor.setAttribute("data-anchorjs-icon", template.icon);
+    anchor.textContent = "";
+  } else if (!anchor.textContent) {
+    anchor.textContent = defaultAnchorIconFallback;
+  }
+
+  if (template && template.style) {
+    anchor.setAttribute("style", template.style);
+  } else {
+    anchor.removeAttribute("style");
+  }
+}
+
+function alignEquationAnchorsWithDefault() {
+  const template = getDefaultAnchorTemplate();
+  document.querySelectorAll("a.equation-anchor").forEach(function (anchor) {
+    alignEquationAnchorWithDefault(anchor, template);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const equations = document.querySelectorAll("span[id^='eq-']");
+  equations.forEach(function (equation) {
+    if (equation.querySelector(".equation-anchor")) {
+      return;
+    }
+
+    if (!equation.querySelector(".math.display")) {
+      return;
+    }
+
+    const id = equation.getAttribute("id");
+    if (!id) {
+      return;
+    }
+
+    equation.classList.add("equation-anchor-target");
+
+    const anchor = document.createElement("a");
+    anchor.className = "equation-anchor anchorjs-link";
+    anchor.href = "#" + id;
+    anchor.setAttribute("aria-label", "Permalink to this equation");
+    equation.appendChild(anchor);
+  });
+
+  alignEquationAnchorsWithDefault();
+});
+
+window.addEventListener("load", alignEquationAnchorsWithDefault);
+</script></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+    const viewSource = window.document.getElementById('quarto-view-source') ||
+                       window.document.getElementById('quarto-code-tools-source');
+    if (viewSource) {
+      const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+      viewSource.addEventListener("click", function(e) {
+        if (sourceUrl) {
+          // rstudio viewer pane
+          if (/\bcapabilities=\b/.test(window.location)) {
+            window.open(sourceUrl);
+          } else {
+            window.location.href = sourceUrl;
+          }
+        } else {
+          const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+          modal.show();
+        }
+        return false;
+      });
+    }
+    function toggleCodeHandler(show) {
+      return function(e) {
+        const cellDetails = window.document.querySelectorAll(".cell details.code-fold");
+        for (let i=0; i<cellDetails.length; i++) {
+          const details = cellDetails[i];
+          if (show) {
+            details.open = true;
+          } else {
+            details.removeAttribute("open");
+          }
+        }
+        const cellCodeDivs = window.document.querySelectorAll(".cell div.sourceCode.cell-code");
+        const fromCls = show ? "hidden" : "unhidden";
+        const toCls = show ? "unhidden" : "hidden";
+        for (let i=0; i<cellCodeDivs.length; i++) {
+          const codeDiv = cellCodeDivs[i];
+          if (codeDiv.classList.contains(fromCls)) {
+            codeDiv.classList.remove(fromCls);
+            codeDiv.classList.add(toCls);
+          } 
+        }
+        return false;
+      }
+    }
+    const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+    if (hideAllCode) {
+      hideAllCode.addEventListener("click", toggleCodeHandler(false));
+    }
+    const showAllCode = window.document.getElementById("quarto-show-all-code");
+    if (showAllCode) {
+      showAllCode.addEventListener("click", toggleCodeHandler(true));
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/morrison-lab\.github\.io\/sds\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="./mcmc.html" class="pagination-link" aria-label="Markov Chain Monte Carlo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Markov Chain Monte Carlo</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Fitting Models by Bayesian Inference with JAGS"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">  html: default</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">  revealjs:</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: bayesian-examples-slides.html</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">  pdf:</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: bayesian-examples-handout.pdf</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co">  docx:</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co">    output-file: bayesian-examples-handout.docx</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/shared-config.qmd &gt;}}</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-examples-overview.qmd &gt;}}</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">## A first example: a single proportion {#sec-bayes-examples}</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-jags.qmd &gt;}}</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-bayes-proportion.qmd &gt;}}</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Binary outcomes: logistic regression {#sec-bayes-examples-logistic}</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-logistic.qmd &gt;}}</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-bayes-logistic.qmd &gt;}}</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Survival analysis {#sec-bayes-examples-survival}</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-survival.qmd &gt;}}</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-zeros-trick.qmd &gt;}}</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-bayes-survival.qmd &gt;}}</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Random effects {#sec-bayes-examples-random-effects}</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-random-effects.qmd &gt;}}</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-bayes-random-effects.qmd &gt;}}</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bayesian model averaging {#sec-bayes-examples-bma}</span></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_prose-bma.qmd &gt;}}</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-posterior-model-probability.qmd &gt;}}</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-63"><a href="#cb11-63" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-posterior-model-probability.qmd &gt;}}</span>
+<span id="cb11-64"><a href="#cb11-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-65"><a href="#cb11-65" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-66"><a href="#cb11-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-67"><a href="#cb11-67" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-bma.qmd &gt;}}</span>
+<span id="cb11-68"><a href="#cb11-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-69"><a href="#cb11-69" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-70"><a href="#cb11-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-71"><a href="#cb11-71" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_def-pip.qmd &gt;}}</span>
+<span id="cb11-72"><a href="#cb11-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-73"><a href="#cb11-73" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb11-74"><a href="#cb11-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-75"><a href="#cb11-75" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/bayesian-inference/_exm-bayes-bma.qmd &gt;}}</span>
+<span id="cb11-76"><a href="#cb11-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-77"><a href="#cb11-77" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb11-78"><a href="#cb11-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-79"><a href="#cb11-79" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb11-80"><a href="#cb11-80" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/bayesian-examples.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/bayesian-examples.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="cookie-consent-footer"><a href="#" id="open_preferences_center">Cookie Preferences</a></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+</body></html>
