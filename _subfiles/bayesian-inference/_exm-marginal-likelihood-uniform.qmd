@@ -7,7 +7,12 @@ now allowed to take any value in $(0, 1)$,
 with the uniform prior density $\p(\param) = 1$ for $\param \in (0, 1)$.
 One toss lands heads;
 call that observation $y = 1$,
-so $\p(y = 1 \mid \param) = \param$.
+so
+
+$$
+\p(y = 1 \mid \param) = \param.
+$$
+
 The [marginal likelihood](#def-marginal-likelihood) is an integral over $\param$:
 
 $$

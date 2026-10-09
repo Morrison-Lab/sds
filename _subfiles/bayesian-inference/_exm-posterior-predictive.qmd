@@ -3,7 +3,12 @@
 
 Let $Y^{\mathrm{new}} = 1$ if one more mother from the `birthwt` population smoked during pregnancy,
 and $Y^{\mathrm{new}} = 0$ if she did not.
-Given $\prob$, $\Prf{Y^{\mathrm{new}} = 1 \mid \prob} = \prob$.
+Given $\prob$,
+
+$$
+\Prf{Y^{\mathrm{new}} = 1 \mid \prob} = \prob.
+$$
+
 With the posterior $\p(\prob \mid \vy)$ of @exm-prior-posterior-figure,
 
 $$

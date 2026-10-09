@@ -4,7 +4,15 @@
 For the points $(0, 1)$, $(1, 2)$, $(2, 2)$ and the line with $\intcoef = 1$ and $\coef{x} = 0.5$ (@exm-rss-slr),
 the residuals are
 $1 - 1 = 0$, $2 - 1.5 = 0.5$, and $2 - 2 = 0$,
-so $\text{RSS}(1, 0.5) = 0^2 + 0.5^2 + 0^2 = 0.25$
+so
+
+$$
+\begin{aligned}
+  \text{RSS}(1, 0.5) &= 0^2 + 0.5^2 + 0^2 \\
+  &= 0.25
+\end{aligned}
+$$
+
 (@fig-rss-three-points).
 
 ::: {#fig-rss-three-points}

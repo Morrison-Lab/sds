@@ -4,7 +4,15 @@
 With the [mean squares](#def-mean-squares) of $k \ge 2$ groups
 and $n > k$ observations in all,
 the **one-way analysis of variance (ANOVA)** F-test of
-$H_0: \mean_1 = \mean_2 = \cdots = \mean_k$
+
+$$
+\begin{aligned}
+  H_0: \mean_1 &= \mean_2 \\
+  &= \cdots \\
+  &= \mean_k
+\end{aligned}
+$$
+
 against the alternative that at least two group means differ
 uses the statistic
 
@@ -21,5 +29,13 @@ where $F^*$ has the $F_{k-1,\, n-k}$ distribution ([F-distribution](inference.qm
 
 Large values of $F$ mean that the group means are spread out
 more than the variation within groups would explain.
-For the groups of @exm-mean-squares, $F = 13.5 / 1 = 13.5$.
+For the groups of @exm-mean-squares,
+
+$$
+\begin{aligned}
+  F &= 13.5 / 1 \\
+  &= 13.5.
+\end{aligned}
+$$
+
 :::
