@@ -6,7 +6,11 @@ we seek to assign each observation to one of two or more discrete categories (**
 based on its observed features or predictors $x$,
 using a **classification rule** $c$ that maps features to classes:
 
-$$c: x \mapsto c(x) \in \set{1, \dots, K}$$ {#eq-classification}
+$$c: x \mapsto c(x) \in \mathcal{C}$$ {#eq-classification}
+
+where $\mathcal{C}$ is a set of $K$ classes
+(for example, $\mathcal{C} = \set{1, \dots, K}$,
+or a set of text labels).
 
 In the binary case ($K = 2$),
 the two classes are often labeled "positive" and "negative",
