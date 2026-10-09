@@ -10,3 +10,6 @@ a credible interval is read directly from the posterior quantiles,
 and the posterior of an odds ratio $e^{\coef{x_j}}$,
 or of any other function of $\vcoef$,
 is obtained by transforming the draws.
+For a video introduction, see Richard McElreath's lecture
+[*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c)
+(Statistical Rethinking 2026, Lecture A09).

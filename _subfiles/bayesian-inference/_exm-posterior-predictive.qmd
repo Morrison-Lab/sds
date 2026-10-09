@@ -1,0 +1,68 @@
+::: {#exm-posterior-predictive}
+#### Will the next mother smoke?
+
+Let $Y^{\mathrm{new}} = 1$ if one more mother from the `birthwt` population smoked during pregnancy,
+and $Y^{\mathrm{new}} = 0$ if she did not.
+Given $\prob$, $\Prf{Y^{\mathrm{new}} = 1 \mid \prob} = \prob$.
+With the posterior $\p(\prob \mid \vy)$ of @exm-prior-posterior-figure,
+
+$$
+\ba
+\Prf{Y^{\mathrm{new}} = 1 \mid \vy}
+&= \int_0^1 \Prf{Y^{\mathrm{new}} = 1 \mid \prob}\, \p(\prob \mid \vy)\, d\prob
+&& \text{(definition of the posterior predictive distribution)}\\
+&= \int_0^1 \prob\, \p(\prob \mid \vy)\, d\prob
+&& \text{(Bernoulli model)}\\
+&= \E{\prob \mid \vy}
+&& \text{(definition of the posterior mean)}.
+\ea
+$$
+
+So the posterior predictive probability that the next mother smoked
+is the posterior mean of $\prob$,
+`r round(post_summary["real (birthwt)", "mean"], 3)`.
+The code below checks this by simulation:
+draw $\prob$ from its posterior,
+then draw $Y^{\mathrm{new}}$ given that $\prob$.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: posterior-predictive-next
+#| code-fold: false
+set.seed(2)
+prob_draws <- stats::rbeta(
+  10000,
+  post_params["real (birthwt)", "a"],
+  post_params["real (birthwt)", "b"]
+)
+y_new <- stats::rbinom(10000, size = 1, prob = prob_draws)
+c(
+  simulated = mean(y_new),
+  exact = post_summary["real (birthwt)", "mean"]
+)
+```
+
+##### Python
+
+```{python}
+#| label: posterior-predictive-next-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+
+smoke_y = pd.read_csv("data/birthwt.csv")["smoke"].to_numpy()
+post_a = 1 + smoke_y.sum()
+post_b = 1 + len(smoke_y) - smoke_y.sum()
+
+rng = np.random.default_rng(2)
+prob_draws = rng.beta(post_a, post_b, size=10000)
+y_new = rng.binomial(1, prob_draws)
+{"simulated": y_new.mean(), "exact": post_a / (post_a + post_b)}
+```
+
+:::
+
+:::

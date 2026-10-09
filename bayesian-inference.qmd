@@ -8,9 +8,17 @@ format:
     output-file: bayesian-inference-handout.pdf
   docx:
     output-file: bayesian-inference-handout.docx
+resources:
+  - data/birthwt.csv
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| label: python-packages
+#| include: false
+reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
+```
 
 {{< include sds/_subfiles/bayesian-inference/_prose-overview.qmd >}}
 
@@ -170,6 +178,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_exm-prior-posterior-figure.qmd >}}
+
+{{< slidebreak >}}
+
 ### Informative, weakly informative, and flat priors {#sec-bayes-informativeness}
 
 {{< include sds/_subfiles/bayesian-inference/_prose-informativeness.qmd >}}
@@ -223,6 +235,58 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_exm-skeptical-prior.qmd >}}
+
+## Predictive checks {#sec-bayes-predictive-checks}
+
+{{< include sds/_subfiles/bayesian-inference/_prose-predictive-overview.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-prior-predictive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-prior-predictive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-posterior-predictive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-posterior-predictive.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-test-quantity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-test-quantity.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-prior-predictive-check.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-prior-predictive-check.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-posterior-predictive-check.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-posterior-predictive-check.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_def-ppp-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_exm-ppp-value.qmd >}}
 
 ## Distributions and hierarchies {#sec-bayes-hierarchies}
 

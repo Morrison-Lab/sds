@@ -1,0 +1,10 @@
+A Bayesian model makes predictions about data,
+both before and after the data are seen.
+Comparing those predictions with the data we actually have
+is a way to check the model.
+A check made before the data are used tests the prior;
+a check made after the data are used tests the whole model
+[@gelman2013bda, Section 6.3, p. 143; @statrethink2e, Section 4.3.2, pp. 82-83].
+For a related video lecture, see Richard McElreath's
+[*Geocentric Models*](https://www.youtube.com/watch?v=JX_UyidsQNg)
+(Statistical Rethinking 2026, Lecture A03).

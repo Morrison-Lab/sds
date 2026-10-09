@@ -1,0 +1,150 @@
+::: {#exm-prior-predictive-check}
+#### Checking two priors for the smoking probability
+
+We compare two priors for $\prob$ in the `birthwt` data:
+
+- the uniform $\dBetaf{1, 1}$ prior of @exm-prior;
+- a $\dBetaf{1, 19}$ prior,
+  with prior mean $1 / (1 + 19) = `r 1 / (1 + 19)`$,
+  which an analyst might choose if they believed that smoking during pregnancy was rare.
+
+For each prior,
+we draw $\prob$ from the prior,
+then draw a count of smokers $T_1(\vY)$ among `r n_mothers` mothers given that $\prob$.
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: prior-predictive-check
+#| code-fold: false
+check_priors <- list(
+  `uniform Beta(1, 1)` = c(a = 1, b = 1),
+  `Beta(1, 19)` = c(a = 1, b = 19)
+)
+set.seed(3)
+prior_pred_counts <- do.call(
+  rbind,
+  lapply(names(check_priors), \(prior_name) {
+    ab <- check_priors[[prior_name]]
+    prob_draws <- stats::rbeta(4000, ab[["a"]], ab[["b"]])
+    data.frame(
+      prior = prior_name,
+      count = stats::rbinom(4000, size = n_mothers, prob = prob_draws)
+    )
+  })
+)
+prior_pred_counts$prior <- factor(
+  prior_pred_counts$prior,
+  levels = names(check_priors)
+)
+prior_tail <- tapply(
+  prior_pred_counts$count >= t_count(smoke_y),
+  prior_pred_counts$prior,
+  mean
+)
+prior_tail
+```
+
+##### Python
+
+```{python}
+#| label: prior-predictive-check-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+
+smoke_y = pd.read_csv("data/birthwt.csv")["smoke"].to_numpy()
+n_mothers = len(smoke_y)
+check_priors = {"uniform Beta(1, 1)": (1, 1), "Beta(1, 19)": (1, 19)}
+
+rng = np.random.default_rng(3)
+prior_pred_counts = {}
+for name, (a, b) in check_priors.items():
+    prob_draws = rng.beta(a, b, size=4000)
+    prior_pred_counts[name] = rng.binomial(n_mothers, prob_draws)
+
+{name: (counts >= smoke_y.sum()).mean()
+ for name, counts in prior_pred_counts.items()}
+```
+
+:::
+
+The output is the proportion of simulated counts at least as large as the observed count,
+`r t_count(smoke_y)`.
+
+{{< slidebreak >}}
+
+@fig-prior-predictive-check plots the simulated counts.
+
+::: {#fig-prior-predictive-check}
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: prior-predictive-check-plot
+#| fig-alt: !expr paste0(
+#|   "Two side-by-side histograms of the number of smokers among ",
+#|   n_mothers, " mothers, simulated from two priors. ",
+#|   "Under the uniform Beta(1, 1) prior, the counts spread evenly from 0 to ",
+#|   n_mothers, ", and the observed count of ", t_count(smoke_y),
+#|   ", marked by a dashed vertical line, sits in the middle. ",
+#|   "Under the Beta(1, 19) prior, most counts are small, ",
+#|   "and the observed count is far to the right of almost all of them."
+#|   )
+ggplot2::ggplot(prior_pred_counts, ggplot2::aes(count)) +
+  ggplot2::geom_histogram(binwidth = 5, boundary = 0) +
+  ggplot2::geom_vline(xintercept = t_count(smoke_y), linetype = "dashed") +
+  ggplot2::facet_wrap(~prior) +
+  ggplot2::labs(x = "number of smokers", y = "number of simulations")
+```
+
+##### Python
+
+```{python}
+#| label: prior-predictive-check-plot-py
+#| code-summary: "Show Python code"
+#| fig-alt: Two side-by-side histograms of the number of smokers,
+#|   simulated from two priors.
+#|   Under the uniform Beta(1, 1) prior, the counts spread evenly,
+#|   and the observed count, marked by a dashed vertical line, sits in the middle.
+#|   Under the Beta(1, 19) prior, most counts are small,
+#|   and the observed count is far to the right of almost all of them.
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
+for ax, (name, counts) in zip(axes, prior_pred_counts.items()):
+    ax.hist(counts, bins=np.arange(0, n_mothers + 6, 5), color="grey")
+    ax.axvline(smoke_y.sum(), color="black", linestyle="--")
+    ax.set_title(name)
+    ax.set_xlabel("number of smokers")
+axes[0].set_ylabel("number of simulations")
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+Prior predictive distributions of the number of smokers
+among the `r n_mothers` mothers in the `birthwt` data,
+from 4000 simulations under each prior.
+The dashed line is the observed count, `r t_count(smoke_y)`.
+:::
+
+{{< slidebreak >}}
+
+Under the uniform prior,
+`r round(prior_tail[["uniform Beta(1, 1)"]], 3)` of the simulated counts
+are at least as large as the observed count,
+so the data are unsurprising under that prior.
+Under the $\dBetaf{1, 19}$ prior,
+`r sum(prior_pred_counts$prior == "Beta(1, 19)" & prior_pred_counts$count >= t_count(smoke_y))`
+of the 4000 simulated counts are:
+that prior and the data disagree,
+and the analyst should rethink the prior
+before trusting a posterior built on it.
+:::

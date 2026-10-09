@@ -1,0 +1,19 @@
+::: {#def-ppp-value}
+#### Posterior predictive p-value
+
+The **posterior predictive p-value** of a [test quantity](#def-test-quantity) $T$
+is the posterior probability that a replicated data set
+gives a value of $T$ at least as large as the observed data do:
+
+$$
+p_B = \Prf{T(\vY^{\mathrm{rep}}) \ge T(\vy) \mid \vy},
+$$
+
+where the probability is over $\param$ drawn from its [posterior](#def-posterior)
+and $\vY^{\mathrm{rep}}$ drawn from the model given $\param$
+[@gelman2013bda, Section 6.3, p. 146].
+With simulations from a [posterior predictive check](#def-posterior-predictive-check),
+$p_B$ is estimated by the proportion of replicated values
+at least as large as the observed value.
+A value near 0 or 1 means the observed data are unusual under the model.
+:::

@@ -1,0 +1,72 @@
+::: {#exm-prior-predictive}
+#### Prior predictive distribution of a count
+
+In the Beta-Bernoulli model of @exm-beta-bernoulli,
+the number of successes $R = \sumin Y_i$ given $\prob$ is $\operatorname{Binomial}(n, \prob)$.
+Under the uniform $\dBetaf{1, 1}$ prior,
+its prior predictive probabilities are
+
+$$
+\ba
+\Prf{R = r}
+&= \int_0^1 \binom{n}{r} \prob^{r} (1 - \prob)^{n - r} \cdot 1 \, d\prob
+&& \text{(definition of the prior predictive distribution)}\\
+&= \binom{n}{r} \frac{r!\,(n - r)!}{(n + 1)!}
+&& \text{(the Beta integral)}\\
+&= \frac{n!}{r!\,(n - r)!} \cdot \frac{r!\,(n - r)!}{(n + 1)!}
+&& \text{(definition of the binomial coefficient)}\\
+&= \frac{n!}{(n + 1)!}
+&& \text{(the factor $r!\,(n - r)!$ appears above and below)}\\
+&= \frac{1}{n + 1}
+&& \text{($(n + 1)! = (n + 1) \cdot n!$)},
+\ea
+$$
+
+for $r = 0, 1, \ldots, n$.
+So the uniform prior says that, before seeing the data,
+every count of successes is equally likely
+[@gelman2013bda, Section 2.4, p. 34].
+For the `r nrow(MASS::birthwt)` mothers in the `birthwt` data,
+the code below computes these probabilities
+from the Beta-binomial probability mass function:
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: prior-predictive-uniform
+#| code-fold: false
+n_mothers <- nrow(MASS::birthwt)
+counts <- 0:n_mothers
+prior_pred <- choose(n_mothers, counts) *
+  beta(counts + 1, n_mothers - counts + 1) / beta(1, 1)
+c(
+  smallest = min(prior_pred),
+  largest = max(prior_pred),
+  one_over_n_plus_1 = 1 / (n_mothers + 1)
+)
+```
+
+##### Python
+
+```{python}
+#| label: prior-predictive-uniform-py
+#| code-fold: false
+import numpy as np
+import pandas as pd
+from scipy import stats
+
+n_mothers = len(pd.read_csv("data/birthwt.csv"))
+counts = np.arange(n_mothers + 1)
+prior_pred = stats.betabinom.pmf(counts, n_mothers, 1, 1)
+{
+    "smallest": prior_pred.min(),
+    "largest": prior_pred.max(),
+    "one_over_n_plus_1": 1 / (n_mothers + 1),
+}
+```
+
+:::
+
+:::

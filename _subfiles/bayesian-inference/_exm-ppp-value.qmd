@@ -1,0 +1,53 @@
+::: {#exm-ppp-value}
+#### Posterior predictive p-values for the race spread
+
+From the simulations of @exm-posterior-predictive-check:
+
+::: {.panel-tabset group="language"}
+
+##### R
+
+```{r}
+#| label: ppp-values
+#| code-fold: false
+ppp_values <- tapply(
+  ppc_draws$t_rep >= ppc_draws$t_obs,
+  ppc_draws$data_set,
+  mean
+)
+ppp_values
+```
+
+##### Python
+
+```{python}
+#| label: ppp-values-py
+#| code-fold: false
+{name: (t_rep >= t_obs).mean() for name, (t_rep, t_obs) in ppc_draws.items()}
+```
+
+:::
+
+```{r}
+#| label: ppp-verdicts
+#| include: false
+ppp_verdict <- function(p) {
+  if (p < 0.05 || p > 0.95) {
+    "so the model fails it"
+  } else {
+    "so the model passes this check"
+  }
+}
+```
+
+R and Python draw different random numbers,
+so their p-values differ a little;
+the text uses the R results.
+For the simulated data, $p_B$ is `r round(ppp_values[["simulated"]], 3)`,
+`r ppp_verdict(ppp_values[["simulated"]])`.
+For the real data, $p_B$ is `r round(ppp_values[["real (birthwt)"]], 3)`,
+`r ppp_verdict(ppp_values[["real (birthwt)"]])`.
+The next step would be a model that lets the smoking probability depend on race,
+such as the [Bayesian logistic regression](bayesian-examples.qmd#exm-bayes-logistic)
+fitted on the companion page.
+:::

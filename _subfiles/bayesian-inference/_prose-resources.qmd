@@ -27,7 +27,8 @@ The following resources cover Bayesian inference in more depth.
   which [ECL 234](https://catalog.ucdavis.edu/search/?q=ECL+234) uses;
   its author was formerly a UC Davis professor,
   and has published
-  [video lectures](https://www.youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus)
+  [video lectures](https://www.youtube.com/@rmcelreath/playlists),
+  most recently the [2026 course](https://www.youtube.com/playlist?list=PLDcUM9US4XdNOlqSyhe38US8mFgmqzI14),
   and [course materials](https://github.com/rmcelreath/stat_rethinking_2024)
 - @korner.bayes.ecology
 - @CowlesMaryKathryn2013ABSW

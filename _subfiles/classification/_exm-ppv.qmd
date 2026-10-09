@@ -6,7 +6,7 @@ used in the population of @exm-prevalence,
 [Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#exm-bayes)
 gives the positive predictive value (@def-ppv):
 
-$$\Pr(D \mid +) \approx 0.88$$
+$$\Pr(D \mid +) \approx 0.88$$ {#eq-ppv-exm}
 
 Even with a highly accurate test (99% sensitive and 99% specific),
 only about 88% of the people who test positive have COVID-19,

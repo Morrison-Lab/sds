@@ -1,7 +1,8 @@
 :::{#thm-ppv-sens-spec-prev}
 #### PPV in terms of sensitivity, specificity, and prevalence
 
-The positive predictive value of a diagnostic test with positive sensitivity
+The positive predictive value of a diagnostic test with positive sensitivity,
+used in a population with positive prevalence,
 depends on its sensitivity, its specificity, and the prevalence of the disease
 only through the ratio of the false positive rate to the sensitivity
 and the ratio of non-diseased to diseased people in the population:
@@ -9,7 +10,7 @@ and the ratio of non-diseased to diseased people in the population:
 $$
 \text{PPV} =
 \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cd \frac{1 - \text{prev}}{\text{prev}}}
-$$
+$$ {#eq-ppv-sens-spec-prev}
 
 :::
 

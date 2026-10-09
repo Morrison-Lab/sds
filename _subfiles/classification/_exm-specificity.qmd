@@ -5,7 +5,7 @@ Suppose the COVID-19 test of @exm-sensitivity
 is negative for 99% of the people who do not have COVID-19.
 Then its specificity (@def-specificity) is:
 
-$$\Pr(\neg + \mid \neg D) = 0.99$$
+$$\Pr(\neg + \mid \neg D) = 0.99$$ {#eq-specificity-exm}
 
 By the
 [complement rule](https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0),
@@ -21,6 +21,6 @@ $$
 &= 0.01
 && \text{(subtract)}
 \ea
-$$
+$$ {#eq-specificity-exm-2}
 
 :::
