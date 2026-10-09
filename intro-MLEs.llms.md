@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 09:51:12 (PDT)
+Last modified: 2026-10-09 10:02:46 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -373,7 +373,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > *Solution 14*. By the chain rule, with outer function \\\log u\\ and inner function \\u = \operatorname{p}(\tilde{x}\mid \theta)\\:
 >
-> \\ \frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta) = \mathopen{}\left(\frac{d}{du} \log u\right)\mathclose{}\bigg\|\_{u = \operatorname{p}(\tilde{x}\mid \theta)} \frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta). \\
+> \\ \frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta) = \left.{\mathopen{}\left(\frac{d}{du} \log u\right)\mathclose{}}\right\|\_{u = \operatorname{p}(\tilde{x}\mid \theta)} \frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta). \\
 >
 > The inner derivative \\\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta)\\ is the quantity we want, so only the outer derivative needs working out:
 >
@@ -1464,7 +1464,7 @@ The remaining second derivatives are:
 
 At the MLE, \\\sum\_{i=1}^n(x_i - \bar x) = 0\\ and \\\sum\_{i=1}^n(x_i - \bar x)^2 = n\hat{\sigma}^2\\ (writing \\\hat{\sigma}^2\\ for \\\hat{\sigma}^2\_{\text{ML}}\\), so:
 
-\\ \begin{aligned} \frac{\partial^2 \ell}{\partial (\sigma^2)^2}\bigg\|\_{\text{MLE}} &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i - \bar x)^2 && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3} n\hat{\sigma}^2 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i - \bar x)^2 = n\hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\hat{\sigma}^2 && \text{(reorder the factors)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(cancel one factor of \$\hat{\sigma}^2\$)}\\ &= -\frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(combine like terms)}\\ \frac{\partial^2 \ell}{\partial \mu\\ \partial \sigma^2}\bigg\|\_{\text{MLE}} &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \bar x) && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} \cdot 0 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i - \bar x) = 0\$)}\\ &= 0 && \text{(multiply by zero)} \end{aligned} \\
+\\ \begin{aligned} \left.{\frac{\partial^2 \ell}{\partial (\sigma^2)^2}}\right\|\_{\text{MLE}} &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\sum\_{i=1}^n(x_i - \bar x)^2 && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - \mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3} n\hat{\sigma}^2 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i - \bar x)^2 = n\hat{\sigma}^2\$)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-3}\hat{\sigma}^2 && \text{(reorder the factors)}\\ &= \frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} - n\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(cancel one factor of \$\hat{\sigma}^2\$)}\\ &= -\frac{n}{2}\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} && \text{(combine like terms)}\\ \left.{\frac{\partial^2 \ell}{\partial \mu\\ \partial \sigma^2}}\right\|\_{\text{MLE}} &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2}\sum\_{i=1}^n(x_i - \bar x) && \text{(evaluate at \$\mu= \bar x\$, \$\sigma^2= \hat{\sigma}^2\$)}\\ &= -\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^{-2} \cdot 0 && \text{(substitute \$\textstyle\sum\_{i=1}^n(x_i - \bar x) = 0\$)}\\ &= 0 && \text{(multiply by zero)} \end{aligned} \\
 
 ### 3.5 Information matrix and standard errors
 
