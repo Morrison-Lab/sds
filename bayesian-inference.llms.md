@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 21:40:49 (PDT)
+Last modified: 2026-10-08 23:15:22 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -80,7 +80,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > By [Theorem 1](#thm-bayes-posterior),
 >
-> \\ \operatorname{p}(0.8 \mid \tilde{y}) = \frac{\operatorname{p}(\tilde{y}\mid 0.8)\\ \operatorname{p}(0.8)}{\operatorname{p}(\tilde{y})} = \frac{0.0512}{0.1637} \approx 0.313, \\
+> \\ \begin{aligned} \operatorname{p}(0.8 \mid \tilde{y}) &= \frac{\operatorname{p}(\tilde{y}\mid 0.8)\\ \operatorname{p}(0.8)}{\operatorname{p}(\tilde{y})}\\ &= \frac{0.0512}{0.1637}\\ &\approx 0.313, \end{aligned} \\
 >
 > and \\\operatorname{p}(0.5 \mid \tilde{y}) = 0.1125 / 0.1637 \approx 0.687\\. Three heads in a row raise the probability that the coin is biased from \\0.1\\ to about \\0.31\\.
 

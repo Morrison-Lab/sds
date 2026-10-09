@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 21:40:49 (PDT)
+Last modified: 2026-10-08 23:15:22 (PDT)
 
 ## 1 Scientific models
 
@@ -313,7 +313,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > The mean squared error of these predictions is
 >
-> \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{0^2 + (-0.5)^2 + 0^2}{3} = \frac{0.25}{3} \approx 0.083, \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\ &= \frac{0.25}{3}\\ &\approx 0.083, \end{aligned} \\
 >
 > the residual sum of squares, \\0.25\\, divided by \\n = 3\\.
 

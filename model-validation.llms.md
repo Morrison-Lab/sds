@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-08 21:40:49 (PDT)
+Last modified: 2026-10-08 23:15:22 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -393,7 +393,7 @@ Last modified: 2026-10-08 21:40:49 (PDT)
 >
 > **Definition 14 (Training/validation/test split)** A **training/validation/test split** divides the observations \\1, \ldots, N\\ of a data set into three disjoint sets of indices, \\I\_{\text{train}}\\, \\I\_{\text{val}}\\ and \\I\_{\text{test}}\\, and takes the observations in \\I\_{\text{train}}\\ as the [training set](#def-training-set):
 >
-> \\ \begin{aligned} & I\_{\text{train}} \cup I\_{\text{val}} \cup I\_{\text{test}} = \mathopen{}\left\\1, \ldots, N\right\\\mathclose{}, \\ & I\_{\text{train}} \cap I\_{\text{val}} = I\_{\text{train}} \cap I\_{\text{test}} = I\_{\text{val}} \cap I\_{\text{test}} = \emptyset, \\ & \mathcal{T}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}\_{i \in I\_{\text{train}}}. \end{aligned} \tag{15}\\
+> \\ \begin{aligned} & I\_{\text{train}} \cup I\_{\text{val}} \cup I\_{\text{test}} = \mathopen{}\left\\1, \ldots, N\right\\\mathclose{}, \\ & I\_{\text{train}} \cap I\_{\text{val}} = \emptyset, \\ & I\_{\text{train}} \cap I\_{\text{test}} = \emptyset, \\ & I\_{\text{val}} \cap I\_{\text{test}} = \emptyset, \\ & \mathcal{T}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}\_{i \in I\_{\text{train}}}. \end{aligned} \tag{15}\\
 >
 > > **NOTE:**
 > >
