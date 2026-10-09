@@ -9,7 +9,7 @@ of the estimated negative predictive value and specificity
 
 $$
 p_{\text{neg}} = H\paren{\Est{\text{NPV}}, \Est{\text{specificity}}}
-$$
+$$ {#eq-neg-agreement-harmonic}
 
 :::
 

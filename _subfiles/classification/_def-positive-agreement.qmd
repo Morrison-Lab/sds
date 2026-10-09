@@ -9,7 +9,7 @@ is the number of positive calls the agent and the reference share,
 counted once for each classifier,
 as a proportion of all their positive calls:
 
-$$p_{\text{pos}} \eqdef \frac{2a}{2a + b + c}$$
+$$p_{\text{pos}} \eqdef \frac{2a}{2a + b + c}$$ {#eq-positive-agreement}
 
 ::: {.callout-note collapse="true"}
 #### Source

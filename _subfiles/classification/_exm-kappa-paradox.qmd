@@ -16,20 +16,23 @@ Then:
   and negative for $d = 99{,}500 - 995 = 98{,}505$.
 
 ```{r}
+#| code-fold: false
 agree_rare <- c(a = 495, b = 995, c = 5, d = 98505)
-with(as.list(agree_rare), c(
+rare_metrics <- with(as.list(agree_rare), c(
   overall = (a + d) / (a + b + c + d),
   positive = 2 * a / (2 * a + b + c),
   negative = 2 * d / (2 * d + b + c),
   kappa = kappa_from_table(a, b, c, d)
-)) |>
-  round(4)
+))
+round(rare_metrics, 4)
 ```
 
-The overall agreement is still 0.99,
-but kappa drops to about 0.49
-and the positive agreement to about 0.50,
-while the negative agreement stays near 1.
+The overall agreement is still `r round(rare_metrics[["overall"]], 2)`,
+but kappa drops to about `r round(rare_metrics[["kappa"]], 2)`
+and the positive agreement to about
+`r format(round(rare_metrics[["positive"]], 2), nsmall = 2)`,
+while the negative agreement stays at about
+`r format(round(rare_metrics[["negative"]], 3), nsmall = 3)`.
 The two specific agreements show where the disagreement lies:
 the test and the reference agree on negatives
 and disagree on about half of the positive calls.

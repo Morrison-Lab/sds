@@ -6,7 +6,7 @@ is the overall agreement we would expect
 if the agent and the reference classified independently,
 each with its observed proportion of positive calls:
 
-$$p_e \eqdef \frac{(a + b)(a + c) + (c + d)(b + d)}{n^2}$$
+$$p_e \eqdef \frac{(a + b)(a + c) + (c + d)(b + d)}{n^2}$$ {#eq-chance-agreement}
 
 ::: {.callout-note collapse="true"}
 #### Source

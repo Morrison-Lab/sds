@@ -15,6 +15,6 @@ The cells $a$ and $d$ count agreements,
 the cells $b$ and $c$ count disagreements,
 and the four cells together count every observation:
 
-$$n \eqdef a + b + c + d$$
+$$n \eqdef a + b + c + d$$ {#eq-agreement-table-n}
 
 :::

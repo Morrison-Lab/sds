@@ -20,6 +20,6 @@ $$
 \Est{\text{PPV}} &\eqdef \frac{a}{a + b}, &
 \Est{\text{NPV}} &\eqdef \frac{d}{c + d}.
 \ea
-$$
+$$ {#eq-agreement-test-measures}
 
 :::

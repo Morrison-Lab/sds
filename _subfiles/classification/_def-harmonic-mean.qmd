@@ -4,6 +4,6 @@
 The **harmonic mean** of two positive numbers $x$ and $y$
 is the reciprocal of the average of their reciprocals:
 
-$$H(x, y) \eqdef \frac{2}{\frac{1}{x} + \frac{1}{y}}$$
+$$H(x, y) \eqdef \frac{2}{\frac{1}{x} + \frac{1}{y}}$$ {#eq-harmonic-mean}
 
 :::

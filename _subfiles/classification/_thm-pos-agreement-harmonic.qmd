@@ -9,7 +9,7 @@ of the estimated positive predictive value and sensitivity
 
 $$
 p_{\text{pos}} = H\paren{\Est{\text{PPV}}, \Est{\text{sensitivity}}}
-$$
+$$ {#eq-pos-agreement-harmonic}
 
 :::
 
