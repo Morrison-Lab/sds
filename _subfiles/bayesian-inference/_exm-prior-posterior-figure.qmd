@@ -18,7 +18,7 @@ on two data sets:
   Here $\prob$ is the probability that a mother in this population smoked during pregnancy,
   and its true value is unknown.
   The data ship with R's `MASS` package as `MASS::birthwt`;
-  the Python code reads `data/birthwt.csv`, a copy of the same table,
+  the Python code reads [`data/birthwt.csv`](data/birthwt.csv), a copy of the same table on this site,
   which is also posted as a CSV file by the
   [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
 
