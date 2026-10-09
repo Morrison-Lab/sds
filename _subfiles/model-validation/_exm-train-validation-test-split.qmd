@@ -147,7 +147,9 @@ partition_data <- dplyr::bind_rows(
 plot_partitions_with_fit <- function(model, fit_label) {
   series_levels <- c(names(partition_colors), fit_label)
   partition_data <- partition_data |>
-    dplyr::mutate(series = factor(series, levels = series_levels))
+    dplyr::mutate(
+      series = factor(partition_data$series, levels = series_levels)
+    )
   grid_data <- tibble::tibble(wt = wt_grid)
   fitted_curve <- tibble::tibble(
     wt = wt_grid,
