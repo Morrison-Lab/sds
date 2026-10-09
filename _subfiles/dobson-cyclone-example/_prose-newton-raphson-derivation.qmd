@@ -1,29 +1,29 @@
-The update comes from approximating the score function near $\esttmp{\th}$
+The update comes from approximating the score function near $\esttmp{\param}$
 by its first-order
 [Taylor polynomial](https://en.wikipedia.org/wiki/Taylor%27s_theorem):
 
 $$
 \begin{aligned}
-\score(\th)
-&\approx \score^*(\th)\\
-&\eqdef \score(\esttmp{\th}) + \hess(\esttmp{\th})(\th - \esttmp{\th})
+\score(\param)
+&\approx \score^*(\param)\\
+&\eqdef \score(\esttmp{\param}) + \hess(\esttmp{\param})(\param - \esttmp{\param})
 \end{aligned}
 $$
 
-The approximate score function $\score^*(\th)$ is linear in $\th$,
-so the approximate score equation $\score^*(\th) = 0$
+The approximate score function $\score^*(\param)$ is linear in $\param$,
+so the approximate score equation $\score^*(\param) = 0$
 is easy to solve:
 
 $$
 \begin{aligned}
-0 &= \score(\esttmp{\th}) + \hess(\esttmp{\th})(\th - \esttmp{\th})
-&& \text{(set $\score^*(\th) = 0$)}\\
--\score(\esttmp{\th}) &= \hess(\esttmp{\th})(\th - \esttmp{\th})
-&& \text{(subtract $\score(\esttmp{\th})$)}\\
--\inv{\hess(\esttmp{\th})}\score(\esttmp{\th}) &= \th - \esttmp{\th}
-&& \text{(multiply by $\inv{\hess(\esttmp{\th})}$ on the left)}\\
-\th &= \esttmp{\th} - \inv{\hess(\esttmp{\th})}\score(\esttmp{\th})
-&& \text{(add $\esttmp{\th}$)}
+0 &= \score(\esttmp{\param}) + \hess(\esttmp{\param})(\param - \esttmp{\param})
+&& \text{(set $\score^*(\param) = 0$)}\\
+-\score(\esttmp{\param}) &= \hess(\esttmp{\param})(\param - \esttmp{\param})
+&& \text{(subtract $\score(\esttmp{\param})$)}\\
+-\inv{\hess(\esttmp{\param})}\score(\esttmp{\param}) &= \param - \esttmp{\param}
+&& \text{(multiply by $\inv{\hess(\esttmp{\param})}$ on the left)}\\
+\param &= \esttmp{\param} - \inv{\hess(\esttmp{\param})}\score(\esttmp{\param})
+&& \text{(add $\esttmp{\param}$)}
 \end{aligned}
 $$
 

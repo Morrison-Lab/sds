@@ -2,37 +2,37 @@
 #### The MAP estimate of a proportion
 
 In [the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli),
-the posterior of $\pi$ after $r$ successes in $n$ trials is
+the posterior of $\prob$ after $r$ successes in $n$ trials is
 $\operatorname{Beta}(a + r,\; b + n - r)$.
-Write $\alpha = a + r$ and $\beta = b + n - r$ for its two parameters.
-For $\alpha, \beta > 1$, the log of the posterior density, up to a constant, is
-$(\alpha - 1)\log \pi + (\beta - 1)\log(1 - \pi)$.
-Setting its derivative with respect to $\pi$ to zero gives
+Write $\shape = a + r$ and $\shapeb = b + n - r$ for its two parameters.
+For $\shape, \shapeb > 1$, the log of the posterior density, up to a constant, is
+$(\shape - 1)\log \prob + (\shapeb - 1)\log(1 - \prob)$.
+Setting its derivative with respect to $\prob$ to zero gives
 
 $$
 \ba
 0
-&= \frac{\alpha - 1}{\pi} - \frac{\beta - 1}{1 - \pi}
+&= \frac{\shape - 1}{\prob} - \frac{\shapeb - 1}{1 - \prob}
 && \text{(derivative of the log density)}\\
 0
-&= (\alpha - 1)(1 - \pi) - (\beta - 1)\pi
-&& \text{(multiplying by $\pi(1-\pi)$)}\\
-(\alpha - 1)(1 - \pi)
-&= (\beta - 1)\pi
-&& \text{(adding $(\beta - 1)\pi$ to both sides)}\\
-(\alpha - 1) - (\alpha - 1)\pi
-&= (\beta - 1)\pi
+&= (\shape - 1)(1 - \prob) - (\shapeb - 1)\prob
+&& \text{(multiplying by $\prob(1-\prob)$)}\\
+(\shape - 1)(1 - \prob)
+&= (\shapeb - 1)\prob
+&& \text{(adding $(\shapeb - 1)\prob$ to both sides)}\\
+(\shape - 1) - (\shape - 1)\prob
+&= (\shapeb - 1)\prob
 && \text{(expanding the product on the left)}\\
-\alpha - 1
-&= (\alpha - 1)\pi + (\beta - 1)\pi
-&& \text{(adding $(\alpha - 1)\pi$ to both sides)}\\
-\alpha - 1
-&= (\alpha + \beta - 2)\pi
-&& \text{(collecting the terms in $\pi$)},
+\shape - 1
+&= (\shape - 1)\prob + (\shapeb - 1)\prob
+&& \text{(adding $(\shape - 1)\prob$ to both sides)}\\
+\shape - 1
+&= (\shape + \shapeb - 2)\prob
+&& \text{(collecting the terms in $\prob$)},
 \ea
 $$
 
-so $\hth_{\text{MAP}} = \frac{\alpha - 1}{\alpha + \beta - 2}$.
+so $\hparam_{\text{MAP}} = \frac{\shape - 1}{\shape + \shapeb - 2}$.
 With the uniform prior $\operatorname{Beta}(1, 1)$,
 $r = 55$ successes and $n = 91$ trials,
 the posterior is $\operatorname{Beta}(56, 37)$.

@@ -1,14 +1,14 @@
-@thm-dist-mle involves the unknown $\vth$,
-so to use it we estimate $\einf(\vth)$,
+@thm-dist-mle involves the unknown $\vparam$,
+so to use it we estimate $\einf(\vparam)$,
 by either the expected information at the MLE, $\einf(\hthml)$,
 or the observed information at the MLE, $\oinf(\vx; \hthml)$.
 Either way, the estimated standard error of the $k$th entry of $\hthml$ is:
 
 $$
-\HSE{\hth_k} = \sqrt{\sb{\inv{\hat{\einf}}}_{kk}}
+\HSE{\hparam_k} = \sqrt{\sb{\inv{\hat{\einf}}}_{kk}}
 $$
 
-where $\hat{\einf}$ is whichever estimate of $\einf(\vth)$ we chose.
+where $\hat{\einf}$ is whichever estimate of $\einf(\vparam)$ we chose.
 
 {{< slidebreak >}}
 

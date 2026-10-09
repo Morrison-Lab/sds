@@ -10,18 +10,18 @@ Write down the log-likelihood of the full dataset.
 
 $$
 \begin{aligned}
-\ell(\lambda; \vx)
-&\eqdef \logf{\Lik(\lambda; \vx)}
+\ell(\rate; \vx)
+&\eqdef \logf{\Lik(\rate; \vx)}
 && \text{(definition of log-likelihood)}\\
-&= \logf{\prodin \frac{\lambda^{x_i} e^{-\lambda}}{x_i!}}
+&= \logf{\prodin \frac{\rate^{x_i} e^{-\rate}}{x_i!}}
 && \text{(likelihood of the dataset)}\\
-&= \sumin \logf{\frac{\lambda^{x_i} e^{-\lambda}}{x_i!}}
+&= \sumin \logf{\frac{\rate^{x_i} e^{-\rate}}{x_i!}}
 && \text{(log of a product)}\\
-&= \sumin \paren{\logf{\lambda^{x_i}} + \logf{e^{-\lambda}} - \logf{x_i!}}
+&= \sumin \paren{\logf{\rate^{x_i}} + \logf{e^{-\rate}} - \logf{x_i!}}
 && \text{(log of a product and of a quotient)}\\
-&= \sumin \paren{x_i \logf{\lambda} - \lambda - \logf{x_i!}}
+&= \sumin \paren{x_i \logf{\rate} - \rate - \logf{x_i!}}
 && \text{(log of a power; $\log e^{a} = a$)}\\
-&= \paren{\sumin x_i} \logf{\lambda} - n\lambda - \sumin \logf{x_i!}
+&= \paren{\sumin x_i} \logf{\rate} - n\rate - \sumin \logf{x_i!}
 && \text{(split the sum)}
 \end{aligned}
 $$

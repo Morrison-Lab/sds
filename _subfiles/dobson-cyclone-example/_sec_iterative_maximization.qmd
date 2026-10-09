@@ -1,4 +1,4 @@
-When we cannot solve the score equation $\score(\th) = 0$ algebraically,
+When we cannot solve the score equation $\score(\param) = 0$ algebraically,
 we can search for its solution numerically [@dobson4e, Chapter 4].
 
 {{< slidebreak >}}

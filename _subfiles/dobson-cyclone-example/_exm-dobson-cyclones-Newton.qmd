@@ -1,8 +1,8 @@
 :::{#exm-dobson-cyclones-Newton}
 #### Finding the MLE using the Newton-Raphson algorithm
 
-We found the MLE $\hat{\lambda} = \bar{x}$
-by solving the score equation $\score(\lambda) = 0$ algebraically
+We found the MLE $\hrate = \bar{x}$
+by solving the score equation $\score(\rate) = 0$ algebraically
 (@exr-solve-score-equation).
 If we could not have solved it,
 we could instead start from an initial guess such as $\esttmpl = 3$
@@ -24,8 +24,8 @@ the score function and Hessian are:
 
 $$
 \begin{aligned}
-\score(\lambda; \vx) &= \frac{`r sumx`}{\lambda} - `r n`\\
-\hessian(\lambda; \vx) &= -\frac{`r sumx`}{\lambda^2}
+\score(\rate; \vx) &= \frac{`r sumx`}{\rate} - `r n`\\
+\hessian(\rate; \vx) &= -\frac{`r sumx`}{\rate^2}
 \end{aligned}
 $$
 
@@ -34,11 +34,11 @@ around $\esttmpl$ is:
 
 $$
 \begin{aligned}
-\score(\lambda)
-&\approx \score^*(\lambda)\\
-&\eqdef \score(\esttmpl) + \hessian(\esttmpl)(\lambda - \esttmpl)\\
+\score(\rate)
+&\approx \score^*(\rate)\\
+&\eqdef \score(\esttmpl) + \hessian(\esttmpl)(\rate - \esttmpl)\\
 &= \paren{\frac{`r sumx`}{\esttmpl} - `r n`}
- + \paren{-\frac{`r sumx`}{\sqf{\esttmpl}}} (\lambda - \esttmpl)
+ + \paren{-\frac{`r sumx`}{\sqf{\esttmpl}}} (\rate - \esttmpl)
 \end{aligned}
 $$
 
@@ -104,10 +104,10 @@ by a second-order Taylor polynomial
 (@fig-cyclone-newton-step1-loglik):
 
 $$
-\llik^*(\lambda) \eqdef
+\llik^*(\rate) \eqdef
 \llik(\esttmpl) +
-(\lambda - \esttmpl) \score(\esttmpl) +
-\frac{1}{2}\hessian(\esttmpl)(\lambda - \esttmpl)^2
+(\rate - \esttmpl) \score(\esttmpl) +
+\frac{1}{2}\hessian(\esttmpl)(\rate - \esttmpl)^2
 $$
 
 :::{#fig-cyclone-newton-step1-loglik}
@@ -158,12 +158,12 @@ at the initial guess
 
 {{< slidebreak >}}
 
-Solving the approximate score equation $\score^*(\lambda) = 0$
+Solving the approximate score equation $\score^*(\rate) = 0$
 gives the next estimate:
 
 $$
 \begin{aligned}
-\lambda
+\rate
 &= \esttmpl - \score(\esttmpl) \cd \inv{\hessian(\esttmpl)}\\
 &= `r round(cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est), 4)`
 \end{aligned}

@@ -11,8 +11,8 @@ but a simulation can,
 because it can draw as many new observations as we like.
 Here the population is known:
 $X \sim \operatorname{Uniform}(0, 1)$ and
-$Y \mid X = x \sim \ndist{\sin(2 \pi x), \sigma^2}$,
-with $\sigma = 0.3$.
+$Y \mid X = x \sim \ndist{\sin(2 \pi x), \varpar}$,
+with $\sdpar = 0.3$.
 We draw one training set of $n = 30$ observations,
 fit a polynomial in $x$ of each degree from 1 to 10 by least squares,
 and score each fit on the training set
@@ -81,7 +81,7 @@ sim_errors |>
 Training mean squared error and estimated generalization error
 (mean squared error on $10{,}000$ new observations)
 of polynomial fits to one simulated training set of $n = 30$.
-The dashed line is the noise variance $\sigma^2$,
+The dashed line is the noise variance $\varpar$,
 the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error).
 :::
 
@@ -105,8 +105,8 @@ The training error is smallest at degree `r sim_best_training`
 and never rises as the degree grows,
 because each polynomial family contains the one before it.
 The estimated generalization error is smallest at degree `r sim_best_generalization`.
-No prediction rule can have generalization error below $\sigma^2 = `r sim_sigma^2`$.
-Yet the training error falls below $\sigma^2$
+No prediction rule can have generalization error below $\varpar = `r sim_sigma^2`$.
+Yet the training error falls below $\varpar$
 at `r sim_n_below[["training"]]` of the ten degrees,
 while the estimated generalization error falls below it
 at `r sim_n_below[["generalization"]]` of them:

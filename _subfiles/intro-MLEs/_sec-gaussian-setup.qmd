@@ -1,46 +1,46 @@
-Suppose $\dsn{X} \siid \ndist{\mu, \sigma^2}$,
+Suppose $\dsn{X} \siid \ndist{\mean, \varpar}$,
 and let $\dsn{x}$ be the observed values.
-The parameter vector is $\vth = (\mu, \sigma^2)$.
-We treat $\sigma^2$, rather than $\sigma$, as the second parameter,
-and differentiate with respect to $\sigma^2$ directly.
+The parameter vector is $\vparam = (\mean, \varpar)$.
+We treat $\varpar$, rather than $\sdpar$, as the second parameter,
+and differentiate with respect to $\varpar$ directly.
 
 By @thm-lik-iid, the likelihood is:
 
 $$
-\Lik(\mu, \sigma^2) = \prodin (2\pi\sigma^2)^{-1/2}
-\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}
+\Lik(\mean, \varpar) = \prodin (2\pi\varpar)^{-1/2}
+\expf{-\frac{(x_i - \mean)^2}{2\varpar}}
 $$
 
 and by @thm-loglik-iid, the log-likelihood is:
 
 $$
 \begin{aligned}
-\ell(\mu, \sigma^2)
-&= \sumin \logf{(2\pi\sigma^2)^{-1/2}
-\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}
+\ell(\mean, \varpar)
+&= \sumin \logf{(2\pi\varpar)^{-1/2}
+\expf{-\frac{(x_i - \mean)^2}{2\varpar}}}
 && \text{(log of each Gaussian density)}\\
-&= \sumin \paren{\logf{(2\pi\sigma^2)^{-1/2}}
- + \logf{\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}}
+&= \sumin \paren{\logf{(2\pi\varpar)^{-1/2}}
+ + \logf{\expf{-\frac{(x_i - \mean)^2}{2\varpar}}}}
 && \text{(log of a product)}\\
-&= \sumin \paren{-\frac{1}{2}\logf{2\pi\sigma^2}
- + \logf{\expf{-\frac{(x_i - \mu)^2}{2\sigma^2}}}}
+&= \sumin \paren{-\frac{1}{2}\logf{2\pi\varpar}
+ + \logf{\expf{-\frac{(x_i - \mean)^2}{2\varpar}}}}
 && \text{(log of a power)}\\
-&= \sumin \paren{-\frac{1}{2}\logf{2\pi\sigma^2} - \frac{(x_i - \mu)^2}{2\sigma^2}}
+&= \sumin \paren{-\frac{1}{2}\logf{2\pi\varpar} - \frac{(x_i - \mean)^2}{2\varpar}}
 && \text{($\logt$ undoes $\expt$)}\\
-&= \sumin \paren{-\frac{1}{2}\logf{2\pi\sigma^2}}
- - \sumin \frac{(x_i - \mu)^2}{2\sigma^2}
+&= \sumin \paren{-\frac{1}{2}\logf{2\pi\varpar}}
+ - \sumin \frac{(x_i - \mean)^2}{2\varpar}
 && \text{(split the sum)}\\
-&= -\frac{n}{2}\logf{2\pi\sigma^2}
- - \sumin \frac{(x_i - \mu)^2}{2\sigma^2}
+&= -\frac{n}{2}\logf{2\pi\varpar}
+ - \sumin \frac{(x_i - \mean)^2}{2\varpar}
 && \text{(sum of $n$ identical terms)}\\
-&= -\frac{n}{2}\logf{2\pi\sigma^2}
- - \frac{1}{2\sigma^2}\sumin (x_i - \mu)^2
-&& \text{(factor the constant $\tfrac{1}{2\sigma^2}$ out of the sum)}\\
-&= -\frac{n}{2}\paren{\logf{2\pi} + \logf{\sigma^2}}
- - \frac{1}{2\sigma^2}\sumin (x_i - \mu)^2
+&= -\frac{n}{2}\logf{2\pi\varpar}
+ - \frac{1}{2\varpar}\sumin (x_i - \mean)^2
+&& \text{(factor the constant $\tfrac{1}{2\varpar}$ out of the sum)}\\
+&= -\frac{n}{2}\paren{\logf{2\pi} + \logf{\varpar}}
+ - \frac{1}{2\varpar}\sumin (x_i - \mean)^2
 && \text{(log of a product)}\\
-&= -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
- - \frac{1}{2\sigma^2}\sumin (x_i - \mu)^2
+&= -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
+ - \frac{1}{2\varpar}\sumin (x_i - \mean)^2
 && \text{(distribute $-\tfrac{n}{2}$)}
 \end{aligned}
 $$

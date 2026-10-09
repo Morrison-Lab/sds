@@ -2,8 +2,8 @@
 #### MLE for one Bernoulli observation
 
 In @exm-lik-obs, the likelihood of the observation $x = 1$
-is $\Lik(\pi) = \pi$ for $\pi \in [0, 1]$.
+is $\Lik(\prob) = \prob$ for $\prob \in [0, 1]$.
 This function is increasing,
 so it is maximized at the upper edge of the parameter space:
-$\hat\pi_{\text{ML}} = 1$.
+$\hprob_{\text{ML}} = 1$.
 :::

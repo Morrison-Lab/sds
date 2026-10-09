@@ -2,8 +2,8 @@
 #### Squared bias plus variance
 
 Using @exr-sq-bias-expand,
-write $\sqf{\bias{\hth}} + \var{\hth}$
-in terms of $\E{\hth^2}$, $\E{\hth}$, and the estimand $\th$.
+write $\sqf{\bias{\hparam}} + \var{\hparam}$
+in terms of $\E{\hparam^2}$, $\E{\hparam}$, and the estimand $\param$.
 :::
 
 {{< slidebreak >}}
@@ -13,20 +13,20 @@ in terms of $\E{\hth^2}$, $\E{\hth}$, and the estimand $\th$.
 The variance is
 ([simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)):
 
-$$\var{\hth} = \E{\hth^2} - \sqf{\E{\hth}}$$
+$$\var{\hparam} = \E{\hparam^2} - \sqf{\E{\hparam}}$$
 
 Add it to the squared bias from @exr-sq-bias-expand and simplify:
 
 $$
 \begin{aligned}
-\sqf{\bias{\hth}} + \var{\hth}
-&= \sqf{\E{\hth}} - 2\E{\hth}\th + \th^2 + \var{\hth}
+\sqf{\bias{\hparam}} + \var{\hparam}
+&= \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2 + \var{\hparam}
 && \text{(substitute the squared bias)}\\
-&= \sqf{\E{\hth}} - 2\E{\hth}\th + \th^2 + \E{\hth^2} - \sqf{\E{\hth}}
+&= \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2 + \E{\hparam^2} - \sqf{\E{\hparam}}
 && \text{(substitute the variance)}\\
-&= - 2\E{\hth}\th + \th^2 + \E{\hth^2}
-&& \text{(cancel $\sqf{\E{\hth}}$)}\\
-&= \E{\hth^2} - 2\E{\hth}\th + \th^2
+&= - 2\E{\hparam}\param + \param^2 + \E{\hparam^2}
+&& \text{(cancel $\sqf{\E{\hparam}}$)}\\
+&= \E{\hparam^2} - 2\E{\hparam}\param + \param^2
 && \text{(reorder the terms)}
 \end{aligned}
 $$

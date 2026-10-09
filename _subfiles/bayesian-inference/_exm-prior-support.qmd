@@ -2,9 +2,9 @@
 #### A prior that rules out the truth
 
 An analyst sure that fewer than half of adults smoke
-might put a uniform prior on $(0, 0.5)$ for the smoking probability $\pi$.
+might put a uniform prior on $(0, 0.5)$ for the smoking probability $\prob$.
 By @cor-prior-support,
-the posterior then gives probability 0 to $\pi > 0.5$,
+the posterior then gives probability 0 to $\prob > 0.5$,
 even if 90 of 100 sampled adults smoke.
 The support of the prior is itself a modeling assumption,
 and one that no amount of data can correct.

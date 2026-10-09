@@ -2,8 +2,8 @@
 #### Null distribution of the one-sample t statistic
 
 Let $\dsn{X}$ be independent,
-each Gaussian with mean $\mu_0$ and variance $\sigma^2$, with $n \ge 2$.
-Then the statistic $T \eqdef (\bar X - \mu_0) / (S / \sqrt{n})$
+each Gaussian with mean $\mean_0$ and variance $\varpar$, with $n \ge 2$.
+Then the statistic $T \eqdef (\bar X - \mean_0) / (S / \sqrt{n})$
 of @def-one-sample-t-test,
 computed from these random variables,
 has the $t_{n-1}$ distribution.
@@ -13,8 +13,8 @@ has the $t_{n-1}$ distribution.
 
 We use a standard fact about Gaussian samples [@hoggtanis2015, Section 5.5, pp. 203-205]:
 $\bar X$ and $S^2$ are independent,
-and $V \eqdef (n-1) S^2 / \sigma^2$ has the $\chi^2_{n-1}$ distribution.
-Also, $Z \eqdef (\bar X - \mu_0) / (\sigma / \sqrt{n})$
+and $V \eqdef (n-1) S^2 / \varpar$ has the $\chi^2_{n-1}$ distribution.
+Also, $Z \eqdef (\bar X - \mean_0) / (\sdpar / \sqrt{n})$
 has the standard Gaussian distribution,
 and $Z$ is independent of $V$ because $\bar X$ is independent of $S^2$.
 So by the [definition of the t-distribution](inference.qmd#def-t-dist), $Z / \sqrt{V / (n-1)}$ has the $t_{n-1}$ distribution,
@@ -23,12 +23,12 @@ and this ratio equals $T$:
 $$
 \begin{aligned}
 \frac{Z}{\sqrt{V/(n-1)}}
-&= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{\sqrt{S^2 / \sigma^2}}
+&= \frac{(\bar X - \mean_0) / (\sdpar / \sqrt{n})}{\sqrt{S^2 / \sdpar^2}}
 && \text{(substitute $Z$ and $V$)}\\
-&= \frac{(\bar X - \mu_0) / (\sigma / \sqrt{n})}{S / \sigma}
+&= \frac{(\bar X - \mean_0) / (\sdpar / \sqrt{n})}{S / \sdpar}
 && \text{($\sqrt{S^2} = S$, since $S \ge 0$)}\\
-&= \frac{\bar X - \mu_0}{S / \sqrt{n}}
-&& \text{(the factors of $\sigma$ cancel)}\\
+&= \frac{\bar X - \mean_0}{S / \sqrt{n}}
+&& \text{(the factors of $\sdpar$ cancel)}\\
 &= T.
 \end{aligned}
 $$

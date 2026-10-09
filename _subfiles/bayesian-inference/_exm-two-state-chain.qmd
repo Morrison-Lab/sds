@@ -7,21 +7,21 @@ and a wet day is followed by a dry day with probability 0.5,
 whatever the weather on earlier days.
 So the daily weather is a [Markov chain](#def-markov-chain).
 
-Let $\pi_{\text{dry}}$ be the probability that a day is dry.
+Let $\prob_{\text{dry}}$ be the probability that a day is dry.
 For that probability to be the same the next day,
 
 $$
 \ba
-\pi_{\text{dry}}
-&= 0.9\, \pi_{\text{dry}} + 0.5\, (1 - \pi_{\text{dry}})
+\prob_{\text{dry}}
+&= 0.9\, \prob_{\text{dry}} + 0.5\, (1 - \prob_{\text{dry}})
 && \text{(tomorrow is dry after a dry or a wet day)}\\
-&= 0.5 + 0.4\, \pi_{\text{dry}}
+&= 0.5 + 0.4\, \prob_{\text{dry}}
 && \text{(collecting terms)},
 \ea
 $$
 
-so $0.6\, \pi_{\text{dry}} = 0.5$
-and $\pi_{\text{dry}} = 5/6$.
+so $0.6\, \prob_{\text{dry}} = 0.5$
+and $\prob_{\text{dry}} = 5/6$.
 The [stationary distribution](#def-stationary-distribution)
 is dry with probability $5/6$ and wet with probability $1/6$.
 A simulated chain, started on a wet day,

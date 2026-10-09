@@ -1,10 +1,10 @@
 ::: {#def-SE}
 #### Standard error
 
-The **standard error** of an estimator $\hth$ is the
+The **standard error** of an estimator $\hparam$ is the
 [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd)
-of $\hth$:
+of $\hparam$:
 
-$$\SE{\hth} \eqdef \SD{\hth}$$
+$$\SE{\hparam} \eqdef \SD{\hparam}$$
 
 :::

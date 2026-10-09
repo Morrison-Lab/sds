@@ -37,7 +37,7 @@ cat(
 )
 ```
 
-Log-likelihood of the HERS glucose data as a function of $\mu$ and $\sigma$
+Log-likelihood of the HERS glucose data as a function of $\mean$ and $\sdpar$
 (interactive: drag to rotate)
 
 :::

@@ -2,7 +2,7 @@
 #### Credible and confidence intervals for a Gaussian mean
 
 We simulate $n = 20$ observations from the model of @exm-normal-normal,
-with true mean $\mu = 2$,
+with true mean $\mean = 2$,
 and compute both a 95% confidence interval,
 $\bar x \pm 1.96 / \sqrt{n}$ (the variance is known to be 1),
 and the equal-tailed 95% credible interval
@@ -32,7 +32,7 @@ and shifted toward the prior mean $0$.
 
 @fig-normal-prior-lik-post shows how the posterior combines prior and data.
 Completing the square in the likelihood of @exm-normal-normal
-as a function of $\mu$ alone
+as a function of $\mean$ alone
 shows that the likelihood is proportional to a $\ndist{\bar x, 1/n}$ density,
 which is the curve drawn for it.
 
@@ -61,13 +61,13 @@ ggplot2::ggplot(curves) +
 ```
 
 The $\ndist{0, 1}$ prior, the likelihood (scaled to integrate to 1),
-and the posterior for the mean $\mu$,
+and the posterior for the mean $\mean$,
 for the data of @exm-normal-credible-vs-confidence.
 :::
 
-Because $\mu$ has a distribution,
+Because $\mean$ has a distribution,
 the Bayesian can also compute the posterior probability
-that $\mu$ lies in the realized *confidence* interval:
+that $\mean$ lies in the realized *confidence* interval:
 
 ```{r}
 #| label: normal-posterior-prob-ci
@@ -80,6 +80,6 @@ That probability is `r round(pr_in_ci, 3)`, not 0.95:
 under this prior,
 the confidence interval sits slightly too far from $0$.
 A frequentist cannot assign any probability to the event
-that $\mu$ lies in one realized interval,
+that $\mean$ lies in one realized interval,
 since both are fixed.
 :::

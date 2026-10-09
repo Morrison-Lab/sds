@@ -2,8 +2,8 @@
 #### Posterior mean and maximum likelihood estimate for a Bernoulli model
 
 With $r = 55$ successes in $n = 91$ trials,
-the maximum likelihood estimate is $\hat\pi = r / n$,
-with estimated standard error $\sqrt{\hat\pi(1 - \hat\pi)/n}$.
+the maximum likelihood estimate is $\hprob = r / n$,
+with estimated standard error $\sqrt{\hprob(1 - \hprob)/n}$.
 Under the uniform prior, the posterior is $\operatorname{Beta}(r + 1, n - r + 1)$
 ([the Beta-Bernoulli example](bayesian-inference.qmd#exm-beta-bernoulli)),
 whose mean is $(r + 1)/(n + 2)$

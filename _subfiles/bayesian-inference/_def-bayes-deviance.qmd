@@ -2,9 +2,9 @@
 #### Deviance of a parameter value
 
 In the deviance information criterion,
-the **deviance** of a parameter value $\vth$ is
+the **deviance** of a parameter value $\vparam$ is
 
 $$
-D(\vth) \eqdef -2 \log \p(\vy \mid \vth).
+D(\vparam) \eqdef -2 \log \p(\vy \mid \vparam).
 $$
 :::

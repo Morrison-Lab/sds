@@ -1,8 +1,8 @@
 ::: proof
 
 By @exr-mse-expand and @exr-bias-sq-plus-var,
-$\mselr{\hth}$ and $\sqf{\bias{\hth}} + \var{\hth}$
-both equal $\E{\hth^2} - 2\E{\hth}\th + \th^2$,
+$\mselr{\hparam}$ and $\sqf{\bias{\hparam}} + \var{\hparam}$
+both equal $\E{\hparam^2} - 2\E{\hparam}\param + \param^2$,
 so they are equal to each other.
 
 :::

@@ -1,18 +1,18 @@
 ::: {#thm-mse-rss}
 #### Mean squared error is the residual sum of squares divided by $n$
 
-For a regression model with conditional mean $\mean(x; \vth)$,
+For a regression model with conditional mean $\mean(x; \vparam)$,
 the [mean squared error](estimation.qmd#def-prediction-mse)
-of its predictions $\fitted_i = \mean(x_i; \vth)$
+of its predictions $\fitted_i = \mean(x_i; \vparam)$
 of $n \ge 1$ outcomes $\dsn{y}$
-and the residual sum of squares $\text{RSS}(\vth)$ (@def-rss)
+and the residual sum of squares $\text{RSS}(\vparam)$ (@def-rss)
 over those same $n$ outcomes satisfy
 
-$$\mselr{\fitted} = \frac{1}{n} \text{RSS}(\vth),$$
+$$\mselr{\fitted} = \frac{1}{n} \text{RSS}(\vparam),$$
 
 and equivalently
 
-$$\text{RSS}(\vth) = n \, \mselr{\fitted}.$$
+$$\text{RSS}(\vparam) = n \, \mselr{\fitted}.$$
 :::
 
 ::: proof

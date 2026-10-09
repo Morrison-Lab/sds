@@ -1,11 +1,11 @@
 ::: {#exm-posterior}
 #### Posterior probability that a coin is biased
 
-A coin is either fair ($\theta = 0.5$)
-or biased toward heads ($\theta = 0.8$),
-where $\theta$ is its probability of heads,
+A coin is either fair ($\param = 0.5$)
+or biased toward heads ($\param = 0.8$),
+where $\param$ is its probability of heads,
 with prior probabilities $\p(0.5) = 0.9$ and $\p(0.8) = 0.1$.
 After three tosses that all land heads,
-the posterior distribution of $\theta$ is its conditional distribution given those tosses.
+the posterior distribution of $\param$ is its conditional distribution given those tosses.
 Its probabilities are computed in @exm-marginal-likelihood.
 :::

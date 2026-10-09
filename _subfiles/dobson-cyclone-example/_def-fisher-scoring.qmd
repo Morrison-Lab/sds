@@ -3,11 +3,11 @@
 
 **Fisher scoring** (also called the method of scoring)
 is the [Newton-Raphson algorithm](#def-newton-raphson)
-with the observed information $\oinf(\vx; \esttmp{\th})$ in the update
-replaced by the [expected information](#def-einf) $\einf(\esttmp{\th})$:
+with the observed information $\oinf(\vx; \esttmp{\param})$ in the update
+replaced by the [expected information](#def-einf) $\einf(\esttmp{\param})$:
 
 $$
-\esttmp{\th} \leftarrow \esttmp{\th} + \inv{\einff{\esttmp{\th}}} \scoref{\vx; \esttmp{\th}}
+\esttmp{\param} \leftarrow \esttmp{\param} + \inv{\einff{\esttmp{\param}}} \scoref{\vx; \esttmp{\param}}
 $$
 
 :::

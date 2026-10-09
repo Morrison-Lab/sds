@@ -1,14 +1,14 @@
 By @sec-covariance-matrix,
-the estimated standard error of $\hat\mu_{\text{ML}}$ is
+the estimated standard error of $\hmean_{\text{ML}}$ is
 
 $$
 \begin{aligned}
-\HSE{\hat\mu}
-&= \sqrt{\sb{\inv{\oinf(\hat\mu, \hat\sigma^2)}}_{11}}
+\HSE{\hmean}
+&= \sqrt{\sb{\inv{\oinf(\hmean, \hvarpar)}}_{11}}
 && \text{(estimated standard error from the inverse information)}\\
-&= \sqrt{\frac{\hat\sigma^2}{n}}
+&= \sqrt{\frac{\hvarpar}{n}}
 && \text{(first diagonal entry of the inverse information)}\\
-&= \frac{\hat\sigma}{\sqrt{n}}
+&= \frac{\hsdpar}{\sqrt{n}}
 && \text{(square root of a quotient)}
 \end{aligned}
 $$
@@ -29,7 +29,7 @@ ggplot2::ggplot() +
   ggplot2::ylab("Standard error of mu-hat (mg/dL)")
 ```
 
-Standard error of $\hat\mu_{\text{ML}}$ as a function of sample size,
-with $\sigma = \hat\sigma_{\text{ML}}$
+Standard error of $\hmean_{\text{ML}}$ as a function of sample size,
+with $\sdpar = \hsdpar_{\text{ML}}$
 
 :::

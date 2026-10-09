@@ -1,13 +1,13 @@
 ::: {#cor-prior-support}
 #### The posterior cannot put probability where the prior puts none
 
-If $\p(\theta) = 0$ for every $\theta$ in a set $A \subset \Theta$,
-then $\p(\theta \mid \vy) = 0$ for every $\theta \in A$,
+If $\p(\param) = 0$ for every $\param$ in a set $A \subset \Paramspace$,
+then $\p(\param \mid \vy) = 0$ for every $\param \in A$,
 whatever the data $\vy$.
 :::
 
 ::: proof
-For $\theta \in A$,
+For $\param \in A$,
 the numerator of @eq-bayes-posterior is
-$\p(\vy \mid \theta) \cdot 0 = 0$.
+$\p(\vy \mid \param) \cdot 0 = 0$.
 :::

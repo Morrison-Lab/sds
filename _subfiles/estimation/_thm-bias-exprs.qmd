@@ -1,7 +1,7 @@
 ::: {#thm-bias-exprs}
 #### Bias equals expectation minus truth
 
-$$\bias{\hth} = \E{\hth} - \theta$$
+$$\bias{\hparam} = \E{\hparam} - \param$$
 
 :::
 

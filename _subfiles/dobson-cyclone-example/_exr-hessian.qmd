@@ -14,15 +14,15 @@ which is the derivative of the score from @exr-cyclone-score-fn:
 
 $$
 \begin{aligned}
-\ell''(\lambda; \vx)
-&= \deriv{\lambda}\paren{\frac{n \bar x}{\lambda} - n}
+\ell''(\rate; \vx)
+&= \deriv{\rate}\paren{\frac{n \bar x}{\rate} - n}
 && \text{(differentiate the score)}\\
-&= n \bar x \deriv{\lambda}\frac{1}{\lambda} - \deriv{\lambda} n
+&= n \bar x \deriv{\rate}\frac{1}{\rate} - \deriv{\rate} n
 && \text{(linearity of differentiation)}\\
-&= -\frac{n \bar x}{\lambda^2}
-&& \text{($\tfrac{d}{d\lambda}\lambda^{-1} = -\lambda^{-2}$; $n$ is constant)}
+&= -\frac{n \bar x}{\rate^2}
+&& \text{($\tfrac{d}{d\rate}\rate^{-1} = -\rate^{-2}$; $n$ is constant)}
 \end{aligned}
 $$
 
-For the cyclone data, $\ell''(\lambda; \vx) = -`r sumx`/\lambda^2$.
+For the cyclone data, $\ell''(\rate; \vx) = -`r sumx`/\rate^2$.
 :::

@@ -4,13 +4,13 @@
 By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt),
 the sample mean $\bar X$ of a large sample
 has approximately a Gaussian distribution
-with mean $\mu$ and
-[standard error](estimation.qmd#def-SE) $\sigma/\sqrt{n}$,
+with mean $\mean$ and
+[standard error](estimation.qmd#def-SE) $\sdpar/\sqrt{n}$,
 which we estimate by $s/\sqrt{n}$.
 So $\bar x \pm z_{0.975} \, s/\sqrt{n}$,
 where $z_{0.975} \approx 1.96$ is the 0.975 quantile
 of the standard Gaussian distribution,
-is an [approximate](#def-approximate-ci) 95% confidence interval for $\mu$:
+is an [approximate](#def-approximate-ci) 95% confidence interval for $\mean$:
 
 ```{r}
 #| code-fold: false

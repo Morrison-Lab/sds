@@ -9,6 +9,6 @@ and a nested model $M_0 \subset M_1$,
 obtained by imposing $q$ constraints on $M_1$,
 has $p_0 = p - q$ free parameters,
 then when $M_0$ is true,
-$\Lambda = 2\paren{\llik_{M_1}(\hthml) - \llik_{M_0}(\hat\th_0)}$
+$\lrstat = 2\paren{\llik_{M_1}(\hthml) - \llik_{M_0}(\hparam_0)}$
 converges in distribution to $\chi^2_q$.
 :::

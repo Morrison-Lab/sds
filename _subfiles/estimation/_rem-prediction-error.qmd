@@ -12,7 +12,7 @@ $$
 \begin{aligned}
 \prederr &= \fitted - y
 && \text{(prediction error)}\\
-\erf{\hth} &= \hth - \th
+\erf{\hparam} &= \hparam - \param
 && \text{(estimation error)}
 \end{aligned}
 $$

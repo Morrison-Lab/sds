@@ -1,13 +1,13 @@
 :::{#def-prediction-interval}
 #### Prediction interval
 
-A $100(1-\alpha)\%$ **prediction interval** for a future random quantity $Y^*$
+A $100(1-\siglevel)\%$ **prediction interval** for a future random quantity $Y^*$
 is a pair of statistics $L$ and $U$, computed from the observed data,
-such that the interval from $L$ to $U$ contains $Y^*$ with probability $1 - \alpha$,
+such that the interval from $L$ to $U$ contains $Y^*$ with probability $1 - \siglevel$,
 where the probability accounts for the randomness
 of both the observed data and $Y^*$:
 
 $$
-\Prf{L \le Y^* \le U} = 1 - \alpha
+\Prf{L \le Y^* \le U} = 1 - \siglevel
 $$
 :::

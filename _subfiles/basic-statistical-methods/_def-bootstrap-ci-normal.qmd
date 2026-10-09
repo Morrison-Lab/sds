@@ -3,7 +3,7 @@
 
 The **normal bootstrap confidence interval** is
 
-$$\hat\theta \pm z_{1 - \alpha/2} \, \widehat{\text{SE}}_\text{boot},$$
+$$\hparam \pm z_{1 - \siglevel/2} \, \widehat{\text{SE}}_\text{boot},$$
 
 where $\widehat{\text{SE}}_\text{boot}$ is the
 bootstrap standard error (@def-bootstrap-se).
@@ -14,8 +14,8 @@ bootstrap standard error (@def-bootstrap-se).
 ::: {#rem-bootstrap-ci-normal-assumptions}
 #### When the normal bootstrap interval is reliable
 
-This interval assumes that the sampling distribution of $\hat\theta$
-is approximately Gaussian and centered at $\theta$,
+This interval assumes that the sampling distribution of $\hparam$
+is approximately Gaussian and centered at $\param$,
 so it can be unreliable when that distribution is skewed.
 It needs only a standard error,
 which takes fewer bootstrap replicates to estimate well

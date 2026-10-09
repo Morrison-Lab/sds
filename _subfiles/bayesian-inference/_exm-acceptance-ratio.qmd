@@ -4,11 +4,11 @@
 With $r = 55$ successes in $n = 91$ trials, a uniform prior,
 and the [symmetric](#def-symmetric-proposal) proposal of @exm-proposal-distribution,
 the $q$ terms cancel and the prior is constant,
-so moving from $\pi^{(t)} = 0.5$ to $\pi^* = 0.6$ gives
+so moving from $\prob^{(t)} = 0.5$ to $\prob^* = 0.6$ gives
 
 $$
 \begin{aligned}
-\alpha
+\accept
 &= \frac{0.6^{55}\, 0.4^{36}}{0.5^{55}\, 0.5^{36}}
 && \text{(Bernoulli likelihood ratio)}\\
 &= 1.2^{55}\, 0.8^{36}
@@ -18,5 +18,5 @@ $$
 \end{aligned}
 $$
 
-The reverse move, from $0.6$ to $0.5$, has $\alpha \approx 1/7.35 \approx 0.136$.
+The reverse move, from $0.6$ to $0.5$, has $\accept \approx 1/7.35 \approx 0.136$.
 :::

@@ -1,46 +1,46 @@
-Setting $\deriv{\mu}\ell = 0$:
+Setting $\deriv{\mean}\ell = 0$:
 
 $$
 \begin{aligned}
-0 &= \frac{1}{\sigma^2}\paren{\sumin x_i - n\mu}
-&& \text{(score for $\mu$)}\\
-0 &= \sumin x_i - n\mu
-&& \text{(multiply both sides by $\sigma^2$)}\\
-n\mu &= \sumin x_i
-&& \text{(add $n\mu$ to both sides)}\\
-\mu &= \avgin x_i
+0 &= \frac{1}{\varpar}\paren{\sumin x_i - n\mean}
+&& \text{(score for $\mean$)}\\
+0 &= \sumin x_i - n\mean
+&& \text{(multiply both sides by $\varpar$)}\\
+n\mean &= \sumin x_i
+&& \text{(add $n\mean$ to both sides)}\\
+\mean &= \avgin x_i
 && \text{(divide by $n$)}\\
-\mu &= \bar x
+\mean &= \bar x
 && \text{(definition of $\bar x$)}
 \end{aligned}
 $$
 
-This solution does not depend on $\sigma^2$.
+This solution does not depend on $\varpar$.
 The second derivative is
 
 $$
 \begin{aligned}
-\frac{\partial^2 \ell}{\partial \mu^2}
-&= \deriv{\mu}\paren{\frac{1}{\sigma^2}\paren{\sumin x_i - n\mu}}
-&& \text{(differentiate the score for $\mu$)}\\
-&= \frac{1}{\sigma^2}\deriv{\mu}\paren{\sumin x_i - n\mu}
+\frac{\partial^2 \ell}{\partial \mean^2}
+&= \deriv{\mean}\paren{\frac{1}{\varpar}\paren{\sumin x_i - n\mean}}
+&& \text{(differentiate the score for $\mean$)}\\
+&= \frac{1}{\varpar}\deriv{\mean}\paren{\sumin x_i - n\mean}
 && \text{(constant multiple rule)}\\
-&= \frac{1}{\sigma^2}\paren{\deriv{\mu}\sumin x_i - \deriv{\mu}\paren{n\mu}}
+&= \frac{1}{\varpar}\paren{\deriv{\mean}\sumin x_i - \deriv{\mean}\paren{n\mean}}
 && \text{(linearity of differentiation)}\\
-&= \frac{1}{\sigma^2}\paren{0 - \deriv{\mu}\paren{n\mu}}
-&& \text{($\textstyle\sumin x_i$ does not depend on $\mu$)}\\
-&= \frac{1}{\sigma^2}\paren{0 - n\deriv{\mu}\mu}
+&= \frac{1}{\varpar}\paren{0 - \deriv{\mean}\paren{n\mean}}
+&& \text{($\textstyle\sumin x_i$ does not depend on $\mean$)}\\
+&= \frac{1}{\varpar}\paren{0 - n\deriv{\mean}\mean}
 && \text{(constant multiple rule)}\\
-&= \frac{1}{\sigma^2}\paren{0 - n}
-&& \text{(derivative of $\mu$ with respect to itself)}\\
-&= \frac{1}{\sigma^2}\paren{-n}
+&= \frac{1}{\varpar}\paren{0 - n}
+&& \text{(derivative of $\mean$ with respect to itself)}\\
+&= \frac{1}{\varpar}\paren{-n}
 && \text{(subtract)}\\
-&= -\frac{n}{\sigma^2}
+&= -\frac{n}{\varpar}
 && \text{(multiply)}\\
 &< 0,
-&& \text{($n > 0$ and $\sigma^2 > 0$)}
+&& \text{($n > 0$ and $\varpar > 0$)}
 \end{aligned}
 $$
 
-so for every fixed $\sigma^2$, $\ell$ is maximized over $\mu$ at $\bar x$,
-and $\hat\mu_{\text{ML}} = \bar x$.
+so for every fixed $\varpar$, $\ell$ is maximized over $\mean$ at $\bar x$,
+and $\hmean_{\text{ML}} = \bar x$.

@@ -2,7 +2,7 @@
 #### Second moment of the score
 
 Under the assumptions of @exr-score-mean-zero,
-show that $\E{\score^2} = \einf(\th)$,
+show that $\E{\score^2} = \einf(\param)$,
 the [expected information](#def-einf).
 :::
 
@@ -11,36 +11,36 @@ the [expected information](#def-einf).
 :::{#sol-score-second-moment}
 
 By @exr-score-mean-zero,
-$0 = \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx$
-for every $\th$.
-Differentiate this identity with respect to $\th$;
-the step that substitutes for $\deriv{\th}\p(\vx \mid \th)$ uses @exr-deriv-log-density:
+$0 = \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx$
+for every $\param$.
+Differentiate this identity with respect to $\param$;
+the step that substitutes for $\deriv{\param}\p(\vx \mid \param)$ uses @exr-deriv-log-density:
 
 $$
 \begin{aligned}
-\deriv{\th} 0
-&= \deriv{\th} \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+\deriv{\param} 0
+&= \deriv{\param} \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{(differentiate both sides)}\\
 0
-&= \deriv{\th} \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
+&= \deriv{\param} \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{(derivative of a constant)}\\
-&= \int \deriv{\th}\sb{\paren{\deriv{\th} \log \p(\vx \mid \th)} \p(\vx \mid \th)} d\vx
+&= \int \deriv{\param}\sb{\paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param)} d\vx
 && \text{(exchange derivative and integral)}\\
-&= \int \paren{\frac{\partial^2}{\partial \th^2} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
- + \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \deriv{\th}\p(\vx \mid \th) \, d\vx
+&= \int \paren{\frac{\partial^2}{\partial \param^2} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+ + \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \deriv{\param}\p(\vx \mid \param) \, d\vx
 && \text{(product rule)}\\
-&= \int \paren{\frac{\partial^2}{\partial \th^2} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
- + \int \paren{\deriv{\th} \log \p(\vx \mid \th)} \paren{\deriv{\th}\log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
-&& \text{($\deriv{\th}\p = \paren{\deriv{\th}\log \p} \p$)}\\
-&= \int \paren{\frac{\partial^2}{\partial \th^2} \log \p(\vx \mid \th)} \p(\vx \mid \th) \, d\vx
- + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
+&= \int \paren{\frac{\partial^2}{\partial \param^2} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+ + \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \paren{\deriv{\param}\log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&& \text{($\deriv{\param}\p = \paren{\deriv{\param}\log \p} \p$)}\\
+&= \int \paren{\frac{\partial^2}{\partial \param^2} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+ + \int \paren{\deriv{\param} \log \p(\vx \mid \param)}^2 \p(\vx \mid \param) \, d\vx
 && \text{(product of two equal factors is a square)}\\
-&= \E{\frac{\partial^2}{\partial \th^2} \log \p(\vX \mid \th)}
- + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
+&= \E{\frac{\partial^2}{\partial \param^2} \log \p(\vX \mid \param)}
+ + \int \paren{\deriv{\param} \log \p(\vx \mid \param)}^2 \p(\vx \mid \param) \, d\vx
 && \text{(definition of expectation)}\\
-&= \E{\hess} + \int \paren{\deriv{\th} \log \p(\vx \mid \th)}^2 \p(\vx \mid \th) \, d\vx
+&= \E{\hess} + \int \paren{\deriv{\param} \log \p(\vx \mid \param)}^2 \p(\vx \mid \param) \, d\vx
 && \text{(definition of the Hessian)}\\
-&= \E{\hess} + \E{\paren{\deriv{\th} \log \p(\vX \mid \th)}^2}
+&= \E{\hess} + \E{\paren{\deriv{\param} \log \p(\vX \mid \param)}^2}
 && \text{(definition of expectation)}\\
 &= \E{\hess} + \E{\score^2}
 && \text{(definition of the score)}
@@ -58,7 +58,7 @@ $$
 && \text{(move the constant factor $-1$ into the expectation)}\\
 &= \E{\oinf}
 && \text{(observed information is the negative Hessian)}\\
-&= \einf(\th)
+&= \einf(\param)
 && \text{(definition of expected information)}
 \end{aligned}
 $$

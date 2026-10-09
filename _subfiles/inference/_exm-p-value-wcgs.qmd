@@ -12,8 +12,8 @@ $$Z \eqdef \frac{\bar x_1 - \bar x_0}{\sqrt{s_1^2/n_1 + s_0^2/n_0}}$$
 has approximately a standard Gaussian distribution.
 Extreme values in either direction are evidence for the two-sided $H_1$,
 so the test statistic is $T = \abs{Z}$,
-and the p-value is $\Pr(\abs{Z} \ge \abs{z}) = 2\Phi(-\abs{z})$,
-where $\Phi$ is the standard Gaussian CDF.
+and the p-value is $\Pr(\abs{Z} \ge \abs{z}) = 2\normcdf(-\abs{z})$,
+where $\normcdf$ is the standard Gaussian CDF.
 
 ```{r}
 #| code-fold: false

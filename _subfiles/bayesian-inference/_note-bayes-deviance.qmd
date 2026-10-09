@@ -5,6 +5,6 @@
 
 This deviance is minus twice the log-likelihood.
 A generalized linear model's deviance subtracts the same quantity for the saturated model,
-which does not depend on $\vth$,
+which does not depend on $\vparam$,
 so the two differ by a constant that cancels in comparisons between models of the same data.
 :::

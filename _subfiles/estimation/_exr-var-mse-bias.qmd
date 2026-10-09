@@ -2,8 +2,8 @@
 #### Squared standard error from MSE and bias
 
 Using @thm-mse-bias-variance,
-write the squared [standard error](#def-SE) $\sqf{\SE{\hth}}$
-in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of $\hth$.
+write the squared [standard error](#def-SE) $\sqf{\SE{\hparam}}$
+in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of $\hparam$.
 :::
 
 {{< slidebreak >}}
@@ -12,14 +12,14 @@ in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of $\ht
 
 $$
 \begin{aligned}
-\mselr{\hth} &= \sqf{\bias{\hth}} + \Var{\hth}
+\mselr{\hparam} &= \sqf{\bias{\hparam}} + \Var{\hparam}
 && \text{(MSE equals bias squared plus variance)}\\
-\Var{\hth} &= \mselr{\hth} - \sqf{\bias{\hth}}
-&& \text{(subtract $\sqf{\bias{\hth}}$ from both sides)}\\
-\sqf{\SD{\hth}} &= \mselr{\hth} - \sqf{\bias{\hth}}
-&& \text{($\Var{\hth} = \sqf{\SD{\hth}}$)}\\
-\sqf{\SE{\hth}} &= \mselr{\hth} - \sqf{\bias{\hth}}
-&& \text{(definition of standard error: $\SE{\hth} = \SD{\hth}$)}
+\Var{\hparam} &= \mselr{\hparam} - \sqf{\bias{\hparam}}
+&& \text{(subtract $\sqf{\bias{\hparam}}$ from both sides)}\\
+\sqf{\SD{\hparam}} &= \mselr{\hparam} - \sqf{\bias{\hparam}}
+&& \text{($\Var{\hparam} = \sqf{\SD{\hparam}}$)}\\
+\sqf{\SE{\hparam}} &= \mselr{\hparam} - \sqf{\bias{\hparam}}
+&& \text{(definition of standard error: $\SE{\hparam} = \SD{\hparam}$)}
 \end{aligned}
 $$
 

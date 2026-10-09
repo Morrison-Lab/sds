@@ -3,7 +3,7 @@
 
 For $\iid$ data:
 
-$$\ell'(\theta) = \sumin \deriv{\theta} \log{\p(X = x_i \mid \theta)}$$ {#eq-deriv-llik}
+$$\ell'(\param) = \sumin \deriv{\param} \log{\p(X = x_i \mid \param)}$$ {#eq-deriv-llik}
 
 :::
 

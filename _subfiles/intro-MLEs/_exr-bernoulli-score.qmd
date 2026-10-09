@@ -4,7 +4,7 @@
 Derive the score function for a single Bernoulli random variable $X$.
 In other words, differentiate the log-likelihood of
 a single Bernoulli random variable $X$
-with respect to the event probability parameter $\pi$.
+with respect to the event probability parameter $\prob$.
 Simplify as much as possible.
 
 :::
@@ -14,22 +14,22 @@ Simplify as much as possible.
 :::{#sol-derive-bernoulli-score}
 
 With $n = 1$, @sol-bernoulli-loglik-one-group gives
-$\loglik = x \logf{\pi} + (1 - x) \logf{1 - \pi}$, so:
+$\loglik = x \logf{\prob} + (1 - x) \logf{1 - \prob}$, so:
 
 $$
 \begin{aligned}
 \score
-&\eqdef \deriv{\pi} \loglik
+&\eqdef \deriv{\prob} \loglik
 && \text{(definition of the score)}\\
-&= \deriv{\pi} \paren{x \logf{\pi} + (1 - x) \logf{1 - \pi}}
+&= \deriv{\prob} \paren{x \logf{\prob} + (1 - x) \logf{1 - \prob}}
 && \text{(Bernoulli log-likelihood)}\\
-&= \deriv{\pi} \paren{x \logf{\pi}} + \deriv{\pi} \paren{(1 - x) \logf{1 - \pi}}
+&= \deriv{\prob} \paren{x \logf{\prob}} + \deriv{\prob} \paren{(1 - x) \logf{1 - \prob}}
 && \text{(linearity of differentiation)}\\
-&= x \deriv{\pi} \logf{\pi} + (1 - x) \deriv{\pi} \logf{1 - \pi}
+&= x \deriv{\prob} \logf{\prob} + (1 - x) \deriv{\prob} \logf{1 - \prob}
 && \text{(constant multiple rule)}\\
-&= x \frac{1}{\pi} + (1 - x) \deriv{\pi} \logf{1 - \pi}
+&= x \frac{1}{\prob} + (1 - x) \deriv{\prob} \logf{1 - \prob}
 && \text{(derivative of $\log$)}\\
-&= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} \deriv{\pi}(1 - \pi)
+&= x \frac{1}{\prob} + (1 - x) \frac{1}{1 - \prob} \deriv{\prob}(1 - \prob)
 && \text{(chain rule)}
 \end{aligned}
 $$
@@ -38,13 +38,13 @@ The inner derivative is:
 
 $$
 \begin{aligned}
-\deriv{\pi}(1 - \pi)
-&= \deriv{\pi} 1 - \deriv{\pi} \pi
+\deriv{\prob}(1 - \prob)
+&= \deriv{\prob} 1 - \deriv{\prob} \prob
 && \text{(linearity of differentiation)}\\
-&= 0 - \deriv{\pi} \pi
+&= 0 - \deriv{\prob} \prob
 && \text{(derivative of a constant)}\\
 &= 0 - 1
-&& \text{(derivative of $\pi$ with respect to itself)}\\
+&& \text{(derivative of $\prob$ with respect to itself)}\\
 &= -1
 && \text{(subtract)}
 \end{aligned}
@@ -55,24 +55,24 @@ Substituting the inner derivative back in:
 $$
 \begin{aligned}
 \score
-&= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} (-1)
+&= x \frac{1}{\prob} + (1 - x) \frac{1}{1 - \prob} (-1)
 && \text{(inner derivative is $-1$)}\\
-&= x \frac{1}{\pi} - (1 - x) \frac{1}{1 - \pi}
+&= x \frac{1}{\prob} - (1 - x) \frac{1}{1 - \prob}
 && \text{(multiply by $-1$)}\\
-&= \frac{x}{\pi} - \frac{1 - x}{1 - \pi}
+&= \frac{x}{\prob} - \frac{1 - x}{1 - \prob}
 && \text{(multiply)}\\
-&= \frac{x(1 - \pi)}{\pi(1 - \pi)} - \frac{(1 - x)\pi}{\pi(1 - \pi)}
+&= \frac{x(1 - \prob)}{\prob(1 - \prob)} - \frac{(1 - x)\prob}{\prob(1 - \prob)}
 && \text{(write both terms over the common denominator)}\\
-&= \frac{x(1 - \pi) - (1 - x)\pi}{\pi(1 - \pi)}
+&= \frac{x(1 - \prob) - (1 - x)\prob}{\prob(1 - \prob)}
 && \text{(combine the fractions)}\\
-&= \frac{x - x\pi - \pi + x\pi}{\pi(1 - \pi)}
+&= \frac{x - x\prob - \prob + x\prob}{\prob(1 - \prob)}
 && \text{(expand the numerator)}\\
-&= \frac{x - \pi}{\pi(1 - \pi)}
-&& \text{(cancel $x\pi$)}\\
-&= \frac{x - \E{X}}{\pi(1 - \pi)}
-&& \text{($\E{X} = \pi$)}\\
+&= \frac{x - \prob}{\prob(1 - \prob)}
+&& \text{(cancel $x\prob$)}\\
+&= \frac{x - \E{X}}{\prob(1 - \prob)}
+&& \text{($\E{X} = \prob$)}\\
 &= \frac{x - \E{X}}{\Var{X}}
-&& \text{($\Var{X} = \pi(1 - \pi)$)}
+&& \text{($\Var{X} = \prob(1 - \prob)$)}
 \end{aligned}
 $$
 

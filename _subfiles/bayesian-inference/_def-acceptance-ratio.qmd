@@ -1,16 +1,16 @@
 ::: {#def-acceptance-ratio}
 #### Acceptance ratio
 
-For a target posterior $\p(\vth \mid \vy) \propto \p(\vy \mid \vth)\, \p(\vth)$,
+For a target posterior $\p(\vparam \mid \vy) \propto \p(\vy \mid \vparam)\, \p(\vparam)$,
 a [proposal distribution](#def-proposal-distribution) $q$,
-a current value $\vth^{(t)}$, and a candidate $\vth^*$,
+a current value $\vparam^{(t)}$, and a candidate $\vparam^*$,
 the **acceptance ratio** is
 
 $$
-\alpha \eqdef
-\frac{\p(\vy \mid \vth^*)\, \p(\vth^*)}{\p(\vy \mid \vth^{(t)})\, \p(\vth^{(t)})}
+\accept \eqdef
+\frac{\p(\vy \mid \vparam^*)\, \p(\vparam^*)}{\p(\vy \mid \vparam^{(t)})\, \p(\vparam^{(t)})}
 \cdot
-\frac{q(\vth^{(t)} \mid \vth^*)}{q(\vth^* \mid \vth^{(t)})}.
+\frac{q(\vparam^{(t)} \mid \vparam^*)}{q(\vparam^* \mid \vparam^{(t)})}.
 $$
 
 :::

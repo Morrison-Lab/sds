@@ -24,7 +24,7 @@ c(
 ```
 
 `t.test()` with `paired = TRUE` gives the same statistic,
-along with a confidence interval for $\mu_d$:
+along with a confidence interval for $\mean_d$:
 
 ```{r}
 #| code-fold: false

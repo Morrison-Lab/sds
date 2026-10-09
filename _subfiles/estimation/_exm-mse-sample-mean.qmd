@@ -3,12 +3,12 @@
 
 Continuing @exm-bias-sample-mean,
 suppose also that $\dsn{X}$ are mutually independent,
-each with variance $\Var{X_i} = \sigma^2$.
+each with variance $\Var{X_i} = \varpar$.
 Both $\bar X$ and $X_1$ have zero bias,
 so by @thm-mse-bias-variance each estimator's mean squared error
 equals its variance.
 
-For $X_1$, $\mselr{X_1} = 0^2 + \Var{X_1} = \sigma^2$.
+For $X_1$, $\mselr{X_1} = 0^2 + \Var{X_1} = \varpar$.
 
 For $\bar X$:
 
@@ -25,11 +25,11 @@ $$
 && \text{(definition of $\bar X$)}\\
 &= \frac{1}{n^2}\sumin \Var{X_i}
 && \text{(variance of a linear combination of independent variables)}\\
-&= \frac{1}{n^2}\sumin \sigma^2
-&& \text{($\Var{X_i} = \sigma^2$ for every $i$)}\\
-&= \frac{1}{n^2} \cdot n\sigma^2
-&& \text{(sum of $n$ copies of $\sigma^2$)}\\
-&= \frac{\sigma^2}{n}
+&= \frac{1}{n^2}\sumin \varpar
+&& \text{($\Var{X_i} = \varpar$ for every $i$)}\\
+&= \frac{1}{n^2} \cdot n\varpar
+&& \text{(sum of $n$ copies of $\varpar$)}\\
+&= \frac{\varpar}{n}
 && \text{(cancel one factor of $n$)}
 \end{aligned}
 $$
@@ -39,7 +39,7 @@ the [variance of a linear combination](https://morrison-lab.github.io/pds/varian
 whose covariance terms are all zero for independent variables.
 
 So for any sample size $n > 1$,
-$\mselr{\bar X} = \sigma^2/n < \sigma^2 = \mselr{X_1}$:
+$\mselr{\bar X} = \varpar/n < \varpar = \mselr{X_1}$:
 by mean squared error, the sample mean is the more accurate estimator.
 With $n = 50$ students, as in @exm-estimator,
 the sample mean's mean squared error is $1/50$ of $X_1$'s.

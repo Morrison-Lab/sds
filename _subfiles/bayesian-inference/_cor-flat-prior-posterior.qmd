@@ -2,21 +2,21 @@
 #### Under a flat prior, the posterior is proportional to the likelihood
 
 If the prior is [flat](#def-flat-prior)
-on a parameter space $\Theta$ of finite length (or volume),
-then, as a function of $\theta \in \Theta$,
+on a parameter space $\Paramspace$ of finite length (or volume),
+then, as a function of $\param \in \Paramspace$,
 
 $$
-\p(\theta \mid \vy) \propto \Lik(\theta),
+\p(\param \mid \vy) \propto \Lik(\param),
 $$
 
 where $\Lik$ is the [likelihood](intro-MLEs.qmd#def-lik),
-and any value of $\theta$ that maximizes the posterior density
+and any value of $\param$ that maximizes the posterior density
 is a [maximum likelihood estimate](intro-MLEs.qmd#def-mle).
 :::
 
 ::: proof
 By @cor-bayes-proportional,
-$\p(\theta \mid \vy) \propto \Lik(\theta)\, \p(\theta)$,
-and $\p(\theta)$ is the same constant for every $\theta \in \Theta$.
+$\p(\param \mid \vy) \propto \Lik(\param)\, \p(\param)$,
+and $\p(\param)$ is the same constant for every $\param \in \Paramspace$.
 Multiplying a function by a positive constant does not change where it is maximized.
 :::

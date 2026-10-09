@@ -5,6 +5,6 @@ The **score equation** (also called the estimating equation)
 is the equation that sets the [score function](#def-score) to zero:
 
 $$
-\score(\vth) = \vzero
+\score(\vparam) = \vzero
 $$
 :::

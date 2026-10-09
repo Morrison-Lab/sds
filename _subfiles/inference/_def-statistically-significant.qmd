@@ -1,7 +1,7 @@
 ::: {#def-statistically-significant}
 #### Statistically significant
 
-A result is **statistically significant** at level $\alpha$
-if it leads a test with [significance level](#def-significance-level) $\alpha$
+A result is **statistically significant** at level $\siglevel$
+if it leads a test with [significance level](#def-significance-level) $\siglevel$
 to reject the null hypothesis.
 :::

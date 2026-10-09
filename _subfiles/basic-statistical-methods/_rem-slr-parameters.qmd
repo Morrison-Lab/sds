@@ -6,5 +6,5 @@
 - $\coef{x} = \mean(x + 1) - \mean(x)$ is the **slope**:
   the difference in the mean of $Y$
   between two groups whose values of $X$ differ by one unit.
-- $\sigma^2$ is the variance of $Y$ around its mean at each value of $X$.
+- $\varpar$ is the variance of $Y$ around its mean at each value of $X$.
 :::

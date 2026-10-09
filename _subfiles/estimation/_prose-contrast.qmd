@@ -4,5 +4,5 @@ concept:
 -   [estimands](#def-estimand) are numbers (or vectors of numbers);
 -   [estimates](#def-estimate) are also numbers (or vectors);
 -   [estimators](#def-estimator) are functions;
-    an estimator applied to random data, $\hth(\dsn{X})$,
+    an estimator applied to random data, $\hparam(\dsn{X})$,
     is a random variable.

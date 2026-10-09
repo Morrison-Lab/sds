@@ -1,9 +1,9 @@
 ::: {#def-ols}
 #### Ordinary least squares
 
-The **ordinary least squares (OLS) estimate** of a model's parameter vector $\vth$
-is the value of $\vth$ that minimizes
+The **ordinary least squares (OLS) estimate** of a model's parameter vector $\vparam$
+is the value of $\vparam$ that minimizes
 the [residual sum of squares](#def-rss):
 
-$$\est{\vth} \eqdef \argmin_{\vth} \text{RSS}(\vth).$$
+$$\est{\vparam} \eqdef \argmin_{\vparam} \text{RSS}(\vparam).$$
 :::

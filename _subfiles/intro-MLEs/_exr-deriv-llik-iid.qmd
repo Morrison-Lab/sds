@@ -3,7 +3,7 @@
 
 For $\iid$ data,
 use @thm-loglik-iid
-to write the derivative $\ell'(\theta)$ of the log-likelihood
+to write the derivative $\ell'(\param)$ of the log-likelihood
 as a sum over the observations.
 :::
 
@@ -13,12 +13,12 @@ as a sum over the observations.
 
 $$
 \begin{aligned}
-\lik'(\th)
-&= \deriv{\th} \lik(\th)
+\lik'(\param)
+&= \deriv{\param} \lik(\param)
 && \text{(notation for the derivative)}\\
-&= \deriv{\th} \sumin \log{\p(X = x_i \mid \theta)}
+&= \deriv{\param} \sumin \log{\p(X = x_i \mid \param)}
 && \text{(log-likelihood of an $\iid$ sample)}\\
-&= \sumin \deriv{\th} \log{\p(X = x_i \mid \theta)}
+&= \sumin \deriv{\param} \log{\p(X = x_i \mid \param)}
 && \text{(derivative of a sum is the sum of derivatives)}
 \end{aligned}
 $$

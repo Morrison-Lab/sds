@@ -3,14 +3,14 @@
 
 Continuing @exm-estimate,
 suppose the population mean height of students at our school
-were actually $\mu = 172$ cm.
-Then the estimate $\hat\mu = 175$ cm
+were actually $\mean = 172$ cm.
+Then the estimate $\hmean = 175$ cm
 would have estimation error:
 
 $$
 \begin{aligned}
-\erf{\hat\mu}
-&= \hat\mu - \mu
+\erf{\hmean}
+&= \hmean - \mean
 && \text{(definition of estimation error)}\\
 &= 175 - 172
 && \text{(substitute the estimate and the estimand)}\\

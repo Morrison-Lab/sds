@@ -1,12 +1,12 @@
 :::{#exr-wilks-taylor}
 #### Quadratic approximation to the log-likelihood
 
-Let $\th$ be a scalar parameter,
+Let $\param$ be a scalar parameter,
 and suppose the MLE $\hthml$ maximizes $\llik$
 at an interior point of the parameter space,
 where $\llik$ is twice differentiable.
 Use a second-order Taylor expansion around $\hthml$
-to approximate $\llik(\th_0)$
+to approximate $\llik(\param_0)$
 in terms of $\llik(\hthml)$ and the [Hessian](#def-hessian) $\hess(\hthml)$.
 :::
 
@@ -16,18 +16,18 @@ in terms of $\llik(\hthml)$ and the [Hessian](#def-hessian) $\hess(\hthml)$.
 
 The MLE maximizes $\llik$ at an interior point,
 so $\score(\hthml) = 0$.
-A second-order Taylor expansion of $\llik(\th_0)$ around $\hthml$ gives:
+A second-order Taylor expansion of $\llik(\param_0)$ around $\hthml$ gives:
 
 $$
 \begin{aligned}
-\llik(\th_0)
-&\approx \llik(\hthml) + \score(\hthml)(\th_0 - \hthml)
- + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2
+\llik(\param_0)
+&\approx \llik(\hthml) + \score(\hthml)(\param_0 - \hthml)
+ + \frac{1}{2}\hess(\hthml)(\param_0 - \hthml)^2
 && \text{(Taylor expansion)}\\
-&= \llik(\hthml) + 0 \cdot (\th_0 - \hthml)
- + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2
+&= \llik(\hthml) + 0 \cdot (\param_0 - \hthml)
+ + \frac{1}{2}\hess(\hthml)(\param_0 - \hthml)^2
 && \text{($\score(\hthml) = 0$)}\\
-&= \llik(\hthml) + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2
+&= \llik(\hthml) + \frac{1}{2}\hess(\hthml)(\param_0 - \hthml)^2
 && \text{(drop the zero term)}
 \end{aligned}
 $$

@@ -2,7 +2,7 @@
 #### Mean squared error of an unbiased estimator
 
 Using @thm-mse-bias-variance,
-write the [mean squared error](#def-mse) of an [unbiased](#def-unbiased) estimator $\hth$
+write the [mean squared error](#def-mse) of an [unbiased](#def-unbiased) estimator $\hparam$
 in terms of its variance.
 :::
 
@@ -12,12 +12,12 @@ in terms of its variance.
 
 $$
 \begin{aligned}
-\mselr{\hth}
-&= \sqf{\bias{\hth}} + \var{\hth}
+\mselr{\hparam}
+&= \sqf{\bias{\hparam}} + \var{\hparam}
 && \text{(MSE equals bias squared plus variance)}\\
-&= 0^2 + \var{\hth}
+&= 0^2 + \var{\hparam}
 && \text{(definition of unbiased)}\\
-&= \var{\hth}
+&= \var{\hparam}
 && \text{($0^2 = 0$)}
 \end{aligned}
 $$

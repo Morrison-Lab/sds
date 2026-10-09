@@ -3,8 +3,8 @@
 
 Continuing @exm-posterior,
 let $\vy$ be the three heads,
-so $\p(\vy \mid \theta) = \theta^3$.
-The [marginal likelihood](#def-marginal-likelihood) sums over the two possible values of $\theta$:
+so $\p(\vy \mid \param) = \param^3$.
+The [marginal likelihood](#def-marginal-likelihood) sums over the two possible values of $\param$:
 
 $$
 \ba

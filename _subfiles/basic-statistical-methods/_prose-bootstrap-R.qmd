@@ -6,10 +6,10 @@ and `boot::boot.ci()` to compute the three intervals.
 in two small ways:
 
 - its normal interval (`type = "norm"`) is centered at
-  $\hat\theta$ minus the bootstrap estimate of bias,
-  $\hat\theta - (\bar\theta^* - \hat\theta)$,
-  where $\bar\theta^*$ is the mean of the replicates,
-  rather than at $\hat\theta$;
+  $\hparam$ minus the bootstrap estimate of bias,
+  $\hparam - (\bar\param^* - \hparam)$,
+  where $\bar\param^*$ is the mean of the replicates,
+  rather than at $\hparam$;
 - it estimates quantiles of the replicates by interpolation,
   so its percentile and BCa endpoints can differ slightly
   from those computed with `quantile()`.

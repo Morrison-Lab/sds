@@ -2,8 +2,8 @@
 #### Expanding the squared bias
 
 Using @thm-bias-exprs,
-expand the squared [bias](#def-bias) $\sqf{\bias{\hth}}$
-in terms of $\E{\hth}$ and the estimand $\th$.
+expand the squared [bias](#def-bias) $\sqf{\bias{\hparam}}$
+in terms of $\E{\hparam}$ and the estimand $\param$.
 :::
 
 {{< slidebreak >}}
@@ -12,10 +12,10 @@ in terms of $\E{\hth}$ and the estimand $\th$.
 
 $$
 \begin{aligned}
-\sqf{\bias{\hth}}
-&= \sqf{\E{\hth} - \th}
+\sqf{\bias{\hparam}}
+&= \sqf{\E{\hparam} - \param}
 && \text{(bias equals expectation minus truth)}\\
-&= \sqf{\E{\hth}} - 2\E{\hth}\th + \th^2
+&= \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2
 && \text{(expand the binomial square)}
 \end{aligned}
 $$

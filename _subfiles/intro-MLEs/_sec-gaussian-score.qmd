@@ -1,34 +1,34 @@
 The score function is the vector of the two partial derivatives:
 
 $$
-\score(\mu, \sigma^2) =
+\score(\mean, \varpar) =
 \begin{pmatrix}
-\deriv{\mu}\ell(\mu, \sigma^2) \\
-\deriv{\sigma^2}\ell(\mu, \sigma^2)
+\deriv{\mean}\ell(\mean, \varpar) \\
+\deriv{\varpar}\ell(\mean, \varpar)
 \end{pmatrix}
 $$
 
 For the first entry,
-only the last term of $\ell$ depends on $\mu$:
+only the last term of $\ell$ depends on $\mean$:
 
 $$
 \begin{aligned}
-\deriv{\mu}\ell
-&= \deriv{\mu}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
- - \frac{1}{2\sigma^2}\sumin (x_i - \mu)^2}
+\deriv{\mean}\ell
+&= \deriv{\mean}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
+ - \frac{1}{2\varpar}\sumin (x_i - \mean)^2}
 && \text{(Gaussian log-likelihood)}\\
-&= \deriv{\mu}\paren{-\frac{n}{2}\logf{2\pi}} + \deriv{\mu}\paren{-\frac{n}{2}\logf{\sigma^2}}
- + \deriv{\mu}\paren{-\frac{1}{2\sigma^2}\sumin (x_i - \mu)^2}
+&= \deriv{\mean}\paren{-\frac{n}{2}\logf{2\pi}} + \deriv{\mean}\paren{-\frac{n}{2}\logf{\varpar}}
+ + \deriv{\mean}\paren{-\frac{1}{2\varpar}\sumin (x_i - \mean)^2}
 && \text{(linearity of differentiation)}\\
-&= 0 + 0 + \deriv{\mu}\paren{-\frac{1}{2\sigma^2}\sumin (x_i - \mu)^2}
+&= 0 + 0 + \deriv{\mean}\paren{-\frac{1}{2\varpar}\sumin (x_i - \mean)^2}
 && \text{(derivative of a constant)}\\
-&= \deriv{\mu}\paren{-\frac{1}{2\sigma^2}\sumin (x_i - \mu)^2}
+&= \deriv{\mean}\paren{-\frac{1}{2\varpar}\sumin (x_i - \mean)^2}
 && \text{(drop the zero terms)}\\
-&= -\frac{1}{2\sigma^2}\deriv{\mu}\sumin (x_i - \mu)^2
+&= -\frac{1}{2\varpar}\deriv{\mean}\sumin (x_i - \mean)^2
 && \text{(constant multiple rule)}\\
-&= -\frac{1}{2\sigma^2}\sumin \deriv{\mu}(x_i - \mu)^2
+&= -\frac{1}{2\varpar}\sumin \deriv{\mean}(x_i - \mean)^2
 && \text{(derivative of a sum is the sum of derivatives)}\\
-&= -\frac{1}{2\sigma^2}\sumin 2(x_i - \mu)\deriv{\mu}(x_i - \mu)
+&= -\frac{1}{2\varpar}\sumin 2(x_i - \mean)\deriv{\mean}(x_i - \mean)
 && \text{(chain rule, outer function $u^2$)}
 \end{aligned}
 $$
@@ -37,13 +37,13 @@ The inner derivative is:
 
 $$
 \begin{aligned}
-\deriv{\mu}(x_i - \mu)
-&= \deriv{\mu} x_i - \deriv{\mu} \mu
+\deriv{\mean}(x_i - \mean)
+&= \deriv{\mean} x_i - \deriv{\mean} \mean
 && \text{(linearity of differentiation)}\\
-&= 0 - \deriv{\mu} \mu
-&& \text{($x_i$ does not depend on $\mu$)}\\
+&= 0 - \deriv{\mean} \mean
+&& \text{($x_i$ does not depend on $\mean$)}\\
 &= 0 - 1
-&& \text{(derivative of $\mu$ with respect to itself)}\\
+&& \text{(derivative of $\mean$ with respect to itself)}\\
 &= -1
 && \text{(subtract)}
 \end{aligned}
@@ -53,58 +53,58 @@ Substituting the inner derivative back in:
 
 $$
 \begin{aligned}
-\deriv{\mu}\ell
-&= -\frac{1}{2\sigma^2}\sumin 2(x_i - \mu) \cdot (-1)
+\deriv{\mean}\ell
+&= -\frac{1}{2\varpar}\sumin 2(x_i - \mean) \cdot (-1)
 && \text{(inner derivative is $-1$)}\\
-&= -\frac{1}{2\sigma^2}\sumin -2(x_i - \mu)
+&= -\frac{1}{2\varpar}\sumin -2(x_i - \mean)
 && \text{(multiply)}\\
-&= -\frac{1}{2\sigma^2} \cdot (-2) \sumin (x_i - \mu)
+&= -\frac{1}{2\varpar} \cdot (-2) \sumin (x_i - \mean)
 && \text{(factor the constant $-2$ out of the sum)}\\
-&= \frac{1}{\sigma^2}\sumin (x_i - \mu)
+&= \frac{1}{\varpar}\sumin (x_i - \mean)
 && \text{(multiply the constants)}\\
-&= \frac{1}{\sigma^2}\paren{\sumin x_i - \sumin \mu}
+&= \frac{1}{\varpar}\paren{\sumin x_i - \sumin \mean}
 && \text{(split the sum)}\\
-&= \frac{1}{\sigma^2}\paren{\sumin x_i - n\mu}
-&& \text{(sum of $n$ copies of $\mu$)}
+&= \frac{1}{\varpar}\paren{\sumin x_i - n\mean}
+&& \text{(sum of $n$ copies of $\mean$)}
 \end{aligned}
 $$
 
 For the second entry,
-write $\sigma^2$ as a single variable $v$, so that $\ell$ contains
-$-\frac{n}{2}\log v$ and $-\frac{1}{2}v^{-1}\sum_i (x_i - \mu)^2$:
+write $\varpar$ as a single variable $v$, so that $\ell$ contains
+$-\frac{n}{2}\log v$ and $-\frac{1}{2}v^{-1}\sum_i (x_i - \mean)^2$:
 
 $$
 \begin{aligned}
-\deriv{\sigma^2}\ell
-&= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\sigma^2}
- - \frac{1}{2}\paren{\sigma^2}^{-1}\sumin (x_i - \mu)^2}
+\deriv{\varpar}\ell
+&= \deriv{\varpar}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
+ - \frac{1}{2}\paren{\varpar}^{-1}\sumin (x_i - \mean)^2}
 && \text{(Gaussian log-likelihood)}\\
-&= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{2\pi}} + \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{\sigma^2}}
- + \deriv{\sigma^2}\paren{-\frac{1}{2}\paren{\sigma^2}^{-1}\sumin (x_i - \mu)^2}
+&= \deriv{\varpar}\paren{-\frac{n}{2}\logf{2\pi}} + \deriv{\varpar}\paren{-\frac{n}{2}\logf{\varpar}}
+ + \deriv{\varpar}\paren{-\frac{1}{2}\paren{\varpar}^{-1}\sumin (x_i - \mean)^2}
 && \text{(linearity of differentiation)}\\
-&= 0 + \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{\sigma^2}}
- + \deriv{\sigma^2}\paren{-\frac{1}{2}\paren{\sigma^2}^{-1}\sumin (x_i - \mu)^2}
+&= 0 + \deriv{\varpar}\paren{-\frac{n}{2}\logf{\varpar}}
+ + \deriv{\varpar}\paren{-\frac{1}{2}\paren{\varpar}^{-1}\sumin (x_i - \mean)^2}
 && \text{(derivative of a constant)}\\
-&= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{\sigma^2}}
- + \deriv{\sigma^2}\paren{-\frac{1}{2}\paren{\sigma^2}^{-1}\sumin (x_i - \mu)^2}
+&= \deriv{\varpar}\paren{-\frac{n}{2}\logf{\varpar}}
+ + \deriv{\varpar}\paren{-\frac{1}{2}\paren{\varpar}^{-1}\sumin (x_i - \mean)^2}
 && \text{(drop the zero term)}\\
-&= \deriv{\sigma^2}\paren{-\frac{n}{2}\logf{\sigma^2}}
- + \deriv{\sigma^2}\paren{-\frac{1}{2}\sumin (x_i - \mu)^2 \paren{\sigma^2}^{-1}}
+&= \deriv{\varpar}\paren{-\frac{n}{2}\logf{\varpar}}
+ + \deriv{\varpar}\paren{-\frac{1}{2}\sumin (x_i - \mean)^2 \paren{\varpar}^{-1}}
 && \text{(reorder the factors)}\\
-&= -\frac{n}{2}\deriv{\sigma^2}\logf{\sigma^2}
- - \frac{1}{2}\sumin (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
+&= -\frac{n}{2}\deriv{\varpar}\logf{\varpar}
+ - \frac{1}{2}\sumin (x_i - \mean)^2 \deriv{\varpar}\paren{\varpar}^{-1}
 && \text{(constant multiple rule)}\\
-&= -\frac{n}{2}\paren{\sigma^2}^{-1}
- - \frac{1}{2}\sumin (x_i - \mu)^2 \deriv{\sigma^2}\paren{\sigma^2}^{-1}
+&= -\frac{n}{2}\paren{\varpar}^{-1}
+ - \frac{1}{2}\sumin (x_i - \mean)^2 \deriv{\varpar}\paren{\varpar}^{-1}
 && \text{(derivative of $\log v$)}\\
-&= -\frac{n}{2}\paren{\sigma^2}^{-1}
- - \frac{1}{2}\sumin (x_i - \mu)^2 \paren{-\paren{\sigma^2}^{-2}}
+&= -\frac{n}{2}\paren{\varpar}^{-1}
+ - \frac{1}{2}\sumin (x_i - \mean)^2 \paren{-\paren{\varpar}^{-2}}
 && \text{(power rule for $v^{-1}$)}\\
-&= -\frac{n}{2}\paren{\sigma^2}^{-1}
- + \frac{1}{2}\sumin (x_i - \mu)^2 \paren{\sigma^2}^{-2}
+&= -\frac{n}{2}\paren{\varpar}^{-1}
+ + \frac{1}{2}\sumin (x_i - \mean)^2 \paren{\varpar}^{-2}
 && \text{(multiply)}\\
-&= -\frac{n}{2}\paren{\sigma^2}^{-1}
- + \frac{1}{2}\paren{\sigma^2}^{-2}\sumin (x_i - \mu)^2
+&= -\frac{n}{2}\paren{\varpar}^{-1}
+ + \frac{1}{2}\paren{\varpar}^{-2}\sumin (x_i - \mean)^2
 && \text{(reorder the factors)}
 \end{aligned}
 $$

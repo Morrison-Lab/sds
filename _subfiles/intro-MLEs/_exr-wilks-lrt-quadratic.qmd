@@ -1,11 +1,11 @@
 :::{#exr-wilks-lrt-quadratic}
 #### Likelihood ratio statistic for a point null hypothesis
 
-With a scalar parameter $\th$,
-the point null hypothesis $H_0: \th = \th_0$
+With a scalar parameter $\param$,
+the point null hypothesis $H_0: \param = \param_0$
 imposes $q = 1$ constraint.
 Use @exr-wilks-taylor
-to approximate the [likelihood ratio statistic](#def-lrt-stat) $\Lambda$
+to approximate the [likelihood ratio statistic](#def-lrt-stat) $\lrstat$
 in terms of the [observed information](#def-oinf) $\oinf(\hthml)$.
 :::
 
@@ -13,28 +13,28 @@ in terms of the [observed information](#def-oinf) $\oinf(\hthml)$.
 
 :::{#sol-wilks-lrt-quadratic}
 
-Under $H_0$, the only allowed value is $\th_0$,
-so the restricted MLE is $\hat\th_0 = \th_0$.
+Under $H_0$, the only allowed value is $\param_0$,
+so the restricted MLE is $\hparam_0 = \param_0$.
 Substituting the approximation from @exr-wilks-taylor:
 
 $$
 \begin{aligned}
-\Lambda
-&= 2\paren{\llik(\hthml) - \llik(\hat\th_0)}
-&& \text{(definition of $\Lambda$)}\\
-&= 2\paren{\llik(\hthml) - \llik(\th_0)}
-&& \text{($\hat\th_0 = \th_0$)}\\
-&\approx 2\paren{\llik(\hthml) - \paren{\llik(\hthml) + \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2}}
+\lrstat
+&= 2\paren{\llik(\hthml) - \llik(\hparam_0)}
+&& \text{(definition of $\lrstat$)}\\
+&= 2\paren{\llik(\hthml) - \llik(\param_0)}
+&& \text{($\hparam_0 = \param_0$)}\\
+&\approx 2\paren{\llik(\hthml) - \paren{\llik(\hthml) + \frac{1}{2}\hess(\hthml)(\param_0 - \hthml)^2}}
 && \text{(substitute the expansion)}\\
-&= 2\paren{\llik(\hthml) - \llik(\hthml) - \frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2}
+&= 2\paren{\llik(\hthml) - \llik(\hthml) - \frac{1}{2}\hess(\hthml)(\param_0 - \hthml)^2}
 && \text{(distribute the minus sign)}\\
-&= 2\paren{-\frac{1}{2}\hess(\hthml)(\th_0 - \hthml)^2}
+&= 2\paren{-\frac{1}{2}\hess(\hthml)(\param_0 - \hthml)^2}
 && \text{(cancel $\llik(\hthml)$)}\\
-&= -\hess(\hthml)(\th_0 - \hthml)^2
+&= -\hess(\hthml)(\param_0 - \hthml)^2
 && \text{(multiply by 2)}\\
-&= -\hess(\hthml)(\hthml - \th_0)^2
+&= -\hess(\hthml)(\hthml - \param_0)^2
 && \text{($(a - b)^2 = (b - a)^2$)}\\
-&= \oinf(\hthml)(\hthml - \th_0)^2
+&= \oinf(\hthml)(\hthml - \param_0)^2
 && \text{(observed information is the negative Hessian)}
 \end{aligned}
 $$

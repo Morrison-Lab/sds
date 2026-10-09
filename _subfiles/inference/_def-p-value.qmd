@@ -10,7 +10,7 @@ computed with the data distributed as the null hypothesis specifies:
 $$p \eqdef \Pr_{H_0}(T \ge t)$$
 
 If the null hypothesis allows more than one distribution
-(a *composite* null hypothesis, such as $H_0: \mu_1 = \mu_0$ with unknown variances),
+(a *composite* null hypothesis, such as $H_0: \mean_1 = \mean_0$ with unknown variances),
 the p-value is the largest such probability over those distributions,
 or an approximation to it.
 

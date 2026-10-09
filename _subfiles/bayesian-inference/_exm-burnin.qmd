@@ -30,7 +30,7 @@ ggplot2::ggplot(traces) +
 
 [Trace plots](#def-trace-plot) of the first 200 iterations
 of two Metropolis--Hastings chains for the Bernoulli model,
-started at $\pi = 0.05$ and $\pi = 0.95$.
+started at $\prob = 0.05$ and $\prob = 0.95$.
 :::
 
 Both chains reach the region around $0.6$ within a few dozen iterations,

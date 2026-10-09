@@ -1,7 +1,7 @@
 There are three common methods for turning a bootstrap distribution
-into a $100(1-\alpha)\%$ confidence interval for a parameter $\theta$
+into a $100(1-\siglevel)\%$ confidence interval for a parameter $\param$
 [@vittinghoff2e, Chapter 3; @efron1993introduction].
 Each is an approximate
 [confidence interval](inference.qmd#def-confidence-interval).
 Throughout, $z_q$ is the $q$ quantile of the standard Gaussian distribution
-and $\Phi$ is its CDF.
+and $\normcdf$ is its CDF.

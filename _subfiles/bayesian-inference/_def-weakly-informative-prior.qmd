@@ -2,7 +2,7 @@
 #### Weakly informative prior
 
 A **weakly informative prior** is a [prior](#def-prior)
-that gives little probability to implausible values of $\theta$,
+that gives little probability to implausible values of $\param$,
 while spreading its probability nearly evenly
 across the range of scientifically plausible values.
 :::

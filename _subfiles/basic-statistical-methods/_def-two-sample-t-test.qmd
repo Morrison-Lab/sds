@@ -4,18 +4,18 @@
 Let two independent groups have sample sizes $n_1, n_2 \ge 2$,
 sample means $\bar{x}_1$ and $\bar{x}_2$,
 and sample variances $s_1^2$ and $s_2^2$.
-**Welch's two-sample t-test** of $H_0: \mu_1 = \mu_2$
-against $H_1: \mu_1 \neq \mu_2$ uses the statistic
+**Welch's two-sample t-test** of $H_0: \mean_1 = \mean_2$
+against $H_1: \mean_1 \neq \mean_2$ uses the statistic
 
 $$t \eqdef \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}}$$
 
 and the Welch--Satterthwaite degrees of freedom
 
-$$\hat\nu \eqdef \frac{\paren{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}^2}
+$$\hdf \eqdef \frac{\paren{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}^2}
 {\dfrac{(s_1^2 / n_1)^2}{n_1 - 1} + \dfrac{(s_2^2 / n_2)^2}{n_2 - 1}}.$$
 
 Its p-value is $\Pr(\abs{T} \ge \abs{t})$,
-where $T$ has the $t_{\hat\nu}$ distribution ([t-distribution](inference.qmd#def-t-dist)).
+where $T$ has the $t_{\hdf}$ distribution ([t-distribution](inference.qmd#def-t-dist)).
 :::
 
 {{< slidebreak >}}
@@ -25,7 +25,7 @@ where $T$ has the $t_{\hat\nu}$ distribution ([t-distribution](inference.qmd#def
 
 Welch's test does not assume that the two groups have equal variances.
 Even for Gaussian data,
-$t_{\hat\nu}$ is only an approximation to the null distribution of $t$.
+$t_{\hdf}$ is only an approximation to the null distribution of $t$.
 For large groups, the central limit theorem makes the statistic
 approximately standard Gaussian under $H_0$,
 as in [the WCGS cholesterol example](inference.qmd#exm-p-value-wcgs).

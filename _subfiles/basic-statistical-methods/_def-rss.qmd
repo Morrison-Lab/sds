@@ -1,16 +1,16 @@
 ::: {#def-rss}
 #### Residual sum of squares
 
-For a regression model whose conditional mean $\mean(x; \vth)$
-depends on a parameter vector $\vth$,
-the **residual sum of squares** at $\vth$
+For a regression model whose conditional mean $\mean(x; \vparam)$
+depends on a parameter vector $\vparam$,
+the **residual sum of squares** at $\vparam$
 is the sum of the squared residuals
-$\resid_i(\vth) \eqdef y_i - \mean(x_i; \vth)$
-that the model has when its parameters equal $\vth$:
+$\resid_i(\vparam) \eqdef y_i - \mean(x_i; \vparam)$
+that the model has when its parameters equal $\vparam$:
 
-$$\text{RSS}(\vth) \eqdef \sumin \resid_i(\vth)^2.$$
+$$\text{RSS}(\vparam) \eqdef \sumin \resid_i(\vparam)^2.$$
 
-At the estimate $\est{\vth}$,
-$\resid_i(\est{\vth})$ is the [residual](estimation.qmd#def-residual) $\resid_i$
+At the estimate $\est{\vparam}$,
+$\resid_i(\est{\vparam})$ is the [residual](estimation.qmd#def-residual) $\resid_i$
 of the fitted model.
 :::
