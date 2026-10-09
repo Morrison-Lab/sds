@@ -14,7 +14,7 @@ from @exr-sample-llik:
 
 $$
 \begin{aligned}
-\ell'(\rate; \vx)
+\score(\rate; \vx)
 &\eqdef \deriv{\rate}\paren{\paren{\sumin x_i}\logf{\rate} - n\rate - \sumin \logf{x_i!}}
 && \text{(definition of the score)}\\
 &= \paren{\sumin x_i}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate - \deriv{\rate}\sumin \logf{x_i!}
@@ -27,6 +27,6 @@ $$
 $$
 
 For the cyclone data, $n = `r n`$ and $n \bar x = `r sumx`$,
-so $\ell'(\rate; \vx) = `r sumx`/\rate - `r n`$.
+so $\score(\rate; \vx) = `r sumx`/\rate - `r n`$.
 
 :::

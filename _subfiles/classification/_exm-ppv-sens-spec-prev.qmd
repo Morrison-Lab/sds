@@ -12,8 +12,10 @@ $$
 && \text{(PPV in terms of the two ratios, with the given values)} \\
 &= \frac{1}{1 + \frac{0.01}{0.99} \cd \frac{0.93}{0.07}}
 && \text{(subtract in each numerator)} \\
+&\approx \frac{1}{1 + 0.0101 \cd \frac{0.93}{0.07}}
+&& \text{(divide $0.01 / 0.99$)} \\
 &\approx \frac{1}{1 + 0.0101 \cd 13.29}
-&& \text{(divide in each ratio)} \\
+&& \text{(divide $0.93 / 0.07$)} \\
 &\approx \frac{1}{1 + 0.134}
 && \text{(multiply)} \\
 &= \frac{1}{1.134}
@@ -26,6 +28,7 @@ $$ {#eq-ppv-sens-spec-prev-exm}
 This value matches @exm-ppv.
 
 If the same test were used in a population with prevalence 0.1% instead,
+and its sensitivity and specificity were still 99% in that population,
 the ratio of non-diseased to diseased people would be $0.999 / 0.001 = 999$,
 and the PPV would fall to
 

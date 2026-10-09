@@ -3,9 +3,9 @@
 
 Let $\dsn{X} \siid \Pois(\rate)$.
 
-**(a)** Derive the Hessian $\ell''(\rate; \vx) = \deriv[2]{\rate}\ell(\rate;\vx)$.
+**(a)** Derive the Hessian $\hess(\rate; \vx) = \deriv[2]{\rate}\llik(\rate;\vx)$.
 
-**(b)** Derive the observed information $\oinf(\rate; \vx) = -\ell''(\rate; \vx)$.
+**(b)** Derive the observed information $\oinf(\rate; \vx) = -\hess(\rate; \vx)$.
 
 **(c)** Evaluate $\oinf(\hat\rate_{ML}; \vx)$.
 
@@ -17,11 +17,11 @@ using the asymptotic normal distribution of the MLE.
 
 **(a)**
 
-From @exr-prac-score-zero, $\ell'(\rate; \vx) = \frac{n\bar{x}}{\rate} - n$.
+From @exr-prac-score-zero, $\score(\rate; \vx) = \frac{n\bar{x}}{\rate} - n$.
 
 $$
 \ba
-\ell''(\rate; \vx)
+\hess(\rate; \vx)
 &= \deriv{\rate}\sb{\frac{n\bar{x}}{\rate} - n}
 && \text{(Poisson score)}
 \\
@@ -56,7 +56,7 @@ $$
 $$
 \ba
 \oinf(\rate; \vx)
-&= -\ell''(\rate; \vx)
+&= -\hess(\rate; \vx)
 && \text{(observed information is the negative Hessian)}
 \\
 &= -\paren{-\frac{n\bar{x}}{\rate^2}}

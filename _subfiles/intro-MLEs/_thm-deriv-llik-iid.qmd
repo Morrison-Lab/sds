@@ -3,7 +3,7 @@
 
 For $\iid$ data:
 
-$$\ell'(\param) = \sumin \deriv{\param} \log{\p(X = x_i \mid \param)}$$ {#eq-deriv-llik}
+$$\score(\param) = \sumin \deriv{\param} \log{\p(X = x_i \mid \param)}$$ {#eq-deriv-llik}
 
 :::
 

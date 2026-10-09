@@ -1,6 +1,6 @@
 @fig-obs-inf-matrix graphs the
 [observed information](intro-MLEs.qmd#def-oinf),
-$\oinf(\rate; \vx) = -\ell''(\rate; \vx)$.
+$\oinf(\rate; \vx) = -\hess(\rate; \vx)$.
 
 ::: {#fig-obs-inf-matrix}
 

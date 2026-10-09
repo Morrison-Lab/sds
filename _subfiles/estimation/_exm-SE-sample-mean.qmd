@@ -3,7 +3,15 @@
 
 In @exm-mse-sample-mean,
 $\Var{\bar X} = \varpar / n$,
-so $\SE{\bar X} = \sqrt{\sdpar^2 / n} = \sdpar / \sqrt{n}$.
+so
+
+$$
+\begin{aligned}
+  \SE{\bar X} &= \sqrt{\sdpar^2 / n} \\
+  &= \sdpar / \sqrt{n}.
+\end{aligned}
+$$
+
 With $n = 50$ students,
 the standard error of the sample mean height
 is $\sdpar / \sqrt{50} \approx 0.14\sdpar$.

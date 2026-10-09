@@ -14,7 +14,7 @@ Starting from the likelihood in @sol-bernoulli-likelihood-one-group:
 
 $$
 \begin{aligned}
-\ell(\prob; \vy)
+\llik(\prob; \vy)
 &= \logf{\prob^{\sumin y_i} (1 - \prob)^{n - \sumin y_i}}
 && \text{(log of the likelihood)}\\
 &= \logf{\prob^{\sumin y_i}} + \logf{(1 - \prob)^{n - \sumin y_i}}

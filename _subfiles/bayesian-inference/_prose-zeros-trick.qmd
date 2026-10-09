@@ -1,23 +1,23 @@
-When a model's log-likelihood contribution $\ell_i$ for observation $i$
+When a model's log-likelihood contribution $\llik_i$ for observation $i$
 is not one of the distributions built into JAGS,
 the *zeros trick* supplies it.
 An observed value of 0 from a Poisson distribution with mean $\poismean_i$
 has probability $e^{-\poismean_i}$,
-and with $\poismean_i \eqdef C - \ell_i$ for a constant $C$,
+and with $\poismean_i \eqdef C - \llik_i$ for a constant $C$,
 
 $$
 \ba
 e^{-\poismean_i}
-&= e^{-(C - \ell_i)}
+&= e^{-(C - \llik_i)}
 && \text{(definition of $\poismean_i$)}\\
-&= e^{-C} e^{\ell_i}
+&= e^{-C} e^{\llik_i}
 && \text{(splitting the exponent)}\\
-&\propto e^{\ell_i}
+&\propto e^{\llik_i}
 && \text{($C$ does not depend on the parameters)},
 \ea
 $$
 
 which is observation $i$'s likelihood contribution.
 So declaring data `zeros[i] = 0` with `zeros[i] ~ dpois(C - loglik[i])`
-multiplies the likelihood by $e^{\ell_i}$.
+multiplies the likelihood by $e^{\llik_i}$.
 The constant $C$ only has to be large enough to keep every $\poismean_i$ positive.

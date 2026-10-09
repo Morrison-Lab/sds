@@ -10,5 +10,12 @@ $$\p(\prob) = 1, \quad 0 < \prob < 1.$$
 
 Under this prior,
 the prior probability that fewer than 10% of adults smoke is
-$\Pr(\prob < 0.1) = \int_0^{0.1} 1 \, d\prob = 0.1$.
+
+$$
+\begin{aligned}
+  \Pr(\prob < 0.1) &= \int_0^{0.1} 1 \, d\prob \\
+  &= 0.1.
+\end{aligned}
+$$
+
 :::

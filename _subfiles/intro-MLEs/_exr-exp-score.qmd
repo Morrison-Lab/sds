@@ -11,7 +11,12 @@ with respect to the mean parameter $\pmean$.
 :::{#sol-exp-score-fn}
 
 The exponential density with mean $\pmean$ is
-$\p(X = x) = \pmean^{-1} e^{-x/\pmean}$ for $x > 0$,
+
+$$
+\p(X = x) = \pmean^{-1} e^{-x/\pmean}
+$$
+
+for $x > 0$,
 so $\loglik = \llexpmean$, and:
 
 $$

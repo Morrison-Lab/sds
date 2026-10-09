@@ -14,7 +14,7 @@ which is the derivative of the score from @exr-cyclone-score-fn:
 
 $$
 \begin{aligned}
-\ell''(\rate; \vx)
+\hess(\rate; \vx)
 &= \deriv{\rate}\paren{\frac{n \bar x}{\rate} - n}
 && \text{(differentiate the score)}\\
 &= n \bar x \deriv{\rate}\frac{1}{\rate} - \deriv{\rate} n
@@ -24,5 +24,5 @@ $$
 \end{aligned}
 $$
 
-For the cyclone data, $\ell''(\rate; \vx) = -`r sumx`/\rate^2$.
+For the cyclone data, $\hess(\rate; \vx) = -`r sumx`/\rate^2$.
 :::

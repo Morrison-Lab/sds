@@ -1,0 +1,75 @@
+::: {#exm-marginal-likelihood-uniform}
+#### Posterior for a coin's probability of heads under a uniform prior
+
+As in @exm-posterior,
+let $\param$ be a coin's probability of heads,
+now allowed to take any value in $(0, 1)$,
+with the uniform prior density $\p(\param) = 1$ for $\param \in (0, 1)$.
+One toss lands heads;
+call that observation $y = 1$,
+so
+
+$$
+\p(y = 1 \mid \param) = \param.
+$$
+
+The [marginal likelihood](#def-marginal-likelihood) is an integral over $\param$:
+
+$$
+\ba
+\p(y = 1)
+&= \int_0^1 \p(y = 1 \mid \param)\, \p(\param)\, d\param
+&& \text{(definition of the marginal likelihood)}\\
+&= \int_0^1 \param \cdot 1\, d\param
+&& \text{(substituting the likelihood and the prior)}\\
+&= \int_0^1 \param\, d\param
+&& \text{($\param \cdot 1 = \param$)}\\
+&= \sb{\frac{\param^2}{2}}_0^1
+&& \text{(antiderivative of $\param$)}\\
+&= \frac{1^2}{2} - \frac{0^2}{2}
+&& \text{(evaluating at the limits)}\\
+&= \frac{1}{2}
+&& \text{(arithmetic)}.
+\ea
+$$ {#eq-marginal-likelihood-uniform-exm}
+
+By @thm-bayes-posterior,
+for $\param \in (0, 1)$:
+
+$$
+\ba
+\p(\param \mid y = 1)
+&= \frac{\p(y = 1 \mid \param)\, \p(\param)}{\p(y = 1)}
+&& \text{(Bayes' theorem for parameters)}\\
+&= \frac{\param \cdot 1}{1/2}
+&& \text{(substituting the likelihood, prior, and marginal likelihood)}\\
+&= \frac{\param}{1/2}
+&& \text{($\param \cdot 1 = \param$)}\\
+&= 2\param
+&& \text{(dividing by $1/2$ is multiplying by 2)}.
+\ea
+$$ {#eq-marginal-likelihood-uniform-exm-2}
+
+One head moves the posterior density toward large values of $\param$.
+The posterior mean is
+
+$$
+\ba
+\E{\param \mid y = 1}
+&= \int_0^1 \param \cdot \p(\param \mid y = 1)\, d\param
+&& \text{(expectation under the posterior density)}\\
+&= \int_0^1 \param \cdot 2\param\, d\param
+&& \text{(substituting the posterior density)}\\
+&= \int_0^1 2\param^2\, d\param
+&& \text{($\param \cdot \param = \param^2$)}\\
+&= \sb{\frac{2\param^3}{3}}_0^1
+&& \text{(antiderivative of $2\param^2$)}\\
+&= \frac{2 \cdot 1^3}{3} - \frac{2 \cdot 0^3}{3}
+&& \text{(evaluating at the limits)}\\
+&= \frac{2}{3}
+&& \text{(arithmetic)},
+\ea
+$$ {#eq-marginal-likelihood-uniform-exm-3}
+
+up from the prior mean of $1/2$.
+:::

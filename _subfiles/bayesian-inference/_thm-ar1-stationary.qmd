@@ -1,0 +1,18 @@
+:::{#thm-ar1-stationary}
+#### Stationary distribution of the autoregressive chain
+
+For the chain of @exm-ar1-chain with $\abs{\arcoef} < 1$,
+the normal distribution with mean 0 and variance $\sigma^2 / (1 - \arcoef^2)$
+is a [stationary distribution](#def-stationary-distribution):
+
+$$
+\ndist{0, \frac{\sigma^2}{1 - \arcoef^2}}.
+$$ {#eq-ar1-stationary}
+
+:::
+
+::: proof
+
+This result is the solution to @exr-ar1-stationary.
+
+:::

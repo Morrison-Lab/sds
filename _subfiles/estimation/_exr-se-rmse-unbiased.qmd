@@ -12,6 +12,12 @@ in terms of its [mean squared error](#def-mse).
 
 By @eq-unbiased-mse, $\mselr{\hparam} = \Var{\hparam}$.
 Taking square roots of both sides,
-$\sqrt{\mselr{\hparam}} = \SD{\hparam} = \SE{\hparam}$.
+
+$$
+\begin{aligned}
+  \sqrt{\mselr{\hparam}} &= \SD{\hparam} \\
+  &= \SE{\hparam}.
+\end{aligned}
+$$
 
 :::

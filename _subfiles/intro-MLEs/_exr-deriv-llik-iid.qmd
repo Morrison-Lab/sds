@@ -3,7 +3,7 @@
 
 For $\iid$ data,
 use @thm-loglik-iid
-to write the derivative $\ell'(\param)$ of the log-likelihood
+to write the derivative $\score(\param)$ of the log-likelihood
 as a sum over the observations.
 :::
 

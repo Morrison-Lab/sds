@@ -39,7 +39,7 @@ Inference:
   Wald and likelihood ratio tests, and Newton-Raphson,
   with worked examples.
 
-Methods, illustrated with the HERS data:
+Methods:
 
 - [Comparing means](basic-statistical-methods.qmd):
   t-tests and one-way ANOVA;

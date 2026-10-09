@@ -3,5 +3,13 @@
 
 If 400 of $B = 1{,}000$ replicates are below $\hparam$,
 then $\hat z_0 = \normcdf^{-1}(0.4) \approx -0.253$.
-If exactly half were below, $\hat z_0 = \normcdf^{-1}(0.5) = 0$.
+If exactly half were below,
+
+$$
+\begin{aligned}
+  \hat z_0 &= \normcdf^{-1}(0.5) \\
+  &= 0.
+\end{aligned}
+$$
+
 :::

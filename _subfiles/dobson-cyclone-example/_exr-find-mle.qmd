@@ -8,13 +8,13 @@ Draw conclusions about the MLE of $\rate$.
 
 :::{#sol-find-mle}
 
-Since $\ell''(\tilde \rate; \vx) < 0$,
+Since $\hess(\tilde \rate; \vx) < 0$,
 $\tilde \rate$ is a local maximizer of the log-likelihood.
-Moreover, $\ell''(\rate; \vx) = -n\bar x/\rate^2 < 0$ for every $\rate > 0$,
+Moreover, $\hess(\rate; \vx) = -n\bar x/\rate^2 < 0$ for every $\rate > 0$,
 so the log-likelihood is strictly concave,
 and a local maximizer of a strictly concave function
 is its unique global maximizer.
-So $\tilde \rate$ maximizes $\ell$, and therefore $\Lik$:
+So $\tilde \rate$ maximizes $\llik$, and therefore $\Lik$:
 
 ```{r}
 #| label: calc-mle
@@ -23,6 +23,12 @@ mle <- mean(cyclones$number)
 mle
 ```
 
-$$\hrate_{\text{ML}} = \bar x = `r round(mle, 3)`$$
+$$
+\ba
+\hrate_{\text{ML}}
+&= \bar x\\
+&= `r round(mle, 3)`
+\ea
+$$
 
 :::

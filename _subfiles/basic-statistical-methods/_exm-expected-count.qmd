@@ -3,5 +3,13 @@
 
 In a table with $n = 100$, first-row total $R_1 = 30$,
 and first-column total $C_1 = 40$,
-the expected count in cell $(1, 1)$ is $E_{11} = 30 \cdot 40 / 100 = 12$.
+the expected count in cell $(1, 1)$ is
+
+$$
+\begin{aligned}
+  E_{11} &= 30 \cdot 40 / 100 \\
+  &= 12.
+\end{aligned}
+$$
+
 :::
