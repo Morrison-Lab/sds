@@ -30,9 +30,21 @@ the ratio of non-diseased to diseased people would be $0.999 / 0.001 = 999$,
 and the PPV would fall to
 
 $$
-\frac{1}{1 + \frac{0.01}{0.99} \cd 999} \approx \frac{1}{1 + 10.09} \approx 0.09:
+\ba
+\text{PPV}
+&= \frac{1}{1 + \frac{0.01}{0.99} \cd 999}
+&& \text{(PPV in terms of the two ratios, with the new prevalence)} \\
+&\approx \frac{1}{1 + 0.0101 \cd 999}
+&& \text{(divide)} \\
+&\approx \frac{1}{1 + 10.09}
+&& \text{(multiply)} \\
+&= \frac{1}{11.09}
+&& \text{(add)} \\
+&\approx 0.09
+&& \text{(divide)}
+\ea
 $$
 
-about 9 in 10 positive results would be false positives.
+so about 9 in 10 positive results would be false positives.
 
 :::

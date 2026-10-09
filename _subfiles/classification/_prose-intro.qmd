@@ -5,9 +5,11 @@ In medicine and epidemiology,
 classification problems arise constantly;
 for example,
 a clinician decides whether a patient has a disease
-based on test results,
-biomarkers,
-or clinical signs.
+based on evidence such as:
+
+- test results;
+- biomarkers;
+- clinical signs.
 
 A test can look highly accurate in isolation,
 yet its predictive value for an individual patient depends heavily on the
