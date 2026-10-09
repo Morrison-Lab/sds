@@ -29,5 +29,12 @@ and a discrete $\vX$ replaces integrals with sums.
 For @eq-information-equality,
 @exr-score-second-moment gives $\einf(\param) = \E{\score^2}$,
 and because $\E{\score} = 0$,
-$\E{\score^2} = \E{\score^2} - \sqf{\E{\score}} = \Var{\score}$.
+
+$$
+\begin{aligned}
+  \E{\score^2} &= \E{\score^2} - \sqf{\E{\score}} \\
+  &= \Var{\score}.
+\end{aligned}
+$$
+
 :::

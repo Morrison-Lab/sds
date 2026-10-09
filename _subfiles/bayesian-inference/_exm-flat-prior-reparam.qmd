@@ -4,7 +4,15 @@
 A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated.
 Let $\prob$ have the uniform prior of @exm-prior,
 and let $\logodds \eqdef \logit(\prob)$ be its log-odds,
-so that $\prob = \expit(\logodds) = 1 / (1 + e^{-\logodds})$.
+so that
+
+$$
+\begin{aligned}
+  \prob &= \expit(\logodds) \\
+  &= 1 / (1 + e^{-\logodds}).
+\end{aligned}
+$$
+
 The derivative of $\expit$ is
 
 $$

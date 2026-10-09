@@ -21,6 +21,12 @@ $$
 $$
 
 Taking square roots of both sides,
-$\SD{\erf{\hparam}} = \SD{\hparam} = \SE{\hparam}$.
+
+$$
+\begin{aligned}
+  \SD{\erf{\hparam}} &= \SD{\hparam} \\
+  &= \SE{\hparam}.
+\end{aligned}
+$$
 
 :::

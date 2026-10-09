@@ -11,14 +11,14 @@ $$
 
 Assume $0 < y < n$ so the MLE lies in the interior of $(0, 1)$.
 
-**(a)** Write the log-likelihood $\ell(\prob; y)$ for a single observation $y$.
+**(a)** Write the log-likelihood $\llik(\prob; y)$ for a single observation $y$.
 
-**(b)** Derive the score function $\ell'(\prob; y) \eqdef \deriv{\prob}\ell(\prob; y)$.
+**(b)** Derive the score function $\score(\prob; y) \eqdef \deriv{\prob}\llik(\prob; y)$.
 
 **(c)** Set the score equal to zero and solve for $\hprob_{ML}$.
 Confirm that $\hprob_{ML} = y/n$.
 
-**(d)** Compute the second derivative $\ell''(\prob; y)$ and verify that it is negative,
+**(d)** Compute the second derivative $\hess(\prob; y)$ and verify that it is negative,
 confirming a maximum.
 :::
 
@@ -28,7 +28,7 @@ confirming a maximum.
 
 $$
 \ba
-\ell(\prob; y)
+\llik(\prob; y)
 &= \logf{\binom{n}{y} \prob^y (1-\prob)^{n-y}}
 && \text{(log of the binomial PMF)}
 \\
@@ -47,7 +47,7 @@ so it drops out of every derivative with respect to $\prob$.
 
 $$
 \ba
-\ell'(\prob; y)
+\score(\prob; y)
 &= \deriv{\prob}\sb{\logf{\binom{n}{y}} + y\logf{\prob} + (n-y)\logf{1-\prob}}
 && \text{(log-likelihood from (a))}
 \\
@@ -94,7 +94,7 @@ Substituting the inner derivative back in:
 
 $$
 \ba
-\ell'(\prob; y)
+\score(\prob; y)
 &= y\frac{1}{\prob} + (n-y)\frac{1}{1-\prob}(-1)
 && \text{(inner derivative is $-1$)}
 \\
@@ -120,7 +120,7 @@ $$
 
 **(c)**
 
-Setting $\ell'(\prob; y) = 0$:
+Setting $\score(\prob; y) = 0$:
 
 $$
 \ba
@@ -142,7 +142,7 @@ $$
 
 $$
 \ba
-\ell''(\prob; y)
+\hess(\prob; y)
 &= \deriv{\prob}\sb{\frac{y}{\prob} - \frac{n-y}{1-\prob}}
 && \text{(score from (b))}
 \\
@@ -173,8 +173,8 @@ $$
 $$
 
 Since $y \geq 0$, $n - y \geq 0$, and $y$ and $n - y$ are not both zero,
-$\ell''(\prob; y) < 0$ for every $\prob \in (0,1)$.
-So $\ell$ is strictly concave,
+$\hess(\prob; y) < 0$ for every $\prob \in (0,1)$.
+So $\llik$ is strictly concave,
 and its critical point $\hprob_{ML} = y/n$ is its global maximum.
 
 :::

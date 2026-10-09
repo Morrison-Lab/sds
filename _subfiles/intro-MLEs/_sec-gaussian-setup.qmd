@@ -15,7 +15,7 @@ and by @thm-loglik-iid, the log-likelihood is:
 
 $$
 \begin{aligned}
-\ell(\mean, \varpar)
+\llik(\mean, \varpar)
 &= \sumin \logf{(2\pi\varpar)^{-1/2}
 \expf{-\frac{(x_i - \mean)^2}{2\varpar}}}
 && \text{(log of each Gaussian density)}\\

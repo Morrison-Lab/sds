@@ -3,17 +3,17 @@ The score function is the vector of the two partial derivatives:
 $$
 \score(\mean, \varpar) =
 \begin{pmatrix}
-\deriv{\mean}\ell(\mean, \varpar) \\
-\deriv{\varpar}\ell(\mean, \varpar)
+\deriv{\mean}\llik(\mean, \varpar) \\
+\deriv{\varpar}\llik(\mean, \varpar)
 \end{pmatrix}
 $$
 
 For the first entry,
-only the last term of $\ell$ depends on $\mean$:
+only the last term of $\llik$ depends on $\mean$:
 
 $$
 \begin{aligned}
-\deriv{\mean}\ell
+\deriv{\mean}\llik
 &= \deriv{\mean}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
  - \frac{1}{2\varpar}\sumin (x_i - \mean)^2}
 && \text{(Gaussian log-likelihood)}\\
@@ -53,7 +53,7 @@ Substituting the inner derivative back in:
 
 $$
 \begin{aligned}
-\deriv{\mean}\ell
+\deriv{\mean}\llik
 &= -\frac{1}{2\varpar}\sumin 2(x_i - \mean) \cdot (-1)
 && \text{(inner derivative is $-1$)}\\
 &= -\frac{1}{2\varpar}\sumin -2(x_i - \mean)
@@ -70,12 +70,12 @@ $$
 $$
 
 For the second entry,
-write $\varpar$ as a single variable $v$, so that $\ell$ contains
+write $\varpar$ as a single variable $v$, so that $\llik$ contains
 $-\frac{n}{2}\log v$ and $-\frac{1}{2}v^{-1}\sum_i (x_i - \mean)^2$:
 
 $$
 \begin{aligned}
-\deriv{\varpar}\ell
+\deriv{\varpar}\llik
 &= \deriv{\varpar}\paren{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
  - \frac{1}{2}\paren{\varpar}^{-1}\sumin (x_i - \mean)^2}
 && \text{(Gaussian log-likelihood)}\\

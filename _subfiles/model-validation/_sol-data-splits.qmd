@@ -1,7 +1,22 @@
 :::{#sol-data-splits}
 
-$\lfloor 0.6 \cdot 32 \rfloor = \lfloor 19.2 \rfloor = 19$ training cars,
-$\lfloor 0.2 \cdot 32 \rfloor = \lfloor 6.4 \rfloor = 6$ validation cars,
+$$
+\begin{aligned}
+  \lfloor 0.6 \cdot 32 \rfloor &= \lfloor 19.2 \rfloor \\
+  &= 19
+\end{aligned}
+$$
+
+training cars,
+
+$$
+\begin{aligned}
+  \lfloor 0.2 \cdot 32 \rfloor &= \lfloor 6.4 \rfloor \\
+  &= 6
+\end{aligned}
+$$
+
+validation cars,
 and $32 - 19 - 6 = 7$ test cars.
 
 :::

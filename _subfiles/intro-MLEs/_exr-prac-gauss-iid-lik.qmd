@@ -6,11 +6,11 @@ Let $\dsn{X} \siid \Normal(\mean, \varpar)$.
 **(a)** Write the likelihood $\Lik(\mean, \varpar; \vx)$
 for the observed data $\vx = (\dsn{x})$.
 
-**(b)** Write the log-likelihood $\ell(\mean, \varpar; \vx)$.
+**(b)** Write the log-likelihood $\llik(\mean, \varpar; \vx)$.
 Show that it can be written as
 
 $$
-\ell(\mean, \varpar; \vx)
+\llik(\mean, \varpar; \vx)
 = -\frac{n}{2}\logf{2\pi\varpar}
   - \frac{1}{2\varpar}\sumin (x_i - \mean)^2.
 $$
@@ -51,7 +51,7 @@ $$
 
 $$
 \ba
-\ell(\mean, \varpar; \vx)
+\llik(\mean, \varpar; \vx)
 &= \logf{\Lik(\mean, \varpar; \vx)}
 && \text{(definition of the log-likelihood)}
 \\
@@ -79,7 +79,7 @@ $$
 
 $$
 \ba
-\deriv{\mean}\ell
+\deriv{\mean}\llik
 &= \deriv{\mean}\sb{-\frac{n}{2}\logf{2\pi\varpar}
    - \frac{1}{2\varpar}\sumin (x_i - \mean)^2}
 && \text{(log-likelihood from (b))}
@@ -128,7 +128,7 @@ Substituting the inner derivative back in:
 
 $$
 \ba
-\deriv{\mean}\ell
+\deriv{\mean}\llik
 &= -\frac{1}{2\varpar}\sumin 2(x_i - \mean) \cdot (-1)
 && \text{(inner derivative is $-1$)}
 \\
@@ -155,7 +155,7 @@ Setting this to zero: $\hmean_{ML} = \bar{x} \eqdef \avgin x_i$.
 
 $$
 \ba
-\deriv{\varpar}\ell
+\deriv{\varpar}\llik
 &= \deriv{\varpar}\sb{-\frac{n}{2}\logf{2\pi\varpar}
    - \frac{1}{2\varpar}\sumin (x_i - \mean)^2}
 && \text{(log-likelihood from (b))}

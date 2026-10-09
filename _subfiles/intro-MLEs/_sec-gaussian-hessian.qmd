@@ -2,7 +2,7 @@ The remaining second derivatives are:
 
 $$
 \begin{aligned}
-\frac{\partial^2 \ell}{\partial (\varpar)^2}
+\frac{\partial^2 \llik}{\partial (\varpar)^2}
 &= \deriv{\varpar}\paren{-\frac{n}{2}\paren{\varpar}^{-1}
  + \frac{1}{2}\paren{\varpar}^{-2}\sumin (x_i - \mean)^2}
 && \text{(differentiate the score for $\varpar$)}\\
@@ -25,7 +25,7 @@ $$
 && \text{(multiply the constants)}\\
 &= \frac{n}{2}\paren{\varpar}^{-2} - \paren{\varpar}^{-3}\sumin (x_i - \mean)^2
 && \text{(reorder the factors)}\\
-\frac{\partial^2 \ell}{\partial \mean \, \partial \varpar}
+\frac{\partial^2 \llik}{\partial \mean \, \partial \varpar}
 &= \deriv{\mean}\paren{-\frac{n}{2}\paren{\varpar}^{-1}
  + \frac{1}{2}\paren{\varpar}^{-2}\sumin (x_i - \mean)^2}
 && \text{(differentiate the score for $\varpar$)}\\
@@ -55,7 +55,7 @@ and $\sumin (x_i - \bar x)^2 = n\hvarpar$
 
 $$
 \begin{aligned}
-\frac{\partial^2 \ell}{\partial (\varpar)^2}\bigg|_{\text{MLE}}
+\evalAt{\frac{\partial^2 \llik}{\partial (\varpar)^2}}{\text{MLE}}
 &= \frac{n}{2}\paren{\hvarpar}^{-2} - \paren{\hvarpar}^{-3}\sumin (x_i - \bar x)^2
 && \text{(evaluate at $\mean = \bar x$, $\varpar = \hvarpar$)}\\
 &= \frac{n}{2}\paren{\hvarpar}^{-2} - \paren{\hvarpar}^{-3} n\hvarpar
@@ -66,7 +66,7 @@ $$
 && \text{(cancel one factor of $\hvarpar$)}\\
 &= -\frac{n}{2}\paren{\hvarpar}^{-2}
 && \text{(combine like terms)}\\
-\frac{\partial^2 \ell}{\partial \mean \, \partial \varpar}\bigg|_{\text{MLE}}
+\evalAt{\frac{\partial^2 \llik}{\partial \mean \, \partial \varpar}}{\text{MLE}}
 &= -\paren{\hvarpar}^{-2}\sumin (x_i - \bar x)
 && \text{(evaluate at $\mean = \bar x$, $\varpar = \hvarpar$)}\\
 &= -\paren{\hvarpar}^{-2} \cdot 0

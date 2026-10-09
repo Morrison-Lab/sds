@@ -14,8 +14,24 @@ Consider two estimators of $\varpar$:
 Both estimators are built from the sum of squared deviations
 $\sumin (X_i - \bar X)^2$,
 so we first find its expectation.
-Using $\E{X_i^2} = \Var{X_i} + \sqf{\E{X_i}} = \varpar + \mean^2$
-and $\E{\bar X^2} = \Var{\bar X} + \sqf{\E{\bar X}} = \varpar/n + \mean^2$
+Using
+
+$$
+\begin{aligned}
+  \E{X_i^2} &= \Var{X_i} + \sqf{\E{X_i}} \\
+  &= \varpar + \mean^2
+\end{aligned}
+$$
+
+and
+
+$$
+\begin{aligned}
+  \E{\bar X^2} &= \Var{\bar X} + \sqf{\E{\bar X}} \\
+  &= \varpar/n + \mean^2
+\end{aligned}
+$$
+
 (by @exm-mse-sample-mean and @exm-bias-sample-mean):
 
 $$
@@ -62,7 +78,15 @@ $$
 \end{aligned}
 $$
 
-So $\E{S^2} = \frac{1}{n-1}(n-1)\varpar = \varpar$,
+So
+
+$$
+\begin{aligned}
+  \E{S^2} &= \frac{1}{n-1}(n-1)\varpar \\
+  &= \varpar,
+\end{aligned}
+$$
+
 and by @thm-bias-exprs,
 $\bias{S^2} = 0$:
 the sample variance is [unbiased](#def-unbiased).
