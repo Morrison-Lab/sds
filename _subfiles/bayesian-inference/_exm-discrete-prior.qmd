@@ -1,0 +1,133 @@
+::: {#exm-discrete-prior}
+#### A discrete prior on a grid: 8 successes in 10 trials
+
+Suppose $\prob$ can take only the eleven values $0, 0.1, 0.2, \ldots, 1$,
+and we give them equal prior probability, $\p(\prob) = 1/11$.
+We observe $x = 8$ successes in $n = 10$ independent trials,
+so that given $\prob$ the count is $\operatorname{Binomial}(10, \prob)$:
+
+$$
+\p(x \mid \prob) = \binom{10}{x}\prob^{x}(1-\prob)^{10-x}.
+$$
+
+Because $\prob$ is discrete,
+the [marginal likelihood](#def-marginal-likelihood) is a sum over the grid
+rather than an integral,
+and @thm-bayes-posterior gives
+
+$$
+\p(\prob \mid x = 8)
+= \frac{\p(x = 8 \mid \prob)\, \p(\prob)}
+{\sum_{\prob'} \p(x = 8 \mid \prob')\, \p(\prob')},
+$$
+
+where the sum runs over the eleven grid values $\prob'$.
+The table builds the posterior one column at a time:
+the prior, the likelihood of the observed count,
+their product, and the product divided by its sum.
+
+```{r}
+#| label: discrete-prior-table
+#| code-fold: false
+n_trials <- 10
+x_obs <- 8
+
+discrete_post <- data.frame(prob = seq(0, 1, by = 0.1))
+discrete_post$prior <- 1 / nrow(discrete_post)
+discrete_post$likelihood <- stats::dbinom(
+  x_obs,
+  size = n_trials,
+  prob = discrete_post$prob
+)
+discrete_post$product <- discrete_post$prior * discrete_post$likelihood
+marginal_lik <- sum(discrete_post$product)
+discrete_post$posterior <- discrete_post$product / marginal_lik
+
+knitr::kable(discrete_post, digits = 4)
+```
+
+The marginal likelihood is `r round(marginal_lik, 4)`
+(with a uniform prior over eleven values,
+the average of the likelihood column),
+and the posterior probabilities sum to `r sum(discrete_post$posterior)`.
+@fig-discrete-prior compares the prior with the posterior.
+
+```{r}
+#| label: fig-discrete-prior
+#| fig-cap: "Prior and posterior probabilities on the grid of values of the success probability, after 8 successes in 10 trials."
+#| fig-alt: !expr paste0(
+#|   "Two bar charts side by side, each with the grid values 0 to 1 on the horizontal axis ",
+#|   "and probability on the vertical axis. ",
+#|   "The prior panel has eleven bars of equal height, ",
+#|   round(1 / nrow(discrete_post), 3), ". ",
+#|   "The posterior panel is hump-shaped, ",
+#|   "it is tallest at ",
+#|   discrete_post$prob[which.max(discrete_post$posterior)],
+#|   " with probability ",
+#|   round(max(discrete_post$posterior), 3),
+#|   ", and the bars at 0 and 1 are zero or nearly zero."
+#|   )
+discrete_long <- rbind(
+  data.frame(
+    prob = discrete_post$prob,
+    distribution = "prior",
+    probability = discrete_post$prior
+  ),
+  data.frame(
+    prob = discrete_post$prob,
+    distribution = "posterior",
+    probability = discrete_post$posterior
+  )
+)
+discrete_long$distribution <- factor(
+  discrete_long$distribution,
+  levels = c("prior", "posterior")
+)
+
+ggplot2::ggplot(discrete_long, ggplot2::aes(prob, probability)) +
+  ggplot2::geom_col(width = 0.06) +
+  ggplot2::facet_wrap(~distribution) +
+  ggplot2::scale_x_continuous(breaks = seq(0, 1, by = 0.2)) +
+  ggplot2::labs(x = "success probability", y = "probability")
+```
+
+{{< slidebreak >}}
+
+To get an interval, accumulate the posterior probabilities
+from the bottom of the grid.
+For each grid value $\prob_j$,
+the upper-tail probability $\Pr(\prob > \prob_j \mid x = 8)$
+is one minus the cumulative probability up to and including $\prob_j$.
+
+```{r}
+#| label: discrete-prior-tail
+#| code-fold: false
+discrete_post$cum_posterior <- cumsum(discrete_post$posterior)
+discrete_post$upper_tail <- 1 - discrete_post$cum_posterior
+
+lower_bound <- max(discrete_post$prob[discrete_post$upper_tail >= 0.95])
+tail_at_bound <- discrete_post$upper_tail[discrete_post$prob == lower_bound]
+
+knitr::kable(
+  discrete_post[, c("prob", "posterior", "cum_posterior", "upper_tail")],
+  digits = 4
+)
+```
+
+The largest grid value whose upper-tail probability is still at least 0.95
+is $\prob =$ `r lower_bound`.
+So $\Pr(\prob > `r lower_bound` \mid x = 8) =$ `r round(tail_at_bound, 4)`,
+and the one-sided 95% [credible interval](#def-credible-interval)
+for $\prob$ is $(`r lower_bound`, 1]$:
+given 8 successes in 10 trials and this prior,
+the probability that $\prob$ exceeds `r lower_bound` is at least 0.95.
+
+Unlike a continuous posterior,
+a discrete posterior can rarely reach a probability of exactly 0.95,
+because its probability comes in lumps.
+@def-credible-interval asks for probability exactly $1 - \siglevel$;
+on a grid we ask for probability *at least* $1 - \siglevel$,
+and take the largest lower endpoint that achieves it.
+That makes the interval conservative:
+here its posterior probability is `r round(tail_at_bound, 4)`, not 0.95.
+:::
