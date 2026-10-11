@@ -138,6 +138,10 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_exm-discrete-prior.qmd >}}
+
+{{< slidebreak >}}
+
 ### The parameter space {#sec-bayes-parameter-space}
 
 <!-- No slidebreak here: the heading shares its slide with the def-parameter-space div. -->
