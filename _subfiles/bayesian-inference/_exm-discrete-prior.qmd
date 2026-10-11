@@ -54,9 +54,11 @@ and the posterior probabilities sum to `r sum(discrete_post$posterior)`.
 
 ```{r}
 #| label: fig-discrete-prior
-#| fig-cap: "Prior and posterior probabilities on the grid of values of the success probability, after 8 successes in 10 trials."
+#| fig-cap: "Prior and posterior probabilities on the grid of values
+#|   of the success probability, after 8 successes in 10 trials."
 #| fig-alt: !expr paste0(
-#|   "Two bar charts side by side, each with the grid values 0 to 1 on the horizontal axis ",
+#|   "Two bar charts side by side, each with the grid values 0 to 1 ",
+#|   "on the horizontal axis ",
 #|   "and probability on the vertical axis. ",
 #|   "The prior panel has eleven bars of equal height, ",
 #|   round(1 / nrow(discrete_post), 3), ". ",
