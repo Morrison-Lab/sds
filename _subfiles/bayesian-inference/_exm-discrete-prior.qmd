@@ -40,13 +40,13 @@ discrete_post$likelihood <- stats::dbinom(
   prob = discrete_post$prob
 )
 discrete_post$product <- discrete_post$prior * discrete_post$likelihood
-marginal_lik <- sum(discrete_post$product)
-discrete_post$posterior <- discrete_post$product / marginal_lik
+marginal_likelihood <- sum(discrete_post$product)
+discrete_post$posterior <- discrete_post$product / marginal_likelihood
 
 knitr::kable(discrete_post, digits = 4)
 ```
 
-The marginal likelihood is `r round(marginal_lik, 4)`
+The marginal likelihood is `r round(marginal_likelihood, 4)`
 (with a uniform prior over eleven values,
 the average of the likelihood column),
 and the posterior probabilities sum to `r sum(discrete_post$posterior)`.
