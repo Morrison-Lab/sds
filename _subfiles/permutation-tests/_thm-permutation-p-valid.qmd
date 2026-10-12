@@ -1,0 +1,77 @@
+::: {#thm-permutation-p-valid}
+#### The permutation p-value is valid
+
+Let $Y = (Y_1, \ldots, Y_n)$ be exchangeable under $H_0$ (@def-exchangeable),
+and let $p_{\text{perm}}$ be the [permutation p-value](#def-permutation-p-value) of $T(Y)$.
+Then $p_{\text{perm}}$ is a [valid p-value](multiple-testing.qmd#def-valid-p-value):
+
+$$\Pr_{H_0}\paren{p_{\text{perm}} \le u} \le u \quad \text{for every } u \in [0, 1].$$
+
+:::
+
+::: proof
+
+Since $p_{\text{perm}} = N_\iota(Y) / n!$ takes values in multiples of $1 / n!$,
+it is enough to take $u = k / n!$ for an integer $k$ with $0 \le k \le n!$:
+for other $u$ the event $\set{p_{\text{perm}} \le u}$ equals the event for $\floor{u \, n!} / n!$, which is at most $u$.
+
+$$
+\begin{aligned}
+\Pr_{H_0}\paren{p_{\text{perm}} \le \frac{k}{n!}}
+&= \Pr_{H_0}\paren{N_\iota(Y) \le k}
+&& \text{(multiply the inequality by $n!$)}\\
+&= \Pr_{H_0}\paren{N_\iota(Y_\sigma) \le k}
+&& \text{(for each $\sigma$, $Y_\sigma$ has the distribution of $Y$, by exchangeability)}\\
+&= \Pr_{H_0}\paren{N_\sigma(Y) \le k}
+&& \text{(relabeling identity)}\\
+&= \E{\indic{N_\sigma(Y) \le k}}
+&& \text{(probability of an event is the expected value of its indicator)}\\
+&= \frac{1}{n!} \sum_{\sigma \in S_n} \E{\indic{N_\sigma(Y) \le k}}
+&& \text{(the average of $n!$ equal terms)}\\
+&= \frac{1}{n!} \E{\sum_{\sigma \in S_n} \indic{N_\sigma(Y) \le k}}
+&& \text{(expectation of a sum is the sum of expectations)}\\
+&\le \frac{1}{n!} \E{k}
+&& \text{(counting bound, with $N = n!$ and $t_\sigma = T(Y_\sigma)$)}\\
+&= \frac{k}{n!}
+&& \text{(the expected value of a constant is the constant)}
+\end{aligned}
+$$
+
+The justifications of the third and the seventh line are @sol-relabeling-count and @sol-top-k-count.
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-permutation-p-valid}
+#### Validity in a small simulation
+
+Simulate $10^4$ data sets of 6 independent standard Gaussian values, three per group,
+so that $H_0$ holds,
+and compute the exact permutation p-value of $\abs{\bar y_1 - \bar y_2}$ for each:
+
+```{r}
+#| label: permutation-p-valid
+#| code-fold: false
+set.seed(580)
+group1_choices <- combn(6, 3)
+exact_p <- replicate(1e4, {
+  y <- rnorm(6)
+  stats <- apply(group1_choices, 2, function(idx) {
+    in1 <- 1:6 %in% idx
+    abs(mean(y[in1]) - mean(y[!in1]))
+  })
+  mean(round(stats, 10) >= round(stats[1], 10))
+})
+u <- c(0.1, 0.2, 0.5)
+data.frame(
+  u = u,
+  fraction_p_at_most_u = sapply(u, function(x) mean(exact_p <= x))
+)
+```
+
+Each fraction is close to its $u$, within simulation error.
+Here the exact p-value takes the values $0.1, 0.2, \ldots, 1$ with equal probability,
+because the 20 statistics form 10 mirror pairs with no other ties,
+so @thm-permutation-p-valid holds with equality.
+:::

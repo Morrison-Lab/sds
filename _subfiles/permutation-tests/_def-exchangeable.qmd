@@ -1,0 +1,34 @@
+::: {#def-exchangeable}
+#### Exchangeable random variables
+
+For a permutation $\pi$ of $\set{1, \ldots, n}$ and a vector $y = (y_1, \ldots, y_n)$,
+write $y_\pi \eqdef (y_{\pi(1)}, \ldots, y_{\pi(n)})$ for the vector with its entries reordered by $\pi$.
+Random variables $Y_1, \ldots, Y_n$ are **exchangeable** if reordering them does not change their joint distribution:
+for every permutation $\pi$ and every set $A$ of vectors,
+
+$$\Pr(Y_\pi \in A) = \Pr(Y \in A).$$
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-exchangeable}
+#### Two groups with the same distribution
+
+Let a gene's expression be measured in $n_1$ samples from tumor class 2 and $n_2$ samples from tumor class 4,
+and let $H_0$ say that the expression has the same distribution in both classes.
+Under $H_0$ the $n = n_1 + n_2$ values $Y_1, \ldots, Y_n$ are independent and identically distributed,
+and independent, identically distributed variables are exchangeable,
+because their joint distribution is the product of the same marginal distribution $n$ times,
+which does not depend on the order of the factors.
+Given the set of observed values, every assignment of them to the two groups is then equally likely.
+With 23 samples in class 2 and 20 in class 4 there are
+
+```{r}
+#| label: n-assignments
+#| code-fold: false
+choose(43, 20)
+```
+
+ways to choose which 20 of the 43 values form the class 4 group.
+:::

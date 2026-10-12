@@ -1,0 +1,71 @@
+::: {#def-monte-carlo-p-value}
+#### Monte Carlo permutation p-value
+
+With the notation of @def-permutation-distribution,
+draw $B$ permutations $\pi_1, \ldots, \pi_B$ independently and uniformly from $S_n$,
+and let $T_b \eqdef T(y_{\pi_b})$.
+The **Monte Carlo permutation p-value** counts the observed labeling as one more relabeling,
+so it adds 1 to the numerator and to the denominator:
+
+$$\hat p_{\text{perm}} \eqdef \frac{1 + \sum_{b=1}^B \indic{T_b \ge T(y)}}{B + 1}.$$
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-monte-carlo-p-value}
+#### Monte Carlo p-value for gene 3
+
+Compare tumor classes 2 and 4 on gene 3 of the Khan data,
+using $\abs{t}$ of Welch's statistic and $B = 10{,}000$ random relabelings.
+The $43$ values admit $\binom{43}{20} =$ `r format(choose(43, 20), big.mark = ",", scientific = FALSE)` relabelings (@exm-exchangeable), too many to list:
+
+```{r}
+#| label: monte-carlo-p-value
+#| code-fold: false
+y3 <- khan_pair$gene_3
+in_class4 <- khan_pair$tumor_class == 4
+t_obs <- abs_welch_t(y3, in_class4)
+
+B <- 10000
+set.seed(581)
+t_perm <- replicate(B, abs_welch_t(y3, sample(in_class4)))
+n_exceed <- sum(t_perm >= t_obs)
+p_mc <- (1 + n_exceed) / (B + 1)
+c(
+  t_observed = t_obs,
+  exceedances = n_exceed,
+  p_mc = p_mc,
+  p_welch = t.test(y3 ~ khan_pair$tumor_class)$p.value
+)
+```
+
+Only `r n_exceed` of the `r format(B, big.mark = ",")` relabelings give a statistic at least as large as the observed `r round(t_obs, 2)`.
+The Monte Carlo p-value is `r format(p_mc, digits = 2, scientific = FALSE)`,
+close to the p-value `r format(t.test(y3 ~ khan_pair$tumor_class)$p.value, digits = 2)` from Welch's t-test.
+@fig-permutation-distribution-gene3 shows the permutation distribution.
+
+```{r}
+#| label: fig-permutation-distribution-gene3
+#| fig-cap: >
+#|   Permutation distribution of the absolute Welch t statistic for gene 3,
+#|   from 10,000 random relabelings of tumor classes 2 and 4.
+#|   The vertical line is the observed statistic.
+#| fig-alt: >
+#|   Histogram of 10,000 permuted absolute Welch t statistics for gene 3.
+#|   The histogram is concentrated between 0 and 2,
+#|   with a long thin right tail.
+#|   A vertical line marks the observed statistic,
+#|   which lies far out in the right tail,
+#|   where almost none of the permuted statistics fall.
+ggplot(data.frame(t = t_perm), aes(x = t)) +
+  geom_histogram(bins = 50, fill = "grey60", color = "white") +
+  geom_vline(xintercept = t_obs, color = "firebrick", linewidth = 1) +
+  labs(x = "Absolute Welch t statistic", y = "Number of relabelings")
+```
+
+The Monte Carlo error of $\hat p_{\text{perm}}$ is about
+$\sqrt{\hat p_{\text{perm}} (1 - \hat p_{\text{perm}}) / B} =$ `r format(sqrt(p_mc * (1 - p_mc) / B), digits = 2, scientific = FALSE)`,
+which is comparable to the p-value itself,
+so a p-value this small needs a larger $B$ before its second digit means anything.
+:::
