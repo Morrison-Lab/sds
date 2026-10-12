@@ -14,6 +14,8 @@ where $F$ is the distribution function of the population distribution.
 :::
 
 ::: {.remark .notes}
+Drawing without replacement from a finite population gives observations that are only approximately independent,
+and nearly so when the population is much larger than the sample.
 Few real studies draw a perfectly random sample,
 so conclusions about the population rest on how well the sampling mechanism
 approximates one.

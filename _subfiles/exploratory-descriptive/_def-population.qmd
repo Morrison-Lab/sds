@@ -3,9 +3,20 @@
 
 A **population** is the entire collection of units
 (people, animals, objects, or events) that a study aims to learn about.
-The **population distribution** of a variable $X$ is its distribution
-across the units of the population:
-for a unit chosen at random from a finite population of $N$ units,
+The **population distribution** of a variable $X$ is the distribution of $X$
+for a unit chosen at random from the population:
 
-$$\Pr(X \in A) \eqdef \frac{\text{number of units in the population with } X \in A}{N}.$$
+$$F(t) \eqdef \Pr(X \le t), \quad t \in \reals,$$
+
+where the probability refers to the random choice of the unit.
+:::
+
+::: {.remark .notes}
+A population may be finite or infinite.
+For a finite population of $N$ units, the random choice gives each unit probability $1/N$, so
+
+$$\Pr(X \in A) = \frac{\text{number of units in the population with } X \in A}{N}.$$
+
+An infinite population, such as all the coin flips a coin could ever produce,
+is described directly by a distribution.
 :::
