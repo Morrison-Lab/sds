@@ -1,0 +1,29 @@
+::: {#exr-union-bound}
+#### Indicator of a union
+
+For events $A_1, \ldots, A_k$, let $\indic{A}$ be the indicator of the event $A$:
+it equals 1 if $A$ occurs and 0 if it does not.
+Show that, for every outcome,
+
+$$\indic{A_1 \cup \cdots \cup A_k} \le \indic{A_1} + \cdots + \indic{A_k}.$$
+
+:::
+
+{{< slidebreak >}}
+
+::: {#sol-union-bound}
+
+Fix an outcome and consider two cases.
+
+- If none of $A_1, \ldots, A_k$ occurs,
+  then the union does not occur,
+  so the left side is $0$ and the right side is $0 + \cdots + 0 = 0$.
+  The inequality holds with equality.
+- If at least one $A_j$ occurs,
+  then the union occurs, so the left side is $1$.
+  The right side is a sum of $k$ terms, each $0$ or $1$,
+  and at least one of them is $1$,
+  so the right side is at least $1$.
+  The inequality holds.
+
+:::

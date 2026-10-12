@@ -1,0 +1,54 @@
+::: {#thm-bh-fdr}
+#### The BH procedure controls the FDR under independence
+
+Suppose the $m$ p-values are independent and each true null hypothesis has a p-value that is uniform on $[0, 1]$.
+Then the [BH procedure](#def-bh) at level $q$ satisfies
+
+$$\text{FDR} = \frac{m_0}{m} q \le q.$$
+
+::: {.callout-note collapse="true"}
+#### Source
+
+Benjamini and Hochberg [-@benjamini1995controlling, Theorem 1],
+which proves the result for any configuration of false null hypotheses.
+The proof is omitted here.
+:::
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-bh-fdr}
+#### FDR of the BH procedure in the simulated family
+
+In the simulated family of @exm-rejection-counts the p-values are independent and $m_0 / m = 0.9$,
+so @thm-bh-fdr gives $\text{FDR} = 0.9 \times 0.05 =$ `r 0.9 * 0.05` at $q = 0.05$.
+Repeating the simulation 2000 times with BH:
+
+```{r}
+#| label: fdr-bh
+#| code-fold: false
+set.seed(576)
+sim_counts$bh <- run_simulation(function(p) bh_reject(p, 0.05))
+summarize_counts(sim_counts$bh)
+```
+
+The estimated FDR, `r round(summarize_counts(sim_counts$bh)[["FDR"]], 3)`,
+is close to the theoretical value `r 0.9 * 0.05`.
+BH also finds `r round(100 * summarize_counts(sim_counts$bh)[["power"]])`% of the false null hypotheses,
+more than Holm's procedure,
+and in exchange it makes at least one false positive in
+`r round(100 * summarize_counts(sim_counts$bh)[["FWER"]])`% of the repetitions.
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-bh-dependence}
+#### BH under dependence
+
+Gene expression levels are usually correlated,
+and @thm-bh-fdr assumes independence.
+@benjamini2001control proved that BH still controls the FDR at level $q$ under a form of positive dependence among the p-values,
+and that the procedure run at level $q / \sum_{k=1}^m (1/k)$ controls it under any dependence.
+@james2021islr2e [ch. 13] and @efron2016computer [ch. 15] discuss the procedure in practice.
+:::

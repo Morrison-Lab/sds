@@ -1,0 +1,21 @@
+A [p-value](inference.qmd#def-p-value) answers a question about one hypothesis.
+Many studies ask the question many times:
+a gene expression study tests every gene for a difference between two tumor types,
+and a screening study tests every candidate drug.
+Each test that uses the usual [significance level](inference.qmd#def-significance-level)
+has a small chance of flagging a null hypothesis that is true,
+and those chances add up over thousands of tests.
+
+This page does three things:
+
+- shows how fast false positives accumulate;
+- defines two error rates for a whole family of tests,
+  the family-wise error rate and the false discovery rate;
+- presents the standard procedures that control them:
+  the Bonferroni correction, Holm's step-down procedure [@holm1979simple]
+  and the Benjamini--Hochberg procedure [@benjamini1995controlling],
+  with the adjusted p-values that report their results.
+
+The next page, [permutation tests](permutation-tests.qmd),
+shows how to compute a p-value without a distributional model.
+These notes follow chapter 13 of @james2021islr2e.

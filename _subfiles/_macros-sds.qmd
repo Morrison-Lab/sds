@@ -30,3 +30,4 @@
 \providecommand{\termvec}[1]{\v{t}_{#1}}
 \providecommand{\trainerr}{\overline{\operatorname{err}}}
 \providecommand{\arcoef}{\rho}
+\providecommand{\truenulls}{\mathcal{I}_0}

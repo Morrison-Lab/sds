@@ -1,0 +1,29 @@
+::: {#exm-fwer}
+#### FWER of unadjusted testing in the simulated family
+
+Repeat the simulation of @exm-rejection-counts 2000 times,
+rejecting every null hypothesis with $p_j \le 0.05$ each time,
+and record the fraction of repetitions with at least one false positive:
+
+```{r}
+#| label: fwer-unadjusted
+#| code-fold: false
+run_simulation <- function(reject_fn, reps = 2000) {
+  replicate(reps, {
+    sim <- simulate_tests()
+    count_outcomes(reject_fn(sim$p), sim$is_null)
+  })
+}
+
+set.seed(572)
+sim_counts <- list()
+sim_counts$unadjusted <- run_simulation(function(p) p <= 0.05)
+fwer_unadjusted <- mean(sim_counts$unadjusted["V", ] >= 1)
+fwer_unadjusted
+```
+
+The estimated FWER is `r round(fwer_unadjusted, 3)`:
+with 900 true null hypotheses,
+almost every repetition produces a false positive,
+as @thm-false-positive-prob predicts for tests that are independent.
+:::

@@ -1,0 +1,44 @@
+::: {#exr-holm-threshold}
+#### A rejected true null hypothesis has a small p-value under Holm's procedure
+
+Let $m$ null hypotheses have p-values, and let $\truenulls$ be the set of $m_0 \ge 1$ indices of the true null hypotheses.
+Show that if [Holm's procedure](#def-holm) at level $\siglevel$ rejects at least one true null hypothesis,
+then the smallest p-value among the true null hypotheses is at most $\siglevel / m_0$:
+
+$$\min_{j \in \truenulls} p_j \le \frac{\siglevel}{m_0}.$$
+
+:::
+
+{{< slidebreak >}}
+
+::: {#sol-holm-threshold}
+
+Order the p-values as in @def-holm,
+and let $r$ be the smallest rank held by a true null hypothesis,
+so that $p_{(r)} = \min_{j \in \truenulls} p_j$.
+
+1. Every hypothesis ranked before $r$ is false,
+   and there are $m - m_0$ false null hypotheses, so
+
+   $$r - 1 \le m - m_0.$$
+
+2. Adding $1 - r + m_0$ to both sides of the inequality in step 1 gives
+
+   $$m_0 \le m - r + 1.$$
+
+3. Holm's procedure rejects hypotheses in rank order, $H_{(1)}, \ldots, H_{(k^* - 1)}$.
+   A true null hypothesis has rank at least $r$,
+   so rejecting one means $k^* - 1 \ge r$, that is $k^* > r$.
+   Rank $r$ is therefore before the first failure, and
+
+   $$p_{(r)} \le \frac{\siglevel}{m - r + 1}.$$
+
+4. Step 2 gives $m - r + 1 \ge m_0$,
+   so $\siglevel / (m - r + 1) \le \siglevel / m_0$.
+   Combining this with step 3,
+
+   $$p_{(r)} \le \frac{\siglevel}{m_0}.$$
+
+Since $p_{(r)} = \min_{j \in \truenulls} p_j$, the claim follows.
+
+:::

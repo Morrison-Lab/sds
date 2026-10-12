@@ -1,0 +1,27 @@
+::: {#exm-false-positive-prob}
+#### False positives accumulate with the number of tests
+
+With $\siglevel = 0.05$,
+@thm-false-positive-prob gives the chance of at least one false positive
+among $m$ independent tests of true null hypotheses:
+
+```{r}
+#| label: false-positive-prob
+#| code-fold: false
+alpha <- 0.05
+m_values <- c(1, 5, 14, 20, 100, 2308)
+data.frame(
+  m = m_values,
+  prob_at_least_one = 1 - (1 - alpha)^m_values
+) |>
+  knitr::kable(
+    digits = 4,
+    col.names = c("Tests m", "Pr(at least one false positive)")
+  )
+```
+
+The chance first passes one half at `r ceiling(log(0.5) / log(1 - alpha))` tests.
+With 2308 tests, the number of genes in the Khan data,
+the chance of no false positive at all is `r format((1 - alpha)^2308, digits = 2)`,
+so a false positive is a near certainty.
+:::
