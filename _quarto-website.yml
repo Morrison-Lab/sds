@@ -64,6 +64,10 @@ website:
             href: classification.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
+          - text: "Permutation Tests"
+            href: permutation-tests.qmd
+          - text: "Multiple Testing"
+            href: multiple-testing.qmd
       - text: "Bayesian"
         menu:
           - text: "Bayesian Inference"
@@ -114,6 +118,10 @@ website:
             href: classification.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
+          - text: "Permutation Tests"
+            href: permutation-tests.qmd
+          - text: "Multiple Testing"
+            href: multiple-testing.qmd
       - section: "Bayesian"
         contents:
           - text: "Bayesian Inference"

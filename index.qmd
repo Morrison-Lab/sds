@@ -47,6 +47,13 @@ Methods:
   the chi-square test and Fisher's exact test;
 - [Correlation and simple linear regression](correlation-regression.qmd);
 - [The bootstrap](bootstrap.qmd);
+- [Permutation tests](permutation-tests.qmd):
+  exchangeability, the permutation distribution,
+  and exact and Monte Carlo permutation p-values;
+- [Multiple testing](multiple-testing.qmd):
+  the family-wise error rate, the false discovery rate,
+  the Bonferroni, Holm, and Benjamini--Hochberg procedures,
+  and adjusted p-values;
 - [Validating predictions](model-validation.qmd):
   overfitting, generalization error, training/validation/test splits,
   $k$-fold and leave-one-out cross-validation,
