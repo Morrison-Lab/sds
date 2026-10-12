@@ -50,7 +50,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/exploratory-descriptive/_def-population-distribution.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/exploratory-descriptive/_def-sample.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-random-sample.qmd >}}
 
 {{< slidebreak >}}
 
