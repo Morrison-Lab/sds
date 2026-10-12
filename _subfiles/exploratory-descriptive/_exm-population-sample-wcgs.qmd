@@ -1,0 +1,15 @@
+::: {#exm-population-sample-wcgs}
+#### Population and sample in the WCGS
+
+The WCGS recruited employed men aged 39 to 59 years in California.
+Take that group of men as the study's population (@def-population),
+so the population distribution of cholesterol is its distribution among those men.
+The `wcgs` data frame is the sample (@def-sample):
+it holds `r nrow(wcgs)` of the men in that population.
+The men volunteered, through 10 companies,
+so the sample is not a random sample of the population.
+Its mean cholesterol, `r round(mean(wcgs$chol, na.rm = TRUE), 1)` mg/dL,
+describes these `r nrow(wcgs)` men exactly,
+but it estimates the population mean well
+only to the extent that the volunteers resemble the rest of the population.
+:::

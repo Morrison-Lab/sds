@@ -1,0 +1,11 @@
+::: {#def-population}
+#### Population and population distribution
+
+A **population** is the entire collection of units
+(people, animals, objects, or events) that a study aims to learn about.
+The **population distribution** of a variable $X$ is its distribution
+across the units of the population:
+for a unit chosen at random from a finite population of $N$ units,
+
+$$\Pr(X \in A) \eqdef \frac{\text{number of units in the population with } X \in A}{N}.$$
+:::

@@ -1,0 +1,20 @@
+::: {#def-sample}
+#### Sample and random sample
+
+A **sample** of size $n$ is the data $\dsn{x}$
+observed on $n$ units drawn from a population (@def-population).
+A sample is a **random sample** when the units are chosen by a chance mechanism
+such that the observations are
+[independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid)
+draws from the population distribution:
+
+$$X_1, \ldots, X_n \iid F,$$
+
+where $F$ is the distribution function of the population distribution.
+:::
+
+::: {.remark .notes}
+Few real studies draw a perfectly random sample,
+so conclusions about the population rest on how well the sampling mechanism
+approximates one.
+:::
