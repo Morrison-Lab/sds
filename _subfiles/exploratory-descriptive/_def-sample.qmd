@@ -8,7 +8,7 @@ such that the observations are
 [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid)
 draws from the population distribution:
 
-$$X_1, \ldots, X_n \iid F,$$
+$$X_1, \ldots, X_n \iid\ F,$$
 
 where $F$ is the distribution function of the population distribution.
 :::
