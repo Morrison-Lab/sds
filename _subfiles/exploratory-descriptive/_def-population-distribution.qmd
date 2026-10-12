@@ -2,8 +2,9 @@
 #### Population distribution
 
 The **population distribution** of a variable $X$ is the distribution of $X$
-for a unit chosen at random from a population (@def-population):
-the probability that $X$ falls in a set $A$ is
+for a unit [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-sample-space)
+from a population (@def-population):
+the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that $X$ falls in a set $A$ is
 
 $$P(A) \eqdef \Pr(X \in A),$$
 
