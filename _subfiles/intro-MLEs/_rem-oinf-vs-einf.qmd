@@ -1,0 +1,7 @@
+::: {#rem-oinf-vs-einf}
+#### The observed information is the sample counterpart of the expected information
+
+The observed information matrix is the sample counterpart of the
+[expected information](#def-einf),
+which averages the same quantity over possible data sets.
+:::

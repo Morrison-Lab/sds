@@ -1,19 +1,12 @@
 ::: {#def-fdr}
 #### False discovery rate
 
-For a family of tests with $V$ false positives among $R$ rejections (@def-rejection-counts),
-the **false discovery proportion** (FDP) is the fraction of rejections that are false positives,
-counted as 0 when there are no rejections,
-and the **false discovery rate** (FDR) is its expected value:
+The **false discovery rate** (FDR) is the expected value of the
+[false discovery proportion](#def-fdp):
 
 $$
-\text{FDP} \eqdef \frac{V}{\max(R, 1)},
-\qquad
 \text{FDR} \eqdef \E{\text{FDP}}.
 $$
-
-A procedure **controls the FDR at level $q$** if $\text{FDR} \le q$
-for every possible set of true null hypotheses.
 
 ::: {.callout-note collapse="true"}
 #### Source

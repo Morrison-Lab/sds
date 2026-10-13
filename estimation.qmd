@@ -235,11 +235,23 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_exm-rmse-sample-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_rem-rmse-units.qmd >}}
+
+{{< slidebreak >}}
+
 ### Unbiased estimators {#sec-unbiased-estimators}
 
 <!-- No slidebreak here: the heading shares its slide with the def-unbiased div. -->
 
 {{< include sds/_subfiles/estimation/_def-unbiased.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_def-biased.qmd >}}
 
 {{< slidebreak >}}
 

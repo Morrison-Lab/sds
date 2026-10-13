@@ -1,0 +1,8 @@
+::: {#rem-ppp-value-estimate}
+#### Estimating and interpreting the posterior predictive p-value
+
+With simulations from a [posterior predictive check](#def-posterior-predictive-check),
+$p_B$ is estimated by the proportion of replicated values
+at least as large as the observed value.
+A value near 0 or 1 means the observed data are unusual under the model.
+:::

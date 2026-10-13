@@ -6,6 +6,4 @@ An estimator $\hparam$ is **unbiased** if its [bias](#def-bias) is zero:
 $$
 \bias{\hparam} = 0
 $$
-
-An estimator whose bias is not zero is **biased**.
 :::
