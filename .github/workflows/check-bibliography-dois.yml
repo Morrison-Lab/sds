@@ -20,7 +20,7 @@ jobs:
   check-dois:
     permissions:
       contents: read
-    uses: Morrison-Lab/gha/.github/workflows/check-bibliography-dois.yml@v2
+    uses: Morrison-Lab/gha/.github/workflows/check-bibliography-dois.yml@v3
     with:
       # Book/article entries copied from rme's references.bib without a DOI
       # (older or non-DOI'd books, a web textbook, and an eScholarship paper),
