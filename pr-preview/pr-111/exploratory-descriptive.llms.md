@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 15:52:53 (PDT)
+Last modified: 2026-10-12 17:29:49 (PDT)
 
 ## 1 Introduction
 
@@ -161,17 +161,17 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 2 (Population distribution)** The **population distribution** of a variable \\X\\ is the distribution of \\X\\ for a unit [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) from a population ([Definition 1](#def-population)): the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that \\X\\ falls in a set \\A\\ is
 >
-> \\P(A) \stackrel{\text{def}}{=}\Pr(X \in A),\\
+> \\\operatorname{P}\mathopen{}\left(A\right)\mathclose{} \stackrel{\text{def}}{=}\Pr(X \in A),\\
 >
 > where the probability refers to the random choice of the unit.
 
 > **NOTE:**
 >
-> *Remark*. A population may be finite or infinite. For a finite population of \\N\\ units, the random choice gives each unit probability \\1/N\\, so
+> *Remark*. A population may be finite or infinite. For a finite population \\U\\ of \\N\\ units, with \\X(u)\\ the value of \\X\\ for unit \\u\\, the random choice gives each unit probability \\1/N\\, so
 >
-> \\P(A) = \frac{\text{number of units in the population with } X \in A}{N}.\\
+> \\\operatorname{P}\mathopen{}\left(A\right)\mathclose{} = \frac{\mathopen{}\left\|\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}\right\|\mathclose{}}{N}.\\
 >
-> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\F(t) = P\mathopen{}\left((-\infty, t\]\right)\mathclose{}\\ or, when it has one, by its probability mass or density function.
+> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\\operatorname{F}\mathopen{}\left(t\right)\mathclose{} = \operatorname{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}\\ or, when it has one, by its probability mass or density function.
 
 > **NOTE:**
 >
@@ -181,9 +181,9 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)):
 >
-> \\X_1, \ldots, X_n \operatorname{iid}\\ P,\\
+> \\X_1, \ldots, X_n \operatorname{iid}\\ \operatorname{P},\\
 >
-> where \\P\\ is the population distribution.
+> where \\\operatorname{P}\\ is the population distribution.
 
 > **NOTE:**
 >
