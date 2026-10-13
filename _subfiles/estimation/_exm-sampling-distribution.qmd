@@ -1,0 +1,17 @@
+::: {#exm-sampling-distribution}
+#### Sampling distribution of a sample mean
+
+Suppose student heights are $X_i \siid \ndist{\mean, \varpar}$
+with standard deviation $\sdpar = 10$ cm,
+and we sample $n = 25$ students.
+The sample mean $\bar X$ is a linear combination of independent Gaussian variables,
+so it is also Gaussian,
+with mean $\E{\bar X} = \mean$ and variance $\Var{\bar X} = \varpar / n$.
+Its sampling distribution is therefore
+
+$$\bar X \sim \ndist{\mean, \varpar / 25},$$
+
+which has standard deviation $\sdpar / \sqrt{25} = 10 / 5 = 2$ cm.
+Across repeated samples of 25 students,
+about 95% of the sample means land within $2 \times 2 = 4$ cm of the true mean $\mean$.
+:::

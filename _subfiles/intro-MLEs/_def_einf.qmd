@@ -5,10 +5,14 @@ The **expected information matrix**,
 also called the **Fisher information matrix**
 or just the **information matrix**,
 is written $\einf$,
-and is the expected value of the
-[observed information matrix](#def-oinf),
+and is the expected value of the negative
+[Hessian](#def-hessian) of the log-likelihood,
 with the data $\vX$ treated as random:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_einf.qmd >}}
+
+It is a function of the parameter alone,
+so it is the quantity that the
+[observed information](#def-oinf) estimates from one data set.
 
 :::

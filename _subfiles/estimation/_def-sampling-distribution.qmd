@@ -1,0 +1,9 @@
+::: {#def-sampling-distribution}
+#### Sampling distribution
+
+The **sampling distribution** of an [estimator](#def-estimator) $\hparam$
+is the probability distribution of $\hparam(\dsn{X})$
+over repeated random samples $\dsn{X}$ from the same population:
+the distribution of the values the estimator would take
+across all the samples we might have drawn.
+:::

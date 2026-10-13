@@ -1,5 +1,5 @@
 The bootstrap [@efron1979bootstrap; @efron1993introduction]
-estimates the sampling distribution of a statistic
+estimates the [sampling distribution](estimation.qmd#def-sampling-distribution) of a statistic
 by resampling the observed data.
 It gives standard errors and confidence intervals
 in three situations where the usual formulas fall short
