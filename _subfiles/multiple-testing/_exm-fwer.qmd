@@ -10,7 +10,9 @@ and record the fraction of repetitions with at least one false positive:
 #| code-fold: false
 run_simulation <- function(reject_fn, reps = 2000) {
   replicate(reps, {
+    # nolint next: object_usage_linter.
     sim <- simulate_tests()
+    # nolint next: object_usage_linter.
     count_outcomes(reject_fn(sim$p), sim$is_null)
   })
 }
