@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-12 20:54:41 (PDT)</p>
+  <p class="date">Last modified: 2026-10-12 22:10:07 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -408,11 +408,30 @@ g\mathopen{}\left(x; \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\ri
 \hat y: x \mapsto g\mathopen{}\left(x; \mathcal{T}\right)\mathclose{}.
 \tag{3}\]</span></span></p>
 </div>
+</section><section class="slide level2"><div id="def-generalization-error" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Generalization error)</strong></span> The <strong>generalization error</strong> of a <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span> is its expected squared <a href="./estimation.html#def-prediction-error">prediction error</a> on a new observation <span class="math inline">\((X_0, Y_0)\)</span> drawn from the same population independently of <span class="math inline">\(\mathcal{T}\)</span>, with <span class="math inline">\(\mathcal{T}\)</span> held fixed:</p>
+<p><span id="eq-generalization-error"><span class="math display">\[
+\operatorname{Err}_{\mathcal{T}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{T}\right]\mathclose{}.
+\tag{4}\]</span></span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Source</strong></p>
+</div>
+<div class="callout-content">
+<p>The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span>.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section class="slide level2"><div id="def-held-out-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Held-out set)</strong></span> A <strong>held-out set</strong> for a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span> is a list of <span class="math inline">\(m\)</span> further observations, none of them in <span class="math inline">\(\mathcal{T}\)</span>, that the <a href="#/def-fitting-procedure">fitting procedure</a> does not use and on which the <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is scored:</p>
+<p><span class="theorem-title"><strong>Definition 5 (Held-out set)</strong></span> A <strong>held-out set</strong> for a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span> is a list of <span class="math inline">\(m\)</span> further observations, none of them in <span class="math inline">\(\mathcal{T}\)</span>, that the <a href="#/def-fitting-procedure">fitting procedure</a> does not use and on which the <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is scored:</p>
 <p><span id="eq-held-out-set"><span class="math display">\[
 \mathopen{}\left((x_{0,1}, y_{0,1}), \ldots, (x_{0,m}, y_{0,m})\right)\mathclose{}.
-\tag{4}\]</span></span></p>
+\tag{5}\]</span></span></p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -428,16 +447,16 @@ g\mathopen{}\left(x; \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\ri
 </div>
 </div>
 </section><section class="slide level2"><div id="def-prediction-rmse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Root mean squared error of predictions)</strong></span> The <strong>root mean squared error</strong> (RMSE) of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the square root of their <a href="./estimation.html#def-prediction-mse">mean squared error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 6 (Root mean squared error of predictions)</strong></span> The <strong>root mean squared error</strong> (RMSE) of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the square root of their <a href="./estimation.html#def-prediction-mse">mean squared error</a>:</p>
 <p><span id="eq-prediction-rmse"><span class="math display">\[
 \operatorname{RMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}}.
-\tag{5}\]</span></span></p>
+\tag{6}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="def-training-mse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Training error)</strong></span> The <strong>training error</strong> of a <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span> is the <a href="./estimation.html#def-prediction-mse">mean squared error</a> of its <a href="./estimation.html#def-fitted-value">fitted values</a> <span class="math inline">\(\hat y_i\)</span>, <span class="math inline">\(i \in I\)</span>, as predictions of the training outcomes <span class="math inline">\(y_i\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 7 (Training error)</strong></span> The <strong>training error</strong> of a <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span> is the <a href="./estimation.html#def-prediction-mse">mean squared error</a> of its <a href="./estimation.html#def-fitted-value">fitted values</a> <span class="math inline">\(\hat y_i\)</span>, <span class="math inline">\(i \in I\)</span>, as predictions of the training outcomes <span class="math inline">\(y_i\)</span>:</p>
 <p><span id="eq-training-mse"><span class="math display">\[
 \overline{\operatorname{err}}\stackrel{\text{def}}{=}\frac{1}{n} \sum_{i \in I} \mathopen{}\left(\hat y_i - y_i\right)^2\mathclose{}.
-\tag{6}\]</span></span></p>
+\tag{7}\]</span></span></p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -518,7 +537,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\ri
 </ol>
 </div>
 </section><section class="slide level2"><div id="def-overfitting" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Overfitting)</strong></span> <strong>Overfitting</strong> occurs when a <a href="#/def-prediction-rule">prediction rule</a> fits its <a href="#/def-training-set">training set</a> well but predicts poorly for new observations.</p>
+<p><span class="theorem-title"><strong>Definition 8 (Overfitting)</strong></span> <strong>Overfitting</strong> occurs when a <a href="#/def-prediction-rule">prediction rule</a> fits its <a href="#/def-training-set">training set</a> well but predicts poorly for new observations.</p>
 </div>
 </section><section class="slide level2"><div id="exm-overfitting-polynomial-cars" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Overfitting in polynomial fits to cars)</strong></span> In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, the terms beyond degree 2 fit the 20 training cars more closely but do not predict the 12 held-out cars better. The effect is small here: it is the beginning of overfitting, not a dramatic case.</p>
@@ -543,25 +562,6 @@ g\mathopen{}\left(x; \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\ri
 <li><p>The rule <span class="math inline">\(\hat y\)</span> is known, because we fitted it. The joint distribution of <span class="math inline">\((X_0, Y_0)\)</span> is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to build a prediction rule.</p></li>
 <li><p>The training error <span class="math inline">\(\overline{\operatorname{err}}\)</span> replaces the expectation over new cars with an average over the <span class="math inline">\(n\)</span> training cars. Those cars are draws from the same population, but they are not independent of <span class="math inline">\(\mathcal{T}\)</span>: they <em>are</em> <span class="math inline">\(\mathcal{T}\)</span>, and <span class="math inline">\(\hat y\)</span> was chosen to fit them.</p></li>
 </ol>
-</div>
-</section><section class="slide level2"><div id="def-generalization-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Generalization error)</strong></span> The <strong>generalization error</strong> of a <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span> is its expected squared <a href="./estimation.html#def-prediction-error">prediction error</a> on a new observation <span class="math inline">\((X_0, Y_0)\)</span> drawn from the same population independently of <span class="math inline">\(\mathcal{T}\)</span>, with <span class="math inline">\(\mathcal{T}\)</span> held fixed:</p>
-<p><span id="eq-generalization-error"><span class="math display">\[
-\operatorname{Err}_{\mathcal{T}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{T}\right]\mathclose{}.
-\tag{7}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span>.</p>
-</div>
-</div>
-</div>
 </div>
 </section><section class="slide level2"><div id="def-expected-generalization-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Expected generalization error)</strong></span> The <strong>expected generalization error</strong> of a <a href="#/def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the mean, over <a href="#/def-training-set">training sets</a> <span class="math inline">\(\mathcal{T}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently from the population, of the <a href="#/def-generalization-error">generalization error</a> of the <a href="#/def-prediction-rule">prediction rule</a> that <span class="math inline">\(g\)</span> produces from <span class="math inline">\(\mathcal{T}\)</span>:</p>
@@ -639,7 +639,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\ri
 &amp;&amp; \text{(definition)}
 \end{aligned}
 \]</span></p>
-<p>The steps labeled “definition” apply <a href="#/eq-expected-generalization-error" class="quarto-xref">Equation&nbsp;8</a>, <a href="#/eq-generalization-error" class="quarto-xref">Equation&nbsp;7</a> and <a href="#/eq-epe" class="quarto-xref">Equation&nbsp;10</a>, in that order, and the step labeled “prediction rule” applies <a href="#/eq-prediction-rule" class="quarto-xref">Equation&nbsp;3</a>, <span class="math inline">\(\hat y(X_0) = g\mathopen{}\left(X_0; \mathcal{T}\right)\mathclose{}\)</span>. The two steps labeled “iterated expectations” use the <a href="https://morrison-lab.github.io/pds/expectation.html#thm-lie">law of iterated expectations</a>, the first conditioning on <span class="math inline">\(\mathcal{T}\)</span> and the second on <span class="math inline">\(X_0\)</span>. The last line needs <span class="math inline">\(\mathcal{T}\)</span> to be independent of <span class="math inline">\((X_0, Y_0)\)</span>: then, given <span class="math inline">\(X_0 = x\)</span>, <span class="math inline">\(\mathcal{T}\)</span> still has its unconditional distribution, as <a href="#/def-epe" class="quarto-xref">Definition&nbsp;11</a> requires.</p>
+<p>The steps labeled “definition” apply <a href="#/eq-expected-generalization-error" class="quarto-xref">Equation&nbsp;8</a>, <a href="#/eq-generalization-error" class="quarto-xref">Equation&nbsp;4</a> and <a href="#/eq-epe" class="quarto-xref">Equation&nbsp;10</a>, in that order, and the step labeled “prediction rule” applies <a href="#/eq-prediction-rule" class="quarto-xref">Equation&nbsp;3</a>, <span class="math inline">\(\hat y(X_0) = g\mathopen{}\left(X_0; \mathcal{T}\right)\mathclose{}\)</span>. The two steps labeled “iterated expectations” use the <a href="https://morrison-lab.github.io/pds/expectation.html#thm-lie">law of iterated expectations</a>, the first conditioning on <span class="math inline">\(\mathcal{T}\)</span> and the second on <span class="math inline">\(X_0\)</span>. The last line needs <span class="math inline">\(\mathcal{T}\)</span> to be independent of <span class="math inline">\((X_0, Y_0)\)</span>: then, given <span class="math inline">\(X_0 = x\)</span>, <span class="math inline">\(\mathcal{T}\)</span> still has its unconditional distribution, as <a href="#/def-epe" class="quarto-xref">Definition&nbsp;11</a> requires.</p>
 </div>
 </section><section class="slide level2"><div id="thm-expected-error-epe" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (The expected generalization error averages the error at each covariate value)</strong></span> If the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span> is independent of the new observation <span class="math inline">\((X_0, Y_0)\)</span>, the <a href="#/def-expected-generalization-error">expected generalization error</a> of a <a href="#/def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> is the mean of its <a href="#/def-epe">expected squared prediction error at <span class="math inline">\(x\)</span></a> over the distribution of <span class="math inline">\(X_0\)</span>:</p>
@@ -717,7 +717,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\ri
 <p><span class="proof-title"><em>Remark 4</em> (Coefficients per observation). </span>Adding coefficients to a least-squares fit makes it <a href="#/def-flexibility">at least as flexible</a> as before. With few observations per coefficient, the variance this adds can outweigh the squared bias it removes, which is the overfitting side of <a href="#/rem-overfitting-tradeoff" class="quarto-xref">Remark&nbsp;3</a>. In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, each added power of <code>wt</code>, like an added predictor, is one more coefficient fitted to the same 20 cars: the degree-4 fit has five coefficients for those 20 cars.</p>
 </div>
 </section><section class="slide level2"><div id="exr-held-out-unbiased" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (A held-out set estimates the generalization error)</strong></span> A <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span>. A <a href="#/def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{0,1}, Y_{0,1}), \ldots, (X_{0,m}, Y_{0,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_0, Y_0)\)</span> of <a href="#/def-generalization-error" class="quarto-xref">Definition&nbsp;8</a>, each independently of <span class="math inline">\(\mathcal{T}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 4 (A held-out set estimates the generalization error)</strong></span> A <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{T}\)</span>. A <a href="#/def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{0,1}, Y_{0,1}), \ldots, (X_{0,m}, Y_{0,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_0, Y_0)\)</span> of <a href="#/def-generalization-error" class="quarto-xref">Definition&nbsp;4</a>, each independently of <span class="math inline">\(\mathcal{T}\)</span>.</p>
 <p>Show that, given <span class="math inline">\(\mathcal{T}\)</span>, the expected <a href="./estimation.html#def-prediction-mse">mean squared error</a> of the held-out predictions is <span class="math inline">\(\operatorname{Err}_{\mathcal{T}}\)</span>:</p>
 <p><span class="math display">\[
 \operatorname{E}\mathopen{}\left[\frac{1}{m} \sum_{j=1}^{m} \mathopen{}\left(\hat y(X_{0,j}) - Y_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right]\mathclose{}
@@ -725,7 +725,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\ri
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="sol-held-out-unbiased" class="proof solution">
-<p><span class="proof-title"><em>Solution 4</em>. </span>Given <span class="math inline">\(\mathcal{T}\)</span>, the rule <span class="math inline">\(\hat y\)</span> is fixed. Each held-out pair has the same distribution as <span class="math inline">\((X_0, Y_0)\)</span> and is independent of <span class="math inline">\(\mathcal{T}\)</span>, so each squared prediction error has conditional expectation <span class="math inline">\(\operatorname{E}\mathopen{}\left[\mathopen{}\left(\hat y(X_{0,j}) - Y_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right]\mathclose{} = \operatorname{Err}_{\mathcal{T}}\)</span> by <a href="#/eq-generalization-error" class="quarto-xref">Equation&nbsp;7</a>. Then</p>
+<p><span class="proof-title"><em>Solution 4</em>. </span>Given <span class="math inline">\(\mathcal{T}\)</span>, the rule <span class="math inline">\(\hat y\)</span> is fixed. Each held-out pair has the same distribution as <span class="math inline">\((X_0, Y_0)\)</span> and is independent of <span class="math inline">\(\mathcal{T}\)</span>, so each squared prediction error has conditional expectation <span class="math inline">\(\operatorname{E}\mathopen{}\left[\mathopen{}\left(\hat y(X_{0,j}) - Y_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right]\mathclose{} = \operatorname{Err}_{\mathcal{T}}\)</span> by <a href="#/eq-generalization-error" class="quarto-xref">Equation&nbsp;4</a>. Then</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp; \operatorname{E}\mathopen{}\left[\frac{1}{m} \sum_{j=1}^{m} \mathopen{}\left(\hat y(X_{0,j}) - Y_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right]\mathclose{}
@@ -2047,7 +2047,7 @@ Figure&nbsp;7: 10-fold cross-validation estimates, with bars of one <a href="#/d
 </ol>
 <p>Answer the following:</p>
 <ol type="1">
-<li>What is the smallest possible generalization error (<a href="#/eq-generalization-error" class="quarto-xref">Equation&nbsp;7</a>) of any prediction rule for <span class="math inline">\(Y\)</span> here?</li>
+<li>What is the smallest possible generalization error (<a href="#/eq-generalization-error" class="quarto-xref">Equation&nbsp;4</a>) of any prediction rule for <span class="math inline">\(Y\)</span> here?</li>
 <li>Simulate the analyst’s procedure. What cross-validation estimate does it report?</li>
 <li>Repeat the simulation, but carry out step 1 inside each fold, using only that fold’s training observations. What estimate does this give?</li>
 </ol>

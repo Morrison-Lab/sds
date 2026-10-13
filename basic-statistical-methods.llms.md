@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 20:54:41 (PDT)
+Last modified: 2026-10-12 22:10:07 (PDT)
 
 ## 1 Introduction
 
@@ -285,6 +285,8 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > **Definition 4 (Pooled variance)** For two samples of sizes \\n_1\\ and \\n_2\\ with sample variances \\s_1^2\\ and \\s_2^2\\, the **pooled variance** is
 >
 > \\s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}.\\
+>
+> When the two populations share one variance \\\sigma^2\\, the pooled variance estimates it.
 
 > **NOTE:**
 >
@@ -380,7 +382,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 9 (Mean squares)** In one-way analysis of variance, the **mean squares** are the sums of squares divided by their degrees of freedom: \\\text{MS}\_\text{between} \stackrel{\text{def}}{=}\text{SS}\_\text{between} / (k - 1)\\ and \\\text{MS}\_\text{within} \stackrel{\text{def}}{=}\text{SS}\_\text{within} / (n - k)\\.
+> **Definition 9 (Mean squares)** In one-way analysis of variance, the **mean squares** are the sums of squares divided by their degrees of freedom: \\\text{MS}\_\text{between} \stackrel{\text{def}}{=}\text{SS}\_\text{between} / (k - 1)\\ and \\\text{MS}\_\text{within} \stackrel{\text{def}}{=}\text{SS}\_\text{within} / (n - k)\\. When the \\k\\ groups share one variance \\\sigma^2\\, \\\text{MS}\_\text{within}\\ estimates it.
 
 > **NOTE:**
 >

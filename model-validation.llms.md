@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 20:54:41 (PDT)
+Last modified: 2026-10-12 22:10:07 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -46,9 +46,19 @@ Last modified: 2026-10-12 20:54:41 (PDT)
 
 > **NOTE:**
 >
-> **Definition 4 (Held-out set)** A **held-out set** for a [training set](#def-training-set) \\\mathcal{T}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{T}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [prediction rule](#def-prediction-rule) \\\hat y\\ is scored:
+> **Definition 4 (Generalization error)** The **generalization error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{T}\\ is its expected squared [prediction error](estimation.llms.md#def-prediction-error) on a new observation \\(X_0, Y_0)\\ drawn from the same population independently of \\\mathcal{T}\\, with \\\mathcal{T}\\ held fixed:
 >
-> \\ \mathopen{}\left((x\_{0,1}, y\_{0,1}), \ldots, (x\_{0,m}, y\_{0,m})\right)\mathclose{}. \tag{4}\\
+> \\ \operatorname{Err}\_{\mathcal{T}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{}. \tag{4}\\
+>
+> > **NOTE:**
+> >
+> > The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)).
+
+> **NOTE:**
+>
+> **Definition 5 (Held-out set)** A **held-out set** for a [training set](#def-training-set) \\\mathcal{T}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{T}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [prediction rule](#def-prediction-rule) \\\hat y\\ is scored:
+>
+> \\ \mathopen{}\left((x\_{0,1}, y\_{0,1}), \ldots, (x\_{0,m}, y\_{0,m})\right)\mathclose{}. \tag{5}\\
 >
 > > **NOTE:**
 > >
@@ -56,15 +66,15 @@ Last modified: 2026-10-12 20:54:41 (PDT)
 
 > **NOTE:**
 >
-> **Definition 5 (Root mean squared error of predictions)** The **root mean squared error** (RMSE) of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the square root of their [mean squared error](estimation.llms.md#def-prediction-mse):
+> **Definition 6 (Root mean squared error of predictions)** The **root mean squared error** (RMSE) of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the square root of their [mean squared error](estimation.llms.md#def-prediction-mse):
 >
-> \\ \operatorname{RMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}}. \tag{5}\\
+> \\ \operatorname{RMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}}. \tag{6}\\
 
 > **NOTE:**
 >
-> **Definition 6 (Training error)** The **training error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{T}\\ is the [mean squared error](estimation.llms.md#def-prediction-mse) of its [fitted values](estimation.llms.md#def-fitted-value) \\\hat y_i\\, \\i \in I\\, as predictions of the training outcomes \\y_i\\:
+> **Definition 7 (Training error)** The **training error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{T}\\ is the [mean squared error](estimation.llms.md#def-prediction-mse) of its [fitted values](estimation.llms.md#def-fitted-value) \\\hat y_i\\, \\i \in I\\, as predictions of the training outcomes \\y_i\\:
 >
-> \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i \in I} \mathopen{}\left(\hat y_i - y_i\right)^2\mathclose{}. \tag{6}\\
+> \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i \in I} \mathopen{}\left(\hat y_i - y_i\right)^2\mathclose{}. \tag{7}\\
 >
 > > **NOTE:**
 > >
@@ -135,7 +145,7 @@ Last modified: 2026-10-12 20:54:41 (PDT)
 
 > **NOTE:**
 >
-> **Definition 7 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-prediction-rule) fits its [training set](#def-training-set) well but predicts poorly for new observations.
+> **Definition 8 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-prediction-rule) fits its [training set](#def-training-set) well but predicts poorly for new observations.
 
 > **NOTE:**
 >
@@ -162,16 +172,6 @@ Last modified: 2026-10-12 20:54:41 (PDT)
 > 2.  The rule \\\hat y\\ is known, because we fitted it. The joint distribution of \\(X_0, Y_0)\\ is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to build a prediction rule.
 >
 > 3.  The training error \\\overline{\operatorname{err}}\\ replaces the expectation over new cars with an average over the \\n\\ training cars. Those cars are draws from the same population, but they are not independent of \\\mathcal{T}\\: they *are* \\\mathcal{T}\\, and \\\hat y\\ was chosen to fit them.
-
-> **NOTE:**
->
-> **Definition 8 (Generalization error)** The **generalization error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{T}\\ is its expected squared [prediction error](estimation.llms.md#def-prediction-error) on a new observation \\(X_0, Y_0)\\ drawn from the same population independently of \\\mathcal{T}\\, with \\\mathcal{T}\\ held fixed:
->
-> \\ \operatorname{Err}\_{\mathcal{T}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{}. \tag{7}\\
->
-> > **NOTE:**
-> >
-> > The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)).
 
 > **NOTE:**
 >
@@ -209,7 +209,7 @@ Last modified: 2026-10-12 20:54:41 (PDT)
 >
 > *Solution 3*. \\ \begin{aligned} & \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{T}}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X_0; \mathcal{T}\right)\mathclose{} - Y_0\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{}\right\]\mathclose{} && \text{(prediction rule)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X_0; \mathcal{T}\right)\mathclose{} - Y_0\right)^2\mathclose{}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X_0; \mathcal{T}\right)\mathclose{} - Y_0\right)^2\mathclose{} \mid X_0\right\]\mathclose{}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X_0\right)\mathclose{}\right\]\mathclose{} && \text{(definition)} \end{aligned} \\
 >
-> The steps labeled “definition” apply [Equation 8](#eq-expected-generalization-error), [Equation 7](#eq-generalization-error) and [Equation 10](#eq-epe), in that order, and the step labeled “prediction rule” applies [Equation 3](#eq-prediction-rule), \\\hat y(X_0) = g\mathopen{}\left(X_0; \mathcal{T}\right)\mathclose{}\\. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{T}\\ and the second on \\X_0\\. The last line needs \\\mathcal{T}\\ to be independent of \\(X_0, Y_0)\\: then, given \\X_0 = x\\, \\\mathcal{T}\\ still has its unconditional distribution, as [Definition 11](#def-epe) requires.
+> The steps labeled “definition” apply [Equation 8](#eq-expected-generalization-error), [Equation 4](#eq-generalization-error) and [Equation 10](#eq-epe), in that order, and the step labeled “prediction rule” applies [Equation 3](#eq-prediction-rule), \\\hat y(X_0) = g\mathopen{}\left(X_0; \mathcal{T}\right)\mathclose{}\\. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{T}\\ and the second on \\X_0\\. The last line needs \\\mathcal{T}\\ to be independent of \\(X_0, Y_0)\\: then, given \\X_0 = x\\, \\\mathcal{T}\\ still has its unconditional distribution, as [Definition 11](#def-epe) requires.
 
 > **NOTE:**
 >
@@ -271,7 +271,7 @@ Last modified: 2026-10-12 20:54:41 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 4 (A held-out set estimates the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{T}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{0,1}, Y\_{0,1}), \ldots, (X\_{0,m}, Y\_{0,m})\\ is drawn from the same population as the new observation \\(X_0, Y_0)\\ of [Definition 8](#def-generalization-error), each independently of \\\mathcal{T}\\.
+> **Exercise 4 (A held-out set estimates the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{T}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{0,1}, Y\_{0,1}), \ldots, (X\_{0,m}, Y\_{0,m})\\ is drawn from the same population as the new observation \\(X_0, Y_0)\\ of [Definition 4](#def-generalization-error), each independently of \\\mathcal{T}\\.
 >
 > Show that, given \\\mathcal{T}\\, the expected [mean squared error](estimation.llms.md#def-prediction-mse) of the held-out predictions is \\\operatorname{Err}\_{\mathcal{T}}\\:
 >
@@ -279,7 +279,7 @@ Last modified: 2026-10-12 20:54:41 (PDT)
 
 > **NOTE:**
 >
-> *Solution 4*. Given \\\mathcal{T}\\, the rule \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X_0, Y_0)\\ and is independent of \\\mathcal{T}\\, so each squared prediction error has conditional expectation \\\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{T}}\\ by [Equation 7](#eq-generalization-error). Then
+> *Solution 4*. Given \\\mathcal{T}\\, the rule \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X_0, Y_0)\\ and is independent of \\\mathcal{T}\\, so each squared prediction error has conditional expectation \\\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{T}}\\ by [Equation 4](#eq-generalization-error). Then
 >
 > \\ \begin{aligned} & \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} \\ &\quad = \frac{1}{m} \operatorname{E}\mathopen{}\left\[\sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} && \text{(constant } 1/m \text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{T}\right\]\mathclose{} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{T}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m \\ \operatorname{Err}\_{\mathcal{T}}\right)\mathclose{} && \text{(} m \text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{T}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{T}} && (\tfrac{1}{m} \cdot m = 1) \\ &\quad = \operatorname{Err}\_{\mathcal{T}} && (1 \cdot b = b) \end{aligned} \\
 >
@@ -1300,7 +1300,7 @@ Last modified: 2026-10-12 20:54:41 (PDT)
 >
 > Answer the following:
 >
-> 1.  What is the smallest possible generalization error ([Equation 7](#eq-generalization-error)) of any prediction rule for \\Y\\ here?
+> 1.  What is the smallest possible generalization error ([Equation 4](#eq-generalization-error)) of any prediction rule for \\Y\\ here?
 > 2.  Simulate the analyst’s procedure. What cross-validation estimate does it report?
 > 3.  Repeat the simulation, but carry out step 1 inside each fold, using only that fold’s training observations. What estimate does this give?
 >

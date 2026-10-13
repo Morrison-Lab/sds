@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 20:54:41 (PDT)
+Last modified: 2026-10-12 22:10:07 (PDT)
 
 ## 1 Introduction
 
@@ -517,7 +517,7 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 >
 > \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i - \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i - \bar{y})^2}}\\
 >
-> It is defined when neither variable is constant, so that both sums of squares are positive.
+> It is a sample estimate of the [population correlation](correlation-regression.llms.md#def-population-correlation). It is defined when neither variable is constant, so that both sums of squares are positive.
 
 > **NOTE:**
 >
