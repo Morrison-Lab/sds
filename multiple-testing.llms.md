@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 00:51:10 (PDT)
+Last modified: 2026-10-13 16:43:17 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -782,6 +782,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 - Chapter 13 of James et al. ([2021](#ref-james2021islr2e)) covers the same procedures, with labs.
 - Chapter 15 of Efron and Hastie ([2016](#ref-efron2016computer)) treats large-scale testing and the false discovery rate.
+- Andrew Lin’s [notes on Stanford STATS 300C](https://web.stanford.edu/~lindrew/stats300C.pdf) (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.
 - The [permutation tests](permutation-tests.llms.md) page computes valid p-values by relabeling the data, without a distributional model for the test statistic.
 
 Back to top

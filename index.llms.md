@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 00:51:10 (PDT)
+Last modified: 2026-10-13 16:43:17 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -40,6 +40,15 @@ Bayesian:
 - [Bayesian inference](bayesian-inference.llms.md): the Bayesian paradigm, priors, posteriors, and hierarchical models;
 - [Markov chain Monte Carlo](mcmc.llms.md): Monte Carlo integration, the Metropolis–Hastings and Gibbs samplers, convergence diagnostics, and the deviance information criterion;
 - [Fitting models by Bayesian inference with JAGS](bayesian-examples.llms.md): a proportion, logistic regression, survival, random effects, and Bayesian model averaging.
+
+## Comparable courses
+
+Stanford’s statistics department posts the materials of several courses that cover the same inference topics at a more mathematical level:
+
+- **STATS 200**, [*Introduction to Statistical Inference*](https://web.stanford.edu/class/archive/stats/stats200/stats200.1172/lectures.html) (Zhou Fan, Autumn 2016): 29 lecture PDFs on testing, maximum likelihood, the bootstrap, Bayesian analysis and regression, following Rice’s *Mathematical Statistics and Data Analysis*.
+- **STATS 300A**, [*Theory of Statistics*](https://web.stanford.edu/class/stats300a/) (Andrea Montanari, Autumn 2018; see also [Lester Mackey’s 2015 scribed notes](https://web.stanford.edu/~lmackey/stats300a/)): finite-sample optimality, exponential families, and testing theory.
+- **STATS 300B**, [*Theory of Statistics II*](https://web.stanford.edu/class/stats300b/lectures.html) (John Duchi, Winter 2021): slides on asymptotic statistics and concentration.
+- **STATS 305B**, [*Methods for Applied Statistics*](https://web.stanford.edu/class/stats305b/) (Jonathan Taylor): contingency tables, logistic regression and generalized linear models.
 
 ## 2 Origin
 
