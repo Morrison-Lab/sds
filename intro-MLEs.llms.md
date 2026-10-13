@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 20:28:22 (PDT)
+Last modified: 2026-10-12 20:39:40 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -120,6 +120,10 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 > **NOTE:**
 >
 > **Example 2 (MLE for one Bernoulli observation)** In [Example 1](#exm-lik-obs), the likelihood of the observation \\x = 1\\ is \\\mathcal{L}(\pi) = \pi\\ for \\\pi\in \[0, 1\]\\. This function is increasing, so it is maximized at the upper edge of the parameter space: \\\hat{\pi}\_{\text{ML}} = 1\\.
+
+> **NOTE:**
+>
+> 5MinuteAI explains [maximum likelihood estimation](https://www.youtube.com/watch?v=Pa-GWE5JuH4) and works [examples](https://www.youtube.com/watch?v=w3a08digzfw) in five minutes each, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
 
 ### 1.3 Finding the maximum of a function
 
@@ -2181,6 +2185,8 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 > Note: the exponential distribution has \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \mu^2\\, so \\\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{} = \mu/\sqrt{n}\\, which is estimated by \\\bar{x}/\sqrt{n}\\. More generally, the standard error of a sample mean is \\\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}/\sqrt{n}\\; here that reduces to \\\mu/\sqrt{n}\\ because \\\operatorname{SD}\mathopen{}\left(X\right)\mathclose{} = \mu\\ for the exponential distribution.
 
 ## References
+
+5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
 
 Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
 
