@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/cookie-consent/cookie-consent.js"></script>
+<link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+<title>Statistics for Data Science – Permutation Tests</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+<link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+<style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+<link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-3a7eae3b872f08785a56513611f0329a.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLDZY2T3JF"></script><script type="text/plain" cookie-consent="tracking">
+
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-VLDZY2T3JF', { 'anonymize_ip': true});
+  </script><script type="text/javascript" charset="UTF-8">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+    "notice_banner_type":"simple",
+    "consent_type":"implied",
+    "palette":"light",
+    "language":"en",
+    "page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],
+    "notice_banner_reject_button_hide":false,
+    "preferences_center_close_button_hide":false,
+    "website_name":""
+    ,
+  "language":"en"
+    });
+  });
+  </script><link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+<link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+<style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<!--
+    Colour-theme dropdown for the qwt revealjs format: Light, Off-white,
+    Parchment, Dark. Pulled into every slide deck via the `include-in-header`
+    entry in the `revealjs:` block of `_quarto-website.yml`. Pairs with
+    `styles-reveal.scss`, which defines the palette CSS variables; the select
+    reads those vars so it stays legible in every palette. Light is the
+    default variable set, Off-white and Parchment are a data-palette attribute
+    on <html>, and Dark is the body.qwt-dark class. The choice is saved under
+    "mln-theme", the key the website's theme dropdown (theme-picker.html) uses,
+    so it carries across the site and the decks. First-time visitors get
+    Dark if their system prefers it, and Off-white otherwise.
+  --><style>
+    #qwt-theme-select {
+      position: fixed;
+      bottom: 8px;
+      left: 8px;
+      /* Matches reveal.js's `.slide-number` and the `#revealjs-html-link` chip
+         from `revealjs-html-links.lua`; the three elements occupy different
+         corners so they don't overlap. Keep them aligned if you bump this. */
+      z-index: 31;
+      padding: 2px 4px;
+      border: 1px solid var(--qwt-border, rgba(0, 0, 0, 0.2));
+      border-radius: 4px;
+      background: var(--qwt-chip-bg, rgba(255, 255, 255, 0.8));
+      color: var(--qwt-fg, #000);
+      cursor: pointer;
+      font: 12px sans-serif;
+      opacity: 0.7;
+    }
+    #qwt-theme-select:hover,
+    #qwt-theme-select:focus-visible {
+      opacity: 1;
+      border-color: var(--qwt-fg, rgba(0, 0, 0, 0.4));
+    }
+    #qwt-theme-select:focus-visible {
+      outline: 2px solid var(--qwt-link, #2a76dd);
+      outline-offset: 2px;
+    }
+    @media print { #qwt-theme-select { display: none; } }
+  </style>
+<script>
+  (function () {
+    "use strict";
+    var KEY = "mln-theme";
+    var DARK_CLASS = "qwt-dark";
+    var OPTIONS = [["light", "Light"], ["offwhite", "Off-white"], ["parchment", "Parchment"], ["dark", "Dark"]];
+    var root = document.documentElement;
+
+    function valid(choice) {
+      return OPTIONS.some(function (o) { return o[0] === choice; });
+    }
+
+    function stored() {
+      try { return localStorage.getItem(KEY); } catch (e) { return null; }
+    }
+
+    function initialTheme() {
+      var saved = stored();
+      if (valid(saved)) return saved;
+      if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "offwhite";
+    }
+
+    function applyTheme(choice) {
+      if (choice === "offwhite" || choice === "parchment") {
+        root.setAttribute("data-palette", choice);
+      } else {
+        root.removeAttribute("data-palette");
+      }
+      // The body can be missing when this runs from <head>; init() re-applies it.
+      if (document.body) document.body.classList.toggle(DARK_CLASS, choice === "dark");
+    }
+
+    var start = initialTheme();
+    applyTheme(start); // set the palette before first paint
+
+    function init() {
+      if (document.getElementById("qwt-theme-select")) return;
+      applyTheme(start);
+      var sel = document.createElement("select");
+      sel.id = "qwt-theme-select";
+      sel.setAttribute("aria-label", "Colour theme");
+      OPTIONS.forEach(function (o) {
+        var opt = document.createElement("option");
+        opt.value = o[0];
+        opt.textContent = o[1];
+        sel.appendChild(opt);
+      });
+      sel.value = start;
+      sel.addEventListener("change", function () {
+        applyTheme(sel.value);
+        try { localStorage.setItem(KEY, sel.value); } catch (e) { /* private mode */ }
+      });
+      document.body.appendChild(sel);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+  </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+</head>
+<body class="quarto-light">
+<!-- gha-preview-page-banner:start -->
+<div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
+    <p style="margin: 0;">
+        <strong>📝 Preview:</strong> This is a new page added in this pull request.
+    </p>
+</div>
+<!-- gha-preview-page-banner:end -->
+
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Permutation Tests</h1>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">Last modified: 2026-10-12 17:07:11 (PDT)</p>
+</section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
+.quarto-figure-center > figure {
+text-align: center;
+}
+</style>
+<p>The p-value of a <a href="./basic-statistical-methods.html#def-two-sample-t-test">t-test</a> comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A <strong>permutation test</strong> takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.</p>
+<p>This page defines exchangeability, the permutation distribution and the permutation p-value, shows why that p-value is valid, and then approximates it by random relabelings, which is how it is computed in practice. It continues the <a href="./bootstrap.html">bootstrap</a> page’s idea of computing a sampling distribution by resampling, and supplies the p-values that the <a href="./multiple-testing.html">multiple testing</a> page corrects. These notes follow chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-permutation-reading" role="doc-biblioref" onclick="">2021</a>)</span> and the treatment in <span class="citation" data-cites="good2005permutation">Good (<a href="#/sec-permutation-reading" role="doc-biblioref" onclick="">2005</a>)</span>.</p>
+</section><section id="sec-permutation-khan-data" class="slide level2" data-number="1"><h2>
+<span class="header-section-number">1</span> The Khan gene expression data</h2>
+<p>The examples on this page use gene expression data from <span class="citation" data-cites="khan2001classification">Khan et al. (<a href="#/sec-permutation-reading" role="doc-biblioref" onclick="">2001</a>)</span>, who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at <a href="data/khan.csv"><code>data/khan.csv</code></a>, taken from the <code>Khan</code> data of the R package <a href="https://cran.r-project.org/package=ISLR2"><code>ISLR2</code></a> <span class="citation" data-cites="james2021islr2e">(<a href="#/sec-permutation-reading" role="doc-biblioref" onclick="">James et al. 2021</a>)</span>: the column <code>tumor_class</code> holds the class, and the columns <code>gene_1</code> to <code>gene_2308</code> hold the expression values. The examples compare classes 2 and 4.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>khan <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/khan.csv"</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a>khan_pair <span class="ot">&lt;-</span> khan[khan<span class="sc">$</span>tumor_class <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), ]</span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">table</span>(<span class="at">tumor_class =</span> khan_pair<span class="sc">$</span>tumor_class)</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co">#&gt; tumor_class</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="co">#&gt;  2  4 </span></span>
+<span id="cb1-6"><a aria-label="6"></a><span class="co">#&gt; 23 20</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="sec-exchangeability" class="slide level2" data-number="2"><h2>
+<span class="header-section-number">2</span> Exchangeability under the null hypothesis</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-exchangeable div. -->
+<div id="def-exchangeable" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Exchangeable random variables)</strong></span> For a permutation <span class="math inline">\(\pi\)</span> of <span class="math inline">\(\mathopen{}\left\{1, \ldots, n\right\}\mathclose{}\)</span> and a vector <span class="math inline">\(y = (y_1, \ldots, y_n)\)</span>, write <span class="math inline">\(y_\pi \stackrel{\text{def}}{=}(y_{\pi(1)}, \ldots, y_{\pi(n)})\)</span> for the vector with its entries reordered by <span class="math inline">\(\pi\)</span>. Random variables <span class="math inline">\(Y_1, \ldots, Y_n\)</span> are <strong>exchangeable</strong> if reordering them does not change their joint distribution: for every permutation <span class="math inline">\(\pi\)</span> and every set <span class="math inline">\(A\)</span> of vectors,</p>
+<p><span class="math display">\[\Pr(Y_\pi \in A) = \Pr(Y \in A).\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-exchangeable" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Two groups with the same distribution)</strong></span> Let a gene’s expression be measured in <span class="math inline">\(n_1\)</span> samples from tumor class 2 and <span class="math inline">\(n_2\)</span> samples from tumor class 4, and let <span class="math inline">\(H_0\)</span> say that the expression has the same distribution in both classes. Under <span class="math inline">\(H_0\)</span> the <span class="math inline">\(n = n_1 + n_2\)</span> values <span class="math inline">\(Y_1, \ldots, Y_n\)</span> are independent and identically distributed, and independent, identically distributed variables are exchangeable, because their joint distribution is the product of the same marginal distribution <span class="math inline">\(n\)</span> times, which does not depend on the order of the factors. Given the set of observed values, every assignment of them to the two groups is then equally likely. With 23 samples in class 2 and 20 in class 4 there are</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">choose</span>(<span class="dv">43</span>, <span class="dv">20</span>)</span>
+<span id="cb2-2"><a aria-label="2"></a><span class="co">#&gt; [1] 9.60567e+11</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>ways to choose which 20 of the 43 values form the class 4 group.</p>
+</div>
+</section><section id="sec-permutation-distribution" class="slide level2" data-number="3"><h2>
+<span class="header-section-number">3</span> The permutation distribution and p-value</h2>
+<h3 data-number="3.1" id="sec-permutation-distribution-def">
+<span class="header-section-number">3.1</span> The permutation distribution</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-permutation-distribution div. -->
+<div id="def-permutation-distribution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Permutation distribution)</strong></span> Let <span class="math inline">\(y = (y_1, \ldots, y_n)\)</span> hold the observed values, with the first <span class="math inline">\(n_1\)</span> entries belonging to group 1 and the rest to group 2, and let <span class="math inline">\(T(y)\)</span> be a <a href="./inference.html#def-test-statistic">test statistic</a> computed from the data and the group assignment. Let <span class="math inline">\(S_n\)</span> be the set of all <span class="math inline">\(n!\)</span> permutations of <span class="math inline">\(\mathopen{}\left\{1, \ldots, n\right\}\mathclose{}\)</span>. The <strong>permutation distribution</strong> of <span class="math inline">\(T\)</span> is the distribution of <span class="math inline">\(T(y_\pi)\)</span> when <span class="math inline">\(\pi\)</span> is drawn uniformly from <span class="math inline">\(S_n\)</span> and <span class="math inline">\(y\)</span> is held fixed. It puts probability <span class="math inline">\(1 / n!\)</span> on each relabeling <span class="math inline">\(y_\pi\)</span>, so for every <span class="math inline">\(t\)</span></p>
+<p><span class="math display">\[\Pr_\pi\mathopen{}\left(T(y_\pi) \ge t\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n!} \sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge t}.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-permutation-distribution" class="theorem example">
+<p><span class="theorem-title"><strong>Example 2 (The permutation distribution of six expression values)</strong></span> Take gene 3 in the Khan data, and keep the first three samples from tumor class 2 and the first three from class 4. The test statistic is the absolute value of <a href="./basic-statistical-methods.html#def-two-sample-t-test">Welch’s t statistic</a>. Only <span class="math inline">\(\binom{6}{3} =\)</span> 20 relabelings differ in which values form group 1 (the other <span class="math inline">\(3! \times 3!\)</span> permutations within each group give the same statistic), so all of them can be listed:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>toy <span class="ot">&lt;-</span> <span class="fu">rbind</span>(</span>
+<span id="cb3-2"><a aria-label="2"></a>  <span class="fu">head</span>(khan_pair[khan_pair<span class="sc">$</span>tumor_class <span class="sc">==</span> <span class="dv">2</span>, ], <span class="dv">3</span>),</span>
+<span id="cb3-3"><a aria-label="3"></a>  <span class="fu">head</span>(khan_pair[khan_pair<span class="sc">$</span>tumor_class <span class="sc">==</span> <span class="dv">4</span>, ], <span class="dv">3</span>)</span>
+<span id="cb3-4"><a aria-label="4"></a>)</span>
+<span id="cb3-5"><a aria-label="5"></a>y_toy <span class="ot">&lt;-</span> toy<span class="sc">$</span>gene_3</span>
+<span id="cb3-6"><a aria-label="6"></a>abs_welch_t <span class="ot">&lt;-</span> <span class="cf">function</span>(y, in_group1) {</span>
+<span id="cb3-7"><a aria-label="7"></a>  x1 <span class="ot">&lt;-</span> y[in_group1]</span>
+<span id="cb3-8"><a aria-label="8"></a>  x2 <span class="ot">&lt;-</span> y[<span class="sc">!</span>in_group1]</span>
+<span id="cb3-9"><a aria-label="9"></a>  <span class="fu">abs</span>(<span class="fu">mean</span>(x1) <span class="sc">-</span> <span class="fu">mean</span>(x2)) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">var</span>(x1) <span class="sc">/</span> <span class="fu">length</span>(x1) <span class="sc">+</span> <span class="fu">var</span>(x2) <span class="sc">/</span> <span class="fu">length</span>(x2))</span>
+<span id="cb3-10"><a aria-label="10"></a>}</span>
+<span id="cb3-11"><a aria-label="11"></a>group1_choices <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="dv">6</span>, <span class="dv">3</span>)</span>
+<span id="cb3-12"><a aria-label="12"></a>t_toy <span class="ot">&lt;-</span> <span class="fu">apply</span>(</span>
+<span id="cb3-13"><a aria-label="13"></a>  group1_choices, <span class="dv">2</span>,</span>
+<span id="cb3-14"><a aria-label="14"></a>  <span class="cf">function</span>(idx) <span class="fu">abs_welch_t</span>(y_toy, <span class="fu">seq_along</span>(y_toy) <span class="sc">%in%</span> idx)</span>
+<span id="cb3-15"><a aria-label="15"></a>)</span>
+<span id="cb3-16"><a aria-label="16"></a>t_observed_toy <span class="ot">&lt;-</span> <span class="fu">abs_welch_t</span>(y_toy, <span class="fu">seq_along</span>(y_toy) <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb3-17"><a aria-label="17"></a><span class="fu">data.frame</span>(</span>
+<span id="cb3-18"><a aria-label="18"></a>  <span class="at">group_1 =</span> <span class="fu">apply</span>(group1_choices, <span class="dv">2</span>, paste, <span class="at">collapse =</span> <span class="st">" "</span>),</span>
+<span id="cb3-19"><a aria-label="19"></a>  <span class="at">statistic =</span> t_toy</span>
+<span id="cb3-20"><a aria-label="20"></a>) <span class="sc">|&gt;</span></span>
+<span id="cb3-21"><a aria-label="21"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(dplyr<span class="sc">::</span><span class="fu">desc</span>(statistic)) <span class="sc">|&gt;</span></span>
+<span id="cb3-22"><a aria-label="22"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top">
+<thead><tr class="header">
+<th style="text-align: left;">group_1</th>
+<th style="text-align: right;">statistic</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1 4 5</td>
+<td style="text-align: right;">1.793</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 3 6</td>
+<td style="text-align: right;">1.793</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 3 5</td>
+<td style="text-align: right;">1.624</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 4 6</td>
+<td style="text-align: right;">1.624</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 2 6</td>
+<td style="text-align: right;">1.312</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3 4 5</td>
+<td style="text-align: right;">1.312</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 5 6</td>
+<td style="text-align: right;">1.270</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 3 4</td>
+<td style="text-align: right;">1.270</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 2 3</td>
+<td style="text-align: right;">1.019</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4 5 6</td>
+<td style="text-align: right;">1.019</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 2 4</td>
+<td style="text-align: right;">0.917</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3 5 6</td>
+<td style="text-align: right;">0.917</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 2 5</td>
+<td style="text-align: right;">0.646</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3 4 6</td>
+<td style="text-align: right;">0.646</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 3 6</td>
+<td style="text-align: right;">0.463</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 4 5</td>
+<td style="text-align: right;">0.463</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 4 6</td>
+<td style="text-align: right;">0.383</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 3 5</td>
+<td style="text-align: right;">0.383</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1 3 4</td>
+<td style="text-align: right;">0.188</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 5 6</td>
+<td style="text-align: right;">0.188</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The statistics come in equal pairs, because swapping the two groups gives the same absolute value. The observed statistic is 1.019, the value of the relabeling <code>1 2 3</code>.</p>
+</div>
+</section><section class="slide level2"><h3 data-number="3.2" id="sec-permutation-p-value">
+<span class="header-section-number">3.2</span> The permutation p-value</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-permutation-p-value div. -->
+<div id="def-permutation-p-value" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Permutation p-value)</strong></span> With the notation of <a href="#/def-permutation-distribution" class="quarto-xref">Definition&nbsp;2</a>, the <strong>permutation p-value</strong> of the observed statistic <span class="math inline">\(t = T(y)\)</span> is the proportion of relabelings whose statistic is at least as extreme as the observed one:</p>
+<p><span class="math display">\[p_{\text{perm}} \stackrel{\text{def}}{=}\Pr_\pi\mathopen{}\left(T(y_\pi) \ge T(y)\right)\mathclose{} = \frac{1}{n!} \sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge T(y)}.\]</span></p>
+<p>Because the identity permutation is one of the <span class="math inline">\(n!\)</span> relabelings, <span class="math inline">\(p_{\text{perm}} \ge 1 / n!\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-permutation-p-value" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Exact permutation p-value for six expression values)</strong></span> Of the 20 relabelings in <a href="#/exm-permutation-distribution" class="quarto-xref">Example&nbsp;2</a>, count those whose statistic is at least the observed one. Rounding before the comparison keeps floating-point error from separating values that are equal in exact arithmetic, such as the observed statistic and the one for its mirror image:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>n_extreme <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">round</span>(t_toy, <span class="dv">10</span>) <span class="sc">&gt;=</span> <span class="fu">round</span>(t_observed_toy, <span class="dv">10</span>))</span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">c</span>(</span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="at">extreme =</span> n_extreme,</span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="at">relabelings =</span> <span class="fu">length</span>(t_toy),</span>
+<span id="cb4-5"><a aria-label="5"></a>  <span class="at">p_perm =</span> n_extreme <span class="sc">/</span> <span class="fu">length</span>(t_toy)</span>
+<span id="cb4-6"><a aria-label="6"></a>)</span>
+<span id="cb4-7"><a aria-label="7"></a><span class="co">#&gt;     extreme relabelings      p_perm </span></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="co">#&gt;        10.0        20.0         0.5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The exact permutation p-value is 0.5. With three samples per group the smallest p-value any data could give is <span class="math inline">\(2 / 20 =\)</span> 0.1, because each statistic has a mirror image, so six samples cannot provide evidence at the 5% level.</p>
+</div>
+</section><section class="slide level2"><div id="rem-permutation-sharp-null" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (What a permutation test tests). </span>Relabeling is justified only if the null hypothesis makes the labels irrelevant, that is, if the two groups have the same distribution. A permutation test of a difference in means therefore tests the hypothesis of equal distributions. Such a test can reject because the groups differ in spread rather than in mean, and a test that does not assume equal distributions needs a different method.</p>
+</div>
+</section><section class="slide level2"><h3 data-number="3.3" id="sec-permutation-validity">
+<span class="header-section-number">3.3</span> Why the permutation p-value is valid</h3>
+<!-- No slidebreak here: the heading shares its slide with the exr-top-k-count div. -->
+<div id="exr-top-k-count" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1 (Counting values with few larger-or-equal values)</strong></span> Let <span class="math inline">\(t_1, \ldots, t_N\)</span> be real numbers, and for each <span class="math inline">\(j\)</span> let <span class="math inline">\(N_j\)</span> be the number of <span class="math inline">\(i\)</span> with <span class="math inline">\(t_i \ge t_j\)</span> (including <span class="math inline">\(i = j\)</span>). Show that for every integer <span class="math inline">\(k \ge 0\)</span>, at most <span class="math inline">\(k\)</span> of the <span class="math inline">\(N_j\)</span> are at most <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[\sum_{j=1}^N \mathbb{1}_{N_j \le k} \le k.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="sol-top-k-count" class="proof solution">
+<p><span class="proof-title"><em>Solution 1</em>. </span>List the values in decreasing order, breaking ties arbitrarily, so that <span class="math inline">\(t_{[1]} \ge t_{[2]} \ge \cdots \ge t_{[N]}\)</span>. Suppose the value <span class="math inline">\(t_{[r]}\)</span> at position <span class="math inline">\(r &gt; k\)</span> has <span class="math inline">\(N_j \le k\)</span>, where <span class="math inline">\(j\)</span> is its original index. Then the <span class="math inline">\(r\)</span> values at positions <span class="math inline">\(1, \ldots, r\)</span> are all at least <span class="math inline">\(t_{[r]}\)</span>, so <span class="math inline">\(N_j \ge r &gt; k\)</span>, which contradicts <span class="math inline">\(N_j \le k\)</span>. So every <span class="math inline">\(j\)</span> with <span class="math inline">\(N_j \le k\)</span> sits at a position <span class="math inline">\(r \le k\)</span> of the sorted list. That list has <span class="math inline">\(k\)</span> such positions, and each belongs to one index, so at most <span class="math inline">\(k\)</span> indices have <span class="math inline">\(N_j \le k\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exr-relabeling-count" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 2 (Relabeling the data permutes the relabelings)</strong></span> For a permutation <span class="math inline">\(\sigma\)</span> define <span class="math inline">\(N_\sigma(y)\)</span>, the number of relabelings at least as extreme as <span class="math inline">\(y_\sigma\)</span>:</p>
+<p><span class="math display">\[N_\sigma(y) \stackrel{\text{def}}{=}\sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge T(y_\sigma)}.\]</span></p>
+<p>Write <span class="math inline">\(\iota\)</span> for the identity permutation, so <span class="math inline">\(N_\iota(y)\)</span> is <span class="math inline">\(n!\)</span> times the permutation p-value of <a href="#/def-permutation-p-value" class="quarto-xref">Definition&nbsp;3</a>. Show that <span class="math inline">\(N_\sigma(y) = N_\iota(y_\sigma)\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="sol-relabeling-count" class="proof solution">
+<p><span class="proof-title"><em>Solution 2</em>. </span>The entries of <span class="math inline">\((y_\sigma)_{\pi'}\)</span> are <span class="math inline">\(y_{\sigma(\pi'(i))}\)</span>, so <span class="math inline">\((y_\sigma)_{\pi'} = y_{\sigma \circ \pi'}\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+N_\iota(y_\sigma)
+&amp;= \sum_{\pi' \in S_n} \mathbb{1}_{T\mathopen{}\left((y_\sigma)_{\pi'}\right)\mathclose{} \ge T(y_\sigma)}
+&amp;&amp; \text{(definition, with $y_\sigma$ in place of $y$)}\\
+&amp;= \sum_{\pi' \in S_n} \mathbb{1}_{T\mathopen{}\left(y_{\sigma \circ \pi'}\right)\mathclose{} \ge T(y_\sigma)}
+&amp;&amp; \text{($(y_\sigma)_{\pi'} = y_{\sigma \circ \pi'}$)}\\
+&amp;= \sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge T(y_\sigma)}
+&amp;&amp; \text{($\pi = \sigma \circ \pi'$ is a bijection of $S_n$)}\\
+&amp;= N_\sigma(y)
+&amp;&amp; \text{(definition)}
+\end{aligned}
+\]</span></p>
+</div>
+</section><section class="slide level2"><div id="thm-permutation-p-valid" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (The permutation p-value is valid)</strong></span> Let <span class="math inline">\(Y = (Y_1, \ldots, Y_n)\)</span> be exchangeable under <span class="math inline">\(H_0\)</span> (<a href="#/def-exchangeable" class="quarto-xref">Definition&nbsp;1</a>), and let <span class="math inline">\(p_{\text{perm}}\)</span> be the <a href="#/def-permutation-p-value">permutation p-value</a> of <span class="math inline">\(T(Y)\)</span>. Then <span class="math inline">\(p_{\text{perm}}\)</span> is a <a href="./multiple-testing.html#def-valid-p-value">valid p-value</a>:</p>
+<p><span class="math display">\[\Pr_{H_0}\mathopen{}\left(p_{\text{perm}} \le u\right)\mathclose{} \le u \quad \text{for every } u \in [0, 1].\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(p_{\text{perm}} = N_\iota(Y) / n!\)</span> takes values in multiples of <span class="math inline">\(1 / n!\)</span>, it is enough to take <span class="math inline">\(u = k / n!\)</span> for an integer <span class="math inline">\(k\)</span> with <span class="math inline">\(0 \le k \le n!\)</span>: for other <span class="math inline">\(u\)</span> the event <span class="math inline">\(\mathopen{}\left\{p_{\text{perm}} \le u\right\}\mathclose{}\)</span> equals the event for <span class="math inline">\(\mathopen{}\left\lfloor u \, n!\right\rfloor\mathclose{} / n!\)</span>, which is at most <span class="math inline">\(u\)</span>.</p>
+<p><span class="math display">\[
+\begin{aligned}
+\Pr_{H_0}\mathopen{}\left(p_{\text{perm}} \le \frac{k}{n!}\right)\mathclose{}
+&amp;= \Pr_{H_0}\mathopen{}\left(N_\iota(Y) \le k\right)\mathclose{}
+&amp;&amp; \text{(multiply the inequality by $n!$)}\\
+&amp;= \Pr_{H_0}\mathopen{}\left(N_\iota(Y_\sigma) \le k\right)\mathclose{}
+&amp;&amp; \text{(for each $\sigma$, $Y_\sigma$ has the distribution of $Y$, by exchangeability)}\\
+&amp;= \Pr_{H_0}\mathopen{}\left(N_\sigma(Y) \le k\right)\mathclose{}
+&amp;&amp; \text{(relabeling identity)}\\
+&amp;= \operatorname{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}
+&amp;&amp; \text{(probability of an event is the expected value of its indicator)}\\
+&amp;= \frac{1}{n!} \sum_{\sigma \in S_n} \operatorname{E}\mathopen{}\left[\mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}
+&amp;&amp; \text{(the average of $n!$ equal terms)}\\
+&amp;= \frac{1}{n!} \operatorname{E}\mathopen{}\left[\sum_{\sigma \in S_n} \mathbb{1}_{N_\sigma(Y) \le k}\right]\mathclose{}
+&amp;&amp; \text{(expectation of a sum is the sum of expectations)}\\
+&amp;\le \frac{1}{n!} \operatorname{E}\mathopen{}\left[k\right]\mathclose{}
+&amp;&amp; \text{(counting bound, with $N = n!$ and $t_\sigma = T(Y_\sigma)$)}\\
+&amp;= \frac{k}{n!}
+&amp;&amp; \text{(the expected value of a constant is the constant)}
+\end{aligned}
+\]</span></p>
+<p>The justifications of the third and the seventh line are <a href="#/sol-relabeling-count" class="quarto-xref">Solution&nbsp;2</a> and <a href="#/sol-top-k-count" class="quarto-xref">Solution&nbsp;1</a>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-permutation-p-valid" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4 (Validity in a small simulation)</strong></span> Simulate <span class="math inline">\(10^4\)</span> data sets of 6 independent standard Gaussian values, three per group, so that <span class="math inline">\(H_0\)</span> holds, and compute the exact permutation p-value of <span class="math inline">\(\mathopen{}\left|\bar y_1 - \bar y_2\right|\mathclose{}\)</span> for each:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">580</span>)</span>
+<span id="cb5-2"><a aria-label="2"></a>group1_choices <span class="ot">&lt;-</span> <span class="fu">combn</span>(<span class="dv">6</span>, <span class="dv">3</span>)</span>
+<span id="cb5-3"><a aria-label="3"></a>exact_p <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, {</span>
+<span id="cb5-4"><a aria-label="4"></a>  y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">6</span>)</span>
+<span id="cb5-5"><a aria-label="5"></a>  stats <span class="ot">&lt;-</span> <span class="fu">apply</span>(group1_choices, <span class="dv">2</span>, <span class="cf">function</span>(idx) {</span>
+<span id="cb5-6"><a aria-label="6"></a>    in1 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span> <span class="sc">%in%</span> idx</span>
+<span id="cb5-7"><a aria-label="7"></a>    <span class="fu">abs</span>(<span class="fu">mean</span>(y[in1]) <span class="sc">-</span> <span class="fu">mean</span>(y[<span class="sc">!</span>in1]))</span>
+<span id="cb5-8"><a aria-label="8"></a>  })</span>
+<span id="cb5-9"><a aria-label="9"></a>  <span class="fu">mean</span>(<span class="fu">round</span>(stats, <span class="dv">10</span>) <span class="sc">&gt;=</span> <span class="fu">round</span>(stats[<span class="dv">1</span>], <span class="dv">10</span>))</span>
+<span id="cb5-10"><a aria-label="10"></a>})</span>
+<span id="cb5-11"><a aria-label="11"></a>u <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.5</span>)</span>
+<span id="cb5-12"><a aria-label="12"></a><span class="fu">data.frame</span>(</span>
+<span id="cb5-13"><a aria-label="13"></a>  <span class="at">u =</span> u,</span>
+<span id="cb5-14"><a aria-label="14"></a>  <span class="at">fraction_p_at_most_u =</span> <span class="fu">sapply</span>(u, <span class="cf">function</span>(x) <span class="fu">mean</span>(exact_p <span class="sc">&lt;=</span> x))</span>
+<span id="cb5-15"><a aria-label="15"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["u"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["fraction_p_at_most_u"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.1","2":"0.0986"},{"1":"0.2","2":"0.2022"},{"1":"0.5","2":"0.5060"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Each fraction is close to its <span class="math inline">\(u\)</span>, within simulation error. Here the exact p-value takes the values <span class="math inline">\(0.1, 0.2, \ldots, 1\)</span> with equal probability, because the 20 statistics form 10 mirror pairs with no other ties, so <a href="#/thm-permutation-p-valid" class="quarto-xref">Theorem&nbsp;1</a> holds with equality.</p>
+</div>
+</section><section id="sec-monte-carlo-permutation" class="slide level2" data-number="4"><h2>
+<span class="header-section-number">4</span> The Monte Carlo approximation</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-monte-carlo-p-value div. -->
+<div id="def-monte-carlo-p-value" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Monte Carlo permutation p-value)</strong></span> With the notation of <a href="#/def-permutation-distribution" class="quarto-xref">Definition&nbsp;2</a>, draw <span class="math inline">\(B\)</span> permutations <span class="math inline">\(\pi_1, \ldots, \pi_B\)</span> independently and uniformly from <span class="math inline">\(S_n\)</span>, and let <span class="math inline">\(T_b \stackrel{\text{def}}{=}T(y_{\pi_b})\)</span>. The <strong>Monte Carlo permutation p-value</strong> counts the observed labeling as one more relabeling, so it adds 1 to the numerator and to the denominator:</p>
+<p><span class="math display">\[\hat p_{\text{perm}} \stackrel{\text{def}}{=}\frac{1 + \sum_{b=1}^B \mathbb{1}_{T_b \ge T(y)}}{B + 1}.\]</span></p>
+</div>
+</section><section class="slide level2"><div id="exm-monte-carlo-p-value" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (Monte Carlo p-value for gene 3)</strong></span> Compare tumor classes 2 and 4 on gene 3 of the Khan data, using <span class="math inline">\(\mathopen{}\left|t\right|\mathclose{}\)</span> of Welch’s statistic and <span class="math inline">\(B = 10{,}000\)</span> random relabelings. The <span class="math inline">\(43\)</span> values admit <span class="math inline">\(\binom{43}{20} =\)</span> 960,566,918,220 relabelings (<a href="#/exm-exchangeable" class="quarto-xref">Example&nbsp;1</a>), too many to list:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>y3 <span class="ot">&lt;-</span> khan_pair<span class="sc">$</span>gene_3</span>
+<span id="cb6-2"><a aria-label="2"></a>in_class4 <span class="ot">&lt;-</span> khan_pair<span class="sc">$</span>tumor_class <span class="sc">==</span> <span class="dv">4</span></span>
+<span id="cb6-3"><a aria-label="3"></a>t_obs <span class="ot">&lt;-</span> <span class="fu">abs_welch_t</span>(y3, in_class4)</span>
+<span id="cb6-4"><a aria-label="4"></a></span>
+<span id="cb6-5"><a aria-label="5"></a>B <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="fu">set.seed</span>(<span class="dv">581</span>)</span>
+<span id="cb6-7"><a aria-label="7"></a>t_perm <span class="ot">&lt;-</span> <span class="fu">replicate</span>(B, <span class="fu">abs_welch_t</span>(y3, <span class="fu">sample</span>(in_class4)))</span>
+<span id="cb6-8"><a aria-label="8"></a>n_exceed <span class="ot">&lt;-</span> <span class="fu">sum</span>(t_perm <span class="sc">&gt;=</span> t_obs)</span>
+<span id="cb6-9"><a aria-label="9"></a>p_mc <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> n_exceed) <span class="sc">/</span> (B <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-10"><a aria-label="10"></a><span class="fu">c</span>(</span>
+<span id="cb6-11"><a aria-label="11"></a>  <span class="at">t_observed =</span> t_obs,</span>
+<span id="cb6-12"><a aria-label="12"></a>  <span class="at">exceedances =</span> n_exceed,</span>
+<span id="cb6-13"><a aria-label="13"></a>  <span class="at">p_mc =</span> p_mc,</span>
+<span id="cb6-14"><a aria-label="14"></a>  <span class="at">p_welch =</span> <span class="fu">t.test</span>(y3 <span class="sc">~</span> khan_pair<span class="sc">$</span>tumor_class)<span class="sc">$</span>p.value</span>
+<span id="cb6-15"><a aria-label="15"></a>)</span>
+<span id="cb6-16"><a aria-label="16"></a><span class="co">#&gt;  t_observed exceedances        p_mc     p_welch </span></span>
+<span id="cb6-17"><a aria-label="17"></a><span class="co">#&gt; 3.723675686 5.000000000 0.000599940 0.000641807</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Only 5 of the 10,000 relabelings give a statistic at least as large as the observed 3.72. The Monte Carlo p-value is 0.0006, close to the p-value 0.00064 from Welch’s t-test. <a href="#/fig-permutation-distribution-gene3" class="quarto-xref">Figure&nbsp;1</a> shows the permutation distribution.</p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">t =</span> t_perm), <span class="fu">aes</span>(<span class="at">x =</span> t)) <span class="sc">+</span></span>
+<span id="cb7-2"><a aria-label="2"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">50</span>, <span class="at">fill =</span> <span class="st">"grey60"</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a aria-label="3"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> t_obs, <span class="at">color =</span> <span class="st">"firebrick"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a aria-label="4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Absolute Welch t statistic"</span>, <span class="at">y =</span> <span class="st">"Number of relabelings"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div id="fig-permutation-distribution-gene3" class="quarto-float quarto-figure quarto-figure-center" alt="Histogram of 10,000 permuted absolute Welch t statistics for gene 3. The histogram is concentrated between 0 and 2, with a long thin right tail. A vertical line marks the observed statistic, which lies far out in the right tail, where almost none of the permuted statistics fall.">
+<figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-permutation-distribution-gene3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for gene 3, from 10,000 random relabelings of tumor classes 2 and 4. The vertical line is the observed statistic.
+</figcaption><div aria-describedby="fig-permutation-distribution-gene3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="permutation-tests_files/figure-html/fig-permutation-distribution-gene3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for gene 3, from 10,000 random relabelings of tumor classes 2 and 4. The vertical line is the observed statistic."><img data-src="permutation-tests_files/figure-html/fig-permutation-distribution-gene3-1.png" alt="Histogram of 10,000 permuted absolute Welch t statistics for gene 3. The histogram is concentrated between 0 and 2, with a long thin right tail. A vertical line marks the observed statistic, which lies far out in the right tail, where almost none of the permuted statistics fall." width="672"></a>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>The Monte Carlo error of <span class="math inline">\(\hat p_{\text{perm}}\)</span> is about <span class="math inline">\(\sqrt{\hat p_{\text{perm}} (1 - \hat p_{\text{perm}}) / B} =\)</span> 0.00024, which is comparable to the p-value itself, so a p-value this small needs a larger <span class="math inline">\(B\)</span> before its second digit means anything.</p>
+</div>
+</section><section class="slide level2"><div id="thm-monte-carlo-p-valid" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (The Monte Carlo permutation p-value is valid)</strong></span> Let <span class="math inline">\(Y\)</span> be exchangeable under <span class="math inline">\(H_0\)</span> (<a href="#/def-exchangeable" class="quarto-xref">Definition&nbsp;1</a>), and let <span class="math inline">\(\hat p_{\text{perm}}\)</span> be the <a href="#/def-monte-carlo-p-value">Monte Carlo permutation p-value</a> of <span class="math inline">\(T(Y)\)</span> from <span class="math inline">\(B\)</span> independent uniform permutations. Then <span class="math inline">\(\hat p_{\text{perm}}\)</span> is a <a href="./multiple-testing.html#def-valid-p-value">valid p-value</a>:</p>
+<p><span class="math display">\[\Pr_{H_0}\mathopen{}\left(\hat p_{\text{perm}} \le u\right)\mathclose{} \le u \quad \text{for every } u \in [0, 1].\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Source</strong></p>
+</div>
+<div class="callout-content">
+<p>Phipson and Smyth <span class="citation" data-cites="phipson2010permutation">(<a href="#/sec-permutation-reading" role="doc-biblioref" onclick="">2010</a>)</span> show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section class="slide level2"><div id="exm-monte-carlo-p-valid" class="theorem example">
+<p><span class="theorem-title"><strong>Example 6 (Validity in a small simulation)</strong></span> Simulate 2000 data sets of 20 independent standard Gaussian values, ten per group, so that <span class="math inline">\(H_0\)</span> holds. For each, compute <span class="math inline">\(\hat p_{\text{perm}}\)</span> of the absolute difference in means with <span class="math inline">\(B = 99\)</span>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">582</span>)</span>
+<span id="cb8-2"><a aria-label="2"></a>in_group1 <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">each =</span> <span class="dv">10</span>)</span>
+<span id="cb8-3"><a aria-label="3"></a>abs_diff_means <span class="ot">&lt;-</span> <span class="cf">function</span>(y, in1) <span class="fu">abs</span>(<span class="fu">mean</span>(y[in1]) <span class="sc">-</span> <span class="fu">mean</span>(y[<span class="sc">!</span>in1]))</span>
+<span id="cb8-4"><a aria-label="4"></a>p_hat <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, {</span>
+<span id="cb8-5"><a aria-label="5"></a>  y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>)</span>
+<span id="cb8-6"><a aria-label="6"></a>  t_obs <span class="ot">&lt;-</span> <span class="fu">abs_diff_means</span>(y, in_group1)</span>
+<span id="cb8-7"><a aria-label="7"></a>  t_perm <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">99</span>, <span class="fu">abs_diff_means</span>(y, <span class="fu">sample</span>(in_group1)))</span>
+<span id="cb8-8"><a aria-label="8"></a>  (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">sum</span>(t_perm <span class="sc">&gt;=</span> t_obs)) <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb8-9"><a aria-label="9"></a>})</span>
+<span id="cb8-10"><a aria-label="10"></a>u <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.05</span>, <span class="fl">0.1</span>)</span>
+<span id="cb8-11"><a aria-label="11"></a><span class="fu">data.frame</span>(</span>
+<span id="cb8-12"><a aria-label="12"></a>  <span class="at">u =</span> u,</span>
+<span id="cb8-13"><a aria-label="13"></a>  <span class="at">fraction_p_at_most_u =</span> <span class="fu">sapply</span>(u, <span class="cf">function</span>(x) <span class="fu">mean</span>(p_hat <span class="sc">&lt;=</span> x))</span>
+<span id="cb8-14"><a aria-label="14"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["u"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["fraction_p_at_most_u"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.01","2":"0.013"},{"1":"0.05","2":"0.058"},{"1":"0.10","2":"0.107"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>With <span class="math inline">\(B = 99\)</span> the p-value takes the values <span class="math inline">\(0.01, 0.02, \ldots, 1\)</span>, and for a statistic with no ties each value has probability <span class="math inline">\(0.01\)</span> under <span class="math inline">\(H_0\)</span>, so <span class="math inline">\(\Pr(\hat p_{\text{perm}} \le u) = u\)</span> for <span class="math inline">\(u\)</span> in that grid. The fractions are close to <span class="math inline">\(u\)</span>, within simulation error. Choosing <span class="math inline">\(B + 1\)</span> to be a round number such as 100 makes the grid easy to read.</p>
+</div>
+</section><section class="slide level2"><div id="rem-plus-one" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Why add 1). </span>Without the 1, a data set whose statistic exceeds all <span class="math inline">\(B\)</span> permuted statistics would get a p-value of 0, which claims that the observed result is impossible under <span class="math inline">\(H_0\)</span>. Under <span class="math inline">\(H_0\)</span>, with no ties, that happens with probability <span class="math inline">\(1 / (B + 1)\)</span>, because the observed statistic is equally likely to be any one of the <span class="math inline">\(B + 1\)</span> values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of <span class="math inline">\(\hat p_{\text{perm}}\)</span> is <span class="math inline">\(1 / (B + 1)\)</span>.</p>
+</div>
+</section><section id="sec-permutation-multiple-testing" class="slide level2" data-number="5"><h2>
+<span class="header-section-number">5</span> Permutation tests and multiple testing</h2>
+<!-- No slidebreak here: the heading shares its slide with the exm-permutation-all-genes div. -->
+<div id="exm-permutation-all-genes" class="theorem example">
+<p><span class="theorem-title"><strong>Example 7 (Permutation p-values for all 2308 genes)</strong></span> Relabeling the samples once permutes every gene at the same time, so <span class="math inline">\(B = 1000\)</span> relabelings give a permutation null distribution for each of the 2308 genes. This computes <span class="math inline">\(\mathopen{}\left|t\right|\mathclose{}\)</span> for all genes from column means and sums of squares, in a function checked against <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> on gene 3:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>expression <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(khan_pair[, <span class="fu">grepl</span>(<span class="st">"^gene_"</span>, <span class="fu">names</span>(khan_pair))])</span>
+<span id="cb9-2"><a aria-label="2"></a>abs_welch_t_all <span class="ot">&lt;-</span> <span class="cf">function</span>(x, in_group1) {</span>
+<span id="cb9-3"><a aria-label="3"></a>  n1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(in_group1)</span>
+<span id="cb9-4"><a aria-label="4"></a>  n2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="sc">!</span>in_group1)</span>
+<span id="cb9-5"><a aria-label="5"></a>  mean1 <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(x[in_group1, , <span class="at">drop =</span> <span class="cn">FALSE</span>])</span>
+<span id="cb9-6"><a aria-label="6"></a>  mean2 <span class="ot">&lt;-</span> <span class="fu">colMeans</span>(x[<span class="sc">!</span>in_group1, , <span class="at">drop =</span> <span class="cn">FALSE</span>])</span>
+<span id="cb9-7"><a aria-label="7"></a>  var1 <span class="ot">&lt;-</span> (<span class="fu">colSums</span>(x[in_group1, , <span class="at">drop =</span> <span class="cn">FALSE</span>]<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> n1 <span class="sc">*</span> mean1<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (n1 <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb9-8"><a aria-label="8"></a>  var2 <span class="ot">&lt;-</span> (<span class="fu">colSums</span>(x[<span class="sc">!</span>in_group1, , <span class="at">drop =</span> <span class="cn">FALSE</span>]<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> n2 <span class="sc">*</span> mean2<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (n2 <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb9-9"><a aria-label="9"></a>  <span class="fu">abs</span>(mean1 <span class="sc">-</span> mean2) <span class="sc">/</span> <span class="fu">sqrt</span>(var1 <span class="sc">/</span> n1 <span class="sc">+</span> var2 <span class="sc">/</span> n2)</span>
+<span id="cb9-10"><a aria-label="10"></a>}</span>
+<span id="cb9-11"><a aria-label="11"></a>t_all <span class="ot">&lt;-</span> <span class="fu">abs_welch_t_all</span>(expression, in_class4)</span>
+<span id="cb9-12"><a aria-label="12"></a><span class="fu">all.equal</span>(<span class="fu">unname</span>(t_all[<span class="st">"gene_3"</span>]), t_obs)</span>
+<span id="cb9-13"><a aria-label="13"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Each relabeling yields 2308 statistics, one per gene. The permutation p-value of a gene counts the relabelings whose statistic for that gene reaches its observed one:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>B_all <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="fu">set.seed</span>(<span class="dv">583</span>)</span>
+<span id="cb10-3"><a aria-label="3"></a>exceed_counts <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(</span>
+<span id="cb10-4"><a aria-label="4"></a>  <span class="st">`</span><span class="at">+</span><span class="st">`</span>,</span>
+<span id="cb10-5"><a aria-label="5"></a>  <span class="fu">lapply</span>(<span class="fu">seq_len</span>(B_all), <span class="cf">function</span>(b) {</span>
+<span id="cb10-6"><a aria-label="6"></a>    <span class="fu">abs_welch_t_all</span>(expression, <span class="fu">sample</span>(in_class4)) <span class="sc">&gt;=</span> t_all</span>
+<span id="cb10-7"><a aria-label="7"></a>  })</span>
+<span id="cb10-8"><a aria-label="8"></a>)</span>
+<span id="cb10-9"><a aria-label="9"></a>p_perm_all <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> exceed_counts) <span class="sc">/</span> (B_all <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb10-10"><a aria-label="10"></a><span class="fu">c</span>(</span>
+<span id="cb10-11"><a aria-label="11"></a>  <span class="at">smallest_possible =</span> <span class="dv">1</span> <span class="sc">/</span> (B_all <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb10-12"><a aria-label="12"></a>  <span class="at">genes_at_smallest =</span> <span class="fu">sum</span>(p_perm_all <span class="sc">==</span> <span class="dv">1</span> <span class="sc">/</span> (B_all <span class="sc">+</span> <span class="dv">1</span>)),</span>
+<span id="cb10-13"><a aria-label="13"></a>  <span class="at">bonferroni_threshold =</span> <span class="fl">0.05</span> <span class="sc">/</span> <span class="fu">length</span>(p_perm_all)</span>
+<span id="cb10-14"><a aria-label="14"></a>)</span>
+<span id="cb10-15"><a aria-label="15"></a><span class="co">#&gt;    smallest_possible    genes_at_smallest bonferroni_threshold </span></span>
+<span id="cb10-16"><a aria-label="16"></a><span class="co">#&gt;          9.99001e-04          1.36000e+02          2.16638e-05</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The smallest p-value that 1000 relabelings can give is 0.001, and 136 genes reach it. The Bonferroni threshold, 0.000022, is far below the smallest possible p-value, so the Bonferroni correction cannot reject any gene with these p-values. For a Bonferroni correction at level <span class="math inline">\(\alpha\)</span> across <span class="math inline">\(m\)</span> tests the p-values must be able to fall below <span class="math inline">\(\alpha/ m\)</span>, which needs <span class="math inline">\(B + 1 \ge m / \alpha\)</span>, here <span class="math inline">\(B \ge\)</span> 46,159 relabelings. The <a href="./multiple-testing.html#def-bh">BH procedure</a> needs less resolution, because its thresholds grow with the rank. At <span class="math inline">\(q = 0.05\)</span> it rejects genes from the permutation p-values and from Welch’s t-test p-values as follows:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>welch_p_all <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
+<span id="cb11-2"><a aria-label="2"></a>  <span class="fu">as.data.frame</span>(expression),</span>
+<span id="cb11-3"><a aria-label="3"></a>  <span class="cf">function</span>(x) <span class="fu">t.test</span>(x <span class="sc">~</span> khan_pair<span class="sc">$</span>tumor_class)<span class="sc">$</span>p.value,</span>
+<span id="cb11-4"><a aria-label="4"></a>  <span class="fu">numeric</span>(<span class="dv">1</span>)</span>
+<span id="cb11-5"><a aria-label="5"></a>)</span>
+<span id="cb11-6"><a aria-label="6"></a>bh_counts <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb11-7"><a aria-label="7"></a>  <span class="at">permutation =</span> <span class="fu">sum</span>(<span class="fu">p.adjust</span>(p_perm_all, <span class="at">method =</span> <span class="st">"BH"</span>) <span class="sc">&lt;=</span> <span class="fl">0.05</span>),</span>
+<span id="cb11-8"><a aria-label="8"></a>  <span class="at">welch =</span> <span class="fu">sum</span>(<span class="fu">p.adjust</span>(welch_p_all, <span class="at">method =</span> <span class="st">"BH"</span>) <span class="sc">&lt;=</span> <span class="fl">0.05</span>)</span>
+<span id="cb11-9"><a aria-label="9"></a>)</span>
+<span id="cb11-10"><a aria-label="10"></a>bh_counts</span>
+<span id="cb11-11"><a aria-label="11"></a><span class="co">#&gt; permutation       welch </span></span>
+<span id="cb11-12"><a aria-label="12"></a><span class="co">#&gt;         249         250</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The two sets of p-values give BH rejection counts of 249 and 250.</p>
+</div>
+</section><section id="sec-permutation-reading" class="slide level2 smaller scrollable" data-number="6"><h2>
+<span class="header-section-number">6</span> Further reading</h2>
+<ul>
+<li>
+<span class="citation" data-cites="good2005permutation">Good (<a href="#/sec-permutation-reading" role="doc-biblioref" onclick="">2005</a>)</span> is a book-length treatment of permutation tests.</li>
+<li>
+<span class="citation" data-cites="phipson2010permutation">Phipson and Smyth (<a href="#/sec-permutation-reading" role="doc-biblioref" onclick="">2010</a>)</span> explains why Monte Carlo permutation p-values need the added 1.</li>
+<li>Chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-permutation-reading" role="doc-biblioref" onclick="">2021</a>)</span> applies permutation and other resampling methods to multiple testing.</li>
+</ul>
+
+
+<script>
+const defaultAnchorIconFallback = "#";
+
+function getDefaultAnchorTemplate() {
+  const defaultAnchor = document.querySelector("a.anchorjs-link[data-anchorjs-icon]");
+  if (!defaultAnchor) {
+    return null;
+  }
+
+  return {
+    icon: defaultAnchor.getAttribute("data-anchorjs-icon"),
+    style: defaultAnchor.getAttribute("style")
+  };
+}
+
+function alignEquationAnchorWithDefault(anchor, template) {
+  if (!anchor) {
+    return;
+  }
+
+  anchor.classList.remove("external");
+
+  if (template && template.icon) {
+    anchor.setAttribute("data-anchorjs-icon", template.icon);
+    anchor.textContent = "";
+  } else if (!anchor.textContent) {
+    anchor.textContent = defaultAnchorIconFallback;
+  }
+
+  if (template && template.style) {
+    anchor.setAttribute("style", template.style);
+  } else {
+    anchor.removeAttribute("style");
+  }
+}
+
+function alignEquationAnchorsWithDefault() {
+  const template = getDefaultAnchorTemplate();
+  document.querySelectorAll("a.equation-anchor").forEach(function (anchor) {
+    alignEquationAnchorWithDefault(anchor, template);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const equations = document.querySelectorAll("span[id^='eq-']");
+  equations.forEach(function (equation) {
+    if (equation.querySelector(".equation-anchor")) {
+      return;
+    }
+
+    if (!equation.querySelector(".math.display")) {
+      return;
+    }
+
+    const id = equation.getAttribute("id");
+    if (!id) {
+      return;
+    }
+
+    equation.classList.add("equation-anchor-target");
+
+    const anchor = document.createElement("a");
+    anchor.className = "equation-anchor anchorjs-link";
+    anchor.href = "#" + id;
+    anchor.setAttribute("aria-label", "Permalink to this equation");
+    equation.appendChild(anchor);
+  });
+
+  alignEquationAnchorsWithDefault();
+});
+
+window.addEventListener("load", alignEquationAnchorsWithDefault);
+</script><script>
+(function () {
+  var css = [
+    "#revealjs-html-link {",
+    "  position: fixed;",
+    "  top: 8px;",
+    "  right: 8px;",
+    "  z-index: 31;",
+    "  font-size: 0.55em;",
+    "  line-height: 1;",
+    "}",
+    "#revealjs-html-link a {",
+    "  color: var(--qwt-muted, rgba(0, 0, 0, 0.5));",
+    "  text-decoration: none;",
+    "  border: 1px solid var(--qwt-border, rgba(0, 0, 0, 0.2));",
+    "  padding: 4px 8px;",
+    "  border-radius: 4px;",
+    "  background: var(--qwt-chip-bg, rgba(255, 255, 255, 0.8));",
+    "  transition: color 0.15s, background 0.15s, border-color 0.15s;",
+    "}",
+    "#revealjs-html-link a:hover {",
+    "  color: var(--qwt-fg, rgba(0, 0, 0, 0.9));",
+    "  background: var(--qwt-chip-bg-hover, rgba(255, 255, 255, 0.98));",
+    "  border-color: var(--qwt-fg, rgba(0, 0, 0, 0.4));",
+    "}"
+  ].join("\n");
+
+  function getHtmlBase() {
+    var url = window.location.href.split("#")[0];
+    return url.replace(/-slides\.html$/, ".html");
+  }
+
+  function getCurrentSectionId() {
+    if (typeof Reveal === "undefined" || !Reveal.getCurrentSlide) {
+      return null;
+    }
+    var slide = Reveal.getCurrentSlide();
+    if (!slide) {
+      return null;
+    }
+    // If the current slide itself has an id, use it
+    if (slide.id) {
+      return slide.id;
+    }
+    // Walk backwards through sibling sections to find the nearest one with an id
+    var sibling = slide.previousElementSibling;
+    while (sibling) {
+      if (sibling.tagName === "SECTION" && sibling.id) {
+        return sibling.id;
+      }
+      sibling = sibling.previousElementSibling;
+    }
+    // Fall back to the first section[id] inside the parent container
+    var parent = slide.parentElement;
+    if (parent && parent.tagName === "SECTION") {
+      var firstNamed = parent.querySelector("section[id]");
+      if (firstNamed) {
+        return firstNamed.id;
+      }
+    }
+    return null;
+  }
+
+  function updateHtmlLink() {
+    var anchor = document.getElementById("revealjs-html-anchor");
+    if (!anchor) {
+      return;
+    }
+    var sectionId = getCurrentSectionId();
+    anchor.href = getHtmlBase() + (sectionId ? "#" + sectionId : "");
+  }
+
+  function initRevealJsHtmlLink() {
+    var htmlBase = getHtmlBase();
+
+    // Don't add the link if the URL doesn't follow the -slides.html convention
+    if (htmlBase === window.location.href.split("#")[0]) {
+      return;
+    }
+
+    // Inject styles
+    var styleElement = document.createElement("style");
+    styleElement.textContent = css;
+    document.head.appendChild(styleElement);
+
+    // Create the link element and append it directly to body so it stays
+    // visible across all slides regardless of Reveal.js section visibility
+    var div = document.createElement("div");
+    div.id = "revealjs-html-link";
+    var anchor = document.createElement("a");
+    anchor.id = "revealjs-html-anchor";
+    anchor.href = htmlBase;
+    anchor.target = "_blank";
+    anchor.title = "View this section in the HTML notes";
+    anchor.setAttribute("aria-label", "View this section in the HTML notes");
+    anchor.innerHTML = "&#128196;&nbsp;Webpage version";
+    div.appendChild(anchor);
+    document.body.appendChild(div);
+
+    // Register Reveal.js slide-change listener to keep the link updated
+    if (typeof Reveal !== "undefined") {
+      Reveal.on("ready", updateHtmlLink);
+      Reveal.on("slidechanged", updateHtmlLink);
+    }
+
+    updateHtmlLink();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initRevealJsHtmlLink);
+  } else {
+    initRevealJsHtmlLink();
+  }
+})();
+</script><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-good2005permutation" class="csl-entry" role="listitem">
+Good, Phillip I. 2005. <em>Permutation, Parametric and Bootstrap Tests of Hypotheses</em>. 3rd ed. Springer. <a href="https://doi.org/10.1007/b138696">https://doi.org/10.1007/b138696</a>.
+</div>
+<div id="ref-james2021islr2e" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: With Applications in <span>R</span></em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
+</div>
+<div id="ref-khan2001classification" class="csl-entry" role="listitem">
+Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. <span>“Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.”</span> <em>Nature Medicine</em> 7 (6): 673–79. <a href="https://doi.org/10.1038/89044">https://doi.org/10.1038/89044</a>.
+</div>
+<div id="ref-phipson2010permutation" class="csl-entry" role="listitem">
+Phipson, Belinda, and Gordon K. Smyth. 2010. <span>“Permutation p-Values Should Never Be Zero: Calculating Exact p-Values When Permutations Are Randomly Drawn.”</span> <em>Statistical Applications in Genetics and Molecular Biology</em> 9 (1). <a href="https://doi.org/10.2202/1544-6115.1585">https://doi.org/10.2202/1544-6115.1585</a>.
+</div>
+</div>
+</section>
+</div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="site_libs/revealjs/plugin/notes/notes.js"></script><script src="site_libs/revealjs/plugin/search/search.js"></script><script src="site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script><script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/morrison-lab\.github\.io\/sds\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+
+
+</body></html>
