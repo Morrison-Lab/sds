@@ -21,6 +21,6 @@ $$\Pf{A} = \frac{\abs{\set{u \in U : X(u) \in A}}}{N}.$$
 An infinite population, such as all the coin flips a coin could ever produce,
 is described directly by a distribution.
 The population distribution can equally be described by its
-cumulative distribution function $F(t) = \Pf{(-\infty, t]}$
+cumulative distribution function $\cdff{t} = \Pf{(-\infty, t]}$
 or, when it has one, by its probability mass or density function.
 :::
