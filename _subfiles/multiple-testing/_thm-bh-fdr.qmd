@@ -9,7 +9,7 @@ $$\text{FDR} = \frac{m_0}{m} q \le q.$$
 ::: {.callout-note collapse="true"}
 #### Source
 
-Benjamini and Hochberg [-@benjamini1995controlling, Theorem 1],
+Benjamini and Hochberg [-@benjamini1995controlling],
 which proves the result for any configuration of false null hypotheses.
 The proof is omitted here.
 :::
