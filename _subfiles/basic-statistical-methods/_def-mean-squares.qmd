@@ -5,4 +5,6 @@ In one-way analysis of variance,
 the **mean squares** are the sums of squares divided by their degrees of freedom:
 $\text{MS}_\text{between} \eqdef \text{SS}_\text{between} / (k - 1)$
 and $\text{MS}_\text{within} \eqdef \text{SS}_\text{within} / (n - k)$.
+When the $k$ groups share one variance $\sigma^2$,
+$\text{MS}_\text{within}$ estimates it.
 :::

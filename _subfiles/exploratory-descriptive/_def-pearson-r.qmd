@@ -7,6 +7,8 @@ $(x_1, y_1), \ldots, (x_n, y_n)$ is:
 $$r \eqdef \frac{\sumin (x_i - \bar{x})(y_i - \bar{y})}
 {\sqrt{\sumin (x_i - \bar{x})^2} \sqrt{\sumin (y_i - \bar{y})^2}}$$
 
+It is a sample estimate of the
+[population correlation](correlation-regression.qmd#def-population-correlation).
 It is defined when neither variable is constant,
 so that both sums of squares are positive.
 :::

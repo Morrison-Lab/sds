@@ -26,6 +26,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-generalization-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-held-out-set.qmd >}}
 
 {{< slidebreak >}}
@@ -55,10 +59,6 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_sol-generalization-error.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_def-generalization-error.qmd >}}
 
 {{< slidebreak >}}
 
