@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-12 23:11:59 (PDT)</p>
+  <p class="date">Last modified: 2026-10-13 00:51:10 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -479,6 +479,14 @@ text-align: center;
 <p><span class="math display">\[\hat{\mu}^{(3)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n-2}\sum_{i=2}^{n-1} X_{(i)}\]</span></p>
 <p>Which of these estimators is best? The answer depends on how we evaluate them (see <a href="#/sec-est-accuracy" class="quarto-xref">Section&nbsp;3</a>).</p>
 </div>
+</section><section class="slide level2"><div id="def-sampling-distribution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (Sampling distribution)</strong></span> The <strong>sampling distribution</strong> of an <a href="#/def-estimator">estimator</a> <span class="math inline">\(\hat{\theta}\)</span> is the probability distribution of <span class="math inline">\(\hat{\theta}(X_1, \ldots, X_n)\)</span> over repeated random samples <span class="math inline">\(X_1, \ldots, X_n\)</span> from the same population: the distribution of the values the estimator would take across all the samples we might have drawn.</p>
+</div>
+</section><section class="slide level2"><div id="exm-sampling-distribution" class="theorem example">
+<p><span class="theorem-title"><strong>Example 5 (Sampling distribution of a sample mean)</strong></span> Suppose student heights are <span class="math inline">\(X_i \ \sim_{\operatorname{iid}}\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\)</span> with standard deviation <span class="math inline">\(\sigma= 10\)</span> cm, and we sample <span class="math inline">\(n = 25\)</span> students. The sample mean <span class="math inline">\(\bar X\)</span> is a linear combination of independent Gaussian variables, so it is also Gaussian, with mean <span class="math inline">\(\operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{} = \mu\)</span> and variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>. Its sampling distribution is therefore</p>
+<p><span class="math display">\[\bar X \sim \operatorname{N}\mathopen{}\left(\mu, \sigma^2/ 25\right)\mathclose{},\]</span></p>
+<p>which has standard deviation <span class="math inline">\(\sigma/ \sqrt{25} = 10 / 5 = 2\)</span> cm. Across repeated samples of 25 students, about 95% of the sample means land within <span class="math inline">\(2 \times 2 = 4\)</span> cm of the true mean <span class="math inline">\(\mu\)</span>.</p>
+</div>
 </section><section class="slide level2"><h3 data-number="2.4" id="contrasting-estimands-estimates-and-estimators">
 <span class="header-section-number">2.4</span> Contrasting estimands, estimates, and estimators</h3>
 <p>It’s helpful to keep in mind the mathematical type of each estimation concept:</p>
@@ -498,11 +506,11 @@ text-align: center;
 <span class="header-section-number">3.2</span> Estimation error</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-estimation-error div. -->
 <div id="def-estimation-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Estimation error)</strong></span> The <strong>estimation error</strong> of an estimate <span class="math inline">\(\hat{\theta}\)</span> of a true value <span class="math inline">\(\theta\)</span> is the difference between the estimate and the estimand <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 6 (Estimation error)</strong></span> The <strong>estimation error</strong> of an estimate <span class="math inline">\(\hat{\theta}\)</span> of a true value <span class="math inline">\(\theta\)</span> is the difference between the estimate and the estimand <span class="math inline">\(\theta\)</span>:</p>
 <p><span class="math display">\[\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\hat{\theta}- \theta\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-estimation-error" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Estimation error of a mean height)</strong></span> Continuing <a href="#/exm-estimate" class="quarto-xref">Example&nbsp;3</a>, suppose the population mean height of students at our school were actually <span class="math inline">\(\mu= 172\)</span> cm. Then the estimate <span class="math inline">\(\hat{\mu}= 175\)</span> cm would have estimation error:</p>
+<p><span class="theorem-title"><strong>Example 6 (Estimation error of a mean height)</strong></span> Continuing <a href="#/exm-estimate" class="quarto-xref">Example&nbsp;3</a>, suppose the population mean height of students at our school were actually <span class="math inline">\(\mu= 172\)</span> cm. Then the estimate <span class="math inline">\(\hat{\mu}= 175\)</span> cm would have estimation error:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \varepsilon\mathopen{}\left(\hat{\mu}\right)\mathclose{}
@@ -522,23 +530,23 @@ text-align: center;
 <!-- The explicit {#residuals} keeps the anchor this section had when its heading was "Residuals". -->
 <!-- No slidebreak here: the heading shares its slide with the def-prediction div. -->
 <div id="def-prediction" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Prediction)</strong></span> A <strong>prediction</strong> (or <strong>predicted value</strong>) <span class="math inline">\(\hat y(x)\)</span> of an outcome <span class="math inline">\(Y\)</span> with covariate value <span class="math inline">\(X = x\)</span> is a number computed from <span class="math inline">\(x\)</span> and from data <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> by a rule <span class="math inline">\(g\)</span>, and used as a guess of <span class="math inline">\(Y\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 7 (Prediction)</strong></span> A <strong>prediction</strong> (or <strong>predicted value</strong>) <span class="math inline">\(\hat y(x)\)</span> of an outcome <span class="math inline">\(Y\)</span> with covariate value <span class="math inline">\(X = x\)</span> is a number computed from <span class="math inline">\(x\)</span> and from data <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> by a rule <span class="math inline">\(g\)</span>, and used as a guess of <span class="math inline">\(Y\)</span>:</p>
 <p><span class="math display">\[\hat y(x) \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-prediction-cond-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6 (Predicting with an estimated conditional mean)</strong></span> Suppose a model specifies the conditional mean <span class="math inline">\(\operatorname{E}\mathopen{}\left[Y \mid X = x\right]\mathclose{}\)</span> as a function <span class="math inline">\(\mu(x; \tilde{\theta})\)</span> of a parameter vector <span class="math inline">\(\tilde{\theta}\)</span>, and <span class="math inline">\(\hat{\tilde{\theta}}\)</span> is an estimate of <span class="math inline">\(\tilde{\theta}\)</span>. The usual prediction (<a href="#/def-prediction" class="quarto-xref">Definition&nbsp;6</a>) of <span class="math inline">\(Y\)</span> at <span class="math inline">\(X = x\)</span> is the estimated conditional mean:</p>
+<p><span class="theorem-title"><strong>Example 7 (Predicting with an estimated conditional mean)</strong></span> Suppose a model specifies the conditional mean <span class="math inline">\(\operatorname{E}\mathopen{}\left[Y \mid X = x\right]\mathclose{}\)</span> as a function <span class="math inline">\(\mu(x; \tilde{\theta})\)</span> of a parameter vector <span class="math inline">\(\tilde{\theta}\)</span>, and <span class="math inline">\(\hat{\tilde{\theta}}\)</span> is an estimate of <span class="math inline">\(\tilde{\theta}\)</span>. The usual prediction (<a href="#/def-prediction" class="quarto-xref">Definition&nbsp;7</a>) of <span class="math inline">\(Y\)</span> at <span class="math inline">\(X = x\)</span> is the estimated conditional mean:</p>
 <p><span class="math display">\[\hat y(x) = \mu(x; \hat{\tilde{\theta}}).\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-fitted-value" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Fitted value)</strong></span> The <strong>fitted value</strong> <span class="math inline">\(\hat y_i\)</span> of observation <span class="math inline">\(i\)</span> is the <a href="#/def-prediction">prediction</a> at its own covariate value <span class="math inline">\(x_i\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 8 (Fitted value)</strong></span> The <strong>fitted value</strong> <span class="math inline">\(\hat y_i\)</span> of observation <span class="math inline">\(i\)</span> is the <a href="#/def-prediction">prediction</a> at its own covariate value <span class="math inline">\(x_i\)</span>:</p>
 <p><span class="math display">\[\hat y_i \stackrel{\text{def}}{=}\hat y(x_i).\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-residual" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Residual)</strong></span> The <strong>residual</strong> for observation <span class="math inline">\(i\)</span> is its observed outcome minus its <a href="#/def-fitted-value">fitted value</a>:</p>
+<p><span class="theorem-title"><strong>Definition 9 (Residual)</strong></span> The <strong>residual</strong> for observation <span class="math inline">\(i\)</span> is its observed outcome minus its <a href="#/def-fitted-value">fitted value</a>:</p>
 <p><span class="math display">\[r_i \stackrel{\text{def}}{=}y_i - \hat y_i\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-prediction-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Prediction error)</strong></span> The <strong>prediction error</strong> of a <a href="#/def-prediction">prediction</a> <span class="math inline">\(\hat y\)</span> (such as <span class="math inline">\(\hat y(x)\)</span> or a fitted value <span class="math inline">\(\hat y_i\)</span>) of an observed outcome <span class="math inline">\(y\)</span> is the prediction minus the outcome:</p>
+<p><span class="theorem-title"><strong>Definition 10 (Prediction error)</strong></span> The <strong>prediction error</strong> of a <a href="#/def-prediction">prediction</a> <span class="math inline">\(\hat y\)</span> (such as <span class="math inline">\(\hat y(x)\)</span> or a fitted value <span class="math inline">\(\hat y_i\)</span>) of an observed outcome <span class="math inline">\(y\)</span> is the prediction minus the outcome:</p>
 <p><span class="math display">\[e\stackrel{\text{def}}{=}\hat y- y.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-prediction-error-residual" class="theorem exercise">
@@ -572,7 +580,7 @@ e_i
 <p><span class="proof-title"><em>Proof</em>. </span>Multiply both sides of <a href="#/thm-prediction-error-residual" class="quarto-xref">Theorem&nbsp;1</a> by <span class="math inline">\(-1\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-residual-prediction-error" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Residuals and prediction errors for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>)</span>. They ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
+<p><span class="theorem-title"><strong>Example 8 (Residuals and prediction errors for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>)</span>. They ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
 <p>The code below fits a line predicting birth weight from mother’s weight, then compares each residual with the negative of its prediction error.</p>
 <div class="panel-tabset" data-group="language">
 <ul id="tabset-1" class="panel-tabset-tabby">
@@ -637,7 +645,7 @@ e_i
 <p>The last two columns agree in every row, and the largest difference between them over all 189 babies is 0, as <a href="#/cor-residual-prediction-error" class="quarto-xref">Corollary&nbsp;1</a> says.</p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-error" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Prediction errors and residuals). </span>The prediction in <a href="#/def-prediction-error" class="quarto-xref">Definition&nbsp;9</a> can be a <a href="#/def-fitted-value">fitted value</a>, for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as <a href="#/def-estimation-error">estimation error</a>: estimate minus true value.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Prediction errors and residuals). </span>The prediction in <a href="#/def-prediction-error" class="quarto-xref">Definition&nbsp;10</a> can be a <a href="#/def-fitted-value">fitted value</a>, for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as <a href="#/def-estimation-error">estimation error</a>: estimate minus true value.</p>
 <p><span class="math display">\[
 \begin{aligned}
 e&amp;= \hat y- y
@@ -649,17 +657,17 @@ e&amp;= \hat y- y
 <p>For an observation used to fit the model, the prediction error is the negative of the residual (<a href="#/thm-prediction-error-residual" class="quarto-xref">Theorem&nbsp;1</a>), so the two differ only in orientation.</p>
 </div>
 </section><section class="slide level2"><div id="def-prediction-mse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Mean squared error of predictions)</strong></span> The <strong>mean squared error</strong> of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
+<p><span class="theorem-title"><strong>Definition 11 (Mean squared error of predictions)</strong></span> The <strong>mean squared error</strong> of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^ne_i^2.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-mse" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Prediction MSE, estimator MSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;10</a> averages squared errors over observations, where the <a href="#/def-mse">mean squared error of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">mean squared error and RSS</a>):</p>
+<p><span class="proof-title"><em>Remark 2</em> (Prediction MSE, estimator MSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;11</a> averages squared errors over observations, where the <a href="#/def-mse">mean squared error of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">mean squared error and RSS</a>):</p>
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\tilde{\theta}}),
 \qquad
 \text{RSS}(\hat{\tilde{\theta}}) = n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-fitted-residual-error" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (Fitted values, residuals, and prediction errors for three points)</strong></span> Take the points <span class="math inline">\((0, 1)\)</span>, <span class="math inline">\((1, 2)\)</span>, <span class="math inline">\((2, 2)\)</span> and the line with <span class="math inline">\(\beta_{0}= 1\)</span> and <span class="math inline">\(\beta_{x} = 0.5\)</span> from <a href="./correlation-regression.html#exm-rss">the residual sum of squares example</a>, and treat the line as the fitted model.</p>
+<p><span class="theorem-title"><strong>Example 9 (Fitted values, residuals, and prediction errors for three points)</strong></span> Take the points <span class="math inline">\((0, 1)\)</span>, <span class="math inline">\((1, 2)\)</span>, <span class="math inline">\((2, 2)\)</span> and the line with <span class="math inline">\(\beta_{0}= 1\)</span> and <span class="math inline">\(\beta_{x} = 0.5\)</span> from <a href="./correlation-regression.html#exm-rss">the residual sum of squares example</a>, and treat the line as the fitted model.</p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 20%">
@@ -748,7 +756,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <span class="header-section-number">3.4</span> Bias</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-bias div. -->
 <div id="def-bias" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11 (Bias)</strong></span> The <strong>bias</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> for an estimand <span class="math inline">\(\theta\)</span> is the expected value of the <a href="#/def-estimation-error">estimation error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 12 (Bias)</strong></span> The <strong>bias</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> for an estimand <span class="math inline">\(\theta\)</span> is the expected value of the <a href="#/def-estimation-error">estimation error</a>:</p>
 <p><span id="eq-bias-def"><span class="math display">\[\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right]\mathclose{} \tag{1}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="exr-bias-exprs" class="theorem exercise">
@@ -776,7 +784,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bias-exprs" class="quarto-xref">Exercise&nbsp;2</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bias-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9 (Bias of two estimators of a mean)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> each have expectation <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} = \mu\)</span>, as in <a href="#/exm-estimator" class="quarto-xref">Example&nbsp;4</a>. By <a href="#/thm-bias-exprs" class="quarto-xref">Theorem&nbsp;2</a>, the bias of the sample mean <span class="math inline">\(\bar X\)</span> is:</p>
+<p><span class="theorem-title"><strong>Example 10 (Bias of two estimators of a mean)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> each have expectation <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} = \mu\)</span>, as in <a href="#/exm-estimator" class="quarto-xref">Example&nbsp;4</a>. By <a href="#/thm-bias-exprs" class="quarto-xref">Theorem&nbsp;2</a>, the bias of the sample mean <span class="math inline">\(\bar X\)</span> is:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}
@@ -816,7 +824,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <span class="header-section-number">3.5</span> Mean squared error</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-mse div. -->
 <div id="def-mse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Mean squared error)</strong></span> The <strong>mean squared error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span>, denoted <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>, is the expectation of the square of the <a href="#/def-estimation-error">estimation error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 13 (Mean squared error)</strong></span> The <strong>mean squared error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span>, denoted <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>, is the expectation of the square of the <a href="#/def-estimation-error">estimation error</a>:</p>
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\right]\mathclose{}\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-sq-bias-expand" class="theorem exercise">
@@ -888,7 +896,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/exr-mse-expand" class="quarto-xref">Exercise&nbsp;5</a> and <a href="#/exr-bias-sq-plus-var" class="quarto-xref">Exercise&nbsp;4</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> and <span class="math inline">\(\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> both equal <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\theta+ \theta^2\)</span>, so they are equal to each other.</p>
 </div>
 </section><section class="slide level2"><div id="exm-mse-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10 (Mean squared error of two estimators of a mean)</strong></span> Continuing <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;9</a>, suppose also that <span class="math inline">\(X_1, \ldots, X_n\)</span> are mutually independent, each with variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\)</span>. Both <span class="math inline">\(\bar X\)</span> and <span class="math inline">\(X_1\)</span> have zero bias, so by <a href="#/thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;3</a> each estimator’s mean squared error equals its variance.</p>
+<p><span class="theorem-title"><strong>Example 11 (Mean squared error of two estimators of a mean)</strong></span> Continuing <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;10</a>, suppose also that <span class="math inline">\(X_1, \ldots, X_n\)</span> are mutually independent, each with variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\)</span>. Both <span class="math inline">\(\bar X\)</span> and <span class="math inline">\(X_1\)</span> have zero bias, so by <a href="#/thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;3</a> each estimator’s mean squared error equals its variance.</p>
 <p>For <span class="math inline">\(X_1\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -930,25 +938,25 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p>by mean squared error, the sample mean is the more accurate estimator. With <span class="math inline">\(n = 50\)</span> students, as in <a href="#/exm-estimator" class="quarto-xref">Example&nbsp;4</a>, the sample mean’s mean squared error is <span class="math inline">\(1/50\)</span> of <span class="math inline">\(X_1\)</span>’s.</p>
 </div>
 </section><section class="slide level2"><div id="def-rmse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Root mean squared error)</strong></span> The <strong>root mean squared error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the square root of its <a href="#/def-mse">mean squared error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 14 (Root mean squared error)</strong></span> The <strong>root mean squared error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the square root of its <a href="#/def-mse">mean squared error</a>:</p>
 <p><span class="math display">\[\operatorname{RMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\]</span></p>
-<p>It has the same units as the estimand. In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;10</a>, the root mean squared error of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+<p>It has the same units as the estimand. In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, the root mean squared error of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.6" id="sec-unbiased-estimators">
 <span class="header-section-number">3.6</span> Unbiased estimators</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-unbiased div. -->
 <div id="def-unbiased" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14 (Unbiased estimator)</strong></span> An estimator <span class="math inline">\(\hat{\theta}\)</span> is <strong>unbiased</strong> if its <a href="#/def-bias">bias</a> is zero:</p>
+<p><span class="theorem-title"><strong>Definition 15 (Unbiased estimator)</strong></span> An estimator <span class="math inline">\(\hat{\theta}\)</span> is <strong>unbiased</strong> if its <a href="#/def-bias">bias</a> is zero:</p>
 <p><span class="math display">\[
 \operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = 0
 \]</span></p>
 <p>An estimator whose bias is not zero is <strong>biased</strong>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-unbiased-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11 (The sample mean is unbiased)</strong></span> By <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;9</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\)</span> and <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\)</span>, so both the sample mean <span class="math inline">\(\bar X\)</span> and the single-observation estimator <span class="math inline">\(X_1\)</span> are <a href="#/def-unbiased">unbiased</a> estimators of <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 12 (The sample mean is unbiased)</strong></span> By <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\)</span> and <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\)</span>, so both the sample mean <span class="math inline">\(\bar X\)</span> and the single-observation estimator <span class="math inline">\(X_1\)</span> are <a href="#/def-unbiased">unbiased</a> estimators of <span class="math inline">\(\mu\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-biased-variance-mle" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="theorem-title"><strong>Example 13 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
 <ul>
 <li>the <a href="./exploratory-descriptive.html#def-sample-variance">sample variance</a> <span class="math inline">\(S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n(X_i - \bar X)^2\)</span>;</li>
 <li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n(X_i - \bar X)^2\)</span>.</li>
@@ -967,7 +975,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
   &amp;= \sigma^2/n + \mu^2
 \end{aligned}
 \]</span></p>
-<p>(by <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;10</a> and <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;9</a>):</p>
+<p>(by <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a> and <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;10</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{E}\mathopen{}\left[\sum_{i=1}^n(X_i - \bar X)^2\right]\mathclose{}
@@ -1084,13 +1092,13 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <span class="header-section-number">3.7</span> Mean absolute error</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
 <div id="def-mae" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Mean absolute error)</strong></span> The <strong>mean absolute error</strong> of an estimator is the expectation of the absolute value of the <a href="#/def-estimation-error">estimation error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 16 (Mean absolute error)</strong></span> The <strong>mean absolute error</strong> of an estimator is the expectation of the absolute value of the <a href="#/def-estimation-error">estimation error</a>:</p>
 <p><span class="math display">\[
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left|\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right|\mathclose{}\right]\mathclose{}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-mae-gaussian" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13 (Mean absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat{\theta}\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
+<p><span class="theorem-title"><strong>Example 14 (Mean absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat{\theta}\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
@@ -1136,11 +1144,11 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <span class="header-section-number">3.8</span> Standard error</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-SE div. -->
 <div id="def-SE" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat{\theta}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 17 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat{\theta}\)</span>:</p>
 <p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-SE-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14 (Standard error of the sample mean)</strong></span> In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>, so</p>
+<p><span class="theorem-title"><strong>Example 15 (Standard error of the sample mean)</strong></span> In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>, so</p>
 <p><span class="math display">\[
 \begin{aligned}
   \operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} &amp;= \sqrt{\sigma^2 / n} \\

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 23:11:59 (PDT)
+Last modified: 2026-10-13 00:51:10 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -365,15 +365,17 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Definition 10 (Observed information matrix)** The **observed information matrix**, written \\I\\, is the negative of the [Hessian](#def-hessian) of the log-likelihood:
+> **Definition 10 (Expected information)** The **expected information matrix**, also called the **Fisher information matrix** or just the **information matrix**, is written \\\mathcal{I}\\, and is the expected value of the negative [Hessian](#def-hessian) of the log-likelihood, with the data \\\tilde{X}\\ treated as random:
 >
-> \\I\stackrel{\text{def}}{=}-\ell''(\tilde{x}\|\tilde{\theta}) \tag{10}\\
+> \\\mathcal{I}(\tilde{\theta}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[-\ell''(\tilde{X}\mid \tilde{\theta})\right\]\mathclose{} \tag{10}\\
+>
+> It is a function of the parameter alone, so it is the quantity that the [observed information](#def-oinf) estimates from one data set.
 
 > **NOTE:**
 >
-> **Definition 11 (Expected information)** The **expected information matrix**, also called the **Fisher information matrix** or just the **information matrix**, is written \\\mathcal{I}\\, and is the expected value of the [observed information matrix](#def-oinf), with the data \\\tilde{X}\\ treated as random:
+> **Definition 11 (Observed information matrix)** The **observed information matrix**, written \\I\\, is the negative of the [Hessian](#def-hessian) of the log-likelihood, evaluated at the observed data. It is the sample counterpart of the [expected information](#def-einf), which averages the same quantity over possible data sets:
 >
-> \\\mathcal{I}(\tilde{\theta}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[I(\tilde{X}\mid \tilde{\theta})\right\]\mathclose{} \tag{11}\\
+> \\I\stackrel{\text{def}}{=}-\ell''(\tilde{x}\|\tilde{\theta}) \tag{11}\\
 
 > **NOTE:**
 >

@@ -355,13 +355,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-12 23:11:59 (PDT)</p>
+  <p class="date">Last modified: 2026-10-13 00:51:10 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
-<p>This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a <a href="./correlation-regression.html#sec-simple-linear-regression">simple linear regression</a>. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, Section 3.6.</p>
+<p>This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of a statistic. Its HERS example bootstraps the slope of a <a href="./correlation-regression.html#sec-simple-linear-regression">simple linear regression</a>. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, Section 3.6.</p>
 </section><section id="the-hers-data" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
@@ -380,7 +380,7 @@ text-align: center;
 <span class="header-section-number">2</span> Bootstrap confidence intervals</h2>
 <h3 data-number="2.1" id="sec-bootstrap-when">
 <span class="header-section-number">2.1</span> When to use the bootstrap</h3>
-<p>The bootstrap <span class="citation" data-cites="efron1979bootstrap efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron 1979</a>; <a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span> estimates the sampling distribution of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short <span class="citation" data-cites="vittinghoff2e">(<a href="#/references" role="doc-biblioref" onclick="">Vittinghoff et al. 2012, chap. 3</a>)</span>:</p>
+<p>The bootstrap <span class="citation" data-cites="efron1979bootstrap efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron 1979</a>; <a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span> estimates the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short <span class="citation" data-cites="vittinghoff2e">(<a href="#/references" role="doc-biblioref" onclick="">Vittinghoff et al. 2012, chap. 3</a>)</span>:</p>
 <ul>
 <li>approximate methods for valid confidence intervals exist, but standard software does not implement them conveniently;</li>
 <li>no closed-form approximate method has been found;</li>
@@ -417,7 +417,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 2 (Bootstrap distribution)</strong></span> Let <span class="math inline">\(\hat{\theta}\)</span> be a statistic computed from the observed data. Draw <span class="math inline">\(B\)</span> independent <a href="#/def-bootstrap-sample">bootstrap samples</a>, and compute the statistic on each one, giving <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span>. The <strong>bootstrap distribution</strong> of <span class="math inline">\(\hat{\theta}\)</span> is the empirical distribution of <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bootstrap-distribution-role" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (What the bootstrap distribution estimates). </span>The bootstrap distribution estimates the sampling distribution of <span class="math inline">\(\hat{\theta}\)</span>. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.</p>
+<p><span class="proof-title"><em>Remark 2</em> (What the bootstrap distribution estimates). </span>The bootstrap distribution estimates the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of <span class="math inline">\(\hat{\theta}\)</span>. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.</p>
 </div>
 </section><section class="slide level2"><div id="def-bootstrap-se" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Bootstrap standard error)</strong></span> The <strong>bootstrap standard error</strong> of a statistic <span class="math inline">\(\hat{\theta}\)</span>, written <span class="math inline">\(\widehat{\text{SE}}_\text{boot}\)</span>, is the sample standard deviation of the bootstrap replicates <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span> (<a href="#/def-bootstrap-distribution" class="quarto-xref">Definition&nbsp;2</a>). It estimates the <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>
@@ -471,7 +471,7 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 <p>where <span class="math inline">\(\widehat{\text{SE}}_\text{boot}\)</span> is the bootstrap standard error (<a href="#/def-bootstrap-se" class="quarto-xref">Definition&nbsp;3</a>).</p>
 </div>
 </section><section class="slide level2"><div id="rem-bootstrap-ci-normal-assumptions" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (When the normal bootstrap interval is reliable). </span>This interval assumes that the sampling distribution of <span class="math inline">\(\hat{\theta}\)</span> is approximately Gaussian and centered at <span class="math inline">\(\theta\)</span>, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals <span class="citation" data-cites="efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 3</em> (When the normal bootstrap interval is reliable). </span>This interval assumes that the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of <span class="math inline">\(\hat{\theta}\)</span> is approximately Gaussian and centered at <span class="math inline">\(\theta\)</span>, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals <span class="citation" data-cites="efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bootstrap-normal-toy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Normal bootstrap interval for the mean of ten glucose values)</strong></span> Continuing <a href="#/exm-bootstrap-distribution-toy" class="quarto-xref">Example&nbsp;2</a>, the 95% interval of <a href="#/def-bootstrap-ci-normal" class="quarto-xref">Definition&nbsp;4</a> is:</p>

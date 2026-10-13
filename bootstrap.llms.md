@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-12 23:11:59 (PDT)
+Last modified: 2026-10-13 00:51:10 (PDT)
 
-This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
+This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
 ## 1 The HERS data
 
@@ -21,7 +21,7 @@ hers |> head()
 
 ### 2.1 When to use the bootstrap
 
-The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993](#ref-efron1993introduction)) estimates the sampling distribution of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short ([Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)):
+The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993](#ref-efron1993introduction)) estimates the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short ([Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)):
 
 - approximate methods for valid confidence intervals exist, but standard software does not implement them conveniently;
 - no closed-form approximate method has been found;
@@ -65,7 +65,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 
 > **NOTE:**
 >
-> *Remark 2* (What the bootstrap distribution estimates). The bootstrap distribution estimates the sampling distribution of \\\hat{\theta}\\. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.
+> *Remark 2* (What the bootstrap distribution estimates). The bootstrap distribution estimates the [sampling distribution](estimation.llms.md#def-sampling-distribution) of \\\hat{\theta}\\. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.
 
 > **NOTE:**
 >
@@ -122,7 +122,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the sampling distribution of \\\hat{\theta}\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
+> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the [sampling distribution](estimation.llms.md#def-sampling-distribution) of \\\hat{\theta}\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
 
 > **NOTE:**
 >
