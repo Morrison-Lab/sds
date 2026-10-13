@@ -1,0 +1,59 @@
+::: {#exm-rejection-counts}
+#### Outcome counts in a simulated family of 1000 tests
+
+With real data the truth is unknown, so $V$ and $S$ cannot be counted.
+A simulation knows the truth.
+Simulate $m = 1000$ z-tests,
+of which $m_0 = 900$ have a true null hypothesis
+(a standard Gaussian statistic $Z_j$)
+and 100 have a false one
+(a Gaussian statistic with mean 3 and variance 1).
+Each p-value is $2 \normcdf(-\abs{z_j})$.
+Rejecting every null hypothesis with $p_j \le 0.05$ gives the counts of @def-rejection-counts:
+
+```{r}
+#| label: rejection-counts
+#| code-fold: false
+simulate_tests <- function(m = 1000, m0 = 900, shift = 3) {
+  is_null <- rep(c(TRUE, FALSE), c(m0, m - m0))
+  z <- rnorm(m, mean = ifelse(is_null, 0, shift))
+  list(p = 2 * pnorm(-abs(z)), is_null = is_null)
+}
+count_outcomes <- function(reject, is_null) {
+  c(
+    U = sum(!reject & is_null), V = sum(reject & is_null),
+    T = sum(!reject & !is_null), S = sum(reject & !is_null)
+  )
+}
+
+set.seed(571)
+sim <- simulate_tests()
+counts <- count_outcomes(sim$p <= 0.05, sim$is_null)
+matrix(
+  counts[c("U", "V", "T", "S")],
+  nrow = 2, byrow = TRUE,
+  dimnames = list(
+    c("Null true", "Null false"),
+    c("Not rejected", "Rejected")
+  )
+) |>
+  as.table() |>
+  addmargins()
+```
+
+The procedure made $R =$ `r counts[["V"]] + counts[["S"]]` rejections,
+of which $V =$ `r counts[["V"]]` were false positives.
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-counts-unobserved}
+#### Only the number of rejections is observed
+
+$V$, $S$, $U$, $T$ and $R$ are random,
+because they depend on the data.
+In practice only $m$ and $R$ are observed;
+$m_0$ and the split of $R$ into $V$ and $S$ are not.
+Error rates are therefore defined as properties of a procedure over repeated data sets,
+not of the particular list of rejections that one data set produces.
+:::

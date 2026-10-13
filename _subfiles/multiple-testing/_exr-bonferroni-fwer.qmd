@@ -1,0 +1,35 @@
+::: {#exr-bonferroni-fwer}
+#### Probability of a false positive under the Bonferroni correction
+
+Let $m$ null hypotheses have valid p-values (@def-valid-p-value),
+let $\truenulls$ be the set of $m_0$ indices of the true null hypotheses,
+and let $V$ be the number of true null hypotheses that the
+[Bonferroni correction](#def-bonferroni) at level $\siglevel$ rejects.
+Show that $\Prf{V \ge 1} \le m_0 \siglevel / m$.
+:::
+
+{{< slidebreak >}}
+
+::: {#sol-bonferroni-fwer}
+
+The steps use the Bonferroni rule (@def-bonferroni),
+the union bound (@thm-union-bound)
+and the validity of each p-value (@def-valid-p-value).
+
+$$
+\begin{aligned}
+\Prf{V \ge 1}
+&= \Prf{\bigcup_{j \in \truenulls} \set{H_j \text{ is rejected}}}
+&& \text{($V \ge 1$ means some true null hypothesis is rejected)}\\
+&= \Prf{\bigcup_{j \in \truenulls} \set{p_j \le \siglevel / m}}
+&& \text{(the Bonferroni rule)}\\
+&\le \sum_{j \in \truenulls} \Prf{p_j \le \siglevel / m}
+&& \text{(union bound)}\\
+&\le \sum_{j \in \truenulls} \frac{\siglevel}{m}
+&& \text{(each $p_j$ is valid, with $u = \siglevel / m$)}\\
+&= m_0 \cdot \frac{\siglevel}{m}
+&& \text{(a sum of $m_0$ equal terms)}
+\end{aligned}
+$$
+
+:::

@@ -1,0 +1,11 @@
+::: {#def-fwer}
+#### Family-wise error rate
+
+For a family of tests with $V$ false positives (@def-rejection-counts),
+the **family-wise error rate** (FWER) is the probability of at least one false positive:
+
+$$\text{FWER} \eqdef \Prf{V \ge 1}.$$
+
+A procedure **controls the FWER at level $\siglevel$** if $\text{FWER} \le \siglevel$
+for every possible set of true null hypotheses.
+:::

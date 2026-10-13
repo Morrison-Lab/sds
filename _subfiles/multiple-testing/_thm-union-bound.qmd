@@ -1,0 +1,42 @@
+::: {#thm-union-bound}
+#### Union bound
+
+For any events $A_1, \ldots, A_k$, the probability of their union is at most the sum of their probabilities:
+
+$$\Prf{A_1 \cup \cdots \cup A_k} \le \Pr(A_1) + \cdots + \Pr(A_k).$$
+
+:::
+
+::: proof
+
+The inequality in the second line is @sol-union-bound.
+
+$$
+\begin{aligned}
+\Prf{A_1 \cup \cdots \cup A_k}
+&= \E{\indic{A_1 \cup \cdots \cup A_k}}
+&& \text{(the expected value of an indicator is the probability of its event)}\\
+&\le \E{\indic{A_1} + \cdots + \indic{A_k}}
+&& \text{(indicator inequality, and expectation preserves inequalities)}\\
+&= \E{\indic{A_1}} + \cdots + \E{\indic{A_k}}
+&& \text{(expectation of a sum is the sum of expectations)}\\
+&= \Pr(A_1) + \cdots + \Pr(A_k)
+&& \text{(the expected value of an indicator is the probability of its event)}
+\end{aligned}
+$$
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-union-bound}
+#### The union bound for tests of true null hypotheses
+
+Let $A_j$ be the event that the $j$th of $m$ tests of true null hypotheses, each at level $\siglevel = 0.05$, rejects.
+The union bound gives $\Prf{A_1 \cup \cdots \cup A_m} \le m \times 0.05$,
+which for $m = 10$ is `r 10 * 0.05`.
+The exact probability for independent tests is $1 - 0.95^{10} =$ `r round(1 - 0.95^10, 3)`
+(@thm-false-positive-prob),
+so the bound is not tight, but it needs no independence.
+For large $m$ the bound exceeds 1 and says nothing.
+:::

@@ -1,0 +1,18 @@
+The examples on this page use gene expression data from
+@khan2001classification,
+who measured 2308 genes in tissue samples from children with small round blue cell tumors.
+The samples fall into four tumor classes, numbered 1 to 4 in the data.
+This site keeps a copy of the 63 training samples at [`data/khan.csv`](data/khan.csv),
+taken from the `Khan` data of the R package
+[`ISLR2`](https://cran.r-project.org/package=ISLR2) [@james2021islr2e]:
+the column `tumor_class` holds the class,
+and the columns `gene_1` to `gene_2308` hold the expression values.
+The examples compare classes 2 and 4.
+
+```{r}
+#| label: load-khan
+#| code-fold: false
+khan <- read.csv("data/khan.csv")
+khan_pair <- khan[khan$tumor_class %in% c(2, 4), ]
+table(tumor_class = khan_pair$tumor_class)
+```

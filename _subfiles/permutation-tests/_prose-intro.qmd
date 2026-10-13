@@ -1,0 +1,16 @@
+The p-value of a [t-test](basic-statistical-methods.qmd#def-two-sample-t-test)
+comes from a distributional approximation:
+the statistic is only approximately t-distributed unless the data are Gaussian.
+A **permutation test** takes its null distribution from the data instead.
+If the null hypothesis says that two groups have the same distribution,
+then under that hypothesis the group labels carry no information,
+so reassigning the labels at random produces data sets that are as plausible as the observed one.
+The spread of the test statistic across those relabelings is its null distribution.
+
+This page defines exchangeability, the permutation distribution and the permutation p-value,
+shows why that p-value is valid,
+and then approximates it by random relabelings, which is how it is computed in practice.
+It continues the [bootstrap](bootstrap.qmd) page's idea of computing a sampling distribution by resampling,
+and supplies the p-values that the [multiple testing](multiple-testing.qmd) page corrects.
+These notes follow chapter 13 of @james2021islr2e
+and the treatment in @good2005permutation.

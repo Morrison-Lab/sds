@@ -1,0 +1,83 @@
+::: {#def-adjusted-p-value}
+#### Adjusted p-value
+
+For a multiple testing procedure that takes a level $c$
+($\siglevel$ for an FWER procedure, $q$ for an FDR procedure),
+the **adjusted p-value** $\tilde p_j$ of $H_j$ is the smallest level at which the procedure rejects $H_j$,
+or $1$ if there is none:
+
+$$\tilde p_j \eqdef \min \set{c \in [0, 1] : \text{the procedure at level } c \text{ rejects } H_j}.$$
+
+If the rejection set only grows as the level grows, as it does for the procedures on this page,
+the procedure at level $c$ rejects exactly the hypotheses with $\tilde p_j \le c$,
+so a reader can apply any level to a list of adjusted p-values without redoing the procedure.
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-adjusted-p-value}
+#### Adjusted p-values for the Khan genes
+
+For the Bonferroni correction, $H_j$ is rejected at level $c$ exactly when $m p_j \le c$,
+so $\tilde p_j = \min\set{1, m p_j}$.
+For Holm's procedure and BH the adjusted p-values are
+
+$$
+\tilde p_{(i)}^{\text{Holm}} = \max_{k \le i} \min\set{1, (m - k + 1)\, p_{(k)}},
+\qquad
+\tilde p_{(i)}^{\text{BH}} = \min_{k \ge i} \min\set{1, \frac{m\, p_{(k)}}{k}}.
+$$
+
+R computes all three with `p.adjust()`.
+For the first ten genes:
+
+```{r}
+#| label: adjusted-p-values
+data.frame(
+  gene = names(ten_genes),
+  p_value = ten_genes,
+  bonferroni = p.adjust(ten_genes, method = "bonferroni"),
+  holm = p.adjust(ten_genes, method = "holm"),
+  bh = p.adjust(ten_genes, method = "BH"),
+  row.names = NULL
+) |>
+  dplyr::arrange(p_value) |>
+  dplyr::mutate(dplyr::across(p_value:bh, fmt_p)) |>
+  knitr::kable()
+```
+
+Rejecting the hypotheses whose adjusted p-value is at most the level
+reproduces the rejection sets of the functions defined above, on all 2308 genes:
+
+```{r}
+#| label: adjusted-p-values-check
+#| code-fold: false
+levels_to_check <- c(0.01, 0.05, 0.1)
+sapply(levels_to_check, function(a) {
+  c(
+    bonferroni = all(
+      (p.adjust(khan_p, "bonferroni") <= a) == bonferroni_reject(khan_p, a)
+    ),
+    holm = all((p.adjust(khan_p, "holm") <= a) == holm_reject(khan_p, a)),
+    bh = all((p.adjust(khan_p, "BH") <= a) == bh_reject(khan_p, a))
+  )
+}) |>
+  `colnames<-`(levels_to_check)
+```
+
+The check confirms that the formulas and functions agree on these data at these levels;
+it is not a proof that they agree for every data set.
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-q-value}
+#### q-values
+
+The BH adjusted p-value of a hypothesis is the smallest FDR level $q$ at which BH rejects it.
+Some authors call this a *q-value*.
+@storey2002direct defines the q-value with the same meaning,
+but estimates the fraction $m_0 / m$ of true null hypotheses from the p-values
+and multiplies by the estimate, $\hat\pi_0$, which is usually below 1.
+BH is the case $\hat\pi_0 = 1$, so Storey's q-values are smaller, and reject more, when many null hypotheses are false.
+:::

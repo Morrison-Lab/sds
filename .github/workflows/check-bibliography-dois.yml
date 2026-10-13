@@ -24,7 +24,9 @@ jobs:
     with:
       # Book/article entries copied from rme's references.bib without a DOI
       # (older or non-DOI'd books, a web textbook, and an eScholarship paper),
-      # and Holm (1979), a JSTOR-only article with no DOI.
+      # Holm (1979), a JSTOR-only article with no DOI,
+      # and Phipson and Smyth (2010), whose valid DOI answers the checker
+      # with HTTP 202 (De Gruyter's bot filter) on every run.
       # Move a key out of this list when a DOI is found and verified
       # against CrossRef.
       exclude-keys: >-
@@ -32,3 +34,4 @@ jobs:
         HobbsN.Thompson2015Bmas hoggtanis2015
         kery-bayes-pop kleinbaum2014applied korner.bayes.ecology rossbayes
         statrethink2e van2018flexible geron2017hands holm1979simple
+        phipson2010permutation

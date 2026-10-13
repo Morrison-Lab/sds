@@ -1,0 +1,42 @@
+::: {#exm-fdr}
+#### FDR of unadjusted testing in the simulated family
+
+In the 2000 repetitions of @exm-fwer,
+average the false discovery proportion of each repetition to estimate the FDR.
+The *power* of a procedure is the expected fraction of the 100 false null hypotheses it rejects, $\E{S} / m_1$:
+
+```{r}
+#| label: fdr-unadjusted
+#| code-fold: false
+summarize_counts <- function(counts, m1 = 100) {
+  rejections <- colSums(counts[c("V", "S"), ])
+  c(
+    FWER = mean(counts["V", ] >= 1),
+    FDR = mean(counts["V", ] / pmax(rejections, 1)),
+    power = mean(counts["S", ]) / m1
+  )
+}
+summarize_counts(sim_counts$unadjusted)
+```
+
+About `r round(100 * summarize_counts(sim_counts$unadjusted)[["FDR"]])`% of the rejections are false positives on average,
+even though each individual test has only a 5% false positive rate.
+A 5% rate on 900 true null hypotheses gives about `r 0.05 * 900` false positives,
+which is large next to the average of `r round(mean(sim_counts$unadjusted["S", ]))` true positives.
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-fdr-fwer}
+#### The FDR is never larger than the FWER
+
+If $V \ge 1$ then $V / \max(R, 1) \le 1$ because $V \le R$,
+and if $V = 0$ then $V / \max(R, 1) = 0$.
+So $\text{FDP} \le \indic{V \ge 1}$,
+and taking expectations gives $\text{FDR} \le \text{FWER}$.
+A procedure that controls the FWER at level $\siglevel$
+therefore controls the FDR at level $\siglevel$ too,
+but the FDR can be controlled with many more rejections,
+which is why it suits exploratory screens such as the Khan genes,
+where a few false positives are an acceptable price for more discoveries.
+:::

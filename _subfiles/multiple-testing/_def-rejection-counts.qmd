@@ -1,0 +1,22 @@
+::: {#def-rejection-counts}
+#### Outcome counts of a family of tests
+
+Suppose a procedure tests $m$ null hypotheses, $m_0$ of which are true.
+Count the outcomes as in @tbl-rejection-counts:
+$V$ true null hypotheses rejected (false positives),
+$S$ false null hypotheses rejected (true positives),
+$U$ true null hypotheses not rejected,
+and $T$ false null hypotheses not rejected.
+The total number of **rejections** is
+
+$$R \eqdef V + S.$$
+
+| | Not rejected | Rejected | Total |
+|:--------------------|:-----:|:-----:|:-------------:|
+| Null hypothesis true | $U$ | $V$ | $m_0$ |
+| Null hypothesis false | $T$ | $S$ | $m - m_0$ |
+| Total | $m - R$ | $R$ | $m$ |
+
+: Outcomes of $m$ tests, of which $m_0$ have a true null hypothesis. {#tbl-rejection-counts}
+
+:::

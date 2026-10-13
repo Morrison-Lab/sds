@@ -1,0 +1,49 @@
+::: {#def-permutation-p-value}
+#### Permutation p-value
+
+With the notation of @def-permutation-distribution,
+the **permutation p-value** of the observed statistic $t = T(y)$
+is the proportion of relabelings whose statistic is at least as extreme as the observed one:
+
+$$p_{\text{perm}} \eqdef \Pr_\pi\paren{T(y_\pi) \ge T(y)} = \frac{1}{n!} \sum_{\pi \in S_n} \indic{T(y_\pi) \ge T(y)}.$$
+
+Because the identity permutation is one of the $n!$ relabelings, $p_{\text{perm}} \ge 1 / n!$.
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-permutation-p-value}
+#### Exact permutation p-value for six expression values
+
+Of the 20 relabelings in @exm-permutation-distribution,
+count those whose statistic is at least the observed one.
+Rounding before the comparison keeps floating-point error from separating values that are equal in exact arithmetic,
+such as the observed statistic and the one for its mirror image:
+
+```{r}
+#| label: permutation-p-value-toy
+#| code-fold: false
+n_extreme <- sum(round(t_toy, 10) >= round(t_observed_toy, 10))
+c(
+  extreme = n_extreme,
+  relabelings = length(t_toy),
+  p_perm = n_extreme / length(t_toy)
+)
+```
+
+The exact permutation p-value is `r n_extreme / length(t_toy)`.
+With three samples per group the smallest p-value any data could give is $2 / 20 =$ `r 2 / 20`,
+because each statistic has a mirror image, so six samples cannot provide evidence at the 5% level.
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-permutation-sharp-null}
+#### What a permutation test tests
+
+Relabeling is justified only if the null hypothesis makes the labels irrelevant,
+that is, if the two groups have the same distribution.
+A permutation test of a difference in means therefore tests the hypothesis of equal distributions.
+Such a test can reject because the groups differ in spread rather than in mean,
+and a test that does not assume equal distributions needs a different method.
+:::

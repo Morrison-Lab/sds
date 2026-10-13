@@ -1,0 +1,88 @@
+::: {#def-holm}
+#### Holm's step-down procedure
+
+Given $m$ null hypotheses with p-values and a level $\siglevel$,
+order the p-values from smallest to largest,
+$p_{(1)} \le p_{(2)} \le \cdots \le p_{(m)}$,
+and let $H_{(k)}$ be the null hypothesis with p-value $p_{(k)}$.
+Let $k^*$ be the first rank at which the p-value exceeds its threshold $\siglevel / (m - k + 1)$,
+with $k^* \eqdef m + 1$ if there is no such rank:
+
+$$k^* \eqdef \min \set{k : p_{(k)} > \frac{\siglevel}{m - k + 1}}.$$
+
+**Holm's procedure** rejects $H_{(1)}, \ldots, H_{(k^* - 1)}$ and no others.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+Holm [-@holm1979simple].
+:::
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-holm}
+#### Holm's procedure for the Khan genes
+
+A step-down procedure starts at the smallest p-value and stops at the first one that exceeds its threshold:
+
+```{r}
+#| label: holm-reject
+#| code-fold: false
+holm_reject <- function(p, alpha) {
+  m <- length(p)
+  ord <- order(p)
+  below <- p[ord] <= alpha / (m - seq_len(m) + 1)
+  n_reject <- if (all(below)) m else which.min(below) - 1
+  reject <- rep(FALSE, m)
+  reject[ord[seq_len(n_reject)]] <- TRUE
+  reject
+}
+```
+
+For the first ten genes at $\siglevel = 0.05$,
+the thresholds $0.05 / (10 - k + 1)$ rise from $0.005$ for the smallest p-value to $0.05$ for the largest:
+
+```{r}
+#| label: holm-ten-genes
+holm_ten <- data.frame(
+  gene = names(ten_genes),
+  p_value = ten_genes,
+  row.names = NULL
+) |>
+  dplyr::arrange(p_value) |>
+  dplyr::mutate(
+    rank = dplyr::row_number(),
+    threshold = alpha / (length(ten_genes) - rank + 1),
+    exceeds = p_value > threshold
+  )
+holm_ten |>
+  dplyr::mutate(p_value = fmt_p(p_value)) |>
+  knitr::kable()
+```
+
+The first p-value that exceeds its threshold is at rank $k^* =$ `r which(holm_ten$exceeds)[1]`,
+so Holm's procedure rejects the `r which(holm_ten$exceeds)[1] - 1` genes ranked before it.
+
+Holm's procedure always rejects every hypothesis that the Bonferroni correction rejects,
+because its first threshold is $\siglevel / m$ and its later thresholds are larger.
+On all 2308 genes the two procedures reject almost the same genes:
+
+```{r}
+#| label: holm-vs-bonferroni
+#| code-fold: false
+holm_comparison <- sapply(c(0.05, 0.01), function(a) {
+  c(
+    alpha = a,
+    bonferroni = sum(bonferroni_reject(khan_p, a)),
+    holm = sum(holm_reject(khan_p, a))
+  )
+})
+holm_comparison
+```
+
+At $\siglevel = 0.01$ Holm's procedure rejects `r holm_comparison["holm", 2]` genes
+and the Bonferroni correction `r holm_comparison["bonferroni", 2]`;
+at $\siglevel = 0.05$ they reject `r holm_comparison["holm", 1]` and `r holm_comparison["bonferroni", 1]`.
+:::

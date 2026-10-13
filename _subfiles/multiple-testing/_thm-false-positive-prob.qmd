@@ -1,0 +1,29 @@
+::: {#thm-false-positive-prob}
+#### Probability of at least one false positive
+
+Let $A_1, \ldots, A_m$ be independent events,
+where $A_j$ is the event that the $j$th of $m$ tests rejects its true null hypothesis,
+and each has probability $\siglevel$.
+Then the probability that at least one test rejects is
+
+$$\Prf{A_1 \cup A_2 \cup \cdots \cup A_m} = 1 - \paren{1 - \siglevel}^m.$$
+
+:::
+
+::: proof
+
+The last line below is @sol-no-rejection-prob.
+
+$$
+\begin{aligned}
+\Prf{A_1 \cup \cdots \cup A_m}
+&= 1 - \Prf{\paren{A_1 \cup \cdots \cup A_m}^c}
+&& \text{(complement rule)}\\
+&= 1 - \Prf{A_1^c \cap \cdots \cap A_m^c}
+&& \text{(De Morgan's law)}\\
+&= 1 - \paren{1 - \siglevel}^m
+&& \text{(probability that no test rejects)}
+\end{aligned}
+$$
+
+:::
