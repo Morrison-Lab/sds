@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 20:39:40 (PDT)
+Last modified: 2026-10-12 20:54:41 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -30,6 +30,8 @@ Methods:
 - [Comparing proportions](categorical-tests.llms.md): the chi-square test and Fisher’s exact test;
 - [Correlation and simple linear regression](correlation-regression.llms.md);
 - [The bootstrap](bootstrap.llms.md);
+- [Permutation tests](permutation-tests.llms.md): exchangeability, the permutation distribution, and exact and Monte Carlo permutation p-values;
+- [Multiple testing](multiple-testing.llms.md): the family-wise error rate, the false discovery rate, the Bonferroni, Holm, and Benjamini–Hochberg procedures, and adjusted p-values;
 - [Validating predictions](model-validation.llms.md): overfitting, generalization error, training/validation/test splits, \\k\\-fold and leave-one-out cross-validation, and choosing a model by cross-validation;
 - [Classification and diagnostic tests](classification.llms.md): sensitivity, specificity, prevalence, and positive and negative predictive values.
 
