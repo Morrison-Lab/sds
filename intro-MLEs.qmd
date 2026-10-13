@@ -71,6 +71,12 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< include sds/_subfiles/intro-MLEs/_exm-mle-bernoulli.qmd >}}
 
+::: {.callout-tip title="Another explanation"}
+5MinuteAI explains [maximum likelihood estimation](https://www.youtube.com/watch?v=Pa-GWE5JuH4)
+and works [examples](https://www.youtube.com/watch?v=w3a08digzfw) in five minutes each,
+following the University of Washington's CSE 312 [@fiveminuteai_probstat].
+:::
+
 {{< slidebreak >}}
 
 ### Finding the maximum of a function

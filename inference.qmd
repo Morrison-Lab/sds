@@ -76,6 +76,11 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< include sds/_subfiles/inference/_exm-p-value-wcgs.qmd >}}
 
+::: {.callout-tip title="Another explanation"}
+5MinuteAI explains [hypothesis testing](https://www.youtube.com/watch?v=Plya_ZXkOvs) in five minutes,
+following the University of Washington's CSE 312 [@fiveminuteai_probstat].
+:::
+
 ## Reference distributions {#sec-reference-distributions}
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-reference-distributions.qmd >}}
@@ -129,6 +134,11 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/inference/_exm-margin-error.qmd >}}
+
+::: {.callout-tip title="Another explanation"}
+5MinuteAI explains [confidence intervals](https://www.youtube.com/watch?v=XdaAhYUqWsg) in five minutes,
+following the University of Washington's CSE 312 [@fiveminuteai_probstat].
+:::
 
 ## Further reading on confidence intervals
 
