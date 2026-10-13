@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-12 22:10:07 (PDT)</p>
+  <p class="date">Last modified: 2026-10-12 23:11:59 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -729,7 +729,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <div id="exm-permutation-all-genes" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Permutation p-values for all 2308 genes)</strong></span> Relabeling the samples once permutes every gene at the same time, so <span class="math inline">\(B = 1000\)</span> relabelings give a permutation null distribution for each of the 2308 genes. This computes <span class="math inline">\(\mathopen{}\left|t\right|\mathclose{}\)</span> for all genes from column means and sums of squares, in a function checked against <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> on gene 3:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>expression <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(khan_pair[, <span class="fu">grepl</span>(<span class="st">"^gene_"</span>, <span class="fu">names</span>(khan_pair))])</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>expr_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(khan_pair[, <span class="fu">grepl</span>(<span class="st">"^gene_"</span>, <span class="fu">names</span>(khan_pair))])</span>
 <span id="cb9-2"><a aria-label="2"></a>abs_welch_t_all <span class="ot">&lt;-</span> <span class="cf">function</span>(x, in_group1) {</span>
 <span id="cb9-3"><a aria-label="3"></a>  n1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(in_group1)</span>
 <span id="cb9-4"><a aria-label="4"></a>  n2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="sc">!</span>in_group1)</span>
@@ -739,7 +739,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <span id="cb9-8"><a aria-label="8"></a>  var2 <span class="ot">&lt;-</span> (<span class="fu">colSums</span>(x[<span class="sc">!</span>in_group1, , <span class="at">drop =</span> <span class="cn">FALSE</span>]<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> n2 <span class="sc">*</span> mean2<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (n2 <span class="sc">-</span> <span class="dv">1</span>)</span>
 <span id="cb9-9"><a aria-label="9"></a>  <span class="fu">abs</span>(mean1 <span class="sc">-</span> mean2) <span class="sc">/</span> <span class="fu">sqrt</span>(var1 <span class="sc">/</span> n1 <span class="sc">+</span> var2 <span class="sc">/</span> n2)</span>
 <span id="cb9-10"><a aria-label="10"></a>}</span>
-<span id="cb9-11"><a aria-label="11"></a>t_all <span class="ot">&lt;-</span> <span class="fu">abs_welch_t_all</span>(expression, in_class4)</span>
+<span id="cb9-11"><a aria-label="11"></a>t_all <span class="ot">&lt;-</span> <span class="fu">abs_welch_t_all</span>(expr_matrix, in_class4)</span>
 <span id="cb9-12"><a aria-label="12"></a><span class="fu">all.equal</span>(<span class="fu">unname</span>(t_all[<span class="st">"gene_3"</span>]), t_obs)</span>
 <span id="cb9-13"><a aria-label="13"></a><span class="co">#&gt; [1] TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -750,7 +750,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <span id="cb10-3"><a aria-label="3"></a>exceed_counts <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(</span>
 <span id="cb10-4"><a aria-label="4"></a>  <span class="st">`</span><span class="at">+</span><span class="st">`</span>,</span>
 <span id="cb10-5"><a aria-label="5"></a>  <span class="fu">lapply</span>(<span class="fu">seq_len</span>(B_all), <span class="cf">function</span>(b) {</span>
-<span id="cb10-6"><a aria-label="6"></a>    <span class="fu">abs_welch_t_all</span>(expression, <span class="fu">sample</span>(in_class4)) <span class="sc">&gt;=</span> t_all</span>
+<span id="cb10-6"><a aria-label="6"></a>    <span class="fu">abs_welch_t_all</span>(expr_matrix, <span class="fu">sample</span>(in_class4)) <span class="sc">&gt;=</span> t_all</span>
 <span id="cb10-7"><a aria-label="7"></a>  })</span>
 <span id="cb10-8"><a aria-label="8"></a>)</span>
 <span id="cb10-9"><a aria-label="9"></a>p_perm_all <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> exceed_counts) <span class="sc">/</span> (B_all <span class="sc">+</span> <span class="dv">1</span>)</span>
@@ -765,7 +765,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <p>The smallest p-value that 1000 relabelings can give is 0.001, and 136 genes reach it. The Bonferroni threshold, 0.000022, is far below the smallest possible p-value, so the Bonferroni correction cannot reject any gene with these p-values. For a Bonferroni correction at level <span class="math inline">\(\alpha\)</span> across <span class="math inline">\(m\)</span> tests the p-values must be able to fall below <span class="math inline">\(\alpha/ m\)</span>, which needs <span class="math inline">\(B + 1 \ge m / \alpha\)</span>, here <span class="math inline">\(B \ge\)</span> 46,159 relabelings. The <a href="./multiple-testing.html#def-bh">BH procedure</a> needs less resolution, because its thresholds grow with the rank. At <span class="math inline">\(q = 0.05\)</span> it rejects genes from the permutation p-values and from Welch’s t-test p-values as follows:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>welch_p_all <span class="ot">&lt;-</span> <span class="fu">vapply</span>(</span>
-<span id="cb11-2"><a aria-label="2"></a>  <span class="fu">as.data.frame</span>(expression),</span>
+<span id="cb11-2"><a aria-label="2"></a>  <span class="fu">as.data.frame</span>(expr_matrix),</span>
 <span id="cb11-3"><a aria-label="3"></a>  <span class="cf">function</span>(x) <span class="fu">t.test</span>(x <span class="sc">~</span> khan_pair<span class="sc">$</span>tumor_class)<span class="sc">$</span>p.value,</span>
 <span id="cb11-4"><a aria-label="4"></a>  <span class="fu">numeric</span>(<span class="dv">1</span>)</span>
 <span id="cb11-5"><a aria-label="5"></a>)</span>

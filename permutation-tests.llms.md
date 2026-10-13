@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 22:10:07 (PDT)
+Last modified: 2026-10-12 23:11:59 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -304,7 +304,7 @@ table(tumor_class = khan_pair$tumor_class)
 > **Example 7 (Permutation p-values for all 2308 genes)** Relabeling the samples once permutes every gene at the same time, so \\B = 1000\\ relabelings give a permutation null distribution for each of the 2308 genes. This computes \\\mathopen{}\left\|t\right\|\mathclose{}\\ for all genes from column means and sums of squares, in a function checked against [`t.test()`](https://rdrr.io/r/stats/t.test.html) on gene 3:
 >
 > ``` downlit
-> expression <- as.matrix(khan_pair[, grepl("^gene_", names(khan_pair))])
+> expr_matrix <- as.matrix(khan_pair[, grepl("^gene_", names(khan_pair))])
 > abs_welch_t_all <- function(x, in_group1) {
 >   n1 <- sum(in_group1)
 >   n2 <- sum(!in_group1)
@@ -314,7 +314,7 @@ table(tumor_class = khan_pair$tumor_class)
 >   var2 <- (colSums(x[!in_group1, , drop = FALSE]^2) - n2 * mean2^2) / (n2 - 1)
 >   abs(mean1 - mean2) / sqrt(var1 / n1 + var2 / n2)
 > }
-> t_all <- abs_welch_t_all(expression, in_class4)
+> t_all <- abs_welch_t_all(expr_matrix, in_class4)
 > all.equal(unname(t_all["gene_3"]), t_obs)
 > #> [1] TRUE
 > ```
@@ -327,7 +327,7 @@ table(tumor_class = khan_pair$tumor_class)
 > exceed_counts <- Reduce(
 >   `+`,
 >   lapply(seq_len(B_all), function(b) {
->     abs_welch_t_all(expression, sample(in_class4)) >= t_all
+>     abs_welch_t_all(expr_matrix, sample(in_class4)) >= t_all
 >   })
 > )
 > p_perm_all <- (1 + exceed_counts) / (B_all + 1)
@@ -344,7 +344,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > ``` downlit
 > welch_p_all <- vapply(
->   as.data.frame(expression),
+>   as.data.frame(expr_matrix),
 >   function(x) t.test(x ~ khan_pair$tumor_class)$p.value,
 >   numeric(1)
 > )
