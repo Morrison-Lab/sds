@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 20:27:20 (PDT)
+Last modified: 2026-10-12 20:39:35 (PDT)
 
 ## 1 Introduction
 
@@ -151,19 +151,61 @@ dplyr::glimpse(wcgs)
 #> $ agec     <fct> 46-50, 51-55, 56-60, 51-55, 41-45, 46-50, 35-40, 41-45, 46-50…
 ```
 
+### 1.4 Populations and samples
+
+> **NOTE:**
+>
+> **Definition 1 (Population)** A **population** is the entire collection of units (people, animals, objects, or events) that a study aims to learn about.
+
+> **NOTE:**
+>
+> **Definition 2 (Population distribution)** The **population distribution** of a variable \\X\\ is the distribution of \\X\\ for a unit [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice) from a population ([Definition 1](#def-population)): the [probability](https://morrison-lab.github.io/pds/probability-basics.html#def-probability) that \\X\\ falls in a set \\A\\ is
+>
+> \\\operatorname{P}\mathopen{}\left(A\right)\mathclose{} \stackrel{\text{def}}{=}\Pr(X \in A),\\
+>
+> where the probability refers to the random choice of the unit.
+
+> **NOTE:**
+>
+> *Remark*. A population may be finite or infinite. For a finite population \\U\\ of \\N\\ units, with \\X(u)\\ the value of \\X\\ for unit \\u\\, the random choice gives each unit probability \\1/N\\, so
+>
+> \\\operatorname{P}\mathopen{}\left(A\right)\mathclose{} = \frac{\mathopen{}\left\|\mathopen{}\left\\u \in U : X(u) \in A\right\\\mathclose{}\right\|\mathclose{}}{N}.\\
+>
+> An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function \\\operatorname{F}\mathopen{}\left(t\right)\mathclose{} = \operatorname{P}\mathopen{}\left((-\infty, t\]\right)\mathclose{}\\ or, when it has one, by its probability mass or density function.
+
+> **NOTE:**
+>
+> **Definition 3 (Sample)** A **sample** of size \\n\\ is the data \\x_1, \ldots, x_n\\ observed on \\n\\ units drawn from a population ([Definition 1](#def-population)).
+
+> **NOTE:**
+>
+> **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)):
+>
+> \\X_1, \ldots, X_n \operatorname{iid}\\ \operatorname{P},\\
+>
+> where \\\operatorname{P}\\ is the population distribution.
+
+> **NOTE:**
+>
+> *Remark*. Drawing without replacement from a finite population gives observations that are only approximately independent, and nearly so when the population is much larger than the sample. Few real studies draw a perfectly random sample, so conclusions about the population rest on how well the sampling mechanism approximates one.
+
+> **NOTE:**
+>
+> **Example 1 (Population and sample in the WCGS)** In 1960, the WCGS recruited employed men aged 39 to 59 years in California. Take that group of men as the study’s population ([Definition 1](#def-population)), so the population distribution ([Definition 2](#def-population-distribution)) of cholesterol is its distribution among those men. The `wcgs` data frame is the sample ([Definition 3](#def-sample)): it holds 3154 of the men in that population. The men volunteered, through 10 companies, so the sample is not a random sample ([Definition 4](#def-random-sample)) of the population. Its mean cholesterol, 226.4 mg/dL, describes these 3154 men exactly, but it estimates the population mean well only to the extent that the volunteers resemble the rest of the population.
+
 ## 2 Summarizing a single variable
 
 ### 2.1 Measures of center
 
 > **NOTE:**
 >
-> **Definition 1 (Sample mean)** The **sample mean** of \\n\\ observations \\x_1, \ldots, x_n\\ is:
+> **Definition 5 (Sample mean)** The **sample mean** of \\n\\ observations \\x_1, \ldots, x_n\\ is:
 >
 > \\\bar{x} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\
 
 > **NOTE:**
 >
-> **Example 1 (Mean cholesterol in the WCGS)** Total cholesterol (`chol`) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:
+> **Example 2 (Mean cholesterol in the WCGS)** Total cholesterol (`chol`) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:
 >
 > ``` downlit
 > mean(wcgs$chol, na.rm = TRUE)
@@ -172,33 +214,33 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 2 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order. In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
+> **Definition 6 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order. In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
 >
 > - if \\n\\ is odd, the median is \\x\_{((n+1)/2)}\\;
 > - if \\n\\ is even, the median is \\\frac{1}{2}\mathopen{}\left(x\_{(n/2)} + x\_{(n/2 + 1)}\right)\mathclose{}\\.
 
 > **NOTE:**
 >
-> **Example 2 (Median cholesterol in the WCGS)**  
+> **Example 3 (Median cholesterol in the WCGS)**  
 >
 > ``` downlit
 > median(wcgs$chol, na.rm = TRUE)
 > #> [1] 223
 > ```
 >
-> The median cholesterol is a little lower than the mean ([Example 1](#exm-sample-mean)). Cholesterol has a longer right tail than left tail (the maximum is 645 mg/dL), and the large values in that tail pull the mean upward but barely change which value is in the middle. A median is less sensitive to extreme values than a mean.
+> The median cholesterol is a little lower than the mean ([Example 2](#exm-sample-mean)). Cholesterol has a longer right tail than left tail (the maximum is 645 mg/dL), and the large values in that tail pull the mean upward but barely change which value is in the middle. A median is less sensitive to extreme values than a mean.
 
 ### 2.2 Measures of spread
 
 > **NOTE:**
 >
-> **Definition 3 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
+> **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
 >
 > \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar{x})^2\\
 
 > **NOTE:**
 >
-> **Definition 4 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance):
+> **Definition 8 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance):
 >
 > \\s \stackrel{\text{def}}{=}\sqrt{s^2}\\
 
@@ -208,7 +250,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Example 3 (Variance and standard deviation of cholesterol in the WCGS)**  
+> **Example 4 (Variance and standard deviation of cholesterol in the WCGS)**  
 >
 > ``` downlit
 > var(wcgs$chol, na.rm = TRUE)
@@ -221,7 +263,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 5 (Quartiles)** The **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\ are the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)), also called the 25th and 75th percentiles.
+> **Definition 9 (Quartiles)** The **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\ are the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)), also called the 25th and 75th percentiles.
 
 > **NOTE:**
 >
@@ -229,13 +271,13 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 6 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles):
+> **Definition 10 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles):
 >
 > \\\text{IQR} \stackrel{\text{def}}{=}Q_3 - Q_1\\
 
 > **NOTE:**
 >
-> **Example 4 (Quartiles and IQR of cholesterol in the WCGS)**  
+> **Example 5 (Quartiles and IQR of cholesterol in the WCGS)**  
 >
 > ``` downlit
 > quantile(wcgs$chol, probs = c(0.25, 0.75), na.rm = TRUE, type = 1)
@@ -249,7 +291,7 @@ dplyr::glimpse(wcgs)
 
 ### 2.3 Summary statistics in R
 
-The [`summary()`](https://rdrr.io/r/base/summary.html) function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (`type = 7`), so they can differ slightly from [Definition 5](#def-quartiles):
+The [`summary()`](https://rdrr.io/r/base/summary.html) function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (`type = 7`), so they can differ slightly from [Definition 9](#def-quartiles):
 
 ``` downlit
 summary(wcgs$chol)
@@ -288,7 +330,7 @@ Table 1: WCGS: descriptive statistics for continuous variables
 
 > **NOTE:**
 >
-> **Definition 7 (Sample proportion)** For a binary variable with values coded 1 (“success”) and 0, the **sample proportion** of successes is:
+> **Definition 11 (Sample proportion)** For a binary variable with values coded 1 (“success”) and 0, the **sample proportion** of successes is:
 >
 > \\\hat{p} \stackrel{\text{def}}{=}\frac{k}{n}\\
 >
@@ -296,7 +338,7 @@ Table 1: WCGS: descriptive statistics for continuous variables
 
 > **NOTE:**
 >
-> **Example 5 (Proportion of WCGS participants with a CHD event)**  
+> **Example 6 (Proportion of WCGS participants with a CHD event)**  
 >
 > ``` downlit
 > table(wcgs$chd69)
@@ -331,11 +373,11 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 8 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.
+> **Definition 12 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.
 
 > **NOTE:**
 >
-> **Definition 9 (Bin)** A **bin** of a histogram is one of its intervals.
+> **Definition 13 (Bin)** A **bin** of a histogram is one of its intervals.
 
 Show R code
 
@@ -357,7 +399,7 @@ Figure 1: Histogram of total cholesterol in the WCGS dataset
 
 > **NOTE:**
 >
-> **Definition 10 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
+> **Definition 14 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
 
 Show R code
 
@@ -377,7 +419,7 @@ Figure 2: Density plot of total cholesterol in the WCGS dataset
 
 > **NOTE:**
 >
-> **Definition 11 (Box plot)** A **box plot** (or box-and-whisker plot) summarizes the distribution of a continuous variable:
+> **Definition 15 (Box plot)** A **box plot** (or box-and-whisker plot) summarizes the distribution of a continuous variable:
 >
 > - the box spans the first to the third [quartile](#def-quartiles), so its length is the [IQR](#def-IQR);
 > - a line inside the box marks the [median](#def-sample-median);
@@ -407,7 +449,7 @@ Figure 3: Box plot of total cholesterol in the WCGS dataset
 
 > **NOTE:**
 >
-> **Definition 12 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
+> **Definition 16 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
 
 Show R code
 
@@ -427,7 +469,7 @@ Figure 4: Bar chart of behavioral pattern in the WCGS dataset
 
 > **NOTE:**
 >
-> **Definition 13 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
+> **Definition 17 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
 
 Show R code
 
@@ -452,7 +494,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 14 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
+> **Definition 18 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
 
 Show R code
 
@@ -471,7 +513,7 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 
 > **NOTE:**
 >
-> **Definition 15 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
+> **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
 >
 > \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i - \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i - \bar{y})^2}}\\
 >
@@ -489,7 +531,7 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 
 > **NOTE:**
 >
-> **Example 6 (Correlation between cholesterol and blood pressure in the WCGS)**  
+> **Example 7 (Correlation between cholesterol and blood pressure in the WCGS)**  
 >
 > ``` downlit
 > cor(wcgs$chol, wcgs$sbp, use = "complete.obs")
@@ -562,7 +604,7 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 
 > **NOTE:**
 >
-> **Definition 16 (Contingency table)** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
+> **Definition 20 (Contingency table)** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
 >
 > |              | Outcome = 1 | Outcome = 0 |   Total   |
 > |--------------|:-----------:|:-----------:|:---------:|
@@ -572,7 +614,7 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 
 > **NOTE:**
 >
-> **Example 7 (Smoking and CHD in the WCGS)**  
+> **Example 8 (Smoking and CHD in the WCGS)**  
 >
 > ``` downlit
 > table(Smoking = wcgs$smoke, CHD = wcgs$chd69)
@@ -697,7 +739,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 17 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
+> **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
 >
@@ -723,7 +765,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Example 8 (Standardizing cholesterol in R)** In R, [`scale()`](https://rdrr.io/r/base/scale.html) returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values:
+> **Example 9 (Standardizing cholesterol in R)** In R, [`scale()`](https://rdrr.io/r/base/scale.html) returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values:
 >
 > ``` downlit
 > z <- scale(wcgs$chol)[, 1]
@@ -737,7 +779,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 18 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
+> **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
 >
@@ -753,7 +795,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Example 9 (Min-max scaling of cholesterol in the WCGS)**  
+> **Example 10 (Min-max scaling of cholesterol in the WCGS)**  
 >
 > ``` downlit
 > chol_range <- range(wcgs$chol, na.rm = TRUE)

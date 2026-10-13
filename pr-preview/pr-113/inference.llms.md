@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 20:27:20 (PDT)
+Last modified: 2026-10-12 20:39:35 (PDT)
 
 ## 1 Inference
 
@@ -104,6 +104,10 @@ There are two predominant paradigms for statistical inference:
 >
 > The p-value is far below 0.05, so at significance level 0.05 the test rejects \\H_0\\: the data provide [statistically significant](#def-statistically-significant) evidence that mean cholesterol differs between the two groups.
 
+> **NOTE:**
+>
+> 5MinuteAI explains [hypothesis testing](https://www.youtube.com/watch?v=Plya_ZXkOvs) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+
 ## 3 Reference distributions
 
 The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
@@ -201,6 +205,10 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Example 8 (Margin of error for mean cholesterol)** In [Example 7](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
 
+> **NOTE:**
+>
+> 5MinuteAI explains [confidence intervals](https://www.youtube.com/watch?v=XdaAhYUqWsg) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+
 ## 5 Further reading on confidence intervals
 
 For more on confidence intervals:
@@ -256,6 +264,8 @@ Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio 
 See also ([Vittinghoff et al. 2012, sec. 3.7](#ref-vittinghoff2e)).
 
 ## References
+
+5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

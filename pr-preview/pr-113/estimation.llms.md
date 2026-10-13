@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 20:27:20 (PDT)
+Last modified: 2026-10-12 20:39:35 (PDT)
 
 ## 1 Scientific models
 
@@ -504,6 +504,10 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > *Proof*. [Equation 5](#eq-unbiased-exp) is the solution to [Exercise 6](#exr-unbiased-exp), and [Equation 6](#eq-unbiased-mse) is the solution to [Exercise 7](#exr-unbiased-mse).
 
+> **NOTE:**
+>
+> 5MinuteAI covers the [properties of estimators](https://www.youtube.com/watch?v=sUFpzYNDn3Q), including bias, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+
 ### 3.7 Mean absolute error
 
 > **NOTE:**
@@ -599,6 +603,8 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 > *Proof*. This is the solution to [Exercise 10](#exr-se-rmse-unbiased).
 
 ## References
+
+5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
 
 Box, George E. P., and Norman Richard. Draper. 1987. *Empirical Model-Building and Response Surfaces*. Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics. Wiley.
 
