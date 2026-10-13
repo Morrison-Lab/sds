@@ -17,4 +17,10 @@ so its validation error is optimistic.
 Keeping the test set out of every choice
 is what makes its score free of that optimism.
 
+The machine learning notes define the same three sets in their own notation:
+the [training set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-training-set),
+the [validation set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-validation-set),
+and the [test set](https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-test-set).
+They use a different symbol for the training set and a parenthesized observation index, but the same three-way split.
+
 :::
