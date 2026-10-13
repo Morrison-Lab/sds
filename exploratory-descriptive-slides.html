@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-12 20:15:07 (PDT)</p>
+  <p class="date">Last modified: 2026-10-12 20:28:22 (PDT)</p>
 </section><section id="introduction" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Introduction</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -510,53 +510,99 @@ text-align: center;
 <span id="cb4-24"><a aria-label="24"></a><span class="co">#&gt; $ wghtcat  &lt;fct&gt; 170-200, 170-200, 170-200, 140-170, 140-170, 140-170, 140-170…</span></span>
 <span id="cb4-25"><a aria-label="25"></a><span class="co">#&gt; $ agec     &lt;fct&gt; 46-50, 51-55, 56-60, 51-55, 41-45, 46-50, 35-40, 41-45, 46-50…</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<h3 data-number="1.4" id="sec-populations-samples">
+<span class="header-section-number">1.4</span> Populations and samples</h3>
+<!-- No slidebreak here: the heading shares its slide with the def-population div. -->
+<div id="def-population" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1 (Population)</strong></span> A <strong>population</strong> is the entire collection of units (people, animals, objects, or events) that a study aims to learn about.</p>
+</div>
+</section><section class="slide level2"><div id="def-population-distribution" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 2 (Population distribution)</strong></span> The <strong>population distribution</strong> of a variable <span class="math inline">\(X\)</span> is the distribution of <span class="math inline">\(X\)</span> for a unit <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice">chosen at random</a> from a population (<a href="#/def-population" class="quarto-xref">Definition&nbsp;1</a>): the <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-probability">probability</a> that <span class="math inline">\(X\)</span> falls in a set <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[\operatorname{P}\mathopen{}\left(A\right)\mathclose{} \stackrel{\text{def}}{=}\Pr(X \in A),\]</span></p>
+<p>where the probability refers to the random choice of the unit.</p>
+</div>
+<aside class="notes proof remark"><p><span class="proof-title"><em>Remark</em>. </span>A population may be finite or infinite. For a finite population <span class="math inline">\(U\)</span> of <span class="math inline">\(N\)</span> units, with <span class="math inline">\(X(u)\)</span> the value of <span class="math inline">\(X\)</span> for unit <span class="math inline">\(u\)</span>, the random choice gives each unit probability <span class="math inline">\(1/N\)</span>, so</p>
+<p><span class="math display">\[\operatorname{P}\mathopen{}\left(A\right)\mathclose{} = \frac{\mathopen{}\left|\mathopen{}\left\{u \in U : X(u) \in A\right\}\mathclose{}\right|\mathclose{}}{N}.\]</span></p>
+<p>An infinite population, such as all the coin flips a coin could ever produce, is described directly by a distribution. The population distribution can equally be described by its cumulative distribution function <span class="math inline">\(\operatorname{F}\mathopen{}\left(t\right)\mathclose{} = \operatorname{P}\mathopen{}\left((-\infty, t]\right)\mathclose{}\)</span> or, when it has one, by its probability mass or density function.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section class="slide level2"><div id="def-sample" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Sample)</strong></span> A <strong>sample</strong> of size <span class="math inline">\(n\)</span> is the data <span class="math inline">\(x_1, \ldots, x_n\)</span> observed on <span class="math inline">\(n\)</span> units drawn from a population (<a href="#/def-population" class="quarto-xref">Definition&nbsp;1</a>).</p>
+</div>
+</section><section class="slide level2"><div id="def-random-sample" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Random sample)</strong></span> A sample (<a href="#/def-sample" class="quarto-xref">Definition&nbsp;3</a>) is a <strong>random sample</strong> when the units are chosen by a chance mechanism such that the observations are <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">independent and identically distributed</a> draws from the population distribution (<a href="#/def-population-distribution" class="quarto-xref">Definition&nbsp;2</a>):</p>
+<p><span class="math display">\[X_1, \ldots, X_n \operatorname{iid}\ \operatorname{P},\]</span></p>
+<p>where <span class="math inline">\(\operatorname{P}\)</span> is the population distribution.</p>
+</div>
+<aside class="notes proof remark"><p><span class="proof-title"><em>Remark</em>. </span>Drawing without replacement from a finite population gives observations that are only approximately independent, and nearly so when the population is much larger than the sample. Few real studies draw a perfectly random sample, so conclusions about the population rest on how well the sampling mechanism approximates one.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section class="slide level2"><div id="exm-population-sample-wcgs" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (Population and sample in the WCGS)</strong></span> In 1960, the WCGS recruited employed men aged 39 to 59 years in California. Take that group of men as the study’s population (<a href="#/def-population" class="quarto-xref">Definition&nbsp;1</a>), so the population distribution (<a href="#/def-population-distribution" class="quarto-xref">Definition&nbsp;2</a>) of cholesterol is its distribution among those men. The <code>wcgs</code> data frame is the sample (<a href="#/def-sample" class="quarto-xref">Definition&nbsp;3</a>): it holds 3154 of the men in that population. The men volunteered, through 10 companies, so the sample is not a random sample (<a href="#/def-random-sample" class="quarto-xref">Definition&nbsp;4</a>) of the population. Its mean cholesterol, 226.4 mg/dL, describes these 3154 men exactly, but it estimates the population mean well only to the extent that the volunteers resemble the rest of the population.</p>
+</div>
 </section><section id="summarizing-a-single-variable" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Summarizing a single variable</h2>
 <h3 data-number="2.1" id="measures-of-center">
 <span class="header-section-number">2.1</span> Measures of center</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-mean div. -->
 <div id="def-sample-mean" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Sample mean)</strong></span> The <strong>sample mean</strong> of <span class="math inline">\(n\)</span> observations <span class="math inline">\(x_1, \ldots, x_n\)</span> is:</p>
+<p><span class="theorem-title"><strong>Definition 5 (Sample mean)</strong></span> The <strong>sample mean</strong> of <span class="math inline">\(n\)</span> observations <span class="math inline">\(x_1, \ldots, x_n\)</span> is:</p>
 <p><span class="math display">\[\bar{x} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^nx_i\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Mean cholesterol in the WCGS)</strong></span> Total cholesterol (<code>chol</code>) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:</p>
+<p><span class="theorem-title"><strong>Example 2 (Mean cholesterol in the WCGS)</strong></span> Total cholesterol (<code>chol</code>) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">mean</span>(wcgs<span class="sc">$</span>chol, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb5-2"><a aria-label="2"></a><span class="co">#&gt; [1] 226.372</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section><section class="slide level2"><div id="def-sample-median" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Sample median)</strong></span> The <strong>sample median</strong> is the middle value when the observations are sorted in increasing order. In terms of the <a href="./nonparametric-models.html#def-order-statistics">order statistics</a> <span class="math inline">\(x_{(1)} \le \cdots \le x_{(n)}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 6 (Sample median)</strong></span> The <strong>sample median</strong> is the middle value when the observations are sorted in increasing order. In terms of the <a href="./nonparametric-models.html#def-order-statistics">order statistics</a> <span class="math inline">\(x_{(1)} \le \cdots \le x_{(n)}\)</span>:</p>
 <ul>
 <li>if <span class="math inline">\(n\)</span> is odd, the median is <span class="math inline">\(x_{((n+1)/2)}\)</span>;</li>
 <li>if <span class="math inline">\(n\)</span> is even, the median is <span class="math inline">\(\frac{1}{2}\mathopen{}\left(x_{(n/2)} + x_{(n/2 + 1)}\right)\mathclose{}\)</span>.</li>
 </ul>
 </div>
 </section><section class="slide level2"><div id="exm-sample-median" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Median cholesterol in the WCGS)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 3 (Median cholesterol in the WCGS)</strong></span> &nbsp;</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">median</span>(wcgs<span class="sc">$</span>chol, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb6-2"><a aria-label="2"></a><span class="co">#&gt; [1] 223</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The median cholesterol is a little lower than the mean (<a href="#/exm-sample-mean" class="quarto-xref">Example&nbsp;1</a>). Cholesterol has a longer right tail than left tail (the maximum is 645 mg/dL), and the large values in that tail pull the mean upward but barely change which value is in the middle. A median is less sensitive to extreme values than a mean.</p>
+<p>The median cholesterol is a little lower than the mean (<a href="#/exm-sample-mean" class="quarto-xref">Example&nbsp;2</a>). Cholesterol has a longer right tail than left tail (the maximum is 645 mg/dL), and the large values in that tail pull the mean upward but barely change which value is in the middle. A median is less sensitive to extreme values than a mean.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="2.2" id="measures-of-spread">
 <span class="header-section-number">2.2</span> Measures of spread</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-variance div. -->
 <div id="def-sample-variance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Sample variance)</strong></span> The <strong>sample variance</strong> of <span class="math inline">\(n \ge 2\)</span> observations is:</p>
+<p><span class="theorem-title"><strong>Definition 7 (Sample variance)</strong></span> The <strong>sample variance</strong> of <span class="math inline">\(n \ge 2\)</span> observations is:</p>
 <p><span class="math display">\[s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n(x_i - \bar{x})^2\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-sample-sd" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Sample standard deviation)</strong></span> The <strong>sample standard deviation</strong> is the square root of the <a href="#/def-sample-variance">sample variance</a>:</p>
+<p><span class="theorem-title"><strong>Definition 8 (Sample standard deviation)</strong></span> The <strong>sample standard deviation</strong> is the square root of the <a href="#/def-sample-variance">sample variance</a>:</p>
 <p><span class="math display">\[s \stackrel{\text{def}}{=}\sqrt{s^2}\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-sd-units" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Units of the standard deviation). </span>The standard deviation has the same units as the observations, which makes it easier to interpret than the variance, whose units are squared.</p>
 </div>
 </section><section class="slide level2"><div id="exm-sample-sd" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Variance and standard deviation of cholesterol in the WCGS)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 4 (Variance and standard deviation of cholesterol in the WCGS)</strong></span> &nbsp;</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">var</span>(wcgs<span class="sc">$</span>chol, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb7-2"><a aria-label="2"></a><span class="co">#&gt; [1] 1885.33</span></span>
@@ -566,17 +612,17 @@ text-align: center;
 <p>The sample variance is in (mg/dL)<sup>2</sup>, and the sample standard deviation is in mg/dL, like the cholesterol values themselves.</p>
 </div>
 </section><section class="slide level2"><div id="def-quartiles" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Quartiles)</strong></span> The <strong>first quartile</strong> <span class="math inline">\(Q_1\)</span> and the <strong>third quartile</strong> <span class="math inline">\(Q_3\)</span> are the sample 0.25 and 0.75 quantiles (<a href="./nonparametric-models.html#def-sample-quantile">sample quantile</a>), also called the 25th and 75th percentiles.</p>
+<p><span class="theorem-title"><strong>Definition 9 (Quartiles)</strong></span> The <strong>first quartile</strong> <span class="math inline">\(Q_1\)</span> and the <strong>third quartile</strong> <span class="math inline">\(Q_3\)</span> are the sample 0.25 and 0.75 quantiles (<a href="./nonparametric-models.html#def-sample-quantile">sample quantile</a>), also called the 25th and 75th percentiles.</p>
 </div>
 </section><section class="slide level2"><div id="rem-quartile-software" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Quartiles in software). </span>With an odd number of observations, the sample 0.5 quantile equals the <a href="#/def-sample-median">sample median</a>; with an even number they can differ, because the median averages the two middle order statistics. Software packages compute quartiles with different quantile definitions, so they can disagree slightly for the same data (<a href="./nonparametric-models.html#rem-quantile-conventions">quantile conventions</a>); R’s <code>quantile(type = 1)</code> matches this definition, and R’s default, <code>type = 7</code>, interpolates.</p>
 </div>
 </section><section class="slide level2"><div id="def-IQR" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Interquartile range)</strong></span> The <strong>interquartile range</strong> (IQR) is the difference between the third and first <a href="#/def-quartiles">quartiles</a>:</p>
+<p><span class="theorem-title"><strong>Definition 10 (Interquartile range)</strong></span> The <strong>interquartile range</strong> (IQR) is the difference between the third and first <a href="#/def-quartiles">quartiles</a>:</p>
 <p><span class="math display">\[\text{IQR} \stackrel{\text{def}}{=}Q_3 - Q_1\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-IQR" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4 (Quartiles and IQR of cholesterol in the WCGS)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 5 (Quartiles and IQR of cholesterol in the WCGS)</strong></span> &nbsp;</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">quantile</span>(wcgs<span class="sc">$</span>chol, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.75</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>, <span class="at">type =</span> <span class="dv">1</span>)</span>
 <span id="cb8-2"><a aria-label="2"></a><span class="co">#&gt; 25% 75% </span></span>
@@ -588,7 +634,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><h3 data-number="2.3" id="summary-statistics-in-r">
 <span class="header-section-number">2.3</span> Summary statistics in R</h3>
-<p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (<code>type = 7</code>), so they can differ slightly from <a href="#/def-quartiles" class="quarto-xref">Definition&nbsp;5</a>:</p>
+<p>The <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function reports the minimum, quartiles, mean, maximum, and number of missing values in one call; its quartiles use R’s default interpolating quantile rule (<code>type = 7</code>), so they can differ slightly from <a href="#/def-quartiles" class="quarto-xref">Definition&nbsp;9</a>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">summary</span>(wcgs<span class="sc">$</span>chol)</span>
 <span id="cb9-2"><a aria-label="2"></a><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.     NAs </span></span>
@@ -610,23 +656,23 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 <span id="cb10-8"><a aria-label="8"></a>    <span class="at">digits =</span> gtsummary<span class="sc">::</span><span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="dv">1</span></span>
 <span id="cb10-9"><a aria-label="9"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="jgjosrczld" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#jgjosrczld table {
+<div id="azijmsyeyi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#azijmsyeyi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#jgjosrczld thead, #jgjosrczld tbody, #jgjosrczld tfoot, #jgjosrczld tr, #jgjosrczld td, #jgjosrczld th {
+#azijmsyeyi thead, #azijmsyeyi tbody, #azijmsyeyi tfoot, #azijmsyeyi tr, #azijmsyeyi td, #azijmsyeyi th {
   border-style: none;
 }
 
-#jgjosrczld p {
+#azijmsyeyi p {
   margin: 0;
   padding: 0;
 }
 
-#jgjosrczld .gt_table {
+#azijmsyeyi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -652,12 +698,12 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-left-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_caption {
+#azijmsyeyi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#jgjosrczld .gt_title {
+#azijmsyeyi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -669,7 +715,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-width: 0;
 }
 
-#jgjosrczld .gt_subtitle {
+#azijmsyeyi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -681,7 +727,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-top-width: 0;
 }
 
-#jgjosrczld .gt_heading {
+#azijmsyeyi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -693,13 +739,13 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_bottom_border {
+#azijmsyeyi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_col_headings {
+#azijmsyeyi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -714,7 +760,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_col_heading {
+#azijmsyeyi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -734,7 +780,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   overflow-x: hidden;
 }
 
-#jgjosrczld .gt_column_spanner_outer {
+#azijmsyeyi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -746,15 +792,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 4px;
 }
 
-#jgjosrczld .gt_column_spanner_outer:first-child {
+#azijmsyeyi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#jgjosrczld .gt_column_spanner_outer:last-child {
+#azijmsyeyi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#jgjosrczld .gt_column_spanner {
+#azijmsyeyi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -766,11 +812,11 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   width: 100%;
 }
 
-#jgjosrczld .gt_spanner_row {
+#azijmsyeyi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#jgjosrczld .gt_group_heading {
+#azijmsyeyi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -796,7 +842,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   text-align: left;
 }
 
-#jgjosrczld .gt_empty_group_heading {
+#azijmsyeyi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -811,15 +857,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   vertical-align: middle;
 }
 
-#jgjosrczld .gt_from_md > :first-child {
+#azijmsyeyi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#jgjosrczld .gt_from_md > :last-child {
+#azijmsyeyi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#jgjosrczld .gt_row {
+#azijmsyeyi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -838,7 +884,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   overflow-x: hidden;
 }
 
-#jgjosrczld .gt_stub {
+#azijmsyeyi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -851,7 +897,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#jgjosrczld .gt_stub_row_group {
+#azijmsyeyi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -865,15 +911,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   vertical-align: top;
 }
 
-#jgjosrczld .gt_row_group_first td {
+#azijmsyeyi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#jgjosrczld .gt_row_group_first th {
+#azijmsyeyi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#jgjosrczld .gt_summary_row {
+#azijmsyeyi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -883,16 +929,16 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#jgjosrczld .gt_first_summary_row {
+#azijmsyeyi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_first_summary_row.thick {
+#azijmsyeyi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#jgjosrczld .gt_last_summary_row {
+#azijmsyeyi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -902,7 +948,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_grand_summary_row {
+#azijmsyeyi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -912,7 +958,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#jgjosrczld .gt_first_grand_summary_row {
+#azijmsyeyi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -922,7 +968,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-top-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_last_grand_summary_row_top {
+#azijmsyeyi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -932,11 +978,11 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_striped {
+#azijmsyeyi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#jgjosrczld .gt_table_body {
+#azijmsyeyi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -945,7 +991,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_footnotes {
+#azijmsyeyi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -959,7 +1005,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_footnote {
+#azijmsyeyi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -968,7 +1014,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#jgjosrczld .gt_sourcenotes {
+#azijmsyeyi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -982,7 +1028,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#jgjosrczld .gt_sourcenote {
+#azijmsyeyi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -990,72 +1036,72 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#jgjosrczld .gt_left {
+#azijmsyeyi .gt_left {
   text-align: left;
 }
 
-#jgjosrczld .gt_center {
+#azijmsyeyi .gt_center {
   text-align: center;
 }
 
-#jgjosrczld .gt_right {
+#azijmsyeyi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jgjosrczld .gt_font_normal {
+#azijmsyeyi .gt_font_normal {
   font-weight: normal;
 }
 
-#jgjosrczld .gt_font_bold {
+#azijmsyeyi .gt_font_bold {
   font-weight: bold;
 }
 
-#jgjosrczld .gt_font_italic {
+#azijmsyeyi .gt_font_italic {
   font-style: italic;
 }
 
-#jgjosrczld .gt_super {
+#azijmsyeyi .gt_super {
   font-size: 65%;
 }
 
-#jgjosrczld .gt_footnote_marks {
+#azijmsyeyi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#jgjosrczld .gt_asterisk {
+#azijmsyeyi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#jgjosrczld .gt_indent_1 {
+#azijmsyeyi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#jgjosrczld .gt_indent_2 {
+#azijmsyeyi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#jgjosrczld .gt_indent_3 {
+#azijmsyeyi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#jgjosrczld .gt_indent_4 {
+#azijmsyeyi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#jgjosrczld .gt_indent_5 {
+#azijmsyeyi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#jgjosrczld .katex-display {
+#azijmsyeyi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#jgjosrczld div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#azijmsyeyi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1111,12 +1157,12 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 <span class="header-section-number">2.4</span> Binary and categorical variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-proportion div. -->
 <div id="def-sample-proportion" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Sample proportion)</strong></span> For a binary variable with values coded 1 (“success”) and 0, the <strong>sample proportion</strong> of successes is:</p>
+<p><span class="theorem-title"><strong>Definition 11 (Sample proportion)</strong></span> For a binary variable with values coded 1 (“success”) and 0, the <strong>sample proportion</strong> of successes is:</p>
 <p><span class="math display">\[\hat{p} \stackrel{\text{def}}{=}\frac{k}{n}\]</span></p>
 <p>where <span class="math inline">\(k\)</span> is the number of successes and <span class="math inline">\(n\)</span> is the number of observations.</p>
 </div>
 </section><section class="slide level2"><div id="exm-sample-proportion" class="theorem example">
-<p><span class="theorem-title"><strong>Example 5 (Proportion of WCGS participants with a CHD event)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 6 (Proportion of WCGS participants with a CHD event)</strong></span> &nbsp;</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">table</span>(wcgs<span class="sc">$</span>chd69)</span>
 <span id="cb11-2"><a aria-label="2"></a><span class="co">#&gt; </span></span>
@@ -1137,23 +1183,23 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
 </figcaption><div aria-describedby="tbl-wcgs-summary-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="yckngjvfaz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yckngjvfaz table {
+<div id="jeikywrjlk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jeikywrjlk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yckngjvfaz thead, #yckngjvfaz tbody, #yckngjvfaz tfoot, #yckngjvfaz tr, #yckngjvfaz td, #yckngjvfaz th {
+#jeikywrjlk thead, #jeikywrjlk tbody, #jeikywrjlk tfoot, #jeikywrjlk tr, #jeikywrjlk td, #jeikywrjlk th {
   border-style: none;
 }
 
-#yckngjvfaz p {
+#jeikywrjlk p {
   margin: 0;
   padding: 0;
 }
 
-#yckngjvfaz .gt_table {
+#jeikywrjlk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1179,12 +1225,12 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-left-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_caption {
+#jeikywrjlk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yckngjvfaz .gt_title {
+#jeikywrjlk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1196,7 +1242,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-width: 0;
 }
 
-#yckngjvfaz .gt_subtitle {
+#jeikywrjlk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1208,7 +1254,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-top-width: 0;
 }
 
-#yckngjvfaz .gt_heading {
+#jeikywrjlk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1220,13 +1266,13 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_bottom_border {
+#jeikywrjlk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_col_headings {
+#jeikywrjlk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1241,7 +1287,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_col_heading {
+#jeikywrjlk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1261,7 +1307,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   overflow-x: hidden;
 }
 
-#yckngjvfaz .gt_column_spanner_outer {
+#jeikywrjlk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1273,15 +1319,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 4px;
 }
 
-#yckngjvfaz .gt_column_spanner_outer:first-child {
+#jeikywrjlk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yckngjvfaz .gt_column_spanner_outer:last-child {
+#jeikywrjlk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yckngjvfaz .gt_column_spanner {
+#jeikywrjlk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1293,11 +1339,11 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   width: 100%;
 }
 
-#yckngjvfaz .gt_spanner_row {
+#jeikywrjlk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yckngjvfaz .gt_group_heading {
+#jeikywrjlk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1323,7 +1369,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   text-align: left;
 }
 
-#yckngjvfaz .gt_empty_group_heading {
+#jeikywrjlk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1338,15 +1384,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   vertical-align: middle;
 }
 
-#yckngjvfaz .gt_from_md > :first-child {
+#jeikywrjlk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yckngjvfaz .gt_from_md > :last-child {
+#jeikywrjlk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yckngjvfaz .gt_row {
+#jeikywrjlk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1365,7 +1411,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   overflow-x: hidden;
 }
 
-#yckngjvfaz .gt_stub {
+#jeikywrjlk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1378,7 +1424,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#yckngjvfaz .gt_stub_row_group {
+#jeikywrjlk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1392,15 +1438,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   vertical-align: top;
 }
 
-#yckngjvfaz .gt_row_group_first td {
+#jeikywrjlk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yckngjvfaz .gt_row_group_first th {
+#jeikywrjlk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yckngjvfaz .gt_summary_row {
+#jeikywrjlk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1410,16 +1456,16 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#yckngjvfaz .gt_first_summary_row {
+#jeikywrjlk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_first_summary_row.thick {
+#jeikywrjlk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yckngjvfaz .gt_last_summary_row {
+#jeikywrjlk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1429,7 +1475,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_grand_summary_row {
+#jeikywrjlk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1439,7 +1485,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#yckngjvfaz .gt_first_grand_summary_row {
+#jeikywrjlk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1449,7 +1495,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-top-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_last_grand_summary_row_top {
+#jeikywrjlk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1459,11 +1505,11 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_striped {
+#jeikywrjlk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yckngjvfaz .gt_table_body {
+#jeikywrjlk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1472,7 +1518,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_footnotes {
+#jeikywrjlk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1486,7 +1532,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_footnote {
+#jeikywrjlk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1495,7 +1541,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#yckngjvfaz .gt_sourcenotes {
+#jeikywrjlk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1509,7 +1555,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#yckngjvfaz .gt_sourcenote {
+#jeikywrjlk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1517,72 +1563,72 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#yckngjvfaz .gt_left {
+#jeikywrjlk .gt_left {
   text-align: left;
 }
 
-#yckngjvfaz .gt_center {
+#jeikywrjlk .gt_center {
   text-align: center;
 }
 
-#yckngjvfaz .gt_right {
+#jeikywrjlk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yckngjvfaz .gt_font_normal {
+#jeikywrjlk .gt_font_normal {
   font-weight: normal;
 }
 
-#yckngjvfaz .gt_font_bold {
+#jeikywrjlk .gt_font_bold {
   font-weight: bold;
 }
 
-#yckngjvfaz .gt_font_italic {
+#jeikywrjlk .gt_font_italic {
   font-style: italic;
 }
 
-#yckngjvfaz .gt_super {
+#jeikywrjlk .gt_super {
   font-size: 65%;
 }
 
-#yckngjvfaz .gt_footnote_marks {
+#jeikywrjlk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yckngjvfaz .gt_asterisk {
+#jeikywrjlk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yckngjvfaz .gt_indent_1 {
+#jeikywrjlk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yckngjvfaz .gt_indent_2 {
+#jeikywrjlk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yckngjvfaz .gt_indent_3 {
+#jeikywrjlk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yckngjvfaz .gt_indent_4 {
+#jeikywrjlk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yckngjvfaz .gt_indent_5 {
+#jeikywrjlk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yckngjvfaz .katex-display {
+#jeikywrjlk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yckngjvfaz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jeikywrjlk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1677,10 +1723,10 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
 <span class="header-section-number">3.1</span> Histograms</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-histogram div. -->
 <div id="def-histogram" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Histogram)</strong></span> A <strong>histogram</strong> displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.</p>
+<p><span class="theorem-title"><strong>Definition 12 (Histogram)</strong></span> A <strong>histogram</strong> displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.</p>
 </div>
 </section><section class="slide level2"><div id="def-bin" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Bin)</strong></span> A <strong>bin</strong> of a histogram is one of its intervals.</p>
+<p><span class="theorem-title"><strong>Definition 13 (Bin)</strong></span> A <strong>bin</strong> of a histogram is one of its intervals.</p>
 </div>
 </section><section class="slide level2"><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>wcgs <span class="sc">|&gt;</span></span>
 <span id="cb13-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -1707,7 +1753,7 @@ Figure&nbsp;1: Histogram of total cholesterol in the WCGS dataset
 <span class="header-section-number">3.2</span> Density plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-density-plot div. -->
 <div id="def-density-plot" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Density plot)</strong></span> A <strong>density plot</strong> draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.</p>
+<p><span class="theorem-title"><strong>Definition 14 (Density plot)</strong></span> A <strong>density plot</strong> draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.</p>
 </div>
 </section><section class="slide level2"><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>wcgs <span class="sc">|&gt;</span></span>
 <span id="cb14-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -1733,7 +1779,7 @@ Figure&nbsp;2: Density plot of total cholesterol in the WCGS dataset
 <span class="header-section-number">3.3</span> Box plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-boxplot div. -->
 <div id="def-boxplot" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 11 (Box plot)</strong></span> A <strong>box plot</strong> (or box-and-whisker plot) summarizes the distribution of a continuous variable:</p>
+<p><span class="theorem-title"><strong>Definition 15 (Box plot)</strong></span> A <strong>box plot</strong> (or box-and-whisker plot) summarizes the distribution of a continuous variable:</p>
 <ul>
 <li>the box spans the first to the third <a href="#/def-quartiles">quartile</a>, so its length is the <a href="#/def-IQR">IQR</a>;</li>
 <li>a line inside the box marks the <a href="#/def-sample-median">median</a>;</li>
@@ -1769,7 +1815,7 @@ Figure&nbsp;3: Box plot of total cholesterol in the WCGS dataset
 <span class="header-section-number">3.4</span> Bar charts</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-bar-chart div. -->
 <div id="def-bar-chart" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Bar chart)</strong></span> A <strong>bar chart</strong> displays the number or proportion of observations in each category of a categorical variable, as one bar per category.</p>
+<p><span class="theorem-title"><strong>Definition 16 (Bar chart)</strong></span> A <strong>bar chart</strong> displays the number or proportion of observations in each category of a categorical variable, as one bar per category.</p>
 </div>
 </section><section class="slide level2"><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>wcgs <span class="sc">|&gt;</span></span>
 <span id="cb16-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -1795,7 +1841,7 @@ Figure&nbsp;4: Bar chart of behavioral pattern in the WCGS dataset
 <span class="header-section-number">3.5</span> Normal quantile-quantile plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-qq-plot div. -->
 <div id="def-qq-plot" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Normal quantile-quantile plot)</strong></span> A <strong>normal quantile-quantile (Q-Q) plot</strong> plots the sorted observations (<a href="./nonparametric-models.html#def-order-statistics">order statistics</a>) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.</p>
+<p><span class="theorem-title"><strong>Definition 17 (Normal quantile-quantile plot)</strong></span> A <strong>normal quantile-quantile (Q-Q) plot</strong> plots the sorted observations (<a href="./nonparametric-models.html#def-order-statistics">order statistics</a>) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.</p>
 </div>
 </section><section class="slide level2"><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a>wcgs <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -1825,7 +1871,7 @@ Figure&nbsp;5: Normal Q-Q plot for total cholesterol in the WCGS dataset
 <span class="header-section-number">4.1</span> Two continuous variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-scatterplot div. -->
 <div id="def-scatterplot" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14 (Scatter plot)</strong></span> A <strong>scatter plot</strong> displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.</p>
+<p><span class="theorem-title"><strong>Definition 18 (Scatter plot)</strong></span> A <strong>scatter plot</strong> displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.</p>
 </div>
 </section><section class="slide level2"><details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>wcgs <span class="sc">|&gt;</span></span>
 <span id="cb18-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -1849,7 +1895,7 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 </figure>
 </div>
 </section><section class="slide level2"><div id="def-pearson-r" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Pearson correlation coefficient)</strong></span> The <strong>Pearson correlation coefficient</strong> of <span class="math inline">\(n\)</span> paired observations <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> is:</p>
+<p><span class="theorem-title"><strong>Definition 19 (Pearson correlation coefficient)</strong></span> The <strong>Pearson correlation coefficient</strong> of <span class="math inline">\(n\)</span> paired observations <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> is:</p>
 <p><span class="math display">\[r \stackrel{\text{def}}{=}\frac{\sum_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})}
 {\sqrt{\sum_{i=1}^n(x_i - \bar{x})^2} \sqrt{\sum_{i=1}^n(y_i - \bar{y})^2}}\]</span></p>
 <p>It is defined when neither variable is constant, so that both sums of squares are positive.</p>
@@ -1862,7 +1908,7 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 <p>Equality <span class="math inline">\(\mathopen{}\left|r\right|\mathclose{} = 1\)</span> therefore holds if and only if <span class="math inline">\(b_i = c \, a_i\)</span> for some constant <span class="math inline">\(c \ne 0\)</span> and every <span class="math inline">\(i\)</span>, that is, <span class="math inline">\(y_i = \bar y + c(x_i - \bar x)\)</span>: the points lie on a line with slope <span class="math inline">\(c\)</span>. Then <span class="math inline">\(\sum_i a_i b_i = c \sum_i a_i^2\)</span> has the sign of <span class="math inline">\(c\)</span>, so <span class="math inline">\(r = 1\)</span> when <span class="math inline">\(c &gt; 0\)</span> and <span class="math inline">\(r = -1\)</span> when <span class="math inline">\(c &lt; 0\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-pearson-r" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6 (Correlation between cholesterol and blood pressure in the WCGS)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 7 (Correlation between cholesterol and blood pressure in the WCGS)</strong></span> &nbsp;</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">cor</span>(wcgs<span class="sc">$</span>chol, wcgs<span class="sc">$</span>sbp, <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
 <span id="cb19-2"><a aria-label="2"></a><span class="co">#&gt; [1] 0.123061</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1945,23 +1991,23 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
 </figcaption><div aria-describedby="tbl-chol-by-chd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="yszztdouxp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yszztdouxp table {
+<div id="uxusmqqxbh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uxusmqqxbh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yszztdouxp thead, #yszztdouxp tbody, #yszztdouxp tfoot, #yszztdouxp tr, #yszztdouxp td, #yszztdouxp th {
+#uxusmqqxbh thead, #uxusmqqxbh tbody, #uxusmqqxbh tfoot, #uxusmqqxbh tr, #uxusmqqxbh td, #uxusmqqxbh th {
   border-style: none;
 }
 
-#yszztdouxp p {
+#uxusmqqxbh p {
   margin: 0;
   padding: 0;
 }
 
-#yszztdouxp .gt_table {
+#uxusmqqxbh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1987,12 +2033,12 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-left-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_caption {
+#uxusmqqxbh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yszztdouxp .gt_title {
+#uxusmqqxbh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2004,7 +2050,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-width: 0;
 }
 
-#yszztdouxp .gt_subtitle {
+#uxusmqqxbh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2016,7 +2062,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-top-width: 0;
 }
 
-#yszztdouxp .gt_heading {
+#uxusmqqxbh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2028,13 +2074,13 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_bottom_border {
+#uxusmqqxbh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_col_headings {
+#uxusmqqxbh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2049,7 +2095,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_col_heading {
+#uxusmqqxbh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2069,7 +2115,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   overflow-x: hidden;
 }
 
-#yszztdouxp .gt_column_spanner_outer {
+#uxusmqqxbh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2081,15 +2127,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 4px;
 }
 
-#yszztdouxp .gt_column_spanner_outer:first-child {
+#uxusmqqxbh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yszztdouxp .gt_column_spanner_outer:last-child {
+#uxusmqqxbh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yszztdouxp .gt_column_spanner {
+#uxusmqqxbh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2101,11 +2147,11 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   width: 100%;
 }
 
-#yszztdouxp .gt_spanner_row {
+#uxusmqqxbh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yszztdouxp .gt_group_heading {
+#uxusmqqxbh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2131,7 +2177,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   text-align: left;
 }
 
-#yszztdouxp .gt_empty_group_heading {
+#uxusmqqxbh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2146,15 +2192,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   vertical-align: middle;
 }
 
-#yszztdouxp .gt_from_md > :first-child {
+#uxusmqqxbh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yszztdouxp .gt_from_md > :last-child {
+#uxusmqqxbh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yszztdouxp .gt_row {
+#uxusmqqxbh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2173,7 +2219,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   overflow-x: hidden;
 }
 
-#yszztdouxp .gt_stub {
+#uxusmqqxbh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2186,7 +2232,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#yszztdouxp .gt_stub_row_group {
+#uxusmqqxbh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2200,15 +2246,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   vertical-align: top;
 }
 
-#yszztdouxp .gt_row_group_first td {
+#uxusmqqxbh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yszztdouxp .gt_row_group_first th {
+#uxusmqqxbh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yszztdouxp .gt_summary_row {
+#uxusmqqxbh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2218,16 +2264,16 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#yszztdouxp .gt_first_summary_row {
+#uxusmqqxbh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_first_summary_row.thick {
+#uxusmqqxbh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yszztdouxp .gt_last_summary_row {
+#uxusmqqxbh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2237,7 +2283,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_grand_summary_row {
+#uxusmqqxbh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2247,7 +2293,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#yszztdouxp .gt_first_grand_summary_row {
+#uxusmqqxbh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2257,7 +2303,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-top-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_last_grand_summary_row_top {
+#uxusmqqxbh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2267,11 +2313,11 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_striped {
+#uxusmqqxbh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yszztdouxp .gt_table_body {
+#uxusmqqxbh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2280,7 +2326,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_footnotes {
+#uxusmqqxbh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2294,7 +2340,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_footnote {
+#uxusmqqxbh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2303,7 +2349,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#yszztdouxp .gt_sourcenotes {
+#uxusmqqxbh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2317,7 +2363,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#yszztdouxp .gt_sourcenote {
+#uxusmqqxbh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2325,72 +2371,72 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#yszztdouxp .gt_left {
+#uxusmqqxbh .gt_left {
   text-align: left;
 }
 
-#yszztdouxp .gt_center {
+#uxusmqqxbh .gt_center {
   text-align: center;
 }
 
-#yszztdouxp .gt_right {
+#uxusmqqxbh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yszztdouxp .gt_font_normal {
+#uxusmqqxbh .gt_font_normal {
   font-weight: normal;
 }
 
-#yszztdouxp .gt_font_bold {
+#uxusmqqxbh .gt_font_bold {
   font-weight: bold;
 }
 
-#yszztdouxp .gt_font_italic {
+#uxusmqqxbh .gt_font_italic {
   font-style: italic;
 }
 
-#yszztdouxp .gt_super {
+#uxusmqqxbh .gt_super {
   font-size: 65%;
 }
 
-#yszztdouxp .gt_footnote_marks {
+#uxusmqqxbh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yszztdouxp .gt_asterisk {
+#uxusmqqxbh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yszztdouxp .gt_indent_1 {
+#uxusmqqxbh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yszztdouxp .gt_indent_2 {
+#uxusmqqxbh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yszztdouxp .gt_indent_3 {
+#uxusmqqxbh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yszztdouxp .gt_indent_4 {
+#uxusmqqxbh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yszztdouxp .gt_indent_5 {
+#uxusmqqxbh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yszztdouxp .katex-display {
+#uxusmqqxbh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yszztdouxp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#uxusmqqxbh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2457,7 +2503,7 @@ N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 <span class="header-section-number">4.3</span> Two categorical variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-contingency-table div. -->
 <div id="def-contingency-table" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16 (Contingency table)</strong></span> A <strong>contingency table</strong> (or <strong>cross-tabulation</strong>) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a <span class="math inline">\(2 \times 2\)</span> table with cells <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, and <span class="math inline">\(d\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 20 (Contingency table)</strong></span> A <strong>contingency table</strong> (or <strong>cross-tabulation</strong>) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a <span class="math inline">\(2 \times 2\)</span> table with cells <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, and <span class="math inline">\(d\)</span>:</p>
 <table class="caption-top">
 <thead><tr class="header">
 <th></th>
@@ -2488,7 +2534,7 @@ N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 </table>
 </div>
 </section><section class="slide level2"><div id="exm-contingency-table" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Smoking and CHD in the WCGS)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 8 (Smoking and CHD in the WCGS)</strong></span> &nbsp;</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">table</span>(<span class="at">Smoking =</span> wcgs<span class="sc">$</span>smoke, <span class="at">CHD =</span> wcgs<span class="sc">$</span>chd69)</span>
 <span id="cb23-2"><a aria-label="2"></a><span class="co">#&gt;        CHD</span></span>
@@ -2516,23 +2562,23 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
 </figcaption><div aria-describedby="tbl-gtsummary-smoke-chd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="myqvrgiydx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#myqvrgiydx table {
+<div id="jeigmzqskh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jeigmzqskh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#myqvrgiydx thead, #myqvrgiydx tbody, #myqvrgiydx tfoot, #myqvrgiydx tr, #myqvrgiydx td, #myqvrgiydx th {
+#jeigmzqskh thead, #jeigmzqskh tbody, #jeigmzqskh tfoot, #jeigmzqskh tr, #jeigmzqskh td, #jeigmzqskh th {
   border-style: none;
 }
 
-#myqvrgiydx p {
+#jeigmzqskh p {
   margin: 0;
   padding: 0;
 }
 
-#myqvrgiydx .gt_table {
+#jeigmzqskh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2558,12 +2604,12 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-left-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_caption {
+#jeigmzqskh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#myqvrgiydx .gt_title {
+#jeigmzqskh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2575,7 +2621,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-width: 0;
 }
 
-#myqvrgiydx .gt_subtitle {
+#jeigmzqskh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2587,7 +2633,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-top-width: 0;
 }
 
-#myqvrgiydx .gt_heading {
+#jeigmzqskh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2599,13 +2645,13 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_bottom_border {
+#jeigmzqskh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_col_headings {
+#jeigmzqskh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2620,7 +2666,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_col_heading {
+#jeigmzqskh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2640,7 +2686,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   overflow-x: hidden;
 }
 
-#myqvrgiydx .gt_column_spanner_outer {
+#jeigmzqskh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2652,15 +2698,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 4px;
 }
 
-#myqvrgiydx .gt_column_spanner_outer:first-child {
+#jeigmzqskh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#myqvrgiydx .gt_column_spanner_outer:last-child {
+#jeigmzqskh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#myqvrgiydx .gt_column_spanner {
+#jeigmzqskh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2672,11 +2718,11 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   width: 100%;
 }
 
-#myqvrgiydx .gt_spanner_row {
+#jeigmzqskh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#myqvrgiydx .gt_group_heading {
+#jeigmzqskh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2702,7 +2748,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   text-align: left;
 }
 
-#myqvrgiydx .gt_empty_group_heading {
+#jeigmzqskh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2717,15 +2763,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   vertical-align: middle;
 }
 
-#myqvrgiydx .gt_from_md > :first-child {
+#jeigmzqskh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#myqvrgiydx .gt_from_md > :last-child {
+#jeigmzqskh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#myqvrgiydx .gt_row {
+#jeigmzqskh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2744,7 +2790,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   overflow-x: hidden;
 }
 
-#myqvrgiydx .gt_stub {
+#jeigmzqskh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2757,7 +2803,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#myqvrgiydx .gt_stub_row_group {
+#jeigmzqskh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2771,15 +2817,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   vertical-align: top;
 }
 
-#myqvrgiydx .gt_row_group_first td {
+#jeigmzqskh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#myqvrgiydx .gt_row_group_first th {
+#jeigmzqskh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#myqvrgiydx .gt_summary_row {
+#jeigmzqskh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2789,16 +2835,16 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#myqvrgiydx .gt_first_summary_row {
+#jeigmzqskh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_first_summary_row.thick {
+#jeigmzqskh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#myqvrgiydx .gt_last_summary_row {
+#jeigmzqskh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2808,7 +2854,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_grand_summary_row {
+#jeigmzqskh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2818,7 +2864,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#myqvrgiydx .gt_first_grand_summary_row {
+#jeigmzqskh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2828,7 +2874,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-top-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_last_grand_summary_row_top {
+#jeigmzqskh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2838,11 +2884,11 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_striped {
+#jeigmzqskh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#myqvrgiydx .gt_table_body {
+#jeigmzqskh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2851,7 +2897,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_footnotes {
+#jeigmzqskh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2865,7 +2911,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_footnote {
+#jeigmzqskh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2874,7 +2920,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#myqvrgiydx .gt_sourcenotes {
+#jeigmzqskh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2888,7 +2934,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#myqvrgiydx .gt_sourcenote {
+#jeigmzqskh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2896,72 +2942,72 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#myqvrgiydx .gt_left {
+#jeigmzqskh .gt_left {
   text-align: left;
 }
 
-#myqvrgiydx .gt_center {
+#jeigmzqskh .gt_center {
   text-align: center;
 }
 
-#myqvrgiydx .gt_right {
+#jeigmzqskh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#myqvrgiydx .gt_font_normal {
+#jeigmzqskh .gt_font_normal {
   font-weight: normal;
 }
 
-#myqvrgiydx .gt_font_bold {
+#jeigmzqskh .gt_font_bold {
   font-weight: bold;
 }
 
-#myqvrgiydx .gt_font_italic {
+#jeigmzqskh .gt_font_italic {
   font-style: italic;
 }
 
-#myqvrgiydx .gt_super {
+#jeigmzqskh .gt_super {
   font-size: 65%;
 }
 
-#myqvrgiydx .gt_footnote_marks {
+#jeigmzqskh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#myqvrgiydx .gt_asterisk {
+#jeigmzqskh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#myqvrgiydx .gt_indent_1 {
+#jeigmzqskh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#myqvrgiydx .gt_indent_2 {
+#jeigmzqskh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#myqvrgiydx .gt_indent_3 {
+#jeigmzqskh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#myqvrgiydx .gt_indent_4 {
+#jeigmzqskh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#myqvrgiydx .gt_indent_5 {
+#jeigmzqskh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#myqvrgiydx .katex-display {
+#jeigmzqskh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#myqvrgiydx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jeigmzqskh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3111,7 +3157,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </ol>
 </div>
 </section><section class="slide level2"><div id="def-standardization" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 17 (Standardization)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be <span class="math inline">\(n \ge 2\)</span> observations of a variable with <a href="#/def-sample-mean">sample mean</a> <span class="math inline">\(\bar x\)</span> and <a href="#/def-sample-sd">sample standard deviation</a> <span class="math inline">\(s &gt; 0\)</span>. The <strong>standardized value</strong> of <span class="math inline">\(x_i\)</span> is</p>
+<p><span class="theorem-title"><strong>Definition 21 (Standardization)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be <span class="math inline">\(n \ge 2\)</span> observations of a variable with <a href="#/def-sample-mean">sample mean</a> <span class="math inline">\(\bar x\)</span> and <a href="#/def-sample-sd">sample standard deviation</a> <span class="math inline">\(s &gt; 0\)</span>. The <strong>standardized value</strong> of <span class="math inline">\(x_i\)</span> is</p>
 <p><span class="math display">\[z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\]</span></p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -3164,7 +3210,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 \]</span> so their sample standard deviation is <span class="math inline">\(\sqrt{1} = 1\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-scale-wcgs" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (Standardizing cholesterol in R)</strong></span> In R, <code><a href="https://rdrr.io/r/base/scale.html">scale()</a></code> returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values:</p>
+<p><span class="theorem-title"><strong>Example 9 (Standardizing cholesterol in R)</strong></span> In R, <code><a href="https://rdrr.io/r/base/scale.html">scale()</a></code> returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>z <span class="ot">&lt;-</span> <span class="fu">scale</span>(wcgs<span class="sc">$</span>chol)[, <span class="dv">1</span>]</span>
 <span id="cb30-2"><a aria-label="2"></a><span class="fu">mean</span>(z, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
@@ -3177,7 +3223,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </section><section class="slide level2"><!--
 Geron: page number not verified.
 --><div id="def-min-max-scaling" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 18 (Min-max scaling)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be observations of a variable with minimum <span class="math inline">\(x_{\min}\)</span> and maximum <span class="math inline">\(x_{\max} &gt; x_{\min}\)</span>. The <strong>min-max scaled value</strong> of <span class="math inline">\(x_i\)</span> is</p>
+<p><span class="theorem-title"><strong>Definition 22 (Min-max scaling)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be observations of a variable with minimum <span class="math inline">\(x_{\min}\)</span> and maximum <span class="math inline">\(x_{\max} &gt; x_{\min}\)</span>. The <strong>min-max scaled value</strong> of <span class="math inline">\(x_i\)</span> is</p>
 <p><span class="math display">\[\frac{x_i - x_{\min}}{x_{\max} - x_{\min}}\]</span></p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -3198,7 +3244,7 @@ Geron: page number not verified.
 <p>Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into <span class="math inline">\([0, 0.15]\)</span>. <a href="#/def-standardization">Standardization</a> changes them much less <span class="citation" data-cites="geron2017hands">(<a href="#/references" role="doc-biblioref" onclick="">Géron 2017, chap. 2</a>, “Feature Scaling”)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-min-max-wcgs" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9 (Min-max scaling of cholesterol in the WCGS)</strong></span> &nbsp;</p>
+<p><span class="theorem-title"><strong>Example 10 (Min-max scaling of cholesterol in the WCGS)</strong></span> &nbsp;</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>chol_range <span class="ot">&lt;-</span> <span class="fu">range</span>(wcgs<span class="sc">$</span>chol, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb31-2"><a aria-label="2"></a>chol_minmax <span class="ot">&lt;-</span> (wcgs<span class="sc">$</span>chol <span class="sc">-</span> chol_range[<span class="dv">1</span>]) <span class="sc">/</span> <span class="fu">diff</span>(chol_range)</span>
@@ -3247,23 +3293,23 @@ Table&nbsp;5: Summary of selected WCGS variables
 </figcaption><div aria-describedby="tbl-wcgs-all-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="yvjpfhlkic" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yvjpfhlkic table {
+<div id="ricpvrklan" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ricpvrklan table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yvjpfhlkic thead, #yvjpfhlkic tbody, #yvjpfhlkic tfoot, #yvjpfhlkic tr, #yvjpfhlkic td, #yvjpfhlkic th {
+#ricpvrklan thead, #ricpvrklan tbody, #ricpvrklan tfoot, #ricpvrklan tr, #ricpvrklan td, #ricpvrklan th {
   border-style: none;
 }
 
-#yvjpfhlkic p {
+#ricpvrklan p {
   margin: 0;
   padding: 0;
 }
 
-#yvjpfhlkic .gt_table {
+#ricpvrklan .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3289,12 +3335,12 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-left-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_caption {
+#ricpvrklan .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yvjpfhlkic .gt_title {
+#ricpvrklan .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3306,7 +3352,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-width: 0;
 }
 
-#yvjpfhlkic .gt_subtitle {
+#ricpvrklan .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3318,7 +3364,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-top-width: 0;
 }
 
-#yvjpfhlkic .gt_heading {
+#ricpvrklan .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3330,13 +3376,13 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_bottom_border {
+#ricpvrklan .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_col_headings {
+#ricpvrklan .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3351,7 +3397,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_col_heading {
+#ricpvrklan .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3371,7 +3417,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   overflow-x: hidden;
 }
 
-#yvjpfhlkic .gt_column_spanner_outer {
+#ricpvrklan .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3383,15 +3429,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 4px;
 }
 
-#yvjpfhlkic .gt_column_spanner_outer:first-child {
+#ricpvrklan .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yvjpfhlkic .gt_column_spanner_outer:last-child {
+#ricpvrklan .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yvjpfhlkic .gt_column_spanner {
+#ricpvrklan .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3403,11 +3449,11 @@ Table&nbsp;5: Summary of selected WCGS variables
   width: 100%;
 }
 
-#yvjpfhlkic .gt_spanner_row {
+#ricpvrklan .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yvjpfhlkic .gt_group_heading {
+#ricpvrklan .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3433,7 +3479,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   text-align: left;
 }
 
-#yvjpfhlkic .gt_empty_group_heading {
+#ricpvrklan .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3448,15 +3494,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   vertical-align: middle;
 }
 
-#yvjpfhlkic .gt_from_md > :first-child {
+#ricpvrklan .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yvjpfhlkic .gt_from_md > :last-child {
+#ricpvrklan .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yvjpfhlkic .gt_row {
+#ricpvrklan .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3475,7 +3521,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   overflow-x: hidden;
 }
 
-#yvjpfhlkic .gt_stub {
+#ricpvrklan .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3488,7 +3534,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#yvjpfhlkic .gt_stub_row_group {
+#ricpvrklan .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3502,15 +3548,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   vertical-align: top;
 }
 
-#yvjpfhlkic .gt_row_group_first td {
+#ricpvrklan .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yvjpfhlkic .gt_row_group_first th {
+#ricpvrklan .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yvjpfhlkic .gt_summary_row {
+#ricpvrklan .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3520,16 +3566,16 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#yvjpfhlkic .gt_first_summary_row {
+#ricpvrklan .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_first_summary_row.thick {
+#ricpvrklan .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yvjpfhlkic .gt_last_summary_row {
+#ricpvrklan .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3539,7 +3585,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_grand_summary_row {
+#ricpvrklan .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3549,7 +3595,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#yvjpfhlkic .gt_first_grand_summary_row {
+#ricpvrklan .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3559,7 +3605,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-top-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_last_grand_summary_row_top {
+#ricpvrklan .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3569,11 +3615,11 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_striped {
+#ricpvrklan .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yvjpfhlkic .gt_table_body {
+#ricpvrklan .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3582,7 +3628,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_footnotes {
+#ricpvrklan .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3596,7 +3642,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_footnote {
+#ricpvrklan .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3605,7 +3651,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#yvjpfhlkic .gt_sourcenotes {
+#ricpvrklan .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3619,7 +3665,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#yvjpfhlkic .gt_sourcenote {
+#ricpvrklan .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3627,72 +3673,72 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#yvjpfhlkic .gt_left {
+#ricpvrklan .gt_left {
   text-align: left;
 }
 
-#yvjpfhlkic .gt_center {
+#ricpvrklan .gt_center {
   text-align: center;
 }
 
-#yvjpfhlkic .gt_right {
+#ricpvrklan .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yvjpfhlkic .gt_font_normal {
+#ricpvrklan .gt_font_normal {
   font-weight: normal;
 }
 
-#yvjpfhlkic .gt_font_bold {
+#ricpvrklan .gt_font_bold {
   font-weight: bold;
 }
 
-#yvjpfhlkic .gt_font_italic {
+#ricpvrklan .gt_font_italic {
   font-style: italic;
 }
 
-#yvjpfhlkic .gt_super {
+#ricpvrklan .gt_super {
   font-size: 65%;
 }
 
-#yvjpfhlkic .gt_footnote_marks {
+#ricpvrklan .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yvjpfhlkic .gt_asterisk {
+#ricpvrklan .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yvjpfhlkic .gt_indent_1 {
+#ricpvrklan .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yvjpfhlkic .gt_indent_2 {
+#ricpvrklan .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yvjpfhlkic .gt_indent_3 {
+#ricpvrklan .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yvjpfhlkic .gt_indent_4 {
+#ricpvrklan .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yvjpfhlkic .gt_indent_5 {
+#ricpvrklan .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yvjpfhlkic .katex-display {
+#ricpvrklan .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yvjpfhlkic div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ricpvrklan div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
