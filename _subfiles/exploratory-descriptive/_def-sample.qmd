@@ -1,0 +1,6 @@
+::: {#def-sample}
+#### Sample
+
+A **sample** of size $n$ is the data $\dsn{x}$
+observed on $n$ units drawn from a population (@def-population).
+:::
