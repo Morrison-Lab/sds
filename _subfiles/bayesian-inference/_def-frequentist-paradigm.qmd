@@ -5,6 +5,6 @@ In the **frequentist** paradigm of statistical inference,
 an unknown parameter $\param$ is a fixed constant,
 probability describes long-run frequencies over repetitions
 of the data-generating process,
-and uncertainty about $\param$ is quantified by the sampling distribution
+and uncertainty about $\param$ is quantified by the [sampling distribution](estimation.qmd#def-sampling-distribution)
 of an estimator $\hparam$.
 :::

@@ -90,6 +90,14 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_def-sampling-distribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_exm-sampling-distribution.qmd >}}
+
+{{< slidebreak >}}
+
 ### Contrasting estimands, estimates, and estimators
 
 {{< include sds/_subfiles/estimation/_prose-contrast.qmd >}}

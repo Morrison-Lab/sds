@@ -14,7 +14,7 @@ is the empirical distribution of $\hparam^*_1, \ldots, \hparam^*_B$.
 ::: {#rem-bootstrap-distribution-role}
 #### What the bootstrap distribution estimates
 
-The bootstrap distribution estimates the sampling distribution
+The bootstrap distribution estimates the [sampling distribution](estimation.qmd#def-sampling-distribution)
 of $\hparam$.
 The observed sample stands in for the population,
 and resampling from it stands in for drawing new samples

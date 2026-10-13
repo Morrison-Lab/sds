@@ -197,11 +197,11 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_def_einf.qmd >}}
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/intro-MLEs/_def_einf.qmd >}}
+{{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
 
 {{< slidebreak >}}
 
