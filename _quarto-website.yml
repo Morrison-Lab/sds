@@ -221,6 +221,10 @@ custom-callout:
     color: "#4E342E"  # dark cocoa
   remark:
     color: "#AD1457"  # dark magenta
+  videos:
+    title: "Watch"  # each callout sits beside the content it supports
+    icon-symbol: "fa-circle-play"
+    color: "#283593"  # indigo
 
 format:
   html:
@@ -232,6 +236,7 @@ format:
       dark: darkly
     # Replaces Quarto's two-way toggle with a Light / Off-white / Parchment / Dark dropdown.
     include-in-header: theme-picker.html
+    include-after-body: anchor-landing.html
     css: styles.css
     toc: true
     anchor-sections: true
