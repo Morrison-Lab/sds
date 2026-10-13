@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 17:31:50 (PDT)
+Last modified: 2026-10-12 19:27:54 (PDT)
 
 ## 1 Scientific models
 
@@ -504,7 +504,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > *Proof*. [Equation 5](#eq-unbiased-exp) is the solution to [Exercise 6](#exr-unbiased-exp), and [Equation 6](#eq-unbiased-mse) is the solution to [Exercise 7](#exr-unbiased-mse).
 
-> **TIP:**
+> **NOTE:**
 >
 > 5MinuteAI covers the [properties of estimators](https://www.youtube.com/watch?v=sUFpzYNDn3Q), including bias, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
 

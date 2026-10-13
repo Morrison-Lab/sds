@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 17:31:50 (PDT)
+Last modified: 2026-10-12 19:27:54 (PDT)
 
 ## 1 Inference
 
@@ -104,7 +104,7 @@ There are two predominant paradigms for statistical inference:
 >
 > The p-value is far below 0.05, so at significance level 0.05 the test rejects \\H_0\\: the data provide [statistically significant](#def-statistically-significant) evidence that mean cholesterol differs between the two groups.
 
-> **TIP:**
+> **NOTE:**
 >
 > 5MinuteAI explains [hypothesis testing](https://www.youtube.com/watch?v=Plya_ZXkOvs) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
 
@@ -205,7 +205,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Example 8 (Margin of error for mean cholesterol)** In [Example 7](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
 
-> **TIP:**
+> **NOTE:**
 >
 > 5MinuteAI explains [confidence intervals](https://www.youtube.com/watch?v=XdaAhYUqWsg) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
 

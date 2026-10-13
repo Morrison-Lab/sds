@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-12 17:31:50 (PDT)
+Last modified: 2026-10-12 19:27:54 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -121,7 +121,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 >
 > **Example 2 (MLE for one Bernoulli observation)** In [Example 1](#exm-lik-obs), the likelihood of the observation \\x = 1\\ is \\\mathcal{L}(\pi) = \pi\\ for \\\pi\in \[0, 1\]\\. This function is increasing, so it is maximized at the upper edge of the parameter space: \\\hat{\pi}\_{\text{ML}} = 1\\.
 
-> **TIP:**
+> **NOTE:**
 >
 > 5MinuteAI explains [maximum likelihood estimation](https://www.youtube.com/watch?v=Pa-GWE5JuH4) and works [examples](https://www.youtube.com/watch?v=w3a08digzfw) in five minutes each, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
 
