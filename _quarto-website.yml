@@ -213,6 +213,10 @@ custom-callout:
     color: "#4E342E"  # dark cocoa
   remark:
     color: "#AD1457"  # dark magenta
+  videos:
+    title: "Watch"  # each callout sits beside the content it supports
+    icon-symbol: "fa-circle-play"
+    color: "#283593"  # indigo
 
 format:
   html:

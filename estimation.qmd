@@ -253,7 +253,7 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< include sds/_subfiles/estimation/_thm-unbiased-props.qmd >}}
 
-::: {.callout-tip title="Another explanation"}
+::: {.videos}
 5MinuteAI covers the [properties of estimators](https://www.youtube.com/watch?v=sUFpzYNDn3Q), including bias,
 following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 :::
