@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-14 00:24:30 (PDT)</p>
+  <p class="date">Last modified: 2026-10-14 01:48:17 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1760,6 +1760,39 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 <p><span id="eq-cross-product-matrix"><span class="math display">\[
 A \stackrel{\text{def}}{=}\sum_{i \in I} \tilde{t}_{i} {\tilde{t}_{i}}^{\top}.
 \tag{29}\]</span></span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Source</strong></p>
+</div>
+<div class="callout-content">
+<p>Sanchez <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>) names this matrix a sum-of-squares and cross-products matrix.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section class="slide level2"><div id="rem-cross-product-matrix" class="proof remark">
+<p><span class="proof-title"><em>Remark 11</em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(\Phi\)</span> be the matrix whose rows are the transposed <a href="#/def-term-vector">term vectors</a> <span class="math inline">\({\tilde{t}_{i}}^{\top}\)</span>, <span class="math inline">\(i \in I\)</span>. The cross-product matrix then equals the matrix product</p>
+<p><span class="math display">\[
+A = {\Phi}^{\top} \Phi.
+\]</span></p>
+<p>Its diagonal entries are sums of squares of one term over the training set. Its off-diagonal entries are sums of cross-products of two different terms. Statisticians therefore call <span class="math inline">\(A\)</span> the sum-of-squares and cross-products (SSCP) matrix of the terms. When every column of <span class="math inline">\(\Phi\)</span> has mean zero, <span class="math inline">\(A / (\mathopen{}\left|I\right|\mathclose{} - 1)\)</span> is the sample covariance matrix of the terms.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Source</strong></p>
+</div>
+<div class="callout-content">
+<p>I restated the SSCP reading and the covariance special case from Sanchez <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>) in this page’s notation. The book carries a non-commercial, share-alike license, so I paraphrased it and copied none of its text.</p>
+</div>
+</div>
+</div>
 </div>
 </section><section class="slide level2"><div id="def-leverage" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 29 (Leverage)</strong></span> Consider a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a>, with <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\tilde{t}_{i}\)</span>, <span class="math inline">\(i \in I\)</span>, and an invertible <a href="#/def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span>. The <strong>leverage</strong> of observation <span class="math inline">\(i\)</span> is</p>
@@ -1850,7 +1883,7 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;8</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
-<p><span class="proof-title"><em>Remark 11</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k = n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;9</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;8</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n - 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n - 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
+<p><span class="proof-title"><em>Remark 12</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k = n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;9</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;8</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n - 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n - 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
 </div>
 </section><section id="sec-cv-model-choice" class="slide level2" data-number="7"><h2>
 <span class="header-section-number">7</span> Choosing a model by cross-validation</h2>
@@ -1888,10 +1921,10 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_l}_{\text{CV}(k)}\mathopen
 </div>
 </div>
 </section><section class="slide level2"><div id="rem-nested-cv" class="proof remark">
-<p><span class="proof-title"><em>Remark 12</em> (What is nested). </span>Each fold-out rule of <span class="math inline">\(g^{\text{CV}}\)</span> is computed from the observations outside one outer <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>, so the whole choice, including the cross-validation that <span class="math inline">\(g^{\text{CV}}\)</span> runs inside those observations, never sees <span class="math inline">\(\mathcal{F}_{j}\)</span>. That inner cross-validation is the nested one.</p>
+<p><span class="proof-title"><em>Remark 13</em> (What is nested). </span>Each fold-out rule of <span class="math inline">\(g^{\text{CV}}\)</span> is computed from the observations outside one outer <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>, so the whole choice, including the cross-validation that <span class="math inline">\(g^{\text{CV}}\)</span> runs inside those observations, never sees <span class="math inline">\(\mathcal{F}_{j}\)</span>. That inner cross-validation is the nested one.</p>
 </div>
 </section><section class="slide level2"><div id="rem-cv-winner-optimistic" class="proof remark">
-<p><span class="proof-title"><em>Remark 13</em> (Cross-validation replaces the validation set, not the test set). </span>Used to choose between models, cross-validation takes the place of the <em>validation</em> set of <a href="#/def-data-splits" class="quarto-xref">Definition&nbsp;14</a>, the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.2</a>)</span>, such as a <a href="#/def-test-set">test set</a>, or the outer folds of <a href="#/def-nested-cv">nested cross-validation</a>.</p>
+<p><span class="proof-title"><em>Remark 14</em> (Cross-validation replaces the validation set, not the test set). </span>Used to choose between models, cross-validation takes the place of the <em>validation</em> set of <a href="#/def-data-splits" class="quarto-xref">Definition&nbsp;14</a>, the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.2</a>)</span>, such as a <a href="#/def-test-set">test set</a>, or the outer folds of <a href="#/def-nested-cv">nested cross-validation</a>.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1926,7 +1959,7 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_l}_{\text{CV}(k)}\mathopen
 </div>
 </div>
 </section><section class="slide level2"><div id="rem-cv-se" class="proof remark">
-<p><span class="proof-title"><em>Remark 14</em> (The fold-based standard error is only a rough guide). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span> draw standard-error bars computed from the per-fold errors as in <a href="#/eq-cv-se" class="quarto-xref">Equation&nbsp;35</a>. That formula treats the <span class="math inline">\(k\)</span> fold errors as if they were independent, which they are not: every pair of folds shares <span class="math inline">\(k - 2\)</span> folds of training data. So <span class="math inline">\(\operatorname{SE}_{\text{CV}(k)}\)</span> is a rough indication of how much <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> might change with a different sample, not a <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span>.</p>
+<p><span class="proof-title"><em>Remark 15</em> (The fold-based standard error is only a rough guide). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span> draw standard-error bars computed from the per-fold errors as in <a href="#/eq-cv-se" class="quarto-xref">Equation&nbsp;35</a>. That formula treats the <span class="math inline">\(k\)</span> fold errors as if they were independent, which they are not: every pair of folds shares <span class="math inline">\(k - 2\)</span> folds of training data. So <span class="math inline">\(\operatorname{SE}_{\text{CV}(k)}\)</span> is a rough indication of how much <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> might change with a different sample, not a <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-fold-mse-indexed" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 34 (Fold mean squared error of a named procedure)</strong></span> The <strong>fold mean squared error of procedure</strong> <span class="math inline">\(g\)</span> for <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span> of a training set <span class="math inline">\(\mathcal{T}\)</span>, indexed by <span class="math inline">\(I\)</span>, is the <a href="#/def-fold-mse">fold mean squared error</a> computed with the <a href="#/def-fold-out-rule">fold-out rule</a> that <span class="math inline">\(g\)</span> produces:</p>
@@ -2143,7 +2176,7 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 <p>The 10 predictors chosen from all 50 observations were chosen <em>because</em> they happen to correlate with <span class="math inline">\(Y\)</span> in the very observations that later serve as held-out folds. Those observations were not held out from the whole fitting procedure, so the independence that <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a> needs fails.</p>
 </div>
 </section><section class="slide level2"><div id="rem-cv-every-step" class="proof remark">
-<p><span class="proof-title"><em>Remark 15</em> (Cross-validate the whole procedure). </span>Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.10.2</a>)</span>. Such steps include:</p>
+<p><span class="proof-title"><em>Remark 16</em> (Cross-validate the whole procedure). </span>Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.10.2</a>)</span>. Such steps include:</p>
 <ul>
 <li>screening or selecting predictors, as in <a href="#/exr-cv-screening" class="quarto-xref">Exercise&nbsp;9</a>;</li>
 <li>choosing transformations or a polynomial degree;</li>
@@ -2151,6 +2184,9 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 </ul>
 <p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.2</a>)</span> note that steps using only the predictors, such as dropping predictors with almost no variation, can be done once on all the data before the folds are formed. Repeating such a step inside each fold is never wrong, though, and it scores each held-out fold the way new data would be scored. Examples are estimating the mean and standard deviation used for <a href="./exploratory-descriptive.html#def-standardization">standardization</a>, and the values used to fill in missing predictor values, when they are computed without the outcome.</p>
 </div>
+</section><section id="further-reading" class="slide level2" data-number="9"><h2>
+<span class="header-section-number">9</span> Further reading</h2>
+<p><span class="citation" data-cites="sanchez2020matrix4sl">Sanchez (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span> reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.</p>
 </section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-hastie2009elements" class="csl-entry" role="listitem">
@@ -2158,6 +2194,9 @@ Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. <em>The Elements o
 </div>
 <div id="ref-james2021islr2e" class="csl-entry" role="listitem">
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: With Applications in <span>R</span></em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
+</div>
+<div id="ref-sanchez2020matrix4sl" class="csl-entry" role="listitem">
+Sanchez, Gaston. 2020. <em>A Matrix Algebra Companion for Statistical Learning (<span class="nocase">matrix4sl</span>)</em>. Online book, work in progress. Licensed CC BY-NC-SA 4.0. <a href="https://www.gastonsanchez.com/matrix4sl/">https://www.gastonsanchez.com/matrix4sl/</a>.
 </div>
 </div>
 
