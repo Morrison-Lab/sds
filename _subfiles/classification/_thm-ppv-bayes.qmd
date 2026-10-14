@@ -1,7 +1,10 @@
 :::{#thm-ppv-bayes}
 #### PPV from Bayes' theorem
 
-The [positive predictive value](#def-ppv) of a diagnostic test is:
+Let $\text{sens}$ be the [sensitivity](#def-sensitivity) of a diagnostic test,
+$\text{spec}$ its [specificity](#def-specificity),
+and $\prev$ the [prevalence](#def-prevalence) of the disease.
+Then the [positive predictive value](#def-ppv) of the test is:
 
 $$
 \text{PPV} =
@@ -13,6 +16,7 @@ $$ {#eq-ppv-bayes}
 
 ::: proof
 
-This is the solution to @exr-ppv-bayes.
+This is the solution to @exr-ppv-bayes, worked in @sol-ppv-bayes,
+which builds on @thm-prob-positive.
 
 :::

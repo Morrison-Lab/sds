@@ -13,6 +13,6 @@ $$ {#eq-prob-positive}
 
 ::: proof
 
-This is the solution to @exr-prob-positive.
+This is the solution to @exr-prob-positive, worked in @sol-prob-positive.
 
 :::
