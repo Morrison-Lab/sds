@@ -7,6 +7,12 @@ the **adjusted p-value** $\tilde p_j$ of $H_j$ is the smallest level at which th
 or $1$ if there is none:
 
 $$\tilde p_j \eqdef \min \set{c \in [0, 1] : \text{the procedure at level } c \text{ rejects } H_j}.$$
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-adjusted-p-value-levels}
+#### Applying any level to adjusted p-values
 
 If the rejection set only grows as the level grows, as it does for the procedures on this page,
 the procedure at level $c$ rejects exactly the hypotheses with $\tilde p_j \le c$,

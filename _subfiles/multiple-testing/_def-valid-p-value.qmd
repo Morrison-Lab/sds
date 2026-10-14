@@ -5,8 +5,15 @@ A [p-value](inference.qmd#def-p-value) $p$ for a null hypothesis $H_0$ is **vali
 when $H_0$ is true, it is stochastically no smaller than a uniform random variable:
 
 $$\Pr_{H_0}(p \le u) \le u \quad \text{for every } u \in [0, 1].$$
+:::
 
-If the inequality is an equality, $p$ is uniform on $[0, 1]$ under $H_0$.
+{{< slidebreak >}}
+
+::: {#rem-valid-p-value-uniform}
+#### Uniform p-values
+
+If the inequality in the definition of a valid p-value is an equality,
+$p$ is uniform on $[0, 1]$ under $H_0$.
 :::
 
 {{< slidebreak >}}

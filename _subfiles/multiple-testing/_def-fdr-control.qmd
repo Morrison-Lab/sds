@@ -1,0 +1,6 @@
+::: {#def-fdr-control}
+#### Controlling the false discovery rate
+
+A procedure **controls the FDR at level $q$** if $\text{FDR} \le q$
+for every possible set of true null hypotheses.
+:::
