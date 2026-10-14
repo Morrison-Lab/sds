@@ -1,0 +1,20 @@
+:::{#def-irreducible-error}
+#### Irreducible error
+
+In @thm-epe-decomposition,
+the term $\varpar = \Var{\noise}$ is the **irreducible error**.
+It does not depend on the fitting procedure $g$,
+so no choice of prediction can remove it.
+The theorem concerns the single covariate value $x$,
+so $\varpar$ may differ from one covariate value to another:
+it does not assume constant noise variance across covariate values.
+For example, in @exr-epe-three-sources, $\varpar = 3$,
+so every prediction there has expected squared error at least $3$.
+
+:::
+
+::: {.remark .notes}
+
+This expected prediction error decomposition into squared bias, variance, and irreducible error follows @james2021islr2e [Section 2.2.2].
+
+:::

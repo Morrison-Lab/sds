@@ -1,0 +1,47 @@
+:::{#def-prediction-bias}
+#### Bias of a prediction
+
+Let $g$ be a [fitting procedure](#def-fitting-procedure),
+and let $\trainset$ be a random [training set](#def-training-set).
+At a covariate value $x$,
+the prediction $g\paren{x; \trainset}$ is a random variable,
+because it depends on the random training data.
+The **bias** of the prediction, as a prediction of $\mean(x)$,
+is the [bias](estimation.qmd#def-bias) of $g\paren{x; \trainset}$
+as an estimator of the [mean function](#def-mean-function) value $\mean(x)$:
+
+$$
+\bias{g\paren{x; \trainset}} = \E{g\paren{x; \trainset}} - \mean(x).
+$$ {#eq-prediction-bias}
+
+:::
+
+::: {.remark .notes}
+
+In expected prediction error decompositions [@james2021islr2e, Section 2.2.2],
+the bias reflects the error introduced by approximating a real-world relationship by a model.
+
+:::
+
+{{< slidebreak >}}
+
+:::{#exm-prediction-bias}
+#### Computing the bias of a prediction
+
+Suppose $\mean(x) = 10$,
+and the predictions $g\paren{x; \trainset}$,
+over repeated training sets,
+average $11$.
+Then
+
+$$
+\begin{aligned}
+\bias{g\paren{x; \trainset}} &= 11 - 10 \\
+&= 1.
+\end{aligned}
+$$
+
+The squared bias is $1^2 = 1$,
+the value in @exr-epe-three-sources.
+
+:::

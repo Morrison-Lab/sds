@@ -82,7 +82,7 @@ Training RMSE and estimated generalization error
 (RMSE on $10{,}000$ new observations)
 of polynomial fits to one simulated training set of $n = 30$.
 The dashed line is the noise standard deviation $\sdpar$,
-the square root of the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error).
+the square root of the [irreducible error](#def-irreducible-error).
 :::
 
 ```{r}
