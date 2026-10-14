@@ -105,8 +105,8 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/callouty-theorem-1.2.1/callouty-theorem.js"></script>
-<link href="site_libs/quarto-contrib/callouty-theorem-1.2.1/callouty-theorem.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/callouty-theorem-1.2.2/callouty-theorem.js"></script>
+<link href="site_libs/quarto-contrib/callouty-theorem-1.2.2/callouty-theorem.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -221,15 +221,15 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-def.callout {
-  border-left-color: #1B5E20;
+div.callout-proof.callout {
+  border-left-color: #37474F;
 }
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
 }
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exm.callout {
   border-left-color: #6A1B9A;
@@ -241,35 +241,25 @@ div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-remark.callout {
-  border-left-color: #AD1457;
+div.callout-def.callout {
+  border-left-color: #1B5E20;
 }
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
 }
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-proof.callout {
-  border-left-color: #37474F;
+div.callout-solution.callout {
+  border-left-color: #4E342E;
 }
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
 }
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
   border-left-color: #283593;
@@ -285,15 +275,25 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   content: '\f144' !important;
   background-image: none;
 }
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
+div.callout-cor.callout {
+  border-left-color: #00838F;
 }
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
 }
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -315,25 +315,25 @@ div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-cor.callout {
-  border-left-color: #00838F;
+div.callout-lem.callout {
+  border-left-color: #1565C0;
 }
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
 }
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -883,7 +883,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-13 21:02:10 (PDT)</p>
+      <p class="date">Last modified: 2026-10-13 22:33:57 (PDT)</p>
     </div>
   </div>
   
@@ -1285,13 +1285,30 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <div id="def-fwer" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Family-wise error rate)</strong></span> For a family of tests with <span class="math inline">\(V\)</span> false positives (<a href="#def-rejection-counts" class="quarto-xref">Definition&nbsp;1</a>), the <strong>family-wise error rate</strong> (FWER) is the probability of at least one false positive:</p>
 <p><span class="math display">\[\text{FWER} \stackrel{\text{def}}{=}\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}.\]</span></p>
-<p>A procedure <strong>controls the FWER at level <span class="math inline">\(\alpha\)</span></strong> if <span class="math inline">\(\text{FWER} \le \alpha\)</span> for every possible set of true null hypotheses.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-fwer-control" class="quarto-xref">Definition&nbsp;3</a> (Controlling the family-wise error rate)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="def-fwer-control" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3 (Controlling the family-wise error rate)</strong></span> A procedure <strong>controls the FWER at level <span class="math inline">\(\alpha\)</span></strong> if <span class="math inline">\(\text{FWER} \le \alpha\)</span> for every possible set of true null hypotheses.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1300,7 +1317,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-fwer" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (FWER of unadjusted testing in the simulated family)</strong></span> Repeat the simulation of <a href="#exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> 2000 times, rejecting every null hypothesis with <span class="math inline">\(p_j \le 0.05\)</span> each time, and record the fraction of repetitions with at least one false positive:</p>
@@ -1328,29 +1345,47 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </section><section id="sec-fdr" class="level3" data-number="3.3"><h3 data-number="3.3" class="anchored" data-anchor-id="sec-fdr">
 <span class="header-section-number">3.3</span> The false discovery rate</h3>
-<!-- No slidebreak here: the heading shares its slide with the def-fdr div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-fdp div. -->
 <div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Def</span><a href="#def-fdr" class="quarto-xref">Definition&nbsp;3</a> (False discovery rate)
+<span class="screen-reader-only">Def</span><a href="#def-fdp" class="quarto-xref">Definition&nbsp;4</a> (False discovery proportion)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="def-fdr" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (False discovery rate)</strong></span> For a family of tests with <span class="math inline">\(V\)</span> false positives among <span class="math inline">\(R\)</span> rejections (<a href="#def-rejection-counts" class="quarto-xref">Definition&nbsp;1</a>), the <strong>false discovery proportion</strong> (FDP) is the fraction of rejections that are false positives, counted as 0 when there are no rejections, and the <strong>false discovery rate</strong> (FDR) is its expected value:</p>
+<div id="def-fdp" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (False discovery proportion)</strong></span> For a family of tests with <span class="math inline">\(V\)</span> false positives among <span class="math inline">\(R\)</span> rejections (<a href="#def-rejection-counts" class="quarto-xref">Definition&nbsp;1</a>), the <strong>false discovery proportion</strong> (FDP) is the fraction of rejections that are false positives, counted as 0 when there are no rejections:</p>
 <p><span class="math display">\[
-\text{FDP} \stackrel{\text{def}}{=}\frac{V}{\max(R, 1)},
-\qquad
+\text{FDP} \stackrel{\text{def}}{=}\frac{V}{\max(R, 1)}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-fdr" class="quarto-xref">Definition&nbsp;5</a> (False discovery rate)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="def-fdr" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 5 (False discovery rate)</strong></span> The <strong>false discovery rate</strong> (FDR) is the expected value of the <a href="#def-fdp">false discovery proportion</a>:</p>
+<p><span class="math display">\[
 \text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\text{FDP}\right]\mathclose{}.
 \]</span></p>
-<p>A procedure <strong>controls the FDR at level <span class="math inline">\(q\)</span></strong> if <span class="math inline">\(\text{FDR} \le q\)</span> for every possible set of true null hypotheses.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1359,7 +1394,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The false discovery rate was introduced by Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#ref-benjamini1995controlling" role="doc-biblioref">1995</a>)</span>; the notation <span class="math inline">\(V\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(U\)</span>, <span class="math inline">\(T\)</span> and <span class="math inline">\(R\)</span> follows <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#ref-james2021islr2e" role="doc-biblioref">2021</a>, ch.&nbsp;13)</span>.</p>
 </div>
@@ -1369,8 +1404,26 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 </div>
+<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-fdr-control" class="quarto-xref">Definition&nbsp;6</a> (Controlling the false discovery rate)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="def-fdr-control" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 6 (Controlling the false discovery rate)</strong></span> A procedure <strong>controls the FDR at level <span class="math inline">\(q\)</span></strong> if <span class="math inline">\(\text{FDR} \le q\)</span> for every possible set of true null hypotheses.</p>
+</div>
+</div>
+</div>
+</div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1379,7 +1432,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-fdr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (FDR of unadjusted testing in the simulated family)</strong></span> In the 2000 repetitions of <a href="#exm-fwer" class="quarto-xref">Example&nbsp;4</a>, average the false discovery proportion of each repetition to estimate the FDR. The <em>power</em> of a procedure is the expected fraction of the 100 false null hypotheses it rejects, <span class="math inline">\(\operatorname{E}\mathopen{}\left[S\right]\mathclose{} / m_1\)</span>:</p>
@@ -1402,7 +1455,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1411,7 +1464,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-fdr-fwer" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (The FDR is never larger than the FWER). </span>If <span class="math inline">\(V \ge 1\)</span> then <span class="math inline">\(V / \max(R, 1) \le 1\)</span> because <span class="math inline">\(V \le R\)</span>, and if <span class="math inline">\(V = 0\)</span> then <span class="math inline">\(V / \max(R, 1) = 0\)</span>. So <span class="math inline">\(\text{FDP} \le \mathbb{1}_{V \ge 1}\)</span>, and taking expectations gives <span class="math inline">\(\text{FDR} \le \text{FWER}\)</span>. A procedure that controls the FWER at level <span class="math inline">\(\alpha\)</span> therefore controls the FDR at level <span class="math inline">\(\alpha\)</span> too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.</p>
@@ -1423,27 +1476,44 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <span class="header-section-number">3.4</span> Valid p-values</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-valid-p-value div. -->
 <div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Def</span><a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;4</a> (Valid p-value)
+<span class="screen-reader-only">Def</span><a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a> (Valid p-value)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-valid-p-value" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Valid p-value)</strong></span> A <a href="./inference.html#def-p-value">p-value</a> <span class="math inline">\(p\)</span> for a null hypothesis <span class="math inline">\(H_0\)</span> is <strong>valid</strong> if, when <span class="math inline">\(H_0\)</span> is true, it is stochastically no smaller than a uniform random variable:</p>
+<p><span class="theorem-title"><strong>Definition 7 (Valid p-value)</strong></span> A <a href="./inference.html#def-p-value">p-value</a> <span class="math inline">\(p\)</span> for a null hypothesis <span class="math inline">\(H_0\)</span> is <strong>valid</strong> if, when <span class="math inline">\(H_0\)</span> is true, it is stochastically no smaller than a uniform random variable:</p>
 <p><span class="math display">\[\Pr_{H_0}(p \le u) \le u \quad \text{for every } u \in [0, 1].\]</span></p>
-<p>If the inequality is an equality, <span class="math inline">\(p\)</span> is uniform on <span class="math inline">\([0, 1]\)</span> under <span class="math inline">\(H_0\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-valid-p-value-uniform" class="quarto-xref">Remark&nbsp;3</a> (Uniform p-values)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="rem-valid-p-value-uniform" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (Uniform p-values). </span>If the inequality in the definition of a valid p-value is an equality, <span class="math inline">\(p\)</span> is uniform on <span class="math inline">\([0, 1]\)</span> under <span class="math inline">\(H_0\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1452,7 +1522,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-valid-p-value" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (The two-sided z-test p-value is valid)</strong></span> For a standard Gaussian statistic <span class="math inline">\(Z\)</span>, the p-value <span class="math inline">\(p = 2 \Phi(-\mathopen{}\left|Z\right|\mathclose{})\)</span> is the probability that a standard Gaussian variable is at least as extreme as <span class="math inline">\(Z\)</span>. Because <span class="math inline">\(Z\)</span> has a continuous distribution, this p-value is uniform on <span class="math inline">\([0, 1]\)</span>, so <span class="math inline">\(\Pr(p \le u) = u\)</span> exactly. Simulating <span class="math inline">\(10^5\)</span> true null hypotheses checks this:</p>
@@ -1475,19 +1545,19 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-valid-p-value-discrete" class="quarto-xref">Remark&nbsp;3</a> (Discrete statistics give conservative p-values)
+<span class="screen-reader-only">Remark</span><a href="#rem-valid-p-value-discrete" class="quarto-xref">Remark&nbsp;4</a> (Discrete statistics give conservative p-values)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-valid-p-value-discrete" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Discrete statistics give conservative p-values). </span>When the test statistic is discrete, as in <a href="./categorical-tests.html#def-fishers-exact">Fisher’s exact test</a>, a p-value can satisfy <span class="math inline">\(\Pr_{H_0}(p \le u) &lt; u\)</span> for some <span class="math inline">\(u\)</span>. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.</p>
+<p><span class="proof-title"><em>Remark 4</em> (Discrete statistics give conservative p-values). </span>When the test statistic is discrete, as in <a href="./categorical-tests.html#def-fishers-exact">Fisher’s exact test</a>, a p-value can satisfy <span class="math inline">\(\Pr_{H_0}(p \le u) &lt; u\)</span> for some <span class="math inline">\(u\)</span>. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.</p>
 </div>
 </div>
 </div>
@@ -1498,22 +1568,22 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <span class="header-section-number">4.1</span> The Bonferroni correction</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-bonferroni div. -->
 <div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Def</span><a href="#def-bonferroni" class="quarto-xref">Definition&nbsp;5</a> (Bonferroni correction)
+<span class="screen-reader-only">Def</span><a href="#def-bonferroni" class="quarto-xref">Definition&nbsp;8</a> (Bonferroni correction)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-bonferroni" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Bonferroni correction)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses <span class="math inline">\(H_1, \ldots, H_m\)</span> with p-values <span class="math inline">\(p_1, \ldots, p_m\)</span> and a level <span class="math inline">\(\alpha\)</span>, the <strong>Bonferroni correction</strong> rejects <span class="math inline">\(H_j\)</span> when its p-value is at most <span class="math inline">\(\alpha/ m\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 8 (Bonferroni correction)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses <span class="math inline">\(H_1, \ldots, H_m\)</span> with p-values <span class="math inline">\(p_1, \ldots, p_m\)</span> and a level <span class="math inline">\(\alpha\)</span>, the <strong>Bonferroni correction</strong> rejects <span class="math inline">\(H_j\)</span> when its p-value is at most <span class="math inline">\(\alpha/ m\)</span>:</p>
 <p><span class="math display">\[\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1522,7 +1592,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#ref-james2021islr2e" role="doc-biblioref">2021</a>, ch.&nbsp;13)</span>.</p>
 </div>
@@ -1533,7 +1603,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1542,7 +1612,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-bonferroni" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Bonferroni correction for the Khan genes)</strong></span> R functions for this page’s procedures take the vector of p-values and a level, and return a logical vector. For the Bonferroni correction with <span class="math inline">\(\alpha= 0.05\)</span>:</p>
@@ -1649,7 +1719,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exr no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1658,7 +1728,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-union-bound" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2 (Indicator of a union)</strong></span> For events <span class="math inline">\(A_1, \ldots, A_k\)</span>, let <span class="math inline">\(\mathbb{1}_{A}\)</span> be the indicator of the event <span class="math inline">\(A\)</span>: it equals 1 if <span class="math inline">\(A\)</span> occurs and 0 if it does not. Show that, for every outcome,</p>
@@ -1668,7 +1738,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1677,7 +1747,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-union-bound" class="proof solution">
 <p><span class="proof-title"><em>Solution 2</em>. </span>Fix an outcome and consider two cases.</p>
@@ -1690,7 +1760,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1699,7 +1769,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
+<div id="callout-28" class="callout-28-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-union-bound" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (Union bound)</strong></span> For any events <span class="math inline">\(A_1, \ldots, A_k\)</span>, the probability of their union is at most the sum of their probabilities:</p>
@@ -1709,7 +1779,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1718,7 +1788,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The inequality in the second line is <a href="#sol-union-bound" class="quarto-xref">Solution&nbsp;2</a>.</p>
@@ -1740,7 +1810,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1749,7 +1819,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
+<div id="callout-30" class="callout-30-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-union-bound" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (The union bound for tests of true null hypotheses)</strong></span> Let <span class="math inline">\(A_j\)</span> be the event that the <span class="math inline">\(j\)</span>th of <span class="math inline">\(m\)</span> tests of true null hypotheses, each at level <span class="math inline">\(\alpha= 0.05\)</span>, rejects. The union bound gives <span class="math inline">\(\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{} \le m \times 0.05\)</span>, which for <span class="math inline">\(m = 10\)</span> is 0.5. The exact probability for independent tests is <span class="math inline">\(1 - 0.95^{10} =\)</span> 0.401 (<a href="#thm-false-positive-prob" class="quarto-xref">Theorem&nbsp;1</a>), so the bound is not tight, but it needs no independence. For large <span class="math inline">\(m\)</span> the bound exceeds 1 and says nothing.</p>
@@ -1758,7 +1828,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exr no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1767,16 +1837,16 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse show">
+<div id="callout-31" class="callout-31-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-bonferroni-fwer" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (Probability of a false positive under the Bonferroni correction)</strong></span> Let <span class="math inline">\(m\)</span> null hypotheses have valid p-values (<a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;4</a>), let <span class="math inline">\(\mathcal{I}_0\)</span> be the set of <span class="math inline">\(m_0\)</span> indices of the true null hypotheses, and let <span class="math inline">\(V\)</span> be the number of true null hypotheses that the <a href="#def-bonferroni">Bonferroni correction</a> at level <span class="math inline">\(\alpha\)</span> rejects. Show that <span class="math inline">\(\Pr\mathopen{}\left(V \ge 1\right)\mathclose{} \le m_0 \alpha/ m\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 3 (Probability of a false positive under the Bonferroni correction)</strong></span> Let <span class="math inline">\(m\)</span> null hypotheses have valid p-values (<a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>), let <span class="math inline">\(\mathcal{I}_0\)</span> be the set of <span class="math inline">\(m_0\)</span> indices of the true null hypotheses, and let <span class="math inline">\(V\)</span> be the number of true null hypotheses that the <a href="#def-bonferroni">Bonferroni correction</a> at level <span class="math inline">\(\alpha\)</span> rejects. Show that <span class="math inline">\(\Pr\mathopen{}\left(V \ge 1\right)\mathclose{} \le m_0 \alpha/ m\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1785,10 +1855,10 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-bonferroni-fwer" class="proof solution">
-<p><span class="proof-title"><em>Solution 3</em>. </span>The steps use the Bonferroni rule (<a href="#def-bonferroni" class="quarto-xref">Definition&nbsp;5</a>), the union bound (<a href="#thm-union-bound" class="quarto-xref">Theorem&nbsp;2</a>) and the validity of each p-value (<a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;4</a>).</p>
+<p><span class="proof-title"><em>Solution 3</em>. </span>The steps use the Bonferroni rule (<a href="#def-bonferroni" class="quarto-xref">Definition&nbsp;8</a>), the union bound (<a href="#thm-union-bound" class="quarto-xref">Theorem&nbsp;2</a>) and the validity of each p-value (<a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>).</p>
 <p><span class="math display">\[
 \begin{aligned}
 \Pr\mathopen{}\left(V \ge 1\right)\mathclose{}
@@ -1809,7 +1879,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1818,10 +1888,10 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse show">
+<div id="callout-33" class="callout-33-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-bonferroni-fwer" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (The Bonferroni correction controls the FWER)</strong></span> If all p-values of true null hypotheses are valid (<a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;4</a>), the <a href="#def-bonferroni">Bonferroni correction</a> at level <span class="math inline">\(\alpha\)</span> satisfies</p>
+<p><span class="theorem-title"><strong>Theorem 3 (The Bonferroni correction controls the FWER)</strong></span> If all p-values of true null hypotheses are valid (<a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>), the <a href="#def-bonferroni">Bonferroni correction</a> at level <span class="math inline">\(\alpha\)</span> satisfies</p>
 <p><span class="math display">\[\text{FWER} \le \frac{m_0}{m} \alpha\le \alpha,\]</span></p>
 <p>whatever the dependence between the p-values.</p>
 </div>
@@ -1829,7 +1899,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1838,7 +1908,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The first line below is <a href="#def-fwer" class="quarto-xref">Definition&nbsp;2</a>, and the second is <a href="#sol-bonferroni-fwer" class="quarto-xref">Solution&nbsp;3</a>.</p>
@@ -1859,7 +1929,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1868,7 +1938,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-31" class="callout-31-contents callout-collapse collapse show">
+<div id="callout-35" class="callout-35-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-bonferroni-fwer" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (FWER of the Bonferroni correction in the simulated family)</strong></span> In the simulated family of <a href="#exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a>, <span class="math inline">\(m_0 / m = 0.9\)</span>, so <a href="#thm-bonferroni-fwer" class="quarto-xref">Theorem&nbsp;3</a> bounds the FWER by <span class="math inline">\(0.9 \times 0.05 =\)</span> 0.045. Repeating the simulation 2000 times with the Bonferroni correction:</p>
@@ -1888,23 +1958,23 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <span class="header-section-number">4.2</span> Holm’s step-down procedure</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-holm div. -->
 <div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Def</span><a href="#def-holm" class="quarto-xref">Definition&nbsp;6</a> (Holm’s step-down procedure)
+<span class="screen-reader-only">Def</span><a href="#def-holm" class="quarto-xref">Definition&nbsp;9</a> (Holm’s step-down procedure)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-33" class="callout-33-contents callout-collapse collapse show">
+<div id="callout-37" class="callout-37-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-holm" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Holm’s step-down procedure)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with p-values and a level <span class="math inline">\(\alpha\)</span>, order the p-values from smallest to largest, <span class="math inline">\(p_{(1)} \le p_{(2)} \le \cdots \le p_{(m)}\)</span>, and let <span class="math inline">\(H_{(k)}\)</span> be the null hypothesis with p-value <span class="math inline">\(p_{(k)}\)</span>. Let <span class="math inline">\(k^*\)</span> be the first rank at which the p-value exceeds its threshold <span class="math inline">\(\alpha/ (m - k + 1)\)</span>, with <span class="math inline">\(k^* \stackrel{\text{def}}{=}m + 1\)</span> if there is no such rank:</p>
+<p><span class="theorem-title"><strong>Definition 9 (Holm’s step-down procedure)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with p-values and a level <span class="math inline">\(\alpha\)</span>, order the p-values from smallest to largest, <span class="math inline">\(p_{(1)} \le p_{(2)} \le \cdots \le p_{(m)}\)</span>, and let <span class="math inline">\(H_{(k)}\)</span> be the null hypothesis with p-value <span class="math inline">\(p_{(k)}\)</span>. Let <span class="math inline">\(k^*\)</span> be the first rank at which the p-value exceeds its threshold <span class="math inline">\(\alpha/ (m - k + 1)\)</span>, with <span class="math inline">\(k^* \stackrel{\text{def}}{=}m + 1\)</span> if there is no such rank:</p>
 <p><span class="math display">\[k^* \stackrel{\text{def}}{=}\min \mathopen{}\left\{k : p_{(k)} &gt; \frac{\alpha}{m - k + 1}\right\}\mathclose{}.\]</span></p>
 <p><strong>Holm’s procedure</strong> rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(k^* - 1)}\)</span> and no others.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1913,7 +1983,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Holm <span class="citation" data-cites="holm1979simple">(<a href="#ref-holm1979simple" role="doc-biblioref">1979</a>)</span>.</p>
 </div>
@@ -1924,7 +1994,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1933,7 +2003,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-34" class="callout-34-contents callout-collapse collapse show">
+<div id="callout-38" class="callout-38-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-holm" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Holm’s procedure for the Khan genes)</strong></span> A step-down procedure starts at the smallest p-value and stops at the first one that exceeds its threshold:</p>
@@ -2070,7 +2140,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exr no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2079,7 +2149,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-35" class="callout-35-contents callout-collapse collapse show">
+<div id="callout-39" class="callout-39-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-holm-threshold" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 4 (A rejected true null hypothesis has a small p-value under Holm’s procedure)</strong></span> Let <span class="math inline">\(m\)</span> null hypotheses have p-values, and let <span class="math inline">\(\mathcal{I}_0\)</span> be the set of <span class="math inline">\(m_0 \ge 1\)</span> indices of the true null hypotheses. Show that if <a href="#def-holm">Holm’s procedure</a> at level <span class="math inline">\(\alpha\)</span> rejects at least one true null hypothesis, then the smallest p-value among the true null hypotheses is at most <span class="math inline">\(\alpha/ m_0\)</span>:</p>
@@ -2089,7 +2159,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2098,10 +2168,10 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-holm-threshold" class="proof solution">
-<p><span class="proof-title"><em>Solution 4</em>. </span>Order the p-values as in <a href="#def-holm" class="quarto-xref">Definition&nbsp;6</a>, and let <span class="math inline">\(r\)</span> be the smallest rank held by a true null hypothesis, so that <span class="math inline">\(p_{(r)} = \min_{j \in \mathcal{I}_0} p_j\)</span>.</p>
+<p><span class="proof-title"><em>Solution 4</em>. </span>Order the p-values as in <a href="#def-holm" class="quarto-xref">Definition&nbsp;9</a>, and let <span class="math inline">\(r\)</span> be the smallest rank held by a true null hypothesis, so that <span class="math inline">\(p_{(r)} = \min_{j \in \mathcal{I}_0} p_j\)</span>.</p>
 <ol type="1">
 <li>
 <p>Every hypothesis ranked before <span class="math inline">\(r\)</span> is false, and there are <span class="math inline">\(m - m_0\)</span> false null hypotheses, so</p>
@@ -2126,7 +2196,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2135,10 +2205,10 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-37" class="callout-37-contents callout-collapse collapse show">
+<div id="callout-41" class="callout-41-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-holm-fwer" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Holm’s procedure controls the FWER)</strong></span> If all p-values of true null hypotheses are valid (<a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;4</a>), <a href="#def-holm">Holm’s procedure</a> at level <span class="math inline">\(\alpha\)</span> satisfies</p>
+<p><span class="theorem-title"><strong>Theorem 4 (Holm’s procedure controls the FWER)</strong></span> If all p-values of true null hypotheses are valid (<a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>), <a href="#def-holm">Holm’s procedure</a> at level <span class="math inline">\(\alpha\)</span> satisfies</p>
 <p><span class="math display">\[\text{FWER} \le \alpha,\]</span></p>
 <p>whatever the dependence between the p-values.</p>
 </div>
@@ -2146,7 +2216,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2155,7 +2225,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>If <span class="math inline">\(m_0 = 0\)</span> there is no true null hypothesis to reject, so <span class="math inline">\(V = 0\)</span> and <span class="math inline">\(\text{FWER} = 0\)</span>. If <span class="math inline">\(m_0 \ge 1\)</span>, the event <span class="math inline">\(V \ge 1\)</span> means Holm’s procedure rejects a true null hypothesis, so by <a href="#sol-holm-threshold" class="quarto-xref">Solution&nbsp;4</a> it is contained in the event <span class="math inline">\(\min_{j \in \mathcal{I}_0} p_j \le \alpha/ m_0\)</span>:</p>
@@ -2178,13 +2248,13 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 &amp;&amp; \text{($m_0 \cdot \frac{1}{m_0} = 1$)}
 \end{aligned}
 \]</span></p>
-<p>The union bound is <a href="#thm-union-bound" class="quarto-xref">Theorem&nbsp;2</a> and validity is <a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;4</a>. As for the Bonferroni correction, no assumption about dependence is needed.</p>
+<p>The union bound is <a href="#thm-union-bound" class="quarto-xref">Theorem&nbsp;2</a> and validity is <a href="#def-valid-p-value" class="quarto-xref">Definition&nbsp;7</a>. As for the Bonferroni correction, no assumption about dependence is needed.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2193,7 +2263,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-39" class="callout-39-contents callout-collapse collapse show">
+<div id="callout-43" class="callout-43-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-holm-fwer" class="theorem example">
 <p><span class="theorem-title"><strong>Example 11 (FWER of Holm’s procedure in the simulated family)</strong></span> Repeating the simulation of <a href="#exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> 2000 times with Holm’s procedure:</p>
@@ -2215,23 +2285,23 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <span class="header-section-number">5.1</span> The Benjamini–Hochberg procedure</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-bh div. -->
 <div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Def</span><a href="#def-bh" class="quarto-xref">Definition&nbsp;7</a> (Benjamini–Hochberg procedure)
+<span class="screen-reader-only">Def</span><a href="#def-bh" class="quarto-xref">Definition&nbsp;10</a> (Benjamini–Hochberg procedure)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-41" class="callout-41-contents callout-collapse collapse show">
+<div id="callout-45" class="callout-45-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-bh" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Benjamini–Hochberg procedure)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with ordered p-values <span class="math inline">\(p_{(1)} \le \cdots \le p_{(m)}\)</span> (as in <a href="#def-holm" class="quarto-xref">Definition&nbsp;6</a>) and a level <span class="math inline">\(q\)</span>, let <span class="math inline">\(\hat k\)</span> be the largest rank whose p-value is at most <span class="math inline">\(k q / m\)</span>, with <span class="math inline">\(\hat k \stackrel{\text{def}}{=}0\)</span> if there is no such rank:</p>
+<p><span class="theorem-title"><strong>Definition 10 (Benjamini–Hochberg procedure)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with ordered p-values <span class="math inline">\(p_{(1)} \le \cdots \le p_{(m)}\)</span> (as in <a href="#def-holm" class="quarto-xref">Definition&nbsp;9</a>) and a level <span class="math inline">\(q\)</span>, let <span class="math inline">\(\hat k\)</span> be the largest rank whose p-value is at most <span class="math inline">\(k q / m\)</span>, with <span class="math inline">\(\hat k \stackrel{\text{def}}{=}0\)</span> if there is no such rank:</p>
 <p><span class="math display">\[\hat k \stackrel{\text{def}}{=}\max \mathopen{}\left\{k : p_{(k)} \le \frac{k q}{m}\right\}\mathclose{}.\]</span></p>
 <p>The <strong>Benjamini–Hochberg procedure</strong> (BH) rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(\hat k)}\)</span> and no others.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2240,7 +2310,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#ref-benjamini1995controlling" role="doc-biblioref">1995</a>)</span>.</p>
 </div>
@@ -2251,25 +2321,25 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-bh-step-up" class="quarto-xref">Remark&nbsp;4</a> (BH is a step-up procedure)
+<span class="screen-reader-only">Remark</span><a href="#rem-bh-step-up" class="quarto-xref">Remark&nbsp;5</a> (BH is a step-up procedure)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-42" class="callout-42-contents callout-collapse collapse show">
+<div id="callout-46" class="callout-46-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-bh-step-up" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (BH is a step-up procedure). </span>Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold <span class="math inline">\(k q / m\)</span>. Every hypothesis ranked at or below <span class="math inline">\(\hat k\)</span> is rejected, including those with p-values above their own thresholds. The thresholds <span class="math inline">\(k q / m\)</span> grow with the rank <span class="math inline">\(k\)</span>, and the smallest, <span class="math inline">\(q / m\)</span>, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level <span class="math inline">\(\alpha= q\)</span>.</p>
+<p><span class="proof-title"><em>Remark 5</em> (BH is a step-up procedure). </span>Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold <span class="math inline">\(k q / m\)</span>. Every hypothesis ranked at or below <span class="math inline">\(\hat k\)</span> is rejected, including those with p-values above their own thresholds. The thresholds <span class="math inline">\(k q / m\)</span> grow with the rank <span class="math inline">\(k\)</span>, and the smallest, <span class="math inline">\(q / m\)</span>, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level <span class="math inline">\(\alpha= q\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2278,7 +2348,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-43" class="callout-43-contents callout-collapse collapse show">
+<div id="callout-47" class="callout-47-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-bh" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12 (The BH procedure for the Khan genes)</strong></span> &nbsp;</p>
@@ -2410,7 +2480,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2419,13 +2489,13 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-45" class="callout-45-contents callout-collapse collapse show">
+<div id="callout-49" class="callout-49-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-bh-fdr" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5 (The BH procedure controls the FDR under independence)</strong></span> Suppose the <span class="math inline">\(m\)</span> p-values are independent and each true null hypothesis has a p-value that is uniform on <span class="math inline">\([0, 1]\)</span>. Then the <a href="#def-bh">BH procedure</a> at level <span class="math inline">\(q\)</span> satisfies</p>
 <p><span class="math display">\[\text{FDR} = \frac{m_0}{m} q \le q.\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2434,7 +2504,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#ref-benjamini1995controlling" role="doc-biblioref">1995</a>)</span>, which proves the result for any configuration of false null hypotheses. The proof is omitted here.</p>
 </div>
@@ -2445,7 +2515,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2454,7 +2524,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-46" class="callout-46-contents callout-collapse collapse show">
+<div id="callout-50" class="callout-50-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-bh-fdr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 13 (FDR of the BH procedure in the simulated family)</strong></span> In the simulated family of <a href="#exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> the p-values are independent and <span class="math inline">\(m_0 / m = 0.9\)</span>, so <a href="#thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> gives <span class="math inline">\(\text{FDR} = 0.9 \times 0.05 =\)</span> 0.045 at <span class="math inline">\(q = 0.05\)</span>. Repeating the simulation 2000 times with BH:</p>
@@ -2471,19 +2541,19 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-bh-dependence" class="quarto-xref">Remark&nbsp;5</a> (BH under dependence)
+<span class="screen-reader-only">Remark</span><a href="#rem-bh-dependence" class="quarto-xref">Remark&nbsp;6</a> (BH under dependence)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-47" class="callout-47-contents callout-collapse collapse show">
+<div id="callout-51" class="callout-51-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-bh-dependence" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (BH under dependence). </span>Gene expression levels are usually correlated, and <a href="#thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> assumes independence. <span class="citation" data-cites="benjamini2001control">Benjamini and Yekutieli (<a href="#ref-benjamini2001control" role="doc-biblioref">2001</a>)</span> proved that BH still controls the FDR at level <span class="math inline">\(q\)</span> under a form of positive dependence among the p-values, and that the procedure run at level <span class="math inline">\(q / \sum_{k=1}^m (1/k)\)</span> controls it under any dependence. <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#ref-james2021islr2e" role="doc-biblioref">2021</a>, ch.&nbsp;13)</span> and <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#ref-efron2016computer" role="doc-biblioref">2016</a>, ch.&nbsp;15)</span> discuss the procedure in practice.</p>
+<p><span class="proof-title"><em>Remark 6</em> (BH under dependence). </span>Gene expression levels are usually correlated, and <a href="#thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> assumes independence. <span class="citation" data-cites="benjamini2001control">Benjamini and Yekutieli (<a href="#ref-benjamini2001control" role="doc-biblioref">2001</a>)</span> proved that BH still controls the FDR at level <span class="math inline">\(q\)</span> under a form of positive dependence among the p-values, and that the procedure run at level <span class="math inline">\(q / \sum_{k=1}^m (1/k)\)</span> controls it under any dependence. <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#ref-james2021islr2e" role="doc-biblioref">2021</a>, ch.&nbsp;13)</span> and <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#ref-efron2016computer" role="doc-biblioref">2016</a>, ch.&nbsp;15)</span> discuss the procedure in practice.</p>
 </div>
 </div>
 </div>
@@ -2492,27 +2562,44 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <span class="header-section-number">6</span> Adjusted p-values and q-values</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-adjusted-p-value div. -->
 <div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Def</span><a href="#def-adjusted-p-value" class="quarto-xref">Definition&nbsp;8</a> (Adjusted p-value)
+<span class="screen-reader-only">Def</span><a href="#def-adjusted-p-value" class="quarto-xref">Definition&nbsp;11</a> (Adjusted p-value)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-48" class="callout-48-contents callout-collapse collapse show">
+<div id="callout-52" class="callout-52-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-adjusted-p-value" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Adjusted p-value)</strong></span> For a multiple testing procedure that takes a level <span class="math inline">\(c\)</span> (<span class="math inline">\(\alpha\)</span> for an FWER procedure, <span class="math inline">\(q\)</span> for an FDR procedure), the <strong>adjusted p-value</strong> <span class="math inline">\(\tilde p_j\)</span> of <span class="math inline">\(H_j\)</span> is the smallest level at which the procedure rejects <span class="math inline">\(H_j\)</span>, or <span class="math inline">\(1\)</span> if there is none:</p>
+<p><span class="theorem-title"><strong>Definition 11 (Adjusted p-value)</strong></span> For a multiple testing procedure that takes a level <span class="math inline">\(c\)</span> (<span class="math inline">\(\alpha\)</span> for an FWER procedure, <span class="math inline">\(q\)</span> for an FDR procedure), the <strong>adjusted p-value</strong> <span class="math inline">\(\tilde p_j\)</span> of <span class="math inline">\(H_j\)</span> is the smallest level at which the procedure rejects <span class="math inline">\(H_j\)</span>, or <span class="math inline">\(1\)</span> if there is none:</p>
 <p><span class="math display">\[\tilde p_j \stackrel{\text{def}}{=}\min \mathopen{}\left\{c \in [0, 1] : \text{the procedure at level } c \text{ rejects } H_j\right\}\mathclose{}.\]</span></p>
-<p>If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level <span class="math inline">\(c\)</span> rejects exactly the hypotheses with <span class="math inline">\(\tilde p_j \le c\)</span>, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-adjusted-p-value-levels" class="quarto-xref">Remark&nbsp;7</a> (Applying any level to adjusted p-values)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-53" class="callout-53-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="rem-adjusted-p-value-levels" class="proof remark">
+<p><span class="proof-title"><em>Remark 7</em> (Applying any level to adjusted p-values). </span>If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level <span class="math inline">\(c\)</span> rejects exactly the hypotheses with <span class="math inline">\(\tilde p_j \le c\)</span>, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2521,7 +2608,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-49" class="callout-49-contents callout-collapse collapse show">
+<div id="callout-54" class="callout-54-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-adjusted-p-value" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14 (Adjusted p-values for the Khan genes)</strong></span> For the Bonferroni correction, <span class="math inline">\(H_j\)</span> is rejected at level <span class="math inline">\(c\)</span> exactly when <span class="math inline">\(m p_j \le c\)</span>, so <span class="math inline">\(\tilde p_j = \min\mathopen{}\left\{1, m p_j\right\}\mathclose{}\)</span>. For Holm’s procedure and BH the adjusted p-values are</p>
@@ -2651,19 +2738,19 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-q-value" class="quarto-xref">Remark&nbsp;6</a> (q-values)
+<span class="screen-reader-only">Remark</span><a href="#rem-q-value" class="quarto-xref">Remark&nbsp;8</a> (q-values)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-50" class="callout-50-contents callout-collapse collapse show">
+<div id="callout-55" class="callout-55-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-q-value" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (q-values). </span>The BH adjusted p-value of a hypothesis is the smallest FDR level <span class="math inline">\(q\)</span> at which BH rejects it. Some authors call this a <em>q-value</em>. <span class="citation" data-cites="storey2002direct">Storey (<a href="#ref-storey2002direct" role="doc-biblioref">2002</a>)</span> defines the q-value with the same meaning, but estimates the fraction <span class="math inline">\(m_0 / m\)</span> of true null hypotheses from the p-values and multiplies by the estimate, <span class="math inline">\(\hat\pi_0\)</span>, which is usually below 1. BH is the case <span class="math inline">\(\hat\pi_0 = 1\)</span>, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.</p>
+<p><span class="proof-title"><em>Remark 8</em> (q-values). </span>The BH adjusted p-value of a hypothesis is the smallest FDR level <span class="math inline">\(q\)</span> at which BH rejects it. Some authors call this a <em>q-value</em>. <span class="citation" data-cites="storey2002direct">Storey (<a href="#ref-storey2002direct" role="doc-biblioref">2002</a>)</span> defines the q-value with the same meaning, but estimates the fraction <span class="math inline">\(m_0 / m\)</span> of true null hypotheses from the p-values and multiplies by the estimate, <span class="math inline">\(\hat\pi_0\)</span>, which is usually below 1. BH is the case <span class="math inline">\(\hat\pi_0 = 1\)</span>, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.</p>
 </div>
 </div>
 </div>
@@ -2672,7 +2759,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <span class="header-section-number">7</span> Comparing the procedures</h2>
 <!-- No slidebreak here: the heading shares its slide with the exm-procedure-comparison div. -->
 <div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-56-contents" aria-controls="callout-56" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2681,7 +2768,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-51" class="callout-51-contents callout-collapse collapse show">
+<div id="callout-56" class="callout-56-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-procedure-comparison" class="theorem example">
 <p><span class="theorem-title"><strong>Example 15 (Comparing the procedures in the simulated family)</strong></span> Each procedure was run on the same simulated family of <a href="#exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> in 2000 repetitions. The table collects the estimated FWER, FDR and power:</p>
@@ -2734,19 +2821,19 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 </div>
 <div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-57-contents" aria-controls="callout-57" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-choosing-error-rate" class="quarto-xref">Remark&nbsp;7</a> (Choosing an error rate)
+<span class="screen-reader-only">Remark</span><a href="#rem-choosing-error-rate" class="quarto-xref">Remark&nbsp;9</a> (Choosing an error rate)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-52" class="callout-52-contents callout-collapse collapse show">
+<div id="callout-57" class="callout-57-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-choosing-error-rate" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (Choosing an error rate). </span>Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.</p>
+<p><span class="proof-title"><em>Remark 9</em> (Choosing an error rate). </span>Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.</p>
 </div>
 </div>
 </div>
@@ -3601,107 +3688,119 @@ Storey, John D. 2002. <span>“A Direct Approach to False Discovery Rates.”</s
 <span id="cb23-68"><a href="#cb23-68" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-69"><a href="#cb23-69" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-70"><a href="#cb23-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exm-fwer.qmd &gt;}}</span>
+<span id="cb23-71"><a href="#cb23-71" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-fwer-control.qmd &gt;}}</span>
 <span id="cb23-72"><a href="#cb23-72" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-73"><a href="#cb23-73" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-74"><a href="#cb23-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a><span class="fu">### The false discovery rate {#sec-fdr}</span></span>
+<span id="cb23-75"><a href="#cb23-75" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exm-fwer.qmd &gt;}}</span>
 <span id="cb23-76"><a href="#cb23-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-fdr div. --&gt;</span></span>
+<span id="cb23-77"><a href="#cb23-77" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-78"><a href="#cb23-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-fdr.qmd &gt;}}</span>
+<span id="cb23-79"><a href="#cb23-79" aria-hidden="true" tabindex="-1"></a><span class="fu">### The false discovery rate {#sec-fdr}</span></span>
 <span id="cb23-80"><a href="#cb23-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb23-81"><a href="#cb23-81" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-fdp div. --&gt;</span></span>
 <span id="cb23-82"><a href="#cb23-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exm-fdr.qmd &gt;}}</span>
+<span id="cb23-83"><a href="#cb23-83" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-fdp.qmd &gt;}}</span>
 <span id="cb23-84"><a href="#cb23-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-85"><a href="#cb23-85" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-86"><a href="#cb23-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a><span class="fu">### Valid p-values {#sec-valid-p-values}</span></span>
+<span id="cb23-87"><a href="#cb23-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-fdr.qmd &gt;}}</span>
 <span id="cb23-88"><a href="#cb23-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-valid-p-value div. --&gt;</span></span>
+<span id="cb23-89"><a href="#cb23-89" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-90"><a href="#cb23-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-valid-p-value.qmd &gt;}}</span>
+<span id="cb23-91"><a href="#cb23-91" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-fdr-control.qmd &gt;}}</span>
 <span id="cb23-92"><a href="#cb23-92" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-93"><a href="#cb23-93" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-94"><a href="#cb23-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a><span class="fu">## Controlling the family-wise error rate {#sec-fwer-control}</span></span>
+<span id="cb23-95"><a href="#cb23-95" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exm-fdr.qmd &gt;}}</span>
 <span id="cb23-96"><a href="#cb23-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Bonferroni correction {#sec-bonferroni}</span></span>
+<span id="cb23-97"><a href="#cb23-97" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-98"><a href="#cb23-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-bonferroni div. --&gt;</span></span>
+<span id="cb23-99"><a href="#cb23-99" aria-hidden="true" tabindex="-1"></a><span class="fu">### Valid p-values {#sec-valid-p-values}</span></span>
 <span id="cb23-100"><a href="#cb23-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-bonferroni.qmd &gt;}}</span>
+<span id="cb23-101"><a href="#cb23-101" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-valid-p-value div. --&gt;</span></span>
 <span id="cb23-102"><a href="#cb23-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb23-103"><a href="#cb23-103" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-valid-p-value.qmd &gt;}}</span>
 <span id="cb23-104"><a href="#cb23-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exr-union-bound.qmd &gt;}}</span>
+<span id="cb23-105"><a href="#cb23-105" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-106"><a href="#cb23-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb23-107"><a href="#cb23-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Controlling the family-wise error rate {#sec-fwer-control}</span></span>
 <span id="cb23-108"><a href="#cb23-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-109"><a href="#cb23-109" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_thm-union-bound.qmd &gt;}}</span>
+<span id="cb23-109"><a href="#cb23-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Bonferroni correction {#sec-bonferroni}</span></span>
 <span id="cb23-110"><a href="#cb23-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-111"><a href="#cb23-111" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb23-111"><a href="#cb23-111" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-bonferroni div. --&gt;</span></span>
 <span id="cb23-112"><a href="#cb23-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exr-bonferroni-fwer.qmd &gt;}}</span>
+<span id="cb23-113"><a href="#cb23-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-bonferroni.qmd &gt;}}</span>
 <span id="cb23-114"><a href="#cb23-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-115"><a href="#cb23-115" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-116"><a href="#cb23-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_thm-bonferroni-fwer.qmd &gt;}}</span>
+<span id="cb23-117"><a href="#cb23-117" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exr-union-bound.qmd &gt;}}</span>
 <span id="cb23-118"><a href="#cb23-118" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-119"><a href="#cb23-119" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-120"><a href="#cb23-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-121"><a href="#cb23-121" aria-hidden="true" tabindex="-1"></a><span class="fu">### Holm's step-down procedure {#sec-holm}</span></span>
+<span id="cb23-121"><a href="#cb23-121" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_thm-union-bound.qmd &gt;}}</span>
 <span id="cb23-122"><a href="#cb23-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-123"><a href="#cb23-123" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-holm div. --&gt;</span></span>
+<span id="cb23-123"><a href="#cb23-123" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-124"><a href="#cb23-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-125"><a href="#cb23-125" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-holm.qmd &gt;}}</span>
+<span id="cb23-125"><a href="#cb23-125" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exr-bonferroni-fwer.qmd &gt;}}</span>
 <span id="cb23-126"><a href="#cb23-126" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-127"><a href="#cb23-127" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-128"><a href="#cb23-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-129"><a href="#cb23-129" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exr-holm-fwer.qmd &gt;}}</span>
+<span id="cb23-129"><a href="#cb23-129" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_thm-bonferroni-fwer.qmd &gt;}}</span>
 <span id="cb23-130"><a href="#cb23-130" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-131"><a href="#cb23-131" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-132"><a href="#cb23-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-133"><a href="#cb23-133" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_thm-holm-fwer.qmd &gt;}}</span>
+<span id="cb23-133"><a href="#cb23-133" aria-hidden="true" tabindex="-1"></a><span class="fu">### Holm's step-down procedure {#sec-holm}</span></span>
 <span id="cb23-134"><a href="#cb23-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-135"><a href="#cb23-135" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb23-135"><a href="#cb23-135" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-holm div. --&gt;</span></span>
 <span id="cb23-136"><a href="#cb23-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-137"><a href="#cb23-137" aria-hidden="true" tabindex="-1"></a><span class="fu">## Controlling the false discovery rate {#sec-fdr-control}</span></span>
+<span id="cb23-137"><a href="#cb23-137" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-holm.qmd &gt;}}</span>
 <span id="cb23-138"><a href="#cb23-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-139"><a href="#cb23-139" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Benjamini--Hochberg procedure {#sec-bh}</span></span>
+<span id="cb23-139"><a href="#cb23-139" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-140"><a href="#cb23-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-141"><a href="#cb23-141" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-bh div. --&gt;</span></span>
+<span id="cb23-141"><a href="#cb23-141" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exr-holm-fwer.qmd &gt;}}</span>
 <span id="cb23-142"><a href="#cb23-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-143"><a href="#cb23-143" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-bh.qmd &gt;}}</span>
+<span id="cb23-143"><a href="#cb23-143" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-144"><a href="#cb23-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-145"><a href="#cb23-145" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb23-145"><a href="#cb23-145" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_thm-holm-fwer.qmd &gt;}}</span>
 <span id="cb23-146"><a href="#cb23-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-147"><a href="#cb23-147" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_thm-bh-fdr.qmd &gt;}}</span>
+<span id="cb23-147"><a href="#cb23-147" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-148"><a href="#cb23-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-149"><a href="#cb23-149" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb23-149"><a href="#cb23-149" aria-hidden="true" tabindex="-1"></a><span class="fu">## Controlling the false discovery rate {#sec-fdr-control}</span></span>
 <span id="cb23-150"><a href="#cb23-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-151"><a href="#cb23-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adjusted p-values and q-values {#sec-adjusted-p-values}</span></span>
+<span id="cb23-151"><a href="#cb23-151" aria-hidden="true" tabindex="-1"></a><span class="fu">### The Benjamini--Hochberg procedure {#sec-bh}</span></span>
 <span id="cb23-152"><a href="#cb23-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-153"><a href="#cb23-153" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-adjusted-p-value div. --&gt;</span></span>
+<span id="cb23-153"><a href="#cb23-153" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-bh div. --&gt;</span></span>
 <span id="cb23-154"><a href="#cb23-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-155"><a href="#cb23-155" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-adjusted-p-value.qmd &gt;}}</span>
+<span id="cb23-155"><a href="#cb23-155" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-bh.qmd &gt;}}</span>
 <span id="cb23-156"><a href="#cb23-156" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-157"><a href="#cb23-157" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-158"><a href="#cb23-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparing the procedures {#sec-procedure-comparison}</span></span>
+<span id="cb23-159"><a href="#cb23-159" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_thm-bh-fdr.qmd &gt;}}</span>
 <span id="cb23-160"><a href="#cb23-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the exm-procedure-comparison div. --&gt;</span></span>
+<span id="cb23-161"><a href="#cb23-161" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb23-162"><a href="#cb23-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exm-procedure-comparison.qmd &gt;}}</span>
+<span id="cb23-163"><a href="#cb23-163" aria-hidden="true" tabindex="-1"></a><span class="fu">## Adjusted p-values and q-values {#sec-adjusted-p-values}</span></span>
 <span id="cb23-164"><a href="#cb23-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a><span class="fu">## Further reading {#sec-multiple-testing-reading}</span></span>
+<span id="cb23-165"><a href="#cb23-165" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-adjusted-p-value div. --&gt;</span></span>
 <span id="cb23-166"><a href="#cb23-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Chapter 13 of @james2021islr2e covers the same procedures, with labs.</span>
-<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Chapter 15 of @efron2016computer treats large-scale testing and the false discovery rate.</span>
-<span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Andrew Lin's <span class="co">[</span><span class="ot">notes on Stanford STATS 300C</span><span class="co">](https://web.stanford.edu/~lindrew/stats300C.pdf)</span> (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.</span>
-<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="co">[</span><span class="ot">permutation tests</span><span class="co">](permutation-tests.qmd)</span> page computes valid p-values by relabeling the data,</span>
-<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a>  without a distributional model for the test statistic.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb23-167"><a href="#cb23-167" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_def-adjusted-p-value.qmd &gt;}}</span>
+<span id="cb23-168"><a href="#cb23-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-169"><a href="#cb23-169" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb23-170"><a href="#cb23-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-171"><a href="#cb23-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## Comparing the procedures {#sec-procedure-comparison}</span></span>
+<span id="cb23-172"><a href="#cb23-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-173"><a href="#cb23-173" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the exm-procedure-comparison div. --&gt;</span></span>
+<span id="cb23-174"><a href="#cb23-174" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-175"><a href="#cb23-175" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/multiple-testing/_exm-procedure-comparison.qmd &gt;}}</span>
+<span id="cb23-176"><a href="#cb23-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-177"><a href="#cb23-177" aria-hidden="true" tabindex="-1"></a><span class="fu">## Further reading {#sec-multiple-testing-reading}</span></span>
+<span id="cb23-178"><a href="#cb23-178" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-179"><a href="#cb23-179" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Chapter 13 of @james2021islr2e covers the same procedures, with labs.</span>
+<span id="cb23-180"><a href="#cb23-180" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Chapter 15 of @efron2016computer treats large-scale testing and the false discovery rate.</span>
+<span id="cb23-181"><a href="#cb23-181" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Andrew Lin's <span class="co">[</span><span class="ot">notes on Stanford STATS 300C</span><span class="co">](https://web.stanford.edu/~lindrew/stats300C.pdf)</span> (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.</span>
+<span id="cb23-182"><a href="#cb23-182" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The <span class="co">[</span><span class="ot">permutation tests</span><span class="co">](permutation-tests.qmd)</span> page computes valid p-values by relabeling the data,</span>
+<span id="cb23-183"><a href="#cb23-183" aria-hidden="true" tabindex="-1"></a>  without a distributional model for the test statistic.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

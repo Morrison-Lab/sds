@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-13 21:02:10 (PDT)</p>
+  <p class="date">Last modified: 2026-10-13 22:33:57 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -940,7 +940,12 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </section><section class="slide level2"><div id="def-rmse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Root mean squared error)</strong></span> The <strong>root mean squared error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the square root of its <a href="#/def-mse">mean squared error</a>:</p>
 <p><span class="math display">\[\operatorname{RMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\]</span></p>
-<p>It has the same units as the estimand. In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, the root mean squared error of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-rmse-sample-mean" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12 (Root mean squared error of the sample mean)</strong></span> In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, the root mean squared error of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="rem-rmse-units" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (Units of the root mean squared error). </span>The root mean squared error has the same units as the estimand.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.6" id="sec-unbiased-estimators">
 <span class="header-section-number">3.6</span> Unbiased estimators</h3>
@@ -950,13 +955,18 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="math display">\[
 \operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = 0
 \]</span></p>
-<p>An estimator whose bias is not zero is <strong>biased</strong>.</p>
+</div>
+</section><section class="slide level2"><div id="def-biased" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Biased estimator)</strong></span> An estimator <span class="math inline">\(\hat{\theta}\)</span> is <strong>biased</strong> if its <a href="#/def-bias">bias</a> is not zero:</p>
+<p><span class="math display">\[
+\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \neq 0
+\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-unbiased-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 (The sample mean is unbiased)</strong></span> By <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\)</span> and <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\)</span>, so both the sample mean <span class="math inline">\(\bar X\)</span> and the single-observation estimator <span class="math inline">\(X_1\)</span> are <a href="#/def-unbiased">unbiased</a> estimators of <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 13 (The sample mean is unbiased)</strong></span> By <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\)</span> and <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\)</span>, so both the sample mean <span class="math inline">\(\bar X\)</span> and the single-observation estimator <span class="math inline">\(X_1\)</span> are <a href="#/def-unbiased">unbiased</a> estimators of <span class="math inline">\(\mu\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-biased-variance-mle" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="theorem-title"><strong>Example 14 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
 <ul>
 <li>the <a href="./exploratory-descriptive.html#def-sample-variance">sample variance</a> <span class="math inline">\(S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n(X_i - \bar X)^2\)</span>;</li>
 <li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n(X_i - \bar X)^2\)</span>.</li>
@@ -1092,13 +1102,13 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <span class="header-section-number">3.7</span> Mean absolute error</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
 <div id="def-mae" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16 (Mean absolute error)</strong></span> The <strong>mean absolute error</strong> of an estimator is the expectation of the absolute value of the <a href="#/def-estimation-error">estimation error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 17 (Mean absolute error)</strong></span> The <strong>mean absolute error</strong> of an estimator is the expectation of the absolute value of the <a href="#/def-estimation-error">estimation error</a>:</p>
 <p><span class="math display">\[
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left|\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right|\mathclose{}\right]\mathclose{}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-mae-gaussian" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14 (Mean absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat{\theta}\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
+<p><span class="theorem-title"><strong>Example 15 (Mean absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat{\theta}\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
@@ -1144,11 +1154,11 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <span class="header-section-number">3.8</span> Standard error</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-SE div. -->
 <div id="def-SE" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 17 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat{\theta}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 18 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat{\theta}\)</span>:</p>
 <p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-SE-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 15 (Standard error of the sample mean)</strong></span> In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>, so</p>
+<p><span class="theorem-title"><strong>Example 16 (Standard error of the sample mean)</strong></span> In <a href="#/exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>, so</p>
 <p><span class="math display">\[
 \begin{aligned}
   \operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} &amp;= \sqrt{\sigma^2 / n} \\
@@ -1185,7 +1195,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-se-error-sd" class="quarto-xref">Exercise&nbsp;8</a>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-standard-error-name" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (The name “standard error”). </span>“Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the <a href="#/def-estimation-error">estimation error</a> (although <a href="#/thm-se-error-sd" class="quarto-xref">Theorem&nbsp;5</a> shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.</p>
+<p><span class="proof-title"><em>Remark 4</em> (The name “standard error”). </span>“Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the <a href="#/def-estimation-error">estimation error</a> (although <a href="#/thm-se-error-sd" class="quarto-xref">Theorem&nbsp;5</a> shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.</p>
 </div>
 </section><section class="slide level2"><div id="exr-var-mse-bias" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 9 (Squared standard error from MSE and bias)</strong></span> Using <a href="#/thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;3</a>, write the squared <a href="#/def-SE">standard error</a> <span class="math inline">\(\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\)</span> in terms of the <a href="#/def-mse">mean squared error</a> and the <a href="#/def-bias">bias</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>

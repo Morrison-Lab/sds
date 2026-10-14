@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 21:02:10 (PDT)
+Last modified: 2026-10-13 22:33:57 (PDT)
 
 ## 1 Types of variables
 
@@ -44,7 +44,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Definition 5 (Discrete variable)** A **discrete variable** is a variable whose possible values form a countable set. Discrete variables include both **numerical** types (such as [count variables](#def-count)) and **categorical** types (such as binary, nominal, and ordinal variables). In contrast, continuous variables are always numerical.
+> **Definition 5 (Discrete variable)** A **discrete variable** is a variable whose possible values form a countable set.
 
 > **NOTE:**
 >
@@ -55,11 +55,19 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Definition 6 (Categorical variable)** A **categorical** (or **qualitative**) variable is a variable that takes values in a finite set of categories, where arithmetic operations such as differences are not meaningful. Categorical variables may be **nominal** (unordered) or **ordinal** (ordered), and are always discrete.
+> *Remark 1* (Types of discrete variables). Discrete variables include both numerical types (such as [count variables](#def-count)) and categorical types (such as binary, nominal, and ordinal variables). In contrast, continuous variables are always numerical.
+
+> **NOTE:**
+>
+> **Definition 6 (Categorical variable)** A **categorical** (or **qualitative**) variable is a variable that takes values in a finite set of categories, where arithmetic operations such as differences are not meaningful.
 
 > **NOTE:**
 >
 > **Example 6 (Categorical variables in the WCGS)** Behavioral pattern (Type A1, A2, B3, B4), smoking status (yes/no), and weight category are categorical variables in the WCGS dataset.
+
+> **NOTE:**
+>
+> *Remark 2* (Kinds of categorical variables). Categorical variables may be nominal (unordered) or ordinal (ordered), and are always discrete.
 
 > **NOTE:**
 >
@@ -118,7 +126,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 1* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett ([2018](#ref-dobson4e)), section 2.4, for details.
+> *Remark 3* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett ([2018](#ref-dobson4e)), section 2.4, for details.
 
 > **NOTE:**
 >
@@ -130,7 +138,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 1](#rem-dummy-other-codings)) is not an indicator variable.
+> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 3](#rem-dummy-other-codings)) is not an indicator variable.
 
 > **NOTE:**
 >
@@ -146,7 +154,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 2* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
+> *Remark 4* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
 
 ## 3 Taxonomy of variable types
 

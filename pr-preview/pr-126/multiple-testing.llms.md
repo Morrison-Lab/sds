@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 21:02:10 (PDT)
+Last modified: 2026-10-13 22:33:57 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -199,8 +199,10 @@ table(tumor_class = khan_pair$tumor_class)
 > **Definition 2 (Family-wise error rate)** For a family of tests with \\V\\ false positives ([Definition 1](#def-rejection-counts)), the **family-wise error rate** (FWER) is the probability of at least one false positive:
 >
 > \\\text{FWER} \stackrel{\text{def}}{=}\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}.\\
+
+> **NOTE:**
 >
-> A procedure **controls the FWER at level \\\alpha\\** if \\\text{FWER} \le \alpha\\ for every possible set of true null hypotheses.
+> **Definition 3 (Controlling the family-wise error rate)** A procedure **controls the FWER at level \\\alpha\\** if \\\text{FWER} \le \alpha\\ for every possible set of true null hypotheses.
 
 > **NOTE:**
 >
@@ -230,15 +232,23 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 3 (False discovery rate)** For a family of tests with \\V\\ false positives among \\R\\ rejections ([Definition 1](#def-rejection-counts)), the **false discovery proportion** (FDP) is the fraction of rejections that are false positives, counted as 0 when there are no rejections, and the **false discovery rate** (FDR) is its expected value:
+> **Definition 4 (False discovery proportion)** For a family of tests with \\V\\ false positives among \\R\\ rejections ([Definition 1](#def-rejection-counts)), the **false discovery proportion** (FDP) is the fraction of rejections that are false positives, counted as 0 when there are no rejections:
 >
-> \\ \text{FDP} \stackrel{\text{def}}{=}\frac{V}{\max(R, 1)}, \qquad \text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\text{FDP}\right\]\mathclose{}. \\
+> \\ \text{FDP} \stackrel{\text{def}}{=}\frac{V}{\max(R, 1)}. \\
+
+> **NOTE:**
 >
-> A procedure **controls the FDR at level \\q\\** if \\\text{FDR} \le q\\ for every possible set of true null hypotheses.
+> **Definition 5 (False discovery rate)** The **false discovery rate** (FDR) is the expected value of the [false discovery proportion](#def-fdp):
+>
+> \\ \text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\text{FDP}\right\]\mathclose{}. \\
 >
 > > **NOTE:**
 > >
 > > The false discovery rate was introduced by Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)); the notation \\V\\, \\S\\, \\U\\, \\T\\ and \\R\\ follows James et al. ([2021](#ref-james2021islr2e), ch. 13).
+
+> **NOTE:**
+>
+> **Definition 6 (Controlling the false discovery rate)** A procedure **controls the FDR at level \\q\\** if \\\text{FDR} \le q\\ for every possible set of true null hypotheses.
 
 > **NOTE:**
 >
@@ -268,11 +278,13 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 4 (Valid p-value)** A [p-value](inference.llms.md#def-p-value) \\p\\ for a null hypothesis \\H_0\\ is **valid** if, when \\H_0\\ is true, it is stochastically no smaller than a uniform random variable:
+> **Definition 7 (Valid p-value)** A [p-value](inference.llms.md#def-p-value) \\p\\ for a null hypothesis \\H_0\\ is **valid** if, when \\H_0\\ is true, it is stochastically no smaller than a uniform random variable:
 >
 > \\\Pr\_{H_0}(p \le u) \le u \quad \text{for every } u \in \[0, 1\].\\
+
+> **NOTE:**
 >
-> If the inequality is an equality, \\p\\ is uniform on \\\[0, 1\]\\ under \\H_0\\.
+> *Remark 3* (Uniform p-values). If the inequality in the definition of a valid p-value is an equality, \\p\\ is uniform on \\\[0, 1\]\\ under \\H_0\\.
 
 > **NOTE:**
 >
@@ -289,7 +301,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 3* (Discrete statistics give conservative p-values). When the test statistic is discrete, as in [Fisher’s exact test](categorical-tests.llms.md#def-fishers-exact), a p-value can satisfy \\\Pr\_{H_0}(p \le u) \< u\\ for some \\u\\. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.
+> *Remark 4* (Discrete statistics give conservative p-values). When the test statistic is discrete, as in [Fisher’s exact test](categorical-tests.llms.md#def-fishers-exact), a p-value can satisfy \\\Pr\_{H_0}(p \le u) \< u\\ for some \\u\\. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.
 
 ## 4 Controlling the family-wise error rate
 
@@ -297,7 +309,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 5 (Bonferroni correction)** Given \\m\\ null hypotheses \\H_1, \ldots, H_m\\ with p-values \\p_1, \ldots, p_m\\ and a level \\\alpha\\, the **Bonferroni correction** rejects \\H_j\\ when its p-value is at most \\\alpha/ m\\:
+> **Definition 8 (Bonferroni correction)** Given \\m\\ null hypotheses \\H_1, \ldots, H_m\\ with p-values \\p_1, \ldots, p_m\\ and a level \\\alpha\\, the **Bonferroni correction** rejects \\H_j\\ when its p-value is at most \\\alpha/ m\\:
 >
 > \\\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.\\
 >
@@ -384,17 +396,17 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Exercise 3 (Probability of a false positive under the Bonferroni correction)** Let \\m\\ null hypotheses have valid p-values ([Definition 4](#def-valid-p-value)), let \\\mathcal{I}\_0\\ be the set of \\m_0\\ indices of the true null hypotheses, and let \\V\\ be the number of true null hypotheses that the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ rejects. Show that \\\Pr\mathopen{}\left(V \ge 1\right)\mathclose{} \le m_0 \alpha/ m\\.
+> **Exercise 3 (Probability of a false positive under the Bonferroni correction)** Let \\m\\ null hypotheses have valid p-values ([Definition 7](#def-valid-p-value)), let \\\mathcal{I}\_0\\ be the set of \\m_0\\ indices of the true null hypotheses, and let \\V\\ be the number of true null hypotheses that the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ rejects. Show that \\\Pr\mathopen{}\left(V \ge 1\right)\mathclose{} \le m_0 \alpha/ m\\.
 
 > **NOTE:**
 >
-> *Solution 3*. The steps use the Bonferroni rule ([Definition 5](#def-bonferroni)), the union bound ([Theorem 2](#thm-union-bound)) and the validity of each p-value ([Definition 4](#def-valid-p-value)).
+> *Solution 3*. The steps use the Bonferroni rule ([Definition 8](#def-bonferroni)), the union bound ([Theorem 2](#thm-union-bound)) and the validity of each p-value ([Definition 7](#def-valid-p-value)).
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(V \ge 1\right)\mathclose{} &= \Pr\mathopen{}\left(\bigcup\_{j \in \mathcal{I}\_0} \mathopen{}\left\\H_j \text{ is rejected}\right\\\mathclose{}\right)\mathclose{} && \text{(\$V \ge 1\$ means some true null hypothesis is rejected)}\\ &= \Pr\mathopen{}\left(\bigcup\_{j \in \mathcal{I}\_0} \mathopen{}\left\\p_j \le \alpha/ m\right\\\mathclose{}\right)\mathclose{} && \text{(the Bonferroni rule)}\\ &\le \sum\_{j \in \mathcal{I}\_0} \Pr\mathopen{}\left(p_j \le \alpha/ m\right)\mathclose{} && \text{(union bound)}\\ &\le \sum\_{j \in \mathcal{I}\_0} \frac{\alpha}{m} && \text{(each \$p_j\$ is valid, with \$u = \alpha/ m\$)}\\ &= m_0 \cdot \frac{\alpha}{m} && \text{(a sum of \$m_0\$ equal terms)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 3 (The Bonferroni correction controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 4](#def-valid-p-value)), the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ satisfies
+> **Theorem 3 (The Bonferroni correction controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 7](#def-valid-p-value)), the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ satisfies
 >
 > \\\text{FWER} \le \frac{m_0}{m} \alpha\le \alpha,\\
 >
@@ -426,7 +438,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 6 (Holm’s step-down procedure)** Given \\m\\ null hypotheses with p-values and a level \\\alpha\\, order the p-values from smallest to largest, \\p\_{(1)} \le p\_{(2)} \le \cdots \le p\_{(m)}\\, and let \\H\_{(k)}\\ be the null hypothesis with p-value \\p\_{(k)}\\. Let \\k^\*\\ be the first rank at which the p-value exceeds its threshold \\\alpha/ (m - k + 1)\\, with \\k^\* \stackrel{\text{def}}{=}m + 1\\ if there is no such rank:
+> **Definition 9 (Holm’s step-down procedure)** Given \\m\\ null hypotheses with p-values and a level \\\alpha\\, order the p-values from smallest to largest, \\p\_{(1)} \le p\_{(2)} \le \cdots \le p\_{(m)}\\, and let \\H\_{(k)}\\ be the null hypothesis with p-value \\p\_{(k)}\\. Let \\k^\*\\ be the first rank at which the p-value exceeds its threshold \\\alpha/ (m - k + 1)\\, with \\k^\* \stackrel{\text{def}}{=}m + 1\\ if there is no such rank:
 >
 > \\k^\* \stackrel{\text{def}}{=}\min \mathopen{}\left\\k : p\_{(k)} \> \frac{\alpha}{m - k + 1}\right\\\mathclose{}.\\
 >
@@ -515,7 +527,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Solution 4*. Order the p-values as in [Definition 6](#def-holm), and let \\r\\ be the smallest rank held by a true null hypothesis, so that \\p\_{(r)} = \min\_{j \in \mathcal{I}\_0} p_j\\.
+> *Solution 4*. Order the p-values as in [Definition 9](#def-holm), and let \\r\\ be the smallest rank held by a true null hypothesis, so that \\p\_{(r)} = \min\_{j \in \mathcal{I}\_0} p_j\\.
 >
 > 1.  Every hypothesis ranked before \\r\\ is false, and there are \\m - m_0\\ false null hypotheses, so
 >
@@ -537,7 +549,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Theorem 4 (Holm’s procedure controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 4](#def-valid-p-value)), [Holm’s procedure](#def-holm) at level \\\alpha\\ satisfies
+> **Theorem 4 (Holm’s procedure controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 7](#def-valid-p-value)), [Holm’s procedure](#def-holm) at level \\\alpha\\ satisfies
 >
 > \\\text{FWER} \le \alpha,\\
 >
@@ -549,7 +561,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\ \begin{aligned} \text{FWER} &= \Pr\mathopen{}\left(V \ge 1\right)\mathclose{} && \text{(definition of the FWER)}\\ &\le \Pr\mathopen{}\left(\min\_{j \in \mathcal{I}\_0} p_j \le \frac{\alpha}{m_0}\right)\mathclose{} && \text{(the event \$V \ge 1\$ lies inside this event)}\\ &= \Pr\mathopen{}\left(\bigcup\_{j \in \mathcal{I}\_0} \mathopen{}\left\\p_j \le \frac{\alpha}{m_0}\right\\\mathclose{}\right)\mathclose{} && \text{(the minimum is at most a bound exactly when some term is)}\\ &\le \sum\_{j \in \mathcal{I}\_0} \Pr\mathopen{}\left(p_j \le \frac{\alpha}{m_0}\right)\mathclose{} && \text{(union bound)}\\ &\le \sum\_{j \in \mathcal{I}\_0} \frac{\alpha}{m_0} && \text{(each \$p_j\$ is valid, with \$u = \alpha/ m_0\$)}\\ &= m_0 \cdot \frac{\alpha}{m_0} && \text{(a sum of \$m_0\$ equal terms)}\\ &= \alpha && \text{(\$m_0 \cdot \frac{1}{m_0} = 1\$)} \end{aligned} \\
 >
-> The union bound is [Theorem 2](#thm-union-bound) and validity is [Definition 4](#def-valid-p-value). As for the Bonferroni correction, no assumption about dependence is needed.
+> The union bound is [Theorem 2](#thm-union-bound) and validity is [Definition 7](#def-valid-p-value). As for the Bonferroni correction, no assumption about dependence is needed.
 
 > **NOTE:**
 >
@@ -571,7 +583,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 7 (Benjamini–Hochberg procedure)** Given \\m\\ null hypotheses with ordered p-values \\p\_{(1)} \le \cdots \le p\_{(m)}\\ (as in [Definition 6](#def-holm)) and a level \\q\\, let \\\hat k\\ be the largest rank whose p-value is at most \\k q / m\\, with \\\hat k \stackrel{\text{def}}{=}0\\ if there is no such rank:
+> **Definition 10 (Benjamini–Hochberg procedure)** Given \\m\\ null hypotheses with ordered p-values \\p\_{(1)} \le \cdots \le p\_{(m)}\\ (as in [Definition 9](#def-holm)) and a level \\q\\, let \\\hat k\\ be the largest rank whose p-value is at most \\k q / m\\, with \\\hat k \stackrel{\text{def}}{=}0\\ if there is no such rank:
 >
 > \\\hat k \stackrel{\text{def}}{=}\max \mathopen{}\left\\k : p\_{(k)} \le \frac{k q}{m}\right\\\mathclose{}.\\
 >
@@ -583,7 +595,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 4* (BH is a step-up procedure). Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold \\k q / m\\. Every hypothesis ranked at or below \\\hat k\\ is rejected, including those with p-values above their own thresholds. The thresholds \\k q / m\\ grow with the rank \\k\\, and the smallest, \\q / m\\, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level \\\alpha= q\\.
+> *Remark 5* (BH is a step-up procedure). Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold \\k q / m\\. Every hypothesis ranked at or below \\\hat k\\ is rejected, including those with p-values above their own thresholds. The thresholds \\k q / m\\ grow with the rank \\k\\, and the smallest, \\q / m\\, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level \\\alpha= q\\.
 
 > **NOTE:**
 >
@@ -676,17 +688,19 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 5* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli ([2001](#ref-benjamini2001control)) proved that BH still controls the FDR at level \\q\\ under a form of positive dependence among the p-values, and that the procedure run at level \\q / \sum\_{k=1}^m (1/k)\\ controls it under any dependence. James et al. ([2021](#ref-james2021islr2e), ch. 13) and Efron and Hastie ([2016](#ref-efron2016computer), ch. 15) discuss the procedure in practice.
+> *Remark 6* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli ([2001](#ref-benjamini2001control)) proved that BH still controls the FDR at level \\q\\ under a form of positive dependence among the p-values, and that the procedure run at level \\q / \sum\_{k=1}^m (1/k)\\ controls it under any dependence. James et al. ([2021](#ref-james2021islr2e), ch. 13) and Efron and Hastie ([2016](#ref-efron2016computer), ch. 15) discuss the procedure in practice.
 
 ## 6 Adjusted p-values and q-values
 
 > **NOTE:**
 >
-> **Definition 8 (Adjusted p-value)** For a multiple testing procedure that takes a level \\c\\ (\\\alpha\\ for an FWER procedure, \\q\\ for an FDR procedure), the **adjusted p-value** \\\tilde p_j\\ of \\H_j\\ is the smallest level at which the procedure rejects \\H_j\\, or \\1\\ if there is none:
+> **Definition 11 (Adjusted p-value)** For a multiple testing procedure that takes a level \\c\\ (\\\alpha\\ for an FWER procedure, \\q\\ for an FDR procedure), the **adjusted p-value** \\\tilde p_j\\ of \\H_j\\ is the smallest level at which the procedure rejects \\H_j\\, or \\1\\ if there is none:
 >
 > \\\tilde p_j \stackrel{\text{def}}{=}\min \mathopen{}\left\\c \in \[0, 1\] : \text{the procedure at level } c \text{ rejects } H_j\right\\\mathclose{}.\\
+
+> **NOTE:**
 >
-> If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level \\c\\ rejects exactly the hypotheses with \\\tilde p_j \le c\\, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.
+> *Remark 7* (Applying any level to adjusted p-values). If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level \\c\\ rejects exactly the hypotheses with \\\tilde p_j \le c\\, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.
 
 > **NOTE:**
 >
@@ -749,7 +763,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 6* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level \\q\\ at which BH rejects it. Some authors call this a *q-value*. Storey ([2002](#ref-storey2002direct)) defines the q-value with the same meaning, but estimates the fraction \\m_0 / m\\ of true null hypotheses from the p-values and multiplies by the estimate, \\\hat\pi_0\\, which is usually below 1. BH is the case \\\hat\pi_0 = 1\\, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
+> *Remark 8* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level \\q\\ at which BH rejects it. Some authors call this a *q-value*. Storey ([2002](#ref-storey2002direct)) defines the q-value with the same meaning, but estimates the fraction \\m_0 / m\\ of true null hypotheses from the p-values and multiplies by the estimate, \\\hat\pi_0\\, which is usually below 1. BH is the case \\\hat\pi_0 = 1\\, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
 
 ## 7 Comparing the procedures
 
@@ -776,7 +790,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 7* (Choosing an error rate). Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.
+> *Remark 9* (Choosing an error rate). Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.
 
 ## 8 Further reading
 

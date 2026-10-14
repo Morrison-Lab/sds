@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 21:02:10 (PDT)
+Last modified: 2026-10-13 22:33:57 (PDT)
 
 ## 1 Introduction
 
@@ -285,8 +285,6 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > **Definition 4 (Pooled variance)** For two samples of sizes \\n_1\\ and \\n_2\\ with sample variances \\s_1^2\\ and \\s_2^2\\, the **pooled variance** is
 >
 > \\s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}.\\
->
-> When the two populations share one variance \\\sigma^2\\, the pooled variance estimates it.
 
 > **NOTE:**
 >
@@ -295,6 +293,10 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > \\ \begin{aligned} s_p^2 &= \frac{(3 - 1) \cdot 4 + (5 - 1) \cdot 9}{3 + 5 - 2} && \text{(definition of pooled variance)}\\ &= \frac{8 + 36}{6} && \text{(arithmetic)}\\ &\approx 7.33 && \text{(arithmetic)} \end{aligned} \\
 >
 > The pooled variance lies between the two sample variances, closer to \\s_2^2\\, whose sample is larger.
+
+> **NOTE:**
+>
+> *Remark 3* (What the pooled variance estimates). When the two populations share one variance \\\sigma^2\\, the pooled variance estimates it.
 
 > **NOTE:**
 >
@@ -310,7 +312,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Remark 3* (The equal-variance assumption). [Theorem 2](#thm-pooled-t-null) needs equal variances in the two groups, and Welch’s test ([Definition 3](#def-two-sample-t-test)) does not, so these notes use Welch’s test by default.
+> *Remark 4* (The equal-variance assumption). [Theorem 2](#thm-pooled-t-null) needs equal variances in the two groups, and Welch’s test ([Definition 3](#def-two-sample-t-test)) does not, so these notes use Welch’s test by default.
 
 > **NOTE:**
 >
@@ -408,7 +410,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Remark 4* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares),
+> *Remark 5* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares),
 >
 > \\ \begin{aligned} F &= 13.5 / 1 \\ &= 13.5. \end{aligned} \\
 
@@ -472,7 +474,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Remark 5* (Unequal variances in the HERS glucose groups). The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of [Theorem 3](#thm-anova-null) is questionable. [`oneway.test()`](https://rdrr.io/r/stats/oneway.test.html) performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:
+> *Remark 6* (Unequal variances in the HERS glucose groups). The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of [Theorem 3](#thm-anova-null) is questionable. [`oneway.test()`](https://rdrr.io/r/stats/oneway.test.html) performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:
 >
 > ``` downlit
 > oneway.test(glucose ~ raceth, data = hers)
