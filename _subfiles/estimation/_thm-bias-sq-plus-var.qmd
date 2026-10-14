@@ -1,0 +1,12 @@
+::: {#thm-bias-sq-plus-var}
+#### Expanded squared bias plus variance
+
+$$\sqf{\bias{\hparam}} + \var{\hparam} = \E{\hparam^2} - 2\E{\hparam}\param + \param^2$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bias-sq-plus-var.
+
+:::

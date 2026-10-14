@@ -1,0 +1,12 @@
+::: {#thm-sq-bias-expand}
+#### Expanded squared bias
+
+$$\sqf{\bias{\hparam}} = \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-sq-bias-expand.
+
+:::
