@@ -221,6 +221,56 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-cnj.callout {
   border-left-color: #558B2F;
 }
@@ -251,6 +301,16 @@ div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-solution.callout {
   border-left-color: #4E342E;
 }
@@ -274,66 +334,6 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   font-style: normal;
   content: '\f144' !important;
   background-image: none;
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -865,7 +865,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-13 22:24:25 (PDT)</p>
+      <p class="date">Last modified: 2026-10-13 22:36:40 (PDT)</p>
     </div>
   </div>
   
@@ -2016,7 +2016,36 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <div id="def-rmse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Root mean squared error)</strong></span> The <strong>root mean squared error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the square root of its <a href="#def-mse">mean squared error</a>:</p>
 <p><span class="math display">\[\operatorname{RMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\]</span></p>
-<p>It has the same units as the estimand. In <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, the root mean squared error of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-rmse-sample-mean" class="quarto-xref">Example&nbsp;12</a> (Root mean squared error of the sample mean)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-rmse-sample-mean" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12 (Root mean squared error of the sample mean)</strong></span> In <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, the root mean squared error of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-rmse-units" class="quarto-xref">Remark&nbsp;3</a> (Units of the root mean squared error)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="rem-rmse-units" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (Units of the root mean squared error). </span>The root mean squared error has the same units as the estimand.</p>
 </div>
 </div>
 </div>
@@ -2038,7 +2067,24 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="math display">\[
 \operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = 0
 \]</span></p>
-<p>An estimator whose bias is not zero is <strong>biased</strong>.</p>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-biased" class="quarto-xref">Definition&nbsp;16</a> (Biased estimator)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-biased" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Biased estimator)</strong></span> An estimator <span class="math inline">\(\hat{\theta}\)</span> is <strong>biased</strong> if its <a href="#def-bias">bias</a> is not zero:</p>
+<p><span class="math display">\[
+\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \neq 0
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2048,12 +2094,12 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exm</span><a href="#exm-unbiased-sample-mean" class="quarto-xref">Example&nbsp;12</a> (The sample mean is unbiased)
+<span class="screen-reader-only">Exm</span><a href="#exm-unbiased-sample-mean" class="quarto-xref">Example&nbsp;13</a> (The sample mean is unbiased)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-unbiased-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 (The sample mean is unbiased)</strong></span> By <a href="#exm-bias-sample-mean" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\)</span> and <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\)</span>, so both the sample mean <span class="math inline">\(\bar X\)</span> and the single-observation estimator <span class="math inline">\(X_1\)</span> are <a href="#def-unbiased">unbiased</a> estimators of <span class="math inline">\(\mu\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 13 (The sample mean is unbiased)</strong></span> By <a href="#exm-bias-sample-mean" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} = 0\)</span> and <span class="math inline">\(\operatorname{Bias}\mathopen{}\left(X_1\right)\mathclose{} = 0\)</span>, so both the sample mean <span class="math inline">\(\bar X\)</span> and the single-observation estimator <span class="math inline">\(X_1\)</span> are <a href="#def-unbiased">unbiased</a> estimators of <span class="math inline">\(\mu\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2063,12 +2109,12 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exm</span><a href="#exm-biased-variance-mle" class="quarto-xref">Example&nbsp;13</a> (A biased estimator of the variance)
+<span class="screen-reader-only">Exm</span><a href="#exm-biased-variance-mle" class="quarto-xref">Example&nbsp;14</a> (A biased estimator of the variance)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-biased-variance-mle" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="theorem-title"><strong>Example 14 (A biased estimator of the variance)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be mutually independent, each with expectation <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and let <span class="math inline">\(n \ge 2\)</span>. Consider two estimators of <span class="math inline">\(\sigma^2\)</span>:</p>
 <ul>
 <li>the <a href="./exploratory-descriptive.html#def-sample-variance">sample variance</a> <span class="math inline">\(S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum_{i=1}^n(X_i - \bar X)^2\)</span>;</li>
 <li>the divide-by-<span class="math inline">\(n\)</span> estimator <span class="math inline">\(\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n(X_i - \bar X)^2\)</span>.</li>
@@ -2177,7 +2223,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-56-contents" aria-controls="callout-56" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2186,7 +2232,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-53" class="callout-53-contents callout-collapse collapse">
+<div id="callout-56" class="callout-56-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-unbiased-exp" class="proof solution">
 <p><span class="proof-title"><em>Solution 6</em>. </span><span class="math display">\[
@@ -2218,7 +2264,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-58-contents" aria-controls="callout-58" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2227,7 +2273,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-55" class="callout-55-contents callout-collapse collapse">
+<div id="callout-58" class="callout-58-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-unbiased-mse" class="proof solution">
 <p><span class="proof-title"><em>Solution 7</em>. </span><span class="math display">\[
@@ -2263,7 +2309,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-57-contents" aria-controls="callout-57" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-60-contents" aria-controls="callout-60" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2272,7 +2318,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-57" class="callout-57-contents callout-collapse collapse">
+<div id="callout-60" class="callout-60-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span><a href="#eq-unbiased-exp" class="quarto-xref">Equation&nbsp;5</a> is the solution to <a href="#exr-unbiased-exp" class="quarto-xref">Exercise&nbsp;6</a>, and <a href="#eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a> is the solution to <a href="#exr-unbiased-mse" class="quarto-xref">Exercise&nbsp;7</a>.</p>
@@ -2302,12 +2348,12 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Def</span><a href="#def-mae" class="quarto-xref">Definition&nbsp;16</a> (Mean absolute error)
+<span class="screen-reader-only">Def</span><a href="#def-mae" class="quarto-xref">Definition&nbsp;17</a> (Mean absolute error)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-mae" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 16 (Mean absolute error)</strong></span> The <strong>mean absolute error</strong> of an estimator is the expectation of the absolute value of the <a href="#def-estimation-error">estimation error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 17 (Mean absolute error)</strong></span> The <strong>mean absolute error</strong> of an estimator is the expectation of the absolute value of the <a href="#def-estimation-error">estimation error</a>:</p>
 <p><span class="math display">\[
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left|\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right|\mathclose{}\right]\mathclose{}
 \]</span></p>
@@ -2320,12 +2366,12 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exm</span><a href="#exm-mae-gaussian" class="quarto-xref">Example&nbsp;14</a> (Mean absolute error of a Gaussian estimator)
+<span class="screen-reader-only">Exm</span><a href="#exm-mae-gaussian" class="quarto-xref">Example&nbsp;15</a> (Mean absolute error of a Gaussian estimator)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-mae-gaussian" class="theorem example">
-<p><span class="theorem-title"><strong>Example 14 (Mean absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat{\theta}\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
+<p><span class="theorem-title"><strong>Example 15 (Mean absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat{\theta}\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
@@ -2378,12 +2424,12 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Def</span><a href="#def-SE" class="quarto-xref">Definition&nbsp;17</a> (Standard error)
+<span class="screen-reader-only">Def</span><a href="#def-SE" class="quarto-xref">Definition&nbsp;18</a> (Standard error)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-SE" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 17 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat{\theta}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 18 (Standard error)</strong></span> The <strong>standard error</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span> is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-sd">standard deviation</a> of <span class="math inline">\(\hat{\theta}\)</span>:</p>
 <p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\]</span></p>
 </div>
 </div>
@@ -2394,12 +2440,12 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exm</span><a href="#exm-SE-sample-mean" class="quarto-xref">Example&nbsp;15</a> (Standard error of the sample mean)
+<span class="screen-reader-only">Exm</span><a href="#exm-SE-sample-mean" class="quarto-xref">Example&nbsp;16</a> (Standard error of the sample mean)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-SE-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 15 (Standard error of the sample mean)</strong></span> In <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>, so</p>
+<p><span class="theorem-title"><strong>Example 16 (Standard error of the sample mean)</strong></span> In <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;11</a>, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span>, so</p>
 <p><span class="math display">\[
 \begin{aligned}
   \operatorname{SE}\mathopen{}\left(\bar X\right)\mathclose{} &amp;= \sqrt{\sigma^2 / n} \\
@@ -2426,7 +2472,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-64-contents" aria-controls="callout-64" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-67-contents" aria-controls="callout-67" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2435,7 +2481,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-64" class="callout-64-contents callout-collapse collapse">
+<div id="callout-67" class="callout-67-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-se-error-sd" class="proof solution">
 <p><span class="proof-title"><em>Solution 8</em>. </span><span class="math display">\[
@@ -2474,7 +2520,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-66-contents" aria-controls="callout-66" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-69-contents" aria-controls="callout-69" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2483,7 +2529,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-66" class="callout-66-contents callout-collapse collapse">
+<div id="callout-69" class="callout-69-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#exr-se-error-sd" class="quarto-xref">Exercise&nbsp;8</a>.</p>
@@ -2497,12 +2543,12 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-standard-error-name" class="quarto-xref">Remark&nbsp;3</a> (The name “standard error”)
+<span class="screen-reader-only">Remark</span><a href="#rem-standard-error-name" class="quarto-xref">Remark&nbsp;4</a> (The name “standard error”)
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <div id="rem-standard-error-name" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (The name “standard error”). </span>“Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the <a href="#def-estimation-error">estimation error</a> (although <a href="#thm-se-error-sd" class="quarto-xref">Theorem&nbsp;5</a> shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.</p>
+<p><span class="proof-title"><em>Remark 4</em> (The name “standard error”). </span>“Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the <a href="#def-estimation-error">estimation error</a> (although <a href="#thm-se-error-sd" class="quarto-xref">Theorem&nbsp;5</a> shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.</p>
 </div>
 </div>
 </div>
@@ -2522,7 +2568,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-69-contents" aria-controls="callout-69" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-72-contents" aria-controls="callout-72" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2531,7 +2577,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-69" class="callout-69-contents callout-collapse collapse">
+<div id="callout-72" class="callout-72-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-var-mse-bias" class="proof solution">
 <p><span class="proof-title"><em>Solution 9</em>. </span><span class="math display">\[
@@ -2567,7 +2613,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-71-contents" aria-controls="callout-71" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-74-contents" aria-controls="callout-74" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2576,7 +2622,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-71" class="callout-71-contents callout-collapse collapse">
+<div id="callout-74" class="callout-74-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#exr-var-mse-bias" class="quarto-xref">Exercise&nbsp;9</a>.</p>
@@ -2600,7 +2646,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-73-contents" aria-controls="callout-73" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-76-contents" aria-controls="callout-76" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2609,7 +2655,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-73" class="callout-73-contents callout-collapse collapse">
+<div id="callout-76" class="callout-76-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-se-rmse-unbiased" class="proof solution">
 <p><span class="proof-title"><em>Solution 10</em>. </span>By <a href="#eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>. Taking square roots of both sides,</p>
@@ -2640,7 +2686,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-75-contents" aria-controls="callout-75" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-78-contents" aria-controls="callout-78" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2649,7 +2695,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-75" class="callout-75-contents callout-collapse collapse">
+<div id="callout-78" class="callout-78-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#exr-se-rmse-unbiased" class="quarto-xref">Exercise&nbsp;10</a>.</p>
@@ -3667,91 +3713,103 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-239"><a href="#cb5-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a><span class="fu">### Unbiased estimators {#sec-unbiased-estimators}</span></span>
+<span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-rmse-sample-mean.qmd &gt;}}</span>
 <span id="cb5-241"><a href="#cb5-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-unbiased div. --&gt;</span></span>
+<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-243"><a href="#cb5-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-unbiased.qmd &gt;}}</span>
+<span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_rem-rmse-units.qmd &gt;}}</span>
 <span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-unbiased-sample-mean.qmd &gt;}}</span>
+<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a><span class="fu">### Unbiased estimators {#sec-unbiased-estimators}</span></span>
 <span id="cb5-249"><a href="#cb5-249" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-unbiased div. --&gt;</span></span>
 <span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-biased-variance-mle.qmd &gt;}}</span>
+<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-unbiased.qmd &gt;}}</span>
 <span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-254"><a href="#cb5-254" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-255"><a href="#cb5-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-unbiased-exp.qmd &gt;}}</span>
+<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-biased.qmd &gt;}}</span>
 <span id="cb5-257"><a href="#cb5-257" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-258"><a href="#cb5-258" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-259"><a href="#cb5-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-unbiased-mse.qmd &gt;}}</span>
+<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-unbiased-sample-mean.qmd &gt;}}</span>
 <span id="cb5-261"><a href="#cb5-261" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-262"><a href="#cb5-262" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-263"><a href="#cb5-263" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_thm-unbiased-props.qmd &gt;}}</span>
+<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-biased-variance-mle.qmd &gt;}}</span>
 <span id="cb5-265"><a href="#cb5-265" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a>::: {.videos}</span>
-<span id="cb5-267"><a href="#cb5-267" aria-hidden="true" tabindex="-1"></a>5MinuteAI covers the <span class="co">[</span><span class="ot">properties of estimators</span><span class="co">](https://www.youtube.com/watch?v=sUFpzYNDn3Q)</span>, including bias,</span>
-<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a>following the University of Washington's CSE 312 <span class="co">[</span><span class="ot">@fiveminuteai_probstat</span><span class="co">]</span>.</span>
-<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mean absolute error</span></span>
-<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-mae div. --&gt;</span></span>
-<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-mae.qmd &gt;}}</span>
-<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-mae-gaussian.qmd &gt;}}</span>
+<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-267"><a href="#cb5-267" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-unbiased-exp.qmd &gt;}}</span>
+<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-unbiased-mse.qmd &gt;}}</span>
+<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_thm-unbiased-props.qmd &gt;}}</span>
+<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a>::: {.videos}</span>
+<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a>5MinuteAI covers the <span class="co">[</span><span class="ot">properties of estimators</span><span class="co">](https://www.youtube.com/watch?v=sUFpzYNDn3Q)</span>, including bias,</span>
+<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a>following the University of Washington's CSE 312 <span class="co">[</span><span class="ot">@fiveminuteai_probstat</span><span class="co">]</span>.</span>
+<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb5-282"><a href="#cb5-282" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-283"><a href="#cb5-283" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-284"><a href="#cb5-284" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a><span class="fu">### Standard error</span></span>
+<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a><span class="fu">### Mean absolute error</span></span>
 <span id="cb5-286"><a href="#cb5-286" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-SE div. --&gt;</span></span>
+<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-mae div. --&gt;</span></span>
 <span id="cb5-288"><a href="#cb5-288" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-SE.qmd &gt;}}</span>
+<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-mae.qmd &gt;}}</span>
 <span id="cb5-290"><a href="#cb5-290" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-291"><a href="#cb5-291" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-292"><a href="#cb5-292" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-SE-sample-mean.qmd &gt;}}</span>
+<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-mae-gaussian.qmd &gt;}}</span>
 <span id="cb5-294"><a href="#cb5-294" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-295"><a href="#cb5-295" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-296"><a href="#cb5-296" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-297"><a href="#cb5-297" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-se-error-sd.qmd &gt;}}</span>
+<span id="cb5-297"><a href="#cb5-297" aria-hidden="true" tabindex="-1"></a><span class="fu">### Standard error</span></span>
 <span id="cb5-298"><a href="#cb5-298" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-299"><a href="#cb5-299" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-299"><a href="#cb5-299" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-SE div. --&gt;</span></span>
 <span id="cb5-300"><a href="#cb5-300" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-301"><a href="#cb5-301" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_thm-se-error-sd.qmd &gt;}}</span>
+<span id="cb5-301"><a href="#cb5-301" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_def-SE.qmd &gt;}}</span>
 <span id="cb5-302"><a href="#cb5-302" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-303"><a href="#cb5-303" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_note-SE.qmd &gt;}}</span>
+<span id="cb5-303"><a href="#cb5-303" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-304"><a href="#cb5-304" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-305"><a href="#cb5-305" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-305"><a href="#cb5-305" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exm-SE-sample-mean.qmd &gt;}}</span>
 <span id="cb5-306"><a href="#cb5-306" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-var-mse-bias.qmd &gt;}}</span>
+<span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-308"><a href="#cb5-308" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-309"><a href="#cb5-309" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-309"><a href="#cb5-309" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-se-error-sd.qmd &gt;}}</span>
 <span id="cb5-310"><a href="#cb5-310" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-311"><a href="#cb5-311" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_cor-var-mse-bias.qmd &gt;}}</span>
+<span id="cb5-311"><a href="#cb5-311" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-312"><a href="#cb5-312" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-313"><a href="#cb5-313" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-313"><a href="#cb5-313" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_thm-se-error-sd.qmd &gt;}}</span>
 <span id="cb5-314"><a href="#cb5-314" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-315"><a href="#cb5-315" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-se-rmse-unbiased.qmd &gt;}}</span>
+<span id="cb5-315"><a href="#cb5-315" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_note-SE.qmd &gt;}}</span>
 <span id="cb5-316"><a href="#cb5-316" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-317"><a href="#cb5-317" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-318"><a href="#cb5-318" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-319"><a href="#cb5-319" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd &gt;}}</span>
+<span id="cb5-319"><a href="#cb5-319" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-var-mse-bias.qmd &gt;}}</span>
 <span id="cb5-320"><a href="#cb5-320" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-321"><a href="#cb5-321" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb5-321"><a href="#cb5-321" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb5-322"><a href="#cb5-322" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-323"><a href="#cb5-323" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb5-324"><a href="#cb5-324" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb5-323"><a href="#cb5-323" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_cor-var-mse-bias.qmd &gt;}}</span>
+<span id="cb5-324"><a href="#cb5-324" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-325"><a href="#cb5-325" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-326"><a href="#cb5-326" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-327"><a href="#cb5-327" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_exr-se-rmse-unbiased.qmd &gt;}}</span>
+<span id="cb5-328"><a href="#cb5-328" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-329"><a href="#cb5-329" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb5-330"><a href="#cb5-330" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-331"><a href="#cb5-331" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd &gt;}}</span>
+<span id="cb5-332"><a href="#cb5-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-333"><a href="#cb5-333" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb5-334"><a href="#cb5-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-335"><a href="#cb5-335" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb5-336"><a href="#cb5-336" aria-hidden="true" tabindex="-1"></a>:::</span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

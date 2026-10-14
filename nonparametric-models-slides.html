@@ -336,7 +336,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-13 22:24:25 (PDT)</p>
+  <p class="date">Last modified: 2026-10-13 22:36:40 (PDT)</p>
 </section><section id="empirical-cdf" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical CDF</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -382,7 +382,9 @@ text-align: center;
 <div id="def-sample-quantile" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Sample quantile function)</strong></span> Given an <a href="#/def-empirical-cdf">empirical CDF</a> <span class="math inline">\(\hat F\)</span>, the <strong>sample quantile function</strong> (also called the <strong>empirical quantile function</strong>) is</p>
 <p><span class="math display">\[\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\{t : \hat F(t) \ge p\right\}\mathclose{}, \quad 0 &lt; p \le 1.\]</span></p>
-<p>For a given <span class="math inline">\(p\)</span>, the value <span class="math inline">\(\hat Q(p)\)</span> is the <strong>sample <span class="math inline">\(p\)</span> quantile</strong>, also called the <strong>sample <span class="math inline">\(100p\)</span>th percentile</strong>.</p>
+</div>
+</section><section class="slide level2"><div id="def-sample-p-quantile" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4 (Sample quantile)</strong></span> For a given <span class="math inline">\(p\)</span>, the value <span class="math inline">\(\hat Q(p)\)</span> of the <a href="#/def-sample-quantile">sample quantile function</a> is the <strong>sample <span class="math inline">\(p\)</span> quantile</strong>, also called the <strong>sample <span class="math inline">\(100p\)</span>th percentile</strong>.</p>
 </div>
 <p>The <a href="https://morrison-lab.github.io/pds/random-variables.html#def-cdf">CDF</a> <span class="math inline">\(F\)</span> and the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-quantile-function">quantile function</a> <span class="math inline">\(Q\)</span> describe a probability distribution, while <span class="math inline">\(\hat F\)</span> and <span class="math inline">\(\hat Q\)</span> describe a sample, and serve as estimates of <span class="math inline">\(F\)</span> and <span class="math inline">\(Q\)</span>.</p>
 </section><section class="slide level2"><div id="thm-sample-quantile-order-statistics" class="theorem">

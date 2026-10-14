@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 22:24:25 (PDT)
+Last modified: 2026-10-13 22:36:40 (PDT)
 
 ## 1 Introduction
 
@@ -23,14 +23,16 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 > \\c: x \mapsto c(x) \in \mathcal{C} \tag{1}\\
 >
 > where \\\mathcal{C}\\ is a set of \\K\\ classes (for example, \\\mathcal{C}= \mathopen{}\left\\1, \dots, K\right\\\mathclose{}\\, or a set of text labels).
->
-> In the binary case (\\K = 2\\), the two classes are often labeled “positive” and “negative”, or “diseased” and “healthy”.
 
 > **NOTE:**
 >
 > **Example 1 (A diagnostic test as a classification rule)** A COVID-19 test assigns each person tested to one of \\K = 2\\ classes, “has COVID-19” or “does not have COVID-19”, based on a single feature \\x\\: the test’s result, positive (\\+\\) or negative (\\\neg +\\). The test is the classification rule ([Definition 1](#def-classification)) that assigns a positive result to “has COVID-19” and a negative result to “does not have COVID-19”:
 >
 > \\ c(x) \stackrel{\text{def}}{=} \begin{cases} \text{has COVID-19} & \text{if } x = + \\ \text{does not have COVID-19} & \text{if } x = \neg + \end{cases} \tag{2}\\
+
+> **NOTE:**
+>
+> *Remark 1* (Labels in binary classification). In the binary case (\\K = 2\\), the two classes are often labeled “positive” and “negative”, or “diseased” and “healthy”.
 
 ## 2 Diagnostic test characteristics
 
@@ -183,6 +185,6 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> *Remark 1* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio \\\frac{1 - \pi}{\pi}\\ in [Theorem 1](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 7](#exm-ppv-sens-spec-prev) shows.
+> *Remark 2* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio \\\frac{1 - \pi}{\pi}\\ in [Theorem 1](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 7](#exm-ppv-sens-spec-prev) shows.
 
 Back to top

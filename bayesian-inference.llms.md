@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 22:24:25 (PDT)
+Last modified: 2026-10-13 22:36:40 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -155,8 +155,6 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 > **Definition 6 (Maximum a posteriori estimate)** The **maximum a posteriori** (MAP) estimate of a parameter \\\theta\\, given observed data \\\tilde{Y}= \tilde{y}\\, written \\\hat{\theta}\_{\text{MAP}}\\, is the value of \\\theta\\ that maximizes the [posterior density](#def-posterior):
 >
 > \\\hat{\theta}\_{\text{MAP}} \stackrel{\text{def}}{=}\arg \max\_\theta\operatorname{p}(\theta\mid \tilde{y}) \tag{9}\\
->
-> The MAP estimate is the mode of the posterior distribution.
 
 > **NOTE:**
 >
@@ -179,6 +177,10 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 > ```
 >
 > The mode equals the sample proportion \\r / n\\, because the uniform prior adds no pseudo-counts that pull it away. The mean is a little closer to \\\frac{1}{2}\\.
+
+> **NOTE:**
+>
+> *Remark 2* (The MAP estimate is the posterior mode). The MAP estimate is the mode of the posterior distribution.
 
 > **NOTE:**
 >
@@ -688,7 +690,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> *Remark 2* (An informative prior pulls the posterior). An informative prior pulls the posterior toward its region, most strongly when the data are sparse.
+> *Remark 3* (An informative prior pulls the posterior). An informative prior pulls the posterior toward its region, most strongly when the data are sparse.
 
 > **NOTE:**
 >
@@ -761,7 +763,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> *Remark 3* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improper](#def-improper-prior), so it does not define a joint distribution of \\\theta\\ and \\\tilde{Y}\\, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
+> *Remark 4* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improper](#def-improper-prior), so it does not define a joint distribution of \\\theta\\ and \\\tilde{Y}\\, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
 
 > **NOTE:**
 >
@@ -779,7 +781,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> *Remark 4* (What a skeptical prior asks). A skeptical prior asks how strong the data must be to overturn a default of no effect.
+> *Remark 5* (What a skeptical prior asks). A skeptical prior asks how strong the data must be to overturn a default of no effect.
 
 > **NOTE:**
 >
@@ -809,11 +811,9 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 16 (Prior predictive distribution)** The **prior predictive distribution** of the data \\\tilde{Y}\\ is the distribution of \\\tilde{Y}\\ implied by the [prior](#def-prior) \\\operatorname{p}(\theta)\\ and the model \\\operatorname{p}(\tilde{y}\mid \theta)\\, before any data are observed:
+> **Definition 16 (Prior predictive distribution)** The **prior predictive distribution** of the data \\\tilde{Y}\\ is the distribution of \\\tilde{Y}\\ implied by the [prior](#def-prior) \\\operatorname{p}(\theta)\\ and the model \\\operatorname{p}(\tilde{y}\mid \theta)\\, before any data are observed ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.3):
 >
 > \\ \operatorname{p}(\tilde{y}) = \int \operatorname{p}(\tilde{y}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta. \\
->
-> It is the [marginal likelihood](#def-marginal-likelihood), read as a distribution over possible data sets ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.3).
 
 > **NOTE:**
 >
@@ -856,6 +856,10 @@ A Bayesian model makes predictions about data, both before and after the data ar
 > }
 > #> {'smallest': np.float64(0.005263157894736842), 'largest': np.float64(0.005263157894736846), 'one_over_n_plus_1': 0.005263157894736842}
 > ```
+
+> **NOTE:**
+>
+> *Remark 6* (The prior predictive distribution and the marginal likelihood). The prior predictive distribution ([Definition 16](#def-prior-predictive)) is the [marginal likelihood](#def-marginal-likelihood), read as a distribution over possible data sets ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.3).
 
 > **NOTE:**
 >
@@ -1213,7 +1217,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > \\ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \tilde{y}\right)\mathclose{}, \\
 >
-> where the probability is over \\\theta\\ drawn from its [posterior](#def-posterior) and \\\tilde{Y}^{\mathrm{rep}}\\ drawn from the model given \\\theta\\ ([Gelman et al. 2013, sec. 6.3](#ref-gelman2013bda), p. 146). With simulations from a [posterior predictive check](#def-posterior-predictive-check), \\p_B\\ is estimated by the proportion of replicated values at least as large as the observed value. A value near 0 or 1 means the observed data are unusual under the model.
+> where the probability is over \\\theta\\ drawn from its [posterior](#def-posterior) and \\\tilde{Y}^{\mathrm{rep}}\\ drawn from the model given \\\theta\\ ([Gelman et al. 2013, sec. 6.3](#ref-gelman2013bda), p. 146).
 
 > **NOTE:**
 >
@@ -1241,6 +1245,10 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > R and Python draw different random numbers, so their p-values differ a little; the text uses the R results. For the simulated data, \\p_B\\ is 0.367, so the model passes this check. For the real data, \\p_B\\ is 0.002, so the model fails it. The next step would be a model that lets the smoking probability depend on race, such as the [Bayesian logistic regression](bayesian-examples.llms.md#exm-bayes-logistic) fitted on the companion page.
 
+> **NOTE:**
+>
+> *Remark 7* (Estimating and interpreting the posterior predictive p-value). With simulations from a [posterior predictive check](#def-posterior-predictive-check), \\p_B\\ is estimated by the proportion of replicated values at least as large as the observed value. A value near 0 or 1 means the observed data are unusual under the model.
+
 ## 5 Distributions and hierarchies
 
 > **NOTE:**
@@ -1249,7 +1257,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> *Remark 5* (A hierarchical model is a model structure). A hierarchical model is a model structure, not an inference method: it can be fit by maximum likelihood or by Bayesian inference. Bayesian inference also gives the further unknown parameters a prior (a *hyperprior*).
+> *Remark 8* (A hierarchical model is a model structure). A hierarchical model is a model structure, not an inference method: it can be fit by maximum likelihood or by Bayesian inference. Bayesian inference also gives the further unknown parameters a prior (a *hyperprior*).
 
 > **NOTE:**
 >

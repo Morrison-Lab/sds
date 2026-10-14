@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 22:24:25 (PDT)
+Last modified: 2026-10-13 22:36:40 (PDT)
 
 ## 1 Empirical CDF
 
@@ -45,8 +45,10 @@ Last modified: 2026-10-13 22:24:25 (PDT)
 > **Definition 3 (Sample quantile function)** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
 >
 > \\\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\\t : \hat F(t) \ge p\right\\\mathclose{}, \quad 0 \< p \le 1.\\
+
+> **NOTE:**
 >
-> For a given \\p\\, the value \\\hat Q(p)\\ is the **sample \\p\\ quantile**, also called the **sample \\100p\\th percentile**.
+> **Definition 4 (Sample quantile)** For a given \\p\\, the value \\\hat Q(p)\\ of the [sample quantile function](#def-sample-quantile) is the **sample \\p\\ quantile**, also called the **sample \\100p\\th percentile**.
 
 The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\\ and the [quantile function](https://morrison-lab.github.io/pds/random-variables.html#def-quantile-function) \\Q\\ describe a probability distribution, while \\\hat F\\ and \\\hat Q\\ describe a sample, and serve as estimates of \\F\\ and \\Q\\.
 

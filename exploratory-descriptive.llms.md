@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-13 22:24:25 (PDT)
+Last modified: 2026-10-13 22:36:40 (PDT)
 
 ## 1 Introduction
 
@@ -517,7 +517,11 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 >
 > \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i - \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i - \bar{y})^2}}\\
 >
-> It is a sample estimate of the [population correlation](correlation-regression.llms.md#def-population-correlation). It is defined when neither variable is constant, so that both sums of squares are positive.
+> It is defined when neither variable is constant, so that both sums of squares are positive.
+
+> **NOTE:**
+>
+> *Remark 4* (The Pearson correlation coefficient estimates the population correlation). The Pearson correlation coefficient is a sample estimate of the [population correlation](correlation-regression.llms.md#def-population-correlation).
 
 > **NOTE:**
 >
@@ -749,7 +753,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Remark 4* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
+> *Remark 5* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
 
 > **NOTE:**
 >
@@ -789,7 +793,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Remark 5* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+> *Remark 6* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
 >
 > Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
 

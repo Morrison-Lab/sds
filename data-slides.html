@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-13 22:24:25 (PDT)</p>
+  <p class="date">Last modified: 2026-10-13 22:36:40 (PDT)</p>
 </section><section id="types-of-variables" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Types of variables</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -391,7 +391,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Example 4 (Continuous variables in the WCGS)</strong></span> Age, systolic blood pressure, total cholesterol, and body mass index (BMI) are continuous variables: their possible values form a continuum of real numbers.</p>
 </div>
 </section><section class="slide level2"><div id="def-discrete-var" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Discrete variable)</strong></span> A <strong>discrete variable</strong> is a variable whose possible values form a countable set. Discrete variables include both <strong>numerical</strong> types (such as <a href="#/def-count">count variables</a>) and <strong>categorical</strong> types (such as binary, nominal, and ordinal variables). In contrast, continuous variables are always numerical.</p>
+<p><span class="theorem-title"><strong>Definition 5 (Discrete variable)</strong></span> A <strong>discrete variable</strong> is a variable whose possible values form a countable set.</p>
 </div>
 </section><section class="slide level2"><div id="exm-discrete-var" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (Discrete variables in the WCGS)</strong></span> In the WCGS dataset:</p>
@@ -400,11 +400,17 @@ text-align: center;
 <li>coronary heart disease event status is a discrete categorical variable (binary).</li>
 </ul>
 </div>
+</section><section class="slide level2"><div id="rem-discrete-var-types" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Types of discrete variables). </span>Discrete variables include both numerical types (such as <a href="#/def-count">count variables</a>) and categorical types (such as binary, nominal, and ordinal variables). In contrast, continuous variables are always numerical.</p>
+</div>
 </section><section class="slide level2"><div id="def-categorical-var" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Categorical variable)</strong></span> A <strong>categorical</strong> (or <strong>qualitative</strong>) variable is a variable that takes values in a finite set of categories, where arithmetic operations such as differences are not meaningful. Categorical variables may be <strong>nominal</strong> (unordered) or <strong>ordinal</strong> (ordered), and are always discrete.</p>
+<p><span class="theorem-title"><strong>Definition 6 (Categorical variable)</strong></span> A <strong>categorical</strong> (or <strong>qualitative</strong>) variable is a variable that takes values in a finite set of categories, where arithmetic operations such as differences are not meaningful.</p>
 </div>
 </section><section class="slide level2"><div id="exm-categorical-var" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Categorical variables in the WCGS)</strong></span> Behavioral pattern (Type A1, A2, B3, B4), smoking status (yes/no), and weight category are categorical variables in the WCGS dataset.</p>
+</div>
+</section><section class="slide level2"><div id="rem-categorical-var-kinds" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Kinds of categorical variables). </span>Categorical variables may be nominal (unordered) or ordinal (ordered), and are always discrete.</p>
 </div>
 </section><section class="slide level2"><div id="def-nominal-var" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Nominal variable)</strong></span> A <strong>nominal variable</strong> is a categorical variable whose categories have no natural ordering.</p>
@@ -464,7 +470,7 @@ The -1/1 example in the notes is an illustration written for this page.
 <p><span class="theorem-title"><strong>Example 10 (Dummy variables for chromosomal sex)</strong></span> Let <span class="math inline">\(S\)</span> be the chromosomal sex of a newborn, a categorical variable with the categories “female” and “male”. Let <span class="math inline">\(M = 1\)</span> if <span class="math inline">\(S\)</span> is “male” and <span class="math inline">\(M = 0\)</span> if <span class="math inline">\(S\)</span> is “female”, and let <span class="math inline">\(F = 1\)</span> if <span class="math inline">\(S\)</span> is “female” and <span class="math inline">\(F = 0\)</span> if <span class="math inline">\(S\)</span> is “male”. Together, <span class="math inline">\(M\)</span> and <span class="math inline">\(F\)</span> are dummy variables for <span class="math inline">\(S\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-dummy-other-codings" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Other ways to code dummy variables). </span>There are other ways to construct dummy variables. One is to use the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>: for example, <span class="math inline">\(-1\)</span> for “female” and <span class="math inline">\(1\)</span> for “male”. See <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, section 2.4, for details.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Other ways to code dummy variables). </span>There are other ways to construct dummy variables. One is to use the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>: for example, <span class="math inline">\(-1\)</span> for “female” and <span class="math inline">\(1\)</span> for “male”. See <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, section 2.4, for details.</p>
 </div>
 </section><section class="slide level2"><!--
 Dobson and Barnett: text checked in the PDF; page number not recorded.
@@ -485,7 +491,7 @@ Dobson and Barnett: text checked in the PDF; page number not recorded.
 </div>
 </div>
 </section><section class="slide level2"><div id="exm-indicator-sex" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11 (Indicator variables for chromosomal sex)</strong></span> In <a href="#/exm-dummy-sex" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(M\)</span> and <span class="math inline">\(F\)</span> are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> (<a href="#/rem-dummy-other-codings" class="quarto-xref">Remark&nbsp;1</a>) is not an indicator variable.</p>
+<p><span class="theorem-title"><strong>Example 11 (Indicator variables for chromosomal sex)</strong></span> In <a href="#/exm-dummy-sex" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(M\)</span> and <span class="math inline">\(F\)</span> are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> (<a href="#/rem-dummy-other-codings" class="quarto-xref">Remark&nbsp;3</a>) is not an indicator variable.</p>
 </div>
 </section><section class="slide level2"><!--
 Dobson and Barnett: text checked in the PDF; page number not recorded.
@@ -510,7 +516,7 @@ The one-sentence definition is written for this page.
 <p><span class="theorem-title"><strong>Example 12 (The reference level for chromosomal sex)</strong></span> Take chromosomal sex <span class="math inline">\(S\)</span> with the indicator variable <span class="math inline">\(M\)</span> for “male” (<a href="#/exm-dummy-sex" class="quarto-xref">Example&nbsp;10</a>). The category “female” has no indicator variable, so “female” is the reference level, and a female newborn has <span class="math inline">\(M = 0\)</span>. In <a href="#/exr-dummy-coding" class="quarto-xref">Exercise&nbsp;1</a>, category A1 of <code>behpat</code> is the reference level.</p>
 </div>
 </section><section class="slide level2"><div id="rem-reference-level-choice" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Any category can be the reference level). </span>The choice of reference level changes how we code the categories. It does not change what the data say. For example, in <a href="#/exm-reference-level-sex" class="quarto-xref">Example&nbsp;12</a>, we could instead use “male” as the reference level and the indicator variable <span class="math inline">\(F\)</span> for “female”. Both choices describe the same two groups.</p>
+<p><span class="proof-title"><em>Remark 4</em> (Any category can be the reference level). </span>The choice of reference level changes how we code the categories. It does not change what the data say. For example, in <a href="#/exm-reference-level-sex" class="quarto-xref">Example&nbsp;12</a>, we could instead use “male” as the reference level and the indicator variable <span class="math inline">\(F\)</span> for “female”. Both choices describe the same two groups.</p>
 </div>
 </section><section id="taxonomy-of-variable-types" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Taxonomy of variable types</h2>
