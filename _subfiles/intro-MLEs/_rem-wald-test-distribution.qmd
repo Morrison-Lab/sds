@@ -1,0 +1,8 @@
+::: {#rem-wald-test-distribution}
+#### Null distributions of the Wald statistics
+
+By @thm-dist-mle, the statistic $Z$ of the [Wald test](#def-wald-test) has approximately a standard Gaussian distribution
+under $H_0$ in large samples.
+The Wald statistic for $q$ constraints (@def-wald-statistic-q)
+has approximately a $\chi^2_q$ distribution under $H_0$.
+:::
