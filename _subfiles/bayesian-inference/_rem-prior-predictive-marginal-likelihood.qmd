@@ -1,6 +1,7 @@
 ::: {#rem-prior-predictive-marginal-likelihood}
 #### The prior predictive distribution and the marginal likelihood
 
-The prior predictive distribution is the [marginal likelihood](#def-marginal-likelihood),
-read as a distribution over possible data sets.
+The prior predictive distribution (@def-prior-predictive) is the [marginal likelihood](#def-marginal-likelihood),
+read as a distribution over possible data sets
+[@gelman2013bda, Section 1.3, p. 7, eq. 1.3].
 :::
