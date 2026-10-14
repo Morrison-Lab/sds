@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:09:11 (PDT)
+Last modified: 2026-10-14 13:51:02 (PDT)
 
 ## 1 Introduction
 
@@ -138,7 +138,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 1](#exr-prob-positive).
+> *Proof*. This is the solution to [Exercise 1](#exr-prob-positive), worked in [Solution 1](#sol-prob-positive).
 
 > **NOTE:**
 >
@@ -156,21 +156,21 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Theorem 2 (PPV from Bayes’ theorem)** The [positive predictive value](#def-ppv) of a diagnostic test is:
+> **Theorem 2 (PPV from Bayes’ theorem)** Let \\\text{sens}\\ be the [sensitivity](#def-sensitivity) of a diagnostic test, \\\text{spec}\\ its [specificity](#def-specificity), and \\\pi\\ the [prevalence](#def-prevalence) of the disease. Then the [positive predictive value](#def-ppv) of the test is:
 >
 > \\ \text{PPV} = \frac{\text{sens} \cdot\pi} {\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}} \tag{19}\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 2](#exr-ppv-bayes).
+> *Proof*. This is the solution to [Exercise 2](#exr-ppv-bayes), worked in [Solution 2](#sol-ppv-bayes), which builds on [Theorem 1](#thm-prob-positive).
 
 > **NOTE:**
 >
-> **Exercise 3 (PPV in terms of two ratios)** Rewrite the expression for the positive predictive value from [Exercise 2](#exr-ppv-bayes) so that the sensitivity, specificity, and prevalence appear only through the ratio \\\frac{1 - \text{spec}}{\text{sens}}\\ of the false positive rate to the sensitivity and the ratio \\\frac{1 - \pi}{\pi}\\ of non-diseased to diseased people in the population.
+> **Exercise 3 (PPV in terms of two ratios)** Rewrite the expression for the positive predictive value from [Theorem 2](#thm-ppv-bayes) so that the sensitivity, specificity, and prevalence appear only through the ratio \\\frac{1 - \text{spec}}{\text{sens}}\\ of the false positive rate to the sensitivity and the ratio \\\frac{1 - \pi}{\pi}\\ of non-diseased to diseased people in the population.
 
 > **NOTE:**
 >
-> *Solution 3*. Write \\a \stackrel{\text{def}}{=}\text{sens} \cdot\pi\\ and \\b \stackrel{\text{def}}{=}\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}\\, so that [Exercise 2](#exr-ppv-bayes) reads \\\text{PPV} = \frac{a}{a + b}\\, with \\a \> 0\\ whenever the sensitivity and prevalence are positive. Then:
+> *Solution 3*. Write \\a \stackrel{\text{def}}{=}\text{sens} \cdot\pi\\ and \\b \stackrel{\text{def}}{=}\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}\\, so that [Theorem 2](#thm-ppv-bayes) reads \\\text{PPV} = \frac{a}{a + b}\\, with \\a \> 0\\ whenever the sensitivity and prevalence are positive. Then:
 >
 > \\ \begin{aligned} \text{PPV} &= \frac{a}{a + b} && \text{(PPV from Bayes' theorem)} \\ &= \frac{1}{\mathopen{}\left(\frac{a + b}{a}\right)\mathclose{}} && \text{(a fraction equals one over its reciprocal, since } a \> 0 \text{)} \\ &= \frac{1}{\frac{a}{a} + \frac{b}{a}} && \text{(split the fraction over the sum in its numerator)} \\ &= \frac{1}{1 + \frac{b}{a}} && \text{(} \tfrac{a}{a} = 1 \text{)} \\ &= \frac{1}{1 + \frac{\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}}{\text{sens} \cdot\pi}} && \text{(substitute the definitions of } a \text{ and } b \text{)} \\ &= \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}} && \text{(a quotient of products is the product of the quotients)} \end{aligned} \tag{20}\\
 
@@ -187,7 +187,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> *Proof*. This result is the solution to [Exercise 3](#exr-ppv-ratio-form), which builds on [Theorem 2](#thm-ppv-bayes) and [Theorem 1](#thm-prob-positive).
+> *Proof*. This result is the solution to [Exercise 3](#exr-ppv-ratio-form), worked in [Solution 3](#sol-ppv-ratio-form), which builds on [Theorem 2](#thm-ppv-bayes) and [Theorem 1](#thm-prob-positive).
 
 > **NOTE:**
 >
