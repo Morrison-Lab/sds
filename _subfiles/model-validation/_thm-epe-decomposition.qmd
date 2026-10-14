@@ -44,7 +44,10 @@ Y_0 - g\paren{x; \trainset}
 \ea
 $$
 
-Next, expand the square and split the expectation, conditional on $X_0 = x$.
+Next, expand the square and split the expectation.
+The first line is the definition of the expected squared prediction error at $x$,
+which conditions on $X_0 = x$;
+all expectations in the lines after it are conditional on $X_0 = x$ too.
 The last two steps use
 [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation),
 first for the expectation of a sum and then for a constant factor:
@@ -52,7 +55,7 @@ first for the expectation of a sum and then for a constant factor:
 $$
 \ba
 \epe{g}{n}{x}
-&= \E{\sqf{\paren{\noise + \targeterrf{x}}} \mid X_0 = x}
+&= \E{\sqf{\noise + \targeterrf{x}} \mid X_0 = x}
 && \text{(definition and the error above)} \\
 &= \E{\noise^2 + 2 \noise \targeterrf{x} + \sqf{\targeterrf{x}}}
 && \text{(expand: } \paren{a + b}^2 = a^2 + 2ab + b^2 \text{)} \\
@@ -105,18 +108,18 @@ Each of the three terms is evaluated in turn.
   $$
 
   so $\sqf{\E{\targeterrf{x}}} = \sqf{\bias{g\paren{x; \trainset}}}$,
-  because $\sqf{\paren{-a}} = \sqf{a}$.
+  because $\sqf{-a} = \sqf{a}$.
   The variance of $\targeterrf{x}$ is
 
   $$
   \ba
   \Var{\targeterrf{x}}
-  &= \E{\sqf{\paren{\targeterrf{x} - \E{\targeterrf{x}}}}}
+  &= \E{\sqf{\targeterrf{x} - \E{\targeterrf{x}}}}
   && \text{(definition of variance)} \\
-  &= \E{\sqf{\paren{-\paren{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}}}
+  &= \E{\sqf{-\paren{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}}
   && \text{(substitute; the constant } \mean(x) \text{ cancels)} \\
-  &= \E{\sqf{\paren{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}}
-  && \text{(} \sqf{\paren{-a}} = \sqf{a} \text{)} \\
+  &= \E{\sqf{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}
+  && \text{(} \sqf{-a} = \sqf{a} \text{)} \\
   &= \Var{g\paren{x; \trainset}}
   && \text{(definition of variance)}
   \ea
