@@ -1,0 +1,17 @@
+:::{#lem-wilks-std-gaussian}
+#### Standardizing an approximately Gaussian estimate
+
+Suppose $\hthml \dsim \ndist{\param_0, \einf(\param_0)^{-1}}$,
+and define $Z \eqdef \sqrt{\einf(\param_0)}\,(\hthml - \param_0)$.
+Then $Z$ is approximately standard Gaussian,
+so $Z^2$ is approximately $\chi^2_1$:
+
+$$Z^2 \dsim \chi^2_1$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-wilks-std-gaussian.
+
+:::

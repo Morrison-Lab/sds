@@ -1,0 +1,16 @@
+:::{#thm-pois-score}
+#### Score function of a Poisson variable
+
+Let $X \sim \Pois(\rate)$.
+The score of a single observation $x$ with respect to $\rate$
+is its deviation from the mean, divided by the variance:
+
+$$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \rate}{\rate}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-pois-score-fn.
+
+:::

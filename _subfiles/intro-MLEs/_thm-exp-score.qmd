@@ -1,0 +1,16 @@
+:::{#thm-exp-score}
+#### Score function of an exponential variable
+
+Let $X$ be an exponential random variable with mean $\pmean$.
+The score of a single observation $x$ with respect to $\pmean$
+is its deviation from the mean, divided by the variance:
+
+$$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \pmean}{\pmean^2}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-exp-score-fn.
+
+:::

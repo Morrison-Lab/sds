@@ -1,0 +1,16 @@
+:::{#thm-score-second-moment}
+#### Second moment of the score
+
+Under the assumptions of @thm-score-mean-zero,
+the second moment of the score is the [expected information](#def-einf):
+
+$$\E{\score^2} = \einf(\param)$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-score-second-moment.
+It rests on @thm-score-mean-zero and @lem-deriv-log-density.
+
+:::

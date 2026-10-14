@@ -1,0 +1,15 @@
+:::{#thm-bernoulli-likelihood-one-group}
+#### Likelihood of binary outcomes with one event probability
+
+Let $Y_i \simind \Ber(\prob)$ for $i = 1, \dots, n$, and $\vy \eqdef (\dsn{y})$.
+The likelihood of $\vy$ depends on the data only through the number of events:
+
+$$\Lik(\prob; \vy) = \prob^{\sumin y_i} (1 - \prob)^{n - \sumin y_i}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-likelihood-one-group.
+
+:::

@@ -1,0 +1,20 @@
+:::{#thm-score-mean-zero}
+#### Mean of the score
+
+Let $\vX$ be continuous with density $\p(\vx \mid \param)$
+for a scalar parameter $\param$.
+Suppose the set of possible data values does not depend on $\param$,
+and the order of differentiation with respect to $\param$
+and integration over the data can be exchanged.
+Then the [score](#def-score) has mean zero:
+
+$$\E{\score} = 0$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-score-mean-zero.
+It rests on @lem-deriv-log-density.
+
+:::

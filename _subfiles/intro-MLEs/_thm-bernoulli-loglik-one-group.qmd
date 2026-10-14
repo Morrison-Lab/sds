@@ -1,0 +1,15 @@
+:::{#thm-bernoulli-loglik-one-group}
+#### Log-likelihood of binary outcomes with one event probability
+
+Let $Y_i \simind \Ber(\prob)$ for $i = 1, \dots, n$, and $\vy \eqdef (\dsn{y})$.
+The log-likelihood of $\vy$ is:
+
+$$\llik(\prob; \vy) = \paren{\sumin y_i} \logit(\prob) + n \logf{1 - \prob}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bernoulli-loglik-one-group.
+
+:::

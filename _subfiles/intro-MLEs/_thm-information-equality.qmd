@@ -25,9 +25,9 @@ $\p(\vx \mid \param)$;
 the vector case applies the same steps to each pair of entries,
 and a discrete $\vX$ replaces integrals with sums.
 
-@eq-score-mean-zero is the solution to @exr-score-mean-zero.
+@eq-score-mean-zero is @thm-score-mean-zero.
 For @eq-information-equality,
-@exr-score-second-moment gives $\einf(\param) = \E{\score^2}$,
+@thm-score-second-moment gives $\einf(\param) = \E{\score^2}$,
 and because $\E{\score} = 0$,
 
 $$

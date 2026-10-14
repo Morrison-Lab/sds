@@ -1,0 +1,16 @@
+:::{#thm-bernoulli-score}
+#### Score function of a Bernoulli variable
+
+Let $X \sim \Ber(\prob)$.
+The score of a single observation $x$ is its deviation from the mean,
+divided by the variance:
+
+$$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \prob}{\prob(1 - \prob)}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-derive-bernoulli-score.
+
+:::

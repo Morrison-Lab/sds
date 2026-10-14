@@ -1,0 +1,16 @@
+:::{#thm-gauss-score}
+#### Score function of a Gaussian variable
+
+Let $X \sim \ndist{\pmean, \ss}$ with $\ss$ known.
+The score of a single observation $x$ with respect to $\pmean$
+is its deviation from the mean, divided by the variance:
+
+$$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \pmean}{\ss}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-gauss-score-fn.
+
+:::
