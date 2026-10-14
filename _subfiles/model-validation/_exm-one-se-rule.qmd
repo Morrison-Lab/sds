@@ -87,7 +87,7 @@ The rule prefers the simpler model
 when the data cannot clearly tell it apart from the degree with the smallest estimate.
 Because the data are simulated,
 we can check both choices against
-the estimated generalization errors of @exm-train-test-error-simulated:
+the estimated generalization RMSE of @exm-train-test-error-simulated for each:
 `r round(sim_errors$generalization[sim_min$degree], 3)` for degree `r sim_min$degree`
 and `r round(sim_errors$generalization[sim_one_se$degree], 3)` for degree `r sim_one_se$degree`.
 
