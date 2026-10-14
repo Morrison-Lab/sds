@@ -1,0 +1,18 @@
+:::{#thm-ppv-bayes}
+#### PPV from Bayes' theorem
+
+The [positive predictive value](#def-ppv) of a diagnostic test is:
+
+$$
+\text{PPV} =
+\frac{\text{sens} \cd \prev}
+{\text{sens} \cd \prev + \paren{1 - \text{spec}} \cd \paren{1 - \prev}}
+$$ {#eq-ppv-bayes}
+
+:::
+
+::: proof
+
+This is the solution to @exr-ppv-bayes.
+
+:::

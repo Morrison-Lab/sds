@@ -1,0 +1,18 @@
+:::{#thm-prob-positive}
+#### Probability of a positive test
+
+The probability $\Pr(+)$ that a diagnostic test is positive is:
+
+$$
+\Pr(+) =
+\text{sensitivity} \cd \text{prevalence}
++ \paren{1 - \text{specificity}} \cd \paren{1 - \text{prevalence}}
+$$ {#eq-prob-positive}
+
+:::
+
+::: proof
+
+This is the solution to @exr-prob-positive.
+
+:::
