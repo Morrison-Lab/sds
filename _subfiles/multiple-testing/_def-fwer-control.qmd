@@ -1,0 +1,6 @@
+::: {#def-fwer-control}
+#### Controlling the family-wise error rate
+
+A procedure **controls the FWER at level $\siglevel$** if $\text{FWER} \le \siglevel$
+for every possible set of true null hypotheses.
+:::

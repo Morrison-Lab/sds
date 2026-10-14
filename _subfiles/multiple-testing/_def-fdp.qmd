@@ -1,0 +1,11 @@
+::: {#def-fdp}
+#### False discovery proportion
+
+For a family of tests with $V$ false positives among $R$ rejections (@def-rejection-counts),
+the **false discovery proportion** (FDP) is the fraction of rejections that are false positives,
+counted as 0 when there are no rejections:
+
+$$
+\text{FDP} \eqdef \frac{V}{\max(R, 1)}.
+$$
+:::
