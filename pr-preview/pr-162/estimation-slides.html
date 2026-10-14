@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-14 13:15:14 (PDT)</p>
+  <p class="date">Last modified: 2026-10-14 14:05:35 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -896,7 +896,13 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/exr-mse-expand" class="quarto-xref">Exercise&nbsp;5</a> and <a href="#/exr-bias-sq-plus-var" class="quarto-xref">Exercise&nbsp;4</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> and <span class="math inline">\(\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> both equal <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\theta+ \theta^2\)</span>, so they are equal to each other.</p>
 </div>
 <div id="rem-mse-bias-variance-prediction" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (The same split for predictions). </span><a href="#/thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;3</a> concerns an estimator of a parameter. For the squared error of a <em>prediction</em> of a new outcome, the probability notes prove the same split with one more term, the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error">irreducible error</a> from the noise in that outcome: <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error">expected squared prediction error</a> equals squared bias plus variance plus the noise variance.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Estimation versus prediction). </span>The squared-error split has two forms, and they differ in what the estimate is compared with.</p>
+<ul>
+<li>
+<strong>Estimation.</strong> <a href="#/thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;3</a> compares an estimator <span class="math inline">\(\hat{\theta}\)</span> with a fixed parameter <span class="math inline">\(\theta\)</span>. The target is a constant, so the expected squared error is squared bias plus variance, with no other term.</li>
+<li>
+<strong>Prediction.</strong> The target is a new outcome, which is itself random. The probability notes prove that <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error">expected squared prediction error</a> equals squared bias plus variance plus the noise variance, the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error">irreducible error</a> of that outcome. No choice of prediction can remove the extra term.</li>
+</ul>
 </div>
 </section><section class="slide level2"><div id="exm-mse-sample-mean" class="theorem example">
 <p><span class="theorem-title"><strong>Example 11 (Mean squared error of two estimators of a mean)</strong></span> Continuing <a href="#/exm-bias-sample-mean" class="quarto-xref">Example&nbsp;10</a>, suppose also that <span class="math inline">\(X_1, \ldots, X_n\)</span> are mutually independent, each with variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\)</span>. Both <span class="math inline">\(\bar X\)</span> and <span class="math inline">\(X_1\)</span> have zero bias, so by <a href="#/thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;3</a> each estimator’s mean squared error equals its variance.</p>

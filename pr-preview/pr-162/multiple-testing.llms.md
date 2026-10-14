@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:15:14 (PDT)
+Last modified: 2026-10-14 14:05:35 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -432,7 +432,7 @@ table(tumor_class = khan_pair$tumor_class)
 > #> 0.04300000 0.00307787 0.14551000
 > ```
 >
-> The estimated FWER, 0.043, is below the bound, up to simulation error. The Bonferroni correction pays for this with power: it finds 15% of the 100 false null hypotheses, against 85% for unadjusted testing.
+> The estimated FWER, 0.043, is below the bound, up to simulation error. The Bonferroni correction loses power in exchange: it finds 15% of the 100 false null hypotheses, against 85% for unadjusted testing.
 
 ### 4.2 Holm’s step-down procedure
 
