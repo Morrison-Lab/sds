@@ -1,0 +1,6 @@
+::: {#rem-categorical-var-kinds}
+#### Kinds of categorical variables
+
+Categorical variables may be nominal (unordered) or ordinal (ordered),
+and are always discrete.
+:::
