@@ -246,6 +246,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_lem-loocv-not-random.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-loocv.qmd >}}
 
 {{< slidebreak >}}

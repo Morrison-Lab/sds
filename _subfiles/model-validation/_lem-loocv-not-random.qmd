@@ -1,0 +1,22 @@
+:::{#lem-loocv-not-random}
+#### Leave-one-out cross-validation does not depend on the fold assignment
+
+In $k$-fold cross-validation with $k = n$ [folds](#def-folds),
+each fold holds exactly one observation,
+so the [fold-out rule](#def-fold-out-rule) $\fittedwo{\foldof{i}}{\cdot}$
+of observation $i$ is fitted to all observations except observation $i$,
+whichever [fold assignment](#def-fold-assignment) $\foldof{i}$ is used.
+Every assignment therefore gives the same
+[cross-validation estimate](#def-cv-estimate) (@eq-cv-estimate with $k = n$),
+the same $n$ fits with the folds numbered differently:
+
+$$
+\cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}.
+$$
+
+:::
+
+::: proof
+This is the solution to @exr-loocv, part 3, worked in @sol-loocv.
+It uses @eq-cv-estimate and @eq-fold-out-rule.
+:::
