@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-13 22:49:53 (PDT)</p>
+  <p class="date">Last modified: 2026-10-14 00:15:52 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -862,7 +862,7 @@ Figure&nbsp;1: Training mean squared error and estimated generalization error (m
 </section><section id="sec-data-splits" class="slide level2" data-number="4"><h2>
 <span class="header-section-number">4</span> Training, validation, and test sets</h2>
 <div id="exr-data-splits" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5 (Sizes of a three-way split)</strong></span> The <code>mtcars</code> data frame has <span class="math inline">\(N = 32\)</span> cars. Suppose we assign <span class="math inline">\(\lfloor 0.6 N \rfloor\)</span> cars to a training set, <span class="math inline">\(\lfloor 0.2 N \rfloor\)</span> cars to a validation set, and all remaining cars to a test set. How many cars are in each set?</p>
+<p><span class="theorem-title"><strong>Exercise 5 (Sizes of a three-way split)</strong></span> The <code>mtcars</code> data frame has <span class="math inline">\(n = 32\)</span> cars. Suppose we assign <span class="math inline">\(\lfloor 0.6 n \rfloor\)</span> cars to a training set, <span class="math inline">\(\lfloor 0.2 n \rfloor\)</span> cars to a validation set, and all remaining cars to a test set. How many cars are in each set?</p>
 </div>
 </section><section class="slide level2"><div id="sol-data-splits" class="proof solution">
 <p><span class="proof-title"><em>Solution 5</em>. </span><span class="math display">\[
@@ -883,10 +883,10 @@ Figure&nbsp;1: Training mean squared error and estimated generalization error (m
 </section><section class="slide level2"><!--
 The ISLR section heading was verified in the PDF; rme paraphrases its text.
 --><div id="def-data-splits" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14 (Training/validation/test split)</strong></span> A <strong>training/validation/test split</strong> divides the observations <span class="math inline">\(1, \ldots, N\)</span> of a data set into three disjoint sets of indices, <span class="math inline">\(I_{\text{train}}\)</span>, <span class="math inline">\(I_{\text{val}}\)</span> and <span class="math inline">\(I_{\text{test}}\)</span>, and takes the observations in <span class="math inline">\(I_{\text{train}}\)</span> as the <a href="#/def-training-set">training set</a>:</p>
+<p><span class="theorem-title"><strong>Definition 14 (Training/validation/test split)</strong></span> A <strong>training/validation/test split</strong> divides the observations <span class="math inline">\(1, \ldots, n\)</span> of a data set into three disjoint sets of indices, <span class="math inline">\(I_{\text{train}}\)</span>, <span class="math inline">\(I_{\text{val}}\)</span> and <span class="math inline">\(I_{\text{test}}\)</span>, and takes the observations in <span class="math inline">\(I_{\text{train}}\)</span> as the <a href="#/def-training-set">training set</a>:</p>
 <p><span id="eq-data-splits"><span class="math display">\[
 \begin{aligned}
-&amp; I_{\text{train}} \cup I_{\text{val}} \cup I_{\text{test}} = \mathopen{}\left\{1, \ldots, N\right\}\mathclose{},
+&amp; I_{\text{train}} \cup I_{\text{val}} \cup I_{\text{test}} = \mathopen{}\left\{1, \ldots, n\right\}\mathclose{},
 \\
 &amp; I_{\text{train}} \cap I_{\text{val}} = \emptyset,
 \\
@@ -912,7 +912,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 </div>
 </div>
 </section><section class="slide level2"><div id="exm-data-splits-sizes" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Split sizes for 32 cars)</strong></span> In <a href="#/exr-data-splits" class="quarto-xref">Exercise&nbsp;5</a>, a rule of 60% / 20% / 20% on <span class="math inline">\(N = 32\)</span> cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.</p>
+<p><span class="theorem-title"><strong>Example 3 (Split sizes for 32 cars)</strong></span> In <a href="#/exr-data-splits" class="quarto-xref">Exercise&nbsp;5</a>, a rule of 60% / 20% / 20% on <span class="math inline">\(n = 32\)</span> cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.</p>
 </div>
 </section><section class="slide level2"><div id="def-tuning-parameter" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 15 (Tuning parameter)</strong></span> A <strong>tuning parameter</strong> of a <a href="#/def-fitting-procedure">fitting procedure</a> is a setting <span class="math inline">\(\lambda\)</span> that the procedure needs but does not compute from the <a href="#/def-training-set">training set</a>:</p>
@@ -1844,10 +1844,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb24-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb24-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb24-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb24-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb24-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;8</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;8</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 11</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k = n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;9</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;8</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n - 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n - 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
