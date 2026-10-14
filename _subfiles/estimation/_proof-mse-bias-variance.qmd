@@ -9,14 +9,18 @@ so they are equal to each other.
 
 ::: {#rem-mse-bias-variance-prediction}
 
-#### The same split for predictions
+#### Estimation versus prediction
 
-@thm-mse-bias-variance concerns an estimator of a parameter.
-For the squared error of a *prediction* of a new outcome,
-the probability notes prove the same split with one more term,
-the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error)
-from the noise in that outcome:
-[expected squared prediction error](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error)
-equals squared bias plus variance plus the noise variance.
+The squared-error split has two forms, and they differ in what the estimate is compared with.
+
+- **Estimation.** @thm-mse-bias-variance compares an estimator $\hparam$ with a fixed parameter $\param$.
+  The target is a constant, so the expected squared error is squared bias plus variance, with no other term.
+- **Prediction.** The target is a new outcome, which is itself random.
+  The probability notes prove that
+  [expected squared prediction error](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error)
+  equals squared bias plus variance plus the noise variance,
+  the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error)
+  of that outcome.
+  No choice of prediction can remove the extra term.
 
 :::
