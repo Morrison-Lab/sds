@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-14 00:15:52 (PDT)</p>
+  <p class="date">Last modified: 2026-10-14 00:24:30 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -770,7 +770,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\ri
 </section><section class="slide level2"><!--
 This fragment's R chunks use objects made by earlier fragments
 of model-validation.qmd, so it renders only after them:
-prediction_mse(), from _sol-overfitting.qmd.
+rmse(), from _sol-overfitting.qmd.
 --><div id="exm-train-test-error-simulated" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Training error and generalization error by degree)</strong></span> Real data never reveal <span class="math inline">\(\operatorname{Err}_{\mathcal{T}}\)</span>, but a simulation can, because it can draw as many new observations as we like. Here the population is known: <span class="math inline">\(X \sim \operatorname{Uniform}(0, 1)\)</span> and <span class="math inline">\(Y \mid X = x \sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\)</span>, with <span class="math inline">\(\sigma= 0.3\)</span>. We draw one training set of <span class="math inline">\(n = 30\)</span> observations, fit a polynomial in <span class="math inline">\(x\)</span> of each degree from 1 to 10 by least squares, and score each fit on the training set and on <span class="math inline">\(10{,}000\)</span> new observations. By <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a>, the second score has expectation <span class="math inline">\(\operatorname{Err}_{\mathcal{T}}\)</span> given the training set, and with <span class="math inline">\(10{,}000\)</span> observations it is a precise estimate of it.</p>
 <div class="cell">
@@ -789,8 +789,8 @@ prediction_mse(), from _sol-overfitting.qmd.
 <span id="cb3-13"><a aria-label="13"></a>sim_errors <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">degree =</span> sim_degrees) <span class="sc">|&gt;</span></span>
 <span id="cb3-14"><a aria-label="14"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
 <span id="cb3-15"><a aria-label="15"></a>    <span class="at">fit =</span> purrr<span class="sc">::</span><span class="fu">map</span>(degree, \(d) <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">poly</span>(x, d), <span class="at">data =</span> sim_train)),</span>
-<span id="cb3-16"><a aria-label="16"></a>    <span class="at">training =</span> purrr<span class="sc">::</span><span class="fu">map_dbl</span>(fit, prediction_mse, <span class="at">data =</span> sim_train),</span>
-<span id="cb3-17"><a aria-label="17"></a>    <span class="at">generalization =</span> purrr<span class="sc">::</span><span class="fu">map_dbl</span>(fit, prediction_mse, <span class="at">data =</span> sim_new)</span>
+<span id="cb3-16"><a aria-label="16"></a>    <span class="at">training =</span> purrr<span class="sc">::</span><span class="fu">map_dbl</span>(fit, rmse, <span class="at">data =</span> sim_train),</span>
+<span id="cb3-17"><a aria-label="17"></a>    <span class="at">generalization =</span> purrr<span class="sc">::</span><span class="fu">map_dbl</span>(fit, rmse, <span class="at">data =</span> sim_new)</span>
 <span id="cb3-18"><a aria-label="18"></a>  ) <span class="sc">|&gt;</span></span>
 <span id="cb3-19"><a aria-label="19"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>fit)</span>
 <span id="cb3-20"><a aria-label="20"></a></span>
@@ -798,7 +798,7 @@ prediction_mse(), from _sol-overfitting.qmd.
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["degree"],"name":[1],"type":["int"],"align":["right"]},{"label":["training"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["generalization"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"0.3211023","3":"0.2990558"},{"1":"2","2":"0.3134597","3":"0.3103042"},{"1":"3","2":"0.0535424","3":"0.0994202"},{"1":"4","2":"0.0535387","3":"0.0993983"},{"1":"5","2":"0.0464635","3":"0.0939241"},{"1":"6","2":"0.0380526","3":"0.1049318"},{"1":"7","2":"0.0376783","3":"0.1061439"},{"1":"8","2":"0.0339670","3":"0.1119993"},{"1":"9","2":"0.0333162","3":"0.1123130"},{"1":"10","2":"0.0325557","3":"0.1159959"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["degree"],"name":[1],"type":["int"],"align":["right"]},{"label":["training"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["generalization"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"0.566659","3":"0.546860"},{"1":"2","2":"0.559875","3":"0.557050"},{"1":"3","2":"0.231392","3":"0.315310"},{"1":"4","2":"0.231384","3":"0.315275"},{"1":"5","2":"0.215554","3":"0.306470"},{"1":"6","2":"0.195071","3":"0.323932"},{"1":"7","2":"0.194109","3":"0.325797"},{"1":"8","2":"0.184301","3":"0.334663"},{"1":"9","2":"0.182527","3":"0.335131"},{"1":"10","2":"0.180432","3":"0.340582"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -807,17 +807,17 @@ prediction_mse(), from _sol-overfitting.qmd.
 <span id="cb4-2"><a aria-label="2"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
 <span id="cb4-3"><a aria-label="3"></a>    <span class="fu">c</span>(training, generalization),</span>
 <span id="cb4-4"><a aria-label="4"></a>    <span class="at">names_to =</span> <span class="st">"error"</span>,</span>
-<span id="cb4-5"><a aria-label="5"></a>    <span class="at">values_to =</span> <span class="st">"mse"</span></span>
+<span id="cb4-5"><a aria-label="5"></a>    <span class="at">values_to =</span> <span class="st">"rmse"</span></span>
 <span id="cb4-6"><a aria-label="6"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb4-7"><a aria-label="7"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(degree, mse, <span class="at">colour =</span> error, <span class="at">shape =</span> error)) <span class="sc">+</span></span>
-<span id="cb4-8"><a aria-label="8"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> sim_sigma<span class="sc">^</span><span class="dv">2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb4-7"><a aria-label="7"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(degree, rmse, <span class="at">colour =</span> error, <span class="at">shape =</span> error)) <span class="sc">+</span></span>
+<span id="cb4-8"><a aria-label="8"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> sim_sigma, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
 <span id="cb4-9"><a aria-label="9"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb4-10"><a aria-label="10"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb4-11"><a aria-label="11"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> sim_degrees) <span class="sc">+</span></span>
 <span id="cb4-12"><a aria-label="12"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
 <span id="cb4-13"><a aria-label="13"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
 <span id="cb4-14"><a aria-label="14"></a>    <span class="at">x =</span> <span class="st">"polynomial degree"</span>,</span>
-<span id="cb4-15"><a aria-label="15"></a>    <span class="at">y =</span> <span class="st">"mean squared error (log scale)"</span>,</span>
+<span id="cb4-15"><a aria-label="15"></a>    <span class="at">y =</span> <span class="st">"root mean squared error (log scale)"</span>,</span>
 <span id="cb4-16"><a aria-label="16"></a>    <span class="at">colour =</span> <span class="cn">NULL</span>,</span>
 <span id="cb4-17"><a aria-label="17"></a>    <span class="at">shape =</span> <span class="cn">NULL</span></span>
 <span id="cb4-18"><a aria-label="18"></a>  ) <span class="sc">+</span></span>
@@ -825,12 +825,12 @@ prediction_mse(), from _sol-overfitting.qmd.
 <span id="cb4-20"><a aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-train-test-error" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-train-test-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Training mean squared error and estimated generalization error (mean squared error on <span class="math inline">\(10{,}000\)</span> new observations) of polynomial fits to one simulated training set of <span class="math inline">\(n = 30\)</span>. The dashed line is the noise variance <span class="math inline">\(\sigma^2\)</span>, the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error">irreducible error</a>.
+Figure&nbsp;1: Training RMSE and estimated generalization error (RMSE on <span class="math inline">\(10{,}000\)</span> new observations) of polynomial fits to one simulated training set of <span class="math inline">\(n = 30\)</span>. The dashed line is the noise standard deviation <span class="math inline">\(\sigma\)</span>, the square root of the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error">irreducible error</a>.
 </figcaption><div aria-describedby="fig-train-test-error-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><a href="model-validation_files/figure-html/train-test-error-plot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Training mean squared error and estimated generalization error (mean squared error on 10{,}000 new observations) of polynomial fits to one simulated training set of n = 30. The dashed line is the noise variance \sigma^2, the irreducible error."><img data-src="model-validation_files/figure-html/train-test-error-plot-1.png" alt="Mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise variance, 0.09." width="672"></a></p>
+<figure><p><a href="model-validation_files/figure-html/train-test-error-plot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Training RMSE and estimated generalization error (RMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n = 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error."><img data-src="model-validation_files/figure-html/train-test-error-plot-1.png" alt="Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3." width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -843,8 +843,8 @@ Figure&nbsp;1: Training mean squared error and estimated generalization error (m
 <span id="cb5-2"><a aria-label="2"></a>  sim_errors<span class="sc">$</span>degree[<span class="fu">which.min</span>(sim_errors<span class="sc">$</span>generalization)]</span>
 <span id="cb5-3"><a aria-label="3"></a>sim_best_training <span class="ot">&lt;-</span> sim_errors<span class="sc">$</span>degree[<span class="fu">which.min</span>(sim_errors<span class="sc">$</span>training)]</span>
 <span id="cb5-4"><a aria-label="4"></a>sim_n_below <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb5-5"><a aria-label="5"></a>  <span class="at">training =</span> <span class="fu">sum</span>(sim_errors<span class="sc">$</span>training <span class="sc">&lt;</span> sim_sigma<span class="sc">^</span><span class="dv">2</span>),</span>
-<span id="cb5-6"><a aria-label="6"></a>  <span class="at">generalization =</span> <span class="fu">sum</span>(sim_errors<span class="sc">$</span>generalization <span class="sc">&lt;</span> sim_sigma<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb5-5"><a aria-label="5"></a>  <span class="at">training =</span> <span class="fu">sum</span>(sim_errors<span class="sc">$</span>training <span class="sc">&lt;</span> sim_sigma),</span>
+<span id="cb5-6"><a aria-label="6"></a>  <span class="at">generalization =</span> <span class="fu">sum</span>(sim_errors<span class="sc">$</span>generalization <span class="sc">&lt;</span> sim_sigma)</span>
 <span id="cb5-7"><a aria-label="7"></a>)</span>
 <span id="cb5-8"><a aria-label="8"></a><span class="fu">c</span>(</span>
 <span id="cb5-9"><a aria-label="9"></a>  <span class="at">best_by_training =</span> sim_best_training,</span>
@@ -857,7 +857,7 @@ Figure&nbsp;1: Training mean squared error and estimated generalization error (m
 <span id="cb5-16"><a aria-label="16"></a><span class="co">#&gt;                             8                             0</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization error below <span class="math inline">\(\sigma^2= 0.09\)</span>. Yet the training error falls below <span class="math inline">\(\sigma^2\)</span> at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is <a href="#/rem-training-mse-optimistic">optimistic</a>.</p>
+<p>The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization RMSE below <span class="math inline">\(\sigma= 0.3\)</span>. Yet the training RMSE falls below <span class="math inline">\(\sigma\)</span> at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is <a href="#/rem-training-mse-optimistic">optimistic</a>.</p>
 </div>
 </section><section id="sec-data-splits" class="slide level2" data-number="4"><h2>
 <span class="header-section-number">4</span> Training, validation, and test sets</h2>
@@ -1479,13 +1479,13 @@ and prediction_mse(), from _sol-overfitting.qmd.
 <span id="cb15-25"><a aria-label="25"></a><span class="co">#&gt; 1 2 3 4 5 </span></span>
 <span id="cb15-26"><a aria-label="26"></a><span class="co">#&gt; 6 6 6 6 6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The same fold assignment is used for every degree, so the degrees are compared on the same splits.</p>
+<p>The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training and generalization RMSE of <a href="#/exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;2</a>.</p>
 <div class="cell">
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>sim_errors_cv <span class="ot">&lt;-</span> sim_errors <span class="sc">|&gt;</span></span>
 <span id="cb16-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
 <span id="cb16-3"><a aria-label="3"></a>    <span class="at">cv_5 =</span> purrr<span class="sc">::</span><span class="fu">map_dbl</span>(</span>
 <span id="cb16-4"><a aria-label="4"></a>      degree,</span>
-<span id="cb16-5"><a aria-label="5"></a>      \(d) <span class="fu">cv_mse</span>(y <span class="sc">~</span> <span class="fu">poly</span>(x, d), sim_train, sim_folds)</span>
+<span id="cb16-5"><a aria-label="5"></a>      \(d) <span class="fu">sqrt</span>(<span class="fu">cv_mse</span>(y <span class="sc">~</span> <span class="fu">poly</span>(x, d), sim_train, sim_folds))</span>
 <span id="cb16-6"><a aria-label="6"></a>    )</span>
 <span id="cb16-7"><a aria-label="7"></a>  )</span>
 <span id="cb16-8"><a aria-label="8"></a></span>
@@ -1493,7 +1493,7 @@ and prediction_mse(), from _sol-overfitting.qmd.
 </details><div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["degree"],"name":[1],"type":["int"],"align":["right"]},{"label":["training"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["generalization"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["cv_5"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"0.3211023","3":"0.2990558","4":"0.3561603"},{"1":"2","2":"0.3134597","3":"0.3103042","4":"0.3715125"},{"1":"3","2":"0.0535424","3":"0.0994202","4":"0.0821472"},{"1":"4","2":"0.0535387","3":"0.0993983","4":"0.0982125"},{"1":"5","2":"0.0464635","3":"0.0939241","4":"0.1042052"},{"1":"6","2":"0.0380526","3":"0.1049318","4":"0.0940529"},{"1":"7","2":"0.0376783","3":"0.1061439","4":"0.1558797"},{"1":"8","2":"0.0339670","3":"0.1119993","4":"0.1000847"},{"1":"9","2":"0.0333162","3":"0.1123130","4":"0.2867934"},{"1":"10","2":"0.0325557","3":"0.1159959","4":"1.9244464"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["degree"],"name":[1],"type":["int"],"align":["right"]},{"label":["training"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["generalization"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["cv_5"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"0.566659","3":"0.546860","4":"0.596792"},{"1":"2","2":"0.559875","3":"0.557050","4":"0.609518"},{"1":"3","2":"0.231392","3":"0.315310","4":"0.286613"},{"1":"4","2":"0.231384","3":"0.315275","4":"0.313389"},{"1":"5","2":"0.215554","3":"0.306470","4":"0.322808"},{"1":"6","2":"0.195071","3":"0.323932","4":"0.306681"},{"1":"7","2":"0.194109","3":"0.325797","4":"0.394816"},{"1":"8","2":"0.184301","3":"0.334663","4":"0.316362"},{"1":"9","2":"0.182527","3":"0.335131","4":"0.535531"},{"1":"10","2":"0.180432","3":"0.340582","4":"1.387244"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1502,7 +1502,7 @@ and prediction_mse(), from _sol-overfitting.qmd.
 <span id="cb17-2"><a aria-label="2"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(</span>
 <span id="cb17-3"><a aria-label="3"></a>    <span class="fu">c</span>(training, generalization, cv_5),</span>
 <span id="cb17-4"><a aria-label="4"></a>    <span class="at">names_to =</span> <span class="st">"error"</span>,</span>
-<span id="cb17-5"><a aria-label="5"></a>    <span class="at">values_to =</span> <span class="st">"mse"</span></span>
+<span id="cb17-5"><a aria-label="5"></a>    <span class="at">values_to =</span> <span class="st">"rmse"</span></span>
 <span id="cb17-6"><a aria-label="6"></a>  ) <span class="sc">|&gt;</span></span>
 <span id="cb17-7"><a aria-label="7"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
 <span id="cb17-8"><a aria-label="8"></a>    <span class="at">error =</span> <span class="fu">factor</span>(</span>
@@ -1511,15 +1511,15 @@ and prediction_mse(), from _sol-overfitting.qmd.
 <span id="cb17-11"><a aria-label="11"></a>      <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"training"</span>, <span class="st">"5-fold CV"</span>, <span class="st">"generalization"</span>)</span>
 <span id="cb17-12"><a aria-label="12"></a>    )</span>
 <span id="cb17-13"><a aria-label="13"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb17-14"><a aria-label="14"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(degree, mse, <span class="at">colour =</span> error, <span class="at">shape =</span> error)) <span class="sc">+</span></span>
-<span id="cb17-15"><a aria-label="15"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> sim_sigma<span class="sc">^</span><span class="dv">2</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb17-14"><a aria-label="14"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(degree, rmse, <span class="at">colour =</span> error, <span class="at">shape =</span> error)) <span class="sc">+</span></span>
+<span id="cb17-15"><a aria-label="15"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> sim_sigma, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
 <span id="cb17-16"><a aria-label="16"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_line</span>() <span class="sc">+</span></span>
 <span id="cb17-17"><a aria-label="17"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb17-18"><a aria-label="18"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> sim_degrees) <span class="sc">+</span></span>
 <span id="cb17-19"><a aria-label="19"></a>  ggplot2<span class="sc">::</span><span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
 <span id="cb17-20"><a aria-label="20"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(</span>
 <span id="cb17-21"><a aria-label="21"></a>    <span class="at">x =</span> <span class="st">"polynomial degree"</span>,</span>
-<span id="cb17-22"><a aria-label="22"></a>    <span class="at">y =</span> <span class="st">"mean squared error (log scale)"</span>,</span>
+<span id="cb17-22"><a aria-label="22"></a>    <span class="at">y =</span> <span class="st">"root mean squared error (log scale)"</span>,</span>
 <span id="cb17-23"><a aria-label="23"></a>    <span class="at">colour =</span> <span class="cn">NULL</span>,</span>
 <span id="cb17-24"><a aria-label="24"></a>    <span class="at">shape =</span> <span class="cn">NULL</span></span>
 <span id="cb17-25"><a aria-label="25"></a>  ) <span class="sc">+</span></span>
@@ -1532,7 +1532,7 @@ Figure&nbsp;6: <a href="#/fig-train-test-error" class="quarto-xref">Figure&nbsp;
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><a href="model-validation_files/figure-html/cv-simulated-plot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;6: Figure&nbsp;1 with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data."><img data-src="model-validation_files/figure-html/cv-simulated-plot-1.png" alt="Mean squared error against polynomial degree from 1 to 10, with three curves for the training error, the estimated generalization error, and the 5-fold cross-validation estimate. The training error falls as the degree grows. The other two curves fall at the low degrees, then level off; the cross-validation curve rises sharply at the highest degrees." width="672"></a></p>
+<figure><p><a href="model-validation_files/figure-html/cv-simulated-plot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;6: Figure&nbsp;1 with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data."><img data-src="model-validation_files/figure-html/cv-simulated-plot-1.png" alt="Root mean squared error against polynomial degree from 1 to 10, with three curves for the training error, the estimated generalization error, and the 5-fold cross-validation estimate. The training error falls as the degree grows. The other two curves fall at the low degrees, then level off; the cross-validation curve rises sharply at the highest degrees." width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1552,12 +1552,12 @@ Figure&nbsp;6: <a href="#/fig-train-test-error" class="quarto-xref">Figure&nbsp;
 <span id="cb18-9"><a aria-label="9"></a>  <span class="at">cv_over_generalization_at_top_degree =</span> sim_cv_ratio_top</span>
 <span id="cb18-10"><a aria-label="10"></a>)</span>
 <span id="cb18-11"><a aria-label="11"></a><span class="co">#&gt;                           best_by_cv               best_by_generalization </span></span>
-<span id="cb18-12"><a aria-label="12"></a><span class="co">#&gt;                               3.0000                               5.0000 </span></span>
+<span id="cb18-12"><a aria-label="12"></a><span class="co">#&gt;                              3.00000                              5.00000 </span></span>
 <span id="cb18-13"><a aria-label="13"></a><span class="co">#&gt;                            n_per_fit cv_over_generalization_at_top_degree </span></span>
-<span id="cb18-14"><a aria-label="14"></a><span class="co">#&gt;                              24.0000                              16.5906</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-14"><a aria-label="14"></a><span class="co">#&gt;                             24.00000                              4.07316</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of <span class="math inline">\(\operatorname{Err}_{\mathcal{T}}\)</span> for the fit to all 30 observations, though (<a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;8</a>). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 16.6 times the estimated generalization error.</p>
+<p>The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of <span class="math inline">\(\operatorname{Err}_{\mathcal{T}}\)</span> for the fit to all 30 observations, though (<a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;8</a>). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization RMSE.</p>
 <p>Part of that gap is expected: by <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;8</a>, with <span class="math inline">\(g\)</span> the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\)</span>, not the error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.</p>
 <div class="cell">
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>sim_generalization_draws <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
@@ -1604,7 +1604,7 @@ Figure&nbsp;6: <a href="#/fig-train-test-error" class="quarto-xref">Figure&nbsp;
 </div>
 </div>
 </div>
-<p>Over 500 simulated training sets of each size, degree-10 fits to 24 points have median generalization error 1.14, against 0.27 for fits to 30 points, and 90th percentiles of 207.31 and 40.65. The sample means are no guide to <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\)</span> here: the largest single value among the fits to 24 points is 18,000,000, from one fit that is wildly wrong away from the data, and the two largest values supply 97% and 51% of the two means. So fits of this degree to 24 points are much worse than fits to 30 points, and a large cross-validation estimate here is no surprise. How much of this particular gap comes from the training-set size, and how much from the chance of this one data set, a single run cannot say. The estimate also jumps around from one degree to the next, because it rests on only 30 observations rather than on <span class="math inline">\(10{,}000\)</span> new ones.</p>
+<p>Over 500 simulated training sets of each size, degree-10 fits to 24 points have median generalization MSE 1.14, against 0.27 for fits to 30 points, and 90th percentiles of 207.31 and 40.65. The sample means are no guide to <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\)</span> here: the largest single value among the fits to 24 points is 18,000,000, from one fit that is wildly wrong away from the data, and the two largest values supply 97% and 51% of the two means. So fits of this degree to 24 points are much worse than fits to 30 points, and a large cross-validation estimate here is no surprise. How much of this particular gap comes from the training-set size, and how much from the chance of this one data set, a single run cannot say. The estimate also jumps around from one degree to the next, because it rests on only 30 observations rather than on <span class="math inline">\(10{,}000\)</span> new ones.</p>
 </div>
 </section><section class="slide level2"><!--
 This fragment's R chunks use objects made by earlier fragments
@@ -2035,7 +2035,7 @@ Figure&nbsp;7: 10-fold cross-validation estimates, with bars of one <a href="#/d
 </div>
 </figure>
 </div>
-<p>The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization errors of <a href="#/exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;2</a>: 0.112 for degree 8 and 0.099 for degree 3.</p>
+<p>The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization RMSE of <a href="#/exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;2</a> for each: 0.335 for degree 8 and 0.315 for degree 3.</p>
 </div>
 </section><section id="sec-cv-whole-procedure" class="slide level2 scrollable" data-number="8"><h2>
 <span class="header-section-number">8</span> Cross-validating the whole procedure</h2>

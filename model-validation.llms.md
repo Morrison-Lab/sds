@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 00:15:52 (PDT)
+Last modified: 2026-10-14 00:24:30 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -319,8 +319,8 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 > sim_errors <- tibble::tibble(degree = sim_degrees) |>
 >   dplyr::mutate(
 >     fit = purrr::map(degree, \(d) lm(y ~ poly(x, d), data = sim_train)),
->     training = purrr::map_dbl(fit, prediction_mse, data = sim_train),
->     generalization = purrr::map_dbl(fit, prediction_mse, data = sim_new)
+>     training = purrr::map_dbl(fit, rmse, data = sim_train),
+>     generalization = purrr::map_dbl(fit, rmse, data = sim_new)
 >   ) |>
 >   dplyr::select(-fit)
 >
@@ -334,17 +334,17 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >   tidyr::pivot_longer(
 >     c(training, generalization),
 >     names_to = "error",
->     values_to = "mse"
+>     values_to = "rmse"
 >   ) |>
->   ggplot2::ggplot(ggplot2::aes(degree, mse, colour = error, shape = error)) +
->   ggplot2::geom_hline(yintercept = sim_sigma^2, linetype = "dashed") +
+>   ggplot2::ggplot(ggplot2::aes(degree, rmse, colour = error, shape = error)) +
+>   ggplot2::geom_hline(yintercept = sim_sigma, linetype = "dashed") +
 >   ggplot2::geom_line() +
 >   ggplot2::geom_point(size = 2) +
 >   ggplot2::scale_x_continuous(breaks = sim_degrees) +
 >   ggplot2::scale_y_log10() +
 >   ggplot2::labs(
 >     x = "polynomial degree",
->     y = "mean squared error (log scale)",
+>     y = "root mean squared error (log scale)",
 >     colour = NULL,
 >     shape = NULL
 >   ) +
@@ -352,9 +352,9 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >   ggplot2::theme(legend.position = "top")
 > ```
 >
-> [![Mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise variance, 0.09.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 1: Training mean squared error and estimated generalization error (mean squared error on 10{,}000 new observations) of polynomial fits to one simulated training set of n = 30. The dashed line is the noise variance \sigma^2, the irreducible error.")
+> [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 1: Training RMSE and estimated generalization error (RMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n = 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error.")
 >
-> Figure 1: Training mean squared error and estimated generalization error (mean squared error on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n = 30\\. The dashed line is the noise variance \\\sigma^2\\, the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error).
+> Figure 1: Training RMSE and estimated generalization error (RMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n = 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error).
 >
 > Show R code
 >
@@ -363,8 +363,8 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >   sim_errors$degree[which.min(sim_errors$generalization)]
 > sim_best_training <- sim_errors$degree[which.min(sim_errors$training)]
 > sim_n_below <- c(
->   training = sum(sim_errors$training < sim_sigma^2),
->   generalization = sum(sim_errors$generalization < sim_sigma^2)
+>   training = sum(sim_errors$training < sim_sigma),
+>   generalization = sum(sim_errors$generalization < sim_sigma)
 > )
 > c(
 >   best_by_training = sim_best_training,
@@ -377,7 +377,7 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 > #>                             8                             0
 > ```
 >
-> The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization error below \\\sigma^2= 0.09\\. Yet the training error falls below \\\sigma^2\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
+> The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization RMSE below \\\sigma= 0.3\\. Yet the training RMSE falls below \\\sigma\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
 
 ## 4 Training, validation, and test sets
 
@@ -845,7 +845,7 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 > #> 6 6 6 6 6
 > ```
 >
-> The same fold assignment is used for every degree, so the degrees are compared on the same splits.
+> The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training and generalization RMSE of [Example 2](#exm-train-test-error-simulated).
 >
 > Show R code
 >
@@ -854,7 +854,7 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >   dplyr::mutate(
 >     cv_5 = purrr::map_dbl(
 >       degree,
->       \(d) cv_mse(y ~ poly(x, d), sim_train, sim_folds)
+>       \(d) sqrt(cv_mse(y ~ poly(x, d), sim_train, sim_folds))
 >     )
 >   )
 >
@@ -868,7 +868,7 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >   tidyr::pivot_longer(
 >     c(training, generalization, cv_5),
 >     names_to = "error",
->     values_to = "mse"
+>     values_to = "rmse"
 >   ) |>
 >   dplyr::mutate(
 >     error = factor(
@@ -877,15 +877,15 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >       labels = c("training", "5-fold CV", "generalization")
 >     )
 >   ) |>
->   ggplot2::ggplot(ggplot2::aes(degree, mse, colour = error, shape = error)) +
->   ggplot2::geom_hline(yintercept = sim_sigma^2, linetype = "dashed") +
+>   ggplot2::ggplot(ggplot2::aes(degree, rmse, colour = error, shape = error)) +
+>   ggplot2::geom_hline(yintercept = sim_sigma, linetype = "dashed") +
 >   ggplot2::geom_line() +
 >   ggplot2::geom_point(size = 2) +
 >   ggplot2::scale_x_continuous(breaks = sim_degrees) +
 >   ggplot2::scale_y_log10() +
 >   ggplot2::labs(
 >     x = "polynomial degree",
->     y = "mean squared error (log scale)",
+>     y = "root mean squared error (log scale)",
 >     colour = NULL,
 >     shape = NULL
 >   ) +
@@ -893,7 +893,7 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >   ggplot2::theme(legend.position = "top")
 > ```
 >
-> [![Mean squared error against polynomial degree from 1 to 10, with three curves for the training error, the estimated generalization error, and the 5-fold cross-validation estimate. The training error falls as the degree grows. The other two curves fall at the low degrees, then level off; the cross-validation curve rises sharply at the highest degrees.](model-validation_files/figure-html/cv-simulated-plot-1.png)](model-validation_files/figure-html/cv-simulated-plot-1.png "Figure 6: Figure 1 with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.")
+> [![Root mean squared error against polynomial degree from 1 to 10, with three curves for the training error, the estimated generalization error, and the 5-fold cross-validation estimate. The training error falls as the degree grows. The other two curves fall at the low degrees, then level off; the cross-validation curve rises sharply at the highest degrees.](model-validation_files/figure-html/cv-simulated-plot-1.png)](model-validation_files/figure-html/cv-simulated-plot-1.png "Figure 6: Figure 1 with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.")
 >
 > Figure 6: [Figure 1](#fig-train-test-error) with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.
 >
@@ -911,12 +911,12 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >   cv_over_generalization_at_top_degree = sim_cv_ratio_top
 > )
 > #>                           best_by_cv               best_by_generalization 
-> #>                               3.0000                               5.0000 
+> #>                              3.00000                              5.00000 
 > #>                            n_per_fit cv_over_generalization_at_top_degree 
-> #>                              24.0000                              16.5906
+> #>                             24.00000                              4.07316
 > ```
 >
-> The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of \\\operatorname{Err}\_{\mathcal{T}}\\ for the fit to all 30 observations, though ([Remark 8](#rem-cv-estimate)). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 16.6 times the estimated generalization error.
+> The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of \\\operatorname{Err}\_{\mathcal{T}}\\ for the fit to all 30 observations, though ([Remark 8](#rem-cv-estimate)). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization RMSE.
 >
 > Part of that gap is expected: by [Remark 8](#rem-cv-estimate), with \\g\\ the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets \\\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\\, not the error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.
 >
@@ -961,7 +961,7 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 > sim_size_effect
 > ```
 >
-> Over 500 simulated training sets of each size, degree-10 fits to 24 points have median generalization error 1.14, against 0.27 for fits to 30 points, and 90th percentiles of 207.31 and 40.65. The sample means are no guide to \\\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\\ here: the largest single value among the fits to 24 points is 18,000,000, from one fit that is wildly wrong away from the data, and the two largest values supply 97% and 51% of the two means. So fits of this degree to 24 points are much worse than fits to 30 points, and a large cross-validation estimate here is no surprise. How much of this particular gap comes from the training-set size, and how much from the chance of this one data set, a single run cannot say. The estimate also jumps around from one degree to the next, because it rests on only 30 observations rather than on \\10{,}000\\ new ones.
+> Over 500 simulated training sets of each size, degree-10 fits to 24 points have median generalization MSE 1.14, against 0.27 for fits to 30 points, and 90th percentiles of 207.31 and 40.65. The sample means are no guide to \\\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\\ here: the largest single value among the fits to 24 points is 18,000,000, from one fit that is wildly wrong away from the data, and the two largest values supply 97% and 51% of the two means. So fits of this degree to 24 points are much worse than fits to 30 points, and a large cross-validation estimate here is no surprise. How much of this particular gap comes from the training-set size, and how much from the chance of this one data set, a single run cannot say. The estimate also jumps around from one degree to the next, because it rests on only 30 observations rather than on \\10{,}000\\ new ones.
 
 > **NOTE:**
 >
@@ -1287,7 +1287,7 @@ Last modified: 2026-10-14 00:15:52 (PDT)
 >
 > Figure 7: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 35](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
 >
-> The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization errors of [Example 2](#exm-train-test-error-simulated): 0.112 for degree 8 and 0.099 for degree 3.
+> The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization RMSE of [Example 2](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
 ## 8 Cross-validating the whole procedure
 
