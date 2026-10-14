@@ -62,11 +62,19 @@ and within each class there are important subtypes.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/data/_rem-discrete-var-types.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/data/_def-categorical-var.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/data/_exm-categorical-var.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/data/_rem-categorical-var-kinds.qmd >}}
 
 {{< slidebreak >}}
 

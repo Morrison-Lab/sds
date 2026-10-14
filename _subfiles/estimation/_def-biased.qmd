@@ -1,0 +1,9 @@
+::: {#def-biased}
+#### Biased estimator
+
+An estimator $\hparam$ is **biased** if its [bias](#def-bias) is not zero:
+
+$$
+\bias{\hparam} \neq 0
+$$
+:::

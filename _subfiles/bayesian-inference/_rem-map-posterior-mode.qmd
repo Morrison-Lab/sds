@@ -1,0 +1,5 @@
+::: {#rem-map-posterior-mode}
+#### The MAP estimate is the posterior mode
+
+The MAP estimate is the mode of the posterior distribution.
+:::

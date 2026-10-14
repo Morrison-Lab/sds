@@ -201,7 +201,15 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_rem-einf-vs-oinf.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_def_oinf.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_rem-oinf-vs-einf.qmd >}}
 
 {{< slidebreak >}}
 
@@ -273,7 +281,15 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_def-wald-statistic-q.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_exm-wald-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_rem-wald-test-distribution.qmd >}}
 
 {{< slidebreak >}}
 

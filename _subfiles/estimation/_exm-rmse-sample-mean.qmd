@@ -1,0 +1,6 @@
+::: {#exm-rmse-sample-mean}
+#### Root mean squared error of the sample mean
+
+In @exm-mse-sample-mean,
+the root mean squared error of $\bar X$ is $\sdpar/\sqrt{n}$.
+:::

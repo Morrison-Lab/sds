@@ -68,15 +68,27 @@ resources:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/multiple-testing/_def-fwer-control.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/multiple-testing/_exm-fwer.qmd >}}
 
 {{< slidebreak >}}
 
 ### The false discovery rate {#sec-fdr}
 
-<!-- No slidebreak here: the heading shares its slide with the def-fdr div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-fdp div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-fdp.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/multiple-testing/_def-fdr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_def-fdr-control.qmd >}}
 
 {{< slidebreak >}}
 

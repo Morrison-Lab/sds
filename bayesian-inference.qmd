@@ -104,6 +104,10 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_rem-map-posterior-mode.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/bayesian-inference/_cor-map-penalized.qmd >}}
 
 {{< slidebreak >}}
@@ -258,6 +262,10 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/bayesian-inference/_rem-prior-predictive-marginal-likelihood.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/bayesian-inference/_def-posterior-predictive.qmd >}}
 
 {{< slidebreak >}}
@@ -295,6 +303,10 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_exm-ppp-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/bayesian-inference/_rem-ppp-value-estimate.qmd >}}
 
 ## Distributions and hierarchies {#sec-bayes-hierarchies}
 

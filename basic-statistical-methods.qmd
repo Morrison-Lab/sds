@@ -84,6 +84,10 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_rem-pooled-variance-estimates.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_def-pooled-t-test.qmd >}}
 
 {{< slidebreak >}}

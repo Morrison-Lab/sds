@@ -219,6 +219,10 @@ Different types of graph suit different types of variable.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/exploratory-descriptive/_rem-pearson-r-estimates-population.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/exploratory-descriptive/_thm-pearson-r-range.qmd >}}
 
 {{< slidebreak >}}

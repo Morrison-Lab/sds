@@ -1,0 +1,6 @@
+::: {#rem-pooled-variance-estimates}
+#### What the pooled variance estimates
+
+When the two populations share one variance $\sigma^2$,
+the pooled variance estimates it.
+:::
