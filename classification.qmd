@@ -24,6 +24,10 @@ format:
 
 {{< include sds/_subfiles/classification/_exm-classification.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_rem-classification-binary-labels.qmd >}}
+
 ## Diagnostic test characteristics
 
 <!-- No slidebreak here: the heading shares its slide with the def-sensitivity div. -->

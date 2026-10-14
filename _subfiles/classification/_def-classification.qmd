@@ -12,8 +12,4 @@ where $\scrC$ is a set of $K$ classes
 (for example, $\scrC = \set{1, \dots, K}$,
 or a set of text labels).
 
-In the binary case ($K = 2$),
-the two classes are often labeled "positive" and "negative",
-or "diseased" and "healthy".
-
 :::
