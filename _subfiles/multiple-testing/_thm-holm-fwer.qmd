@@ -13,7 +13,7 @@ whatever the dependence between the p-values.
 
 If $m_0 = 0$ there is no true null hypothesis to reject, so $V = 0$ and $\text{FWER} = 0$.
 If $m_0 \ge 1$, the event $V \ge 1$ means Holm's procedure rejects a true null hypothesis,
-so by @sol-holm-threshold it is contained in the event $\min_{j \in \truenulls} p_j \le \siglevel / m_0$:
+so by @lem-holm-threshold it is contained in the event $\min_{j \in \truenulls} p_j \le \siglevel / m_0$:
 
 $$
 \begin{aligned}
