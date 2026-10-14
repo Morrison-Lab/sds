@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 01:48:17 (PDT)
+Last modified: 2026-10-14 01:59:19 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 

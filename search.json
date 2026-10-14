@@ -77,48 +77,6 @@
     ]
   },
   {
-    "objectID": "permutation-tests-slides.html#sec-permutation-khan-data",
-    "href": "permutation-tests-slides.html#sec-permutation-khan-data",
-    "title": "Permutation Tests",
-    "section": "\n1 The Khan gene expression data",
-    "text": "1 The Khan gene expression data\nThe examples on this page use gene expression data from Khan et al. (2001), who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at data/khan.csv, taken from the Khan data of the R package ISLR2 (James et al. 2021): the column tumor_class holds the class, and the columns gene_1 to gene_2308 hold the expression values. The examples compare classes 2 and 4.\n\nkhan &lt;- read.csv(\"data/khan.csv\")\nkhan_pair &lt;- khan[khan$tumor_class %in% c(2, 4), ]\ntable(tumor_class = khan_pair$tumor_class)\n#&gt; tumor_class\n#&gt;  2  4 \n#&gt; 23 20"
-  },
-  {
-    "objectID": "permutation-tests-slides.html#sec-exchangeability",
-    "href": "permutation-tests-slides.html#sec-exchangeability",
-    "title": "Permutation Tests",
-    "section": "\n2 Exchangeability under the null hypothesis",
-    "text": "2 Exchangeability under the null hypothesis\n\n\nDefinition 1 (Exchangeable random variables) For a permutation \\(\\pi\\) of \\(\\mathopen{}\\left\\{1, \\ldots, n\\right\\}\\mathclose{}\\) and a vector \\(y = (y_1, \\ldots, y_n)\\), write \\(y_\\pi \\stackrel{\\text{def}}{=}(y_{\\pi(1)}, \\ldots, y_{\\pi(n)})\\) for the vector with its entries reordered by \\(\\pi\\). Random variables \\(Y_1, \\ldots, Y_n\\) are exchangeable if reordering them does not change their joint distribution: for every permutation \\(\\pi\\) and every set \\(A\\) of vectors,\n\\[\\Pr(Y_\\pi \\in A) = \\Pr(Y \\in A).\\]"
-  },
-  {
-    "objectID": "permutation-tests-slides.html#sec-permutation-distribution",
-    "href": "permutation-tests-slides.html#sec-permutation-distribution",
-    "title": "Permutation Tests",
-    "section": "\n3 The permutation distribution and p-value",
-    "text": "3 The permutation distribution and p-value\n\n3.1 The permutation distribution\n\n\nDefinition 2 (Permutation distribution) Let \\(y = (y_1, \\ldots, y_n)\\) hold the observed values, with the first \\(n_1\\) entries belonging to group 1 and the rest to group 2, and let \\(T(y)\\) be a test statistic computed from the data and the group assignment. Let \\(S_n\\) be the set of all \\(n!\\) permutations of \\(\\mathopen{}\\left\\{1, \\ldots, n\\right\\}\\mathclose{}\\). The permutation distribution of \\(T\\) is the distribution of \\(T(y_\\pi)\\) when \\(\\pi\\) is drawn uniformly from \\(S_n\\) and \\(y\\) is held fixed. It puts probability \\(1 / n!\\) on each relabeling \\(y_\\pi\\), so for every \\(t\\)\n\\[\\Pr_\\pi\\mathopen{}\\left(T(y_\\pi) \\ge t\\right)\\mathclose{} \\stackrel{\\text{def}}{=}\\frac{1}{n!} \\sum_{\\pi \\in S_n} \\mathbb{1}_{T(y_\\pi) \\ge t}.\\]"
-  },
-  {
-    "objectID": "permutation-tests-slides.html#sec-monte-carlo-permutation",
-    "href": "permutation-tests-slides.html#sec-monte-carlo-permutation",
-    "title": "Permutation Tests",
-    "section": "\n4 The Monte Carlo approximation",
-    "text": "4 The Monte Carlo approximation\n\n\nDefinition 4 (Monte Carlo permutation p-value) With the notation of Definition 2, draw \\(B\\) permutations \\(\\pi_1, \\ldots, \\pi_B\\) independently and uniformly from \\(S_n\\), and let \\(T_b \\stackrel{\\text{def}}{=}T(y_{\\pi_b})\\). The Monte Carlo permutation p-value counts the observed labeling as one more relabeling, so it adds 1 to the numerator and to the denominator:\n\\[\\hat p_{\\text{perm}} \\stackrel{\\text{def}}{=}\\frac{1 + \\sum_{b=1}^B \\mathbb{1}_{T_b \\ge T(y)}}{B + 1}.\\]"
-  },
-  {
-    "objectID": "permutation-tests-slides.html#sec-permutation-multiple-testing",
-    "href": "permutation-tests-slides.html#sec-permutation-multiple-testing",
-    "title": "Permutation Tests",
-    "section": "\n5 Permutation tests and multiple testing",
-    "text": "5 Permutation tests and multiple testing\n\n\nExample 7 (Permutation p-values for all 2308 genes) Relabeling the samples once permutes every gene at the same time, so \\(B = 1000\\) relabelings give a permutation null distribution for each of the 2308 genes. This computes \\(\\mathopen{}\\left|t\\right|\\mathclose{}\\) for all genes from column means and sums of squares, in a function checked against t.test() on gene 3:\n\nexpr_matrix &lt;- as.matrix(khan_pair[, grepl(\"^gene_\", names(khan_pair))])\nabs_welch_t_all &lt;- function(x, in_group1) {\n  n1 &lt;- sum(in_group1)\n  n2 &lt;- sum(!in_group1)\n  mean1 &lt;- colMeans(x[in_group1, , drop = FALSE])\n  mean2 &lt;- colMeans(x[!in_group1, , drop = FALSE])\n  var1 &lt;- (colSums(x[in_group1, , drop = FALSE]^2) - n1 * mean1^2) / (n1 - 1)\n  var2 &lt;- (colSums(x[!in_group1, , drop = FALSE]^2) - n2 * mean2^2) / (n2 - 1)\n  abs(mean1 - mean2) / sqrt(var1 / n1 + var2 / n2)\n}\nt_all &lt;- abs_welch_t_all(expr_matrix, in_class4)\nall.equal(unname(t_all[\"gene_3\"]), t_obs)\n#&gt; [1] TRUE\n\nEach relabeling yields 2308 statistics, one per gene. The permutation p-value of a gene counts the relabelings whose statistic for that gene reaches its observed one:\n\nB_all &lt;- 1000\nset.seed(583)\nexceed_counts &lt;- Reduce(\n  `+`,\n  lapply(seq_len(B_all), function(b) {\n    abs_welch_t_all(expr_matrix, sample(in_class4)) &gt;= t_all\n  })\n)\np_perm_all &lt;- (1 + exceed_counts) / (B_all + 1)\nc(\n  smallest_possible = 1 / (B_all + 1),\n  genes_at_smallest = sum(p_perm_all == 1 / (B_all + 1)),\n  bonferroni_threshold = 0.05 / length(p_perm_all)\n)\n#&gt;    smallest_possible    genes_at_smallest bonferroni_threshold \n#&gt;          9.99001e-04          1.36000e+02          2.16638e-05\n\nThe smallest p-value that 1000 relabelings can give is 0.001, and 136 genes reach it. The Bonferroni threshold, 0.000022, is far below the smallest possible p-value, so the Bonferroni correction cannot reject any gene with these p-values. For a Bonferroni correction at level \\(\\alpha\\) across \\(m\\) tests the p-values must be able to fall below \\(\\alpha/ m\\), which needs \\(B + 1 \\ge m / \\alpha\\), here \\(B \\ge\\) 46,159 relabelings. The BH procedure needs less resolution, because its thresholds grow with the rank. At \\(q = 0.05\\) it rejects genes from the permutation p-values and from Welch’s t-test p-values as follows:\n\nwelch_p_all &lt;- vapply(\n  as.data.frame(expr_matrix),\n  function(x) t.test(x ~ khan_pair$tumor_class)$p.value,\n  numeric(1)\n)\nbh_counts &lt;- c(\n  permutation = sum(p.adjust(p_perm_all, method = \"BH\") &lt;= 0.05),\n  welch = sum(p.adjust(welch_p_all, method = \"BH\") &lt;= 0.05)\n)\nbh_counts\n#&gt; permutation       welch \n#&gt;         249         250\n\nThe two sets of p-values give BH rejection counts of 249 and 250."
-  },
-  {
-    "objectID": "permutation-tests-slides.html#sec-permutation-reading",
-    "href": "permutation-tests-slides.html#sec-permutation-reading",
-    "title": "Permutation Tests",
-    "section": "\n6 Further reading",
-    "text": "6 Further reading\n\n\nGood (2005) is a book-length treatment of permutation tests.\n\nPhipson and Smyth (2010) explains why Monte Carlo permutation p-values need the added 1.\nChapter 13 of James et al. (2021) applies permutation and other resampling methods to multiple testing.\n\n\n\n\n\nGood, Phillip I. 2005. Permutation, Parametric and Bootstrap Tests of Hypotheses. 3rd ed. Springer. https://doi.org/10.1007/b138696.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2nd ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nKhan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” Nature Medicine 7 (6): 673–79. https://doi.org/10.1038/89044.\n\n\nPhipson, Belinda, and Gordon K. Smyth. 2010. “Permutation p-Values Should Never Be Zero: Calculating Exact p-Values When Permutations Are Randomly Drawn.” Statistical Applications in Genetics and Molecular Biology 9 (1). https://doi.org/10.2202/1544-6115.1585."
-  },
-  {
     "objectID": "multiple-testing.html",
     "href": "multiple-testing.html",
     "title": "Multiple Testing",
@@ -218,62 +176,6 @@
     ]
   },
   {
-    "objectID": "multiple-testing-slides.html#sec-khan-data",
-    "href": "multiple-testing-slides.html#sec-khan-data",
-    "title": "Multiple Testing",
-    "section": "\n1 The Khan gene expression data",
-    "text": "1 The Khan gene expression data\nThe examples on this page use gene expression data from Khan et al. (2001), who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at data/khan.csv, taken from the Khan data of the R package ISLR2 (James et al. 2021): the column tumor_class holds the class, and the columns gene_1 to gene_2308 hold the expression values. The examples compare classes 2 and 4.\n\nkhan &lt;- read.csv(\"data/khan.csv\")\nkhan_pair &lt;- khan[khan$tumor_class %in% c(2, 4), ]\ntable(tumor_class = khan_pair$tumor_class)\n#&gt; tumor_class\n#&gt;  2  4 \n#&gt; 23 20"
-  },
-  {
-    "objectID": "multiple-testing-slides.html#sec-multiplicity",
-    "href": "multiple-testing-slides.html#sec-multiplicity",
-    "title": "Multiple Testing",
-    "section": "\n2 The multiplicity problem",
-    "text": "2 The multiplicity problem\n\n2.1 The chance of a false positive\n\n\nExercise 1 (Probability that no test rejects) Let \\(A_1, \\ldots, A_m\\) be independent events, where \\(A_j\\) is the event that the \\(j\\)th of \\(m\\) tests rejects its true null hypothesis, and each has probability \\(\\Pr(A_j) = \\alpha\\) (see significance level). Find the probability that none of the tests rejects."
-  },
-  {
-    "objectID": "multiple-testing-slides.html#sec-error-rates",
-    "href": "multiple-testing-slides.html#sec-error-rates",
-    "title": "Multiple Testing",
-    "section": "\n3 Error rates for a family of tests",
-    "text": "3 Error rates for a family of tests\n\n3.1 Counting errors\n\n\nDefinition 1 (Outcome counts of a family of tests) Suppose a procedure tests \\(m\\) null hypotheses, \\(m_0\\) of which are true. Count the outcomes as in Table 1: \\(V\\) true null hypotheses rejected (false positives), \\(S\\) false null hypotheses rejected (true positives), \\(U\\) true null hypotheses not rejected, and \\(T\\) false null hypotheses not rejected. The total number of rejections is\n\\[R \\stackrel{\\text{def}}{=}V + S.\\]\n\n\nTable 1: Outcomes of \\(m\\) tests, of which \\(m_0\\) have a true null hypothesis.\n\n\n\n\nNot rejected\nRejected\nTotal\n\n\n\nNull hypothesis true\n\\(U\\)\n\\(V\\)\n\\(m_0\\)\n\n\nNull hypothesis false\n\\(T\\)\n\\(S\\)\n\\(m - m_0\\)\n\n\nTotal\n\\(m - R\\)\n\\(R\\)\n\\(m\\)"
-  },
-  {
-    "objectID": "multiple-testing-slides.html#sec-fwer-control",
-    "href": "multiple-testing-slides.html#sec-fwer-control",
-    "title": "Multiple Testing",
-    "section": "\n4 Controlling the family-wise error rate",
-    "text": "4 Controlling the family-wise error rate\n\n4.1 The Bonferroni correction\n\n\nDefinition 8 (Bonferroni correction) Given \\(m\\) null hypotheses \\(H_1, \\ldots, H_m\\) with p-values \\(p_1, \\ldots, p_m\\) and a level \\(\\alpha\\), the Bonferroni correction rejects \\(H_j\\) when its p-value is at most \\(\\alpha/ m\\):\n\\[\\text{reject } H_j \\iff p_j \\le \\frac{\\alpha}{m}.\\]\n\n\n\n\n\n\nSource\n\n\nJames et al. (2021, ch. 13)."
-  },
-  {
-    "objectID": "multiple-testing-slides.html#sec-fdr-control",
-    "href": "multiple-testing-slides.html#sec-fdr-control",
-    "title": "Multiple Testing",
-    "section": "\n5 Controlling the false discovery rate",
-    "text": "5 Controlling the false discovery rate\n\n5.1 The Benjamini–Hochberg procedure\n\n\nDefinition 10 (Benjamini–Hochberg procedure) Given \\(m\\) null hypotheses with ordered p-values \\(p_{(1)} \\le \\cdots \\le p_{(m)}\\) (as in Definition 9) and a level \\(q\\), let \\(\\hat k\\) be the largest rank whose p-value is at most \\(k q / m\\), with \\(\\hat k \\stackrel{\\text{def}}{=}0\\) if there is no such rank:\n\\[\\hat k \\stackrel{\\text{def}}{=}\\max \\mathopen{}\\left\\{k : p_{(k)} \\le \\frac{k q}{m}\\right\\}\\mathclose{}.\\]\nThe Benjamini–Hochberg procedure (BH) rejects \\(H_{(1)}, \\ldots, H_{(\\hat k)}\\) and no others.\n\n\n\n\n\n\nSource\n\n\nBenjamini and Hochberg (1995)."
-  },
-  {
-    "objectID": "multiple-testing-slides.html#sec-adjusted-p-values",
-    "href": "multiple-testing-slides.html#sec-adjusted-p-values",
-    "title": "Multiple Testing",
-    "section": "\n6 Adjusted p-values and q-values",
-    "text": "6 Adjusted p-values and q-values\n\n\nDefinition 11 (Adjusted p-value) For a multiple testing procedure that takes a level \\(c\\) (\\(\\alpha\\) for an FWER procedure, \\(q\\) for an FDR procedure), the adjusted p-value \\(\\tilde p_j\\) of \\(H_j\\) is the smallest level at which the procedure rejects \\(H_j\\), or \\(1\\) if there is none:\n\\[\\tilde p_j \\stackrel{\\text{def}}{=}\\min \\mathopen{}\\left\\{c \\in [0, 1] : \\text{the procedure at level } c \\text{ rejects } H_j\\right\\}\\mathclose{}.\\]"
-  },
-  {
-    "objectID": "multiple-testing-slides.html#sec-procedure-comparison",
-    "href": "multiple-testing-slides.html#sec-procedure-comparison",
-    "title": "Multiple Testing",
-    "section": "\n7 Comparing the procedures",
-    "text": "7 Comparing the procedures\n\n\nExample 15 (Comparing the procedures in the simulated family) Each procedure was run on the same simulated family of Example 3 in 2000 repetitions. The table collects the estimated FWER, FDR and power:\n\ncomparison &lt;- t(sapply(sim_counts, summarize_counts))\nrownames(comparison) &lt;- c(\n  \"Unadjusted\", \"Bonferroni\", \"Holm\", \"Benjamini-Hochberg\"\n)\nknitr::kable(comparison, digits = 3)\n\n\n\n\nFWER\nFDR\npower\n\n\n\nUnadjusted\n1.000\n0.345\n0.851\n\n\nBonferroni\n0.043\n0.003\n0.146\n\n\nHolm\n0.040\n0.003\n0.146\n\n\nBenjamini-Hochberg\n0.884\n0.045\n0.495\n\n\n\n\n\nUnadjusted testing has the highest power and no error control. The two FWER procedures keep the FWER below 0.05 and give up most of the power; Holm’s procedure never rejects fewer hypotheses than the Bonferroni correction. In this simulation BH has the highest power among the procedures that control an error rate, because it only promises to control the FDR. Its FWER is far above 0.05, which BH does not promise to control."
-  },
-  {
-    "objectID": "multiple-testing-slides.html#sec-multiple-testing-reading",
-    "href": "multiple-testing-slides.html#sec-multiple-testing-reading",
-    "title": "Multiple Testing",
-    "section": "\n8 Further reading",
-    "text": "8 Further reading\n\nChapter 13 of James et al. (2021) covers the same procedures, with labs.\nChapter 15 of Efron and Hastie (2016) treats large-scale testing and the false discovery rate.\nAndrew Lin’s notes on Stanford STATS 300C (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.\nThe permutation tests page computes valid p-values by relabeling the data, without a distributional model for the test statistic.\n\n\n\n\n\nBenjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” Journal of the Royal Statistical Society: Series B (Methodological) 57 (1): 289–300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x.\n\n\nBenjamini, Yoav, and Daniel Yekutieli. 2001. “The Control of the False Discovery Rate in Multiple Testing Under Dependency.” The Annals of Statistics 29 (4). https://doi.org/10.1214/aos/1013699998.\n\n\nEfron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press. https://doi.org/10.1017/CBO9781316576533.\n\n\nHolm, Sture. 1979. “A Simple Sequentially Rejective Multiple Test Procedure.” Scandinavian Journal of Statistics 6 (2): 65–70.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2nd ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nKhan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” Nature Medicine 7 (6): 673–79. https://doi.org/10.1038/89044.\n\n\nStorey, John D. 2002. “A Direct Approach to False Discovery Rates.” Journal of the Royal Statistical Society: Series B (Statistical Methodology) 64 (3): 479–98. https://doi.org/10.1111/1467-9868.00346."
-  },
-  {
     "objectID": "mcmc.html",
     "href": "mcmc.html",
     "title": "Markov Chain Monte Carlo",
@@ -338,41 +240,6 @@
       "Bayesian",
       "Markov Chain Monte Carlo"
     ]
-  },
-  {
-    "objectID": "mcmc-slides.html#sec-foundations",
-    "href": "mcmc-slides.html#sec-foundations",
-    "title": "Markov Chain Monte Carlo",
-    "section": "\n1 Foundations of MCMC",
-    "text": "1 Foundations of MCMC\nWhen the posterior has a known closed form, as in the Beta-Bernoulli example, we can compute its summaries exactly or sample from it directly. In most real-world models, however, the marginal likelihood \\(\\operatorname{p}(\\tilde{y})\\) that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. Markov chain Monte Carlo methods get around this problem: instead of independent draws from the posterior, they generate a correlated sequence of draws whose distribution converges to the posterior (Dobson and Barnett 2018, chap. 13, p. 287)."
-  },
-  {
-    "objectID": "mcmc-slides.html#sec-samplers",
-    "href": "mcmc-slides.html#sec-samplers",
-    "title": "Markov Chain Monte Carlo",
-    "section": "\n2 MCMC samplers",
-    "text": "2 MCMC samplers\n\n2.1 The Metropolis–Hastings algorithm\n\n\nDefinition 5 (Proposal distribution) In a Metropolis–Hastings sampler, a proposal distribution \\(q(\\cdot \\mid \\tilde{\\theta})\\) is a conditional distribution from which a candidate value \\(\\tilde{\\theta}^*\\) is drawn, given the current value \\(\\tilde{\\theta}\\)."
-  },
-  {
-    "objectID": "mcmc-slides.html#sec-diagnostics",
-    "href": "mcmc-slides.html#sec-diagnostics",
-    "title": "Markov Chain Monte Carlo",
-    "section": "\n3 Checking and improving MCMC",
-    "text": "3 Checking and improving MCMC\nBecause MCMC draws are correlated, and a chain may take many iterations to reach its stationary distribution, we must check whether the chains have converged before using them for inference (Dobson and Barnett 2018, chap. 13, p. 302). Trace plots give a visual check; the potential scale reduction factor gives a numerical one, by comparing several chains started from different values."
-  },
-  {
-    "objectID": "mcmc-slides.html#sec-dic",
-    "href": "mcmc-slides.html#sec-dic",
-    "title": "Markov Chain Monte Carlo",
-    "section": "\n4 Deviance information criterion",
-    "text": "4 Deviance information criterion\nTo compare models fit to the same data by Bayesian inference, we need a measure that balances goodness of fit against complexity, as Akaike’s information criterion does for models fit by maximum likelihood. The standard criterion computed from MCMC output is the deviance information criterion (Dobson and Barnett 2018, chap. 13, p. 306)."
-  },
-  {
-    "objectID": "mcmc-slides.html#references",
-    "href": "mcmc-slides.html#references",
-    "title": "Markov Chain Monte Carlo",
-    "section": "References",
-    "text": "References\n\n\nCasella, George, and Roger Berger. 2002. Statistical Inference. 2nd ed. Cengage Learning. https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/.\n\n\nDobson, Annette J, and Adrian G Barnett. 2018. An Introduction to Generalized Linear Models. 4th ed. CRC press. https://doi.org/10.1201/9781315182780.\n\n\nGelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. Bayesian Data Analysis. 3rd ed. Chapman & Hall/CRC Texts in Statistical Science. CRC Press. https://doi.org/10.1201/b16018.\n\n\nRobert, Christian P., and George Casella. 2004. Monte Carlo Statistical Methods. 2nd ed. Springer Texts in Statistics. Springer. https://doi.org/10.1007/978-1-4757-4145-2."
   },
   {
     "objectID": "inference.html",
@@ -463,55 +330,6 @@
     ]
   },
   {
-    "objectID": "inference-slides.html#inference",
-    "href": "inference-slides.html#inference",
-    "title": "Statistical Inference",
-    "section": "\n1 Inference",
-    "text": "1 Inference\n\n\n\nDefinition 1 (Statistical inference) Statistical inference is the process of analyzing data to learn about the shape and structure of the probability distribution that generated those data.\n\nThis definition is adapted from Wikipedia’s (Wikipedia contributors 2025)."
-  },
-  {
-    "objectID": "inference-slides.html#sec-hypothesis-tests",
-    "href": "inference-slides.html#sec-hypothesis-tests",
-    "title": "Statistical Inference",
-    "section": "\n2 Hypothesis tests",
-    "text": "2 Hypothesis tests\n\n2.1 Hypotheses\n\n\nDefinition 2 (Null hypothesis) The null hypothesis, written \\(H_0\\), is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data."
-  },
-  {
-    "objectID": "inference-slides.html#sec-reference-distributions",
-    "href": "inference-slides.html#sec-reference-distributions",
-    "title": "Statistical Inference",
-    "section": "\n3 Reference distributions",
-    "text": "3 Reference distributions\nThe tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually independent."
-  },
-  {
-    "objectID": "inference-slides.html#sec-CI",
-    "href": "inference-slides.html#sec-CI",
-    "title": "Statistical Inference",
-    "section": "\n4 Confidence intervals",
-    "text": "4 Confidence intervals\n\n\nDefinition 12 (Confidence interval) A \\(100(1-\\alpha)\\%\\) confidence interval for a parameter \\(\\theta\\) is a pair of statistics \\(L\\) and \\(U\\), computed from the data, such that for every possible value of \\(\\theta\\):\n\\[\\Pr(L \\le \\theta\\le U) = 1 - \\alpha\\]\nThe probability is over repeated samples from the data-generating process, with \\(\\theta\\) held fixed."
-  },
-  {
-    "objectID": "inference-slides.html#further-reading-on-confidence-intervals",
-    "href": "inference-slides.html#further-reading-on-confidence-intervals",
-    "title": "Statistical Inference",
-    "section": "\n5 Further reading on confidence intervals",
-    "text": "5 Further reading on confidence intervals\nFor more on confidence intervals:\n\n\nAnatomy of a confidence interval (PDF);"
-  },
-  {
-    "objectID": "inference-slides.html#interpretation-of-negative-findings",
-    "href": "inference-slides.html#interpretation-of-negative-findings",
-    "title": "Statistical Inference",
-    "section": "\n6 Interpretation of negative findings",
-    "text": "6 Interpretation of negative findings\nIf a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not necessarily mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage \\(1 - \\alpha\\) and significance level \\(\\alpha\\), the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant evidence that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.\nP-values do not distinguish between absence of evidence and evidence of absence. Confidence intervals do:\n\na narrow confidence interval that includes the null value is evidence of absence (of any effect large enough to matter);\na confidence interval that includes the null value but also includes substantially non-null values represents absence of evidence.\n\nConversely, even statistically significant evidence of a non-null value does not mean the value is large enough to matter; that depends on what the estimand is. For example, we might have statistically significant evidence that an exercise program prolongs human lifespans by 20 seconds, but an effect that small would be negligible in practical terms.\nFigure 1 sketches these scenarios.\n[R code]ci_scenarios &lt;- tibble::tribble(\n  ~scenario, ~lower, ~upper,\n  \"not enough data: we know almost nothing\", 0.2, 5,\n  \"absence of evidence\", 0.5, 2,\n  \"\\\"trending toward significance\\\" (still absence of evidence)\", 0.95, 2.5,\n  \"evidence of absence\", 0.97, 1.03,\n  \"evidence of a negligible effect\", 1.02, 1.1,\n  \"uncertain whether negligible or substantial\", 1.05, 1.8,\n  \"evidence of a substantial effect\", 1.7, 1.8,\n  \"substantial, but imprecise\", 1.5, 4\n) |&gt;\n  dplyr::mutate(scenario = factor(scenario, levels = rev(scenario)))\n\nci_scenarios |&gt;\n  ggplot2::ggplot() +\n  ggplot2::aes(y = scenario, xmin = lower, xmax = upper) +\n  ggplot2::geom_errorbarh(height = 0.3) +\n  ggplot2::geom_vline(xintercept = 1, linetype = \"dashed\") +\n  ggplot2::scale_x_log10() +\n  ggplot2::labs(x = \"Ratio estimand (log scale); null value = 1\", y = NULL)\n\n\nFigure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.\n\n\n\n\n\n\n\n\n\n\n\n\nSee also (Vittinghoff et al. 2012, sec. 3.7)."
-  },
-  {
-    "objectID": "inference-slides.html#references",
-    "href": "inference-slides.html#references",
-    "title": "Statistical Inference",
-    "section": "References",
-    "text": "References\n\n\n5MinuteAI. n.d. Probability & Statistics. Video playlist on YouTube. Accessed October 12, 2026. https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK.\n\n\nVittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models. 2nd ed. Springer. https://doi.org/10.1007/978-1-4614-1353-0.\n\n\nWikipedia contributors. 2025. Statistical Inference — Wikipedia, the Free Encyclopedia. https://en.wikipedia.org/w/index.php?title=Statistical_inference&oldid=1304071803."
-  },
-  {
     "objectID": "exploratory-descriptive.html",
     "href": "exploratory-descriptive.html",
     "title": "Exploratory Data Analysis",
@@ -600,55 +418,6 @@
     ]
   },
   {
-    "objectID": "exploratory-descriptive-slides.html#introduction",
-    "href": "exploratory-descriptive-slides.html#introduction",
-    "title": "Exploratory Data Analysis",
-    "section": "\n1 Introduction",
-    "text": "1 Introduction\n\n\nBefore fitting a model, it is good practice to explore and summarize the data. Exploratory data analysis (EDA) serves several purposes:\n\nunderstanding the distribution of each variable individually;\ndetecting unusual values, outliers, and missing data;\nidentifying patterns and relationships among variables;\nmotivating choices of model structure, such as transformations;\nproviding context for interpreting model results.\n\nThis page is adapted from (Vittinghoff et al. 2012, chap. 2)."
-  },
-  {
-    "objectID": "exploratory-descriptive-slides.html#summarizing-a-single-variable",
-    "href": "exploratory-descriptive-slides.html#summarizing-a-single-variable",
-    "title": "Exploratory Data Analysis",
-    "section": "\n2 Summarizing a single variable",
-    "text": "2 Summarizing a single variable\n\n2.1 Measures of center\n\n\nDefinition 5 (Sample mean) The sample mean of \\(n\\) observations \\(x_1, \\ldots, x_n\\) is:\n\\[\\bar{x} \\stackrel{\\text{def}}{=}\\frac{1}{n}\\sum_{i=1}^nx_i\\]"
-  },
-  {
-    "objectID": "exploratory-descriptive-slides.html#graphical-methods",
-    "href": "exploratory-descriptive-slides.html#graphical-methods",
-    "title": "Exploratory Data Analysis",
-    "section": "\n3 Graphical methods",
-    "text": "3 Graphical methods\nGraphs can reveal features of a distribution that summary statistics miss, such as skewness, multiple peaks, and outliers. Different types of graph suit different types of variable."
-  },
-  {
-    "objectID": "exploratory-descriptive-slides.html#bivariate-relationships",
-    "href": "exploratory-descriptive-slides.html#bivariate-relationships",
-    "title": "Exploratory Data Analysis",
-    "section": "\n4 Bivariate relationships",
-    "text": "4 Bivariate relationships\n\n4.1 Two continuous variables\n\n\nDefinition 18 (Scatter plot) A scatter plot displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis."
-  },
-  {
-    "objectID": "exploratory-descriptive-slides.html#data-transformations",
-    "href": "exploratory-descriptive-slides.html#data-transformations",
-    "title": "Exploratory Data Analysis",
-    "section": "\n5 Data transformations",
-    "text": "5 Data transformations\nWhen a continuous variable has a right-skewed distribution (a longer tail to the right than to the left), a logarithmic transformation often makes the distribution more symmetric. A log-transformed variable also has a multiplicative interpretation: an increase of 1 in \\(\\log(x)\\) corresponds to multiplying \\(x\\) by \\(e \\approx 2.72\\), because \\(\\log(x) + 1 = \\log(e \\cdot x)\\).\nThe WCGS dataset already contains log-transformed versions of two variables:\n\n\nlnsbp: \\(\\log(\\text{SBP})\\);\n\nlnwght: \\(\\log(\\text{weight})\\).\n\n\n\nFigure 9: Distribution of systolic blood pressure in the WCGS, on two scales\n\n\n\n[R code]wcgs |&gt;\n  ggplot2::ggplot() +\n  ggplot2::aes(x = sbp) +\n  ggplot2::geom_histogram(bins = 30, fill = \"steelblue\", color = \"white\") +\n  ggplot2::labs(x = \"Systolic BP (mmHg)\", y = \"Count\")\n\n\n(a) Raw scale\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[R code]wcgs |&gt;\n  ggplot2::ggplot() +\n  ggplot2::aes(x = lnsbp) +\n  ggplot2::geom_histogram(bins = 30, fill = \"coral\", color = \"white\") +\n  ggplot2::labs(x = \"log(Systolic BP)\", y = \"Count\")\n\n\n(b) Log scale\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[R code]# sample skewness: mean cubed deviation, divided by the cubed SD\nskewness &lt;- function(x) {\n  x &lt;- x[!is.na(x)]\n  mean((x - mean(x))^3) / sd(x)^3\n}\nsbp_skew &lt;- c(\n  raw = skewness(wcgs$sbp),\n  log = skewness(wcgs$lnsbp)\n)\nsbp_skew\n#&gt;      raw      log \n#&gt; 1.203824 0.739911\n\n\nThe log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 versus 1.2), but still not symmetric. Whether to transform a variable in a regression model depends on the assumptions of that model and on the scientific question.\n\n5.1 Rescaling a variable\n\nExercise 2 (A standardized cholesterol value) In the WCGS data, cholesterol (chol) is measured in mg/dL.\n\nCompute the sample mean and sample standard deviation of chol.\nA man has chol equal to 250 mg/dL. By how many standard deviations does his value differ from the sample mean, and in which direction?\nWhat are the units of your answer to part 2?"
-  },
-  {
-    "objectID": "exploratory-descriptive-slides.html#an-exploratory-data-analysis-workflow",
-    "href": "exploratory-descriptive-slides.html#an-exploratory-data-analysis-workflow",
-    "title": "Exploratory Data Analysis",
-    "section": "\n6 An exploratory data analysis workflow",
-    "text": "6 An exploratory data analysis workflow\nA typical exploratory data analysis proceeds as follows:\n\n\nUnderstand the dataset: the number of observations and variables, and each variable’s type.\n\nExamine each variable individually:\n\ncontinuous: histogram, box plot, mean, SD, median, IQR;\ncategorical: bar chart, frequency table;\nnote missing values, unusual values, and outliers.\n\n\n\nExamine relationships between variables:\n\ntwo continuous variables: scatter plot, correlation;\ncontinuous by categorical: side-by-side box plots, group means;\ntwo categorical variables: contingency table.\n\n\n\nConsider transformations for skewed continuous variables.\n\nSummarize the findings to guide model-building decisions.\n\nTable 5 summarizes selected WCGS variables in one table.\n[R code]wcgs |&gt;\n  dplyr::select(\n    age, chol, sbp, dbp, bmi, weight, ncigs,\n    chd69, smoke, dibpat, behpat\n  ) |&gt;\n  gtsummary::tbl_summary()\n\n\nTable 5: Summary of selected WCGS variables\n\n\n\n\n\n\n\n\n\n\n\nCharacteristic\n\nN = 3,1541\n\n\n\n\nAge (years)\n45.0 (42.0, 50.0)\n\n\nCholesterol (mg/dL)\n223 (197, 253)\n\n\n    Unknown\n12\n\n\nSystolic BP (mmHg)\n126 (120, 136)\n\n\nDiastolic BP (mmHg)\n80 (76, 86)\n\n\nBMI (kg/m^2)\n24.39 (22.96, 25.84)\n\n\nWeight (lbs)\n170 (155, 182)\n\n\nCigarettes per day\n0 (0, 20)\n\n\nCHD event by 1969\n257 (8.1%)\n\n\nCurrent smoker\n1,502 (48%)\n\n\nBehavioral pattern (A/B)\n\n\n\n    Type B\n1,565 (50%)\n\n\n    Type A\n1,589 (50%)\n\n\nBehavioral pattern (A1/A2/B3/B4)\n\n\n\n    A1\n264 (8.4%)\n\n\n    A2\n1,325 (42%)\n\n\n    B3\n1,216 (39%)\n\n\n    B4\n349 (11%)\n\n\n\n\n1 Median (Q1, Q3); n (%)"
-  },
-  {
-    "objectID": "exploratory-descriptive-slides.html#references",
-    "href": "exploratory-descriptive-slides.html#references",
-    "title": "Exploratory Data Analysis",
-    "section": "References",
-    "text": "References\n\n\nGéron, Aurélien. 2017. Hands-on Machine Learning with Scikit-Learn and TensorFlow. 1st ed. O’Reilly Media.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2nd ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nRosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. “Coronary Heart Disease in the Western Collaborative Group Study: Final Follow-up Experience of 8 1/2 Years.” JAMA 233 (8): 872–77. https://doi.org/10.1001/jama.1975.03260080034016.\n\n\nVittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models. 2nd ed. Springer. https://doi.org/10.1007/978-1-4614-1353-0."
-  },
-  {
     "objectID": "data.html",
     "href": "data.html",
     "title": "Types of Variables",
@@ -726,48 +495,6 @@
     ]
   },
   {
-    "objectID": "data-slides.html#types-of-variables",
-    "href": "data-slides.html#types-of-variables",
-    "title": "Types of Variables",
-    "section": "\n1 Types of variables",
-    "text": "1 Types of variables\n\n\nBefore summarizing data, it helps to identify the type of each variable, since the appropriate descriptive methods depend on the type. Variables are broadly classified as either numerical or categorical, and within each class there are important subtypes.\n\n\nDefinition 1 (Numerical variable) A numerical (or quantitative) variable is a variable that takes values on a numeric scale, where arithmetic operations such as subtraction (and possibly division) are meaningful. Numerical variables may be further classified as interval or ratio variables, and as continuous or discrete."
-  },
-  {
-    "objectID": "data-slides.html#sec-dummy-coding",
-    "href": "data-slides.html#sec-dummy-coding",
-    "title": "Types of Variables",
-    "section": "\n2 Coding a categorical variable with numbers",
-    "text": "2 Coding a categorical variable with numbers\n\nExercise 1 (Dummy coding) The Western Collaborative Group Study (WCGS) variable behpat (behavioral pattern) has four categories: A1, A2, B3, and B4.\n\nHow many indicator variables are needed to represent behpat if A1 is the reference level?\nWrite the values of those indicator variables, in the order A2, B3, B4, for a person in category B3, and for a person in category A1."
-  },
-  {
-    "objectID": "data-slides.html#taxonomy-of-variable-types",
-    "href": "data-slides.html#taxonomy-of-variable-types",
-    "title": "Types of Variables",
-    "section": "\n3 Taxonomy of variable types",
-    "text": "3 Taxonomy of variable types\nFigure 1 illustrates the relationships among these variable types.\n[R code]nodes &lt;- tibble::tribble(\n  ~id,   ~x,    ~y,   ~label,\n  \"V\",    5,    4.5,  \"Variables\",\n  \"N\",    2.5,  3,    \"Numerical\\n(quantitative)\",\n  \"C\",    7.5,  3,    \"Categorical\\n(qualitative)\",\n  \"I\",    1,    1.5,  \"Interval\\n(no true zero)\\ne.g. temp. in deg C\",\n  \"R\",    4,    1.5,  \"Ratio\\n(true zero)\\ne.g. age, weight\",\n  \"CT\",   3,    0,    \"Continuous\\ne.g. age, BMI\",\n  \"CNT\",  5,    0,    \"Count\\n(discrete)\\ne.g. cigs/day\",\n  \"NOM\",  6.5,  1.5,  \"Nominal\\n(unordered)\\ne.g. blood type\",\n  \"ORD\",  8.5,  1.5,  \"Ordinal\\n(ordered)\\ne.g. wt. category\",\n  \"BIN\",  6.5,  0,    \"Binary\\n(2 categories)\\ne.g. CHD event\"\n)\nedges &lt;- tibble::tribble(\n  ~from, ~to,\n  \"V\",   \"N\",\n  \"V\",   \"C\",\n  \"N\",   \"I\",\n  \"N\",   \"R\",\n  \"R\",   \"CT\",\n  \"R\",   \"CNT\",\n  \"C\",   \"NOM\",\n  \"C\",   \"ORD\",\n  \"NOM\", \"BIN\"\n) |&gt;\n  dplyr::left_join(\n    dplyr::select(nodes, id, x, y),\n    by = c(\"from\" = \"id\")\n  ) |&gt;\n  dplyr::rename(x_from = x, y_from = y) |&gt;\n  dplyr::left_join(\n    dplyr::select(nodes, id, x, y),\n    by = c(\"to\" = \"id\")\n  ) |&gt;\n  dplyr::rename(x_to = x, y_to = y)\nfill_colors &lt;- c(\n  \"V\" = \"#f0f0f0\",\n  \"N\" = \"#d0e8ff\", \"C\" = \"#ffe8d0\",\n  \"I\" = \"#e8f4ff\", \"R\" = \"#e8f4ff\",\n  \"CT\" = \"#c8e8ff\", \"CNT\" = \"#c8e8ff\",\n  \"NOM\" = \"#ffe0c0\", \"ORD\" = \"#ffe0c0\",\n  \"BIN\" = \"#ffd0a0\"\n)\nggplot2::ggplot() +\n  ggplot2::aes() +\n  ggplot2::geom_segment(\n    data = edges,\n    ggplot2::aes(\n      x = x_from, y = y_from - 0.45,\n      xend = x_to, yend = y_to + 0.45\n    ),\n    color = \"grey50\"\n  ) +\n  ggplot2::geom_tile(\n    data = nodes,\n    ggplot2::aes(x = x, y = y, fill = id),\n    width = 1.7, height = 0.8,\n    color = \"grey40\", linewidth = 0.4,\n    show.legend = FALSE\n  ) +\n  ggplot2::geom_text(\n    data = nodes,\n    ggplot2::aes(x = x, y = y, label = label),\n    size = 2.8, lineheight = 0.9\n  ) +\n  ggplot2::scale_fill_manual(values = fill_colors) +\n  ggplot2::scale_y_continuous(\n    limits = c(-0.5, 5.1), expand = c(0, 0)\n  ) +\n  ggplot2::scale_x_continuous(\n    limits = c(0, 10), expand = c(0, 0)\n  ) +\n  ggplot2::theme_void()\n\n\nFigure 1: Taxonomy of variable types. Count variables are discrete and numerical; binary, nominal, and ordinal variables are discrete and categorical.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nThe continuous/discrete distinction cuts across the numerical/categorical distinction. Continuous variables are always numerical. Discrete variables include both numerical types (such as count variables) and categorical types (such as binary, nominal, and ordinal variables)."
-  },
-  {
-    "objectID": "data-slides.html#variables-in-the-wcgs-dataset",
-    "href": "data-slides.html#variables-in-the-wcgs-dataset",
-    "title": "Types of Variables",
-    "section": "\n4 Variables in the WCGS dataset",
-    "text": "4 Variables in the WCGS dataset\nTable 1 shows selected variables from the Western Collaborative Group Study (WCGS) dataset and their types.\n[R code]tibble::tribble(\n  ~Variable, ~Description, ~Type, ~Scale,\n  \"`age`\", \"Age (years)\", \"Continuous\", \"Ratio\",\n  \"`chol`\", \"Total cholesterol\", \"Continuous\", \"Ratio\",\n  \"`sbp`\", \"Systolic blood pressure\", \"Continuous\", \"Ratio\",\n  \"`bmi`\", \"Body mass index (kg/m^2)\", \"Continuous\", \"Ratio\",\n  \"`weight`\", \"Weight (lbs)\", \"Continuous\", \"Ratio\",\n  \"`ncigs`\", \"Cigarettes per day\", \"Count (discrete)\", \"Ratio\",\n  \"`chd69`\", \"CHD event by 1969\", \"Binary (nominal)\", \"Nominal\",\n  \"`smoke`\", \"Current smoking\", \"Binary (nominal)\", \"Nominal\",\n  \"`arcus`\", \"Arcus senilis\", \"Binary (nominal)\", \"Nominal\",\n  \"`dibpat`\", \"Behavioral pattern (A/B)\", \"Binary (nominal)\", \"Nominal\",\n  \"`behpat`\", \"Behavioral pattern (A1/A2/B3/B4)\", \"Nominal\", \"Nominal\",\n  \"`wghtcat`\", \"Weight category\", \"Ordinal\", \"Ordinal\",\n  \"`agec`\", \"Age group\", \"Ordinal\", \"Ordinal\"\n) |&gt;\n  knitr::kable()\n\n\nTable 1: Selected WCGS variables and their types\n\n\n\n\nSelected WCGS variables and their types\n\n\n\n\n\n\n\nVariable\nDescription\nType\nScale\n\n\n\nage\nAge (years)\nContinuous\nRatio\n\n\nchol\nTotal cholesterol\nContinuous\nRatio\n\n\nsbp\nSystolic blood pressure\nContinuous\nRatio\n\n\nbmi\nBody mass index (kg/m^2)\nContinuous\nRatio\n\n\nweight\nWeight (lbs)\nContinuous\nRatio\n\n\nncigs\nCigarettes per day\nCount (discrete)\nRatio\n\n\nchd69\nCHD event by 1969\nBinary (nominal)\nNominal\n\n\nsmoke\nCurrent smoking\nBinary (nominal)\nNominal\n\n\narcus\nArcus senilis\nBinary (nominal)\nNominal\n\n\ndibpat\nBehavioral pattern (A/B)\nBinary (nominal)\nNominal\n\n\nbehpat\nBehavioral pattern (A1/A2/B3/B4)\nNominal\nNominal\n\n\nwghtcat\nWeight category\nOrdinal\nOrdinal\n\n\nagec\nAge group\nOrdinal\nOrdinal"
-  },
-  {
-    "objectID": "data-slides.html#random-variables",
-    "href": "data-slides.html#random-variables",
-    "title": "Types of Variables",
-    "section": "\n5 Random variables",
-    "text": "5 Random variables\n\n5.1 Binary variables\n\n\nDefinition 13 (Binary random variable) A binary variable is a random variable which has only two possible values in its range."
-  },
-  {
-    "objectID": "data-slides.html#references",
-    "href": "data-slides.html#references",
-    "title": "Types of Variables",
-    "section": "References",
-    "text": "References\n\n\nDobson, Annette J, and Adrian G Barnett. 2018. An Introduction to Generalized Linear Models. 4th ed. CRC press. https://doi.org/10.1201/9781315182780."
-  },
-  {
     "objectID": "classification.html",
     "href": "classification.html",
     "title": "Classification and Diagnostic Tests",
@@ -823,34 +550,6 @@
     ]
   },
   {
-    "objectID": "classification-slides.html#introduction",
-    "href": "classification-slides.html#introduction",
-    "title": "Classification and Diagnostic Tests",
-    "section": "\n1 Introduction",
-    "text": "1 Introduction\nClassification is a core problem in statistics and machine learning: we seek to assign individuals or observations to one of several discrete categories based on available data. In medicine and epidemiology, classification problems arise constantly; for example, a clinician decides whether a patient has a disease based on evidence such as:\n\ntest results;\nbiomarkers;\nclinical signs.\n\nA test can look highly accurate in isolation, yet its predictive value for an individual patient depends heavily on the prevalence of the condition in the population being tested. Understanding this interplay requires Bayes’ theorem and the law of total probability."
-  },
-  {
-    "objectID": "classification-slides.html#diagnostic-test-characteristics",
-    "href": "classification-slides.html#diagnostic-test-characteristics",
-    "title": "Classification and Diagnostic Tests",
-    "section": "\n2 Diagnostic test characteristics",
-    "text": "2 Diagnostic test characteristics\n\n\nDefinition 2 (Sensitivity) The sensitivity of a diagnostic test is the probability that the test is positive (\\(+\\)), given that the person tested has the disease (\\(D\\)):\n\\[\\text{sensitivity} \\stackrel{\\text{def}}{=}\\Pr(+ \\mid D) \\tag{3}\\]"
-  },
-  {
-    "objectID": "classification-slides.html#predictive-values",
-    "href": "classification-slides.html#predictive-values",
-    "title": "Classification and Diagnostic Tests",
-    "section": "\n3 Predictive values",
-    "text": "3 Predictive values\n\n\nDefinition 5 (Positive predictive value (PPV)) The positive predictive value of a diagnostic test is the probability that the person tested has the disease (\\(D\\)), given that the test is positive (\\(+\\)):\n\\[\\text{PPV} \\stackrel{\\text{def}}{=}\\Pr(D \\mid +) \\tag{11}\\]"
-  },
-  {
-    "objectID": "classification-slides.html#ppv-in-terms-of-sensitivity-specificity-and-prevalence",
-    "href": "classification-slides.html#ppv-in-terms-of-sensitivity-specificity-and-prevalence",
-    "title": "Classification and Diagnostic Tests",
-    "section": "\n4 PPV in terms of sensitivity, specificity, and prevalence",
-    "text": "4 PPV in terms of sensitivity, specificity, and prevalence\n\n\nExercise 1 (Probability of a positive test) Write the probability \\(\\Pr(+)\\) that a diagnostic test is positive in terms of:\n\nthe test’s sensitivity;\nthe test’s specificity;\nthe prevalence of the disease."
-  },
-  {
     "objectID": "bootstrap.html",
     "href": "bootstrap.html",
     "title": "The Bootstrap",
@@ -893,27 +592,6 @@
       "Methods",
       "The Bootstrap"
     ]
-  },
-  {
-    "objectID": "bootstrap-slides.html#the-hers-data",
-    "href": "bootstrap-slides.html#the-hers-data",
-    "title": "The Bootstrap",
-    "section": "\n1 The HERS data",
-    "text": "1 The HERS data\nThe examples on this page use the HERS data, which the Comparing Means page describes. The rmb R package includes the dataset; haven::as_factor() converts its Stata value labels to factors:\n\nhers &lt;- rmb::hers |&gt; haven::as_factor()\nhers |&gt; head()"
-  },
-  {
-    "objectID": "bootstrap-slides.html#sec-bootstrap-ci",
-    "href": "bootstrap-slides.html#sec-bootstrap-ci",
-    "title": "The Bootstrap",
-    "section": "\n2 Bootstrap confidence intervals",
-    "text": "2 Bootstrap confidence intervals\n\n2.1 When to use the bootstrap\nThe bootstrap (Efron 1979; Efron and Tibshirani 1993) estimates the sampling distribution of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short (Vittinghoff et al. 2012, chap. 3):\n\napproximate methods for valid confidence intervals exist, but standard software does not implement them conveniently;\nno closed-form approximate method has been found;\nthe data violate the assumptions of the established methods badly enough that their confidence intervals would be unreliable."
-  },
-  {
-    "objectID": "bootstrap-slides.html#references",
-    "href": "bootstrap-slides.html#references",
-    "title": "The Bootstrap",
-    "section": "References",
-    "text": "References\n\n\nDavison, Anthony C., and David V. Hinkley. 1997. Bootstrap Methods and Their Application. Cambridge Series in Statistical and Probabilistic Mathematics 1. Cambridge University Press. https://doi.org/10.1017/CBO9780511802843.\n\n\nEfron, Bradley. 1979. “Bootstrap Methods: Another Look at the Jackknife.” The Annals of Statistics 7 (1): 1–26. https://doi.org/10.1214/aos/1176344552.\n\n\nEfron, Bradley, and Robert J. Tibshirani. 1993. An Introduction to the Bootstrap. Monographs on Statistics and Applied Probability 57. Chapman & Hall/CRC. https://doi.org/10.1201/9780429246593.\n\n\nVittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models. 2nd ed. Springer. https://doi.org/10.1007/978-1-4614-1353-0."
   },
   {
     "objectID": "bayesian-examples.html",
@@ -993,90 +671,6 @@
     ]
   },
   {
-    "objectID": "bayesian-examples-slides.html#sec-bayes-examples",
-    "href": "bayesian-examples-slides.html#sec-bayes-examples",
-    "title": "Fitting Models by Bayesian Inference with JAGS",
-    "section": "\n1 A first example: a single proportion",
-    "text": "1 A first example: a single proportion\nFrom here on, the models are fit by Bayesian inference with JAGS (“Just Another Gibbs Sampler”), a program that builds an MCMC sampler from a text description of a model (Dobson and Barnett 2018, chap. 13), driven from R through the rjags package. We begin with the simplest possible model, a single Bernoulli probability, whose exact posterior is known from the Beta-Bernoulli example, so the output can be checked. The example shows the mechanics that every later analysis reuses: specifying a model, supplying data, running a burn-in, monitoring parameters, and summarizing and checking the draws. In JAGS, dnorm(mean, precision) is parameterized by the precision, the reciprocal of the variance."
-  },
-  {
-    "objectID": "bayesian-examples-slides.html#sec-bayes-examples-logistic",
-    "href": "bayesian-examples-slides.html#sec-bayes-examples-logistic",
-    "title": "Fitting Models by Bayesian Inference with JAGS",
-    "section": "\n2 Binary outcomes: logistic regression",
-    "text": "2 Binary outcomes: logistic regression\nFor a binary outcome \\(Y_i \\sim \\operatorname{Bernoulli}(\\pi_i)\\) with \\(\\operatorname{logit}(\\pi_i) = \\tilde{x}_i \\cdot \\tilde{\\beta}\\), the logistic regression model, a Bayesian analysis places a prior on the coefficient vector \\(\\tilde{\\beta}\\) and samples the posterior \\(\\operatorname{p}(\\tilde{\\beta}\\mid \\tilde{y})\\) by MCMC (Dobson and Barnett 2018, chap. 14, p. 318). Each \\(\\beta_{x_j}\\) is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\(e^{\\beta_{x_j}}\\), or of any other function of \\(\\tilde{\\beta}\\), is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture Modeling Events (Statistical Rethinking 2026, Lecture A09)."
-  },
-  {
-    "objectID": "bayesian-examples-slides.html#sec-bayes-examples-survival",
-    "href": "bayesian-examples-slides.html#sec-bayes-examples-survival",
-    "title": "Fitting Models by Bayesian Inference with JAGS",
-    "section": "\n3 Survival analysis",
-    "text": "3 Survival analysis\nParametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC (Dobson and Barnett 2018, chap. 14, p. 327). Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the likelihood with censoring: an observed event at time \\(t\\) contributes its density \\({\\lambda}(t)\\,\\operatorname{S}(t)\\), and an observation right-censored at time \\(t\\) contributes its survival probability \\(\\operatorname{S}(t)\\), where \\({\\lambda}\\) is the hazard and \\(\\operatorname{S}\\) the survival function."
-  },
-  {
-    "objectID": "bayesian-examples-slides.html#sec-bayes-examples-random-effects",
-    "href": "bayesian-examples-slides.html#sec-bayes-examples-random-effects",
-    "title": "Fitting Models by Bayesian Inference with JAGS",
-    "section": "\n4 Random effects",
-    "text": "4 Random effects\nThe hierarchical model of the two-level Gaussian example is the random-effects model structure, with group-level parameters \\(\\theta_j \\sim \\operatorname{N}\\mathopen{}\\left(\\mu, \\tau^2\\right)\\mathclose{}\\) drawn from a common distribution. What changes here from a maximum likelihood fit is the inference method: the Bayesian analysis places priors on the hyperparameters \\(\\mu\\) and \\(\\tau\\) and samples their joint posterior together with the group-level parameters (Dobson and Barnett 2018, chap. 14, p. 329). The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\(\\tau\\), and the posterior for \\(\\tau\\) carries the uncertainty about the between-group spread into every group-level summary."
-  },
-  {
-    "objectID": "bayesian-examples-slides.html#sec-bayes-examples-bma",
-    "href": "bayesian-examples-slides.html#sec-bayes-examples-bma",
-    "title": "Fitting Models by Bayesian Inference with JAGS",
-    "section": "\n5 Bayesian model averaging",
-    "text": "5 Bayesian model averaging\nWhen several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. Bayesian model averaging instead averages over the models, weighting each by its posterior probability (Dobson and Barnett 2018, chap. 14, p. 339). This approach carries model uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by predictor selection."
-  },
-  {
-    "objectID": "bayesian-examples-slides.html#references",
-    "href": "bayesian-examples-slides.html#references",
-    "title": "Fitting Models by Bayesian Inference with JAGS",
-    "section": "References",
-    "text": "References\n\n\nDobson, Annette J, and Adrian G Barnett. 2018. An Introduction to Generalized Linear Models. 4th ed. CRC press. https://doi.org/10.1201/9781315182780.\n\n\nSchwarz, Gideon. 1978. “Estimating the Dimension of a Model.” The Annals of Statistics 6 (2): 461–64. https://doi.org/10.1214/aos/1176344136."
-  },
-  {
-    "objectID": "basic-statistical-methods-slides.html#introduction",
-    "href": "basic-statistical-methods-slides.html#introduction",
-    "title": "Comparing Means",
-    "section": "\n1 Introduction",
-    "text": "1 Introduction\n\n\nThis page reviews the standard methods for comparing the mean of a continuous outcome between groups: t-tests, confidence intervals for a difference in means, and one-way analysis of variance.\nThis page builds on three others:\n\n\nExploratory Data Analysis defines the sample statistics these methods use;\n\nStatistical Inference defines hypotheses, test statistics, p-values, confidence intervals, and the t, chi-square, and F reference distributions;\n\nEstimation defines estimators and their standard errors.\n\nThe t-tests and ANOVA on this page are the exact, Gaussian-outcome tests in the table of exact and approximate tests on the Maximum Likelihood page, which pairs each one with its large-sample counterpart.\nThis page is adapted from Vittinghoff et al. (2012), Chapter 3."
-  },
-  {
-    "objectID": "basic-statistical-methods-slides.html#sec-hers-intro",
-    "href": "basic-statistical-methods-slides.html#sec-hers-intro",
-    "title": "Comparing Means",
-    "section": "\n2 The HERS data",
-    "text": "2 The HERS data\nThe “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) (Hulley et al. 1998).\nThe trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo (Hulley et al. 1998). Women were followed for an average of 4.1 years (Hulley et al. 1998).\nThe primary outcome was nonfatal myocardial infarction or CHD death (Hulley et al. 1998).\nThe HERS data are distributed with Vittinghoff et al. (2012) on the book’s companion website, as a Stata file that R can read directly:\n\n# one unbroken string, so that link checkers test the whole URL:\nurl &lt;- \"https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta\" # nolint: line_length_linter.\nhers &lt;- haven::read_dta(url)\n\nThe rmb R package includes the same file, which these notes use so that rendering does not depend on the website. haven::as_factor() converts the Stata value labels to factors:\n\nhers &lt;- rmb::hers |&gt; haven::as_factor()\nhers |&gt; head()\n\n\n  \n\n\n\nThe examples on this page use these variables:\n\n\nVariable\nMeaning\n\n\n\nHT\nRandomized treatment: placebo or hormone therapy\n\n\nage\nAge at baseline (years)\n\n\nraceth\nRace/ethnicity: White, African American, or Other\n\n\nexercise\nExercises at least three times per week (no/yes)\n\n\nBMI\nBody mass index at baseline (kg/m2)\n\n\nSBP\nSystolic blood pressure at baseline (mmHg)\n\n\nglucose\nFasting glucose at baseline (mg/dL)\n\n\nglucose1\nFasting glucose at the year-1 visit (mg/dL)\n\n\n\n\nhers |&gt;\n  dplyr::select(HT, age, raceth, exercise, BMI, SBP, glucose, glucose1) |&gt;\n  dplyr::glimpse()\n#&gt; Rows: 2,763\n#&gt; Columns: 8\n#&gt; $ HT       &lt;fct&gt; placebo, placebo, hormone therapy, placebo, placebo, hormone …\n#&gt; $ age      &lt;dbl&gt; 70, 62, 69, 64, 65, 68, 70, 69, 61, 62, 72, 73, 52, 57, 57, 6…\n#&gt; $ raceth   &lt;fct&gt; African American, African American, White, White, White, Afri…\n#&gt; $ exercise &lt;fct&gt; no, no, no, no, no, no, no, yes, yes, no, no, no, no, no, yes…\n#&gt; $ BMI      &lt;dbl&gt; 23.69, 28.62, 42.51, 24.39, 21.90, 29.05, 34.45, 23.16, 30.26…\n#&gt; $ SBP      &lt;dbl&gt; 138, 118, 134, 152, 175, 174, 119, 178, 162, 111, 122, 158, 1…\n#&gt; $ glucose  &lt;dbl&gt; 84, 111, 114, 94, 101, 116, 120, 95, 105, 98, 111, 95, 97, 10…\n#&gt; $ glucose1 &lt;dbl&gt; 94, 78, 98, 93, 92, 115, NA, 95, 113, 98, 96, 107, 90, 100, 1…"
-  },
-  {
-    "objectID": "basic-statistical-methods-slides.html#sec-descriptive-stats",
-    "href": "basic-statistical-methods-slides.html#sec-descriptive-stats",
-    "title": "Comparing Means",
-    "section": "\n3 Descriptive statistics",
-    "text": "3 Descriptive statistics\nThe Exploratory Data Analysis page defines the sample statistics used on this page, each with an example:\n\nthe sample mean;\nthe sample median;\nthe sample variance;\nthe sample standard deviation;\nthe interquartile range;\nthe sample proportion.\n\nThat page also defines the graphs used here, including box plots and scatter plots."
-  },
-  {
-    "objectID": "basic-statistical-methods-slides.html#sec-two-group-continuous",
-    "href": "basic-statistical-methods-slides.html#sec-two-group-continuous",
-    "title": "Comparing Means",
-    "section": "\n4 Comparing two groups: continuous outcomes",
-    "text": "4 Comparing two groups: continuous outcomes\n\n4.1 Hypotheses\nThe Statistical Inference page defines the null hypothesis, the alternative hypothesis, test statistics, p-values, and significance levels. In a comparison of two groups with means \\(\\mu_1\\) and \\(\\mu_2\\), the null hypothesis is usually \\(H_0: \\mu_1 = \\mu_2\\), and the two-sided alternative is \\(H_1: \\mu_1 \\neq \\mu_2\\)."
-  },
-  {
-    "objectID": "basic-statistical-methods-slides.html#sec-anova",
-    "href": "basic-statistical-methods-slides.html#sec-anova",
-    "title": "Comparing Means",
-    "section": "\n5 One-way analysis of variance",
-    "text": "5 One-way analysis of variance\n\n\nDefinition 7 (Between-group sum of squares) Let \\(y_{j1}, \\ldots, y_{jn_j}\\) be the \\(n_j\\) observations in group \\(j\\), for \\(k \\ge 2\\) groups with \\(n \\stackrel{\\text{def}}{=}\\sum_{j=1}^{k} n_j\\) observations in all, let \\(\\bar{y}_j\\) be the sample mean of group \\(j\\), and let \\(\\bar{y}\\) be the sample mean of all \\(n\\) observations. The between-group sum of squares is\n\\[\\text{SS}_\\text{between} \\stackrel{\\text{def}}{=}\\sum_{j=1}^{k} n_j (\\bar{y}_j - \\bar{y})^2.\\]"
-  },
-  {
-    "objectID": "basic-statistical-methods-slides.html#references",
-    "href": "basic-statistical-methods-slides.html#references",
-    "title": "Comparing Means",
-    "section": "References",
-    "text": "References\n\n\nHogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. Probability and Statistical Inference. Tenth edition. Pearson.\n\n\nHulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” JAMA : The Journal of the American Medical Association (Chicago, IL) 280 (7): 605–13. https://doi.org/10.1001/jama.280.7.605.\n\n\nVittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models. 2nd ed. Springer. https://doi.org/10.1007/978-1-4614-1353-0."
-  },
-  {
     "objectID": "basic-statistical-methods.html",
     "href": "basic-statistical-methods.html",
     "title": "Comparing Means",
@@ -1152,55 +746,6 @@
       "Methods",
       "Comparing Means"
     ]
-  },
-  {
-    "objectID": "bayesian-inference-slides.html#sec-bayes-paradigms",
-    "href": "bayesian-inference-slides.html#sec-bayes-paradigms",
-    "title": "Bayesian Inference",
-    "section": "\n1 Frequentist and Bayesian paradigms",
-    "text": "1 Frequentist and Bayesian paradigms\nThe estimation and inference pages take the frequentist view of parameters."
-  },
-  {
-    "objectID": "bayesian-inference-slides.html#sec-bayes-equation",
-    "href": "bayesian-inference-slides.html#sec-bayes-equation",
-    "title": "Bayesian Inference",
-    "section": "\n2 Bayes’ theorem for parameters",
-    "text": "2 Bayes’ theorem for parameters\n\n\nDefinition 4 (Posterior distribution) The posterior distribution of a parameter \\(\\theta\\), given observed data \\(\\tilde{Y}= \\tilde{y}\\), is the conditional distribution of \\(\\theta\\) given \\(\\tilde{Y}= \\tilde{y}\\). Its density or probability mass function is written \\(\\operatorname{p}(\\theta\\mid \\tilde{y})\\)."
-  },
-  {
-    "objectID": "bayesian-inference-slides.html#sec-bayes-priors",
-    "href": "bayesian-inference-slides.html#sec-bayes-priors",
-    "title": "Bayesian Inference",
-    "section": "\n3 Priors",
-    "text": "3 Priors\nThe prior encodes what is known about \\(\\theta\\) before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie (Dobson and Barnett 2018, chap. 12, p. 276)."
-  },
-  {
-    "objectID": "bayesian-inference-slides.html#sec-bayes-predictive-checks",
-    "href": "bayesian-inference-slides.html#sec-bayes-predictive-checks",
-    "title": "Bayesian Inference",
-    "section": "\n4 Predictive checks",
-    "text": "4 Predictive checks\nA Bayesian model makes predictions about data, both before and after the data are seen. Comparing those predictions with the data we actually have is a way to check the model. A check made before the data are used tests the prior; a check made after the data are used tests the whole model (Gelman et al. 2013, sec. 6.3, p. 143; McElreath 2020, sec. 4.3.2, pp. 82-83). For a related video lecture, see Richard McElreath’s Geocentric Models (Statistical Rethinking 2026, Lecture A03)."
-  },
-  {
-    "objectID": "bayesian-inference-slides.html#sec-bayes-hierarchies",
-    "href": "bayesian-inference-slides.html#sec-bayes-hierarchies",
-    "title": "Bayesian Inference",
-    "section": "\n5 Distributions and hierarchies",
-    "text": "5 Distributions and hierarchies\n\n\nDefinition 22 (Hierarchical model) A hierarchical model, also called a multilevel model, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters (Dobson and Barnett 2018, chap. 12, p. 281)."
-  },
-  {
-    "objectID": "bayesian-inference-slides.html#sec-bayes-resources",
-    "href": "bayesian-inference-slides.html#sec-bayes-resources",
-    "title": "Bayesian Inference",
-    "section": "\n6 Further reading",
-    "text": "6 Further reading\nThe following resources cover Bayesian inference in more depth.\n\n6.1 UC Davis courses\n\n\nSTA 015C: “Introduction to Statistical Data Science III”\n\nSTA 035C: “Statistical Data Science III”\n\nSTA 145: “Bayesian Statistical Inference”\n\nECL 234: “Bayesian Models - A Statistical Primer”\n\nPLS 207: “Applied Statistical Modeling for the Environmental Sciences”\n\nPSC 205H: “Applied Bayesian Statistics for Social Scientists”\n\nPOL 280: “Bayesian Methods: for Social & Behavioral Sciences”\n\nBAX 442: “Advanced Statistics”\n\n\n6.2 Books\n\n\nRoss (2022), a free online textbook\n\nAragon (2018), on population health thinking with Bayesian networks\n\nMcElreath (2020), which ECL 234 uses; its author was formerly a UC Davis professor, and has published video lectures, most recently the 2026 course, and course materials; the Data Science Learning Community’s book club recorded its discussion of the first twelve chapters\nKorner-Nievergelt and Korner-Nievergelt (2015)\nCowles (2013)\nKéry et al. (2012)\n\nHobbs and Hooten (2015), which has been used in PLS 207"
-  },
-  {
-    "objectID": "bayesian-inference-slides.html#references",
-    "href": "bayesian-inference-slides.html#references",
-    "title": "Bayesian Inference",
-    "section": "References",
-    "text": "References\n\n\nAragon, Tomas J. 2018. Population Health Thinking with Bayesian Networks. https://escholarship.org/uc/item/8000r5m5.\n\n\nCasella, George, and Roger Berger. 2002. Statistical Inference. 2nd ed. Cengage Learning. https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/.\n\n\nCowles, Mary Kathryn. 2013. Applied Bayesian Statistics: With R and OpenBUGS Examples. Vol. 98. Springer Texts in Statistics. Springer Nature. https://doi.org/10.1007/978-1-4614-5696-4.\n\n\nDobson, Annette J, and Adrian G Barnett. 2018. An Introduction to Generalized Linear Models. 4th ed. CRC press. https://doi.org/10.1201/9781315182780.\n\n\nGelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. Bayesian Data Analysis. 3rd ed. Chapman & Hall/CRC Texts in Statistical Science. CRC Press. https://doi.org/10.1201/b16018.\n\n\nHobbs, N. Thompson, and Mevin B Hooten. 2015. Bayesian Models: A Statistical Primer for Ecologists. STU - Student edition. Princeton University Press.\n\n\nHosmer, David W., and Stanley Lemeshow. 1989. Applied Logistic Regression. Wiley.\n\n\nKéry, Marc., Michael. Schaub, and Steven R. Beissinger. 2012. Bayesian Population Analysis Using WinBUGS : A Hierarchical Perspective. 1st ed. Academic Press. https://shop.elsevier.com/books/bayesian-population-analysis-using-winbugs/kery/978-0-12-387020-9.\n\n\nKorner-Nievergelt, Fränzi, and Fränzi Korner-Nievergelt. 2015. Bayesian Data Analysis in Ecology Using Linear Models with R, BUGS, and Stan. 1st ed. Academic Press.\n\n\nMcElreath, Richard. 2020. Statistical Rethinking : A Bayesian Course with Examples in R and Stan. Second edition. Chapman & Hall/CRC Texts in Statistical Science Series. CRC Press.\n\n\nRoss, Kevin. 2022. An Introduction to Bayesian Reasoning and Methods. Online. https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/.\n\n\nVenables, W. N., and B. D. Ripley. 2002. Modern Applied Statistics with S. 4th ed. Springer. https://doi.org/10.1007/978-0-387-21706-2."
   },
   {
     "objectID": "bayesian-inference.html",
@@ -1291,27 +836,6 @@
     ]
   },
   {
-    "objectID": "categorical-tests-slides.html#the-hers-data",
-    "href": "categorical-tests-slides.html#the-hers-data",
-    "title": "Comparing Proportions",
-    "section": "\n1 The HERS data",
-    "text": "1 The HERS data\nThe examples on this page use the HERS data, which the Comparing Means page describes. The rmb R package includes the dataset; haven::as_factor() converts its Stata value labels to factors:\n\nhers &lt;- rmb::hers |&gt; haven::as_factor()\nhers |&gt; head()"
-  },
-  {
-    "objectID": "categorical-tests-slides.html#sec-two-group-categorical",
-    "href": "categorical-tests-slides.html#sec-two-group-categorical",
-    "title": "Comparing Proportions",
-    "section": "\n2 Comparing two groups: categorical outcomes",
-    "text": "2 Comparing two groups: categorical outcomes\n\n2.1 Contingency tables\n\n\nExample 1 (Exercise by treatment group in HERS) Table 1 cross-tabulates regular exercise at baseline by treatment group, as a contingency table with row percentages.\n[R code]hers |&gt;\n  gtsummary::tbl_cross(\n    row = exercise,\n    col = HT,\n    label = list(\n      exercise ~ \"Exercises regularly\",\n      HT ~ \"Treatment group\"\n    ),\n    percent = \"row\"\n  )\n\n\nTable 1: Exercise by treatment group in HERS\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTreatment group\n\nTotal\n\n\nplacebo\nhormone therapy\n\n\n\n\nExercises regularly\n\n\n\n\n\n    no\n853 (50%)\n842 (50%)\n1,695 (100%)\n\n\n    yes\n530 (50%)\n538 (50%)\n1,068 (100%)\n\n\nTotal\n1,383 (50%)\n1,380 (50%)\n2,763 (100%)"
-  },
-  {
-    "objectID": "categorical-tests-slides.html#references",
-    "href": "categorical-tests-slides.html#references",
-    "title": "Comparing Proportions",
-    "section": "References",
-    "text": "References\n\n\nHogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. Probability and Statistical Inference. Tenth edition. Pearson.\n\n\nVittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models. 2nd ed. Springer. https://doi.org/10.1007/978-1-4614-1353-0."
-  },
-  {
     "objectID": "categorical-tests.html",
     "href": "categorical-tests.html",
     "title": "Comparing Proportions",
@@ -1354,34 +878,6 @@
       "Methods",
       "Comparing Proportions"
     ]
-  },
-  {
-    "objectID": "correlation-regression-slides.html#the-hers-data",
-    "href": "correlation-regression-slides.html#the-hers-data",
-    "title": "Correlation and Simple Linear Regression",
-    "section": "\n1 The HERS data",
-    "text": "1 The HERS data\nThe examples on this page use the HERS data, which the Comparing Means page describes. The rmb R package includes the dataset; haven::as_factor() converts its Stata value labels to factors:\n\nhers &lt;- rmb::hers |&gt; haven::as_factor()\nhers |&gt; head()"
-  },
-  {
-    "objectID": "correlation-regression-slides.html#sec-correlation",
-    "href": "correlation-regression-slides.html#sec-correlation",
-    "title": "Correlation and Simple Linear Regression",
-    "section": "\n2 Correlation",
-    "text": "2 Correlation\n\n2.1 Testing the Pearson correlation\n\n\nDefinition 1 (Population correlation) The population correlation of two random variables \\(X\\) and \\(Y\\) with positive variances is\n\\[\\rho\\stackrel{\\text{def}}{=}\\frac{\\operatorname{Cov}\\mathopen{}\\left(X, Y\\right)\\mathclose{}}{\\sqrt{\\operatorname{Var}\\mathopen{}\\left(X\\right)\\mathclose{} \\operatorname{Var}\\mathopen{}\\left(Y\\right)\\mathclose{}}},\\]\nwhere \\(\\operatorname{Cov}\\mathopen{}\\left(X, Y\\right)\\mathclose{}\\) is their covariance."
-  },
-  {
-    "objectID": "correlation-regression-slides.html#sec-simple-linear-regression",
-    "href": "correlation-regression-slides.html#sec-simple-linear-regression",
-    "title": "Correlation and Simple Linear Regression",
-    "section": "\n3 Simple linear regression",
-    "text": "3 Simple linear regression\n\n3.1 Model specification\n\n\nDefinition 4 (Conditional Gaussian model) A conditional Gaussian model for outcomes \\(Y_1, \\ldots, Y_n\\) with covariate values \\(x_1, \\ldots, x_n\\) (each a single value or a vector) says that, given the covariates, the outcomes are independent and Gaussian: outcome \\(Y_i\\) is centered on a mean function \\(\\mu(x)\\) evaluated at \\(x_i\\), and has its own variance \\(\\sigma^2_i\\):\n\\[\n\\begin{aligned}\nY_i \\mid X_i = x_i &\\ \\sim_{\\perp\\!\\!\\!\\perp}\\ \\operatorname{N}\\mathopen{}\\left(\\mu_i, \\sigma^2_i\\right)\\mathclose{},\\\\\n\\mu_i &\\stackrel{\\text{def}}{=}\\mu(x_i).\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "correlation-regression-slides.html#references",
-    "href": "correlation-regression-slides.html#references",
-    "title": "Correlation and Simple Linear Regression",
-    "section": "References",
-    "text": "References\n\n\nHogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. Probability and Statistical Inference. Tenth edition. Pearson.\n\n\nHutchinson, Brian. n.d. DATA 471/571 (Machine Learning) and CSCI 481/581 (Deep Learning) Video Lectures. Western Washington University. Accessed September 28, 2026. https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/.\n\n\nVittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models. 2nd ed. Springer. https://doi.org/10.1007/978-1-4614-1353-0."
   },
   {
     "objectID": "correlation-regression.html",
@@ -1439,34 +935,6 @@
     ]
   },
   {
-    "objectID": "estimation-slides.html#scientific-models",
-    "href": "estimation-slides.html#scientific-models",
-    "title": "Estimation",
-    "section": "\n1 Scientific models",
-    "text": "1 Scientific models\n\n\nDefinition 1 (Scientific models) Scientific models are attempts to describe physical conditions or changes that occur in the world and universe around us."
-  },
-  {
-    "objectID": "estimation-slides.html#estimands-estimates-and-estimators",
-    "href": "estimation-slides.html#estimands-estimates-and-estimators",
-    "title": "Estimation",
-    "section": "\n2 Estimands, estimates, and estimators",
-    "text": "2 Estimands, estimates, and estimators\n\n2.1 Estimands\n\n\n\nDefinition 2 (Estimand) An estimand is an unknown quantity \\(\\theta\\) whose value we want to know (Pohl et al. 2021; Lawrance et al. 2020)."
-  },
-  {
-    "objectID": "estimation-slides.html#sec-est-accuracy",
-    "href": "estimation-slides.html#sec-est-accuracy",
-    "title": "Estimation",
-    "section": "\n3 Accuracy of estimators",
-    "text": "3 Accuracy of estimators\n\n3.1 Accuracy\nTo determine which estimator is best, we need to define best. Accuracy is usually most important, and ease of computation is usually secondary."
-  },
-  {
-    "objectID": "estimation-slides.html#references",
-    "href": "estimation-slides.html#references",
-    "title": "Estimation",
-    "section": "References",
-    "text": "References\n\n\n5MinuteAI. n.d. Probability & Statistics. Video playlist on YouTube. Accessed October 12, 2026. https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK.\n\n\nBox, George E. P., and Norman Richard. Draper. 1987. Empirical Model-Building and Response Surfaces. Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics. Wiley.\n\n\nDunn, Peter K, and Gordon K Smyth. 2018. Generalized Linear Models with Examples in R. Vol. 53. Springer. https://doi.org/10.1007/978-1-4419-0118-7.\n\n\nHosmer, David W., and Stanley Lemeshow. 1989. Applied Logistic Regression. Wiley.\n\n\nLawrance, Rachael, Evgeny Degtyarev, Philip Griffiths, et al. 2020. “What Is an Estimand, and How Does It Relate to Quantifying the Effect of Treatment on Patient-Reported Quality of Life Outcomes in Clinical Trials?” Journal of Patient-Reported Outcomes 4 (1): 1–8. https://doi.org/10.1186/s41687-020-00218-5.\n\n\nPohl, Moritz, Lukas Baumann, Rouven Behnisch, Marietta Kirchner, Johannes Krisam, and Anja Sander. 2021. “Estimands—A Basic Element for Clinical Trials.” Deutsches Ärzteblatt International 118 (51-52): 883–88. https://doi.org/10.3238/arztebl.m2021.0373.\n\n\nVan Buuren, Stef. 2018. Flexible Imputation of Missing Data. CRC press. https://stefvanbuuren.name/fimd/."
-  },
-  {
     "objectID": "estimation.html",
     "href": "estimation.html",
     "title": "Estimation",
@@ -1522,34 +990,6 @@
     ]
   },
   {
-    "objectID": "index-slides.html#topics",
-    "href": "index-slides.html#topics",
-    "title": "Statistics for Data Science",
-    "section": "1 Topics",
-    "text": "1 Topics\nThe notes are organized in four groups of pages.\nDescribing data:\n\nTypes of variables: numerical and categorical variables, scales of measurement, the taxonomy of data types, and binary and count random variables;\nNonparametric models: the empirical CDF, order statistics, and sample quantiles;\nExploratory data analysis: sample statistics, graphs, correlation, and contingency tables, illustrated with the WCGS data.\n\nInference:\n\nEstimation: estimands, estimators, bias, mean squared error, and standard error;\nStatistical inference: hypothesis tests, p-values, the \\(t\\), chi-square, and \\(F\\) distributions, confidence intervals, and how to interpret negative findings;\nMaximum likelihood inference: likelihood, score, information, the asymptotic distribution of MLEs, Wald and likelihood ratio tests, and Newton-Raphson, with worked examples.\n\nMethods:\n\nComparing means: t-tests and one-way ANOVA;\nComparing proportions: the chi-square test and Fisher’s exact test;\nCorrelation and simple linear regression;\nThe bootstrap;\nPermutation tests: exchangeability, the permutation distribution, and exact and Monte Carlo permutation p-values;\nMultiple testing: the family-wise error rate, the false discovery rate, the Bonferroni, Holm, and Benjamini–Hochberg procedures, and adjusted p-values;\nValidating predictions: overfitting, generalization error, training/validation/test splits, \\(k\\)-fold and leave-one-out cross-validation, and choosing a model by cross-validation;\nClassification and diagnostic tests: sensitivity, specificity, prevalence, and positive and negative predictive values.\n\nBayesian:\n\nBayesian inference: the Bayesian paradigm, priors, posteriors, and hierarchical models;\nMarkov chain Monte Carlo: Monte Carlo integration, the Metropolis–Hastings and Gibbs samplers, convergence diagnostics, and the deviance information criterion;\nFitting models by Bayesian inference with JAGS: a proportion, logistic regression, survival, random effects, and Bayesian model averaging."
-  },
-  {
-    "objectID": "index-slides.html#comparable-courses",
-    "href": "index-slides.html#comparable-courses",
-    "title": "Statistics for Data Science",
-    "section": "Comparable courses",
-    "text": "Comparable courses\nStanford’s statistics department posts the materials of several courses that cover the same inference topics at a more mathematical level:\n\nSTATS 200, Introduction to Statistical Inference (Zhou Fan, Autumn 2016): 29 lecture PDFs on testing, maximum likelihood, the bootstrap, Bayesian analysis and regression, following Rice’s Mathematical Statistics and Data Analysis.\nSTATS 300A, Theory of Statistics (Andrea Montanari, Autumn 2018; see also Lester Mackey’s 2015 scribed notes): finite-sample optimality, exponential families, and testing theory.\nSTATS 300B, Theory of Statistics II (John Duchi, Winter 2021): slides on asymptotic statistics and concentration.\nSTATS 305B, Methods for Applied Statistics (Jonathan Taylor): contingency tables, logistic regression and generalized linear models."
-  },
-  {
-    "objectID": "index-slides.html#origin",
-    "href": "index-slides.html#origin",
-    "title": "Statistics for Data Science",
-    "section": "2 Origin",
-    "text": "2 Origin\nThese notes began as the statistics appendices of Regression Models for Epidemiology, and keep those chapters’ file names, except that two long chapters are now split into several pages. Most results keep their rme #id anchors on the same page; the exceptions are:\n\nthe maximum likelihood practice exercises (exr-prac-*), which moved from the estimation page to the maximum likelihood page;\nthe null and alternative hypothesis definitions, which moved from basic statistical methods to statistical inference;\nthe sample statistics (mean, median, variance, standard deviation, interquartile range, proportion, correlation) and the contingency table, which rme defined on two pages; they are now defined once, on the exploratory data analysis page, under the ids rme used on its basic statistical methods page (such as def-sample-mean), so the exploratory-descriptive ids from rme def-mean, def-median, def-eda-variance, def-eda-sd, def-quantile, def-iqr, and def-correlation are retired;\nthe basic statistical methods sections on categorical outcomes, correlation and simple linear regression, and the bootstrap (such as sec-two-group-categorical, sec-correlation, sec-simple-linear-regression, and sec-bootstrap-ci), which moved to their own pages, with their ids;\nthe Bayesian inference sections on computation (sec-foundations through sec-dic) and the worked examples (sec-bayes-examples and the sections after it), which moved to the MCMC and JAGS pages, with their ids.\n\nWhere these notes rely on probability or calculus, they link to the lab’s notes on probability and mathematics for data science, which are the canonical home for the probability and mathematics appendices of rme."
-  },
-  {
-    "objectID": "index-slides.html#using-these-notes-in-another-site",
-    "href": "index-slides.html#using-these-notes-in-another-site",
-    "title": "Statistics for Data Science",
-    "section": "3 Using these notes in another site",
-    "text": "3 Using these notes in another site\nCourse sites link to these pages by URL; they do not include this repository as a git submodule. A host site that keeps a copy of this repository at its root, named sds, can still include fragments with paths that start with sds/, for example {{&lt; include sds/_subfiles/intro-MLEs/_def_mle.qmd &gt;}}. This site includes its own fragments the same way, through an sds symlink that points at the repository root.\nQuarto resolves @id cross-references only within one rendered page, so a host site that links to a result here uses an explicit link, such as [text](estimation.qmd#def-bias)."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Statistics for Data Science",
@@ -1583,48 +1023,6 @@
     "title": "Statistics for Data Science",
     "section": "3 Using these notes in another site",
     "text": "3 Using these notes in another site\nCourse sites link to these pages by URL; they do not include this repository as a git submodule. A host site that keeps a copy of this repository at its root, named sds, can still include fragments with paths that start with sds/, for example {{&lt; include sds/_subfiles/intro-MLEs/_def_mle.qmd &gt;}}. This site includes its own fragments the same way, through an sds symlink that points at the repository root.\nQuarto resolves @id cross-references only within one rendered page, so a host site that links to a result here uses an explicit link, such as [text](estimation.qmd#def-bias)."
-  },
-  {
-    "objectID": "intro-MLEs-slides.html#sec-intro-MLEs",
-    "href": "intro-MLEs-slides.html#sec-intro-MLEs",
-    "title": "Introduction to Maximum Likelihood Inference",
-    "section": "\n1 Overview of maximum likelihood estimation",
-    "text": "1 Overview of maximum likelihood estimation\n\n\nThese notes are derived primarily from (Dobson and Barnett 2018, chaps. 1–5), with some material from (McLachlan and Krishnan 2007) and (Casella and Berger 2002).\n\n1.1 The likelihood function\n\n\nDefinition 1 (Likelihood of a single observation) Let \\(X\\) be a random variable, with observed value \\(x\\), and let \\(\\operatorname{p}_{\\Theta}(X = x)\\) be a probability model for the distribution of \\(X\\), with parameter vector \\(\\Theta\\). The likelihood of the parameter value \\(\\theta\\), for model \\(\\operatorname{p}_{\\Theta}(X = x)\\) and data \\(X = x\\), is the probability of the event \\(X = x\\) when \\(\\Theta= \\theta\\):\n\\[\\mathcal{L}(\\theta) \\stackrel{\\text{def}}{=}\\operatorname{p}_{\\theta}(X = x)\\]\nFor a continuous random variable, the likelihood is the probability density of \\(X\\) at \\(x\\) instead."
-  },
-  {
-    "objectID": "intro-MLEs-slides.html#example-maximum-likelihood-for-tropical-cyclones-in-australia",
-    "href": "intro-MLEs-slides.html#example-maximum-likelihood-for-tropical-cyclones-in-australia",
-    "title": "Introduction to Maximum Likelihood Inference",
-    "section": "\n2 Example: maximum likelihood for tropical cyclones in Australia",
-    "text": "2 Example: maximum likelihood for tropical cyclones in Australia\nAdapted from (Dobson and Barnett 2018, sec. 1.6.5).\n\n2.1 Data\nTable 3 records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 (Dobson and Barnett 2018, sec. 1.6.5). Figure 1 graphs the number of cyclones by season. Let \\(X_i\\) represent the number of cyclones in season \\(i\\), and \\(x_i\\) its observed value.\n[R code]cyclones &lt;- tibble::tibble(\n  years = c(\n    \"1956/7\", \"1957/8\", \"1958/9\", \"1959/60\", \"1960/1\", \"1961/2\", \"1962/3\",\n    \"1963/4\", \"1964/5\", \"1965/6\", \"1966/7\", \"1967/8\", \"1968/9\"\n  ),\n  season = 1:13,\n  number = c(6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4)\n)\ncyclones |&gt; knitr::kable()\n\n\nTable 3: Number of tropical cyclones during each November-to-April season in northeastern Australia (Dobson and Barnett 2018, sec. 1.6.5)\n\n\n\n\n\nyears\nseason\nnumber\n\n\n\n1956/7\n1\n6\n\n\n1957/8\n2\n5\n\n\n1958/9\n3\n4\n\n\n1959/60\n4\n6\n\n\n1960/1\n5\n6\n\n\n1961/2\n6\n3\n\n\n1962/3\n7\n12\n\n\n1963/4\n8\n7\n\n\n1964/5\n9\n4\n\n\n1965/6\n10\n2\n\n\n1966/7\n11\n6\n\n\n1967/8\n12\n7\n\n\n1968/9\n13\n4"
-  },
-  {
-    "objectID": "intro-MLEs-slides.html#sec-gaussian-mle",
-    "href": "intro-MLEs-slides.html#sec-gaussian-mle",
-    "title": "Introduction to Maximum Likelihood Inference",
-    "section": "\n3 Maximum likelihood for univariate Gaussian models",
-    "text": "3 Maximum likelihood for univariate Gaussian models\nSuppose \\(X_1, \\ldots, X_n \\ \\sim_{\\operatorname{iid}}\\ \\operatorname{N}\\mathopen{}\\left(\\mu, \\sigma^2\\right)\\mathclose{}\\), and let \\(x_1, \\ldots, x_n\\) be the observed values. The parameter vector is \\(\\tilde{\\theta}= (\\mu, \\sigma^2)\\). We treat \\(\\sigma^2\\), rather than \\(\\sigma\\), as the second parameter, and differentiate with respect to \\(\\sigma^2\\) directly.\nBy Theorem 1, the likelihood is:\n\\[\n\\mathcal{L}(\\mu, \\sigma^2) = \\prod_{i=1}^n(2\\pi\\sigma^2)^{-1/2}\n\\operatorname{exp}\\mathopen{}\\left\\{-\\frac{(x_i - \\mu)^2}{2\\sigma^2}\\right\\}\\mathclose{}\n\\]\nand by Theorem 4, the log-likelihood is:\n\\[\n\\begin{aligned}\n\\ell(\\mu, \\sigma^2)\n&= \\sum_{i=1}^n\\operatorname{log}\\mathopen{}\\left\\{(2\\pi\\sigma^2)^{-1/2}\n\\operatorname{exp}\\mathopen{}\\left\\{-\\frac{(x_i - \\mu)^2}{2\\sigma^2}\\right\\}\\mathclose{}\\right\\}\\mathclose{}\n&& \\text{(log of each Gaussian density)}\\\\\n&= \\sum_{i=1}^n\\mathopen{}\\left(\\operatorname{log}\\mathopen{}\\left\\{(2\\pi\\sigma^2)^{-1/2}\\right\\}\\mathclose{}\n+ \\operatorname{log}\\mathopen{}\\left\\{\\operatorname{exp}\\mathopen{}\\left\\{-\\frac{(x_i - \\mu)^2}{2\\sigma^2}\\right\\}\\mathclose{}\\right\\}\\mathclose{}\\right)\\mathclose{}\n&& \\text{(log of a product)}\\\\\n&= \\sum_{i=1}^n\\mathopen{}\\left(-\\frac{1}{2}\\operatorname{log}\\mathopen{}\\left\\{2\\pi\\sigma^2\\right\\}\\mathclose{}\n+ \\operatorname{log}\\mathopen{}\\left\\{\\operatorname{exp}\\mathopen{}\\left\\{-\\frac{(x_i - \\mu)^2}{2\\sigma^2}\\right\\}\\mathclose{}\\right\\}\\mathclose{}\\right)\\mathclose{}\n&& \\text{(log of a power)}\\\\\n&= \\sum_{i=1}^n\\mathopen{}\\left(-\\frac{1}{2}\\operatorname{log}\\mathopen{}\\left\\{2\\pi\\sigma^2\\right\\}\\mathclose{} - \\frac{(x_i - \\mu)^2}{2\\sigma^2}\\right)\\mathclose{}\n&& \\text{($\\operatorname{log}$ undoes $\\operatorname{exp}$)}\\\\\n&= \\sum_{i=1}^n\\mathopen{}\\left(-\\frac{1}{2}\\operatorname{log}\\mathopen{}\\left\\{2\\pi\\sigma^2\\right\\}\\mathclose{}\\right)\\mathclose{}\n- \\sum_{i=1}^n\\frac{(x_i - \\mu)^2}{2\\sigma^2}\n&& \\text{(split the sum)}\\\\\n&= -\\frac{n}{2}\\operatorname{log}\\mathopen{}\\left\\{2\\pi\\sigma^2\\right\\}\\mathclose{}\n- \\sum_{i=1}^n\\frac{(x_i - \\mu)^2}{2\\sigma^2}\n&& \\text{(sum of $n$ identical terms)}\\\\\n&= -\\frac{n}{2}\\operatorname{log}\\mathopen{}\\left\\{2\\pi\\sigma^2\\right\\}\\mathclose{}\n- \\frac{1}{2\\sigma^2}\\sum_{i=1}^n(x_i - \\mu)^2\n&& \\text{(factor the constant $\\tfrac{1}{2\\sigma^2}$ out of the sum)}\\\\\n&= -\\frac{n}{2}\\mathopen{}\\left(\\operatorname{log}\\mathopen{}\\left\\{2\\pi\\right\\}\\mathclose{} + \\operatorname{log}\\mathopen{}\\left\\{\\sigma^2\\right\\}\\mathclose{}\\right)\\mathclose{}\n- \\frac{1}{2\\sigma^2}\\sum_{i=1}^n(x_i - \\mu)^2\n&& \\text{(log of a product)}\\\\\n&= -\\frac{n}{2}\\operatorname{log}\\mathopen{}\\left\\{2\\pi\\right\\}\\mathclose{} - \\frac{n}{2}\\operatorname{log}\\mathopen{}\\left\\{\\sigma^2\\right\\}\\mathclose{}\n- \\frac{1}{2\\sigma^2}\\sum_{i=1}^n(x_i - \\mu)^2\n&& \\text{(distribute $-\\tfrac{n}{2}$)}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "intro-MLEs-slides.html#sec-hers-mle-example",
-    "href": "intro-MLEs-slides.html#sec-hers-mle-example",
-    "title": "Introduction to Maximum Likelihood Inference",
-    "section": "\n4 Example: hormone therapy study",
-    "text": "4 Example: hormone therapy study\nThis example fits a Gaussian model to real data by maximum likelihood, and then uses simulation to examine the properties of maximum likelihood estimation for that model."
-  },
-  {
-    "objectID": "intro-MLEs-slides.html#sec-mle-practice",
-    "href": "intro-MLEs-slides.html#sec-mle-practice",
-    "title": "Introduction to Maximum Likelihood Inference",
-    "section": "\n5 Practice exercises",
-    "text": "5 Practice exercises\n\nExercise 38 (Binomial likelihood (adapted from Dobson and Barnett (2018), Chapter 3)) Let \\(Y \\sim \\text{Binomial}(n, \\pi)\\), so that\n\\[\n\\operatorname{p}(Y = y \\mid \\pi) = \\binom{n}{y} \\pi^y (1-\\pi)^{n-y},\n\\quad y \\in \\{0, 1, \\ldots, n\\}.\n\\]\nAssume \\(0 &lt; y &lt; n\\) so the MLE lies in the interior of \\((0, 1)\\).\n(a) Write the log-likelihood \\(\\ell(\\pi; y)\\) for a single observation \\(y\\).\n(b) Derive the score function \\(\\ell'(\\pi; y) \\stackrel{\\text{def}}{=}\\frac{\\partial}{\\partial \\pi}\\ell(\\pi; y)\\).\n(c) Set the score equal to zero and solve for \\(\\hat{\\pi}_{ML}\\). Confirm that \\(\\hat{\\pi}_{ML} = y/n\\).\n(d) Compute the second derivative \\(\\ell''(\\pi; y)\\) and verify that it is negative, confirming a maximum.\n\n\nSolution 38. (a)\n\\[\n\\begin{aligned}\n\\ell(\\pi; y)\n&= \\operatorname{log}\\mathopen{}\\left\\{\\binom{n}{y} \\pi^y (1-\\pi)^{n-y}\\right\\}\\mathclose{}\n&& \\text{(log of the binomial PMF)}\n\\\\\n&= \\operatorname{log}\\mathopen{}\\left\\{\\binom{n}{y}\\right\\}\\mathclose{} + \\operatorname{log}\\mathopen{}\\left\\{\\pi^y\\right\\}\\mathclose{} + \\operatorname{log}\\mathopen{}\\left\\{(1-\\pi)^{n-y}\\right\\}\\mathclose{}\n&& \\text{(log of a product)}\n\\\\\n&= \\operatorname{log}\\mathopen{}\\left\\{\\binom{n}{y}\\right\\}\\mathclose{} + y\\operatorname{log}\\mathopen{}\\left\\{\\pi\\right\\}\\mathclose{} + (n-y)\\operatorname{log}\\mathopen{}\\left\\{1-\\pi\\right\\}\\mathclose{}\n&& \\text{(log of a power)}\n\\end{aligned}\n\\]\nThe first term does not depend on \\(\\pi\\), so it drops out of every derivative with respect to \\(\\pi\\).\n(b)\n\\[\n\\begin{aligned}\n\\ell'(\\pi; y)\n&= \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[\\operatorname{log}\\mathopen{}\\left\\{\\binom{n}{y}\\right\\}\\mathclose{} + y\\operatorname{log}\\mathopen{}\\left\\{\\pi\\right\\}\\mathclose{} + (n-y)\\operatorname{log}\\mathopen{}\\left\\{1-\\pi\\right\\}\\mathclose{}\\right]\\mathclose{}\n&& \\text{(log-likelihood from (a))}\n\\\\\n&= \\frac{\\partial}{\\partial \\pi}\\operatorname{log}\\mathopen{}\\left\\{\\binom{n}{y}\\right\\}\\mathclose{} + \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[y\\operatorname{log}\\mathopen{}\\left\\{\\pi\\right\\}\\mathclose{}\\right]\\mathclose{} + \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[(n-y)\\operatorname{log}\\mathopen{}\\left\\{1-\\pi\\right\\}\\mathclose{}\\right]\\mathclose{}\n&& \\text{(linearity of differentiation)}\n\\\\\n&= 0 + \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[y\\operatorname{log}\\mathopen{}\\left\\{\\pi\\right\\}\\mathclose{}\\right]\\mathclose{} + \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[(n-y)\\operatorname{log}\\mathopen{}\\left\\{1-\\pi\\right\\}\\mathclose{}\\right]\\mathclose{}\n&& \\text{(derivative of a constant)}\n\\\\\n&= \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[y\\operatorname{log}\\mathopen{}\\left\\{\\pi\\right\\}\\mathclose{}\\right]\\mathclose{} + \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[(n-y)\\operatorname{log}\\mathopen{}\\left\\{1-\\pi\\right\\}\\mathclose{}\\right]\\mathclose{}\n&& \\text{(drop the zero term)}\n\\\\\n&= y\\frac{\\partial}{\\partial \\pi}\\operatorname{log}\\mathopen{}\\left\\{\\pi\\right\\}\\mathclose{} + (n-y)\\frac{\\partial}{\\partial \\pi}\\operatorname{log}\\mathopen{}\\left\\{1-\\pi\\right\\}\\mathclose{}\n&& \\text{(constant multiple rule)}\n\\\\\n&= y\\frac{1}{\\pi} + (n-y)\\frac{\\partial}{\\partial \\pi}\\operatorname{log}\\mathopen{}\\left\\{1-\\pi\\right\\}\\mathclose{}\n&& \\text{(derivative of $\\log$)}\n\\\\\n&= y\\frac{1}{\\pi} + (n-y)\\frac{1}{1-\\pi}\\frac{\\partial}{\\partial \\pi}(1-\\pi)\n&& \\text{(chain rule)}\n\\end{aligned}\n\\]\nThe inner derivative is:\n\\[\n\\begin{aligned}\n\\frac{\\partial}{\\partial \\pi}(1-\\pi)\n&= \\frac{\\partial}{\\partial \\pi} 1 - \\frac{\\partial}{\\partial \\pi} \\pi\n&& \\text{(linearity of differentiation)}\n\\\\\n&= 0 - \\frac{\\partial}{\\partial \\pi} \\pi\n&& \\text{(derivative of a constant)}\n\\\\\n&= 0 - 1\n&& \\text{(derivative of $\\pi$ with respect to itself)}\n\\\\\n&= -1\n&& \\text{(subtract)}\n\\end{aligned}\n\\]\nSubstituting the inner derivative back in:\n\\[\n\\begin{aligned}\n\\ell'(\\pi; y)\n&= y\\frac{1}{\\pi} + (n-y)\\frac{1}{1-\\pi}(-1)\n&& \\text{(inner derivative is $-1$)}\n\\\\\n&= y\\frac{1}{\\pi} - (n-y)\\frac{1}{1-\\pi}\n&& \\text{(multiply by $-1$)}\n\\\\\n&= \\frac{y}{\\pi} - \\frac{n-y}{1-\\pi}\n&& \\text{(multiply)}\n\\\\\n&= \\frac{y(1-\\pi)}{\\pi(1-\\pi)} - \\frac{(n-y)\\pi}{\\pi(1-\\pi)}\n&& \\text{(write both terms over the common denominator)}\n\\\\\n&= \\frac{y(1-\\pi) - (n-y)\\pi}{\\pi(1-\\pi)}\n&& \\text{(combine the fractions)}\n\\\\\n&= \\frac{y - y\\pi- n\\pi+ y\\pi}{\\pi(1-\\pi)}\n&& \\text{(expand the numerator)}\n\\\\\n&= \\frac{y - n\\pi}{\\pi(1-\\pi)}\n&& \\text{(cancel $y\\pi$)}\n\\end{aligned}\n\\]\n(c)\nSetting \\(\\ell'(\\pi; y) = 0\\):\n\\[\n\\begin{aligned}\n0 &= \\frac{y - n\\pi}{\\pi(1-\\pi)}\n&& \\text{(score from (b))}\n\\\\\n0 &= y - n\\pi\n&& \\text{(multiply both sides by $\\pi(1-\\pi)$)}\n\\\\\ny &= n\\pi\n&& \\text{(add $n\\pi$ to both sides)}\n\\\\\n\\hat{\\pi}_{ML} &= \\frac{y}{n}\n&& \\text{(divide both sides by $n$)}\n\\end{aligned}\n\\]\n(d)\n\\[\n\\begin{aligned}\n\\ell''(\\pi; y)\n&= \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[\\frac{y}{\\pi} - \\frac{n-y}{1-\\pi}\\right]\\mathclose{}\n&& \\text{(score from (b))}\n\\\\\n&= \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[y\\pi^{-1} - (n-y)(1-\\pi)^{-1}\\right]\\mathclose{}\n&& \\text{(write the fractions as negative powers)}\n\\\\\n&= \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[y\\pi^{-1}\\right]\\mathclose{} - \\frac{\\partial}{\\partial \\pi}\\mathopen{}\\left[(n-y)(1-\\pi)^{-1}\\right]\\mathclose{}\n&& \\text{(linearity of differentiation)}\n\\\\\n&= y\\frac{\\partial}{\\partial \\pi}\\pi^{-1} - (n-y)\\frac{\\partial}{\\partial \\pi}(1-\\pi)^{-1}\n&& \\text{(constant multiple rule)}\n\\\\\n&= y\\mathopen{}\\left(-\\pi^{-2}\\right)\\mathclose{} - (n-y)\\frac{\\partial}{\\partial \\pi}(1-\\pi)^{-1}\n&& \\text{(power rule)}\n\\\\\n&= y\\mathopen{}\\left(-\\pi^{-2}\\right)\\mathclose{} - (n-y)\\mathopen{}\\left(-(1-\\pi)^{-2}\\right)\\mathclose{}\\frac{\\partial}{\\partial \\pi}(1-\\pi)\n&& \\text{(chain rule, outer function $u^{-1}$)}\n\\\\\n&= y\\mathopen{}\\left(-\\pi^{-2}\\right)\\mathclose{} - (n-y)\\mathopen{}\\left(-(1-\\pi)^{-2}\\right)\\mathclose{}(-1)\n&& \\text{(inner derivative from (b) is $-1$)}\n\\\\\n&= -y\\pi^{-2} - (n-y)(1-\\pi)^{-2}\n&& \\text{(multiply)}\n\\\\\n&= -\\frac{y}{\\pi^2} - \\frac{n-y}{(1-\\pi)^2}\n&& \\text{(write the negative powers as fractions)}\n\\end{aligned}\n\\]\nSince \\(y \\geq 0\\), \\(n - y \\geq 0\\), and \\(y\\) and \\(n - y\\) are not both zero, \\(\\ell''(\\pi; y) &lt; 0\\) for every \\(\\pi\\in (0,1)\\). So \\(\\ell\\) is strictly concave, and its critical point \\(\\hat{\\pi}_{ML} = y/n\\) is its global maximum."
-  },
-  {
-    "objectID": "intro-MLEs-slides.html#references",
-    "href": "intro-MLEs-slides.html#references",
-    "title": "Introduction to Maximum Likelihood Inference",
-    "section": "References",
-    "text": "References\n\n\n5MinuteAI. n.d. Probability & Statistics. Video playlist on YouTube. Accessed October 12, 2026. https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK.\n\n\nCasella, George, and Roger Berger. 2002. Statistical Inference. 2nd ed. Cengage Learning. https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/.\n\n\nDobson, Annette J, and Adrian G Barnett. 2018. An Introduction to Generalized Linear Models. 4th ed. CRC press. https://doi.org/10.1201/9781315182780.\n\n\nDunn, Peter K, and Gordon K Smyth. 2018. Generalized Linear Models with Examples in R. Vol. 53. Springer. https://doi.org/10.1007/978-1-4419-0118-7.\n\n\nEfron, Bradley, and David V Hinkley. 1978. “Assessing the Accuracy of the Maximum Likelihood Estimator: Observed Versus Expected Fisher Information.” Biometrika 65 (3): 457–83. https://doi.org/10.1093/biomet/65.3.457.\n\n\nHoenig, John M., and Dennis M. Heisey. 2001. “The Abuse of Power: The Pervasive Fallacy of Power Calculations for Data Analysis.” The American Statistician 55 (1): 19–24. https://doi.org/10.1198/000313001300339897.\n\n\nHogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. Probability and Statistical Inference. Tenth edition. Pearson.\n\n\nHulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” JAMA : The Journal of the American Medical Association (Chicago, IL) 280 (7): 605–13. https://doi.org/10.1001/jama.280.7.605.\n\n\nKleinbaum, David G, Lawrence L Kupper, Azhar Nizam, K Muller, and ES Rosenberg. 2014. Applied Regression Analysis and Other Multivariable Methods. 5th ed. Cengage Learning. https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/.\n\n\nLehmann, E. L. 1999. Elements of Large-Sample Theory. Springer Texts in Statistics. Springer. https://doi.org/10.1007/b98855.\n\n\nMcLachlan, Geoffrey J, and Thriyambakam Krishnan. 2007. The EM Algorithm and Extensions. 2nd ed. John Wiley & Sons. https://doi.org/10.1002/9780470191613.\n\n\nNewey, Whitney K, and Daniel McFadden. 1994. “Large Sample Estimation and Hypothesis Testing.” In Handbook of Econometrics, edited by Robert Engle and Dan McFadden, vol. 4. Elsevier. https://doi.org/10.1016/S1573-4412(05)80005-4.\n\n\nVittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models. 2nd ed. Springer. https://doi.org/10.1007/978-1-4614-1353-0.\n\n\nWilks, Samuel S. 1938. “The Large-Sample Distribution of the Likelihood Ratio for Testing Composite Hypotheses.” The Annals of Mathematical Statistics 9 (1): 60–62. https://doi.org/10.1214/aoms/1177732360.\n\n\nWood, Simon N. 2017. Generalized Additive Models: An Introduction with r. 2nd ed. Chapman; Hall/CRC. https://doi.org/10.1201/9781315370279."
   },
   {
     "objectID": "intro-MLEs.html",
@@ -1702,76 +1100,6 @@
       "Inference",
       "Maximum Likelihood"
     ]
-  },
-  {
-    "objectID": "model-validation-slides.html#sec-prediction-rules",
-    "href": "model-validation-slides.html#sec-prediction-rules",
-    "title": "Validating Predictions",
-    "section": "\n1 Fitting and scoring prediction rules",
-    "text": "1 Fitting and scoring prediction rules\n\nDefinition 1 (Fitting procedure) A fitting procedure is a rule \\(g\\) that, given any data \\(\\mathopen{}\\left((x_i, y_i)\\right)\\mathclose{}_{i \\in I}\\) and any covariate value \\(x\\), computes a prediction of the outcome at \\(x\\):\n\\[\n\\mathopen{}\\left(x; \\mathopen{}\\left((x_i, y_i)\\right)\\mathclose{}_{i \\in I}\\right)\\mathclose{}\n\\mapsto\ng\\mathopen{}\\left(x; \\mathopen{}\\left((x_i, y_i)\\right)\\mathclose{}_{i \\in I}\\right)\\mathclose{}.\n\\tag{1}\\]\n\n\n\n\n\n\nSource\n\n\nThe rule \\(g\\) of the definition of a prediction. Hastie et al. (2009, sec. 7.2) write the model estimated from a training set as \\(\\hat f\\)."
-  },
-  {
-    "objectID": "model-validation-slides.html#overfitting",
-    "href": "model-validation-slides.html#overfitting",
-    "title": "Validating Predictions",
-    "section": "\n2 Overfitting",
-    "text": "2 Overfitting\n\nExercise 1 (Training error versus error on new cars) The built-in mtcars data frame has \\(n = 32\\) cars. Fit four models for fuel efficiency mpg as a polynomial in weight wt, of degree 1, 2, 3, and 4, using only the first 20 rows as the training set. For each model, compute the RMSE of its predictions on the 20 training rows and on the remaining 12 rows, a held-out set.\n\nWhich degree has the smallest training RMSE?\nWhich degree has the smallest RMSE on the 12 held-out rows?\nDo the terms added beyond degree 2 improve predictions for the held-out cars?"
-  },
-  {
-    "objectID": "model-validation-slides.html#sec-generalization-error",
-    "href": "model-validation-slides.html#sec-generalization-error",
-    "title": "Validating Predictions",
-    "section": "\n3 Generalization error",
-    "text": "3 Generalization error\n\nExercise 2 (Score a fitted model on a car it has not seen) A prediction rule \\(\\hat y\\) has been fitted to a training set \\(\\mathcal{T}\\) of \\(n\\) observations, such as the 20 training cars of Exercise 1. A new car \\((X_0, Y_0)\\) is then drawn from the same population, independently of \\(\\mathcal{T}\\).\n\nHolding \\(\\mathcal{T}\\) fixed, write the average squared prediction error that \\(\\hat y\\) would make over all such new cars, as an expectation.\nWhich parts of your expression do you know, and which do you not know?\nThe training RMSE of Exercise 1 is the square root of the training error \\(\\overline{\\operatorname{err}}\\). What does \\(\\overline{\\operatorname{err}}\\) use in place of your expectation?"
-  },
-  {
-    "objectID": "model-validation-slides.html#sec-data-splits",
-    "href": "model-validation-slides.html#sec-data-splits",
-    "title": "Validating Predictions",
-    "section": "\n4 Training, validation, and test sets",
-    "text": "4 Training, validation, and test sets\n\nExercise 5 (Sizes of a three-way split) The mtcars data frame has \\(n = 32\\) cars. Suppose we assign \\(\\lfloor 0.6 n \\rfloor\\) cars to a training set, \\(\\lfloor 0.2 n \\rfloor\\) cars to a validation set, and all remaining cars to a test set. How many cars are in each set?"
-  },
-  {
-    "objectID": "model-validation-slides.html#sec-kfold",
-    "href": "model-validation-slides.html#sec-kfold",
-    "title": "Validating Predictions",
-    "section": "\n5 \\(k\\)-fold cross-validation",
-    "text": "5 \\(k\\)-fold cross-validation\n\nExercise 6 (Folds of the mtcars data) Suppose we use \\(k = 4\\)-fold cross-validation on the \\(n = 32\\) cars in mtcars.\n\nHow many cars are in each fold?\nEach time a model is fit, how many cars are used to fit it?\nHow many models are fit in total?\nHow many times is a given car used for fitting, and how many times for prediction?"
-  },
-  {
-    "objectID": "model-validation-slides.html#sec-loocv",
-    "href": "model-validation-slides.html#sec-loocv",
-    "title": "Validating Predictions",
-    "section": "\n6 Leave-one-out cross-validation",
-    "text": "6 Leave-one-out cross-validation\n\nExercise 8 (The largest number of folds) Suppose we take \\(k = n\\) in \\(k\\)-fold cross-validation on the \\(n = 32\\) cars in mtcars.\n\nHow many cars are in each fold?\nHow many models are fit, and how many cars is each fitted to?\nIf we run the procedure twice, with two different random fold assignments, can the two values of \\(\\widehat{\\operatorname{Err}}_{\\text{CV}(32)}\\) (Equation 24) differ?"
-  },
-  {
-    "objectID": "model-validation-slides.html#sec-cv-model-choice",
-    "href": "model-validation-slides.html#sec-cv-model-choice",
-    "title": "Validating Predictions",
-    "section": "\n7 Choosing a model by cross-validation",
-    "text": "7 Choosing a model by cross-validation\n\nDefinition 30 (Cross-validation estimate of a named procedure) Let a training set \\(\\mathcal{T}\\), indexed by \\(I\\), be divided into folds \\(\\mathcal{F}_{1}, \\ldots, \\mathcal{F}_{k}\\). The cross-validation estimate of procedure \\(g\\) on \\(\\mathcal{T}\\), \\(\\widehat{\\operatorname{Err}}^{g}_{\\text{CV}(k)}\\mathopen{}\\left(\\mathcal{T}\\right)\\mathclose{}\\), is the cross-validation estimate computed with fold-out rules that \\(g\\) produces from \\(\\mathcal{T}\\):\n\\[\n\\widehat{\\operatorname{Err}}^{g}_{\\text{CV}(k)}\\mathopen{}\\left(\\mathcal{T}\\right)\\mathclose{} \\stackrel{\\text{def}}{=}\\frac{1}{n} \\sum_{i \\in I}\n\\mathopen{}\\left(g\\mathopen{}\\left(x_i; \\mathopen{}\\left((x_{i'}, y_{i'})\\right)\\mathclose{}_{i' \\in I \\setminus \\mathcal{F}_{\\kappa(i)}}\\right)\\mathclose{} - y_i\\right)^2\\mathclose{}.\n\\tag{32}\\]"
-  },
-  {
-    "objectID": "model-validation-slides.html#sec-cv-whole-procedure",
-    "href": "model-validation-slides.html#sec-cv-whole-procedure",
-    "title": "Validating Predictions",
-    "section": "\n8 Cross-validating the whole procedure",
-    "text": "8 Cross-validating the whole procedure\n\nExercise 9 (Screening predictors before cross-validating) A data set has \\(n = 50\\) observations of an outcome \\(Y\\) and of \\(p = 1000\\) candidate predictors. In fact every variable is independent standard normal noise, so no predictor carries any information about \\(Y\\).\nAn analyst\n\npicks the 10 predictors most correlated with \\(Y\\) in all 50 observations, then\nestimates the prediction error of a linear model in those 10 predictors by 5-fold cross-validation.\n\nAnswer the following:\n\nWhat is the smallest possible generalization error (Equation 4) of any prediction rule for \\(Y\\) here?\nSimulate the analyst’s procedure. What cross-validation estimate does it report?\nRepeat the simulation, but carry out step 1 inside each fold, using only that fold’s training observations. What estimate does this give?\n\n\n\n\n\n\n\nSource\n\n\nA regression version of the classification example in Hastie et al. (2009, sec. 7.10.2), “The Wrong and Right Way to Do Cross-validation”."
-  },
-  {
-    "objectID": "model-validation-slides.html#further-reading",
-    "href": "model-validation-slides.html#further-reading",
-    "title": "Validating Predictions",
-    "section": "\n9 Further reading",
-    "text": "9 Further reading\nSanchez (2020) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce."
-  },
-  {
-    "objectID": "model-validation-slides.html#references",
-    "href": "model-validation-slides.html#references",
-    "title": "Validating Predictions",
-    "section": "References",
-    "text": "References\n\n\nHastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2nd ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2nd ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nSanchez, Gaston. 2020. A Matrix Algebra Companion for Statistical Learning (matrix4sl). Online book, work in progress. Licensed CC BY-NC-SA 4.0. https://www.gastonsanchez.com/matrix4sl/."
   },
   {
     "objectID": "model-validation.html",
@@ -1893,34 +1221,6 @@
       "Methods",
       "Validating Predictions"
     ]
-  },
-  {
-    "objectID": "nonparametric-models-slides.html#empirical-cdf",
-    "href": "nonparametric-models-slides.html#empirical-cdf",
-    "title": "Nonparametric Models",
-    "section": "\n1 Empirical CDF",
-    "text": "1 Empirical CDF\n\n\n\nDefinition 1 (Empirical CDF) For observed values \\(x_1, \\ldots, x_n\\), the empirical cumulative distribution function (empirical CDF) is the function\n\\[\\hat F(t) \\stackrel{\\text{def}}{=}\\frac{1}{n}\\sum_{j=1}^nI(x_j \\le t), \\quad t \\in \\mathbb{R},\\]\nwhere \\(I(A)\\) is the indicator function: \\(I(A) = 1\\) if \\(A\\) holds, and \\(I(A) = 0\\) otherwise."
-  },
-  {
-    "objectID": "nonparametric-models-slides.html#order-statistics",
-    "href": "nonparametric-models-slides.html#order-statistics",
-    "title": "Nonparametric Models",
-    "section": "\n2 Order statistics",
-    "text": "2 Order statistics\n\n\nDefinition 2 (Order statistics) For observed values \\(x_1, \\ldots, x_n\\), the order statistics are the same values sorted in increasing order, written\n\\[x_{(1)} \\le x_{(2)} \\le \\cdots \\le x_{(n)}.\\]\nSo \\(x_{(1)}\\) is the smallest value and \\(x_{(n)}\\) is the largest."
-  },
-  {
-    "objectID": "nonparametric-models-slides.html#sample-quantiles",
-    "href": "nonparametric-models-slides.html#sample-quantiles",
-    "title": "Nonparametric Models",
-    "section": "\n3 Sample quantiles",
-    "text": "3 Sample quantiles\n\n\nDefinition 3 (Sample quantile function) Given an empirical CDF \\(\\hat F\\), the sample quantile function (also called the empirical quantile function) is\n\\[\\hat Q(p) \\stackrel{\\text{def}}{=}\\inf\\mathopen{}\\left\\{t : \\hat F(t) \\ge p\\right\\}\\mathclose{}, \\quad 0 &lt; p \\le 1.\\]"
-  },
-  {
-    "objectID": "nonparametric-models-slides.html#the-empirical-cdf-and-quantile-function-as-generalized-inverses",
-    "href": "nonparametric-models-slides.html#the-empirical-cdf-and-quantile-function-as-generalized-inverses",
-    "title": "Nonparametric Models",
-    "section": "\n4 The empirical CDF and quantile function as generalized inverses",
-    "text": "4 The empirical CDF and quantile function as generalized inverses\n\n\nFigure 1: The empirical CDF and the sample quantile function for the data 4, 1, 7, 3 (order statistics 1, 3, 4, 7).\n\n\n\n[R code]x &lt;- c(4, 1, 7, 3)\nn &lt;- length(x)\nx_ord &lt;- sort(x)\np_ord &lt;- seq_len(n) / n\necdf_x_padding &lt;- 0.8\nx_min &lt;- min(x_ord) - ecdf_x_padding\nx_max &lt;- max(x_ord) + ecdf_x_padding\n\nx_left &lt;- c(x_min, x_ord)\nx_right &lt;- c(x_ord, x_max)\nf_levels &lt;- c(0, p_ord)\n\necdf_pieces &lt;- tibble::tibble(x = x_left, xend = x_right, y = f_levels)\necdf_open &lt;- tibble::tibble(x = x_ord, y = f_levels[seq_len(n)])\necdf_closed &lt;- tibble::tibble(x = x_ord, y = f_levels[seq_len(n) + 1])\n\nggplot2::ggplot() +\n  ggplot2::geom_segment(\n    ggplot2::aes(x = x, xend = xend, y = y, yend = y),\n    data = ecdf_pieces, linewidth = 1, color = \"blue\"\n  ) +\n  ggplot2::geom_point(\n    ggplot2::aes(x = x, y = y), data = ecdf_open, shape = 1, color = \"blue\"\n  ) +\n  ggplot2::geom_point(\n    ggplot2::aes(x = x, y = y), data = ecdf_closed, shape = 19, color = \"blue\"\n  ) +\n  ggplot2::coord_cartesian(xlim = c(x_min, x_max), ylim = c(0, 1.05)) +\n  ggplot2::labs(x = \"t\", y = expression(hat(plain(\"F\"))(t))) +\n  ggplot2::theme_minimal()\n\n\n(a) Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[R code]eqf_y_padding &lt;- 0.5\nq_left &lt;- c(0, p_ord[-n])\nq_right &lt;- p_ord\neqf_pieces &lt;- tibble::tibble(x = q_left, xend = q_right, y = x_ord)\n\nggplot2::ggplot(eqf_pieces) +\n  ggplot2::geom_segment(\n    ggplot2::aes(x = x, xend = xend, y = y, yend = y),\n    linewidth = 1, color = \"blue\"\n  ) +\n  ggplot2::geom_point(ggplot2::aes(x = x, y = y), shape = 1, color = \"blue\") +\n  ggplot2::geom_point(\n    ggplot2::aes(x = xend, y = y), shape = 19, color = \"blue\"\n  ) +\n  ggplot2::coord_cartesian(\n    xlim = c(0, 1),\n    ylim = c(min(x_ord) - eqf_y_padding, max(x_ord) + eqf_y_padding)\n  ) +\n  ggplot2::labs(x = \"p\", y = expression(hat(Q)(p))) +\n  ggplot2::theme_minimal()\n\n\n(b) Sample quantile function, horizontal pieces only. Open circles mark excluded left endpoints; closed circles mark included right endpoints.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBoth functions in Figure 1 are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, \\(\\hat F(t) = 0.5\\) for every \\(t \\in [3, 4)\\), and \\(\\hat Q\\) jumps from 3 to 4 at \\(p = 0.5\\). So \\(\\hat Q\\) is a generalized inverse of \\(\\hat F\\), not an inverse in the usual sense: \\(\\hat Q(\\hat F(t)) \\le t\\) for every \\(t \\ge x_{(1)}\\), with equality only at the observed values."
   },
   {
     "objectID": "nonparametric-models.html",
