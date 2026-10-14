@@ -1,10 +1,5 @@
 ::: {#rem-slr-parameters}
-#### Interpreting the parameters
+#### Interpreting the variance parameter
 
-- $\intcoef = \mean(0)$ is the **intercept**:
-  the mean of $Y$ among observations with $X = 0$.
-- $\coef{x} = \mean(x + 1) - \mean(x)$ is the **slope**:
-  the difference in the mean of $Y$
-  between two groups whose values of $X$ differ by one unit.
-- $\varpar$ is the variance of $Y$ around its mean at each value of $X$.
+$\varpar$ is the variance of $Y$ around its mean at each value of $X$.
 :::

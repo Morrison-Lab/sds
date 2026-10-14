@@ -1,0 +1,7 @@
+::: {#def-slr-intercept}
+#### Intercept
+
+In a simple linear regression model (@def-slr),
+the **intercept** is $\intcoef = \mean(0)$:
+the mean of $Y$ among observations with $X = 0$.
+:::
