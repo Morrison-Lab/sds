@@ -19,6 +19,6 @@ $$
 ::: proof
 
 This is the solution to @exr-r-squared-slr,
-which uses the residual sum of squares from @exr-rss-ols-fit.
+which uses the residual sum of squares from @lem-rss-ols-fit.
 
 :::
