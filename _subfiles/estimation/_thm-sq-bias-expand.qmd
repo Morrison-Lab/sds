@@ -1,12 +1,15 @@
 ::: {#thm-sq-bias-expand}
 #### Expanded squared bias
 
+For any one-dimensional estimator $\hparam$ of an estimand $\param$,
+the squared [bias](#def-bias) is:
+
 $$\sqf{\bias{\hparam}} = \sqf{\E{\hparam}} - 2\E{\hparam}\param + \param^2$$
 
 :::
 
 ::: proof
 
-This is the solution to @exr-sq-bias-expand.
+This is the solution to @exr-sq-bias-expand, worked in @sol-sq-bias-expand.
 
 :::
