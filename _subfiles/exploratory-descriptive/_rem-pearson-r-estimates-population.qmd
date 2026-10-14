@@ -1,0 +1,6 @@
+::: {#rem-pearson-r-estimates-population}
+#### The Pearson correlation coefficient estimates the population correlation
+
+The Pearson correlation coefficient is a sample estimate of the
+[population correlation](correlation-regression.qmd#def-population-correlation).
+:::
