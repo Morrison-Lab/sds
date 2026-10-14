@@ -22,14 +22,15 @@ $$ {#eq-epe-decomposition}
 
 ::: proof
 
-Write, as a local abbreviation, $D \eqdef \mean(x) - g\paren{x; \trainset}$.
+Write $\targeterrf{x} \eqdef \mean(x) - g\paren{x; \trainset}$,
+the error of the prediction as an estimate of $\mean(x)$.
 Given $X_0 = x$, the noise has mean 0 by @eq-mean-function and variance $\varpar$,
 and it is independent of $g\paren{x; \trainset}$
 because $Y_0$ is independent of $\trainset$;
-hence it is independent of $D$,
+hence it is independent of $\targeterrf{x}$,
 because $\mean(x)$ is a constant.
 
-First, the prediction error in terms of $\noise$ and $D$:
+First, the prediction error in terms of $\noise$ and $\targeterrf{x}$:
 
 $$
 \ba
@@ -38,8 +39,8 @@ Y_0 - g\paren{x; \trainset}
 && \text{(definition of } Y_0 \text{)} \\
 &= \noise + \paren{\mean(x) - g\paren{x; \trainset}}
 && \text{(reorder the terms of the sum)} \\
-&= \noise + D
-&& \text{(definition of } D \text{)}
+&= \noise + \targeterrf{x}
+&& \text{(definition of } \targeterrf{x} \text{)}
 \ea
 $$
 
@@ -51,13 +52,13 @@ first for the expectation of a sum and then for a constant factor:
 $$
 \ba
 \epe{g}{n}{x}
-&= \E{\sqf{\paren{\noise + D}} \mid X_0 = x}
+&= \E{\sqf{\paren{\noise + \targeterrf{x}}} \mid X_0 = x}
 && \text{(definition and the error above)} \\
-&= \E{\noise^2 + 2 \noise D + \sqf{D}}
+&= \E{\noise^2 + 2 \noise \targeterrf{x} + \sqf{\targeterrf{x}}}
 && \text{(expand: } \paren{a + b}^2 = a^2 + 2ab + b^2 \text{)} \\
-&= \E{\noise^2} + \E{2 \noise D} + \E{\sqf{D}}
+&= \E{\noise^2} + \E{2 \noise \targeterrf{x}} + \E{\sqf{\targeterrf{x}}}
 && \text{(expectation of a sum)} \\
-&= \E{\noise^2} + 2\E{\noise D} + \E{\sqf{D}}
+&= \E{\noise^2} + 2\E{\noise \targeterrf{x}} + \E{\sqf{\targeterrf{x}}}
 && \text{(constant factor 2)}
 \ea
 $$
@@ -69,15 +70,15 @@ Each of the three terms is evaluated in turn.
   gives $\varpar = \E{\noise^2} - \sqf{\E{\noise}}$,
   and $\E{\noise} = 0$, so $\E{\noise^2} = \varpar$.
 - For the cross term,
-  $\noise$ is independent of $D$,
+  $\noise$ is independent of $\targeterrf{x}$,
   so the expectation of the product is the product of the expectations:
 
   $$
   \ba
-  \E{\noise D}
-  &= \E{\noise}\E{D}
+  \E{\noise \targeterrf{x}}
+  &= \E{\noise}\E{\targeterrf{x}}
   && \text{(independence)} \\
-  &= 0 \cdot \E{D}
+  &= 0 \cdot \E{\targeterrf{x}}
   && \text{(} \E{\noise} = 0 \text{)} \\
   &= 0
   && \text{(zero times a number)}
@@ -86,12 +87,12 @@ Each of the three terms is evaluated in turn.
 
 - For the last term,
   the variance identity gives
-  $\E{\sqf{D}} = \Var{D} + \sqf{\E{D}}$.
-  The mean of $D$ is
+  $\E{\sqf{\targeterrf{x}}} = \Var{\targeterrf{x}} + \sqf{\E{\targeterrf{x}}}$.
+  The mean of $\targeterrf{x}$ is
 
   $$
   \ba
-  \E{D}
+  \E{\targeterrf{x}}
   &= \E{\mean(x)} - \E{g\paren{x; \trainset}}
   && \text{(expectation of a difference)} \\
   &= \mean(x) - \E{g\paren{x; \trainset}}
@@ -103,14 +104,14 @@ Each of the three terms is evaluated in turn.
   \ea
   $$
 
-  so $\sqf{\E{D}} = \sqf{\bias{g\paren{x; \trainset}}}$,
+  so $\sqf{\E{\targeterrf{x}}} = \sqf{\bias{g\paren{x; \trainset}}}$,
   because $\sqf{\paren{-a}} = \sqf{a}$.
-  The variance of $D$ is
+  The variance of $\targeterrf{x}$ is
 
   $$
   \ba
-  \Var{D}
-  &= \E{\sqf{\paren{D - \E{D}}}}
+  \Var{\targeterrf{x}}
+  &= \E{\sqf{\paren{\targeterrf{x} - \E{\targeterrf{x}}}}}
   && \text{(definition of variance)} \\
   &= \E{\sqf{\paren{-\paren{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}}}
   && \text{(substitute; the constant } \mean(x) \text{ cancels)} \\
