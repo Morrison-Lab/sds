@@ -79,6 +79,14 @@ local proof_types = {
   }
 }
 
+-- id prefixes Quarto registers as crossref types: the theorem types plus the
+-- proof environments (prf, rem, sol)
+local numbered_prefixes = {
+  thm = true, lem = true, cor = true, prp = true, cnj = true,
+  def = true, exm = true, exr = true, alg = true,
+  prf = true, rem = true, sol = true
+}
+
 ---- meta reading stuff
 
 -- recursively iterates through the metadata, stringifying all pandoc.Str elements
@@ -100,13 +108,38 @@ local callouty_meta = nil
 -- reads the metadata
 local function read_meta(meta)
   callouty_meta = stringify_meta(meta['callouty-theorem'])
+  quarto.doc.add_html_dependency({
+    name = 'callouty-theorem',
+    version = '1.2.0',
+    stylesheets = {'callouty-theorem.css'},
+    scripts = {'callouty-theorem.js'}
+  })
 end
 
 ---- main logic
 
-local function spawn_callout_title(type_title, name)
+-- A citation of an element's own id; Quarto's crossref stage resolves it to the
+-- numbered label ("Example 1", "Solution 3").
+local function label_cite(identifier)
+  return pandoc.Cite(
+    {pandoc.Str("@" .. identifier)},
+    {pandoc.Citation(identifier, "AuthorInText")})
+end
+
+local function spawn_callout_title(type_title, name, identifier)
   local my_name = pandoc.List({type_title})
+  if identifier then
+    -- A numbered element: "Solution 3 (name)", not the bare type label.
+    my_name = pandoc.List({label_cite(identifier)})
+  end
   if name then
+    -- A name that already opens with the type label ("Proof of ...") is the
+    -- title on its own; prefixing the label would double it ("Proof (Proof of ...)").
+    -- A numbered element keeps its number, so the name follows it as usual.
+    local name_text = pandoc.utils.stringify(name)
+    if not identifier and pandoc.text.lower(name_text):sub(1, #type_title) == pandoc.text.lower(type_title) then
+      return pandoc.utils.blocks_to_inlines(pandoc.Blocks(name))
+    end
     my_name:insert(" (")
     my_name:extend(pandoc.utils.blocks_to_inlines(pandoc.Blocks(name)))
     my_name:insert(")")
@@ -182,20 +215,46 @@ local function calloutify(el, is_proof)
   end
 
   local override_title = false
+  local title_ref = false
   local callout_tbl = {type = "note"}
   if type(callouty_meta[typ]) == "table" then
     override_title = callouty_meta[typ]["override-title"] or override_title
+    title_ref = callouty_meta[typ]["title-ref"] == true
+      or callouty_meta[typ]["title-ref"] == "true"
     if type(callouty_meta[typ]["callout"]) == "table" then
       callout_tbl = shallow_copy(callouty_meta[typ]["callout"])
     end
   end
 
   local source_attr = (el.div and el.div.attr) or el.attr
+  -- Numbered elements (theorem types, and proofs, remarks and solutions that
+  -- carry a #rem-/#sol-/#prf- id) can cite their own label.
+  -- Only ids whose prefix Quarto registers as a crossref type resolve; any
+  -- other id ({.solution #my-answer}) stays an unnumbered element.
+  local ref_prefix = refType(el.identifier)
+  local numbered_id = ref_prefix and numbered_prefixes[ref_prefix] and el.identifier or nil
   if override_title and my_types[typ] then
-    callout_tbl.title = spawn_callout_title(my_types[typ].title, el.name)
+    callout_tbl.title = spawn_callout_title(my_types[typ].title, el.name, numbered_id)
+  elseif title_ref and numbered_id then
+    -- Put the numbered label ("Example 1 (name)") in the callout header.
+    -- A citation of the element's own id resolves to "Example 1" in the
+    -- crossref stage; the body keeps the Theorem node, so numbering is unchanged.
+    local title = pandoc.List({label_cite(numbered_id)})
+    if el.name then
+      title:insert(pandoc.Str(" ("))
+      title:extend(pandoc.utils.blocks_to_inlines(pandoc.Blocks(el.name)))
+      title:insert(pandoc.Str(")"))
+    end
+    callout_tbl.title = title
   end
 
   apply_div_callout_overrides(callout_tbl, source_attr)
+
+  -- The header now names the element, so mark the callout for the stylesheet
+  -- to drop the body's repeat of it.
+  if callout_tbl.title then
+    callout_tbl.attr = pandoc.Attr('', {'callouty-titled'})
+  end
 
   callout_tbl.content = theorem_ctor(el)
   return quarto.Callout(callout_tbl)
