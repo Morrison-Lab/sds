@@ -38,6 +38,10 @@ format:
 
 {{< include sds/_subfiles/nonparametric-models/_def-sample-quantile.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/nonparametric-models/_def-sample-p-quantile.qmd >}}
+
 {{< include sds/_subfiles/nonparametric-models/_note-population-vs-sample.qmd >}}
 
 {{< slidebreak >}}
