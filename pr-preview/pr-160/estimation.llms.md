@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:06:31 (PDT)
+Last modified: 2026-10-14 13:44:39 (PDT)
 
 ## 1 Scientific models
 
@@ -383,11 +383,13 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Theorem 3 (Expanded squared bias)** \\\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} = \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
+> **Theorem 3 (Expanded squared bias)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the squared [bias](#def-bias) is:
+>
+> \\\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} = \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 3](#exr-sq-bias-expand).
+> *Proof*. This is the solution to [Exercise 3](#exr-sq-bias-expand), worked in [Solution 3](#sol-sq-bias-expand).
 
 > **NOTE:**
 >
@@ -405,11 +407,13 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Theorem 4 (Expanded squared bias plus variance)** \\\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
+> **Theorem 4 (Expanded squared bias plus variance)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the squared bias plus the variance is:
+>
+> \\\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 4](#exr-bias-sq-plus-var).
+> *Proof*. This is the solution to [Exercise 4](#exr-bias-sq-plus-var), worked in [Solution 4](#sol-bias-sq-plus-var). It adds the variance to the squared bias of [Theorem 3](#thm-sq-bias-expand).
 
 > **NOTE:**
 >
@@ -421,11 +425,13 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Theorem 5 (Expanded mean squared error)** \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
+> **Theorem 5 (Expanded mean squared error)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the [mean squared error](#def-mse) is:
+>
+> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 5](#exr-mse-expand).
+> *Proof*. This is the solution to [Exercise 5](#exr-mse-expand), worked in [Solution 5](#sol-mse-expand).
 
 > **NOTE:**
 >
