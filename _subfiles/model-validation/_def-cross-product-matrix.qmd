@@ -9,4 +9,10 @@ $$
 A \eqdef \sum_{i \in I} \soprod{\termvec{i}}.
 $$ {#eq-cross-product-matrix}
 
+::: {.callout-note collapse="true"}
+#### Source
+
+Sanchez [-@sanchez2020matrix4sl, chap. "Matrix Cross-Products"] (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a sum-of-squares and cross-products matrix.
+:::
+
 :::
