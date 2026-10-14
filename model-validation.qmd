@@ -262,6 +262,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_rem-cross-product-matrix.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-leverage.qmd >}}
 
 {{< slidebreak >}}
@@ -331,6 +335,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_rem-cv-every-step.qmd >}}
+
+## Further reading
+
+{{< include sds/_subfiles/model-validation/_prose-further-reading.qmd >}}
 
 ## References {.unnumbered}
 

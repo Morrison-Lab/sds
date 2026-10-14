@@ -1,0 +1,2 @@
+@sanchez2020matrix4sl reviews the matrix algebra behind statistical learning,
+including the covariance and correlation matrices that cross-products produce.
