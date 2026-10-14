@@ -1,0 +1,7 @@
+::: {#rem-einf-vs-oinf}
+#### The expected information is a function of the parameter alone
+
+The expected information is a function of the parameter alone,
+so it is the quantity that the
+[observed information](#def-oinf) estimates from one data set.
+:::

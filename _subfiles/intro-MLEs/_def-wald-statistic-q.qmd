@@ -1,0 +1,8 @@
+::: {#def-wald-statistic-q}
+#### Wald statistic for several constraints
+
+For $q$ constraints $H_0: \vparam_{(q)} = \vparam_{(q),0}$ on a $q \times 1$ subvector,
+the **Wald statistic** is
+$\tp{\paren{\hvparam_{(q)} - \vparam_{(q),0}}}\,\inv{\hat{V}_{(q)}}\,\paren{\hvparam_{(q)} - \vparam_{(q),0}}$,
+where $\hat V_{(q)}$ is the corresponding $q \times q$ block of $\inv{\hat{\einf}}$.
+:::
