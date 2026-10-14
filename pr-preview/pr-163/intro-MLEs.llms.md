@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:25:43 (PDT)
+Last modified: 2026-10-14 13:48:32 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -111,13 +111,13 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Theorem 3 (Likelihood of binary outcomes with one event probability)** Let \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i = 1, \dots, n\\, and \\\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\. The likelihood of \\\tilde{y}\\ depends on the data only through the number of events:
+> **Theorem 3 (Likelihood of binary outcomes with one event probability)** Let \\Y_1, \dots, Y_n\\ be mutually independent binary random variables, each with the same event probability \\\pi\\: \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. For observed outcomes \\\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, with each \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, the likelihood \\\mathcal{L}(\pi; \tilde{y})\\ of \\\pi\\ depends on the data only through the number of events \\\sum\_{i=1}^ny_i\\:
 >
 > \\\mathcal{L}(\pi; \tilde{y}) = \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i}\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 3](#exr-bernoulli-likelihood-one-group).
+> *Proof*. This is the solution to [Exercise 3](#exr-bernoulli-likelihood-one-group), worked in [Solution 3](#sol-bernoulli-likelihood-one-group).
 
 ### 1.2 The maximum likelihood estimate
 
@@ -235,19 +235,19 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> *Solution 7*. Starting from the likelihood in [Solution 3](#sol-bernoulli-likelihood-one-group):
+> *Solution 7*. Starting from the likelihood in [Theorem 3](#thm-bernoulli-likelihood-one-group):
 >
 > \\ \begin{aligned} \ell(\pi; \tilde{y}) &= \operatorname{log}\mathopen{}\left\\\pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i}\right\\\mathclose{} && \text{(log of the likelihood)}\\ &= \operatorname{log}\mathopen{}\left\\\pi^{\sum\_{i=1}^ny_i}\right\\\mathclose{} + \operatorname{log}\mathopen{}\left\\(1 - \pi)^{n - \sum\_{i=1}^ny_i}\right\\\mathclose{} && \text{(log of a product)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + \mathopen{}\left(n - \sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(log of a power)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} - \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(distribute \$\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} - \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(reorder the terms)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \mathopen{}\left(\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} - \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\right)\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(collect the terms in \$\textstyle\sum\_{i=1}^ny_i\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\frac{\pi}{1 - \pi}\right\\\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(log of a quotient)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(definition of \$\operatorname{logit}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 7 (Log-likelihood of binary outcomes with one event probability)** Let \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i = 1, \dots, n\\, and \\\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\. The log-likelihood of \\\tilde{y}\\ is:
+> **Theorem 7 (Log-likelihood of binary outcomes with one event probability)** Let \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i = 1, \dots, n\\, with observed outcomes \\\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, each \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The log-likelihood \\\ell(\pi; \tilde{y})\\ of the event probability \\\pi\\, written with the log-odds \\\operatorname{logit}(\pi)\\, is:
 >
 > \\\ell(\pi; \tilde{y}) = \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 7](#exr-bernoulli-loglik-one-group).
+> *Proof*. This is the solution to [Exercise 7](#exr-bernoulli-loglik-one-group), worked in [Solution 7](#sol-bernoulli-loglik-one-group). It builds on [Theorem 3](#thm-bernoulli-likelihood-one-group).
 
 ### 1.6 The score function
 
@@ -267,7 +267,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> *Solution 8*. With \\n = 1\\, [Solution 7](#sol-bernoulli-loglik-one-group) gives \\\ell= x \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + (1 - x) \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\\, so:
+> *Solution 8*. With \\n = 1\\, [Theorem 7](#thm-bernoulli-loglik-one-group) gives \\\ell= x \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + (1 - x) \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\\, so:
 >
 > \\ \begin{aligned} \ell' &\stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell && \text{(definition of the score)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(x \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + (1 - x) \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\right)\mathclose{} && \text{(Bernoulli log-likelihood)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(x \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}\right)\mathclose{} + \frac{\partial}{\partial \pi} \mathopen{}\left((1 - x) \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= x \frac{\partial}{\partial \pi} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + (1 - x) \frac{\partial}{\partial \pi} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(constant multiple rule)}\\ &= x \frac{1}{\pi} + (1 - x) \frac{\partial}{\partial \pi} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(derivative of \$\log\$)}\\ &= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} \frac{\partial}{\partial \pi}(1 - \pi) && \text{(chain rule)} \end{aligned} \\
 >
@@ -281,13 +281,13 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Theorem 8 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\. The score of a single observation \\x\\ is its deviation from the mean, divided by the variance:
+> **Theorem 8 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\, with event probability \\\pi\\ and observed value \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\\pi\\. It equals the deviation of \\x\\ from the mean \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}\\, divided by the variance \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\:
 >
 > \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \frac{x - \pi}{\pi(1 - \pi)}\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 8](#exr-derive-bernoulli-score).
+> *Proof*. This is the solution to [Exercise 8](#exr-derive-bernoulli-score), worked in [Solution 8](#sol-derive-bernoulli-score). It builds on [Theorem 7](#thm-bernoulli-loglik-one-group), with \\n = 1\\.
 
 > **NOTE:**
 >
@@ -301,13 +301,13 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Theorem 9 (Score function of a Poisson variable)** Let \\X \sim \operatorname{Pois}({\lambda})\\. The score of a single observation \\x\\ with respect to \\{\lambda}\\ is its deviation from the mean, divided by the variance:
+> **Theorem 9 (Score function of a Poisson variable)** Let \\X \sim \operatorname{Pois}({\lambda})\\, with mean \\{\lambda}\\ and observed count \\x\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\{\lambda}\\. It equals the deviation of \\x\\ from the mean \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}\\, divided by the variance \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\:
 >
 > \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \frac{x - {\lambda}}{{\lambda}}\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 9](#exr-pois-score-fn).
+> *Proof*. This is the solution to [Exercise 9](#exr-pois-score-fn), worked in [Solution 9](#sol-pois-score-fn).
 
 > **NOTE:**
 >
@@ -327,13 +327,13 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Theorem 10 (Score function of a Gaussian variable)** Let \\X \sim \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known. The score of a single observation \\x\\ with respect to \\\mu\\ is its deviation from the mean, divided by the variance:
+> **Theorem 10 (Score function of a Gaussian variable)** Let \\X \sim \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\, with mean \\\mu\\, known variance \\\sigma^2\\, and observed value \\x\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\\mu\\. It equals the deviation of \\x\\ from the mean \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}\\, divided by the variance \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\:
 >
 > \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \frac{x - \mu}{\sigma^2}\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 10](#exr-gauss-score-fn).
+> *Proof*. This is the solution to [Exercise 10](#exr-gauss-score-fn), worked in [Solution 10](#sol-gauss-score-fn).
 
 > **NOTE:**
 >
@@ -351,13 +351,13 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Theorem 11 (Score function of an exponential variable)** Let \\X\\ be an exponential random variable with mean \\\mu\\. The score of a single observation \\x\\ with respect to \\\mu\\ is its deviation from the mean, divided by the variance:
+> **Theorem 11 (Score function of an exponential variable)** Let \\X\\ be an exponential random variable with mean \\\mu\\ and observed value \\x \> 0\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\\mu\\. It equals the deviation of \\x\\ from the mean \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}\\, divided by the variance \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\:
 >
 > \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \frac{x - \mu}{\mu^2}\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 11](#exr-exp-score-fn).
+> *Proof*. This is the solution to [Exercise 11](#exr-exp-score-fn), worked in [Solution 11](#sol-exp-score-fn).
 
 In all four examples ([Theorem 8](#thm-bernoulli-score), [Theorem 9](#thm-pois-score), [Theorem 10](#thm-gauss-score), and [Theorem 11](#thm-exp-score)), the score function with respect to the mean turned out to be:
 
@@ -469,13 +469,13 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Lemma 1 (Derivative of a density through its logarithm)** Let \\\operatorname{p}(\tilde{x}\mid \theta)\\ be a density that is positive and differentiable in a scalar parameter \\\theta\\. Then its derivative is the derivative of its logarithm times the density:
+> **Lemma 1 (Derivative of a density through its logarithm)** Let \\\operatorname{p}(\tilde{x}\mid \theta)\\ be a density that is positive and differentiable in a scalar parameter \\\theta\\. Then its derivative with respect to \\\theta\\ is the derivative of its logarithm times the density:
 >
 > \\\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta) = \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta)\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 14](#exr-deriv-log-density).
+> *Proof*. This is the solution to [Exercise 14](#exr-deriv-log-density), worked in [Solution 14](#sol-deriv-log-density).
 
 > **NOTE:**
 >
@@ -489,13 +489,13 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Theorem 14 (Mean of the score)** Let \\\tilde{X}\\ be continuous with density \\\operatorname{p}(\tilde{x}\mid \theta)\\ for a scalar parameter \\\theta\\. Suppose the set of possible data values does not depend on \\\theta\\, and the order of differentiation with respect to \\\theta\\ and integration over the data can be exchanged. Then the [score](#def-score) has mean zero:
+> **Theorem 14 (Mean of the score)** Let \\\tilde{X}\\ be a continuous random vector with density \\\operatorname{p}(\tilde{x}\mid \theta)\\ for a scalar parameter \\\theta\\. Suppose the set of possible data values does not depend on \\\theta\\, and the order of differentiation with respect to \\\theta\\ and integration over the data can be exchanged. Then the [score](#def-score) \\\ell'\\, the derivative of the log-likelihood with respect to \\\theta\\, has expectation zero:
 >
 > \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 15](#exr-score-mean-zero). It rests on [Lemma 1](#lem-deriv-log-density).
+> *Proof*. This is the solution to [Exercise 15](#exr-score-mean-zero), worked in [Solution 15](#sol-score-mean-zero). It builds on [Lemma 1](#lem-deriv-log-density).
 
 > **NOTE:**
 >
@@ -513,13 +513,13 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Theorem 15 (Second moment of the score)** Under the assumptions of [Theorem 14](#thm-score-mean-zero), the second moment of the score is the [expected information](#def-einf):
+> **Theorem 15 (Second moment of the score)** Under the assumptions of [Theorem 14](#thm-score-mean-zero), the second moment \\\operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\ of the [score](#def-score) \\\ell'\\ is the [expected information](#def-einf) \\\mathcal{I}(\theta)\\, the expected negative second derivative of the log-likelihood:
 >
 > \\\operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} = \mathcal{I}(\theta)\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 16](#exr-score-second-moment). It rests on [Theorem 14](#thm-score-mean-zero) and [Lemma 1](#lem-deriv-log-density).
+> *Proof*. This is the solution to [Exercise 16](#exr-score-second-moment), worked in [Solution 16](#sol-score-second-moment). It builds on [Theorem 14](#thm-score-mean-zero) and [Lemma 1](#lem-deriv-log-density).
 
 > **NOTE:**
 >
@@ -533,7 +533,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > *Proof*. We give the proof for a scalar \\\theta\\ and a continuous \\\tilde{X}\\ with density \\\operatorname{p}(\tilde{x}\mid \theta)\\; the vector case applies the same steps to each pair of entries, and a discrete \\\tilde{X}\\ replaces integrals with sums.
 >
-> [Equation 12](#eq-score-mean-zero) is [Theorem 14](#thm-score-mean-zero). For [Equation 13](#eq-information-equality), [Theorem 15](#thm-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\,
+> [Equation 12](#eq-score-mean-zero) follows from [Theorem 14](#thm-score-mean-zero). For [Equation 13](#eq-information-equality), [Theorem 15](#thm-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\,
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)^2\mathclose{} \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
 
@@ -664,13 +664,13 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 
 > **NOTE:**
 >
-> **Lemma 2 (Quadratic approximation to the log-likelihood)** Let \\\theta\\ be a scalar parameter, and suppose the MLE \\\hat\theta\_{\text{ML}}\\ maximizes \\\ell\\ at an interior point of the parameter space, where \\\ell\\ is twice differentiable. Then the log-likelihood near \\\hat\theta\_{\text{ML}}\\ is approximately quadratic:
+> **Lemma 2 (Quadratic approximation to the log-likelihood)** Let \\\theta\\ be a scalar parameter with log-likelihood \\\ell\\, and suppose the MLE \\\hat\theta\_{\text{ML}}\\ maximizes \\\ell\\ at an interior point of the parameter space, where \\\ell\\ is twice differentiable with [Hessian](#def-hessian) \\\ell''\\. Then the log-likelihood at any nearby value \\\theta_0\\ is approximately quadratic around \\\hat\theta\_{\text{ML}}\\:
 >
 > \\\ell(\theta_0) \approx \ell(\hat\theta\_{\text{ML}}) + \frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 17](#exr-wilks-taylor).
+> *Proof*. This is the solution to [Exercise 17](#exr-wilks-taylor), worked in [Solution 17](#sol-wilks-taylor).
 
 > **NOTE:**
 >
@@ -684,13 +684,13 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 
 > **NOTE:**
 >
-> **Lemma 3 (Likelihood ratio statistic for a point null hypothesis)** Under the conditions of [Lemma 2](#lem-wilks-taylor), for the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint, the [likelihood ratio statistic](#def-lrt-stat) is approximately the [observed information](#def-oinf) times the squared distance from the MLE:
+> **Lemma 3 (Likelihood ratio statistic for a point null hypothesis)** Under the conditions of [Lemma 2](#lem-wilks-taylor), consider the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. Then the [likelihood ratio statistic](#def-lrt-stat) \\\Lambda\\ is approximately the [observed information](#def-oinf) \\I(\hat\theta\_{\text{ML}})\\ at the MLE \\\hat\theta\_{\text{ML}}\\ times the squared distance from the MLE to \\\theta_0\\:
 >
 > \\\Lambda\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 18](#exr-wilks-lrt-quadratic). It rests on [Lemma 2](#lem-wilks-taylor).
+> *Proof*. This is the solution to [Exercise 18](#exr-wilks-lrt-quadratic), worked in [Solution 18](#sol-wilks-lrt-quadratic). It builds on [Lemma 2](#lem-wilks-taylor).
 
 > **NOTE:**
 >
@@ -708,13 +708,13 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 
 > **NOTE:**
 >
-> **Lemma 4 (Standardizing an approximately Gaussian estimate)** Suppose \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\, and define \\Z \stackrel{\text{def}}{=}\sqrt{\mathcal{I}(\theta_0)}\\(\hat\theta\_{\text{ML}}- \theta_0)\\. Then \\Z\\ is approximately standard Gaussian, so \\Z^2\\ is approximately \\\chi^2_1\\:
+> **Lemma 4 (Standardizing an approximately Gaussian estimate)** Suppose the MLE \\\hat\theta\_{\text{ML}}\\ is approximately Gaussian with mean \\\theta_0\\ and variance \\\mathcal{I}(\theta_0)^{-1}\\, the inverse of the [expected information](#def-einf): \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\. Define \\Z \stackrel{\text{def}}{=}\sqrt{\mathcal{I}(\theta_0)}\\(\hat\theta\_{\text{ML}}- \theta_0)\\. Then \\Z\\ is approximately standard Gaussian, so \\Z^2\\ is approximately \\\chi^2_1\\:
 >
 > \\Z^2 \\ \dot{\sim} \\ \chi^2_1\\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 19](#exr-wilks-std-gaussian).
+> *Proof*. This is the solution to [Exercise 19](#exr-wilks-std-gaussian), worked in [Solution 19](#sol-wilks-std-gaussian).
 
 > **NOTE:**
 >
