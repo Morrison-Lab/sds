@@ -1,8 +1,12 @@
 :::{#thm-bernoulli-likelihood-one-group}
 #### Likelihood of binary outcomes with one event probability
 
-Let $Y_i \simind \Ber(\prob)$ for $i = 1, \dots, n$, and $\vy \eqdef (\dsn{y})$.
-The likelihood of $\vy$ depends on the data only through the number of events:
+Let $Y_1, \dots, Y_n$ be mutually independent binary random variables,
+each with the same event probability $\prob$:
+$Y_i \simind \Ber(\prob)$.
+For observed outcomes $\vy \eqdef (\dsn{y})$, with each $y_i \in \cb{0, 1}$,
+the likelihood $\Lik(\prob; \vy)$ of $\prob$ depends on the data only
+through the number of events $\sumin y_i$:
 
 $$\Lik(\prob; \vy) = \prob^{\sumin y_i} (1 - \prob)^{n - \sumin y_i}$$
 
@@ -10,6 +14,6 @@ $$\Lik(\prob; \vy) = \prob^{\sumin y_i} (1 - \prob)^{n - \sumin y_i}$$
 
 ::: proof
 
-This is the solution to @exr-bernoulli-likelihood-one-group.
+This is the solution to @exr-bernoulli-likelihood-one-group, worked in @sol-bernoulli-likelihood-one-group.
 
 :::

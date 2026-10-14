@@ -1,9 +1,11 @@
 :::{#thm-gauss-score}
 #### Score function of a Gaussian variable
 
-Let $X \sim \ndist{\pmean, \ss}$ with $\ss$ known.
-The score of a single observation $x$ with respect to $\pmean$
-is its deviation from the mean, divided by the variance:
+Let $X \sim \ndist{\pmean, \ss}$, with mean $\pmean$, known variance $\ss$, and observed value $x$.
+The [score](#def-score) $\score$ of the single observation $x$
+is the derivative of its log-likelihood $\loglik$ with respect to $\pmean$.
+It equals the deviation of $x$ from the mean $\E{X}$,
+divided by the variance $\Var{X}$:
 
 $$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \pmean}{\ss}$$
 
@@ -11,6 +13,6 @@ $$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \pmean}{\ss}$$
 
 ::: proof
 
-This is the solution to @exr-gauss-score-fn.
+This is the solution to @exr-gauss-score-fn, worked in @sol-gauss-score-fn.
 
 :::

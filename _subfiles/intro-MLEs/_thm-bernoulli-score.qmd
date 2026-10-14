@@ -1,9 +1,11 @@
 :::{#thm-bernoulli-score}
 #### Score function of a Bernoulli variable
 
-Let $X \sim \Ber(\prob)$.
-The score of a single observation $x$ is its deviation from the mean,
-divided by the variance:
+Let $X \sim \Ber(\prob)$, with event probability $\prob$ and observed value $x \in \cb{0, 1}$.
+The [score](#def-score) $\score$ of the single observation $x$
+is the derivative of its log-likelihood $\loglik$ with respect to $\prob$.
+It equals the deviation of $x$ from the mean $\E{X}$,
+divided by the variance $\Var{X}$:
 
 $$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \prob}{\prob(1 - \prob)}$$
 
@@ -11,6 +13,7 @@ $$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \prob}{\prob(1 - \prob)}$$
 
 ::: proof
 
-This is the solution to @exr-derive-bernoulli-score.
+This is the solution to @exr-derive-bernoulli-score, worked in @sol-derive-bernoulli-score.
+It builds on @thm-bernoulli-loglik-one-group, with $n = 1$.
 
 :::

@@ -1,11 +1,11 @@
 :::{#lem-wilks-taylor}
 #### Quadratic approximation to the log-likelihood
 
-Let $\param$ be a scalar parameter,
+Let $\param$ be a scalar parameter with log-likelihood $\llik$,
 and suppose the MLE $\hthml$ maximizes $\llik$
 at an interior point of the parameter space,
-where $\llik$ is twice differentiable.
-Then the log-likelihood near $\hthml$ is approximately quadratic:
+where $\llik$ is twice differentiable with [Hessian](#def-hessian) $\hess$.
+Then the log-likelihood at any nearby value $\param_0$ is approximately quadratic around $\hthml$:
 
 $$\llik(\param_0) \approx \llik(\hthml) + \frac{1}{2}\hess(\hthml)(\param_0 - \hthml)^2$$
 
@@ -13,6 +13,6 @@ $$\llik(\param_0) \approx \llik(\hthml) + \frac{1}{2}\hess(\hthml)(\param_0 - \h
 
 ::: proof
 
-This is the solution to @exr-wilks-taylor.
+This is the solution to @exr-wilks-taylor, worked in @sol-wilks-taylor.
 
 :::

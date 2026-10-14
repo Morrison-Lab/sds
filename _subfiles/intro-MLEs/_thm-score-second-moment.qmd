@@ -2,7 +2,9 @@
 #### Second moment of the score
 
 Under the assumptions of @thm-score-mean-zero,
-the second moment of the score is the [expected information](#def-einf):
+the second moment $\E{\score^2}$ of the [score](#def-score) $\score$
+is the [expected information](#def-einf) $\einf(\param)$,
+the expected negative second derivative of the log-likelihood:
 
 $$\E{\score^2} = \einf(\param)$$
 
@@ -10,7 +12,7 @@ $$\E{\score^2} = \einf(\param)$$
 
 ::: proof
 
-This is the solution to @exr-score-second-moment.
-It rests on @thm-score-mean-zero and @lem-deriv-log-density.
+This is the solution to @exr-score-second-moment, worked in @sol-score-second-moment.
+It builds on @thm-score-mean-zero and @lem-deriv-log-density.
 
 :::

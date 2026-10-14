@@ -1,9 +1,11 @@
 :::{#thm-pois-score}
 #### Score function of a Poisson variable
 
-Let $X \sim \Pois(\rate)$.
-The score of a single observation $x$ with respect to $\rate$
-is its deviation from the mean, divided by the variance:
+Let $X \sim \Pois(\rate)$, with mean $\rate$ and observed count $x$.
+The [score](#def-score) $\score$ of the single observation $x$
+is the derivative of its log-likelihood $\loglik$ with respect to $\rate$.
+It equals the deviation of $x$ from the mean $\E{X}$,
+divided by the variance $\Var{X}$:
 
 $$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \rate}{\rate}$$
 
@@ -11,6 +13,6 @@ $$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \rate}{\rate}$$
 
 ::: proof
 
-This is the solution to @exr-pois-score-fn.
+This is the solution to @exr-pois-score-fn, worked in @sol-pois-score-fn.
 
 :::
