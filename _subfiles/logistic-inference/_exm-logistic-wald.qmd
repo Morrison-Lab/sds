@@ -13,7 +13,10 @@ wf_slope <- coef(wf_fit)[["wf_x"]]
 wf_ci <- wf_slope + c(-1, 1) * qnorm(0.975) * wf_se[["wf_x"]]
 # the groups sit two units apart, so the group odds ratio is exp(2 * slope)
 wf_group_or <- exp(2 * wf_ci)
-round(c(slope = wf_slope, se = wf_se[["wf_x"]], lower = wf_ci[1], upper = wf_ci[2]), 3)
+wf_summary <- c(
+  slope = wf_slope, se = wf_se[["wf_x"]], lower = wf_ci[1], upper = wf_ci[2]
+)
+round(wf_summary, 3)
 ```
 
 The interval for $\coef{1}$ is $(`r round(wf_ci[1], 2)`, `r round(wf_ci[2], 2)`)$.
