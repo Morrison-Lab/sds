@@ -5,7 +5,7 @@ For a regression model with conditional mean $\mean(x; \vparam)$,
 let $\fitted_i \eqdef \mean(x_i; \vparam)$
 be its predictions of $n \ge 1$ outcomes $\dsn{y}$,
 and let $\text{RSS}(\vparam)$ (@def-rss) be taken over those same outcomes.
-Write the [mean squared error](estimation.qmd#def-prediction-mse)
+Write the [mean squared error](prediction.qmd#def-prediction-mse)
 of these predictions in terms of $\text{RSS}(\vparam)$,
 and $\text{RSS}(\vparam)$ in terms of that mean squared error.
 :::
@@ -14,7 +14,7 @@ and $\text{RSS}(\vparam)$ in terms of that mean squared error.
 
 :::{#sol-mse-rss}
 
-First, each squared [prediction error](estimation.qmd#def-prediction-error)
+First, each squared [prediction error](prediction.qmd#def-prediction-error)
 equals the squared residual at $\vparam$:
 
 $$

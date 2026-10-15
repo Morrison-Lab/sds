@@ -1,0 +1,87 @@
+---
+title: "Prediction"
+format:
+  html: default
+  revealjs:
+    output-file: prediction-slides.html
+  pdf:
+    output-file: prediction-handout.pdf
+  docx:
+    output-file: prediction-handout.docx
+resources:
+  - data/birthwt.csv
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+```{r}
+#| label: python-packages
+#| include: false
+reticulate::py_require(c("numpy", "pandas"))
+```
+
+## Predictions, fitted values, residuals, and prediction errors {#sec-predictions}
+
+<!-- No slidebreak here: the heading shares its slide with the def-prediction div. -->
+
+{{< include sds/_subfiles/prediction/_def-prediction.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_exm-prediction-cond-mean.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_def-fitted-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_def-residual.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_def-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_exr-prediction-error-residual.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_thm-prediction-error-residual.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_cor-residual-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_exm-residual-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_rem-prediction-error.qmd >}}
+
+{{< slidebreak >}}
+
+## Mean squared error of predictions {#sec-prediction-mse}
+
+<!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. -->
+
+{{< include sds/_subfiles/prediction/_def-prediction-mse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_rem-prediction-mse.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_exm-fitted-residual-error.qmd >}}
+
+{{< slidebreak >}}
+
+## Estimation versus prediction {#sec-estimation-vs-prediction}
+
+<!-- No slidebreak here: the heading shares its slide with the remark. -->
+
+{{< include sds/_subfiles/prediction/_rem-estimation-vs-prediction.qmd >}}
