@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 06:02:37 (PDT)
+Last modified: 2026-10-15 06:17:56 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -64,7 +64,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 5 (Marginal likelihood)** Given a prior \\\operatorname{p}(\theta)\\ and a model \\\operatorname{p}(\tilde{y}\mid \theta)\\ for the data given \\\theta\\, the **marginal likelihood** (also called the **evidence**) of observed data \\\tilde{y}\\ is
+> **Definition 5 (Marginal likelihood (evidence))** Given a prior \\\operatorname{p}(\theta)\\ and a model \\\operatorname{p}(\tilde{y}\mid \theta)\\ for the data given \\\theta\\, the **marginal likelihood** (also called the **evidence**) of observed data \\\tilde{y}\\ is
 >
 > \\ \operatorname{p}(\tilde{y}) \stackrel{\text{def}}{=}\int \operatorname{p}(\tilde{y}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta, \\
 >
@@ -706,7 +706,9 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Definition 13 (Flat prior)** A **flat prior**, also called a **uniform** or **noninformative** prior, is a [prior](#def-prior) whose density is constant on the parameter space: \\\operatorname{p}(\theta) \propto 1\\ for \\\theta\in \Theta\\.
+> **Definition 13 (Flat prior (uniform prior))** A **flat prior**, also called a **uniform prior**, is a [prior](#def-prior) whose density is constant on the parameter space: \\\operatorname{p}(\theta) \propto 1\\ for \\\theta\in \Theta\\.
+
+A flat prior is a common choice of noninformative prior, but “noninformative prior” is the broader idea: other noninformative priors, such as Jeffreys priors, are not flat.
 
 > **NOTE:**
 >
@@ -1265,7 +1267,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 22 (Hierarchical model)** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
+> **Definition 22 (Hierarchical model (multilevel model))** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
 
 > **NOTE:**
 >

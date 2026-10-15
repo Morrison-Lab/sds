@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 06:02:37 (PDT)
+Last modified: 2026-10-15 06:17:56 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -75,7 +75,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Definition 3 (Likelihood components)** For a dataset \\\tilde{x}\\ of mutually independent observations, the **likelihood component** (or **likelihood factor**) of observation \\X_i = x_i\\ is the likelihood of that observation alone:
+> **Definition 3 (Likelihood component (likelihood factor))** For a dataset \\\tilde{x}\\ of mutually independent observations, the **likelihood component** (or **likelihood factor**) of observation \\X_i = x_i\\ is the likelihood of that observation alone:
 >
 > \\\mathcal{L}\_i(\theta) \stackrel{\text{def}}{=}\operatorname{p}(X_i = x_i \mid \theta)\\
 
@@ -369,9 +369,11 @@ In all four examples ([Theorem 8](#thm-bernoulli-score), [Theorem 9](#thm-pois
 
 > **NOTE:**
 >
-> **Definition 8 (Score equation)** The **score equation** (also called the estimating equation) is the equation that sets the [score function](#def-score) to zero:
+> **Definition 8 (Score equation)** The **score equation** is the equation that sets the [score function](#def-score) to zero:
 >
 > \\ \ell'(\tilde{\theta}) = \tilde{0} \\
+
+The score equation is one example of an **estimating equation**, an equation whose solution defines an estimator. Estimating equations in general need not come from a likelihood.
 
 > **NOTE:**
 >
@@ -425,7 +427,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Definition 10 (Expected information)** The **expected information matrix**, also called the **Fisher information matrix** or just the **information matrix**, is written \\\mathcal{I}\\, and is the expected value of the negative [Hessian](#def-hessian) of the log-likelihood, with the data \\\tilde{X}\\ treated as random:
+> **Definition 10 (Expected information matrix (Fisher information matrix, information matrix))** The **expected information matrix**, also called the **Fisher information matrix** or just the **information matrix**, is written \\\mathcal{I}\\, and is the expected value of the negative [Hessian](#def-hessian) of the log-likelihood, with the data \\\tilde{X}\\ treated as random:
 >
 > \\\mathcal{I}(\tilde{\theta}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[-\ell''(\tilde{X}\mid \tilde{\theta})\right\]\mathclose{} \tag{10}\\
 
@@ -1270,7 +1272,7 @@ and the solution becomes the next guess.
 
 > **NOTE:**
 >
-> **Definition 18 (Fisher scoring)** **Fisher scoring** (also called the method of scoring) is the [Newton-Raphson algorithm](#def-newton-raphson) with the observed information \\I(\tilde{x}; {\widehat{\theta}}^\*)\\ in the update replaced by the [expected information](#def-einf) \\\mathcal{I}({\widehat{\theta}}^\*)\\:
+> **Definition 18 (Fisher scoring (method of scoring))** **Fisher scoring** (also called the **method of scoring**) is the [Newton-Raphson algorithm](#def-newton-raphson) with the observed information \\I(\tilde{x}; {\widehat{\theta}}^\*)\\ in the update replaced by the [expected information](#def-einf) \\\mathcal{I}({\widehat{\theta}}^\*)\\:
 >
 > \\ {\widehat{\theta}}^\* \leftarrow {\widehat{\theta}}^\* + {\mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \\
 
