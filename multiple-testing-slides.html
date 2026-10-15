@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 12:56:30 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 13:11:03 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -648,19 +648,9 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><span class="math display">\[
 \text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\text{FDP}\right]\mathclose{}.
 \]</span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>The false discovery rate was introduced by Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>; the notation <span class="math inline">\(V\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(U\)</span>, <span class="math inline">\(T\)</span> and <span class="math inline">\(R\)</span> follows <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-fdr" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Source: False discovery rate). </span>The false discovery rate was introduced by Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>; the notation <span class="math inline">\(V\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(U\)</span>, <span class="math inline">\(T\)</span> and <span class="math inline">\(R\)</span> follows <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-fdr-control" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Controlling the false discovery rate)</strong></span> A procedure <strong>controls the FDR at level <span class="math inline">\(q\)</span></strong> if <span class="math inline">\(\text{FDR} \le q\)</span> for every possible set of true null hypotheses.</p>
@@ -683,7 +673,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>About 34% of the rejections are false positives on average, even though each individual test has only a 5% false positive rate. A 5% rate on 900 true null hypotheses gives about 45 false positives, which is large next to the average of 85 true positives.</p>
 </div>
 </section><section class="slide level2"><div id="rem-fdr-fwer" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (The FDR is never larger than the FWER). </span>If <span class="math inline">\(V \ge 1\)</span> then <span class="math inline">\(V / \max(R, 1) \le 1\)</span> because <span class="math inline">\(V \le R\)</span>, and if <span class="math inline">\(V = 0\)</span> then <span class="math inline">\(V / \max(R, 1) = 0\)</span>. So <span class="math inline">\(\text{FDP} \le \mathbb{1}_{V \ge 1}\)</span>, and taking expectations gives <span class="math inline">\(\text{FDR} \le \text{FWER}\)</span>. A procedure that controls the FWER at level <span class="math inline">\(\alpha\)</span> therefore controls the FDR at level <span class="math inline">\(\alpha\)</span> too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.</p>
+<p><span class="proof-title"><em>Remark 3</em> (The FDR is never larger than the FWER). </span>If <span class="math inline">\(V \ge 1\)</span> then <span class="math inline">\(V / \max(R, 1) \le 1\)</span> because <span class="math inline">\(V \le R\)</span>, and if <span class="math inline">\(V = 0\)</span> then <span class="math inline">\(V / \max(R, 1) = 0\)</span>. So <span class="math inline">\(\text{FDP} \le \mathbb{1}_{V \ge 1}\)</span>, and taking expectations gives <span class="math inline">\(\text{FDR} \le \text{FWER}\)</span>. A procedure that controls the FWER at level <span class="math inline">\(\alpha\)</span> therefore controls the FDR at level <span class="math inline">\(\alpha\)</span> too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.4" id="sec-valid-p-values">
 <span class="header-section-number">3.4</span> Valid p-values</h3>
@@ -693,7 +683,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><span class="math display">\[\Pr_{H_0}(p \le u) \le u \quad \text{for every } u \in [0, 1].\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-valid-p-value-uniform" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Uniform p-values). </span>If the inequality in the definition of a valid p-value is an equality, <span class="math inline">\(p\)</span> is uniform on <span class="math inline">\([0, 1]\)</span> under <span class="math inline">\(H_0\)</span>.</p>
+<p><span class="proof-title"><em>Remark 4</em> (Uniform p-values). </span>If the inequality in the definition of a valid p-value is an equality, <span class="math inline">\(p\)</span> is uniform on <span class="math inline">\([0, 1]\)</span> under <span class="math inline">\(H_0\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-valid-p-value" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (The two-sided z-test p-value is valid)</strong></span> For a standard Gaussian statistic <span class="math inline">\(Z\)</span>, the p-value <span class="math inline">\(p = 2 \Phi(-\mathopen{}\left|Z\right|\mathclose{})\)</span> is the probability that a standard Gaussian variable is at least as extreme as <span class="math inline">\(Z\)</span>. Because <span class="math inline">\(Z\)</span> has a continuous distribution, this p-value is uniform on <span class="math inline">\([0, 1]\)</span>, so <span class="math inline">\(\Pr(p \le u) = u\)</span> exactly. Simulating <span class="math inline">\(10^5\)</span> true null hypotheses checks this:</p>
@@ -713,7 +703,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>Each fraction is close to its <span class="math inline">\(u\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-valid-p-value-discrete" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Discrete statistics give conservative p-values). </span>When the test statistic is discrete, as in <a href="./categorical-tests.html#def-fishers-exact">Fisher’s exact test</a>, a p-value can satisfy <span class="math inline">\(\Pr_{H_0}(p \le u) &lt; u\)</span> for some <span class="math inline">\(u\)</span>. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.</p>
+<p><span class="proof-title"><em>Remark 5</em> (Discrete statistics give conservative p-values). </span>When the test statistic is discrete, as in <a href="./categorical-tests.html#def-fishers-exact">Fisher’s exact test</a>, a p-value can satisfy <span class="math inline">\(\Pr_{H_0}(p \le u) &lt; u\)</span> for some <span class="math inline">\(u\)</span>. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.</p>
 </div>
 </section><section id="sec-fwer-control" class="slide level2" data-number="4"><h2>
 <span class="header-section-number">4</span> Controlling the family-wise error rate</h2>
@@ -723,19 +713,9 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <div id="def-bonferroni" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Bonferroni correction)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses <span class="math inline">\(H_1, \ldots, H_m\)</span> with p-values <span class="math inline">\(p_1, \ldots, p_m\)</span> and a level <span class="math inline">\(\alpha\)</span>, the <strong>Bonferroni correction</strong> rejects <span class="math inline">\(H_j\)</span> when its p-value is at most <span class="math inline">\(\alpha/ m\)</span>:</p>
 <p><span class="math display">\[\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.\]</span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-bonferroni" class="proof remark">
+<p><span class="proof-title"><em>Remark 6</em> (Source: Bonferroni correction). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bonferroni" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Bonferroni correction for the Khan genes)</strong></span> R functions for this page’s procedures take the vector of p-values and a level, and return a logical vector. For the Bonferroni correction with <span class="math inline">\(\alpha= 0.05\)</span>:</p>
@@ -945,19 +925,9 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><span class="theorem-title"><strong>Definition 9 (Holm’s step-down procedure)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with p-values and a level <span class="math inline">\(\alpha\)</span>, order the p-values from smallest to largest, <span class="math inline">\(p_{(1)} \le p_{(2)} \le \cdots \le p_{(m)}\)</span>, and let <span class="math inline">\(H_{(k)}\)</span> be the null hypothesis with p-value <span class="math inline">\(p_{(k)}\)</span>. Let <span class="math inline">\(k^*\)</span> be the first rank at which the p-value exceeds its threshold <span class="math inline">\(\alpha/ (m - k + 1)\)</span>, with <span class="math inline">\(k^* \stackrel{\text{def}}{=}m + 1\)</span> if there is no such rank:</p>
 <p><span class="math display">\[k^* \stackrel{\text{def}}{=}\min \mathopen{}\left\{k : p_{(k)} &gt; \frac{\alpha}{m - k + 1}\right\}\mathclose{}.\]</span></p>
 <p><strong>Holm’s procedure</strong> rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(k^* - 1)}\)</span> and no others.</p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>Holm <span class="citation" data-cites="holm1979simple">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1979</a>)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-holm" class="proof remark">
+<p><span class="proof-title"><em>Remark 7</em> (Source: Holm’s step-down procedure). </span>Holm <span class="citation" data-cites="holm1979simple">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1979</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-holm" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Holm’s procedure for the Khan genes)</strong></span> A step-down procedure starts at the smallest p-value and stops at the first one that exceeds its threshold:</p>
@@ -1171,22 +1141,12 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><span class="theorem-title"><strong>Definition 10 (Benjamini–Hochberg procedure)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with ordered p-values <span class="math inline">\(p_{(1)} \le \cdots \le p_{(m)}\)</span> (as in <a href="#/def-holm" class="quarto-xref">Definition&nbsp;9</a>) and a level <span class="math inline">\(q\)</span>, let <span class="math inline">\(\hat k\)</span> be the largest rank whose p-value is at most <span class="math inline">\(k q / m\)</span>, with <span class="math inline">\(\hat k \stackrel{\text{def}}{=}0\)</span> if there is no such rank:</p>
 <p><span class="math display">\[\hat k \stackrel{\text{def}}{=}\max \mathopen{}\left\{k : p_{(k)} \le \frac{k q}{m}\right\}\mathclose{}.\]</span></p>
 <p>The <strong>Benjamini–Hochberg procedure</strong> (BH) rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(\hat k)}\)</span> and no others.</p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-bh" class="proof remark">
+<p><span class="proof-title"><em>Remark 8</em> (Source: Benjamini–Hochberg procedure). </span>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bh-step-up" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (BH is a step-up procedure). </span>Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold <span class="math inline">\(k q / m\)</span>. Every hypothesis ranked at or below <span class="math inline">\(\hat k\)</span> is rejected, including those with p-values above their own thresholds. The thresholds <span class="math inline">\(k q / m\)</span> grow with the rank <span class="math inline">\(k\)</span>, and the smallest, <span class="math inline">\(q / m\)</span>, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level <span class="math inline">\(\alpha= q\)</span>.</p>
+<p><span class="proof-title"><em>Remark 9</em> (BH is a step-up procedure). </span>Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold <span class="math inline">\(k q / m\)</span>. Every hypothesis ranked at or below <span class="math inline">\(\hat k\)</span> is rejected, including those with p-values above their own thresholds. The thresholds <span class="math inline">\(k q / m\)</span> grow with the rank <span class="math inline">\(k\)</span>, and the smallest, <span class="math inline">\(q / m\)</span>, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level <span class="math inline">\(\alpha= q\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bh" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12 (The BH procedure for the Khan genes)</strong></span> &nbsp;</p>
@@ -1317,19 +1277,9 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </section><section class="slide level2"><div id="thm-bh-fdr" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5 (The BH procedure controls the FDR under independence)</strong></span> Suppose the <span class="math inline">\(m\)</span> p-values are independent and each true null hypothesis has a p-value that is uniform on <span class="math inline">\([0, 1]\)</span>. Then the <a href="#/def-bh">BH procedure</a> at level <span class="math inline">\(q\)</span> satisfies</p>
 <p><span class="math display">\[\text{FDR} = \frac{m_0}{m} q \le q.\]</span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>, which proves the result for any configuration of false null hypotheses. The proof is omitted here.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-bh-fdr" class="proof remark">
+<p><span class="proof-title"><em>Remark 10</em> (Source: The BH procedure controls the FDR under independence). </span>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>, which proves the result for any configuration of false null hypotheses. The proof is omitted here.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bh-fdr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 13 (FDR of the BH procedure in the simulated family)</strong></span> In the simulated family of <a href="#/exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> the p-values are independent and <span class="math inline">\(m_0 / m = 0.9\)</span>, so <a href="#/thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> gives <span class="math inline">\(\text{FDR} = 0.9 \times 0.05 =\)</span> 0.045 at <span class="math inline">\(q = 0.05\)</span>. Repeating the simulation 2000 times with BH:</p>
@@ -1343,7 +1293,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>The estimated FDR, 0.045, is close to the theoretical value 0.045. BH also finds 50% of the false null hypotheses, more than Holm’s procedure, and in exchange it makes at least one false positive in 88% of the repetitions.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bh-dependence" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (BH under dependence). </span>Gene expression levels are usually correlated, and <a href="#/thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> assumes independence. <span class="citation" data-cites="benjamini2001control">Benjamini and Yekutieli (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2001</a>)</span> proved that BH still controls the FDR at level <span class="math inline">\(q\)</span> under a form of positive dependence among the p-values, and that the procedure run at level <span class="math inline">\(q / \sum_{k=1}^m (1/k)\)</span> controls it under any dependence. <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span> and <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2016</a>, ch.&nbsp;15)</span> discuss the procedure in practice.</p>
+<p><span class="proof-title"><em>Remark 11</em> (BH under dependence). </span>Gene expression levels are usually correlated, and <a href="#/thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> assumes independence. <span class="citation" data-cites="benjamini2001control">Benjamini and Yekutieli (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2001</a>)</span> proved that BH still controls the FDR at level <span class="math inline">\(q\)</span> under a form of positive dependence among the p-values, and that the procedure run at level <span class="math inline">\(q / \sum_{k=1}^m (1/k)\)</span> controls it under any dependence. <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span> and <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2016</a>, ch.&nbsp;15)</span> discuss the procedure in practice.</p>
 </div>
 </section><section id="sec-adjusted-p-values" class="slide level2" data-number="6"><h2>
 <span class="header-section-number">6</span> Adjusted p-values and q-values</h2>
@@ -1353,7 +1303,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><span class="math display">\[\tilde p_j \stackrel{\text{def}}{=}\min \mathopen{}\left\{c \in [0, 1] : \text{the procedure at level } c \text{ rejects } H_j\right\}\mathclose{}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-adjusted-p-value-levels" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (Applying any level to adjusted p-values). </span>If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level <span class="math inline">\(c\)</span> rejects exactly the hypotheses with <span class="math inline">\(\tilde p_j \le c\)</span>, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.</p>
+<p><span class="proof-title"><em>Remark 12</em> (Applying any level to adjusted p-values). </span>If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level <span class="math inline">\(c\)</span> rejects exactly the hypotheses with <span class="math inline">\(\tilde p_j \le c\)</span>, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.</p>
 </div>
 </section><section class="slide level2"><div id="exm-adjusted-p-value" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14 (Adjusted p-values for the Khan genes)</strong></span> For the Bonferroni correction, <span class="math inline">\(H_j\)</span> is rejected at level <span class="math inline">\(c\)</span> exactly when <span class="math inline">\(m p_j \le c\)</span>, so <span class="math inline">\(\tilde p_j = \min\mathopen{}\left\{1, m p_j\right\}\mathclose{}\)</span>. For Holm’s procedure and BH the adjusted p-values are</p>
@@ -1480,7 +1430,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>The check confirms that the formulas and functions agree on these data at these levels; it is not a proof that they agree for every data set.</p>
 </div>
 </section><section class="slide level2"><div id="rem-q-value" class="proof remark">
-<p><span class="proof-title"><em>Remark 8</em> (q-values). </span>The BH adjusted p-value of a hypothesis is the smallest FDR level <span class="math inline">\(q\)</span> at which BH rejects it. Some authors call this a <em>q-value</em>. <span class="citation" data-cites="storey2002direct">Storey (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2002</a>)</span> defines the q-value with the same meaning, but estimates the fraction <span class="math inline">\(m_0 / m\)</span> of true null hypotheses from the p-values and multiplies by the estimate, <span class="math inline">\(\hat\pi_0\)</span>, which is usually below 1. BH is the case <span class="math inline">\(\hat\pi_0 = 1\)</span>, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.</p>
+<p><span class="proof-title"><em>Remark 13</em> (q-values). </span>The BH adjusted p-value of a hypothesis is the smallest FDR level <span class="math inline">\(q\)</span> at which BH rejects it. Some authors call this a <em>q-value</em>. <span class="citation" data-cites="storey2002direct">Storey (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2002</a>)</span> defines the q-value with the same meaning, but estimates the fraction <span class="math inline">\(m_0 / m\)</span> of true null hypotheses from the p-values and multiplies by the estimate, <span class="math inline">\(\hat\pi_0\)</span>, which is usually below 1. BH is the case <span class="math inline">\(\hat\pi_0 = 1\)</span>, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.</p>
 </div>
 </section><section id="sec-procedure-comparison" class="slide level2" data-number="7"><h2>
 <span class="header-section-number">7</span> Comparing the procedures</h2>
@@ -1533,7 +1483,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>Unadjusted testing has the highest power and no error control. The two FWER procedures keep the FWER below 0.05 and give up most of the power; Holm’s procedure never rejects fewer hypotheses than the Bonferroni correction. In this simulation BH has the highest power among the procedures that control an error rate, because it only promises to control the FDR. Its FWER is far above 0.05, which BH does not promise to control.</p>
 </div>
 </section><section class="slide level2"><div id="rem-choosing-error-rate" class="proof remark">
-<p><span class="proof-title"><em>Remark 9</em> (Choosing an error rate). </span>Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.</p>
+<p><span class="proof-title"><em>Remark 14</em> (Choosing an error rate). </span>Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.</p>
 </div>
 </section><section id="sec-multiple-testing-reading" class="slide level2 smaller scrollable" data-number="8"><h2>
 <span class="header-section-number">8</span> Further reading</h2>
