@@ -37,24 +37,25 @@ local function first_label(div)
     end
   })
   if label then return label end
+  -- The first descriptive link names the box; a video id is the fallback, used
+  -- only when no link in the box has a descriptive text.
+  local video_id = nil
   div:walk({
     Link = function(link)
-      if label == nil then
-        local text = pandoc.utils.stringify(link.content)
-        local video = link.target:match('youtube%.com/watch%?v=([%w_-]+)')
-          or link.target:match('youtu%.be/([%w_-]+)')
-        local lower = pandoc.text.lower(text)
-        -- A timestamp link ("from 6:55") names a place in a video, not the video.
-        local stamp = lower:match('^from%s') or lower:match('^at%s') or lower:match('^[%d:%s]+$')
-        if text ~= '' and not stamp and not text:match('^https?:') then
-          label = text
-        elseif video then
-          label = video
-        end
+      local text = pandoc.utils.stringify(link.content)
+      local video = link.target:match('youtube%.com/watch%?v=([%w_-]+)')
+        or link.target:match('youtu%.be/([%w_-]+)')
+      if video and video_id == nil then video_id = video end
+      local lower = pandoc.text.lower(text)
+      -- A timestamp link ("from 6:55") names a place in a video, not the video.
+      local stamp = lower:match('^from%s') or lower:match('^at%s') or lower:match('^[%d:%s]+$')
+      if label == nil and text ~= '' and not stamp and not text:match('^https?:') then
+        label = text
       end
     end
   })
   if label then return label end
+  if video_id then return video_id end
   div:walk({
     Para = function(para)
       if label == nil then label = pandoc.utils.stringify(para) end
