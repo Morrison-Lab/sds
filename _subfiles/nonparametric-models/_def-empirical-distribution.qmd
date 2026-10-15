@@ -28,6 +28,8 @@ to turn the risk of a prediction model into its *empirical risk*.
 
 Because it needs only the data in hand, an empirical quantity can always be computed,
 and it serves as an estimate of the population quantity it mimics.
-@efron1993introduction build the bootstrap on this replacement.
+The bootstrap rests on this replacement:
+it estimates the variability of a statistic by sampling from the empirical distribution
+[@hastie2009elements, section 7.11, p. 250; @efron1993introduction].
 
 :::
