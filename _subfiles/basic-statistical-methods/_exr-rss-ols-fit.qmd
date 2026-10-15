@@ -12,9 +12,9 @@ in terms of $S_{xx}$, $S_{yy}$ and $S_{xy}$.
 
 :::{#sol-rss-ols-fit}
 
-The [fitted values](estimation.qmd#def-fitted-value)
+The [fitted values](prediction.qmd#def-fitted-value)
 of the OLS fit are $\fitted_i = \hintcoef + \hcoef{x} x_i$,
-so each [residual](estimation.qmd#def-residual) is
+so each [residual](prediction.qmd#def-residual) is
 
 $$
 \begin{aligned}

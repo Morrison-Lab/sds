@@ -1,0 +1,35 @@
+:::{#exr-estimation-error-bound}
+#### Bounding the chance of a large estimation error
+
+Let $\hparam$ be an estimator of $\param$ with finite
+[mean squared error](estimation.qmd#def-mse),
+and let $\varepsilon > 0$.
+Use [Markov's inequality](https://morrison-lab.github.io/pds/limit-theorems.html#thm-markov)
+to show that
+$\Prf{\abs{\hparam - \param} \ge \varepsilon} \le \mselr{\hparam} / \varepsilon^2$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-estimation-error-bound}
+
+Both sides of $\abs{\hparam - \param} \ge \varepsilon$ are nonnegative,
+so squaring them keeps the inequality.
+The random variable $\sqf{\hparam - \param}$ is nonnegative,
+so Markov's inequality applies to it with $a = \varepsilon^2$:
+
+$$
+\begin{aligned}
+\Prf{\abs{\hparam - \param} \ge \varepsilon}
+&= \Prf{\sqf{\hparam - \param} \ge \varepsilon^2}
+&& \text{(square both nonnegative sides)}\\
+&\le \frac{\E{\sqf{\hparam - \param}}}{\varepsilon^2}
+&& \text{(Markov's inequality, $a = \varepsilon^2 > 0$)}\\
+&= \frac{\E{\sqf{\erf{\hparam}}}}{\varepsilon^2}
+&& \text{(definition of the estimation error)}\\
+&= \frac{\mselr{\hparam}}{\varepsilon^2}
+&& \text{(definition of the mean squared error)}
+\end{aligned}
+$$
+
+:::

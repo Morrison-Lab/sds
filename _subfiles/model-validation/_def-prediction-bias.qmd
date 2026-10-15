@@ -11,8 +11,10 @@ is the [bias](estimation.qmd#def-bias) of $\fitproc\paren{\predvar; \trainset}$
 as an estimator of the [mean function](#def-mean-function) value $\mean(\predvar)$:
 
 $$
-\bias{\fitproc\paren{\predvar; \trainset}} = \E{\fitproc\paren{\predvar; \trainset}} - \mean(\predvar).
+\bias{\fitproc\paren{\predvar; \trainset}} = \E{\fitproc\paren{\predvar; \trainset}} - \mean(\predvar),
 $$ {#eq-prediction-bias}
+
+which is the [average fit](#def-average-fit) $\avgfitf{\predvar}$ minus $\mean(\predvar)$.
 
 :::
 
