@@ -1,0 +1,21 @@
+::: {#thm-deviance-drop}
+
+#### The drop in deviance is the likelihood ratio statistic
+
+Let $D_0$ be the [null deviance](#def-null-deviance) and $D$ the [deviance](#def-deviance) of a logistic regression with $q$ predictors besides the intercept.
+Then the [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat) of $H_0$: all $q$ slopes are zero is
+
+$$
+\lrstat = D_0 - D,
+$$
+
+and for a large sample it has approximately a $\chi^2_q$ distribution under $H_0$.
+
+:::
+
+::: proof
+Under $H_0$ the model is the intercept-only model, so $\llikf{\hparam_0} = -D_0 / 2$.
+The unrestricted maximum is $\llikf{\hvcoef} = -D / 2$.
+Substituting both into the [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat) gives $\lrstat = 2 \paren{-D/2 + D_0/2} = D_0 - D$.
+The limiting distribution follows from [Wilks' theorem](intro-MLEs.qmd#thm-wilks) with $q$ constraints.
+:::

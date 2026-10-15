@@ -1,0 +1,18 @@
+::: {#exm-null-deviance}
+
+#### The null deviance of the six-patient trial
+
+Three of the six patients recovered, so $\bar\outvar = 1/2$ and @eq-null-deviance gives $D_0 = 2 \times 6 \ln 2$.
+
+```{r}
+#| code-fold: false
+# null deviance from the formula with ybar = 1/2
+wf_null_hand <- 2 * 6 * log(2)
+# the null deviance that glm reports
+wf_null_glm <- wf_fit$null.deviance
+c(by_hand = wf_null_hand, glm = wf_null_glm)
+```
+
+Both give $D_0 = `r round(wf_null_glm, 3)`$.
+
+:::

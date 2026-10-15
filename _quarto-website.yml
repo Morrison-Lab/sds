@@ -64,6 +64,8 @@ website:
             href: model-validation.qmd
           - text: "Classification"
             href: classification.qmd
+          - text: "Logistic Regression Inference"
+            href: logistic-inference.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
           - text: "Permutation Tests"
@@ -120,6 +122,8 @@ website:
             href: model-validation.qmd
           - text: "Classification"
             href: classification.qmd
+          - text: "Logistic Regression Inference"
+            href: logistic-inference.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
           - text: "Permutation Tests"

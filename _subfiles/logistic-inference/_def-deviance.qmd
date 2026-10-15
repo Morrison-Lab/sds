@@ -1,0 +1,25 @@
+::: {#def-deviance}
+
+#### Deviance
+
+The **deviance** of a fitted logistic regression is twice the amount by which its maximized log-likelihood falls short of the largest log-likelihood any model could reach on the same labels.
+For labels $\outvar_i \in \set{0, 1}$ the largest log-likelihood is $0$,
+reached by a model that gives each label probability $1$,
+so the deviance is
+
+$$
+D \eqdef -2 \, \llikf{\hvcoef}
+= -2 \sumin \cb{\outvar_i \ln \hat\prob_i + \paren{1 - \outvar_i} \ln\paren{1 - \hat\prob_i}},
+$$ {#eq-deviance}
+
+where $\hat\prob_i = \sigmoidf{\dprod{\hvcoef}{\vpredvar_i}}$ is the fitted probability.
+
+:::
+
+::: {.callout-note appearance="simple" collapse=true}
+## Source
+
+@nelder1972generalized introduced the deviance for the whole family of generalized linear models;
+logistic regression is the case of Bernoulli outcomes with the logit link.
+@hastie2009elements, Section 4.4.3, discusses it for logistic regression.
+:::

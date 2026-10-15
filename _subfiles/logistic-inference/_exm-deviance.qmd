@@ -1,0 +1,21 @@
+::: {#exm-deviance}
+
+#### The deviance of the six-patient trial
+
+For the fit of @exm-logistic-regression, R's `glm` reports the deviance.
+We check it against @eq-deviance computed by hand.
+
+```{r}
+#| code-fold: false
+# fitted probabilities of recovery
+wf_p <- fitted(wf_fit)
+# minus twice the log-likelihood, from the formula
+wf_dev_hand <- -2 * sum(wf_y * log(wf_p) + (1 - wf_y) * log(1 - wf_p))
+# the deviance that glm reports
+wf_dev_glm <- deviance(wf_fit)
+c(by_hand = wf_dev_hand, glm = wf_dev_glm)
+```
+
+Both give $D = `r round(wf_dev_glm, 3)`$.
+
+:::

@@ -1,0 +1,19 @@
+::: {#exm-deviance-drop}
+
+#### Testing the treatment effect
+
+In the six-patient trial, $q = 1$.
+
+```{r}
+#| code-fold: false
+# drop in deviance, the likelihood ratio statistic
+wf_g2 <- wf_fit$null.deviance - deviance(wf_fit)
+# its p-value from the chi-square distribution with 1 degree of freedom
+wf_g2_p <- pchisq(wf_g2, df = 1, lower.tail = FALSE)
+c(statistic = wf_g2, p_value = wf_g2_p)
+```
+
+The statistic is $`r round(wf_g2, 3)`$ with p-value $`r round(wf_g2_p, 2)`$,
+so six patients give no evidence of a treatment effect.
+
+:::
