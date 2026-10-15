@@ -18,5 +18,6 @@ The log-likelihood has score $\tp{X} \paren{\voutvar - \vprob}$,
 and its Hessian is $-\tp{X} W X$, which does not involve the outcomes.
 The observed and expected information are therefore both $\tp{X} W X$.
 The claim is the Gaussian approximation of the [central limit theorem for MLEs](intro-MLEs.qmd#thm-dist-mle), with this information in place of the inverse covariance.
-It holds for independent but non-identically distributed outcomes under conditions on the predictors [@hastie2009elements, Section 4.4.3].
+The result is stated for logistic regression by @hastie2009elements [Section 4.4.3].
+For independent but non-identically distributed outcomes it holds under conditions on the predictors that @fahrmeir1985consistency give.
 :::

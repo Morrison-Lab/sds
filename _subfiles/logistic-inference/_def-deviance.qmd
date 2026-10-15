@@ -21,5 +21,5 @@ where $\hat\prob_i = \sigmoidf{\dprod{\hvcoef}{\vpredvar_i}}$ is the fitted prob
 
 @nelder1972generalized introduced the deviance for the whole family of generalized linear models;
 logistic regression is the case of Bernoulli outcomes with the logit link.
-@hastie2009elements, Section 4.4.3, discusses it for logistic regression.
+@hastie2009elements [Section 4.4.2] defines the residual deviance of a fitted logistic regression as minus twice its log-likelihood.
 :::

@@ -2,7 +2,7 @@
 
 #### Distribution of the drop in deviance
 
-Under the conditions of @thm-deviance-drop, for a large sample the drop in deviance $D_0 - D$ has approximately a $\chi^2_q$ distribution when $H_0$ holds.
+Suppose the regularity conditions of [Wilks' theorem](intro-MLEs.qmd#thm-wilks) hold for the logistic regression model. Then for a large sample the drop in deviance $D_0 - D$ has approximately a $\chi^2_q$ distribution when $H_0$ holds.
 
 :::
 

@@ -2,7 +2,7 @@
 
 #### Interval for the odds factor of a logistic coefficient
 
-If $\paren{L, U}$ is a confidence interval for $\coef{j}$ from @cor-logistic-wald, then $\paren{e^{L}, e^{U}}$ is a confidence interval with the same level for $e^{\coef{j}}$, the factor by which a one-unit increase in $\predvar_j$ multiplies the odds of $\outvar = 1$.
+If $\paren{L, U}$ is a confidence interval for $\coef{j}$ from @cor-logistic-wald, then $\paren{e^{L}, e^{U}}$ is a confidence interval with the same level for $e^{\coef{j}}$, the factor by which a one-unit increase in $\predvar_j$, holding the other predictors fixed, multiplies the odds of $\outvar = 1$.
 
 :::
 

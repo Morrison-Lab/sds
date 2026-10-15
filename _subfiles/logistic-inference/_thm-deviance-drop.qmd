@@ -12,7 +12,7 @@ $$
 :::
 
 ::: proof
-Under $H_0$ the model is the intercept-only model, so $\llikf{\hparam_0} = -D_0 / 2$.
-The unrestricted maximum is $\llikf{\hvcoef} = -D / 2$.
-Substituting both into the [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat) gives $\lrstat = 2 \paren{-D/2 + D_0/2} = D_0 - D$.
+In the notation of the [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat), the unrestricted MLE $\hthml$ is the fitted coefficient vector $\hvcoef$, and $\hparam_0$ is the fit of the intercept-only model that $H_0$ imposes.
+Then $\llikf{\hthml} = -D / 2$ and $\llikf{\hparam_0} = -D_0 / 2$.
+Substituting both into the definition gives $\lrstat = 2 \paren{-D/2 + D_0/2} = D_0 - D$.
 :::

@@ -6,15 +6,15 @@ The two groups of @exm-logistic-regression sit two units apart on the $\predvar$
 
 ```{r}
 #| code-fold: false
-# group odds ratio and its interval: exponentiate twice the slope interval
+# fitted group odds ratio, and its interval: exponentiate twice the slope
+wf_group_or_hat <- exp(2 * wf_slope)
 wf_group_or <- exp(2 * wf_ci)
-wf_group_or
+c(estimate = wf_group_or_hat, lower = wf_group_or[1], upper = wf_group_or[2])
 ```
 
-The odds of recovery in the treatment group are $4$ times those in the control group,
+The fitted odds of recovery in the treatment group are $`r round(wf_group_or_hat, 2)`$ times those in the control group,
 with interval $(`r round(wf_group_or[1], 2)`, `r round(wf_group_or[2], 1)`)$.
-The interval runs from a strong harm to a large benefit:
-six observations are far too few for this large-sample approximation to be reliable,
-and the interval says so.
+The interval runs from a strong harm to a large benefit.
+Its width shows how little information six observations carry about the slope.
 
 :::
