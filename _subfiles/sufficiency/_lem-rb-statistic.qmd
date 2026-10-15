@@ -2,7 +2,7 @@
 #### The Rao--Blackwellized estimator is a statistic
 
 Let $\statf{\vX}$ be a [sufficient](#def-sufficient) statistic for $\param$
-and $\hparam$ an estimator of $\param$.
+and $\hparam$ an estimator of $\param$ with finite expectation.
 Then $\condE{\hparam}{\statf{\vX}}$ does not depend on $\param$,
 so it is a [statistic](#def-statistic) and an estimator.
 :::

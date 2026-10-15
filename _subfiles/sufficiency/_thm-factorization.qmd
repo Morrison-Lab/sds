@@ -3,7 +3,7 @@
 
 Let $\pdf\paren{\vx ; \param}$ be the joint probability mass function of a discrete sample $\vX$.
 A statistic $\statf{\vX}$ is [sufficient](#def-sufficient) for $\param$
-if and only if there are functions $\sfac$ and $\rfac$ such that,
+if and only if there are nonnegative functions $\sfac$ and $\rfac$ such that,
 for every sample $\vx$ and every $\param$,
 
 $$
@@ -15,7 +15,8 @@ where $\rfacf{\vx}$ does not depend on $\param$.
 ::: {.callout-note collapse="true"}
 #### Source
 
-@halmos1949application; @CaseBerg01 [Thm. 6.2.6, p. 276].
+@halmos1949application, whom @CaseBerg01 [Thm. 6.2.6, p. 276, and its footnote]
+credit with the general form, and Neyman (1935) with an earlier one.
 :::
 
 :::
@@ -27,11 +28,13 @@ The event $\vX = \vx$ lies inside the event $\statf{\vX} = t$.
 
 **Sufficient implies a factorization.**
 Define $\sfacf{t}{\param} \eqdef \Pr_{\param}\paren{\statf{\vX} = t}$
-and $\rfacf{\vx} \eqdef \Pr\paren{\vX = \vx \given \statf{\vX} = \statf{\vx}}$.
-By [sufficiency](#eq-sufficient), $\rfacf{\vx}$ does not depend on $\param$.
-(If $\Pr_{\param}\paren{\statf{\vX} = t} = 0$ for every $\param$, set $\rfacf{\vx} \eqdef 0$;
-then both sides of @eq-factorization are zero.)
-Then
+and let $\rfacf{\vx}$ be the conditional probability $\Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}$
+at any $\param$ with $\Pr_{\param}\paren{\statf{\vX} = t} > 0$.
+By [sufficiency](#eq-sufficient), $\rfacf{\vx}$ does not depend on which such $\param$ we use.
+(If $\Pr_{\param}\paren{\statf{\vX} = t} = 0$ for every $\param$, set $\rfacf{\vx} \eqdef 0$.)
+Both functions are nonnegative, and at a $\param$ with $\Pr_{\param}\paren{\statf{\vX} = t} = 0$
+both sides of @eq-factorization are zero, because the event $\vX = \vx$ lies inside the event $\statf{\vX} = t$.
+At every other $\param$,
 
 $$
 \begin{aligned}

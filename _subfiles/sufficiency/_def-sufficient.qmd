@@ -3,20 +3,22 @@
 
 Let $\vX$ be a discrete sample whose distribution depends on a parameter $\param$.
 A [statistic](#def-statistic) $\statf{\vX}$ is **sufficient** for $\param$
-if, for every sample $\vx$ and every value $t$ that the statistic takes with positive probability,
+if, for every sample $\vx$ and every value $t$,
 the conditional probability of the sample given the statistic
-is the same for every value of $\param$:
+is the same for every value of $\param$ at which the statistic takes the value $t$
+with positive probability:
 
 $$
 \Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}
 \text{ does not depend on } \param
+\quad \text{wherever } \Pr_{\param}\paren{\statf{\vX} = t} > 0
 $$ {#eq-sufficient}
-
-:::
 
 ::: {.callout-note collapse="true"}
 #### Source
 
 @fisher1922mathematical introduced sufficiency;
 @CaseBerg01 [Def. 6.2.1, p. 272].
+:::
+
 :::
