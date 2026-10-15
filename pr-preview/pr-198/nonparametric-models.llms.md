@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:39 (PDT)
+Last modified: 2026-10-15 08:11:22 (PDT)
 
 ## 1 Empirical distribution
 
@@ -60,13 +60,13 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 
 > **NOTE:**
 >
-> **Definition 4 (Sample quantile function)** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
+> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
 >
 > \\\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\\t : \hat F(t) \ge p\right\\\mathclose{}, \quad 0 \< p \le 1.\\
 
 > **NOTE:**
 >
-> **Definition 5 (Sample quantile)** For a given \\p\\, the value \\\hat Q(p)\\ of the [sample quantile function](#def-sample-quantile) is the **sample \\p\\ quantile**, also called the **sample \\100p\\th percentile**.
+> **Definition 5 (Sample \\p\\ quantile (sample \\100p\\th percentile))** For a given \\p\\, the value \\\hat Q(p)\\ of the [sample quantile function](#def-sample-quantile) is the **sample \\p\\ quantile**, also called the **sample \\100p\\th percentile**.
 
 The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\\ and the [quantile function](https://morrison-lab.github.io/pds/random-variables.html#def-quantile-function) \\Q\\ describe a probability distribution, while \\\hat F\\ and \\\hat Q\\ describe a sample, and serve as estimates of \\F\\ and \\Q\\.
 

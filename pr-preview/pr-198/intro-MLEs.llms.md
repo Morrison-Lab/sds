@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:39 (PDT)
+Last modified: 2026-10-15 08:11:22 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -75,7 +75,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Definition 3 (Likelihood components)** For a dataset \\\tilde{x}\\ of mutually independent observations, the **likelihood component** (or **likelihood factor**) of observation \\X_i = x_i\\ is the likelihood of that observation alone:
+> **Definition 3 (Likelihood component (likelihood factor))** For a dataset \\\tilde{x}\\ of mutually independent observations, the **likelihood component** (or **likelihood factor**) of observation \\X_i = x_i\\ is the likelihood of that observation alone:
 >
 > \\\mathcal{L}\_i(\theta) \stackrel{\text{def}}{=}\operatorname{p}(X_i = x_i \mid \theta)\\
 
@@ -108,6 +108,16 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 > **NOTE:**
 >
 > *Solution 3*. \\ \begin{aligned} \mathcal{L}(\pi; \tilde{y}) &= \prod\_{i=1}^n\mathcal{L}\_i(\pi) && \text{(product of likelihood components)}\\ &= \prod\_{i=1}^n\Pr(Y_i = y_i) && \text{(definition of likelihood components)}\\ &= \prod\_{i=1}^n\pi^{y_i} (1 - \pi)^{1 - y_i} && \text{(Bernoulli PMF)}\\ &= \mathopen{}\left(\prod\_{i=1}^n\pi^{y_i}\right)\mathclose{} \mathopen{}\left(\prod\_{i=1}^n(1 - \pi)^{1 - y_i}\right)\mathclose{} && \text{(regroup the factors of the product)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n(1 - y_i)} && \text{(product of powers of a common base)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n1 - \sum\_{i=1}^ny_i} && \text{(split the sum in the exponent)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i} && \text{(\$\textstyle\sum\_{i=1}^n1 = n\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 3 (Likelihood of binary outcomes with one event probability)** Let \\Y_1, \dots, Y_n\\ be mutually independent binary random variables, each with the same event probability \\\pi\\: \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. For observed outcomes \\\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, with each \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, the likelihood \\\mathcal{L}(\pi; \tilde{y})\\ of \\\pi\\ depends on the data only through the number of events \\\sum\_{i=1}^ny_i\\:
+>
+> \\\mathcal{L}(\pi; \tilde{y}) = \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 3](#exr-bernoulli-likelihood-one-group), worked in [Solution 3](#sol-bernoulli-likelihood-one-group).
 
 ### 1.2 The maximum likelihood estimate
 
@@ -157,15 +167,15 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Exercise 4 (Comparing likelihoods through log-likelihoods)** Suppose \\\mathcal{L}(\theta) \> 0\\ for every \\\theta\\. Show that a parameter value \\\theta^\*\\ maximizes the likelihood \\\mathcal{L}\\ if and only if it maximizes the [log-likelihood](#def-loglik) \\\ell\\.
+> **Exercise 4 (Comparing likelihoods through log-likelihoods)** Suppose \\\mathcal{L}(\theta) \> 0\\ for every \\\theta\\. Determine how the parameter values that maximize the likelihood \\\mathcal{L}\\ relate to the parameter values that maximize the [log-likelihood](#def-loglik) \\\ell\\.
 
 > **NOTE:**
 >
-> *Solution 4*. The natural logarithm is strictly increasing on \\(0, \infty)\\, so for any \\\theta_1\\ and \\\theta_2\\, \\\mathcal{L}(\theta_1) \ge \mathcal{L}(\theta_2)\\ if and only if \\\log \mathcal{L}(\theta_1) \ge \log \mathcal{L}(\theta_2)\\, that is, \\\ell(\theta_1) \ge \ell(\theta_2)\\. So \\\theta^\*\\ satisfies \\\mathcal{L}(\theta^\*) \ge \mathcal{L}(\theta)\\ for every \\\theta\\ if and only if it satisfies \\\ell(\theta^\*) \ge \ell(\theta)\\ for every \\\theta\\.
+> *Solution 4*. Let \\\theta^\*\\ be a parameter value. The natural logarithm is strictly increasing on \\(0, \infty)\\, so for any \\\theta_1\\ and \\\theta_2\\, \\\mathcal{L}(\theta_1) \ge \mathcal{L}(\theta_2)\\ if and only if \\\log \mathcal{L}(\theta_1) \ge \log \mathcal{L}(\theta_2)\\, that is, \\\ell(\theta_1) \ge \ell(\theta_2)\\. So \\\theta^\*\\ satisfies \\\mathcal{L}(\theta^\*) \ge \mathcal{L}(\theta)\\ for every \\\theta\\ if and only if it satisfies \\\ell(\theta^\*) \ge \ell(\theta)\\ for every \\\theta\\. So a parameter value \\\theta^\*\\ maximizes \\\mathcal{L}\\ if and only if it maximizes \\\ell\\.
 
 > **NOTE:**
 >
-> **Theorem 3 (Maximize the log-likelihood instead of the likelihood)** If \\\mathcal{L}(\theta) \> 0\\ for every \\\theta\\, the likelihood and log-likelihood have the same maximizers:
+> **Theorem 4 (Maximize the log-likelihood instead of the likelihood)** If \\\mathcal{L}(\theta) \> 0\\ for every \\\theta\\, the likelihood and log-likelihood have the same maximizers:
 >
 > \\ \arg \max\_\theta\mathcal{L}(\theta) = \arg \max\_\theta\ell(\theta) \\
 
@@ -189,7 +199,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Theorem 4 (Log-likelihood of an independent sample)** For mutually independent data \\X_1, \ldots, X_n\\:
+> **Theorem 5 (Log-likelihood of an independent sample)** For mutually independent data \\X_1, \ldots, X_n\\:
 >
 > \\\ell(\theta) = \sum\_{i=1}^n\log{\operatorname{p}(X_i = x_i \mid \theta)} \tag{5}\\
 >
@@ -201,7 +211,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Exercise 6 (Derivative of the log-likelihood for \\\operatorname{iid}\\ data)** For \\\operatorname{iid}\\ data, use [Theorem 4](#thm-loglik-iid) to write the derivative \\\ell'(\theta)\\ of the log-likelihood as a sum over the observations.
+> **Exercise 6 (Derivative of the log-likelihood for \\\operatorname{iid}\\ data)** For \\\operatorname{iid}\\ data, use [Theorem 5](#thm-loglik-iid) to write the derivative \\\ell'(\theta)\\ of the log-likelihood as a sum over the observations.
 
 > **NOTE:**
 >
@@ -211,7 +221,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Theorem 5 (Derivative of the log-likelihood function for \\\operatorname{iid}\\ data)** For \\\operatorname{iid}\\ data:
+> **Theorem 6 (Derivative of the log-likelihood function for \\\operatorname{iid}\\ data)** For \\\operatorname{iid}\\ data:
 >
 > \\\ell'(\theta) = \sum\_{i=1}^n\frac{\partial}{\partial \theta} \log{\operatorname{p}(X = x_i \mid \theta)} \tag{6}\\
 
@@ -225,9 +235,19 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> *Solution 7*. Starting from the likelihood in [Solution 3](#sol-bernoulli-likelihood-one-group):
+> *Solution 7*. Starting from the likelihood in [Theorem 3](#thm-bernoulli-likelihood-one-group):
 >
 > \\ \begin{aligned} \ell(\pi; \tilde{y}) &= \operatorname{log}\mathopen{}\left\\\pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i}\right\\\mathclose{} && \text{(log of the likelihood)}\\ &= \operatorname{log}\mathopen{}\left\\\pi^{\sum\_{i=1}^ny_i}\right\\\mathclose{} + \operatorname{log}\mathopen{}\left\\(1 - \pi)^{n - \sum\_{i=1}^ny_i}\right\\\mathclose{} && \text{(log of a product)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + \mathopen{}\left(n - \sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(log of a power)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} - \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(distribute \$\operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} - \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(reorder the terms)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \mathopen{}\left(\operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} - \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\right)\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(collect the terms in \$\textstyle\sum\_{i=1}^ny_i\$)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{log}\mathopen{}\left\\\frac{\pi}{1 - \pi}\right\\\mathclose{} + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(log of a quotient)}\\ &= \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(definition of \$\operatorname{logit}\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 7 (Log-likelihood of binary outcomes with one event probability)** Let \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i = 1, \dots, n\\, with observed outcomes \\\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, each \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The log-likelihood \\\ell(\pi; \tilde{y})\\ of the event probability \\\pi\\, written with the log-odds \\\operatorname{logit}(\pi)\\, is:
+>
+> \\\ell(\pi; \tilde{y}) = \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 7](#exr-bernoulli-loglik-one-group), worked in [Solution 7](#sol-bernoulli-loglik-one-group). It builds on [Theorem 3](#thm-bernoulli-likelihood-one-group).
 
 ### 1.6 The score function
 
@@ -247,7 +267,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> *Solution 8*. With \\n = 1\\, [Solution 7](#sol-bernoulli-loglik-one-group) gives \\\ell= x \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + (1 - x) \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\\, so:
+> *Solution 8*. With \\n = 1\\, [Theorem 7](#thm-bernoulli-loglik-one-group) gives \\\ell= x \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + (1 - x) \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\\, so:
 >
 > \\ \begin{aligned} \ell' &\stackrel{\text{def}}{=}\frac{\partial}{\partial \pi} \ell && \text{(definition of the score)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(x \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + (1 - x) \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\right)\mathclose{} && \text{(Bernoulli log-likelihood)}\\ &= \frac{\partial}{\partial \pi} \mathopen{}\left(x \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{}\right)\mathclose{} + \frac{\partial}{\partial \pi} \mathopen{}\left((1 - x) \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= x \frac{\partial}{\partial \pi} \operatorname{log}\mathopen{}\left\\\pi\right\\\mathclose{} + (1 - x) \frac{\partial}{\partial \pi} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(constant multiple rule)}\\ &= x \frac{1}{\pi} + (1 - x) \frac{\partial}{\partial \pi} \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{} && \text{(derivative of \$\log\$)}\\ &= x \frac{1}{\pi} + (1 - x) \frac{1}{1 - \pi} \frac{\partial}{\partial \pi}(1 - \pi) && \text{(chain rule)} \end{aligned} \\
 >
@@ -261,6 +281,16 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
+> **Theorem 8 (Score function of a Bernoulli variable)** Let \\X \sim \operatorname{Ber}(\pi)\\, with event probability \\\pi\\ and observed value \\x \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\\pi\\. It equals the deviation of \\x\\ from the mean \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}\\, divided by the variance \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\:
+>
+> \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \frac{x - \pi}{\pi(1 - \pi)}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 8](#exr-derive-bernoulli-score), worked in [Solution 8](#sol-derive-bernoulli-score). It builds on [Theorem 7](#thm-bernoulli-loglik-one-group), with \\n = 1\\.
+
+> **NOTE:**
+>
 > **Exercise 9 (Score function of a Poisson variable)** Derive the score function for a single Poisson random variable \\X\\, with respect to its mean parameter \\{\lambda}\\.
 
 > **NOTE:**
@@ -268,6 +298,16 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 > *Solution 9*. The log-likelihood of one Poisson observation is \\\ell= x \operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{} - {\lambda}- \operatorname{log}\mathopen{}\left\\x!\right\\\mathclose{}\\, so:
 >
 > \\ \begin{aligned} \ell' &\stackrel{\text{def}}{=}\frac{\partial}{\partial {\lambda}}\ell && \text{(definition of the score)}\\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left(x\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{} - {\lambda}- \operatorname{log}\mathopen{}\left\\x!\right\\\mathclose{}\right)\mathclose{} && \text{(Poisson log-likelihood)}\\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left(x\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}\right)\mathclose{} - \frac{\partial}{\partial {\lambda}}{\lambda}- \frac{\partial}{\partial {\lambda}}\operatorname{log}\mathopen{}\left\\x!\right\\\mathclose{} && \text{(linearity of differentiation)}\\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left(x\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}\right)\mathclose{} - \frac{\partial}{\partial {\lambda}}{\lambda}- 0 && \text{(derivative of a constant)}\\ &= \frac{\partial}{\partial {\lambda}}\mathopen{}\left(x\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{}\right)\mathclose{} - \frac{\partial}{\partial {\lambda}}{\lambda} && \text{(drop the zero term)}\\ &= x\frac{\partial}{\partial {\lambda}}\operatorname{log}\mathopen{}\left\\{\lambda}\right\\\mathclose{} - \frac{\partial}{\partial {\lambda}}{\lambda} && \text{(constant multiple rule)}\\ &= x{\lambda}^{-1} - \frac{\partial}{\partial {\lambda}}{\lambda} && \text{(derivative of \$\log {\lambda}\$)}\\ &= x{\lambda}^{-1} - 1 && \text{(derivative of \${\lambda}\$ with respect to itself)}\\ &= \frac{x}{{\lambda}} - 1 && \text{(write the negative power as a fraction)}\\ &= \frac{x}{{\lambda}} - \frac{{\lambda}}{{\lambda}} && \text{(write both terms over the common denominator)}\\ &= \frac{x - {\lambda}}{{\lambda}} && \text{(combine the fractions)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{{\lambda}} && \text{(\$\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{} = {\lambda}\$)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} && \text{(\$\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = {\lambda}\$)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 9 (Score function of a Poisson variable)** Let \\X \sim \operatorname{Pois}({\lambda})\\, with mean \\{\lambda}\\ and observed count \\x\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\{\lambda}\\. It equals the deviation of \\x\\ from the mean \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}\\, divided by the variance \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\:
+>
+> \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \frac{x - {\lambda}}{{\lambda}}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 9](#exr-pois-score-fn), worked in [Solution 9](#sol-pois-score-fn).
 
 > **NOTE:**
 >
@@ -287,6 +327,16 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
+> **Theorem 10 (Score function of a Gaussian variable)** Let \\X \sim \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\, with mean \\\mu\\, known variance \\\sigma^2\\, and observed value \\x\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\\mu\\. It equals the deviation of \\x\\ from the mean \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}\\, divided by the variance \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\:
+>
+> \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \frac{x - \mu}{\sigma^2}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 10](#exr-gauss-score-fn), worked in [Solution 10](#sol-gauss-score-fn).
+
+> **NOTE:**
+>
 > **Exercise 11 (Score function of an exponential variable)** Derive the score function for a single exponential random variable \\X\\, with respect to the mean parameter \\\mu\\.
 
 > **NOTE:**
@@ -299,7 +349,17 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 >
 > \\ \begin{aligned} \ell' &\stackrel{\text{def}}{=}\frac{\partial}{\partial \mu}\ell && \text{(definition of the score)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - \frac{x}{\mu}\right)\mathclose{} && \text{(exponential log-likelihood)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - x \mu^{-1}\right)\mathclose{} && \text{(write \$\frac{x}{\mu}\$ as \$x \mu^{-1}\$)}\\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}\right)\mathclose{} - \frac{\partial}{\partial \mu}\mathopen{}\left(x \mu^{-1}\right)\mathclose{} && \text{(linearity of differentiation)}\\ &= -\frac{\partial}{\partial \mu}\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - x \frac{\partial}{\partial \mu} \mu^{-1} && \text{(constant multiple rule)}\\ &= -\mu^{-1} - x \frac{\partial}{\partial \mu} \mu^{-1} && \text{(derivative of \$\log \mu\$)}\\ &= -\mu^{-1} - x \mathopen{}\left(-\mu^{-2}\right)\mathclose{} && \text{(power rule)}\\ &= -\mu^{-1} + x \mu^{-2} && \text{(multiply)}\\ &= -\frac{1}{\mu} + \frac{x}{\mu^2} && \text{(write the negative powers as fractions)}\\ &= -\frac{\mu}{\mu^2} + \frac{x}{\mu^2} && \text{(write both terms over the common denominator)}\\ &= \frac{-\mu+ x}{\mu^2} && \text{(combine the fractions)}\\ &= \frac{x - \mu}{\mu^2} && \text{(reorder the numerator)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\mu^2} && \text{(\$\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{} = \mu\$)}\\ &= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} && \text{(\$\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \mu^2\$)} \end{aligned} \\
 
-In all four examples ([Exercise 8](#exr-derive-bernoulli-score), [Exercise 9](#exr-pois-score-fn), [Exercise 10](#exr-gauss-score-fn), and [Exercise 11](#exr-exp-score-fn)), the score function with respect to the mean turned out to be:
+> **NOTE:**
+>
+> **Theorem 11 (Score function of an exponential variable)** Let \\X\\ be an exponential random variable with mean \\\mu\\ and observed value \\x \> 0\\. The [score](#def-score) \\\ell'\\ of the single observation \\x\\ is the derivative of its log-likelihood \\\ell\\ with respect to \\\mu\\. It equals the deviation of \\x\\ from the mean \\\operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}\\, divided by the variance \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\:
+>
+> \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}} = \frac{x - \mu}{\mu^2}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 11](#exr-exp-score-fn), worked in [Solution 11](#sol-exp-score-fn).
+
+In all four examples ([Theorem 8](#thm-bernoulli-score), [Theorem 9](#thm-pois-score), [Theorem 10](#thm-gauss-score), and [Theorem 11](#thm-exp-score)), the score function with respect to the mean turned out to be:
 
 \\\ell'= \frac{x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{}}{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}}\\
 
@@ -309,13 +369,15 @@ In all four examples ([Exercise 8](#exr-derive-bernoulli-score), [Exercise 9](
 
 > **NOTE:**
 >
-> **Definition 8 (Score equation)** The **score equation** (also called the estimating equation) is the equation that sets the [score function](#def-score) to zero:
+> **Definition 8 (Score equation)** The **score equation** is the equation that sets the [score function](#def-score) to zero:
 >
 > \\ \ell'(\tilde{\theta}) = \tilde{0} \\
 
+The score equation is one example of an **estimating equation**, an equation whose solution defines an estimator. Estimating equations in general need not come from a likelihood.
+
 > **NOTE:**
 >
-> **Example 4 (Score equation of a Bernoulli sample)** For \\n\\ independent Bernoulli observations with \\r = \sum_i y_i\\ successes, the score is \\\sum\_{i=1}^n(y_i - \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\\ (summing [Exercise 8](#exr-derive-bernoulli-score) over the observations), so for \\0 \< r \< n\\ the score equation \\(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\\ has the single solution \\\pi= r/n\\.
+> **Example 4 (Score equation of a Bernoulli sample)** For \\n\\ independent Bernoulli observations with \\r = \sum_i y_i\\ successes, the score is \\\sum\_{i=1}^n(y_i - \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\\ (summing [Theorem 8](#thm-bernoulli-score) over the observations), so for \\0 \< r \< n\\ the score equation \\(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\\ has the single solution \\\pi= r/n\\.
 
 ### 1.7 Information matrices
 
@@ -337,7 +399,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Theorem 6 (Elements of the Hessian matrix)** If \\\tilde{\theta}\\ is a \\p \times 1\\ vector, then the Hessian is a \\p \times p\\ matrix, whose \\ij\\th entry is:
+> **Theorem 12 (Elements of the Hessian matrix)** If \\\tilde{\theta}\\ is a \\p \times 1\\ vector, then the Hessian is a \\p \times p\\ matrix, whose \\ij\\th entry is:
 >
 > \\ \ell\_{ij}''= \frac{\partial}{\partial \theta_i}\frac{\partial}{\partial \theta_j} \ell(\tilde{X}= \tilde{x}\| \tilde{\theta}) \tag{9}\\
 
@@ -357,7 +419,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Theorem 7 (Hessian is the derivative of the transposed score)** \\ \ell''(\tilde{x}\mid \tilde{\theta}) = \frac{\partial}{\partial \tilde{\theta}} {\mathopen{}\left(\ell'(\tilde{x}\mid \tilde{\theta})\right)\mathclose{}}^{\top} \\
+> **Theorem 13 (Hessian is the derivative of the transposed score)** \\ \ell''(\tilde{x}\mid \tilde{\theta}) = \frac{\partial}{\partial \tilde{\theta}} {\mathopen{}\left(\ell'(\tilde{x}\mid \tilde{\theta})\right)\mathclose{}}^{\top} \\
 
 > **NOTE:**
 >
@@ -365,7 +427,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Definition 10 (Expected information)** The **expected information matrix**, also called the **Fisher information matrix** or just the **information matrix**, is written \\\mathcal{I}\\, and is the expected value of the negative [Hessian](#def-hessian) of the log-likelihood, with the data \\\tilde{X}\\ treated as random:
+> **Definition 10 (Expected information matrix (Fisher information matrix, information matrix))** The **expected information matrix**, also called the **Fisher information matrix** or just the **information matrix**, is written \\\mathcal{I}\\, and is the expected value of the negative [Hessian](#def-hessian) of the log-likelihood, with the data \\\tilde{X}\\ treated as random:
 >
 > \\\mathcal{I}(\tilde{\theta}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[-\ell''(\tilde{X}\mid \tilde{\theta})\right\]\mathclose{} \tag{10}\\
 
@@ -385,7 +447,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Example 5 (Information for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, one observation’s score is \\x/{\lambda}- 1\\ ([Exercise 9](#exr-pois-score-fn)), whose derivative with respect to \\{\lambda}\\ is \\-x/{\lambda}^2\\. Summing over the observations ([Theorem 5](#thm-deriv-llik-iid)), the Hessian is \\\ell''= -\sum\_{i=1}^nx_i / {\lambda}^2\\, so:
+> **Example 5 (Information for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, one observation’s score is \\x/{\lambda}- 1\\ ([Theorem 9](#thm-pois-score)), whose derivative with respect to \\{\lambda}\\ is \\-x/{\lambda}^2\\. Summing over the observations ([Theorem 6](#thm-deriv-llik-iid)), the Hessian is \\\ell''= -\sum\_{i=1}^nx_i / {\lambda}^2\\, so:
 >
 > \\ \begin{aligned} I({\lambda}) &= -\ell'' && \text{(observed information: negative Hessian)}\\ &= -\mathopen{}\left(-\frac{\sum\_{i=1}^nx_i}{{\lambda}^2}\right)\mathclose{} && \text{(substitute the Hessian)}\\ &= \frac{\sum\_{i=1}^nx_i}{{\lambda}^2} && \text{(two negatives make a positive)}\\ \mathcal{I}({\lambda}) &= \operatorname{E}\mathopen{}\left\[\frac{\sum\_{i=1}^nX_i}{{\lambda}^2}\right\]\mathclose{} && \text{(expected information)}\\ &= \frac{\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i\right\]\mathclose{}}{{\lambda}^2} && \text{(factor the constant \$\tfrac{1}{{\lambda}^2}\$ out of the expectation)}\\ &= \frac{\sum\_{i=1}^n\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}}{{\lambda}^2} && \text{(linearity of expectation)}\\ &= \frac{\sum\_{i=1}^n{\lambda}}{{\lambda}^2} && \text{(\$\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = {\lambda}\$)}\\ &= \frac{n{\lambda}}{{\lambda}^2} && \text{(sum of \$n\$ copies of \${\lambda}\$)}\\ &= \frac{n}{{\lambda}} && \text{(cancel one factor of \${\lambda}\$)} \end{aligned} \\
 
@@ -409,13 +471,33 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Exercise 15 (Mean of the score)** Let \\\tilde{X}\\ be continuous with density \\\operatorname{p}(\tilde{x}\mid \theta)\\ for a scalar parameter \\\theta\\. Suppose the set of possible data values does not depend on \\\theta\\, and the order of differentiation with respect to \\\theta\\ and integration over the data can be exchanged. Show that the [score](#def-score) has mean zero.
+> **Lemma 1 (Derivative of a density through its logarithm)** Let \\\operatorname{p}(\tilde{x}\mid \theta)\\ be a density that is positive and differentiable in a scalar parameter \\\theta\\. Then its derivative with respect to \\\theta\\ is the derivative of its logarithm times the density:
+>
+> \\\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta) = \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta)\\
 
 > **NOTE:**
 >
-> *Solution 15*. The step that rewrites the derivative of \\\log \operatorname{p}(\tilde{x}\mid \theta)\\ uses [Exercise 14](#exr-deriv-log-density):
+> *Proof*. This is the solution to [Exercise 14](#exr-deriv-log-density), worked in [Solution 14](#sol-deriv-log-density).
+
+> **NOTE:**
+>
+> **Exercise 15 (Mean of the score)** Let \\\tilde{X}\\ be continuous with density \\\operatorname{p}(\tilde{x}\mid \theta)\\ for a scalar parameter \\\theta\\. Suppose the set of possible data values does not depend on \\\theta\\, and the order of differentiation with respect to \\\theta\\ and integration over the data can be exchanged. Find the mean of the [score](#def-score).
+
+> **NOTE:**
+>
+> *Solution 15*. The step that rewrites the derivative of \\\log \operatorname{p}(\tilde{x}\mid \theta)\\ uses [Lemma 1](#lem-deriv-log-density):
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} &= \int \ell'\\ \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(definition of expectation)}\\ &= \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(definition of the score)}\\ &= \int \frac{\frac{\partial}{\partial \theta} \operatorname{p}(\tilde{x}\mid \theta)}{\operatorname{p}(\tilde{x}\mid \theta)} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(chain rule for \$\log\$)}\\ &= \int \frac{\partial}{\partial \theta} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(cancel \$\operatorname{p}(\tilde{x}\mid \theta)\$)}\\ &= \frac{\partial}{\partial \theta} \int \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(exchange derivative and integral)}\\ &= \frac{\partial}{\partial \theta} 1 && \text{(a density integrates to 1)}\\ &= 0 && \text{(derivative of a constant)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 14 (Mean of the score)** Let \\\tilde{X}\\ be a continuous random vector with density \\\operatorname{p}(\tilde{x}\mid \theta)\\ for a scalar parameter \\\theta\\. Suppose the set of possible data values does not depend on \\\theta\\, and the order of differentiation with respect to \\\theta\\ and integration over the data can be exchanged. Then the [score](#def-score) \\\ell'\\, the derivative of the log-likelihood with respect to \\\theta\\, has expectation zero:
+>
+> \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 15](#exr-score-mean-zero), worked in [Solution 15](#sol-score-mean-zero). It builds on [Lemma 1](#lem-deriv-log-density).
 
 > **NOTE:**
 >
@@ -423,7 +505,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Solution 16*. By [Exercise 15](#exr-score-mean-zero), \\0 = \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x}\\ for every \\\theta\\. Differentiate this identity with respect to \\\theta\\; the step that substitutes for \\\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta)\\ uses [Exercise 14](#exr-deriv-log-density):
+> *Solution 16*. By [Theorem 14](#thm-score-mean-zero), \\0 = \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x}\\ for every \\\theta\\. Differentiate this identity with respect to \\\theta\\; the step that substitutes for \\\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta)\\ uses [Lemma 1](#lem-deriv-log-density):
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \theta} 0 &= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(differentiate both sides)}\\ 0 &= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(derivative of a constant)}\\ &= \int \frac{\partial}{\partial \theta}\mathopen{}\left\[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta)\right\]\mathclose{} d\tilde{x} && \text{(exchange derivative and integral)}\\ &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(product rule)}\\ &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \mathopen{}\left(\frac{\partial}{\partial \theta}\log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(\$\frac{\partial}{\partial \theta}\operatorname{p}= \mathopen{}\left(\frac{\partial}{\partial \theta}\log \operatorname{p}\right)\mathclose{} \operatorname{p}\$)}\\ &= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(product of two equal factors is a square)}\\ &= \operatorname{E}\mathopen{}\left\[\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\tilde{X}\mid \theta)\right\]\mathclose{} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(definition of expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\ell''\right\]\mathclose{} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(definition of the Hessian)}\\ &= \operatorname{E}\mathopen{}\left\[\ell''\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{X}\mid \theta)\right)\mathclose{}^2\right\]\mathclose{} && \text{(definition of expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\ell''\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} && \text{(definition of the score)} \end{aligned} \\
 >
@@ -433,7 +515,17 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Theorem 8 (Mean and variance of the score)** Suppose the set of possible data values does not depend on \\\tilde{\theta}\\, and the order of differentiation with respect to \\\tilde{\theta}\\ and integration over the data can be exchanged. Then the score has mean zero, and its variance is the expected information:
+> **Theorem 15 (Second moment of the score)** Under the assumptions of [Theorem 14](#thm-score-mean-zero), the second moment \\\operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\ of the [score](#def-score) \\\ell'\\ is the [expected information](#def-einf) \\\mathcal{I}(\theta)\\, the expected negative second derivative of the log-likelihood:
+>
+> \\\operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} = \mathcal{I}(\theta)\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 16](#exr-score-second-moment), worked in [Solution 16](#sol-score-second-moment). It builds on [Theorem 14](#thm-score-mean-zero) and [Lemma 1](#lem-deriv-log-density).
+
+> **NOTE:**
+>
+> **Theorem 16 (Mean and variance of the score)** Suppose the set of possible data values does not depend on \\\tilde{\theta}\\, and the order of differentiation with respect to \\\tilde{\theta}\\ and integration over the data can be exchanged. Then the score has mean zero, and its variance is the expected information:
 >
 > \\\operatorname{E}\mathopen{}\left\[\ell'(\tilde{X}\mid \tilde{\theta})\right\]\mathclose{} = \mathbf{0}\_{p \times 1} \tag{12}\\
 >
@@ -443,7 +535,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > *Proof*. We give the proof for a scalar \\\theta\\ and a continuous \\\tilde{X}\\ with density \\\operatorname{p}(\tilde{x}\mid \theta)\\; the vector case applies the same steps to each pair of entries, and a discrete \\\tilde{X}\\ replaces integrals with sums.
 >
-> [Equation 12](#eq-score-mean-zero) is the solution to [Exercise 15](#exr-score-mean-zero). For [Equation 13](#eq-information-equality), [Exercise 16](#exr-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\,
+> [Equation 12](#eq-score-mean-zero) follows from [Theorem 14](#thm-score-mean-zero). For [Equation 13](#eq-information-equality), [Theorem 15](#thm-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\,
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)\mathclose{}}^2 \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
 
@@ -477,7 +569,7 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 
 > **NOTE:**
 >
-> **Theorem 9 (Central limit theorem for MLEs)** For \\\operatorname{iid}\\ data from a correctly specified model satisfying regularity conditions (including those of [Theorem 8](#thm-information-equality), an identifiable parameter, a true parameter value in the interior of the parameter space, and a positive definite information matrix), a consistent solution \\\hat\theta\_{\text{ML}}\\ of the [score equation](#def-score-equation) exists, and for large \\n\\ it has approximately a Gaussian distribution, centered at the true parameter value \\\tilde{\theta}\\, with covariance matrix equal to the inverse of the expected information:
+> **Theorem 17 (Central limit theorem for MLEs)** For \\\operatorname{iid}\\ data from a correctly specified model satisfying regularity conditions (including those of [Theorem 16](#thm-information-equality), an identifiable parameter, a true parameter value in the interior of the parameter space, and a positive definite information matrix), a consistent solution \\\hat\theta\_{\text{ML}}\\ of the [score equation](#def-score-equation) exists, and for large \\n\\ it has approximately a Gaussian distribution, centered at the true parameter value \\\tilde{\theta}\\, with covariance matrix equal to the inverse of the expected information:
 >
 > \\ \hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\tilde{\theta}, {\mathopen{}\left(\mathcal{I}(\tilde{\theta})\right)\mathclose{}}^{-1}\right)\mathclose{} \tag{14}\\
 
@@ -491,13 +583,13 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 
 > **NOTE:**
 >
-> **Example 8 (Approximate distribution of the Poisson MLE)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, setting the score \\\sum\_{i=1}^nX_i/{\lambda}- n\\ ([Example 6](#exm-information-equality)) to zero gives \\\hat{\lambda}\_{\text{ML}} = \bar X\\, and \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 5](#exm-information-poisson)), so [Theorem 9](#thm-dist-mle) says that for large \\n\\:
+> **Example 8 (Approximate distribution of the Poisson MLE)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, setting the score \\\sum\_{i=1}^nX_i/{\lambda}- n\\ ([Example 6](#exm-information-equality)) to zero gives \\\hat{\lambda}\_{\text{ML}} = \bar X\\, and \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 5](#exm-information-poisson)), so [Theorem 17](#thm-dist-mle) says that for large \\n\\:
 >
 > \\\hat{\lambda}\_{\text{ML}} \\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left({\lambda}, \frac{{\lambda}}{n}\right)\mathclose{}\\
 >
 > In this example the mean and variance are exact: \\\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{} = {\lambda}\\ and \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = {\lambda}/n\\. The approximation is in the Gaussian shape.
 
-[Theorem 9](#thm-dist-mle) involves the unknown \\\tilde{\theta}\\, so to use it we estimate \\\mathcal{I}(\tilde{\theta})\\, by either the expected information at the MLE, \\\mathcal{I}(\hat\theta\_{\text{ML}})\\, or the observed information at the MLE, \\I(\tilde{x}; \hat\theta\_{\text{ML}})\\. Either way, the estimated standard error of the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\ is:
+[Theorem 17](#thm-dist-mle) involves the unknown \\\tilde{\theta}\\, so to use it we estimate \\\mathcal{I}(\tilde{\theta})\\, by either the expected information at the MLE, \\\mathcal{I}(\hat\theta\_{\text{ML}})\\, or the observed information at the MLE, \\I(\tilde{x}; \hat\theta\_{\text{ML}})\\. Either way, the estimated standard error of the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\ is:
 
 \\ \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{} = \sqrt{\mathopen{}\left\[{\mathopen{}\left(\hat{\mathcal{I}}\right)\mathclose{}}^{-1}\right\]\mathclose{}\_{kk}} \\
 
@@ -519,7 +611,7 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta
 >
 > where \\\hat{\theta}\_k\\ is the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\, \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ is its estimated standard error, and \\z\_{\beta}\\ is the \\\beta\\ quantile of the standard Gaussian distribution.
 
-By [Theorem 9](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ has approximately a standard Gaussian distribution in large samples, so the Wald interval is an [approximate confidence interval](inference.llms.md#def-approximate-ci) for \\\theta_k\\. For a 95% interval, \\z\_{0.975} \approx 1.96\\.
+By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ has approximately a standard Gaussian distribution in large samples, so the Wald interval is an [approximate confidence interval](inference.llms.md#def-approximate-ci) for \\\theta_k\\. For a 95% interval, \\z\_{0.975} \approx 1.96\\.
 
 #### 1.9.2 Wald tests
 
@@ -554,7 +646,7 @@ By [Theorem 9](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{
 
 > **NOTE:**
 >
-> *Remark 7* (Null distributions of the Wald statistics). By [Theorem 9](#thm-dist-mle), the statistic \\Z\\ of the [Wald test](#def-wald-test) has approximately a standard Gaussian distribution under \\H_0\\ in large samples. The Wald statistic for \\q\\ constraints ([Definition 14](#def-wald-statistic-q)) has approximately a \\\chi^2_q\\ distribution under \\H_0\\.
+> *Remark 7* (Null distributions of the Wald statistics). By [Theorem 17](#thm-dist-mle), the statistic \\Z\\ of the [Wald test](#def-wald-test) has approximately a standard Gaussian distribution under \\H_0\\ in large samples. The Wald statistic for \\q\\ constraints ([Definition 14](#def-wald-statistic-q)) has approximately a \\\chi^2_q\\ distribution under \\H_0\\.
 
 #### 1.9.3 Likelihood ratio tests for MLEs
 
@@ -576,17 +668,37 @@ By [Theorem 9](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{
 
 > **NOTE:**
 >
+> **Lemma 2 (Quadratic approximation to the log-likelihood)** Let \\\theta\\ be a scalar parameter with log-likelihood \\\ell\\, and suppose the MLE \\\hat\theta\_{\text{ML}}\\ maximizes \\\ell\\ at an interior point of the parameter space, where \\\ell\\ is twice differentiable with [Hessian](#def-hessian) \\\ell''\\. Then the log-likelihood at any nearby value \\\theta_0\\ is approximately quadratic around \\\hat\theta\_{\text{ML}}\\:
+>
+> \\\ell(\theta_0) \approx \ell(\hat\theta\_{\text{ML}}) + \frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 17](#exr-wilks-taylor), worked in [Solution 17](#sol-wilks-taylor).
+
+> **NOTE:**
+>
 > **Exercise 18 (Likelihood ratio statistic for a point null hypothesis)** With a scalar parameter \\\theta\\, the point null hypothesis \\H_0: \theta= \theta_0\\ imposes \\q = 1\\ constraint. Use [Exercise 17](#exr-wilks-taylor) to approximate the [likelihood ratio statistic](#def-lrt-stat) \\\Lambda\\ in terms of the [observed information](#def-oinf) \\I(\hat\theta\_{\text{ML}})\\.
 
 > **NOTE:**
 >
-> *Solution 18*. Under \\H_0\\, the only allowed value is \\\theta_0\\, so the restricted MLE is \\\hat{\theta}\_0 = \theta_0\\. Substituting the approximation from [Exercise 17](#exr-wilks-taylor):
+> *Solution 18*. Under \\H_0\\, the only allowed value is \\\theta_0\\, so the restricted MLE is \\\hat{\theta}\_0 = \theta_0\\. Substituting the approximation from [Lemma 2](#lem-wilks-taylor):
 >
 > \\ \begin{aligned} \Lambda &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat{\theta}\_0)\right)\mathclose{} && \text{(definition of \$\Lambda\$)}\\ &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\theta_0)\right)\mathclose{} && \text{(\$\hat{\theta}\_0 = \theta_0\$)}\\ &\approx 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) + \frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{}\right)\mathclose{} && \text{(substitute the expansion)}\\ &= 2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat\theta\_{\text{ML}}) - \frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{} && \text{(distribute the minus sign)}\\ &= 2\mathopen{}\left(-\frac{1}{2}\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2\right)\mathclose{} && \text{(cancel \$\ell(\hat\theta\_{\text{ML}})\$)}\\ &= -\ell''(\hat\theta\_{\text{ML}})(\theta_0 - \hat\theta\_{\text{ML}})^2 && \text{(multiply by 2)}\\ &= -\ell''(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(\$(a - b)^2 = (b - a)^2\$)}\\ &= I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(observed information is the negative Hessian)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Exercise 19 (Standardizing an approximately Gaussian estimate)** Suppose \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\, and define \\Z \stackrel{\text{def}}{=}\sqrt{\mathcal{I}(\theta_0)}\\(\hat\theta\_{\text{ML}}- \theta_0)\\. Show that \\Z\\ is approximately standard Gaussian, and find the approximate distribution of \\Z^2\\.
+> **Lemma 3 (Likelihood ratio statistic for a point null hypothesis)** Under the conditions of [Lemma 2](#lem-wilks-taylor), consider the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. Then the [likelihood ratio statistic](#def-lrt-stat) \\\Lambda\\ is approximately the [observed information](#def-oinf) \\I(\hat\theta\_{\text{ML}})\\ at the MLE \\\hat\theta\_{\text{ML}}\\ times the squared distance from the MLE to \\\theta_0\\:
+>
+> \\\Lambda\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 18](#exr-wilks-lrt-quadratic), worked in [Solution 18](#sol-wilks-lrt-quadratic). It builds on [Lemma 2](#lem-wilks-taylor).
+
+> **NOTE:**
+>
+> **Exercise 19 (Standardizing an approximately Gaussian estimate)** Suppose \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\, and define \\Z \stackrel{\text{def}}{=}\sqrt{\mathcal{I}(\theta_0)}\\(\hat\theta\_{\text{ML}}- \theta_0)\\. Find the approximate distributions of \\Z\\ and of \\Z^2\\.
 
 > **NOTE:**
 >
@@ -600,7 +712,17 @@ By [Theorem 9](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{
 
 > **NOTE:**
 >
-> **Theorem 10 (Wilks’ theorem)** Suppose the conditions of [Theorem 9](#thm-dist-mle) hold, and a null hypothesis \\H_0\\ imposes \\q\\ constraints on the parameter vector \\\tilde{\theta}\\. Then, if \\H_0\\ is true, as \\n \to \infty\\, the [likelihood ratio statistic](#def-lrt-stat) \\\Lambda\\ satisfies:
+> **Lemma 4 (Standardizing an approximately Gaussian estimate)** Suppose the MLE \\\hat\theta\_{\text{ML}}\\ is approximately Gaussian with mean \\\theta_0\\ and variance \\\mathcal{I}(\theta_0)^{-1}\\, the inverse of the [expected information](#def-einf): \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\. Define \\Z \stackrel{\text{def}}{=}\sqrt{\mathcal{I}(\theta_0)}\\(\hat\theta\_{\text{ML}}- \theta_0)\\. Then \\Z\\ is approximately standard Gaussian, so \\Z^2\\ is approximately \\\chi^2_1\\:
+>
+> \\Z^2 \\ \dot{\sim} \\ \chi^2_1\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 19](#exr-wilks-std-gaussian), worked in [Solution 19](#sol-wilks-std-gaussian).
+
+> **NOTE:**
+>
+> **Theorem 18 (Wilks’ theorem)** Suppose the conditions of [Theorem 17](#thm-dist-mle) hold, and a null hypothesis \\H_0\\ imposes \\q\\ constraints on the parameter vector \\\tilde{\theta}\\. Then, if \\H_0\\ is true, as \\n \to \infty\\, the [likelihood ratio statistic](#def-lrt-stat) \\\Lambda\\ satisfies:
 >
 > \\ \Lambda \overset{d}{\to} \chi^2_q \\
 
@@ -608,11 +730,11 @@ By [Theorem 9](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{
 >
 > *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. For the full proof, see ([Wilks 1938](#ref-wilks1938)) or ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)).
 >
-> By [Exercise 18](#exr-wilks-lrt-quadratic), \\\Lambda\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\. Under the regularity conditions, \\I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\\ in probability, by the law of large numbers and the consistency of \\\hat\theta\_{\text{ML}}\\; this sketch assumes that step rather than proving it. So, with \\Z\\ as in [Exercise 19](#exr-wilks-std-gaussian):
+> By [Lemma 3](#lem-wilks-lrt-quadratic), \\\Lambda\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\. Under the regularity conditions, \\I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\\ in probability, by the law of large numbers and the consistency of \\\hat\theta\_{\text{ML}}\\; this sketch assumes that step rather than proving it. So, with \\Z\\ as in [Lemma 4](#lem-wilks-std-gaussian):
 >
 > \\ \begin{aligned} \Lambda &\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(quadratic approximation to \$\Lambda\$)}\\ &\approx \mathcal{I}(\theta_0)(\hat\theta\_{\text{ML}}- \theta_0)^2 && \text{(\$I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\$)}\\ &= \mathopen{}\left(\sqrt{\mathcal{I}(\theta_0)}\\(\hat\theta\_{\text{ML}}- \theta_0)\right)\mathclose{}^2 && \text{(write the product as a square)}\\ &= Z^2 && \text{(definition of \$Z\$)} \end{aligned} \\
 >
-> By [Theorem 9](#thm-dist-mle), \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\ under \\H_0\\, so by [Exercise 19](#exr-wilks-std-gaussian), \\\Lambda\approx Z^2\\ has approximately a \\\chi^2_1\\ distribution.
+> By [Theorem 17](#thm-dist-mle), \\\hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\theta_0, \mathcal{I}(\theta_0)^{-1}\right)\mathclose{}\\ under \\H_0\\, so by [Lemma 4](#lem-wilks-std-gaussian), \\\Lambda\approx Z^2\\ has approximately a \\\chi^2_1\\ distribution.
 >
 > With \\q\\ constraints, the same argument in matrix form makes \\\Lambda\\ approximately a sum of \\q\\ squared, independent standard Gaussian variables, which has a \\\chi^2_q\\ distribution; this sketch does not derive the matrix form.
 
@@ -661,7 +783,7 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 
 > **NOTE:**
 >
-> *Remark 9* (Exact and approximate tests). The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 9](#thm-dist-mle), Gaussian or not.
+> *Remark 9* (Exact and approximate tests). The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 17](#thm-dist-mle), Gaussian or not.
 
 #### 1.9.5 Prediction intervals
 
@@ -1150,7 +1272,7 @@ and the solution becomes the next guess.
 
 > **NOTE:**
 >
-> **Definition 18 (Fisher scoring)** **Fisher scoring** (also called the method of scoring) is the [Newton-Raphson algorithm](#def-newton-raphson) with the observed information \\I(\tilde{x}; {\widehat{\theta}}^\*)\\ in the update replaced by the [expected information](#def-einf) \\\mathcal{I}({\widehat{\theta}}^\*)\\:
+> **Definition 18 (Fisher scoring (method of scoring))** **Fisher scoring** (also called the **method of scoring**) is the [Newton-Raphson algorithm](#def-newton-raphson) with the observed information \\I(\tilde{x}; {\widehat{\theta}}^\*)\\ in the update replaced by the [expected information](#def-einf) \\\mathcal{I}({\widehat{\theta}}^\*)\\:
 >
 > \\ {\widehat{\theta}}^\* \leftarrow {\widehat{\theta}}^\* + {\mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \\
 
@@ -1172,7 +1294,7 @@ The expected information is sometimes simpler to compute than the observed infor
 >
 > where \\\ell'\_i\\ is the score of the \\i\\th observation’s log-likelihood, and \\\ell'= \sum\_{i=1}^n\ell'\_i\\.
 
-For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \tilde{x})\\ is the sample covariance matrix (with divisor \\n\\) of the observations’ scores, so it estimates the covariance matrix of one observation’s score, \\\mathcal{I}(\theta)/n\\ ([Theorem 8](#thm-information-equality)). The empirical information needs only first derivatives, so it can be easier to compute than the observed information, and it can replace the observed information in the Newton-Raphson update.
+For \\\operatorname{iid}\\ data, \\\frac{1}{n}I_e(\theta; \tilde{x})\\ is the sample covariance matrix (with divisor \\n\\) of the observations’ scores, so it estimates the covariance matrix of one observation’s score, \\\mathcal{I}(\theta)/n\\ ([Theorem 16](#thm-information-equality)). The empirical information needs only first derivatives, so it can be easier to compute than the observed information, and it can replace the observed information in the Newton-Raphson update.
 
 #### 2.6.2 Applying Newton-Raphson to the cyclone data
 
@@ -1454,7 +1576,7 @@ By [Theorem 1](#thm-lik-iid), the likelihood is:
 
 \\ \mathcal{L}(\mu, \sigma^2) = \prod\_{i=1}^n(2\pi\sigma^2)^{-1/2} \operatorname{exp}\mathopen{}\left\\-\frac{(x_i - \mu)^2}{2\sigma^2}\right\\\mathclose{} \\
 
-and by [Theorem 4](#thm-loglik-iid), the log-likelihood is:
+and by [Theorem 5](#thm-loglik-iid), the log-likelihood is:
 
 \\ \begin{aligned} \ell(\mu, \sigma^2) &= \sum\_{i=1}^n\operatorname{log}\mathopen{}\left\\(2\pi\sigma^2)^{-1/2} \operatorname{exp}\mathopen{}\left\\-\frac{(x_i - \mu)^2}{2\sigma^2}\right\\\mathclose{}\right\\\mathclose{} && \text{(log of each Gaussian density)}\\ &= \sum\_{i=1}^n\mathopen{}\left(\operatorname{log}\mathopen{}\left\\(2\pi\sigma^2)^{-1/2}\right\\\mathclose{} + \operatorname{log}\mathopen{}\left\\\operatorname{exp}\mathopen{}\left\\-\frac{(x_i - \mu)^2}{2\sigma^2}\right\\\mathclose{}\right\\\mathclose{}\right)\mathclose{} && \text{(log of a product)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} + \operatorname{log}\mathopen{}\left\\\operatorname{exp}\mathopen{}\left\\-\frac{(x_i - \mu)^2}{2\sigma^2}\right\\\mathclose{}\right\\\mathclose{}\right)\mathclose{} && \text{(log of a power)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} - \frac{(x_i - \mu)^2}{2\sigma^2}\right)\mathclose{} && \text{(\$\operatorname{log}\$ undoes \$\operatorname{exp}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-\frac{1}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{}\right)\mathclose{} - \sum\_{i=1}^n\frac{(x_i - \mu)^2}{2\sigma^2} && \text{(split the sum)}\\ &= -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} - \sum\_{i=1}^n\frac{(x_i - \mu)^2}{2\sigma^2} && \text{(sum of \$n\$ identical terms)}\\ &= -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(factor the constant \$\tfrac{1}{2\sigma^2}\$ out of the sum)}\\ &= -\frac{n}{2}\mathopen{}\left(\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} + \operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{}\right)\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(log of a product)}\\ &= -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\right\\\mathclose{} - \frac{n}{2}\operatorname{log}\mathopen{}\left\\\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2 && \text{(distribute \$-\tfrac{n}{2}\$)} \end{aligned} \\
 
@@ -1544,7 +1666,7 @@ Its diagonal entries are positive and its off-diagonal entries are zero, so it i
 
 \\ {\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)\mathclose{}}^{-1} = \begin{bmatrix} \frac{\hat{\sigma}^2}{n} & 0 \\ 0 & \frac{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}{n} \end{bmatrix} \\
 
-By [Theorem 9](#thm-dist-mle), the estimated standard errors are \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} = \hat{\sigma}/\sqrt{n}\\ and \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{} = \hat{\sigma}^2\sqrt{2/n}\\, and the two estimates are approximately uncorrelated in large samples.
+By [Theorem 17](#thm-dist-mle), the estimated standard errors are \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} = \hat{\sigma}/\sqrt{n}\\ and \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{} = \hat{\sigma}^2\sqrt{2/n}\\, and the two estimates are approximately uncorrelated in large samples.
 
 See also ([Casella and Berger 2002](#ref-CaseBerg01), Example 7.2.12).
 
@@ -2066,9 +2188,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(a)** Write the likelihood \\\mathcal{L}(\mu, \sigma^2; \tilde{x})\\ for the observed data \\\tilde{x}= (x_1, \ldots, x_n)\\.
 >
-> **(b)** Write the log-likelihood \\\ell(\mu, \sigma^2; \tilde{x})\\. Show that it can be written as
->
-> \\ \ell(\mu, \sigma^2; \tilde{x}) = -\frac{n}{2}\operatorname{log}\mathopen{}\left\\2\pi\sigma^2\right\\\mathclose{} - \frac{1}{2\sigma^2}\sum\_{i=1}^n(x_i - \mu)^2. \\
+> **(b)** Write the log-likelihood \\\ell(\mu, \sigma^2; \tilde{x})\\ in simplified form, as the sum of a term that depends on the data only through \\n\\ and a term that depends on the data only through \\\sum\_{i=1}^n(x_i - \mu)^2\\.
 >
 > **(c)** Derive the MLE \\\hat{\mu}\_{ML}\\ and \\\hat{\sigma}^2\_{ML}\\.
 
@@ -2120,9 +2240,9 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(b)** Derive the score function \\\ell'({\lambda}; \tilde{x})\\.
 >
-> **(c)** Show that \\\hat{\lambda}\_{ML} = \bar{x}\\, and verify that the score equals zero at the MLE.
+> **(c)** Find the MLE \\\hat{\lambda}\_{ML}\\, and evaluate the score at the MLE.
 >
-> **(d)** Provide an intuitive interpretation: why does the score being zero at \\\hat{\lambda}\_{ML}\\ make sense?
+> **(d)** Provide an intuitive interpretation of the value of the score at \\\hat{\lambda}\_{ML}\\.
 
 > **NOTE:**
 >
@@ -2136,7 +2256,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(c)**
 >
-> Setting \\\ell'({\lambda}; \tilde{x}) = 0\\:
+> The MLE solves \\\ell'({\lambda}; \tilde{x}) = 0\\, so evaluating the score there afterwards is a check on the algebra. Setting \\\ell'({\lambda}; \tilde{x}) = 0\\:
 >
 > \\ \begin{aligned} 0 &= \frac{n\bar{x}}{{\lambda}} - n && \text{(score from (b))} \\ \frac{n\bar{x}}{{\lambda}} &= n && \text{(add \$n\$ to both sides)} \\ n\bar{x} &= n{\lambda} && \text{(multiply both sides by \${\lambda}\$)} \\ \hat{\lambda}\_{ML} &= \bar{x} && \text{(divide both sides by \$n\$)} \end{aligned} \\
 >

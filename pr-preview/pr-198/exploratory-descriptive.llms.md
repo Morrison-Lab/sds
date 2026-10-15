@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:39 (PDT)
+Last modified: 2026-10-15 08:11:22 (PDT)
 
 ## 1 Introduction
 
@@ -263,7 +263,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 9 (Quartiles)** The **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\ are the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)), also called the 25th and 75th percentiles.
+> **Definition 9 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
 
 > **NOTE:**
 >
@@ -427,7 +427,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 15 (Box plot)** A **box plot** (or box-and-whisker plot) summarizes the distribution of a continuous variable:
+> **Definition 15 (Box plot (box-and-whisker plot))** A **box plot** (or **box-and-whisker plot**) summarizes the distribution of a continuous variable:
 >
 > - the box spans the first to the third [quartile](#def-quartiles), so its length is the [IQR](#def-IQR);
 > - a line inside the box marks the [median](#def-sample-median);
@@ -630,7 +630,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> **Definition 20 (Contingency table)** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
+> **Definition 20 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
 >
 > |              | Outcome = 1 | Outcome = 0 |   Total   |
 > |--------------|:-----------:|:-----------:|:---------:|

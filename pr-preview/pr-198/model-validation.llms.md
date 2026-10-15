@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:39 (PDT)
+Last modified: 2026-10-15 08:11:22 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -106,13 +106,13 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 
 > **NOTE:**
 >
-> **Definition 8 (Held-out set)** A **held-out set** for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{D}\_{\text{train}}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [prediction rule](#def-prediction-rule) \\\hat y\\ is scored:
+> **Definition 8 (Held-out set (hold-out set))** A **held-out set** for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{D}\_{\text{train}}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [prediction rule](#def-prediction-rule) \\\hat y\\ is scored:
 >
 > \\ \mathopen{}\left((x\_{\*,1}, y\_{\*,1}), \ldots, (x\_{\*,m}, y\_{\*,m})\right)\mathclose{}. \tag{8}\\
 >
 > > **NOTE:**
 > >
-> > James et al. ([2021, sec. 5.1.1](#ref-james2021islr2e)), who call it a hold-out set.
+> > James et al. ([2021, sec. 5.1.1](#ref-james2021islr2e)), who call it a **hold-out set**.
 
 > **NOTE:**
 >
@@ -225,13 +225,13 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 
 > **NOTE:**
 >
-> **Definition 12 (Expected generalization error)** The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean, over [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently from the population, of the [generalization error](#def-generalization-error) of the [prediction rule](#def-prediction-rule) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
+> **Definition 12 (Expected generalization error (expected prediction error, expected test error))** The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean, over [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently from the population, of the [generalization error](#def-generalization-error) of the [prediction rule](#def-prediction-rule) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
 > \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}, \quad \mathcal{D}\_{\text{train}}= \mathopen{}\left((X\_{i}, Y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{11}\\
 >
 > > **NOTE:**
 > >
-> > Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) call this quantity the *expected prediction error* (or *expected test error*) and write it \\\operatorname{Err}\\, without the argument \\n\\.
+> > Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) call this quantity the **expected prediction error** (or **expected test error**) and write it \\\operatorname{Err}\\, without the argument \\n\\.
 
 > **NOTE:**
 >
@@ -251,9 +251,7 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 3 (The expected generalization error, covariate value by covariate value)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations be independent of the new observation \\(X\_{\*}, Y\_{\*})\\. Show that the [expected generalization error](#def-expected-generalization-error) is the mean of the [expected squared prediction error at \\x\\](#def-epe) over the distribution of \\X\_{\*}\\:
->
-> \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}\right\]\mathclose{}. \\
+> **Exercise 3 (The expected generalization error, covariate value by covariate value)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations be independent of the new observation \\(X\_{\*}, Y\_{\*})\\. Write the [expected generalization error](#def-expected-generalization-error) \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ in terms of the [expected squared prediction error at \\x\\](#def-epe), \\\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}\\, and the distribution of \\X\_{\*}\\.
 
 > **NOTE:**
 >
@@ -463,11 +461,11 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 7 (A held-out set estimates the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 7](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\.
+> **Exercise 7 (Held-out predictions and the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 7](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\.
 >
-> Show that, given \\\mathcal{D}\_{\text{train}}\\, the expected [mean squared error](prediction.llms.md#def-prediction-mse) of the held-out predictions is \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
+> Find, given \\\mathcal{D}\_{\text{train}}\\, the expected [mean squared error](prediction.llms.md#def-prediction-mse) of the held-out predictions, in terms of the generalization error \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
 >
-> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} {\mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)\mathclose{}}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
+> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} {\mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)\mathclose{}}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \\
 
 > **NOTE:**
 >
@@ -489,7 +487,7 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 
 > **NOTE:**
 >
-> *Remark 6* (Training error is optimistic). The same argument fails for the training set. The training pairs are not independent of \\\mathcal{D}\_{\text{train}}\\: they are \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was fitted to make their prediction errors small. So the step of [Solution 7](#sol-held-out-unbiased) labeled “each term, as above” does not hold for them, and the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ is typically *smaller* than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ ([Hastie et al. 2009, sec. 7.4](#ref-hastie2009elements)). [Exercise 1](#exr-overfitting) shows the pattern: training RMSE keeps falling as the degree grows, while held-out RMSE does not.
+> *Remark 6* (Training error is optimistic). The same argument fails for the training set. The training pairs are not independent of \\\mathcal{D}\_{\text{train}}\\: they are \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was fitted to make their prediction errors small. So the argument of [Theorem 3](#thm-held-out-unbiased), that each squared prediction error has conditional expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, does not hold for them, and the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ is typically *smaller* than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ ([Hastie et al. 2009, sec. 7.4](#ref-hastie2009elements)). [Exercise 1](#exr-overfitting) shows the pattern: training RMSE keeps falling as the degree grows, while held-out RMSE does not.
 
 > **NOTE:**
 >
@@ -1285,6 +1283,32 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 
 > **NOTE:**
 >
+> **Lemma 1 (Leave-one-out cross-validation does not depend on the fold assignment)** Let \\\mathcal{D}\_{\text{train}}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}\_{i \in I}\\ be a [training set](#def-training-set) of \\n = \mathopen{}\left\|I\right\|\mathclose{}\\ observations, indexed by \\I\\. Then the [cross-validation estimate](#def-cv-estimate) \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ of [leave-one-out cross-validation](#def-loocv) (\\k = n\\) is the same for every [fold assignment](#def-fold-assignment) \\\kappa(i)\\.
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 11](#exr-loocv), part 3, worked in [Solution 11](#sol-loocv). It uses [Equation 31](#eq-cv-estimate) and [Equation 30](#eq-fold-out-rule).
+>
+> Each step below changes one thing.
+>
+> 1.  With \\k = n\\, the \\n\\ nonempty, disjoint [folds](#def-folds) of [Equation 27](#eq-folds) partition the \\n\\ indices of \\I\\, so each fold holds exactly one index. (A partition of \\n\\ indices into \\n\\ nonempty, disjoint subsets has one index per subset.)
+>
+> 2.  For observation \\i\\, [Equation 29](#eq-fold-assignment) gives \\i \in \mathcal{F}\_{\kappa(i)}\\, so \\\mathcal{F}\_{\kappa(i)} = \mathopen{}\left\\i\right\\\mathclose{}\\. (Fold \\\kappa(i)\\ holds one index, and that index is \\i\\.)
+>
+> 3.  Let \\g\\ be the [fitting procedure](#def-fitting-procedure), the rule that maps a training set to a fitted prediction rule. The [fold-out rule](#def-fold-out-rule) of observation \\i\\ is then \\\hat y^{(-\kappa(i))}\mathopen{}\left(x\right)\mathclose{} = g\mathopen{}\left(x; \mathopen{}\left((x\_{i'}, y\_{i'})\right)\mathclose{}\_{i' \in I \setminus \mathopen{}\left\\i\right\\\mathclose{}}\right)\mathclose{}\\. ([Equation 30](#eq-fold-out-rule) with \\\mathcal{F}\_{\kappa(i)} = \mathopen{}\left\\i\right\\\mathclose{}\\.)
+>
+> 4.  This rule is fitted to every observation except observation \\i\\, and it does not involve \\\kappa(i)\\ itself. (Step 3 depends on \\i\\ and \\g\\ only.)
+>
+> 5.  Hence each term \\{\mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)\mathclose{}}^2\\ of [Equation 31](#eq-cv-estimate) is the same for every fold assignment. (Each term is a function of the rule in step 4, \\x_i\\ and \\y_i\\.)
+>
+> 6.  Therefore the sum over \\i \in I\\ in [Equation 31](#eq-cv-estimate), and its factor \\1/n\\, are the same for every fold assignment:
+>
+>     \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i \in I} {\mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)\mathclose{}}^2. \\
+>
+>     Different assignments give the same \\n\\ fits, with the folds numbered differently.
+
+> **NOTE:**
+>
 > **Definition 33 (Term vector)** Consider a model whose mean is a linear combination of \\p^{\*}\\ terms \\t\_{1}(x), \ldots, t\_{p^{\*}}(x)\\ of the covariate value, such as \\1\\, \\x\\ and \\x^2\\. The **term vector** \\\tilde{t}\_{i}\\ of observation \\i\\ is the column of its terms:
 >
 > \\ \tilde{t}\_{i} \stackrel{\text{def}}{=}{\mathopen{}\left(t\_{1}(x\_{i}), \ldots, t\_{p^{\*}}(x\_{i})\right)\mathclose{}}^{\top}. \tag{35}\\
@@ -1295,13 +1319,13 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 
 > **NOTE:**
 >
-> **Definition 34 (Cross-product matrix)** The **cross-product matrix** \\A\\ of [term vectors](#def-term-vector) \\\tilde{t}\_{i}\\, \\i\in I\\, of a training set indexed by \\I\\, is the sum of their outer products:
+> **Definition 34 (Cross-product matrix (sum-of-squares and cross-products matrix))** The **cross-product matrix** \\A\\ of [term vectors](#def-term-vector) \\\tilde{t}\_{i}\\, \\i\in I\\, of a training set indexed by \\I\\, is the sum of their outer products:
 >
 > \\ A\stackrel{\text{def}}{=}\sum\_{i\in I} \tilde{t}\_{i} {\tilde{t}\_{i}}^{\top}. \tag{36}\\
 >
 > > **NOTE:**
 > >
-> > Sanchez ([2020](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products”) (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a sum-of-squares and cross-products matrix.
+> > Sanchez ([2020](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products”) (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a **sum-of-squares and cross-products matrix**.
 
 > **NOTE:**
 >
@@ -1377,7 +1401,7 @@ Last modified: 2026-10-15 01:39:39 (PDT)
 > #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 11](#sol-loocv)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:39 (PDT)
+Last modified: 2026-10-15 08:11:22 (PDT)
 
 ## 1 Scientific models
 
@@ -204,6 +204,16 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
+> **Theorem 2 (Expanded squared bias)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the squared [bias](#def-bias) is:
+>
+> \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 = {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 2](#exr-sq-bias-expand), worked in [Solution 2](#sol-sq-bias-expand).
+
+> **NOTE:**
+>
 > **Exercise 3 (Squared bias plus variance)** Using [Exercise 2](#exr-sq-bias-expand), write \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
 
 > **NOTE:**
@@ -218,6 +228,16 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
+> **Theorem 3 (Expanded squared bias plus variance)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the squared bias plus the variance is:
+>
+> \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 3](#exr-bias-sq-plus-var), worked in [Solution 3](#sol-bias-sq-plus-var). It adds the variance to the squared bias of [Theorem 2](#thm-sq-bias-expand).
+
+> **NOTE:**
+>
 > **Exercise 4 (Expanding the mean squared error)** Write the [mean squared error](#def-mse) \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
 
 > **NOTE:**
@@ -226,17 +246,27 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Theorem 2 (Mean squared error equals bias squared plus variance)** For any one-dimensional estimator \\\hat{\theta}\\:
+> **Theorem 4 (Expanded mean squared error)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the [mean squared error](#def-mse) is:
+>
+> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 4](#exr-mse-expand), worked in [Solution 4](#sol-mse-expand).
+
+> **NOTE:**
+>
+> **Theorem 5 (Mean squared error equals bias squared plus variance)** For any one-dimensional estimator \\\hat{\theta}\\:
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
 
 > **NOTE:**
 >
-> *Proof*. By [Exercise 4](#exr-mse-expand) and [Exercise 3](#exr-bias-sq-plus-var), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ and \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ both equal \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\, so they are equal to each other.
+> *Proof*. By [Theorem 4](#thm-mse-expand) and [Theorem 3](#thm-bias-sq-plus-var), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ and \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ both equal \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\, so they are equal to each other.
 
 > **NOTE:**
 >
-> **Example 8 (Mean squared error of two estimators of a mean)** Continuing [Example 7](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 2](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
+> **Example 8 (Mean squared error of two estimators of a mean)** Continuing [Example 7](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 5](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
 >
 > For \\X_1\\,
 >
@@ -329,7 +359,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Exercise 6 (Mean squared error of an unbiased estimator)** Using [Theorem 2](#thm-mse-bias-variance), write the [mean squared error](#def-mse) of an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ in terms of its variance.
+> **Exercise 6 (Mean squared error of an unbiased estimator)** Using [Theorem 5](#thm-mse-bias-variance), write the [mean squared error](#def-mse) of an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ in terms of its variance.
 
 > **NOTE:**
 >
@@ -337,7 +367,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Theorem 3 (Properties of unbiased estimators)** If \\\hat{\theta}\\ is an [unbiased](#def-unbiased) estimator of \\\theta\\, then:
+> **Theorem 6 (Properties of unbiased estimators)** If \\\hat{\theta}\\ is an [unbiased](#def-unbiased) estimator of \\\theta\\, then:
 >
 > \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} = \theta \tag{5}\\
 >
@@ -365,7 +395,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 >
 > \\ \begin{aligned} \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\tau Z\right\|\mathclose{}\right\]\mathclose{} && \text{(definition of MAE)}\\ &= \operatorname{E}\mathopen{}\left\[\tau\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{} && \text{(\$\mathopen{}\left\|\tau Z\right\|\mathclose{} = \tau\mathopen{}\left\|Z\right\|\mathclose{}\$ because \$\tau\> 0\$)}\\ &= \tau\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{} && \text{(factor the constant \$\tau\$ out of the expectation)}\\ &= \tau\int\_{-\infty}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(expectation of a function of \$Z\$)}\\ &= \tau\cdot 2 \int\_{0}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{}\phi(z)\$ is symmetric about 0)}\\ &= \tau\cdot 2 \int\_{0}^{\infty} z \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{} = z\$ for \$z \ge 0\$)}\\ &= \tau\cdot 2 \mathopen{}\left\[-\phi(z)\right\]\mathclose{}\_{0}^{\infty} && \text{(\$\phi'(z) = -z\phi(z)\$)}\\ &= \tau\cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} - \mathopen{}\left(-\phi(0)\right)\mathclose{}\right)\mathclose{} && \text{(evaluate at the limits)}\\ &= \tau\cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} + \phi(0)\right)\mathclose{} && \text{(subtracting a negative is adding)}\\ &= \tau\cdot 2 \mathopen{}\left(0 + \phi(0)\right)\mathclose{} && \text{(\$\phi(z) \to 0\$ as \$z \to \infty\$)}\\ &= \tau\cdot 2 \phi(0) && \text{(drop the zero term)}\\ &= \tau\cdot 2 (2\pi)^{-1/2} && \text{(\$\phi(0) = (2\pi)^{-1/2}\$)}\\ &= \tau\cdot 2 \cdot \frac{1}{\sqrt{2\pi}} && \text{(write \$(2\pi)^{-1/2}\$ as \$1/\sqrt{2\pi}\$)}\\ &= \tau\cdot \frac{2}{\sqrt{2\pi}} && \text{(multiply)}\\ &= \tau\cdot \frac{\sqrt{4}}{\sqrt{2\pi}} && \text{(write \$2\$ as \$\sqrt{4}\$)}\\ &= \tau\sqrt{4/(2\pi)} && \text{(quotient of square roots)}\\ &= \tau\sqrt{2/\pi} && \text{(cancel the common factor 2 in \$4/(2\pi)\$)} \end{aligned} \\
 >
-> So for an [unbiased](#def-unbiased) Gaussian estimator, the mean absolute error is about \\0.80\\ times the standard deviation \\\tau\\, while the [root mean squared error](#def-rmse) is \\\tau\\ itself ([Theorem 3](#thm-unbiased-props)).
+> So for an [unbiased](#def-unbiased) Gaussian estimator, the mean absolute error is about \\0.80\\ times the standard deviation \\\tau\\, while the [root mean squared error](#def-rmse) is \\\tau\\ itself ([Theorem 6](#thm-unbiased-props)).
 
 ### 3.8 Standard error
 
@@ -385,7 +415,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Exercise 7 (Spread of the estimation error)** Show that the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of the [estimation error](#def-estimation-error) \\\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ equals the [standard error](#def-SE) of \\\hat{\theta}\\.
+> **Exercise 7 (Spread of the estimation error)** Find the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of the [estimation error](#def-estimation-error) \\\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of the [standard error](#def-SE) of \\\hat{\theta}\\.
 
 > **NOTE:**
 >
@@ -397,7 +427,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Theorem 4 (Standard error is the spread of the estimation error)** \\\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}\\
+> **Theorem 7 (Standard error is the spread of the estimation error)** \\\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}\\
 
 > **NOTE:**
 >
@@ -405,11 +435,11 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> *Remark 2* (The name “standard error”). “Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the [estimation error](#def-estimation-error) (although [Theorem 4](#thm-se-error-sd) shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.
+> *Remark 2* (The name “standard error”). “Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the [estimation error](#def-estimation-error) (although [Theorem 7](#thm-se-error-sd) shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.
 
 > **NOTE:**
 >
-> **Exercise 8 (Squared standard error from MSE and bias)** Using [Theorem 2](#thm-mse-bias-variance), write the squared [standard error](#def-SE) \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\ in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of \\\hat{\theta}\\.
+> **Exercise 8 (Squared standard error from MSE and bias)** Using [Theorem 5](#thm-mse-bias-variance), write the squared [standard error](#def-SE) \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\ in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of \\\hat{\theta}\\.
 
 > **NOTE:**
 >

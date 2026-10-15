@@ -105,8 +105,8 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/callouty-theorem-1.3.0/callouty-theorem.js"></script>
-<link href="site_libs/quarto-contrib/callouty-theorem-1.3.0/callouty-theorem.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/callouty-theorem-1.4.2/callouty-theorem.js"></script>
+<link href="site_libs/quarto-contrib/callouty-theorem-1.4.2/callouty-theorem.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -221,6 +221,16 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-lem.callout {
   border-left-color: #1565C0;
 }
@@ -241,15 +251,45 @@ div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-prp.callout {
-  border-left-color: #827717;
+div.callout-exr.callout {
+  border-left-color: #FFA500;
 }
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
 }
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-proof.callout {
   border-left-color: #37474F;
@@ -271,15 +311,15 @@ div.callout-solution .callout-toggle::before {  background-image: url('data:imag
 div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
+div.callout-prp.callout {
+  border-left-color: #827717;
 }
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
 }
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-cor.callout {
   border-left-color: #00838F;
@@ -290,56 +330,6 @@ div.callout-cor.callout-style-default .callout-header {
 div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-tbl.callout {
-  border-left-color: #757575;
-}
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
   border-left-color: #283593;
@@ -354,6 +344,16 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   font-style: normal;
   content: '\f144' !important;
   background-image: none;
+}
+div.callout-tbl.callout {
+  border-left-color: #757575;
+}
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -596,6 +596,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./intro-MLEs.html">
  <span class="dropdown-text">Maximum Likelihood</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./estimator-properties.html">
+ <span class="dropdown-text">Properties of Estimators</span></a>
+  </li>  
     </ul>
 </li>
   <li class="nav-item dropdown ">
@@ -746,6 +750,12 @@ window.Quarto = {
  <span class="menu-text">Maximum Likelihood</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estimator-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Properties of Estimators</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -881,7 +891,7 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><!-- qwt-page-banners -->
 <div class="preview-changes-banner" style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 12px; margin: 16px 0;">
     <p style="margin: 0;">
-        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>, <a href="prediction.html">Prediction</a>
+        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="estimator-properties.html">Properties of Estimators</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>, <a href="prediction.html">Prediction</a>
         <br>
         <strong>💡 Tip:</strong> If change highlighting is glitchy, add the <code>no-preview-highlights</code> label to this PR to disable it.
     </p>
@@ -905,7 +915,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-15 01:39:39 (PDT)</p>
+      <p class="date">Last modified: 2026-10-15 08:11:22 (PDT)</p>
     </div>
   </div>
   
@@ -923,10 +933,10 @@ text-align: center;
 <section id="sec-foundations" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="sec-foundations">
 <span class="header-section-number">1</span> Foundations of MCMC</h2>
 <p>When the posterior has a known closed form, as in <a href="./bayesian-inference.html#exm-beta-bernoulli">the Beta-Bernoulli example</a>, we can compute its summaries exactly or sample from it directly. In most real-world models, however, the <a href="./bayesian-inference.html#def-marginal-likelihood">marginal likelihood</a> <span class="math inline">\(\operatorname{p}(\tilde{y})\)</span> that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. Markov chain Monte Carlo methods get around this problem: instead of independent draws from the posterior, they generate a correlated sequence of draws whose distribution converges to the posterior <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;287)</span>.</p>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-mcmc" class="quarto-xref">Definition&nbsp;1</a> (Markov chain Monte Carlo)
@@ -941,10 +951,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-mcmc" class="quarto-xref">Example&nbsp;1</a> (A sequence that converges to the standard Gaussian)
@@ -967,10 +977,10 @@ text-align: center;
 </section><section id="monte-carlo-integration" class="level3" data-number="1.2"><h3 data-number="1.2" class="anchored" data-anchor-id="monte-carlo-integration">
 <span class="header-section-number">1.2</span> Monte Carlo integration</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-monte-carlo-estimate div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-monte-carlo-estimate" class="quarto-xref">Definition&nbsp;2</a> (Monte Carlo estimate)
@@ -989,10 +999,10 @@ text-align: center;
 </div>
 </div>
 <p>By the law of large numbers, a Monte Carlo estimate converges to the posterior expectation it estimates as the number of draws <span class="math inline">\(M\)</span> grows <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;288)</span>. The posterior mean (<span class="math inline">\(g(\theta) = \theta\)</span>) and posterior probabilities (<span class="math inline">\(g(\theta) = \text{1}_{\theta\le c}\)</span>, an indicator) are posterior expectations, so they are estimated by averages of the draws; posterior quantiles, and so credible-interval endpoints, are estimated by the corresponding quantiles of the draws.</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-mc-bernoulli" class="quarto-xref">Example&nbsp;2</a> (Monte Carlo posterior summaries for a Bernoulli model)
@@ -1030,10 +1040,10 @@ text-align: center;
 </section><section id="markov-chains" class="level3" data-number="1.3"><h3 data-number="1.3" class="anchored" data-anchor-id="markov-chains">
 <span class="header-section-number">1.3</span> Markov chains</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-markov-chain div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-markov-chain" class="quarto-xref">Definition&nbsp;3</a> (Markov chain)
@@ -1053,10 +1063,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-stationary-distribution" class="quarto-xref">Definition&nbsp;4</a> (Stationary distribution)
@@ -1071,10 +1081,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-two-state-chain" class="quarto-xref">Example&nbsp;3</a> (A two-state weather chain)
@@ -1112,10 +1122,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-ar1-chain" class="quarto-xref">Example&nbsp;4</a> (A first-order autoregressive chain)
@@ -1134,10 +1144,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exr no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exr</span><a href="#exr-ar1-stationary" class="quarto-xref">Exercise&nbsp;1</a> (Stationary distribution of the autoregressive chain)
@@ -1264,10 +1274,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Lem</span><a href="#thm-ar1-stationary" class="quarto-xref">Theorem&nbsp;1</a> (Stationary distribution of the autoregressive chain)
@@ -1309,10 +1319,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 <section id="the-metropolishastings-algorithm" class="level3" data-number="2.1"><h3 data-number="2.1" class="anchored" data-anchor-id="the-metropolishastings-algorithm">
 <span class="header-section-number">2.1</span> The Metropolis–Hastings algorithm</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-proposal-distribution div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-proposal-distribution" class="quarto-xref">Definition&nbsp;5</a> (Proposal distribution)
@@ -1327,10 +1337,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-symmetric-proposal" class="quarto-xref">Definition&nbsp;6</a> (Symmetric proposal)
@@ -1345,10 +1355,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-proposal-distribution" class="quarto-xref">Example&nbsp;5</a> (A Gaussian random-walk proposal)
@@ -1363,10 +1373,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-acceptance-ratio" class="quarto-xref">Definition&nbsp;7</a> (Acceptance ratio)
@@ -1387,10 +1397,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-acceptance-ratio" class="quarto-xref">Example&nbsp;6</a> (Acceptance ratio for a Bernoulli posterior)
@@ -1417,10 +1427,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-mh" class="quarto-xref">Definition&nbsp;8</a> (Metropolis–Hastings algorithm)
@@ -1441,10 +1451,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 <p>The first factor of <span class="math inline">\(\alpha\)</span> is the ratio <span class="math inline">\(\operatorname{p}(\tilde{\theta}^* \mid \tilde{y}) / \operatorname{p}(\tilde{\theta}^{(t)} \mid \tilde{y})\)</span> with the normalizing constant <span class="math inline">\(\operatorname{p}(\tilde{y})\)</span> canceled (<a href="./bayesian-inference.html#eq-bayes-posterior">the posterior equation</a>), so the algorithm needs only the unnormalized posterior. When the proposal is <a href="#def-symmetric-proposal">symmetric</a>, as for a random walk <span class="math inline">\(\tilde{\theta}^* = \tilde{\theta}^{(t)} + \varepsilon\)</span> with <span class="math inline">\(\varepsilon\)</span> drawn from a distribution symmetric about 0, the second factor equals 1. Provided the proposal can reach every region where the posterior is positive, the resulting chain is a <a href="#def-markov-chain">Markov chain</a> whose stationary distribution is the posterior <span class="citation" data-cites="gelman2013bda robert2004mcsm">(<a href="#ref-gelman2013bda" role="doc-biblioref">Gelman et al. 2013, sec. 11.2</a>, pp.&nbsp;279-280; <a href="#ref-robert2004mcsm" role="doc-biblioref">Robert and Casella 2004, sec. 7.3.1</a>, Theorem 7.2, p.&nbsp;272)</span>.</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-mh-bernoulli" class="quarto-xref">Example&nbsp;7</a> (Metropolis–Hastings for a Bernoulli model)
@@ -1496,10 +1506,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </section><section id="sec-burnin" class="level3" data-number="2.2"><h3 data-number="2.2" class="anchored" data-anchor-id="sec-burnin">
 <span class="header-section-number">2.2</span> Trace plots and burn-in</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-trace-plot div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-trace-plot" class="quarto-xref">Definition&nbsp;9</a> (Trace plot)
@@ -1514,10 +1524,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-burnin" class="quarto-xref">Definition&nbsp;10</a> (Burn-in)
@@ -1533,10 +1543,10 @@ v &amp;= \frac{\sigma^2}{1 - \rho^2}
 </div>
 </div>
 <p>A chain started far from where the posterior puts its probability takes some iterations to get there, and until it does, its values are not draws from the posterior. Burn-in removes those iterations. Its length is chosen by inspecting <a href="#def-trace-plot">trace plots</a> of chains started from different values: the burn-in should end after the chains have stopped drifting and are moving around the same region.</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-burnin" class="quarto-xref">Example&nbsp;8</a> (Burn-in for the Bernoulli sampler)
@@ -1592,10 +1602,10 @@ Figure&nbsp;1: <a href="#def-trace-plot">Trace plots</a> of the first 200 iterat
 </section><section id="the-gibbs-sampler" class="level3" data-number="2.3"><h3 data-number="2.3" class="anchored" data-anchor-id="the-gibbs-sampler">
 <span class="header-section-number">2.3</span> The Gibbs sampler</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-full-conditional div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-full-conditional" class="quarto-xref">Definition&nbsp;11</a> (Full conditional distribution)
@@ -1610,10 +1620,10 @@ Figure&nbsp;1: <a href="#def-trace-plot">Trace plots</a> of the first 200 iterat
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-gibbs-sampler" class="quarto-xref">Definition&nbsp;12</a> (Gibbs sampler)
@@ -1629,10 +1639,10 @@ Figure&nbsp;1: <a href="#def-trace-plot">Trace plots</a> of the first 200 iterat
 </div>
 </div>
 <p>The Gibbs sampler is a special case of the <a href="#def-mh">Metropolis–Hastings algorithm</a>, one component at a time, whose proposal is the full conditional itself; with that proposal the acceptance ratio is always 1, so every draw is accepted <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;293)</span>. It needs a way to draw from each full conditional. JAGS (“Just Another Gibbs Sampler”) builds a Gibbs sampler from a model’s description, choosing a sampling method for each full conditional <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>)</span>.</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-gibbs-bivariate-normal" class="quarto-xref">Example&nbsp;9</a> (Gibbs sampling from a correlated Gaussian target)
@@ -1688,10 +1698,10 @@ Figure&nbsp;1: <a href="#def-trace-plot">Trace plots</a> of the first 200 iterat
 </section></section><section id="sec-diagnostics" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="sec-diagnostics">
 <span class="header-section-number">3</span> Checking and improving MCMC</h2>
 <p>Because MCMC draws are correlated, and a chain may take many iterations to reach its stationary distribution, we must check whether the chains have converged before using them for inference <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;302)</span>. <a href="#def-trace-plot">Trace plots</a> give a visual check; the potential scale reduction factor gives a numerical one, by comparing several chains started from different values.</p>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-psrf" class="quarto-xref">Definition&nbsp;13</a> (Potential scale reduction factor)
@@ -1721,10 +1731,10 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\
 </div>
 </div>
 <p>If the chains have all converged to the posterior, <span class="math inline">\(\hat V\)</span> estimates the posterior variance and <span class="math inline">\(W\)</span> approaches it as <span class="math inline">\(n\)</span> grows, so <span class="math inline">\(\hat{R}\)</span> is close to 1. If the chains are still exploring different regions, the chain means differ, <span class="math inline">\(B\)</span> is large, and <span class="math inline">\(\hat{R}\)</span> exceeds 1 <span class="citation" data-cites="gelman2013bda">(<a href="#ref-gelman2013bda" role="doc-biblioref">Gelman et al. 2013, sec. 11.4</a>, pp.&nbsp;283-285)</span>. <a href="#def-psrf" class="quarto-xref">Definition&nbsp;13</a> follows <span class="citation" data-cites="gelman2013bda">Gelman et al. (<a href="#ref-gelman2013bda" role="doc-biblioref">2013, sec. 11.4</a>, pp.&nbsp;284-285)</span>, except that they first split each chain in half and compute <span class="math inline">\(\hat{R}\)</span> over the half-chains, so that <span class="math inline">\(\hat{R}\)</span> also checks each chain for stationarity <span class="citation" data-cites="gelman2013bda">(<a href="#ref-gelman2013bda" role="doc-biblioref">Gelman et al. 2013, sec. 11.4</a>, p.&nbsp;285, footnote 2)</span>. The statistic <span class="math inline">\(\hat{R}\)</span> is also called the <strong>Gelman–Rubin statistic</strong>; it formally assesses whether several chains have converged <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;306)</span>. Software reports <span class="math inline">\(\hat{R}\)</span> as <code>psrf</code> or <code>Rhat</code>; <code><a href="https://rdrr.io/pkg/coda/man/gelman.diag.html">coda::gelman.diag()</a></code> also applies a small-sample correction, so its value differs slightly from <a href="#def-psrf" class="quarto-xref">Definition&nbsp;13</a>’s. A value of <span class="math inline">\(\hat{R}\)</span> near 1 does not prove convergence: chains that are all stuck in the same wrong region also agree.</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-psrf" class="quarto-xref">Example&nbsp;10</a> (Potential scale reduction factor for the Bernoulli sampler)
@@ -1760,10 +1770,10 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\
 <section id="sec-mcmc-vs-mle" class="level3" data-number="3.1"><h3 data-number="3.1" class="anchored" data-anchor-id="sec-mcmc-vs-mle">
 <span class="header-section-number">3.1</span> Comparing MCMC estimates to maximum likelihood</h3>
 <p>When the prior is weak and the sample is moderate or large, the posterior mean from a well-mixed chain and the <a href="./intro-MLEs.html#def-mle">maximum likelihood estimate</a> typically agree closely, and the posterior standard deviation is close to the frequentist <a href="./estimation.html#def-SE">standard error</a> <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;302)</span>. As <span class="math inline">\(n\)</span> grows the likelihood dominates the prior, so the posterior concentrates near the maximum likelihood estimate. Comparing the two is therefore a useful check on an MCMC analysis.</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-mcmc-vs-mle" class="quarto-xref">Example&nbsp;11</a> (Posterior mean and maximum likelihood estimate for a Bernoulli model)
@@ -1805,10 +1815,10 @@ B &amp;\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum_{j=1}^{m} \mathopen{}\left(\
 </section></section><section id="sec-dic" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="sec-dic">
 <span class="header-section-number">4</span> Deviance information criterion</h2>
 <p>To compare models fit to the same data by Bayesian inference, we need a measure that balances goodness of fit against complexity, as <a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-aic">Akaike’s information criterion</a> does for models fit by maximum likelihood. The standard criterion computed from MCMC output is the deviance information criterion <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;306)</span>.</p>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-bayes-deviance" class="quarto-xref">Definition&nbsp;14</a> (Deviance of a parameter value)
@@ -1826,10 +1836,10 @@ D(\tilde{\theta}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\tilde{y}\mid
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-bayes-deviance-constant" class="quarto-xref">Remark&nbsp;1</a> (Bayesian deviance and the generalized linear model deviance)
@@ -1844,10 +1854,10 @@ D(\tilde{\theta}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\tilde{y}\mid
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-effective-parameters" class="quarto-xref">Definition&nbsp;15</a> (Effective number of parameters)
@@ -1865,10 +1875,10 @@ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}).
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-dic" class="quarto-xref">Definition&nbsp;16</a> (Deviance information criterion)
@@ -1902,10 +1912,10 @@ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}).
 \end{aligned}
 \]</span></p>
 <p>The term <span class="math inline">\(D(\bar{\tilde{\theta}})\)</span> rewards fit, while <span class="math inline">\(p_D\)</span> penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 13</a>, p.&nbsp;306)</span>. Both <span class="math inline">\(\overline{D}\)</span> and <span class="math inline">\(\bar{\tilde{\theta}}\)</span> are <a href="#def-monte-carlo-estimate">Monte Carlo estimates</a> from the posterior draws, so DIC is a by-product of an MCMC run.</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-dic-bernoulli" class="quarto-xref">Example&nbsp;12</a> (DIC for the Bernoulli model)
@@ -1939,10 +1949,10 @@ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}).
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-dic-caveats" class="quarto-xref">Remark&nbsp;2</a> (Cautions about DIC)
@@ -2245,6 +2255,14 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
   if (document.readyState === "complete") afterMath();
   else window.addEventListener("load", afterMath);
 })();
+</script><script>
+// The table-fit rule makes a page table a block box so it can scroll.
+// Some browsers then drop the table role, so give each one back.
+document.querySelectorAll("main table").forEach(function (t) {
+  if (!t.hasAttribute("role")) {
+    t.setAttribute("role", "table");
+  }
+});
 </script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
