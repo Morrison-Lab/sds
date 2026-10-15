@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 08:36:30 (PDT)
+Last modified: 2026-10-15 08:49:51 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -418,9 +418,15 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 14 (Centered sums of squares and cross-products)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **centered sums of squares** of the \\x_i\\ and of the \\y_i\\, and their **centered sum of cross-products**, are
+> **Definition 14 (Centered sums of squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **centered sums of squares** of the \\x_i\\ and of the \\y_i\\ are
 >
-> \\ \begin{aligned} S\_{xx} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})^2, & S\_{yy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2, & S\_{xy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}). \end{aligned} \\
+> \\ \begin{aligned} S\_{xx} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})^2, & S\_{yy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2. \end{aligned} \\
+
+> **NOTE:**
+>
+> **Definition 15 (Centered sum of cross-products)** For the data of [Definition 14](#def-centered-sums), the **centered sum of cross-products** is
+>
+> \\ S\_{xy} \stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}). \\
 
 > **NOTE:**
 >
@@ -612,13 +618,13 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Definition 15 (Covariate vector)** In simple linear regression ([Definition 8](#def-slr)), the **covariate vector** \\\tilde{x}\_i\\ of observation \\i\\ is its covariate value \\x_i\\, preceded by a 1 for the intercept:
+> **Definition 16 (Covariate vector)** In simple linear regression ([Definition 8](#def-slr)), the **covariate vector** \\\tilde{x}\_i\\ of observation \\i\\ is its covariate value \\x_i\\, preceded by a 1 for the intercept:
 >
 > \\ \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}. \\
 
 > **NOTE:**
 >
-> **Exercise 10 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 15](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
+> **Exercise 10 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
 
 > **NOTE:**
 >
@@ -630,7 +636,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Lemma 7 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 15](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}\\ ([Example 6](#exm-normal-equations-slr)):
+> **Lemma 7 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}\\ ([Example 6](#exm-normal-equations-slr)):
 >
 > \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}.\\
 
@@ -802,7 +808,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Solution 15*. In terms of the centered sums ([Definition 14](#def-centered-sums)),
+> *Solution 15*. In terms of the centered sums ([Definition 14](#def-centered-sums), [Definition 15](#def-centered-cross-product)),
 >
 > \\ r = \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}, \qquad s_x = \sqrt{\frac{S\_{xx}}{n-1}}, \qquad s_y = \sqrt{\frac{S\_{yy}}{n-1}}. \\
 >
@@ -897,7 +903,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Definition 16 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
+> **Definition 17 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
 >
 > \\\text{TSS} \stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2.\\
 
@@ -909,7 +915,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Definition 17 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\tilde{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\tilde{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
+> **Definition 18 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\tilde{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\tilde{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
 >
 > \\R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}}.\\
 
@@ -965,7 +971,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Example 10 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 8](#exm-hers-slr), \\R^2\\ computed from [Definition 17](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
+> **Example 10 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 8](#exm-hers-slr), \\R^2\\ computed from [Definition 18](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
 >
 > ``` downlit
 > fit <- lm(glucose ~ BMI, data = hers)
