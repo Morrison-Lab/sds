@@ -15,7 +15,7 @@ $$ {#eq-fold-out-rule}
 #### Source
 
 @hastie2009elements [sec. 7.10.1],
-who write the fitted function with the $\nfolds$th part of the data removed as $\hat f^{-k}$.
+who write the fitted function with the $k$th part of the data removed as $\hat f^{-k}$.
 :::
 
 :::
