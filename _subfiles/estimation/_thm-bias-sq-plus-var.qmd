@@ -1,0 +1,16 @@
+::: {#thm-bias-sq-plus-var}
+#### Expanded squared bias plus variance
+
+For any one-dimensional estimator $\hparam$ of an estimand $\param$,
+the squared bias plus the variance is:
+
+$$\sqf{\bias{\hparam}} + \var{\hparam} = \E{\hparam^2} - 2\E{\hparam}\param + \param^2$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-bias-sq-plus-var, worked in @sol-bias-sq-plus-var.
+It adds the variance to the squared bias of @thm-sq-bias-expand.
+
+:::

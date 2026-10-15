@@ -1,0 +1,49 @@
+:::{#exr-cov-estimator-score}
+#### Covariance of an unbiased estimator with the score
+
+Let $\vX$ have density $\p(\vx \mid \param)$ for a scalar parameter $\param$,
+under the assumptions of [the exercise on the mean of the score](intro-MLEs.qmd#exr-score-mean-zero),
+and let $\hparam = \hparam(\vX)$ be an [unbiased](estimation.qmd#def-unbiased) estimator of $\param$
+with finite variance.
+Show that the covariance of $\hparam$ with the [score](intro-MLEs.qmd#def-score)
+$\score(\vX \mid \param)$ equals 1.
+Assume the derivative of $\E{\hparam}$ with respect to $\param$
+can be taken inside the integral.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-cov-estimator-score}
+
+The score has mean zero by [the exercise on the mean of the score](intro-MLEs.qmd#exr-score-mean-zero).
+The step that rewrites the product of the score and the density uses [the exercise on the derivative of a density](intro-MLEs.qmd#exr-deriv-log-density):
+
+$$
+\begin{aligned}
+\Covs{\hparam}{\score}
+&= \E{\hparam \score} - \E{\hparam}\,\E{\score}
+&& \text{(definition of covariance)}\\
+&= \E{\hparam \score} - \E{\hparam} \cdot 0
+&& \text{(the score has mean zero)}\\
+&= \E{\hparam \score} - 0
+&& \text{($b \cdot 0 = 0$)}\\
+&= \E{\hparam \score}
+&& \text{($a - 0 = a$)}\\
+&= \int \hparam(\vx) \, \score(\vx \mid \param) \, \p(\vx \mid \param) \, d\vx
+&& \text{(definition of expectation)}\\
+&= \int \hparam(\vx) \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&& \text{(definition of the score)}\\
+&= \int \hparam(\vx) \, \deriv{\param} \p(\vx \mid \param) \, d\vx
+&& \text{(derivative of a log density)}\\
+&= \deriv{\param} \int \hparam(\vx) \, \p(\vx \mid \param) \, d\vx
+&& \text{(exchange derivative and integral)}\\
+&= \deriv{\param} \E{\hparam}
+&& \text{(definition of expectation)}\\
+&= \deriv{\param} \param
+&& \text{($\hparam$ is unbiased)}\\
+&= 1
+&& \text{(derivative of $\param$ with respect to $\param$)}
+\end{aligned}
+$$
+
+:::

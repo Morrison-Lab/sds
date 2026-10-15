@@ -1,0 +1,28 @@
+:::{#def-efficient}
+#### Efficient estimator
+
+An [unbiased](estimation.qmd#def-unbiased) estimator $\hparam$ of $\param$ is **efficient**
+if its variance equals the [Cramér--Rao lower bound](#thm-cramer-rao):
+
+$$
+\Var{\hparam} = \frac{1}{\einf(\param)}
+$$
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@CaseBerg01 [sec. 7.3.2].
+:::
+
+:::
+
+{{< slidebreak >}}
+
+:::{#rem-efficient-minimum-variance}
+#### An efficient estimator has the smallest variance
+
+By the Cramér--Rao lower bound, no unbiased estimator that satisfies its assumptions
+has a smaller variance than an efficient one.
+Among such estimators, an efficient estimator therefore also has the smallest mean squared error
+([mean squared error equals bias squared plus variance](estimation.qmd#thm-mse-bias-variance), with zero bias).
+:::
