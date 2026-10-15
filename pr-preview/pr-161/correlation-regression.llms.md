@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:51:02 (PDT)
+Last modified: 2026-10-15 02:36:03 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -55,24 +55,26 @@ hers |> head()
 >
 > **Example 1 (Correlation between BMI and fasting glucose in HERS)** [Figure 1](#fig-hers-scatter) plots baseline fasting glucose against BMI.
 >
-> Show R code
->
-> ``` downlit
-> hers |>
->   dplyr::filter(!is.na(BMI)) |>
->   ggplot2::ggplot() +
->   ggplot2::aes(x = BMI, y = glucose) +
->   ggplot2::geom_point(alpha = 0.3) +
->   ggplot2::geom_smooth(method = "lm", formula = y ~ x) +
->   ggplot2::labs(
->     x = "BMI (kg/m^2)",
->     y = "Fasting glucose (mg/dL)"
->   )
-> ```
->
-> [![](correlation-regression_files/figure-html/unnamed-chunk-1-1.png)](correlation-regression_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Baseline fasting glucose against BMI in HERS, with the least-squares line")
->
-> Figure 1: Baseline fasting glucose against BMI in HERS, with the least-squares line
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > hers |>
+> >   dplyr::filter(!is.na(BMI)) |>
+> >   ggplot2::ggplot() +
+> >   ggplot2::aes(x = BMI, y = glucose) +
+> >   ggplot2::geom_point(alpha = 0.3) +
+> >   ggplot2::geom_smooth(method = "lm", formula = y ~ x) +
+> >   ggplot2::labs(
+> >     x = "BMI (kg/m^2)",
+> >     y = "Fasting glucose (mg/dL)"
+> >   )
+> > ```
+> >
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-1-1.png)](correlation-regression_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Baseline fasting glucose against BMI in HERS, with the least-squares line")
+> >
+> > Figure 1: Baseline fasting glucose against BMI in HERS, with the least-squares line
 >
 > The statistic of [Definition 2](#def-pearson-test), using the 2758 participants with a BMI measurement:
 >
@@ -271,7 +273,7 @@ hers |> head()
 >
 > \\\text{RSS}(\tilde{\theta}) \stackrel{\text{def}}{=}\sum\_{i=1}^nr_i(\tilde{\theta})^2.\\
 >
-> At the estimate \\\hat{\tilde{\theta}}\\, \\r_i(\hat{\tilde{\theta}})\\ is the [residual](estimation.llms.md#def-residual) \\r_i\\ of the fitted model.
+> At the estimate \\\hat{\tilde{\theta}}\\, \\r_i(\hat{\tilde{\theta}})\\ is the [residual](prediction.llms.md#def-residual) \\r_i\\ of the fitted model.
 
 > **NOTE:**
 >
@@ -287,40 +289,42 @@ hers |> head()
 >
 > ([Figure 2](#fig-rss-three-points)).
 >
-> Show R code
->
-> ``` downlit
-> rss_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>
->   dplyr::mutate(fitted = 1 + 0.5 * x)
->
-> ggplot2::ggplot(rss_points, ggplot2::aes(x = x, y = y)) +
->   ggplot2::geom_abline(intercept = 1, slope = 0.5) +
->   ggplot2::geom_segment(
->     ggplot2::aes(xend = x, yend = fitted),
->     linetype = "dashed",
->     color = "firebrick"
->   ) +
->   ggplot2::geom_point(size = 3) +
->   ggplot2::coord_cartesian(xlim = c(-0.25, 2.25), ylim = c(0.75, 2.25))
-> ```
->
-> [![](correlation-regression_files/figure-html/unnamed-chunk-5-1.png)](correlation-regression_files/figure-html/unnamed-chunk-5-1.png "Figure 2: The three points, the line with intercept 1 and slope 0.5, and the one nonzero residual (dashed)")
->
-> Figure 2: The three points, the line with intercept 1 and slope 0.5, and the one nonzero residual (dashed)
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > rss_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>
+> >   dplyr::mutate(fitted = 1 + 0.5 * x)
+> >
+> > ggplot2::ggplot(rss_points, ggplot2::aes(x = x, y = y)) +
+> >   ggplot2::geom_abline(intercept = 1, slope = 0.5) +
+> >   ggplot2::geom_segment(
+> >     ggplot2::aes(xend = x, yend = fitted),
+> >     linetype = "dashed",
+> >     color = "firebrick"
+> >   ) +
+> >   ggplot2::geom_point(size = 3) +
+> >   ggplot2::coord_cartesian(xlim = c(-0.25, 2.25), ylim = c(0.75, 2.25))
+> > ```
+> >
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-5-1.png)](correlation-regression_files/figure-html/unnamed-chunk-5-1.png "Figure 2: The three points, the line with intercept 1 and slope 0.5, and the one nonzero residual (dashed)")
+> >
+> > Figure 2: The three points, the line with intercept 1 and slope 0.5, and the one nonzero residual (dashed)
 
 > **NOTE:**
 >
-> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [mean squared error](estimation.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\tilde{\theta})\\, and \\\text{RSS}(\tilde{\theta})\\ in terms of that mean squared error.
+> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [mean squared error](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\tilde{\theta})\\, and \\\text{RSS}(\tilde{\theta})\\ in terms of that mean squared error.
 
 > **NOTE:**
 >
-> *Solution 3*. First, each squared [prediction error](estimation.llms.md#def-prediction-error) equals the squared residual at \\\tilde{\theta}\\:
+> *Solution 3*. First, each squared [prediction error](prediction.llms.md#def-prediction-error) equals the squared residual at \\\tilde{\theta}\\:
 >
-> \\ \begin{aligned} e_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \tilde{\theta}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \tilde{\theta})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\tilde{\theta})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= r_i(\tilde{\theta})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
+> \\ \begin{aligned} \varepsilon_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \tilde{\theta}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \tilde{\theta})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\tilde{\theta})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= r_i(\tilde{\theta})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
 >
 > So the mean squared error is the residual sum of squares divided by \\n\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^ne_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\tilde{\theta})^2 && \text{(\$e_i^2 = r_i(\tilde{\theta})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\tilde{\theta}) && \text{(definition of RSS)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\tilde{\theta})^2 && \text{(\$\varepsilon_i^2 = r_i(\tilde{\theta})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\tilde{\theta}) && \text{(definition of RSS)} \end{aligned} \\
 >
 > Solving for \\\text{RSS}(\tilde{\theta})\\:
 >
@@ -328,7 +332,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, the [mean squared error](estimation.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \tilde{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
+> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, the [mean squared error](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \tilde{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\tilde{\theta}),\\
 >
@@ -354,49 +358,51 @@ hers |> head()
 >
 > **Example 5 (OLS estimates of a simple linear regression)** For a simple linear regression, the OLS estimates ([Definition 12](#def-ols)) \\\hat{\beta}\_{0}\\ and \\\hat{\beta}\_{x}\\ are the values of \\\beta\_{0}\\ and \\\beta\_{x}\\ that minimize \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). [Figure 3](#fig-rss-surface) shows \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss): the OLS estimates sit at the bottom of the bowl, and the line of [Example 4](#exm-rss) sits higher up.
 >
-> Show R code
->
-> ``` downlit
-> rss_grid <- expand.grid(
->   b0 = seq(0, 2.5, length.out = 101),
->   bx = seq(-0.5, 1.5, length.out = 101)
-> )
-> rss_grid$rss <- mapply(
->   function(b0, bx) sum((rss_points$y - b0 - bx * rss_points$x)^2),
->   rss_grid$b0,
->   rss_grid$bx
-> )
-> ols_coefs <- coef(lm(y ~ x, data = rss_points))
->
-> ggplot2::ggplot(rss_grid, ggplot2::aes(x = b0, y = bx, z = rss)) +
->   ggplot2::geom_contour(
->     ggplot2::aes(color = ggplot2::after_stat(level)),
->     breaks = c(0.25, 0.5, 1, 2, 4, 8)
->   ) +
->   ggplot2::annotate(
->     "point",
->     x = ols_coefs[[1]], y = ols_coefs[[2]], size = 3
->   ) +
->   ggplot2::annotate("point", x = 1, y = 0.5, shape = 4, size = 3) +
->   ggplot2::labs(
->     x = expression(beta[0]),
->     y = expression(beta[x]),
->     color = "RSS"
->   )
-> ```
->
-> Show R code
->
-> ``` downlit
->
-> ols_coefs
-> #> (Intercept)           x 
-> #>     1.16667     0.50000
-> ```
->
-> [![](correlation-regression_files/figure-html/unnamed-chunk-6-1.png)](correlation-regression_files/figure-html/unnamed-chunk-6-1.png "Figure 3: Contours of \text{RSS}(\beta_{0}, \beta_{x}) for the three points of Example 4. The dot marks the OLS estimates; the cross marks the line of Example 4.")
->
-> Figure 3: Contours of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss). The dot marks the OLS estimates; the cross marks the line of [Example 4](#exm-rss).
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > rss_grid <- expand.grid(
+> >   b0 = seq(0, 2.5, length.out = 101),
+> >   bx = seq(-0.5, 1.5, length.out = 101)
+> > )
+> > rss_grid$rss <- mapply(
+> >   function(b0, bx) sum((rss_points$y - b0 - bx * rss_points$x)^2),
+> >   rss_grid$b0,
+> >   rss_grid$bx
+> > )
+> > ols_coefs <- coef(lm(y ~ x, data = rss_points))
+> >
+> > ggplot2::ggplot(rss_grid, ggplot2::aes(x = b0, y = bx, z = rss)) +
+> >   ggplot2::geom_contour(
+> >     ggplot2::aes(color = ggplot2::after_stat(level)),
+> >     breaks = c(0.25, 0.5, 1, 2, 4, 8)
+> >   ) +
+> >   ggplot2::annotate(
+> >     "point",
+> >     x = ols_coefs[[1]], y = ols_coefs[[2]], size = 3
+> >   ) +
+> >   ggplot2::annotate("point", x = 1, y = 0.5, shape = 4, size = 3) +
+> >   ggplot2::labs(
+> >     x = expression(beta[0]),
+> >     y = expression(beta[x]),
+> >     color = "RSS"
+> >   )
+> > ```
+> >
+> > Show R code
+> >
+> > ``` downlit
+> >
+> > ols_coefs
+> > #> (Intercept)           x 
+> > #>     1.16667     0.50000
+> > ```
+> >
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-6-1.png)](correlation-regression_files/figure-html/unnamed-chunk-6-1.png "Figure 3: Contours of \text{RSS}(\beta_{0}, \beta_{x}) for the three points of Example 4. The dot marks the OLS estimates; the cross marks the line of Example 4.")
+> >
+> > Figure 3: Contours of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss). The dot marks the OLS estimates; the cross marks the line of [Example 4](#exm-rss).
 
 > **NOTE:**
 >
@@ -758,22 +764,24 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > [Figure 4](#fig-hers-slr) shows the data with the fitted line.
 >
-> Show R code
->
-> ``` downlit
-> ggplot2::ggplot(hers_bmi, ggplot2::aes(x = BMI, y = glucose)) +
->   ggplot2::geom_point(alpha = 0.2) +
->   ggplot2::geom_abline(
->     intercept = coef(slr_fit)[[1]],
->     slope = coef(slr_fit)[["BMI"]],
->     color = "firebrick"
->   ) +
->   ggplot2::labs(x = "BMI (kg/m^2)", y = "Fasting glucose (mg/dL)")
-> ```
->
-> [![](correlation-regression_files/figure-html/unnamed-chunk-9-1.png)](correlation-regression_files/figure-html/unnamed-chunk-9-1.png "Figure 4: Fasting glucose against BMI in HERS, with the OLS line")
->
-> Figure 4: Fasting glucose against BMI in HERS, with the OLS line
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > ggplot2::ggplot(hers_bmi, ggplot2::aes(x = BMI, y = glucose)) +
+> >   ggplot2::geom_point(alpha = 0.2) +
+> >   ggplot2::geom_abline(
+> >     intercept = coef(slr_fit)[[1]],
+> >     slope = coef(slr_fit)[["BMI"]],
+> >     color = "firebrick"
+> >   ) +
+> >   ggplot2::labs(x = "BMI (kg/m^2)", y = "Fasting glucose (mg/dL)")
+> > ```
+> >
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-9-1.png)](correlation-regression_files/figure-html/unnamed-chunk-9-1.png "Figure 4: Fasting glucose against BMI in HERS, with the OLS line")
+> >
+> > Figure 4: Fasting glucose against BMI in HERS, with the OLS line
 >
 > The estimated slope is \\\hat{\beta}\_{\text{BMI}} = 1.82\\ mg/dL per kg/m²: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m² higher. The t statistic for the slope equals the correlation test statistic of [Example 1](#exm-hers-cor).
 
@@ -807,7 +815,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Solution 16*. The [fitted values](estimation.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](estimation.llms.md#def-residual) is
+> *Solution 16*. The [fitted values](prediction.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](prediction.llms.md#def-residual) is
 >
 > \\ \begin{aligned} r_i &= y_i - \hat y_i && \text{(definition of a residual)}\\ &= y_i - \mathopen{}\left(\hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat y_i\$)}\\ &= y_i - \mathopen{}\left(\bar{y} - \hat{\beta}\_{x} \bar{x} + \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= y_i - \bar{y} + \hat{\beta}\_{x} \bar{x} - \hat{\beta}\_{x} x_i && \text{(distribute the minus sign)}\\ &= (y_i - \bar{y}) - \mathopen{}\left(\hat{\beta}\_{x} x_i - \hat{\beta}\_{x} \bar{x}\right)\mathclose{} && \text{(group terms)}\\ &= (y_i - \bar{y}) - \hat{\beta}\_{x} (x_i - \bar{x}) && \text{(factor out \$\hat{\beta}\_{x}\$)} \end{aligned} \\
 >

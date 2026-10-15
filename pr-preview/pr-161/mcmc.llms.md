@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:51:02 (PDT)
+Last modified: 2026-10-15 02:36:03 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -265,27 +265,29 @@ A chain started far from where the posterior puts its probability takes some ite
 >
 > **Example 8 (Burn-in for the Bernoulli sampler)** Continuing [Example 7](#exm-mh-bernoulli), we start two more chains at the extreme values \\0.05\\ and \\0.95\\. [Figure 1](#fig-mh-burnin) shows their first 200 iterations.
 >
-> Show R code
->
-> ``` downlit
-> set.seed(2)
-> chain_low <- mh_bernoulli(n_iter = 5000, r = 55, n = 91, pi_init = 0.05)
-> chain_high <- mh_bernoulli(n_iter = 5000, r = 55, n = 91, pi_init = 0.95)
-> shown <- 1:200
-> traces <- tibble::tibble(
->   iteration = rep(shown, times = 2),
->   pi = c(chain_low[shown], chain_high[shown]),
->   start = rep(c("0.05", "0.95"), each = length(shown))
-> )
-> ggplot2::ggplot(traces) +
->   ggplot2::aes(x = iteration, y = pi, colour = start) +
->   ggplot2::geom_line() +
->   ggplot2::labs(y = expression(pi), colour = "starting value")
-> ```
->
-> [![Two trace plots of pi against iteration. One chain starts at 0.05, the other at 0.95; both move to about 0.6 within a few dozen iterations and then fluctuate together between about 0.5 and 0.7.](mcmc_files/figure-html/unnamed-chunk-1-1.png)](mcmc_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Trace plots of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \pi= 0.05 and \pi= 0.95.")
->
-> Figure 1: [Trace plots](#def-trace-plot) of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \\\pi= 0.05\\ and \\\pi= 0.95\\.
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > set.seed(2)
+> > chain_low <- mh_bernoulli(n_iter = 5000, r = 55, n = 91, pi_init = 0.05)
+> > chain_high <- mh_bernoulli(n_iter = 5000, r = 55, n = 91, pi_init = 0.95)
+> > shown <- 1:200
+> > traces <- tibble::tibble(
+> >   iteration = rep(shown, times = 2),
+> >   pi = c(chain_low[shown], chain_high[shown]),
+> >   start = rep(c("0.05", "0.95"), each = length(shown))
+> > )
+> > ggplot2::ggplot(traces) +
+> >   ggplot2::aes(x = iteration, y = pi, colour = start) +
+> >   ggplot2::geom_line() +
+> >   ggplot2::labs(y = expression(pi), colour = "starting value")
+> > ```
+> >
+> > [![Two trace plots of pi against iteration. One chain starts at 0.05, the other at 0.95; both move to about 0.6 within a few dozen iterations and then fluctuate together between about 0.5 and 0.7.](mcmc_files/figure-html/unnamed-chunk-1-1.png)](mcmc_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Trace plots of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \pi= 0.05 and \pi= 0.95.")
+> >
+> > Figure 1: [Trace plots](#def-trace-plot) of the first 200 iterations of two Metropolis–Hastings chains for the Bernoulli model, started at \\\pi= 0.05\\ and \\\pi= 0.95\\.
 >
 > Both chains reach the region around \\0.6\\ within a few dozen iterations, and after that the two are indistinguishable, so discarding the first 500 iterations of each leaves a generous margin.
 

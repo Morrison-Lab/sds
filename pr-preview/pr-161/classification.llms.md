@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:51:02 (PDT)
+Last modified: 2026-10-15 02:36:03 (PDT)
 
 ## 1 Introduction
 
@@ -132,9 +132,9 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Theorem 1 (Probability of a positive test)** The probability \\\Pr(+)\\ that a diagnostic test is positive is:
+> **Theorem 1 (Probability of a positive test)** Let \\\text{sens}\\ be the [sensitivity](#def-sensitivity) of a diagnostic test, \\\text{spec}\\ its [specificity](#def-specificity), and \\\pi\\ the [prevalence](#def-prevalence) of the disease. Then the probability \\\Pr(+)\\ that the test is positive is:
 >
-> \\ \Pr(+) = \text{sensitivity} \cdot\text{prevalence} + \mathopen{}\left(1 - \text{specificity}\right)\mathclose{} \cdot\mathopen{}\left(1 - \text{prevalence}\right)\mathclose{} \tag{17}\\
+> \\ \Pr(+) = \text{sens} \cdot\pi + \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{} \tag{17}\\
 
 > **NOTE:**
 >
@@ -156,7 +156,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Theorem 2 (PPV from Bayes’ theorem)** Let \\\text{sens}\\ be the [sensitivity](#def-sensitivity) of a diagnostic test, \\\text{spec}\\ its [specificity](#def-specificity), and \\\pi\\ the [prevalence](#def-prevalence) of the disease. Then the [positive predictive value](#def-ppv) of the test is:
+> **Theorem 2 (PPV from Bayes’ theorem)** Let \\\text{sens}\\ be the [sensitivity](#def-sensitivity) of a diagnostic test, \\\text{spec}\\ its [specificity](#def-specificity), and \\\pi\\ the [prevalence](#def-prevalence) of the disease. If the probability of a positive test is positive, \\\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{} \> 0\\, then the [positive predictive value](#def-ppv) of the test is:
 >
 > \\ \text{PPV} = \frac{\text{sens} \cdot\pi} {\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}} \tag{19}\\
 

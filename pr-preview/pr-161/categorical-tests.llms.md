@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:51:02 (PDT)
+Last modified: 2026-10-15 02:36:03 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -25,24 +25,26 @@ hers |> head()
 >
 > **Example 1 (Exercise by treatment group in HERS)** [Table 1](#tbl-hers-crosstab) cross-tabulates regular exercise at baseline by treatment group, as a [contingency table](exploratory-descriptive.llms.md#def-contingency-table) with row percentages.
 >
-> Show R code
->
-> ``` downlit
-> hers |>
->   gtsummary::tbl_cross(
->     row = exercise,
->     col = HT,
->     label = list(
->       exercise ~ "Exercises regularly",
->       HT ~ "Treatment group"
->     ),
->     percent = "row"
->   )
-> ```
->
-> [TABLE]
->
-> Table 1: Exercise by treatment group in HERS
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > hers |>
+> >   gtsummary::tbl_cross(
+> >     row = exercise,
+> >     col = HT,
+> >     label = list(
+> >       exercise ~ "Exercises regularly",
+> >       HT ~ "Treatment group"
+> >     ),
+> >     percent = "row"
+> >   )
+> > ```
+> >
+> > [TABLE]
+> >
+> > Table 1: Exercise by treatment group in HERS
 
 ### 2.2 The chi-square test
 

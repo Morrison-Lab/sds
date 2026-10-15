@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:51:02 (PDT)
+Last modified: 2026-10-15 02:36:03 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -128,9 +128,11 @@ table(tumor_class = khan_pair$tumor_class)
 >   labs(x = "p-value", y = "Number of genes")
 > ```
 >
-> [![Histogram of 2308 p-values in bins of width 0.05. The first bin, from 0 to 0.05, is far taller than every other bin. The other bins are much lower: they decline from the second bin and level off toward a p-value of 1.](multiple-testing_files/figure-html/fig-khan-p-hist-1.png)](multiple-testing_files/figure-html/fig-khan-p-hist-1.png "Figure 1: Histogram of the 2308 Welch t-test p-values comparing tumor classes 2 and 4 in the Khan data.")
->
-> Figure 1: Histogram of the 2308 Welch t-test p-values comparing tumor classes 2 and 4 in the Khan data.
+> > **NOTE:**
+> >
+> > [![Histogram of 2308 p-values in bins of width 0.05. The first bin, from 0 to 0.05, is far taller than every other bin. The other bins are much lower: they decline from the second bin and level off toward a p-value of 1.](multiple-testing_files/figure-html/fig-khan-p-hist-1.png)](multiple-testing_files/figure-html/fig-khan-p-hist-1.png "Figure 1: Histogram of the 2308 Welch t-test p-values comparing tumor classes 2 and 4 in the Khan data.")
+> >
+> > Figure 1: Histogram of the 2308 Welch t-test p-values comparing tumor classes 2 and 4 in the Khan data.
 
 ## 3 Error rates for a family of tests
 
@@ -142,13 +144,15 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\R \stackrel{\text{def}}{=}V + S.\\
 >
-> |                       | Not rejected | Rejected |    Total    |
-> |:----------------------|:------------:|:--------:|:-----------:|
-> | Null hypothesis true  |    \\U\\     |  \\V\\   |   \\m_0\\   |
-> | Null hypothesis false |    \\T\\     |  \\S\\   | \\m - m_0\\ |
-> | Total                 |  \\m - R\\   |  \\R\\   |    \\m\\    |
->
-> Table 1: Outcomes of \\m\\ tests, of which \\m_0\\ have a true null hypothesis.
+> > **NOTE:**
+> >
+> > |                       | Not rejected | Rejected |    Total    |
+> > |:----------------------|:------------:|:--------:|:-----------:|
+> > | Null hypothesis true  |    \\U\\     |  \\V\\   |   \\m_0\\   |
+> > | Null hypothesis false |    \\T\\     |  \\S\\   | \\m - m_0\\ |
+> > | Total                 |  \\m - R\\   |  \\R\\   |    \\m\\    |
+> >
+> > Table 1: Outcomes of \\m\\ tests, of which \\m_0\\ have a true null hypothesis.
 
 > **NOTE:**
 >
