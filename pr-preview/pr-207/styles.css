@@ -1,0 +1,310 @@
+/* Custom styles for your Quarto book */
+
+/* Add your custom CSS here to override default styles */
+
+/* Example: Customize heading colors */
+/*
+h1 {
+  color: #2c3e50;
+}
+
+h2 {
+  color: #34495e;
+}
+*/
+
+/* Example: Add custom margin to paragraphs */
+/*
+p {
+  margin-bottom: 1.2em;
+}
+*/
+
+/* Example: Style code blocks */
+/*
+pre {
+  background-color: #f6f8fa;
+  border-radius: 6px;
+  padding: 16px;
+}
+*/
+
+/* Example: Customize callout boxes */
+/*
+.callout {
+  border-left: 4px solid #007bff;
+  padding-left: 1em;
+}
+*/
+
+/* PR Preview Feature Styles */
+
+/* Preview combined banner (replaces both file-level and content-level banners) */
+.preview-combined-banner {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.preview-combined-banner a {
+  color: #0066cc;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.preview-combined-banner a:hover {
+  color: #0052a3;
+}
+
+/* Dark mode support for combined banner */
+body.quarto-dark .preview-combined-banner {
+  background-color: #3d3d00;
+  border-left-color: #ffeb3b;
+  color: #ffd700;
+}
+
+body.quarto-dark .preview-combined-banner a {
+  color: #64b5f6;
+}
+
+body.quarto-dark .preview-combined-banner a:hover {
+  color: #90caf9;
+}
+
+/* Legacy banner styles (kept for backward compatibility) */
+.preview-changed-banner {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Dark mode support for legacy preview banner */
+body.quarto-dark .preview-changed-banner {
+  background-color: #3d3d00;
+  border-left-color: #ffeb3b;
+  color: #ffd700;
+}
+
+.preview-content-changed-notice {
+  background-color: #e7f3ff;
+  border-left: 4px solid #2196F3;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Dark mode support for content change notice */
+body.quarto-dark .preview-content-changed-notice {
+  background-color: #1a3a52;
+  border-left-color: #64b5f6;
+  color: #90caf9;
+}
+
+/* Inline text highlighting for changed content */
+mark.preview-text-changed {
+  background-color: #ffeb3b;
+  border-bottom: 2px solid #ffc107;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+mark.preview-text-added {
+  background-color: #a5d6a7;
+  border-bottom: 2px solid #66bb6a;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+mark.preview-element-added {
+  background-color: #bbdefb;
+  border-left: 4px solid #42a5f5;
+  padding-left: 8px;
+  display: inline;
+  font-weight: 500;
+}
+
+/* Dark mode support for inline highlights */
+body.quarto-dark mark.preview-text-changed {
+  background-color: #fdd835;
+  border-bottom-color: #fbc02d;
+  color: #000;
+}
+
+body.quarto-dark mark.preview-text-added {
+  background-color: #66bb6a;
+  border-bottom-color: #43a047;
+  color: #000;
+}
+
+body.quarto-dark mark.preview-element-added {
+  background-color: #42a5f5;
+  border-left-color: #1e88e5;
+  color: #000;
+}
+
+/* Table of contents highlighting for changed chapters */
+a.preview-toc-changed {
+  background-color: #fff3cd;
+  border-left: 3px solid #ffc107;
+  padding-left: 4px;
+  font-weight: 600;
+}
+
+/* Dark mode support for TOC highlighting */
+body.quarto-dark a.preview-toc-changed {
+  background-color: #3d3d00;
+  border-left-color: #ffeb3b;
+  color: #ffd700;
+}
+
+/* Home page banner for changed chapters */
+.preview-home-changes-banner {
+  background-color: #e3f2fd;
+  border-left: 4px solid #2196F3;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.preview-home-changes-banner a {
+  color: #1976d2;
+  text-decoration: underline;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.preview-home-changes-banner a:hover {
+  color: #0d47a1;
+}
+
+/* Dark mode support for home banner */
+body.quarto-dark .preview-home-changes-banner {
+  background-color: #0d47a1;
+  border-left-color: #64b5f6;
+  color: #e3f2fd;
+}
+
+body.quarto-dark .preview-home-changes-banner a {
+  color: #90caf9;
+}
+
+body.quarto-dark .preview-home-changes-banner a:hover {
+  color: #bbdefb;
+}
+
+/* Quarto's secondary grey is too dim on the dark page. */
+body.quarto-dark .code-tools-button,
+body.quarto-dark details > summary,
+body.quarto-dark .breadcrumb-item.active,
+body.quarto-dark .breadcrumb-item.active a {
+  color: #adb5bd;
+}
+
+/* Inline code styling for dark mode */
+body.quarto-dark code:not(pre > code) {
+  background-color: #404040;
+  color: #e6e6e6;
+}
+
+.equation-anchor-target {
+  --equation-anchor-offset: 1.2rem;
+  position: relative;
+  display: block;
+}
+
+.equation-anchor {
+  position: absolute;
+  right: calc(-1 * var(--equation-anchor-offset));
+  top: 50%;
+  transform: translateY(-50%);
+  text-decoration: none;
+  opacity: 0.7;
+  font-size: 0.9em;
+}
+
+.equation-anchor:hover {
+  opacity: 1;
+}
+
+/* Number the lines of every code block, so a line can be named in class.
+   Quarto's own `code-line-numbers: true` would do this, but downlit cannot link
+   R functions to their documentation (`code-link`) in a numbered block, so the
+   numbers are drawn here instead, from the one <span> Quarto writes per line.
+   The ::before text is not part of the code, so copying a block leaves it out.
+   Slide decks number their lines themselves (`pre.number-lines`). */
+pre.sourceCode:not(.number-lines) > code {
+  counter-reset: code-line;
+}
+
+pre.sourceCode:not(.number-lines) > code > span {
+  counter-increment: code-line;
+}
+
+pre.sourceCode:not(.number-lines) > code > span::before {
+  content: counter(code-line);
+  /* Empty alternative text: screen readers skip the number. Browsers that
+     do not know this syntax drop the line and keep the one above. */
+  content: counter(code-line) / "";
+  display: inline-block;
+  width: 2em;
+  margin-right: 1em;
+  text-align: right;
+  text-indent: 0;
+  opacity: 0.5;
+  user-select: none;
+}
+
+/* Land a link target in the upper-middle of the view, not flush against the
+   fixed navbar, where it looks missed. scroll-margin-top applies to every
+   in-page jump and to the scrollIntoView() in anchor-landing.html. */
+:target,
+:is(h1, h2, h3, h4, h5, h6, div, section, figure, table, span)[id] {
+  scroll-margin-top: 30vh;
+}
+
+/* A table is only as wide as its content needs, up to the column, instead of
+ * stretching to the full column width. Bootstrap sets `.table { width: 100% }`,
+ * which spread a short table across the page. `fit-content` gives a table its
+ * natural width when that fits the column and the column's width when it does
+ * not, so cells wrap only when they must. A table narrower than the column is
+ * centred. A table whose narrowest layout still overflows scrolls inside its own
+ * box instead of widening the page, at every screen width.
+ *
+ * The rules apply on screen only: a block table loses its repeating header rows
+ * in print, so print keeps the real table. A `<col>` width, such as one from
+ * `tbl-colwidths`, is left alone. A block table can also lose its table role in
+ * some browsers, so `table-roles.html` restores it. The caption stays a real
+ * table caption, so `caption-side` still works and the rows fill the table when
+ * the caption is the widest part. The caption takes its natural width, up to no
+ * wider than a comfortable line, so a long caption does not stretch a narrow
+ * table across the whole column. The cap uses the viewport, not a percentage: a
+ * percentage `max-width` on the caption is cyclic while the table is being
+ * sized, and stretched the table to the full column. `100vw - 6rem` keeps the
+ * caption inside the column on a phone, callouts included. The pagedtable
+ * widget (`df-print: paged`) sizes its own table to fill its box, so the
+ * rules leave that table alone. */
+@media screen {
+  main table:not(.pagedtable table),
+  main table.table:not(.pagedtable table) {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow-x: auto;
+  }
+
+  main table:not(.pagedtable table) > caption {
+    width: max-content;
+    max-width: min(24em, calc(100vw - 6rem));
+  }
+}
