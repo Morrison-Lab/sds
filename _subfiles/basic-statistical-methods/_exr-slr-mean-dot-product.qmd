@@ -1,11 +1,10 @@
 :::{#exr-slr-mean-dot-product}
-#### Mean as a dot product
+#### The conditional mean and the covariate vector
 
-Show that in simple linear regression (@def-slr),
-the conditional mean $\mean(x_i)$ is the dot product
+In simple linear regression (@def-slr),
+express the conditional mean $\mean(x_i)$ as a dot product
 of the covariate vector $\vxi$ (@def-slr-covariate-vector)
-and the coefficient vector $\vcoef = \tp{\paren{\intcoef, \coef{x}}}$ (@exm-normal-equations-slr):
-$\mean(x_i) = \dprod{\vxi}{\vcoef}$.
+and the coefficient vector $\vcoef = \tp{\paren{\intcoef, \coef{x}}}$ (@exm-normal-equations-slr).
 :::
 
 {{< slidebreak >}}

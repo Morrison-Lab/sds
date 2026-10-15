@@ -1,0 +1,13 @@
+::: {#lem-sxx-expand}
+#### Expanded centered sum of squares
+
+The centered sum of squares $S_{xx}$ (@def-centered-sums) equals
+
+$$S_{xx} = \sumin x_i^2 - n \bar{x}^2.$$
+:::
+
+::: proof
+
+This is the solution to @exr-sxx-expand.
+
+:::

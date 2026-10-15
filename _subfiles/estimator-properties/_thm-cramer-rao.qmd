@@ -1,0 +1,51 @@
+:::{#thm-cramer-rao}
+#### Cramér--Rao lower bound
+
+Under the assumptions of @exr-cov-estimator-score,
+suppose the [expected information](intro-MLEs.qmd#def-einf) satisfies $0 < \einf(\param) < \infty$.
+Then every unbiased estimator $\hparam$ of $\param$ has variance at least
+the reciprocal of the expected information:
+
+$$
+\Var{\hparam} \ge \frac{1}{\einf(\param)}
+$$ {#eq-cramer-rao}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@rao1945information; @cramer1946mathematical;
+@CaseBerg01 [Thm. 7.3.9, p. 335].
+:::
+
+:::
+
+::: proof
+
+The score has variance $\einf(\param) > 0$ by [the theorem on the mean and variance of the score](intro-MLEs.qmd#thm-information-equality),
+and $\Covs{\hparam}{\score} = 1$ by @lem-cov-estimator-score.
+A constant has covariance zero with every random variable,
+so $\Var{\hparam} > 0$.
+The [correlation](https://morrison-lab.github.io/pds/variance-covariance.html#def-correlation)
+of $\hparam$ and the score is therefore defined,
+and by [its bounds](https://morrison-lab.github.io/pds/variance-covariance.html#thm-cor-bounds)
+its square is at most 1:
+
+$$
+\begin{aligned}
+1
+&\ge \sqf{\Cors{\hparam}{\score}}
+&& \text{(correlation lies in $[-1, 1]$)}\\
+&= \frac{\sqf{\Covs{\hparam}{\score}}}{\Var{\hparam}\,\Var{\score}}
+&& \text{(definition of correlation, squared)}\\
+&= \frac{1^2}{\Var{\hparam}\,\einf(\param)}
+&& \text{(covariance is 1; the score has variance $\einf(\param)$)}\\
+&= \frac{1}{\Var{\hparam}\,\einf(\param)}
+&& \text{($1^2 = 1$)}
+\end{aligned}
+$$
+
+Multiplying both sides by $\Var{\hparam}$ and dividing by $\einf(\param)$,
+both positive, gives @eq-cramer-rao.
+
+:::
+
