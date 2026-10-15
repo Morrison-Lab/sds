@@ -45,10 +45,10 @@ $$
 $$
 
 For the cross term,
-$\noise$ is independent of $\fitproc\paren{\predvar; \trainset}$,
-because $\newoutvar$ is independent of $\trainset$,
-and $\mean(\predvar)$ is a constant,
-so $\noise$ is independent of $\mean(\predvar) - \fitproc\paren{\predvar; \trainset}$.
+$\noise = \newoutvar - \mean(\predvar)$ shifts $\newoutvar$ by a constant,
+and $\newoutvar$ is independent of $\trainset$,
+so $\noise$ is independent of $\trainset$,
+and hence of $\fitproc\paren{\predvar; \trainset}$ and of $\mean(\predvar) - \fitproc\paren{\predvar; \trainset}$.
 The expectation of a product of independent random variables is the product of their expectations:
 
 $$
