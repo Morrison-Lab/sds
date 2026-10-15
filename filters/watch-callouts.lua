@@ -19,7 +19,11 @@ local function slug(text)
   local s = pandoc.text.lower(text):gsub('[^%w]+', '-'):gsub('^-+', ''):gsub('-+$', '')
   -- Keep ids short enough to read in a URL, cut at a word boundary.
   if #s > 50 then
-    s = s:sub(1, 50):gsub('-[^-]*$', '')
+    if s:sub(51, 51) == '-' then
+      s = s:sub(1, 50)
+    else
+      s = s:sub(1, 50):gsub('-[^-]*$', '')
+    end
   end
   return s
 end
