@@ -1,0 +1,22 @@
+::: {#def-deviance}
+
+#### Deviance
+
+The **deviance** of a fitted logistic regression with labels $\outvar_i \in \set{0, 1}$ is minus twice its maximized log-likelihood:
+
+$$
+\deviance \eqdef -2 \, \llikf{\hvcoef}
+= -2 \sumin \cb{\outvar_i \ln \hat\prob_i + \paren{1 - \outvar_i} \ln\paren{1 - \hat\prob_i}},
+$$ {#eq-deviance}
+
+where $\hat\prob_i = \sigmoidf{\dprod{\hvcoef}{\vpredvar_i}}$ is the fitted probability.
+
+:::
+
+::: {.callout-note appearance="simple" collapse=true}
+## Source
+
+@nelder1972generalized introduced the deviance for the whole family of generalized linear models;
+logistic regression is the case of Bernoulli outcomes with the logit link.
+@hastie2009elements [Section 4.4.2] defines the residual deviance of a fitted logistic regression as minus twice its log-likelihood.
+:::

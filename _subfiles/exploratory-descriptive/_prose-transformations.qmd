@@ -33,16 +33,20 @@ Raw scale
 ```{r}
 wcgs |>
   ggplot2::ggplot() +
-  ggplot2::aes(x = lnsbp) +
+  ggplot2::aes(x = sbp) +
   ggplot2::geom_histogram(bins = 30, fill = "coral", color = "white") +
-  ggplot2::labs(x = "log(Systolic BP)", y = "Count")
+  ggplot2::scale_x_log10(breaks = c(100, 140, 200, 250)) +
+  ggplot2::labs(x = "Systolic BP (mmHg), log scale", y = "Count")
 ```
 
 Log scale
 
 :::
 
-Distribution of systolic blood pressure in the WCGS, on two scales
+Distribution of systolic blood pressure in the WCGS, on two scales.
+Both panels label the axis in mmHg;
+the right panel spaces the values logarithmically,
+so its histogram is the histogram of `lnsbp`.
 
 :::
 

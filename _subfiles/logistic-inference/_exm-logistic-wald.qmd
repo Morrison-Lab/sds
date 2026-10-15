@@ -1,0 +1,23 @@
+::: {#exm-logistic-wald}
+
+#### A Wald interval from six patients
+
+For the fit of @exm-logistic-regression, `vcov` returns $\inv{\tp{X} \hat W X}$.
+
+```{r}
+#| code-fold: false
+# standard errors: square roots of the diagonal of (X'WX)^-1
+wf_se <- sqrt(diag(vcov(wf_fit)))
+wf_slope <- coef(wf_fit)[["wf_x"]]
+# 95% Wald interval for the slope
+wf_ci <- wf_slope + c(-1, 1) * qnorm(0.975) * wf_se[["wf_x"]]
+wf_summary <- c(
+  slope = wf_slope, se = wf_se[["wf_x"]], lower = wf_ci[1], upper = wf_ci[2]
+)
+round(wf_summary, 3)
+```
+
+The interval for $\coef{1}$ is $(`r round(wf_ci[1], 2)`, `r round(wf_ci[2], 2)`)$.
+It contains $0$, consistent with the test of @exm-deviance-drop-distribution.
+
+:::

@@ -1,0 +1,16 @@
+::: {#exm-deviance-drop}
+
+#### The likelihood ratio statistic of the treatment effect
+
+In the six-patient trial, $q = 1$.
+
+```{r}
+#| code-fold: false
+# drop in deviance, the likelihood ratio statistic
+wf_g2 <- wf_fit$null.deviance - deviance(wf_fit)
+wf_g2
+```
+
+The statistic is $`r round(wf_g2, 3)`$.
+
+:::

@@ -1,0 +1,13 @@
+::: {#cor-logistic-wald}
+
+#### Wald interval for a logistic coefficient
+
+Let $\hat W$ be $W$ with each $\prob_i$ replaced by its fitted value.
+The estimated standard error of $\hcoef{j}$ is the square root of the diagonal entry of $\inv{\tp{X} \hat W X}$ in the row and column of $\coef{j}$; because $\coef{0}$ comes first, that is the $(j+1)$th diagonal entry counting from $1$,
+and a [Wald confidence interval](intro-MLEs.qmd#def-wald-ci) with level $1 - \siglevel$ for $\coef{j}$ is
+
+$$
+\hcoef{j} \pm z_{1 - \siglevel/2} \, \hse{\hcoef{j}}.
+$$
+
+:::
