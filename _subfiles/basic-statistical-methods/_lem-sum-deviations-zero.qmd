@@ -1,0 +1,14 @@
+::: {#lem-sum-deviations-zero}
+#### Deviations from the mean sum to zero
+
+For any data $z_1, \ldots, z_n$ with mean $\bar{z}$
+(for example, the $x_i$ or the $y_i$), the deviations from the mean sum to zero:
+
+$$\sumin (z_i - \bar{z}) = 0.$$
+:::
+
+::: proof
+
+This is the solution to @exr-sum-deviations-zero.
+
+:::
