@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 14:34:20 (PDT)
+Last modified: 2026-10-15 15:04:33 (PDT)
 
 ## 1 Introduction
 
@@ -726,7 +726,7 @@ The WCGS dataset already contains log-transformed versions of two variables:
 >   ggplot2::ggplot() +
 >   ggplot2::aes(x = sbp) +
 >   ggplot2::geom_histogram(bins = 30, fill = "coral", color = "white") +
->   ggplot2::scale_x_log10(breaks = c(100, 140, 200, 250)) +
+>   ggplot2::scale_x_log10(breaks = c(100, 140, 200)) +
 >   ggplot2::labs(x = "Systolic BP (mmHg), log scale", y = "Count")
 > ```
 >
