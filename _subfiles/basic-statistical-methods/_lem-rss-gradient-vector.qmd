@@ -1,0 +1,14 @@
+::: {#lem-rss-gradient-vector}
+#### Gradient of RSS in vector notation
+
+The gradient of the residual sum of squares in vector notation (@exm-rss-vector) is
+
+$$\deriv{\vcoef} \text{RSS}(\vcoef)
+= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}.$$
+:::
+
+::: proof
+
+This is the solution to @exr-rss-gradient-vector.
+
+:::

@@ -1,0 +1,20 @@
+:::{#lem-wilks-std-gaussian}
+#### Standardizing an approximately Gaussian estimate
+
+Suppose the MLE $\hthml$ is approximately Gaussian with mean $\param_0$
+and variance $\einf(\param_0)^{-1}$,
+the inverse of the [expected information](#def-einf):
+$\hthml \dsim \ndist{\param_0, \einf(\param_0)^{-1}}$.
+Define $Z \eqdef \sqrt{\einf(\param_0)}\,(\hthml - \param_0)$.
+Then $Z$ is approximately standard Gaussian,
+so $Z^2$ is approximately $\chi^2_1$:
+
+$$Z^2 \dsim \chi^2_1$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-wilks-std-gaussian, worked in @sol-wilks-std-gaussian.
+
+:::

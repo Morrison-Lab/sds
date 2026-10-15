@@ -1,0 +1,20 @@
+:::{#lem-wilks-lrt-quadratic}
+#### Likelihood ratio statistic for a point null hypothesis
+
+Under the conditions of @lem-wilks-taylor,
+consider the point null hypothesis $H_0: \param = \param_0$,
+which imposes $q = 1$ constraint.
+Then the [likelihood ratio statistic](#def-lrt-stat) $\lrstat$ is approximately
+the [observed information](#def-oinf) $\oinf(\hthml)$ at the MLE $\hthml$
+times the squared distance from the MLE to $\param_0$:
+
+$$\lrstat \approx \oinf(\hthml)(\hthml - \param_0)^2$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-wilks-lrt-quadratic, worked in @sol-wilks-lrt-quadratic.
+It builds on @lem-wilks-taylor.
+
+:::

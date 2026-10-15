@@ -1,0 +1,23 @@
+:::{#def-consistent}
+#### Consistent estimator
+
+Let $\hparam_n$ be an estimator of $\param$ computed from $n$ observations.
+The estimator is **consistent** if, for every distance $\varepsilon > 0$,
+the probability that it lands at least $\varepsilon$ away from $\param$
+goes to zero as the sample size grows:
+
+$$
+\lim_{n \to \infty} \Prf{\abs{\hparam_n - \param} \ge \varepsilon} = 0
+$$ {#eq-consistent}
+
+In words, $\hparam_n$
+[converges in probability](https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability)
+to $\param$, which we write $\hparam_n \inprob \param$.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@CaseBerg01 [Def. 10.1.1].
+:::
+
+:::
