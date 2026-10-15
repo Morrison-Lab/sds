@@ -1,0 +1,83 @@
+<script>
+// Language dropdown: picks which tab is open in every code tabset that uses
+// group="language" (R, Python, ...). Quarto already syncs those tabs on a page
+// and keeps the last click under "quarto-persistent-tabsets-data"; this control
+// writes that same entry and clicks a matching tab, so the choice follows the
+// reader to every page and also survives a reload. "Page default" clears it,
+// which leaves each tabset on its first tab. The control is added only to a
+// page that has a language tabset. Copied from lds.
+(function () {
+  var STORE = "quarto-persistent-tabsets-data";
+  var GROUP = "language";
+  function read() {
+    try { return JSON.parse(localStorage.getItem(STORE) || "{}") || {}; } catch (e) { return {}; }
+  }
+  function write(data) {
+    try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
+  }
+  function tabs() {
+    return Array.prototype.slice.call(
+      document.querySelectorAll("div[data-group='" + GROUP + "'] a[id^='tabset-']"));
+  }
+  function labels(all) {
+    var seen = [];
+    all.forEach(function (t) {
+      var v = t.innerHTML;
+      if (seen.indexOf(v) < 0) seen.push(v);
+    });
+    return seen;
+  }
+  function mark(wrap, choice) {
+    wrap.querySelector(".language-picker-label").textContent = choice || "Default";
+    wrap.querySelectorAll("[data-language-choice]").forEach(function (b) {
+      var on = (b.getAttribute("data-language-choice") || null) === choice;
+      b.classList.toggle("active", on);
+      b.setAttribute("aria-checked", on ? "true" : "false");
+    });
+  }
+  function choose(wrap, choice) {
+    var data = read();
+    if (choice) { data[GROUP] = choice; } else { delete data[GROUP]; }
+    write(data);
+    var all = tabs();
+    if (choice) {
+      // A click runs Quarto's own handler, which syncs every tabset in the group.
+      var hit = all.filter(function (t) { return t.innerHTML === choice; })[0];
+      if (hit) hit.click();
+    } else {
+      // Back to each tabset's first tab.
+      all.forEach(function (t) {
+        var list = t.closest(".panel-tabset").querySelector("ul.nav-tabs");
+        var first = list && list.querySelector("a[id^='tabset-']");
+        if (first && !first.classList.contains("active")) first.click();
+      });
+      // Clicking stored the first tab's label, so clear the entry again.
+      var d = read();
+      delete d[GROUP];
+      write(d);
+    }
+    mark(wrap, choice);
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    var all = tabs();
+    if (!all.length) return;
+    var anchor = document.querySelector(".theme-picker") ||
+      document.querySelector(".quarto-color-scheme-toggle");
+    if (!anchor) return;
+    var wrap = document.createElement("div");
+    wrap.className = "language-picker dropdown";
+    wrap.innerHTML =
+      '<button type="button" class="nav-link dropdown-toggle px-1 border-0 bg-transparent" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Code language"><i class="bi bi-code-slash"></i> <span class="language-picker-label"></span></button>' +
+      '<ul class="dropdown-menu dropdown-menu-end" role="menu">' +
+      [""].concat(labels(all)).map(function (v) {
+        return '<li role="none"><button type="button" class="dropdown-item" role="menuitemradio" aria-checked="false" data-language-choice="' + v + '">' + (v || "Page default") + "</button></li>";
+      }).join("") + "</ul>";
+    anchor.parentNode.insertBefore(wrap, anchor);
+    wrap.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-language-choice]");
+      if (b) choose(wrap, b.getAttribute("data-language-choice") || null);
+    });
+    mark(wrap, read()[GROUP] || null);
+  });
+})();
+</script>
