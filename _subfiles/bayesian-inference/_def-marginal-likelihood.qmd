@@ -1,5 +1,5 @@
 ::: {#def-marginal-likelihood}
-#### Marginal likelihood
+#### Marginal likelihood (evidence)
 
 Given a prior $\p(\param)$
 and a model $\p(\vy \mid \param)$ for the data given $\param$,

@@ -1,0 +1,18 @@
+:::{#thm-exp-score}
+#### Score function of an exponential variable
+
+Let $X$ be an exponential random variable with mean $\pmean$ and observed value $x > 0$.
+The [score](#def-score) $\score$ of the single observation $x$
+is the derivative of its log-likelihood $\loglik$ with respect to $\pmean$.
+It equals the deviation of $x$ from the mean $\E{X}$,
+divided by the variance $\Var{X}$:
+
+$$\score = \frac{x - \E{X}}{\Var{X}} = \frac{x - \pmean}{\pmean^2}$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-exp-score-fn, worked in @sol-exp-score-fn.
+
+:::

@@ -37,7 +37,9 @@ Inference:
 - [Maximum likelihood inference](intro-MLEs.qmd):
   likelihood, score, information, the asymptotic distribution of MLEs,
   Wald and likelihood ratio tests, and Newton-Raphson,
-  with worked examples.
+  with worked examples;
+- [Properties of estimators](estimator-properties.qmd):
+  consistency, relative efficiency, and the Cramér--Rao lower bound.
 
 Methods:
 

@@ -11,7 +11,7 @@ whatever the dependence between the p-values.
 
 ::: proof
 
-The first line below is @def-fwer, and the second is @sol-bonferroni-fwer.
+The first line below is @def-fwer, and the second is @lem-bonferroni-false-positive-prob.
 
 $$
 \begin{aligned}

@@ -2,10 +2,10 @@
 
 $\text{RSS}$ is differentiable,
 so any point that minimizes it solves the [normal equations](#def-normal-equations).
-By @exr-solve-normal-equations,
+By @lem-solve-normal-equations,
 the normal equations have exactly one solution,
 $\coef{x} = S_{xy} / S_{xx}$ and $\intcoef = \bar{y} - \coef{x} \bar{x}$.
-By @exr-rss-hessian,
+By @lem-rss-hessian,
 the matrix of second derivatives of $\text{RSS}$ is positive definite at every point,
 so $\text{RSS}$ is strictly convex
 and its only stationary point is its unique global minimum.

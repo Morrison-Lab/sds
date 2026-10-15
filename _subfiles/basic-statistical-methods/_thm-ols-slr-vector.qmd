@@ -18,13 +18,13 @@ Its entries are the estimates of @thm-ols-slr.
 
 $\text{RSS}$ is differentiable,
 so any point that minimizes it solves the [normal equations](#def-normal-equations).
-By @exr-normal-equations-vector,
+By @lem-normal-equations-vector,
 the normal equations are $A \vcoef = \v{c}$.
-By @exr-solve-normal-equations-vector,
+By @lem-solve-normal-equations-vector,
 $A$ is invertible,
 so their only solution is $A^{-1} \v{c}$,
 whose entries are those of @thm-ols-slr.
-By @exr-rss-hessian-vector,
+By @lem-rss-hessian-vector,
 the Hessian of $\text{RSS}$ is positive definite at every $\vcoef$,
 so $\text{RSS}$ is strictly convex
 and $A^{-1} \v{c}$ is its unique global minimum.

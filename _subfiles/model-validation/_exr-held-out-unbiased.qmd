@@ -1,5 +1,5 @@
 :::{#exr-held-out-unbiased}
-#### A held-out set estimates the generalization error
+#### Held-out predictions and the generalization error
 
 A [prediction rule](#def-prediction-rule) $\fitted$
 is fitted to a [training set](#def-training-set) $\trainset$.
@@ -9,13 +9,13 @@ is drawn from the same population as the new observation $(\newpredvar, \newoutv
 of @def-generalization-error,
 each independently of $\trainset$.
 
-Show that, given $\trainset$,
+Find, given $\trainset$,
 the expected [mean squared error](prediction.qmd#def-prediction-mse)
-of the held-out predictions is $\generr_{\trainset}$:
+of the held-out predictions,
+in terms of the generalization error $\generr_{\trainset}$:
 
 $$
-\E{\frac{1}{\nheld} \sumto{\ifold}{\nheld} \sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}
-= \generr_{\trainset}.
+\E{\frac{1}{\nheld} \sumto{\ifold}{\nheld} \sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}.
 $$
 
 :::

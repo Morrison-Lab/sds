@@ -32,7 +32,15 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/prediction/_rem-why-cond-mean.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/prediction/_def-fitted-value.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/prediction/_rem-fitted-value-cond-mean.qmd >}}
 
 {{< slidebreak >}}
 

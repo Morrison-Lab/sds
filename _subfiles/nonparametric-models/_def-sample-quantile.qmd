@@ -1,5 +1,5 @@
 :::{#def-sample-quantile}
-#### Sample quantile function
+#### Sample quantile function (empirical quantile function)
 
 Given an [empirical CDF](#def-empirical-cdf) $\hat F$,
 the **sample quantile function**

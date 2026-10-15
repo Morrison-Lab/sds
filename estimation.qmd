@@ -157,11 +157,23 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_thm-sq-bias-expand.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_exr-bias-sq-plus-var.qmd >}}
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_thm-bias-sq-plus-var.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_exr-mse-expand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_thm-mse-expand.qmd >}}
 
 {{< slidebreak >}}
 

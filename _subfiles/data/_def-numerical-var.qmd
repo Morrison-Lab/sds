@@ -1,5 +1,5 @@
 ::: {#def-numerical-var}
-#### Numerical variable
+#### Numerical variable (quantitative variable)
 
 A **numerical** (or **quantitative**) variable is a variable that takes
 values on a numeric scale,
