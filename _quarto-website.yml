@@ -253,7 +253,9 @@ format:
       light: [cosmo, offwhite.scss]
       dark: darkly
     # Replaces Quarto's two-way toggle with a Light / Off-white / Parchment / Dark dropdown.
-    include-in-header: theme-picker.html
+    include-in-header:
+      - theme-picker.html
+      - language-picker.html
     include-after-body:
       - anchor-landing.html
       - table-roles.html
