@@ -4,7 +4,8 @@
 For observed values $\dsn{x}$,
 the **empirical distribution** is the distribution of a value
 [chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice)
-from the sample, each of the $n$ observations being equally likely:
+from the sample,
+each of the $n$ observations being equally likely:
 the probability that the value falls in a set $A$ is
 
 $$\frac{1}{n}\sumjn \indicp{x_j \in A}.$$
@@ -29,18 +30,22 @@ and any set containing none of them has probability $0$.
 "Empirical" means computed from the observed data,
 not from a model or a population.
 An empirical quantity is the matching population quantity
-with the [population distribution](exploratory-descriptive.qmd#def-population-distribution)
+with the
+[population distribution](exploratory-descriptive.qmd#def-population-distribution)
 replaced by the empirical distribution.
-For example, the mean of the empirical distribution is the
+For example,
+the mean of the empirical distribution is the
 [sample mean](exploratory-descriptive.qmd#def-sample-mean),
 and its CDF is the [empirical CDF](#def-empirical-cdf).
 Machine learning uses the same replacement
 to turn the risk of a prediction model into its *empirical risk*.
 
-Because it needs only the data in hand, an empirical quantity can always be computed,
+Because it needs only the data in hand,
+an empirical quantity can always be computed,
 and it serves as an estimate of the population quantity it mimics.
 The bootstrap rests on this replacement:
-it estimates the variability of a statistic by sampling from the empirical distribution
+it estimates the variability of a statistic
+by sampling from the empirical distribution
 [@hastie2009elements, section 7.11, p. 250; @efron1993introduction].
 
 :::
