@@ -6,7 +6,7 @@ estimation,CaseBerg01,"Sec. 7.2, pp. 312--329",Methods of finding estimators
 estimation,CaseBerg01,"Sec. 7.3.1, pp. 330--333",Mean squared error
 estimator-properties,hoggtanis2015,"Sec. 6.6, pp. 285--289",Asymptotic distributions of maximum likelihood estimators
 estimator-properties,CaseBerg01,"Sec. 7.3.2, pp. 334--341",Best unbiased estimators and the Cramér--Rao bound
-estimator-properties,CaseBerg01,"Sec. 10.1, pp. 467--480",Consistency and efficiency
+estimator-properties,CaseBerg01,"Sec. 10.1, pp. 467--480","Point estimation: consistency, efficiency and bootstrap standard errors"
 intro-MLEs,hoggtanis2015,"Sec. 6.4, pp. 264--276",Maximum likelihood and method of moments estimation
 intro-MLEs,hoggtanis2015,"Sec. 6.6, pp. 285--289",Asymptotic distributions of maximum likelihood estimators
 intro-MLEs,CaseBerg01,"Sec. 7.2.2, pp. 315--323",Maximum likelihood estimators
@@ -33,8 +33,8 @@ nonparametric-models,hoggtanis2015,"Sec. 6.3, pp. 256--263",Order statistics
 nonparametric-models,hoggtanis2015,"Sec. 7.5, pp. 337--343",Distribution-free confidence intervals for percentiles
 nonparametric-models,hoggtanis2015,"Sec. 8.5, pp. 392--402",Some distribution-free tests
 nonparametric-models,CaseBerg01,"Sec. 5.4, pp. 226--231",Order statistics
-permutation-tests,hoggtanis2015,"Sec. 8.5, pp. 392--402",Some distribution-free tests
 permutation-tests,hoggtanis2015,"Sec. 7.7, pp. 353--360",Resampling methods
+permutation-tests,hoggtanis2015,"Sec. 8.5, pp. 392--402",Some distribution-free tests
 bootstrap,hoggtanis2015,"Sec. 7.7, pp. 353--360",Resampling methods
 bootstrap,CaseBerg01,"Sec. 10.1.4, pp. 478--480",Bootstrap standard errors
 bayesian-inference,hoggtanis2015,"Sec. 6.8, pp. 298--306",Bayesian estimation

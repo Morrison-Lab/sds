@@ -12,7 +12,7 @@ textbook_refs <- read.csv(
   fileEncoding = "UTF-8"
 )
 # Quarto hands knitr an intermediate file such as "estimation.rmarkdown".
-this_page <- sub("\\..*$", "", basename(knitr::current_input()))
+this_page <- tools::file_path_sans_ext(basename(knitr::current_input()))
 page_refs <- textbook_refs[textbook_refs$page == this_page, ]
 
 if (nrow(page_refs) > 0) {
