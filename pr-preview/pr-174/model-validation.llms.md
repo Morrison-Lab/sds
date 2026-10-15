@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 23:16:26 (PDT)
+Last modified: 2026-10-14 23:56:10 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -301,7 +301,7 @@ Last modified: 2026-10-14 23:16:26 (PDT)
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\varepsilon^2\right\]\mathclose{} &= \sigma^2+ \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\varepsilon\right\]\mathclose{}\right)^2\mathclose{} && \text{(variance identity)} \\ &= \sigma^2+ 0^2 && \text{(the noise has mean } 0 \text{)} \\ &= \sigma^2 && \text{(} 0^2 = 0 \text{, and } \sigma^2+ 0 = \sigma^2\text{)} \end{aligned} \\
 >
-> For the cross term, \\\varepsilon\\ is independent of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\, because \\Y\_{\*}\\ is independent of \\\mathcal{D}\_{\text{train}}\\, and \\\mu(x)\\ is a constant, so \\\varepsilon\\ is independent of \\\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\. The expectation of a product of independent random variables is the product of their expectations:
+> For the cross term, \\\varepsilon= Y\_{\*}- \mu(x)\\ shifts \\Y\_{\*}\\ by a constant, and \\Y\_{\*}\\ is independent of \\\mathcal{D}\_{\text{train}}\\, so \\\varepsilon\\ is independent of \\\mathcal{D}\_{\text{train}}\\, and hence of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ and of \\\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\. The expectation of a product of independent random variables is the product of their expectations:
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[2 \varepsilon\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right\]\mathclose{} &= 2 \operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right\]\mathclose{} && \text{(constant factor 2)} \\ &= 2 \operatorname{E}\mathopen{}\left\[\varepsilon\right\]\mathclose{} \operatorname{E}\mathopen{}\left\[\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right\]\mathclose{} && \text{(independence)} \\ &= 2 \cdot 0 \cdot \operatorname{E}\mathopen{}\left\[\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right\]\mathclose{} && \text{(the noise has mean } 0 \text{)} \\ &= 0 && \text{(zero times a number)} \end{aligned} \\
 >
@@ -319,7 +319,7 @@ Last modified: 2026-10-14 23:16:26 (PDT)
 >
 > A prediction can miss \\\mu(x)\\ because its [average fit](#def-average-fit) is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.
 >
-> Split it with the same technique as before: add and subtract the average fit \\\bar{h}\mathopen{}\left(x\right)\mathclose{}\\ from [Equation 12](#eq-average-fit), expand, and take the expectation term by term.
+> Split it with the same technique as before: add and subtract the average fit \\\bar{h}\mathopen{}\left(x\right)\mathclose{}\\ ([Equation 12](#eq-average-fit)), expand, and take the expectation term by term.
 >
 > Which of the three terms is not random at all, and what makes the cross term zero this time?
 

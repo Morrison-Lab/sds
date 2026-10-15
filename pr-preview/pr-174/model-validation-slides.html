@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-14 23:16:26 (PDT)</p>
+  <p class="date">Last modified: 2026-10-14 23:56:10 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -762,7 +762,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 &amp;&amp; \text{(} 0^2 = 0 \text{, and } \sigma^2+ 0 = \sigma^2\text{)}
 \end{aligned}
 \]</span></p>
-<p>For the cross term, <span class="math inline">\(\varepsilon\)</span> is independent of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, because <span class="math inline">\(Y_{*}\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and <span class="math inline">\(\mu(x)\)</span> is a constant, so <span class="math inline">\(\varepsilon\)</span> is independent of <span class="math inline">\(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>. The expectation of a product of independent random variables is the product of their expectations:</p>
+<p>For the cross term, <span class="math inline">\(\varepsilon= Y_{*}- \mu(x)\)</span> shifts <span class="math inline">\(Y_{*}\)</span> by a constant, and <span class="math inline">\(Y_{*}\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, so <span class="math inline">\(\varepsilon\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and hence of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span> and of <span class="math inline">\(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>. The expectation of a product of independent random variables is the product of their expectations:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{E}\mathopen{}\left[2 \varepsilon\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right]\mathclose{}
@@ -789,7 +789,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 \operatorname{E}\mathopen{}\left[\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)^2\mathclose{}\right]\mathclose{}.
 \]</span></p>
 <p>A prediction can miss <span class="math inline">\(\mu(x)\)</span> because its <a href="#/def-average-fit">average fit</a> is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.</p>
-<p>Split it with the same technique as before: add and subtract the average fit <span class="math inline">\(\bar{h}\mathopen{}\left(x\right)\mathclose{}\)</span> from <a href="#/eq-average-fit" class="quarto-xref">Equation&nbsp;12</a>, expand, and take the expectation term by term.</p>
+<p>Split it with the same technique as before: add and subtract the average fit <span class="math inline">\(\bar{h}\mathopen{}\left(x\right)\mathclose{}\)</span> (<a href="#/eq-average-fit" class="quarto-xref">Equation&nbsp;12</a>), expand, and take the expectation term by term.</p>
 <p>Which of the three terms is not random at all, and what makes the cross term zero this time?</p>
 </div>
 </section><section class="slide level2"><div id="sol-epe-split-bias" class="proof solution">
