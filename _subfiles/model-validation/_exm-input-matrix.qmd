@@ -1,14 +1,14 @@
-::: {#exm-data-matrix}
+::: {#exm-input-matrix}
 
-#### The data matrix of the first five cars
+#### The input matrix and outcome vector of the first five cars
 
 In the `mtcars` data frame,
 take the fuel economy `mpg` as the outcome $\outvar$
 and the gross horsepower `hp` and weight `wt` as the $\inputdim = 2$ inputs.
-The first five cars give a data set of $\nobs = 5$ observations.
+The first five cars give a [data set](#def-data-set) of $\nobs = 5$ observations.
 
 ```{r}
-#| label: data-matrix-mtcars
+#| label: input-matrix-mtcars
 #| code-fold: false
 
 # take the first five cars from the mtcars data frame
@@ -20,12 +20,12 @@ X_cars5 <- as.matrix(cars5[, c("hp", "wt")])
 # stack the outcomes into one vector
 y_cars5 <- cars5$mpg
 
-# show the data matrix and the outcome vector side by side
+# show the input matrix and the outcome vector side by side
 cbind(X_cars5, mpg = y_cars5)
 ```
 
-The data matrix `X_cars5` has `r nrow(X_cars5)` rows, one per car,
+The [input matrix](#def-input-matrix) `X_cars5` has `r nrow(X_cars5)` rows, one per car,
 and `r ncol(X_cars5)` columns, one per input variable.
-The outcome vector `y_cars5` has `r length(y_cars5)` entries, one per car.
+The [outcome vector](#def-outcome-vector) `y_cars5` has `r length(y_cars5)` entries, one per car.
 
 :::

@@ -10,14 +10,3 @@ $$
 $$ {#eq-data-set}
 
 :::
-
-{{< slidebreak >}}
-
-::: {#rem-data-set-subsets}
-
-#### The sets we split a data set into
-
-We divide a [data set](#def-data-set) into subsets, each with its own job.
-"Set" in the names training set, validation set and test set is short for "subset of the data set".
-
-:::
