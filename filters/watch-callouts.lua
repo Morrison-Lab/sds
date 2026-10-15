@@ -71,7 +71,8 @@ function Div(div)
       if div.attributes.collapse == 'none' then
         div.attributes.collapse = nil
       else
-        div.attributes.collapse = 'false'
+        -- An author's explicit `collapse="true"` starts the box folded.
+        div.attributes.collapse = div.attributes.collapse or 'false'
       end
       local id = div.identifier
       div.identifier = ''
