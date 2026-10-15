@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 05:47:35 (PDT)
+Last modified: 2026-10-15 06:02:37 (PDT)
 
 ## 1 Inference
 
@@ -128,11 +128,11 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 10 (t-distribution)** Let \\Z\\ have the standard Gaussian distribution, let \\V\\ have the \\\chi^2_k\\ distribution ([Definition 9](#def-chi-square-dist)), and let \\Z\\ and \\V\\ be independent. The distribution of
+> **Definition 10 (t-distribution (Student’s t-distribution))** Let \\Z\\ have the standard Gaussian distribution, let \\V\\ have the \\\chi^2_k\\ distribution ([Definition 9](#def-chi-square-dist)), and let \\Z\\ and \\V\\ be independent. The distribution of
 >
 > \\\frac{Z}{\sqrt{V/k}}\\
 >
-> is the **t-distribution with \\k\\ degrees of freedom** (or Student’s t-distribution), written \\t_k\\.
+> is the **t-distribution with \\k\\ degrees of freedom** (or **Student’s t-distribution**), written \\t_k\\.
 
 > **NOTE:**
 >
@@ -199,7 +199,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 15 (Margin of error)** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
+> **Definition 15 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
 
 > **NOTE:**
 >

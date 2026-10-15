@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 05:47:35 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 06:02:37 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -478,7 +478,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </div>
 </div>
 </section><section class="slide level2"><div id="def-held-out-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Held-out set)</strong></span> A <strong>held-out set</strong> for a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is a list of <span class="math inline">\(m\)</span> further observations, none of them in <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, that the <a href="#/def-fitting-procedure">fitting procedure</a> does not use and on which the <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is scored:</p>
+<p><span class="theorem-title"><strong>Definition 8 (Held-out set (hold-out set))</strong></span> A <strong>held-out set</strong> for a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is a list of <span class="math inline">\(m\)</span> further observations, none of them in <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, that the <a href="#/def-fitting-procedure">fitting procedure</a> does not use and on which the <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is scored:</p>
 <p><span id="eq-held-out-set"><span class="math display">\[
 \mathopen{}\left((x_{*,1}, y_{*,1}), \ldots, (x_{*,m}, y_{*,m})\right)\mathclose{}.
 \tag{8}\]</span></span></p>
@@ -491,7 +491,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.1</a>)</span>, who call it a hold-out set.</p>
+<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.1</a>)</span>, who call it a <strong>hold-out set</strong>.</p>
 </div>
 </div>
 </div>
@@ -614,7 +614,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </ol>
 </div>
 </section><section class="slide level2"><div id="def-expected-generalization-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Expected generalization error)</strong></span> The <strong>expected generalization error</strong> of a <a href="#/def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the mean, over <a href="#/def-training-set">training sets</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently from the population, of the <a href="#/def-generalization-error">generalization error</a> of the <a href="#/def-prediction-rule">prediction rule</a> that <span class="math inline">\(g\)</span> produces from <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 12 (Expected generalization error (expected prediction error, expected test error))</strong></span> The <strong>expected generalization error</strong> of a <a href="#/def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the mean, over <a href="#/def-training-set">training sets</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently from the population, of the <a href="#/def-generalization-error">generalization error</a> of the <a href="#/def-prediction-rule">prediction rule</a> that <span class="math inline">\(g\)</span> produces from <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
 <p><span id="eq-expected-generalization-error"><span class="math display">\[
 \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\operatorname{Err}_{\mathcal{D}_{\text{train}}}\right]\mathclose{},
 \quad
@@ -629,7 +629,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> call this quantity the <em>expected prediction error</em> (or <em>expected test error</em>) and write it <span class="math inline">\(\operatorname{Err}\)</span>, without the argument <span class="math inline">\(n\)</span>.</p>
+<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> call this quantity the <strong>expected prediction error</strong> (or <strong>expected test error</strong>) and write it <span class="math inline">\(\operatorname{Err}\)</span>, without the argument <span class="math inline">\(n\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2057,7 +2057,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 <p><span class="proof-title"><em>Remark 11</em> (The term vector of simple linear regression). </span>In simple linear regression the terms are <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span>, so the <a href="#/def-term-vector">term vector</a> <span class="math inline">\(\tilde{t}_{i}\)</span> is the <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a> <span class="math inline">\(\tilde{x}_i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-cross-product-matrix" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 34 (Cross-product matrix)</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\tilde{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
+<p><span class="theorem-title"><strong>Definition 34 (Cross-product matrix (sum-of-squares and cross-products matrix))</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\tilde{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
 <p><span id="eq-cross-product-matrix"><span class="math display">\[
 A\stackrel{\text{def}}{=}\sum_{i\in I} \tilde{t}_{i} {\tilde{t}_{i}}^{\top}.
 \tag{36}\]</span></span></p>
@@ -2070,7 +2070,7 @@ A\stackrel{\text{def}}{=}\sum_{i\in I} \tilde{t}_{i} {\tilde{t}_{i}}^{\top}.
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p>Sanchez <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>) names this matrix a sum-of-squares and cross-products matrix.</p>
+<p>Sanchez <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>) names this matrix a <strong>sum-of-squares and cross-products matrix</strong>.</p>
 </div>
 </div>
 </div>

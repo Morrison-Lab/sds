@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 05:47:35 (PDT)
+Last modified: 2026-10-15 06:02:37 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -106,13 +106,13 @@ Last modified: 2026-10-15 05:47:35 (PDT)
 
 > **NOTE:**
 >
-> **Definition 8 (Held-out set)** A **held-out set** for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{D}\_{\text{train}}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [prediction rule](#def-prediction-rule) \\\hat y\\ is scored:
+> **Definition 8 (Held-out set (hold-out set))** A **held-out set** for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{D}\_{\text{train}}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [prediction rule](#def-prediction-rule) \\\hat y\\ is scored:
 >
 > \\ \mathopen{}\left((x\_{\*,1}, y\_{\*,1}), \ldots, (x\_{\*,m}, y\_{\*,m})\right)\mathclose{}. \tag{8}\\
 >
 > > **NOTE:**
 > >
-> > James et al. ([2021, sec. 5.1.1](#ref-james2021islr2e)), who call it a hold-out set.
+> > James et al. ([2021, sec. 5.1.1](#ref-james2021islr2e)), who call it a **hold-out set**.
 
 > **NOTE:**
 >
@@ -225,13 +225,13 @@ Last modified: 2026-10-15 05:47:35 (PDT)
 
 > **NOTE:**
 >
-> **Definition 12 (Expected generalization error)** The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean, over [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently from the population, of the [generalization error](#def-generalization-error) of the [prediction rule](#def-prediction-rule) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
+> **Definition 12 (Expected generalization error (expected prediction error, expected test error))** The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean, over [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently from the population, of the [generalization error](#def-generalization-error) of the [prediction rule](#def-prediction-rule) that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
 > \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{}, \quad \mathcal{D}\_{\text{train}}= \mathopen{}\left((X\_{i}, Y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{11}\\
 >
 > > **NOTE:**
 > >
-> > Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) call this quantity the *expected prediction error* (or *expected test error*) and write it \\\operatorname{Err}\\, without the argument \\n\\.
+> > Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) call this quantity the **expected prediction error** (or **expected test error**) and write it \\\operatorname{Err}\\, without the argument \\n\\.
 
 > **NOTE:**
 >
@@ -1319,13 +1319,13 @@ Last modified: 2026-10-15 05:47:35 (PDT)
 
 > **NOTE:**
 >
-> **Definition 34 (Cross-product matrix)** The **cross-product matrix** \\A\\ of [term vectors](#def-term-vector) \\\tilde{t}\_{i}\\, \\i\in I\\, of a training set indexed by \\I\\, is the sum of their outer products:
+> **Definition 34 (Cross-product matrix (sum-of-squares and cross-products matrix))** The **cross-product matrix** \\A\\ of [term vectors](#def-term-vector) \\\tilde{t}\_{i}\\, \\i\in I\\, of a training set indexed by \\I\\, is the sum of their outer products:
 >
 > \\ A\stackrel{\text{def}}{=}\sum\_{i\in I} \tilde{t}\_{i} {\tilde{t}\_{i}}^{\top}. \tag{36}\\
 >
 > > **NOTE:**
 > >
-> > Sanchez ([2020](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products”) (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a sum-of-squares and cross-products matrix.
+> > Sanchez ([2020](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products”) (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a **sum-of-squares and cross-products matrix**.
 
 > **NOTE:**
 >
