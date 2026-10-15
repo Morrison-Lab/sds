@@ -1,0 +1,255 @@
+# Sufficiency and the Rao–Blackwell Theorem
+
+Code
+
+- [Show All Code](javascript:void(0))
+
+- [Hide All Code](javascript:void(0))
+
+- 
+
+  ------------------------------------------------------------------------
+
+- [View Source](javascript:void(0))
+
+Published
+
+Last modified: 2026-10-15 15:42:22 (PDT)
+
+A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
+
+## 1 Sufficient statistics
+
+> **NOTE:**
+>
+> **Definition 1 (Statistic)** A **statistic** is a function of the sample, \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\, that does not depend on any unknown parameter. Its value at the observed data, \\T\mathopen{}\left(\tilde{x}\right)\mathclose{}\\, is a number or vector we can compute.
+
+> **NOTE:**
+>
+> *Remark 1* (Estimators are statistics). Every [estimator](estimation.llms.md#def-estimator) is a statistic, one chosen to land close to an [estimand](estimation.llms.md#def-estimand). This page asks which statistics lose no information about the parameter, and how to use one to improve an estimator.
+
+> **NOTE:**
+>
+> **Definition 2 (Sufficient statistic)** Let \\\tilde{X}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\tilde{x}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability:
+>
+> \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \quad \text{wherever } \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0 \tag{1}\\
+
+> **NOTE:**
+>
+> *Remark 2* (Source: Sufficient statistic). Fisher ([1922](#ref-fisher1922mathematical)) introduced sufficiency; Casella and Berger ([2002](#ref-CaseBerg01), Def. 6.2.1, p. 272).
+
+> **NOTE:**
+>
+> *Remark 3* (What sufficiency says). Once we know \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\, the remaining randomness in the sample has the same distribution whatever the parameter is, so the sample carries no further information about \\\theta\\ beyond \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\. A statistic can therefore stand in for the whole sample when we estimate \\\theta\\.
+>
+> The sample itself, taking \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = \tilde{X}\\, is always sufficient but does not reduce the data; a useful sufficient statistic is a much shorter summary, such as a sum or a mean.
+>
+> Sufficiency by itself does not give a best estimator: it says which summaries lose nothing, not which function of them to use. The Rao–Blackwell theorem below shows how to improve a given unbiased estimator.
+>
+> For a continuous sample, the definition, the factorization theorem and the conditional expectations below use densities and integrals instead of probability mass functions and sums.
+
+> **NOTE:**
+>
+> **Theorem 1 (Factorization theorem)** Let \\\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}\\ be the joint probability mass function of a discrete sample \\\tilde{X}\\. A statistic \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is [sufficient](#def-sufficient) for \\\theta\\ if and only if there are nonnegative functions \\g\\ and \\h\\ such that, for every sample \\\tilde{x}\\ and every \\\theta\\,
+>
+> \\ \operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{} = g\mathopen{}\left(T\mathopen{}\left(\tilde{x}\right)\mathclose{} ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{} \tag{2}\\
+>
+> where \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ does not depend on \\\theta\\.
+
+> **NOTE:**
+>
+> *Proof*. Fix a sample \\\tilde{x}\\ and write \\t \stackrel{\text{def}}{=}T\mathopen{}\left(\tilde{x}\right)\mathclose{}\\. The event \\\tilde{X}= \tilde{x}\\ lies inside the event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\.
+>
+> **Sufficient implies a factorization.** Define \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \stackrel{\text{def}}{=}\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}\\ and let \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ be the conditional probability \\\Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}\\ at any \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. By [sufficiency](#eq-sufficient), \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ does not depend on which such \\\theta\\ we use. (If \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ for every \\\theta\\, set \\h\mathopen{}\left(\tilde{x}\right)\mathclose{} \stackrel{\text{def}}{=}0\\.) Both functions are nonnegative, and at a \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ both sides of [Equation 2](#eq-factorization) are zero, because the event \\\tilde{X}= \tilde{x}\\ lies inside the event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\. At every other \\\theta\\,
+>
+> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{} &= \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\right)\mathclose{} && \text{(definition of the joint mass function)}\\ &= \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x},\\ T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(the first event is inside the second)}\\ &= \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(conditional probability)}\\ &= g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{} && \text{(definitions of \$g\$ and \$h\$)} \end{aligned} \\
+>
+> **A factorization implies sufficient.** Suppose [Equation 2](#eq-factorization) holds, and let \\t\\ be a value with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. The event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\ is the union of the disjoint events \\\tilde{X}= \tilde{y}\\ over the samples \\\tilde{y}\\ with \\T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t\\, so
+>
+> \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} &= \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} \operatorname{f}\mathopen{}\left(\tilde{y}; \theta\right)\mathclose{} && \text{(disjoint events add)}\\ &= \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} g\mathopen{}\left(T\mathopen{}\left(\tilde{y}\right)\mathclose{} ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{y}\right)\mathclose{} && \text{(factorization)}\\ &= \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{y}\right)\mathclose{} && \text{(each term has \$T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t\$)}\\ &= g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{} && \text{(factor out the common term)} \end{aligned} \\
+>
+> This is positive, so \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\\. For a sample \\\tilde{x}\\ with \\T\mathopen{}\left(\tilde{x}\right)\mathclose{} = t\\,
+>
+> \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} &= \frac{\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}}{\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}} && \text{(conditional probability)}\\ &= \frac{g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{}} {g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(factorization, and the display above)}\\ &= \frac{h\mathopen{}\left(\tilde{x}\right)\mathclose{}}{\sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(divide by \$g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\$)} \end{aligned} \\
+>
+> which does not depend on \\\theta\\. For a sample \\\tilde{x}\\ with \\T\mathopen{}\left(\tilde{x}\right)\mathclose{} \neq t\\ the conditional probability is zero, which does not depend on \\\theta\\ either. So \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is sufficient.
+
+> **NOTE:**
+>
+> *Remark 4* (Source: Factorization theorem). Halmos and Savage ([1949](#ref-halmos1949application)), whom Casella and Berger ([2002](#ref-CaseBerg01), Thm. 6.2.6, p. 276, and its footnote) credit with the general form, and Neyman (1935) with an earlier one.
+
+> **NOTE:**
+>
+> **Example 1 (The sum is sufficient for a Poisson rate)** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\ and \\S \stackrel{\text{def}}{=}\sum\_{i=1}^nX_i\\. The joint mass function of the sample is
+>
+> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(\tilde{x}; {\lambda}\right)\mathclose{} &= \prod\_{i=1}^n \frac{e^{-{\lambda}} {\lambda}^{x_i}}{x_i!} && \text{(independent Poisson mass functions)}\\ &= e^{-n{\lambda}} {\lambda}^{\sum\_{i=1}^nx_i} \prod\_{i=1}^n \frac{1}{x_i!} && \text{(collect the factors)} \end{aligned} \\
+>
+> This has the form of [Equation 2](#eq-factorization) with \\g\mathopen{}\left(t ; {\lambda}\right)\mathclose{} = e^{-n{\lambda}} {\lambda}^{t}\\ and \\h\mathopen{}\left(\tilde{x}\right)\mathclose{} = \prod\_{i=1}^n 1 / x_i!\\, where \\t = \sum\_{i=1}^nx_i\\. So the sum \\S\\ is [sufficient](#def-sufficient) for \\{\lambda}\\ by [Theorem 1](#thm-factorization).
+
+## 2 The Rao–Blackwell theorem
+
+> **NOTE:**
+>
+> **Definition 3 (Rao–Blackwellized estimator)** Let \\\hat{\theta}\\ be an [estimator](estimation.llms.md#def-estimator) of \\\theta\\, and let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. The **Rao–Blackwellized estimator** is the conditional expectation of \\\hat{\theta}\\ given the statistic:
+>
+> \\ \hat{\theta}\_{\mathrm{RB}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}} \tag{3}\\
+
+> **NOTE:**
+>
+> **Lemma 1 (The Rao–Blackwellized estimator is a statistic)** Let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\ and \\\hat{\theta}\\ an estimator of \\\theta\\ with finite expectation. Then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ does not depend on \\\theta\\, so it is a [statistic](#def-statistic) and an estimator.
+
+> **NOTE:**
+>
+> *Proof*. Take a discrete sample, and fix a value \\t\\ that \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ takes with positive probability. Write \\\hat{\theta}= \hat{\theta}\mathopen{}\left(\tilde{X}\right)\mathclose{}\\.
+>
+> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right\]\mathclose{}} &= \sum\_{\tilde{x}} \hat{\theta}\mathopen{}\left(\tilde{x}\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(conditional expectation)} \end{aligned} \\
+>
+> Each term involves \\\hat{\theta}\mathopen{}\left(\tilde{x}\right)\mathclose{}\\, which does not depend on \\\theta\\, and the conditional probability, which does not depend on \\\theta\\ by [Equation 1](#eq-sufficient). So the sum does not depend on \\\theta\\.
+
+> **NOTE:**
+>
+> **Theorem 2 (Rao–Blackwellizing preserves unbiasedness)** If \\\hat{\theta}\\ is an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ and \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is a [sufficient](#def-sufficient) statistic for \\\theta\\, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ is also unbiased for \\\theta\\.
+
+> **NOTE:**
+>
+> *Proof*. We use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie):
+>
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} && \text{(law of iterated expectations)}\\ &= \theta && \text{(\$\hat{\theta}\$ is unbiased)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\:
+>
+> \\ \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
+
+> **NOTE:**
+>
+> *Proof*. Unbiasedness is [Theorem 2](#thm-rb-unbiased). For the variance, we use the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance):
+>
+> \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} + \operatorname{E}\mathopen{}\left\[{\operatorname{Var}\mathopen{}\left(\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right)\mathclose{}}\right\]\mathclose{} && \text{(law of total variance)}\\ &\ge \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} && \text{(a variance is nonnegative)} \end{aligned} \\
+
+> **NOTE:**
+>
+> *Remark 5* (Source: Rao–Blackwell theorem). Rao ([1945](#ref-rao1945information)); Blackwell ([1947](#ref-blackwell1947conditional)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 7.3.17, p. 342).
+
+> **NOTE:**
+>
+> **Exercise 1 (Conditional probability of a zero given the Poisson sum)** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\ and \\S \stackrel{\text{def}}{=}\sum\_{i=1}^nX_i\\. Find \\\Pr\mathopen{}\left(X_1 = 0 \mid S = t\right)\mathclose{}\\ for each \\t = 0, 1, 2, \ldots\\. You may use that \\S \sim \operatorname{Pois}(n{\lambda})\\, by [the sum of independent Poisson variables](https://morrison-lab.github.io/pds/distributions.html#thm-sum-pois) and induction on \\n\\.
+
+> **NOTE:**
+>
+> *Solution 1*. The event \\X_1 = 0\\ and \\S = t\\ happens exactly when \\X_1 = 0\\ and \\X_2 + \cdots + X_n = t\\, and \\X_2 + \cdots + X_n \sim \operatorname{Pois}\mathopen{}\left((n-1){\lambda}\right)\mathclose{}\\ is independent of \\X_1\\.
+>
+> \\ \begin{aligned} \Pr\mathopen{}\left(X_1 = 0 \mid S = t\right)\mathclose{} &= \frac{\Pr\mathopen{}\left(X_1 = 0,\\ S = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(conditional probability)}\\ &= \frac{\Pr\mathopen{}\left(X_1 = 0,\\ X_2 + \cdots + X_n = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(on \$X_1 = 0\$, \$S\$ is that sum)}\\ &= \frac{\Pr\mathopen{}\left(X_1 = 0\right)\mathclose{} \Pr\mathopen{}\left(X_2 + \cdots + X_n = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(independence)}\\ &= \frac{e^{-{\lambda}} \cdot e^{-(n-1){\lambda}} \mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t / t!}{e^{-n{\lambda}} \mathopen{}\left(n{\lambda}\right)\mathclose{}^t / t!} && \text{(Poisson mass functions)}\\ &= \frac{e^{-n{\lambda}} \mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t / t!}{e^{-n{\lambda}} \mathopen{}\left(n{\lambda}\right)\mathclose{}^t / t!} && \text{(\$e^{-{\lambda}} e^{-(n-1){\lambda}} = e^{-n{\lambda}}\$)}\\ &= \frac{\mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t}{\mathopen{}\left(n{\lambda}\right)\mathclose{}^t} && \text{(cancel \$e^{-n{\lambda}} / t!\$)}\\ &= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^t && \text{(cancel \${\lambda}^t\$, combine powers)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Lemma 2 (Conditional probability of a zero given the Poisson sum)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\ and \\S \stackrel{\text{def}}{=}\sum\_{i=1}^nX_i\\,
+>
+> \\ \Pr\mathopen{}\left(X_1 = 0 \mid S = t\right)\mathclose{} = \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^t \tag{5}\\
+>
+> for every \\t = 0, 1, 2, \ldots\\.
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 1](#exr-poisson-zero-conditional).
+
+> **NOTE:**
+>
+> **Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)** The `birthwt` data record the number of previous premature labors (`ptl`) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv). Treat counts like these as a Poisson sample, \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, with \\{\lambda}\\ equal to the mean of `ptl`, 0.196.
+>
+> The estimand is the probability of a zero count, \\\pi= \Pr(X_i = 0) = e^{-{\lambda}}\\. Index the model by \\\pi\\ instead of \\{\lambda}\\ (the map \\{\lambda}\mapsto e^{-{\lambda}}\\ is one-to-one); then the sum \\S = \sum\_{i=1}^nX_i\\ is still [sufficient](#def-sufficient), by [Example 1](#exm-poisson-sufficient).
+>
+> The crude estimator is the indicator that the first observation is zero, \\\hat{\pi}\_1 = \mathbb{1}\mathopen{}\left\\X_1 = 0\right\\\mathclose{}\\, which uses one observation and is unbiased for \\\pi\\. Its Rao–Blackwellization is
+>
+> \\ \begin{aligned} \hat{\pi}\_2 &= {\operatorname{E}\mathopen{}\left\[\hat{\pi}\_1 \mid S\right\]\mathclose{}} && \text{(definition of the Rao--Blackwellized estimator)}\\ &= \Pr\mathopen{}\left(X_1 = 0 \mid S\right)\mathclose{} && \text{(the mean of an indicator is a probability)}\\ &= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^S && \text{(conditional probability of a zero)} \end{aligned} \\
+>
+> By [Lemma 2](#lem-poisson-zero-rb), the conditional probability in the last line is the one in [Equation 5](#eq-poisson-zero-conditional). For \\n = 20\\ we draw 10,000 samples, compute both estimators on each, and report each one’s mean (with a 95% confidence interval) and variance (with a 95% confidence interval from the normal approximation to the sampling distribution of a sample variance).
+>
+> Show R code
+>
+> ``` downlit
+> birthwt <- read.csv("data/birthwt.csv")
+>
+> # The Poisson rate: the observed mean number of previous premature labors.
+> lambda <- mean(birthwt$ptl)
+> # The estimand: the probability of a zero count.
+> pi_true <- exp(-lambda)
+>
+> n <- 20
+> n_reps <- 10000
+>
+> set.seed(1945)
+> # One row per sample of n counts.
+> samples <- matrix(rpois(n * n_reps, lambda), nrow = n_reps)
+> s_sum <- rowSums(samples)
+>
+> # The crude estimator and its Rao-Blackwellization.
+> est <- data.frame(
+>   crude = as.numeric(samples[, 1] == 0),
+>   rao_blackwell = ((n - 1) / n)^s_sum
+> )
+>
+> # Mean with a t interval; variance with a normal-approximation interval,
+> # using the standard error sqrt((m4 - s^4) / N) of a sample variance.
+> summarize_estimator <- function(x) {
+>   tt <- t.test(x)
+>   v <- var(x)
+>   m4 <- mean((x - mean(x))^4)
+>   se_v <- sqrt((m4 - v^2) / length(x))
+>   data.frame(
+>     mean = mean(x),
+>     mean_lower = tt$conf.int[1],
+>     mean_upper = tt$conf.int[2],
+>     variance = v,
+>     var_lower = v - 1.96 * se_v,
+>     var_upper = v + 1.96 * se_v
+>   )
+> }
+> rb_summary <- do.call(rbind, lapply(est, summarize_estimator))
+> round(rb_summary, 4)
+> ```
+>
+> The estimand is \\\pi=\\ 0.822. Both estimators have simulated means near it, as [Theorem 2](#thm-rb-unbiased) says they must. The variance of the Rao–Blackwellized estimator is about 22.7 times smaller than that of the crude estimator, as [Theorem 3](#thm-rao-blackwell) requires.
+>
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > est_long <- data.frame(
+> >   estimate = c(est$crude, est$rao_blackwell),
+> >   estimator = rep(
+> >     c("crude (first observation is zero)", "Rao-Blackwellized"),
+> >     each = n_reps
+> >   )
+> > )
+> > p <- ggplot(est_long, aes(x = estimate)) +
+> >   geom_histogram(bins = 30) +
+> >   geom_vline(xintercept = pi_true, linetype = "dashed") +
+> >   facet_wrap(~estimator, ncol = 1, scales = "free_y") +
+> >   labs(x = "estimate of the probability of a zero count", y = "count")
+> > if (knitr::is_html_output()) plotly::ggplotly(p) else p
+> > ```
+> >
+> > Figure 1: The sampling distribution of the crude and Rao–Blackwellized estimators (\\n = 20\\, 10,000 samples); the dashed line marks the estimand
+
+> **NOTE:**
+>
+> *Remark 6* (Sufficiency is needed). If \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
+
+## References
+
+Blackwell, David. 1947. “Conditional Expectation and Unbiased Sequential Estimation.” *The Annals of Mathematical Statistics* 18 (1): 105–10. <https://doi.org/10.1214/aoms/1177730497>.
+
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+
+Fisher, Ronald A. 1922. “On the Mathematical Foundations of Theoretical Statistics.” *Philosophical Transactions of the Royal Society of London. Series A* 222 (594–604): 309–68. <https://doi.org/10.1098/rsta.1922.0009>.
+
+Halmos, Paul R., and Leonard J. Savage. 1949. “Application of the Radon–Nikodym Theorem to the Theory of Sufficient Statistics.” *The Annals of Mathematical Statistics* 20 (2): 225–41. <https://doi.org/10.1214/aoms/1177730032>.
+
+Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
+
+Rao, C. Radhakrishna. 1945. “Information and the Accuracy Attainable in the Estimation of Statistical Parameters.” *Bulletin of the Calcutta Mathematical Society* 37: 81–91.
+
+Back to top
