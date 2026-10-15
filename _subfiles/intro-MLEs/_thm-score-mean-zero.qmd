@@ -1,0 +1,22 @@
+:::{#thm-score-mean-zero}
+#### Mean of the score
+
+Let $\vX$ be a continuous random vector with density $\p(\vx \mid \param)$
+for a scalar parameter $\param$.
+Suppose the set of possible data values does not depend on $\param$,
+and the order of differentiation with respect to $\param$
+and integration over the data can be exchanged.
+Then the [score](#def-score) $\score$,
+the derivative of the log-likelihood with respect to $\param$,
+has expectation zero:
+
+$$\E{\score} = 0$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-score-mean-zero, worked in @sol-score-mean-zero.
+It builds on @lem-deriv-log-density.
+
+:::

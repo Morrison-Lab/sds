@@ -9,7 +9,7 @@ $$\Prf{A_1 \cup \cdots \cup A_k} \le \Pr(A_1) + \cdots + \Pr(A_k).$$
 
 ::: proof
 
-The inequality in the second line is @sol-union-bound.
+The inequality in the second line is @lem-indicator-union.
 
 $$
 \begin{aligned}

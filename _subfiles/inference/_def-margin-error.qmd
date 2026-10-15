@@ -1,5 +1,5 @@
 :::{#def-margin-error}
-#### Margin of error
+#### Margin of error (radius)
 
 The **margin of error** (or **radius**) of a
 [confidence interval](#def-confidence-interval)

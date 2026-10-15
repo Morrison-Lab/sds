@@ -1,5 +1,5 @@
 ::: {#def-categorical-var}
-#### Categorical variable
+#### Categorical variable (qualitative variable)
 
 A **categorical** (or **qualitative**) variable is a variable that takes
 values in a finite set of categories,

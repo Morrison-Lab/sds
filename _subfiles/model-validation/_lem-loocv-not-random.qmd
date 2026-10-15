@@ -1,0 +1,44 @@
+:::{#lem-loocv-not-random}
+#### Leave-one-out cross-validation does not depend on the fold assignment
+
+Let $\trainset = \paren{(x_i, y_i)}_{i \in I}$ be a [training set](#def-training-set)
+of $n = \abs{I}$ observations, indexed by $I$.
+Then the [cross-validation estimate](#def-cv-estimate) $\cvest{n}$
+of [leave-one-out cross-validation](#def-loocv) ($k = n$)
+is the same for every [fold assignment](#def-fold-assignment) $\foldof{i}$.
+
+:::
+
+::: proof
+This is the solution to @exr-loocv, part 3, worked in @sol-loocv.
+It uses @eq-cv-estimate and @eq-fold-out-rule.
+
+Each step below changes one thing.
+
+1. With $k = n$, the $n$ nonempty, disjoint [folds](#def-folds) of @eq-folds
+   partition the $n$ indices of $I$,
+   so each fold holds exactly one index.
+   (A partition of $n$ indices into $n$ nonempty, disjoint subsets has one index per subset.)
+2. For observation $i$, @eq-fold-assignment gives $i \in \fold{\foldof{i}}$,
+   so $\fold{\foldof{i}} = \set{i}$.
+   (Fold $\foldof{i}$ holds one index, and that index is $i$.)
+3. Let $\fitproc$ be the [fitting procedure](#def-fitting-procedure),
+   the rule that maps a training set to a fitted prediction rule.
+   The [fold-out rule](#def-fold-out-rule) of observation $i$ is then
+   $\fittedwo{\foldof{i}}{x} = \fitproc\paren{x; \paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \set{i}}}$.
+   (@eq-fold-out-rule with $\fold{\foldof{i}} = \set{i}$.)
+4. This rule is fitted to every observation except observation $i$,
+   and it does not involve $\foldof{i}$ itself.
+   (Step 3 depends on $i$ and $\fitproc$ only.)
+5. Hence each term $\sqf{\fittedwo{\foldof{i}}{x_i} - y_i}$ of @eq-cv-estimate is the same
+   for every fold assignment.
+   (Each term is a function of the rule in step 4, $x_i$ and $y_i$.)
+6. Therefore the sum over $i \in I$ in @eq-cv-estimate,
+   and its factor $1/n$, are the same for every fold assignment:
+
+   $$
+   \cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{\foldof{i}}{x_i} - y_i}.
+   $$
+
+   Different assignments give the same $n$ fits, with the folds numbered differently.
+:::

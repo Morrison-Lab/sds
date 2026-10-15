@@ -1,5 +1,5 @@
 :::{#def-expected-generalization-error}
-#### Expected generalization error
+#### Expected generalization error (expected prediction error, expected test error)
 
 The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) $\fitproc$
 at training-set size $\nobs$
@@ -18,8 +18,8 @@ $$ {#eq-expected-generalization-error}
 ::: {.callout-note collapse="true"}
 #### Source
 
-@hastie2009elements [sec. 7.2] call this quantity the *expected prediction error*
-(or *expected test error*) and write it $\generr$, without the argument $\nobs$.
+@hastie2009elements [sec. 7.2] call this quantity the **expected prediction error**
+(or **expected test error**) and write it $\generr$, without the argument $\nobs$.
 :::
 
 :::

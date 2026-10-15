@@ -13,7 +13,7 @@ Simplify as much as possible.
 
 :::{#sol-derive-bernoulli-score}
 
-With $n = 1$, @sol-bernoulli-loglik-one-group gives
+With $n = 1$, @thm-bernoulli-loglik-one-group gives
 $\loglik = x \logf{\prob} + (1 - x) \logf{1 - \prob}$, so:
 
 $$

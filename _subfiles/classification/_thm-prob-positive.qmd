@@ -1,0 +1,21 @@
+:::{#thm-prob-positive}
+#### Probability of a positive test
+
+Let $\text{sens}$ be the [sensitivity](#def-sensitivity) of a diagnostic test,
+$\text{spec}$ its [specificity](#def-specificity),
+and $\prev$ the [prevalence](#def-prevalence) of the disease.
+Then the probability $\Pr(+)$ that the test is positive is:
+
+$$
+\Pr(+) =
+\text{sens} \cd \prev
++ \paren{1 - \text{spec}} \cd \paren{1 - \prev}
+$$ {#eq-prob-positive}
+
+:::
+
+::: proof
+
+This is the solution to @exr-prob-positive, worked in @sol-prob-positive.
+
+:::

@@ -1,5 +1,5 @@
 :::{#def-held-out-set}
-#### Held-out set
+#### Held-out set (hold-out set)
 
 A **held-out set** for a [training set](#def-training-set) $\trainset$
 is a list of $\nheld$ further observations,
@@ -14,7 +14,7 @@ $$ {#eq-held-out-set}
 ::: {.callout-note collapse="true"}
 #### Source
 
-@james2021islr2e [sec. 5.1.1], who call it a hold-out set.
+@james2021islr2e [sec. 5.1.1], who call it a **hold-out set**.
 :::
 
 :::
