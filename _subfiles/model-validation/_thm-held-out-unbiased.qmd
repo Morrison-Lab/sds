@@ -8,7 +8,7 @@ $(\heldpredvar{1}, \heldoutvar{1}), \ldots, (\heldpredvar{\nheld}, \heldoutvar{\
 be drawn from the same population as $(\newpredvar, \newoutvar)$,
 each independently of $\trainset$.
 Then, given $\trainset$,
-the expected [mean squared error](estimation.qmd#def-prediction-mse)
+the expected [mean squared error](prediction.qmd#def-prediction-mse)
 of the held-out predictions
 is the [generalization error](#def-generalization-error):
 
