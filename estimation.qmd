@@ -201,7 +201,7 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
-### Mean squared error
+### Mean squared error of an estimator {#mean-squared-error}
 
 <!-- No slidebreak here: the heading shares its slide with the def-mse div. -->
 
