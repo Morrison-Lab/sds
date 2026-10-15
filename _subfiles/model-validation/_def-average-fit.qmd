@@ -15,7 +15,7 @@ $$ {#eq-average-fit}
 ::: {.remark .notes}
 
 The average fit is not a prediction anyone ever holds,
-because no one has more than one training set.
+because an analysis has one training set, not the whole distribution of them.
 It is a reference point for measuring how far the predictions are
 from the [mean function](#def-mean-function) and from each other.
 
