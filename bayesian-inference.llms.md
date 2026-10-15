@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 13:11:03 (PDT)
+Last modified: 2026-10-15 13:27:16 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -436,6 +436,10 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > Unlike a continuous posterior, a discrete posterior can rarely reach a probability of exactly 0.95, because its probability comes in lumps. [Definition 7](#def-credible-interval) asks for probability exactly \\1 - \alpha\\; on a grid we ask for probability *at least* \\1 - \alpha\\, and take the largest lower endpoint that achieves it. That makes the interval conservative: here its posterior probability is 0.9866, not 0.95.
 
+> **NOTE:**
+>
+> Casella and Berger ([2002, sec. 9.2.4](#ref-CaseBerg01), pp. 435–439) covers Bayesian intervals.
+
 ### 2.4 The parameter space
 
 > **NOTE:**
@@ -463,6 +467,12 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 > **NOTE:**
 >
 > **Example 13 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on \\(0, 0.5)\\ for the smoking probability \\\pi\\. By [Corollary 3](#cor-prior-support), the posterior then gives probability 0 to \\\pi\> 0.5\\, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.8](#ref-hoggtanis2015), pp. 298–305) covers Bayesian estimation.
+> - Casella and Berger ([2002, sec. 7.2.3](#ref-CaseBerg01), pp. 324–325) covers Bayes estimators.
+> - Rice ([2007, sec. 8.6](#ref-rice2007mathematical), pp. 285–297) covers the Bayesian approach to parameter estimation.
 
 ## 3 Priors
 
@@ -1330,6 +1340,8 @@ Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and 
 
 Hobbs, N. Thompson, and Mevin B Hooten. 2015. *Bayesian Models: A Statistical Primer for Ecologists*. STU - Student edition. Princeton University Press.
 
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
 Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
 
 Kéry, Marc., Michael. Schaub, and Steven R. Beissinger. 2012. *Bayesian Population Analysis Using WinBUGS : A Hierarchical Perspective*. 1st ed. Academic Press. <https://shop.elsevier.com/books/bayesian-population-analysis-using-winbugs/kery/978-0-12-387020-9>.
@@ -1337,6 +1349,8 @@ Kéry, Marc., Michael. Schaub, and Steven R. Beissinger. 2012. *Bayesian Populat
 Korner-Nievergelt, Fränzi, and Fränzi Korner-Nievergelt. 2015. *Bayesian Data Analysis in Ecology Using Linear Models with R, BUGS, and Stan*. 1st ed. Academic Press.
 
 McElreath, Richard. 2020. *Statistical Rethinking : A Bayesian Course with Examples in R and Stan*. Second edition. Chapman & Hall/CRC Texts in Statistical Science Series. CRC Press.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Ross, Kevin. 2022. *An Introduction to Bayesian Reasoning and Methods*. Online. <https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/>.
 

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 13:11:03 (PDT)
+Last modified: 2026-10-15 13:27:16 (PDT)
 
 ## 1 Inference
 
@@ -108,6 +108,13 @@ There are two predominant paradigms for statistical inference:
 >
 > 5MinuteAI explains [hypothesis testing](https://www.youtube.com/watch?v=Plya_ZXkOvs) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 8.1](#ref-hoggtanis2015), pp. 361–368) covers tests about one mean.
+> - Hogg et al. ([2019, sec. 8.6](#ref-hoggtanis2015), pp. 403–409) covers power of a statistical test.
+> - Casella and Berger ([2002, sec. 8.3](#ref-CaseBerg01), pp. 382–401) covers methods of evaluating tests.
+> - Rice ([2007, sec. 9.2](#ref-rice2007mathematical), pp. 331–336) covers the Neyman–Pearson paradigm.
+
 ## 3 Reference distributions
 
 The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
@@ -209,6 +216,12 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > 5MinuteAI explains [confidence intervals](https://www.youtube.com/watch?v=XdaAhYUqWsg) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 7.1](#ref-hoggtanis2015), pp. 307–313) covers confidence intervals for means.
+> - Casella and Berger ([2002, sec. 9.2](#ref-CaseBerg01), pp. 420–439) covers methods of finding interval estimators.
+> - Rice ([2007, sec. 9.3](#ref-rice2007mathematical), pp. 337–338) covers duality of confidence intervals and hypothesis tests.
+
 ## 5 Further reading on confidence intervals
 
 For more on confidence intervals:
@@ -268,6 +281,12 @@ See also ([Vittinghoff et al. 2012, sec. 3.7](#ref-vittinghoff2e)).
 ## References
 
 5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
+
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

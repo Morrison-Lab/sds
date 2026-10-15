@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 13:11:03 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 13:27:16 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -366,12 +366,12 @@ text-align: center;
 <ul>
 <li>shows how fast false positives accumulate;</li>
 <li>defines two error rates for a whole family of tests, the family-wise error rate and the false discovery rate;</li>
-<li>presents the standard procedures that control them: the Bonferroni correction, Holm’s step-down procedure <span class="citation" data-cites="holm1979simple">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">Holm 1979</a>)</span> and the Benjamini–Hochberg procedure <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">Benjamini and Hochberg 1995</a>)</span>, with the adjusted p-values that report their results.</li>
+<li>presents the standard procedures that control them: the Bonferroni correction, Holm’s step-down procedure <span class="citation" data-cites="holm1979simple">(<a href="#/references" role="doc-biblioref" onclick="">Holm 1979</a>)</span> and the Benjamini–Hochberg procedure <span class="citation" data-cites="benjamini1995controlling">(<a href="#/references" role="doc-biblioref" onclick="">Benjamini and Hochberg 1995</a>)</span>, with the adjusted p-values that report their results.</li>
 </ul>
-<p>The next page, <a href="./permutation-tests.html">permutation tests</a>, shows how to compute a p-value without a distributional model. These notes follow chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>)</span>.</p>
+<p>The next page, <a href="./permutation-tests.html">permutation tests</a>, shows how to compute a p-value without a distributional model. These notes follow chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>.</p>
 </section><section id="sec-khan-data" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The Khan gene expression data</h2>
-<p>The examples on this page use gene expression data from <span class="citation" data-cites="khan2001classification">Khan et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2001</a>)</span>, who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at <a href="data/khan.csv"><code>data/khan.csv</code></a>, taken from the <code>Khan</code> data of the R package <a href="https://cran.r-project.org/package=ISLR2"><code>ISLR2</code></a> <span class="citation" data-cites="james2021islr2e">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">James et al. 2021</a>)</span>: the column <code>tumor_class</code> holds the class, and the columns <code>gene_1</code> to <code>gene_2308</code> hold the expression values. The examples compare classes 2 and 4.</p>
+<p>The examples on this page use gene expression data from <span class="citation" data-cites="khan2001classification">Khan et al. (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>, who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at <a href="data/khan.csv"><code>data/khan.csv</code></a>, taken from the <code>Khan</code> data of the R package <a href="https://cran.r-project.org/package=ISLR2"><code>ISLR2</code></a> <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021</a>)</span>: the column <code>tumor_class</code> holds the class, and the columns <code>gene_1</code> to <code>gene_2308</code> hold the expression values. The examples compare classes 2 and 4.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>khan <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/khan.csv"</span>)</span>
 <span id="cb1-2"><a aria-label="2"></a>khan_pair <span class="ot">&lt;-</span> khan[khan<span class="sc">$</span>tumor_class <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), ]</span>
@@ -650,7 +650,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 \]</span></p>
 </div>
 <div id="rem-source-fdr" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Source: False discovery rate). </span>The false discovery rate was introduced by Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>; the notation <span class="math inline">\(V\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(U\)</span>, <span class="math inline">\(T\)</span> and <span class="math inline">\(R\)</span> follows <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span>.</p>
+<p><span class="proof-title"><em>Remark 2</em> (Source: False discovery rate). </span>The false discovery rate was introduced by Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>; the notation <span class="math inline">\(V\)</span>, <span class="math inline">\(S\)</span>, <span class="math inline">\(U\)</span>, <span class="math inline">\(T\)</span> and <span class="math inline">\(R\)</span> follows <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-fdr-control" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Controlling the false discovery rate)</strong></span> A procedure <strong>controls the FDR at level <span class="math inline">\(q\)</span></strong> if <span class="math inline">\(\text{FDR} \le q\)</span> for every possible set of true null hypotheses.</p>
@@ -715,7 +715,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><span class="math display">\[\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.\]</span></p>
 </div>
 <div id="rem-source-bonferroni" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Source: Bonferroni correction). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span>.</p>
+<p><span class="proof-title"><em>Remark 6</em> (Source: Bonferroni correction). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bonferroni" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Bonferroni correction for the Khan genes)</strong></span> R functions for this page’s procedures take the vector of p-values and a level, and return a logical vector. For the Bonferroni correction with <span class="math inline">\(\alpha= 0.05\)</span>:</p>
@@ -927,7 +927,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><strong>Holm’s procedure</strong> rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(k^* - 1)}\)</span> and no others.</p>
 </div>
 <div id="rem-source-holm" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (Source: Holm’s step-down procedure). </span>Holm <span class="citation" data-cites="holm1979simple">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1979</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 7</em> (Source: Holm’s step-down procedure). </span>Holm <span class="citation" data-cites="holm1979simple">(<a href="#/references" role="doc-biblioref" onclick="">1979</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-holm" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Holm’s procedure for the Khan genes)</strong></span> A step-down procedure starts at the smallest p-value and stops at the first one that exceeds its threshold:</p>
@@ -1132,6 +1132,14 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <p>The estimated FWER, 0.04, is below <span class="math inline">\(\alpha= 0.05\)</span>, up to simulation error. Holm’s power is 0.146, against 0.146 for the Bonferroni correction: Holm’s procedure can only reject more, but here the extra rejections are rare.</p>
 </div>
+<div class="reading">
+<ul>
+<li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 11.2.5</a>, pp.&nbsp;534–535)</span> covers simultaneous estimation of contrasts.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 12.2.2</a>, pp.&nbsp;485–487)</span> covers multiple comparisons.</li>
+</ul>
+</div>
 </section><section id="sec-fdr-control" class="slide level2" data-number="5"><h2>
 <span class="header-section-number">5</span> Controlling the false discovery rate</h2>
 <h3 data-number="5.1" id="sec-bh">
@@ -1143,7 +1151,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>The <strong>Benjamini–Hochberg procedure</strong> (BH) rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(\hat k)}\)</span> and no others.</p>
 </div>
 <div id="rem-source-bh" class="proof remark">
-<p><span class="proof-title"><em>Remark 8</em> (Source: Benjamini–Hochberg procedure). </span>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 8</em> (Source: Benjamini–Hochberg procedure). </span>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bh-step-up" class="proof remark">
 <p><span class="proof-title"><em>Remark 9</em> (BH is a step-up procedure). </span>Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold <span class="math inline">\(k q / m\)</span>. Every hypothesis ranked at or below <span class="math inline">\(\hat k\)</span> is rejected, including those with p-values above their own thresholds. The thresholds <span class="math inline">\(k q / m\)</span> grow with the rank <span class="math inline">\(k\)</span>, and the smallest, <span class="math inline">\(q / m\)</span>, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level <span class="math inline">\(\alpha= q\)</span>.</p>
@@ -1279,7 +1287,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p><span class="math display">\[\text{FDR} = \frac{m_0}{m} q \le q.\]</span></p>
 </div>
 <div id="rem-source-bh-fdr" class="proof remark">
-<p><span class="proof-title"><em>Remark 10</em> (Source: The BH procedure controls the FDR under independence). </span>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">1995</a>)</span>, which proves the result for any configuration of false null hypotheses. The proof is omitted here.</p>
+<p><span class="proof-title"><em>Remark 10</em> (Source: The BH procedure controls the FDR under independence). </span>Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>, which proves the result for any configuration of false null hypotheses. The proof is omitted here.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bh-fdr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 13 (FDR of the BH procedure in the simulated family)</strong></span> In the simulated family of <a href="#/exm-rejection-counts" class="quarto-xref">Example&nbsp;3</a> the p-values are independent and <span class="math inline">\(m_0 / m = 0.9\)</span>, so <a href="#/thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> gives <span class="math inline">\(\text{FDR} = 0.9 \times 0.05 =\)</span> 0.045 at <span class="math inline">\(q = 0.05\)</span>. Repeating the simulation 2000 times with BH:</p>
@@ -1293,7 +1301,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>The estimated FDR, 0.045, is close to the theoretical value 0.045. BH also finds 50% of the false null hypotheses, more than Holm’s procedure, and in exchange it makes at least one false positive in 88% of the repetitions.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bh-dependence" class="proof remark">
-<p><span class="proof-title"><em>Remark 11</em> (BH under dependence). </span>Gene expression levels are usually correlated, and <a href="#/thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> assumes independence. <span class="citation" data-cites="benjamini2001control">Benjamini and Yekutieli (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2001</a>)</span> proved that BH still controls the FDR at level <span class="math inline">\(q\)</span> under a form of positive dependence among the p-values, and that the procedure run at level <span class="math inline">\(q / \sum_{k=1}^m (1/k)\)</span> controls it under any dependence. <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span> and <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2016</a>, ch.&nbsp;15)</span> discuss the procedure in practice.</p>
+<p><span class="proof-title"><em>Remark 11</em> (BH under dependence). </span>Gene expression levels are usually correlated, and <a href="#/thm-bh-fdr" class="quarto-xref">Theorem&nbsp;5</a> assumes independence. <span class="citation" data-cites="benjamini2001control">Benjamini and Yekutieli (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span> proved that BH still controls the FDR at level <span class="math inline">\(q\)</span> under a form of positive dependence among the p-values, and that the procedure run at level <span class="math inline">\(q / \sum_{k=1}^m (1/k)\)</span> controls it under any dependence. <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>, ch.&nbsp;13)</span> and <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#/references" role="doc-biblioref" onclick="">2016</a>, ch.&nbsp;15)</span> discuss the procedure in practice.</p>
 </div>
 </section><section id="sec-adjusted-p-values" class="slide level2" data-number="6"><h2>
 <span class="header-section-number">6</span> Adjusted p-values and q-values</h2>
@@ -1430,7 +1438,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <p>The check confirms that the formulas and functions agree on these data at these levels; it is not a proof that they agree for every data set.</p>
 </div>
 </section><section class="slide level2"><div id="rem-q-value" class="proof remark">
-<p><span class="proof-title"><em>Remark 13</em> (q-values). </span>The BH adjusted p-value of a hypothesis is the smallest FDR level <span class="math inline">\(q\)</span> at which BH rejects it. Some authors call this a <em>q-value</em>. <span class="citation" data-cites="storey2002direct">Storey (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2002</a>)</span> defines the q-value with the same meaning, but estimates the fraction <span class="math inline">\(m_0 / m\)</span> of true null hypotheses from the p-values and multiplies by the estimate, <span class="math inline">\(\hat\pi_0\)</span>, which is usually below 1. BH is the case <span class="math inline">\(\hat\pi_0 = 1\)</span>, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.</p>
+<p><span class="proof-title"><em>Remark 13</em> (q-values). </span>The BH adjusted p-value of a hypothesis is the smallest FDR level <span class="math inline">\(q\)</span> at which BH rejects it. Some authors call this a <em>q-value</em>. <span class="citation" data-cites="storey2002direct">Storey (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span> defines the q-value with the same meaning, but estimates the fraction <span class="math inline">\(m_0 / m\)</span> of true null hypotheses from the p-values and multiplies by the estimate, <span class="math inline">\(\hat\pi_0\)</span>, which is usually below 1. BH is the case <span class="math inline">\(\hat\pi_0 = 1\)</span>, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.</p>
 </div>
 </section><section id="sec-procedure-comparison" class="slide level2" data-number="7"><h2>
 <span class="header-section-number">7</span> Comparing the procedures</h2>
@@ -1485,14 +1493,43 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </section><section class="slide level2"><div id="rem-choosing-error-rate" class="proof remark">
 <p><span class="proof-title"><em>Remark 14</em> (Choosing an error rate). </span>Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.</p>
 </div>
-</section><section id="sec-multiple-testing-reading" class="slide level2 smaller scrollable" data-number="8"><h2>
+</section><section id="sec-multiple-testing-reading" class="slide level2" data-number="8"><h2>
 <span class="header-section-number">8</span> Further reading</h2>
 <ul>
-<li>Chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2021</a>)</span> covers the same procedures, with labs.</li>
-<li>Chapter 15 of <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#/sec-multiple-testing-reading" role="doc-biblioref" onclick="">2016</a>)</span> treats large-scale testing and the false discovery rate.</li>
+<li>Chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span> covers the same procedures, with labs.</li>
+<li>Chapter 15 of <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> treats large-scale testing and the false discovery rate.</li>
 <li>Andrew Lin’s <a href="https://web.stanford.edu/~lindrew/stats300C.pdf">notes on Stanford STATS 300C</a> (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.</li>
 <li>The <a href="./permutation-tests.html">permutation tests</a> page computes valid p-values by relabeling the data, without a distributional model for the test statistic.</li>
-</ul>
+</ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-benjamini1995controlling" class="csl-entry" role="listitem">
+Benjamini, Yoav, and Yosef Hochberg. 1995. <span>“Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.”</span> <em>Journal of the Royal Statistical Society: Series B (Methodological)</em> 57 (1): 289–300. <a href="https://doi.org/10.1111/j.2517-6161.1995.tb02031.x">https://doi.org/10.1111/j.2517-6161.1995.tb02031.x</a>.
+</div>
+<div id="ref-benjamini2001control" class="csl-entry" role="listitem">
+Benjamini, Yoav, and Daniel Yekutieli. 2001. <span>“The Control of the False Discovery Rate in Multiple Testing Under Dependency.”</span> <em>The Annals of Statistics</em> 29 (4). <a href="https://doi.org/10.1214/aos/1013699998">https://doi.org/10.1214/aos/1013699998</a>.
+</div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
+</div>
+<div id="ref-efron2016computer" class="csl-entry" role="listitem">
+Efron, Bradley, and Trevor Hastie. 2016. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9781316576533">https://doi.org/10.1017/CBO9781316576533</a>.
+</div>
+<div id="ref-holm1979simple" class="csl-entry" role="listitem">
+Holm, Sture. 1979. <span>“A Simple Sequentially Rejective Multiple Test Procedure.”</span> <em>Scandinavian Journal of Statistics</em> 6 (2): 65–70.
+</div>
+<div id="ref-james2021islr2e" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: With Applications in <span>R</span></em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
+</div>
+<div id="ref-khan2001classification" class="csl-entry" role="listitem">
+Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. <span>“Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.”</span> <em>Nature Medicine</em> 7 (6): 673–79. <a href="https://doi.org/10.1038/89044">https://doi.org/10.1038/89044</a>.
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
+</div>
+<div id="ref-storey2002direct" class="csl-entry" role="listitem">
+Storey, John D. 2002. <span>“A Direct Approach to False Discovery Rates.”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 64 (3): 479–98. <a href="https://doi.org/10.1111/1467-9868.00346">https://doi.org/10.1111/1467-9868.00346</a>.
+</div>
+</div>
 
 
 <script>
@@ -1681,30 +1718,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-benjamini1995controlling" class="csl-entry" role="listitem">
-Benjamini, Yoav, and Yosef Hochberg. 1995. <span>“Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.”</span> <em>Journal of the Royal Statistical Society: Series B (Methodological)</em> 57 (1): 289–300. <a href="https://doi.org/10.1111/j.2517-6161.1995.tb02031.x">https://doi.org/10.1111/j.2517-6161.1995.tb02031.x</a>.
-</div>
-<div id="ref-benjamini2001control" class="csl-entry" role="listitem">
-Benjamini, Yoav, and Daniel Yekutieli. 2001. <span>“The Control of the False Discovery Rate in Multiple Testing Under Dependency.”</span> <em>The Annals of Statistics</em> 29 (4). <a href="https://doi.org/10.1214/aos/1013699998">https://doi.org/10.1214/aos/1013699998</a>.
-</div>
-<div id="ref-efron2016computer" class="csl-entry" role="listitem">
-Efron, Bradley, and Trevor Hastie. 2016. <em>Computer Age Statistical Inference: Algorithms, Evidence, and Data Science</em>. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9781316576533">https://doi.org/10.1017/CBO9781316576533</a>.
-</div>
-<div id="ref-holm1979simple" class="csl-entry" role="listitem">
-Holm, Sture. 1979. <span>“A Simple Sequentially Rejective Multiple Test Procedure.”</span> <em>Scandinavian Journal of Statistics</em> 6 (2): 65–70.
-</div>
-<div id="ref-james2021islr2e" class="csl-entry" role="listitem">
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: With Applications in <span>R</span></em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
-</div>
-<div id="ref-khan2001classification" class="csl-entry" role="listitem">
-Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. <span>“Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.”</span> <em>Nature Medicine</em> 7 (6): 673–79. <a href="https://doi.org/10.1038/89044">https://doi.org/10.1038/89044</a>.
-</div>
-<div id="ref-storey2002direct" class="csl-entry" role="listitem">
-Storey, John D. 2002. <span>“A Direct Approach to False Discovery Rates.”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 64 (3): 479–98. <a href="https://doi.org/10.1111/1467-9868.00346">https://doi.org/10.1111/1467-9868.00346</a>.
-</div>
-</div>
-</section>
+</script></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

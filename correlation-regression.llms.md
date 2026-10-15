@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 13:11:03 (PDT)
+Last modified: 2026-10-15 13:27:16 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -106,6 +106,11 @@ hers |> head()
 > ```
 >
 > The correlation is positive but modest: glucose tends to be higher at higher BMI, with wide scatter around the line in [Figure 1](#fig-hers-scatter).
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 9.6](#ref-hoggtanis2015), pp. 471–476) covers tests concerning regression and correlation.
+> - Rice ([2007, sec. 14.2.3](#ref-rice2007mathematical), pp. 560–563) covers correlation and regression.
 
 ### 2.2 Spearman rank correlation
 
@@ -832,6 +837,12 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > Hutchinson’s [Linear Regression (pt1)](https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/#linear_regression) (17 min) covers fitting a linear regression by least squares, framed as machine learning ([Hutchinson, n.d.](#ref-hutchinson_wwu_ml_videos)). The login for the video site is posted [on Canvas](https://wwu.instructure.com/courses/1906010/modules#module_3922392).
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.5](#ref-hoggtanis2015), pp. 277–284) covers a simple regression problem.
+> - Casella and Berger ([2002, sec. 11.3](#ref-CaseBerg01), pp. 539–562) covers simple linear regression.
+> - Rice ([2007, sec. 14.2.1](#ref-rice2007mathematical), pp. 547–549) covers slope and intercept properties.
+
 ### 3.3 Fitting a simple linear regression in R
 
 > **NOTE:**
@@ -987,15 +998,24 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > BMI accounts for only about 7% of the variation in baseline fasting glucose.
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 7.6](#ref-hoggtanis2015), pp. 344–352) covers more regression.
+> - Rice ([2007, sec. 14.2.2](#ref-rice2007mathematical), pp. 550–559) covers assessing the fit of a regression line.
+
 ### 3.5 Further reading
 
 [Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html) covers linear regression in depth, including inference for the coefficients and multiple predictors. Vittinghoff et al. ([2012](#ref-vittinghoff2e)) cover linear regression in Chapter 4.
 
 ## References
 
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 Hutchinson, Brian. n.d. *DATA 471/571 (Machine Learning) and CSCI 481/581 (Deep Learning) Video Lectures*. Western Washington University. Accessed September 28, 2026. <https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

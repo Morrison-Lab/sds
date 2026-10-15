@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 13:11:03 (PDT)
+Last modified: 2026-10-15 13:27:16 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -169,6 +169,10 @@ Last modified: 2026-10-15 13:11:03 (PDT)
 >
 > so with \\n = 50\\ students, as in [the student-height example](estimation.llms.md#exm-estimator), the sample mean is 50 times as efficient as \\X_1\\.
 
+> **NOTE:**
+>
+> Casella and Berger ([2002, sec. 10.1](#ref-CaseBerg01), pp. 467–480) covers point estimation, including consistency, efficiency and bootstrap standard errors.
+
 ## 3 The Cramér–Rao lower bound
 
 > **NOTE:**
@@ -239,14 +243,25 @@ Last modified: 2026-10-15 13:11:03 (PDT)
 >
 > The information from \\n\\ independent observations is \\n\\ times the information from one, so for a sample of size \\n\\ the bound shrinks like \\1/n\\. That is the rate at which the variance of an efficient estimator falls, and the [maximum likelihood estimator](intro-MLEs.llms.md#thm-dist-mle) attains it asymptotically.
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.6](#ref-hoggtanis2015), pp. 285–289) covers asymptotic distributions of maximum likelihood estimators.
+> - Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01), pp. 334–341) covers best unbiased estimators and the Cramér–Rao bound.
+> - Rice ([2007, sec. 8.5.2](#ref-rice2007mathematical), pp. 274–278) covers large-sample theory for maximum likelihood estimators.
+> - Rice ([2007, sec. 8.7](#ref-rice2007mathematical), pp. 298–304) covers efficiency and the Cramér–Rao lower bound.
+
 ## References
 
 Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
 
 Cramér, Harald. 1946. *Mathematical Methods of Statistics*. Princeton University Press. <https://doi.org/10.1515/9781400883868>.
 
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
 Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
 
 Rao, C. Radhakrishna. 1945. “Information and the Accuracy Attainable in the Estimation of Statistical Parameters.” *Bulletin of the Calcutta Mathematical Society* 37: 81–91.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Back to top

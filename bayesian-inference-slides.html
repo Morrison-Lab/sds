@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 13:11:03 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 13:27:16 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1028,6 +1028,9 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 <p>The largest grid value whose upper-tail probability is still at least 0.95 is <span class="math inline">\(\pi=\)</span> 0.4. So <span class="math inline">\(\Pr(\pi&gt; 0.4 \mid x = 8) =\)</span> 0.9866, and the one-sided 95% <a href="#/def-credible-interval">credible interval</a> for <span class="math inline">\(\pi\)</span> is <span class="math inline">\((0.4, 1]\)</span>: given 8 successes in 10 trials and this prior, the probability that <span class="math inline">\(\pi\)</span> exceeds 0.4 is at least 0.95.</p>
 <p>Unlike a continuous posterior, a discrete posterior can rarely reach a probability of exactly 0.95, because its probability comes in lumps. <a href="#/def-credible-interval" class="quarto-xref">Definition&nbsp;7</a> asks for probability exactly <span class="math inline">\(1 - \alpha\)</span>; on a grid we ask for probability <em>at least</em> <span class="math inline">\(1 - \alpha\)</span>, and take the largest lower endpoint that achieves it. That makes the interval conservative: here its posterior probability is 0.9866, not 0.95.</p>
 </div>
+<div class="reading">
+<p><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 9.2.4</a>, pp.&nbsp;435–439)</span> covers Bayesian intervals.</p>
+</div>
 </section><section class="slide level2"><h3 data-number="2.4" id="sec-bayes-parameter-space">
 <span class="header-section-number">2.4</span> The parameter space</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-parameter-space div. -->
@@ -1051,6 +1054,16 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </div>
 </section><section class="slide level2"><div id="exm-prior-support" class="theorem example">
 <p><span class="theorem-title"><strong>Example 13 (A prior that rules out the truth)</strong></span> An analyst sure that fewer than half of adults smoke might put a uniform prior on <span class="math inline">\((0, 0.5)\)</span> for the smoking probability <span class="math inline">\(\pi\)</span>. By <a href="#/cor-prior-support" class="quarto-xref">Corollary&nbsp;3</a>, the posterior then gives probability 0 to <span class="math inline">\(\pi&gt; 0.5\)</span>, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.</p>
+</div>
+<div class="reading">
+<ul>
+<li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 6.8</a>, pp.&nbsp;298–305)</span> covers Bayesian estimation.</li>
+<li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 7.2.3</a>, pp.&nbsp;324–325)</span> covers Bayes estimators.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 8.6</a>, pp.&nbsp;285–297)</span> covers the Bayesian approach to parameter estimation.</li>
+</ul>
 </div>
 </section><section id="sec-bayes-priors" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Priors</h2>
@@ -2081,6 +2094,9 @@ Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and 
 <div id="ref-HobbsN.Thompson2015Bmas" class="csl-entry" role="listitem">
 Hobbs, N. Thompson, and Mevin B Hooten. 2015. <em>Bayesian Models: A Statistical Primer for Ecologists</em>. STU - Student edition. Princeton University Press.
 </div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
+</div>
 <div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
 Hosmer, David W., and Stanley Lemeshow. 1989. <em>Applied Logistic Regression</em>. Wiley.
 </div>
@@ -2092,6 +2108,9 @@ Korner-Nievergelt, Fränzi, and Fränzi Korner-Nievergelt. 2015. <em>Bayesian Da
 </div>
 <div id="ref-statrethink2e" class="csl-entry" role="listitem">
 McElreath, Richard. 2020. <em>Statistical Rethinking : A <span>Bayesian</span> Course with Examples in <span>R</span> and <span>Stan</span></em>. Second edition. Chapman &amp; Hall/CRC Texts in Statistical Science Series. CRC Press.
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
 </div>
 <div id="ref-rossbayes" class="csl-entry" role="listitem">
 Ross, Kevin. 2022. <em>An Introduction to Bayesian Reasoning and Methods</em>. Online. <a href="https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/">https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/</a>.

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 13:11:03 (PDT)
+Last modified: 2026-10-15 13:27:16 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -621,6 +621,11 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > The estimated FWER, 0.04, is below \\\alpha= 0.05\\, up to simulation error. Holm’s power is 0.146, against 0.146 for the Bonferroni correction: Holm’s procedure can only reject more, but here the extra rejections are rare.
 
+> **NOTE:**
+>
+> - Casella and Berger ([2002, sec. 11.2.5](#ref-CaseBerg01), pp. 534–535) covers simultaneous estimation of contrasts.
+> - Rice ([2007, sec. 12.2.2](#ref-rice2007mathematical), pp. 485–487) covers multiple comparisons.
+
 ## 5 Controlling the false discovery rate
 
 ### 5.1 The Benjamini–Hochberg procedure
@@ -843,13 +848,13 @@ table(tumor_class = khan_pair$tumor_class)
 - Andrew Lin’s [notes on Stanford STATS 300C](https://web.stanford.edu/~lindrew/stats300C.pdf) (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.
 - The [permutation tests](permutation-tests.llms.md) page computes valid p-values by relabeling the data, without a distributional model for the test statistic.
 
-Back to top
-
 ## References
 
 Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” *Journal of the Royal Statistical Society: Series B (Methodological)* 57 (1): 289–300. <https://doi.org/10.1111/j.2517-6161.1995.tb02031.x>.
 
 Benjamini, Yoav, and Daniel Yekutieli. 2001. “The Control of the False Discovery Rate in Multiple Testing Under Dependency.” *The Annals of Statistics* 29 (4). <https://doi.org/10.1214/aos/1013699998>.
+
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
 
 Efron, Bradley, and Trevor Hastie. 2016. *Computer Age Statistical Inference: Algorithms, Evidence, and Data Science*. Cambridge University Press. <https://doi.org/10.1017/CBO9781316576533>.
 
@@ -859,4 +864,8 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An I
 
 Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” *Nature Medicine* 7 (6): 673–79. <https://doi.org/10.1038/89044>.
 
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+
 Storey, John D. 2002. “A Direct Approach to False Discovery Rates.” *Journal of the Royal Statistical Society: Series B (Statistical Methodology)* 64 (3): 479–98. <https://doi.org/10.1111/1467-9868.00346>.
+
+Back to top

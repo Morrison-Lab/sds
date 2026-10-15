@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 13:11:03 (PDT)
+Last modified: 2026-10-15 13:27:16 (PDT)
 
 ## 1 Empirical distribution
 
@@ -42,6 +42,10 @@ Last modified: 2026-10-15 13:11:03 (PDT)
 >
 > Similarly, \\\hat F(0) = 0\\, because no value is at most 0, and \\\hat F(7) = 1\\, because every value is at most 7.
 
+> **NOTE:**
+>
+> Rice ([2007, sec. 10.2.1](#ref-rice2007mathematical), pp. 378–379) covers the empirical CDF.
+
 ## 3 Order statistics
 
 > **NOTE:**
@@ -55,6 +59,11 @@ Last modified: 2026-10-15 13:11:03 (PDT)
 > **NOTE:**
 >
 > **Example 3 (Numerical example: order statistics)** If the observed values are \\4, 1, 7, 3\\, then the order statistics are \\x\_{(1)} = 1\\, \\x\_{(2)} = 3\\, \\x\_{(3)} = 4\\, and \\x\_{(4)} = 7\\.
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.3](#ref-hoggtanis2015), pp. 256–263) covers order statistics.
+> - Casella and Berger ([2002, sec. 5.4](#ref-CaseBerg01), pp. 226–231) covers order statistics.
 
 ## 4 Sample quantiles
 
@@ -110,6 +119,10 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 > **NOTE:**
 >
 > *Remark 1* (Quantile conventions). Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s [`quantile()`](https://rdrr.io/r/stats/quantile.html) offers nine definitions through its `type` argument, and its default (`type = 7`) interpolates, so `quantile(c(4, 1, 7, 3), 0.5)` returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use [Definition 4](#def-sample-quantile), which always returns one of the observed values.
+
+> **NOTE:**
+>
+> Hogg et al. ([2019, sec. 7.5](#ref-hoggtanis2015), pp. 337–343) covers distribution-free confidence intervals for percentiles.
 
 ## 5 The empirical CDF and quantile function as generalized inverses
 
@@ -187,10 +200,25 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, \\\hat F(t) = 0.5\\ for every \\t \in \[3, 4)\\, and \\\hat Q\\ jumps from 3 to 4 at \\p = 0.5\\. So \\\hat Q\\ is a *generalized* inverse of \\\hat F\\, not an inverse in the usual sense: \\\hat Q(\hat F(t)) \le t\\ for every \\t \ge x\_{(1)}\\, with equality only at the observed values.
 
-Back to top
+> **NOTE:**
+>
+> These readings look ahead from the empirical CDF to distribution-free tests, which this page does not cover:
+>
+> - Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402) covers some distribution-free tests.
+> - Rice ([2007, sec. 11.2.3](#ref-rice2007mathematical), pp. 435–442) covers the Mann–Whitney test.
+> - Rice ([2007, sec. 11.3.2](#ref-rice2007mathematical), pp. 448–449) covers the signed rank test.
+> - Rice ([2007, sec. 12.2.3](#ref-rice2007mathematical), p. 488) covers the Kruskal–Wallis test.
 
 ## References
+
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
 
 Efron, Bradley, and Robert J. Tibshirani. 1993. *An Introduction to the Bootstrap*. Monographs on Statistics and Applied Probability 57. Chapman & Hall/CRC. <https://doi.org/10.1201/9780429246593>.
 
 Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. 2nd ed. Springer. <https://doi.org/10.1007/978-0-387-84858-7>.
+
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+
+Back to top

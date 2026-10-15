@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 13:11:03 (PDT)
+Last modified: 2026-10-15 13:27:16 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -134,6 +134,12 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 > **NOTE:**
 >
 > 5MinuteAI explains [maximum likelihood estimation](https://www.youtube.com/watch?v=Pa-GWE5JuH4) and works [examples](https://www.youtube.com/watch?v=w3a08digzfw) in five minutes each, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.4](#ref-hoggtanis2015), pp. 264–276) covers maximum likelihood and method of moments estimation.
+> - Casella and Berger ([2002, sec. 7.2.2](#ref-CaseBerg01), pp. 315–323) covers maximum likelihood estimators.
+> - Rice ([2007, sec. 8.5](#ref-rice2007mathematical), pp. 267–284) covers the method of maximum likelihood.
 
 ### 1.3 Finding the maximum of a function
 
@@ -599,6 +605,11 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta
 >
 > *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria ([Efron and Hinkley 1978](#ref-efron1978assessing)).
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.6](#ref-hoggtanis2015), pp. 285–289) covers asymptotic distributions of maximum likelihood estimators.
+> - Rice ([2007, sec. 8.5.2](#ref-rice2007mathematical), pp. 274–278) covers large-sample theory for maximum likelihood estimators.
+
 ### 1.9 Quantifying uncertainty about MLEs
 
 #### 1.9.1 Confidence intervals for MLEs
@@ -612,6 +623,11 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta
 > where \\\hat{\theta}\_k\\ is the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\, \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ is its estimated standard error, and \\z\_{\beta}\\ is the \\\beta\\ quantile of the standard Gaussian distribution.
 
 By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ has approximately a standard Gaussian distribution in large samples, so the Wald interval is an [approximate confidence interval](inference.llms.md#def-approximate-ci) for \\\theta_k\\. For a 95% interval, \\z\_{0.975} \approx 1.96\\.
+
+> **NOTE:**
+>
+> - Casella and Berger ([2002, sec. 10.4.1](#ref-CaseBerg01), pp. 496–498) covers approximate maximum likelihood intervals.
+> - Rice ([2007, sec. 8.5.3](#ref-rice2007mathematical), pp. 279–284) covers confidence intervals from maximum likelihood estimators.
 
 #### 1.9.2 Wald tests
 
@@ -765,6 +781,11 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 > ```
 
 See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://online.stat.psu.edu/stat504/Lesson02>.
+
+> **NOTE:**
+>
+> - Casella and Berger ([2002, sec. 10.3.1](#ref-CaseBerg01), pp. 488–491) covers asymptotic distribution of likelihood ratio tests.
+> - Rice ([2007, sec. 9.4](#ref-rice2007mathematical), pp. 339–340) covers generalized likelihood ratio tests.
 
 #### 1.9.4 Exact and approximate tests
 
@@ -2395,6 +2416,8 @@ Lehmann, E. L. 1999. *Elements of Large-Sample Theory*. Springer Texts in Statis
 McLachlan, Geoffrey J, and Thriyambakam Krishnan. 2007. *The EM Algorithm and Extensions*. 2nd ed. John Wiley & Sons. <https://doi.org/10.1002/9780470191613>.
 
 Newey, Whitney K, and Daniel McFadden. 1994. “Large Sample Estimation and Hypothesis Testing.” In *Handbook of Econometrics*, edited by Robert Engle and Dan McFadden, vol. 4. Elsevier. <https://doi.org/10.1016/S1573-4412(05)80005-4>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

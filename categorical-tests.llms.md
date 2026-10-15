@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 13:11:03 (PDT)
+Last modified: 2026-10-15 13:27:16 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -45,6 +45,11 @@ hers |> head()
 > > [TABLE]
 > >
 > > Table 1: Exercise by treatment group in HERS
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 7.3](#ref-hoggtanis2015), pp. 323–328) covers confidence intervals for proportions.
+> - Hogg et al. ([2019, sec. 8.4](#ref-hoggtanis2015), pp. 385–391) covers tests about proportions.
 
 ### 2.2 The chi-square test
 
@@ -113,6 +118,14 @@ hers |> head()
 >
 > *Remark 2* (Yates’ continuity correction). For a \\2 \times 2\\ table, [`chisq.test()`](https://rdrr.io/r/stats/chisq.test.html) applies Yates’ continuity correction by default, which subtracts 0.5 from each \\\mathopen{}\left\|O\_{ij} - E\_{ij}\right\|\mathclose{}\\ before squaring, and so gives a smaller statistic than [Definition 2](#def-chi-square-test). `correct = FALSE` turns the correction off.
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 9.1](#ref-hoggtanis2015), pp. 425–434) covers chi-square goodness-of-fit tests.
+> - Hogg et al. ([2019, sec. 9.2](#ref-hoggtanis2015), pp. 435–445) covers contingency tables.
+> - Rice ([2007, sec. 13.3](#ref-rice2007mathematical), pp. 516–519) covers the chi-square test of homogeneity.
+> - Rice ([2007, sec. 13.4](#ref-rice2007mathematical), pp. 520–522) covers the chi-square test of independence.
+> - Rice ([2007, sec. 9.5](#ref-rice2007mathematical), pp. 341–346) covers likelihood ratio tests for the multinomial distribution.
+
 ### 2.3 Fisher’s exact test
 
 > **NOTE:**
@@ -166,13 +179,23 @@ hers |> head()
 >
 > With counts this large, the exact p-value is close to the chi-square p-value of [Example 3](#exm-hers-chisq).
 
+> **NOTE:**
+>
+> Rice ([2007, sec. 13.2](#ref-rice2007mathematical), pp. 514–515) covers Fisher’s exact test.
+
 ### 2.4 Measures of association for \\2 \times 2\\ tables
 
 Tests of independence say whether two binary variables are associated, but not how strongly. Risk differences, risk ratios, and odds ratios measure the strength of the association; see [Odds Ratios and Relative Risks](https://morrison-lab.github.io/rme/chapters/binary-outcome-associations.html#sec-OR-RR).
 
+> **NOTE:**
+>
+> Rice ([2007, sec. 13.6](#ref-rice2007mathematical), pp. 526–529) covers odds ratios.
+
 ## References
 
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 
