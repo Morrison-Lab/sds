@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 00:35:18 (PDT)
+Last modified: 2026-10-15 00:45:59 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -449,34 +449,36 @@ Last modified: 2026-10-15 00:35:18 (PDT)
 > sim_errors
 > ```
 >
-> Show R code
->
-> ``` downlit
-> sim_errors |>
->   tidyr::pivot_longer(
->     c(training, generalization),
->     names_to = "error",
->     values_to = "rmse"
->   ) |>
->   ggplot2::ggplot(ggplot2::aes(degree, rmse, colour = error, shape = error)) +
->   ggplot2::geom_hline(yintercept = sim_sigma, linetype = "dashed") +
->   ggplot2::geom_line() +
->   ggplot2::geom_point(size = 2) +
->   ggplot2::scale_x_continuous(breaks = sim_degrees) +
->   ggplot2::scale_y_log10() +
->   ggplot2::labs(
->     x = "polynomial degree",
->     y = "root mean squared error (log scale)",
->     colour = NULL,
->     shape = NULL
->   ) +
->   ggplot2::theme_bw() +
->   ggplot2::theme(legend.position = "top")
-> ```
->
-> [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 1: Training RMSE and estimated generalization error (RMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n= 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error.")
->
-> Figure 1: Training RMSE and estimated generalization error (RMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [irreducible error](#def-irreducible-error).
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > sim_errors |>
+> >   tidyr::pivot_longer(
+> >     c(training, generalization),
+> >     names_to = "error",
+> >     values_to = "rmse"
+> >   ) |>
+> >   ggplot2::ggplot(ggplot2::aes(degree, rmse, colour = error, shape = error)) +
+> >   ggplot2::geom_hline(yintercept = sim_sigma, linetype = "dashed") +
+> >   ggplot2::geom_line() +
+> >   ggplot2::geom_point(size = 2) +
+> >   ggplot2::scale_x_continuous(breaks = sim_degrees) +
+> >   ggplot2::scale_y_log10() +
+> >   ggplot2::labs(
+> >     x = "polynomial degree",
+> >     y = "root mean squared error (log scale)",
+> >     colour = NULL,
+> >     shape = NULL
+> >   ) +
+> >   ggplot2::theme_bw() +
+> >   ggplot2::theme(legend.position = "top")
+> > ```
+> >
+> > [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 1: Training RMSE and estimated generalization error (RMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n= 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error.")
+> >
+> > Figure 1: Training RMSE and estimated generalization error (RMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [irreducible error](#def-irreducible-error).
 >
 > Show R code
 >
@@ -575,27 +577,29 @@ Last modified: 2026-10-15 00:35:18 (PDT)
 >
 > **Example 7 (Numerical example)** This example ([Example 7](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test RMSE on untouched test data ([James et al. 2021, 213](#ref-james2021islr2e)).
 >
-> ``` downlit
-> set.seed(108)
-> n <- nrow(mtcars)
->
-> n_train <- floor(0.6 * n)
-> n_valid <- floor(0.2 * n)
->
-> idx_train <- sample.int(n, size = n_train)
-> idx_remaining <- setdiff(seq_len(n), idx_train)
-> idx_valid <- sample(idx_remaining, size = n_valid)
-> idx_test <- setdiff(idx_remaining, idx_valid)
->
-> split_sizes <- tibble::tibble(
->   split = c("training", "validation", "test"),
->   n = c(length(idx_train), length(idx_valid), length(idx_test))
-> )
->
-> split_sizes
-> ```
->
-> Table 1: Sizes of the training, validation, and test splits
+> > **NOTE:**
+> >
+> > ``` downlit
+> > set.seed(108)
+> > n <- nrow(mtcars)
+> >
+> > n_train <- floor(0.6 * n)
+> > n_valid <- floor(0.2 * n)
+> >
+> > idx_train <- sample.int(n, size = n_train)
+> > idx_remaining <- setdiff(seq_len(n), idx_train)
+> > idx_valid <- sample(idx_remaining, size = n_valid)
+> > idx_test <- setdiff(idx_remaining, idx_valid)
+> >
+> > split_sizes <- tibble::tibble(
+> >   split = c("training", "validation", "test"),
+> >   n = c(length(idx_train), length(idx_valid), length(idx_test))
+> > )
+> >
+> > split_sizes
+> > ```
+> >
+> > Table 1: Sizes of the training, validation, and test splits
 >
 > Show R code
 >
@@ -744,63 +748,75 @@ Last modified: 2026-10-15 00:35:18 (PDT)
 > #> mpg 10.400 33.900
 > ```
 >
-> Show R code
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > plot_partitions_with_fit(model_linear, "linear fit")
+> > ```
+> >
+> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted linear regression line is superimposed.](model-validation_files/figure-html/unnamed-chunk-3-1.png)](model-validation_files/figure-html/unnamed-chunk-3-1.png "Figure 2: Linear model fit superimposed on data partitions")
+> >
+> > Figure 2: Linear model fit superimposed on data partitions
 >
-> ``` downlit
-> plot_partitions_with_fit(model_linear, "linear fit")
-> ```
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > plot_partitions_with_fit(model_quadratic, "quadratic fit")
+> > ```
+> >
+> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quadratic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-4-1.png)](model-validation_files/figure-html/unnamed-chunk-4-1.png "Figure 3: Quadratic model fit superimposed on data partitions")
+> >
+> > Figure 3: Quadratic model fit superimposed on data partitions
 >
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted linear regression line is superimposed.](model-validation_files/figure-html/unnamed-chunk-3-1.png)](model-validation_files/figure-html/unnamed-chunk-3-1.png "Figure 2: Linear model fit superimposed on data partitions")
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > plot_partitions_with_fit(model_cubic, "cubic fit")
+> > ```
+> >
+> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted cubic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-5-1.png)](model-validation_files/figure-html/unnamed-chunk-5-1.png "Figure 4: Cubic model fit superimposed on data partitions")
+> >
+> > Figure 4: Cubic model fit superimposed on data partitions
 >
-> Figure 2: Linear model fit superimposed on data partitions
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > plot_partitions_with_fit(model_quartic, "quartic fit")
+> > ```
+> >
+> > [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quartic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-6-1.png)](model-validation_files/figure-html/unnamed-chunk-6-1.png "Figure 5: Quartic model fit superimposed on data partitions")
+> >
+> > Figure 5: Quartic model fit superimposed on data partitions
 >
-> Show R code
->
-> ``` downlit
-> plot_partitions_with_fit(model_quadratic, "quadratic fit")
-> ```
->
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quadratic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-4-1.png)](model-validation_files/figure-html/unnamed-chunk-4-1.png "Figure 3: Quadratic model fit superimposed on data partitions")
->
-> Figure 3: Quadratic model fit superimposed on data partitions
->
-> Show R code
->
-> ``` downlit
-> plot_partitions_with_fit(model_cubic, "cubic fit")
-> ```
->
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted cubic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-5-1.png)](model-validation_files/figure-html/unnamed-chunk-5-1.png "Figure 4: Cubic model fit superimposed on data partitions")
->
-> Figure 4: Cubic model fit superimposed on data partitions
->
-> Show R code
->
-> ``` downlit
-> plot_partitions_with_fit(model_quartic, "quartic fit")
-> ```
->
-> [![Scatterplot of miles per gallon versus vehicle weight. Points are colored and shaped by training, validation, and test partitions, with a legend naming them and the fit. The fitted quartic curve is superimposed.](model-validation_files/figure-html/unnamed-chunk-6-1.png)](model-validation_files/figure-html/unnamed-chunk-6-1.png "Figure 5: Quartic model fit superimposed on data partitions")
->
-> Figure 5: Quartic model fit superimposed on data partitions
->
-> Show R code
->
-> ``` downlit
-> validation_results
-> ```
->
-> Table 2: Training and validation RMSE for candidate models
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > validation_results
+> > ```
+> >
+> > Table 2: Training and validation RMSE for candidate models
 >
 > The chosen model is the linear model, because it has the lowest validation RMSE of the four. This split uses different cars from [Exercise 1](#exr-overfitting), and its validation set has only 6 cars, so the model it picks can differ from the one chosen there.
 >
-> Show R code
->
-> ``` downlit
-> performance_comparison
-> ```
->
-> Table 3: Validation and test RMSE for the chosen model
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > performance_comparison
+> > ```
+> >
+> > Table 3: Validation and test RMSE for the chosen model
 >
 > > **NOTE:**
 > >
@@ -983,41 +999,43 @@ Last modified: 2026-10-15 00:35:18 (PDT)
 > sim_errors_cv
 > ```
 >
-> Show R code
->
-> ``` downlit
-> sim_errors_cv |>
->   tidyr::pivot_longer(
->     c(training, generalization, cv_5),
->     names_to = "error",
->     values_to = "rmse"
->   ) |>
->   dplyr::mutate(
->     error = factor(
->       error,
->       levels = c("training", "cv_5", "generalization"),
->       labels = c("training", "5-fold CV", "generalization")
->     )
->   ) |>
->   ggplot2::ggplot(ggplot2::aes(degree, rmse, colour = error, shape = error)) +
->   ggplot2::geom_hline(yintercept = sim_sigma, linetype = "dashed") +
->   ggplot2::geom_line() +
->   ggplot2::geom_point(size = 2) +
->   ggplot2::scale_x_continuous(breaks = sim_degrees) +
->   ggplot2::scale_y_log10() +
->   ggplot2::labs(
->     x = "polynomial degree",
->     y = "root mean squared error (log scale)",
->     colour = NULL,
->     shape = NULL
->   ) +
->   ggplot2::theme_bw() +
->   ggplot2::theme(legend.position = "top")
-> ```
->
-> [![Root mean squared error against polynomial degree from 1 to 10, with three curves for the training error, the estimated generalization error, and the 5-fold cross-validation estimate. The training error falls as the degree grows. The other two curves fall at the low degrees, then level off; the cross-validation curve rises sharply at the highest degrees.](model-validation_files/figure-html/cv-simulated-plot-1.png)](model-validation_files/figure-html/cv-simulated-plot-1.png "Figure 6: Figure 1 with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.")
->
-> Figure 6: [Figure 1](#fig-train-test-error) with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > sim_errors_cv |>
+> >   tidyr::pivot_longer(
+> >     c(training, generalization, cv_5),
+> >     names_to = "error",
+> >     values_to = "rmse"
+> >   ) |>
+> >   dplyr::mutate(
+> >     error = factor(
+> >       error,
+> >       levels = c("training", "cv_5", "generalization"),
+> >       labels = c("training", "5-fold CV", "generalization")
+> >     )
+> >   ) |>
+> >   ggplot2::ggplot(ggplot2::aes(degree, rmse, colour = error, shape = error)) +
+> >   ggplot2::geom_hline(yintercept = sim_sigma, linetype = "dashed") +
+> >   ggplot2::geom_line() +
+> >   ggplot2::geom_point(size = 2) +
+> >   ggplot2::scale_x_continuous(breaks = sim_degrees) +
+> >   ggplot2::scale_y_log10() +
+> >   ggplot2::labs(
+> >     x = "polynomial degree",
+> >     y = "root mean squared error (log scale)",
+> >     colour = NULL,
+> >     shape = NULL
+> >   ) +
+> >   ggplot2::theme_bw() +
+> >   ggplot2::theme(legend.position = "top")
+> > ```
+> >
+> > [![Root mean squared error against polynomial degree from 1 to 10, with three curves for the training error, the estimated generalization error, and the 5-fold cross-validation estimate. The training error falls as the degree grows. The other two curves fall at the low degrees, then level off; the cross-validation curve rises sharply at the highest degrees.](model-validation_files/figure-html/cv-simulated-plot-1.png)](model-validation_files/figure-html/cv-simulated-plot-1.png "Figure 6: Figure 1 with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.")
+> >
+> > Figure 6: [Figure 1](#fig-train-test-error) with the 5-fold cross-validation estimate added. Only the training and cross-validation curves could be computed from real data.
 >
 > Show R code
 >
@@ -1089,53 +1107,57 @@ Last modified: 2026-10-15 00:35:18 (PDT)
 >
 > **Example 9 (Four-fold cross-validation of the `mtcars` polynomials)** This example applies the \\k= 4\\ folds of [Exercise 7](#exr-kfold) to the four polynomial models of [Exercise 1](#exr-overfitting), now using all \\n= 32\\ cars and the `cv_mse()` function of [Example 8](#exm-kfold-simulated). The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.
 >
-> Show R code
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > mtcars_degrees <- 1:4
+> > n_repeats <- 5
+> >
+> > set.seed(32)
+> > mtcars_cv <-
+> >   tidyr::expand_grid(repeat_id = seq_len(n_repeats), degree = mtcars_degrees) |>
+> >   dplyr::mutate(
+> >     rmse = {
+> >       folds <- assign_folds(nrow(mtcars), k = 4)
+> >       purrr::map_dbl(
+> >         degree,
+> >         \(d) sqrt(cv_mse(mpg ~ poly(wt, d), mtcars, folds))
+> >       )
+> >     },
+> >     .by = repeat_id
+> >   ) |>
+> >   tidyr::pivot_wider(
+> >     names_from = degree,
+> >     values_from = rmse,
+> >     names_prefix = "degree_"
+> >   )
+> >
+> > mtcars_cv
+> > ```
+> >
+> > Table 4: Square root of the 4-fold cross-validation estimate, by degree, for each of 5 random fold assignments
 >
-> ``` downlit
-> mtcars_degrees <- 1:4
-> n_repeats <- 5
->
-> set.seed(32)
-> mtcars_cv <-
->   tidyr::expand_grid(repeat_id = seq_len(n_repeats), degree = mtcars_degrees) |>
->   dplyr::mutate(
->     rmse = {
->       folds <- assign_folds(nrow(mtcars), k = 4)
->       purrr::map_dbl(
->         degree,
->         \(d) sqrt(cv_mse(mpg ~ poly(wt, d), mtcars, folds))
->       )
->     },
->     .by = repeat_id
->   ) |>
->   tidyr::pivot_wider(
->     names_from = degree,
->     values_from = rmse,
->     names_prefix = "degree_"
->   )
->
-> mtcars_cv
-> ```
->
-> Table 4: Square root of the 4-fold cross-validation estimate, by degree, for each of 5 random fold assignments
->
-> Show R code
->
-> ``` downlit
-> mtcars_cv_best <-
->   mtcars_cv |>
->   tidyr::pivot_longer(
->     -repeat_id,
->     names_to = "degree",
->     names_prefix = "degree_",
->     values_to = "rmse"
->   ) |>
->   dplyr::slice_min(rmse, n = 1, by = repeat_id)
->
-> mtcars_cv_best
-> ```
->
-> Table 5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 random fold assignments
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > mtcars_cv_best <-
+> >   mtcars_cv |>
+> >   tidyr::pivot_longer(
+> >     -repeat_id,
+> >     names_to = "degree",
+> >     names_prefix = "degree_",
+> >     values_to = "rmse"
+> >   ) |>
+> >   dplyr::slice_min(rmse, n = 1, by = repeat_id)
+> >
+> > mtcars_cv_best
+> > ```
+> >
+> > Table 5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 random fold assignments
 >
 > Show R code
 >
@@ -1398,32 +1420,34 @@ Last modified: 2026-10-15 00:35:18 (PDT)
 >
 > With 30 observations and 10 folds, each fold holds 3 observations, so all ten folds have equal size and `cv` is \\\widehat{\operatorname{Err}}\_{\text{CV}(10)}\\ ([Remark 9](#rem-cv-estimate)).
 >
-> Show R code
->
-> ``` downlit
-> sim_cv_ten |>
->   ggplot2::ggplot(ggplot2::aes(degree, cv)) +
->   ggplot2::geom_hline(
->     yintercept = sim_min$cv + sim_min$se,
->     linetype = "dashed"
->   ) +
->   ggplot2::geom_errorbar(
->     ggplot2::aes(ymin = cv - se, ymax = cv + se),
->     width = 0.2
->   ) +
->   ggplot2::geom_point(size = 2) +
->   ggplot2::scale_x_continuous(breaks = sim_degrees) +
->   ggplot2::scale_y_log10() +
->   ggplot2::labs(
->     x = "polynomial degree",
->     y = "10-fold CV estimate (log scale)"
->   ) +
->   ggplot2::theme_bw()
-> ```
->
-> [![Ten-fold cross-validation estimate against polynomial degree from 1 to 10, with error bars of one fold-based standard error. A dashed horizontal line sits one fold-based standard error above the smallest estimate.](model-validation_files/figure-html/one-se-rule-plot-1.png)](model-validation_files/figure-html/one-se-rule-plot-1.png "Figure 7: 10-fold cross-validation estimates, with bars of one fold-based standard error (Equation 39). The dashed line is one fold-based standard error above the smallest estimate.")
->
-> Figure 7: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 39](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > sim_cv_ten |>
+> >   ggplot2::ggplot(ggplot2::aes(degree, cv)) +
+> >   ggplot2::geom_hline(
+> >     yintercept = sim_min$cv + sim_min$se,
+> >     linetype = "dashed"
+> >   ) +
+> >   ggplot2::geom_errorbar(
+> >     ggplot2::aes(ymin = cv - se, ymax = cv + se),
+> >     width = 0.2
+> >   ) +
+> >   ggplot2::geom_point(size = 2) +
+> >   ggplot2::scale_x_continuous(breaks = sim_degrees) +
+> >   ggplot2::scale_y_log10() +
+> >   ggplot2::labs(
+> >     x = "polynomial degree",
+> >     y = "10-fold CV estimate (log scale)"
+> >   ) +
+> >   ggplot2::theme_bw()
+> > ```
+> >
+> > [![Ten-fold cross-validation estimate against polynomial degree from 1 to 10, with error bars of one fold-based standard error. A dashed horizontal line sits one fold-based standard error above the smallest estimate.](model-validation_files/figure-html/one-se-rule-plot-1.png)](model-validation_files/figure-html/one-se-rule-plot-1.png "Figure 7: 10-fold cross-validation estimates, with bars of one fold-based standard error (Equation 39). The dashed line is one fold-based standard error above the smallest estimate.")
+> >
+> > Figure 7: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 39](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
 >
 > The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization RMSE of [Example 4](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
