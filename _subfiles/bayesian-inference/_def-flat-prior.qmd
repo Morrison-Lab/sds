@@ -1,5 +1,5 @@
 ::: {#def-flat-prior}
-#### Flat prior
+#### Flat prior (uniform prior, noninformative prior)
 
 A **flat prior**,
 also called a **uniform** or **noninformative** prior,
