@@ -248,6 +248,8 @@ format:
   html:
     filters:
       - Morrison-Lab/callouty-theorem
+      # Folds and anchors each Watch and Read callout; must precede custom-callout.
+      - filters/watch-callouts.lua
       - coatless-quarto/custom-callout
     theme:
       light: [cosmo, offwhite.scss]
@@ -256,6 +258,7 @@ format:
     include-in-header: theme-picker.html
     include-after-body:
       - anchor-landing.html
+      - watch-anchors.html
       - table-roles.html
     css: styles.css
     toc: true
