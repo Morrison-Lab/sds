@@ -106,6 +106,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-average-fit.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-prediction-bias.qmd >}}
 
 {{< slidebreak >}}
@@ -115,6 +119,22 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_sol-epe-three-sources.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exr-epe-split-noise.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-epe-split-noise.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exr-epe-split-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-epe-split-bias.qmd >}}
 
 {{< slidebreak >}}
 

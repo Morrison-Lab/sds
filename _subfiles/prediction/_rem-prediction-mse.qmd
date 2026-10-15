@@ -2,7 +2,7 @@
 #### Prediction MSE, estimator MSE and RSS
 
 @def-prediction-mse averages squared errors over observations,
-where the [mean squared error of an estimator](#def-mse)
+where the [mean squared error of an estimator](estimation.qmd#def-mse)
 takes an expectation over repeated samples.
 On the data used to fit the model,
 the mean squared error of the fitted values is the
