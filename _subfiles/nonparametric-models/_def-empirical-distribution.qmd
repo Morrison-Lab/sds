@@ -11,6 +11,17 @@ $$\frac{1}{n}\sumjn \indicp{x_j \in A}.$$
 
 :::
 
+:::{#exm-empirical-distribution}
+#### Numerical example: empirical distribution
+
+Suppose the observed values are $4, 1, 7, 3$, so $n = 4$,
+and let $A = [2, 5)$.
+Two of the four values (4 and 3) lie in $A$,
+so the empirical distribution gives $A$ probability $2/4 = 0.5$.
+Each observed value has probability $1/4$,
+and any set containing none of them has probability $0$.
+:::
+
 ::: {.remark .notes}
 
 #### What "empirical" means
