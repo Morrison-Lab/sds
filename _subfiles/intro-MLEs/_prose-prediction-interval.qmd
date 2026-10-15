@@ -4,7 +4,7 @@ from the same distribution,
 independent of the first $n$.
 The MLE of $\mean$ is $\hmean = \bar X$,
 and the difference $\bar X^* - \hmean$
-(the negative of the [prediction error](estimation.qmd#def-prediction-error))
+(the negative of the [prediction error](prediction.qmd#def-prediction-error))
 is a difference of independent Gaussian variables, so:
 
 $$

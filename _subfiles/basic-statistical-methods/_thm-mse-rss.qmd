@@ -2,7 +2,7 @@
 #### Mean squared error is the residual sum of squares divided by $n$
 
 For a regression model with conditional mean $\mean(x; \vparam)$,
-the [mean squared error](estimation.qmd#def-prediction-mse)
+the [mean squared error](prediction.qmd#def-prediction-mse)
 of its predictions $\fitted_i = \mean(x_i; \vparam)$
 of $n \ge 1$ outcomes $\dsn{y}$
 and the residual sum of squares $\text{RSS}(\vparam)$ (@def-rss)

@@ -4,7 +4,7 @@
 The **expected squared prediction error at $\predvar$**
 of a [fitting procedure](#def-fitting-procedure) $\fitproc$
 at training-set size $\nobs$
-is the mean squared [prediction error](estimation.qmd#def-prediction-error)
+is the mean squared [prediction error](prediction.qmd#def-prediction-error)
 of its prediction at $\predvar$ for a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
 averaged over random [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
 drawn independently of $(\newpredvar, \newoutvar)$,

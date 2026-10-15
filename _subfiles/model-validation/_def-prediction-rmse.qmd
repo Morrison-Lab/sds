@@ -4,7 +4,7 @@
 The **root mean squared error** (RMSE) of predictions
 $\dsn{\fitted}$
 of observed outcomes $\dsn{\outvar}$
-is the square root of their [mean squared error](estimation.qmd#def-prediction-mse):
+is the square root of their [mean squared error](prediction.qmd#def-prediction-mse):
 
 $$
 \rmselr{\fitted} \eqdef \sqrt{\mselr{\fitted}}.
