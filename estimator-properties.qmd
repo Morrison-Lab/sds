@@ -56,6 +56,10 @@ and how small can the variance of an unbiased estimator be?
 
 {{< include sds/_subfiles/estimator-properties/_exm-relative-efficiency-mean.qmd >}}
 
+::: {.reading}
+@CaseBerg01 [Sec. 10.1, pp. 467--480] covers point estimation, including consistency, efficiency and bootstrap standard errors.
+:::
+
 ## The Cramér--Rao lower bound {#sec-cramer-rao}
 
 {{< include sds/_subfiles/estimator-properties/_exr-cov-estimator-score.qmd >}}
@@ -79,6 +83,13 @@ and how small can the variance of an unbiased estimator be?
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/estimator-properties/_rem-cramer-rao-scope.qmd >}}
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.6, pp. 285--289] covers asymptotic distributions of maximum likelihood estimators.
+- @CaseBerg01 [Sec. 7.3.2, pp. 334--341] covers best unbiased estimators and the Cramér--Rao bound.
+- @rice2007mathematical [Sec. 8.5.2, pp. 274--278] covers large-sample theory for maximum likelihood estimators.
+- @rice2007mathematical [Sec. 8.7, pp. 298--304] covers efficiency and the Cramér--Rao lower bound.
+:::
 
 ## References {.unnumbered}
 

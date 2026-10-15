@@ -10,11 +10,12 @@ $$
 \foldmse{\ifold} \eqdef \frac{1}{\foldsize{\ifold}} \sum_{\iobs \in \fold{\ifold}} \sqf{\fittedwo{\ifold}{\predvar_{\iobs}} - \outvar_{\iobs}}.
 $$ {#eq-fold-mse}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-fold-mse}
+#### Source: Fold mean squared error
 
 @james2021islr2e [sec. 5.1.3], who write the fold mean squared errors as
 $\text{MSE}_1, \ldots, \text{MSE}_{\nfolds}$.
-:::
 
 :::

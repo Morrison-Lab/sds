@@ -10,13 +10,6 @@ $$
 \Var{\hparam} \ge \frac{1}{\einf(\param)}
 $$ {#eq-cramer-rao}
 
-::: {.callout-note collapse="true"}
-#### Source
-
-@rao1945information; @cramer1946mathematical;
-@CaseBerg01 [Thm. 7.3.9, p. 335].
-:::
-
 :::
 
 ::: proof
@@ -49,3 +42,10 @@ both positive, gives @eq-cramer-rao.
 
 :::
 
+:::{#rem-source-cramer-rao}
+#### Source: Cramér--Rao lower bound
+
+@rao1945information; @cramer1946mathematical;
+@CaseBerg01 [Thm. 7.3.9, p. 335].
+
+:::

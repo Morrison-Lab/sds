@@ -14,11 +14,12 @@ $$
 \cvestof{\nfolds}{\candproc{\icand}}\paren{\trainset} \le \cvestof{\nfolds}{\candproc{\icand^*}}\paren{\trainset} + \cvseof{\nfolds}{\candproc{\icand^*}}\paren{\trainset}.
 $$ {#eq-one-se-rule}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-one-se-rule}
+#### Source: One-standard-error rule
 
 @hastie2009elements [sec. 7.10.1];
 @james2021islr2e [sec. 6.1.3].
-:::
 
 :::
