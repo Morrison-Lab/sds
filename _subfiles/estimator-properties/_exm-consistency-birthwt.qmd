@@ -1,0 +1,114 @@
+::: {#exm-consistency-birthwt}
+#### Consistency of the sample mean for birth weights
+
+The `birthwt` data record the birth weight (grams) of `r nrow(read.csv("data/birthwt.csv"))` babies
+from a study at Baystate Medical Center in Springfield, Massachusetts
+[@hosmer1989applied]; the data ship with the R package
+[`MASS`](https://cran.r-project.org/package=MASS) (`MASS::birthwt`),
+and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
+
+To see @cor-sample-mean-consistent at work,
+treat these babies as a finite population
+and let the estimand $\mean$ be their mean birth weight.
+We draw $n$ babies at random with replacement,
+so the draws are independent with the population's mean and variance,
+and we ask how often the sample mean misses $\mean$
+by at least $\varepsilon = 100$ grams.
+For each $n$ we repeat the sampling 2000 times
+and report the fraction of repeats that miss,
+with a 95% confidence interval for that probability
+(the Wilson interval from `prop.test()`),
+next to the bound $\varpar / (n \varepsilon^2)$
+that @lem-estimation-error-bound gives,
+using $\mselr{\bar X_n} = \varpar / n$ from [the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean).
+
+```{r}
+#| label: consistency-birthwt-sim
+#| code-fold: true
+birthwt <- read.csv("data/birthwt.csv")
+bwt <- birthwt$bwt
+
+# The population: the 189 observed birth weights.
+mu <- mean(bwt)
+# Population variance (divisor N, not N - 1), because the draws below
+# come from exactly this finite population.
+sigma_sq <- mean((bwt - mu)^2)
+eps <- 100
+n_reps <- 2000
+sample_sizes <- c(5, 10, 20, 40, 80, 160, 320)
+
+set.seed(203)
+miss_counts <- vapply(
+  sample_sizes,
+  function(n) {
+    sum(replicate(
+      n_reps,
+      abs(mean(sample(bwt, n, replace = TRUE)) - mu) >= eps
+    ))
+  },
+  numeric(1)
+)
+
+miss_ci <- lapply(miss_counts, prop.test, n = n_reps)
+
+consistency_sim <- data.frame(
+  n = sample_sizes,
+  miss_prob = miss_counts / n_reps,
+  lower = vapply(miss_ci, function(ci) ci$conf.int[1], numeric(1)),
+  upper = vapply(miss_ci, function(ci) ci$conf.int[2], numeric(1)),
+  bound = pmin(1, sigma_sq / (sample_sizes * eps^2))
+)
+consistency_sim
+```
+
+```{r}
+#| label: fig-consistency-birthwt-alt
+#| include: false
+fig_alt_consistency <- sprintf(
+  paste(
+    "Line chart with sample size n on a logarithmic horizontal axis",
+    "and the probability that the sample mean misses the population mean",
+    "by at least 100 grams on the vertical axis.",
+    "The simulated probability, with 95%% confidence bands,",
+    "falls from %.2f at n = %d to %.3f at n = %d,",
+    "and stays below the bound, which also falls toward 0."
+  ),
+  consistency_sim$miss_prob[1], consistency_sim$n[1],
+  consistency_sim$miss_prob[nrow(consistency_sim)],
+  consistency_sim$n[nrow(consistency_sim)]
+)
+```
+
+::: {#fig-consistency-birthwt}
+
+```{r}
+#| label: consistency-birthwt-plot
+#| fig-alt: !expr fig_alt_consistency
+#| code-fold: true
+p <- ggplot(consistency_sim, aes(x = n)) +
+  geom_ribbon(aes(ymin = lower, ymax = upper), alpha = 0.25) +
+  geom_line(aes(y = miss_prob, linetype = "simulated")) +
+  geom_point(aes(y = miss_prob)) +
+  geom_line(aes(y = bound, linetype = "bound")) +
+  scale_x_log10(breaks = sample_sizes) +
+  scale_linetype_manual(
+    values = c(simulated = "solid", bound = "dashed"),
+    name = NULL
+  ) +
+  labs(
+    x = "sample size n",
+    y = "P(|sample mean - population mean| >= 100 g)"
+  )
+if (knitr::is_html_output()) plotly::ggplotly(p) else p
+```
+
+The chance that the sample mean of $n$ birth weights misses the mean by 100 g or more,
+by simulation (2000 repeats per $n$, with 95% confidence bands) and by the bound from @lem-estimation-error-bound
+:::
+
+The simulated probability shrinks toward zero as $n$ grows,
+as consistency says it must,
+and it always lies below the bound,
+which is loose for small $n$ but follows the same $1/n$ decay.
+
+:::

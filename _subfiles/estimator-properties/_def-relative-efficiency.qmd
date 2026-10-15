@@ -1,0 +1,29 @@
+:::{#def-relative-efficiency}
+#### Relative efficiency
+
+Let $\hparam_a$ and $\hparam_b$ be two estimators of the same estimand $\param$.
+The **relative efficiency** of $\hparam_a$ with respect to $\hparam_b$
+is the ratio of their [mean squared errors](estimation.qmd#def-mse),
+the less accurate estimator's in the numerator:
+
+$$\frac{\mselr{\hparam_b}}{\mselr{\hparam_a}}$$
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@CaseBerg01 [sec. 7.3.1].
+:::
+
+:::
+
+{{< slidebreak >}}
+
+:::{#rem-relative-efficiency}
+#### Reading the relative efficiency
+
+A relative efficiency above 1 means $\hparam_a$ is more accurate than $\hparam_b$,
+and below 1 means it is less accurate.
+For two [unbiased](estimation.qmd#def-unbiased) estimators the mean squared errors are the variances
+([mean squared error equals bias squared plus variance](estimation.qmd#thm-mse-bias-variance), with zero bias),
+so the relative efficiency is the ratio of the variances.
+:::

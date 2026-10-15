@@ -1,0 +1,23 @@
+:::{#rem-cramer-rao-scope}
+#### What the bound does and does not say
+
+The bound holds only for unbiased estimators,
+and only when the regularity conditions of [the exercise on the mean of the score](intro-MLEs.qmd#exr-score-mean-zero) hold.
+When the set of possible data values depends on the parameter,
+as for the uniform distribution on $[0, \param]$,
+the conditions fail and the bound need not hold
+(compare [the uniform example](intro-MLEs.qmd#exm-information-equality-fails)).
+
+A biased estimator can beat the bound,
+because [mean squared error](estimation.qmd#thm-mse-bias-variance)
+adds squared bias to the variance,
+and trading a little bias for a large drop in variance
+can lower the mean squared error.
+
+The information from $n$ independent observations is $n$ times
+the information from one,
+so for a sample of size $n$ the bound shrinks like $1/n$.
+That is the rate at which the variance of an efficient estimator falls,
+and the [maximum likelihood estimator](intro-MLEs.qmd#thm-dist-mle)
+attains it asymptotically.
+:::

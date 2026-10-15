@@ -1,0 +1,16 @@
+:::{#cor-sample-mean-consistent}
+#### The sample mean is consistent
+
+Let $\dsn{X}$ be independent with common mean $\mean$ and common finite variance $\varpar$.
+Then the sample mean is a [consistent](#def-consistent) estimator of $\mean$:
+$\bar X_n \inprob \mean$.
+
+:::
+
+::: proof
+
+By [the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean), $\mselr{\bar X_n} = \varpar / n$,
+which goes to zero as $n \to \infty$.
+@thm-mse-consistent then gives $\bar X_n \inprob \mean$.
+
+:::
