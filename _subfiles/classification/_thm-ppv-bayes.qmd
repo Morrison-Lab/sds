@@ -4,7 +4,9 @@
 Let $\text{sens}$ be the [sensitivity](#def-sensitivity) of a diagnostic test,
 $\text{spec}$ its [specificity](#def-specificity),
 and $\prev$ the [prevalence](#def-prevalence) of the disease.
-Then the [positive predictive value](#def-ppv) of the test is:
+If the probability of a positive test is positive,
+$\text{sens} \cd \prev + \paren{1 - \text{spec}} \cd \paren{1 - \prev} > 0$,
+then the [positive predictive value](#def-ppv) of the test is:
 
 $$
 \text{PPV} =

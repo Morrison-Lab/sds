@@ -1,12 +1,15 @@
 :::{#thm-prob-positive}
 #### Probability of a positive test
 
-The probability $\Pr(+)$ that a diagnostic test is positive is:
+Let $\text{sens}$ be the [sensitivity](#def-sensitivity) of a diagnostic test,
+$\text{spec}$ its [specificity](#def-specificity),
+and $\prev$ the [prevalence](#def-prevalence) of the disease.
+Then the probability $\Pr(+)$ that the test is positive is:
 
 $$
 \Pr(+) =
-\text{sensitivity} \cd \text{prevalence}
-+ \paren{1 - \text{specificity}} \cd \paren{1 - \text{prevalence}}
+\text{sens} \cd \prev
++ \paren{1 - \text{spec}} \cd \paren{1 - \prev}
 $$ {#eq-prob-positive}
 
 :::
