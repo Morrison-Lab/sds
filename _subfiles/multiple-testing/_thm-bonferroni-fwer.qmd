@@ -11,7 +11,7 @@ whatever the dependence between the p-values.
 
 ::: proof
 
-The first line below is @def-fwer, and the second is @sol-bonferroni-fwer.
+The first line below is @def-fwer, and the second is @lem-bonferroni-false-positive-prob.
 
 $$
 \begin{aligned}
@@ -49,7 +49,7 @@ summarize_counts(sim_counts$bonferroni)
 
 The estimated FWER, `r round(summarize_counts(sim_counts$bonferroni)[["FWER"]], 3)`,
 is below the bound, up to simulation error.
-The Bonferroni correction pays for this with power:
+The Bonferroni correction loses power in exchange:
 it finds `r round(100 * summarize_counts(sim_counts$bonferroni)[["power"]])`% of the 100 false null hypotheses,
 against `r round(100 * summarize_counts(sim_counts$unadjusted)[["power"]])`% for unadjusted testing.
 :::

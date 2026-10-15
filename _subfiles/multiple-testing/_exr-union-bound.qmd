@@ -27,3 +27,20 @@ Fix an outcome and consider two cases.
   The inequality holds.
 
 :::
+
+{{< slidebreak >}}
+
+:::{#lem-indicator-union}
+#### The indicator of a union is at most the sum of the indicators
+
+For events $A_1, \ldots, A_k$, let $\indic{A}$ be the indicator of the event $A$:
+it equals 1 if $A$ occurs and 0 if it does not.
+Then, for every outcome,
+
+$$\indic{A_1 \cup \cdots \cup A_k} \le \indic{A_1} + \cdots + \indic{A_k}.$$
+
+:::
+
+::: proof
+This is the solution to @exr-union-bound, worked in @sol-union-bound.
+:::

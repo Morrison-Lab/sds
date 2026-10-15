@@ -8,17 +8,9 @@ format:
     output-file: estimation-handout.pdf
   docx:
     output-file: estimation-handout.docx
-resources:
-  - data/birthwt.csv
 ---
 
 {{< include sds/_subfiles/shared-config.qmd >}}
-
-```{r}
-#| label: python-packages
-#| include: false
-reticulate::py_require(c("numpy", "pandas"))
-```
 
 ## Scientific models
 
@@ -124,60 +116,12 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
-### Predictions, fitted values, residuals, and prediction errors {#residuals}
+### Predictions and residuals {#residuals}
 
 <!-- The explicit {#residuals} keeps the anchor this section had when its heading was "Residuals". -->
-<!-- No slidebreak here: the heading shares its slide with the def-prediction div. -->
+<!-- No slidebreak here: the heading shares its slide with the prose. -->
 
-{{< include sds/_subfiles/estimation/_def-prediction.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_exm-prediction-cond-mean.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_def-fitted-value.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_def-residual.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_def-prediction-error.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_exr-prediction-error-residual.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_thm-prediction-error-residual.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_cor-residual-prediction-error.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_exm-residual-prediction-error.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_rem-prediction-error.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_def-prediction-mse.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_rem-prediction-mse.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/estimation/_exm-fitted-residual-error.qmd >}}
+{{< include sds/_subfiles/estimation/_prose-prediction-moved.qmd >}}
 
 {{< slidebreak >}}
 
@@ -201,7 +145,7 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
-### Mean squared error
+### Mean squared error of an estimator {#mean-squared-error}
 
 <!-- No slidebreak here: the heading shares its slide with the def-mse div. -->
 
@@ -213,11 +157,23 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_thm-sq-bias-expand.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_exr-bias-sq-plus-var.qmd >}}
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_thm-bias-sq-plus-var.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_exr-mse-expand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimation/_thm-mse-expand.qmd >}}
 
 {{< slidebreak >}}
 

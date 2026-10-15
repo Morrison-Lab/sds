@@ -1,0 +1,25 @@
+:::{#exm-poisson-efficient}
+#### The sample mean is efficient for Poisson data
+
+For $\dsn{X} \siid \Pois(\rate)$,
+the sample mean $\bar X$ is unbiased for $\rate$ ([the bias example](estimation.qmd#exm-bias-sample-mean)),
+and, because $\Var{X_i} = \rate$ for a Poisson variable,
+$\Var{\bar X} = \rate / n$ ([the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean)).
+The expected information is $\einf(\rate) = n / \rate$ ([the Poisson information example](intro-MLEs.qmd#exm-information-poisson)), so
+
+$$
+\begin{aligned}
+\frac{1}{\einf(\rate)}
+&= \frac{1}{n / \rate}
+&& \text{(substitute the expected information)}\\
+&= \frac{\rate}{n}
+&& \text{(reciprocal of a fraction)}\\
+&= \Var{\bar X}
+&& \text{(variance of the sample mean)}
+\end{aligned}
+$$
+
+The sample mean attains the Cramér--Rao bound,
+so it is an [efficient](#def-efficient) estimator of $\rate$.
+It is also the maximum likelihood estimator ([the Poisson MLE example](intro-MLEs.qmd#exm-dist-mle-poisson)).
+:::

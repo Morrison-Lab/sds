@@ -1,0 +1,22 @@
+:::{#exr-epe-split-bias}
+#### Separate the bias
+
+@eq-epe-after-noise leaves one term that still mixes two ideas:
+
+$$
+\E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}.
+$$
+
+A prediction can miss $\mean(\predvar)$ because its [average fit](#def-average-fit) is off,
+or because it gives a different result for every training set.
+These are different failures with different fixes,
+so the term should split into one piece for each.
+
+Split it with the same technique as before:
+add and subtract the average fit $\avgfitf{\predvar}$ (@eq-average-fit),
+expand, and take the expectation term by term.
+
+Which of the three terms is not random at all,
+and what makes the cross term zero this time?
+
+:::

@@ -37,7 +37,7 @@ $$
 \end{aligned}
 $$
 
-The justifications of the third and the seventh line are @sol-relabeling-count and @sol-top-k-count.
+The justifications of the third and the seventh line are @lem-relabeling-count and @lem-top-k-count.
 
 :::
 

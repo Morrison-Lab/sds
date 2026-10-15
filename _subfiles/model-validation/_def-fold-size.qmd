@@ -1,11 +1,11 @@
 :::{#def-fold-size}
 #### Fold size
 
-The **size** $\foldsize{j}$ of [fold](#def-folds) $\fold{j}$
+The **size** $\foldsize{\ifold}$ of [fold](#def-folds) $\fold{\ifold}$
 is the number of observations it contains:
 
 $$
-\foldsize{j} \eqdef \abs{\fold{j}}.
+\foldsize{\ifold} \eqdef \abs{\fold{\ifold}}.
 $$ {#eq-fold-size}
 
 :::

@@ -3,12 +3,12 @@
 
 @hastie2009elements [sec. 7.10.1] draw standard-error bars
 computed from the per-fold errors as in @eq-cv-se.
-That formula treats the $k$ fold errors
+That formula treats the $\nfolds$ fold errors
 as if they were independent,
 which they are not:
-every pair of folds shares $k - 2$ folds of training data.
-So $\cvse{k}$ is a rough indication
-of how much $\cvest{k}$ might change with a different sample,
-not a [standard error](estimation.qmd#def-SE) of $\cvest{k}$.
+every pair of folds shares $\nfolds - 2$ folds of training data.
+So $\cvse{\nfolds}$ is a rough indication
+of how much $\cvest{\nfolds}$ might change with a different sample,
+not a [standard error](estimation.qmd#def-SE) of $\cvest{\nfolds}$.
 
 :::
