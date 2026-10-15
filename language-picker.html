@@ -22,7 +22,7 @@
     return Array.prototype.slice.call(
       document.querySelectorAll("div[data-group='" + GROUP + "'] a[id^='tabset-']"));
   }
-  // Quarto keys its sync on a tab's innerHTML, so that is the value stored.
+  // Quarto keys its tab sync on a tab's innerHTML, so the stored value is the innerHTML.
   function value(tab) { return tab.innerHTML; }
   function text(tab) { return tab.textContent.trim(); }
   function labels(all) {
@@ -103,12 +103,13 @@
       var b = e.target.closest("[data-language-choice]");
       if (b) choose(wrap, all, b.dataset.languageChoice || null);
     });
-    // A direct click on a tab updates the stored entry in Quarto's handler,
-    // which is attached after this one (on pageshow), so re-read the label
-    // once it has run.
-    all.forEach(function (t) {
-      t.addEventListener("click", function () { setTimeout(function () { mark(wrap, all); }, 0); });
-    });
+    // Quarto's click handler on each tab (attached on pageshow, after this
+    // listener) updates the stored entry, so re-read the label once Quarto's
+    // handler has run. Quarto also re-applies the stored tab on every pageshow,
+    // including a restore from the back/forward cache, so re-read then too.
+    function refresh() { setTimeout(function () { mark(wrap, all); }, 0); }
+    all.forEach(function (t) { t.addEventListener("click", refresh); });
+    window.addEventListener("pageshow", refresh);
     mark(wrap, all);
   });
 })();
