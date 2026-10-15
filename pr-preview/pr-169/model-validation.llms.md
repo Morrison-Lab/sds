@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 18:19:44 (PDT)
+Last modified: 2026-10-14 19:15:41 (PDT)
 
 ## 1 Fitting and scoring prediction rules
 
@@ -46,9 +46,9 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 
 > **NOTE:**
 >
-> **Definition 4 (Generalization error)** The **generalization error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected squared [prediction error](estimation.llms.md#def-prediction-error) on a new observation \\(X_0, Y_0)\\ drawn from the same population independently of \\\mathcal{D}\_{\text{train}}\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed:
+> **Definition 4 (Generalization error)** The **generalization error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected squared [prediction error](estimation.llms.md#def-prediction-error) on a new observation \\(X\_{\*}, Y\_{\*})\\ drawn from the same population independently of \\\mathcal{D}\_{\text{train}}\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed:
 >
-> \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \tag{4}\\
+> \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{\*}) - Y\_{\*}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \tag{4}\\
 >
 > > **NOTE:**
 > >
@@ -58,7 +58,7 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 >
 > **Definition 5 (Held-out set)** A **held-out set** for a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is a list of \\m\\ further observations, none of them in \\\mathcal{D}\_{\text{train}}\\, that the [fitting procedure](#def-fitting-procedure) does not use and on which the [prediction rule](#def-prediction-rule) \\\hat y\\ is scored:
 >
-> \\ \mathopen{}\left((x\_{0,1}, y\_{0,1}), \ldots, (x\_{0,m}, y\_{0,m})\right)\mathclose{}. \tag{5}\\
+> \\ \mathopen{}\left((x\_{\*,1}, y\_{\*,1}), \ldots, (x\_{\*,m}, y\_{\*,m})\right)\mathclose{}. \tag{5}\\
 >
 > > **NOTE:**
 > >
@@ -155,7 +155,7 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 2 (Score a fitted model on a car it has not seen)** A [prediction rule](#def-prediction-rule) \\\hat y\\ has been fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations, such as the 20 training cars of [Exercise 1](#exr-overfitting). A new car \\(X_0, Y_0)\\ is then drawn from the same population, independently of \\\mathcal{D}\_{\text{train}}\\.
+> **Exercise 2 (Score a fitted model on a car it has not seen)** A [prediction rule](#def-prediction-rule) \\\hat y\\ has been fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations, such as the 20 training cars of [Exercise 1](#exr-overfitting). A new car \\(X\_{\*}, Y\_{\*})\\ is then drawn from the same population, independently of \\\mathcal{D}\_{\text{train}}\\.
 >
 > 1.  Holding \\\mathcal{D}\_{\text{train}}\\ fixed, write the average squared [prediction error](estimation.llms.md#def-prediction-error) that \\\hat y\\ would make over all such new cars, as an expectation.
 > 2.  Which parts of your expression do you know, and which do you not know?
@@ -165,11 +165,11 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 >
 > *Solution 2*.
 >
-> 1.  Average the squared prediction error over the distribution of \\(X_0, Y_0)\\, with \\\mathcal{D}\_{\text{train}}\\, and so the rule \\\hat y\\, held fixed:
+> 1.  Average the squared prediction error over the distribution of \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\, and so the rule \\\hat y\\, held fixed:
 >
->     \\\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}.\\
+>     \\\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{\*}) - Y\_{\*}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}.\\
 >
-> 2.  The rule \\\hat y\\ is known, because we fitted it. The joint distribution of \\(X_0, Y_0)\\ is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to build a prediction rule.
+> 2.  The rule \\\hat y\\ is known, because we fitted it. The joint distribution of \\(X\_{\*}, Y\_{\*})\\ is unknown, so the expectation cannot be computed. If we knew that distribution, we would not need data to build a prediction rule.
 >
 > 3.  The training error \\\overline{\operatorname{err}}\\ replaces the expectation over new cars with an average over the \\n\\ training cars. Those cars are draws from the same population, but they are not independent of \\\mathcal{D}\_{\text{train}}\\: they *are* \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was chosen to fit them.
 
@@ -191,9 +191,9 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 
 > **NOTE:**
 >
-> **Definition 11 (Expected squared prediction error at a covariate value)** The **expected squared prediction error at \\x\\** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean squared [prediction error](estimation.llms.md#def-prediction-error) of its prediction at \\x\\ for a new outcome \\Y_0\\ with \\X_0= x\\, averaged over random [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently of \\(X_0, Y_0)\\, and over \\Y_0\\:
+> **Definition 11 (Expected squared prediction error at a covariate value)** The **expected squared prediction error at \\x\\** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the mean squared [prediction error](estimation.llms.md#def-prediction-error) of its prediction at \\x\\ for a new outcome \\Y\_{\*}\\ with \\X\_{\*}= x\\, averaged over random [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently of \\(X\_{\*}, Y\_{\*})\\, and over \\Y\_{\*}\\:
 >
-> \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{} - Y_0\right)^2\mathclose{} \mid X_0= x\right\]\mathclose{}. \tag{10}\\
+> \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{} - Y\_{\*}\right)^2\mathclose{} \mid X\_{\*}= x\right\]\mathclose{}. \tag{10}\\
 >
 > > **NOTE:**
 > >
@@ -201,21 +201,21 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 3 (The expected generalization error, covariate value by covariate value)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations be independent of the new observation \\(X_0, Y_0)\\. Show that the [expected generalization error](#def-expected-generalization-error) is the mean of the [expected squared prediction error at \\x\\](#def-epe) over the distribution of \\X_0\\:
+> **Exercise 3 (The expected generalization error, covariate value by covariate value)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations be independent of the new observation \\(X\_{\*}, Y\_{\*})\\. Show that the [expected generalization error](#def-expected-generalization-error) is the mean of the [expected squared prediction error at \\x\\](#def-epe) over the distribution of \\X\_{\*}\\:
 >
-> \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X_0\right)\mathclose{}\right\]\mathclose{}. \\
+> \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}\right\]\mathclose{}. \\
 
 > **NOTE:**
 >
-> *Solution 3*. \\ \begin{aligned} & \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X_0) - Y_0\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X_0; \mathcal{D}\_{\text{train}}\right)\mathclose{} - Y_0\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}\right\]\mathclose{} && \text{(prediction rule)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X_0; \mathcal{D}\_{\text{train}}\right)\mathclose{} - Y_0\right)^2\mathclose{}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X_0; \mathcal{D}\_{\text{train}}\right)\mathclose{} - Y_0\right)^2\mathclose{} \mid X_0\right\]\mathclose{}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X_0\right)\mathclose{}\right\]\mathclose{} && \text{(definition)} \end{aligned} \\
+> *Solution 3*. \\ \begin{aligned} & \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{\*}) - Y\_{\*}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X\_{\*}; \mathcal{D}\_{\text{train}}\right)\mathclose{} - Y\_{\*}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}\right\]\mathclose{} && \text{(prediction rule)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X\_{\*}; \mathcal{D}\_{\text{train}}\right)\mathclose{} - Y\_{\*}\right)^2\mathclose{}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\mathopen{}\left(g\mathopen{}\left(X\_{\*}; \mathcal{D}\_{\text{train}}\right)\mathclose{} - Y\_{\*}\right)^2\mathclose{} \mid X\_{\*}\right\]\mathclose{}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}\right\]\mathclose{} && \text{(definition)} \end{aligned} \\
 >
-> The steps labeled “definition” apply [Equation 8](#eq-expected-generalization-error), [Equation 4](#eq-generalization-error) and [Equation 10](#eq-epe), in that order, and the step labeled “prediction rule” applies [Equation 3](#eq-prediction-rule), \\\hat y(X_0) = g\mathopen{}\left(X_0; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{D}\_{\text{train}}\\ and the second on \\X_0\\. The last line needs \\\mathcal{D}\_{\text{train}}\\ to be independent of \\(X_0, Y_0)\\: then, given \\X_0= x\\, \\\mathcal{D}\_{\text{train}}\\ still has its unconditional distribution, as [Definition 11](#def-epe) requires.
+> The steps labeled “definition” apply [Equation 8](#eq-expected-generalization-error), [Equation 4](#eq-generalization-error) and [Equation 10](#eq-epe), in that order, and the step labeled “prediction rule” applies [Equation 3](#eq-prediction-rule), \\\hat y(X\_{\*}) = g\mathopen{}\left(X\_{\*}; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{D}\_{\text{train}}\\ and the second on \\X\_{\*}\\. The last line needs \\\mathcal{D}\_{\text{train}}\\ to be independent of \\(X\_{\*}, Y\_{\*})\\: then, given \\X\_{\*}= x\\, \\\mathcal{D}\_{\text{train}}\\ still has its unconditional distribution, as [Definition 11](#def-epe) requires.
 
 > **NOTE:**
 >
-> **Theorem 1 (The expected generalization error averages the error at each covariate value)** If the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is independent of the new observation \\(X_0, Y_0)\\, the [expected generalization error](#def-expected-generalization-error) of a [fitting procedure](#def-fitting-procedure) \\g\\ is the mean of its [expected squared prediction error at \\x\\](#def-epe) over the distribution of \\X_0\\:
+> **Theorem 1 (The expected generalization error averages the error at each covariate value)** If the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is independent of the new observation \\(X\_{\*}, Y\_{\*})\\, the [expected generalization error](#def-expected-generalization-error) of a [fitting procedure](#def-fitting-procedure) \\g\\ is the mean of its [expected squared prediction error at \\x\\](#def-epe) over the distribution of \\X\_{\*}\\:
 >
-> \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X_0\right)\mathclose{}\right\]\mathclose{}. \tag{11}\\
+> \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}\right\]\mathclose{}. \tag{11}\\
 
 > **NOTE:**
 >
@@ -241,9 +241,9 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 4 (Expected squared error from three sources)** A prediction \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ at a covariate value \\x\\ has squared bias \\\[\operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\]^2 = 1\\ and variance \\\operatorname{Var}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} = 2\\. The new outcome is \\Y_0= \mu(x) + \varepsilon\\, where \\\varepsilon\\ has mean \\0\\ and variance \\\sigma^2= 3\\ and is independent of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\.
+> **Exercise 4 (Expected squared error from three sources)** A prediction \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ at a covariate value \\x\\ has squared bias \\\[\operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\]^2 = 1\\ and variance \\\operatorname{Var}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} = 2\\. The new outcome is \\Y\_{\*}= \mu(x) + \varepsilon\\, where \\\varepsilon\\ has mean \\0\\ and variance \\\sigma^2= 3\\ and is independent of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\.
 >
-> 1.  What is the expected squared prediction error \\\operatorname{E}\mathopen{}\left\[(Y_0- g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{})^2\right\]\mathclose{}\\?
+> 1.  What is the expected squared prediction error \\\operatorname{E}\mathopen{}\left\[(Y\_{\*}- g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{})^2\right\]\mathclose{}\\?
 > 2.  If we could remove all bias and all variance of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\, what would the expected squared prediction error be?
 > 3.  Which of the three quantities (squared bias, variance of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\, \\\sigma^2\\) can a better prediction method reduce, and which cannot?
 
@@ -259,21 +259,21 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 
 > **NOTE:**
 >
-> **Theorem 2 (Bias, variance and noise)** Let \\\mu\\ be the [mean function](#def-mean-function) of the outcome given the covariate. Suppose that, given \\X_0= x\\, the new outcome is \\Y_0= \mu(x) + \varepsilon\\, where \\\varepsilon\\, the noise in the outcome at \\x\\, has mean \\0\\ and variance \\\sigma^2\\, and that \\Y_0\\ is independent of the random training set \\\mathcal{D}\_{\text{train}}\\, and that \\\operatorname{E}\mathopen{}\left\[g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}^2\right\]\mathclose{} \< \infty\\. Then the [expected squared prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ as a prediction of \\\mu(x)\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
+> **Theorem 2 (Bias, variance and noise)** Let \\\mu\\ be the [mean function](#def-mean-function) of the outcome given the covariate. Suppose that, given \\X\_{\*}= x\\, the new outcome is \\Y\_{\*}= \mu(x) + \varepsilon\\, where \\\varepsilon\\, the noise in the outcome at \\x\\, has mean \\0\\ and variance \\\sigma^2\\, and that \\Y\_{\*}\\ is independent of the random training set \\\mathcal{D}\_{\text{train}}\\, and that \\\operatorname{E}\mathopen{}\left\[g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}^2\right\]\mathclose{} \< \infty\\. Then the [expected squared prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ as a prediction of \\\mu(x)\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
 >
 > \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} + \sigma^2. \tag{13}\\
 
 > **NOTE:**
 >
-> *Proof*. Write \\e\_{f}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\, the error of the prediction as an estimate of \\\mu(x)\\. Given \\X_0= x\\, the noise has mean 0 by [Equation 9](#eq-mean-function) and variance \\\sigma^2\\, and it is independent of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ because \\Y_0\\ is independent of \\\mathcal{D}\_{\text{train}}\\; hence it is independent of \\e\_{f}\mathopen{}\left(x\right)\mathclose{}\\, because \\\mu(x)\\ is a constant.
+> *Proof*. Write \\e\_{f}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\, the error of the prediction as an estimate of \\\mu(x)\\. Given \\X\_{\*}= x\\, the noise has mean 0 by [Equation 9](#eq-mean-function) and variance \\\sigma^2\\, and it is independent of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ because \\Y\_{\*}\\ is independent of \\\mathcal{D}\_{\text{train}}\\; hence it is independent of \\e\_{f}\mathopen{}\left(x\right)\mathclose{}\\, because \\\mu(x)\\ is a constant.
 >
 > First, the prediction error in terms of \\\varepsilon\\ and \\e\_{f}\mathopen{}\left(x\right)\mathclose{}\\:
 >
-> \\ \begin{aligned} Y_0- g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{} &= \mathopen{}\left(\mu(x) + \varepsilon\right)\mathclose{} - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{} && \text{(definition of } Y_0\text{)} \\ &= \varepsilon+ \mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} && \text{(reorder the terms of the sum)} \\ &= \varepsilon+ e\_{f}\mathopen{}\left(x\right)\mathclose{} && \text{(definition of } e\_{f}\mathopen{}\left(x\right)\mathclose{} \text{)} \end{aligned} \\
+> \\ \begin{aligned} Y\_{\*}- g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{} &= \mathopen{}\left(\mu(x) + \varepsilon\right)\mathclose{} - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{} && \text{(definition of } Y\_{\*}\text{)} \\ &= \varepsilon+ \mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} && \text{(reorder the terms of the sum)} \\ &= \varepsilon+ e\_{f}\mathopen{}\left(x\right)\mathclose{} && \text{(definition of } e\_{f}\mathopen{}\left(x\right)\mathclose{} \text{)} \end{aligned} \\
 >
-> Next, expand the square and split the expectation. The first line is the definition of the expected squared prediction error at \\x\\, which conditions on \\X_0= x\\; all expectations in the lines after it are conditional on \\X_0= x\\ too. The last two steps use [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation), first for the expectation of a sum and then for a constant factor:
+> Next, expand the square and split the expectation. The first line is the definition of the expected squared prediction error at \\x\\, which conditions on \\X\_{\*}= x\\; all expectations in the lines after it are conditional on \\X\_{\*}= x\\ too. The last two steps use [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation), first for the expectation of a sum and then for a constant factor:
 >
-> \\ \begin{aligned} \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\mathopen{}\left(\varepsilon+ e\_{f}\mathopen{}\left(x\right)\mathclose{}\right)^2\mathclose{} \mid X_0= x\right\]\mathclose{} && \text{(definition and the error above)} \\ &= \operatorname{E}\mathopen{}\left\[\varepsilon^2 + 2 \varepsilon e\_{f}\mathopen{}\left(x\right)\mathclose{} + \mathopen{}\left(e\_{f}\mathopen{}\left(x\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{} && \text{(expand the square of a sum)} \\ &= \operatorname{E}\mathopen{}\left\[\varepsilon^2\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[2 \varepsilon e\_{f}\mathopen{}\left(x\right)\mathclose{}\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\mathopen{}\left(e\_{f}\mathopen{}\left(x\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{} && \text{(expectation of a sum)} \\ &= \operatorname{E}\mathopen{}\left\[\varepsilon^2\right\]\mathclose{} + 2\operatorname{E}\mathopen{}\left\[\varepsilon e\_{f}\mathopen{}\left(x\right)\mathclose{}\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\mathopen{}\left(e\_{f}\mathopen{}\left(x\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{} && \text{(constant factor 2)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\mathopen{}\left(\varepsilon+ e\_{f}\mathopen{}\left(x\right)\mathclose{}\right)^2\mathclose{} \mid X\_{\*}= x\right\]\mathclose{} && \text{(definition and the error above)} \\ &= \operatorname{E}\mathopen{}\left\[\varepsilon^2 + 2 \varepsilon e\_{f}\mathopen{}\left(x\right)\mathclose{} + \mathopen{}\left(e\_{f}\mathopen{}\left(x\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{} && \text{(expand the square of a sum)} \\ &= \operatorname{E}\mathopen{}\left\[\varepsilon^2\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[2 \varepsilon e\_{f}\mathopen{}\left(x\right)\mathclose{}\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\mathopen{}\left(e\_{f}\mathopen{}\left(x\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{} && \text{(expectation of a sum)} \\ &= \operatorname{E}\mathopen{}\left\[\varepsilon^2\right\]\mathclose{} + 2\operatorname{E}\mathopen{}\left\[\varepsilon e\_{f}\mathopen{}\left(x\right)\mathclose{}\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\mathopen{}\left(e\_{f}\mathopen{}\left(x\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{} && \text{(constant factor 2)} \end{aligned} \\
 >
 > Each of the three terms is evaluated in turn.
 >
@@ -305,7 +305,7 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 
 > **NOTE:**
 >
-> *Remark 1* (Other names, and how the expected error splits). Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) also call \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ the *test error*, and in sec. 7.12 the *conditional* test error. It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) of the prediction \\\hat y(X_0)\\ under squared error [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function), computed with the training set held fixed.
+> *Remark 1* (Other names, and how the expected error splits). Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) also call \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ the *test error*, and in sec. 7.12 the *conditional* test error. It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) of the prediction \\\hat y(X\_{\*})\\ under squared error [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function), computed with the training set held fixed.
 >
 > The argument \\n\\ of the [expected generalization error](#def-expected-generalization-error) \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ of a fitting procedure \\g\\ records that it depends on how many observations each training set has. By [Theorem 1](#thm-expected-error-epe), \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ averages the expected squared prediction error at each covariate value, and [Theorem 2](#thm-epe-decomposition) splits that error into a squared bias, a variance and a noise variance.
 
@@ -343,25 +343,25 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 5 (A held-out set estimates the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{0,1}, Y\_{0,1}), \ldots, (X\_{0,m}, Y\_{0,m})\\ is drawn from the same population as the new observation \\(X_0, Y_0)\\ of [Definition 4](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\.
+> **Exercise 5 (A held-out set estimates the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 4](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\.
 >
 > Show that, given \\\mathcal{D}\_{\text{train}}\\, the expected [mean squared error](estimation.llms.md#def-prediction-mse) of the held-out predictions is \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
 >
-> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
+> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
 
 > **NOTE:**
 >
-> *Solution 5*. Given \\\mathcal{D}\_{\text{train}}\\, the rule \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X_0, Y_0)\\ and is independent of \\\mathcal{D}\_{\text{train}}\\, so each squared prediction error has conditional expectation \\\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ by [Equation 4](#eq-generalization-error). Then
+> *Solution 5*. Given \\\mathcal{D}\_{\text{train}}\\, the rule \\\hat y\\ is fixed. Each held-out pair has the same distribution as \\(X\_{\*}, Y\_{\*})\\ and is independent of \\\mathcal{D}\_{\text{train}}\\, so each squared prediction error has conditional expectation \\\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ by [Equation 4](#eq-generalization-error). Then
 >
-> \\ \begin{aligned} & \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} \\ &\quad = \frac{1}{m} \operatorname{E}\mathopen{}\left\[\sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} && \text{(constant } 1/m\text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m\\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right)\mathclose{} && \text{(} m\text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && (\tfrac{1}{m} \cdot m= 1) \\ &\quad = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(multiplying by 1 changes nothing)} \end{aligned} \\
+> \\ \begin{aligned} & \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} \\ &\quad = \frac{1}{m} \operatorname{E}\mathopen{}\left\[\sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} && \text{(constant } 1/m\text{ out)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{E}\mathopen{}\left\[\mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} && \text{(linearity of } \operatorname{E}\text{)} \\ &\quad = \frac{1}{m} \sum\_{j=1}^{m} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(each term, as above)} \\ &\quad = \frac{1}{m} \mathopen{}\left(m\\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right)\mathclose{} && \text{(} m\text{ equal terms)} \\ &\quad = \mathopen{}\left(\frac{1}{m} \cdot m\right)\mathclose{} \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(regroup the product)} \\ &\quad = 1 \cdot \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && (\tfrac{1}{m} \cdot m= 1) \\ &\quad = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} && \text{(multiplying by 1 changes nothing)} \end{aligned} \\
 >
 > The step labeled “each term, as above” is the one that needs the held-out set to be independent of \\\mathcal{D}\_{\text{train}}\\.
 
 > **NOTE:**
 >
-> **Theorem 3 (Held-out mean squared error estimates the generalization error)** Let a [prediction rule](#def-prediction-rule) \\\hat y\\ be fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, and let a [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{0,1}, Y\_{0,1}), \ldots, (X\_{0,m}, Y\_{0,m})\\ be drawn from the same population as \\(X_0, Y_0)\\, each independently of \\\mathcal{D}\_{\text{train}}\\. Then, given \\\mathcal{D}\_{\text{train}}\\, the expected [mean squared error](estimation.llms.md#def-prediction-mse) of the held-out predictions is the [generalization error](#def-generalization-error):
+> **Theorem 3 (Held-out mean squared error estimates the generalization error)** Let a [prediction rule](#def-prediction-rule) \\\hat y\\ be fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, and let a [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ be drawn from the same population as \\(X\_{\*}, Y\_{\*})\\, each independently of \\\mathcal{D}\_{\text{train}}\\. Then, given \\\mathcal{D}\_{\text{train}}\\, the expected [mean squared error](estimation.llms.md#def-prediction-mse) of the held-out predictions is the [generalization error](#def-generalization-error):
 >
-> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{0,j}) - Y\_{0,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
+> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} \mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)^2\mathclose{} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
 
 > **NOTE:**
 >
@@ -1232,10 +1232,10 @@ Last modified: 2026-10-14 18:19:44 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 9](#sol-loocv)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 9](#sol-loocv)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
