@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 00:16:38 (PDT)
+Last modified: 2026-10-15 02:23:11 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -351,13 +351,13 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Solution 13*. By [Definition 7](#def-score), \\\ell'= \frac{\partial}{\partial \tilde{\theta}}\ell\\, so \\\mathopen{}\left(\ell'\right)\mathclose{}^{\top} = \frac{\partial}{\partial \tilde{\theta}^{\top}}\ell\\. Then:
+> *Solution 13*. By [Definition 7](#def-score), \\\ell'= \frac{\partial}{\partial \tilde{\theta}}\ell\\, so \\{\mathopen{}\left(\ell'\right)\mathclose{}}^{\top} = \frac{\partial}{\partial \tilde{\theta}^{\top}}\ell\\. Then:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\theta}}\mathopen{}\left(\ell'\right)\mathclose{}^{\top} &= \frac{\partial}{\partial \tilde{\theta}}\frac{\partial}{\partial \tilde{\theta}^{\top}}\ell && \text{(transpose of the score)}\\ &= \ell'' && \text{(definition of the Hessian)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\theta}}{\mathopen{}\left(\ell'\right)\mathclose{}}^{\top} &= \frac{\partial}{\partial \tilde{\theta}}\frac{\partial}{\partial \tilde{\theta}^{\top}}\ell && \text{(transpose of the score)}\\ &= \ell'' && \text{(definition of the Hessian)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 7 (Hessian is the derivative of the transposed score)** \\ \ell''(\tilde{x}\mid \tilde{\theta}) = \frac{\partial}{\partial \tilde{\theta}} \mathopen{}\left(\ell'(\tilde{x}\mid \tilde{\theta})\right)\mathclose{}^{\top} \\
+> **Theorem 7 (Hessian is the derivative of the transposed score)** \\ \ell''(\tilde{x}\mid \tilde{\theta}) = \frac{\partial}{\partial \tilde{\theta}} {\mathopen{}\left(\ell'(\tilde{x}\mid \tilde{\theta})\right)\mathclose{}}^{\top} \\
 
 > **NOTE:**
 >
@@ -445,7 +445,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > [Equation 12](#eq-score-mean-zero) is the solution to [Exercise 15](#exr-score-mean-zero). For [Equation 13](#eq-information-equality), [Exercise 16](#exr-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\,
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)^2\mathclose{} \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)\mathclose{}}^2 \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
 
 > **NOTE:**
 >
@@ -461,15 +461,17 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 Sources disagree on the symbols for the observed and expected information ([Table 1](#tbl-info-mat-symbols)).
 
-| Source | Observed information | Expected information |
-|----|----|----|
-| These notes | \\I\\ | \\\mathcal{I}\\ |
-| Dobson and Barnett ([2018](#ref-dobson4e)) | \\-U'\\ | \\\mathfrak{I}\\ |
-| Dunn and Smyth ([2018](#ref-dunn2018generalized)) | \\\mathfrak{I}\\ | \\\mathcal{I}\\ |
-| McLachlan and Krishnan ([2007](#ref-mclachlan2007em)) | \\I\\ | \\\mathcal{I}\\ |
-| Wood ([2017](#ref-wood2017generalized)) | \\\hat{I}\\ | \\\mathcal{I}\\ |
-
-Table 1: Notation for information matrices in several sources
+> **NOTE:**
+>
+> | Source | Observed information | Expected information |
+> |----|----|----|
+> | These notes | \\I\\ | \\\mathcal{I}\\ |
+> | Dobson and Barnett ([2018](#ref-dobson4e)) | \\-U'\\ | \\\mathfrak{I}\\ |
+> | Dunn and Smyth ([2018](#ref-dunn2018generalized)) | \\\mathfrak{I}\\ | \\\mathcal{I}\\ |
+> | McLachlan and Krishnan ([2007](#ref-mclachlan2007em)) | \\I\\ | \\\mathcal{I}\\ |
+> | Wood ([2017](#ref-wood2017generalized)) | \\\hat{I}\\ | \\\mathcal{I}\\ |
+>
+> Table 1: Notation for information matrices in several sources
 
 ### 1.8 Asymptotic distribution of the maximum likelihood estimate
 
@@ -477,7 +479,7 @@ Table 1: Notation for information matrices in several sources
 >
 > **Theorem 9 (Central limit theorem for MLEs)** For \\\operatorname{iid}\\ data from a correctly specified model satisfying regularity conditions (including those of [Theorem 8](#thm-information-equality), an identifiable parameter, a true parameter value in the interior of the parameter space, and a positive definite information matrix), a consistent solution \\\hat\theta\_{\text{ML}}\\ of the [score equation](#def-score-equation) exists, and for large \\n\\ it has approximately a Gaussian distribution, centered at the true parameter value \\\tilde{\theta}\\, with covariance matrix equal to the inverse of the expected information:
 >
-> \\ \hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\tilde{\theta}, \mathopen{}\left(\mathcal{I}(\tilde{\theta})\right)^{-1}\mathclose{}\right)\mathclose{} \tag{14}\\
+> \\ \hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\tilde{\theta}, {\mathopen{}\left(\mathcal{I}(\tilde{\theta})\right)\mathclose{}}^{-1}\right)\mathclose{} \tag{14}\\
 
 > **NOTE:**
 >
@@ -497,7 +499,7 @@ Table 1: Notation for information matrices in several sources
 
 [Theorem 9](#thm-dist-mle) involves the unknown \\\tilde{\theta}\\, so to use it we estimate \\\mathcal{I}(\tilde{\theta})\\, by either the expected information at the MLE, \\\mathcal{I}(\hat\theta\_{\text{ML}})\\, or the observed information at the MLE, \\I(\tilde{x}; \hat\theta\_{\text{ML}})\\. Either way, the estimated standard error of the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\ is:
 
-\\ \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{} = \sqrt{\mathopen{}\left\[\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\right\]\mathclose{}\_{kk}} \\
+\\ \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{} = \sqrt{\mathopen{}\left\[{\mathopen{}\left(\hat{\mathcal{I}}\right)\mathclose{}}^{-1}\right\]\mathclose{}\_{kk}} \\
 
 where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta})\\ we chose.
 
@@ -529,7 +531,7 @@ By [Theorem 9](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{
 
 > **NOTE:**
 >
-> **Definition 14 (Wald statistic for several constraints)** For \\q\\ constraints \\H_0: \tilde{\theta}\_{(q)} = \tilde{\theta}\_{(q),0}\\ on a \\q \times 1\\ subvector, the **Wald statistic** is \\{\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}}^{\top}\\\mathopen{}\left(\hat{V}\_{(q)}\right)^{-1}\mathclose{}\\\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}\\, where \\\hat V\_{(q)}\\ is the corresponding \\q \times q\\ block of \\\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\\.
+> **Definition 14 (Wald statistic for several constraints)** For \\q\\ constraints \\H_0: \tilde{\theta}\_{(q)} = \tilde{\theta}\_{(q),0}\\ on a \\q \times 1\\ subvector, the **Wald statistic** is \\{\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}}^{\top}\\{\mathopen{}\left(\hat{V}\_{(q)}\right)\mathclose{}}^{-1}\\\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}\\, where \\\hat V\_{(q)}\\ is the corresponding \\q \times q\\ block of \\{\mathopen{}\left(\hat{\mathcal{I}}\right)\mathclose{}}^{-1}\\.
 
 > **NOTE:**
 >
@@ -644,16 +646,18 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 
 #### 1.9.4 Exact and approximate tests
 
-| Inference goal | Exact test (Gaussian outcomes) | Null distribution | Approximate test (MLE) | Approximate null distribution |
-|----|----|----|----|----|
-| Single coefficient | t-test | \\T\_{n-p}\\ | [Wald](#def-wald-test) z-test | \\Z \sim N(0,1)\\ |
-| Linear combination of coefficients | t-test | \\T\_{n-p}\\ | [Wald](#def-wald-test) z-test | \\Z \sim N(0,1)\\ |
-| Nested models (\\q\\ constraints) | Partial F-test | \\F\_{q,\\ n-p}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2_q\\ |
-| One-sample mean | One-sample t-test | \\T\_{n-1}\\ | z-test | \\Z \sim N(0,1)\\ |
-| Two-sample means | Two-sample t-test (pooled variance) | \\T\_{n_1+n_2-2}\\ | z-test | \\Z \sim N(0,1)\\ |
-| \\K\\-group means (ANOVA) | F-test | \\F\_{K-1,\\ n-K}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2\_{K-1}\\ |
-
-Table 2: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
+> **NOTE:**
+>
+> | Inference goal | Exact test (Gaussian outcomes) | Null distribution | Approximate test (MLE) | Approximate null distribution |
+> |----|----|----|----|----|
+> | Single coefficient | t-test | \\T\_{n-p}\\ | [Wald](#def-wald-test) z-test | \\Z \sim N(0,1)\\ |
+> | Linear combination of coefficients | t-test | \\T\_{n-p}\\ | [Wald](#def-wald-test) z-test | \\Z \sim N(0,1)\\ |
+> | Nested models (\\q\\ constraints) | Partial F-test | \\F\_{q,\\ n-p}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2_q\\ |
+> | One-sample mean | One-sample t-test | \\T\_{n-1}\\ | z-test | \\Z \sim N(0,1)\\ |
+> | Two-sample means | Two-sample t-test (pooled variance) | \\T\_{n_1+n_2-2}\\ | z-test | \\Z \sim N(0,1)\\ |
+> | \\K\\-group means (ANOVA) | F-test | \\F\_{K-1,\\ n-K}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2\_{K-1}\\ |
+>
+> Table 2: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
 
 > **NOTE:**
 >
@@ -667,7 +671,7 @@ Table 2: Exact tests that assume Gaussian outcomes, and their approximate, larg
 >
 > \\ \Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{} = 1 - \alpha \\
 
-Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](estimation.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
+Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](prediction.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
 \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\bar X^\* - \hat{\mu}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X^\*\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\mu}\right)\mathclose{} && \text{(variance of a difference of independent variables)}\\ &= \frac{\sigma^2}{m} + \frac{\sigma^2}{n} && \text{(variance of a sample mean)} \end{aligned} \\
 
@@ -695,103 +699,111 @@ Adapted from ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)).
 
 [Table 3](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
 
-Show R code
-
-``` downlit
-cyclones <- tibble::tibble(
-  years = c(
-    "1956/7", "1957/8", "1958/9", "1959/60", "1960/1", "1961/2", "1962/3",
-    "1963/4", "1964/5", "1965/6", "1966/7", "1967/8", "1968/9"
-  ),
-  season = 1:13,
-  number = c(6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4)
-)
-cyclones |> knitr::kable()
-```
-
-| years   | season | number |
-|:--------|-------:|-------:|
-| 1956/7  |      1 |      6 |
-| 1957/8  |      2 |      5 |
-| 1958/9  |      3 |      4 |
-| 1959/60 |      4 |      6 |
-| 1960/1  |      5 |      6 |
-| 1961/2  |      6 |      3 |
-| 1962/3  |      7 |     12 |
-| 1963/4  |      8 |      7 |
-| 1964/5  |      9 |      4 |
-| 1965/6  |     10 |      2 |
-| 1966/7  |     11 |      6 |
-| 1967/8  |     12 |      7 |
-| 1968/9  |     13 |      4 |
-
-Table 3: Number of tropical cyclones during each November-to-April season in northeastern Australia ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e))
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> cyclones <- tibble::tibble(
+>   years = c(
+>     "1956/7", "1957/8", "1958/9", "1959/60", "1960/1", "1961/2", "1962/3",
+>     "1963/4", "1964/5", "1965/6", "1966/7", "1967/8", "1968/9"
+>   ),
+>   season = 1:13,
+>   number = c(6, 5, 4, 6, 6, 3, 12, 7, 4, 2, 6, 7, 4)
+> )
+> cyclones |> knitr::kable()
+> ```
+>
+> | years   | season | number |
+> |:--------|-------:|-------:|
+> | 1956/7  |      1 |      6 |
+> | 1957/8  |      2 |      5 |
+> | 1958/9  |      3 |      4 |
+> | 1959/60 |      4 |      6 |
+> | 1960/1  |      5 |      6 |
+> | 1961/2  |      6 |      3 |
+> | 1962/3  |      7 |     12 |
+> | 1963/4  |      8 |      7 |
+> | 1964/5  |      9 |      4 |
+> | 1965/6  |     10 |      2 |
+> | 1966/7  |     11 |      6 |
+> | 1967/8  |     12 |      7 |
+> | 1968/9  |     13 |      4 |
+>
+> Table 3: Number of tropical cyclones during each November-to-April season in northeastern Australia ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e))
 
 ### 2.2 Exploratory analysis
 
 Suppose we want to learn how many cyclones to expect per season.
 
-Show R code
-
-``` downlit
-cyclones |>
-  dplyr::mutate(years = factor(years, levels = years)) |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = years, y = number, group = 1) +
-  ggplot2::geom_point() +
-  ggplot2::geom_line() +
-  ggplot2::xlab("Season") +
-  ggplot2::ylab("Number of cyclones") +
-  ggplot2::expand_limits(y = 0) +
-  ggplot2::theme(axis.text.x = ggplot2::element_text(vjust = .5, angle = 45))
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-4-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-4-1.png "Figure 1: Number of tropical cyclones per season in northeastern Australia, 1956/57 to 1968/69")
-
-Figure 1: Number of tropical cyclones per season in northeastern Australia, 1956/57 to 1968/69
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> cyclones |>
+>   dplyr::mutate(years = factor(years, levels = years)) |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = years, y = number, group = 1) +
+>   ggplot2::geom_point() +
+>   ggplot2::geom_line() +
+>   ggplot2::xlab("Season") +
+>   ggplot2::ylab("Number of cyclones") +
+>   ggplot2::expand_limits(y = 0) +
+>   ggplot2::theme(axis.text.x = ggplot2::element_text(vjust = .5, angle = 45))
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-4-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-4-1.png "Figure 1: Number of tropical cyclones per season in northeastern Australia, 1956/57 to 1968/69")
+>
+> Figure 1: Number of tropical cyclones per season in northeastern Australia, 1956/57 to 1968/69
 
 [Figure 1](#fig-dobson-cyclone-time-series) shows no obvious trend, and no obvious correlation between adjacent seasons, so we assume that the seasons’ counts are mutually independent. We also assume that they are identically distributed, with a common distribution \\\Pr(X = x)\\; the expression has no index \\i\\, because the distribution is the same for every season.
 
 [Figure 2](#fig-cyclones-bar-plot) shows the empirical distribution of the counts.
 
-Show R code
-
-``` downlit
-cyclones |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = number) +
-  ggplot2::geom_bar() +
-  ggplot2::expand_limits(x = 0) +
-  ggplot2::xlab("Number of cyclones") +
-  ggplot2::ylab("Count (number of seasons)")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-5-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-5-1.png "Figure 2: Bar plot of cyclones per season")
-
-Figure 2: Bar plot of cyclones per season
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> cyclones |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = number) +
+>   ggplot2::geom_bar() +
+>   ggplot2::expand_limits(x = 0) +
+>   ggplot2::xlab("Number of cyclones") +
+>   ggplot2::ylab("Count (number of seasons)")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-5-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-5-1.png "Figure 2: Bar plot of cyclones per season")
+>
+> Figure 2: Bar plot of cyclones per season
 
 [Table 4](#tbl-dobson-cyclones-sumstat) provides summary statistics.
 
-Show R code
-
-``` downlit
-n <- nrow(cyclones)
-sumx <- sum(cyclones$number)
-xbar <- mean(cyclones$number)
-tibble::tibble(
-  seasons = n,
-  total = sumx,
-  mean = xbar,
-  variance = var(cyclones$number)
-) |>
-  knitr::kable(digits = 2)
-```
-
-| seasons | total | mean | variance |
-|--------:|------:|-----:|---------:|
-|      13 |    72 | 5.54 |      6.1 |
-
-Table 4: Summary statistics for the `cyclones` data
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> n <- nrow(cyclones)
+> sumx <- sum(cyclones$number)
+> xbar <- mean(cyclones$number)
+> tibble::tibble(
+>   seasons = n,
+>   total = sumx,
+>   mean = xbar,
+>   variance = var(cyclones$number)
+> ) |>
+>   knitr::kable(digits = 2)
+> ```
+>
+> | seasons | total | mean | variance |
+> |--------:|------:|-----:|---------:|
+> |      13 |    72 | 5.54 |      6.1 |
+>
+> Table 4: Summary statistics for the `cyclones` data
 
 ### 2.3 Model
 
@@ -866,28 +878,30 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > *Solution 26*.
 >
-> Show R code
->
-> ``` downlit
-> # `cyclones` is defined earlier on the page:
-> # nolint next: object_usage_linter.
-> lik <- function(lambda, y = cyclones$number, n = length(y)) {
->   lambda^sum(y) * exp(-n * lambda) / prod(factorial(y))
-> }
->
-> lik_plot <-
->   ggplot2::ggplot() +
->   ggplot2::geom_function(fun = lik, n = 1001) +
->   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
->   ggplot2::ylab("likelihood") +
->   ggplot2::xlab("lambda")
->
-> print(lik_plot)
-> ```
->
-> [![](intro-MLEs_files/figure-html/unnamed-chunk-7-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-7-1.png "Figure 3: Likelihood of the cyclone data")
->
-> Figure 3: Likelihood of the cyclone data
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > # `cyclones` is defined earlier on the page:
+> > # nolint next: object_usage_linter.
+> > lik <- function(lambda, y = cyclones$number, n = length(y)) {
+> >   lambda^sum(y) * exp(-n * lambda) / prod(factorial(y))
+> > }
+> >
+> > lik_plot <-
+> >   ggplot2::ggplot() +
+> >   ggplot2::geom_function(fun = lik, n = 1001) +
+> >   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+> >   ggplot2::ylab("likelihood") +
+> >   ggplot2::xlab("lambda")
+> >
+> > print(lik_plot)
+> > ```
+> >
+> > [![](intro-MLEs_files/figure-html/unnamed-chunk-7-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-7-1.png "Figure 3: Likelihood of the cyclone data")
+> >
+> > Figure 3: Likelihood of the cyclone data
 
 > **NOTE:**
 >
@@ -905,26 +919,28 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > *Solution 28*.
 >
-> Show R code
->
-> ``` downlit
-> # `cyclones` is defined earlier on the page:
-> # nolint next: object_usage_linter.
-> loglik <- function(lambda, y = cyclones$number, n = length(y)) {
->   sum(y) * log(lambda) - n * lambda - sum(lfactorial(y))
-> }
->
-> ll_plot <- ggplot2::ggplot() +
->   ggplot2::geom_function(fun = loglik, n = 1001) +
->   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
->   ggplot2::ylab("log-likelihood") +
->   ggplot2::xlab("lambda")
-> ll_plot
-> ```
->
-> [![](intro-MLEs_files/figure-html/unnamed-chunk-8-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-8-1.png "Figure 4: Log-likelihood of the cyclone data")
->
-> Figure 4: Log-likelihood of the cyclone data
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > # `cyclones` is defined earlier on the page:
+> > # nolint next: object_usage_linter.
+> > loglik <- function(lambda, y = cyclones$number, n = length(y)) {
+> >   sum(y) * log(lambda) - n * lambda - sum(lfactorial(y))
+> > }
+> >
+> > ll_plot <- ggplot2::ggplot() +
+> >   ggplot2::geom_function(fun = loglik, n = 1001) +
+> >   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+> >   ggplot2::ylab("log-likelihood") +
+> >   ggplot2::xlab("lambda")
+> > ll_plot
+> > ```
+> >
+> > [![](intro-MLEs_files/figure-html/unnamed-chunk-8-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-8-1.png "Figure 4: Log-likelihood of the cyclone data")
+> >
+> > Figure 4: Log-likelihood of the cyclone data
 
 #### 2.4.1 The score function
 
@@ -948,26 +964,28 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > *Solution 30*.
 >
-> Show R code
->
-> ``` downlit
-> # `cyclones` is defined earlier on the page:
-> # nolint next: object_usage_linter.
-> score <- function(lambda, y = cyclones$number, n = length(y)) {
->   (sum(y) / lambda) - n
-> }
->
-> ggplot2::ggplot() +
->   ggplot2::geom_function(fun = score, n = 1001) +
->   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
->   ggplot2::ylab("l'(lambda)") +
->   ggplot2::xlab("lambda") +
->   ggplot2::geom_hline(yintercept = 0, col = "red")
-> ```
->
-> [![](intro-MLEs_files/figure-html/unnamed-chunk-9-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-9-1.png "Figure 5: Score function of the cyclone data")
->
-> Figure 5: Score function of the cyclone data
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > # `cyclones` is defined earlier on the page:
+> > # nolint next: object_usage_linter.
+> > score <- function(lambda, y = cyclones$number, n = length(y)) {
+> >   (sum(y) / lambda) - n
+> > }
+> >
+> > ggplot2::ggplot() +
+> >   ggplot2::geom_function(fun = score, n = 1001) +
+> >   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+> >   ggplot2::ylab("l'(lambda)") +
+> >   ggplot2::xlab("lambda") +
+> >   ggplot2::geom_hline(yintercept = 0, col = "red")
+> > ```
+> >
+> > [![](intro-MLEs_files/figure-html/unnamed-chunk-9-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-9-1.png "Figure 5: Score function of the cyclone data")
+> >
+> > Figure 5: Score function of the cyclone data
 
 #### 2.4.2 The Hessian
 
@@ -991,26 +1009,28 @@ We can estimate the parameter \\{\lambda}\\ using maximum likelihood estimation.
 >
 > *Solution 32*.
 >
-> Show R code
->
-> ``` downlit
-> # `cyclones` is defined earlier on the page:
-> # nolint next: object_usage_linter.
-> hessian <- function(lambda, y = cyclones$number, n = length(y)) {
->   -sum(y) / (lambda^2)
-> }
->
-> ggplot2::ggplot() +
->   ggplot2::geom_function(fun = hessian, n = 1001) +
->   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
->   ggplot2::ylab("l''(lambda)") +
->   ggplot2::xlab("lambda") +
->   ggplot2::geom_hline(yintercept = 0, col = "red")
-> ```
->
-> [![](intro-MLEs_files/figure-html/unnamed-chunk-10-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-10-1.png "Figure 6: Hessian of the cyclone data’s log-likelihood")
->
-> Figure 6: Hessian of the cyclone data’s log-likelihood
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > # `cyclones` is defined earlier on the page:
+> > # nolint next: object_usage_linter.
+> > hessian <- function(lambda, y = cyclones$number, n = length(y)) {
+> >   -sum(y) / (lambda^2)
+> > }
+> >
+> > ggplot2::ggplot() +
+> >   ggplot2::geom_function(fun = hessian, n = 1001) +
+> >   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+> >   ggplot2::ylab("l''(lambda)") +
+> >   ggplot2::xlab("lambda") +
+> >   ggplot2::geom_hline(yintercept = 0, col = "red")
+> > ```
+> >
+> > [![](intro-MLEs_files/figure-html/unnamed-chunk-10-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-10-1.png "Figure 6: Hessian of the cyclone data’s log-likelihood")
+> >
+> > Figure 6: Hessian of the cyclone data’s log-likelihood
 
 > **NOTE:**
 >
@@ -1068,35 +1088,39 @@ Call this solution of the score equation \\\tilde {\lambda}\\ for now:
 >
 > *Solution 37*.
 >
-> Show R code
->
-> ``` downlit
-> mle_data <- tibble::tibble(x = mle, y = loglik(mle))
-> ll_plot +
->   ggplot2::geom_point(data = mle_data, ggplot2::aes(x = x, y = y), col = "red")
-> ```
->
-> [![](intro-MLEs_files/figure-html/unnamed-chunk-11-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-11-1.png "Figure 7: Log-likelihood of the cyclone data, with the MLE marked in red")
->
-> Figure 7: Log-likelihood of the cyclone data, with the MLE marked in red
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > mle_data <- tibble::tibble(x = mle, y = loglik(mle))
+> > ll_plot +
+> >   ggplot2::geom_point(data = mle_data, ggplot2::aes(x = x, y = y), col = "red")
+> > ```
+> >
+> > [![](intro-MLEs_files/figure-html/unnamed-chunk-11-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-11-1.png "Figure 7: Log-likelihood of the cyclone data, with the MLE marked in red")
+> >
+> > Figure 7: Log-likelihood of the cyclone data, with the MLE marked in red
 
 [Figure 8](#fig-obs-inf-matrix) graphs the [observed information](intro-MLEs.llms.md#def-oinf), \\I({\lambda}; \tilde{x}) = -\ell''({\lambda}; \tilde{x})\\.
 
-Show R code
-
-``` downlit
-obs_inf <- function(...) -hessian(...) # nolint: object_usage_linter.
-ggplot2::ggplot() +
-  ggplot2::geom_function(fun = obs_inf, n = 1001) +
-  ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
-  ggplot2::ylab("I(lambda)") +
-  ggplot2::xlab("lambda") +
-  ggplot2::geom_hline(yintercept = 0, col = "red")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-12-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-12-1.png "Figure 8: Observed information of the cyclone data")
-
-Figure 8: Observed information of the cyclone data
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> obs_inf <- function(...) -hessian(...) # nolint: object_usage_linter.
+> ggplot2::ggplot() +
+>   ggplot2::geom_function(fun = obs_inf, n = 1001) +
+>   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+>   ggplot2::ylab("I(lambda)") +
+>   ggplot2::xlab("lambda") +
+>   ggplot2::geom_hline(yintercept = 0, col = "red")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-12-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-12-1.png "Figure 8: Observed information of the cyclone data")
+>
+> Figure 8: Observed information of the cyclone data
 
 ### 2.6 Finding the MLE using the Newton-Raphson algorithm
 
@@ -1108,7 +1132,7 @@ When we cannot solve the score equation \\\ell'(\theta) = 0\\ algebraically, we 
 >
 > **Definition 17 (Newton-Raphson algorithm)** The **Newton-Raphson algorithm** for solving the score equation \\\ell'(\theta) = 0\\ starts from an initial guess \\{\widehat{\theta}}^\*\\ and repeats the update
 >
-> \\ \begin{aligned} {\widehat{\theta}}^\* &\leftarrow {\widehat{\theta}}^\* - \mathopen{}\left(\ell''\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\right)^{-1}\mathclose{} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\\ &= {\widehat{\theta}}^\* + \mathopen{}\left(I\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\right)^{-1}\mathclose{} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \end{aligned} \\
+> \\ \begin{aligned} {\widehat{\theta}}^\* &\leftarrow {\widehat{\theta}}^\* - {\mathopen{}\left(\ell''\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\\ &= {\widehat{\theta}}^\* + {\mathopen{}\left(I\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \end{aligned} \\
 >
 > until the estimate stops changing.
 
@@ -1120,7 +1144,7 @@ The update comes from approximating the score function near \\{\widehat{\theta}}
 
 The approximate score function \\\ell'^\*(\theta)\\ is linear in \\\theta\\, so the approximate score equation \\\ell'^\*(\theta) = 0\\ is easy to solve:
 
-\\ \begin{aligned} 0 &= \ell'({\widehat{\theta}}^\*) + \ell''({\widehat{\theta}}^\*)(\theta- {\widehat{\theta}}^\*) && \text{(set \$\ell'^\*(\theta) = 0\$)}\\ -\ell'({\widehat{\theta}}^\*) &= \ell''({\widehat{\theta}}^\*)(\theta- {\widehat{\theta}}^\*) && \text{(subtract \$\ell'({\widehat{\theta}}^\*)\$)}\\ -\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)^{-1}\mathclose{}\ell'({\widehat{\theta}}^\*) &= \theta- {\widehat{\theta}}^\* && \text{(multiply by \$\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)^{-1}\mathclose{}\$ on the left)}\\ \theta&= {\widehat{\theta}}^\* - \mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)^{-1}\mathclose{}\ell'({\widehat{\theta}}^\*) && \text{(add \${\widehat{\theta}}^\*\$)} \end{aligned} \\
+\\ \begin{aligned} 0 &= \ell'({\widehat{\theta}}^\*) + \ell''({\widehat{\theta}}^\*)(\theta- {\widehat{\theta}}^\*) && \text{(set \$\ell'^\*(\theta) = 0\$)}\\ -\ell'({\widehat{\theta}}^\*) &= \ell''({\widehat{\theta}}^\*)(\theta- {\widehat{\theta}}^\*) && \text{(subtract \$\ell'({\widehat{\theta}}^\*)\$)}\\ -{\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)\mathclose{}}^{-1}\ell'({\widehat{\theta}}^\*) &= \theta- {\widehat{\theta}}^\* && \text{(multiply by \${\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)\mathclose{}}^{-1}\$ on the left)}\\ \theta&= {\widehat{\theta}}^\* - {\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)\mathclose{}}^{-1}\ell'({\widehat{\theta}}^\*) && \text{(add \${\widehat{\theta}}^\*\$)} \end{aligned} \\
 
 and the solution becomes the next guess.
 
@@ -1128,7 +1152,7 @@ and the solution becomes the next guess.
 >
 > **Definition 18 (Fisher scoring)** **Fisher scoring** (also called the method of scoring) is the [Newton-Raphson algorithm](#def-newton-raphson) with the observed information \\I(\tilde{x}; {\widehat{\theta}}^\*)\\ in the update replaced by the [expected information](#def-einf) \\\mathcal{I}({\widehat{\theta}}^\*)\\:
 >
-> \\ {\widehat{\theta}}^\* \leftarrow {\widehat{\theta}}^\* + \mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^\*\right)\mathclose{}\right)^{-1}\mathclose{} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \\
+> \\ {\widehat{\theta}}^\* \leftarrow {\widehat{\theta}}^\* + {\mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \\
 
 The expected information is sometimes simpler to compute than the observed information.
 
@@ -1136,7 +1160,7 @@ The expected information is sometimes simpler to compute than the observed infor
 >
 > **Example 11 (Fisher scoring for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, the score is \\\ell'({\lambda}) = n\bar x/{\lambda}- n\\ and the expected information is \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 5](#exm-information-poisson)), so one Fisher scoring step from any \\{\widehat{\lambda}}^\*\> 0\\ gives:
 >
-> \\ \begin{aligned} {\widehat{\lambda}}^\*+ \mathopen{}\left(\mathcal{I}({\widehat{\lambda}}^\*)\right)^{-1}\mathclose{} \ell'({\widehat{\lambda}}^\*) &= {\widehat{\lambda}}^\*+ \frac{{\widehat{\lambda}}^\*}{n}\mathopen{}\left(\frac{n\bar x}{{\widehat{\lambda}}^\*} - n\right)\mathclose{} && \text{(substitute \$\mathcal{I}\$ and \$\ell'\$)}\\ &= {\widehat{\lambda}}^\*+ \bar x - {\widehat{\lambda}}^\* && \text{(distribute \${\widehat{\lambda}}^\*/n\$)}\\ &= \bar x && \text{(cancel \${\widehat{\lambda}}^\*\$)} \end{aligned} \\
+> \\ \begin{aligned} {\widehat{\lambda}}^\*+ {\mathopen{}\left(\mathcal{I}({\widehat{\lambda}}^\*)\right)\mathclose{}}^{-1} \ell'({\widehat{\lambda}}^\*) &= {\widehat{\lambda}}^\*+ \frac{{\widehat{\lambda}}^\*}{n}\mathopen{}\left(\frac{n\bar x}{{\widehat{\lambda}}^\*} - n\right)\mathclose{} && \text{(substitute \$\mathcal{I}\$ and \$\ell'\$)}\\ &= {\widehat{\lambda}}^\*+ \bar x - {\widehat{\lambda}}^\* && \text{(distribute \${\widehat{\lambda}}^\*/n\$)}\\ &= \bar x && \text{(cancel \${\widehat{\lambda}}^\*\$)} \end{aligned} \\
 >
 > So Fisher scoring reaches the MLE \\\bar x\\ in one step, while Newton-Raphson needs several ([Table 5](#tbl-mle-converge)).
 
@@ -1168,110 +1192,114 @@ From [Exercise 29](#exr-cyclone-score-fn) and [Exercise 31](#exr-hessian), the
 
 So the first-order Taylor approximation of the score function around \\{\widehat{\lambda}}^\*\\ is:
 
-\\ \begin{aligned} \ell'({\lambda}) &\approx \ell'^\*({\lambda})\\ &\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^\*) + \ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)\\ &= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^\*} - 13\right)\mathclose{} + \mathopen{}\left(-\frac{72}{\mathopen{}\left({\widehat{\lambda}}^\*\right)^2\mathclose{}}\right)\mathclose{} ({\lambda}- {\widehat{\lambda}}^\*) \end{aligned} \\
+\\ \begin{aligned} \ell'({\lambda}) &\approx \ell'^\*({\lambda})\\ &\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^\*) + \ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)\\ &= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^\*} - 13\right)\mathclose{} + \mathopen{}\left(-\frac{72}{{\mathopen{}\left({\widehat{\lambda}}^\*\right)\mathclose{}}^2}\right)\mathclose{} ({\lambda}- {\widehat{\lambda}}^\*) \end{aligned} \\
 
 [Figure 9](#fig-cyclone-newton-step1) compares the score function and the approximate score function at \\{\widehat{\lambda}}^\*= 3\\.
 
-Show R code
-
-``` downlit
-# score(), hessian() and loglik() are defined earlier on the page
-# nolint start: object_usage_linter.
-approx_score <- function(lambda, lhat, ...) {
-  score(lambda = lhat, ...) +
-    hessian(lambda = lhat, ...) * (lambda - lhat)
-}
-# nolint end
-
-point_size <- 5
-
-plot1 <- ggplot2::ggplot() +
-  ggplot2::geom_function(
-    fun = score,
-    ggplot2::aes(col = "score function"),
-    n = 1001
-  ) +
-  ggplot2::geom_function(
-    fun = approx_score,
-    ggplot2::aes(col = "approximate score function"),
-    n = 1001,
-    args = list(lhat = cur_lambda_est)
-  ) +
-  ggplot2::geom_point(
-    size = point_size,
-    ggplot2::aes(
-      x = cur_lambda_est, y = score(lambda = cur_lambda_est),
-      col = "current estimate"
-    )
-  ) +
-  ggplot2::geom_point(
-    size = point_size,
-    ggplot2::aes(x = xbar, y = 0, col = "MLE")
-  ) +
-  ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
-  ggplot2::ylab("l'(lambda)") +
-  ggplot2::xlab("lambda") +
-  ggplot2::geom_hline(yintercept = 0)
-
-print(plot1)
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-13-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-13-1.png "Figure 9: Score function of the cyclone data and its first-order approximation at the initial guess")
-
-Figure 9: Score function of the cyclone data and its first-order approximation at the initial guess
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> # score(), hessian() and loglik() are defined earlier on the page
+> # nolint start: object_usage_linter.
+> approx_score <- function(lambda, lhat, ...) {
+>   score(lambda = lhat, ...) +
+>     hessian(lambda = lhat, ...) * (lambda - lhat)
+> }
+> # nolint end
+>
+> point_size <- 5
+>
+> plot1 <- ggplot2::ggplot() +
+>   ggplot2::geom_function(
+>     fun = score,
+>     ggplot2::aes(col = "score function"),
+>     n = 1001
+>   ) +
+>   ggplot2::geom_function(
+>     fun = approx_score,
+>     ggplot2::aes(col = "approximate score function"),
+>     n = 1001,
+>     args = list(lhat = cur_lambda_est)
+>   ) +
+>   ggplot2::geom_point(
+>     size = point_size,
+>     ggplot2::aes(
+>       x = cur_lambda_est, y = score(lambda = cur_lambda_est),
+>       col = "current estimate"
+>     )
+>   ) +
+>   ggplot2::geom_point(
+>     size = point_size,
+>     ggplot2::aes(x = xbar, y = 0, col = "MLE")
+>   ) +
+>   ggplot2::xlim(min(cyclones$number), max(cyclones$number)) +
+>   ggplot2::ylab("l'(lambda)") +
+>   ggplot2::xlab("lambda") +
+>   ggplot2::geom_hline(yintercept = 0)
+>
+> print(plot1)
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-13-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-13-1.png "Figure 9: Score function of the cyclone data and its first-order approximation at the initial guess")
+>
+> Figure 9: Score function of the cyclone data and its first-order approximation at the initial guess
 
 Approximating the score function by a linear function is equivalent to approximating the log-likelihood by a second-order Taylor polynomial ([Figure 10](#fig-cyclone-newton-step1-loglik)):
 
 \\ \ell^\*({\lambda}) \stackrel{\text{def}}{=} \ell({\widehat{\lambda}}^\*) + ({\lambda}- {\widehat{\lambda}}^\*) \ell'({\widehat{\lambda}}^\*) + \frac{1}{2}\ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)^2 \\
 
-Show R code
-
-``` downlit
-# nolint start: object_usage_linter.
-approx_loglik <- function(lambda, lhat, ...) {
-  loglik(lambda = lhat, ...) +
-    score(lambda = lhat, ...) * (lambda - lhat) +
-    1 / 2 * hessian(lambda = lhat, ...) * (lambda - lhat)^2
-}
-# nolint end
-
-plot_loglik <- ggplot2::ggplot() +
-  ggplot2::geom_function(
-    fun = loglik,
-    ggplot2::aes(col = "log-likelihood"),
-    n = 1001
-  ) +
-  ggplot2::geom_function(
-    fun = approx_loglik,
-    ggplot2::aes(col = "approximate log-likelihood"),
-    n = 1001,
-    args = list(lhat = cur_lambda_est)
-  ) +
-  ggplot2::geom_point(
-    size = point_size,
-    ggplot2::aes(
-      x = cur_lambda_est, y = loglik(lambda = cur_lambda_est),
-      col = "current estimate"
-    )
-  ) +
-  ggplot2::geom_point(
-    size = point_size,
-    ggplot2::aes(x = xbar, y = loglik(xbar), col = "MLE")
-  ) +
-  ggplot2::xlim(min(cyclones$number) - 1, max(cyclones$number)) +
-  ggplot2::ylab("log-likelihood") +
-  ggplot2::xlab("lambda")
-
-print(plot_loglik)
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-14-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-14-1.png "Figure 10: Log-likelihood of the cyclone data and its second-order approximation at the initial guess")
-
-Figure 10: Log-likelihood of the cyclone data and its second-order approximation at the initial guess
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> # nolint start: object_usage_linter.
+> approx_loglik <- function(lambda, lhat, ...) {
+>   loglik(lambda = lhat, ...) +
+>     score(lambda = lhat, ...) * (lambda - lhat) +
+>     1 / 2 * hessian(lambda = lhat, ...) * (lambda - lhat)^2
+> }
+> # nolint end
+>
+> plot_loglik <- ggplot2::ggplot() +
+>   ggplot2::geom_function(
+>     fun = loglik,
+>     ggplot2::aes(col = "log-likelihood"),
+>     n = 1001
+>   ) +
+>   ggplot2::geom_function(
+>     fun = approx_loglik,
+>     ggplot2::aes(col = "approximate log-likelihood"),
+>     n = 1001,
+>     args = list(lhat = cur_lambda_est)
+>   ) +
+>   ggplot2::geom_point(
+>     size = point_size,
+>     ggplot2::aes(
+>       x = cur_lambda_est, y = loglik(lambda = cur_lambda_est),
+>       col = "current estimate"
+>     )
+>   ) +
+>   ggplot2::geom_point(
+>     size = point_size,
+>     ggplot2::aes(x = xbar, y = loglik(xbar), col = "MLE")
+>   ) +
+>   ggplot2::xlim(min(cyclones$number) - 1, max(cyclones$number)) +
+>   ggplot2::ylab("log-likelihood") +
+>   ggplot2::xlab("lambda")
+>
+> print(plot_loglik)
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-14-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-14-1.png "Figure 10: Log-likelihood of the cyclone data and its second-order approximation at the initial guess")
+>
+> Figure 10: Log-likelihood of the cyclone data and its second-order approximation at the initial guess
 
 Solving the approximate score equation \\\ell'^\*({\lambda}) = 0\\ gives the next estimate:
 
-\\ \begin{aligned} {\lambda} &= {\widehat{\lambda}}^\*- \ell'({\widehat{\lambda}}^\*) \cdot\mathopen{}\left(\ell''({\widehat{\lambda}}^\*)\right)^{-1}\mathclose{}\\ &= 4.375 \end{aligned} \\
+\\ \begin{aligned} {\lambda} &= {\widehat{\lambda}}^\*- \ell'({\widehat{\lambda}}^\*) \cdot{\mathopen{}\left(\ell''({\widehat{\lambda}}^\*)\right)\mathclose{}}^{-1}\\ &= 4.375 \end{aligned} \\
 
 ``` downlit
 new_lambda_est <-
@@ -1280,135 +1308,143 @@ new_lambda_est
 #> [1] 4.375
 ```
 
-Show R code
-
-``` downlit
-plot2 <- plot1 +
-  ggplot2::geom_point(
-    size = point_size,
-    ggplot2::aes(x = new_lambda_est, y = 0, col = "new estimate")
-  ) +
-  ggplot2::geom_segment(
-    arrow = grid::arrow(),
-    linewidth = 2,
-    alpha = .7,
-    ggplot2::aes(
-      x = cur_lambda_est,
-      y = approx_score(lhat = cur_lambda_est, lambda = cur_lambda_est),
-      xend = new_lambda_est,
-      yend = 0,
-      col = "update"
-    )
-  )
-print(plot2)
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-15-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-15-1.png "Figure 11: The first Newton-Raphson update: the new estimate is where the approximate score function crosses zero")
-
-Figure 11: The first Newton-Raphson update: the new estimate is where the approximate score function crosses zero
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> plot2 <- plot1 +
+>   ggplot2::geom_point(
+>     size = point_size,
+>     ggplot2::aes(x = new_lambda_est, y = 0, col = "new estimate")
+>   ) +
+>   ggplot2::geom_segment(
+>     arrow = grid::arrow(),
+>     linewidth = 2,
+>     alpha = .7,
+>     ggplot2::aes(
+>       x = cur_lambda_est,
+>       y = approx_score(lhat = cur_lambda_est, lambda = cur_lambda_est),
+>       xend = new_lambda_est,
+>       yend = 0,
+>       col = "update"
+>     )
+>   )
+> print(plot2)
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-15-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-15-1.png "Figure 11: The first Newton-Raphson update: the new estimate is where the approximate score function crosses zero")
+>
+> Figure 11: The first Newton-Raphson update: the new estimate is where the approximate score function crosses zero
 
 We update \\{\widehat{\lambda}}^\*\leftarrow 4.375\\ and repeat the process ([Figure 12](#fig-cyclone-newton-step2)).
 
-Show R code
-
-``` downlit
-plot2 +
-  ggplot2::geom_function(
-    fun = approx_score,
-    ggplot2::aes(col = "new approximate score function"),
-    n = 1001,
-    args = list(lhat = new_lambda_est)
-  ) +
-  ggplot2::geom_point(
-    size = point_size,
-    ggplot2::aes(
-      x = new_lambda_est, y = score(lambda = new_lambda_est),
-      col = "new estimate"
-    )
-  )
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-16-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-16-1.png "Figure 12: The approximate score function at the updated estimate")
-
-Figure 12: The approximate score function at the updated estimate
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> plot2 +
+>   ggplot2::geom_function(
+>     fun = approx_score,
+>     ggplot2::aes(col = "new approximate score function"),
+>     n = 1001,
+>     args = list(lhat = new_lambda_est)
+>   ) +
+>   ggplot2::geom_point(
+>     size = point_size,
+>     ggplot2::aes(
+>       x = new_lambda_est, y = score(lambda = new_lambda_est),
+>       col = "new estimate"
+>     )
+>   )
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-16-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-16-1.png "Figure 12: The approximate score function at the updated estimate")
+>
+> Figure 12: The approximate score function at the updated estimate
 
 We repeat this process until the log-likelihood stops changing ([Table 5](#tbl-mle-converge)).
 
-``` downlit
-cur_lambda_est <- 3 # restart from the initial guess
-tolerance <- 10^-4
-max_iter <- 100
-nr_info <- tibble::tibble(
-  iteration = 0,
-  lambda = cur_lambda_est,
-  `log(likelihood)` = loglik(cur_lambda_est),
-  score = score(cur_lambda_est),
-  hessian = hessian(cur_lambda_est)
-)
-
-for (cur_iter in 1:max_iter) {
-  new_lambda_est <-
-    cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
-
-  diff_loglik <- loglik(new_lambda_est) - loglik(cur_lambda_est)
-
-  nr_info <- nr_info |>
-    dplyr::bind_rows(
-      tibble::tibble(
-        iteration = cur_iter,
-        lambda = new_lambda_est,
-        `log(likelihood)` = loglik(new_lambda_est),
-        score = score(new_lambda_est),
-        hessian = hessian(new_lambda_est),
-        `diff(loglik)` = diff_loglik
-      )
-    )
-
-  cur_lambda_est <- new_lambda_est
-
-  if (abs(diff_loglik) < tolerance) {
-    break
-  }
-}
-
-nr_info |> knitr::kable(digits = 5)
-```
-
-| iteration |  lambda | log(likelihood) |    score |  hessian | diff(loglik) |
-|----------:|--------:|----------------:|---------:|---------:|-------------:|
-|         0 | 3.00000 |        -40.0610 | 11.00000 | -8.00000 |           NA |
-|         1 | 4.37500 |        -30.7708 |  3.45714 | -3.76163 |      9.29018 |
-|         2 | 5.29405 |        -28.9897 |  0.60016 | -2.56895 |      1.78110 |
-|         3 | 5.52768 |        -28.9176 |  0.02537 | -2.35639 |      0.07210 |
-|         4 | 5.53844 |        -28.9175 |  0.00005 | -2.34724 |      0.00014 |
-|         5 | 5.53846 |        -28.9175 |  0.00000 | -2.34722 |      0.00000 |
-
-Table 5: Convergence of the Newton-Raphson algorithm to the MLE for the cyclone data
+> **NOTE:**
+>
+> ``` downlit
+> cur_lambda_est <- 3 # restart from the initial guess
+> tolerance <- 10^-4
+> max_iter <- 100
+> nr_info <- tibble::tibble(
+>   iteration = 0,
+>   lambda = cur_lambda_est,
+>   `log(likelihood)` = loglik(cur_lambda_est),
+>   score = score(cur_lambda_est),
+>   hessian = hessian(cur_lambda_est)
+> )
+>
+> for (cur_iter in 1:max_iter) {
+>   new_lambda_est <-
+>     cur_lambda_est - score(cur_lambda_est) / hessian(cur_lambda_est)
+>
+>   diff_loglik <- loglik(new_lambda_est) - loglik(cur_lambda_est)
+>
+>   nr_info <- nr_info |>
+>     dplyr::bind_rows(
+>       tibble::tibble(
+>         iteration = cur_iter,
+>         lambda = new_lambda_est,
+>         `log(likelihood)` = loglik(new_lambda_est),
+>         score = score(new_lambda_est),
+>         hessian = hessian(new_lambda_est),
+>         `diff(loglik)` = diff_loglik
+>       )
+>     )
+>
+>   cur_lambda_est <- new_lambda_est
+>
+>   if (abs(diff_loglik) < tolerance) {
+>     break
+>   }
+> }
+>
+> nr_info |> knitr::kable(digits = 5)
+> ```
+>
+> | iteration |  lambda | log(likelihood) |    score |  hessian | diff(loglik) |
+> |----------:|--------:|----------------:|---------:|---------:|-------------:|
+> |         0 | 3.00000 |        -40.0610 | 11.00000 | -8.00000 |           NA |
+> |         1 | 4.37500 |        -30.7708 |  3.45714 | -3.76163 |      9.29018 |
+> |         2 | 5.29405 |        -28.9897 |  0.60016 | -2.56895 |      1.78110 |
+> |         3 | 5.52768 |        -28.9176 |  0.02537 | -2.35639 |      0.07210 |
+> |         4 | 5.53844 |        -28.9175 |  0.00005 | -2.34724 |      0.00014 |
+> |         5 | 5.53846 |        -28.9175 |  0.00000 | -2.34722 |      0.00000 |
+>
+> Table 5: Convergence of the Newton-Raphson algorithm to the MLE for the cyclone data
 
 The final estimate matches the closed-form MLE, \\\bar x = 5.53846\\ ([Exercise 36](#exr-find-mle)).
 
-Show R code
-
-``` downlit
-ll_plot +
-  ggplot2::geom_segment(
-    data = nr_info,
-    arrow = grid::arrow(),
-    alpha = .7,
-    ggplot2::aes(
-      x = lambda,
-      xend = dplyr::lead(lambda),
-      y = `log(likelihood)`,
-      yend = dplyr::lead(`log(likelihood)`),
-      col = factor(iteration)
-    )
-  ) +
-  ggplot2::labs(col = "iteration")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-18-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-18-1.png "Figure 13: Newton-Raphson steps toward the MLE of the Poisson model (Equation 15) for the cyclone data")
-
-Figure 13: Newton-Raphson steps toward the MLE of the Poisson model ([Equation 15](#eq-iid-model)) for the cyclone data
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> ll_plot +
+>   ggplot2::geom_segment(
+>     data = nr_info,
+>     arrow = grid::arrow(),
+>     alpha = .7,
+>     ggplot2::aes(
+>       x = lambda,
+>       xend = dplyr::lead(lambda),
+>       y = `log(likelihood)`,
+>       yend = dplyr::lead(`log(likelihood)`),
+>       col = factor(iteration)
+>     )
+>   ) +
+>   ggplot2::labs(col = "iteration")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-18-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-18-1.png "Figure 13: Newton-Raphson steps toward the MLE of the Poisson model (Equation 15) for the cyclone data")
+>
+> Figure 13: Newton-Raphson steps toward the MLE of the Poisson model ([Equation 15](#eq-iid-model)) for the cyclone data
 
 ## 3 Maximum likelihood for univariate Gaussian models
 
@@ -1506,7 +1542,7 @@ Collecting the second derivatives at the MLE, the [observed information](#def-oi
 
 Its diagonal entries are positive and its off-diagonal entries are zero, so it is positive definite, consistent with the MLE being a maximum. The inverse of a diagonal matrix inverts each diagonal entry, so:
 
-\\ \mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)^{-1}\mathclose{} = \begin{bmatrix} \frac{\hat{\sigma}^2}{n} & 0 \\ 0 & \frac{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}{n} \end{bmatrix} \\
+\\ {\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)\mathclose{}}^{-1} = \begin{bmatrix} \frac{\hat{\sigma}^2}{n} & 0 \\ 0 & \frac{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}{n} \end{bmatrix} \\
 
 By [Theorem 9](#thm-dist-mle), the estimated standard errors are \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} = \hat{\sigma}/\sqrt{n}\\ and \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{} = \hat{\sigma}^2\sqrt{2/n}\\, and the two estimates are approximately uncorrelated in large samples.
 
@@ -1536,12 +1572,14 @@ hers <- haven::read_dta(url)
 
 The `rmb` R package includes the same file, which these notes use so that rendering does not depend on the website ([Table 6](#tbl-HERS)):
 
-``` downlit
-hers <- rmb::hers |> haven::zap_labels()
-hers |> head()
-```
-
-Table 6: The first rows of the HERS dataset
+> **NOTE:**
+>
+> ``` downlit
+> hers <- rmb::hers |> haven::zap_labels()
+> hers |> head()
+> ```
+>
+> Table 6: The first rows of the HERS dataset
 
 To keep the likelihood graphs readable, we use only the first 100 eligible participants ([Figure 14](#fig-hers-glucose-hist)); with the whole subset, the likelihood would be too concentrated to graph clearly.
 
@@ -1565,25 +1603,27 @@ summary(glucose_data)
 #>    80.0    91.5    98.0    98.7   105.0   125.0
 ```
 
-Show R code
-
-``` downlit
-plot1 <-
-  data1 |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = glucose) +
-  ggplot2::geom_histogram(
-    ggplot2::aes(y = ggplot2::after_stat(density)),
-    bins = 20
-  ) +
-  ggplot2::xlab("Fasting glucose (mg/dL)")
-
-print(plot1)
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-22-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-22-1.png "Figure 14: Fasting glucose among 100 HERS participants without diabetes who do not exercise")
-
-Figure 14: Fasting glucose among 100 HERS participants without diabetes who do not exercise
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> plot1 <-
+>   data1 |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = glucose) +
+>   ggplot2::geom_histogram(
+>     ggplot2::aes(y = ggplot2::after_stat(density)),
+>     bins = 20
+>   ) +
+>   ggplot2::xlab("Fasting glucose (mg/dL)")
+>
+> print(plot1)
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-22-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-22-1.png "Figure 14: Fasting glucose among 100 HERS participants without diabetes who do not exercise")
+>
+> Figure 14: Fasting glucose among 100 HERS participants without diabetes who do not exercise
 
 The histogram is irregular, as histograms of 100 observations often are, with a somewhat longer right tail than left tail. A Gaussian model is a rough but usable starting point.
 
@@ -1602,19 +1642,21 @@ c(mu_hat = mu_hat, sigma_sq_hat = sigma_sq_hat)
 
 [Figure 15](#fig-hers-fitted) superimposes the fitted Gaussian density on the histogram.
 
-Show R code
-
-``` downlit
-plot1 +
-  ggplot2::geom_function(
-    fun = function(x) dnorm(x, mean = mu_hat, sd = sigma_hat),
-    col = "red"
-  )
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-24-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-24-1.png "Figure 15: Fasting glucose, with the fitted Gaussian density in red")
-
-Figure 15: Fasting glucose, with the fitted Gaussian density in red
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> plot1 +
+>   ggplot2::geom_function(
+>     fun = function(x) dnorm(x, mean = mu_hat, sd = sigma_hat),
+>     col = "red"
+>   )
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-24-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-24-1.png "Figure 15: Fasting glucose, with the fitted Gaussian density in red")
+>
+> Figure 15: Fasting glucose, with the fitted Gaussian density in red
 
 The fitted curve follows the overall shape of the histogram, but it underestimates the frequency of values between 110 and 122 mg/dL, consistent with the histogram’s longer right tail.
 
@@ -1640,140 +1682,148 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 
 [Figure 16](#fig-hers-lik-mu) graphs the likelihood and log-likelihood as functions of \\\mu\\, with \\\sigma\\ fixed at \\\hat{\sigma}\_{\text{ML}}\\.
 
-Show R code
-
-``` downlit
-ggplot2::ggplot() +
-  ggplot2::geom_function(
-    fun = lik,
-    args = list(sigma = sigma_hat, x = glucose_data)
-  ) +
-  ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
-  ggplot2::xlab("mu") +
-  ggplot2::ylab("likelihood") +
-  ggplot2::geom_vline(xintercept = mu_hat, col = "red")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-26-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-26-1.png "Figure 16 (a): Likelihood")
-
-\(a\) Likelihood
-
-Show R code
-
-``` downlit
-ggplot2::ggplot() +
-  ggplot2::geom_function(
-    fun = loglik,
-    args = list(sigma = sigma_hat, x = glucose_data)
-  ) +
-  ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
-  ggplot2::xlab("mu") +
-  ggplot2::ylab("log-likelihood") +
-  ggplot2::geom_vline(xintercept = mu_hat, col = "red")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png "Figure 16 (b): Log-likelihood")
-
-\(b\) Log-likelihood
-
-Figure 16: Likelihood and log-likelihood of the HERS glucose data as functions of \\\mu\\, with \\\sigma= \hat{\sigma}\_{\text{ML}}\\; the red line marks \\\hat{\mu}\_{\text{ML}}\\
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> ggplot2::ggplot() +
+>   ggplot2::geom_function(
+>     fun = lik,
+>     args = list(sigma = sigma_hat, x = glucose_data)
+>   ) +
+>   ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
+>   ggplot2::xlab("mu") +
+>   ggplot2::ylab("likelihood") +
+>   ggplot2::geom_vline(xintercept = mu_hat, col = "red")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-26-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-26-1.png "Figure 16 (a): Likelihood")
+>
+> \(a\) Likelihood
+>
+> Show R code
+>
+> ``` downlit
+> ggplot2::ggplot() +
+>   ggplot2::geom_function(
+>     fun = loglik,
+>     args = list(sigma = sigma_hat, x = glucose_data)
+>   ) +
+>   ggplot2::xlim(mu_hat + c(-1, 1) * sigma_hat) +
+>   ggplot2::xlab("mu") +
+>   ggplot2::ylab("log-likelihood") +
+>   ggplot2::geom_vline(xintercept = mu_hat, col = "red")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-27-1.png "Figure 16 (b): Log-likelihood")
+>
+> \(b\) Log-likelihood
+>
+> Figure 16: Likelihood and log-likelihood of the HERS glucose data as functions of \\\mu\\, with \\\sigma= \hat{\sigma}\_{\text{ML}}\\; the red line marks \\\hat{\mu}\_{\text{ML}}\\
 
 [Figure 17](#fig-hers-lik-sigma) graphs them as functions of \\\sigma\\, with \\\mu\\ fixed at \\\hat{\mu}\_{\text{ML}}\\.
 
-Show R code
-
-``` downlit
-ggplot2::ggplot() +
-  ggplot2::geom_function(
-    fun = lik,
-    args = list(mu = mu_hat, x = glucose_data)
-  ) +
-  ggplot2::xlim(sigma_hat * c(0.9, 1.1)) +
-  ggplot2::geom_vline(xintercept = sigma_hat, col = "red") +
-  ggplot2::xlab("sigma") +
-  ggplot2::ylab("likelihood")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-28-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-28-1.png "Figure 17 (a): Likelihood")
-
-\(a\) Likelihood
-
-Show R code
-
-``` downlit
-ggplot2::ggplot() +
-  ggplot2::geom_function(
-    fun = loglik,
-    args = list(mu = mu_hat, x = glucose_data)
-  ) +
-  ggplot2::xlim(sigma_hat * c(0.9, 1.1)) +
-  ggplot2::geom_vline(xintercept = sigma_hat, col = "red") +
-  ggplot2::xlab("sigma") +
-  ggplot2::ylab("log-likelihood")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png "Figure 17 (b): Log-likelihood")
-
-\(b\) Log-likelihood
-
-Figure 17: Likelihood and log-likelihood of the HERS glucose data as functions of \\\sigma\\, with \\\mu= \hat{\mu}\_{\text{ML}}\\; the red line marks \\\hat{\sigma}\_{\text{ML}}\\
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> ggplot2::ggplot() +
+>   ggplot2::geom_function(
+>     fun = lik,
+>     args = list(mu = mu_hat, x = glucose_data)
+>   ) +
+>   ggplot2::xlim(sigma_hat * c(0.9, 1.1)) +
+>   ggplot2::geom_vline(xintercept = sigma_hat, col = "red") +
+>   ggplot2::xlab("sigma") +
+>   ggplot2::ylab("likelihood")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-28-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-28-1.png "Figure 17 (a): Likelihood")
+>
+> \(a\) Likelihood
+>
+> Show R code
+>
+> ``` downlit
+> ggplot2::ggplot() +
+>   ggplot2::geom_function(
+>     fun = loglik,
+>     args = list(mu = mu_hat, x = glucose_data)
+>   ) +
+>   ggplot2::xlim(sigma_hat * c(0.9, 1.1)) +
+>   ggplot2::geom_vline(xintercept = sigma_hat, col = "red") +
+>   ggplot2::xlab("sigma") +
+>   ggplot2::ylab("log-likelihood")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-29-1.png "Figure 17 (b): Log-likelihood")
+>
+> \(b\) Log-likelihood
+>
+> Figure 17: Likelihood and log-likelihood of the HERS glucose data as functions of \\\sigma\\, with \\\mu= \hat{\mu}\_{\text{ML}}\\; the red line marks \\\hat{\sigma}\_{\text{ML}}\\
 
 ### 4.4 Log-likelihood surface
 
 [Figure 18](#fig-3d-llik) graphs the log-likelihood over both parameters at once.
 
-Show R code
-
-``` downlit
-n_points <- 25
-mu_grid <- seq(94, 104, length.out = n_points)
-sigma_grid <- seq(7, 15, length.out = n_points)
-lliks <- outer(mu_grid, sigma_grid, loglik, x = glucose_data)
-
-plotly::plot_ly(
-  type = "surface",
-  x = ~mu_grid,
-  y = ~sigma_grid,
-  # plot_ly() expects rows of z to correspond to y values,
-  # so the matrix is transposed;
-  # see https://stackoverflow.com/questions/69472185
-  z = ~ t(lliks)
-) |>
-  plotly::layout(
-    scene = list(
-      xaxis = list(title = "mu"),
-      yaxis = list(title = "sigma"),
-      zaxis = list(title = "log-likelihood")
-    )
-  )
-```
-
-Figure 18: Log-likelihood of the HERS glucose data as a function of \\\mu\\ and \\\sigma\\ (interactive: drag to rotate)
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> n_points <- 25
+> mu_grid <- seq(94, 104, length.out = n_points)
+> sigma_grid <- seq(7, 15, length.out = n_points)
+> lliks <- outer(mu_grid, sigma_grid, loglik, x = glucose_data)
+>
+> plotly::plot_ly(
+>   type = "surface",
+>   x = ~mu_grid,
+>   y = ~sigma_grid,
+>   # plot_ly() expects rows of z to correspond to y values,
+>   # so the matrix is transposed;
+>   # see https://stackoverflow.com/questions/69472185
+>   z = ~ t(lliks)
+> ) |>
+>   plotly::layout(
+>     scene = list(
+>       xaxis = list(title = "mu"),
+>       yaxis = list(title = "sigma"),
+>       zaxis = list(title = "log-likelihood")
+>     )
+>   )
+> ```
+>
+> Figure 18: Log-likelihood of the HERS glucose data as a function of \\\mu\\ and \\\sigma\\ (interactive: drag to rotate)
 
 ### 4.5 Standard errors by sample size
 
 By [Section 3.5](#sec-covariance-matrix), the estimated standard error of \\\hat{\mu}\_{\text{ML}}\\ is
 
-\\ \begin{aligned} \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} &= \sqrt{\mathopen{}\left\[\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)^{-1}\mathclose{}\right\]\mathclose{}\_{11}} && \text{(estimated standard error from the inverse information)}\\ &= \sqrt{\frac{\hat{\sigma}^2}{n}} && \text{(first diagonal entry of the inverse information)}\\ &= \frac{\hat{\sigma}}{\sqrt{n}} && \text{(square root of a quotient)} \end{aligned} \\
+\\ \begin{aligned} \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} &= \sqrt{\mathopen{}\left\[{\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)\mathclose{}}^{-1}\right\]\mathclose{}\_{11}} && \text{(estimated standard error from the inverse information)}\\ &= \sqrt{\frac{\hat{\sigma}^2}{n}} && \text{(first diagonal entry of the inverse information)}\\ &= \frac{\hat{\sigma}}{\sqrt{n}} && \text{(square root of a quotient)} \end{aligned} \\
 
 which shrinks in proportion to \\1/\sqrt{n}\\ ([Figure 19](#fig-hers-se-by-n)).
 
-Show R code
-
-``` downlit
-se_mu_hat <- function(n, sigma) sigma / sqrt(n)
-ggplot2::ggplot() +
-  ggplot2::geom_function(fun = se_mu_hat, args = list(sigma = sigma_hat)) +
-  ggplot2::scale_x_log10(
-    limits = c(10, 10^5), name = "Sample size",
-    labels = scales::label_comma()
-  ) +
-  ggplot2::ylab("Standard error of mu-hat (mg/dL)")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png "Figure 19: Standard error of \hat{\mu}_{\text{ML}} as a function of sample size, with \sigma= \hat{\sigma}_{\text{ML}}")
-
-Figure 19: Standard error of \\\hat{\mu}\_{\text{ML}}\\ as a function of sample size, with \\\sigma= \hat{\sigma}\_{\text{ML}}\\
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> se_mu_hat <- function(n, sigma) sigma / sqrt(n)
+> ggplot2::ggplot() +
+>   ggplot2::geom_function(fun = se_mu_hat, args = list(sigma = sigma_hat)) +
+>   ggplot2::scale_x_log10(
+>     limits = c(10, 10^5), name = "Sample size",
+>     labels = scales::label_comma()
+>   ) +
+>   ggplot2::ylab("Standard error of mu-hat (mg/dL)")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-32-1.png "Figure 19: Standard error of \hat{\mu}_{\text{ML}} as a function of sample size, with \sigma= \hat{\sigma}_{\text{ML}}")
+>
+> Figure 19: Standard error of \\\hat{\mu}\_{\text{ML}}\\ as a function of sample size, with \\\sigma= \hat{\sigma}\_{\text{ML}}\\
 
 ### 4.6 Power
 
@@ -1817,24 +1867,26 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 [Figure 20](#fig-hers-power) graphs the power as a function of the sample size.
 
-Show R code
-
-``` downlit
-ggplot2::ggplot() +
-  ggplot2::geom_function(
-    fun = power,
-    args = list(null = mu0, alt = mu1, sigma = sigma_hat),
-    n = 199
-  ) +
-  ggplot2::xlim(c(2, 200)) +
-  ggplot2::ylim(0, 1) +
-  ggplot2::ylab("Power") +
-  ggplot2::xlab("n")
-```
-
-[![](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png "Figure 20: Power of the test of H_0: \mu= 95 against \mu_1 = 100 mg/dL, by sample size")
-
-Figure 20: Power of the test of \\H_0: \mu= 95\\ against \\\mu_1 = 100\\ mg/dL, by sample size
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> ggplot2::ggplot() +
+>   ggplot2::geom_function(
+>     fun = power,
+>     args = list(null = mu0, alt = mu1, sigma = sigma_hat),
+>     n = 199
+>   ) +
+>   ggplot2::xlim(c(2, 200)) +
+>   ggplot2::ylim(0, 1) +
+>   ggplot2::ylab("Power") +
+>   ggplot2::xlab("n")
+> ```
+>
+> [![](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png)](intro-MLEs_files/figure-html/unnamed-chunk-35-1.png "Figure 20: Power of the test of H_0: \mu= 95 against \mu_1 = 100 mg/dL, by sample size")
+>
+> Figure 20: Power of the test of \\H_0: \mu= 95\\ against \\\mu_1 = 100\\ mg/dL, by sample size
 
 > **NOTE:**
 >
@@ -2132,7 +2184,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > By the asymptotic theory of MLEs:
 >
-> \\ \hat{\lambda}\_{ML} \\\dot\sim\\ \operatorname{N}\\\mathopen{}\left({\lambda},\\ \mathopen{}\left(\mathcal{I}({\lambda})\right)^{-1}\mathclose{}\right)\mathclose{} \\
+> \\ \hat{\lambda}\_{ML} \\\dot\sim\\ \operatorname{N}\\\mathopen{}\left({\lambda},\\ {\mathopen{}\left(\mathcal{I}({\lambda})\right)\mathclose{}}^{-1}\right)\mathclose{} \\
 >
 > We estimate this asymptotic variance using the observed information evaluated at the MLE. Since \\I(\hat{\lambda}\_{ML};\tilde{x})^{-1} = \bar{x}/n\\:
 >

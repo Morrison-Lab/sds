@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 00:16:38 (PDT)
+Last modified: 2026-10-15 02:23:11 (PDT)
 
 ## 1 Empirical distribution
 
@@ -113,75 +113,77 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 ## 5 The empirical CDF and quantile function as generalized inverses
 
-Show R code
-
-``` downlit
-x <- c(4, 1, 7, 3)
-n <- length(x)
-x_ord <- sort(x)
-p_ord <- seq_len(n) / n
-ecdf_x_padding <- 0.8
-x_min <- min(x_ord) - ecdf_x_padding
-x_max <- max(x_ord) + ecdf_x_padding
-
-x_left <- c(x_min, x_ord)
-x_right <- c(x_ord, x_max)
-f_levels <- c(0, p_ord)
-
-ecdf_pieces <- tibble::tibble(x = x_left, xend = x_right, y = f_levels)
-ecdf_open <- tibble::tibble(x = x_ord, y = f_levels[seq_len(n)])
-ecdf_closed <- tibble::tibble(x = x_ord, y = f_levels[seq_len(n) + 1])
-
-ggplot2::ggplot() +
-  ggplot2::geom_segment(
-    ggplot2::aes(x = x, xend = xend, y = y, yend = y),
-    data = ecdf_pieces, linewidth = 1, color = "blue"
-  ) +
-  ggplot2::geom_point(
-    ggplot2::aes(x = x, y = y), data = ecdf_open, shape = 1, color = "blue"
-  ) +
-  ggplot2::geom_point(
-    ggplot2::aes(x = x, y = y), data = ecdf_closed, shape = 19, color = "blue"
-  ) +
-  ggplot2::coord_cartesian(xlim = c(x_min, x_max), ylim = c(0, 1.05)) +
-  ggplot2::labs(x = "t", y = expression(hat(plain("F"))(t))) +
-  ggplot2::theme_minimal()
-```
-
-[![](nonparametric-models_files/figure-html/unnamed-chunk-2-1.png)](nonparametric-models_files/figure-html/unnamed-chunk-2-1.png "Figure 1 (a): Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.")
-
-\(a\) Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.
-
-Show R code
-
-``` downlit
-eqf_y_padding <- 0.5
-q_left <- c(0, p_ord[-n])
-q_right <- p_ord
-eqf_pieces <- tibble::tibble(x = q_left, xend = q_right, y = x_ord)
-
-ggplot2::ggplot(eqf_pieces) +
-  ggplot2::geom_segment(
-    ggplot2::aes(x = x, xend = xend, y = y, yend = y),
-    linewidth = 1, color = "blue"
-  ) +
-  ggplot2::geom_point(ggplot2::aes(x = x, y = y), shape = 1, color = "blue") +
-  ggplot2::geom_point(
-    ggplot2::aes(x = xend, y = y), shape = 19, color = "blue"
-  ) +
-  ggplot2::coord_cartesian(
-    xlim = c(0, 1),
-    ylim = c(min(x_ord) - eqf_y_padding, max(x_ord) + eqf_y_padding)
-  ) +
-  ggplot2::labs(x = "p", y = expression(hat(Q)(p))) +
-  ggplot2::theme_minimal()
-```
-
-[![](nonparametric-models_files/figure-html/unnamed-chunk-3-1.png)](nonparametric-models_files/figure-html/unnamed-chunk-3-1.png "Figure 1 (b): Sample quantile function, horizontal pieces only. Open circles mark excluded left endpoints; closed circles mark included right endpoints.")
-
-\(b\) Sample quantile function, horizontal pieces only. Open circles mark excluded left endpoints; closed circles mark included right endpoints.
-
-Figure 1: The empirical CDF and the sample quantile function for the data 4, 1, 7, 3 (order statistics 1, 3, 4, 7).
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> x <- c(4, 1, 7, 3)
+> n <- length(x)
+> x_ord <- sort(x)
+> p_ord <- seq_len(n) / n
+> ecdf_x_padding <- 0.8
+> x_min <- min(x_ord) - ecdf_x_padding
+> x_max <- max(x_ord) + ecdf_x_padding
+>
+> x_left <- c(x_min, x_ord)
+> x_right <- c(x_ord, x_max)
+> f_levels <- c(0, p_ord)
+>
+> ecdf_pieces <- tibble::tibble(x = x_left, xend = x_right, y = f_levels)
+> ecdf_open <- tibble::tibble(x = x_ord, y = f_levels[seq_len(n)])
+> ecdf_closed <- tibble::tibble(x = x_ord, y = f_levels[seq_len(n) + 1])
+>
+> ggplot2::ggplot() +
+>   ggplot2::geom_segment(
+>     ggplot2::aes(x = x, xend = xend, y = y, yend = y),
+>     data = ecdf_pieces, linewidth = 1, color = "blue"
+>   ) +
+>   ggplot2::geom_point(
+>     ggplot2::aes(x = x, y = y), data = ecdf_open, shape = 1, color = "blue"
+>   ) +
+>   ggplot2::geom_point(
+>     ggplot2::aes(x = x, y = y), data = ecdf_closed, shape = 19, color = "blue"
+>   ) +
+>   ggplot2::coord_cartesian(xlim = c(x_min, x_max), ylim = c(0, 1.05)) +
+>   ggplot2::labs(x = "t", y = expression(hat(plain("F"))(t))) +
+>   ggplot2::theme_minimal()
+> ```
+>
+> [![](nonparametric-models_files/figure-html/unnamed-chunk-2-1.png)](nonparametric-models_files/figure-html/unnamed-chunk-2-1.png "Figure 1 (a): Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.")
+>
+> \(a\) Empirical CDF, horizontal pieces only. Closed circles mark included endpoints; open circles mark excluded endpoints.
+>
+> Show R code
+>
+> ``` downlit
+> eqf_y_padding <- 0.5
+> q_left <- c(0, p_ord[-n])
+> q_right <- p_ord
+> eqf_pieces <- tibble::tibble(x = q_left, xend = q_right, y = x_ord)
+>
+> ggplot2::ggplot(eqf_pieces) +
+>   ggplot2::geom_segment(
+>     ggplot2::aes(x = x, xend = xend, y = y, yend = y),
+>     linewidth = 1, color = "blue"
+>   ) +
+>   ggplot2::geom_point(ggplot2::aes(x = x, y = y), shape = 1, color = "blue") +
+>   ggplot2::geom_point(
+>     ggplot2::aes(x = xend, y = y), shape = 19, color = "blue"
+>   ) +
+>   ggplot2::coord_cartesian(
+>     xlim = c(0, 1),
+>     ylim = c(min(x_ord) - eqf_y_padding, max(x_ord) + eqf_y_padding)
+>   ) +
+>   ggplot2::labs(x = "p", y = expression(hat(Q)(p))) +
+>   ggplot2::theme_minimal()
+> ```
+>
+> [![](nonparametric-models_files/figure-html/unnamed-chunk-3-1.png)](nonparametric-models_files/figure-html/unnamed-chunk-3-1.png "Figure 1 (b): Sample quantile function, horizontal pieces only. Open circles mark excluded left endpoints; closed circles mark included right endpoints.")
+>
+> \(b\) Sample quantile function, horizontal pieces only. Open circles mark excluded left endpoints; closed circles mark included right endpoints.
+>
+> Figure 1: The empirical CDF and the sample quantile function for the data 4, 1, 7, 3 (order statistics 1, 3, 4, 7).
 
 Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, \\\hat F(t) = 0.5\\ for every \\t \in \[3, 4)\\, and \\\hat Q\\ jumps from 3 to 4 at \\p = 0.5\\. So \\\hat Q\\ is a *generalized* inverse of \\\hat F\\, not an inverse in the usual sense: \\\hat Q(\hat F(t)) \le t\\ for every \\t \ge x\_{(1)}\\, with equality only at the observed values.
 
