@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 00:39:58 (PDT)
+Last modified: 2026-10-15 02:39:49 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -351,13 +351,13 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> *Solution 13*. By [Definition 7](#def-score), \\\ell'= \frac{\partial}{\partial \tilde{\theta}}\ell\\, so \\\mathopen{}\left(\ell'\right)\mathclose{}^{\top} = \frac{\partial}{\partial \tilde{\theta}^{\top}}\ell\\. Then:
+> *Solution 13*. By [Definition 7](#def-score), \\\ell'= \frac{\partial}{\partial \tilde{\theta}}\ell\\, so \\{\mathopen{}\left(\ell'\right)\mathclose{}}^{\top} = \frac{\partial}{\partial \tilde{\theta}^{\top}}\ell\\. Then:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\theta}}\mathopen{}\left(\ell'\right)\mathclose{}^{\top} &= \frac{\partial}{\partial \tilde{\theta}}\frac{\partial}{\partial \tilde{\theta}^{\top}}\ell && \text{(transpose of the score)}\\ &= \ell'' && \text{(definition of the Hessian)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \tilde{\theta}}{\mathopen{}\left(\ell'\right)\mathclose{}}^{\top} &= \frac{\partial}{\partial \tilde{\theta}}\frac{\partial}{\partial \tilde{\theta}^{\top}}\ell && \text{(transpose of the score)}\\ &= \ell'' && \text{(definition of the Hessian)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 7 (Hessian is the derivative of the transposed score)** \\ \ell''(\tilde{x}\mid \tilde{\theta}) = \frac{\partial}{\partial \tilde{\theta}} \mathopen{}\left(\ell'(\tilde{x}\mid \tilde{\theta})\right)\mathclose{}^{\top} \\
+> **Theorem 7 (Hessian is the derivative of the transposed score)** \\ \ell''(\tilde{x}\mid \tilde{\theta}) = \frac{\partial}{\partial \tilde{\theta}} {\mathopen{}\left(\ell'(\tilde{x}\mid \tilde{\theta})\right)\mathclose{}}^{\top} \\
 
 > **NOTE:**
 >
@@ -445,7 +445,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > [Equation 12](#eq-score-mean-zero) is the solution to [Exercise 15](#exr-score-mean-zero). For [Equation 13](#eq-information-equality), [Exercise 16](#exr-score-second-moment) gives \\\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{}\\, and because \\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} = 0\\,
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)^2\mathclose{} \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\ell'^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{}\right)\mathclose{}}^2 \\ &= \operatorname{Var}\mathopen{}\left(\ell'\right)\mathclose{}. \end{aligned} \\
 
 > **NOTE:**
 >
@@ -479,7 +479,7 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 >
 > **Theorem 9 (Central limit theorem for MLEs)** For \\\operatorname{iid}\\ data from a correctly specified model satisfying regularity conditions (including those of [Theorem 8](#thm-information-equality), an identifiable parameter, a true parameter value in the interior of the parameter space, and a positive definite information matrix), a consistent solution \\\hat\theta\_{\text{ML}}\\ of the [score equation](#def-score-equation) exists, and for large \\n\\ it has approximately a Gaussian distribution, centered at the true parameter value \\\tilde{\theta}\\, with covariance matrix equal to the inverse of the expected information:
 >
-> \\ \hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\tilde{\theta}, \mathopen{}\left(\mathcal{I}(\tilde{\theta})\right)^{-1}\mathclose{}\right)\mathclose{} \tag{14}\\
+> \\ \hat\theta\_{\text{ML}}\\ \dot{\sim} \\ \operatorname{N}\mathopen{}\left(\tilde{\theta}, {\mathopen{}\left(\mathcal{I}(\tilde{\theta})\right)\mathclose{}}^{-1}\right)\mathclose{} \tag{14}\\
 
 > **NOTE:**
 >
@@ -499,7 +499,7 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 
 [Theorem 9](#thm-dist-mle) involves the unknown \\\tilde{\theta}\\, so to use it we estimate \\\mathcal{I}(\tilde{\theta})\\, by either the expected information at the MLE, \\\mathcal{I}(\hat\theta\_{\text{ML}})\\, or the observed information at the MLE, \\I(\tilde{x}; \hat\theta\_{\text{ML}})\\. Either way, the estimated standard error of the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\ is:
 
-\\ \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{} = \sqrt{\mathopen{}\left\[\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\right\]\mathclose{}\_{kk}} \\
+\\ \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{} = \sqrt{\mathopen{}\left\[{\mathopen{}\left(\hat{\mathcal{I}}\right)\mathclose{}}^{-1}\right\]\mathclose{}\_{kk}} \\
 
 where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta})\\ we chose.
 
@@ -531,7 +531,7 @@ By [Theorem 9](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{
 
 > **NOTE:**
 >
-> **Definition 14 (Wald statistic for several constraints)** For \\q\\ constraints \\H_0: \tilde{\theta}\_{(q)} = \tilde{\theta}\_{(q),0}\\ on a \\q \times 1\\ subvector, the **Wald statistic** is \\{\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}}^{\top}\\\mathopen{}\left(\hat{V}\_{(q)}\right)^{-1}\mathclose{}\\\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}\\, where \\\hat V\_{(q)}\\ is the corresponding \\q \times q\\ block of \\\mathopen{}\left(\hat{\mathcal{I}}\right)^{-1}\mathclose{}\\.
+> **Definition 14 (Wald statistic for several constraints)** For \\q\\ constraints \\H_0: \tilde{\theta}\_{(q)} = \tilde{\theta}\_{(q),0}\\ on a \\q \times 1\\ subvector, the **Wald statistic** is \\{\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}}^{\top}\\{\mathopen{}\left(\hat{V}\_{(q)}\right)\mathclose{}}^{-1}\\\mathopen{}\left(\hat{\tilde{\theta}}\_{(q)} - \tilde{\theta}\_{(q),0}\right)\mathclose{}\\, where \\\hat V\_{(q)}\\ is the corresponding \\q \times q\\ block of \\{\mathopen{}\left(\hat{\mathcal{I}}\right)\mathclose{}}^{-1}\\.
 
 > **NOTE:**
 >
@@ -671,7 +671,7 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 >
 > \\ \Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{} = 1 - \alpha \\
 
-Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](estimation.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
+Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](prediction.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
 \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\bar X^\* - \hat{\mu}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X^\*\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\mu}\right)\mathclose{} && \text{(variance of a difference of independent variables)}\\ &= \frac{\sigma^2}{m} + \frac{\sigma^2}{n} && \text{(variance of a sample mean)} \end{aligned} \\
 
@@ -1132,7 +1132,7 @@ When we cannot solve the score equation \\\ell'(\theta) = 0\\ algebraically, we 
 >
 > **Definition 17 (Newton-Raphson algorithm)** The **Newton-Raphson algorithm** for solving the score equation \\\ell'(\theta) = 0\\ starts from an initial guess \\{\widehat{\theta}}^\*\\ and repeats the update
 >
-> \\ \begin{aligned} {\widehat{\theta}}^\* &\leftarrow {\widehat{\theta}}^\* - \mathopen{}\left(\ell''\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\right)^{-1}\mathclose{} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\\ &= {\widehat{\theta}}^\* + \mathopen{}\left(I\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\right)^{-1}\mathclose{} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \end{aligned} \\
+> \\ \begin{aligned} {\widehat{\theta}}^\* &\leftarrow {\widehat{\theta}}^\* - {\mathopen{}\left(\ell''\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\\ &= {\widehat{\theta}}^\* + {\mathopen{}\left(I\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \end{aligned} \\
 >
 > until the estimate stops changing.
 
@@ -1144,7 +1144,7 @@ The update comes from approximating the score function near \\{\widehat{\theta}}
 
 The approximate score function \\\ell'^\*(\theta)\\ is linear in \\\theta\\, so the approximate score equation \\\ell'^\*(\theta) = 0\\ is easy to solve:
 
-\\ \begin{aligned} 0 &= \ell'({\widehat{\theta}}^\*) + \ell''({\widehat{\theta}}^\*)(\theta- {\widehat{\theta}}^\*) && \text{(set \$\ell'^\*(\theta) = 0\$)}\\ -\ell'({\widehat{\theta}}^\*) &= \ell''({\widehat{\theta}}^\*)(\theta- {\widehat{\theta}}^\*) && \text{(subtract \$\ell'({\widehat{\theta}}^\*)\$)}\\ -\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)^{-1}\mathclose{}\ell'({\widehat{\theta}}^\*) &= \theta- {\widehat{\theta}}^\* && \text{(multiply by \$\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)^{-1}\mathclose{}\$ on the left)}\\ \theta&= {\widehat{\theta}}^\* - \mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)^{-1}\mathclose{}\ell'({\widehat{\theta}}^\*) && \text{(add \${\widehat{\theta}}^\*\$)} \end{aligned} \\
+\\ \begin{aligned} 0 &= \ell'({\widehat{\theta}}^\*) + \ell''({\widehat{\theta}}^\*)(\theta- {\widehat{\theta}}^\*) && \text{(set \$\ell'^\*(\theta) = 0\$)}\\ -\ell'({\widehat{\theta}}^\*) &= \ell''({\widehat{\theta}}^\*)(\theta- {\widehat{\theta}}^\*) && \text{(subtract \$\ell'({\widehat{\theta}}^\*)\$)}\\ -{\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)\mathclose{}}^{-1}\ell'({\widehat{\theta}}^\*) &= \theta- {\widehat{\theta}}^\* && \text{(multiply by \${\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)\mathclose{}}^{-1}\$ on the left)}\\ \theta&= {\widehat{\theta}}^\* - {\mathopen{}\left(\ell''({\widehat{\theta}}^\*)\right)\mathclose{}}^{-1}\ell'({\widehat{\theta}}^\*) && \text{(add \${\widehat{\theta}}^\*\$)} \end{aligned} \\
 
 and the solution becomes the next guess.
 
@@ -1152,7 +1152,7 @@ and the solution becomes the next guess.
 >
 > **Definition 18 (Fisher scoring)** **Fisher scoring** (also called the method of scoring) is the [Newton-Raphson algorithm](#def-newton-raphson) with the observed information \\I(\tilde{x}; {\widehat{\theta}}^\*)\\ in the update replaced by the [expected information](#def-einf) \\\mathcal{I}({\widehat{\theta}}^\*)\\:
 >
-> \\ {\widehat{\theta}}^\* \leftarrow {\widehat{\theta}}^\* + \mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^\*\right)\mathclose{}\right)^{-1}\mathclose{} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \\
+> \\ {\widehat{\theta}}^\* \leftarrow {\widehat{\theta}}^\* + {\mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \\
 
 The expected information is sometimes simpler to compute than the observed information.
 
@@ -1160,7 +1160,7 @@ The expected information is sometimes simpler to compute than the observed infor
 >
 > **Example 11 (Fisher scoring for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, the score is \\\ell'({\lambda}) = n\bar x/{\lambda}- n\\ and the expected information is \\\mathcal{I}({\lambda}) = n/{\lambda}\\ ([Example 5](#exm-information-poisson)), so one Fisher scoring step from any \\{\widehat{\lambda}}^\*\> 0\\ gives:
 >
-> \\ \begin{aligned} {\widehat{\lambda}}^\*+ \mathopen{}\left(\mathcal{I}({\widehat{\lambda}}^\*)\right)^{-1}\mathclose{} \ell'({\widehat{\lambda}}^\*) &= {\widehat{\lambda}}^\*+ \frac{{\widehat{\lambda}}^\*}{n}\mathopen{}\left(\frac{n\bar x}{{\widehat{\lambda}}^\*} - n\right)\mathclose{} && \text{(substitute \$\mathcal{I}\$ and \$\ell'\$)}\\ &= {\widehat{\lambda}}^\*+ \bar x - {\widehat{\lambda}}^\* && \text{(distribute \${\widehat{\lambda}}^\*/n\$)}\\ &= \bar x && \text{(cancel \${\widehat{\lambda}}^\*\$)} \end{aligned} \\
+> \\ \begin{aligned} {\widehat{\lambda}}^\*+ {\mathopen{}\left(\mathcal{I}({\widehat{\lambda}}^\*)\right)\mathclose{}}^{-1} \ell'({\widehat{\lambda}}^\*) &= {\widehat{\lambda}}^\*+ \frac{{\widehat{\lambda}}^\*}{n}\mathopen{}\left(\frac{n\bar x}{{\widehat{\lambda}}^\*} - n\right)\mathclose{} && \text{(substitute \$\mathcal{I}\$ and \$\ell'\$)}\\ &= {\widehat{\lambda}}^\*+ \bar x - {\widehat{\lambda}}^\* && \text{(distribute \${\widehat{\lambda}}^\*/n\$)}\\ &= \bar x && \text{(cancel \${\widehat{\lambda}}^\*\$)} \end{aligned} \\
 >
 > So Fisher scoring reaches the MLE \\\bar x\\ in one step, while Newton-Raphson needs several ([Table 5](#tbl-mle-converge)).
 
@@ -1192,7 +1192,7 @@ From [Exercise 29](#exr-cyclone-score-fn) and [Exercise 31](#exr-hessian), the
 
 So the first-order Taylor approximation of the score function around \\{\widehat{\lambda}}^\*\\ is:
 
-\\ \begin{aligned} \ell'({\lambda}) &\approx \ell'^\*({\lambda})\\ &\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^\*) + \ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)\\ &= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^\*} - 13\right)\mathclose{} + \mathopen{}\left(-\frac{72}{\mathopen{}\left({\widehat{\lambda}}^\*\right)^2\mathclose{}}\right)\mathclose{} ({\lambda}- {\widehat{\lambda}}^\*) \end{aligned} \\
+\\ \begin{aligned} \ell'({\lambda}) &\approx \ell'^\*({\lambda})\\ &\stackrel{\text{def}}{=}\ell'({\widehat{\lambda}}^\*) + \ell''({\widehat{\lambda}}^\*)({\lambda}- {\widehat{\lambda}}^\*)\\ &= \mathopen{}\left(\frac{72}{{\widehat{\lambda}}^\*} - 13\right)\mathclose{} + \mathopen{}\left(-\frac{72}{{\mathopen{}\left({\widehat{\lambda}}^\*\right)\mathclose{}}^2}\right)\mathclose{} ({\lambda}- {\widehat{\lambda}}^\*) \end{aligned} \\
 
 [Figure 9](#fig-cyclone-newton-step1) compares the score function and the approximate score function at \\{\widehat{\lambda}}^\*= 3\\.
 
@@ -1299,7 +1299,7 @@ Approximating the score function by a linear function is equivalent to approxima
 
 Solving the approximate score equation \\\ell'^\*({\lambda}) = 0\\ gives the next estimate:
 
-\\ \begin{aligned} {\lambda} &= {\widehat{\lambda}}^\*- \ell'({\widehat{\lambda}}^\*) \cdot\mathopen{}\left(\ell''({\widehat{\lambda}}^\*)\right)^{-1}\mathclose{}\\ &= 4.375 \end{aligned} \\
+\\ \begin{aligned} {\lambda} &= {\widehat{\lambda}}^\*- \ell'({\widehat{\lambda}}^\*) \cdot{\mathopen{}\left(\ell''({\widehat{\lambda}}^\*)\right)\mathclose{}}^{-1}\\ &= 4.375 \end{aligned} \\
 
 ``` downlit
 new_lambda_est <-
@@ -1542,7 +1542,7 @@ Collecting the second derivatives at the MLE, the [observed information](#def-oi
 
 Its diagonal entries are positive and its off-diagonal entries are zero, so it is positive definite, consistent with the MLE being a maximum. The inverse of a diagonal matrix inverts each diagonal entry, so:
 
-\\ \mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)^{-1}\mathclose{} = \begin{bmatrix} \frac{\hat{\sigma}^2}{n} & 0 \\ 0 & \frac{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}{n} \end{bmatrix} \\
+\\ {\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)\mathclose{}}^{-1} = \begin{bmatrix} \frac{\hat{\sigma}^2}{n} & 0 \\ 0 & \frac{2\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{}^2}{n} \end{bmatrix} \\
 
 By [Theorem 9](#thm-dist-mle), the estimated standard errors are \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} = \hat{\sigma}/\sqrt{n}\\ and \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{} = \hat{\sigma}^2\sqrt{2/n}\\, and the two estimates are approximately uncorrelated in large samples.
 
@@ -1802,7 +1802,7 @@ loglik(mu = mu_hat, sigma = sigma_hat, x = glucose_data)
 
 By [Section 3.5](#sec-covariance-matrix), the estimated standard error of \\\hat{\mu}\_{\text{ML}}\\ is
 
-\\ \begin{aligned} \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} &= \sqrt{\mathopen{}\left\[\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)^{-1}\mathclose{}\right\]\mathclose{}\_{11}} && \text{(estimated standard error from the inverse information)}\\ &= \sqrt{\frac{\hat{\sigma}^2}{n}} && \text{(first diagonal entry of the inverse information)}\\ &= \frac{\hat{\sigma}}{\sqrt{n}} && \text{(square root of a quotient)} \end{aligned} \\
+\\ \begin{aligned} \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} &= \sqrt{\mathopen{}\left\[{\mathopen{}\left(I(\hat{\mu}, \hat{\sigma}^2)\right)\mathclose{}}^{-1}\right\]\mathclose{}\_{11}} && \text{(estimated standard error from the inverse information)}\\ &= \sqrt{\frac{\hat{\sigma}^2}{n}} && \text{(first diagonal entry of the inverse information)}\\ &= \frac{\hat{\sigma}}{\sqrt{n}} && \text{(square root of a quotient)} \end{aligned} \\
 
 which shrinks in proportion to \\1/\sqrt{n}\\ ([Figure 19](#fig-hers-se-by-n)).
 
@@ -2184,7 +2184,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > By the asymptotic theory of MLEs:
 >
-> \\ \hat{\lambda}\_{ML} \\\dot\sim\\ \operatorname{N}\\\mathopen{}\left({\lambda},\\ \mathopen{}\left(\mathcal{I}({\lambda})\right)^{-1}\mathclose{}\right)\mathclose{} \\
+> \\ \hat{\lambda}\_{ML} \\\dot\sim\\ \operatorname{N}\\\mathopen{}\left({\lambda},\\ {\mathopen{}\left(\mathcal{I}({\lambda})\right)\mathclose{}}^{-1}\right)\mathclose{} \\
 >
 > We estimate this asymptotic variance using the observed information evaluated at the MLE. Since \\I(\hat{\lambda}\_{ML};\tilde{x})^{-1} = \bar{x}/n\\:
 >
