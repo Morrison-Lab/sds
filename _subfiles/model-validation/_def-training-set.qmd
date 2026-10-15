@@ -7,7 +7,7 @@ $\nobs$ observations,
 written as an ordered list indexed by a set $\obsidx$ of $\nobs$ observation numbers:
 
 $$
-\trainset \eqdef \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}, \quad \abs{\obsidx} = \nobs.
+\trainset \eqdef \paren{(\vpredvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}, \quad \abs{\obsidx} = \nobs.
 $$ {#eq-training-set}
 
 ::: {.callout-note collapse="true"}
