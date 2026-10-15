@@ -10,6 +10,7 @@ relate to the parameter values that maximize the [log-likelihood](#def-loglik) $
 
 :::{#sol-mle-use-log}
 
+Let $\param^*$ be a parameter value.
 The natural logarithm is strictly increasing on $(0, \infty)$,
 so for any $\param_1$ and $\param_2$,
 $\Lik(\param_1) \ge \Lik(\param_2)$ if and only if $\log \Lik(\param_1) \ge \log \Lik(\param_2)$,
