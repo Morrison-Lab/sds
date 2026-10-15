@@ -1,11 +1,11 @@
 :::{#def-mean-function}
 #### Mean function
 
-The **mean function** $\mean$ of an outcome $Y$ given a covariate $X$
-maps each covariate value $x$ to the mean of $Y$ given $X = x$:
+The **mean function** $\mean$ of an outcome $\Outvar$ given a covariate $\Predvar$
+maps each covariate value $\predvar$ to the mean of $\Outvar$ given $\Predvar = \predvar$:
 
 $$
-\mean(x) \eqdef \E{Y \mid X = x}.
+\mean(\predvar) \eqdef \E{\Outvar \mid \Predvar = \predvar}.
 $$ {#eq-mean-function}
 
 :::

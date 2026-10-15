@@ -1,7 +1,7 @@
 :::{#exr-kfold}
 #### Folds of the `mtcars` data
 
-Suppose we use $k = 4$-fold cross-validation on the $n = 32$ cars in `mtcars`.
+Suppose we use $\nfolds = 4$-fold cross-validation on the $\nobs = 32$ cars in `mtcars`.
 
 1. How many cars are in each fold?
 2. Each time a model is fit, how many cars are used to fit it?

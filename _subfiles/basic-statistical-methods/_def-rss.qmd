@@ -11,6 +11,6 @@ that the model has when its parameters equal $\vparam$:
 $$\text{RSS}(\vparam) \eqdef \sumin \resid_i(\vparam)^2.$$
 
 At the estimate $\est{\vparam}$,
-$\resid_i(\est{\vparam})$ is the [residual](estimation.qmd#def-residual) $\resid_i$
+$\resid_i(\est{\vparam})$ is the [residual](prediction.qmd#def-residual) $\resid_i$
 of the fitted model.
 :::

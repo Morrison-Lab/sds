@@ -2,16 +2,16 @@
 #### Leave-one-out cross-validation for least squares
 
 For a linear model fitted by [ordinary least squares](correlation-regression.qmd#def-ols)
-with every [leverage](#def-leverage) $\lev{i} < 1$,
+with every [leverage](#def-leverage) $\lev{\iobs} < 1$,
 the [leave-one-out estimate](#def-loocv)
-can be computed from the single fit to all $n$ observations,
-from its [fitted values](estimation.qmd#def-fitted-value) $\fitted_i$,
-their [prediction errors](estimation.qmd#def-prediction-error)
-$\prederr_i = \fitted_i - y_i$,
+can be computed from the single fit to all $\nobs$ observations,
+from its [fitted values](prediction.qmd#def-fitted-value) $\fitted_{\iobs}$,
+their [prediction errors](prediction.qmd#def-prediction-error)
+$\prederr_{\iobs} = \fitted_{\iobs} - \outvar_{\iobs}$,
 and the leverages:
 
 $$
-\cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\frac{\prederr_i}{1 - \lev{i}}}.
+\cvest{\nobs} = \frac{1}{\nobs} \sum_{\iobs \in \obsidx} \sqf{\frac{\prederr_{\iobs}}{1 - \lev{\iobs}}}.
 $$ {#eq-loocv-shortcut}
 
 ::: {.callout-note collapse="true"}
@@ -27,8 +27,8 @@ and @hastie2009elements [sec. 7.10.1] for many linear fitting methods.
 Not derived here;
 see the sources named under the theorem.
 The derivation needs a formula for how the inverse of the
-[cross-product matrix](#def-cross-product-matrix) $A$
-changes when one observation's outer product $\soprod{\termvec{i}}$ is removed from it
+[cross-product matrix](#def-cross-product-matrix) $\sscp$
+changes when one observation's outer product $\soprod{\termvec{\iobs}}$ is removed from it
 (the Sherman--Morrison formula),
 which this page does not develop.
 :::
