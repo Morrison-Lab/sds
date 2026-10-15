@@ -183,3 +183,8 @@ resources:
   without a distributional model for the test statistic.
 
 {{< include sds/_subfiles/_textbook-refs.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

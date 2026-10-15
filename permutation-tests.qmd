@@ -83,3 +83,8 @@ resources:
 - Chapter 13 of @james2021islr2e applies permutation and other resampling methods to multiple testing.
 
 {{< include sds/_subfiles/_textbook-refs.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
