@@ -52,6 +52,8 @@ website:
             href: intro-MLEs.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
+          - text: "Sufficiency"
+            href: sufficiency.qmd
       - text: "Methods"
         menu:
           - text: "Comparing Means"
@@ -108,6 +110,8 @@ website:
             href: intro-MLEs.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
+          - text: "Sufficiency"
+            href: sufficiency.qmd
       - section: "Methods"
         contents:
           - text: "Comparing Means"

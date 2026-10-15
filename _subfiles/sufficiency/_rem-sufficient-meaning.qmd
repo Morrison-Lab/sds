@@ -1,0 +1,14 @@
+:::{#rem-sufficient-meaning}
+#### What sufficiency says
+
+Once we know $\statf{\vX}$, the remaining randomness in the sample
+has the same distribution whatever the parameter is,
+so the sample carries no further information about $\param$ beyond $\statf{\vX}$.
+A statistic can therefore stand in for the whole sample when we estimate $\param$.
+
+The sample itself, taking $\statf{\vX} = \vX$, is always sufficient but does not reduce the data;
+a useful sufficient statistic is a much shorter summary,
+such as a sum or a mean.
+
+For a continuous sample, the definition uses conditional densities instead of conditional probabilities.
+:::

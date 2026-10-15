@@ -1,0 +1,27 @@
+:::{#lem-rb-statistic}
+#### The Rao--Blackwellized estimator is a statistic
+
+Let $\statf{\vX}$ be a [sufficient](#def-sufficient) statistic for $\param$
+and $\hparam$ an estimator of $\param$.
+Then $\condE{\hparam}{\statf{\vX}}$ does not depend on $\param$,
+so it is a [statistic](#def-statistic) and an estimator.
+:::
+
+::: proof
+
+Take a discrete sample, and fix a value $t$ that $\statf{\vX}$ takes with positive probability.
+Write $\hparam = \hparam\paren{\vX}$.
+
+$$
+\begin{aligned}
+\condE{\hparam}{\statf{\vX} = t}
+&= \sum_{\vx} \hparam\paren{\vx} \, \Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}
+&& \text{(conditional expectation)}
+\end{aligned}
+$$
+
+Each term involves $\hparam\paren{\vx}$, which does not depend on $\param$,
+and the conditional probability, which does not depend on $\param$ by @eq-sufficient.
+So the sum does not depend on $\param$.
+
+:::

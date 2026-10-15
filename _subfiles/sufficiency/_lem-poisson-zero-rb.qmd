@@ -1,0 +1,17 @@
+:::{#lem-poisson-zero-rb}
+#### Conditional probability of a zero given the Poisson sum
+
+For $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin X_i$,
+
+$$
+\Pr\paren{X_1 = 0 \given S = t} = \paren{\frac{n-1}{n}}^t
+$$ {#eq-poisson-zero-conditional}
+
+for every $t = 0, 1, 2, \ldots$.
+:::
+
+::: proof
+
+This is the solution to @exr-poisson-zero-conditional.
+
+:::

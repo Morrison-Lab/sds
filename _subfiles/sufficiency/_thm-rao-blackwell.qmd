@@ -1,0 +1,37 @@
+:::{#thm-rao-blackwell}
+#### Rao--Blackwell theorem
+
+Let $\hparam$ be an [unbiased](estimation.qmd#def-unbiased) estimator of $\param$
+with finite variance,
+and let $\statf{\vX}$ be a [sufficient](#def-sufficient) statistic for $\param$.
+Then the [Rao--Blackwellized estimator](#def-rao-blackwellized) is unbiased
+and has variance no larger than that of $\hparam$, for every $\param$:
+
+$$
+\Var{\condE{\hparam}{\statf{\vX}}} \le \Var{\hparam}
+$$ {#eq-rao-blackwell}
+
+::: {.callout-note collapse="true"}
+#### Source
+
+@rao1945information; @blackwell1947conditional; @CaseBerg01 [Thm. 7.3.17, p. 342].
+:::
+
+:::
+
+::: proof
+
+Unbiasedness is @thm-rb-unbiased.
+For the variance, we use the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance):
+
+$$
+\begin{aligned}
+\Var{\hparam}
+&= \Var{\condE{\hparam}{\statf{\vX}}} + \E{\condVar{\hparam}{\statf{\vX}}}
+&& \text{(law of total variance)}\\
+&\ge \Var{\condE{\hparam}{\statf{\vX}}}
+&& \text{(a variance is nonnegative)}
+\end{aligned}
+$$
+
+:::
