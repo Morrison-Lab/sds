@@ -1,12 +1,12 @@
 :::{#def-nested-cv}
 #### Nested cross-validation
 
-**Nested cross-validation** is [$k$-fold cross-validation](#def-kfold)
-of the [cross-validation choice procedure](#def-cv-choice) $g^{\text{CV}}$:
+**Nested cross-validation** is [$\nfolds$-fold cross-validation](#def-kfold)
+of the [cross-validation choice procedure](#def-cv-choice) $\candproctuned{\text{CV}}$:
 its estimate on a training set $\trainset$ is
 
 $$
-\cvestof{k}{g^{\text{CV}}}\paren{\trainset}.
+\cvestof{\nfolds}{\candproctuned{\text{CV}}}\paren{\trainset}.
 $$ {#eq-nested-cv}
 
 ::: {.callout-note collapse="true"}

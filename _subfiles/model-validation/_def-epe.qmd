@@ -1,17 +1,17 @@
 :::{#def-epe}
 #### Expected squared prediction error at a covariate value
 
-The **expected squared prediction error at $x$**
-of a [fitting procedure](#def-fitting-procedure) $g$
-at training-set size $n$
+The **expected squared prediction error at $\predvar$**
+of a [fitting procedure](#def-fitting-procedure) $\fitproc$
+at training-set size $\nobs$
 is the mean squared [prediction error](estimation.qmd#def-prediction-error)
-of its prediction at $x$ for a new outcome $Y_0$ with $X_0 = x$,
-averaged over random [training sets](#def-training-set) $\trainset$ of $n$ observations
-drawn independently of $(X_0, Y_0)$,
-and over $Y_0$:
+of its prediction at $\predvar$ for a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
+averaged over random [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
+drawn independently of $(\newpredvar, \newoutvar)$,
+and over $\newoutvar$:
 
 $$
-\epe{g}{n}{x} \eqdef \E{\sqf{g\paren{x; \trainset} - Y_0} \mid X_0 = x}.
+\epe{\fitproc}{\nobs}{\predvar} \eqdef \E{\sqf{\fitproc\paren{\predvar; \trainset} - \newoutvar} \mid \newpredvar = \predvar}.
 $$ {#eq-epe}
 
 ::: {.callout-note collapse="true"}

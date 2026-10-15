@@ -1,17 +1,17 @@
 :::{#def-prediction-bias}
 #### Bias of a prediction
 
-Let $g$ be a [fitting procedure](#def-fitting-procedure),
+Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
-At a covariate value $x$,
-the prediction $g\paren{x; \trainset}$ is a random variable,
+At a covariate value $\predvar$,
+the prediction $\fitproc\paren{\predvar; \trainset}$ is a random variable,
 because it depends on the random training data.
-The **bias** of the prediction, as a prediction of $\mean(x)$,
-is the [bias](estimation.qmd#def-bias) of $g\paren{x; \trainset}$
-as an estimator of the [mean function](#def-mean-function) value $\mean(x)$:
+The **bias** of the prediction, as a prediction of $\mean(\predvar)$,
+is the [bias](estimation.qmd#def-bias) of $\fitproc\paren{\predvar; \trainset}$
+as an estimator of the [mean function](#def-mean-function) value $\mean(\predvar)$:
 
 $$
-\bias{g\paren{x; \trainset}} = \E{g\paren{x; \trainset}} - \mean(x).
+\bias{\fitproc\paren{\predvar; \trainset}} = \E{\fitproc\paren{\predvar; \trainset}} - \mean(\predvar).
 $$ {#eq-prediction-bias}
 
 :::
@@ -28,15 +28,15 @@ the bias reflects the error introduced by approximating a real-world relationshi
 :::{#exm-prediction-bias}
 #### Computing the bias of a prediction
 
-Suppose $\mean(x) = 10$,
-and the predictions $g\paren{x; \trainset}$,
+Suppose $\mean(\predvar) = 10$,
+and the predictions $\fitproc\paren{\predvar; \trainset}$,
 over repeated training sets,
 average $11$.
 Then
 
 $$
 \begin{aligned}
-\bias{g\paren{x; \trainset}} &= 11 - 10 \\
+\bias{\fitproc\paren{\predvar; \trainset}} &= 11 - 10 \\
 &= 1.
 \end{aligned}
 $$
