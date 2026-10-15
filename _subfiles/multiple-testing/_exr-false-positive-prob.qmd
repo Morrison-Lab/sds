@@ -32,3 +32,22 @@ $$
 $$
 
 :::
+
+{{< slidebreak >}}
+
+:::{#lem-no-rejection-prob}
+#### Probability that no test rejects
+
+Let $A_1, \ldots, A_m$ be independent events,
+where $A_j$ is the event that the $j$th of $m$ tests rejects its true null hypothesis,
+and each has probability $\Pr(A_j) = \siglevel$
+(see [significance level](inference.qmd#def-significance-level)).
+Then the probability that none of the tests rejects is
+
+$$\Prf{\text{no test rejects}} = \paren{1 - \siglevel}^m.$$
+
+:::
+
+::: proof
+This is the solution to @exr-no-rejection-prob, worked in @sol-no-rejection-prob.
+:::

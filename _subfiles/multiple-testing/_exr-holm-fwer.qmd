@@ -42,3 +42,20 @@ so that $p_{(r)} = \min_{j \in \truenulls} p_j$.
 Since $p_{(r)} = \min_{j \in \truenulls} p_j$, the claim follows.
 
 :::
+
+{{< slidebreak >}}
+
+:::{#lem-holm-threshold}
+#### A rejected true null hypothesis has a small p-value under Holm's procedure
+
+Let $m$ null hypotheses have p-values, and let $\truenulls$ be the set of $m_0 \ge 1$ indices of the true null hypotheses.
+If [Holm's procedure](#def-holm) at level $\siglevel$ rejects at least one true null hypothesis,
+then the smallest p-value among the true null hypotheses is at most $\siglevel / m_0$:
+
+$$\min_{j \in \truenulls} p_j \le \frac{\siglevel}{m_0}.$$
+
+:::
+
+::: proof
+This is the solution to @exr-holm-threshold, worked in @sol-holm-threshold.
+:::
