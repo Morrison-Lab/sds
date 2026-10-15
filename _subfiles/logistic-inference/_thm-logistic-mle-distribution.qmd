@@ -1,0 +1,23 @@
+::: {#thm-logistic-mle-distribution}
+
+#### Approximate distribution of the fitted coefficients
+
+Suppose the outcomes follow the [logistic regression model](#def-logistic-regression).
+Let $X$ be the matrix whose rows are $\tp{\vpredvar_i}$,
+and let $W$ be the diagonal matrix with entries $\prob_i \paren{1 - \prob_i}$.
+Under regularity conditions, for a large sample the fitted coefficients are approximately Gaussian,
+
+$$
+\hvcoef \approx \Normal\paren{\vcoef, \inv{\tp{X} W X}}.
+$$ {#eq-logistic-mle-distribution}
+
+:::
+
+::: proof
+The log-likelihood has score $\tp{X} \paren{\voutvar - \vprob}$,
+and its Hessian is $-\tp{X} W X$, which does not involve the outcomes.
+The observed and expected information are therefore both $\tp{X} W X$.
+The claim is the Gaussian approximation of the [central limit theorem for MLEs](intro-MLEs.qmd#thm-dist-mle), with this information in place of the inverse covariance.
+The result is stated for logistic regression by @hastie2009elements [Section 4.4.3].
+For independent but non-identically distributed outcomes it holds under conditions on the predictors that @fahrmeir1985consistency give.
+:::

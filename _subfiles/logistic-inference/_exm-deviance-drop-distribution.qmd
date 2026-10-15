@@ -1,0 +1,17 @@
+::: {#exm-deviance-drop-distribution}
+
+#### Testing the treatment effect
+
+For the statistic of @exm-deviance-drop, the p-value comes from the chi-square distribution with $q = 1$ degree of freedom.
+
+```{r}
+#| code-fold: false
+# upper tail of the chi-square distribution with 1 degree of freedom
+wf_g2_p <- pchisq(wf_g2, df = 1, lower.tail = FALSE)
+wf_g2_p
+```
+
+The p-value is $`r round(wf_g2_p, 2)`$,
+so six patients give no evidence of a treatment effect.
+
+:::
