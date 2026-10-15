@@ -4,8 +4,9 @@
 // and keeps the last click under "quarto-persistent-tabsets-data"; this control
 // writes that same entry and clicks a matching tab, so the choice follows the
 // reader to every page and also survives a reload. "Page default" clears the
-// entry and returns the tabsets to their first tab (tabsets that open on
-// different languages cannot all be restored, because Quarto syncs by label).
+// entry and opens the language of the first tabset's first tab everywhere
+// (Quarto syncs by label, so tabsets that open on different languages cannot
+// each be restored).
 // The control is added only to a page that has a language tabset, and its label
 // follows direct clicks on the tabs. Copied to the lab's other notes sites.
 (function () {
@@ -58,11 +59,10 @@
       var hit = all.filter(function (t) { return value(t) === choice; })[0];
       if (hit) hit.click();
     } else {
-      all.forEach(function (t) {
-        var list = t.closest(".panel-tabset").querySelector("ul.nav-tabs");
-        var first = list && list.querySelector("a[id^='tabset-']");
-        if (first && !first.classList.contains("active")) first.click();
-      });
+      // Quarto syncs by label, so opening the first tabset's first tab opens
+      // that language everywhere.
+      var first = all[0];
+      if (first && !first.classList.contains("active")) first.click();
       // Clicking stored the first tab's label, so clear the entry again.
       var d = read();
       delete d[GROUP];
