@@ -3,30 +3,138 @@
 
 Let $\mean$ be the [mean function](#def-mean-function) of the outcome given the covariate.
 Suppose that, given $X_0 = x$,
-the new outcome $Y_0$ has variance $\varpar$
-and is independent of the random training set $\trainset$,
+the new outcome is $Y_0 = \mean(x) + \noise$,
+where $\noise$, the noise in the outcome at $x$, has mean $0$ and variance $\varpar$,
+and that $Y_0$ is independent of the random training set $\trainset$,
 and that $\E{g\paren{x; \trainset}^2} < \infty$.
 Then the [expected squared prediction error at $x$](#def-epe)
-is the squared [bias](https://morrison-lab.github.io/pds/variance-covariance.html#def-prediction-bias)
+is the squared [bias](#def-prediction-bias)
 of the prediction $g\paren{x; \trainset}$ as a prediction of $\mean(x)$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 
 $$
-\epe{g}{n}{x} = \sqf{\E{g\paren{x; \trainset}} - \mean(x)}
+\epe{g}{n}{x} = \sqf{\bias{g\paren{x; \trainset}}}
 + \Var{g\paren{x; \trainset}} + \varpar.
 $$ {#eq-epe-decomposition}
 
 :::
 
 ::: proof
-This is the [expected squared prediction error theorem](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error)
-of the pds notes,
-with $f(x_0) = \mean(x)$,
-prediction $\hat f(x_0) = g\paren{x; \trainset}$,
-and noise $\noise = Y_0 - \mean(x)$,
-applied conditionally on $X_0 = x$.
-Given $X_0 = x$, that noise has mean 0 by @eq-mean-function and variance $\varpar$,
+
+Write $\targeterrf{x} \eqdef \mean(x) - g\paren{x; \trainset}$,
+the error of the prediction as an estimate of $\mean(x)$.
+Given $X_0 = x$, the noise has mean 0 by @eq-mean-function and variance $\varpar$,
 and it is independent of $g\paren{x; \trainset}$
-because $Y_0$ is independent of $\trainset$.
+because $Y_0$ is independent of $\trainset$;
+hence it is independent of $\targeterrf{x}$,
+because $\mean(x)$ is a constant.
+
+First, the prediction error in terms of $\noise$ and $\targeterrf{x}$:
+
+$$
+\ba
+Y_0 - g\paren{x; \trainset}
+&= \paren{\mean(x) + \noise} - g\paren{x; \trainset}
+&& \text{(definition of } Y_0 \text{)} \\
+&= \noise + \paren{\mean(x) - g\paren{x; \trainset}}
+&& \text{(reorder the terms of the sum)} \\
+&= \noise + \targeterrf{x}
+&& \text{(definition of } \targeterrf{x} \text{)}
+\ea
+$$
+
+Next, expand the square and split the expectation.
+The first line is the definition of the expected squared prediction error at $x$,
+which conditions on $X_0 = x$;
+all expectations in the lines after it are conditional on $X_0 = x$ too.
+The last two steps use
+[linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation),
+first for the expectation of a sum and then for a constant factor:
+
+$$
+\ba
+\epe{g}{n}{x}
+&= \E{\sqf{\noise + \targeterrf{x}} \mid X_0 = x}
+&& \text{(definition and the error above)} \\
+&= \E{\noise^2 + 2 \noise \targeterrf{x} + \sqf{\targeterrf{x}}}
+&& \text{(expand: } \paren{a + b}^2 = a^2 + 2ab + b^2 \text{)} \\
+&= \E{\noise^2} + \E{2 \noise \targeterrf{x}} + \E{\sqf{\targeterrf{x}}}
+&& \text{(expectation of a sum)} \\
+&= \E{\noise^2} + 2\E{\noise \targeterrf{x}} + \E{\sqf{\targeterrf{x}}}
+&& \text{(constant factor 2)}
+\ea
+$$
+
+Each of the three terms is evaluated in turn.
+
+- For the noise term, the
+  [variance identity](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)
+  gives $\varpar = \E{\noise^2} - \sqf{\E{\noise}}$,
+  and $\E{\noise} = 0$, so $\E{\noise^2} = \varpar$.
+- For the cross term,
+  $\noise$ is independent of $\targeterrf{x}$,
+  so the expectation of the product is the product of the expectations:
+
+  $$
+  \ba
+  \E{\noise \targeterrf{x}}
+  &= \E{\noise}\E{\targeterrf{x}}
+  && \text{(independence)} \\
+  &= 0 \cdot \E{\targeterrf{x}}
+  && \text{(} \E{\noise} = 0 \text{)} \\
+  &= 0
+  && \text{(zero times a number)}
+  \ea
+  $$
+
+- For the last term,
+  the variance identity gives
+  $\E{\sqf{\targeterrf{x}}} = \Var{\targeterrf{x}} + \sqf{\E{\targeterrf{x}}}$.
+  The mean of $\targeterrf{x}$ is
+
+  $$
+  \ba
+  \E{\targeterrf{x}}
+  &= \E{\mean(x)} - \E{g\paren{x; \trainset}}
+  && \text{(expectation of a difference)} \\
+  &= \mean(x) - \E{g\paren{x; \trainset}}
+  && \text{(} \mean(x) \text{ is a constant)} \\
+  &= -\paren{\E{g\paren{x; \trainset}} - \mean(x)}
+  && \text{(factor out } -1 \text{)} \\
+  &= -\bias{g\paren{x; \trainset}}
+  && \text{(definition of bias)}
+  \ea
+  $$
+
+  so $\sqf{\E{\targeterrf{x}}} = \sqf{\bias{g\paren{x; \trainset}}}$,
+  because $\sqf{-a} = \sqf{a}$.
+  The variance of $\targeterrf{x}$ is
+
+  $$
+  \ba
+  \Var{\targeterrf{x}}
+  &= \E{\sqf{\targeterrf{x} - \E{\targeterrf{x}}}}
+  && \text{(definition of variance)} \\
+  &= \E{\sqf{-\paren{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}}
+  && \text{(substitute; the constant } \mean(x) \text{ cancels)} \\
+  &= \E{\sqf{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}
+  && \text{(} \sqf{-a} = \sqf{a} \text{)} \\
+  &= \Var{g\paren{x; \trainset}}
+  && \text{(definition of variance)}
+  \ea
+  $$
+
+Substituting the three terms into the expansion gives
+
+$$
+\ba
+\epe{g}{n}{x}
+&= \varpar + 2 \cdot 0 + \paren{\Var{g\paren{x; \trainset}} + \sqf{\bias{g\paren{x; \trainset}}}}
+&& \text{(the three terms above)} \\
+&= \sqf{\bias{g\paren{x; \trainset}}} + \Var{g\paren{x; \trainset}} + \varpar
+&& \text{(drop } 2 \cdot 0 \text{, reorder the terms)}
+\ea
+$$
+
 :::
