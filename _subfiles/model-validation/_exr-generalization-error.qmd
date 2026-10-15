@@ -8,7 +8,7 @@ A new car $(\newpredvar, \newoutvar)$ is then drawn from the same population,
 independently of $\trainset$.
 
 1. Holding $\trainset$ fixed,
-   write the average squared [prediction error](estimation.qmd#def-prediction-error)
+   write the average squared [prediction error](prediction.qmd#def-prediction-error)
    that $\fitted$ would make over all such new cars,
    as an expectation.
 2. Which parts of your expression do you know,
