@@ -105,8 +105,8 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/callouty-theorem-1.3.0/callouty-theorem.js"></script>
-<link href="site_libs/quarto-contrib/callouty-theorem-1.3.0/callouty-theorem.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/callouty-theorem-1.4.1/callouty-theorem.js"></script>
+<link href="site_libs/quarto-contrib/callouty-theorem-1.4.1/callouty-theorem.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -221,76 +221,6 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-tbl.callout {
-  border-left-color: #757575;
-}
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-def.callout {
   border-left-color: #1B5E20;
 }
@@ -301,35 +231,15 @@ div.callout-def .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
+div.callout-proof.callout {
+  border-left-color: #37474F;
 }
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
 }
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
   border-left-color: #283593;
@@ -345,6 +255,76 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   content: '\f144' !important;
   background-image: none;
 }
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-tbl.callout {
+  border-left-color: #757575;
+}
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-cnj.callout {
   border-left-color: #558B2F;
 }
@@ -354,6 +334,26 @@ div.callout-cnj.callout-style-default .callout-header {
 div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -909,7 +909,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-15 02:19:11 (PDT)</p>
+      <p class="date">Last modified: 2026-10-15 02:31:46 (PDT)</p>
     </div>
   </div>
   
@@ -943,10 +943,10 @@ text-align: center;
 <blockquote class="blockquote">
 <p>The Western Collaborative Group Study (WCGS) was a large epidemiological study designed to investigate the association between the “type A” behavior pattern and coronary heart disease (CHD).</p>
 </blockquote>
-<div class="callouty-titled callout callout-style-simple callout-exr no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exr</span><a href="#exr-def-type-A" class="quarto-xref">Exercise&nbsp;1</a> (Type A behavior)
@@ -1089,10 +1089,10 @@ text-align: center;
 </section><section id="sec-populations-samples" class="level3" data-number="1.4"><h3 data-number="1.4" class="anchored" data-anchor-id="sec-populations-samples">
 <span class="header-section-number">1.4</span> Populations and samples</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-population div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-population" class="quarto-xref">Definition&nbsp;1</a> (Population)
@@ -1107,10 +1107,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-population-distribution" class="quarto-xref">Definition&nbsp;2</a> (Population distribution)
@@ -1127,12 +1127,18 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-remark no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span>Remark
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div class="notes proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>A population may be finite or infinite. For a finite population <span class="math inline">\(U\)</span> of <span class="math inline">\(N\)</span> units, with <span class="math inline">\(X(u)\)</span> the value of <span class="math inline">\(X\)</span> for unit <span class="math inline">\(u\)</span>, the random choice gives each unit probability <span class="math inline">\(1/N\)</span>, so</p>
 <p><span class="math display">\[\operatorname{P}\mathopen{}\left(A\right)\mathclose{} = \frac{\mathopen{}\left|\mathopen{}\left\{u \in U : X(u) \in A\right\}\mathclose{}\right|\mathclose{}}{N}.\]</span></p>
@@ -1141,17 +1147,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-sample" class="quarto-xref">Definition&nbsp;3</a> (Sample)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-sample" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Sample)</strong></span> A <strong>sample</strong> of size <span class="math inline">\(n\)</span> is the data <span class="math inline">\(x_1, \ldots, x_n\)</span> observed on <span class="math inline">\(n\)</span> units drawn from a population (<a href="#def-population" class="quarto-xref">Definition&nbsp;1</a>).</p>
@@ -1159,17 +1165,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-random-sample" class="quarto-xref">Definition&nbsp;4</a> (Random sample)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-random-sample" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Random sample)</strong></span> A sample (<a href="#def-sample" class="quarto-xref">Definition&nbsp;3</a>) is a <strong>random sample</strong> when the units are chosen by a chance mechanism such that the observations are <a href="https://morrison-lab.github.io/pds/independence.html#def-iid">independent and identically distributed</a> draws from the population distribution (<a href="#def-population-distribution" class="quarto-xref">Definition&nbsp;2</a>):</p>
@@ -1179,29 +1185,35 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-remark no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span>Remark
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div class="notes proof remark">
 <p><span class="proof-title"><em>Remark</em>. </span>Drawing without replacement from a finite population gives observations that are only approximately independent, and nearly so when the population is much larger than the sample. Few real studies draw a perfectly random sample, so conclusions about the population rest on how well the sampling mechanism approximates one.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-population-sample-wcgs" class="quarto-xref">Example&nbsp;1</a> (Population and sample in the WCGS)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-population-sample-wcgs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Population and sample in the WCGS)</strong></span> In 1960, the WCGS recruited employed men aged 39 to 59 years in California. Take that group of men as the study’s population (<a href="#def-population" class="quarto-xref">Definition&nbsp;1</a>), so the population distribution (<a href="#def-population-distribution" class="quarto-xref">Definition&nbsp;2</a>) of cholesterol is its distribution among those men. The <code>wcgs</code> data frame is the sample (<a href="#def-sample" class="quarto-xref">Definition&nbsp;3</a>): it holds 3154 of the men in that population. The men volunteered, through 10 companies, so the sample is not a random sample (<a href="#def-random-sample" class="quarto-xref">Definition&nbsp;4</a>) of the population. Its mean cholesterol, 226.4 mg/dL, describes these 3154 men exactly, but it estimates the population mean well only to the extent that the volunteers resemble the rest of the population.</p>
@@ -1214,17 +1226,17 @@ text-align: center;
 <section id="measures-of-center" class="level3" data-number="2.1"><h3 data-number="2.1" class="anchored" data-anchor-id="measures-of-center">
 <span class="header-section-number">2.1</span> Measures of center</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-mean div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-sample-mean" class="quarto-xref">Definition&nbsp;5</a> (Sample mean)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-sample-mean" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Sample mean)</strong></span> The <strong>sample mean</strong> of <span class="math inline">\(n\)</span> observations <span class="math inline">\(x_1, \ldots, x_n\)</span> is:</p>
@@ -1233,17 +1245,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-sample-mean" class="quarto-xref">Example&nbsp;2</a> (Mean cholesterol in the WCGS)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-sample-mean" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Mean cholesterol in the WCGS)</strong></span> Total cholesterol (<code>chol</code>) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:</p>
@@ -1255,17 +1267,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-sample-median" class="quarto-xref">Definition&nbsp;6</a> (Sample median)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-sample-median" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Sample median)</strong></span> The <strong>sample median</strong> is the middle value when the observations are sorted in increasing order. In terms of the <a href="./nonparametric-models.html#def-order-statistics">order statistics</a> <span class="math inline">\(x_{(1)} \le \cdots \le x_{(n)}\)</span>:</p>
@@ -1277,17 +1289,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-sample-median" class="quarto-xref">Example&nbsp;3</a> (Median cholesterol in the WCGS)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-sample-median" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Median cholesterol in the WCGS)</strong></span> &nbsp;</p>
@@ -1303,17 +1315,17 @@ text-align: center;
 </section><section id="measures-of-spread" class="level3" data-number="2.2"><h3 data-number="2.2" class="anchored" data-anchor-id="measures-of-spread">
 <span class="header-section-number">2.2</span> Measures of spread</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-variance div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-sample-variance" class="quarto-xref">Definition&nbsp;7</a> (Sample variance)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-sample-variance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Sample variance)</strong></span> The <strong>sample variance</strong> of <span class="math inline">\(n \ge 2\)</span> observations is:</p>
@@ -1322,17 +1334,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-sample-sd" class="quarto-xref">Definition&nbsp;8</a> (Sample standard deviation)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-sample-sd" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Sample standard deviation)</strong></span> The <strong>sample standard deviation</strong> is the square root of the <a href="#def-sample-variance">sample variance</a>:</p>
@@ -1341,17 +1353,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-sd-units" class="quarto-xref">Remark&nbsp;1</a> (Units of the standard deviation)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-sd-units" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Units of the standard deviation). </span>The standard deviation has the same units as the observations, which makes it easier to interpret than the variance, whose units are squared.</p>
@@ -1359,17 +1371,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-sample-sd" class="quarto-xref">Example&nbsp;4</a> (Variance and standard deviation of cholesterol in the WCGS)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-sample-sd" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Variance and standard deviation of cholesterol in the WCGS)</strong></span> &nbsp;</p>
@@ -1384,17 +1396,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-quartiles" class="quarto-xref">Definition&nbsp;9</a> (Quartiles)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-quartiles" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Quartiles)</strong></span> The <strong>first quartile</strong> <span class="math inline">\(Q_1\)</span> and the <strong>third quartile</strong> <span class="math inline">\(Q_3\)</span> are the sample 0.25 and 0.75 quantiles (<a href="./nonparametric-models.html#def-sample-quantile">sample quantile</a>), also called the 25th and 75th percentiles.</p>
@@ -1402,17 +1414,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-quartile-software" class="quarto-xref">Remark&nbsp;2</a> (Quartiles in software)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-quartile-software" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Quartiles in software). </span>With an odd number of observations, the sample 0.5 quantile equals the <a href="#def-sample-median">sample median</a>; with an even number they can differ, because the median averages the two middle order statistics. Software packages compute quartiles with different quantile definitions, so they can disagree slightly for the same data (<a href="./nonparametric-models.html#rem-quantile-conventions">quantile conventions</a>); R’s <code>quantile(type = 1)</code> matches this definition, and R’s default, <code>type = 7</code>, interpolates.</p>
@@ -1420,17 +1432,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-IQR" class="quarto-xref">Definition&nbsp;10</a> (Interquartile range)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-IQR" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Interquartile range)</strong></span> The <strong>interquartile range</strong> (IQR) is the difference between the third and first <a href="#def-quartiles">quartiles</a>:</p>
@@ -1439,17 +1451,17 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-IQR" class="quarto-xref">Example&nbsp;5</a> (Quartiles and IQR of cholesterol in the WCGS)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-IQR" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (Quartiles and IQR of cholesterol in the WCGS)</strong></span> &nbsp;</p>
@@ -1998,17 +2010,17 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 </section><section id="binary-and-categorical-variables" class="level3" data-number="2.4"><h3 data-number="2.4" class="anchored" data-anchor-id="binary-and-categorical-variables">
 <span class="header-section-number">2.4</span> Binary and categorical variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-sample-proportion div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-sample-proportion" class="quarto-xref">Definition&nbsp;11</a> (Sample proportion)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-sample-proportion" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Sample proportion)</strong></span> For a binary variable with values coded 1 (“success”) and 0, the <strong>sample proportion</strong> of successes is:</p>
@@ -2018,17 +2030,17 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-sample-proportion" class="quarto-xref">Example&nbsp;6</a> (Proportion of WCGS participants with a CHD event)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-sample-proportion" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Proportion of WCGS participants with a CHD event)</strong></span> &nbsp;</p>
@@ -2603,17 +2615,17 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
 <section id="histograms" class="level3" data-number="3.1"><h3 data-number="3.1" class="anchored" data-anchor-id="histograms">
 <span class="header-section-number">3.1</span> Histograms</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-histogram div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-histogram" class="quarto-xref">Definition&nbsp;12</a> (Histogram)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-histogram" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Histogram)</strong></span> A <strong>histogram</strong> displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.</p>
@@ -2621,17 +2633,17 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-bin" class="quarto-xref">Definition&nbsp;13</a> (Bin)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-bin" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Bin)</strong></span> A <strong>bin</strong> of a histogram is one of its intervals.</p>
@@ -2672,17 +2684,17 @@ Figure&nbsp;1: Histogram of total cholesterol in the WCGS dataset
 </section><section id="density-plots" class="level3" data-number="3.2"><h3 data-number="3.2" class="anchored" data-anchor-id="density-plots">
 <span class="header-section-number">3.2</span> Density plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-density-plot div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-density-plot" class="quarto-xref">Definition&nbsp;14</a> (Density plot)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-density-plot" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Density plot)</strong></span> A <strong>density plot</strong> draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.</p>
@@ -2722,17 +2734,17 @@ Figure&nbsp;2: Density plot of total cholesterol in the WCGS dataset
 </section><section id="box-plots" class="level3" data-number="3.3"><h3 data-number="3.3" class="anchored" data-anchor-id="box-plots">
 <span class="header-section-number">3.3</span> Box plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-boxplot div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-boxplot" class="quarto-xref">Definition&nbsp;15</a> (Box plot)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-boxplot" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 15 (Box plot)</strong></span> A <strong>box plot</strong> (or box-and-whisker plot) summarizes the distribution of a continuous variable:</p>
@@ -2746,17 +2758,17 @@ Figure&nbsp;2: Density plot of total cholesterol in the WCGS dataset
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-whisker-rule" class="quarto-xref">Remark&nbsp;3</a> (Whisker rules)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
+<div id="callout-28" class="callout-28-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-whisker-rule" class="proof remark">
 <p><span class="proof-title"><em>Remark 3</em> (Whisker rules). </span>The <span class="math inline">\(1.5 \times \text{IQR}\)</span> whisker rule is the default in R’s <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">ggplot2::geom_boxplot()</a></code>; other software and authors use other rules, such as whiskers that run to the minimum and maximum.</p>
@@ -2797,17 +2809,17 @@ Figure&nbsp;3: Box plot of total cholesterol in the WCGS dataset
 </section><section id="bar-charts" class="level3" data-number="3.4"><h3 data-number="3.4" class="anchored" data-anchor-id="bar-charts">
 <span class="header-section-number">3.4</span> Bar charts</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-bar-chart div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-bar-chart" class="quarto-xref">Definition&nbsp;16</a> (Bar chart)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse show">
+<div id="callout-29" class="callout-29-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-bar-chart" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 16 (Bar chart)</strong></span> A <strong>bar chart</strong> displays the number or proportion of observations in each category of a categorical variable, as one bar per category.</p>
@@ -2847,17 +2859,17 @@ Figure&nbsp;4: Bar chart of behavioral pattern in the WCGS dataset
 </section><section id="normal-quantile-quantile-plots" class="level3" data-number="3.5"><h3 data-number="3.5" class="anchored" data-anchor-id="normal-quantile-quantile-plots">
 <span class="header-section-number">3.5</span> Normal quantile-quantile plots</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-qq-plot div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-qq-plot" class="quarto-xref">Definition&nbsp;17</a> (Normal quantile-quantile plot)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse show">
+<div id="callout-30" class="callout-30-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-qq-plot" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 17 (Normal quantile-quantile plot)</strong></span> A <strong>normal quantile-quantile (Q-Q) plot</strong> plots the sorted observations (<a href="./nonparametric-models.html#def-order-statistics">order statistics</a>) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.</p>
@@ -2901,17 +2913,17 @@ Figure&nbsp;5: Normal Q-Q plot for total cholesterol in the WCGS dataset
 <section id="two-continuous-variables" class="level3" data-number="4.1"><h3 data-number="4.1" class="anchored" data-anchor-id="two-continuous-variables">
 <span class="header-section-number">4.1</span> Two continuous variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-scatterplot div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-scatterplot" class="quarto-xref">Definition&nbsp;18</a> (Scatter plot)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse show">
+<div id="callout-31" class="callout-31-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-scatterplot" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 18 (Scatter plot)</strong></span> A <strong>scatter plot</strong> displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.</p>
@@ -2949,17 +2961,17 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-pearson-r" class="quarto-xref">Definition&nbsp;19</a> (Pearson correlation coefficient)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse show">
+<div id="callout-32" class="callout-32-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-pearson-r" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 19 (Pearson correlation coefficient)</strong></span> The <strong>Pearson correlation coefficient</strong> of <span class="math inline">\(n\)</span> paired observations <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> is:</p>
@@ -2970,17 +2982,17 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-pearson-r-estimates-population" class="quarto-xref">Remark&nbsp;4</a> (The Pearson correlation coefficient estimates the population correlation)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-31" class="callout-31-contents callout-collapse collapse show">
+<div id="callout-33" class="callout-33-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-pearson-r-estimates-population" class="proof remark">
 <p><span class="proof-title"><em>Remark 4</em> (The Pearson correlation coefficient estimates the population correlation). </span>The Pearson correlation coefficient is a sample estimate of the <a href="./correlation-regression.html#def-population-correlation">population correlation</a>.</p>
@@ -2988,17 +3000,17 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Lem</span><a href="#thm-pearson-r-range" class="quarto-xref">Theorem&nbsp;1</a> (Range of the correlation coefficient)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-32" class="callout-32-contents callout-collapse collapse show">
+<div id="callout-34" class="callout-34-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-pearson-r-range" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Range of the correlation coefficient)</strong></span> The Pearson correlation coefficient satisfies <span class="math inline">\(-1 \le r \le 1\)</span>. Moreover, <span class="math inline">\(r = 1\)</span> if and only if the points <span class="math inline">\((x_i, y_i)\)</span> lie on a straight line with positive slope, and <span class="math inline">\(r = -1\)</span> if and only if they lie on a straight line with negative slope.</p>
@@ -3007,7 +3019,7 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3016,7 +3028,7 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Write <span class="math inline">\(a_i \stackrel{\text{def}}{=}x_i - \bar x\)</span> and <span class="math inline">\(b_i \stackrel{\text{def}}{=}y_i - \bar y\)</span>, so that <span class="math inline">\(r = \sum_i a_i b_i / \mathopen{}\left(\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\right)\mathclose{}\)</span>. The Cauchy–Schwarz inequality states that <span class="math inline">\(\mathopen{}\left|\sum_i a_i b_i\right|\mathclose{} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\)</span>, with equality if and only if one of the vectors <span class="math inline">\((a_1, \ldots, a_n)\)</span> and <span class="math inline">\((b_1, \ldots, b_n)\)</span> is a scalar multiple of the other. Dividing both sides by the (positive) right-hand side gives <span class="math inline">\(\mathopen{}\left|r\right|\mathclose{} \le 1\)</span>.</p>
@@ -3025,17 +3037,17 @@ Figure&nbsp;6: Cholesterol versus systolic blood pressure in the WCGS dataset, w
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-pearson-r" class="quarto-xref">Example&nbsp;7</a> (Correlation between cholesterol and blood pressure in the WCGS)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-34" class="callout-34-contents callout-collapse collapse show">
+<div id="callout-36" class="callout-36-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-pearson-r" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Correlation between cholesterol and blood pressure in the WCGS)</strong></span> &nbsp;</p>
@@ -3662,17 +3674,17 @@ N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 </section><section id="two-categorical-variables" class="level3" data-number="4.3"><h3 data-number="4.3" class="anchored" data-anchor-id="two-categorical-variables">
 <span class="header-section-number">4.3</span> Two categorical variables</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-contingency-table div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-contingency-table" class="quarto-xref">Definition&nbsp;20</a> (Contingency table)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-36" class="callout-36-contents callout-collapse collapse show">
+<div id="callout-38" class="callout-38-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-contingency-table" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 20 (Contingency table)</strong></span> A <strong>contingency table</strong> (or <strong>cross-tabulation</strong>) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a <span class="math inline">\(2 \times 2\)</span> table with cells <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, and <span class="math inline">\(d\)</span>:</p>
@@ -3708,17 +3720,17 @@ N = 257<span class="gt_footnote_marks" style="white-space:nowrap;font-style:ital
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-contingency-table" class="quarto-xref">Example&nbsp;8</a> (Smoking and CHD in the WCGS)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-37" class="callout-37-contents callout-collapse collapse show">
+<div id="callout-39" class="callout-39-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-contingency-table" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Smoking and CHD in the WCGS)</strong></span> &nbsp;</p>
@@ -4340,17 +4352,17 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 <p>The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 versus 1.2), but still not symmetric. Whether to transform a variable in a regression model depends on the assumptions of that model and on the scientific question.</p>
 <section id="sec-rescaling" class="level3" data-number="5.1"><h3 data-number="5.1" class="anchored" data-anchor-id="sec-rescaling">
 <span class="header-section-number">5.1</span> Rescaling a variable</h3>
-<div class="callouty-titled callout callout-style-simple callout-exr no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exr callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exr</span><a href="#exr-standardize" class="quarto-xref">Exercise&nbsp;2</a> (A standardized cholesterol value)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-38" class="callout-38-contents callout-collapse collapse show">
+<div id="callout-40" class="callout-40-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-standardize" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2 (A standardized cholesterol value)</strong></span> In the WCGS data, cholesterol (<code>chol</code>) is measured in mg/dL.</p>
@@ -4364,7 +4376,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -4373,7 +4385,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-standardize" class="proof solution">
 <p><span class="proof-title"><em>Solution 2</em>. </span></p>
@@ -4394,23 +4406,23 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-standardization" class="quarto-xref">Definition&nbsp;21</a> (Standardization)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-41" class="callout-41-contents callout-collapse collapse show">
+<div id="callout-43" class="callout-43-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-standardization" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 21 (Standardization)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be <span class="math inline">\(n \ge 2\)</span> observations of a variable with <a href="#def-sample-mean">sample mean</a> <span class="math inline">\(\bar x\)</span> and <a href="#def-sample-sd">sample standard deviation</a> <span class="math inline">\(s &gt; 0\)</span>. The <strong>standardized value</strong> of <span class="math inline">\(x_i\)</span> is</p>
 <p><span class="math display">\[z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4419,7 +4431,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#ref-james2021islr2e" role="doc-biblioref">2021, sec. 4.7.6</a>, p.&nbsp;183)</span>. <span class="citation" data-cites="geron2017hands">Géron (<a href="#ref-geron2017hands" role="doc-biblioref">2017</a>, ch.&nbsp;2)</span> describes the same operation but says it divides by the variance; the standard deviation is used here, as in <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#ref-james2021islr2e" role="doc-biblioref">2021</a>)</span>.</p>
 </div>
@@ -4429,17 +4441,17 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-standardization-units" class="quarto-xref">Remark&nbsp;5</a> (Standardized values have no units)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-42" class="callout-42-contents callout-collapse collapse show">
+<div id="callout-44" class="callout-44-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-standardization-units" class="proof remark">
 <p><span class="proof-title"><em>Remark 5</em> (Standardized values have no units). </span>In <a href="#exr-standardize" class="quarto-xref">Exercise&nbsp;2</a>, the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.</p>
@@ -4447,22 +4459,22 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Lem</span><a href="#thm-standardized-mean-sd" class="quarto-xref">Theorem&nbsp;2</a> (Standardized values have mean 0 and standard deviation 1)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-44" class="callout-44-contents callout-collapse collapse show">
+<div id="callout-46" class="callout-46-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-standardized-mean-sd" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (Standardized values have mean 0 and standard deviation 1)</strong></span> For <span class="math inline">\(n \ge 2\)</span> observations with <span class="math inline">\(s &gt; 0\)</span>, the <a href="#def-standardization">standardized values</a> <span class="math inline">\(z_1, \ldots, z_n\)</span> have sample mean <span class="math inline">\(0\)</span> and sample standard deviation <span class="math inline">\(1\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4471,7 +4483,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Stated for the standardized Caravan variables in <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#ref-james2021islr2e" role="doc-biblioref">2021, sec. 4.7.6</a>, p.&nbsp;183)</span>; the proof is the elementary calculation.</p>
 </div>
@@ -4482,7 +4494,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4491,7 +4503,7 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The sample mean of the <span class="math inline">\(z_i\)</span> is <span class="math display">\[
@@ -4513,17 +4525,17 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-scale-wcgs" class="quarto-xref">Example&nbsp;9</a> (Standardizing cholesterol in R)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-46" class="callout-46-contents callout-collapse collapse show">
+<div id="callout-48" class="callout-48-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-scale-wcgs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Standardizing cholesterol in R)</strong></span> In R, <code><a href="https://rdrr.io/r/base/scale.html">scale()</a></code> returns the standardized values of a column, as a one-column matrix. For the WCGS cholesterol values:</p>
@@ -4542,23 +4554,23 @@ Figure&nbsp;9: Distribution of systolic blood pressure in the WCGS, on two scale
 <!--
 Geron: page number not verified.
 -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-min-max-scaling" class="quarto-xref">Definition&nbsp;22</a> (Min-max scaling)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-48" class="callout-48-contents callout-collapse collapse show">
+<div id="callout-50" class="callout-50-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-min-max-scaling" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 22 (Min-max scaling)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be observations of a variable with minimum <span class="math inline">\(x_{\min}\)</span> and maximum <span class="math inline">\(x_{\max} &gt; x_{\min}\)</span>. The <strong>min-max scaled value</strong> of <span class="math inline">\(x_i\)</span> is</p>
 <p><span class="math display">\[\frac{x_i - x_{\min}}{x_{\max} - x_{\min}}\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -4567,7 +4579,7 @@ Geron: page number not verified.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-47" class="callout-47-contents callout-collapse collapse">
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="citation" data-cites="geron2017hands">Géron (<a href="#ref-geron2017hands" role="doc-biblioref">2017</a>, ch.&nbsp;2)</span>.</p>
 </div>
@@ -4577,17 +4589,17 @@ Geron: page number not verified.
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-min-max-outliers" class="quarto-xref">Remark&nbsp;6</a> (Min-max scaling and outliers)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-49" class="callout-49-contents callout-collapse collapse show">
+<div id="callout-51" class="callout-51-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-min-max-outliers" class="proof remark">
 <p><span class="proof-title"><em>Remark 6</em> (Min-max scaling and outliers). </span>Every min-max scaled value lies in <span class="math inline">\([0, 1]\)</span>: the minimum maps to <span class="math inline">\(0\)</span> and the maximum maps to <span class="math inline">\(1\)</span>. For example, if median incomes range from 0 to 15, an income of 0 maps to <span class="math inline">\(0\)</span>, and an income of 15 maps to <span class="math inline">\(1\)</span>.</p>
@@ -4596,17 +4608,17 @@ Geron: page number not verified.
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-min-max-wcgs" class="quarto-xref">Example&nbsp;10</a> (Min-max scaling of cholesterol in the WCGS)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-50" class="callout-50-contents callout-collapse collapse show">
+<div id="callout-52" class="callout-52-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-min-max-wcgs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Min-max scaling of cholesterol in the WCGS)</strong></span> &nbsp;</p>
