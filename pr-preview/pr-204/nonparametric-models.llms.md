@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 08:46:14 (PDT)
+Last modified: 2026-10-15 12:50:24 (PDT)
 
 ## 1 Empirical distribution
 
@@ -201,6 +201,8 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, \\\hat F(t) = 0.5\\ for every \\t \in \[3, 4)\\, and \\\hat Q\\ jumps from 3 to 4 at \\p = 0.5\\. So \\\hat Q\\ is a *generalized* inverse of \\\hat F\\, not an inverse in the usual sense: \\\hat Q(\hat F(t)) \le t\\ for every \\t \ge x\_{(1)}\\, with equality only at the observed values.
 
 > **NOTE:**
+>
+> These readings look ahead from the empirical CDF to distribution-free tests, which this page does not cover:
 >
 > - Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402) covers some distribution-free tests.
 > - Rice ([2007, sec. 11.2.3](#ref-rice2007mathematical), pp. 435–442) covers the Mann–Whitney test.

@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 08:46:14 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 12:50:24 (PDT)</p>
 </section><section id="empirical-distribution" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical distribution</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -588,6 +588,7 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 </div>
 <p>Both functions in <a href="#/fig-ecdf-sample-quantile-example" class="quarto-xref">Figure&nbsp;1</a> are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, <span class="math inline">\(\hat F(t) = 0.5\)</span> for every <span class="math inline">\(t \in [3, 4)\)</span>, and <span class="math inline">\(\hat Q\)</span> jumps from 3 to 4 at <span class="math inline">\(p = 0.5\)</span>. So <span class="math inline">\(\hat Q\)</span> is a <em>generalized</em> inverse of <span class="math inline">\(\hat F\)</span>, not an inverse in the usual sense: <span class="math inline">\(\hat Q(\hat F(t)) \le t\)</span> for every <span class="math inline">\(t \ge x_{(1)}\)</span>, with equality only at the observed values.</p>
 <div class="reading">
+<p>These readings look ahead from the empirical CDF to distribution-free tests, which this page does not cover:</p>
 <ul>
 <li>
 <span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 8.5</a>, pp.&nbsp;392–402)</span> covers some distribution-free tests.</li>
