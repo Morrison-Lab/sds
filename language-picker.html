@@ -62,7 +62,8 @@
       // Quarto syncs by label, so opening the first tabset's first tab opens
       // that language everywhere.
       var first = all[0];
-      if (first && !first.classList.contains("active")) first.click();
+      // Click even when it is already active, so Quarto still syncs the others.
+      if (first) first.click();
       // Clicking stored the first tab's label, so clear the entry again.
       var d = read();
       delete d[GROUP];
