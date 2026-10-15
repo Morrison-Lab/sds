@@ -1,0 +1,11 @@
+::: {#rem-fitted-value-cond-mean .remark}
+#### Why the fitted value is the estimated conditional mean
+
+The fitted value is the prediction at the observed covariate value $x_i$,
+so for the prediction in @exm-prediction-cond-mean it is the estimated conditional mean at $x_i$:
+
+$$\fitted_i = \mean(x_i; \est{\vparam}).$$
+
+It is chosen for the reason in @rem-why-cond-mean:
+the conditional mean is the best prediction under squared error loss.
+:::

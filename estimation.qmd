@@ -145,6 +145,10 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/estimation/_rem-fitted-value-cond-mean.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/estimation/_def-residual.qmd >}}
 
 {{< slidebreak >}}
