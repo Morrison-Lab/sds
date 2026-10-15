@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 03:31:19 (PDT)
+Last modified: 2026-10-15 05:27:52 (PDT)
 
 ## 1 Empirical distribution
 
@@ -196,8 +196,6 @@ Textbook sections on the topics of this page:
 - Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402): Some distribution-free tests
 - Casella and Berger ([2002, sec. 5.4](#ref-CaseBerg01), pp. 226–231): Order statistics
 
-Back to top
-
 ## References
 
 Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
@@ -207,3 +205,5 @@ Efron, Bradley, and Robert J. Tibshirani. 1993. *An Introduction to the Bootstra
 Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. 2nd ed. Springer. <https://doi.org/10.1007/978-0-387-84858-7>.
 
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
+Back to top

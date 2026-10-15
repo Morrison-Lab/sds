@@ -121,6 +121,17 @@
     ]
   },
   {
+    "objectID": "nonparametric-models.html#references",
+    "href": "nonparametric-models.html#references",
+    "title": "Nonparametric Models",
+    "section": "References",
+    "text": "References\n\n\nCasella, George, and Roger Berger. 2002. Statistical Inference. 2nd ed. Cengage Learning. https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/.\n\n\nEfron, Bradley, and Robert J. Tibshirani. 1993. An Introduction to the Bootstrap. Monographs on Statistics and Applied Probability 57. Chapman & Hall/CRC. https://doi.org/10.1201/9780429246593.\n\n\nHastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. 2nd ed. Springer. https://doi.org/10.1007/978-0-387-84858-7.\n\n\nHogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. Probability and Statistical Inference. Tenth edition. Pearson.",
+    "crumbs": [
+      "Describing Data",
+      "Nonparametric Models"
+    ]
+  },
+  {
     "objectID": "model-validation.html",
     "href": "model-validation.html",
     "title": "Validating Predictions",
@@ -424,7 +435,7 @@
     "href": "estimator-properties.html#textbook-cross-references",
     "title": "Properties of Estimators",
     "section": "Textbook cross-references",
-    "text": "Textbook cross-references\nTextbook sections on the topics of this page:\n\n\nHogg et al. (2019, sec. 6.6, pp. 285–289): Asymptotic distributions of maximum likelihood estimators\n\nCasella and Berger (2002, sec. 7.3.2, pp. 334–341): Best unbiased estimators and the Cramér–Rao bound\n\nCasella and Berger (2002, sec. 10.1, pp. 467–480): Consistency and efficiency",
+    "text": "Textbook cross-references\nTextbook sections on the topics of this page:\n\n\nHogg et al. (2019, sec. 6.6, pp. 285–289): Asymptotic distributions of maximum likelihood estimators\n\nCasella and Berger (2002, sec. 7.3.2, pp. 334–341): Best unbiased estimators and the Cramér–Rao bound\n\nCasella and Berger (2002, sec. 10.1, pp. 467–480): Point estimation: consistency, efficiency and bootstrap standard errors",
     "crumbs": [
       "Inference",
       "Properties of Estimators"
@@ -875,7 +886,7 @@
     "href": "bayesian-inference.html#textbook-cross-references",
     "title": "Bayesian Inference",
     "section": "Textbook cross-references",
-    "text": "Textbook cross-references\nTextbook sections on the topics of this page:\n\n\nHogg et al. (2019, sec. 6.8, pp. 298–306): Bayesian estimation\n\nCasella and Berger (2002, sec. 7.2.3, pp. 324–325): Bayes estimators\n\nCasella and Berger (2002, sec. 9.2.4, pp. 435–439): Bayesian intervals",
+    "text": "Textbook cross-references\nTextbook sections on the topics of this page:\n\n\nHogg et al. (2019, sec. 6.8, pp. 298–305): Bayesian estimation\n\nCasella and Berger (2002, sec. 7.2.3, pp. 324–325): Bayes estimators\n\nCasella and Berger (2002, sec. 9.2.4, pp. 435–439): Bayesian intervals",
     "crumbs": [
       "Bayesian",
       "Bayesian Inference"
@@ -1454,6 +1465,17 @@
     ]
   },
   {
+    "objectID": "multiple-testing.html#references",
+    "href": "multiple-testing.html#references",
+    "title": "Multiple Testing",
+    "section": "References",
+    "text": "References\n\n\nBenjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” Journal of the Royal Statistical Society: Series B (Methodological) 57 (1): 289–300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x.\n\n\nBenjamini, Yoav, and Daniel Yekutieli. 2001. “The Control of the False Discovery Rate in Multiple Testing Under Dependency.” The Annals of Statistics 29 (4). https://doi.org/10.1214/aos/1013699998.\n\n\nCasella, George, and Roger Berger. 2002. Statistical Inference. 2nd ed. Cengage Learning. https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/.\n\n\nEfron, Bradley, and Trevor Hastie. 2016. Computer Age Statistical Inference: Algorithms, Evidence, and Data Science. Cambridge University Press. https://doi.org/10.1017/CBO9781316576533.\n\n\nHolm, Sture. 1979. “A Simple Sequentially Rejective Multiple Test Procedure.” Scandinavian Journal of Statistics 6 (2): 65–70.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2nd ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nKhan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” Nature Medicine 7 (6): 673–79. https://doi.org/10.1038/89044.\n\n\nStorey, John D. 2002. “A Direct Approach to False Discovery Rates.” Journal of the Royal Statistical Society: Series B (Statistical Methodology) 64 (3): 479–98. https://doi.org/10.1111/1467-9868.00346.",
+    "crumbs": [
+      "Methods",
+      "Multiple Testing"
+    ]
+  },
+  {
     "objectID": "permutation-tests.html",
     "href": "permutation-tests.html",
     "title": "Permutation Tests",
@@ -1535,7 +1557,18 @@
     "href": "permutation-tests.html#textbook-cross-references",
     "title": "Permutation Tests",
     "section": "Textbook cross-references",
-    "text": "Textbook cross-references\nTextbook sections on the topics of this page:\n\n\nHogg et al. (2019, sec. 8.5, pp. 392–402): Some distribution-free tests\n\nHogg et al. (2019, sec. 7.7, pp. 353–360): Resampling methods",
+    "text": "Textbook cross-references\nTextbook sections on the topics of this page:\n\n\nHogg et al. (2019, sec. 7.7, pp. 353–360): Resampling methods\n\nHogg et al. (2019, sec. 8.5, pp. 392–402): Some distribution-free tests",
+    "crumbs": [
+      "Methods",
+      "Permutation Tests"
+    ]
+  },
+  {
+    "objectID": "permutation-tests.html#references",
+    "href": "permutation-tests.html#references",
+    "title": "Permutation Tests",
+    "section": "References",
+    "text": "References\n\n\nGood, Phillip I. 2005. Permutation, Parametric and Bootstrap Tests of Hypotheses. 3rd ed. Springer. https://doi.org/10.1007/b138696.\n\n\nHogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. Probability and Statistical Inference. Tenth edition. Pearson.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. An Introduction to Statistical Learning: With Applications in R. 2nd ed. Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nKhan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” Nature Medicine 7 (6): 673–79. https://doi.org/10.1038/89044.\n\n\nPhipson, Belinda, and Gordon K. Smyth. 2010. “Permutation p-Values Should Never Be Zero: Calculating Exact p-Values When Permutations Are Randomly Drawn.” Statistical Applications in Genetics and Molecular Biology 9 (1). https://doi.org/10.2202/1544-6115.1585.",
     "crumbs": [
       "Methods",
       "Permutation Tests"

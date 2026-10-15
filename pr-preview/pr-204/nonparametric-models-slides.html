@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 03:31:19 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 05:27:52 (PDT)</p>
 </section><section id="empirical-distribution" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical distribution</h2>
 <!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
@@ -372,7 +372,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Example 1 (Numerical example: empirical distribution)</strong></span> Suppose the observed values are <span class="math inline">\(4, 1, 7, 3\)</span>, so <span class="math inline">\(n = 4\)</span>, and let <span class="math inline">\(A = [2, 5)\)</span>. Two of the four values (4 and 3) lie in <span class="math inline">\(A\)</span>, so the empirical distribution gives <span class="math inline">\(A\)</span> probability <span class="math inline">\(2/4 = 0.5\)</span>. Each observed value has probability <span class="math inline">\(1/4\)</span>, and any set containing none of them has probability <span class="math inline">\(0\)</span>.</p>
 </div>
 <aside class="notes proof remark"><p><span class="proof-title"><em>Remark</em> (What “empirical” means). </span>“Empirical” means computed from the observed data, not from a model or a population. An empirical quantity is the matching population quantity with the <a href="./exploratory-descriptive.html#def-population-distribution">population distribution</a> replaced by the empirical distribution. For example, the mean of the empirical distribution is the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a>, and its CDF is the <a href="#/def-empirical-cdf">empirical CDF</a>. Machine learning uses the same replacement to turn the risk of a prediction model into its <em>empirical risk</em>.</p>
-<p>Because it needs only the data in hand, an empirical quantity can always be computed, and it serves as an estimate of the population quantity it mimics. The bootstrap rests on this replacement: it estimates the variability of a statistic by sampling from the empirical distribution <span class="citation" data-cites="hastie2009elements efron1993introduction">(<a href="#/textbook-cross-references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.11</a>, p.&nbsp;250; <a href="#/textbook-cross-references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span>.</p>
+<p>Because it needs only the data in hand, an empirical quantity can always be computed, and it serves as an estimate of the population quantity it mimics. The bootstrap rests on this replacement: it estimates the variability of a statistic by sampling from the empirical distribution <span class="citation" data-cites="hastie2009elements efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.11</a>, p.&nbsp;250; <a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -573,18 +573,32 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 </figure>
 </div>
 <p>Both functions in <a href="#/fig-ecdf-sample-quantile-example" class="quarto-xref">Figure&nbsp;1</a> are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, <span class="math inline">\(\hat F(t) = 0.5\)</span> for every <span class="math inline">\(t \in [3, 4)\)</span>, and <span class="math inline">\(\hat Q\)</span> jumps from 3 to 4 at <span class="math inline">\(p = 0.5\)</span>. So <span class="math inline">\(\hat Q\)</span> is a <em>generalized</em> inverse of <span class="math inline">\(\hat F\)</span>, not an inverse in the usual sense: <span class="math inline">\(\hat Q(\hat F(t)) \le t\)</span> for every <span class="math inline">\(t \ge x_{(1)}\)</span>, with equality only at the observed values.</p>
-</section><section id="textbook-cross-references" class="slide level2 unnumbered smaller scrollable"><h2>Textbook cross-references</h2>
+</section><section id="textbook-cross-references" class="slide level2 unnumbered"><h2>Textbook cross-references</h2>
 <p>Textbook sections on the topics of this page:</p>
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/textbook-cross-references" role="doc-biblioref" onclick="">2019, sec. 6.3</a>, pp.&nbsp;256–263)</span>: Order statistics</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 6.3</a>, pp.&nbsp;256–263)</span>: Order statistics</li>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/textbook-cross-references" role="doc-biblioref" onclick="">2019, sec. 7.5</a>, pp.&nbsp;337–343)</span>: Distribution-free confidence intervals for percentiles</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 7.5</a>, pp.&nbsp;337–343)</span>: Distribution-free confidence intervals for percentiles</li>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/textbook-cross-references" role="doc-biblioref" onclick="">2019, sec. 8.5</a>, pp.&nbsp;392–402)</span>: Some distribution-free tests</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 8.5</a>, pp.&nbsp;392–402)</span>: Some distribution-free tests</li>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/textbook-cross-references" role="doc-biblioref" onclick="">2002, sec. 5.4</a>, pp.&nbsp;226–231)</span>: Order statistics</li>
-</ul>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 5.4</a>, pp.&nbsp;226–231)</span>: Order statistics</li>
+</ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
+</div>
+<div id="ref-efron1993introduction" class="csl-entry" role="listitem">
+Efron, Bradley, and Robert J. Tibshirani. 1993. <em>An Introduction to the Bootstrap</em>. Monographs on Statistics and Applied Probability 57. Chapman &amp; Hall/CRC. <a href="https://doi.org/10.1201/9780429246593">https://doi.org/10.1201/9780429246593</a>.
+</div>
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
+</div>
+</div>
 
 
 <script>
@@ -773,21 +787,7 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
-</div>
-<div id="ref-efron1993introduction" class="csl-entry" role="listitem">
-Efron, Bradley, and Robert J. Tibshirani. 1993. <em>An Introduction to the Bootstrap</em>. Monographs on Statistics and Applied Probability 57. Chapman &amp; Hall/CRC. <a href="https://doi.org/10.1201/9780429246593">https://doi.org/10.1201/9780429246593</a>.
-</div>
-<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
-Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
-</div>
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-</div>
-</section>
+</script></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

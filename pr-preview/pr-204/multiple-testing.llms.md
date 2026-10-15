@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 03:31:19 (PDT)
+Last modified: 2026-10-15 05:27:52 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -849,8 +849,6 @@ Textbook sections on the topics of this page:
 
 - Casella and Berger ([2002, sec. 11.2.5](#ref-CaseBerg01), pp. 534–535): Simultaneous estimation of contrasts
 
-Back to top
-
 ## References
 
 Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” *Journal of the Royal Statistical Society: Series B (Methodological)* 57 (1): 289–300. <https://doi.org/10.1111/j.2517-6161.1995.tb02031.x>.
@@ -868,3 +866,5 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An I
 Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” *Nature Medicine* 7 (6): 673–79. <https://doi.org/10.1038/89044>.
 
 Storey, John D. 2002. “A Direct Approach to False Discovery Rates.” *Journal of the Royal Statistical Society: Series B (Statistical Methodology)* 64 (3): 479–98. <https://doi.org/10.1111/1467-9868.00346>.
+
+Back to top

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 03:31:19 (PDT)
+Last modified: 2026-10-15 05:27:52 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -395,10 +395,8 @@ table(tumor_class = khan_pair$tumor_class)
 
 Textbook sections on the topics of this page:
 
-- Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402): Some distribution-free tests
 - Hogg et al. ([2019, sec. 7.7](#ref-hoggtanis2015), pp. 353–360): Resampling methods
-
-Back to top
+- Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402): Some distribution-free tests
 
 ## References
 
@@ -411,3 +409,5 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An I
 Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” *Nature Medicine* 7 (6): 673–79. <https://doi.org/10.1038/89044>.
 
 Phipson, Belinda, and Gordon K. Smyth. 2010. “Permutation p-Values Should Never Be Zero: Calculating Exact p-Values When Permutations Are Randomly Drawn.” *Statistical Applications in Genetics and Molecular Biology* 9 (1). <https://doi.org/10.2202/1544-6115.1585>.
+
+Back to top

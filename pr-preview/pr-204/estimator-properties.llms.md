@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 03:31:19 (PDT)
+Last modified: 2026-10-15 05:27:52 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -245,7 +245,7 @@ Textbook sections on the topics of this page:
 
 - Hogg et al. ([2019, sec. 6.6](#ref-hoggtanis2015), pp. 285–289): Asymptotic distributions of maximum likelihood estimators
 - Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01), pp. 334–341): Best unbiased estimators and the Cramér–Rao bound
-- Casella and Berger ([2002, sec. 10.1](#ref-CaseBerg01), pp. 467–480): Consistency and efficiency
+- Casella and Berger ([2002, sec. 10.1](#ref-CaseBerg01), pp. 467–480): Point estimation: consistency, efficiency and bootstrap standard errors
 
 ## References
 
