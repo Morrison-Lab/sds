@@ -6,7 +6,11 @@
 # data/textbook-refs.csv (one row per page, book and section).
 # `book` is a key in references.bib; the section and page range are
 # the textbook's own, from its table of contents.
-textbook_refs <- read.csv("data/textbook-refs.csv", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+textbook_refs <- read.csv(
+  "data/textbook-refs.csv",
+  stringsAsFactors = FALSE,
+  fileEncoding = "UTF-8"
+)
 # Quarto hands knitr an intermediate file such as "estimation.rmarkdown".
 this_page <- sub("\\..*$", "", basename(knitr::current_input()))
 page_refs <- textbook_refs[textbook_refs$page == this_page, ]
@@ -14,9 +18,12 @@ page_refs <- textbook_refs[textbook_refs$page == this_page, ]
 if (nrow(page_refs) > 0) {
   cat("## Textbook cross-references {.unnumbered}\n\n")
   cat("Textbook sections on the topics of this page:\n\n")
-  cat(
-    sprintf("- @%s [%s]: %s\n", page_refs$book, page_refs$locator, page_refs$topic),
-    sep = ""
+  items <- sprintf(
+    "- @%s [%s]: %s\n",
+    page_refs$book,
+    page_refs$locator,
+    page_refs$topic
   )
+  cat(items, sep = "")
 }
 ```
