@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 03:11:32 (PDT)
+Last modified: 2026-10-15 03:26:43 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -177,13 +177,15 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\N\_\sigma(y) \stackrel{\text{def}}{=}\sum\_{\pi \in S_n} \mathbb{1}\_{T(y\_\pi) \ge T(y\_\sigma)}.\\
 >
-> Write \\\iota\\ for the identity permutation, so \\N\_\iota(y)\\ is \\n!\\ times the permutation p-value of [Definition 3](#def-permutation-p-value). Show that \\N\_\sigma(y) = N\_\iota(y\_\sigma)\\.
+> Write \\\iota\\ for the identity permutation, so \\N\_\iota(y)\\ is \\n!\\ times the permutation p-value of [Definition 3](#def-permutation-p-value). Express \\N\_\sigma(y)\\ in terms of \\N\_\iota\\.
 
 > **NOTE:**
 >
 > *Solution 2*. The entries of \\(y\_\sigma)\_{\pi'}\\ are \\y\_{\sigma(\pi'(i))}\\, so \\(y\_\sigma)\_{\pi'} = y\_{\sigma \circ \pi'}\\.
 >
 > \\ \begin{aligned} N\_\iota(y\_\sigma) &= \sum\_{\pi' \in S_n} \mathbb{1}\_{T\mathopen{}\left((y\_\sigma)\_{\pi'}\right)\mathclose{} \ge T(y\_\sigma)} && \text{(definition, with \$y\_\sigma\$ in place of \$y\$)}\\ &= \sum\_{\pi' \in S_n} \mathbb{1}\_{T\mathopen{}\left(y\_{\sigma \circ \pi'}\right)\mathclose{} \ge T(y\_\sigma)} && \text{(\$(y\_\sigma)\_{\pi'} = y\_{\sigma \circ \pi'}\$)}\\ &= \sum\_{\pi \in S_n} \mathbb{1}\_{T(y\_\pi) \ge T(y\_\sigma)} && \text{(\$\pi = \sigma \circ \pi'\$ is a bijection of \$S_n\$)}\\ &= N\_\sigma(y) && \text{(definition)} \end{aligned} \\
+>
+> So \\N\_\sigma(y) = N\_\iota(y\_\sigma)\\.
 
 > **NOTE:**
 >

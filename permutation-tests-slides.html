@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 03:11:32 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 03:26:43 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -562,7 +562,7 @@ text-align: center;
 </section><section class="slide level2"><div id="exr-relabeling-count" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2 (Relabeling the data permutes the relabelings)</strong></span> For a permutation <span class="math inline">\(\sigma\)</span> define <span class="math inline">\(N_\sigma(y)\)</span>, the number of relabelings at least as extreme as <span class="math inline">\(y_\sigma\)</span>:</p>
 <p><span class="math display">\[N_\sigma(y) \stackrel{\text{def}}{=}\sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge T(y_\sigma)}.\]</span></p>
-<p>Write <span class="math inline">\(\iota\)</span> for the identity permutation, so <span class="math inline">\(N_\iota(y)\)</span> is <span class="math inline">\(n!\)</span> times the permutation p-value of <a href="#/def-permutation-p-value" class="quarto-xref">Definition&nbsp;3</a>. Show that <span class="math inline">\(N_\sigma(y) = N_\iota(y_\sigma)\)</span>.</p>
+<p>Write <span class="math inline">\(\iota\)</span> for the identity permutation, so <span class="math inline">\(N_\iota(y)\)</span> is <span class="math inline">\(n!\)</span> times the permutation p-value of <a href="#/def-permutation-p-value" class="quarto-xref">Definition&nbsp;3</a>. Express <span class="math inline">\(N_\sigma(y)\)</span> in terms of <span class="math inline">\(N_\iota\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-relabeling-count" class="proof solution">
 <p><span class="proof-title"><em>Solution 2</em>. </span>The entries of <span class="math inline">\((y_\sigma)_{\pi'}\)</span> are <span class="math inline">\(y_{\sigma(\pi'(i))}\)</span>, so <span class="math inline">\((y_\sigma)_{\pi'} = y_{\sigma \circ \pi'}\)</span>.</p>
@@ -579,6 +579,7 @@ N_\iota(y_\sigma)
 &amp;&amp; \text{(definition)}
 \end{aligned}
 \]</span></p>
+<p>So <span class="math inline">\(N_\sigma(y) = N_\iota(y_\sigma)\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="lem-relabeling-count" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 2 (Relabeling the data permutes the relabelings)</strong></span> Let <span class="math inline">\(T\)</span> be a statistic, let <span class="math inline">\(y = (y_1, \ldots, y_n)\)</span> be data, let <span class="math inline">\(S_n\)</span> be the set of permutations of <span class="math inline">\(\{1, \ldots, n\}\)</span>, and let <span class="math inline">\(y_\sigma\)</span> be <span class="math inline">\(y\)</span> with its entries relabeled by <span class="math inline">\(\sigma \in S_n\)</span>. For <span class="math inline">\(\sigma \in S_n\)</span> let <span class="math inline">\(N_\sigma(y) \stackrel{\text{def}}{=}\sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge T(y_\sigma)}\)</span> be the number of relabelings at least as extreme as <span class="math inline">\(y_\sigma\)</span>, and write <span class="math inline">\(\iota\)</span> for the identity permutation, so that <span class="math inline">\(N_\iota(y)\)</span> is <span class="math inline">\(n!\)</span> times the <a href="#/def-permutation-p-value">permutation p-value</a> of <span class="math inline">\(T(y)\)</span>. Then relabeling the data by <span class="math inline">\(\sigma\)</span> turns <span class="math inline">\(N_\iota\)</span> into <span class="math inline">\(N_\sigma\)</span>:</p>
