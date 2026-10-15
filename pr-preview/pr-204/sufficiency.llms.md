@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:50:24 (PDT)
+Last modified: 2026-10-15 13:07:45 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -33,14 +33,14 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > **Definition 2 (Sufficient statistic)** Let \\\tilde{X}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\tilde{x}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability:
 >
 > \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \quad \text{wherever } \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0 \tag{1}\\
->
-> > **NOTE:**
-> >
-> > Fisher ([1922](#ref-fisher1922mathematical)) introduced sufficiency; Casella and Berger ([2002](#ref-CaseBerg01), Def. 6.2.1, p. 272).
 
 > **NOTE:**
 >
-> *Remark 2* (What sufficiency says). Once we know \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\, the remaining randomness in the sample has the same distribution whatever the parameter is, so the sample carries no further information about \\\theta\\ beyond \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\. A statistic can therefore stand in for the whole sample when we estimate \\\theta\\.
+> *Remark 2* (Source: Sufficient statistic). Fisher ([1922](#ref-fisher1922mathematical)) introduced sufficiency; Casella and Berger ([2002](#ref-CaseBerg01), Def. 6.2.1, p. 272).
+
+> **NOTE:**
+>
+> *Remark 3* (What sufficiency says). Once we know \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\, the remaining randomness in the sample has the same distribution whatever the parameter is, so the sample carries no further information about \\\theta\\ beyond \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\. A statistic can therefore stand in for the whole sample when we estimate \\\theta\\.
 >
 > The sample itself, taking \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = \tilde{X}\\, is always sufficient but does not reduce the data; a useful sufficient statistic is a much shorter summary, such as a sum or a mean.
 >
@@ -55,10 +55,6 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > \\ \operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{} = g\mathopen{}\left(T\mathopen{}\left(\tilde{x}\right)\mathclose{} ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{} \tag{2}\\
 >
 > where \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ does not depend on \\\theta\\.
->
-> > **NOTE:**
-> >
-> > Halmos and Savage ([1949](#ref-halmos1949application)), whom Casella and Berger ([2002](#ref-CaseBerg01), Thm. 6.2.6, p. 276, and its footnote) credit with the general form, and Neyman (1935) with an earlier one.
 
 > **NOTE:**
 >
@@ -77,6 +73,10 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} &= \frac{\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}}{\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}} && \text{(conditional probability)}\\ &= \frac{g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{}} {g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(factorization, and the display above)}\\ &= \frac{h\mathopen{}\left(\tilde{x}\right)\mathclose{}}{\sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(divide by \$g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\$)} \end{aligned} \\
 >
 > which does not depend on \\\theta\\. For a sample \\\tilde{x}\\ with \\T\mathopen{}\left(\tilde{x}\right)\mathclose{} \neq t\\ the conditional probability is zero, which does not depend on \\\theta\\ either. So \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is sufficient.
+
+> **NOTE:**
+>
+> *Remark 4* (Source: Factorization theorem). Halmos and Savage ([1949](#ref-halmos1949application)), whom Casella and Berger ([2002](#ref-CaseBerg01), Thm. 6.2.6, p. 276, and its footnote) credit with the general form, and Neyman (1935) with an earlier one.
 
 > **NOTE:**
 >
@@ -121,16 +121,16 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\:
 >
 > \\ \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
->
-> > **NOTE:**
-> >
-> > Rao ([1945](#ref-rao1945information)); Blackwell ([1947](#ref-blackwell1947conditional)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 7.3.17, p. 342).
 
 > **NOTE:**
 >
 > *Proof*. Unbiasedness is [Theorem 2](#thm-rb-unbiased). For the variance, we use the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance):
 >
 > \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} + \operatorname{E}\mathopen{}\left\[{\operatorname{Var}\mathopen{}\left(\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right)\mathclose{}}\right\]\mathclose{} && \text{(law of total variance)}\\ &\ge \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} && \text{(a variance is nonnegative)} \end{aligned} \\
+
+> **NOTE:**
+>
+> *Remark 5* (Source: Rao–Blackwell theorem). Rao ([1945](#ref-rao1945information)); Blackwell ([1947](#ref-blackwell1947conditional)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 7.3.17, p. 342).
 
 > **NOTE:**
 >
@@ -236,7 +236,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Remark 3* (Sufficiency is needed). If \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
+> *Remark 6* (Sufficiency is needed). If \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
 
 ## References
 

@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 12:50:24 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 13:07:45 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -705,19 +705,9 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 </section><section class="slide level2"><div id="thm-monte-carlo-p-valid" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (The Monte Carlo permutation p-value is valid)</strong></span> Let <span class="math inline">\(Y\)</span> be exchangeable under <span class="math inline">\(H_0\)</span> (<a href="#/def-exchangeable" class="quarto-xref">Definition&nbsp;1</a>), and let <span class="math inline">\(\hat p_{\text{perm}}\)</span> be the <a href="#/def-monte-carlo-p-value">Monte Carlo permutation p-value</a> of <span class="math inline">\(T(Y)\)</span> from <span class="math inline">\(B\)</span> independent uniform permutations. Then <span class="math inline">\(\hat p_{\text{perm}}\)</span> is a <a href="./multiple-testing.html#def-valid-p-value">valid p-value</a>:</p>
 <p><span class="math display">\[\Pr_{H_0}\mathopen{}\left(\hat p_{\text{perm}} \le u\right)\mathclose{} \le u \quad \text{for every } u \in [0, 1].\]</span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>Phipson and Smyth <span class="citation" data-cites="phipson2010permutation">(<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span> show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-monte-carlo-p-valid" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Source: The Monte Carlo permutation p-value is valid). </span>Phipson and Smyth <span class="citation" data-cites="phipson2010permutation">(<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span> show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.</p>
 </div>
 </section><section class="slide level2"><div id="exm-monte-carlo-p-valid" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Validity in a small simulation)</strong></span> Simulate 2000 data sets of 20 independent standard Gaussian values, ten per group, so that <span class="math inline">\(H_0\)</span> holds. For each, compute <span class="math inline">\(\hat p_{\text{perm}}\)</span> of the absolute difference in means with <span class="math inline">\(B = 99\)</span>:</p>
@@ -747,7 +737,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <p>With <span class="math inline">\(B = 99\)</span> the p-value takes the values <span class="math inline">\(0.01, 0.02, \ldots, 1\)</span>, and for a statistic with no ties each value has probability <span class="math inline">\(0.01\)</span> under <span class="math inline">\(H_0\)</span>, so <span class="math inline">\(\Pr(\hat p_{\text{perm}} \le u) = u\)</span> for <span class="math inline">\(u\)</span> in that grid. The fractions are close to <span class="math inline">\(u\)</span>, within simulation error. Choosing <span class="math inline">\(B + 1\)</span> to be a round number such as 100 makes the grid easy to read.</p>
 </div>
 </section><section class="slide level2"><div id="rem-plus-one" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Why add 1). </span>Without the 1, a data set whose statistic exceeds all <span class="math inline">\(B\)</span> permuted statistics would get a p-value of 0, which claims that the observed result is impossible under <span class="math inline">\(H_0\)</span>. Under <span class="math inline">\(H_0\)</span>, with no ties, that happens with probability <span class="math inline">\(1 / (B + 1)\)</span>, because the observed statistic is equally likely to be any one of the <span class="math inline">\(B + 1\)</span> values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of <span class="math inline">\(\hat p_{\text{perm}}\)</span> is <span class="math inline">\(1 / (B + 1)\)</span>.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Why add 1). </span>Without the 1, a data set whose statistic exceeds all <span class="math inline">\(B\)</span> permuted statistics would get a p-value of 0, which claims that the observed result is impossible under <span class="math inline">\(H_0\)</span>. Under <span class="math inline">\(H_0\)</span>, with no ties, that happens with probability <span class="math inline">\(1 / (B + 1)\)</span>, because the observed statistic is equally likely to be any one of the <span class="math inline">\(B + 1\)</span> values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of <span class="math inline">\(\hat p_{\text{perm}}\)</span> is <span class="math inline">\(1 / (B + 1)\)</span>.</p>
 </div>
 <div class="reading">
 <p><span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 7.7</a>, pp.&nbsp;353–360)</span> covers resampling methods.</p>

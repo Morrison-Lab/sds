@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:50:24 (PDT)
+Last modified: 2026-10-15 13:07:45 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -297,10 +297,10 @@ table(tumor_class = khan_pair$tumor_class)
 > **Theorem 2 (The Monte Carlo permutation p-value is valid)** Let \\Y\\ be exchangeable under \\H_0\\ ([Definition 1](#def-exchangeable)), and let \\\hat p\_{\text{perm}}\\ be the [Monte Carlo permutation p-value](#def-monte-carlo-p-value) of \\T(Y)\\ from \\B\\ independent uniform permutations. Then \\\hat p\_{\text{perm}}\\ is a [valid p-value](multiple-testing.llms.md#def-valid-p-value):
 >
 > \\\Pr\_{H_0}\mathopen{}\left(\hat p\_{\text{perm}} \le u\right)\mathclose{} \le u \quad \text{for every } u \in \[0, 1\].\\
+
+> **NOTE:**
 >
-> > **NOTE:**
-> >
-> > Phipson and Smyth ([2010](#ref-phipson2010permutation)) show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.
+> *Remark 2* (Source: The Monte Carlo permutation p-value is valid). Phipson and Smyth ([2010](#ref-phipson2010permutation)) show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.
 
 > **NOTE:**
 >
@@ -327,7 +327,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 2* (Why add 1). Without the 1, a data set whose statistic exceeds all \\B\\ permuted statistics would get a p-value of 0, which claims that the observed result is impossible under \\H_0\\. Under \\H_0\\, with no ties, that happens with probability \\1 / (B + 1)\\, because the observed statistic is equally likely to be any one of the \\B + 1\\ values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of \\\hat p\_{\text{perm}}\\ is \\1 / (B + 1)\\.
+> *Remark 3* (Why add 1). Without the 1, a data set whose statistic exceeds all \\B\\ permuted statistics would get a p-value of 0, which claims that the observed result is impossible under \\H_0\\. Under \\H_0\\, with no ties, that happens with probability \\1 / (B + 1)\\, because the observed statistic is equally likely to be any one of the \\B + 1\\ values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of \\\hat p\_{\text{perm}}\\ is \\1 / (B + 1)\\.
 
 > **NOTE:**
 >

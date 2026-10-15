@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:50:24 (PDT)
+Last modified: 2026-10-15 13:07:45 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -255,10 +255,10 @@ table(tumor_class = khan_pair$tumor_class)
 > **Definition 5 (False discovery rate)** The **false discovery rate** (FDR) is the expected value of the [false discovery proportion](#def-fdp):
 >
 > \\ \text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\text{FDP}\right\]\mathclose{}. \\
+
+> **NOTE:**
 >
-> > **NOTE:**
-> >
-> > The false discovery rate was introduced by Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)); the notation \\V\\, \\S\\, \\U\\, \\T\\ and \\R\\ follows James et al. ([2021](#ref-james2021islr2e), ch. 13).
+> *Remark 2* (Source: False discovery rate). The false discovery rate was introduced by Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)); the notation \\V\\, \\S\\, \\U\\, \\T\\ and \\R\\ follows James et al. ([2021](#ref-james2021islr2e), ch. 13).
 
 > **NOTE:**
 >
@@ -286,7 +286,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 2* (The FDR is never larger than the FWER). If \\V \ge 1\\ then \\V / \max(R, 1) \le 1\\ because \\V \le R\\, and if \\V = 0\\ then \\V / \max(R, 1) = 0\\. So \\\text{FDP} \le \mathbb{1}\_{V \ge 1}\\, and taking expectations gives \\\text{FDR} \le \text{FWER}\\. A procedure that controls the FWER at level \\\alpha\\ therefore controls the FDR at level \\\alpha\\ too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.
+> *Remark 3* (The FDR is never larger than the FWER). If \\V \ge 1\\ then \\V / \max(R, 1) \le 1\\ because \\V \le R\\, and if \\V = 0\\ then \\V / \max(R, 1) = 0\\. So \\\text{FDP} \le \mathbb{1}\_{V \ge 1}\\, and taking expectations gives \\\text{FDR} \le \text{FWER}\\. A procedure that controls the FWER at level \\\alpha\\ therefore controls the FDR at level \\\alpha\\ too, but the FDR can be controlled with many more rejections, which is why it suits exploratory screens such as the Khan genes, where a few false positives are an acceptable price for more discoveries.
 
 ### 3.4 Valid p-values
 
@@ -298,7 +298,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 3* (Uniform p-values). If the inequality in the definition of a valid p-value is an equality, \\p\\ is uniform on \\\[0, 1\]\\ under \\H_0\\.
+> *Remark 4* (Uniform p-values). If the inequality in the definition of a valid p-value is an equality, \\p\\ is uniform on \\\[0, 1\]\\ under \\H_0\\.
 
 > **NOTE:**
 >
@@ -315,7 +315,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 4* (Discrete statistics give conservative p-values). When the test statistic is discrete, as in [Fisher’s exact test](categorical-tests.llms.md#def-fishers-exact), a p-value can satisfy \\\Pr\_{H_0}(p \le u) \< u\\ for some \\u\\. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.
+> *Remark 5* (Discrete statistics give conservative p-values). When the test statistic is discrete, as in [Fisher’s exact test](categorical-tests.llms.md#def-fishers-exact), a p-value can satisfy \\\Pr\_{H_0}(p \le u) \< u\\ for some \\u\\. It is still valid, but conservative: it rejects a true null hypothesis less often than its nominal level.
 
 ## 4 Controlling the family-wise error rate
 
@@ -326,10 +326,10 @@ table(tumor_class = khan_pair$tumor_class)
 > **Definition 8 (Bonferroni correction)** Given \\m\\ null hypotheses \\H_1, \ldots, H_m\\ with p-values \\p_1, \ldots, p_m\\ and a level \\\alpha\\, the **Bonferroni correction** rejects \\H_j\\ when its p-value is at most \\\alpha/ m\\:
 >
 > \\\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.\\
+
+> **NOTE:**
 >
-> > **NOTE:**
-> >
-> > James et al. ([2021](#ref-james2021islr2e), ch. 13).
+> *Remark 6* (Source: Bonferroni correction). James et al. ([2021](#ref-james2021islr2e), ch. 13).
 
 > **NOTE:**
 >
@@ -477,10 +477,10 @@ table(tumor_class = khan_pair$tumor_class)
 > \\k^\* \stackrel{\text{def}}{=}\min \mathopen{}\left\\k : p\_{(k)} \> \frac{\alpha}{m - k + 1}\right\\\mathclose{}.\\
 >
 > **Holm’s procedure** rejects \\H\_{(1)}, \ldots, H\_{(k^\* - 1)}\\ and no others.
+
+> **NOTE:**
 >
-> > **NOTE:**
-> >
-> > Holm ([1979](#ref-holm1979simple)).
+> *Remark 7* (Source: Holm’s step-down procedure). Holm ([1979](#ref-holm1979simple)).
 
 > **NOTE:**
 >
@@ -637,14 +637,14 @@ table(tumor_class = khan_pair$tumor_class)
 > \\\hat k \stackrel{\text{def}}{=}\max \mathopen{}\left\\k : p\_{(k)} \le \frac{k q}{m}\right\\\mathclose{}.\\
 >
 > The **Benjamini–Hochberg procedure** (BH) rejects \\H\_{(1)}, \ldots, H\_{(\hat k)}\\ and no others.
->
-> > **NOTE:**
-> >
-> > Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)).
 
 > **NOTE:**
 >
-> *Remark 5* (BH is a step-up procedure). Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold \\k q / m\\. Every hypothesis ranked at or below \\\hat k\\ is rejected, including those with p-values above their own thresholds. The thresholds \\k q / m\\ grow with the rank \\k\\, and the smallest, \\q / m\\, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level \\\alpha= q\\.
+> *Remark 8* (Source: Benjamini–Hochberg procedure). Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)).
+
+> **NOTE:**
+>
+> *Remark 9* (BH is a step-up procedure). Holm’s procedure starts at the smallest p-value and stops at the first failure. BH starts at the largest p-value and works down until one passes its threshold \\k q / m\\. Every hypothesis ranked at or below \\\hat k\\ is rejected, including those with p-values above their own thresholds. The thresholds \\k q / m\\ grow with the rank \\k\\, and the smallest, \\q / m\\, equals the Bonferroni threshold, so BH rejects every hypothesis that the Bonferroni correction rejects at level \\\alpha= q\\.
 
 > **NOTE:**
 >
@@ -716,10 +716,10 @@ table(tumor_class = khan_pair$tumor_class)
 > **Theorem 5 (The BH procedure controls the FDR under independence)** Suppose the \\m\\ p-values are independent and each true null hypothesis has a p-value that is uniform on \\\[0, 1\]\\. Then the [BH procedure](#def-bh) at level \\q\\ satisfies
 >
 > \\\text{FDR} = \frac{m_0}{m} q \le q.\\
+
+> **NOTE:**
 >
-> > **NOTE:**
-> >
-> > Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)), which proves the result for any configuration of false null hypotheses. The proof is omitted here.
+> *Remark 10* (Source: The BH procedure controls the FDR under independence). Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)), which proves the result for any configuration of false null hypotheses. The proof is omitted here.
 
 > **NOTE:**
 >
@@ -737,7 +737,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 6* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli ([2001](#ref-benjamini2001control)) proved that BH still controls the FDR at level \\q\\ under a form of positive dependence among the p-values, and that the procedure run at level \\q / \sum\_{k=1}^m (1/k)\\ controls it under any dependence. James et al. ([2021](#ref-james2021islr2e), ch. 13) and Efron and Hastie ([2016](#ref-efron2016computer), ch. 15) discuss the procedure in practice.
+> *Remark 11* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli ([2001](#ref-benjamini2001control)) proved that BH still controls the FDR at level \\q\\ under a form of positive dependence among the p-values, and that the procedure run at level \\q / \sum\_{k=1}^m (1/k)\\ controls it under any dependence. James et al. ([2021](#ref-james2021islr2e), ch. 13) and Efron and Hastie ([2016](#ref-efron2016computer), ch. 15) discuss the procedure in practice.
 
 ## 6 Adjusted p-values and q-values
 
@@ -749,7 +749,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 7* (Applying any level to adjusted p-values). If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level \\c\\ rejects exactly the hypotheses with \\\tilde p_j \le c\\, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.
+> *Remark 12* (Applying any level to adjusted p-values). If the rejection set only grows as the level grows, as it does for the procedures on this page, the procedure at level \\c\\ rejects exactly the hypotheses with \\\tilde p_j \le c\\, so a reader can apply any level to a list of adjusted p-values without redoing the procedure.
 
 > **NOTE:**
 >
@@ -812,7 +812,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 8* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level \\q\\ at which BH rejects it. Some authors call this a *q-value*. Storey ([2002](#ref-storey2002direct)) defines the q-value with the same meaning, but estimates the fraction \\m_0 / m\\ of true null hypotheses from the p-values and multiplies by the estimate, \\\hat\pi_0\\, which is usually below 1. BH is the case \\\hat\pi_0 = 1\\, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
+> *Remark 13* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level \\q\\ at which BH rejects it. Some authors call this a *q-value*. Storey ([2002](#ref-storey2002direct)) defines the q-value with the same meaning, but estimates the fraction \\m_0 / m\\ of true null hypotheses from the p-values and multiplies by the estimate, \\\hat\pi_0\\, which is usually below 1. BH is the case \\\hat\pi_0 = 1\\, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
 
 ## 7 Comparing the procedures
 
@@ -839,7 +839,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 9* (Choosing an error rate). Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.
+> *Remark 14* (Choosing an error rate). Control the FWER when a single false positive is costly, as in a confirmatory trial that tests a handful of outcomes. Control the FDR when the rejections are leads to follow up, as in a screen of thousands of genes, where a small fraction of false leads is acceptable. The choice should be made before looking at the data.
 
 ## 8 Further reading
 

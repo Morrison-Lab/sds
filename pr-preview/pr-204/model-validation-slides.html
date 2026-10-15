@@ -347,6 +347,19 @@
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
+<!-- gha-preview-page-banner:start -->
+<div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
+    <p style="margin: 0;">
+        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~64% of content changed).
+        <br>
+        <strong>🎨 Highlighting Legend:</strong> 
+        <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 3px; border-radius: 2px;">Modified text (yellow)</mark> shows changed words/phrases, 
+        <mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 3px; border-radius: 2px;">added text (green)</mark> shows new content, and 
+        <mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 3px; border-radius: 2px;">new sections (blue)</mark> highlight entirely new paragraphs.
+    </p>
+</div>
+<!-- gha-preview-page-banner:end -->
+
   <div class="reveal">
     <div class="slides">
 
@@ -355,7 +368,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 12:50:24 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 13:07:45 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -419,38 +432,18 @@ text-align: center;
 \mapsto
 g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\right)\mathclose{}.
 \tag{4}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>The rule <span class="math inline">\(g\)</span> of the <a href="./prediction.html#def-prediction">definition of a prediction</a>. <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> write the model estimated from a training set as <span class="math inline">\(\hat f\)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-fitting-procedure" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Source: Fitting procedure). </span>The rule <span class="math inline">\(g\)</span> of the <a href="./prediction.html#def-prediction">definition of a prediction</a>. <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> write the model estimated from a training set as <span class="math inline">\(\hat f\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-training-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Training set)</strong></span> A <strong>training set</strong> is the data to which a <a href="#/def-fitting-procedure">fitting procedure</a> is applied: <span class="math inline">\(n\)</span> observations, written as an ordered list indexed by a set <span class="math inline">\(I\)</span> of <span class="math inline">\(n\)</span> observation numbers:</p>
 <p><span id="eq-training-set"><span class="math display">\[
 \mathcal{D}_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\tilde{x}_{i}, y_{i})\right)\mathclose{}_{i\in I}, \quad \mathopen{}\left|I\right|\mathclose{} = n.
 \tag{5}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span>, who also write the training set as <span class="math inline">\(\mathcal{T}\)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-training-set" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (Source: Training set). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span>, who also write the training set as <span class="math inline">\(\mathcal{T}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-prediction-rule" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Prediction rule)</strong></span> The <strong>prediction rule</strong> <span class="math inline">\(\hat y\)</span> that a <a href="#/def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is the function that maps each covariate value <span class="math inline">\(x\)</span> to the <a href="./prediction.html#def-prediction">prediction</a> that <span class="math inline">\(g\)</span> computes from <span class="math inline">\(x\)</span> and <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
@@ -463,38 +456,18 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <p><span id="eq-generalization-error"><span class="math display">\[
 \operatorname{Err}_{\mathcal{D}_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat y(X_{*}) - Y_{*}\right)\mathclose{}}^2 \mid \mathcal{D}_{\text{train}}\right]\mathclose{}.
 \tag{7}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-generalization-error" class="proof remark">
+<p><span class="proof-title"><em>Remark 4</em> (Source: Generalization error). </span>The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-held-out-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Held-out set (hold-out set))</strong></span> A <strong>held-out set</strong> for a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is a list of <span class="math inline">\(m\)</span> further observations, none of them in <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, that the <a href="#/def-fitting-procedure">fitting procedure</a> does not use and on which the <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is scored:</p>
 <p><span id="eq-held-out-set"><span class="math display">\[
 \mathopen{}\left((x_{*,1}, y_{*,1}), \ldots, (x_{*,m}, y_{*,m})\right)\mathclose{}.
 \tag{8}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.1</a>)</span>, who call it a <strong>hold-out set</strong>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-held-out-set" class="proof remark">
+<p><span class="proof-title"><em>Remark 5</em> (Source: Held-out set (hold-out set)). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.1</a>)</span>, who call it a <strong>hold-out set</strong>.</p>
 </div>
 </section><section class="slide level2"><div id="def-prediction-rmse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Root mean squared error of predictions)</strong></span> The <strong>root mean squared error</strong> (RMSE) of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the square root of their <a href="./prediction.html#def-prediction-mse">mean squared error</a>:</p>
@@ -507,19 +480,9 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <p><span id="eq-training-mse"><span class="math display">\[
 \overline{\operatorname{err}}\stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I} {\mathopen{}\left(\hat y_{i} - y_{i}\right)\mathclose{}}^2.
 \tag{10}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span>, who write the training error as <span class="math inline">\(\overline{\text{err}}\)</span> and define it for any loss.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-training-mse" class="proof remark">
+<p><span class="proof-title"><em>Remark 6</em> (Source: Training error). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span>, who write the training error as <span class="math inline">\(\overline{\text{err}}\)</span> and define it for any loss.</p>
 </div>
 </section><section id="overfitting" class="slide level2 scrollable" data-number="3"><h2>
 <span class="header-section-number">3</span> Overfitting</h2>
@@ -620,19 +583,9 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 \quad
 \mathcal{D}_{\text{train}}= \mathopen{}\left((X_{i}, Y_{i})\right)\mathclose{}_{i\in I}, \quad \mathopen{}\left|I\right|\mathclose{} = n.
 \tag{11}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> call this quantity the <strong>expected prediction error</strong> (or <strong>expected test error</strong>) and write it <span class="math inline">\(\operatorname{Err}\)</span>, without the argument <span class="math inline">\(n\)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-expected-generalization-error" class="proof remark">
+<p><span class="proof-title"><em>Remark 7</em> (Source: Expected generalization error (expected prediction error, expected test error)). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> call this quantity the <strong>expected prediction error</strong> (or <strong>expected test error</strong>) and write it <span class="math inline">\(\operatorname{Err}\)</span>, without the argument <span class="math inline">\(n\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-mean-function" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Mean function)</strong></span> The <strong>mean function</strong> <span class="math inline">\(\mu\)</span> of an outcome <span class="math inline">\(Y\)</span> given a covariate <span class="math inline">\(X\)</span> maps each covariate value <span class="math inline">\(x\)</span> to the mean of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X= x\)</span>:</p>
@@ -645,19 +598,9 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <p><span id="eq-epe"><span class="math display">\[
 \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[{\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{} - Y_{*}\right)\mathclose{}}^2 \mid X_{*}= x\right]\mathclose{}.
 \tag{13}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.3</a>)</span>, who write this quantity as <span class="math inline">\(\operatorname{Err}(x_0)\)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-epe" class="proof remark">
+<p><span class="proof-title"><em>Remark 8</em> (Source: Expected squared prediction error at a covariate value). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.3</a>)</span>, who write this quantity as <span class="math inline">\(\operatorname{Err}(x_0)\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-expected-error-epe" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 3 (The expected generalization error, covariate value by covariate value)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#/def-fitting-procedure">fitting procedure</a>, and let the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations be independent of the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>. Write the <a href="#/def-expected-generalization-error">expected generalization error</a> <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> in terms of the <a href="#/def-epe">expected squared prediction error at <span class="math inline">\(x\)</span></a>, <span class="math inline">\(\operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span>, and the distribution of <span class="math inline">\(X_{*}\)</span>.</p>
@@ -942,7 +885,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section class="slide level2"><div id="rem-generalization-error" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Other names, and how the expected error splits). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> also call <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> the <em>test error</em>, and in sec.&nbsp;7.12 the <em>conditional</em> test error. It is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-risk">risk</a> of the prediction <span class="math inline">\(\hat y(X_{*})\)</span> under squared error <a href="https://morrison-lab.github.io/pds/expectation.html#def-loss-function">loss</a>, computed with the training set held fixed.</p>
+<p><span class="proof-title"><em>Remark 9</em> (Other names, and how the expected error splits). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> also call <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> the <em>test error</em>, and in sec.&nbsp;7.12 the <em>conditional</em> test error. It is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-risk">risk</a> of the prediction <span class="math inline">\(\hat y(X_{*})\)</span> under squared error <a href="https://morrison-lab.github.io/pds/expectation.html#def-loss-function">loss</a>, computed with the training set held fixed.</p>
 <p>The argument <span class="math inline">\(n\)</span> of the <a href="#/def-expected-generalization-error">expected generalization error</a> <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> of a fitting procedure <span class="math inline">\(g\)</span> records that it depends on how many observations each training set has. By <a href="#/thm-expected-error-epe" class="quarto-xref">Theorem&nbsp;1</a>, <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> averages the expected squared prediction error at each covariate value, and <a href="#/thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a> splits that error into a squared bias, a variance and a noise variance.</p>
 </div>
 </section><section class="slide level2"><div id="def-flexibility" class="theorem definition">
@@ -950,22 +893,12 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <p><span id="eq-flexibility"><span class="math display">\[
 \mathcal{G}_{1} \subseteq \mathcal{G}_{2}.
 \tag{20}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 2.1.3</a>)</span> use flexibility without a formal definition.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-flexibility" class="proof remark">
+<p><span class="proof-title"><em>Remark 10</em> (Source: Flexibility). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 2.1.3</a>)</span> use flexibility without a formal definition.</p>
 </div>
 </section><section class="slide level2"><div id="rem-flexibility" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Polynomial degree orders flexibility). </span>Least-squares polynomial fits are ordered by degree: a polynomial of degree <span class="math inline">\(d\)</span> is also a polynomial of degree <span class="math inline">\(d+ 1\)</span> whose coefficient of <span class="math inline">\(x^{d+ 1}\)</span> is zero, so the fit of degree <span class="math inline">\(d+ 1\)</span> is <a href="#/def-flexibility">at least as flexible</a> as the fit of degree <span class="math inline">\(d\)</span>. The four fits of <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> are ordered this way. <a href="#/def-flexibility" class="quarto-xref">Definition&nbsp;18</a> is narrower than the informal use of the word in <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 2.1.3</a>)</span>: it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.6</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 11</em> (Polynomial degree orders flexibility). </span>Least-squares polynomial fits are ordered by degree: a polynomial of degree <span class="math inline">\(d\)</span> is also a polynomial of degree <span class="math inline">\(d+ 1\)</span> whose coefficient of <span class="math inline">\(x^{d+ 1}\)</span> is zero, so the fit of degree <span class="math inline">\(d+ 1\)</span> is <a href="#/def-flexibility">at least as flexible</a> as the fit of degree <span class="math inline">\(d\)</span>. The four fits of <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> are ordered this way. <a href="#/def-flexibility" class="quarto-xref">Definition&nbsp;18</a> is narrower than the informal use of the word in <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 2.1.3</a>)</span>: it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.6</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-bias-variance-tradeoff" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 19 (Bias–variance trade-off)</strong></span> Let <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span> be <a href="#/def-fitting-procedure">fitting procedures</a>, each <a href="#/def-flexibility">at least as flexible</a> as the one before, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#/def-training-set">training set</a>. At a covariate value <span class="math inline">\(x\)</span>, with <span class="math inline">\(\mu\)</span> the <a href="#/def-mean-function">mean function</a>, there is a <strong>bias–variance trade-off</strong> among them when, from each procedure to the next, the squared <a href="#/def-prediction-bias">bias</a> of the prediction, as a prediction of <span class="math inline">\(\mu(x)\)</span>, does not rise and its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> does not fall:</p>
@@ -977,25 +910,15 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 \qquad l= 1, \ldots, L- 1.
 \end{aligned}
 \tag{21}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 2.2.2</a>)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-bias-variance-tradeoff" class="proof remark">
+<p><span class="proof-title"><em>Remark 12</em> (Source: Bias–variance trade-off). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 2.2.2</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-overfitting-tradeoff" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Overfitting and the trade-off). </span>By <a href="#/thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math inline">\(\operatorname{EPE}^{g_{l}}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span> is the squared bias plus the variance plus <span class="math inline">\(\sigma^2\)</span>. Under a <a href="#/def-bias-variance-tradeoff">bias–variance trade-off</a> among <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, moving from <span class="math inline">\(g_{l}\)</span> to <span class="math inline">\(g_{l+ 1}\)</span> lowers the expected squared prediction error at <span class="math inline">\(x\)</span> when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of <span class="math inline">\(\operatorname{EPE}^{g_{1}}_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g_{L}}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span> is often at some <span class="math inline">\(g_{l}\)</span> with <span class="math inline">\(1 &lt; l&lt; L\)</span> <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 2.2.2</a>)</span>, but not always: if the mean function <span class="math inline">\(\mu\)</span> is a candidate of <span class="math inline">\(g_{1}\)</span>, the squared bias of <span class="math inline">\(g_{1}\)</span> can be zero, and then no later <span class="math inline">\(g_{l}\)</span> has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. The procedures past the smallest error have lowered their squared bias by less than they have raised their variance, and the rules they produce tend to <a href="#/def-overfitting">overfit</a>: they fit their training sets more closely than the procedure with the smallest error but predict new observations worse.</p>
+<p><span class="proof-title"><em>Remark 13</em> (Overfitting and the trade-off). </span>By <a href="#/thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math inline">\(\operatorname{EPE}^{g_{l}}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span> is the squared bias plus the variance plus <span class="math inline">\(\sigma^2\)</span>. Under a <a href="#/def-bias-variance-tradeoff">bias–variance trade-off</a> among <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, moving from <span class="math inline">\(g_{l}\)</span> to <span class="math inline">\(g_{l+ 1}\)</span> lowers the expected squared prediction error at <span class="math inline">\(x\)</span> when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of <span class="math inline">\(\operatorname{EPE}^{g_{1}}_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g_{L}}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span> is often at some <span class="math inline">\(g_{l}\)</span> with <span class="math inline">\(1 &lt; l&lt; L\)</span> <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 2.2.2</a>)</span>, but not always: if the mean function <span class="math inline">\(\mu\)</span> is a candidate of <span class="math inline">\(g_{1}\)</span>, the squared bias of <span class="math inline">\(g_{1}\)</span> can be zero, and then no later <span class="math inline">\(g_{l}\)</span> has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. The procedures past the smallest error have lowered their squared bias by less than they have raised their variance, and the rules they produce tend to <a href="#/def-overfitting">overfit</a>: they fit their training sets more closely than the procedure with the smallest error but predict new observations worse.</p>
 </div>
 </section><section class="slide level2"><div id="rem-overfitting-causes" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Coefficients per observation). </span>Adding coefficients to a least-squares fit makes it <a href="#/def-flexibility">at least as flexible</a> as before. With few observations per coefficient, the variance this adds can outweigh the squared bias it removes, which is the overfitting side of <a href="#/rem-overfitting-tradeoff" class="quarto-xref">Remark&nbsp;4</a>. In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, each added power of <code>wt</code>, like an added predictor, is one more coefficient fitted to the same 20 cars: the degree-4 fit has five coefficients for those 20 cars.</p>
+<p><span class="proof-title"><em>Remark 14</em> (Coefficients per observation). </span>Adding coefficients to a least-squares fit makes it <a href="#/def-flexibility">at least as flexible</a> as before. With few observations per coefficient, the variance this adds can outweigh the squared bias it removes, which is the overfitting side of <a href="#/rem-overfitting-tradeoff" class="quarto-xref">Remark&nbsp;13</a>. In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, each added power of <code>wt</code>, like an added predictor, is one more coefficient fitted to the same 20 cars: the degree-4 fit has five coefficients for those 20 cars.</p>
 </div>
 </section><section class="slide level2"><div id="exr-held-out-unbiased" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 7 (Held-out predictions and the generalization error)</strong></span> A <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. A <a href="#/def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> of <a href="#/def-generalization-error" class="quarto-xref">Definition&nbsp;7</a>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
@@ -1045,7 +968,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <p><span class="proof-title"><em>Proof</em>. </span>This is <a href="#/sol-held-out-unbiased" class="quarto-xref">Solution&nbsp;7</a>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-training-mse-optimistic" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Training error is optimistic). </span>The same argument fails for the training set. The training pairs are not independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: they are <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and <span class="math inline">\(\hat y\)</span> was fitted to make their prediction errors small. So the argument of <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a>, that each squared prediction error has conditional expectation <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>, does not hold for them, and the <a href="#/def-training-mse">training error</a> <span class="math inline">\(\overline{\operatorname{err}}\)</span> is typically <em>smaller</em> than <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.4</a>)</span>. <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> shows the pattern: training RMSE keeps falling as the degree grows, while held-out RMSE does not.</p>
+<p><span class="proof-title"><em>Remark 15</em> (Training error is optimistic). </span>The same argument fails for the training set. The training pairs are not independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: they are <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and <span class="math inline">\(\hat y\)</span> was fitted to make their prediction errors small. So the argument of <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a>, that each squared prediction error has conditional expectation <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>, does not hold for them, and the <a href="#/def-training-mse">training error</a> <span class="math inline">\(\overline{\operatorname{err}}\)</span> is typically <em>smaller</em> than <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.4</a>)</span>. <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> shows the pattern: training RMSE keeps falling as the degree grows, while held-out RMSE does not.</p>
 </div>
 </section><section class="slide level2"><!--
 This fragment's R chunks use objects made by earlier fragments
@@ -1177,19 +1100,9 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 &amp; \mathcal{D}_{\text{train}}= \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{train}}}.
 \end{aligned}
 \tag{22}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, 198–201</a>)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-data-splits" class="proof remark">
+<p><span class="proof-title"><em>Remark 16</em> (Source: Training/validation/test split). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, 198–201</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-data-splits-sizes" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Split sizes for 32 cars)</strong></span> In <a href="#/exr-data-splits" class="quarto-xref">Exercise&nbsp;8</a>, a rule of 60% / 20% / 20% on <span class="math inline">\(n= 32\)</span> cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.</p>
@@ -1223,7 +1136,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 \tag{26}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="rem-data-splits" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (What each set is for). </span>Each set of a <a href="#/def-data-splits">training/validation/test split</a> has one job:</p>
+<p><span class="proof-title"><em>Remark 17</em> (What each set is for). </span>Each set of a <a href="#/def-data-splits">training/validation/test split</a> has one job:</p>
 <ul>
 <li>the training set is used to fit each candidate procedure, which estimates its parameters;</li>
 <li>the validation set is used to compare the candidates, choose transformations, or choose values of a <a href="#/def-tuning-parameter">tuning parameter</a>;</li>
@@ -1526,7 +1439,7 @@ Table&nbsp;3: Validation and test RMSE for the chosen model
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p>The validation-set lab of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, 213</a>)</span>.</p>
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">The validation-set lab of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, 213</a>)</span>.</mark></p>
 </div>
 </div>
 </div>
@@ -1557,19 +1470,9 @@ Table&nbsp;3: Validation and test RMSE for the chosen model
 <p><span id="eq-folds"><span class="math display">\[
 \mathcal{F}_{1} \cup \cdots \cup \mathcal{F}_{k} = I.
 \tag{27}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.3</a>)</span> and <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>, who split the data into <span class="math inline">\(k\)</span> roughly equal-sized parts.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-folds" class="proof remark">
+<p><span class="proof-title"><em>Remark 18</em> (Source: Folds). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.3</a>)</span> and <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>, who split the data into <span class="math inline">\(k\)</span> roughly equal-sized parts.</p>
 </div>
 </section><section class="slide level2"><div id="def-fold-size" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 26 (Fold size)</strong></span> The <strong>size</strong> <span class="math inline">\(n_{j}\)</span> of <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span> is the number of observations it contains:</p>
@@ -1582,38 +1485,18 @@ n_{j} \stackrel{\text{def}}{=}\mathopen{}\left|\mathcal{F}_{j}\right|\mathclose{
 <p><span id="eq-fold-assignment"><span class="math display">\[
 i\in \mathcal{F}_{\kappa(i)}.
 \tag{29}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>The fold-assignment function <span class="math inline">\(\kappa(i)\)</span> follows <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-fold-assignment" class="proof remark">
+<p><span class="proof-title"><em>Remark 19</em> (Source: Fold assignment). </span>The fold-assignment function <span class="math inline">\(\kappa(i)\)</span> follows <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-fold-out-rule" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 28 (Fold-out rule)</strong></span> For <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>, the <strong>fold-out rule</strong> <span class="math inline">\(\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\)</span> is the <a href="#/def-prediction-rule">prediction rule</a> that a <a href="#/def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from the observations outside that fold:</p>
 <p><span id="eq-fold-out-rule"><span class="math display">\[
 \hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I\setminus \mathcal{F}_{j}}\right)\mathclose{}.
 \tag{30}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>, who write the fitted function with the <span class="math inline">\(k\)</span>th part of the data removed as <span class="math inline">\(\hat f^{-k}\)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-fold-out-rule" class="proof remark">
+<p><span class="proof-title"><em>Remark 20</em> (Source: Fold-out rule). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>, who write the fitted function with the <span class="math inline">\(k\)</span>th part of the data removed as <span class="math inline">\(\hat f^{-k}\)</span>.</p>
 </div>
 </section><section class="slide level2 scrollable"><!--
 Wording edits from rme: step 3 says "prediction-error measure"
@@ -1637,26 +1520,16 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 </ol>
 </div>
 </section><section class="slide level2"><div id="rem-kfold-vs-validation-set" class="proof remark">
-<p><span class="proof-title"><em>Remark 8</em> (Cross-validation instead of a single validation set). </span>If data are limited, <span class="math inline">\(k\)</span>-fold cross-validation can replace the single validation set of <a href="#/def-data-splits" class="quarto-xref">Definition&nbsp;20</a> for more stable tuning. In <a href="#/exr-kfold" class="quarto-xref">Exercise&nbsp;9</a>, <span class="math inline">\(k= 4\)</span> folds of 8 cars each give 4 fits on 24 cars each.</p>
+<p><span class="proof-title"><em>Remark 21</em> (Cross-validation instead of a single validation set). </span>If data are limited, <span class="math inline">\(k\)</span>-fold cross-validation can replace the single validation set of <a href="#/def-data-splits" class="quarto-xref">Definition&nbsp;20</a> for more stable tuning. In <a href="#/exr-kfold" class="quarto-xref">Exercise&nbsp;9</a>, <span class="math inline">\(k= 4\)</span> folds of 8 cars each give 4 fits on 24 cars each.</p>
 </div>
 </section><section class="slide level2"><div id="def-cv-estimate" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 30 (Cross-validation estimate)</strong></span> The <strong><span class="math inline">\(k\)</span>-fold cross-validation estimate</strong> <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> is the <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the predictions that each observation <span class="math inline">\(i\in I\)</span> of the training set receives from the <a href="#/def-fold-out-rule">fold-out rule</a> of its <a href="#/def-fold-assignment">fold assignment</a> <span class="math inline">\(\kappa(i)\)</span> in <a href="#/def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a>:</p>
 <p><span id="eq-cv-estimate"><span class="math display">\[
 \widehat{\operatorname{Err}}_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_{i}\right)\mathclose{} - y_{i}\right)\mathclose{}}^2.
 \tag{31}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>, for the per-observation form with the fold index <span class="math inline">\(\kappa(i)\)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-cv-estimate" class="proof remark">
+<p><span class="proof-title"><em>Remark 22</em> (Source: Cross-validation estimate). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>, for the per-observation form with the fold index <span class="math inline">\(\kappa(i)\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-cv-estimate-by-fold" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 10 (The cross-validation estimate, fold by fold)</strong></span> Rewrite the <a href="#/def-cv-estimate">cross-validation estimate</a> <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;31</a> as <span class="math inline">\(1/n\)</span> times a double sum: an outer sum over the fold numbers <span class="math inline">\(j= 1, \ldots, k\)</span> and an inner sum over the observations <span class="math inline">\(i\)</span> in <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>. Then simplify the summand, so that it no longer uses the fold assignment <span class="math inline">\(\kappa(i)\)</span>.</p>
@@ -1692,26 +1565,16 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 <p><span id="eq-fold-mse"><span class="math display">\[
 \operatorname{MSE}_{j} \stackrel{\text{def}}{=}\frac{1}{n_{j}} \sum_{i\in \mathcal{F}_{j}} {\mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x_{i}\right)\mathclose{} - y_{i}\right)\mathclose{}}^2.
 \tag{33}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.3</a>)</span>, who write the fold mean squared errors as <span class="math inline">\(\text{MSE}_1, \ldots, \text{MSE}_{k}\)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-fold-mse" class="proof remark">
+<p><span class="proof-title"><em>Remark 23</em> (Source: Fold mean squared error). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.3</a>)</span>, who write the fold mean squared errors as <span class="math inline">\(\text{MSE}_1, \ldots, \text{MSE}_{k}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-cv-estimate" class="proof remark">
-<p><span class="proof-title"><em>Remark 9</em> (What the cross-validation estimate estimates). </span>Each prediction in <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;31</a> comes from a rule that did not see the observation it predicts, so each squared error is scored as in <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a>. But the rule for fold <span class="math inline">\(\mathcal{F}_{j}\)</span> was fitted to <span class="math inline">\(n- n_{j}\)</span> observations, not <span class="math inline">\(n\)</span>, and the <span class="math inline">\(k\)</span> rules differ from one another and from the rule fitted to all <span class="math inline">\(n\)</span>. So <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> estimates the <a href="#/def-expected-generalization-error">expected generalization error</a> of the fitting <em>procedure</em> <span class="math inline">\(g\)</span> at the smaller training-set sizes <span class="math inline">\(n- n_{j}\)</span>, which is <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}\)</span> when every fold has <span class="math inline">\(n/ k\)</span> observations, rather than <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> for the one rule fitted to all the data <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.12</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 24</em> (What the cross-validation estimate estimates). </span>Each prediction in <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;31</a> comes from a rule that did not see the observation it predicts, so each squared error is scored as in <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a>. But the rule for fold <span class="math inline">\(\mathcal{F}_{j}\)</span> was fitted to <span class="math inline">\(n- n_{j}\)</span> observations, not <span class="math inline">\(n\)</span>, and the <span class="math inline">\(k\)</span> rules differ from one another and from the rule fitted to all <span class="math inline">\(n\)</span>. So <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> estimates the <a href="#/def-expected-generalization-error">expected generalization error</a> of the fitting <em>procedure</em> <span class="math inline">\(g\)</span> at the smaller training-set sizes <span class="math inline">\(n- n_{j}\)</span>, which is <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}\)</span> when every fold has <span class="math inline">\(n/ k\)</span> observations, rather than <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> for the one rule fitted to all the data <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.12</a>)</span>.</p>
 <p>When every <a href="#/def-folds">fold</a> has <span class="math inline">\(n_{j} = n/ k\)</span> observations, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> is also the average of the <span class="math inline">\(k\)</span> <a href="#/def-fold-mse">fold mean squared errors</a> <span class="math inline">\(\operatorname{MSE}_{1}, \ldots, \operatorname{MSE}_{k}\)</span>, the form <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.3</a>)</span> use.</p>
 </div>
 </section><section class="slide level2"><div id="rem-choosing-k" class="proof remark">
-<p><span class="proof-title"><em>Remark 10</em> (Choosing the number of folds). </span>The number of folds <span class="math inline">\(k\)</span> trades bias against variance in the cross-validation estimate itself <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>:</p>
+<p><span class="proof-title"><em>Remark 25</em> (Choosing the number of folds). </span>The number of folds <span class="math inline">\(k\)</span> trades bias against variance in the cross-validation estimate itself <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>:</p>
 <ul>
 <li>
 <strong>Bias.</strong> Each rule in <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;31</a> is fitted to about <span class="math inline">\(n(k- 1) / k\)</span> observations. A rule fitted to fewer observations usually predicts worse, so <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> tends to overstate the error of a rule fitted to all <span class="math inline">\(n\)</span>. The overstatement shrinks as <span class="math inline">\(k\)</span> grows.</li>
@@ -1837,8 +1700,8 @@ Figure&nbsp;6: <a href="#/fig-train-test-error" class="quarto-xref">Figure&nbsp;
 <span id="cb19-14"><a aria-label="14"></a><span class="co">#&gt;                             24.00000                              4.07316</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> for the fit to all 30 observations, though (<a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;9</a>). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization RMSE.</p>
-<p>Part of that gap is expected: by <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;9</a>, with <span class="math inline">\(g\)</span> the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\)</span>, not the error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.</p>
+<p>The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> for the fit to all 30 observations, though (<a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;24</a>). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization RMSE.</p>
+<p>Part of that gap is expected: by <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;24</a>, with <span class="math inline">\(g\)</span> the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\)</span>, not the error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.</p>
 <div class="cell">
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>sim_generalization_draws <span class="ot">&lt;-</span> <span class="cf">function</span>(</span>
 <span id="cb20-2"><a aria-label="2"></a>  n_train, degree, n_reps, draw, new_data, score</span>
@@ -2012,19 +1875,9 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 <p><span id="eq-loocv"><span class="math display">\[
 \widehat{\operatorname{Err}}_{\text{CV}(n)} = \frac{1}{n} \sum_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_{i}\right)\mathclose{} - y_{i}\right)\mathclose{}}^2.
 \tag{34}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.2</a>)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-loocv" class="proof remark">
+<p><span class="proof-title"><em>Remark 26</em> (Source: Leave-one-out cross-validation). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.2</a>)</span>.</p>
 </div>
 </section><section class="slide level2 scrollable"><div id="lem-loocv-not-random" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 1 (Leave-one-out cross-validation does not depend on the fold assignment)</strong></span> Let <span class="math inline">\(\mathcal{D}_{\text{train}}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\)</span> be a <a href="#/def-training-set">training set</a> of <span class="math inline">\(n = \mathopen{}\left|I\right|\mathclose{}\)</span> observations, indexed by <span class="math inline">\(I\)</span>. Then the <a href="#/def-cv-estimate">cross-validation estimate</a> <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> of <a href="#/def-loocv">leave-one-out cross-validation</a> (<span class="math inline">\(k = n\)</span>) is the same for every <a href="#/def-fold-assignment">fold assignment</a> <span class="math inline">\(\kappa(i)\)</span>.</p>
@@ -2054,29 +1907,19 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 \tag{35}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="rem-term-vector" class="proof remark">
-<p><span class="proof-title"><em>Remark 11</em> (The term vector of simple linear regression). </span>In simple linear regression the terms are <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span>, so the <a href="#/def-term-vector">term vector</a> <span class="math inline">\(\tilde{t}_{i}\)</span> is the <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a> <span class="math inline">\(\tilde{x}_i\)</span>.</p>
+<p><span class="proof-title"><em>Remark 27</em> (The term vector of simple linear regression). </span>In simple linear regression the terms are <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span>, so the <a href="#/def-term-vector">term vector</a> <span class="math inline">\(\tilde{t}_{i}\)</span> is the <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a> <span class="math inline">\(\tilde{x}_i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-cross-product-matrix" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 34 (Cross-product matrix (sum-of-squares and cross-products matrix))</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\tilde{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
 <p><span id="eq-cross-product-matrix"><span class="math display">\[
 A\stackrel{\text{def}}{=}\sum_{i\in I} \tilde{t}_{i} {\tilde{t}_{i}}^{\top}.
 \tag{36}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p>Sanchez <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>) names this matrix a <strong>sum-of-squares and cross-products matrix</strong>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-cross-product-matrix" class="proof remark">
+<p><span class="proof-title"><em>Remark 28</em> (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). </span>Sanchez <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>) names this matrix a <strong>sum-of-squares and cross-products matrix</strong>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-cross-product-matrix" class="proof remark">
-<p><span class="proof-title"><em>Remark 12</em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(D\)</span> be the matrix whose rows are the transposed <a href="#/def-term-vector">term vectors</a> <span class="math inline">\({\tilde{t}_{i}}^{\top}\)</span>, <span class="math inline">\(i\in I\)</span>. The cross-product matrix then equals the matrix product</p>
+<p><span class="proof-title"><em>Remark 29</em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(D\)</span> be the matrix whose rows are the transposed <a href="#/def-term-vector">term vectors</a> <span class="math inline">\({\tilde{t}_{i}}^{\top}\)</span>, <span class="math inline">\(i\in I\)</span>. The cross-product matrix then equals the matrix product</p>
 <p><span class="math display">\[
 A= {D}^{\top} D.
 \]</span></p>
@@ -2100,41 +1943,21 @@ A= {D}^{\top} D.
 <p><span id="eq-leverage"><span class="math display">\[
 h_{i} \stackrel{\text{def}}{=}{\tilde{t}_{i}}^{\top} A^{-1} \tilde{t}_{i}.
 \tag{37}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 3.3.3</a>)</span>, written here with term vectors and the matrix <span class="math inline">\(A\)</span>, as in <a href="./correlation-regression.html#thm-ols-slr-vector">the vector form of the OLS estimates</a>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-leverage" class="proof remark">
+<p><span class="proof-title"><em>Remark 30</em> (Source: Leverage). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 3.3.3</a>)</span>, written here with term vectors and the matrix <span class="math inline">\(A\)</span>, as in <a href="./correlation-regression.html#thm-ols-slr-vector">the vector form of the OLS estimates</a>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-loocv-shortcut" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 5 (Leave-one-out cross-validation for least squares)</strong></span> For a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a> with every <a href="#/def-leverage">leverage</a> <span class="math inline">\(h_{i} &lt; 1\)</span>, the <a href="#/def-loocv">leave-one-out estimate</a> can be computed from the single fit to all <span class="math inline">\(n\)</span> observations, from its <a href="./prediction.html#def-fitted-value">fitted values</a> <span class="math inline">\(\hat y_{i}\)</span>, their <a href="./prediction.html#def-prediction-error">prediction errors</a> <span class="math inline">\(\varepsilon_{i} = \hat y_{i} - y_{i}\)</span>, and the leverages:</p>
 <p><span id="eq-loocv-shortcut"><span class="math display">\[
 \widehat{\operatorname{Err}}_{\text{CV}(n)} = \frac{1}{n} \sum_{i\in I} {\mathopen{}\left(\frac{\varepsilon_{i}}{1 - h_{i}}\right)\mathclose{}}^2.
 \tag{38}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.2</a>)</span> states this formula for least squares linear or polynomial regression, and <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span> for many linear fitting methods.</p>
-</div>
-</div>
-</div>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Not derived here; see the sources named under the theorem. The derivation needs a formula for how the inverse of the <a href="#/def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span> changes when one observation’s outer product <span class="math inline">\(\tilde{t}_{i} {\tilde{t}_{i}}^{\top}\)</span> is removed from it (the Sherman–Morrison formula), which this page does not develop.</p>
+</div>
+<div id="rem-source-loocv-shortcut" class="proof remark">
+<p><span class="proof-title"><em>Remark 31</em> (Source: Leave-one-out cross-validation for least squares). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.2</a>)</span> states this formula for least squares linear or polynomial regression, and <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span> for many linear fitting methods.</p>
 </div>
 </section><section class="slide level2"><!--
 This fragment's R chunks use objects made by earlier fragments
@@ -2184,7 +2007,7 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
-<p><span class="proof-title"><em>Remark 13</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;10</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;9</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
+<p><span class="proof-title"><em>Remark 32</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;25</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;24</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
 </div>
 </section><section id="sec-cv-model-choice" class="slide level2" data-number="8"><h2>
 <span class="header-section-number">8</span> Choosing a model by cross-validation</h2>
@@ -2207,25 +2030,15 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathop
 <p><span id="eq-nested-cv"><span class="math display">\[
 \widehat{\operatorname{Err}}^{g^{\text{CV}}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}.
 \tag{41}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.2</a>)</span> for cross-validating every step of a procedure, choices included.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-nested-cv" class="proof remark">
+<p><span class="proof-title"><em>Remark 33</em> (Source: Nested cross-validation). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.2</a>)</span> for cross-validating every step of a procedure, choices included.</p>
 </div>
 </section><section class="slide level2"><div id="rem-nested-cv" class="proof remark">
-<p><span class="proof-title"><em>Remark 14</em> (What is nested). </span>Each fold-out rule of <span class="math inline">\(g^{\text{CV}}\)</span> is computed from the observations outside one outer <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>, so the whole choice, including the cross-validation that <span class="math inline">\(g^{\text{CV}}\)</span> runs inside those observations, never sees <span class="math inline">\(\mathcal{F}_{j}\)</span>. That inner cross-validation is the nested one.</p>
+<p><span class="proof-title"><em>Remark 34</em> (What is nested). </span>Each fold-out rule of <span class="math inline">\(g^{\text{CV}}\)</span> is computed from the observations outside one outer <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>, so the whole choice, including the cross-validation that <span class="math inline">\(g^{\text{CV}}\)</span> runs inside those observations, never sees <span class="math inline">\(\mathcal{F}_{j}\)</span>. That inner cross-validation is the nested one.</p>
 </div>
 </section><section class="slide level2"><div id="rem-cv-winner-optimistic" class="proof remark">
-<p><span class="proof-title"><em>Remark 15</em> (Cross-validation replaces the validation set, not the test set). </span>Used to choose between models, cross-validation takes the place of the <em>validation</em> set of <a href="#/def-data-splits" class="quarto-xref">Definition&nbsp;20</a>, the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.2</a>)</span>, such as a <a href="#/def-test-set">test set</a>, or the outer folds of <a href="#/def-nested-cv">nested cross-validation</a>.</p>
+<p><span class="proof-title"><em>Remark 35</em> (Cross-validation replaces the validation set, not the test set). </span>Used to choose between models, cross-validation takes the place of the <em>validation</em> set of <a href="#/def-data-splits" class="quarto-xref">Definition&nbsp;20</a>, the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.2</a>)</span>, such as a <a href="#/def-test-set">test set</a>, or the outer folds of <a href="#/def-nested-cv">nested cross-validation</a>.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -2245,22 +2058,12 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathop
 <p><span id="eq-cv-se"><span class="math display">\[
 \operatorname{SE}_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left(\operatorname{MSE}_{1}, \ldots, \operatorname{MSE}_{k}\right)\mathclose{}}{\sqrt{k}}.
 \tag{42}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>, who call the result a standard error.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-cv-se" class="proof remark">
+<p><span class="proof-title"><em>Remark 36</em> (Source: Fold-based standard error). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>, who call the result a standard error.</p>
 </div>
 </section><section class="slide level2"><div id="rem-cv-se" class="proof remark">
-<p><span class="proof-title"><em>Remark 16</em> (The fold-based standard error is only a rough guide). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span> draw standard-error bars computed from the per-fold errors as in <a href="#/eq-cv-se" class="quarto-xref">Equation&nbsp;42</a>. That formula treats the <span class="math inline">\(k\)</span> fold errors as if they were independent, which they are not: every pair of folds shares <span class="math inline">\(k- 2\)</span> folds of training data. So <span class="math inline">\(\operatorname{SE}_{\text{CV}(k)}\)</span> is a rough indication of how much <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> might change with a different sample, not a <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span>.</p>
+<p><span class="proof-title"><em>Remark 37</em> (The fold-based standard error is only a rough guide). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span> draw standard-error bars computed from the per-fold errors as in <a href="#/eq-cv-se" class="quarto-xref">Equation&nbsp;42</a>. That formula treats the <span class="math inline">\(k\)</span> fold errors as if they were independent, which they are not: every pair of folds shares <span class="math inline">\(k- 2\)</span> folds of training data. So <span class="math inline">\(\operatorname{SE}_{\text{CV}(k)}\)</span> is a rough indication of how much <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> might change with a different sample, not a <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-fold-mse-indexed" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 40 (Fold mean squared error of a named procedure)</strong></span> The <strong>fold mean squared error of procedure</strong> <span class="math inline">\(g\)</span> for <a href="#/def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span> of a training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, indexed by <span class="math inline">\(I\)</span>, is the <a href="#/def-fold-mse">fold mean squared error</a> computed with the <a href="#/def-fold-out-rule">fold-out rule</a> that <span class="math inline">\(g\)</span> produces:</p>
@@ -2280,19 +2083,9 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathop
 <p><span id="eq-one-se-rule"><span class="math display">\[
 \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{} \le \widehat{\operatorname{Err}}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{} + \operatorname{SE}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}.
 \tag{45}\]</span></span></p>
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Source</strong></p>
-</div>
-<div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>; <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 6.1.3</a>)</span>.</p>
-</div>
-</div>
-</div>
+<div id="rem-source-one-se-rule" class="proof remark">
+<p><span class="proof-title"><em>Remark 38</em> (Source: One-standard-error rule). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span>; <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 6.1.3</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><!--
 This fragment's R chunks use objects made by earlier fragments
@@ -2335,7 +2128,7 @@ from _exm-train-test-error-simulated.qmd.
 </div>
 </div>
 </div>
-<p>With 30 observations and 10 folds, each fold holds 3 observations, so all ten folds have equal size and <code>cv</code> is <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(10)}\)</span> (<a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;9</a>).</p>
+<p>With 30 observations and 10 folds, each fold holds 3 observations, so all ten folds have equal size and <code>cv</code> is <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(10)}\)</span> (<a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;24</a>).</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>sim_cv_ten <span class="sc">|&gt;</span></span>
 <span id="cb27-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>(ggplot2<span class="sc">::</span><span class="fu">aes</span>(degree, cv)) <span class="sc">+</span></span>
 <span id="cb27-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_hline</span>(</span>
@@ -2477,7 +2270,7 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 <p>The 10 predictors chosen from all 50 observations were chosen <em>because</em> they happen to correlate with <span class="math inline">\(Y\)</span> in the very observations that later serve as held-out folds. Those observations were not held out from the whole fitting procedure, so the independence that <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a> needs fails.</p>
 </div>
 </section><section class="slide level2"><div id="rem-cv-every-step" class="proof remark">
-<p><span class="proof-title"><em>Remark 17</em> (Cross-validate the whole procedure). </span>Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.10.2</a>)</span>. Such steps include:</p>
+<p><span class="proof-title"><em>Remark 39</em> (Cross-validate the whole procedure). </span>Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.10.2</a>)</span>. Such steps include:</p>
 <ul>
 <li>screening or selecting predictors, as in <a href="#/exr-cv-screening" class="quarto-xref">Exercise&nbsp;12</a>;</li>
 <li>choosing transformations or a polynomial degree;</li>
