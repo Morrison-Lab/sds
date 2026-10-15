@@ -213,7 +213,7 @@ such as what was checked in a PDF or a wording edit made while porting.
 
 A course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
 even when lds already lists it in a directory (Ezra, 2026-10-15).
-Adapt a resource with attribution only where its license allows adapting, and otherwise link to it.
+Link the resource, and adapt it with attribution only where its license allows adapting.
 See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
 
 ## Code Chunks

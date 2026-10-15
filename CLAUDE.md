@@ -58,7 +58,7 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - **Attributions**: credit sources where readers can see them (a credit to the maintainer's own rme, lds, pds, ... is optional, but what those sites credit is still carried), in a `rem-source-` remark div titled "Source: ..." right after the item's div and its proof, never inside a definition or theorem div and never only in an HTML comment (a def or thm div holds only the statement; maintainer directive, 2026-10-15). See "Attributions are reader-visible" in `.github/copilot-instructions.md`.
 - **Useful resources**: a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
   even when lds already lists it in a directory (Ezra, 2026-10-15).
-  Check each license: adapt with attribution only when the license allows it, and otherwise link.
+  Link the resource, and adapt it with attribution only when its license allows adapting.
   See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
 - **Quarto chunks**: prefer chunk options as YAML-style `#|` directives, not as inline `r, opt = val` arguments.
 
