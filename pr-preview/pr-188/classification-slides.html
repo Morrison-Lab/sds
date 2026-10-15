@@ -267,7 +267,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 02:39:57 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 05:45:18 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -432,6 +432,17 @@ c(x) \stackrel{\text{def}}{=}
 \end{aligned}
 \tag{16}\]</span></span></p>
 </div>
+</section><section class="slide level2"><div id="thm-prob-positive" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1 (Probability of a positive test)</strong></span> Let <span class="math inline">\(\text{sens}\)</span> be the <a href="#/def-sensitivity">sensitivity</a> of a diagnostic test, <span class="math inline">\(\text{spec}\)</span> its <a href="#/def-specificity">specificity</a>, and <span class="math inline">\(\pi\)</span> the <a href="#/def-prevalence">prevalence</a> of the disease. Then the probability <span class="math inline">\(\Pr(+)\)</span> that the test is positive is:</p>
+<p><span id="eq-prob-positive"><span class="math display">\[
+\Pr(+) =
+\text{sens} \cdot\pi
++ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}
+\tag{17}\]</span></span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-prob-positive" class="quarto-xref">Exercise&nbsp;1</a>, worked in <a href="#/sol-prob-positive" class="quarto-xref">Solution&nbsp;1</a>.</p>
+</div>
 </section><section class="slide level2"><div id="exr-ppv-bayes" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2 (PPV from Bayes’ theorem)</strong></span> Write the <a href="#/def-ppv">positive predictive value</a> of a diagnostic test in terms of:</p>
 <ul>
@@ -456,13 +467,24 @@ c(x) \stackrel{\text{def}}{=}
 &amp;= \frac{\text{sens} \cdot\pi}{\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}}
 &amp;&amp; \text{(probability of a positive test)}
 \end{aligned}
-\tag{17}\]</span></span></p>
+\tag{18}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="thm-ppv-bayes" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 2 (PPV from Bayes’ theorem)</strong></span> Let <span class="math inline">\(\text{sens}\)</span> be the <a href="#/def-sensitivity">sensitivity</a> of a diagnostic test, <span class="math inline">\(\text{spec}\)</span> its <a href="#/def-specificity">specificity</a>, and <span class="math inline">\(\pi\)</span> the <a href="#/def-prevalence">prevalence</a> of the disease. If the probability of a positive test is positive, <span class="math inline">\(\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{} &gt; 0\)</span>, then the <a href="#/def-ppv">positive predictive value</a> of the test is:</p>
+<p><span id="eq-ppv-bayes"><span class="math display">\[
+\text{PPV} =
+\frac{\text{sens} \cdot\pi}
+{\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}}
+\tag{19}\]</span></span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-ppv-bayes" class="quarto-xref">Exercise&nbsp;2</a>, worked in <a href="#/sol-ppv-bayes" class="quarto-xref">Solution&nbsp;2</a>, which builds on <a href="#/thm-prob-positive" class="quarto-xref">Theorem&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-ppv-ratio-form" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (PPV in terms of two ratios)</strong></span> Rewrite the expression for the positive predictive value from <a href="#/exr-ppv-bayes" class="quarto-xref">Exercise&nbsp;2</a> so that the sensitivity, specificity, and prevalence appear only through the ratio <span class="math inline">\(\frac{1 - \text{spec}}{\text{sens}}\)</span> of the false positive rate to the sensitivity and the ratio <span class="math inline">\(\frac{1 - \pi}{\pi}\)</span> of non-diseased to diseased people in the population.</p>
+<p><span class="theorem-title"><strong>Exercise 3 (PPV in terms of two ratios)</strong></span> Rewrite the expression for the positive predictive value from <a href="#/thm-ppv-bayes" class="quarto-xref">Theorem&nbsp;2</a> so that the sensitivity, specificity, and prevalence appear only through the ratio <span class="math inline">\(\frac{1 - \text{spec}}{\text{sens}}\)</span> of the false positive rate to the sensitivity and the ratio <span class="math inline">\(\frac{1 - \pi}{\pi}\)</span> of non-diseased to diseased people in the population.</p>
 </div>
 </section><section class="slide level2"><div id="sol-ppv-ratio-form" class="proof solution">
-<p><span class="proof-title"><em>Solution 3</em>. </span>Write <span class="math inline">\(a \stackrel{\text{def}}{=}\text{sens} \cdot\pi\)</span> and <span class="math inline">\(b \stackrel{\text{def}}{=}\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}\)</span>, so that <a href="#/exr-ppv-bayes" class="quarto-xref">Exercise&nbsp;2</a> reads <span class="math inline">\(\text{PPV} = \frac{a}{a + b}\)</span>, with <span class="math inline">\(a &gt; 0\)</span> whenever the sensitivity and prevalence are positive. Then:</p>
+<p><span class="proof-title"><em>Solution 3</em>. </span>Write <span class="math inline">\(a \stackrel{\text{def}}{=}\text{sens} \cdot\pi\)</span> and <span class="math inline">\(b \stackrel{\text{def}}{=}\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}\)</span>, so that <a href="#/thm-ppv-bayes" class="quarto-xref">Theorem&nbsp;2</a> reads <span class="math inline">\(\text{PPV} = \frac{a}{a + b}\)</span>, with <span class="math inline">\(a &gt; 0\)</span> whenever the sensitivity and prevalence are positive. Then:</p>
 <p><span id="eq-ppv-ratio-form-exr"><span class="math display">\[
 \begin{aligned}
 \text{PPV}
@@ -479,10 +501,10 @@ c(x) \stackrel{\text{def}}{=}
 &amp;= \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}}
 &amp;&amp; \text{(a quotient of products is the product of the quotients)}
 \end{aligned}
-\tag{18}\]</span></span></p>
+\tag{20}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="thm-ppv-sens-spec-prev" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (PPV in terms of sensitivity, specificity, and prevalence)</strong></span> The positive predictive value of a diagnostic test with positive sensitivity, used in a population with positive prevalence, depends on its sensitivity, its specificity, and the prevalence of the disease only through two ratios:</p>
+<p><span class="theorem-title"><strong>Theorem 3 (PPV in terms of sensitivity, specificity, and prevalence)</strong></span> The positive predictive value of a diagnostic test with positive sensitivity, used in a population with positive prevalence, depends on its sensitivity, its specificity, and the prevalence of the disease only through two ratios:</p>
 <ul>
 <li>the ratio of the false positive rate to the sensitivity;</li>
 <li>the ratio of non-diseased to diseased people in the population.</li>
@@ -491,13 +513,13 @@ c(x) \stackrel{\text{def}}{=}
 <p><span id="eq-ppv-sens-spec-prev"><span class="math display">\[
 \text{PPV} =
 \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}}
-\tag{19}\]</span></span></p>
+\tag{21}\]</span></span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>This result is the solution to <a href="#/exr-ppv-ratio-form" class="quarto-xref">Exercise&nbsp;3</a>, which builds on <a href="#/exr-ppv-bayes" class="quarto-xref">Exercise&nbsp;2</a> and <a href="#/exr-prob-positive" class="quarto-xref">Exercise&nbsp;1</a>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>This result is the solution to <a href="#/exr-ppv-ratio-form" class="quarto-xref">Exercise&nbsp;3</a>, worked in <a href="#/sol-ppv-ratio-form" class="quarto-xref">Solution&nbsp;3</a>, which builds on <a href="#/thm-ppv-bayes" class="quarto-xref">Theorem&nbsp;2</a> and <a href="#/thm-prob-positive" class="quarto-xref">Theorem&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-ppv-sens-spec-prev" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (PPV of a COVID-19 test, from the two ratios)</strong></span> For the COVID-19 test of <a href="#/exm-sensitivity" class="quarto-xref">Example&nbsp;2</a> and <a href="#/exm-specificity" class="quarto-xref">Example&nbsp;3</a>, used in the population of <a href="#/exm-prevalence" class="quarto-xref">Example&nbsp;4</a>, <a href="#/thm-ppv-sens-spec-prev" class="quarto-xref">Theorem&nbsp;1</a> gives:</p>
+<p><span class="theorem-title"><strong>Example 7 (PPV of a COVID-19 test, from the two ratios)</strong></span> For the COVID-19 test of <a href="#/exm-sensitivity" class="quarto-xref">Example&nbsp;2</a> and <a href="#/exm-specificity" class="quarto-xref">Example&nbsp;3</a>, used in the population of <a href="#/exm-prevalence" class="quarto-xref">Example&nbsp;4</a>, <a href="#/thm-ppv-sens-spec-prev" class="quarto-xref">Theorem&nbsp;3</a> gives:</p>
 <p><span id="eq-ppv-sens-spec-prev-exm"><span class="math display">\[
 \begin{aligned}
 \text{PPV}
@@ -516,7 +538,7 @@ c(x) \stackrel{\text{def}}{=}
 &amp;\approx 0.88
 &amp;&amp; \text{(divide)}
 \end{aligned}
-\tag{20}\]</span></span></p>
+\tag{22}\]</span></span></p>
 <p>This value matches <a href="#/exm-ppv" class="quarto-xref">Example&nbsp;5</a>.</p>
 <p>If the same test were used in a population with prevalence 0.1% instead, and its sensitivity and specificity were still 99% in that population, the ratio of non-diseased to diseased people would be <span class="math inline">\(0.999 / 0.001 = 999\)</span>, and the PPV would fall to</p>
 <p><span id="eq-ppv-sens-spec-prev-exm-2"><span class="math display">\[
@@ -533,11 +555,11 @@ c(x) \stackrel{\text{def}}{=}
 &amp;\approx 0.09
 &amp;&amp; \text{(divide)}
 \end{aligned}
-\tag{21}\]</span></span></p>
+\tag{23}\]</span></span></p>
 <p>so about 9 in 10 positive results would be false positives.</p>
 </div>
 </section><section class="slide level2"><div id="rem-ppv-prevalence" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (The PPV depends on the population, not only on the test). </span>The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio <span class="math inline">\(\frac{1 - \pi}{\pi}\)</span> in <a href="#/thm-ppv-sens-spec-prev" class="quarto-xref">Theorem&nbsp;1</a> describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as <a href="#/exm-ppv-sens-spec-prev" class="quarto-xref">Example&nbsp;7</a> shows.</p>
+<p><span class="proof-title"><em>Remark 2</em> (The PPV depends on the population, not only on the test). </span>The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio <span class="math inline">\(\frac{1 - \pi}{\pi}\)</span> in <a href="#/thm-ppv-sens-spec-prev" class="quarto-xref">Theorem&nbsp;3</a> describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as <a href="#/exm-ppv-sens-spec-prev" class="quarto-xref">Example&nbsp;7</a> shows.</p>
 </div>
 
 

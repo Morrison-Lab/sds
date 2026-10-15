@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 02:39:57 (PDT)
+Last modified: 2026-10-15 05:45:18 (PDT)
 
 ## 1 Introduction
 
@@ -132,6 +132,16 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
+> **Theorem 1 (Probability of a positive test)** Let \\\text{sens}\\ be the [sensitivity](#def-sensitivity) of a diagnostic test, \\\text{spec}\\ its [specificity](#def-specificity), and \\\pi\\ the [prevalence](#def-prevalence) of the disease. Then the probability \\\Pr(+)\\ that the test is positive is:
+>
+> \\ \Pr(+) = \text{sens} \cdot\pi + \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{} \tag{17}\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 1](#exr-prob-positive), worked in [Solution 1](#sol-prob-positive).
+
+> **NOTE:**
+>
 > **Exercise 2 (PPV from Bayes’ theorem)** Write the [positive predictive value](#def-ppv) of a diagnostic test in terms of:
 >
 > - its [sensitivity](#def-sensitivity);
@@ -142,49 +152,59 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > *Solution 2*. Abbreviate the sensitivity as \\\text{sens}\\, the specificity as \\\text{spec}\\, and the prevalence as \\\pi\\. By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the probability of a positive test from [Exercise 1](#exr-prob-positive):
 >
-> \\ \begin{aligned} \text{PPV} &\stackrel{\text{def}}{=}\Pr(D \mid +) && \text{(definition of PPV)} \\ &= \frac{\Pr(+ \mid D) \cdot\Pr(D)}{\Pr(+)} && \text{(Bayes' theorem)} \\ &= \frac{\text{sens} \cdot\Pr(D)}{\Pr(+)} && \text{(definition of sensitivity)} \\ &= \frac{\text{sens} \cdot\pi}{\Pr(+)} && \text{(definition of prevalence)} \\ &= \frac{\text{sens} \cdot\pi}{\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}} && \text{(probability of a positive test)} \end{aligned} \tag{17}\\
+> \\ \begin{aligned} \text{PPV} &\stackrel{\text{def}}{=}\Pr(D \mid +) && \text{(definition of PPV)} \\ &= \frac{\Pr(+ \mid D) \cdot\Pr(D)}{\Pr(+)} && \text{(Bayes' theorem)} \\ &= \frac{\text{sens} \cdot\Pr(D)}{\Pr(+)} && \text{(definition of sensitivity)} \\ &= \frac{\text{sens} \cdot\pi}{\Pr(+)} && \text{(definition of prevalence)} \\ &= \frac{\text{sens} \cdot\pi}{\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}} && \text{(probability of a positive test)} \end{aligned} \tag{18}\\
 
 > **NOTE:**
 >
-> **Exercise 3 (PPV in terms of two ratios)** Rewrite the expression for the positive predictive value from [Exercise 2](#exr-ppv-bayes) so that the sensitivity, specificity, and prevalence appear only through the ratio \\\frac{1 - \text{spec}}{\text{sens}}\\ of the false positive rate to the sensitivity and the ratio \\\frac{1 - \pi}{\pi}\\ of non-diseased to diseased people in the population.
+> **Theorem 2 (PPV from Bayes’ theorem)** Let \\\text{sens}\\ be the [sensitivity](#def-sensitivity) of a diagnostic test, \\\text{spec}\\ its [specificity](#def-specificity), and \\\pi\\ the [prevalence](#def-prevalence) of the disease. If the probability of a positive test is positive, \\\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{} \> 0\\, then the [positive predictive value](#def-ppv) of the test is:
+>
+> \\ \text{PPV} = \frac{\text{sens} \cdot\pi} {\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}} \tag{19}\\
 
 > **NOTE:**
 >
-> *Solution 3*. Write \\a \stackrel{\text{def}}{=}\text{sens} \cdot\pi\\ and \\b \stackrel{\text{def}}{=}\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}\\, so that [Exercise 2](#exr-ppv-bayes) reads \\\text{PPV} = \frac{a}{a + b}\\, with \\a \> 0\\ whenever the sensitivity and prevalence are positive. Then:
->
-> \\ \begin{aligned} \text{PPV} &= \frac{a}{a + b} && \text{(PPV from Bayes' theorem)} \\ &= \frac{1}{\mathopen{}\left(\frac{a + b}{a}\right)\mathclose{}} && \text{(a fraction equals one over its reciprocal, since } a \> 0 \text{)} \\ &= \frac{1}{\frac{a}{a} + \frac{b}{a}} && \text{(split the fraction over the sum in its numerator)} \\ &= \frac{1}{1 + \frac{b}{a}} && \text{(} \tfrac{a}{a} = 1 \text{)} \\ &= \frac{1}{1 + \frac{\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}}{\text{sens} \cdot\pi}} && \text{(substitute the definitions of } a \text{ and } b \text{)} \\ &= \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}} && \text{(a quotient of products is the product of the quotients)} \end{aligned} \tag{18}\\
+> *Proof*. This is the solution to [Exercise 2](#exr-ppv-bayes), worked in [Solution 2](#sol-ppv-bayes), which builds on [Theorem 1](#thm-prob-positive).
 
 > **NOTE:**
 >
-> **Theorem 1 (PPV in terms of sensitivity, specificity, and prevalence)** The positive predictive value of a diagnostic test with positive sensitivity, used in a population with positive prevalence, depends on its sensitivity, its specificity, and the prevalence of the disease only through two ratios:
+> **Exercise 3 (PPV in terms of two ratios)** Rewrite the expression for the positive predictive value from [Theorem 2](#thm-ppv-bayes) so that the sensitivity, specificity, and prevalence appear only through the ratio \\\frac{1 - \text{spec}}{\text{sens}}\\ of the false positive rate to the sensitivity and the ratio \\\frac{1 - \pi}{\pi}\\ of non-diseased to diseased people in the population.
+
+> **NOTE:**
+>
+> *Solution 3*. Write \\a \stackrel{\text{def}}{=}\text{sens} \cdot\pi\\ and \\b \stackrel{\text{def}}{=}\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}\\, so that [Theorem 2](#thm-ppv-bayes) reads \\\text{PPV} = \frac{a}{a + b}\\, with \\a \> 0\\ whenever the sensitivity and prevalence are positive. Then:
+>
+> \\ \begin{aligned} \text{PPV} &= \frac{a}{a + b} && \text{(PPV from Bayes' theorem)} \\ &= \frac{1}{\mathopen{}\left(\frac{a + b}{a}\right)\mathclose{}} && \text{(a fraction equals one over its reciprocal, since } a \> 0 \text{)} \\ &= \frac{1}{\frac{a}{a} + \frac{b}{a}} && \text{(split the fraction over the sum in its numerator)} \\ &= \frac{1}{1 + \frac{b}{a}} && \text{(} \tfrac{a}{a} = 1 \text{)} \\ &= \frac{1}{1 + \frac{\mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}}{\text{sens} \cdot\pi}} && \text{(substitute the definitions of } a \text{ and } b \text{)} \\ &= \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}} && \text{(a quotient of products is the product of the quotients)} \end{aligned} \tag{20}\\
+
+> **NOTE:**
+>
+> **Theorem 3 (PPV in terms of sensitivity, specificity, and prevalence)** The positive predictive value of a diagnostic test with positive sensitivity, used in a population with positive prevalence, depends on its sensitivity, its specificity, and the prevalence of the disease only through two ratios:
 >
 > - the ratio of the false positive rate to the sensitivity;
 > - the ratio of non-diseased to diseased people in the population.
 >
 > Specifically:
 >
-> \\ \text{PPV} = \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}} \tag{19}\\
+> \\ \text{PPV} = \frac{1}{1 + \frac{1 - \text{spec}}{\text{sens}} \cdot\frac{1 - \pi}{\pi}} \tag{21}\\
 
 > **NOTE:**
 >
-> *Proof*. This result is the solution to [Exercise 3](#exr-ppv-ratio-form), which builds on [Exercise 2](#exr-ppv-bayes) and [Exercise 1](#exr-prob-positive).
+> *Proof*. This result is the solution to [Exercise 3](#exr-ppv-ratio-form), worked in [Solution 3](#sol-ppv-ratio-form), which builds on [Theorem 2](#thm-ppv-bayes) and [Theorem 1](#thm-prob-positive).
 
 > **NOTE:**
 >
-> **Example 7 (PPV of a COVID-19 test, from the two ratios)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the population of [Example 4](#exm-prevalence), [Theorem 1](#thm-ppv-sens-spec-prev) gives:
+> **Example 7 (PPV of a COVID-19 test, from the two ratios)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the population of [Example 4](#exm-prevalence), [Theorem 3](#thm-ppv-sens-spec-prev) gives:
 >
-> \\ \begin{aligned} \text{PPV} &= \frac{1}{1 + \frac{1 - 0.99}{0.99} \cdot\frac{1 - 0.07}{0.07}} && \text{(PPV in terms of the two ratios, with the given values)} \\ &= \frac{1}{1 + \frac{0.01}{0.99} \cdot\frac{0.93}{0.07}} && \text{(subtract in each numerator)} \\ &\approx \frac{1}{1 + 0.0101 \cdot\frac{0.93}{0.07}} && \text{(divide \$0.01 / 0.99\$)} \\ &\approx \frac{1}{1 + 0.0101 \cdot 13.29} && \text{(divide \$0.93 / 0.07\$)} \\ &\approx \frac{1}{1 + 0.134} && \text{(multiply)} \\ &= \frac{1}{1.134} && \text{(add)} \\ &\approx 0.88 && \text{(divide)} \end{aligned} \tag{20}\\
+> \\ \begin{aligned} \text{PPV} &= \frac{1}{1 + \frac{1 - 0.99}{0.99} \cdot\frac{1 - 0.07}{0.07}} && \text{(PPV in terms of the two ratios, with the given values)} \\ &= \frac{1}{1 + \frac{0.01}{0.99} \cdot\frac{0.93}{0.07}} && \text{(subtract in each numerator)} \\ &\approx \frac{1}{1 + 0.0101 \cdot\frac{0.93}{0.07}} && \text{(divide \$0.01 / 0.99\$)} \\ &\approx \frac{1}{1 + 0.0101 \cdot 13.29} && \text{(divide \$0.93 / 0.07\$)} \\ &\approx \frac{1}{1 + 0.134} && \text{(multiply)} \\ &= \frac{1}{1.134} && \text{(add)} \\ &\approx 0.88 && \text{(divide)} \end{aligned} \tag{22}\\
 >
 > This value matches [Example 5](#exm-ppv).
 >
 > If the same test were used in a population with prevalence 0.1% instead, and its sensitivity and specificity were still 99% in that population, the ratio of non-diseased to diseased people would be \\0.999 / 0.001 = 999\\, and the PPV would fall to
 >
-> \\ \begin{aligned} \text{PPV} &= \frac{1}{1 + \frac{0.01}{0.99} \cdot 999} && \text{(PPV in terms of the two ratios, with the new prevalence)} \\ &\approx \frac{1}{1 + 0.0101 \cdot 999} && \text{(divide)} \\ &\approx \frac{1}{1 + 10.09} && \text{(multiply)} \\ &= \frac{1}{11.09} && \text{(add)} \\ &\approx 0.09 && \text{(divide)} \end{aligned} \tag{21}\\
+> \\ \begin{aligned} \text{PPV} &= \frac{1}{1 + \frac{0.01}{0.99} \cdot 999} && \text{(PPV in terms of the two ratios, with the new prevalence)} \\ &\approx \frac{1}{1 + 0.0101 \cdot 999} && \text{(divide)} \\ &\approx \frac{1}{1 + 10.09} && \text{(multiply)} \\ &= \frac{1}{11.09} && \text{(add)} \\ &\approx 0.09 && \text{(divide)} \end{aligned} \tag{23}\\
 >
 > so about 9 in 10 positive results would be false positives.
 
 > **NOTE:**
 >
-> *Remark 2* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio \\\frac{1 - \pi}{\pi}\\ in [Theorem 1](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 7](#exm-ppv-sens-spec-prev) shows.
+> *Remark 2* (The PPV depends on the population, not only on the test). The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio \\\frac{1 - \pi}{\pi}\\ in [Theorem 3](#thm-ppv-sens-spec-prev) describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as [Example 7](#exm-ppv-sens-spec-prev) shows.
 
 Back to top

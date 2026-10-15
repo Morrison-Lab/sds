@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 02:39:57 (PDT)
+Last modified: 2026-10-15 05:45:18 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -161,17 +161,41 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
+> **Lemma 1 (At most \\k\\ values have \\k\\ or fewer values at least as large)** Let \\t_1, \ldots, t_N\\ be real numbers, and for each \\j\\ let \\N_j\\ be the number of indices \\i\\ with \\t_i \ge t_j\\ (including \\i = j\\). Then for every integer \\k \ge 0\\, at most \\k\\ of the \\N_j\\ are at most \\k\\:
+>
+> \\\sum\_{j=1}^N \mathbb{1}\_{N_j \le k} \le k,\\
+>
+> where \\\mathbb{1}\_{A}\\ is \\1\\ if \\A\\ is true and \\0\\ otherwise.
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 1](#exr-top-k-count), worked in [Solution 1](#sol-top-k-count).
+
+> **NOTE:**
+>
 > **Exercise 2 (Relabeling the data permutes the relabelings)** For a permutation \\\sigma\\ define \\N\_\sigma(y)\\, the number of relabelings at least as extreme as \\y\_\sigma\\:
 >
 > \\N\_\sigma(y) \stackrel{\text{def}}{=}\sum\_{\pi \in S_n} \mathbb{1}\_{T(y\_\pi) \ge T(y\_\sigma)}.\\
 >
-> Write \\\iota\\ for the identity permutation, so \\N\_\iota(y)\\ is \\n!\\ times the permutation p-value of [Definition 3](#def-permutation-p-value). Show that \\N\_\sigma(y) = N\_\iota(y\_\sigma)\\.
+> Write \\\iota\\ for the identity permutation, so \\N\_\iota(y)\\ is \\n!\\ times the permutation p-value of [Definition 3](#def-permutation-p-value). Express \\N\_\sigma(y)\\ in terms of \\N\_\iota\\.
 
 > **NOTE:**
 >
 > *Solution 2*. The entries of \\(y\_\sigma)\_{\pi'}\\ are \\y\_{\sigma(\pi'(i))}\\, so \\(y\_\sigma)\_{\pi'} = y\_{\sigma \circ \pi'}\\.
 >
 > \\ \begin{aligned} N\_\iota(y\_\sigma) &= \sum\_{\pi' \in S_n} \mathbb{1}\_{T\mathopen{}\left((y\_\sigma)\_{\pi'}\right)\mathclose{} \ge T(y\_\sigma)} && \text{(definition, with \$y\_\sigma\$ in place of \$y\$)}\\ &= \sum\_{\pi' \in S_n} \mathbb{1}\_{T\mathopen{}\left(y\_{\sigma \circ \pi'}\right)\mathclose{} \ge T(y\_\sigma)} && \text{(\$(y\_\sigma)\_{\pi'} = y\_{\sigma \circ \pi'}\$)}\\ &= \sum\_{\pi \in S_n} \mathbb{1}\_{T(y\_\pi) \ge T(y\_\sigma)} && \text{(\$\pi = \sigma \circ \pi'\$ is a bijection of \$S_n\$)}\\ &= N\_\sigma(y) && \text{(definition)} \end{aligned} \\
+>
+> So \\N\_\sigma(y) = N\_\iota(y\_\sigma)\\.
+
+> **NOTE:**
+>
+> **Lemma 2 (Relabeling the data permutes the relabelings)** Let \\T\\ be a statistic, let \\y = (y_1, \ldots, y_n)\\ be data, let \\S_n\\ be the set of permutations of \\\\1, \ldots, n\\\\, and let \\y\_\sigma\\ be \\y\\ with its entries relabeled by \\\sigma \in S_n\\. For \\\sigma \in S_n\\ let \\N\_\sigma(y) \stackrel{\text{def}}{=}\sum\_{\pi \in S_n} \mathbb{1}\_{T(y\_\pi) \ge T(y\_\sigma)}\\ be the number of relabelings at least as extreme as \\y\_\sigma\\, and write \\\iota\\ for the identity permutation, so that \\N\_\iota(y)\\ is \\n!\\ times the [permutation p-value](#def-permutation-p-value) of \\T(y)\\. Then relabeling the data by \\\sigma\\ turns \\N\_\iota\\ into \\N\_\sigma\\:
+>
+> \\N\_\sigma(y) = N\_\iota(y\_\sigma).\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 2](#exr-relabeling-count), worked in [Solution 2](#sol-relabeling-count).
 
 > **NOTE:**
 >
@@ -185,7 +209,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\ \begin{aligned} \Pr\_{H_0}\mathopen{}\left(p\_{\text{perm}} \le \frac{k}{n!}\right)\mathclose{} &= \Pr\_{H_0}\mathopen{}\left(N\_\iota(Y) \le k\right)\mathclose{} && \text{(multiply the inequality by \$n!\$)}\\ &= \Pr\_{H_0}\mathopen{}\left(N\_\iota(Y\_\sigma) \le k\right)\mathclose{} && \text{(for each \$\sigma\$, \$Y\_\sigma\$ has the distribution of \$Y\$, by exchangeability)}\\ &= \Pr\_{H_0}\mathopen{}\left(N\_\sigma(Y) \le k\right)\mathclose{} && \text{(relabeling identity)}\\ &= \operatorname{E}\mathopen{}\left\[\mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{} && \text{(probability of an event is the expected value of its indicator)}\\ &= \frac{1}{n!} \sum\_{\sigma \in S_n} \operatorname{E}\mathopen{}\left\[\mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{} && \text{(the average of \$n!\$ equal terms)}\\ &= \frac{1}{n!} \operatorname{E}\mathopen{}\left\[\sum\_{\sigma \in S_n} \mathbb{1}\_{N\_\sigma(Y) \le k}\right\]\mathclose{} && \text{(expectation of a sum is the sum of expectations)}\\ &\le \frac{1}{n!} \operatorname{E}\mathopen{}\left\[k\right\]\mathclose{} && \text{(counting bound, with \$N = n!\$ and \$t\_\sigma = T(Y\_\sigma)\$)}\\ &= \frac{k}{n!} && \text{(the expected value of a constant is the constant)} \end{aligned} \\
 >
-> The justifications of the third and the seventh line are [Solution 2](#sol-relabeling-count) and [Solution 1](#sol-top-k-count).
+> The justifications of the third and the seventh line are [Lemma 2](#lem-relabeling-count) and [Lemma 1](#lem-top-k-count).
 
 > **NOTE:**
 >
