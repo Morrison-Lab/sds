@@ -284,6 +284,8 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd >}}
 
+{{< include sds/_subfiles/_textbook-refs.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

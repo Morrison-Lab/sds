@@ -81,3 +81,5 @@ resources:
 - @good2005permutation is a book-length treatment of permutation tests.
 - @phipson2010permutation explains why Monte Carlo permutation p-values need the added 1.
 - Chapter 13 of @james2021islr2e applies permutation and other resampling methods to multiple testing.
+
+{{< include sds/_subfiles/_textbook-refs.qmd >}}

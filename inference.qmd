@@ -148,6 +148,8 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< include sds/_subfiles/inference/_prose-negative-findings.qmd >}}
 
+{{< include sds/_subfiles/_textbook-refs.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

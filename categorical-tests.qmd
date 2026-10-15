@@ -68,6 +68,8 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-2x2-measures.qmd >}}
 
+{{< include sds/_subfiles/_textbook-refs.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

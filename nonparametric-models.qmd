@@ -63,3 +63,5 @@ format:
 {{< include sds/_subfiles/nonparametric-models/_fig-ecdf-sample-quantile.qmd >}}
 
 {{< include sds/_subfiles/nonparametric-models/_note-generalized-inverse.qmd >}}
+
+{{< include sds/_subfiles/_textbook-refs.qmd >}}

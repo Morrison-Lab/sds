@@ -152,6 +152,8 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 
 {{< include sds/_subfiles/basic-statistical-methods/_note-anova-regression.qmd >}}
 
+{{< include sds/_subfiles/_textbook-refs.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

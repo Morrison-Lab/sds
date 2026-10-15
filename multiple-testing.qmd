@@ -181,3 +181,5 @@ resources:
 - Andrew Lin's [notes on Stanford STATS 300C](https://web.stanford.edu/~lindrew/stats300C.pdf) (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.
 - The [permutation tests](permutation-tests.qmd) page computes valid p-values by relabeling the data,
   without a distributional model for the test statistic.
+
+{{< include sds/_subfiles/_textbook-refs.qmd >}}

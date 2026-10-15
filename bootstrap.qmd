@@ -120,6 +120,8 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-bootstrap.qmd >}}
 
+{{< include sds/_subfiles/_textbook-refs.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

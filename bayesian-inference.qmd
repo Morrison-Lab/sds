@@ -334,6 +334,8 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< include sds/_subfiles/bayesian-inference/_prose-resources.qmd >}}
 
+{{< include sds/_subfiles/_textbook-refs.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

@@ -80,6 +80,8 @@ and how small can the variance of an unbiased estimator be?
 
 {{< include sds/_subfiles/estimator-properties/_rem-cramer-rao-scope.qmd >}}
 
+{{< include sds/_subfiles/_textbook-refs.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}

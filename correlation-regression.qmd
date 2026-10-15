@@ -280,6 +280,8 @@ The login for the video site is posted
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-slr-further-reading.qmd >}}
 
+{{< include sds/_subfiles/_textbook-refs.qmd >}}
+
 ## References {.unnumbered}
 
 ::: {#refs}
