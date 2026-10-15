@@ -67,11 +67,12 @@ function Div(div)
   for _, class in ipairs(div.classes) do
     local pre = prefix[class]
     if pre then
+      -- `collapse="none"` skips only the folding; the box is still anchored.
       if div.attributes.collapse == 'none' then
         div.attributes.collapse = nil
-        return div
+      else
+        div.attributes.collapse = 'false'
       end
-      div.attributes.collapse = 'false'
       local id = div.identifier
       div.identifier = ''
       if id == '' then
