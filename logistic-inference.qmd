@@ -1,0 +1,90 @@
+---
+title: "Inference for Logistic Regression"
+format:
+  html: default
+  revealjs:
+    output-file: logistic-inference-slides.html
+  pdf:
+    output-file: logistic-inference-handout.pdf
+  docx:
+    output-file: logistic-inference-handout.docx
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+## Introduction
+
+{{< include sds/_subfiles/logistic-inference/_prose-intro.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_def-logistic-regression.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-logistic-regression.qmd >}}
+
+## Deviance
+
+<!-- No slidebreak here: the heading shares its slide with the def-deviance div. -->
+
+{{< include sds/_subfiles/logistic-inference/_def-deviance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-deviance.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-deviance-shortfall.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_def-null-deviance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-null-deviance.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-null-deviance-fit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_thm-deviance-drop.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-deviance-drop.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_cor-deviance-drop-distribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-deviance-drop-distribution.qmd >}}
+
+## Confidence intervals for the coefficients
+
+<!-- No slidebreak here: the heading shares its slide with the theorem. -->
+
+{{< include sds/_subfiles/logistic-inference/_thm-logistic-mle-distribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_cor-logistic-wald.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-logistic-wald.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_cor-logistic-odds-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-logistic-odds-interval.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

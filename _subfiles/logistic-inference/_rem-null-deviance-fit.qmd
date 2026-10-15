@@ -1,0 +1,8 @@
+::: {#rem-null-deviance-fit}
+
+#### Where the null deviance formula comes from
+
+The intercept-only model gives every observation the same fitted probability, and the maximizing value is the overall fraction $\bar\outvar$ of labels equal to $1$.
+Substituting $\bar\outvar$ for each $\hat\prob_i$ in @eq-deviance gives @eq-null-deviance.
+
+:::
