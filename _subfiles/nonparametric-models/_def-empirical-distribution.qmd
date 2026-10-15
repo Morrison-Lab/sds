@@ -1,0 +1,33 @@
+:::{#def-empirical-distribution}
+#### Empirical distribution
+
+For observed values $\dsn{x}$,
+the **empirical distribution** is the distribution of a value
+[chosen at random](https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice)
+from the sample, each of the $n$ observations being equally likely:
+the probability that the value falls in a set $A$ is
+
+$$\frac{1}{n}\sumjn \indicp{x_j \in A}.$$
+
+:::
+
+::: {.remark .notes}
+
+#### What "empirical" means
+
+"Empirical" means computed from the observed data,
+not from a model or a population.
+An empirical quantity is the matching population quantity
+with the [population distribution](exploratory-descriptive.qmd#def-population-distribution)
+replaced by the empirical distribution.
+For example, the mean of the empirical distribution is the
+[sample mean](exploratory-descriptive.qmd#def-sample-mean),
+and its CDF is the [empirical CDF](#def-empirical-cdf).
+Machine learning uses the same replacement
+to turn the risk of a prediction model into its *empirical risk*.
+
+Because it needs only the data in hand, an empirical quantity can always be computed,
+and it serves as an estimate of the population quantity it mimics.
+@efron1993introduction build the bootstrap on this replacement.
+
+:::

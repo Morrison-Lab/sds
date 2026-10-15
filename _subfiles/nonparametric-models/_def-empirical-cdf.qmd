@@ -3,9 +3,11 @@
 
 For observed values $\dsn{x}$,
 the **empirical cumulative distribution function** (**empirical CDF**)
-is the function
+is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf)
+of the [empirical distribution](#def-empirical-distribution),
+the function
 
-$$\hat F(t) \eqdef \frac{1}{n}\sumjn I(x_j \le t), \quad t \in \reals,$$
+$$\ecdff{t} \eqdef \frac{1}{n}\sumjn I(x_j \le t), \quad t \in \reals,$$
 
 where $I(A)$ is the indicator function:
 $I(A) = 1$ if $A$ holds,
