@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:38:05 (PDT)
+Last modified: 2026-10-15 02:42:00 (PDT)
 
 ## 1 Introduction
 
@@ -89,40 +89,42 @@ That page also defines the graphs used here, including [box plots](exploratory-d
 >
 > **Example 1 (HERS baseline characteristics by treatment group)** [Table 1](#tbl-hers-summary) summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by mean (standard deviation), and categorical variables by count (percent).
 >
-> Show R code
->
-> ``` downlit
-> hers |>
->   dplyr::select(
->     age, BMI, glucose, SBP, DBP,
->     HT, raceth, exercise, smoking, diabetes
->   ) |>
->   gtsummary::tbl_summary(
->     by = HT,
->     statistic = list(
->       gtsummary::all_continuous() ~ "{mean} ({sd})",
->       gtsummary::all_categorical() ~ "{n} ({p}%)"
->     ),
->     digits = gtsummary::all_continuous() ~ 1,
->     label = list(
->       age ~ "Age (years)",
->       BMI ~ "BMI (kg/m^2)",
->       glucose ~ "Fasting glucose (mg/dL)",
->       SBP ~ "Systolic BP (mmHg)",
->       DBP ~ "Diastolic BP (mmHg)",
->       raceth ~ "Race/ethnicity",
->       exercise ~ "Exercises regularly",
->       smoking ~ "Current smoker",
->       diabetes ~ "Diabetes"
->     )
->   ) |>
->   gtsummary::add_overall() |>
->   gtsummary::bold_labels()
-> ```
->
-> [TABLE]
->
-> Table 1: HERS: baseline characteristics by treatment group
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > hers |>
+> >   dplyr::select(
+> >     age, BMI, glucose, SBP, DBP,
+> >     HT, raceth, exercise, smoking, diabetes
+> >   ) |>
+> >   gtsummary::tbl_summary(
+> >     by = HT,
+> >     statistic = list(
+> >       gtsummary::all_continuous() ~ "{mean} ({sd})",
+> >       gtsummary::all_categorical() ~ "{n} ({p}%)"
+> >     ),
+> >     digits = gtsummary::all_continuous() ~ 1,
+> >     label = list(
+> >       age ~ "Age (years)",
+> >       BMI ~ "BMI (kg/m^2)",
+> >       glucose ~ "Fasting glucose (mg/dL)",
+> >       SBP ~ "Systolic BP (mmHg)",
+> >       DBP ~ "Diastolic BP (mmHg)",
+> >       raceth ~ "Race/ethnicity",
+> >       exercise ~ "Exercises regularly",
+> >       smoking ~ "Current smoker",
+> >       diabetes ~ "Diabetes"
+> >     )
+> >   ) |>
+> >   gtsummary::add_overall() |>
+> >   gtsummary::bold_labels()
+> > ```
+> >
+> > [TABLE]
+> >
+> > Table 1: HERS: baseline characteristics by treatment group
 >
 > Because treatment was assigned at random, the two groups differ at baseline only by chance, and their summaries are close.
 
@@ -224,22 +226,24 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Example 3 (Baseline fasting glucose by treatment group in HERS)** We test \\H_0: \mu\_\text{HT} = \mu\_\text{placebo}\\ against \\H_1: \mu\_\text{HT} \neq \mu\_\text{placebo}\\, where \\\mu\_\text{HT}\\ and \\\mu\_\text{placebo}\\ are the mean baseline fasting glucose levels in the hormone therapy and placebo populations. [Figure 1](#fig-hers-boxplot) compares the two groups’ distributions.
 >
-> Show R code
->
-> ``` downlit
-> hers |>
->   ggplot2::ggplot() +
->   ggplot2::aes(x = HT, y = glucose) +
->   ggplot2::geom_boxplot() +
->   ggplot2::labs(
->     x = "Treatment group",
->     y = "Fasting glucose (mg/dL)"
->   )
-> ```
->
-> [![](basic-statistical-methods_files/figure-html/unnamed-chunk-4-1.png)](basic-statistical-methods_files/figure-html/unnamed-chunk-4-1.png "Figure 1: Baseline fasting glucose by treatment group in HERS")
->
-> Figure 1: Baseline fasting glucose by treatment group in HERS
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > hers |>
+> >   ggplot2::ggplot() +
+> >   ggplot2::aes(x = HT, y = glucose) +
+> >   ggplot2::geom_boxplot() +
+> >   ggplot2::labs(
+> >     x = "Treatment group",
+> >     y = "Fasting glucose (mg/dL)"
+> >   )
+> > ```
+> >
+> > [![](basic-statistical-methods_files/figure-html/unnamed-chunk-4-1.png)](basic-statistical-methods_files/figure-html/unnamed-chunk-4-1.png "Figure 1: Baseline fasting glucose by treatment group in HERS")
+> >
+> > Figure 1: Baseline fasting glucose by treatment group in HERS
 >
 > The statistic and degrees of freedom of [Definition 3](#def-two-sample-t-test):
 >
