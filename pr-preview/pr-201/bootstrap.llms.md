@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:49 (PDT)
+Last modified: 2026-10-15 03:04:40 (PDT)
 
 This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
@@ -91,20 +91,22 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > The bootstrap standard error ([Definition 3](#def-bootstrap-se)) is close to the usual estimate \\s / \sqrt{n}\\. Each bootstrap draw has variance \\\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(x_i - \bar{x})^2\\ around \\\bar{x}\\, and the \\n\\ draws are independent, so as \\B\\ grows the bootstrap standard error of the mean approaches \\\hat{\sigma}/ \sqrt{n}\\ (`divide_by_n_se`), which is smaller than \\s / \sqrt{n}\\ by the factor \\\sqrt{(n-1)/n}\\. [Figure 1](#fig-boot-dist-toy) shows the bootstrap distribution.
 >
-> Show R code
->
-> ``` downlit
-> tibble::tibble(mean = boot_means10) |>
->   ggplot2::ggplot() +
->   ggplot2::aes(x = mean) +
->   ggplot2::geom_histogram(bins = 30, color = "white") +
->   ggplot2::geom_vline(xintercept = mean(glucose10), color = "red") +
->   ggplot2::labs(x = "Bootstrap mean (mg/dL)", y = "Count")
-> ```
->
-> [![](bootstrap_files/figure-html/unnamed-chunk-3-1.png)](bootstrap_files/figure-html/unnamed-chunk-3-1.png "Figure 1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (B = 1{,}000). The red line marks the observed mean.")
->
-> Figure 1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (\\B = 1{,}000\\). The red line marks the observed mean.
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > tibble::tibble(mean = boot_means10) |>
+> >   ggplot2::ggplot() +
+> >   ggplot2::aes(x = mean) +
+> >   ggplot2::geom_histogram(bins = 30, color = "white") +
+> >   ggplot2::geom_vline(xintercept = mean(glucose10), color = "red") +
+> >   ggplot2::labs(x = "Bootstrap mean (mg/dL)", y = "Count")
+> > ```
+> >
+> > [![](bootstrap_files/figure-html/unnamed-chunk-3-1.png)](bootstrap_files/figure-html/unnamed-chunk-3-1.png "Figure 1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (B = 1{,}000). The red line marks the observed mean.")
+> >
+> > Figure 1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (\\B = 1{,}000\\). The red line marks the observed mean.
 
 ### 2.3 Bootstrap confidence interval methods
 
