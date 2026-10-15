@@ -1,0 +1,12 @@
+:::{#def-rao-blackwellized}
+#### Rao--Blackwellized estimator
+
+Let $\hparam$ be an [estimator](estimation.qmd#def-estimator) of $\param$,
+and let $\statf{\vX}$ be a [sufficient](#def-sufficient) statistic for $\param$.
+The **Rao--Blackwellized estimator** is the conditional expectation of $\hparam$ given the statistic:
+
+$$
+\hparam_{\mathrm{RB}} \eqdef \condE{\hparam}{\statf{\vX}}
+$$ {#eq-rao-blackwellized}
+
+:::

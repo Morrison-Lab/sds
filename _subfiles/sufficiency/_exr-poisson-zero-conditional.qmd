@@ -1,0 +1,37 @@
+:::{#exr-poisson-zero-conditional}
+#### Conditional probability of a zero given the Poisson sum
+
+Let $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin X_i$.
+Find $\Pr\paren{X_1 = 0 \given S = t}$ for each $t = 0, 1, 2, \ldots$.
+You may use that $S \sim \Pois(n\rate)$, by
+[the sum of independent Poisson variables](https://morrison-lab.github.io/pds/distributions.html#thm-sum-pois) and induction on $n$.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-poisson-zero-conditional}
+
+The event $X_1 = 0$ and $S = t$ happens exactly when $X_1 = 0$ and $X_2 + \cdots + X_n = t$,
+and $X_2 + \cdots + X_n \sim \Pois\paren{(n-1)\rate}$ is independent of $X_1$.
+
+$$
+\begin{aligned}
+\Pr\paren{X_1 = 0 \given S = t}
+&= \frac{\Pr\paren{X_1 = 0,\ S = t}}{\Pr\paren{S = t}}
+&& \text{(conditional probability)}\\
+&= \frac{\Pr\paren{X_1 = 0,\ X_2 + \cdots + X_n = t}}{\Pr\paren{S = t}}
+&& \text{(on $X_1 = 0$, $S$ is that sum)}\\
+&= \frac{\Pr\paren{X_1 = 0} \Pr\paren{X_2 + \cdots + X_n = t}}{\Pr\paren{S = t}}
+&& \text{(independence)}\\
+&= \frac{e^{-\rate} \cdot e^{-(n-1)\rate} \paren{(n-1)\rate}^t / t!}{e^{-n\rate} \paren{n\rate}^t / t!}
+&& \text{(Poisson mass functions)}\\
+&= \frac{e^{-n\rate} \paren{(n-1)\rate}^t / t!}{e^{-n\rate} \paren{n\rate}^t / t!}
+&& \text{($e^{-\rate} e^{-(n-1)\rate} = e^{-n\rate}$)}\\
+&= \frac{\paren{(n-1)\rate}^t}{\paren{n\rate}^t}
+&& \text{(cancel $e^{-n\rate} / t!$)}\\
+&= \paren{\frac{n-1}{n}}^t
+&& \text{(cancel $\rate^t$, combine powers)}
+\end{aligned}
+$$
+
+:::

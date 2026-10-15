@@ -1,0 +1,23 @@
+:::{#thm-rb-unbiased}
+#### Rao--Blackwellizing preserves unbiasedness
+
+If $\hparam$ is an [unbiased](estimation.qmd#def-unbiased) estimator of $\param$
+and $\statf{\vX}$ is a [sufficient](#def-sufficient) statistic for $\param$,
+then $\condE{\hparam}{\statf{\vX}}$ is also unbiased for $\param$.
+:::
+
+::: proof
+
+We use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie):
+
+$$
+\begin{aligned}
+\E{\condE{\hparam}{\statf{\vX}}}
+&= \E{\hparam}
+&& \text{(law of iterated expectations)}\\
+&= \param
+&& \text{($\hparam$ is unbiased)}
+\end{aligned}
+$$
+
+:::

@@ -40,6 +40,8 @@ Inference:
   with worked examples;
 - [Properties of estimators](estimator-properties.qmd):
   consistency, relative efficiency, and the Cramér--Rao lower bound.
+- [Sufficiency and the Rao--Blackwell theorem](sufficiency.qmd):
+  sufficient statistics, the factorization theorem, and improving an unbiased estimator.
 
 Methods:
 

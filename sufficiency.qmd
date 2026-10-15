@@ -1,0 +1,82 @@
+---
+title: "Sufficiency and the Rao--Blackwell Theorem"
+format:
+  html: default
+  revealjs:
+    output-file: sufficiency-slides.html
+  pdf:
+    output-file: sufficiency-handout.pdf
+  docx:
+    output-file: sufficiency-handout.docx
+resources:
+  - data/birthwt.csv
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+A [statistic](#def-statistic) summarizes a sample,
+and some summaries lose nothing that matters for a parameter.
+This page defines such summaries, called sufficient statistics,
+and shows how to use one to improve an estimator
+without making it more biased.
+
+## Sufficient statistics {#sec-sufficiency}
+
+{{< include sds/_subfiles/sufficiency/_def-statistic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_rem-statistic-estimator.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_def-sufficient.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_rem-sufficient-meaning.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_thm-factorization.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_exm-poisson-sufficient.qmd >}}
+
+## The Rao--Blackwell theorem {#sec-rao-blackwell}
+
+{{< include sds/_subfiles/sufficiency/_def-rao-blackwellized.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_lem-rb-statistic.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_thm-rb-unbiased.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_thm-rao-blackwell.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_exr-poisson-zero-conditional.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_lem-poisson-zero-rb.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_exm-rao-blackwell-poisson.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/sufficiency/_rem-rb-insufficient.qmd >}}
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
