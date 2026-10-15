@@ -27,7 +27,8 @@ jobs:
       # Holm (1979), a JSTOR-only article with no DOI,
       # Phipson and Smyth (2010) and Cramer (1946), whose valid DOIs answer
       # the checker with HTTP 202 (De Gruyter's bot filter) on every run,
-      # and Rao (1945), a bulletin article with no DOI.
+      # Rao (1945), a bulletin article with no DOI,
+      # and Rice (2007), a Cengage textbook with no DOI.
       # Move a key out of this list when a DOI is found and verified
       # against CrossRef.
       exclude-keys: >-
@@ -36,3 +37,4 @@ jobs:
         kery-bayes-pop kleinbaum2014applied korner.bayes.ecology rossbayes
         statrethink2e van2018flexible geron2017hands holm1979simple
         phipson2010permutation rao1945information cramer1946mathematical
+        rice2007mathematical
