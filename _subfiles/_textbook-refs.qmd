@@ -6,7 +6,7 @@
 # data/textbook-refs.csv (one row per page, book and section).
 # `book` is a key in references.bib; the section and page range are
 # the textbook's own, from its table of contents.
-textbook_refs <- read.csv("data/textbook-refs.csv", stringsAsFactors = FALSE)
+textbook_refs <- read.csv("data/textbook-refs.csv", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 # Quarto hands knitr an intermediate file such as "estimation.rmarkdown".
 this_page <- sub("\\..*$", "", basename(knitr::current_input()))
 page_refs <- textbook_refs[textbook_refs$page == this_page, ]
