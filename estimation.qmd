@@ -94,6 +94,12 @@ format:
 
 {{< include sds/_subfiles/estimation/_prose-contrast.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.4, pp. 264--276] covers maximum likelihood and method of moments estimation.
+- @CaseBerg01 [Sec. 7.2, pp. 312--329] covers methods of finding estimators.
+- @rice2007mathematical [Secs. 8.3--8.4, pp. 257--266] covers parameter estimation and the method of moments.
+:::
+
 ## Accuracy of estimators {#sec-est-accuracy}
 
 ### Accuracy
@@ -197,6 +203,10 @@ format:
 
 {{< include sds/_subfiles/estimation/_rem-rmse-units.qmd >}}
 
+::: {.reading}
+@CaseBerg01 [Sec. 7.3.1, pp. 330--333] covers mean squared error.
+:::
+
 {{< slidebreak >}}
 
 ### Unbiased estimators {#sec-unbiased-estimators}
@@ -283,8 +293,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/estimation/_cor-se-rmse-unbiased.qmd >}}
-
-{{< include sds/_subfiles/_textbook-refs.qmd >}}
 
 ## References {.unnumbered}
 

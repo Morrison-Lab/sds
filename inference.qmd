@@ -81,6 +81,13 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 :::
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 8.1, pp. 361--368] covers tests about one mean.
+- @hoggtanis2015 [Sec. 8.6, pp. 403--409] covers power of a statistical test.
+- @CaseBerg01 [Sec. 8.3, pp. 382--401] covers methods of evaluating tests.
+- @rice2007mathematical [Sec. 9.2, pp. 331--336] covers the Neyman--Pearson paradigm.
+:::
+
 ## Reference distributions {#sec-reference-distributions}
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-reference-distributions.qmd >}}
@@ -140,6 +147,12 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 :::
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 7.1, pp. 307--313] covers confidence intervals for means.
+- @CaseBerg01 [Sec. 9.2, pp. 420--439] covers methods of finding interval estimators.
+- @rice2007mathematical [Sec. 9.3, pp. 337--338] covers duality of confidence intervals and hypothesis tests.
+:::
+
 ## Further reading on confidence intervals
 
 {{< include sds/_subfiles/inference/_prose-CI-resources.qmd >}}
@@ -147,8 +160,6 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 ## Interpretation of negative findings
 
 {{< include sds/_subfiles/inference/_prose-negative-findings.qmd >}}
-
-{{< include sds/_subfiles/_textbook-refs.qmd >}}
 
 ## References {.unnumbered}
 

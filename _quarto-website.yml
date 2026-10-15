@@ -227,6 +227,10 @@ custom-callout:
     title: "Watch"  # each callout sits beside the content it supports
     icon-symbol: "fa-circle-play"
     color: "#283593"  # indigo
+  reading:
+    title: "Read"  # each callout sits beside the content it supports
+    icon-symbol: "fa-book-open"
+    color: "#00695C"  # dark teal
   fig:
     color: "#757575"  # neutral grey: a figure or table is not a result
   tbl:

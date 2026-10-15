@@ -56,6 +56,12 @@ resources:
 
 {{< include sds/_subfiles/permutation-tests/_thm-permutation-p-valid.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 8.5, pp. 392--402] covers some distribution-free tests.
+- @rice2007mathematical [Sec. 11.2.3, pp. 435--442] covers the Mann--Whitney test.
+- @rice2007mathematical [Sec. 11.4.6, p. 456] covers randomization.
+:::
+
 {{< slidebreak >}}
 
 ## The Monte Carlo approximation {#sec-monte-carlo-permutation}
@@ -67,6 +73,10 @@ resources:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/permutation-tests/_thm-monte-carlo-p-valid.qmd >}}
+
+::: {.reading}
+@hoggtanis2015 [Sec. 7.7, pp. 353--360] covers resampling methods.
+:::
 
 {{< slidebreak >}}
 
@@ -81,8 +91,6 @@ resources:
 - @good2005permutation is a book-length treatment of permutation tests.
 - @phipson2010permutation explains why Monte Carlo permutation p-values need the added 1.
 - Chapter 13 of @james2021islr2e applies permutation and other resampling methods to multiple testing.
-
-{{< include sds/_subfiles/_textbook-refs.qmd >}}
 
 ## References {.unnumbered}
 

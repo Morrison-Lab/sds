@@ -38,6 +38,11 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-cor.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 9.6, pp. 471--476] covers tests concerning regression and correlation.
+- @rice2007mathematical [Sec. 14.2.3, pp. 560--563] covers correlation and regression.
+:::
+
 {{< slidebreak >}}
 
 ### Spearman rank correlation {#sec-spearman}
@@ -234,6 +239,12 @@ The login for the video site is posted
 [on Canvas](https://wwu.instructure.com/courses/1906010/modules#module_3922392).
 :::
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.5, pp. 277--284] covers a simple regression problem.
+- @CaseBerg01 [Sec. 11.3, pp. 539--562] covers simple linear regression.
+- @rice2007mathematical [Sec. 14.2.1, pp. 547--549] covers slope and intercept properties.
+:::
+
 {{< slidebreak >}}
 
 ### Fitting a simple linear regression in R {#sec-slr-R}
@@ -274,13 +285,16 @@ The login for the video site is posted
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-r-squared.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 7.6, pp. 344--352] covers more regression.
+- @rice2007mathematical [Sec. 14.2.2, pp. 550--559] covers assessing the fit of a regression line.
+:::
+
 {{< slidebreak >}}
 
 ### Further reading
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-slr-further-reading.qmd >}}
-
-{{< include sds/_subfiles/_textbook-refs.qmd >}}
 
 ## References {.unnumbered}
 
