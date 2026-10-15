@@ -72,6 +72,8 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_def-replicates.qmd >}}
 
+{{< include sds/_subfiles/logistic-inference/_rem-source-covariate-pattern.qmd >}}
+
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/logistic-inference/_exm-covariate-patterns.qmd >}}
@@ -91,6 +93,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/logistic-inference/_thm-saturated-deviance.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-source-saturated-deviance.qmd >}}
 
 {{< slidebreak >}}
 
