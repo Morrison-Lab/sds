@@ -40,25 +40,5 @@ c(
 
 The deviance relative to the saturated model is $\satdeviance = `r round(deviance(bw_fit_grouped), 3)`$ on the grouped counts,
 and the deviance is $\deviance = `r round(deviance(bw_fit), 3)`$ on the individual babies.
-Their difference is $-2 \satllik = `r round(deviance(bw_fit) - deviance(bw_fit_grouped), 3)`$,
-as @cor-deviance-shift says.
-
-```{r}
-#| code-fold: false
-# twice the saturated log-likelihood, from the observed proportions
-bw_phat_sat <- bw_grouped$nevents / bw_grouped$nreps
-bw_two_llik_sat <- 2 * sum(
-  ifelse(bw_grouped$nevents == 0, 0, bw_grouped$nevents * log(bw_phat_sat)) +
-    ifelse(
-      bw_grouped$nreps == bw_grouped$nevents,
-      0,
-      (bw_grouped$nreps - bw_grouped$nevents) * log(1 - bw_phat_sat)
-    )
-)
-c(
-  difference = deviance(bw_fit) - deviance(bw_fit_grouped),
-  minus_two_llik_sat = -bw_two_llik_sat
-)
-```
 
 :::

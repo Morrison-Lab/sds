@@ -106,6 +106,10 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_exm-saturated-deviance.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-deviance-shift.qmd >}}
+
 ## Confidence intervals for the coefficients
 
 <!-- No slidebreak here: the heading shares its slide with the theorem. -->
