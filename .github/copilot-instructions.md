@@ -55,10 +55,9 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
 - **Use semantic macros, not hard-coded symbols.**
   Write notation through a macro that names its meaning,
   so a convention can change in one place.
-  Defaults come from the [`latex-macros`](https://github.com/d-morrison/macros) submodule;
-  repo-level conventions it does not cover yet live in
-  [`_subfiles/_macros-sds.qmd`](../_subfiles/_macros-sds.qmd),
-  defined with `\providecommand` so the macros repo's definitions win once it adds the same names.
+  All macros come from the [`latex-macros`](https://github.com/Morrison-Lab/macros) submodule.
+  When no macro covers a concept, add one to the macros repo first and bump the pin;
+  never define a local copy here.
 - **Regression coefficients**:
   `\coef{x}` ($\beta_x$), `\intcoef` ($\beta_0$), `\hcoef{x}` and `\hintcoef` (estimates),
   `\vcoef` and `\hvcoef` (vectors).

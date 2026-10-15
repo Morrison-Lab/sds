@@ -33,7 +33,6 @@ Authoritative style guide: [UCD-SERG Lab Manual](https://ucd-serg.github.io/lab-
   symlink at all.
 - `_extensions/` --- vendored Quarto extensions
 - `latex-macros/` --- git submodule for shortcode/macro definitions (see `.gitmodules`)
-- `_subfiles/_macros-sds.qmd` --- repo-level semantic notation macros (for example `\coef{x}`, `\intcoef`) not yet in `latex-macros/`; included by `_subfiles/shared-config.qmd`
 - `R/`, `man/`, `DESCRIPTION`, `NAMESPACE` --- the project is also a small R package
 - `references.bib` --- BibTeX bibliography
 - `offwhite.scss`, `theme-picker.html` --- the website's Light / Off-white / Parchment / Dark theme dropdown (saved under `mln-theme`, shared with the slides and the other sites on this origin)
