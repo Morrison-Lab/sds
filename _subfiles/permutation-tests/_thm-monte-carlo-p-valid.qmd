@@ -8,12 +8,13 @@ Then $\hat p_{\text{perm}}$ is a [valid p-value](multiple-testing.qmd#def-valid-
 
 $$\Pr_{H_0}\paren{\hat p_{\text{perm}} \le u} \le u \quad \text{for every } u \in [0, 1].$$
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-monte-carlo-p-valid}
+#### Source: The Monte Carlo permutation p-value is valid
 
 Phipson and Smyth [-@phipson2010permutation] show that the Monte Carlo p-value with the added 1 is valid for random permutations.
 The proof is omitted here.
-:::
 
 :::
 
