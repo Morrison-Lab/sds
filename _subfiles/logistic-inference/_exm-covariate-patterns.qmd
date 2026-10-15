@@ -1,0 +1,30 @@
+::: {#exm-covariate-patterns}
+
+#### Covariate patterns in the low-birth-weight data
+
+The `birthwt` data record whether each of `r nrow(read.csv("data/birthwt.csv"))` babies had low birth weight
+(`low = 1`, under 2.5 kg), along with the mother's smoking status and race, among other predictors
+[@hosmer1989applied].
+Take `smoke` (0 or 1) and `race` (1, 2 or 3) as the predictors.
+Counting the distinct pairs, and the babies and low-weight births at each, gives one row per [covariate pattern](#def-covariate-pattern).
+
+```{r}
+#| code-fold: false
+bw <- read.csv("data/birthwt.csv")
+bw$race <- factor(bw$race)
+# one row per covariate pattern: replicates and events
+bw_grouped <- bw |>
+  dplyr::summarize(
+    nreps = dplyr::n(),
+    nevents = sum(low),
+    .by = c(smoke, race)
+  ) |>
+  dplyr::arrange(smoke, race)
+bw_grouped
+```
+
+There are $\npatterns = `r nrow(bw_grouped)`$ covariate patterns among $\nobs = `r nrow(bw)`$ babies.
+The pattern with the most [replicates](#def-replicates) is smoke = `r bw_grouped$smoke[which.max(bw_grouped$nreps)]`,
+race = `r bw_grouped$race[which.max(bw_grouped$nreps)]`, with $\nreps_k = `r max(bw_grouped$nreps)`$.
+
+:::

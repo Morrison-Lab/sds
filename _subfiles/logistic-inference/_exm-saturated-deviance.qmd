@@ -1,0 +1,64 @@
+::: {#exm-saturated-deviance}
+
+#### The deviance of the low-birth-weight model, ungrouped and grouped
+
+Fit a logistic regression of low birth weight on smoking and race, once to the `r nrow(bw)` individual babies
+and once to the `r nrow(bw_grouped)` grouped counts of @exm-covariate-patterns.
+R's `deviance()` is the deviance of @def-deviance for the first fit
+and the deviance relative to the saturated model of @def-saturated-deviance for the second.
+We check the second against @eq-saturated-deviance-grouped computed by hand.
+
+```{r}
+#| code-fold: false
+# fit to the individual babies
+bw_fit <- glm(low ~ smoke + race, family = binomial, data = bw)
+# fit to the grouped counts: events and non-events at each pattern
+bw_fit_grouped <- glm(
+  cbind(nevents, nreps - nevents) ~ smoke + race,
+  family = binomial,
+  data = bw_grouped
+)
+# fitted probability at each pattern
+bw_phat <- fitted(bw_fit_grouped)
+# one term of the grouped formula; a zero count contributes 0
+bw_term <- function(count, expected) {
+  ifelse(count == 0, 0, count * log(count / expected))
+}
+bw_sat_dev_hand <- 2 * sum(
+  bw_term(bw_grouped$nevents, bw_grouped$nreps * bw_phat) +
+    bw_term(
+      bw_grouped$nreps - bw_grouped$nevents,
+      bw_grouped$nreps * (1 - bw_phat)
+    )
+)
+c(
+  by_hand = bw_sat_dev_hand,
+  glm_grouped = deviance(bw_fit_grouped),
+  glm_ungrouped = deviance(bw_fit)
+)
+```
+
+The deviance relative to the saturated model is $\satdeviance = `r round(deviance(bw_fit_grouped), 3)`$ on the grouped counts,
+and the deviance is $\deviance = `r round(deviance(bw_fit), 3)`$ on the individual babies.
+Their difference is $-2 \satllik = `r round(deviance(bw_fit) - deviance(bw_fit_grouped), 3)`$,
+as @cor-deviance-shift says.
+
+```{r}
+#| code-fold: false
+# twice the saturated log-likelihood, from the observed proportions
+bw_phat_sat <- bw_grouped$nevents / bw_grouped$nreps
+bw_two_llik_sat <- 2 * sum(
+  ifelse(bw_grouped$nevents == 0, 0, bw_grouped$nevents * log(bw_phat_sat)) +
+    ifelse(
+      bw_grouped$nreps == bw_grouped$nevents,
+      0,
+      (bw_grouped$nreps - bw_grouped$nevents) * log(1 - bw_phat_sat)
+    )
+)
+c(
+  difference = deviance(bw_fit) - deviance(bw_fit_grouped),
+  minus_two_llik_sat = -bw_two_llik_sat
+)
+```
+
+:::

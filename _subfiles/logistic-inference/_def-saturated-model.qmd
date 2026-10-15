@@ -1,0 +1,25 @@
+::: {#def-saturated-model}
+
+#### Saturated model (full model, maximal model)
+
+Let $\nevents_k = \sum_{i:\, \vpredvar_i = \vpredvar^{(k)}} \outvar_i$ be the number of events among the [replicates](#def-replicates) of the [covariate pattern](#def-covariate-pattern) $\vpredvar^{(k)}$.
+The **saturated model** (also called the **full model** or **maximal model**) for binary outcomes gives each pattern its own free event probability:
+
+$$
+\Prf{\Outvar_i = 1 \mid \vpredvar_i = \vpredvar^{(k)}} = \prob_k,
+\qquad k = 1, \dots, \npatterns,
+$$ {#eq-saturated-model}
+
+with the outcomes independent given the predictors.
+
+:::
+
+::: {#rem-source-saturated-model .callout-note appearance="simple" collapse=true}
+
+## Source: saturated model
+
+@dobson4e [Chapter 5] defines the saturated model as one free mean parameter per covariate pattern.
+In model selection, "full model" often means something else: the model with every candidate predictor [@dobson4e, Chapter 6].
+That model is generally smaller than the saturated model.
+
+:::
