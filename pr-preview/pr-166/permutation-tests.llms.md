@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 13:52:49 (PDT)
+Last modified: 2026-10-15 02:42:06 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -276,9 +276,11 @@ table(tumor_class = khan_pair$tumor_class)
 >   labs(x = "Absolute Welch t statistic", y = "Number of relabelings")
 > ```
 >
-> [![Histogram of 10,000 permuted absolute Welch t statistics for gene 3. The histogram is concentrated between 0 and 2, with a long thin right tail. A vertical line marks the observed statistic, which lies far out in the right tail, where almost none of the permuted statistics fall.](permutation-tests_files/figure-html/fig-permutation-distribution-gene3-1.png)](permutation-tests_files/figure-html/fig-permutation-distribution-gene3-1.png "Figure 1: Permutation distribution of the absolute Welch t statistic for gene 3, from 10,000 random relabelings of tumor classes 2 and 4. The vertical line is the observed statistic.")
->
-> Figure 1: Permutation distribution of the absolute Welch t statistic for gene 3, from 10,000 random relabelings of tumor classes 2 and 4. The vertical line is the observed statistic.
+> > **NOTE:**
+> >
+> > [![Histogram of 10,000 permuted absolute Welch t statistics for gene 3. The histogram is concentrated between 0 and 2, with a long thin right tail. A vertical line marks the observed statistic, which lies far out in the right tail, where almost none of the permuted statistics fall.](permutation-tests_files/figure-html/fig-permutation-distribution-gene3-1.png)](permutation-tests_files/figure-html/fig-permutation-distribution-gene3-1.png "Figure 1: Permutation distribution of the absolute Welch t statistic for gene 3, from 10,000 random relabelings of tumor classes 2 and 4. The vertical line is the observed statistic.")
+> >
+> > Figure 1: Permutation distribution of the absolute Welch t statistic for gene 3, from 10,000 random relabelings of tumor classes 2 and 4. The vertical line is the observed statistic.
 >
 > The Monte Carlo error of \\\hat p\_{\text{perm}}\\ is about \\\sqrt{\hat p\_{\text{perm}} (1 - \hat p\_{\text{perm}}) / B} =\\ 0.00024, which is comparable to the p-value itself, so a p-value this small needs a larger \\B\\ before its second digit means anything.
 
