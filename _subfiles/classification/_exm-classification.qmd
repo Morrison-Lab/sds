@@ -7,7 +7,7 @@ based on a single feature $x$:
 the test's result,
 positive ($+$) or negative ($\neg +$).
 The test is the classification rule
-(@def-classification)
+(@def-classification-rule)
 that assigns a positive result to "has COVID-19"
 and a negative result to "does not have COVID-19":
 
