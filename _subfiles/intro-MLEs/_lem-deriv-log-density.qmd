@@ -1,0 +1,17 @@
+:::{#lem-deriv-log-density}
+#### Derivative of a density through its logarithm
+
+Let $\p(\vx \mid \param)$ be a density
+that is positive and differentiable in a scalar parameter $\param$.
+Then its derivative with respect to $\param$
+is the derivative of its logarithm times the density:
+
+$$\deriv{\param}\p(\vx \mid \param) = \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param)$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-deriv-log-density, worked in @sol-deriv-log-density.
+
+:::

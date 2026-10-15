@@ -3,8 +3,7 @@
 
 Suppose $\hthml \dsim \ndist{\param_0, \einf(\param_0)^{-1}}$,
 and define $Z \eqdef \sqrt{\einf(\param_0)}\,(\hthml - \param_0)$.
-Show that $Z$ is approximately standard Gaussian,
-and find the approximate distribution of $Z^2$.
+Find the approximate distributions of $Z$ and of $Z^2$.
 :::
 
 {{< slidebreak >}}

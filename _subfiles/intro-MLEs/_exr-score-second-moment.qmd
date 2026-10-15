@@ -10,11 +10,11 @@ the [expected information](#def-einf).
 
 :::{#sol-score-second-moment}
 
-By @exr-score-mean-zero,
+By @thm-score-mean-zero,
 $0 = \int \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx$
 for every $\param$.
 Differentiate this identity with respect to $\param$;
-the step that substitutes for $\deriv{\param}\p(\vx \mid \param)$ uses @exr-deriv-log-density:
+the step that substitutes for $\deriv{\param}\p(\vx \mid \param)$ uses @lem-deriv-log-density:
 
 $$
 \begin{aligned}
