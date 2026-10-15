@@ -12,11 +12,12 @@ $$
 \trainerr \eqdef \frac{1}{\nobs} \sum_{\iobs \in \obsidx} \sqf{\fitted_{\iobs} - \outvar_{\iobs}}.
 $$ {#eq-training-mse}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-training-mse}
+#### Source: Training error
 
 @hastie2009elements [sec. 7.2], who write the training error as $\overline{\text{err}}$
 and define it for any loss.
-:::
 
 :::

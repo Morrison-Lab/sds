@@ -11,10 +11,11 @@ $$
 \cvse{\nfolds} \eqdef \frac{\hSD{\foldmse{1}, \ldots, \foldmse{\nfolds}}}{\sqrt{\nfolds}}.
 $$ {#eq-cv-se}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-cv-se}
+#### Source: Fold-based standard error
 
 @hastie2009elements [sec. 7.10.1], who call the result a standard error.
-:::
 
 :::

@@ -10,11 +10,12 @@ $$
 \fold{1} \cup \cdots \cup \fold{\nfolds} = \obsidx.
 $$ {#eq-folds}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-folds}
+#### Source: Folds
 
 @james2021islr2e [sec. 5.1.3] and @hastie2009elements [sec. 7.10.1],
 who split the data into $\nfolds$ roughly equal-sized parts.
-:::
 
 :::
