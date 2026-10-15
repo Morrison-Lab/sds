@@ -20,7 +20,6 @@ $$ {#eq-epe-decomposition}
 
 :::
 
-
 ::: proof
 
 By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the mean squared error of the prediction as an estimate of $\mean(\predvar)$.
