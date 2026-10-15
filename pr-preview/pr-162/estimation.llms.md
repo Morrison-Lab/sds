@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 14:05:35 (PDT)
+Last modified: 2026-10-14 18:06:19 (PDT)
 
 ## 1 Scientific models
 
@@ -418,7 +418,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 > *Remark 3* (Estimation versus prediction). The squared-error split has two forms, and they differ in what the estimate is compared with.
 >
 > - **Estimation.** [Theorem 3](#thm-mse-bias-variance) compares an estimator \\\hat{\theta}\\ with a fixed parameter \\\theta\\. The target is a constant, so the expected squared error is squared bias plus variance, with no other term.
-> - **Prediction.** The target is a new outcome, which is itself random. The probability notes prove that [expected squared prediction error](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error) equals squared bias plus variance plus the noise variance, the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error) of that outcome. No choice of prediction can remove the extra term.
+> - **Prediction.** The target is a new outcome, which is itself random. The model validation notes prove that [expected squared prediction error](model-validation.llms.md#thm-epe-decomposition) equals squared bias plus variance plus the noise variance, the [irreducible error](model-validation.llms.md#def-irreducible-error) of that outcome. No choice of prediction can remove the extra term.
 
 > **NOTE:**
 >
