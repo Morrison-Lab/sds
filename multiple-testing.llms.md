@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 02:43:30 (PDT)
+Last modified: 2026-10-15 02:58:11 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -55,13 +55,23 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
+> **Lemma 1 (Probability that no test rejects)** Let \\A_1, \ldots, A_m\\ be independent events, where \\A_j\\ is the event that the \\j\\th of \\m\\ tests rejects its true null hypothesis, and each has probability \\\Pr(A_j) = \alpha\\ (see [significance level](inference.llms.md#def-significance-level)). Then the probability that none of the tests rejects is
+>
+> \\\Pr\mathopen{}\left(\text{no test rejects}\right)\mathclose{} = \mathopen{}\left(1 - \alpha\right)\mathclose{}^m.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 1](#exr-no-rejection-prob), worked in [Solution 1](#sol-no-rejection-prob).
+
+> **NOTE:**
+>
 > **Theorem 1 (Probability of at least one false positive)** Let \\A_1, \ldots, A_m\\ be independent events, where \\A_j\\ is the event that the \\j\\th of \\m\\ tests rejects its true null hypothesis, and each has probability \\\alpha\\. Then the probability that at least one test rejects is
 >
 > \\\Pr\mathopen{}\left(A_1 \cup A_2 \cup \cdots \cup A_m\right)\mathclose{} = 1 - \mathopen{}\left(1 - \alpha\right)\mathclose{}^m.\\
 
 > **NOTE:**
 >
-> *Proof*. The last line below is [Solution 1](#sol-no-rejection-prob).
+> *Proof*. The last line below is [Lemma 1](#lem-no-rejection-prob).
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{} &= 1 - \Pr\mathopen{}\left(\mathopen{}\left(A_1 \cup \cdots \cup A_m\right)\mathclose{}^c\right)\mathclose{} && \text{(complement rule)}\\ &= 1 - \Pr\mathopen{}\left(A_1^c \cap \cdots \cap A_m^c\right)\mathclose{} && \text{(De Morgan's law)}\\ &= 1 - \mathopen{}\left(1 - \alpha\right)\mathclose{}^m && \text{(probability that no test rejects)} \end{aligned} \\
 
@@ -384,13 +394,23 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
+> **Lemma 2 (The indicator of a union is at most the sum of the indicators)** For events \\A_1, \ldots, A_k\\, let \\\mathbb{1}\_{A}\\ be the indicator of the event \\A\\: it equals 1 if \\A\\ occurs and 0 if it does not. Then, for every outcome,
+>
+> \\\mathbb{1}\_{A_1 \cup \cdots \cup A_k} \le \mathbb{1}\_{A_1} + \cdots + \mathbb{1}\_{A_k}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 2](#exr-union-bound), worked in [Solution 2](#sol-union-bound).
+
+> **NOTE:**
+>
 > **Theorem 2 (Union bound)** For any events \\A_1, \ldots, A_k\\, the probability of their union is at most the sum of their probabilities:
 >
 > \\\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{} \le \Pr(A_1) + \cdots + \Pr(A_k).\\
 
 > **NOTE:**
 >
-> *Proof*. The inequality in the second line is [Solution 2](#sol-union-bound).
+> *Proof*. The inequality in the second line is [Lemma 2](#lem-indicator-union).
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\mathbb{1}\_{A_1 \cup \cdots \cup A_k}\right\]\mathclose{} && \text{(the expected value of an indicator is the probability of its event)}\\ &\le \operatorname{E}\mathopen{}\left\[\mathbb{1}\_{A_1} + \cdots + \mathbb{1}\_{A_k}\right\]\mathclose{} && \text{(indicator inequality, and expectation preserves inequalities)}\\ &= \operatorname{E}\mathopen{}\left\[\mathbb{1}\_{A_1}\right\]\mathclose{} + \cdots + \operatorname{E}\mathopen{}\left\[\mathbb{1}\_{A_k}\right\]\mathclose{} && \text{(expectation of a sum is the sum of expectations)}\\ &= \Pr(A_1) + \cdots + \Pr(A_k) && \text{(the expected value of an indicator is the probability of its event)} \end{aligned} \\
 
@@ -410,6 +430,16 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
+> **Lemma 3 (Probability of a false positive under the Bonferroni correction)** Let \\m\\ null hypotheses have valid p-values ([Definition 7](#def-valid-p-value)), let \\\mathcal{I}\_0\\ be the set of \\m_0\\ indices of the true null hypotheses, and let \\V\\ be the number of true null hypotheses that the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ rejects. Then the probability that at least one true null hypothesis is rejected is at most \\m_0 \alpha/ m\\:
+>
+> \\\Pr\mathopen{}\left(V \ge 1\right)\mathclose{} \le \frac{m_0 \alpha}{m}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 3](#exr-bonferroni-fwer), worked in [Solution 3](#sol-bonferroni-fwer). It uses the union bound ([Theorem 2](#thm-union-bound)).
+
+> **NOTE:**
+>
 > **Theorem 3 (The Bonferroni correction controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 7](#def-valid-p-value)), the [Bonferroni correction](#def-bonferroni) at level \\\alpha\\ satisfies
 >
 > \\\text{FWER} \le \frac{m_0}{m} \alpha\le \alpha,\\
@@ -418,7 +448,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Proof*. The first line below is [Definition 2](#def-fwer), and the second is [Solution 3](#sol-bonferroni-fwer).
+> *Proof*. The first line below is [Definition 2](#def-fwer), and the second is [Lemma 3](#lem-bonferroni-false-positive-prob).
 >
 > \\ \begin{aligned} \text{FWER} &= \Pr\mathopen{}\left(V \ge 1\right)\mathclose{} && \text{(definition of the FWER)}\\ &\le \frac{m_0}{m} \alpha && \text{(bound from the exercise)}\\ &\le \alpha && \text{(\$m_0 \le m\$, so \$m_0 / m \le 1\$)} \end{aligned} \\
 >
@@ -553,6 +583,16 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
+> **Lemma 4 (A rejected true null hypothesis has a small p-value under Holm’s procedure)** Let \\m\\ null hypotheses have p-values, and let \\\mathcal{I}\_0\\ be the set of \\m_0 \ge 1\\ indices of the true null hypotheses. If [Holm’s procedure](#def-holm) at level \\\alpha\\ rejects at least one true null hypothesis, then the smallest p-value among the true null hypotheses is at most \\\alpha/ m_0\\:
+>
+> \\\min\_{j \in \mathcal{I}\_0} p_j \le \frac{\alpha}{m_0}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 4](#exr-holm-threshold), worked in [Solution 4](#sol-holm-threshold).
+
+> **NOTE:**
+>
 > **Theorem 4 (Holm’s procedure controls the FWER)** If all p-values of true null hypotheses are valid ([Definition 7](#def-valid-p-value)), [Holm’s procedure](#def-holm) at level \\\alpha\\ satisfies
 >
 > \\\text{FWER} \le \alpha,\\
@@ -561,7 +601,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Proof*. If \\m_0 = 0\\ there is no true null hypothesis to reject, so \\V = 0\\ and \\\text{FWER} = 0\\. If \\m_0 \ge 1\\, the event \\V \ge 1\\ means Holm’s procedure rejects a true null hypothesis, so by [Solution 4](#sol-holm-threshold) it is contained in the event \\\min\_{j \in \mathcal{I}\_0} p_j \le \alpha/ m_0\\:
+> *Proof*. If \\m_0 = 0\\ there is no true null hypothesis to reject, so \\V = 0\\ and \\\text{FWER} = 0\\. If \\m_0 \ge 1\\, the event \\V \ge 1\\ means Holm’s procedure rejects a true null hypothesis, so by [Lemma 4](#lem-holm-threshold) it is contained in the event \\\min\_{j \in \mathcal{I}\_0} p_j \le \alpha/ m_0\\:
 >
 > \\ \begin{aligned} \text{FWER} &= \Pr\mathopen{}\left(V \ge 1\right)\mathclose{} && \text{(definition of the FWER)}\\ &\le \Pr\mathopen{}\left(\min\_{j \in \mathcal{I}\_0} p_j \le \frac{\alpha}{m_0}\right)\mathclose{} && \text{(the event \$V \ge 1\$ lies inside this event)}\\ &= \Pr\mathopen{}\left(\bigcup\_{j \in \mathcal{I}\_0} \mathopen{}\left\\p_j \le \frac{\alpha}{m_0}\right\\\mathclose{}\right)\mathclose{} && \text{(the minimum is at most a bound exactly when some term is)}\\ &\le \sum\_{j \in \mathcal{I}\_0} \Pr\mathopen{}\left(p_j \le \frac{\alpha}{m_0}\right)\mathclose{} && \text{(union bound)}\\ &\le \sum\_{j \in \mathcal{I}\_0} \frac{\alpha}{m_0} && \text{(each \$p_j\$ is valid, with \$u = \alpha/ m_0\$)}\\ &= m_0 \cdot \frac{\alpha}{m_0} && \text{(a sum of \$m_0\$ equal terms)}\\ &= \alpha && \text{(\$m_0 \cdot \frac{1}{m_0} = 1\$)} \end{aligned} \\
 >
