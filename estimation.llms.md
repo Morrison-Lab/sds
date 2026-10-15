@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 23:57:22 (PDT)
+Last modified: 2026-10-15 00:35:18 (PDT)
 
 ## 1 Scientific models
 
@@ -365,7 +365,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > So both estimators have zero bias, even though \\\bar X\\ uses all \\n\\ observations and \\X_1\\ uses only one.
 
-### 3.5 Mean squared error
+### 3.5 Mean squared error of an estimator
 
 > **NOTE:**
 >
