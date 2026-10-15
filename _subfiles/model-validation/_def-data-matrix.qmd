@@ -1,0 +1,22 @@
+::: {#def-data-matrix}
+
+#### Data matrix and outcome vector
+
+The **data matrix** $\mpredvar$ of a [data set](#def-data-set) $\dataset$ stacks the $\nobs$ inputs $\vpredvar_i$ as rows,
+with one column for each of the $\inputdim$ input variables.
+The **outcome vector** $\voutvar$ stacks the $\nobs$ outcomes:
+
+$$
+\mpredvar = \begin{bmatrix}
+  \tp{\vpredvar_1} \\
+  \vdots \\
+  \tp{\vpredvar_{\nobs}}
+\end{bmatrix},
+\qquad
+\voutvar = \begin{bmatrix} \outvar_1 \\ \vdots \\ \outvar_{\nobs} \end{bmatrix} .
+$$ {#eq-data-matrix}
+
+Row $i$ of $\mpredvar$ and entry $i$ of $\voutvar$ together are the $i$-th pair of the data set,
+so $\mpredvar$ and $\voutvar$ hold the same information as $\dataset$ in a tabular form.
+
+:::

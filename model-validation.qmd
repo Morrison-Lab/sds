@@ -12,6 +12,18 @@ format:
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
+## Data sets and data matrices {#sec-data-sets}
+
+{{< include sds/_subfiles/model-validation/_def-data-set.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-data-matrix.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-data-matrix.qmd >}}
+
 ## Fitting and scoring prediction rules {#sec-prediction-rules}
 
 {{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}

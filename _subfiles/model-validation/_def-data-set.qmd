@@ -1,0 +1,23 @@
+::: {#def-data-set}
+
+#### Data set
+
+A **data set** is a finite collection of $\nobs$ labelled observations,
+that is, $\nobs$ pairs $(\vpredvar_i, \outvar_i)$, each an input $\vpredvar_i$ with its outcome $\outvar_i$:
+
+$$
+\dataset \eqdef \set{(\vpredvar_i, \outvar_i) : i = 1, \ldots, \nobs} .
+$$ {#eq-data-set}
+
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-data-set-subsets}
+
+#### The sets we split a data set into
+
+We divide a [data set](#def-data-set) into subsets, each with its own job.
+"Set" in the names training set, validation set and test set is short for "subset of the data set".
+
+:::
