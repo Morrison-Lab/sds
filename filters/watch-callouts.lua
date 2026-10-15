@@ -63,7 +63,21 @@ local function first_label(div)
   return label
 end
 
-function Div(div)
+-- Claim the ids authors wrote first, so a generated id never repeats one that
+-- appears later on the page.
+local function claim_author_ids(doc)
+  doc:walk({
+    Div = function(div)
+      if div.identifier ~= '' then
+        for _, class in ipairs(div.classes) do
+          if prefix[class] then used[div.identifier] = true end
+        end
+      end
+    end
+  })
+end
+
+local function Div(div)
   for _, class in ipairs(div.classes) do
     local pre = prefix[class]
     if pre then
@@ -92,3 +106,8 @@ function Div(div)
   end
   return nil
 end
+
+return {
+  { Pandoc = claim_author_ids },
+  { Div = Div }
+}
