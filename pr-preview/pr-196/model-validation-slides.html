@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 02:20:36 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 05:15:32 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -660,10 +660,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </div>
 </div>
 </section><section class="slide level2"><div id="exr-expected-error-epe" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (The expected generalization error, covariate value by covariate value)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#/def-fitting-procedure">fitting procedure</a>, and let the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations be independent of the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>. Show that the <a href="#/def-expected-generalization-error">expected generalization error</a> is the mean of the <a href="#/def-epe">expected squared prediction error at <span class="math inline">\(x\)</span></a> over the distribution of <span class="math inline">\(X_{*}\)</span>:</p>
-<p><span class="math display">\[
-\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left[\operatorname{EPE}^{g}_{n}\mathopen{}\left(X_{*}\right)\mathclose{}\right]\mathclose{}.
-\]</span></p>
+<p><span class="theorem-title"><strong>Exercise 3 (The expected generalization error, covariate value by covariate value)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#/def-fitting-procedure">fitting procedure</a>, and let the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations be independent of the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>. Write the <a href="#/def-expected-generalization-error">expected generalization error</a> <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> in terms of the <a href="#/def-epe">expected squared prediction error at <span class="math inline">\(x\)</span></a>, <span class="math inline">\(\operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span>, and the distribution of <span class="math inline">\(X_{*}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-expected-error-epe" class="proof solution">
 <p><span class="proof-title"><em>Solution 3</em>. </span><span class="math display">\[
@@ -1001,11 +998,10 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <p><span class="proof-title"><em>Remark 5</em> (Coefficients per observation). </span>Adding coefficients to a least-squares fit makes it <a href="#/def-flexibility">at least as flexible</a> as before. With few observations per coefficient, the variance this adds can outweigh the squared bias it removes, which is the overfitting side of <a href="#/rem-overfitting-tradeoff" class="quarto-xref">Remark&nbsp;4</a>. In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, each added power of <code>wt</code>, like an added predictor, is one more coefficient fitted to the same 20 cars: the degree-4 fit has five coefficients for those 20 cars.</p>
 </div>
 </section><section class="slide level2"><div id="exr-held-out-unbiased" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7 (A held-out set estimates the generalization error)</strong></span> A <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. A <a href="#/def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> of <a href="#/def-generalization-error" class="quarto-xref">Definition&nbsp;7</a>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
-<p>Show that, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the held-out predictions is <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>:</p>
+<p><span class="theorem-title"><strong>Exercise 7 (Held-out predictions and the generalization error)</strong></span> A <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. A <a href="#/def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> of <a href="#/def-generalization-error" class="quarto-xref">Definition&nbsp;7</a>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
+<p>Find, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the held-out predictions, in terms of the generalization error <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>:</p>
 <p><span class="math display">\[
-\operatorname{E}\mathopen{}\left[\frac{1}{m} \sum_{j=1}^{m} {\mathopen{}\left(\hat y(X_{*,j}) - Y_{*,j}\right)\mathclose{}}^2 \mid \mathcal{D}_{\text{train}}\right]\mathclose{}
-= \operatorname{Err}_{\mathcal{D}_{\text{train}}}.
+\operatorname{E}\mathopen{}\left[\frac{1}{m} \sum_{j=1}^{m} {\mathopen{}\left(\hat y(X_{*,j}) - Y_{*,j}\right)\mathclose{}}^2 \mid \mathcal{D}_{\text{train}}\right]\mathclose{}.
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="sol-held-out-unbiased" class="proof solution">

@@ -105,8 +105,8 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/callouty-theorem-1.3.0/callouty-theorem.js"></script>
-<link href="site_libs/quarto-contrib/callouty-theorem-1.3.0/callouty-theorem.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/callouty-theorem-1.4.2/callouty-theorem.js"></script>
+<link href="site_libs/quarto-contrib/callouty-theorem-1.4.2/callouty-theorem.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -221,80 +221,6 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-videos.callout {
-  border-left-color: #283593;
-}
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
-}
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-remark.callout {
   border-left-color: #AD1457;
 }
@@ -315,15 +241,49 @@ div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-tbl.callout {
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-videos.callout {
+  border-left-color: #283593;
+}
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
+}
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
+}
+div.callout-fig.callout {
   border-left-color: #757575;
 }
-div.callout-tbl.callout-style-default .callout-header {
+div.callout-fig.callout-style-default .callout-header {
   background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-proof.callout {
   border-left-color: #37474F;
@@ -335,6 +295,56 @@ div.callout-proof .callout-toggle::before {  background-image: url('data:image/s
 div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-tbl.callout {
+  border-left-color: #757575;
+}
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-prp.callout {
   border-left-color: #827717;
 }
@@ -344,16 +354,6 @@ div.callout-prp.callout-style-default .callout-header {
 div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -596,6 +596,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./intro-MLEs.html">
  <span class="dropdown-text">Maximum Likelihood</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./estimator-properties.html">
+ <span class="dropdown-text">Properties of Estimators</span></a>
+  </li>  
     </ul>
 </li>
   <li class="nav-item dropdown ">
@@ -746,6 +750,12 @@ window.Quarto = {
  <span class="menu-text">Maximum Likelihood</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estimator-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Properties of Estimators</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -869,7 +879,7 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><!-- qwt-page-banners -->
 <div class="preview-changes-banner" style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 12px; margin: 16px 0;">
     <p style="margin: 0;">
-        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>, <a href="prediction.html">Prediction</a>
+        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="estimator-properties.html">Properties of Estimators</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>, <a href="prediction.html">Prediction</a>
         <br>
         <strong>💡 Tip:</strong> If change highlighting is glitchy, add the <code>no-preview-highlights</code> label to this PR to disable it.
     </p>
@@ -893,7 +903,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-15 02:20:36 (PDT)</p>
+      <p class="date">Last modified: 2026-10-15 05:15:32 (PDT)</p>
     </div>
   </div>
   
@@ -923,10 +933,10 @@ text-align: center;
 </section><section id="sec-exchangeability" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="sec-exchangeability">
 <span class="header-section-number">2</span> Exchangeability under the null hypothesis</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-exchangeable div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-exchangeable" class="quarto-xref">Definition&nbsp;1</a> (Exchangeable random variables)
@@ -942,10 +952,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-exchangeable" class="quarto-xref">Example&nbsp;1</a> (Two groups with the same distribution)
@@ -970,10 +980,10 @@ text-align: center;
 <section id="sec-permutation-distribution-def" class="level3" data-number="3.1"><h3 data-number="3.1" class="anchored" data-anchor-id="sec-permutation-distribution-def">
 <span class="header-section-number">3.1</span> The permutation distribution</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-permutation-distribution div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-permutation-distribution" class="quarto-xref">Definition&nbsp;2</a> (Permutation distribution)
@@ -989,10 +999,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-permutation-distribution" class="quarto-xref">Example&nbsp;2</a> (The permutation distribution of six expression values)
@@ -1125,10 +1135,10 @@ text-align: center;
 </section><section id="sec-permutation-p-value" class="level3" data-number="3.2"><h3 data-number="3.2" class="anchored" data-anchor-id="sec-permutation-p-value">
 <span class="header-section-number">3.2</span> The permutation p-value</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-permutation-p-value div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-permutation-p-value" class="quarto-xref">Definition&nbsp;3</a> (Permutation p-value)
@@ -1145,10 +1155,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-permutation-p-value" class="quarto-xref">Example&nbsp;3</a> (Exact permutation p-value for six expression values)
@@ -1174,10 +1184,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-permutation-sharp-null" class="quarto-xref">Remark&nbsp;1</a> (What a permutation test tests)
@@ -1195,10 +1205,10 @@ text-align: center;
 </section><section id="sec-permutation-validity" class="level3" data-number="3.3"><h3 data-number="3.3" class="anchored" data-anchor-id="sec-permutation-validity">
 <span class="header-section-number">3.3</span> Why the permutation p-value is valid</h3>
 <!-- No slidebreak here: the heading shares its slide with the exr-top-k-count div. -->
-<div class="callouty-titled callout callout-style-simple callout-exr no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exr callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exr</span><a href="#exr-top-k-count" class="quarto-xref">Exercise&nbsp;1</a> (Counting values with few larger-or-equal values)
@@ -1232,28 +1242,66 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exr no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Lem</span><a href="#lem-top-k-count" class="quarto-xref">Lemma&nbsp;1</a> (At most <span class="math inline">\(k\)</span> values have <span class="math inline">\(k\)</span> or fewer values at least as large)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="lem-top-k-count" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (At most <span class="math inline">\(k\)</span> values have <span class="math inline">\(k\)</span> or fewer values at least as large)</strong></span> Let <span class="math inline">\(t_1, \ldots, t_N\)</span> be real numbers, and for each <span class="math inline">\(j\)</span> let <span class="math inline">\(N_j\)</span> be the number of indices <span class="math inline">\(i\)</span> with <span class="math inline">\(t_i \ge t_j\)</span> (including <span class="math inline">\(i = j\)</span>). Then for every integer <span class="math inline">\(k \ge 0\)</span>, at most <span class="math inline">\(k\)</span> of the <span class="math inline">\(N_j\)</span> are at most <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[\sum_{j=1}^N \mathbb{1}_{N_j \le k} \le k,\]</span></p>
+<p>where <span class="math inline">\(\mathbb{1}_{A}\)</span> is <span class="math inline">\(1\)</span> if <span class="math inline">\(A\)</span> is true and <span class="math inline">\(0\)</span> otherwise.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#exr-top-k-count" class="quarto-xref">Exercise&nbsp;1</a>, worked in <a href="#sol-top-k-count" class="quarto-xref">Solution&nbsp;1</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-default callout-exr callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exr</span><a href="#exr-relabeling-count" class="quarto-xref">Exercise&nbsp;2</a> (Relabeling the data permutes the relabelings)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-relabeling-count" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2 (Relabeling the data permutes the relabelings)</strong></span> For a permutation <span class="math inline">\(\sigma\)</span> define <span class="math inline">\(N_\sigma(y)\)</span>, the number of relabelings at least as extreme as <span class="math inline">\(y_\sigma\)</span>:</p>
 <p><span class="math display">\[N_\sigma(y) \stackrel{\text{def}}{=}\sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge T(y_\sigma)}.\]</span></p>
-<p>Write <span class="math inline">\(\iota\)</span> for the identity permutation, so <span class="math inline">\(N_\iota(y)\)</span> is <span class="math inline">\(n!\)</span> times the permutation p-value of <a href="#def-permutation-p-value" class="quarto-xref">Definition&nbsp;3</a>. Show that <span class="math inline">\(N_\sigma(y) = N_\iota(y_\sigma)\)</span>.</p>
+<p>Write <span class="math inline">\(\iota\)</span> for the identity permutation, so <span class="math inline">\(N_\iota(y)\)</span> is <span class="math inline">\(n!\)</span> times the permutation p-value of <a href="#def-permutation-p-value" class="quarto-xref">Definition&nbsp;3</a>. Express <span class="math inline">\(N_\sigma(y)\)</span> in terms of <span class="math inline">\(N_\iota\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1262,7 +1310,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-relabeling-count" class="proof solution">
 <p><span class="proof-title"><em>Solution 2</em>. </span>The entries of <span class="math inline">\((y_\sigma)_{\pi'}\)</span> are <span class="math inline">\(y_{\sigma(\pi'(i))}\)</span>, so <span class="math inline">\((y_\sigma)_{\pi'} = y_{\sigma \circ \pi'}\)</span>.</p>
@@ -1279,21 +1327,59 @@ N_\iota(y_\sigma)
 &amp;&amp; \text{(definition)}
 \end{aligned}
 \]</span></p>
+<p>So <span class="math inline">\(N_\sigma(y) = N_\iota(y_\sigma)\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Lem</span><a href="#lem-relabeling-count" class="quarto-xref">Lemma&nbsp;2</a> (Relabeling the data permutes the relabelings)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="lem-relabeling-count" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 2 (Relabeling the data permutes the relabelings)</strong></span> Let <span class="math inline">\(T\)</span> be a statistic, let <span class="math inline">\(y = (y_1, \ldots, y_n)\)</span> be data, let <span class="math inline">\(S_n\)</span> be the set of permutations of <span class="math inline">\(\{1, \ldots, n\}\)</span>, and let <span class="math inline">\(y_\sigma\)</span> be <span class="math inline">\(y\)</span> with its entries relabeled by <span class="math inline">\(\sigma \in S_n\)</span>. For <span class="math inline">\(\sigma \in S_n\)</span> let <span class="math inline">\(N_\sigma(y) \stackrel{\text{def}}{=}\sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge T(y_\sigma)}\)</span> be the number of relabelings at least as extreme as <span class="math inline">\(y_\sigma\)</span>, and write <span class="math inline">\(\iota\)</span> for the identity permutation, so that <span class="math inline">\(N_\iota(y)\)</span> is <span class="math inline">\(n!\)</span> times the <a href="#def-permutation-p-value">permutation p-value</a> of <span class="math inline">\(T(y)\)</span>. Then relabeling the data by <span class="math inline">\(\sigma\)</span> turns <span class="math inline">\(N_\iota\)</span> into <span class="math inline">\(N_\sigma\)</span>:</p>
+<p><span class="math display">\[N_\sigma(y) = N_\iota(y_\sigma).\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Proof</span>Proof
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#exr-relabeling-count" class="quarto-xref">Exercise&nbsp;2</a>, worked in <a href="#sol-relabeling-count" class="quarto-xref">Solution&nbsp;2</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Lem</span><a href="#thm-permutation-p-valid" class="quarto-xref">Theorem&nbsp;1</a> (The permutation p-value is valid)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-permutation-p-valid" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (The permutation p-value is valid)</strong></span> Let <span class="math inline">\(Y = (Y_1, \ldots, Y_n)\)</span> be exchangeable under <span class="math inline">\(H_0\)</span> (<a href="#def-exchangeable" class="quarto-xref">Definition&nbsp;1</a>), and let <span class="math inline">\(p_{\text{perm}}\)</span> be the <a href="#def-permutation-p-value">permutation p-value</a> of <span class="math inline">\(T(Y)\)</span>. Then <span class="math inline">\(p_{\text{perm}}\)</span> is a <a href="./multiple-testing.html#def-valid-p-value">valid p-value</a>:</p>
@@ -1303,7 +1389,7 @@ N_\iota(y_\sigma)
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1312,7 +1398,7 @@ N_\iota(y_\sigma)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Since <span class="math inline">\(p_{\text{perm}} = N_\iota(Y) / n!\)</span> takes values in multiples of <span class="math inline">\(1 / n!\)</span>, it is enough to take <span class="math inline">\(u = k / n!\)</span> for an integer <span class="math inline">\(k\)</span> with <span class="math inline">\(0 \le k \le n!\)</span>: for other <span class="math inline">\(u\)</span> the event <span class="math inline">\(\mathopen{}\left\{p_{\text{perm}} \le u\right\}\mathclose{}\)</span> equals the event for <span class="math inline">\(\mathopen{}\left\lfloor u \, n!\right\rfloor\mathclose{} / n!\)</span>, which is at most <span class="math inline">\(u\)</span>.</p>
@@ -1337,22 +1423,22 @@ N_\iota(y_\sigma)
 &amp;&amp; \text{(the expected value of a constant is the constant)}
 \end{aligned}
 \]</span></p>
-<p>The justifications of the third and the seventh line are <a href="#sol-relabeling-count" class="quarto-xref">Solution&nbsp;2</a> and <a href="#sol-top-k-count" class="quarto-xref">Solution&nbsp;1</a>.</p>
+<p>The justifications of the third and the seventh line are <a href="#lem-relabeling-count" class="quarto-xref">Lemma&nbsp;2</a> and <a href="#lem-top-k-count" class="quarto-xref">Lemma&nbsp;1</a>.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-permutation-p-valid" class="quarto-xref">Example&nbsp;4</a> (Validity in a small simulation)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-permutation-p-valid" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Validity in a small simulation)</strong></span> Simulate <span class="math inline">\(10^4\)</span> data sets of 6 independent standard Gaussian values, three per group, so that <span class="math inline">\(H_0\)</span> holds, and compute the exact permutation p-value of <span class="math inline">\(\mathopen{}\left|\bar y_1 - \bar y_2\right|\mathclose{}\)</span> for each:</p>
@@ -1388,17 +1474,17 @@ N_\iota(y_\sigma)
 </section></section><section id="sec-monte-carlo-permutation" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="sec-monte-carlo-permutation">
 <span class="header-section-number">4</span> The Monte Carlo approximation</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-monte-carlo-p-value div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-monte-carlo-p-value" class="quarto-xref">Definition&nbsp;4</a> (Monte Carlo permutation p-value)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-monte-carlo-p-value" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Monte Carlo permutation p-value)</strong></span> With the notation of <a href="#def-permutation-distribution" class="quarto-xref">Definition&nbsp;2</a>, draw <span class="math inline">\(B\)</span> permutations <span class="math inline">\(\pi_1, \ldots, \pi_B\)</span> independently and uniformly from <span class="math inline">\(S_n\)</span>, and let <span class="math inline">\(T_b \stackrel{\text{def}}{=}T(y_{\pi_b})\)</span>. The <strong>Monte Carlo permutation p-value</strong> counts the observed labeling as one more relabeling, so it adds 1 to the numerator and to the denominator:</p>
@@ -1407,17 +1493,17 @@ N_\iota(y_\sigma)
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-monte-carlo-p-value" class="quarto-xref">Example&nbsp;5</a> (Monte Carlo p-value for gene 3)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-monte-carlo-p-value" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (Monte Carlo p-value for gene 3)</strong></span> Compare tumor classes 2 and 4 on gene 3 of the Khan data, using <span class="math inline">\(\mathopen{}\left|t\right|\mathclose{}\)</span> of Welch’s statistic and <span class="math inline">\(B = 10{,}000\)</span> random relabelings. The <span class="math inline">\(43\)</span> values admit <span class="math inline">\(\binom{43}{20} =\)</span> 960,566,918,220 relabelings (<a href="#exm-exchangeable" class="quarto-xref">Example&nbsp;1</a>), too many to list:</p>
@@ -1471,23 +1557,23 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Lem</span><a href="#thm-monte-carlo-p-valid" class="quarto-xref">Theorem&nbsp;2</a> (The Monte Carlo permutation p-value is valid)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-monte-carlo-p-valid" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (The Monte Carlo permutation p-value is valid)</strong></span> Let <span class="math inline">\(Y\)</span> be exchangeable under <span class="math inline">\(H_0\)</span> (<a href="#def-exchangeable" class="quarto-xref">Definition&nbsp;1</a>), and let <span class="math inline">\(\hat p_{\text{perm}}\)</span> be the <a href="#def-monte-carlo-p-value">Monte Carlo permutation p-value</a> of <span class="math inline">\(T(Y)\)</span> from <span class="math inline">\(B\)</span> independent uniform permutations. Then <span class="math inline">\(\hat p_{\text{perm}}\)</span> is a <a href="./multiple-testing.html#def-valid-p-value">valid p-value</a>:</p>
 <p><span class="math display">\[\Pr_{H_0}\mathopen{}\left(\hat p_{\text{perm}} \le u\right)\mathclose{} \le u \quad \text{for every } u \in [0, 1].\]</span></p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1496,7 +1582,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Phipson and Smyth <span class="citation" data-cites="phipson2010permutation">(<a href="#ref-phipson2010permutation" role="doc-biblioref">2010</a>)</span> show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.</p>
 </div>
@@ -1506,17 +1592,17 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-monte-carlo-p-valid" class="quarto-xref">Example&nbsp;6</a> (Validity in a small simulation)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-monte-carlo-p-valid" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Validity in a small simulation)</strong></span> Simulate 2000 data sets of 20 independent standard Gaussian values, ten per group, so that <span class="math inline">\(H_0\)</span> holds. For each, compute <span class="math inline">\(\hat p_{\text{perm}}\)</span> of the absolute difference in means with <span class="math inline">\(B = 99\)</span>:</p>
@@ -1548,17 +1634,17 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-plus-one" class="quarto-xref">Remark&nbsp;2</a> (Why add 1)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-plus-one" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Why add 1). </span>Without the 1, a data set whose statistic exceeds all <span class="math inline">\(B\)</span> permuted statistics would get a p-value of 0, which claims that the observed result is impossible under <span class="math inline">\(H_0\)</span>. Under <span class="math inline">\(H_0\)</span>, with no ties, that happens with probability <span class="math inline">\(1 / (B + 1)\)</span>, because the observed statistic is equally likely to be any one of the <span class="math inline">\(B + 1\)</span> values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of <span class="math inline">\(\hat p_{\text{perm}}\)</span> is <span class="math inline">\(1 / (B + 1)\)</span>.</p>
@@ -1569,17 +1655,17 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 </section><section id="sec-permutation-multiple-testing" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="sec-permutation-multiple-testing">
 <span class="header-section-number">5</span> Permutation tests and multiple testing</h2>
 <!-- No slidebreak here: the heading shares its slide with the exm-permutation-all-genes div. -->
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-permutation-all-genes" class="quarto-xref">Example&nbsp;7</a> (Permutation p-values for all 2308 genes)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-permutation-all-genes" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Permutation p-values for all 2308 genes)</strong></span> Relabeling the samples once permutes every gene at the same time, so <span class="math inline">\(B = 1000\)</span> relabelings give a permutation null distribution for each of the 2308 genes. This computes <span class="math inline">\(\mathopen{}\left|t\right|\mathclose{}\)</span> for all genes from column means and sums of squares, in a function checked against <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> on gene 3:</p>

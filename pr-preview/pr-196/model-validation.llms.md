@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 02:20:36 (PDT)
+Last modified: 2026-10-15 05:15:32 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -251,9 +251,7 @@ Last modified: 2026-10-15 02:20:36 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 3 (The expected generalization error, covariate value by covariate value)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations be independent of the new observation \\(X\_{\*}, Y\_{\*})\\. Show that the [expected generalization error](#def-expected-generalization-error) is the mean of the [expected squared prediction error at \\x\\](#def-epe) over the distribution of \\X\_{\*}\\:
->
-> \\ \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\operatorname{EPE}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}\right\]\mathclose{}. \\
+> **Exercise 3 (The expected generalization error, covariate value by covariate value)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let the random [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations be independent of the new observation \\(X\_{\*}, Y\_{\*})\\. Write the [expected generalization error](#def-expected-generalization-error) \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ in terms of the [expected squared prediction error at \\x\\](#def-epe), \\\operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}\\, and the distribution of \\X\_{\*}\\.
 
 > **NOTE:**
 >
@@ -463,11 +461,11 @@ Last modified: 2026-10-15 02:20:36 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 7 (A held-out set estimates the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 7](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\.
+> **Exercise 7 (Held-out predictions and the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 7](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\.
 >
-> Show that, given \\\mathcal{D}\_{\text{train}}\\, the expected [mean squared error](prediction.llms.md#def-prediction-mse) of the held-out predictions is \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
+> Find, given \\\mathcal{D}\_{\text{train}}\\, the expected [mean squared error](prediction.llms.md#def-prediction-mse) of the held-out predictions, in terms of the generalization error \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
 >
-> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} {\mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)\mathclose{}}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
+> \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m} \sum\_{j=1}^{m} {\mathopen{}\left(\hat y(X\_{\*,j}) - Y\_{\*,j}\right)\mathclose{}}^2 \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \\
 
 > **NOTE:**
 >
