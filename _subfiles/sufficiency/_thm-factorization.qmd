@@ -39,10 +39,10 @@ $$
 &= \Pr_{\param}\paren{\vX = \vx}
 && \text{(definition of the joint mass function)}\\
 &= \Pr_{\param}\paren{\vX = \vx,\ \statf{\vX} = t}
-&& \text{(the event $\vX = \vx$ lies inside the event $\statf{\vX} = t$)}\\
+&& \text{(the first event is inside the second)}\\
 &= \Pr_{\param}\paren{\statf{\vX} = t} \,
    \Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}
-&& \text{(definition of conditional probability)}\\
+&& \text{(conditional probability)}\\
 &= \sfacf{t}{\param} \, \rfacf{\vx}
 && \text{(definitions of $\sfac$ and $\rfac$)}
 \end{aligned}
@@ -74,7 +74,7 @@ $$
 \begin{aligned}
 \Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}
 &= \frac{\pdf\paren{\vx ; \param}}{\Pr_{\param}\paren{\statf{\vX} = t}}
-&& \text{(definition of conditional probability)}\\
+&& \text{(conditional probability)}\\
 &= \frac{\sfacf{t}{\param} \, \rfacf{\vx}}
         {\sfacf{t}{\param} \sum_{\vy:\, \statf{\vy} = t} \rfacf{\vy}}
 && \text{(factorization, and the display above)}\\

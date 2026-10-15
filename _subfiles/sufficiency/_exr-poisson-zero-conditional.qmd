@@ -18,7 +18,7 @@ $$
 \begin{aligned}
 \Pr\paren{X_1 = 0 \given S = t}
 &= \frac{\Pr\paren{X_1 = 0,\ S = t}}{\Pr\paren{S = t}}
-&& \text{(definition of conditional probability)}\\
+&& \text{(conditional probability)}\\
 &= \frac{\Pr\paren{X_1 = 0,\ X_2 + \cdots + X_n = t}}{\Pr\paren{S = t}}
 && \text{(on $X_1 = 0$, $S$ is that sum)}\\
 &= \frac{\Pr\paren{X_1 = 0} \Pr\paren{X_2 + \cdots + X_n = t}}{\Pr\paren{S = t}}

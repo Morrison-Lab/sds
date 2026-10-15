@@ -68,8 +68,12 @@ summarize_estimator <- function(x) {
   m4 <- mean((x - mean(x))^4)
   se_v <- sqrt((m4 - v^2) / length(x))
   data.frame(
-    mean = mean(x), mean_lower = tt$conf.int[1], mean_upper = tt$conf.int[2],
-    variance = v, var_lower = v - 1.96 * se_v, var_upper = v + 1.96 * se_v
+    mean = mean(x),
+    mean_lower = tt$conf.int[1],
+    mean_upper = tt$conf.int[2],
+    variance = v,
+    var_lower = v - 1.96 * se_v,
+    var_upper = v + 1.96 * se_v
   )
 }
 rb_summary <- do.call(rbind, lapply(est, summarize_estimator))
