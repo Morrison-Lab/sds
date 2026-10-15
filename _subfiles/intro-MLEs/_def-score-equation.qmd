@@ -1,10 +1,16 @@
 :::{#def-score-equation}
-#### Score equation (estimating equation)
+#### Score equation
 
-The **score equation** (also called the **estimating equation**)
+The **score equation**
 is the equation that sets the [score function](#def-score) to zero:
 
 $$
 \score(\vparam) = \vzero
 $$
+:::
+
+::: notes
+The score equation is one example of an **estimating equation**,
+an equation whose solution defines an estimator.
+Estimating equations in general need not come from a likelihood.
 :::
