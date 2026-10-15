@@ -13,7 +13,7 @@ Show that the [score](#def-score) has mean zero.
 
 :::{#sol-score-mean-zero}
 
-The step that rewrites the derivative of $\log \p(\vx \mid \param)$ uses @exr-deriv-log-density:
+The step that rewrites the derivative of $\log \p(\vx \mid \param)$ uses @lem-deriv-log-density:
 
 $$
 \begin{aligned}
