@@ -1,10 +1,11 @@
 ::: {#def-quartiles}
-#### Quartiles (25th and 75th percentiles)
+#### Quartiles (first quartile, third quartile, 25th percentile, 75th percentile)
 
-The **first quartile** $Q_1$ and the **third quartile** $Q_3$
-are the sample 0.25 and 0.75 quantiles
-([sample quantile](nonparametric-models.qmd#def-sample-quantile)),
-also called the **25th and 75th percentiles**.
+The **quartiles** are the **first quartile** $Q_1$ and the **third quartile** $Q_3$,
+the sample 0.25 and 0.75 quantiles
+([sample quantile](nonparametric-models.qmd#def-sample-quantile)).
+The first quartile is also called the **25th percentile**,
+and the third quartile is also called the **75th percentile**.
 :::
 
 {{< slidebreak >}}
