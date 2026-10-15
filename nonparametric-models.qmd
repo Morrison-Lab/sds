@@ -78,6 +78,8 @@ format:
 {{< include sds/_subfiles/nonparametric-models/_note-generalized-inverse.qmd >}}
 
 ::: {.reading}
+These readings look ahead from the empirical CDF to distribution-free tests, which this page does not cover:
+
 - @hoggtanis2015 [Sec. 8.5, pp. 392--402] covers some distribution-free tests.
 - @rice2007mathematical [Sec. 11.2.3, pp. 435--442] covers the Mann--Whitney test.
 - @rice2007mathematical [Sec. 11.3.2, pp. 448--449] covers the signed rank test.
