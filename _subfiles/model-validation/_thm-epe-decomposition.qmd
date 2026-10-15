@@ -2,66 +2,66 @@
 #### Bias, variance and noise
 
 Let $\mean$ be the [mean function](#def-mean-function) of the outcome given the covariate.
-Suppose that, given $X_0 = x$,
-the new outcome is $Y_0 = \mean(x) + \noise$,
-where $\noise$, the noise in the outcome at $x$, has mean $0$ and variance $\varpar$,
-and that $Y_0$ is independent of the random training set $\trainset$,
-and that $\E{g\paren{x; \trainset}^2} < \infty$.
-Then the [expected squared prediction error at $x$](#def-epe)
+Suppose that, given $\newpredvar = \predvar$,
+the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
+where $\noise$, the noise in the outcome at $\predvar$, has mean $0$ and variance $\varpar$,
+and that $\newoutvar$ is independent of the random training set $\trainset$,
+and that $\E{\fitproc\paren{\predvar; \trainset}^2} < \infty$.
+Then the [expected squared prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)
-of the prediction $g\paren{x; \trainset}$ as a prediction of $\mean(x)$,
+of the prediction $\fitproc\paren{\predvar; \trainset}$ as a prediction of $\mean(\predvar)$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 
 $$
-\epe{g}{n}{x} = \sqf{\bias{g\paren{x; \trainset}}}
-+ \Var{g\paren{x; \trainset}} + \varpar.
+\epe{\fitproc}{\nobs}{\predvar} = \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}
++ \Var{\fitproc\paren{\predvar; \trainset}} + \varpar.
 $$ {#eq-epe-decomposition}
 
 :::
 
 ::: proof
 
-Write $\targeterrf{x} \eqdef \mean(x) - g\paren{x; \trainset}$,
-the error of the prediction as an estimate of $\mean(x)$.
-Given $X_0 = x$, the noise has mean 0 by @eq-mean-function and variance $\varpar$,
-and it is independent of $g\paren{x; \trainset}$
-because $Y_0$ is independent of $\trainset$;
-hence it is independent of $\targeterrf{x}$,
-because $\mean(x)$ is a constant.
+Write $\targeterrf{\predvar} \eqdef \mean(\predvar) - \fitproc\paren{\predvar; \trainset}$,
+the error of the prediction as an estimate of $\mean(\predvar)$.
+Given $\newpredvar = \predvar$, the noise has mean 0 by @eq-mean-function and variance $\varpar$,
+and it is independent of $\fitproc\paren{\predvar; \trainset}$
+because $\newoutvar$ is independent of $\trainset$;
+hence it is independent of $\targeterrf{\predvar}$,
+because $\mean(\predvar)$ is a constant.
 
-First, the prediction error in terms of $\noise$ and $\targeterrf{x}$:
+First, the prediction error in terms of $\noise$ and $\targeterrf{\predvar}$:
 
 $$
 \ba
-Y_0 - g\paren{x; \trainset}
-&= \paren{\mean(x) + \noise} - g\paren{x; \trainset}
-&& \text{(definition of } Y_0 \text{)} \\
-&= \noise + \paren{\mean(x) - g\paren{x; \trainset}}
+\newoutvar - \fitproc\paren{\predvar; \trainset}
+&= \paren{\mean(\predvar) + \noise} - \fitproc\paren{\predvar; \trainset}
+&& \text{(definition of } \newoutvar \text{)} \\
+&= \noise + \paren{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
 && \text{(reorder the terms of the sum)} \\
-&= \noise + \targeterrf{x}
-&& \text{(definition of } \targeterrf{x} \text{)}
+&= \noise + \targeterrf{\predvar}
+&& \text{(definition of } \targeterrf{\predvar} \text{)}
 \ea
 $$
 
 Next, expand the square and split the expectation.
-The first line is the definition of the expected squared prediction error at $x$,
-which conditions on $X_0 = x$;
-all expectations in the lines after it are conditional on $X_0 = x$ too.
+The first line is the definition of the expected squared prediction error at $\predvar$,
+which conditions on $\newpredvar = \predvar$;
+all expectations in the lines after it are conditional on $\newpredvar = \predvar$ too.
 The last two steps use
 [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation),
 first for the expectation of a sum and then for a constant factor:
 
 $$
 \ba
-\epe{g}{n}{x}
-&= \E{\sqf{\noise + \targeterrf{x}} \mid X_0 = x}
+\epe{\fitproc}{\nobs}{\predvar}
+&= \E{\sqf{\noise + \targeterrf{\predvar}} \mid \newpredvar = \predvar}
 && \text{(definition and the error above)} \\
-&= \E{\noise^2 + 2 \noise \targeterrf{x} + \sqf{\targeterrf{x}}}
-&& \text{(expand: } \paren{a + b}^2 = a^2 + 2ab + b^2 \text{)} \\
-&= \E{\noise^2} + \E{2 \noise \targeterrf{x}} + \E{\sqf{\targeterrf{x}}}
+&= \E{\noise^2 + 2 \noise \targeterrf{\predvar} + \sqf{\targeterrf{\predvar}}}
+&& \text{(expand the square of a sum)} \\
+&= \E{\noise^2} + \E{2 \noise \targeterrf{\predvar}} + \E{\sqf{\targeterrf{\predvar}}}
 && \text{(expectation of a sum)} \\
-&= \E{\noise^2} + 2\E{\noise \targeterrf{x}} + \E{\sqf{\targeterrf{x}}}
+&= \E{\noise^2} + 2\E{\noise \targeterrf{\predvar}} + \E{\sqf{\targeterrf{\predvar}}}
 && \text{(constant factor 2)}
 \ea
 $$
@@ -73,15 +73,15 @@ Each of the three terms is evaluated in turn.
   gives $\varpar = \E{\noise^2} - \sqf{\E{\noise}}$,
   and $\E{\noise} = 0$, so $\E{\noise^2} = \varpar$.
 - For the cross term,
-  $\noise$ is independent of $\targeterrf{x}$,
+  $\noise$ is independent of $\targeterrf{\predvar}$,
   so the expectation of the product is the product of the expectations:
 
   $$
   \ba
-  \E{\noise \targeterrf{x}}
-  &= \E{\noise}\E{\targeterrf{x}}
+  \E{\noise \targeterrf{\predvar}}
+  &= \E{\noise}\E{\targeterrf{\predvar}}
   && \text{(independence)} \\
-  &= 0 \cdot \E{\targeterrf{x}}
+  &= 0 \cdot \E{\targeterrf{\predvar}}
   && \text{(} \E{\noise} = 0 \text{)} \\
   &= 0
   && \text{(zero times a number)}
@@ -90,37 +90,37 @@ Each of the three terms is evaluated in turn.
 
 - For the last term,
   the variance identity gives
-  $\E{\sqf{\targeterrf{x}}} = \Var{\targeterrf{x}} + \sqf{\E{\targeterrf{x}}}$.
-  The mean of $\targeterrf{x}$ is
+  $\E{\sqf{\targeterrf{\predvar}}} = \Var{\targeterrf{\predvar}} + \sqf{\E{\targeterrf{\predvar}}}$.
+  The mean of $\targeterrf{\predvar}$ is
 
   $$
   \ba
-  \E{\targeterrf{x}}
-  &= \E{\mean(x)} - \E{g\paren{x; \trainset}}
+  \E{\targeterrf{\predvar}}
+  &= \E{\mean(\predvar)} - \E{\fitproc\paren{\predvar; \trainset}}
   && \text{(expectation of a difference)} \\
-  &= \mean(x) - \E{g\paren{x; \trainset}}
-  && \text{(} \mean(x) \text{ is a constant)} \\
-  &= -\paren{\E{g\paren{x; \trainset}} - \mean(x)}
+  &= \mean(\predvar) - \E{\fitproc\paren{\predvar; \trainset}}
+  && \text{(} \mean(\predvar) \text{ is a constant)} \\
+  &= -\paren{\E{\fitproc\paren{\predvar; \trainset}} - \mean(\predvar)}
   && \text{(factor out } -1 \text{)} \\
-  &= -\bias{g\paren{x; \trainset}}
+  &= -\bias{\fitproc\paren{\predvar; \trainset}}
   && \text{(definition of bias)}
   \ea
   $$
 
-  so $\sqf{\E{\targeterrf{x}}} = \sqf{\bias{g\paren{x; \trainset}}}$,
-  because $\sqf{-a} = \sqf{a}$.
-  The variance of $\targeterrf{x}$ is
+  so $\sqf{\E{\targeterrf{\predvar}}} = \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}$,
+  because a number and its negative have the same square.
+  The variance of $\targeterrf{\predvar}$ is
 
   $$
   \ba
-  \Var{\targeterrf{x}}
-  &= \E{\sqf{\targeterrf{x} - \E{\targeterrf{x}}}}
+  \Var{\targeterrf{\predvar}}
+  &= \E{\sqf{\targeterrf{\predvar} - \E{\targeterrf{\predvar}}}}
   && \text{(definition of variance)} \\
-  &= \E{\sqf{-\paren{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}}
-  && \text{(substitute; the constant } \mean(x) \text{ cancels)} \\
-  &= \E{\sqf{g\paren{x; \trainset} - \E{g\paren{x; \trainset}}}}
-  && \text{(} \sqf{-a} = \sqf{a} \text{)} \\
-  &= \Var{g\paren{x; \trainset}}
+  &= \E{\sqf{-\paren{\fitproc\paren{\predvar; \trainset} - \E{\fitproc\paren{\predvar; \trainset}}}}}
+  && \text{(substitute; the constant } \mean(\predvar) \text{ cancels)} \\
+  &= \E{\sqf{\fitproc\paren{\predvar; \trainset} - \E{\fitproc\paren{\predvar; \trainset}}}}
+  && \text{(a number and its negative have the same square)} \\
+  &= \Var{\fitproc\paren{\predvar; \trainset}}
   && \text{(definition of variance)}
   \ea
   $$
@@ -129,10 +129,10 @@ Substituting the three terms into the expansion gives
 
 $$
 \ba
-\epe{g}{n}{x}
-&= \varpar + 2 \cdot 0 + \paren{\Var{g\paren{x; \trainset}} + \sqf{\bias{g\paren{x; \trainset}}}}
+\epe{\fitproc}{\nobs}{\predvar}
+&= \varpar + 2 \cdot 0 + \paren{\Var{\fitproc\paren{\predvar; \trainset}} + \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}}
 && \text{(the three terms above)} \\
-&= \sqf{\bias{g\paren{x; \trainset}}} + \Var{g\paren{x; \trainset}} + \varpar
+&= \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}} + \varpar
 && \text{(drop } 2 \cdot 0 \text{, reorder the terms)}
 \ea
 $$

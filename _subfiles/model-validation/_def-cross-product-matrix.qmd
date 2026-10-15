@@ -1,12 +1,12 @@
 :::{#def-cross-product-matrix}
 #### Cross-product matrix
 
-The **cross-product matrix** $A$ of [term vectors](#def-term-vector)
-$\termvec{i}$, $i \in I$, of a training set indexed by $I$,
+The **cross-product matrix** $\sscp$ of [term vectors](#def-term-vector)
+$\termvec{\iobs}$, $\iobs \in \obsidx$, of a training set indexed by $\obsidx$,
 is the sum of their outer products:
 
 $$
-A \eqdef \sum_{i \in I} \soprod{\termvec{i}}.
+\sscp \eqdef \sum_{\iobs \in \obsidx} \soprod{\termvec{\iobs}}.
 $$ {#eq-cross-product-matrix}
 
 ::: {.callout-note collapse="true"}

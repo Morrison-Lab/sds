@@ -1,21 +1,21 @@
 :::{#def-fold-out-rule}
 #### Fold-out rule
 
-For [fold](#def-folds) $\fold{j}$,
-the **fold-out rule** $\fittedwo{j}{\cdot}$
+For [fold](#def-folds) $\fold{\ifold}$,
+the **fold-out rule** $\fittedwo{\ifold}{\cdot}$
 is the [prediction rule](#def-prediction-rule)
-that a [fitting procedure](#def-fitting-procedure) $g$ produces
+that a [fitting procedure](#def-fitting-procedure) $\fitproc$ produces
 from the observations outside that fold:
 
 $$
-\fittedwo{j}{x} \eqdef g\paren{x; \paren{(x_i, y_i)}_{i \in I \setminus \fold{j}}}.
+\fittedwo{\ifold}{\predvar} \eqdef \fitproc\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx \setminus \fold{\ifold}}}.
 $$ {#eq-fold-out-rule}
 
 ::: {.callout-note collapse="true"}
 #### Source
 
 @hastie2009elements [sec. 7.10.1],
-who write the fitted function with the $k$th part of the data removed as $\hat f^{-k}$.
+who write the fitted function with the $\nfolds$th part of the data removed as $\hat f^{-k}$.
 :::
 
 :::

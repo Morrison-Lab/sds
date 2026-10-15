@@ -3,9 +3,9 @@
 
 In @exr-overfitting,
 least squares computes the coefficients of each polynomial from the 20 training cars,
-but the degree $d$ is fixed before the fit.
+but the degree $\polydeg$ is fixed before the fit.
 So the degree is a [tuning parameter](#def-tuning-parameter)
 of least-squares polynomial fitting,
-and the four fits are $g_1, g_2, g_3, g_4$ with $\tuning = d$.
+and the four fits are $\candproc{1}, \candproc{2}, \candproc{3}, \candproc{4}$ with $\tuning = \polydeg$.
 
 :::
