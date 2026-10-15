@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 01:42:34 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 08:32:19 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -401,7 +401,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Example 3 (Posterior probability that a coin is biased)</strong></span> A coin is either fair (<span class="math inline">\(\theta= 0.5\)</span>) or biased toward heads (<span class="math inline">\(\theta= 0.8\)</span>), where <span class="math inline">\(\theta\)</span> is its probability of heads, with prior probabilities <span class="math inline">\(\operatorname{p}(0.5) = 0.9\)</span> and <span class="math inline">\(\operatorname{p}(0.8) = 0.1\)</span>. After three tosses that all land heads, the posterior distribution of <span class="math inline">\(\theta\)</span> is its conditional distribution given those tosses. Its probabilities are computed in <a href="#/exm-marginal-likelihood" class="quarto-xref">Example&nbsp;4</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-marginal-likelihood" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Marginal likelihood)</strong></span> Given a prior <span class="math inline">\(\operatorname{p}(\theta)\)</span> and a model <span class="math inline">\(\operatorname{p}(\tilde{y}\mid \theta)\)</span> for the data given <span class="math inline">\(\theta\)</span>, the <strong>marginal likelihood</strong> (also called the <strong>evidence</strong>) of observed data <span class="math inline">\(\tilde{y}\)</span> is</p>
+<p><span class="theorem-title"><strong>Definition 5 (Marginal likelihood (evidence))</strong></span> Given a prior <span class="math inline">\(\operatorname{p}(\theta)\)</span> and a model <span class="math inline">\(\operatorname{p}(\tilde{y}\mid \theta)\)</span> for the data given <span class="math inline">\(\theta\)</span>, the <strong>marginal likelihood</strong> (also called the <strong>evidence</strong>) of observed data <span class="math inline">\(\tilde{y}\)</span> is</p>
 <p><span class="math display">\[
 \operatorname{p}(\tilde{y}) \stackrel{\text{def}}{=}\int \operatorname{p}(\tilde{y}\mid \theta)\, \operatorname{p}(\theta)\, d\theta,
 \]</span></p>
@@ -1322,9 +1322,20 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 <p><span class="theorem-title"><strong>Definition 12 (Weakly informative prior)</strong></span> A <strong>weakly informative prior</strong> is a <a href="#/def-prior">prior</a> that gives little probability to implausible values of <span class="math inline">\(\theta\)</span>, while spreading its probability nearly evenly across the range of scientifically plausible values.</p>
 </div>
 </section><section class="slide level2"><div id="def-flat-prior" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Flat prior)</strong></span> A <strong>flat prior</strong>, also called a <strong>uniform</strong> or <strong>noninformative</strong> prior, is a <a href="#/def-prior">prior</a> whose density is constant on the parameter space: <span class="math inline">\(\operatorname{p}(\theta) \propto 1\)</span> for <span class="math inline">\(\theta\in \Theta\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 13 (Flat prior (uniform prior))</strong></span> A <strong>flat prior</strong>, also called a <strong>uniform prior</strong>, is a <a href="#/def-prior">prior</a> whose density is constant on the parameter space: <span class="math inline">\(\operatorname{p}(\theta) \propto 1\)</span> for <span class="math inline">\(\theta\in \Theta\)</span>.</p>
 </div>
-</section><section class="slide level2"><div id="def-improper-prior" class="theorem definition">
+<aside class="notes"><p>A flat prior is a common choice of noninformative prior, but “noninformative prior” is the broader idea: other noninformative priors, such as Jeffreys priors, are not flat.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section class="slide level2"><div id="def-improper-prior" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Improper prior)</strong></span> An <strong>improper prior</strong> is a nonnegative function <span class="math inline">\(\operatorname{p}(\theta)\)</span>, used in place of a prior density, whose integral over the parameter space is infinite, so that it is not a probability density.</p>
 </div>
 </section><section class="slide level2"><div id="exm-prior-spectrum" class="theorem example">
@@ -1988,7 +1999,7 @@ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \til
 <span class="header-section-number">5</span> Distributions and hierarchies</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-hierarchical-model div. -->
 <div id="def-hierarchical-model" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22 (Hierarchical model)</strong></span> A <strong>hierarchical model</strong>, also called a <strong>multilevel model</strong>, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;281)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 22 (Hierarchical model (multilevel model))</strong></span> A <strong>hierarchical model</strong>, also called a <strong>multilevel model</strong>, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;281)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-hierarchical-model-structure" class="proof remark">
 <p><span class="proof-title"><em>Remark 8</em> (A hierarchical model is a model structure). </span>A hierarchical model is a model structure, not an inference method: it can be fit by maximum likelihood or by Bayesian inference. Bayesian inference also gives the further unknown parameters a prior (a <em>hyperprior</em>).</p>

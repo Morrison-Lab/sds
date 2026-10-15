@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:42:34 (PDT)
+Last modified: 2026-10-15 08:32:19 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -30,13 +30,13 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Definition 2 (Sufficient statistic)** Let \\\tilde{X}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\tilde{x}\\ and every value \\t\\ that the statistic takes with positive probability, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\:
+> **Definition 2 (Sufficient statistic)** Let \\\tilde{X}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\tilde{x}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability:
 >
-> \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \tag{1}\\
-
-> **NOTE:**
+> \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \quad \text{wherever } \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0 \tag{1}\\
 >
-> Fisher ([1922](#ref-fisher1922mathematical)) introduced sufficiency; Casella and Berger ([2002](#ref-CaseBerg01), Def. 6.2.1, p. 272).
+> > **NOTE:**
+> >
+> > Fisher ([1922](#ref-fisher1922mathematical)) introduced sufficiency; Casella and Berger ([2002](#ref-CaseBerg01), Def. 6.2.1, p. 272).
 
 > **NOTE:**
 >
@@ -44,11 +44,13 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > The sample itself, taking \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = \tilde{X}\\, is always sufficient but does not reduce the data; a useful sufficient statistic is a much shorter summary, such as a sum or a mean.
 >
-> For a continuous sample, the definition uses conditional densities instead of conditional probabilities.
+> Sufficiency by itself does not give a best estimator: it says which summaries lose nothing, not which function of them to use. The Rao–Blackwell theorem below shows how to improve a given unbiased estimator.
+>
+> For a continuous sample, the definition, the factorization theorem and the conditional expectations below use densities and integrals instead of probability mass functions and sums.
 
 > **NOTE:**
 >
-> **Theorem 1 (Factorization theorem)** Let \\\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}\\ be the joint probability mass function of a discrete sample \\\tilde{X}\\. A statistic \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is [sufficient](#def-sufficient) for \\\theta\\ if and only if there are functions \\g\\ and \\h\\ such that, for every sample \\\tilde{x}\\ and every \\\theta\\,
+> **Theorem 1 (Factorization theorem)** Let \\\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}\\ be the joint probability mass function of a discrete sample \\\tilde{X}\\. A statistic \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is [sufficient](#def-sufficient) for \\\theta\\ if and only if there are nonnegative functions \\g\\ and \\h\\ such that, for every sample \\\tilde{x}\\ and every \\\theta\\,
 >
 > \\ \operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{} = g\mathopen{}\left(T\mathopen{}\left(\tilde{x}\right)\mathclose{} ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{} \tag{2}\\
 >
@@ -56,15 +58,15 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > > **NOTE:**
 > >
-> > Halmos and Savage ([1949](#ref-halmos1949application)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 6.2.6, p. 276).
+> > Halmos and Savage ([1949](#ref-halmos1949application)), whom Casella and Berger ([2002](#ref-CaseBerg01), Thm. 6.2.6, p. 276, and its footnote) credit with the general form, and Neyman (1935) with an earlier one.
 
 > **NOTE:**
 >
 > *Proof*. Fix a sample \\\tilde{x}\\ and write \\t \stackrel{\text{def}}{=}T\mathopen{}\left(\tilde{x}\right)\mathclose{}\\. The event \\\tilde{X}= \tilde{x}\\ lies inside the event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\.
 >
-> **Sufficient implies a factorization.** Define \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \stackrel{\text{def}}{=}\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}\\ and \\h\mathopen{}\left(\tilde{x}\right)\mathclose{} \stackrel{\text{def}}{=}\Pr\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = T\mathopen{}\left(\tilde{x}\right)\mathclose{}\right)\mathclose{}\\. By [sufficiency](#eq-sufficient), \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ does not depend on \\\theta\\. (If \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ for every \\\theta\\, set \\h\mathopen{}\left(\tilde{x}\right)\mathclose{} \stackrel{\text{def}}{=}0\\; then both sides of [Equation 2](#eq-factorization) are zero.) Then
+> **Sufficient implies a factorization.** Define \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \stackrel{\text{def}}{=}\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}\\ and let \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ be the conditional probability \\\Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}\\ at any \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. By [sufficiency](#eq-sufficient), \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ does not depend on which such \\\theta\\ we use. (If \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ for every \\\theta\\, set \\h\mathopen{}\left(\tilde{x}\right)\mathclose{} \stackrel{\text{def}}{=}0\\.) Both functions are nonnegative, and at a \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ both sides of [Equation 2](#eq-factorization) are zero, because the event \\\tilde{X}= \tilde{x}\\ lies inside the event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\. At every other \\\theta\\,
 >
-> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{} &= \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\right)\mathclose{} && \text{(definition of the joint mass function)}\\ &= \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x},\\ T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(the event \$\tilde{X}= \tilde{x}\$ lies inside the event \$T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\$)}\\ &= \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(definition of conditional probability)}\\ &= g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{} && \text{(definitions of \$g\$ and \$h\$)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{} &= \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\right)\mathclose{} && \text{(definition of the joint mass function)}\\ &= \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x},\\ T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(the first event is inside the second)}\\ &= \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(conditional probability)}\\ &= g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{} && \text{(definitions of \$g\$ and \$h\$)} \end{aligned} \\
 >
 > **A factorization implies sufficient.** Suppose [Equation 2](#eq-factorization) holds, and let \\t\\ be a value with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. The event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\ is the union of the disjoint events \\\tilde{X}= \tilde{y}\\ over the samples \\\tilde{y}\\ with \\T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t\\, so
 >
@@ -72,7 +74,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > This is positive, so \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\\. For a sample \\\tilde{x}\\ with \\T\mathopen{}\left(\tilde{x}\right)\mathclose{} = t\\,
 >
-> \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} &= \frac{\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}}{\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}} && \text{(definition of conditional probability)}\\ &= \frac{g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{}} {g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(factorization, and the display above)}\\ &= \frac{h\mathopen{}\left(\tilde{x}\right)\mathclose{}}{\sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(divide by \$g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\$)} \end{aligned} \\
+> \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} &= \frac{\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}}{\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}} && \text{(conditional probability)}\\ &= \frac{g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{}} {g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(factorization, and the display above)}\\ &= \frac{h\mathopen{}\left(\tilde{x}\right)\mathclose{}}{\sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(divide by \$g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\$)} \end{aligned} \\
 >
 > which does not depend on \\\theta\\. For a sample \\\tilde{x}\\ with \\T\mathopen{}\left(\tilde{x}\right)\mathclose{} \neq t\\ the conditional probability is zero, which does not depend on \\\theta\\ either. So \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is sufficient.
 
@@ -94,7 +96,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Lemma 1 (The Rao–Blackwellized estimator is a statistic)** Let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\ and \\\hat{\theta}\\ an estimator of \\\theta\\. Then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ does not depend on \\\theta\\, so it is a [statistic](#def-statistic) and an estimator.
+> **Lemma 1 (The Rao–Blackwellized estimator is a statistic)** Let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\ and \\\hat{\theta}\\ an estimator of \\\theta\\ with finite expectation. Then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ does not depend on \\\theta\\, so it is a [statistic](#def-statistic) and an estimator.
 
 > **NOTE:**
 >
@@ -138,7 +140,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > *Solution 1*. The event \\X_1 = 0\\ and \\S = t\\ happens exactly when \\X_1 = 0\\ and \\X_2 + \cdots + X_n = t\\, and \\X_2 + \cdots + X_n \sim \operatorname{Pois}\mathopen{}\left((n-1){\lambda}\right)\mathclose{}\\ is independent of \\X_1\\.
 >
-> \\ \begin{aligned} \Pr\mathopen{}\left(X_1 = 0 \mid S = t\right)\mathclose{} &= \frac{\Pr\mathopen{}\left(X_1 = 0,\\ S = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(definition of conditional probability)}\\ &= \frac{\Pr\mathopen{}\left(X_1 = 0,\\ X_2 + \cdots + X_n = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(on \$X_1 = 0\$, \$S\$ is that sum)}\\ &= \frac{\Pr\mathopen{}\left(X_1 = 0\right)\mathclose{} \Pr\mathopen{}\left(X_2 + \cdots + X_n = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(independence)}\\ &= \frac{e^{-{\lambda}} \cdot e^{-(n-1){\lambda}} \mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t / t!}{e^{-n{\lambda}} \mathopen{}\left(n{\lambda}\right)\mathclose{}^t / t!} && \text{(Poisson mass functions)}\\ &= \frac{e^{-n{\lambda}} \mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t / t!}{e^{-n{\lambda}} \mathopen{}\left(n{\lambda}\right)\mathclose{}^t / t!} && \text{(\$e^{-{\lambda}} e^{-(n-1){\lambda}} = e^{-n{\lambda}}\$)}\\ &= \frac{\mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t}{\mathopen{}\left(n{\lambda}\right)\mathclose{}^t} && \text{(cancel \$e^{-n{\lambda}} / t!\$)}\\ &= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^t && \text{(cancel \${\lambda}^t\$, combine powers)} \end{aligned} \\
+> \\ \begin{aligned} \Pr\mathopen{}\left(X_1 = 0 \mid S = t\right)\mathclose{} &= \frac{\Pr\mathopen{}\left(X_1 = 0,\\ S = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(conditional probability)}\\ &= \frac{\Pr\mathopen{}\left(X_1 = 0,\\ X_2 + \cdots + X_n = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(on \$X_1 = 0\$, \$S\$ is that sum)}\\ &= \frac{\Pr\mathopen{}\left(X_1 = 0\right)\mathclose{} \Pr\mathopen{}\left(X_2 + \cdots + X_n = t\right)\mathclose{}}{\Pr\mathopen{}\left(S = t\right)\mathclose{}} && \text{(independence)}\\ &= \frac{e^{-{\lambda}} \cdot e^{-(n-1){\lambda}} \mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t / t!}{e^{-n{\lambda}} \mathopen{}\left(n{\lambda}\right)\mathclose{}^t / t!} && \text{(Poisson mass functions)}\\ &= \frac{e^{-n{\lambda}} \mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t / t!}{e^{-n{\lambda}} \mathopen{}\left(n{\lambda}\right)\mathclose{}^t / t!} && \text{(\$e^{-{\lambda}} e^{-(n-1){\lambda}} = e^{-n{\lambda}}\$)}\\ &= \frac{\mathopen{}\left((n-1){\lambda}\right)\mathclose{}^t}{\mathopen{}\left(n{\lambda}\right)\mathclose{}^t} && \text{(cancel \$e^{-n{\lambda}} / t!\$)}\\ &= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^t && \text{(cancel \${\lambda}^t\$, combine powers)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -196,8 +198,12 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >   m4 <- mean((x - mean(x))^4)
 >   se_v <- sqrt((m4 - v^2) / length(x))
 >   data.frame(
->     mean = mean(x), mean_lower = tt$conf.int[1], mean_upper = tt$conf.int[2],
->     variance = v, var_lower = v - 1.96 * se_v, var_upper = v + 1.96 * se_v
+>     mean = mean(x),
+>     mean_lower = tt$conf.int[1],
+>     mean_upper = tt$conf.int[2],
+>     variance = v,
+>     var_lower = v - 1.96 * se_v,
+>     var_upper = v + 1.96 * se_v
 >   )
 > }
 > rb_summary <- do.call(rbind, lapply(est, summarize_estimator))
@@ -206,25 +212,27 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > The estimand is \\\pi=\\ 0.822. Both estimators have simulated means near it, as [Theorem 2](#thm-rb-unbiased) says they must. The variance of the Rao–Blackwellized estimator is about 22.7 times smaller than that of the crude estimator, as [Theorem 3](#thm-rao-blackwell) requires.
 >
-> Show R code
->
-> ``` downlit
-> est_long <- data.frame(
->   estimate = c(est$crude, est$rao_blackwell),
->   estimator = rep(
->     c("crude (first observation is zero)", "Rao-Blackwellized"),
->     each = n_reps
->   )
-> )
-> p <- ggplot(est_long, aes(x = estimate)) +
->   geom_histogram(bins = 30) +
->   geom_vline(xintercept = pi_true, linetype = "dashed") +
->   facet_wrap(~estimator, ncol = 1, scales = "free_y") +
->   labs(x = "estimate of the probability of a zero count", y = "count")
-> if (knitr::is_html_output()) plotly::ggplotly(p) else p
-> ```
->
-> Figure 1: The sampling distribution of the crude and Rao–Blackwellized estimators (\\n = 20\\, 10,000 samples); the dashed line marks the estimand
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > est_long <- data.frame(
+> >   estimate = c(est$crude, est$rao_blackwell),
+> >   estimator = rep(
+> >     c("crude (first observation is zero)", "Rao-Blackwellized"),
+> >     each = n_reps
+> >   )
+> > )
+> > p <- ggplot(est_long, aes(x = estimate)) +
+> >   geom_histogram(bins = 30) +
+> >   geom_vline(xintercept = pi_true, linetype = "dashed") +
+> >   facet_wrap(~estimator, ncol = 1, scales = "free_y") +
+> >   labs(x = "estimate of the probability of a zero count", y = "count")
+> > if (knitr::is_html_output()) plotly::ggplotly(p) else p
+> > ```
+> >
+> > Figure 1: The sampling distribution of the crude and Rao–Blackwellized estimators (\\n = 20\\, 10,000 samples); the dashed line marks the estimand
 
 > **NOTE:**
 >
