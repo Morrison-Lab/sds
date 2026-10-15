@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:43:47 (PDT)
+Last modified: 2026-10-15 13:30:33 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 

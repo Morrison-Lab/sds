@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:43:47 (PDT)
+Last modified: 2026-10-15 13:30:33 (PDT)
 
 ## 1 Scientific models
 
@@ -121,6 +121,12 @@ It’s helpful to keep in mind the mathematical type of each estimation concept:
 - [estimands](#def-estimand) are numbers (or vectors of numbers);
 - [estimates](#def-estimate) are also numbers (or vectors);
 - [estimators](#def-estimator) are functions; an estimator applied to random data, \\\hat{\theta}(X_1, \ldots, X_n)\\, is a random variable.
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.4](#ref-hoggtanis2015), pp. 264–276) covers maximum likelihood and method of moments estimation.
+> - Casella and Berger ([2002, sec. 7.2](#ref-CaseBerg01), pp. 312–329) covers methods of finding estimators.
+> - Rice ([2007, secs. 8.3–8.4](#ref-rice2007mathematical), pp. 257–266) covers parameter estimation and the method of moments.
 
 ## 3 Accuracy of estimators
 
@@ -297,6 +303,10 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 > **NOTE:**
 >
 > *Remark 1* (Units of the root mean squared error). The root mean squared error has the same units as the estimand.
+
+> **NOTE:**
+>
+> Casella and Berger ([2002, sec. 7.3.1](#ref-CaseBerg01), pp. 330–333) covers mean squared error.
 
 ### 3.6 Unbiased estimators
 
@@ -481,11 +491,17 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 Box, George E. P., and Norman Richard. Draper. 1987. *Empirical Model-Building and Response Surfaces*. Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics. Wiley.
 
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+
 Dunn, Peter K, and Gordon K Smyth. 2018. *Generalized Linear Models with Examples in R*. Vol. 53. Springer. <https://doi.org/10.1007/978-1-4419-0118-7>.
+
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 Lawrance, Rachael, Evgeny Degtyarev, Philip Griffiths, et al. 2020. “What Is an Estimand, and How Does It Relate to Quantifying the Effect of Treatment on Patient-Reported Quality of Life Outcomes in Clinical Trials?” *Journal of Patient-Reported Outcomes* 4 (1): 1–8. <https://doi.org/10.1186/s41687-020-00218-5>.
 
 Pohl, Moritz, Lukas Baumann, Rouven Behnisch, Marietta Kirchner, Johannes Krisam, and Anja Sander. 2021. “Estimands—A Basic Element for Clinical Trials.” *Deutsches Ärzteblatt International* 118 (51-52): 883–88. <https://doi.org/10.3238/arztebl.m2021.0373>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Van Buuren, Stef. 2018. *Flexible Imputation of Missing Data*. CRC press. <https://stefvanbuuren.name/fimd/>.
 

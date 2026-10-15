@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:43:47 (PDT)
+Last modified: 2026-10-15 13:30:33 (PDT)
 
 ## 1 Introduction
 
@@ -369,6 +369,11 @@ For categorical variables with more than two levels, the natural descriptive sta
 >
 > Table 2: Frequency table for categorical variables in the WCGS dataset
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.1](#ref-hoggtanis2015), pp. 233–244) covers descriptive statistics.
+> - Rice ([2007, secs. 10.4–10.5](#ref-rice2007mathematical), pp. 392–401) covers measures of location and dispersion.
+
 ## 3 Graphical methods
 
 Graphs can reveal features of a distribution that summary statistics miss, such as skewness, multiple peaks, and outliers. Different types of graph suit different types of variable.
@@ -502,6 +507,13 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 In [Figure 5](#fig-qq-chol), the points curve above the reference line at the right, which matches the long right tail in [Figure 1](#fig-hist-chol).
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.2](#ref-hoggtanis2015), pp. 245–255) covers exploratory data analysis.
+> - Rice ([2007, sec. 10.2.3](#ref-rice2007mathematical), pp. 385–388) covers quantile-quantile plots.
+> - Rice ([2007, sec. 10.3](#ref-rice2007mathematical), pp. 389–391) covers histograms, density curves and stem-and-leaf plots.
+> - Rice ([2007, sec. 10.6](#ref-rice2007mathematical), pp. 402–403) covers boxplots.
+
 ## 4 Bivariate relationships
 
 ### 4.1 Two continuous variables
@@ -563,6 +575,10 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 > **CAUTION:**
 >
 > Two variables can be strongly related and still have a correlation near zero, if the relationship is not linear. For example, if \\y_i = x_i^2\\, the \\x_i\\ are symmetric around 0, and the \\\mathopen{}\left\|x_i\right\|\mathclose{}\\ are not all equal, then \\r = 0\\, although \\y\\ is a function of \\x\\. Correlation also does not imply causation.
+
+> **NOTE:**
+>
+> Rice ([2007, sec. 10.7](#ref-rice2007mathematical), pp. 404–406) covers scatterplots.
 
 ### 4.2 A continuous variable by a categorical variable
 
@@ -773,26 +789,26 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
->
-> > **NOTE:**
-> >
-> > James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
-> *Remark 5* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
+> *Remark 5* (Source: Standardization). James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
+
+> **NOTE:**
+>
+> *Remark 6* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
 
 > **NOTE:**
 >
 > **Theorem 2 (Standardized values have mean 0 and standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
->
-> > **NOTE:**
-> >
-> > Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
 
 > **NOTE:**
 >
 > *Proof*. The sample mean of the \\z_i\\ is \\ \begin{aligned} \frac{1}{n}\sum\_{i=1}^n\frac{x_i - \bar x}{s} &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i - \bar x\right)\mathclose{}\\ &= \frac{1}{s} (\bar x - \bar x)\\ &= 0. \end{aligned} \\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\ \begin{aligned} \frac{1}{n-1} \sum\_{i=1}^nz_i^2 &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar x)^2\\ &= \frac{s^2}{s^2}\\ &= 1, \end{aligned} \\ so their sample standard deviation is \\\sqrt{1} = 1\\.
+
+> **NOTE:**
+>
+> *Remark 7* (Source: Standardized values have mean 0 and standard deviation 1). Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
 
 > **NOTE:**
 >
@@ -813,14 +829,14 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
->
-> > **NOTE:**
-> >
-> > Géron ([2017](#ref-geron2017hands), ch. 2).
 
 > **NOTE:**
 >
-> *Remark 6* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+> *Remark 8* (Source: Min-max scaling). Géron ([2017](#ref-geron2017hands), ch. 2).
+
+> **NOTE:**
+>
+> *Remark 9* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
 >
 > Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
 
@@ -876,7 +892,11 @@ A typical exploratory data analysis proceeds as follows:
 
 Géron, Aurélien. 2017. *Hands-on Machine Learning with Scikit-Learn and TensorFlow*. 1st ed. O’Reilly Media.
 
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Rosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. “Coronary Heart Disease in the Western Collaborative Group Study: Final Follow-up Experience of 8 1/2 Years.” *JAMA* 233 (8): 872–77. <https://doi.org/10.1001/jama.1975.03260080034016>.
 

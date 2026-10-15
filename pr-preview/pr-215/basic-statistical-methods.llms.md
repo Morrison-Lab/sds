@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:43:47 (PDT)
+Last modified: 2026-10-15 13:30:33 (PDT)
 
 ## 1 Introduction
 
@@ -337,6 +337,12 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > #>   111.854   112.449
 > ```
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 8.2](#ref-hoggtanis2015), pp. 369–377) covers tests of the equality of two means.
+> - Rice ([2007, sec. 11.2.1](#ref-rice2007mathematical), pp. 421–432) covers normal-theory methods for two independent samples.
+> - Rice ([2007, sec. 11.3.1](#ref-rice2007mathematical), pp. 446–447) covers normal-theory methods for paired samples.
+
 ### 4.5 Confidence intervals for the difference in means
 
 > **NOTE:**
@@ -359,6 +365,10 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > ```
 >
 > This interval matches the one [`t.test()`](https://rdrr.io/r/stats/t.test.html) reports in [Example 3](#exm-hers-ttest). It contains 0, consistent with the large p-value there.
+
+> **NOTE:**
+>
+> Hogg et al. ([2019, sec. 7.2](#ref-hoggtanis2015), pp. 314–322) covers confidence intervals for the difference of two means.
 
 ## 5 One-way analysis of variance
 
@@ -515,11 +525,21 @@ c(
 #>  0.180281  0.180281
 ```
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 9.3](#ref-hoggtanis2015), pp. 446–455) covers one-factor analysis of variance.
+> - Casella and Berger ([2002, sec. 11.2](#ref-CaseBerg01), pp. 522–538) covers oneway analysis of variance.
+> - Rice ([2007, sec. 12.2](#ref-rice2007mathematical), pp. 477–488) covers the one-way layout.
+
 ## References
+
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
 
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” *JAMA : The Journal of the American Medical Association* (Chicago, IL) 280 (7): 605–13. <https://doi.org/10.1001/jama.280.7.605>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:43:47 (PDT)
+Last modified: 2026-10-15 13:30:33 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -235,6 +235,12 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > Each fraction is close to its \\u\\, within simulation error. Here the exact p-value takes the values \\0.1, 0.2, \ldots, 1\\ with equal probability, because the 20 statistics form 10 mirror pairs with no other ties, so [Theorem 1](#thm-permutation-p-valid) holds with equality.
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402) covers some distribution-free tests.
+> - Rice ([2007, sec. 11.2.3](#ref-rice2007mathematical), pp. 435–442) covers the Mann–Whitney test.
+> - Rice ([2007, sec. 11.4.6](#ref-rice2007mathematical), p. 456) covers randomization.
+
 ## 4 The Monte Carlo approximation
 
 > **NOTE:**
@@ -291,10 +297,10 @@ table(tumor_class = khan_pair$tumor_class)
 > **Theorem 2 (The Monte Carlo permutation p-value is valid)** Let \\Y\\ be exchangeable under \\H_0\\ ([Definition 1](#def-exchangeable)), and let \\\hat p\_{\text{perm}}\\ be the [Monte Carlo permutation p-value](#def-monte-carlo-p-value) of \\T(Y)\\ from \\B\\ independent uniform permutations. Then \\\hat p\_{\text{perm}}\\ is a [valid p-value](multiple-testing.llms.md#def-valid-p-value):
 >
 > \\\Pr\_{H_0}\mathopen{}\left(\hat p\_{\text{perm}} \le u\right)\mathclose{} \le u \quad \text{for every } u \in \[0, 1\].\\
+
+> **NOTE:**
 >
-> > **NOTE:**
-> >
-> > Phipson and Smyth ([2010](#ref-phipson2010permutation)) show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.
+> *Remark 2* (Source: The Monte Carlo permutation p-value is valid). Phipson and Smyth ([2010](#ref-phipson2010permutation)) show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.
 
 > **NOTE:**
 >
@@ -321,7 +327,11 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 2* (Why add 1). Without the 1, a data set whose statistic exceeds all \\B\\ permuted statistics would get a p-value of 0, which claims that the observed result is impossible under \\H_0\\. Under \\H_0\\, with no ties, that happens with probability \\1 / (B + 1)\\, because the observed statistic is equally likely to be any one of the \\B + 1\\ values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of \\\hat p\_{\text{perm}}\\ is \\1 / (B + 1)\\.
+> *Remark 3* (Why add 1). Without the 1, a data set whose statistic exceeds all \\B\\ permuted statistics would get a p-value of 0, which claims that the observed result is impossible under \\H_0\\. Under \\H_0\\, with no ties, that happens with probability \\1 / (B + 1)\\, because the observed statistic is equally likely to be any one of the \\B + 1\\ values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of \\\hat p\_{\text{perm}}\\ is \\1 / (B + 1)\\.
+
+> **NOTE:**
+>
+> Hogg et al. ([2019, sec. 7.7](#ref-hoggtanis2015), pp. 353–360) covers resampling methods.
 
 ## 5 Permutation tests and multiple testing
 
@@ -391,14 +401,18 @@ table(tumor_class = khan_pair$tumor_class)
 - Phipson and Smyth ([2010](#ref-phipson2010permutation)) explains why Monte Carlo permutation p-values need the added 1.
 - Chapter 13 of James et al. ([2021](#ref-james2021islr2e)) applies permutation and other resampling methods to multiple testing.
 
-Back to top
-
 ## References
 
 Good, Phillip I. 2005. *Permutation, Parametric and Bootstrap Tests of Hypotheses*. 3rd ed. Springer. <https://doi.org/10.1007/b138696>.
+
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
 
 Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” *Nature Medicine* 7 (6): 673–79. <https://doi.org/10.1038/89044>.
 
 Phipson, Belinda, and Gordon K. Smyth. 2010. “Permutation p-Values Should Never Be Zero: Calculating Exact p-Values When Permutations Are Randomly Drawn.” *Statistical Applications in Genetics and Molecular Biology* 9 (1). <https://doi.org/10.2202/1544-6115.1585>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+
+Back to top

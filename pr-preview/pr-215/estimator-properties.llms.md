@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:43:47 (PDT)
+Last modified: 2026-10-15 13:30:33 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -27,14 +27,14 @@ Last modified: 2026-10-15 12:43:47 (PDT)
 > \\ \lim\_{n \to \infty} \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}\_n - \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} = 0 \tag{1}\\
 >
 > In words, \\\hat{\theta}\_n\\ [converges in probability](https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability) to \\\theta\\, which we write \\\hat{\theta}\_n \overset{\scriptstyle p}{\longrightarrow}\theta\\.
->
-> > **NOTE:**
-> >
-> > Casella and Berger ([2002](#ref-CaseBerg01), Def. 10.1.1).
 
 > **NOTE:**
 >
-> *Remark 1* (Consistency describes a sequence of estimators). An estimator such as the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is a formula that applies to any sample size, so \\\hat{\theta}\_1, \hat{\theta}\_2, \ldots\\ is a sequence of estimators, one for each \\n\\. [Unbiasedness](estimation.llms.md#def-unbiased) and [mean squared error](estimation.llms.md#def-mse) describe an estimator at one fixed sample size; consistency describes what happens to the whole sequence as \\n\\ grows. An estimator can be consistent and biased at every \\n\\, or unbiased at every \\n\\ and not consistent (the single-observation estimator \\X_1\\ of a mean is the standard example).
+> *Remark 1* (Source: Consistent estimator). Casella and Berger ([2002](#ref-CaseBerg01), Def. 10.1.1).
+
+> **NOTE:**
+>
+> *Remark 2* (Consistency describes a sequence of estimators). An estimator such as the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is a formula that applies to any sample size, so \\\hat{\theta}\_1, \hat{\theta}\_2, \ldots\\ is a sequence of estimators, one for each \\n\\. [Unbiasedness](estimation.llms.md#def-unbiased) and [mean squared error](estimation.llms.md#def-mse) describe an estimator at one fixed sample size; consistency describes what happens to the whole sequence as \\n\\ grows. An estimator can be consistent and biased at every \\n\\, or unbiased at every \\n\\ and not consistent (the single-observation estimator \\X_1\\ of a mean is the standard example).
 
 > **NOTE:**
 >
@@ -152,14 +152,14 @@ Last modified: 2026-10-15 12:43:47 (PDT)
 > **Definition 2 (Relative efficiency)** Let \\\hat{\theta}\_a\\ and \\\hat{\theta}\_b\\ be two estimators of the same estimand \\\theta\\. The **relative efficiency** of \\\hat{\theta}\_a\\ with respect to \\\hat{\theta}\_b\\ is the ratio of their [mean squared errors](estimation.llms.md#def-mse), the reference estimator’s, that of \\\hat{\theta}\_b\\, in the numerator:
 >
 > \\\frac{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\_b\right)\mathclose{}}{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\_a\right)\mathclose{}}\\
->
-> > **NOTE:**
-> >
-> > Casella and Berger ([2002](#ref-CaseBerg01)) define the asymptotic version, through variances, in Def. 10.1.16 (p. 476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
 
 > **NOTE:**
 >
-> *Remark 2* (Reading the relative efficiency). A relative efficiency above 1 means \\\hat{\theta}\_a\\ is more accurate than \\\hat{\theta}\_b\\, and below 1 means it is less accurate. For two [unbiased](estimation.llms.md#def-unbiased) estimators the mean squared errors are the variances ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias), so the relative efficiency is the ratio of the variances.
+> *Remark 3* (Source: Relative efficiency). Casella and Berger ([2002](#ref-CaseBerg01)) define the asymptotic version, through variances, in Def. 10.1.16 (p. 476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
+
+> **NOTE:**
+>
+> *Remark 4* (Reading the relative efficiency). A relative efficiency above 1 means \\\hat{\theta}\_a\\ is more accurate than \\\hat{\theta}\_b\\, and below 1 means it is less accurate. For two [unbiased](estimation.llms.md#def-unbiased) estimators the mean squared errors are the variances ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias), so the relative efficiency is the ratio of the variances.
 
 > **NOTE:**
 >
@@ -168,6 +168,10 @@ Last modified: 2026-10-15 12:43:47 (PDT)
 > \\ \begin{aligned} \frac{\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}}{\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{}} &= \frac{\sigma^2}{\sigma^2/ n} && \text{(substitute the two mean squared errors)}\\ &= \sigma^2\cdot \frac{n}{\sigma^2} && \text{(divide by a fraction: multiply by its reciprocal)}\\ &= n \cdot \frac{\sigma^2}{\sigma^2} && \text{(reorder the factors)}\\ &= n \cdot 1 && \text{(\$a / a = 1\$)}\\ &= n && \text{(\$b \cdot 1 = b\$)} \end{aligned} \\
 >
 > so with \\n = 50\\ students, as in [the student-height example](estimation.llms.md#exm-estimator), the sample mean is 50 times as efficient as \\X_1\\.
+
+> **NOTE:**
+>
+> Casella and Berger ([2002, sec. 10.1](#ref-CaseBerg01), pp. 467–480) covers point estimation, including consistency, efficiency and bootstrap standard errors.
 
 ## 3 The Cramér–Rao lower bound
 
@@ -196,10 +200,6 @@ Last modified: 2026-10-15 12:43:47 (PDT)
 > **Theorem 2 (Cramér–Rao lower bound)** Under the assumptions of [Exercise 2](#exr-cov-estimator-score), suppose the [expected information](intro-MLEs.llms.md#def-einf) satisfies \\0 \< \mathcal{I}(\theta) \< \infty\\. Then every unbiased estimator \\\hat{\theta}\\ of \\\theta\\ has variance at least the reciprocal of the expected information:
 >
 > \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \ge \frac{1}{\mathcal{I}(\theta)} \tag{5}\\
->
-> > **NOTE:**
-> >
-> > Rao ([1945](#ref-rao1945information)); Cramér ([1946](#ref-cramer1946mathematical)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 7.3.9, p. 335).
 
 > **NOTE:**
 >
@@ -211,17 +211,21 @@ Last modified: 2026-10-15 12:43:47 (PDT)
 
 > **NOTE:**
 >
-> **Definition 3 (Efficient estimator)** An [unbiased](estimation.llms.md#def-unbiased) estimator \\\hat{\theta}\\ of \\\theta\\ is **efficient** if its variance equals the [Cramér–Rao lower bound](#thm-cramer-rao):
->
-> \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \frac{1}{\mathcal{I}(\theta)} \\
->
-> > **NOTE:**
-> >
-> > Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01)).
+> *Remark 5* (Source: Cramér–Rao lower bound). Rao ([1945](#ref-rao1945information)); Cramér ([1946](#ref-cramer1946mathematical)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 7.3.9, p. 335).
 
 > **NOTE:**
 >
-> *Remark 3* (An efficient estimator has the smallest variance). By the Cramér–Rao lower bound, no unbiased estimator that satisfies its assumptions has a smaller variance than an efficient one. Among such estimators, an efficient estimator therefore also has the smallest mean squared error ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias).
+> **Definition 3 (Efficient estimator)** An [unbiased](estimation.llms.md#def-unbiased) estimator \\\hat{\theta}\\ of \\\theta\\ is **efficient** if its variance equals the [Cramér–Rao lower bound](#thm-cramer-rao):
+>
+> \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \frac{1}{\mathcal{I}(\theta)} \\
+
+> **NOTE:**
+>
+> *Remark 6* (Source: Efficient estimator). Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01)).
+
+> **NOTE:**
+>
+> *Remark 7* (An efficient estimator has the smallest variance). By the Cramér–Rao lower bound, no unbiased estimator that satisfies its assumptions has a smaller variance than an efficient one. Among such estimators, an efficient estimator therefore also has the smallest mean squared error ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias).
 
 > **NOTE:**
 >
@@ -233,11 +237,18 @@ Last modified: 2026-10-15 12:43:47 (PDT)
 
 > **NOTE:**
 >
-> *Remark 4* (What the bound does and does not say). The bound holds only for unbiased estimators, and only when the regularity conditions of [the exercise on the mean of the score](intro-MLEs.llms.md#exr-score-mean-zero) hold. When the set of possible data values depends on the parameter, as for the uniform distribution on \\\[0, \theta\]\\, the conditions fail and the bound need not hold (compare [the uniform example](intro-MLEs.llms.md#exm-information-equality-fails)).
+> *Remark 8* (What the bound does and does not say). The bound holds only for unbiased estimators, and only when the regularity conditions of [the exercise on the mean of the score](intro-MLEs.llms.md#exr-score-mean-zero) hold. When the set of possible data values depends on the parameter, as for the uniform distribution on \\\[0, \theta\]\\, the conditions fail and the bound need not hold (compare [the uniform example](intro-MLEs.llms.md#exm-information-equality-fails)).
 >
 > A biased estimator can have a variance below the bound, because the bound relies on [the covariance of an estimator and the score](#exr-cov-estimator-score), which assumes the estimator is unbiased. Its [mean squared error](estimation.llms.md#thm-mse-bias-variance) adds the squared bias to the variance, so trading a little bias for a large drop in variance can also lower the mean squared error.
 >
 > The information from \\n\\ independent observations is \\n\\ times the information from one, so for a sample of size \\n\\ the bound shrinks like \\1/n\\. That is the rate at which the variance of an efficient estimator falls, and the [maximum likelihood estimator](intro-MLEs.llms.md#thm-dist-mle) attains it asymptotically.
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.6](#ref-hoggtanis2015), pp. 285–289) covers asymptotic distributions of maximum likelihood estimators.
+> - Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01), pp. 334–341) covers best unbiased estimators and the Cramér–Rao bound.
+> - Rice ([2007, sec. 8.5.2](#ref-rice2007mathematical), pp. 274–278) covers large-sample theory for maximum likelihood estimators.
+> - Rice ([2007, sec. 8.7](#ref-rice2007mathematical), pp. 298–304) covers efficiency and the Cramér–Rao lower bound.
 
 ## References
 
@@ -245,8 +256,12 @@ Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengag
 
 Cramér, Harald. 1946. *Mathematical Methods of Statistics*. Princeton University Press. <https://doi.org/10.1515/9781400883868>.
 
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
 Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
 
 Rao, C. Radhakrishna. 1945. “Information and the Accuracy Attainable in the Estimation of Statistical Parameters.” *Bulletin of the Calcutta Mathematical Society* 37: 81–91.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Back to top

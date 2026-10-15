@@ -286,7 +286,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 12:43:47 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 13:30:33 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -428,7 +428,18 @@ text-align: center;
 <a href="#/def-estimate">estimates</a> are also numbers (or vectors);</li>
 <li>
 <a href="#/def-estimator">estimators</a> are functions; an estimator applied to random data, <span class="math inline">\(\hat{\theta}(X_1, \ldots, X_n)\)</span>, is a random variable.</li>
-</ul></section><section id="sec-est-accuracy" class="slide level2" data-number="3"><h2>
+</ul>
+<div class="reading">
+<ul>
+<li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 6.4</a>, pp.&nbsp;264–276)</span> covers maximum likelihood and method of moments estimation.</li>
+<li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 7.2</a>, pp.&nbsp;312–329)</span> covers methods of finding estimators.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, secs. 8.3–8.4</a>, pp.&nbsp;257–266)</span> covers parameter estimation and the method of moments.</li>
+</ul>
+</div>
+</section><section id="sec-est-accuracy" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Accuracy of estimators</h2>
 <h3 data-number="3.1" id="accuracy">
 <span class="header-section-number">3.1</span> Accuracy</h3>
@@ -676,6 +687,9 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="rem-rmse-units" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Units of the root mean squared error). </span>The root mean squared error has the same units as the estimand.</p>
+</div>
+<div class="reading">
+<p><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 7.3.1</a>, pp.&nbsp;330–333)</span> covers mean squared error.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="3.6" id="sec-unbiased-estimators">
 <span class="header-section-number">3.6</span> Unbiased estimators</h3>
@@ -978,14 +992,23 @@ text-align: center;
 <div id="ref-box_draper_1987" class="csl-entry" role="listitem">
 Box, George E. P., and Norman Richard. Draper. 1987. <em>Empirical Model-Building and Response Surfaces</em>. Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics. Wiley.
 </div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
+</div>
 <div id="ref-dunn2018generalized" class="csl-entry" role="listitem">
 Dunn, Peter K, and Gordon K Smyth. 2018. <em>Generalized Linear Models with Examples in <span>R</span></em>. Vol. 53. Springer. <a href="https://doi.org/10.1007/978-1-4419-0118-7">https://doi.org/10.1007/978-1-4419-0118-7</a>.
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
 </div>
 <div id="ref-lawrance2020estimand" class="csl-entry" role="listitem">
 Lawrance, Rachael, Evgeny Degtyarev, Philip Griffiths, et al. 2020. <span>“What Is an Estimand, and How Does It Relate to Quantifying the Effect of Treatment on Patient-Reported Quality of Life Outcomes in Clinical Trials?”</span> <em>Journal of Patient-Reported Outcomes</em> 4 (1): 1–8. <a href="https://doi.org/10.1186/s41687-020-00218-5">https://doi.org/10.1186/s41687-020-00218-5</a>.
 </div>
 <div id="ref-pohl2021estimands" class="csl-entry" role="listitem">
 Pohl, Moritz, Lukas Baumann, Rouven Behnisch, Marietta Kirchner, Johannes Krisam, and Anja Sander. 2021. <span>“<span class="nocase">Estimands—A Basic Element for Clinical Trials</span>.”</span> <em>Deutsches <span>Ä</span>rzteblatt International</em> 118 (51-52): 883–88. <a href="https://doi.org/10.3238/arztebl.m2021.0373">https://doi.org/10.3238/arztebl.m2021.0373</a>.
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
 </div>
 <div id="ref-van2018flexible" class="csl-entry" role="listitem">
 Van Buuren, Stef. 2018. <em>Flexible Imputation of Missing Data</em>. CRC press. <a href="https://stefvanbuuren.name/fimd/">https://stefvanbuuren.name/fimd/</a>.
