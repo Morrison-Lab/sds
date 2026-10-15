@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 15:04:33 (PDT)
+Last modified: 2026-10-15 15:19:11 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -112,7 +112,7 @@ Last modified: 2026-10-15 15:04:33 (PDT)
 
 > **NOTE:**
 >
-> *Remark 5* (Source: Held-out set (hold-out set)). James et al. ([2021, sec. 5.1.1](#ref-james2021islr2e)), who call it a **hold-out set**.
+> *Remark 5* (Source: Held-out set (hold-out set)). Also called a **hold-out set** ([James et al. 2021, sec. 5.1.1](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
@@ -231,7 +231,7 @@ Last modified: 2026-10-15 15:04:33 (PDT)
 
 > **NOTE:**
 >
-> *Remark 7* (Source: Expected generalization error (expected prediction error, expected test error)). Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) call this quantity the **expected prediction error** (or **expected test error**) and write it \\\operatorname{Err}\\, without the argument \\n\\.
+> *Remark 7* (Source: Expected generalization error (expected prediction error, expected test error)). Also called the **expected prediction error** or **expected test error** ([Hastie et al. 2009, sec. 7.2](#ref-hastie2009elements)). Hastie et al. write the quantity as \\\operatorname{Err}\\, without the argument \\n\\.
 
 > **NOTE:**
 >
@@ -1325,7 +1325,7 @@ Last modified: 2026-10-15 15:04:33 (PDT)
 
 > **NOTE:**
 >
-> *Remark 28* (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). Sanchez ([2020](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products”) (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a **sum-of-squares and cross-products matrix**.
+> *Remark 28* (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). Also called a **sum-of-squares and cross-products matrix** ([Sanchez 2020](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products”) (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
 
 > **NOTE:**
 >
@@ -1398,10 +1398,10 @@ Last modified: 2026-10-15 15:04:33 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
