@@ -22,10 +22,11 @@ $$
 \ea
 $$ {#eq-bias-variance-tradeoff}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-bias-variance-tradeoff}
+#### Source: Bias--variance trade-off
 
 @james2021islr2e [sec. 2.2.2].
-:::
 
 :::

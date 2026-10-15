@@ -12,11 +12,12 @@ $$k^* \eqdef \min \set{k : p_{(k)} > \frac{\siglevel}{m - k + 1}}.$$
 
 **Holm's procedure** rejects $H_{(1)}, \ldots, H_{(k^* - 1)}$ and no others.
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-holm}
+#### Source: Holm's step-down procedure
 
 Holm [-@holm1979simple].
-:::
 
 :::
 

@@ -24,11 +24,12 @@ $$
 \ea
 $$ {#eq-data-splits}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-data-splits}
+#### Source: Training/validation/test split
 
 @james2021islr2e [pp. 198--201].
-:::
 
 :::
 

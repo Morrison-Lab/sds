@@ -81,6 +81,12 @@ and works [examples](https://www.youtube.com/watch?v=w3a08digzfw) in five minute
 following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 :::
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.4, pp. 264--276] covers maximum likelihood and method of moments estimation.
+- @CaseBerg01 [Sec. 7.2.2, pp. 315--323] covers maximum likelihood estimators.
+- @rice2007mathematical [Sec. 8.5, pp. 267--284] covers the method of maximum likelihood.
+:::
+
 {{< slidebreak >}}
 
 ### Finding the maximum of a function
@@ -295,6 +301,11 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< include sds/_subfiles/intro-MLEs/_prose-estimate-se.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.6, pp. 285--289] covers asymptotic distributions of maximum likelihood estimators.
+- @rice2007mathematical [Sec. 8.5.2, pp. 274--278] covers large-sample theory for maximum likelihood estimators.
+:::
+
 {{< slidebreak >}}
 
 ### Quantifying uncertainty about MLEs
@@ -306,6 +317,11 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 {{< include sds/_subfiles/intro-MLEs/_def-wald-ci.qmd >}}
 
 {{< include sds/_subfiles/intro-MLEs/_prose-ci-mle.qmd >}}
+
+::: {.reading}
+- @CaseBerg01 [Sec. 10.4.1, pp. 496--498] covers approximate maximum likelihood intervals.
+- @rice2007mathematical [Sec. 8.5.3, pp. 279--284] covers confidence intervals from maximum likelihood estimators.
+:::
 
 {{< slidebreak >}}
 
@@ -373,6 +389,11 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 ::: notes
 See also [@dobson4e, Section 5.7] and <https://online.stat.psu.edu/stat504/Lesson02>.
+:::
+
+::: {.reading}
+- @CaseBerg01 [Sec. 10.3.1, pp. 488--491] covers asymptotic distribution of likelihood ratio tests.
+- @rice2007mathematical [Sec. 9.4, pp. 339--340] covers generalized likelihood ratio tests.
 :::
 
 {{< slidebreak >}}

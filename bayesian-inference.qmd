@@ -144,6 +144,10 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< include sds/_subfiles/bayesian-inference/_exm-discrete-prior.qmd >}}
 
+::: {.reading}
+@CaseBerg01 [Sec. 9.2.4, pp. 435--439] covers Bayesian intervals.
+:::
+
 {{< slidebreak >}}
 
 ### The parameter space {#sec-bayes-parameter-space}
@@ -167,6 +171,12 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/bayesian-inference/_exm-prior-support.qmd >}}
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.8, pp. 298--305] covers Bayesian estimation.
+- @CaseBerg01 [Sec. 7.2.3, pp. 324--325] covers Bayes estimators.
+- @rice2007mathematical [Sec. 8.6, pp. 285--297] covers the Bayesian approach to parameter estimation.
+:::
 
 ## Priors {#sec-bayes-priors}
 

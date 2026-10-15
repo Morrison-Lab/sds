@@ -10,11 +10,12 @@ $$\hat k \eqdef \max \set{k : p_{(k)} \le \frac{k q}{m}}.$$
 
 The **Benjamini--Hochberg procedure** (BH) rejects $H_{(1)}, \ldots, H_{(\hat k)}$ and no others.
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-bh}
+#### Source: Benjamini--Hochberg procedure
 
 Benjamini and Hochberg [-@benjamini1995controlling].
-:::
 
 :::
 
