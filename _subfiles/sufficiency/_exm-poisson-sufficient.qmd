@@ -1,0 +1,21 @@
+:::{#exm-poisson-sufficient}
+#### The sum is sufficient for a Poisson rate
+
+Let $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin X_i$.
+The joint mass function of the sample is
+
+$$
+\begin{aligned}
+\pdf\paren{\vx ; \rate}
+&= \prod_{i=1}^n \frac{e^{-\rate} \rate^{x_i}}{x_i!}
+&& \text{(independent Poisson mass functions)}\\
+&= e^{-n\rate} \rate^{\sumin x_i} \prod_{i=1}^n \frac{1}{x_i!}
+&& \text{(collect the factors)}
+\end{aligned}
+$$
+
+This has the form of @eq-factorization with
+$\sfacf{t}{\rate} = e^{-n\rate} \rate^{t}$ and $\rfacf{\vx} = \prod_{i=1}^n 1 / x_i!$,
+where $t = \sumin x_i$.
+So the sum $S$ is [sufficient](#def-sufficient) for $\rate$ by @thm-factorization.
+:::

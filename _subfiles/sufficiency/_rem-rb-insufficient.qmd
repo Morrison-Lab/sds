@@ -1,0 +1,7 @@
+:::{#rem-rb-insufficient}
+#### Sufficiency is needed
+
+If $\statf{\vX}$ is not sufficient, then $\condE{\hparam}{\statf{\vX}}$ may depend on $\param$,
+in which case it is not an estimator at all
+(@CaseBerg01 [Example 7.3.18]).
+:::

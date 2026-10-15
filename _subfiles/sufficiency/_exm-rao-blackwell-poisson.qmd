@@ -1,0 +1,134 @@
+::: {#exm-rao-blackwell-poisson}
+#### Rao--Blackwellizing an estimate of the chance of a zero count
+
+The `birthwt` data record the number of previous premature labors (`ptl`) for `r nrow(read.csv("data/birthwt.csv"))` women
+in a study at Baystate Medical Center in Springfield, Massachusetts
+[@hosmer1989applied]; the data ship with the R package
+[`MASS`](https://cran.r-project.org/package=MASS) (`MASS::birthwt`),
+and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
+Treat counts like these as a Poisson sample, $\dsn{X} \siid \Pois(\rate)$,
+with $\rate$ equal to the mean of `ptl`, `r round(mean(read.csv("data/birthwt.csv")$ptl), 3)`.
+
+The estimand is the probability of a zero count,
+$\prob = \Pr(X_i = 0) = e^{-\rate}$.
+Index the model by $\prob$ instead of $\rate$ (the map $\rate \mapsto e^{-\rate}$ is one-to-one);
+then the sum $S = \sumin X_i$ is still [sufficient](#def-sufficient), by @exm-poisson-sufficient.
+
+The crude estimator is the indicator that the first observation is zero,
+$\hprob_1 = \indiccb{X_1 = 0}$, which uses one observation and is unbiased for $\prob$.
+Its Rao--Blackwellization is
+
+$$
+\begin{aligned}
+\hprob_2
+&= \condE{\hprob_1}{S}
+&& \text{(definition of the Rao--Blackwellized estimator)}\\
+&= \Pr\paren{X_1 = 0 \given S}
+&& \text{(the mean of an indicator is a probability)}\\
+&= \paren{\frac{n-1}{n}}^S
+&& \text{(conditional probability of a zero)}
+\end{aligned}
+$$
+
+By @lem-poisson-zero-rb, the conditional probability in the last line is the one in @eq-poisson-zero-conditional.
+For $n = 20$ we draw 10,000 samples, compute both estimators on each,
+and report each one's mean (with a 95% confidence interval)
+and variance (with a 95% confidence interval from the normal approximation
+to the sampling distribution of a sample variance).
+
+```{r}
+#| label: rao-blackwell-poisson-sim
+#| code-fold: true
+birthwt <- read.csv("data/birthwt.csv")
+
+# The Poisson rate: the observed mean number of previous premature labors.
+lambda <- mean(birthwt$ptl)
+# The estimand: the probability of a zero count.
+pi_true <- exp(-lambda)
+
+n <- 20
+n_reps <- 10000
+
+set.seed(1945)
+# One row per sample of n counts.
+samples <- matrix(rpois(n * n_reps, lambda), nrow = n_reps)
+s_sum <- rowSums(samples)
+
+# The crude estimator and its Rao-Blackwellization.
+est <- data.frame(
+  crude = as.numeric(samples[, 1] == 0),
+  rao_blackwell = ((n - 1) / n)^s_sum
+)
+
+# Mean with a t interval; variance with a normal-approximation interval,
+# using the standard error sqrt((m4 - s^4) / N) of a sample variance.
+summarize_estimator <- function(x) {
+  tt <- t.test(x)
+  v <- var(x)
+  m4 <- mean((x - mean(x))^4)
+  se_v <- sqrt((m4 - v^2) / length(x))
+  data.frame(
+    mean = mean(x),
+    mean_lower = tt$conf.int[1],
+    mean_upper = tt$conf.int[2],
+    variance = v,
+    var_lower = v - 1.96 * se_v,
+    var_upper = v + 1.96 * se_v
+  )
+}
+rb_summary <- do.call(rbind, lapply(est, summarize_estimator))
+round(rb_summary, 4)
+```
+
+```{r}
+#| label: rao-blackwell-poisson-ratio
+#| include: false
+var_ratio <- rb_summary["crude", "variance"] /
+  rb_summary["rao_blackwell", "variance"]
+```
+
+The estimand is $\prob =$ `r round(pi_true, 3)`.
+Both estimators have simulated means near it, as @thm-rb-unbiased says they must.
+The variance of the Rao--Blackwellized estimator is about `r round(var_ratio, 1)` times smaller than that of the crude estimator,
+as @thm-rao-blackwell requires.
+
+```{r}
+#| label: fig-rao-blackwell-poisson-alt
+#| include: false
+fig_alt_rb <- sprintf(
+  paste(
+    "Two histograms of the simulated estimates, one panel for each estimator,",
+    "with a vertical line at the estimand %.3f.",
+    "The crude estimator takes only the values 0 and 1;",
+    "the Rao-Blackwellized estimator takes many values between",
+    "%.2f and %.2f, clustered around the estimand."
+  ),
+  pi_true, min(est$rao_blackwell), max(est$rao_blackwell)
+)
+```
+
+::: {#fig-rao-blackwell-poisson}
+
+```{r}
+#| label: rao-blackwell-poisson-plot
+#| fig-alt: !expr fig_alt_rb
+#| code-fold: true
+est_long <- data.frame(
+  estimate = c(est$crude, est$rao_blackwell),
+  estimator = rep(
+    c("crude (first observation is zero)", "Rao-Blackwellized"),
+    each = n_reps
+  )
+)
+p <- ggplot(est_long, aes(x = estimate)) +
+  geom_histogram(bins = 30) +
+  geom_vline(xintercept = pi_true, linetype = "dashed") +
+  facet_wrap(~estimator, ncol = 1, scales = "free_y") +
+  labs(x = "estimate of the probability of a zero count", y = "count")
+if (knitr::is_html_output()) plotly::ggplotly(p) else p
+```
+
+The sampling distribution of the crude and Rao--Blackwellized estimators ($n = 20$, 10,000 samples); the dashed line marks the estimand
+:::
+
+:::

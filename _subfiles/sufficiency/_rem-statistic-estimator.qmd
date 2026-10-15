@@ -1,0 +1,8 @@
+:::{#rem-statistic-estimator}
+#### Estimators are statistics
+
+Every [estimator](estimation.qmd#def-estimator) is a statistic,
+one chosen to land close to an [estimand](estimation.qmd#def-estimand).
+This page asks which statistics lose no information about the parameter,
+and how to use one to improve an estimator.
+:::
