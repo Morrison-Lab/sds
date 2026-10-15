@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:46 (PDT)
+Last modified: 2026-10-15 03:04:43 (PDT)
 
 ## 1 Introduction
 
@@ -301,30 +301,32 @@ summary(wcgs$chol)
 
 For a formatted table of several variables at once, [`gtsummary::tbl_summary()`](https://www.danieldsjoberg.com/gtsummary/reference/tbl_summary.html) is useful ([Table 1](#tbl-wcgs-summary-continuous)).
 
-``` downlit
-wcgs |>
-  dplyr::select(age, chol, sbp, dbp, bmi, weight) |>
-  gtsummary::tbl_summary(
-    statistic = list(
-      gtsummary::all_continuous() ~
-        "{mean} ({sd}); {median} [{p25}, {p75}]"
-    ),
-    digits = gtsummary::all_continuous() ~ 1
-  )
-```
-
-| **Characteristic**             | **N = 3,154**¹                       |
-|--------------------------------|--------------------------------------|
-| Age (years)                    | 46.3 (5.5); 45.0 \[42.0, 50.0\]      |
-| Cholesterol (mg/dL)            | 226.4 (43.4); 223.0 \[197.0, 253.0\] |
-|     Unknown                    | 12                                   |
-| Systolic BP (mmHg)             | 128.6 (15.1); 126.0 \[120.0, 136.0\] |
-| Diastolic BP (mmHg)            | 82.0 (9.7); 80.0 \[76.0, 86.0\]      |
-| BMI (kg/m^2)                   | 24.5 (2.6); 24.4 \[23.0, 25.8\]      |
-| Weight (lbs)                   | 170.0 (21.1); 170.0 \[155.0, 182.0\] |
-| ¹ Mean (SD); Median \[Q1, Q3\] |                                      |
-
-Table 1: WCGS: descriptive statistics for continuous variables
+> **NOTE:**
+>
+> ``` downlit
+> wcgs |>
+>   dplyr::select(age, chol, sbp, dbp, bmi, weight) |>
+>   gtsummary::tbl_summary(
+>     statistic = list(
+>       gtsummary::all_continuous() ~
+>         "{mean} ({sd}); {median} [{p25}, {p75}]"
+>     ),
+>     digits = gtsummary::all_continuous() ~ 1
+>   )
+> ```
+>
+> | **Characteristic**             | **N = 3,154**¹                       |
+> |--------------------------------|--------------------------------------|
+> | Age (years)                    | 46.3 (5.5); 45.0 \[42.0, 50.0\]      |
+> | Cholesterol (mg/dL)            | 226.4 (43.4); 223.0 \[197.0, 253.0\] |
+> |     Unknown                    | 12                                   |
+> | Systolic BP (mmHg)             | 128.6 (15.1); 126.0 \[120.0, 136.0\] |
+> | Diastolic BP (mmHg)            | 82.0 (9.7); 80.0 \[76.0, 86.0\]      |
+> | BMI (kg/m^2)                   | 24.5 (2.6); 24.4 \[23.0, 25.8\]      |
+> | Weight (lbs)                   | 170.0 (21.1); 170.0 \[155.0, 182.0\] |
+> | ¹ Mean (SD); Median \[Q1, Q3\] |                                      |
+>
+> Table 1: WCGS: descriptive statistics for continuous variables
 
 ### 2.4 Binary and categorical variables
 
@@ -353,17 +355,19 @@ Table 1: WCGS: descriptive statistics for continuous variables
 
 For categorical variables with more than two levels, the natural descriptive statistics are the count of observations in each category and the corresponding proportions ([Table 2](#tbl-wcgs-summary-cat)).
 
-Show R code
-
-``` downlit
-wcgs |>
-  dplyr::select(chd69, smoke, dibpat, behpat, wghtcat) |>
-  gtsummary::tbl_summary()
-```
-
-[TABLE]
-
-Table 2: Frequency table for categorical variables in the WCGS dataset
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   dplyr::select(chd69, smoke, dibpat, behpat, wghtcat) |>
+>   gtsummary::tbl_summary()
+> ```
+>
+> [TABLE]
+>
+> Table 2: Frequency table for categorical variables in the WCGS dataset
 
 ## 3 Graphical methods
 
@@ -379,19 +383,21 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 >
 > **Definition 13 (Bin)** A **bin** of a histogram is one of its intervals.
 
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = chol) +
-  ggplot2::geom_histogram(bins = 30, fill = "steelblue", color = "white") +
-  ggplot2::labs(x = "Cholesterol (mg/dL)", y = "Count")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-8-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-8-1.png "Figure 1: Histogram of total cholesterol in the WCGS dataset")
-
-Figure 1: Histogram of total cholesterol in the WCGS dataset
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = chol) +
+>   ggplot2::geom_histogram(bins = 30, fill = "steelblue", color = "white") +
+>   ggplot2::labs(x = "Cholesterol (mg/dL)", y = "Count")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-8-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-8-1.png "Figure 1: Histogram of total cholesterol in the WCGS dataset")
+>
+> Figure 1: Histogram of total cholesterol in the WCGS dataset
 
 [Figure 1](#fig-hist-chol) shows a single-peaked distribution with a longer right tail than left tail: 97% of the values lie between 150 and 350 mg/dL, but the largest value is 645 mg/dL.
 
@@ -401,19 +407,21 @@ Figure 1: Histogram of total cholesterol in the WCGS dataset
 >
 > **Definition 14 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
 
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = chol) +
-  ggplot2::geom_density(fill = "steelblue", alpha = 0.5) +
-  ggplot2::labs(x = "Cholesterol (mg/dL)", y = "Density")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-9-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-9-1.png "Figure 2: Density plot of total cholesterol in the WCGS dataset")
-
-Figure 2: Density plot of total cholesterol in the WCGS dataset
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = chol) +
+>   ggplot2::geom_density(fill = "steelblue", alpha = 0.5) +
+>   ggplot2::labs(x = "Cholesterol (mg/dL)", y = "Density")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-9-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-9-1.png "Figure 2: Density plot of total cholesterol in the WCGS dataset")
+>
+> Figure 2: Density plot of total cholesterol in the WCGS dataset
 
 ### 3.3 Box plots
 
@@ -430,20 +438,22 @@ Figure 2: Density plot of total cholesterol in the WCGS dataset
 >
 > *Remark 3* (Whisker rules). The \\1.5 \times \text{IQR}\\ whisker rule is the default in R’s [`boxplot()`](https://rdrr.io/r/graphics/boxplot.html) and [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html); other software and authors use other rules, such as whiskers that run to the minimum and maximum.
 
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(y = chol) +
-  ggplot2::geom_boxplot(fill = "steelblue") +
-  ggplot2::labs(y = "Cholesterol (mg/dL)") +
-  ggplot2::theme(axis.text.x = ggplot2::element_blank())
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-10-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-10-1.png "Figure 3: Box plot of total cholesterol in the WCGS dataset")
-
-Figure 3: Box plot of total cholesterol in the WCGS dataset
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(y = chol) +
+>   ggplot2::geom_boxplot(fill = "steelblue") +
+>   ggplot2::labs(y = "Cholesterol (mg/dL)") +
+>   ggplot2::theme(axis.text.x = ggplot2::element_blank())
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-10-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-10-1.png "Figure 3: Box plot of total cholesterol in the WCGS dataset")
+>
+> Figure 3: Box plot of total cholesterol in the WCGS dataset
 
 ### 3.4 Bar charts
 
@@ -451,19 +461,21 @@ Figure 3: Box plot of total cholesterol in the WCGS dataset
 >
 > **Definition 16 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
 
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = behpat) +
-  ggplot2::geom_bar(fill = "steelblue") +
-  ggplot2::labs(x = "Behavioral pattern", y = "Count")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-11-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-11-1.png "Figure 4: Bar chart of behavioral pattern in the WCGS dataset")
-
-Figure 4: Bar chart of behavioral pattern in the WCGS dataset
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = behpat) +
+>   ggplot2::geom_bar(fill = "steelblue") +
+>   ggplot2::labs(x = "Behavioral pattern", y = "Count")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-11-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-11-1.png "Figure 4: Bar chart of behavioral pattern in the WCGS dataset")
+>
+> Figure 4: Bar chart of behavioral pattern in the WCGS dataset
 
 ### 3.5 Normal quantile-quantile plots
 
@@ -471,20 +483,22 @@ Figure 4: Bar chart of behavioral pattern in the WCGS dataset
 >
 > **Definition 17 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
 
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(sample = chol) +
-  ggplot2::stat_qq() +
-  ggplot2::stat_qq_line(color = "red") +
-  ggplot2::labs(x = "Standard Gaussian quantiles", y = "Cholesterol (mg/dL)")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-12-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-12-1.png "Figure 5: Normal Q-Q plot for total cholesterol in the WCGS dataset")
-
-Figure 5: Normal Q-Q plot for total cholesterol in the WCGS dataset
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(sample = chol) +
+>   ggplot2::stat_qq() +
+>   ggplot2::stat_qq_line(color = "red") +
+>   ggplot2::labs(x = "Standard Gaussian quantiles", y = "Cholesterol (mg/dL)")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-12-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-12-1.png "Figure 5: Normal Q-Q plot for total cholesterol in the WCGS dataset")
+>
+> Figure 5: Normal Q-Q plot for total cholesterol in the WCGS dataset
 
 In [Figure 5](#fig-qq-chol), the points curve above the reference line at the right, which matches the long right tail in [Figure 1](#fig-hist-chol).
 
@@ -496,20 +510,22 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 >
 > **Definition 18 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
 
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = sbp, y = chol) +
-  ggplot2::geom_point(alpha = 0.3) +
-  ggplot2::geom_smooth(method = "lm", se = TRUE, color = "red") +
-  ggplot2::labs(x = "Systolic BP (mmHg)", y = "Cholesterol (mg/dL)")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-13-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-13-1.png "Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with a least-squares line")
-
-Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with a least-squares line
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = sbp, y = chol) +
+>   ggplot2::geom_point(alpha = 0.3) +
+>   ggplot2::geom_smooth(method = "lm", se = TRUE, color = "red") +
+>   ggplot2::labs(x = "Systolic BP (mmHg)", y = "Cholesterol (mg/dL)")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-13-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-13-1.png "Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with a least-squares line")
+>
+> Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with a least-squares line
 
 > **NOTE:**
 >
@@ -552,57 +568,63 @@ Figure 6: Cholesterol versus systolic blood pressure in the WCGS dataset, with 
 
 Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous variable across the groups defined by a categorical variable ([Figure 7](#fig-box-chol-by-smoke) and [Figure 8](#fig-box-chol-by-behpat)).
 
-Show R code
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = smoke, y = chol, fill = smoke) +
+>   ggplot2::geom_boxplot() +
+>   ggplot2::labs(x = "Current smoker", y = "Cholesterol (mg/dL)") +
+>   ggplot2::theme(legend.position = "none")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-14-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-14-1.png "Figure 7: Box plots of cholesterol by smoking status in the WCGS dataset")
+>
+> Figure 7: Box plots of cholesterol by smoking status in the WCGS dataset
 
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = smoke, y = chol, fill = smoke) +
-  ggplot2::geom_boxplot() +
-  ggplot2::labs(x = "Current smoker", y = "Cholesterol (mg/dL)") +
-  ggplot2::theme(legend.position = "none")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-14-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-14-1.png "Figure 7: Box plots of cholesterol by smoking status in the WCGS dataset")
-
-Figure 7: Box plots of cholesterol by smoking status in the WCGS dataset
-
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = behpat, y = chol, fill = behpat) +
-  ggplot2::geom_boxplot() +
-  ggplot2::labs(x = "Behavioral pattern", y = "Cholesterol (mg/dL)") +
-  ggplot2::theme(legend.position = "none")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-15-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-15-1.png "Figure 8: Box plots of cholesterol by behavioral pattern in the WCGS dataset")
-
-Figure 8: Box plots of cholesterol by behavioral pattern in the WCGS dataset
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = behpat, y = chol, fill = behpat) +
+>   ggplot2::geom_boxplot() +
+>   ggplot2::labs(x = "Behavioral pattern", y = "Cholesterol (mg/dL)") +
+>   ggplot2::theme(legend.position = "none")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-15-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-15-1.png "Figure 8: Box plots of cholesterol by behavioral pattern in the WCGS dataset")
+>
+> Figure 8: Box plots of cholesterol by behavioral pattern in the WCGS dataset
 
 [Table 3](#tbl-chol-by-chd) computes summary statistics separately for each group.
 
-Show R code
-
-``` downlit
-wcgs |>
-  dplyr::select(chol, sbp, bmi, chd69) |>
-  gtsummary::tbl_summary(
-    by = chd69,
-    statistic = list(
-      gtsummary::all_continuous() ~
-        "{mean} ({sd})"
-    ),
-    digits = gtsummary::all_continuous() ~ 1
-  ) |>
-  gtsummary::add_overall()
-```
-
-[TABLE]
-
-Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCGS
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   dplyr::select(chol, sbp, bmi, chd69) |>
+>   gtsummary::tbl_summary(
+>     by = chd69,
+>     statistic = list(
+>       gtsummary::all_continuous() ~
+>         "{mean} ({sd})"
+>     ),
+>     digits = gtsummary::all_continuous() ~ 1
+>   ) |>
+>   gtsummary::add_overall()
+> ```
+>
+> [TABLE]
+>
+> Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCGS
 
 ### 4.3 Two categorical variables
 
@@ -641,18 +663,20 @@ Table 3: Cholesterol, systolic blood pressure, and BMI by CHD status in the WCG
 >
 > [Table 4](#tbl-gtsummary-smoke-chd) shows the same counts as a formatted table.
 >
-> Show R code
->
-> ``` downlit
-> wcgs |>
->   dplyr::select(smoke, chd69) |>
->   gtsummary::tbl_summary(by = chd69) |>
->   gtsummary::add_overall()
-> ```
->
-> [TABLE]
->
-> Table 4: Smoking status and CHD event in the WCGS
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > wcgs |>
+> >   dplyr::select(smoke, chd69) |>
+> >   gtsummary::tbl_summary(by = chd69) |>
+> >   gtsummary::add_overall()
+> > ```
+> >
+> > [TABLE]
+> >
+> > Table 4: Smoking status and CHD event in the WCGS
 
 ## 5 Data transformations
 
@@ -663,35 +687,37 @@ The WCGS dataset already contains log-transformed versions of two variables:
 - `lnsbp`: \\\log(\text{SBP})\\;
 - `lnwght`: \\\log(\text{weight})\\.
 
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = sbp) +
-  ggplot2::geom_histogram(bins = 30, fill = "steelblue", color = "white") +
-  ggplot2::labs(x = "Systolic BP (mmHg)", y = "Count")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-18-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-18-1.png "Figure 9 (a): Raw scale")
-
-\(a\) Raw scale
-
-Show R code
-
-``` downlit
-wcgs |>
-  ggplot2::ggplot() +
-  ggplot2::aes(x = lnsbp) +
-  ggplot2::geom_histogram(bins = 30, fill = "coral", color = "white") +
-  ggplot2::labs(x = "log(Systolic BP)", y = "Count")
-```
-
-[![](exploratory-descriptive_files/figure-html/unnamed-chunk-19-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-19-1.png "Figure 9 (b): Log scale")
-
-\(b\) Log scale
-
-Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = sbp) +
+>   ggplot2::geom_histogram(bins = 30, fill = "steelblue", color = "white") +
+>   ggplot2::labs(x = "Systolic BP (mmHg)", y = "Count")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-18-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-18-1.png "Figure 9 (a): Raw scale")
+>
+> \(a\) Raw scale
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(x = lnsbp) +
+>   ggplot2::geom_histogram(bins = 30, fill = "coral", color = "white") +
+>   ggplot2::labs(x = "log(Systolic BP)", y = "Count")
+> ```
+>
+> [![](exploratory-descriptive_files/figure-html/unnamed-chunk-19-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-19-1.png "Figure 9 (b): Log scale")
+>
+> \(b\) Log scale
+>
+> Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales
 
 Show R code
 
@@ -828,20 +854,22 @@ A typical exploratory data analysis proceeds as follows:
 
 [Table 5](#tbl-wcgs-all-summary) summarizes selected WCGS variables in one table.
 
-Show R code
-
-``` downlit
-wcgs |>
-  dplyr::select(
-    age, chol, sbp, dbp, bmi, weight, ncigs,
-    chd69, smoke, dibpat, behpat
-  ) |>
-  gtsummary::tbl_summary()
-```
-
-[TABLE]
-
-Table 5: Summary of selected WCGS variables
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> wcgs |>
+>   dplyr::select(
+>     age, chol, sbp, dbp, bmi, weight, ncigs,
+>     chd69, smoke, dibpat, behpat
+>   ) |>
+>   gtsummary::tbl_summary()
+> ```
+>
+> [TABLE]
+>
+> Table 5: Summary of selected WCGS variables
 
 ## References
 
