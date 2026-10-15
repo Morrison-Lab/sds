@@ -78,7 +78,7 @@ without making it more biased.
 
 ## Further reading {#sec-sufficiency-reading}
 
-- The [Fall 2024 course site for UC Berkeley's Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation, licensed CC BY 4.0, so it can be adapted with attribution.
+- The [Fall 2024 course site for UC Berkeley's Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation.
 
 ## References {.unnumbered}
 
