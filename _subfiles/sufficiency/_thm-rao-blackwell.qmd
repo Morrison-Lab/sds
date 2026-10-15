@@ -29,3 +29,10 @@ $$
 $$
 
 :::
+
+:::{#rem-source-rao-blackwell}
+#### Source: Rao--Blackwell theorem
+
+@rao1945information; @blackwell1947conditional; @CaseBerg01 [Thm. 7.3.17, p. 342].
+
+:::

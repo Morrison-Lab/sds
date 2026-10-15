@@ -1,7 +1,0 @@
-:::{#rem-source-factorization}
-#### Source: Factorization theorem
-
-@halmos1949application, whom @CaseBerg01 [Thm. 6.2.6, p. 276, and its footnote]
-credit with the general form, and Neyman (1935) with an earlier one.
-
-:::

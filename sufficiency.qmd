@@ -32,8 +32,6 @@ without making it more biased.
 
 {{< include sds/_subfiles/sufficiency/_def-sufficient.qmd >}}
 
-{{< include sds/_subfiles/sufficiency/_rem-source-sufficient.qmd >}}
-
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/sufficiency/_rem-sufficient-meaning.qmd >}}
@@ -41,8 +39,6 @@ without making it more biased.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/sufficiency/_thm-factorization.qmd >}}
-
-{{< include sds/_subfiles/sufficiency/_rem-source-factorization.qmd >}}
 
 {{< slidebreak >}}
 
@@ -63,8 +59,6 @@ without making it more biased.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/sufficiency/_thm-rao-blackwell.qmd >}}
-
-{{< include sds/_subfiles/sufficiency/_rem-source-rao-blackwell.qmd >}}
 
 {{< slidebreak >}}
 
