@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 08:32:35 (PDT)
+Last modified: 2026-10-15 08:52:19 (PDT)
 
 ## 1 Introduction
 
@@ -18,15 +18,21 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories (**classes**) based on its observed features or predictors \\x\\, using a **classification rule** \\c\\ that maps features to classes:
->
-> \\c: x \mapsto c(x) \in \mathcal{C} \tag{1}\\
->
-> where \\\mathcal{C}\\ is a set of \\K\\ classes (for example, \\\mathcal{C}= \mathopen{}\left\\1, \dots, K\right\\\mathclose{}\\, or a set of text labels).
+> **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors \\x\\.
 
 > **NOTE:**
 >
-> **Example 1 (A diagnostic test as a classification rule)** A COVID-19 test assigns each person tested to one of \\K = 2\\ classes, “has COVID-19” or “does not have COVID-19”, based on a single feature \\x\\: the test’s result, positive (\\+\\) or negative (\\\neg +\\). The test is the classification rule ([Definition 1](#def-classification)) that assigns a positive result to “has COVID-19” and a negative result to “does not have COVID-19”:
+> **Definition 2 (Class)** The discrete categories of a classification problem ([Definition 1](#def-classification)) are its **classes**. Let \\\mathcal{C}\\ be a set of \\K\\ classes (for example, \\\mathcal{C}= \mathopen{}\left\\1, \dots, K\right\\\mathclose{}\\, or a set of text labels).
+
+> **NOTE:**
+>
+> **Definition 3 (Classification rule)** A **classification rule** \\c\\ maps features to classes ([Definition 2](#def-class)):
+>
+> \\c: x \mapsto c(x) \in \mathcal{C} \tag{1}\\
+
+> **NOTE:**
+>
+> **Example 1 (A diagnostic test as a classification rule)** A COVID-19 test assigns each person tested to one of \\K = 2\\ classes, “has COVID-19” or “does not have COVID-19”, based on a single feature \\x\\: the test’s result, positive (\\+\\) or negative (\\\neg +\\). The test is the classification rule ([Definition 3](#def-classification-rule)) that assigns a positive result to “has COVID-19” and a negative result to “does not have COVID-19”:
 >
 > \\ c(x) \stackrel{\text{def}}{=} \begin{cases} \text{has COVID-19} & \text{if } x = + \\ \text{does not have COVID-19} & \text{if } x = \neg + \end{cases} \tag{2}\\
 
@@ -38,25 +44,25 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 2 (Sensitivity)** The **sensitivity** of a diagnostic test is the probability that the test is positive (\\+\\), given that the person tested has the disease (\\D\\):
+> **Definition 4 (Sensitivity)** The **sensitivity** of a diagnostic test is the probability that the test is positive (\\+\\), given that the person tested has the disease (\\D\\):
 >
 > \\\text{sensitivity} \stackrel{\text{def}}{=}\Pr(+ \mid D) \tag{3}\\
 
 > **NOTE:**
 >
-> **Example 2 (Sensitivity of a COVID-19 test)** Suppose a COVID-19 test is positive for 99% of the people who have COVID-19. Let \\D\\ be the event “the person has COVID-19” and \\+\\ the event “the test is positive”. Then the test’s sensitivity ([Definition 2](#def-sensitivity)) is:
+> **Example 2 (Sensitivity of a COVID-19 test)** Suppose a COVID-19 test is positive for 99% of the people who have COVID-19. Let \\D\\ be the event “the person has COVID-19” and \\+\\ the event “the test is positive”. Then the test’s sensitivity ([Definition 4](#def-sensitivity)) is:
 >
 > \\\Pr(+ \mid D) = 0.99 \tag{4}\\
 
 > **NOTE:**
 >
-> **Definition 3 (Specificity)** The **specificity** of a diagnostic test is the probability that the test is negative (\\\neg +\\), given that the person tested does not have the disease (\\\neg D\\):
+> **Definition 5 (Specificity)** The **specificity** of a diagnostic test is the probability that the test is negative (\\\neg +\\), given that the person tested does not have the disease (\\\neg D\\):
 >
 > \\\text{specificity} \stackrel{\text{def}}{=}\Pr(\neg + \mid \neg D) \tag{5}\\
 
 > **NOTE:**
 >
-> **Example 3 (Specificity of a COVID-19 test)** Suppose the COVID-19 test of [Example 2](#exm-sensitivity) is negative for 99% of the people who do not have COVID-19. Then its specificity ([Definition 3](#def-specificity)) is:
+> **Example 3 (Specificity of a COVID-19 test)** Suppose the COVID-19 test of [Example 2](#exm-sensitivity) is negative for 99% of the people who do not have COVID-19. Then its specificity ([Definition 5](#def-specificity)) is:
 >
 > \\\Pr(\neg + \mid \neg D) = 0.99 \tag{6}\\
 >
@@ -66,13 +72,13 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 4 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease (\\D\\):
+> **Definition 6 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease (\\D\\):
 >
 > \\\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{8}\\
 
 > **NOTE:**
 >
-> **Example 4 (Prevalence of COVID-19)** Suppose 7% of the population being tested with the COVID-19 test of [Example 2](#exm-sensitivity) has COVID-19. Then the prevalence ([Definition 4](#def-prevalence)) is:
+> **Example 4 (Prevalence of COVID-19)** Suppose 7% of the population being tested with the COVID-19 test of [Example 2](#exm-sensitivity) has COVID-19. Then the prevalence ([Definition 6](#def-prevalence)) is:
 >
 > \\\Pr(D) = 0.07 \tag{9}\\
 >
@@ -84,13 +90,13 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 5 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the probability that the person tested has the disease (\\D\\), given that the test is positive (\\+\\):
+> **Definition 7 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the probability that the person tested has the disease (\\D\\), given that the test is positive (\\+\\):
 >
 > \\\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid +) \tag{11}\\
 
 > **NOTE:**
 >
-> **Example 5 (PPV of a COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the population of [Example 4](#exm-prevalence), [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#exm-bayes) gives the positive predictive value ([Definition 5](#def-ppv)):
+> **Example 5 (PPV of a COVID-19 test)** For the COVID-19 test of [Example 2](#exm-sensitivity) and [Example 3](#exm-specificity), used in the population of [Example 4](#exm-prevalence), [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#exm-bayes) gives the positive predictive value ([Definition 7](#def-ppv)):
 >
 > \\\Pr(D \mid +) \approx 0.88 \tag{12}\\
 >
@@ -98,7 +104,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 6 (Negative predictive value (NPV))** The **negative predictive value** of a diagnostic test is the probability that the person tested does not have the disease (\\\neg D\\), given that the test is negative (\\\neg +\\):
+> **Definition 8 (Negative predictive value (NPV))** The **negative predictive value** of a diagnostic test is the probability that the person tested does not have the disease (\\\neg D\\), given that the test is negative (\\\neg +\\):
 >
 > \\\text{NPV} \stackrel{\text{def}}{=}\Pr(\neg D \mid \neg +) \tag{13}\\
 
@@ -108,7 +114,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\ \begin{aligned} \Pr(\neg + \mid D) &= 1 - \Pr(+ \mid D) && \text{(complement rule, conditional on } D \text{)} \\ &= 1 - 0.99 && \text{(substitute the sensitivity)} \\ &= 0.01 && \text{(subtract)} \end{aligned} \tag{14}\\
 >
-> By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the denominator expanded by the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\\mathopen{}\left\\D, \neg D\right\\\mathclose{}\\, the negative predictive value ([Definition 6](#def-npv)) is:
+> By [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes), with the denominator expanded by the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) over the partition \\\mathopen{}\left\\D, \neg D\right\\\mathclose{}\\, the negative predictive value ([Definition 8](#def-npv)) is:
 >
 > \\ \begin{aligned} \Pr(\neg D \mid \neg +) &= \frac{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D)}{\Pr(\neg +)} && \text{(Bayes' theorem)} \\ &= \frac{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D)}{\Pr(\neg + \mid \neg D) \cdot\Pr(\neg D) + \Pr(\neg + \mid D) \cdot\Pr(D)} && \text{(law of total probability)} \\ &= \frac{0.99 \cdot 0.93}{0.99 \cdot 0.93 + 0.01 \cdot 0.07} && \text{(substitute the given values)} \\ &= \frac{0.9207}{0.9207 + 0.0007} && \text{(multiply each term in the numerator and denominator)} \\ &= \frac{0.9207}{0.9214} && \text{(add the denominator's two terms)} \\ &\approx 0.9992 && \text{(divide)} \end{aligned} \tag{15}\\
 >
