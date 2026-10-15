@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 04:15:41 (PDT)
+Last modified: 2026-10-15 05:33:00 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -159,11 +159,11 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 1 (Outcome as mean plus deviation)** Show that each outcome in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) is its conditional mean plus its deviation ([Definition 5](#def-slr-deviation)): \\Y_i = \mu_i + \varepsilon_i\\.
+> **Exercise 1 (Decomposing an outcome)** Express each outcome \\Y_i\\ in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) in terms of its conditional mean \\\mu_i\\ and its deviation \\\varepsilon_i\\ ([Definition 5](#def-slr-deviation)).
 
 > **NOTE:**
 >
-> *Solution 1*. Start from the right-hand side:
+> *Solution 1*. Check that \\Y_i = \mu_i + \varepsilon_i\\, starting from the right-hand side:
 >
 > \\ \begin{aligned} \mu_i + \varepsilon_i &= \mu(x_i) + \varepsilon_i && \text{(definition of \$\mu_i\$)}\\ &= \mu(x_i) + \mathopen{}\left(Y_i - \mu(x_i)\right)\mathclose{} && \text{(definition of \$\varepsilon_i\$)}\\ &= \mu(x_i) + Y_i - \mu(x_i) && \text{(remove the parentheses)}\\ &= Y_i + \mu(x_i) - \mu(x_i) && \text{(reorder the terms)}\\ &= Y_i + \mathopen{}\left(\mu(x_i) - \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ &= Y_i + 0 && \text{(\$a - a = 0\$)}\\ &= Y_i && \text{(\$a + 0 = a\$)} \end{aligned} \\
 >
@@ -185,7 +185,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 2 (Distribution of the deviations)** Show that in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariate values, the deviations ([Definition 5](#def-slr-deviation)) are independent and each is Gaussian with mean 0 and the same variance \\\sigma^2_i\\ as \\Y_i\\: \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
+> **Exercise 2 (Distribution of the deviations)** Find the joint distribution of the deviations ([Definition 5](#def-slr-deviation)) in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariate values.
 
 > **NOTE:**
 >
@@ -213,7 +213,7 @@ hers |> head()
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(\varepsilon_1 \le t_1, \ldots, \varepsilon_n \le t_n\right)\mathclose{} &= \Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(Y_i \le t_i + \mu_i\right)\mathclose{} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(\varepsilon_i \le t_i\right)\mathclose{} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
 >
-> The joint CDF is the product of the marginal CDFs, so \\\varepsilon_1, \ldots, \varepsilon_n\\ are independent.
+> The joint CDF is the product of the marginal CDFs, so \\\varepsilon_1, \ldots, \varepsilon_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -424,7 +424,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 4 (Deviations from the mean sum to zero)** Show that \\\sum\_{i=1}^n(x_i - \bar{x}) = 0\\.
+> **Exercise 4 (Summing the deviations from the mean)** Find \\\sum\_{i=1}^n(x_i - \bar{x})\\.
 
 > **NOTE:**
 >
@@ -444,7 +444,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 5 (Expanding the centered sum of squares)** Show that \\S\_{xx} = \sum\_{i=1}^nx_i^2 - n \bar{x}^2\\ ([Definition 14](#def-centered-sums)).
+> **Exercise 5 (Expanding the centered sum of squares)** Expand the centered sum of squares \\S\_{xx}\\ ([Definition 14](#def-centered-sums)) into an expression in terms of \\n\\, \\\sum\_{i=1}^nx_i^2\\ and \\\bar{x}\\.
 
 > **NOTE:**
 >
@@ -618,7 +618,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 10 (Mean as a dot product)** Show that in simple linear regression ([Definition 8](#def-slr)), the conditional mean \\\mu(x_i)\\ is the dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 15](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)): \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\.
+> **Exercise 10 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 15](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
 
 > **NOTE:**
 >
