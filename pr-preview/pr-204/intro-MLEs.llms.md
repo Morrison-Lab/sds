@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 05:27:52 (PDT)
+Last modified: 2026-10-15 08:46:14 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -75,7 +75,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> **Definition 3 (Likelihood components)** For a dataset \\\tilde{x}\\ of mutually independent observations, the **likelihood component** (or **likelihood factor**) of observation \\X_i = x_i\\ is the likelihood of that observation alone:
+> **Definition 3 (Likelihood component (likelihood factor))** For a dataset \\\tilde{x}\\ of mutually independent observations, the **likelihood component** (or **likelihood factor**) of observation \\X_i = x_i\\ is the likelihood of that observation alone:
 >
 > \\\mathcal{L}\_i(\theta) \stackrel{\text{def}}{=}\operatorname{p}(X_i = x_i \mid \theta)\\
 
@@ -134,6 +134,12 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 > **NOTE:**
 >
 > 5MinuteAI explains [maximum likelihood estimation](https://www.youtube.com/watch?v=Pa-GWE5JuH4) and works [examples](https://www.youtube.com/watch?v=w3a08digzfw) in five minutes each, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.4](#ref-hoggtanis2015), pp. 264–276) covers maximum likelihood and method of moments estimation.
+> - Casella and Berger ([2002, sec. 7.2.2](#ref-CaseBerg01), pp. 315–323) covers maximum likelihood estimators.
+> - Rice ([2007, sec. 8.5](#ref-rice2007mathematical), pp. 267–284) covers the method of maximum likelihood.
 
 ### 1.3 Finding the maximum of a function
 
@@ -369,9 +375,11 @@ In all four examples ([Theorem 8](#thm-bernoulli-score), [Theorem 9](#thm-pois
 
 > **NOTE:**
 >
-> **Definition 8 (Score equation)** The **score equation** (also called the estimating equation) is the equation that sets the [score function](#def-score) to zero:
+> **Definition 8 (Score equation)** The **score equation** is the equation that sets the [score function](#def-score) to zero:
 >
 > \\ \ell'(\tilde{\theta}) = \tilde{0} \\
+
+The score equation is one example of an **estimating equation**, an equation whose solution defines an estimator. Estimating equations in general need not come from a likelihood.
 
 > **NOTE:**
 >
@@ -425,7 +433,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 
 > **NOTE:**
 >
-> **Definition 10 (Expected information)** The **expected information matrix**, also called the **Fisher information matrix** or just the **information matrix**, is written \\\mathcal{I}\\, and is the expected value of the negative [Hessian](#def-hessian) of the log-likelihood, with the data \\\tilde{X}\\ treated as random:
+> **Definition 10 (Expected information matrix (Fisher information matrix, information matrix))** The **expected information matrix**, also called the **Fisher information matrix** or just the **information matrix**, is written \\\mathcal{I}\\, and is the expected value of the negative [Hessian](#def-hessian) of the log-likelihood, with the data \\\tilde{X}\\ treated as random:
 >
 > \\\mathcal{I}(\tilde{\theta}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[-\ell''(\tilde{X}\mid \tilde{\theta})\right\]\mathclose{} \tag{10}\\
 
@@ -597,6 +605,11 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta
 >
 > *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria ([Efron and Hinkley 1978](#ref-efron1978assessing)).
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.6](#ref-hoggtanis2015), pp. 285–289) covers asymptotic distributions of maximum likelihood estimators.
+> - Rice ([2007, sec. 8.5.2](#ref-rice2007mathematical), pp. 274–278) covers large-sample theory for maximum likelihood estimators.
+
 ### 1.9 Quantifying uncertainty about MLEs
 
 #### 1.9.1 Confidence intervals for MLEs
@@ -610,6 +623,11 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\tilde{\theta
 > where \\\hat{\theta}\_k\\ is the \\k\\th entry of \\\hat\theta\_{\text{ML}}\\, \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ is its estimated standard error, and \\z\_{\beta}\\ is the \\\beta\\ quantile of the standard Gaussian distribution.
 
 By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}\\ has approximately a standard Gaussian distribution in large samples, so the Wald interval is an [approximate confidence interval](inference.llms.md#def-approximate-ci) for \\\theta_k\\. For a 95% interval, \\z\_{0.975} \approx 1.96\\.
+
+> **NOTE:**
+>
+> - Casella and Berger ([2002, sec. 10.4.1](#ref-CaseBerg01), pp. 496–498) covers approximate maximum likelihood intervals.
+> - Rice ([2007, sec. 8.5.3](#ref-rice2007mathematical), pp. 279–284) covers confidence intervals from maximum likelihood estimators.
 
 #### 1.9.2 Wald tests
 
@@ -763,6 +781,11 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 > ```
 
 See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://online.stat.psu.edu/stat504/Lesson02>.
+
+> **NOTE:**
+>
+> - Casella and Berger ([2002, sec. 10.3.1](#ref-CaseBerg01), pp. 488–491) covers asymptotic distribution of likelihood ratio tests.
+> - Rice ([2007, sec. 9.4](#ref-rice2007mathematical), pp. 339–340) covers generalized likelihood ratio tests.
 
 #### 1.9.4 Exact and approximate tests
 
@@ -1270,7 +1293,7 @@ and the solution becomes the next guess.
 
 > **NOTE:**
 >
-> **Definition 18 (Fisher scoring)** **Fisher scoring** (also called the method of scoring) is the [Newton-Raphson algorithm](#def-newton-raphson) with the observed information \\I(\tilde{x}; {\widehat{\theta}}^\*)\\ in the update replaced by the [expected information](#def-einf) \\\mathcal{I}({\widehat{\theta}}^\*)\\:
+> **Definition 18 (Fisher scoring (method of scoring))** **Fisher scoring** (also called the **method of scoring**) is the [Newton-Raphson algorithm](#def-newton-raphson) with the observed information \\I(\tilde{x}; {\widehat{\theta}}^\*)\\ in the update replaced by the [expected information](#def-einf) \\\mathcal{I}({\widehat{\theta}}^\*)\\:
 >
 > \\ {\widehat{\theta}}^\* \leftarrow {\widehat{\theta}}^\* + {\mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^\*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^\*\right)\mathclose{} \\
 
@@ -2368,16 +2391,6 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > Note: the exponential distribution has \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \mu^2\\, so \\\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{} = \mu/\sqrt{n}\\, which is estimated by \\\bar{x}/\sqrt{n}\\. More generally, the standard error of a sample mean is \\\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}/\sqrt{n}\\; here that reduces to \\\mu/\sqrt{n}\\ because \\\operatorname{SD}\mathopen{}\left(X\right)\mathclose{} = \mu\\ for the exponential distribution.
 
-## Textbook cross-references
-
-Textbook sections on the topics of this page:
-
-- Hogg et al. ([2019, sec. 6.4](#ref-hoggtanis2015), pp. 264–276): Maximum likelihood and method of moments estimation
-- Hogg et al. ([2019, sec. 6.6](#ref-hoggtanis2015), pp. 285–289): Asymptotic distributions of maximum likelihood estimators
-- Casella and Berger ([2002, sec. 7.2.2](#ref-CaseBerg01), pp. 315–323): Maximum likelihood estimators
-- Casella and Berger ([2002, sec. 10.3.1](#ref-CaseBerg01), pp. 488–491): Asymptotic distribution of likelihood ratio tests
-- Casella and Berger ([2002, sec. 10.4.1](#ref-CaseBerg01), pp. 496–498): Approximate maximum likelihood intervals
-
 ## References
 
 5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
@@ -2403,6 +2416,8 @@ Lehmann, E. L. 1999. *Elements of Large-Sample Theory*. Springer Texts in Statis
 McLachlan, Geoffrey J, and Thriyambakam Krishnan. 2007. *The EM Algorithm and Extensions*. 2nd ed. John Wiley & Sons. <https://doi.org/10.1002/9780470191613>.
 
 Newey, Whitney K, and Daniel McFadden. 1994. “Large Sample Estimation and Hypothesis Testing.” In *Handbook of Econometrics*, edited by Robert Engle and Dan McFadden, vol. 4. Elsevier. <https://doi.org/10.1016/S1573-4412(05)80005-4>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

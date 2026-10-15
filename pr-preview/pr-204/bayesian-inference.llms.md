@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 05:27:52 (PDT)
+Last modified: 2026-10-15 08:46:14 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -64,7 +64,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 5 (Marginal likelihood)** Given a prior \\\operatorname{p}(\theta)\\ and a model \\\operatorname{p}(\tilde{y}\mid \theta)\\ for the data given \\\theta\\, the **marginal likelihood** (also called the **evidence**) of observed data \\\tilde{y}\\ is
+> **Definition 5 (Marginal likelihood (evidence))** Given a prior \\\operatorname{p}(\theta)\\ and a model \\\operatorname{p}(\tilde{y}\mid \theta)\\ for the data given \\\theta\\, the **marginal likelihood** (also called the **evidence**) of observed data \\\tilde{y}\\ is
 >
 > \\ \operatorname{p}(\tilde{y}) \stackrel{\text{def}}{=}\int \operatorname{p}(\tilde{y}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta, \\
 >
@@ -436,6 +436,10 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > Unlike a continuous posterior, a discrete posterior can rarely reach a probability of exactly 0.95, because its probability comes in lumps. [Definition 7](#def-credible-interval) asks for probability exactly \\1 - \alpha\\; on a grid we ask for probability *at least* \\1 - \alpha\\, and take the largest lower endpoint that achieves it. That makes the interval conservative: here its posterior probability is 0.9866, not 0.95.
 
+> **NOTE:**
+>
+> Casella and Berger ([2002, sec. 9.2.4](#ref-CaseBerg01), pp. 435–439) covers Bayesian intervals.
+
 ### 2.4 The parameter space
 
 > **NOTE:**
@@ -463,6 +467,12 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 > **NOTE:**
 >
 > **Example 13 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on \\(0, 0.5)\\ for the smoking probability \\\pi\\. By [Corollary 3](#cor-prior-support), the posterior then gives probability 0 to \\\pi\> 0.5\\, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.8](#ref-hoggtanis2015), pp. 298–305) covers Bayesian estimation.
+> - Casella and Berger ([2002, sec. 7.2.3](#ref-CaseBerg01), pp. 324–325) covers Bayes estimators.
+> - Rice ([2007, sec. 8.6](#ref-rice2007mathematical), pp. 285–297) covers the Bayesian approach to parameter estimation.
 
 ## 3 Priors
 
@@ -706,7 +716,9 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Definition 13 (Flat prior)** A **flat prior**, also called a **uniform** or **noninformative** prior, is a [prior](#def-prior) whose density is constant on the parameter space: \\\operatorname{p}(\theta) \propto 1\\ for \\\theta\in \Theta\\.
+> **Definition 13 (Flat prior (uniform prior))** A **flat prior**, also called a **uniform prior**, is a [prior](#def-prior) whose density is constant on the parameter space: \\\operatorname{p}(\theta) \propto 1\\ for \\\theta\in \Theta\\.
+
+A flat prior is a common choice of noninformative prior, but “noninformative prior” is the broader idea: other noninformative priors, such as Jeffreys priors, are not flat.
 
 > **NOTE:**
 >
@@ -1265,7 +1277,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 22 (Hierarchical model)** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
+> **Definition 22 (Hierarchical model (multilevel model))** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
 
 > **NOTE:**
 >
@@ -1314,14 +1326,6 @@ The following resources cover Bayesian inference in more depth.
 - Kéry et al. ([2012](#ref-kery-bayes-pop))
 - Hobbs and Hooten ([2015](#ref-HobbsN.Thompson2015Bmas)), which has been used in [PLS 207](https://catalog.ucdavis.edu/search/?q=PLS+207)
 
-## Textbook cross-references
-
-Textbook sections on the topics of this page:
-
-- Hogg et al. ([2019, sec. 6.8](#ref-hoggtanis2015), pp. 298–305): Bayesian estimation
-- Casella and Berger ([2002, sec. 7.2.3](#ref-CaseBerg01), pp. 324–325): Bayes estimators
-- Casella and Berger ([2002, sec. 9.2.4](#ref-CaseBerg01), pp. 435–439): Bayesian intervals
-
 ## References
 
 Aragon, Tomas J. 2018. *Population Health Thinking with Bayesian Networks*. <https://escholarship.org/uc/item/8000r5m5>.
@@ -1345,6 +1349,8 @@ Kéry, Marc., Michael. Schaub, and Steven R. Beissinger. 2012. *Bayesian Populat
 Korner-Nievergelt, Fränzi, and Fränzi Korner-Nievergelt. 2015. *Bayesian Data Analysis in Ecology Using Linear Models with R, BUGS, and Stan*. 1st ed. Academic Press.
 
 McElreath, Richard. 2020. *Statistical Rethinking : A Bayesian Course with Examples in R and Stan*. Second edition. Chapman & Hall/CRC Texts in Statistical Science Series. CRC Press.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Ross, Kevin. 2022. *An Introduction to Bayesian Reasoning and Methods*. Online. <https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/>.
 

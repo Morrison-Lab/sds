@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 05:27:52 (PDT)
+Last modified: 2026-10-15 08:46:14 (PDT)
 
 ## 1 Empirical distribution
 
@@ -42,6 +42,10 @@ Last modified: 2026-10-15 05:27:52 (PDT)
 >
 > Similarly, \\\hat F(0) = 0\\, because no value is at most 0, and \\\hat F(7) = 1\\, because every value is at most 7.
 
+> **NOTE:**
+>
+> Rice ([2007, sec. 10.2.1](#ref-rice2007mathematical), pp. 378–379) covers the empirical CDF.
+
 ## 3 Order statistics
 
 > **NOTE:**
@@ -56,17 +60,22 @@ Last modified: 2026-10-15 05:27:52 (PDT)
 >
 > **Example 3 (Numerical example: order statistics)** If the observed values are \\4, 1, 7, 3\\, then the order statistics are \\x\_{(1)} = 1\\, \\x\_{(2)} = 3\\, \\x\_{(3)} = 4\\, and \\x\_{(4)} = 7\\.
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.3](#ref-hoggtanis2015), pp. 256–263) covers order statistics.
+> - Casella and Berger ([2002, sec. 5.4](#ref-CaseBerg01), pp. 226–231) covers order statistics.
+
 ## 4 Sample quantiles
 
 > **NOTE:**
 >
-> **Definition 4 (Sample quantile function)** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
+> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
 >
 > \\\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\\t : \hat F(t) \ge p\right\\\mathclose{}, \quad 0 \< p \le 1.\\
 
 > **NOTE:**
 >
-> **Definition 5 (Sample quantile)** For a given \\p\\, the value \\\hat Q(p)\\ of the [sample quantile function](#def-sample-quantile) is the **sample \\p\\ quantile**, also called the **sample \\100p\\th percentile**.
+> **Definition 5 (Sample \\p\\ quantile (sample \\100p\\th percentile))** For a given \\p\\, the value \\\hat Q(p)\\ of the [sample quantile function](#def-sample-quantile) is the **sample \\p\\ quantile**, also called the **sample \\100p\\th percentile**.
 
 The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\\ and the [quantile function](https://morrison-lab.github.io/pds/random-variables.html#def-quantile-function) \\Q\\ describe a probability distribution, while \\\hat F\\ and \\\hat Q\\ describe a sample, and serve as estimates of \\F\\ and \\Q\\.
 
@@ -110,6 +119,10 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 > **NOTE:**
 >
 > *Remark 1* (Quantile conventions). Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s [`quantile()`](https://rdrr.io/r/stats/quantile.html) offers nine definitions through its `type` argument, and its default (`type = 7`) interpolates, so `quantile(c(4, 1, 7, 3), 0.5)` returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use [Definition 4](#def-sample-quantile), which always returns one of the observed values.
+
+> **NOTE:**
+>
+> Hogg et al. ([2019, sec. 7.5](#ref-hoggtanis2015), pp. 337–343) covers distribution-free confidence intervals for percentiles.
 
 ## 5 The empirical CDF and quantile function as generalized inverses
 
@@ -187,14 +200,12 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functions, so neither is one-to-one. Each flat piece of one function corresponds to a jump of the other: for example, \\\hat F(t) = 0.5\\ for every \\t \in \[3, 4)\\, and \\\hat Q\\ jumps from 3 to 4 at \\p = 0.5\\. So \\\hat Q\\ is a *generalized* inverse of \\\hat F\\, not an inverse in the usual sense: \\\hat Q(\hat F(t)) \le t\\ for every \\t \ge x\_{(1)}\\, with equality only at the observed values.
 
-## Textbook cross-references
-
-Textbook sections on the topics of this page:
-
-- Hogg et al. ([2019, sec. 6.3](#ref-hoggtanis2015), pp. 256–263): Order statistics
-- Hogg et al. ([2019, sec. 7.5](#ref-hoggtanis2015), pp. 337–343): Distribution-free confidence intervals for percentiles
-- Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402): Some distribution-free tests
-- Casella and Berger ([2002, sec. 5.4](#ref-CaseBerg01), pp. 226–231): Order statistics
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402) covers some distribution-free tests.
+> - Rice ([2007, sec. 11.2.3](#ref-rice2007mathematical), pp. 435–442) covers the Mann–Whitney test.
+> - Rice ([2007, sec. 11.3.2](#ref-rice2007mathematical), pp. 448–449) covers the signed rank test.
+> - Rice ([2007, sec. 12.2.3](#ref-rice2007mathematical), p. 488) covers the Kruskal–Wallis test.
 
 ## References
 
@@ -205,5 +216,7 @@ Efron, Bradley, and Robert J. Tibshirani. 1993. *An Introduction to the Bootstra
 Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. 2nd ed. Springer. <https://doi.org/10.1007/978-0-387-84858-7>.
 
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Back to top

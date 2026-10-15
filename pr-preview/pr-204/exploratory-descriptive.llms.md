@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 05:27:52 (PDT)
+Last modified: 2026-10-15 08:46:14 (PDT)
 
 ## 1 Introduction
 
@@ -263,7 +263,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 9 (Quartiles)** The **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\ are the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)), also called the 25th and 75th percentiles.
+> **Definition 9 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
 
 > **NOTE:**
 >
@@ -369,6 +369,11 @@ For categorical variables with more than two levels, the natural descriptive sta
 >
 > Table 2: Frequency table for categorical variables in the WCGS dataset
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.1](#ref-hoggtanis2015), pp. 233–244) covers descriptive statistics.
+> - Rice ([2007, secs. 10.4–10.5](#ref-rice2007mathematical), pp. 392–401) covers measures of location and dispersion.
+
 ## 3 Graphical methods
 
 Graphs can reveal features of a distribution that summary statistics miss, such as skewness, multiple peaks, and outliers. Different types of graph suit different types of variable.
@@ -427,7 +432,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 15 (Box plot)** A **box plot** (or box-and-whisker plot) summarizes the distribution of a continuous variable:
+> **Definition 15 (Box plot (box-and-whisker plot))** A **box plot** (or **box-and-whisker plot**) summarizes the distribution of a continuous variable:
 >
 > - the box spans the first to the third [quartile](#def-quartiles), so its length is the [IQR](#def-IQR);
 > - a line inside the box marks the [median](#def-sample-median);
@@ -502,6 +507,13 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 In [Figure 5](#fig-qq-chol), the points curve above the reference line at the right, which matches the long right tail in [Figure 1](#fig-hist-chol).
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.2](#ref-hoggtanis2015), pp. 245–255) covers exploratory data analysis.
+> - Rice ([2007, sec. 10.2.3](#ref-rice2007mathematical), pp. 385–388) covers quantile-quantile plots.
+> - Rice ([2007, sec. 10.3](#ref-rice2007mathematical), pp. 389–391) covers histograms, density curves and stem-and-leaf plots.
+> - Rice ([2007, sec. 10.6](#ref-rice2007mathematical), pp. 402–403) covers boxplots.
+
 ## 4 Bivariate relationships
 
 ### 4.1 Two continuous variables
@@ -563,6 +575,10 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 > **CAUTION:**
 >
 > Two variables can be strongly related and still have a correlation near zero, if the relationship is not linear. For example, if \\y_i = x_i^2\\, the \\x_i\\ are symmetric around 0, and the \\\mathopen{}\left\|x_i\right\|\mathclose{}\\ are not all equal, then \\r = 0\\, although \\y\\ is a function of \\x\\. Correlation also does not imply causation.
+
+> **NOTE:**
+>
+> Rice ([2007, sec. 10.7](#ref-rice2007mathematical), pp. 404–406) covers scatterplots.
 
 ### 4.2 A continuous variable by a categorical variable
 
@@ -630,7 +646,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> **Definition 20 (Contingency table)** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
+> **Definition 20 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
 >
 > |              | Outcome = 1 | Outcome = 0 |   Total   |
 > |--------------|:-----------:|:-----------:|:---------:|
@@ -871,13 +887,6 @@ A typical exploratory data analysis proceeds as follows:
 >
 > Table 5: Summary of selected WCGS variables
 
-## Textbook cross-references
-
-Textbook sections on the topics of this page:
-
-- Hogg et al. ([2019, sec. 6.1](#ref-hoggtanis2015), pp. 233–244): Descriptive statistics
-- Hogg et al. ([2019, sec. 6.2](#ref-hoggtanis2015), pp. 245–255): Exploratory data analysis
-
 ## References
 
 Géron, Aurélien. 2017. *Hands-on Machine Learning with Scikit-Learn and TensorFlow*. 1st ed. O’Reilly Media.
@@ -885,6 +894,8 @@ Géron, Aurélien. 2017. *Hands-on Machine Learning with Scikit-Learn and Tensor
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Rosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. “Coronary Heart Disease in the Western Collaborative Group Study: Final Follow-up Experience of 8 1/2 Years.” *JAMA* 233 (8): 872–77. <https://doi.org/10.1001/jama.1975.03260080034016>.
 

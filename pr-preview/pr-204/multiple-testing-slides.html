@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 05:27:52 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 08:46:14 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1162,6 +1162,14 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 </div>
 <p>The estimated FWER, 0.04, is below <span class="math inline">\(\alpha= 0.05\)</span>, up to simulation error. Holm’s power is 0.146, against 0.146 for the Bonferroni correction: Holm’s procedure can only reject more, but here the extra rejections are rare.</p>
 </div>
+<div class="reading">
+<ul>
+<li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 11.2.5</a>, pp.&nbsp;534–535)</span> covers simultaneous estimation of contrasts.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 12.2.2</a>, pp.&nbsp;485–487)</span> covers multiple comparisons.</li>
+</ul>
+</div>
 </section><section id="sec-fdr-control" class="slide level2" data-number="5"><h2>
 <span class="header-section-number">5</span> Controlling the false discovery rate</h2>
 <h3 data-number="5.1" id="sec-bh">
@@ -1542,11 +1550,6 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <li>Chapter 15 of <span class="citation" data-cites="efron2016computer">Efron and Hastie (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span> treats large-scale testing and the false discovery rate.</li>
 <li>Andrew Lin’s <a href="https://web.stanford.edu/~lindrew/stats300C.pdf">notes on Stanford STATS 300C</a> (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.</li>
 <li>The <a href="./permutation-tests.html">permutation tests</a> page computes valid p-values by relabeling the data, without a distributional model for the test statistic.</li>
-</ul></section><section id="textbook-cross-references" class="slide level2 unnumbered"><h2>Textbook cross-references</h2>
-<p>Textbook sections on the topics of this page:</p>
-<ul>
-<li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 11.2.5</a>, pp.&nbsp;534–535)</span>: Simultaneous estimation of contrasts</li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-benjamini1995controlling" class="csl-entry" role="listitem">
@@ -1569,6 +1572,9 @@ James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>A
 </div>
 <div id="ref-khan2001classification" class="csl-entry" role="listitem">
 Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. <span>“Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.”</span> <em>Nature Medicine</em> 7 (6): 673–79. <a href="https://doi.org/10.1038/89044">https://doi.org/10.1038/89044</a>.
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
 </div>
 <div id="ref-storey2002direct" class="csl-entry" role="listitem">
 Storey, John D. 2002. <span>“A Direct Approach to False Discovery Rates.”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 64 (3): 479–98. <a href="https://doi.org/10.1111/1467-9868.00346">https://doi.org/10.1111/1467-9868.00346</a>.
