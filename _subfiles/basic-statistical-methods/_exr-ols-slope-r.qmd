@@ -14,7 +14,7 @@ $s_x$ and $s_y$ of the $x_i$ and the $y_i$.
 
 :::{#sol-ols-slope-r}
 
-In terms of the centered sums (@def-centered-sums),
+In terms of the centered sums (@def-centered-sums, @def-centered-cross-product),
 
 $$
 r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}},

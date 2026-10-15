@@ -147,6 +147,12 @@ Put special cases in example divs right after it, from the most general to the m
 (the simple linear regression case, then a numerical example),
 each linking back to the definition.
 Put commentary (scope, orientation, relations to other quantities) in a remark div after the definition, never inside it.
+Define one term per `#def-` div (Ezra, 2026-10-12; psw's [Writing for teaching](https://morrison-lab.github.io/psw/chapters/teaching.html)).
+A second new bolded term gets its own `#def-` div with its own id, titled with the term,
+placed right after the first, or before it when the first uses it,
+and the later div links to the earlier one.
+Aliases of a term ("also called") stay in the same div, in bold and in the div title.
+A theorem, lemma, corollary or proposition states one result.
 Never nest one theorem-type div inside another.
 
 ## Attributions are reader-visible
