@@ -2,10 +2,10 @@
 #### Covariance of an unbiased estimator with the score
 
 Under the assumptions of @exr-cov-estimator-score,
-an unbiased estimator $T$ of $\param$ has covariance 1 with the score:
+an unbiased estimator $\hparam$ of $\param$ has covariance 1 with the score:
 
 $$
-\Covs{T}{\score(\vX \mid \param)} = 1
+\Covs{\hparam}{\score(\vX \mid \param)} = 1
 $$ {#eq-cov-estimator-score}
 
 :::
