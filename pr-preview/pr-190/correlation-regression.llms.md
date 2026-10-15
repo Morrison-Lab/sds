@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 00:40:24 (PDT)
+Last modified: 2026-10-15 02:40:03 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -273,7 +273,7 @@ hers |> head()
 >
 > \\\text{RSS}(\tilde{\theta}) \stackrel{\text{def}}{=}\sum\_{i=1}^nr_i(\tilde{\theta})^2.\\
 >
-> At the estimate \\\hat{\tilde{\theta}}\\, \\r_i(\hat{\tilde{\theta}})\\ is the [residual](estimation.llms.md#def-residual) \\r_i\\ of the fitted model.
+> At the estimate \\\hat{\tilde{\theta}}\\, \\r_i(\hat{\tilde{\theta}})\\ is the [residual](prediction.llms.md#def-residual) \\r_i\\ of the fitted model.
 
 > **NOTE:**
 >
@@ -314,11 +314,11 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [mean squared error](estimation.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\tilde{\theta})\\, and \\\text{RSS}(\tilde{\theta})\\ in terms of that mean squared error.
+> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [mean squared error](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\tilde{\theta})\\, and \\\text{RSS}(\tilde{\theta})\\ in terms of that mean squared error.
 
 > **NOTE:**
 >
-> *Solution 3*. First, each squared [prediction error](estimation.llms.md#def-prediction-error) equals the squared residual at \\\tilde{\theta}\\:
+> *Solution 3*. First, each squared [prediction error](prediction.llms.md#def-prediction-error) equals the squared residual at \\\tilde{\theta}\\:
 >
 > \\ \begin{aligned} \varepsilon_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \tilde{\theta}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \tilde{\theta})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\tilde{\theta})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= r_i(\tilde{\theta})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
 >
@@ -332,7 +332,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, the [mean squared error](estimation.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \tilde{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
+> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, the [mean squared error](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \tilde{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\tilde{\theta}),\\
 >
@@ -815,7 +815,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Solution 16*. The [fitted values](estimation.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](estimation.llms.md#def-residual) is
+> *Solution 16*. The [fitted values](prediction.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](prediction.llms.md#def-residual) is
 >
 > \\ \begin{aligned} r_i &= y_i - \hat y_i && \text{(definition of a residual)}\\ &= y_i - \mathopen{}\left(\hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat y_i\$)}\\ &= y_i - \mathopen{}\left(\bar{y} - \hat{\beta}\_{x} \bar{x} + \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= y_i - \bar{y} + \hat{\beta}\_{x} \bar{x} - \hat{\beta}\_{x} x_i && \text{(distribute the minus sign)}\\ &= (y_i - \bar{y}) - \mathopen{}\left(\hat{\beta}\_{x} x_i - \hat{\beta}\_{x} \bar{x}\right)\mathclose{} && \text{(group terms)}\\ &= (y_i - \bar{y}) - \hat{\beta}\_{x} (x_i - \bar{x}) && \text{(factor out \$\hat{\beta}\_{x}\$)} \end{aligned} \\
 >

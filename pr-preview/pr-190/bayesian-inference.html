@@ -105,8 +105,8 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
-<script src="site_libs/quarto-contrib/callouty-theorem-1.3.0/callouty-theorem.js"></script>
-<link href="site_libs/quarto-contrib/callouty-theorem-1.3.0/callouty-theorem.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/callouty-theorem-1.4.1/callouty-theorem.js"></script>
+<link href="site_libs/quarto-contrib/callouty-theorem-1.4.1/callouty-theorem.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
@@ -221,6 +221,86 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-tbl.callout {
+  border-left-color: #757575;
+}
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-videos.callout {
   border-left-color: #283593;
 }
@@ -235,15 +315,15 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   content: '\f144' !important;
   background-image: none;
 }
-div.callout-exr.callout {
-  border-left-color: #FFA500;
+div.callout-remark.callout {
+  border-left-color: #AD1457;
 }
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
 }
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-solution.callout {
   border-left-color: #4E342E;
@@ -265,56 +345,6 @@ div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-exm.callout {
   border-left-color: #6A1B9A;
 }
@@ -324,36 +354,6 @@ div.callout-exm.callout-style-default .callout-header {
 div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-tbl.callout {
-  border-left-color: #757575;
-}
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -596,6 +596,10 @@ window.Quarto = {
     <a class="dropdown-item" href="./intro-MLEs.html">
  <span class="dropdown-text">Maximum Likelihood</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./estimator-properties.html">
+ <span class="dropdown-text">Properties of Estimators</span></a>
+  </li>  
     </ul>
 </li>
   <li class="nav-item dropdown ">
@@ -614,6 +618,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="./correlation-regression.html">
  <span class="dropdown-text">Correlation &amp; Regression</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./prediction.html">
+ <span class="dropdown-text">Prediction</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./model-validation.html">
@@ -742,6 +750,12 @@ window.Quarto = {
  <span class="menu-text">Maximum Likelihood</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estimator-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Properties of Estimators</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -769,6 +783,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./correlation-regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Correlation &amp; Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./prediction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prediction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -874,7 +894,7 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><!-- qwt-page-banners -->
 <div class="preview-changes-banner" style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 12px; margin: 16px 0;">
     <p style="margin: 0;">
-        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>
+        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="estimator-properties.html">Properties of Estimators</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>, <a href="prediction.html">Prediction</a>
         <br>
         <strong>💡 Tip:</strong> If change highlighting is glitchy, add the <code>no-preview-highlights</code> label to this PR to disable it.
     </p>
@@ -898,7 +918,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-15 00:40:24 (PDT)</p>
+      <p class="date">Last modified: 2026-10-15 02:40:03 (PDT)</p>
     </div>
   </div>
   
@@ -916,10 +936,10 @@ text-align: center;
 <section id="sec-bayes-paradigms" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="sec-bayes-paradigms">
 <span class="header-section-number">1</span> Frequentist and Bayesian paradigms</h2>
 <p>The <a href="./estimation.html">estimation</a> and <a href="./inference.html">inference</a> pages take the frequentist view of parameters.</p>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-frequentist-paradigm" class="quarto-xref">Definition&nbsp;1</a> (Frequentist paradigm)
@@ -934,10 +954,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-bayesian-paradigm" class="quarto-xref">Definition&nbsp;2</a> (Bayesian paradigm)
@@ -952,10 +972,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-paradigms" class="quarto-xref">Example&nbsp;1</a> (Two views of a success probability)
@@ -970,10 +990,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-prior" class="quarto-xref">Definition&nbsp;3</a> (Prior distribution)
@@ -988,10 +1008,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-prior" class="quarto-xref">Example&nbsp;2</a> (A uniform prior for a probability)
@@ -1014,10 +1034,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-two-paradigms" class="quarto-xref">Remark&nbsp;1</a> (Two paradigms, two questions)
@@ -1035,10 +1055,10 @@ text-align: center;
 </section><section id="sec-bayes-equation" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="sec-bayes-equation">
 <span class="header-section-number">2</span> Bayes’ theorem for parameters</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-posterior div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-posterior" class="quarto-xref">Definition&nbsp;4</a> (Posterior distribution)
@@ -1053,10 +1073,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-posterior" class="quarto-xref">Example&nbsp;3</a> (Posterior probability that a coin is biased)
@@ -1071,10 +1091,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-marginal-likelihood" class="quarto-xref">Definition&nbsp;5</a> (Marginal likelihood)
@@ -1093,10 +1113,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-lem no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Lem</span><a href="#thm-bayes-posterior" class="quarto-xref">Theorem&nbsp;1</a> (Bayes’ theorem for parameters)
@@ -1144,10 +1164,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-marginal-likelihood" class="quarto-xref">Example&nbsp;4</a> (Posterior probability that a coin is biased, computed)
@@ -1181,10 +1201,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-marginal-likelihood-uniform" class="quarto-xref">Example&nbsp;5</a> (Posterior for a coin’s probability of heads under a uniform prior)
@@ -1253,10 +1273,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-cor no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-cor callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Cor</span><a href="#cor-bayes-proportional" class="quarto-xref">Corollary&nbsp;1</a> (The posterior is proportional to likelihood times prior)
@@ -1300,10 +1320,10 @@ text-align: center;
 <section id="sec-bayes-normal-normal" class="level3" data-number="2.1"><h3 data-number="2.1" class="anchored" data-anchor-id="sec-bayes-normal-normal">
 <span class="header-section-number">2.1</span> A Gaussian mean with a Gaussian prior</h3>
 <!-- No slidebreak here: the heading shares its slide with the exm-normal-normal div. -->
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-normal-normal" class="quarto-xref">Example&nbsp;6</a> (Posterior for a Gaussian mean)
@@ -1382,10 +1402,10 @@ text-align: center;
 </section><section id="sec-bayes-map" class="level3" data-number="2.2"><h3 data-number="2.2" class="anchored" data-anchor-id="sec-bayes-map">
 <span class="header-section-number">2.2</span> The posterior mode</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-map div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-map" class="quarto-xref">Definition&nbsp;6</a> (Maximum a posteriori estimate)
@@ -1401,10 +1421,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-map-beta-bernoulli" class="quarto-xref">Example&nbsp;7</a> (The MAP estimate of a proportion)
@@ -1454,10 +1474,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-map-posterior-mode" class="quarto-xref">Remark&nbsp;2</a> (The MAP estimate is the posterior mode)
@@ -1472,10 +1492,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-cor no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-cor callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Cor</span><a href="#cor-map-penalized" class="quarto-xref">Corollary&nbsp;2</a> (The MAP estimate minimizes the negative log-likelihood plus a penalty)
@@ -1518,10 +1538,10 @@ text-align: center;
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-map-normal-normal" class="quarto-xref">Example&nbsp;8</a> (The MAP estimate of a Gaussian mean)
@@ -1598,10 +1618,10 @@ Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants.
 </section><section id="sec-bayes-interval-interp" class="level3" data-number="2.3"><h3 data-number="2.3" class="anchored" data-anchor-id="sec-bayes-interval-interp">
 <span class="header-section-number">2.3</span> Two readings of an interval estimate</h3>
 <p>The two paradigms differ most visibly in how they interpret an interval estimate <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;272)</span>. A frequentist 95% <a href="./inference.html#def-confidence-interval">confidence interval</a> is a random interval whose coverage probability, over repeated samples with <span class="math inline">\(\theta\)</span> held fixed, is 0.95. Any one realized interval either contains <span class="math inline">\(\theta\)</span> or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about <span class="math inline">\(\theta\)</span> itself, given the data actually observed.</p>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-credible-interval" class="quarto-xref">Definition&nbsp;7</a> (Credible interval)
@@ -1620,10 +1640,10 @@ Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants.
 </div>
 </div>
 <p>In a credible interval, the data are fixed at their observed values and <span class="math inline">\(\theta\)</span> is random, so the probability statement is about <span class="math inline">\(\theta\)</span> directly. Many intervals have posterior probability <span class="math inline">\(1 - \alpha\)</span>; the usual choice, and the one used on this page, is the equal-tailed interval.</p>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-equal-tailed-interval" class="quarto-xref">Definition&nbsp;8</a> (Equal-tailed credible interval)
@@ -1638,10 +1658,10 @@ Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants.
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-equal-tailed-interval" class="quarto-xref">Example&nbsp;9</a> (Equal-tailed interval for a Gaussian posterior)
@@ -1656,10 +1676,10 @@ Figure&nbsp;1: Negative log-likelihood, penalty, and their sum, up to constants.
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-normal-credible-vs-confidence" class="quarto-xref">Example&nbsp;10</a> (Credible and confidence intervals for a Gaussian mean)
@@ -1738,10 +1758,10 @@ Figure&nbsp;2: The <span class="math inline">\(\operatorname{N}\mathopen{}\left(
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-discrete-prior" class="quarto-xref">Example&nbsp;11</a> (A discrete prior on a grid: 8 successes in 10 trials)
@@ -2013,10 +2033,10 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </section><section id="sec-bayes-parameter-space" class="level3" data-number="2.4"><h3 data-number="2.4" class="anchored" data-anchor-id="sec-bayes-parameter-space">
 <span class="header-section-number">2.4</span> The parameter space</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-parameter-space div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-parameter-space" class="quarto-xref">Definition&nbsp;9</a> (Parameter space)
@@ -2032,10 +2052,10 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </div>
 </div>
 <p>Because the Bayesian treats <span class="math inline">\(\theta\)</span> as random, the prior and posterior are distributions over the parameter space <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;273)</span>, and the prior has to respect it.</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-parameter-space" class="quarto-xref">Example&nbsp;12</a> (Parameter spaces and priors that respect them)
@@ -2055,10 +2075,10 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-cor no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-cor callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Cor</span><a href="#cor-prior-support" class="quarto-xref">Corollary&nbsp;3</a> (The posterior cannot put probability where the prior puts none)
@@ -2091,10 +2111,10 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-prior-support" class="quarto-xref">Example&nbsp;13</a> (A prior that rules out the truth)
@@ -2115,10 +2135,10 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 <section id="sec-bayes-conjugate" class="level3" data-number="3.1"><h3 data-number="3.1" class="anchored" data-anchor-id="sec-bayes-conjugate">
 <span class="header-section-number">3.1</span> Conjugate priors</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-conjugate-prior div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-conjugate-prior" class="quarto-xref">Definition&nbsp;10</a> (Conjugate prior)
@@ -2134,10 +2154,10 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </div>
 </div>
 <p>A conjugate prior gives the posterior in closed form: updating the prior only changes the family’s parameters. In <a href="#exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, a Gaussian prior for a Gaussian mean gave a Gaussian posterior. For a related video lecture, see Richard McElreath’s <a href="https://www.youtube.com/watch?v=pGVkCWlXnlg"><em>Garden of Forking Data</em></a> (Statistical Rethinking 2026, Lecture A02).</p>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-beta-bernoulli" class="quarto-xref">Example&nbsp;14</a> (Beta-Bernoulli updating)
@@ -2189,10 +2209,10 @@ Figure&nbsp;3: Prior and posterior probabilities on the grid of values of the su
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-prior-posterior-figure" class="quarto-xref">Example&nbsp;15</a> (Prior and posterior, with and without a known truth)
@@ -2421,10 +2441,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </section><section id="sec-bayes-informativeness" class="level3" data-number="3.2"><h3 data-number="3.2" class="anchored" data-anchor-id="sec-bayes-informativeness">
 <span class="header-section-number">3.2</span> Informative, weakly informative, and flat priors</h3>
 <p>Priors range along a spectrum of how strongly they constrain <span class="math inline">\(\theta\)</span> <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 12</a>, p.&nbsp;276)</span>.</p>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-informative-prior" class="quarto-xref">Definition&nbsp;11</a> (Informative prior)
@@ -2439,10 +2459,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-informative-prior-pull" class="quarto-xref">Remark&nbsp;3</a> (An informative prior pulls the posterior)
@@ -2457,10 +2477,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-weakly-informative-prior" class="quarto-xref">Definition&nbsp;12</a> (Weakly informative prior)
@@ -2475,10 +2495,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-flat-prior" class="quarto-xref">Definition&nbsp;13</a> (Flat prior)
@@ -2493,10 +2513,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-improper-prior" class="quarto-xref">Definition&nbsp;14</a> (Improper prior)
@@ -2511,10 +2531,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-prior-spectrum" class="quarto-xref">Example&nbsp;16</a> (Three priors for a log odds ratio)
@@ -2555,10 +2575,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-flat-prior-reparam" class="quarto-xref">Example&nbsp;17</a> (A flat prior on a probability is not flat on its log-odds)
@@ -2603,10 +2623,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-cor no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-cor callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Cor</span><a href="#cor-flat-prior-posterior" class="quarto-xref">Corollary&nbsp;4</a> (Under a flat prior, the posterior is proportional to the likelihood)
@@ -2643,10 +2663,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-flat-prior-improper" class="quarto-xref">Remark&nbsp;4</a> (Flat priors can be improper)
@@ -2661,10 +2681,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-flat-prior-posterior" class="quarto-xref">Example&nbsp;18</a> (Posterior mode and maximum likelihood estimate for a probability)
@@ -2690,10 +2710,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </section><section id="sec-bayes-skeptical" class="level3" data-number="3.3"><h3 data-number="3.3" class="anchored" data-anchor-id="sec-bayes-skeptical">
 <span class="header-section-number">3.3</span> A skeptical prior</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-skeptical-prior div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-skeptical-prior" class="quarto-xref">Definition&nbsp;15</a> (Skeptical prior)
@@ -2708,10 +2728,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-skeptical-prior-meaning" class="quarto-xref">Remark&nbsp;5</a> (What a skeptical prior asks)
@@ -2726,10 +2746,10 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-skeptical-prior" class="quarto-xref">Example&nbsp;19</a> (A skeptical prior for a Gaussian mean)
@@ -2783,10 +2803,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </section></section><section id="sec-bayes-predictive-checks" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="sec-bayes-predictive-checks">
 <span class="header-section-number">4</span> Predictive checks</h2>
 <p>A Bayesian model makes predictions about data, both before and after the data are seen. Comparing those predictions with the data we actually have is a way to check the model. A check made before the data are used tests the prior; a check made after the data are used tests the whole model <span class="citation" data-cites="gelman2013bda statrethink2e">(<a href="#ref-gelman2013bda" role="doc-biblioref">Gelman et al. 2013, sec. 6.3</a>, p.&nbsp;143; <a href="#ref-statrethink2e" role="doc-biblioref">McElreath 2020, sec. 4.3.2</a>, pp.&nbsp;82-83)</span>. For a related video lecture, see Richard McElreath’s <a href="https://www.youtube.com/watch?v=JX_UyidsQNg"><em>Geocentric Models</em></a> (Statistical Rethinking 2026, Lecture A03).</p>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-prior-predictive" class="quarto-xref">Definition&nbsp;16</a> (Prior predictive distribution)
@@ -2804,10 +2824,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-prior-predictive" class="quarto-xref">Example&nbsp;20</a> (Prior predictive distribution of a count)
@@ -2878,10 +2898,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-prior-predictive-marginal-likelihood" class="quarto-xref">Remark&nbsp;6</a> (The prior predictive distribution and the marginal likelihood)
@@ -2896,10 +2916,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-53-contents" aria-controls="callout-53" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-posterior-predictive" class="quarto-xref">Definition&nbsp;17</a> (Posterior predictive distribution)
@@ -2918,10 +2938,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-posterior-predictive" class="quarto-xref">Example&nbsp;21</a> (Will the next mother smoke?)
@@ -2993,10 +3013,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-test-quantity" class="quarto-xref">Definition&nbsp;18</a> (Test quantity)
@@ -3011,10 +3031,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-56-contents" aria-controls="callout-56" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-test-quantity" class="quarto-xref">Example&nbsp;22</a> (Two test quantities for the smoking data)
@@ -3087,10 +3107,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-57-contents" aria-controls="callout-57" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-prior-predictive-check" class="quarto-xref">Definition&nbsp;19</a> (Prior predictive check)
@@ -3105,10 +3125,10 @@ m_\tau= \frac{n \cdot \bar x + \frac{1}{\tau^2} \cdot 0}{n + \frac{1}{\tau^2}}
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-58-contents" aria-controls="callout-58" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-prior-predictive-check" class="quarto-xref">Example&nbsp;23</a> (Checking two priors for the smoking probability)
@@ -3251,10 +3271,10 @@ Figure&nbsp;5: Prior predictive distributions of the number of smokers among the
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-59-contents" aria-controls="callout-59" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-posterior-predictive-check" class="quarto-xref">Definition&nbsp;20</a> (Posterior predictive check)
@@ -3269,10 +3289,10 @@ Figure&nbsp;5: Prior predictive distributions of the number of smokers among the
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-60-contents" aria-controls="callout-60" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-posterior-predictive-check" class="quarto-xref">Example&nbsp;24</a> (Does one smoking probability fit every group?)
@@ -3442,10 +3462,10 @@ Figure&nbsp;6: Posterior predictive distributions of <span class="math inline">\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-61-contents" aria-controls="callout-61" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-ppp-value" class="quarto-xref">Definition&nbsp;21</a> (Posterior predictive p-value)
@@ -3464,10 +3484,10 @@ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \til
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-62-contents" aria-controls="callout-62" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-ppp-value" class="quarto-xref">Example&nbsp;25</a> (Posterior predictive p-values for the race spread)
@@ -3509,10 +3529,10 @@ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \til
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-63-contents" aria-controls="callout-63" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-ppp-value-estimate" class="quarto-xref">Remark&nbsp;7</a> (Estimating and interpreting the posterior predictive p-value)
@@ -3530,10 +3550,10 @@ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \til
 </section><section id="sec-bayes-hierarchies" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="sec-bayes-hierarchies">
 <span class="header-section-number">5</span> Distributions and hierarchies</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-hierarchical-model div. -->
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-64-contents" aria-controls="callout-64" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-hierarchical-model" class="quarto-xref">Definition&nbsp;22</a> (Hierarchical model)
@@ -3548,10 +3568,10 @@ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \til
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-remark no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-65-contents" aria-controls="callout-65" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Remark</span><a href="#rem-hierarchical-model-structure" class="quarto-xref">Remark&nbsp;8</a> (A hierarchical model is a model structure)
@@ -3566,10 +3586,10 @@ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \til
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-66-contents" aria-controls="callout-66" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-hyperparameter" class="quarto-xref">Definition&nbsp;23</a> (Hyperparameter)
@@ -3584,10 +3604,10 @@ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \til
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-def no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-67-contents" aria-controls="callout-67" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Def</span><a href="#def-hyperprior" class="quarto-xref">Definition&nbsp;24</a> (Hyperprior)
@@ -3602,10 +3622,10 @@ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \til
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-simple callout-exm no-icon callout-titled">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-68-contents" aria-controls="callout-68" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 <span class="screen-reader-only">Exm</span><a href="#exm-two-level-normal" class="quarto-xref">Example&nbsp;26</a> (A two-level Gaussian model)
@@ -3979,6 +3999,14 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
   if (document.readyState === "complete") afterMath();
   else window.addEventListener("load", afterMath);
 })();
+</script><script>
+// The table-fit rule makes a page table a block box so it can scroll.
+// Some browsers then drop the table role, so give each one back.
+document.querySelectorAll("main table").forEach(function (t) {
+  if (!t.hasAttribute("role")) {
+    t.setAttribute("role", "table");
+  }
+});
 </script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
