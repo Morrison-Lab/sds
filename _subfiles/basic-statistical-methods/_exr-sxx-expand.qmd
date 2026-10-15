@@ -1,8 +1,8 @@
 :::{#exr-sxx-expand}
 #### Expanding the centered sum of squares
 
-Show that $S_{xx} = \sumin x_i^2 - n \bar{x}^2$
-(@def-centered-sums).
+Expand the centered sum of squares $S_{xx}$ (@def-centered-sums)
+into an expression in terms of $\sumin x_i^2$ and $\bar{x}$.
 :::
 
 {{< slidebreak >}}

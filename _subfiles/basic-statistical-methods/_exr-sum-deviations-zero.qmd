@@ -1,7 +1,7 @@
 :::{#exr-sum-deviations-zero}
 #### Deviations from the mean sum to zero
 
-Show that $\sumin (x_i - \bar{x}) = 0$.
+Find $\sumin (x_i - \bar{x})$.
 :::
 
 {{< slidebreak >}}
