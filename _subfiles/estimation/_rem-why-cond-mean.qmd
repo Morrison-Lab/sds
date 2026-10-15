@@ -3,9 +3,9 @@
 
 The prediction in @exm-prediction-cond-mean is chosen
 because the conditional mean is the best possible prediction under squared error loss.
-Among all functions $g$ of the covariate,
-$\E{Y \mid X}$ has the smallest expected squared error
-$\E{\sqf{Y - g(X)}}$
+Among all functions $\modmem$ of the covariate,
+$\condE{\Outvar}{\Predvar}$ has the smallest expected squared error
+$\E{\sqf{\Outvar - \modmemf{\Predvar}}}$
 ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)).
 The conditional mean is unknown,
 so we estimate it from data and predict with the estimate.
