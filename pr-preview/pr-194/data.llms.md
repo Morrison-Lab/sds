@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:25:45 (PDT)
+Last modified: 2026-10-15 08:11:19 (PDT)
 
 ## 1 Types of variables
 
@@ -12,7 +12,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Definition 1 (Numerical variable)** A **numerical** (or **quantitative**) variable is a variable that takes values on a numeric scale, where arithmetic operations such as subtraction (and possibly division) are meaningful. Numerical variables may be further classified as [interval](#def-interval-var) or [ratio](#def-ratio-var) variables, and as [continuous](#def-continuous-var) or [discrete](#def-discrete-var).
+> **Definition 1 (Numerical variable (quantitative variable))** A **numerical** (or **quantitative**) variable is a variable that takes values on a numeric scale, where arithmetic operations such as subtraction (and possibly division) are meaningful. Numerical variables may be further classified as [interval](#def-interval-var) or [ratio](#def-ratio-var) variables, and as [continuous](#def-continuous-var) or [discrete](#def-discrete-var).
 
 > **NOTE:**
 >
@@ -59,7 +59,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> **Definition 6 (Categorical variable)** A **categorical** (or **qualitative**) variable is a variable that takes values in a finite set of categories, where arithmetic operations such as differences are not meaningful.
+> **Definition 6 (Categorical variable (qualitative variable))** A **categorical** (or **qualitative**) variable is a variable that takes values in a finite set of categories, where arithmetic operations such as differences are not meaningful.
 
 > **NOTE:**
 >

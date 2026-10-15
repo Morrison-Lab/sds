@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 01:25:45 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 08:11:19 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -478,7 +478,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </div>
 </div>
 </section><section class="slide level2"><div id="def-held-out-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Held-out set)</strong></span> A <strong>held-out set</strong> for a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is a list of <span class="math inline">\(m\)</span> further observations, none of them in <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, that the <a href="#/def-fitting-procedure">fitting procedure</a> does not use and on which the <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is scored:</p>
+<p><span class="theorem-title"><strong>Definition 8 (Held-out set (hold-out set))</strong></span> A <strong>held-out set</strong> for a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is a list of <span class="math inline">\(m\)</span> further observations, none of them in <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, that the <a href="#/def-fitting-procedure">fitting procedure</a> does not use and on which the <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is scored:</p>
 <p><span id="eq-held-out-set"><span class="math display">\[
 \mathopen{}\left((x_{*,1}, y_{*,1}), \ldots, (x_{*,m}, y_{*,m})\right)\mathclose{}.
 \tag{8}\]</span></span></p>
@@ -491,7 +491,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.1</a>)</span>, who call it a hold-out set.</p>
+<p><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.1</a>)</span>, who call it a <strong>hold-out set</strong>.</p>
 </div>
 </div>
 </div>
@@ -614,7 +614,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </ol>
 </div>
 </section><section class="slide level2"><div id="def-expected-generalization-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Expected generalization error)</strong></span> The <strong>expected generalization error</strong> of a <a href="#/def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the mean, over <a href="#/def-training-set">training sets</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently from the population, of the <a href="#/def-generalization-error">generalization error</a> of the <a href="#/def-prediction-rule">prediction rule</a> that <span class="math inline">\(g\)</span> produces from <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 12 (Expected generalization error (expected prediction error, expected test error))</strong></span> The <strong>expected generalization error</strong> of a <a href="#/def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the mean, over <a href="#/def-training-set">training sets</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently from the population, of the <a href="#/def-generalization-error">generalization error</a> of the <a href="#/def-prediction-rule">prediction rule</a> that <span class="math inline">\(g\)</span> produces from <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
 <p><span id="eq-expected-generalization-error"><span class="math display">\[
 \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\operatorname{Err}_{\mathcal{D}_{\text{train}}}\right]\mathclose{},
 \quad
@@ -629,7 +629,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> call this quantity the <em>expected prediction error</em> (or <em>expected test error</em>) and write it <span class="math inline">\(\operatorname{Err}\)</span>, without the argument <span class="math inline">\(n\)</span>.</p>
+<p><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.2</a>)</span> call this quantity the <strong>expected prediction error</strong> (or <strong>expected test error</strong>) and write it <span class="math inline">\(\operatorname{Err}\)</span>, without the argument <span class="math inline">\(n\)</span>.</p>
 </div>
 </div>
 </div>
@@ -660,10 +660,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </div>
 </div>
 </section><section class="slide level2"><div id="exr-expected-error-epe" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (The expected generalization error, covariate value by covariate value)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#/def-fitting-procedure">fitting procedure</a>, and let the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations be independent of the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>. Show that the <a href="#/def-expected-generalization-error">expected generalization error</a> is the mean of the <a href="#/def-epe">expected squared prediction error at <span class="math inline">\(x\)</span></a> over the distribution of <span class="math inline">\(X_{*}\)</span>:</p>
-<p><span class="math display">\[
-\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} = \operatorname{E}\mathopen{}\left[\operatorname{EPE}^{g}_{n}\mathopen{}\left(X_{*}\right)\mathclose{}\right]\mathclose{}.
-\]</span></p>
+<p><span class="theorem-title"><strong>Exercise 3 (The expected generalization error, covariate value by covariate value)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#/def-fitting-procedure">fitting procedure</a>, and let the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations be independent of the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>. Write the <a href="#/def-expected-generalization-error">expected generalization error</a> <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> in terms of the <a href="#/def-epe">expected squared prediction error at <span class="math inline">\(x\)</span></a>, <span class="math inline">\(\operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span>, and the distribution of <span class="math inline">\(X_{*}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-expected-error-epe" class="proof solution">
 <p><span class="proof-title"><em>Solution 3</em>. </span><span class="math display">\[
@@ -1001,11 +998,10 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <p><span class="proof-title"><em>Remark 5</em> (Coefficients per observation). </span>Adding coefficients to a least-squares fit makes it <a href="#/def-flexibility">at least as flexible</a> as before. With few observations per coefficient, the variance this adds can outweigh the squared bias it removes, which is the overfitting side of <a href="#/rem-overfitting-tradeoff" class="quarto-xref">Remark&nbsp;4</a>. In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, each added power of <code>wt</code>, like an added predictor, is one more coefficient fitted to the same 20 cars: the degree-4 fit has five coefficients for those 20 cars.</p>
 </div>
 </section><section class="slide level2"><div id="exr-held-out-unbiased" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7 (A held-out set estimates the generalization error)</strong></span> A <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. A <a href="#/def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> of <a href="#/def-generalization-error" class="quarto-xref">Definition&nbsp;7</a>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
-<p>Show that, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the held-out predictions is <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>:</p>
+<p><span class="theorem-title"><strong>Exercise 7 (Held-out predictions and the generalization error)</strong></span> A <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. A <a href="#/def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> of <a href="#/def-generalization-error" class="quarto-xref">Definition&nbsp;7</a>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
+<p>Find, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the held-out predictions, in terms of the generalization error <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>:</p>
 <p><span class="math display">\[
-\operatorname{E}\mathopen{}\left[\frac{1}{m} \sum_{j=1}^{m} {\mathopen{}\left(\hat y(X_{*,j}) - Y_{*,j}\right)\mathclose{}}^2 \mid \mathcal{D}_{\text{train}}\right]\mathclose{}
-= \operatorname{Err}_{\mathcal{D}_{\text{train}}}.
+\operatorname{E}\mathopen{}\left[\frac{1}{m} \sum_{j=1}^{m} {\mathopen{}\left(\hat y(X_{*,j}) - Y_{*,j}\right)\mathclose{}}^2 \mid \mathcal{D}_{\text{train}}\right]\mathclose{}.
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="sol-held-out-unbiased" class="proof solution">
@@ -1049,7 +1045,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <p><span class="proof-title"><em>Proof</em>. </span>This is <a href="#/sol-held-out-unbiased" class="quarto-xref">Solution&nbsp;7</a>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-training-mse-optimistic" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Training error is optimistic). </span>The same argument fails for the training set. The training pairs are not independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: they are <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and <span class="math inline">\(\hat y\)</span> was fitted to make their prediction errors small. So the step of <a href="#/sol-held-out-unbiased" class="quarto-xref">Solution&nbsp;7</a> labeled “each term, as above” does not hold for them, and the <a href="#/def-training-mse">training error</a> <span class="math inline">\(\overline{\operatorname{err}}\)</span> is typically <em>smaller</em> than <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.4</a>)</span>. <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> shows the pattern: training RMSE keeps falling as the degree grows, while held-out RMSE does not.</p>
+<p><span class="proof-title"><em>Remark 6</em> (Training error is optimistic). </span>The same argument fails for the training set. The training pairs are not independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: they are <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and <span class="math inline">\(\hat y\)</span> was fitted to make their prediction errors small. So the argument of <a href="#/thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a>, that each squared prediction error has conditional expectation <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>, does not hold for them, and the <a href="#/def-training-mse">training error</a> <span class="math inline">\(\overline{\operatorname{err}}\)</span> is typically <em>smaller</em> than <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.4</a>)</span>. <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> shows the pattern: training RMSE keeps falling as the degree grows, while held-out RMSE does not.</p>
 </div>
 </section><section class="slide level2"><!--
 This fragment's R chunks use objects made by earlier fragments
@@ -2030,6 +2026,27 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 </div>
 </div>
 </div>
+</section><section class="slide level2 scrollable"><div id="lem-loocv-not-random" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lemma 1 (Leave-one-out cross-validation does not depend on the fold assignment)</strong></span> Let <span class="math inline">\(\mathcal{D}_{\text{train}}= \mathopen{}\left((x_i, y_i)\right)\mathclose{}_{i \in I}\)</span> be a <a href="#/def-training-set">training set</a> of <span class="math inline">\(n = \mathopen{}\left|I\right|\mathclose{}\)</span> observations, indexed by <span class="math inline">\(I\)</span>. Then the <a href="#/def-cv-estimate">cross-validation estimate</a> <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> of <a href="#/def-loocv">leave-one-out cross-validation</a> (<span class="math inline">\(k = n\)</span>) is the same for every <a href="#/def-fold-assignment">fold assignment</a> <span class="math inline">\(\kappa(i)\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-loocv" class="quarto-xref">Exercise&nbsp;11</a>, part 3, worked in <a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;11</a>. It uses <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;31</a> and <a href="#/eq-fold-out-rule" class="quarto-xref">Equation&nbsp;30</a>.</p>
+<p>Each step below changes one thing.</p>
+<ol type="1">
+<li><p>With <span class="math inline">\(k = n\)</span>, the <span class="math inline">\(n\)</span> nonempty, disjoint <a href="#/def-folds">folds</a> of <a href="#/eq-folds" class="quarto-xref">Equation&nbsp;27</a> partition the <span class="math inline">\(n\)</span> indices of <span class="math inline">\(I\)</span>, so each fold holds exactly one index. (A partition of <span class="math inline">\(n\)</span> indices into <span class="math inline">\(n\)</span> nonempty, disjoint subsets has one index per subset.)</p></li>
+<li><p>For observation <span class="math inline">\(i\)</span>, <a href="#/eq-fold-assignment" class="quarto-xref">Equation&nbsp;29</a> gives <span class="math inline">\(i \in \mathcal{F}_{\kappa(i)}\)</span>, so <span class="math inline">\(\mathcal{F}_{\kappa(i)} = \mathopen{}\left\{i\right\}\mathclose{}\)</span>. (Fold <span class="math inline">\(\kappa(i)\)</span> holds one index, and that index is <span class="math inline">\(i\)</span>.)</p></li>
+<li><p>Let <span class="math inline">\(g\)</span> be the <a href="#/def-fitting-procedure">fitting procedure</a>, the rule that maps a training set to a fitted prediction rule. The <a href="#/def-fold-out-rule">fold-out rule</a> of observation <span class="math inline">\(i\)</span> is then <span class="math inline">\(\hat y^{(-\kappa(i))}\mathopen{}\left(x\right)\mathclose{} = g\mathopen{}\left(x; \mathopen{}\left((x_{i'}, y_{i'})\right)\mathclose{}_{i' \in I \setminus \mathopen{}\left\{i\right\}\mathclose{}}\right)\mathclose{}\)</span>. (<a href="#/eq-fold-out-rule" class="quarto-xref">Equation&nbsp;30</a> with <span class="math inline">\(\mathcal{F}_{\kappa(i)} = \mathopen{}\left\{i\right\}\mathclose{}\)</span>.)</p></li>
+<li><p>This rule is fitted to every observation except observation <span class="math inline">\(i\)</span>, and it does not involve <span class="math inline">\(\kappa(i)\)</span> itself. (Step 3 depends on <span class="math inline">\(i\)</span> and <span class="math inline">\(g\)</span> only.)</p></li>
+<li><p>Hence each term <span class="math inline">\({\mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)\mathclose{}}^2\)</span> of <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;31</a> is the same for every fold assignment. (Each term is a function of the rule in step 4, <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span>.)</p></li>
+<li>
+<p>Therefore the sum over <span class="math inline">\(i \in I\)</span> in <a href="#/eq-cv-estimate" class="quarto-xref">Equation&nbsp;31</a>, and its factor <span class="math inline">\(1/n\)</span>, are the same for every fold assignment:</p>
+<p><span class="math display">\[
+\widehat{\operatorname{Err}}_{\text{CV}(n)} = \frac{1}{n} \sum_{i \in I} {\mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)\mathclose{}}^2.
+\]</span></p>
+<p>Different assignments give the same <span class="math inline">\(n\)</span> fits, with the folds numbered differently.</p>
+</li>
+</ol>
+</div>
 </section><section class="slide level2"><div id="def-term-vector" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 33 (Term vector)</strong></span> Consider a model whose mean is a linear combination of <span class="math inline">\(p^{*}\)</span> terms <span class="math inline">\(t_{1}(x), \ldots, t_{p^{*}}(x)\)</span> of the covariate value, such as <span class="math inline">\(1\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(x^2\)</span>. The <strong>term vector</strong> <span class="math inline">\(\tilde{t}_{i}\)</span> of observation <span class="math inline">\(i\)</span> is the column of its terms:</p>
 <p><span id="eq-term-vector"><span class="math display">\[
@@ -2040,7 +2057,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 <p><span class="proof-title"><em>Remark 11</em> (The term vector of simple linear regression). </span>In simple linear regression the terms are <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span>, so the <a href="#/def-term-vector">term vector</a> <span class="math inline">\(\tilde{t}_{i}\)</span> is the <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a> <span class="math inline">\(\tilde{x}_i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-cross-product-matrix" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 34 (Cross-product matrix)</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\tilde{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
+<p><span class="theorem-title"><strong>Definition 34 (Cross-product matrix (sum-of-squares and cross-products matrix))</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\tilde{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
 <p><span id="eq-cross-product-matrix"><span class="math display">\[
 A\stackrel{\text{def}}{=}\sum_{i\in I} \tilde{t}_{i} {\tilde{t}_{i}}^{\top}.
 \tag{36}\]</span></span></p>
@@ -2053,7 +2070,7 @@ A\stackrel{\text{def}}{=}\sum_{i\in I} \tilde{t}_{i} {\tilde{t}_{i}}^{\top}.
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p>Sanchez <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>) names this matrix a sum-of-squares and cross-products matrix.</p>
+<p>Sanchez <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>) names this matrix a <strong>sum-of-squares and cross-products matrix</strong>.</p>
 </div>
 </div>
 </div>
@@ -2164,7 +2181,7 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb25-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/sol-loocv" class="quarto-xref">Solution&nbsp;11</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 13</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;10</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;9</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>

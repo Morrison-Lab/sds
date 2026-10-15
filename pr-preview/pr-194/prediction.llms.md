@@ -4,13 +4,13 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:25:45 (PDT)
+Last modified: 2026-10-15 08:11:19 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
 > **NOTE:**
 >
-> **Definition 1 (Prediction)** A **prediction** (or **predicted value**) \\\hat y(x)\\ of an outcome \\Y\\ with covariate value \\X = x\\ is a number computed from \\x\\ and from data \\(x_1, y_1), \ldots, (x_n, y_n)\\ by a rule \\g\\, and used as a guess of \\Y\\:
+> **Definition 1 (Prediction (predicted value))** A **prediction** (or **predicted value**) \\\hat y(x)\\ of an outcome \\Y\\ with covariate value \\X = x\\ is a number computed from \\x\\ and from data \\(x_1, y_1), \ldots, (x_n, y_n)\\ by a rule \\g\\, and used as a guess of \\Y\\:
 >
 > \\\hat y(x) \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\\
 
