@@ -1,5 +1,5 @@
 :::{#exr-held-out-unbiased}
-#### A held-out set estimates the generalization error
+#### Held-out predictions and the generalization error
 
 A [prediction rule](#def-prediction-rule) $\fitted$
 is fitted to a [training set](#def-training-set) $\trainset$.
