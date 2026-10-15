@@ -50,6 +50,14 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_exm-deviance-drop.qmd >}}
 
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_cor-deviance-drop-distribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-deviance-drop-distribution.qmd >}}
+
 ## Confidence intervals for the coefficients
 
 <!-- No slidebreak here: the heading shares its slide with the theorem. -->
@@ -63,3 +71,11 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/logistic-inference/_exm-logistic-wald.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_cor-logistic-odds-interval.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-logistic-odds-interval.qmd >}}

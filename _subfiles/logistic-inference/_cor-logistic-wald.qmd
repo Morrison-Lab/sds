@@ -10,6 +10,4 @@ $$
 \hcoef{j} \pm z_{1 - \siglevel/2} \, \hse{\hcoef{j}}.
 $$
 
-Exponentiating both endpoints gives an interval for $e^{\coef{j}}$, the factor by which a one-unit increase in $\predvar_j$ multiplies the odds of $\outvar = 1$.
-
 :::

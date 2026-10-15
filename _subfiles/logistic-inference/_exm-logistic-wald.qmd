@@ -1,6 +1,6 @@
 ::: {#exm-logistic-wald}
 
-#### How little six patients tell us
+#### A Wald interval from six patients
 
 For the fit of @exm-logistic-regression, `vcov` returns $\inv{\tp{X} \hat W X}$.
 
@@ -11,8 +11,6 @@ wf_se <- sqrt(diag(vcov(wf_fit)))
 wf_slope <- coef(wf_fit)[["wf_x"]]
 # 95% Wald interval for the slope
 wf_ci <- wf_slope + c(-1, 1) * qnorm(0.975) * wf_se[["wf_x"]]
-# the groups sit two units apart, so the group odds ratio is exp(2 * slope)
-wf_group_or <- exp(2 * wf_ci)
 wf_summary <- c(
   slope = wf_slope, se = wf_se[["wf_x"]], lower = wf_ci[1], upper = wf_ci[2]
 )
@@ -20,11 +18,6 @@ round(wf_summary, 3)
 ```
 
 The interval for $\coef{1}$ is $(`r round(wf_ci[1], 2)`, `r round(wf_ci[2], 2)`)$.
-The odds of recovery in the treatment group are $4$ times those in the control group,
-with interval $(`r round(wf_group_or[1], 2)`, `r round(wf_group_or[2], 1)`)$.
-The interval runs from a strong harm to a large benefit,
-consistent with the non-significant test of @exm-deviance-drop:
-six observations are far too few for this large-sample approximation to be reliable,
-and the interval says so.
+It contains $0$, consistent with the test of @exm-deviance-drop-distribution.
 
 :::

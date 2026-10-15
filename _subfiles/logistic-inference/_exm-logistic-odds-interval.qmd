@@ -1,0 +1,20 @@
+::: {#exm-logistic-odds-interval}
+
+#### How little six patients tell us
+
+The two groups of @exm-logistic-regression sit two units apart on the $\predvar$ scale, so the odds ratio between them is $e^{2 \coef{1}}$.
+
+```{r}
+#| code-fold: false
+# group odds ratio and its interval: exponentiate twice the slope interval
+wf_group_or <- exp(2 * wf_ci)
+wf_group_or
+```
+
+The odds of recovery in the treatment group are $4$ times those in the control group,
+with interval $(`r round(wf_group_or[1], 2)`, `r round(wf_group_or[2], 1)`)$.
+The interval runs from a strong harm to a large benefit:
+six observations are far too few for this large-sample approximation to be reliable,
+and the interval says so.
+
+:::

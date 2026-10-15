@@ -1,0 +1,11 @@
+::: {#cor-deviance-drop-distribution}
+
+#### Distribution of the drop in deviance
+
+Under the conditions of @thm-deviance-drop, for a large sample the drop in deviance $D_0 - D$ has approximately a $\chi^2_q$ distribution when $H_0$ holds.
+
+:::
+
+::: proof
+By @thm-deviance-drop the drop in deviance is the likelihood ratio statistic of $q$ constraints, and [Wilks' theorem](intro-MLEs.qmd#thm-wilks) gives its approximate distribution.
+:::
