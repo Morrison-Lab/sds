@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 08:49:51 (PDT)
+Last modified: 2026-10-15 09:04:24 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -24,6 +24,7 @@ Inference:
 - [Statistical inference](inference.llms.md): hypothesis tests, p-values, the \\t\\, chi-square, and \\F\\ distributions, confidence intervals, and how to interpret negative findings;
 - [Maximum likelihood inference](intro-MLEs.llms.md): likelihood, score, information, the asymptotic distribution of MLEs, Wald and likelihood ratio tests, and Newton-Raphson, with worked examples;
 - [Properties of estimators](estimator-properties.llms.md): consistency, relative efficiency, and the Cramér–Rao lower bound.
+- [Sufficiency and the Rao–Blackwell theorem](sufficiency.llms.md): sufficient statistics, the factorization theorem, and improving an unbiased estimator.
 
 Methods:
 
