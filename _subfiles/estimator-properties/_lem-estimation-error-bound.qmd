@@ -1,0 +1,19 @@
+:::{#lem-estimation-error-bound}
+#### Chance of a large estimation error
+
+If $\hparam$ is an estimator of $\param$ with finite mean squared error,
+then for every $\varepsilon > 0$ the probability of an estimation error
+of at least $\varepsilon$ is at most the mean squared error
+divided by $\varepsilon^2$:
+
+$$
+\Prf{\abs{\hparam - \param} \ge \varepsilon} \le \frac{\mselr{\hparam}}{\varepsilon^2}
+$$ {#eq-estimation-error-bound}
+
+:::
+
+::: proof
+
+This is the solution to @exr-estimation-error-bound.
+
+:::

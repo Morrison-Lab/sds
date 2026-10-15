@@ -10,7 +10,7 @@ of @def-generalization-error,
 each independently of $\trainset$.
 
 Show that, given $\trainset$,
-the expected [mean squared error](estimation.qmd#def-prediction-mse)
+the expected [mean squared error](prediction.qmd#def-prediction-mse)
 of the held-out predictions is $\generr_{\trainset}$:
 
 $$
