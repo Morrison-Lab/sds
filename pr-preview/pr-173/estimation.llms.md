@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 22:13:28 (PDT)
+Last modified: 2026-10-14 23:10:54 (PDT)
 
 ## 1 Scientific models
 
@@ -174,7 +174,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Remark 2* (Why the fitted value is the estimated conditional mean). The fitted value is the prediction at the observed covariate value \\x_i\\, so for the prediction in [Example 7](#exm-prediction-cond-mean) it is the estimated conditional mean at \\x_i\\:
+> *Remark 2* (Why the fitted value is the estimated conditional mean). The [fitted value](#def-fitted-value) is the prediction at the observed covariate value \\x_i\\, so for the prediction in [Example 7](#exm-prediction-cond-mean) it is the estimated conditional mean at \\x_i\\:
 >
 > \\\hat y_i = \mu(x_i; \hat{\tilde{\theta}}).\\
 >
