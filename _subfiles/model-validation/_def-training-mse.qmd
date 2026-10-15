@@ -3,8 +3,8 @@
 
 The **training error** of a [prediction rule](#def-prediction-rule) $\fitted$
 fitted to a [training set](#def-training-set) $\trainset$
-is the [mean squared error](estimation.qmd#def-prediction-mse)
-of its [fitted values](estimation.qmd#def-fitted-value)
+is the [mean squared error](prediction.qmd#def-prediction-mse)
+of its [fitted values](prediction.qmd#def-fitted-value)
 $\fitted_{\iobs}$, $\iobs \in \obsidx$,
 as predictions of the training outcomes $\outvar_{\iobs}$:
 

@@ -5,7 +5,7 @@ The prediction in @def-prediction-error can be a [fitted value](#def-fitted-valu
 for an observation used to fit the model,
 or a prediction for an observation that was not used to fit the model.
 Prediction error is oriented the same way as
-[estimation error](#def-estimation-error):
+[estimation error](estimation.qmd#def-estimation-error):
 estimate minus true value.
 
 $$

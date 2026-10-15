@@ -5,7 +5,7 @@ Given candidate [fitting procedures](#def-fitting-procedure) $\candproc{1}, \ldo
 the **validation choice** $\est{\icand}$
 is the index of the candidate whose [prediction rule](#def-prediction-rule),
 fitted to the training set $\trainset$,
-has the smallest [mean squared error](estimation.qmd#def-prediction-mse)
+has the smallest [mean squared error](prediction.qmd#def-prediction-mse)
 on the [validation set](#def-validation-set):
 
 $$
