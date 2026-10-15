@@ -10,12 +10,12 @@ Add and subtract $\mean(\predvar)$ inside the square of the [expected squared pr
 
 $$
 \E{\sqf{\newoutvar - \fitproc\paren{\predvar; \trainset}}},
-$$ {#eq-epe-target}
+$$
 
 expand it, and take the expectation term by term.
 
 Two of the three terms simplify.
 Say what each becomes,
-and name the assumption that makes the cross term zero.
+and name the assumptions that make the cross term zero.
 
 :::

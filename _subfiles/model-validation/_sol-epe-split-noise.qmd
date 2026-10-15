@@ -74,7 +74,7 @@ $$ {#eq-epe-after-noise}
 
 The cross term vanished because the noise has mean $0$ and,
 for a new outcome, is independent of the training set.
-Independence alone would leave the factor $\E{\noise}$ times a number, which need not be zero.
+Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}$, which need not be zero.
 That holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.
