@@ -31,5 +31,3 @@
 \providecommand{\trainerr}{\overline{\operatorname{err}}}
 \providecommand{\arcoef}{\rho}
 \providecommand{\truenulls}{\mathcal{I}_0}
-\providecommand{\deviance}{D}
-\providecommand{\nulldeviance}{\deviance_0}
