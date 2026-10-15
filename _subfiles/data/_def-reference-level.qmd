@@ -11,11 +11,12 @@ is the category that does not have its own
 An observation in the reference level has the value 0
 for every indicator variable of that categorical variable.
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-reference-level}
+#### Source: Reference level
 
 @dobson4e [sec. 2.4], who call this the corner point parameterization.
-:::
 
 :::
 
