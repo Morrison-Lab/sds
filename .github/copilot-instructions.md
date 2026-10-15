@@ -147,6 +147,12 @@ Put special cases in example divs right after it, from the most general to the m
 (the simple linear regression case, then a numerical example),
 each linking back to the definition.
 Put commentary (scope, orientation, relations to other quantities) in a remark div after the definition, never inside it.
+Define one term per `#def-` div (Ezra, 2026-10-12; psw's [Writing for teaching](https://morrison-lab.github.io/psw/chapters/teaching.html)).
+A second new bolded term gets its own `#def-` div with its own id, titled with the term,
+placed right after the first, or before it when the first uses it,
+and the later div links to the earlier one.
+Aliases of a term ("also called") stay in the same div, in bold and in the div title.
+A theorem, lemma, corollary or proposition states one result.
 Never nest one theorem-type div inside another.
 
 ## Attributions are reader-visible
@@ -171,18 +177,25 @@ The sister-repository credit may be left out of new work,
 but an existing one is not removed unless the maintainer asks.
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
-Follow PSW's
-[Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material):
-put the credit in a collapsed `.callout-note` titled "Source",
+PSW's
+[Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material)
+says to put a credit in a div, never in running prose.
+Here, put it in its own `rem-source-` remark div titled "Source: ...",
 which frames the credit and keeps it out of the way on the page.
-Place it at the end of the item's own div,
+A definition or result div holds only the statement
+(a theorem's proof stays with it),
+and all commentary, a credit included, goes in a separate remark div
+(maintainer directive, 2026-10-15), so the credit never sits inside it.
+Place the remark right after the item's div and its proof,
+in the same subfile,
 so it travels with the fragment when a host site includes it:
 
 ```markdown
-::: {.callout-note collapse="true"}
-#### Source
+::: {#rem-source-cv-estimate}
+#### Source: cross-validation estimate
 
 @james2021islr2e [sec. 5.1].
+
 :::
 ```
 

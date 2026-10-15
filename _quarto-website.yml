@@ -52,6 +52,8 @@ website:
             href: intro-MLEs.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
+          - text: "Sufficiency"
+            href: sufficiency.qmd
       - text: "Methods"
         menu:
           - text: "Comparing Means"
@@ -66,6 +68,8 @@ website:
             href: model-validation.qmd
           - text: "Classification"
             href: classification.qmd
+          - text: "Logistic Regression Inference"
+            href: logistic-inference.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
           - text: "Permutation Tests"
@@ -110,6 +114,8 @@ website:
             href: intro-MLEs.qmd
           - text: "Properties of Estimators"
             href: estimator-properties.qmd
+          - text: "Sufficiency"
+            href: sufficiency.qmd
       - section: "Methods"
         contents:
           - text: "Comparing Means"
@@ -124,6 +130,8 @@ website:
             href: model-validation.qmd
           - text: "Classification"
             href: classification.qmd
+          - text: "Logistic Regression Inference"
+            href: logistic-inference.qmd
           - text: "The Bootstrap"
             href: bootstrap.qmd
           - text: "Permutation Tests"

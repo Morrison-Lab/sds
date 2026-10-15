@@ -1,0 +1,22 @@
+::: {#lem-solve-normal-equations-vector}
+#### Solution of the normal equations in vector notation
+
+If $S_{xx} > 0$ (@def-centered-sums),
+the matrix $A = \sumin \soprod{\vxi}$ is invertible,
+and the normal equations $A \vcoef = \v{c}$ with $\v{c} = \sumin \vxi y_i$
+(@lem-normal-equations-vector) have exactly one solution,
+
+$$
+\vcoef = A^{-1} \v{c}
+= \begin{pmatrix} \bar{y} - \coef{x} \bar{x} \\ S_{xy} / S_{xx} \end{pmatrix}
+\quad \text{with} \quad \coef{x} = \frac{S_{xy}}{S_{xx}},
+$$
+
+the same solution as @lem-solve-normal-equations.
+:::
+
+::: proof
+
+This is the solution to @exr-solve-normal-equations-vector.
+
+:::

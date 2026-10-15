@@ -61,6 +61,10 @@ with some material from [@mclachlan2007em] and [@CaseBerg01].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-likelihood-one-group.qmd >}}
+
+{{< slidebreak >}}
+
 ### The maximum likelihood estimate
 
 <!-- No slidebreak here: the heading shares its slide with the def-mle div. -->
@@ -141,6 +145,10 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-loglik-one-group.qmd >}}
+
+{{< slidebreak >}}
+
 ### The score function
 
 <!-- No slidebreak here: the heading shares its slide with the def-score div. -->
@@ -155,7 +163,15 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_thm-bernoulli-score.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_exr-pois-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-pois-score.qmd >}}
 
 {{< slidebreak >}}
 
@@ -163,7 +179,15 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_thm-gauss-score.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_exr-exp-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-exp-score.qmd >}}
 
 {{< slidebreak >}}
 
@@ -227,11 +251,23 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_lem-deriv-log-density.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_exr-score-mean-zero.qmd >}}
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_thm-score-mean-zero.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_exr-score-second-moment.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_thm-score-second-moment.qmd >}}
 
 {{< slidebreak >}}
 
@@ -321,11 +357,23 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_lem-wilks-taylor.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_exr-wilks-lrt-quadratic.qmd >}}
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/intro-MLEs/_lem-wilks-lrt-quadratic.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/intro-MLEs/_exr-wilks-std-gaussian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/intro-MLEs/_lem-wilks-std-gaussian.qmd >}}
 
 {{< slidebreak >}}
 

@@ -8,11 +8,12 @@ $$
 \text{FDR} \eqdef \E{\text{FDP}}.
 $$
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-fdr}
+#### Source: False discovery rate
 
 The false discovery rate was introduced by Benjamini and Hochberg [-@benjamini1995controlling];
 the notation $V$, $S$, $U$, $T$ and $R$ follows @james2021islr2e [ch. 13].
-:::
 
 :::

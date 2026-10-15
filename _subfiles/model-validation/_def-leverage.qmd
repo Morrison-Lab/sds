@@ -10,12 +10,13 @@ $$
 \lev{\iobs} \eqdef \tp{\termvec{\iobs}} \sscp^{-1} \termvec{\iobs}.
 $$ {#eq-leverage}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-leverage}
+#### Source: Leverage
 
 @james2021islr2e [sec. 3.3.3],
 written here with term vectors and the matrix $\sscp$,
 as in [the vector form of the OLS estimates](correlation-regression.qmd#thm-ols-slr-vector).
-:::
 
 :::

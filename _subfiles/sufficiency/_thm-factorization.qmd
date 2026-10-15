@@ -1,0 +1,95 @@
+:::{#thm-factorization}
+#### Factorization theorem
+
+Let $\pdf\paren{\vx ; \param}$ be the joint probability mass function of a discrete sample $\vX$.
+A statistic $\statf{\vX}$ is [sufficient](#def-sufficient) for $\param$
+if and only if there are nonnegative functions $\sfac$ and $\rfac$ such that,
+for every sample $\vx$ and every $\param$,
+
+$$
+\pdf\paren{\vx ; \param} = \sfacf{\statf{\vx}}{\param} \, \rfacf{\vx}
+$$ {#eq-factorization}
+
+where $\rfacf{\vx}$ does not depend on $\param$.
+
+:::
+
+::: proof
+
+Fix a sample $\vx$ and write $t \eqdef \statf{\vx}$.
+The event $\vX = \vx$ lies inside the event $\statf{\vX} = t$.
+
+**Sufficient implies a factorization.**
+Define $\sfacf{t}{\param} \eqdef \Pr_{\param}\paren{\statf{\vX} = t}$
+and let $\rfacf{\vx}$ be the conditional probability $\Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}$
+at any $\param$ with $\Pr_{\param}\paren{\statf{\vX} = t} > 0$.
+By [sufficiency](#eq-sufficient), $\rfacf{\vx}$ does not depend on which such $\param$ we use.
+(If $\Pr_{\param}\paren{\statf{\vX} = t} = 0$ for every $\param$, set $\rfacf{\vx} \eqdef 0$.)
+Both functions are nonnegative, and at a $\param$ with $\Pr_{\param}\paren{\statf{\vX} = t} = 0$
+both sides of @eq-factorization are zero, because the event $\vX = \vx$ lies inside the event $\statf{\vX} = t$.
+At every other $\param$,
+
+$$
+\begin{aligned}
+\pdf\paren{\vx ; \param}
+&= \Pr_{\param}\paren{\vX = \vx}
+&& \text{(definition of the joint mass function)}\\
+&= \Pr_{\param}\paren{\vX = \vx,\ \statf{\vX} = t}
+&& \text{(the first event is inside the second)}\\
+&= \Pr_{\param}\paren{\statf{\vX} = t} \,
+   \Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}
+&& \text{(conditional probability)}\\
+&= \sfacf{t}{\param} \, \rfacf{\vx}
+&& \text{(definitions of $\sfac$ and $\rfac$)}
+\end{aligned}
+$$
+
+**A factorization implies sufficient.**
+Suppose @eq-factorization holds, and let $t$ be a value with $\Pr_{\param}\paren{\statf{\vX} = t} > 0$.
+The event $\statf{\vX} = t$ is the union of the disjoint events $\vX = \vy$
+over the samples $\vy$ with $\statf{\vy} = t$, so
+
+$$
+\begin{aligned}
+\Pr_{\param}\paren{\statf{\vX} = t}
+&= \sum_{\vy:\, \statf{\vy} = t} \pdf\paren{\vy ; \param}
+&& \text{(disjoint events add)}\\
+&= \sum_{\vy:\, \statf{\vy} = t} \sfacf{\statf{\vy}}{\param} \, \rfacf{\vy}
+&& \text{(factorization)}\\
+&= \sum_{\vy:\, \statf{\vy} = t} \sfacf{t}{\param} \, \rfacf{\vy}
+&& \text{(each term has $\statf{\vy} = t$)}\\
+&= \sfacf{t}{\param} \sum_{\vy:\, \statf{\vy} = t} \rfacf{\vy}
+&& \text{(factor out the common term)}
+\end{aligned}
+$$
+
+This is positive, so $\sfacf{t}{\param} > 0$.
+For a sample $\vx$ with $\statf{\vx} = t$,
+
+$$
+\begin{aligned}
+\Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}
+&= \frac{\pdf\paren{\vx ; \param}}{\Pr_{\param}\paren{\statf{\vX} = t}}
+&& \text{(conditional probability)}\\
+&= \frac{\sfacf{t}{\param} \, \rfacf{\vx}}
+        {\sfacf{t}{\param} \sum_{\vy:\, \statf{\vy} = t} \rfacf{\vy}}
+&& \text{(factorization, and the display above)}\\
+&= \frac{\rfacf{\vx}}{\sum_{\vy:\, \statf{\vy} = t} \rfacf{\vy}}
+&& \text{(divide by $\sfacf{t}{\param} > 0$)}
+\end{aligned}
+$$
+
+which does not depend on $\param$.
+For a sample $\vx$ with $\statf{\vx} \neq t$ the conditional probability is zero,
+which does not depend on $\param$ either.
+So $\statf{\vX}$ is sufficient.
+
+:::
+
+:::{#rem-source-factorization}
+#### Source: Factorization theorem
+
+@halmos1949application, whom @CaseBerg01 [Thm. 6.2.6, p. 276, and its footnote]
+credit with the general form, and Neyman (1935) with an earlier one.
+
+:::

@@ -1,0 +1,7 @@
+:::{#def-statistic}
+#### Statistic
+
+A **statistic** is a function of the sample, $\statf{\vX}$,
+that does not depend on any unknown parameter.
+Its value at the observed data, $\statf{\vx}$, is a number or vector we can compute.
+:::

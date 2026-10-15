@@ -161,7 +161,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-sum-deviations-zero.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-sxx-expand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-sxx-expand.qmd >}}
 
 {{< slidebreak >}}
 
@@ -169,7 +177,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-deriv-intercept.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-slope.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-deriv-slope.qmd >}}
 
 {{< slidebreak >}}
 
@@ -177,7 +193,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-solve-normal-equations.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-hessian.qmd >}}
 
 {{< slidebreak >}}
 
@@ -209,7 +233,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-gradient-vector.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-normal-equations-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-normal-equations-vector.qmd >}}
 
 {{< slidebreak >}}
 
@@ -217,7 +249,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-solve-normal-equations-vector.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-hessian-vector.qmd >}}
 
 {{< slidebreak >}}
 
@@ -272,6 +312,10 @@ The login for the video site is posted
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-ols-fit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-ols-fit.qmd >}}
 
 {{< slidebreak >}}
 

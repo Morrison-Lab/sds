@@ -80,7 +80,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/classification/_thm-prob-positive.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/classification/_exr-ppv-bayes.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/classification/_thm-ppv-bayes.qmd >}}
 
 {{< slidebreak >}}
 
