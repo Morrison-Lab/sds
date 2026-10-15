@@ -50,7 +50,7 @@ For a permutation $\sigma$ define $N_\sigma(y)$, the number of relabelings at le
 $$N_\sigma(y) \eqdef \sum_{\pi \in S_n} \indic{T(y_\pi) \ge T(y_\sigma)}.$$
 
 Write $\iota$ for the identity permutation, so $N_\iota(y)$ is $n!$ times the permutation p-value of @def-permutation-p-value.
-Show that $N_\sigma(y) = N_\iota(y_\sigma)$.
+Express $N_\sigma(y)$ in terms of $N_\iota$.
 :::
 
 {{< slidebreak >}}
@@ -72,6 +72,8 @@ N_\iota(y_\sigma)
 && \text{(definition)}
 \end{aligned}
 $$
+
+So $N_\sigma(y) = N_\iota(y_\sigma)$.
 
 :::
 
