@@ -132,7 +132,11 @@ resources:
 
 ### Holm's step-down procedure {#sec-holm}
 
-<!-- No slidebreak here: the heading shares its slide with the def-holm div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-holm-cutoff div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-holm-cutoff.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/multiple-testing/_def-holm.qmd >}}
 
@@ -155,7 +159,11 @@ resources:
 
 ### The Benjamini--Hochberg procedure {#sec-bh}
 
-<!-- No slidebreak here: the heading shares its slide with the def-bh div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-bh-cutoff div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-bh-cutoff.qmd >}}
+
+{{< slidebreak >}}
 
 {{< include sds/_subfiles/multiple-testing/_def-bh.qmd >}}
 

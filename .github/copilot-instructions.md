@@ -183,21 +183,23 @@ because no reader of the website, slides or handout ever sees it.
 PSW's
 [Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material)
 says to put a credit in a div, never in running prose.
-Here, put it in its own `rem-source-` remark div titled "Source: ...",
-which frames the credit and keeps it out of the way on the page.
-A definition or result div holds only the statement
-(a theorem's proof stays with it),
-and all commentary, a credit included, goes in a separate remark div
-(maintainer directive, 2026-10-15), so the credit never sits inside it.
-Place the remark right after the item's div and its proof,
+Here, a credit that is only a citation goes inside the item's div,
+as a final line "Source: @key [locator]." (maintainer directive, 2026-10-15),
+because one reference adds no commentary to the statement.
+Substantial prose about the source or history of the content
+(a comparison of notation, an account of who proved what, a note that a proof is omitted)
+is commentary, so it goes in its own `rem-source-` remark div titled "Source: ...",
+placed right after the item's div and its proof,
 in the same subfile,
 so it travels with the fragment when a host site includes it:
 
 ```markdown
-::: {#rem-source-cv-estimate}
-#### Source: cross-validation estimate
+::: {#def-cv-estimate}
+#### Cross-validation estimate
 
-@james2021islr2e [sec. 5.1].
+Statement of the definition.
+
+Source: @james2021islr2e [sec. 5.1].
 
 :::
 ```
