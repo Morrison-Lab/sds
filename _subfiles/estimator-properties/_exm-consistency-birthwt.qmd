@@ -108,7 +108,7 @@ by simulation (2000 repeats per $n$, with 95% confidence bands) and by the bound
 
 The simulated probability shrinks toward zero as $n$ grows,
 as consistency says it must,
-and it always lies below the bound,
+and it lies below the bound at every sample size here,
 which is loose for small $n$ but follows the same $1/n$ decay.
 
 :::
