@@ -2,13 +2,13 @@
 #### Term vector
 
 Consider a model whose mean is a linear combination
-of $p$ terms $t_1(x), \ldots, t_p(x)$ of the covariate value,
-such as $1$, $x$ and $x^2$.
-The **term vector** $\termvec{i}$ of observation $i$
+of $\nparams$ terms $\termfn{1}(\predvar), \ldots, \termfn{\nparams}(\predvar)$ of the covariate value,
+such as $1$, $\predvar$ and $\predvar^2$.
+The **term vector** $\termvec{\iobs}$ of observation $\iobs$
 is the column of its terms:
 
 $$
-\termvec{i} \eqdef \tp{\paren{t_1(x_i), \ldots, t_p(x_i)}}.
+\termvec{\iobs} \eqdef \tp{\paren{\termfn{1}(\predvar_{\iobs}), \ldots, \termfn{\nparams}(\predvar_{\iobs})}}.
 $$ {#eq-term-vector}
 
 :::
