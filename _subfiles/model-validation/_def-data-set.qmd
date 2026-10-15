@@ -3,7 +3,9 @@
 #### Data set
 
 A **data set** is a finite collection of $\nobs$ labelled observations,
-that is, $\nobs$ pairs $(\vpredvar_i, \outvar_i)$, each an input $\vpredvar_i$ with its outcome $\outvar_i$:
+that is, $\nobs$ pairs $(\vpredvar_i, \outvar_i)$,
+where $\vpredvar_i$ is an input vector
+and $\outvar_i$ is the corresponding outcome:
 
 $$
 \dataset \eqdef \set{(\vpredvar_i, \outvar_i) : i = 1, \ldots, \nobs} .
