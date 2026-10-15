@@ -12,5 +12,8 @@ $\bar X_n \inprob \mean$.
 By [the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean), $\mselr{\bar X_n} = \varpar / n$,
 which goes to zero as $n \to \infty$.
 @thm-mse-consistent then gives $\bar X_n \inprob \mean$.
+This is the
+[weak law of large numbers](https://morrison-lab.github.io/pds/limit-theorems.html#thm-wlln),
+proved in pds directly from Chebyshev's inequality.
 
 :::

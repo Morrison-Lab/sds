@@ -10,8 +10,9 @@ $$
 \lim_{n \to \infty} \Prf{\abs{\hparam_n - \param} \ge \varepsilon} = 0
 $$ {#eq-consistent}
 
-In words, $\hparam_n$ converges in probability to $\param$,
-which we write $\hparam_n \inprob \param$.
+In words, $\hparam_n$
+[converges in probability](https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability)
+to $\param$, which we write $\hparam_n \inprob \param$.
 
 ::: {.callout-note collapse="true"}
 #### Source
