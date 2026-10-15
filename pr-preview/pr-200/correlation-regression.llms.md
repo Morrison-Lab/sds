@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:51 (PDT)
+Last modified: 2026-10-15 08:11:23 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -159,11 +159,11 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 1 (Outcome as mean plus deviation)** Show that each outcome in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) is its conditional mean plus its deviation ([Definition 5](#def-slr-deviation)): \\Y_i = \mu_i + \varepsilon_i\\.
+> **Exercise 1 (Decomposing an outcome)** Express each outcome \\Y_i\\ in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) in terms of its conditional mean \\\mu_i\\ and its deviation \\\varepsilon_i\\ ([Definition 5](#def-slr-deviation)).
 
 > **NOTE:**
 >
-> *Solution 1*. Start from the right-hand side:
+> *Solution 1*. Check that \\Y_i = \mu_i + \varepsilon_i\\, starting from the right-hand side:
 >
 > \\ \begin{aligned} \mu_i + \varepsilon_i &= \mu(x_i) + \varepsilon_i && \text{(definition of \$\mu_i\$)}\\ &= \mu(x_i) + \mathopen{}\left(Y_i - \mu(x_i)\right)\mathclose{} && \text{(definition of \$\varepsilon_i\$)}\\ &= \mu(x_i) + Y_i - \mu(x_i) && \text{(remove the parentheses)}\\ &= Y_i + \mu(x_i) - \mu(x_i) && \text{(reorder the terms)}\\ &= Y_i + \mathopen{}\left(\mu(x_i) - \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ &= Y_i + 0 && \text{(\$a - a = 0\$)}\\ &= Y_i && \text{(\$a + 0 = a\$)} \end{aligned} \\
 >
@@ -185,7 +185,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 2 (Distribution of the deviations)** Show that in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariate values, the deviations ([Definition 5](#def-slr-deviation)) are independent and each is Gaussian with mean 0 and the same variance \\\sigma^2_i\\ as \\Y_i\\: \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
+> **Exercise 2 (Distribution of the deviations)** Find the joint distribution of the deviations ([Definition 5](#def-slr-deviation)) in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariate values.
 
 > **NOTE:**
 >
@@ -213,7 +213,7 @@ hers |> head()
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(\varepsilon_1 \le t_1, \ldots, \varepsilon_n \le t_n\right)\mathclose{} &= \Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(Y_i \le t_i + \mu_i\right)\mathclose{} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(\varepsilon_i \le t_i\right)\mathclose{} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
 >
-> The joint CDF is the product of the marginal CDFs, so \\\varepsilon_1, \ldots, \varepsilon_n\\ are independent.
+> The joint CDF is the product of the marginal CDFs, so \\\varepsilon_1, \ldots, \varepsilon_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -424,7 +424,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 4 (Deviations from the mean sum to zero)** Show that \\\sum\_{i=1}^n(x_i - \bar{x}) = 0\\.
+> **Exercise 4 (Summing the deviations from the mean)** Find \\\sum\_{i=1}^n(x_i - \bar{x})\\.
 
 > **NOTE:**
 >
@@ -434,11 +434,31 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 5 (Expanding the centered sum of squares)** Show that \\S\_{xx} = \sum\_{i=1}^nx_i^2 - n \bar{x}^2\\ ([Definition 14](#def-centered-sums)).
+> **Lemma 1 (Deviations from the mean sum to zero)** For any data \\z_1, \ldots, z_n\\ with mean \\\bar{z}\\ (for example, the \\x_i\\ or the \\y_i\\), the deviations from the mean sum to zero:
+>
+> \\\sum\_{i=1}^n(z_i - \bar{z}) = 0.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 4](#exr-sum-deviations-zero).
+
+> **NOTE:**
+>
+> **Exercise 5 (Expanding the centered sum of squares)** Expand the centered sum of squares \\S\_{xx}\\ ([Definition 14](#def-centered-sums)) into an expression in terms of \\n\\, \\\sum\_{i=1}^nx_i^2\\ and \\\bar{x}\\.
 
 > **NOTE:**
 >
 > *Solution 5*. \\ \begin{aligned} S\_{xx} &= \sum\_{i=1}^n(x_i - \bar{x})^2 && \text{(definition of \$S\_{xx}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i^2 - 2 \bar{x} x_i + \bar{x}^2\right)\mathclose{} && \text{(expand the square)}\\ &= \sum\_{i=1}^nx_i^2 - \sum\_{i=1}^n2 \bar{x} x_i + \sum\_{i=1}^n\bar{x}^2 && \text{(split the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \sum\_{i=1}^nx_i + \sum\_{i=1}^n\bar{x}^2 && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \sum\_{i=1}^nx_i + n \bar{x}^2 && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \cdot n \bar{x} + n \bar{x}^2 && \text{(\$\sum\_{i=1}^nx_i = n \bar{x}\$)}\\ &= \sum\_{i=1}^nx_i^2 - 2 n \bar{x}^2 + n \bar{x}^2 && \text{(multiply)}\\ &= \sum\_{i=1}^nx_i^2 - n \bar{x}^2 && \text{(collect the \$\bar{x}^2\$ terms)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Lemma 2 (Expanded centered sum of squares)** The centered sum of squares \\S\_{xx}\\ ([Definition 14](#def-centered-sums)) equals
+>
+> \\S\_{xx} = \sum\_{i=1}^nx_i^2 - n \bar{x}^2.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 5](#exr-sxx-expand).
 
 > **NOTE:**
 >
@@ -460,6 +480,16 @@ hers |> head()
 
 > **NOTE:**
 >
+> **Lemma 3 (Derivative of RSS with respect to the intercept)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the intercept is
+>
+> \\\frac{\partial \text{RSS}}{\partial \beta\_{0}} = -2 \sum\_{i=1}^n(y_i - \beta\_{0}- \beta\_{x} x_i) = -2 \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 6](#exr-rss-deriv-intercept).
+
+> **NOTE:**
+>
 > **Exercise 7 (Derivative of RSS with respect to the slope)** Find the partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the slope, \\\partial \text{RSS} / \partial \beta\_{x}\\.
 
 > **NOTE:**
@@ -475,6 +505,16 @@ hers |> head()
 > Plugging the inner derivative back in:
 >
 > \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{x}} &= \sum\_{i=1}^n2 (y_i - \beta\_{0}- \beta\_{x} x_i) (-x_i) && \text{(inner derivative is \$-x_i\$)}\\ &= \sum\_{i=1}^n-2 x_i (y_i - \beta\_{0}- \beta\_{x} x_i) && \text{(rearrange the product)}\\ &= -2 \sum\_{i=1}^nx_i (y_i - \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor out of the sum)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Lemma 4 (Derivative of RSS with respect to the slope)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the slope is
+>
+> \\\frac{\partial \text{RSS}}{\partial \beta\_{x}} = -2 \sum\_{i=1}^nx_i (y_i - \beta\_{0}- \beta\_{x} x_i).\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 7](#exr-rss-deriv-slope).
 
 > **NOTE:**
 >
@@ -503,6 +543,16 @@ hers |> head()
 > \\ \begin{aligned} 0 &= -2 \mathopen{}\left(S\_{xy} - \beta\_{x} S\_{xx}\right)\mathclose{} && \text{(second normal equation)}\\ 0 &= S\_{xy} - \beta\_{x} S\_{xx} && \text{(divide both sides by \$-2\$)}\\ \beta\_{x} S\_{xx} &= S\_{xy} && \text{(add \$\beta\_{x} S\_{xx}\$ to both sides)}\\ \beta\_{x} &= \frac{S\_{xy}}{S\_{xx}} && \text{(divide both sides by \$S\_{xx} \> 0\$)} \end{aligned} \\
 >
 > So the normal equations have exactly one solution: \\\beta\_{x} = S\_{xy} / S\_{xx}\\ and \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\.
+
+> **NOTE:**
+>
+> **Lemma 5 (Solution of the normal equations)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the normal equations of [Example 6](#exm-normal-equations-slr) have exactly one solution:
+>
+> \\\beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \beta\_{0}= \bar{y} - \beta\_{x} \bar{x}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 8](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
@@ -540,13 +590,23 @@ hers |> head()
 
 > **NOTE:**
 >
+> **Lemma 6 (Second derivatives of RSS)** The matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ is positive definite at every \\(\beta\_{0}, \beta\_{x})\\ when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), and equals
+>
+> \\\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sum\_{i=1}^nx_i^2 \end{pmatrix}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 9](#exr-rss-hessian).
+
+> **NOTE:**
+>
 > **Theorem 5 (Closed-form OLS estimates)** Suppose \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Example 5](#exm-ols-slr)) are unique, and
 >
 > \\\hat{\beta}\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat{\beta}\_{0}= \bar{y} - \hat{\beta}\_{x} \bar{x}.\\
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Exercise 8](#exr-solve-normal-equations), the normal equations have exactly one solution, \\\beta\_{x} = S\_{xy} / S\_{xx}\\ and \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\. By [Exercise 9](#exr-rss-hessian), the matrix of second derivatives of \\\text{RSS}\\ is positive definite at every point, so \\\text{RSS}\\ is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 5](#lem-solve-normal-equations), the normal equations have exactly one solution, \\\beta\_{x} = S\_{xy} / S\_{xx}\\ and \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\. By [Lemma 6](#lem-rss-hessian), the matrix of second derivatives of \\\text{RSS}\\ is positive definite at every point, so \\\text{RSS}\\ is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.
 
 The same estimates follow from a derivation in vector notation, which treats \\(\beta\_{0}, \beta\_{x})\\ as a single vector instead of differentiating with respect to each component separately.
 
@@ -558,7 +618,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 10 (Mean as a dot product)** Show that in simple linear regression ([Definition 8](#def-slr)), the conditional mean \\\mu(x_i)\\ is the dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 15](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)): \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\.
+> **Exercise 10 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 15](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
 
 > **NOTE:**
 >
@@ -570,7 +630,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Lemma 1 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 15](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}\\ ([Example 6](#exm-normal-equations-slr)):
+> **Lemma 7 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 15](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}\\ ([Example 6](#exm-normal-equations-slr)):
 >
 > \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}.\\
 
@@ -580,7 +640,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\tilde{\theta}= \tilde{\beta}\\ and substitute \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\ ([Lemma 1](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 11](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\tilde{\beta}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
+> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\tilde{\theta}= \tilde{\beta}\\ and substitute \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\ ([Lemma 7](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 11](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\tilde{\beta}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
 >
 > \\ \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2. \\
 
@@ -608,6 +668,16 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
+> **Lemma 8 (Gradient of RSS in vector notation)** The gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)) is
+>
+> \\\frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) = -2 \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 11](#exr-rss-gradient-vector).
+
+> **NOTE:**
+>
 > **Exercise 12 (Normal equations in vector notation)** Define the matrix and vector
 >
 > \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}, \qquad \tilde{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_iy_i. \\
@@ -631,6 +701,20 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 > The normal equations set this gradient equal to \\\tilde{0}\\. Solving for \\A \tilde{\beta}\\ one operation at a time:
 >
 > \\ \begin{aligned} -2 \mathopen{}\left(\tilde{c} - A \tilde{\beta}\right)\mathclose{} &= \tilde{0} && \text{(normal equations)}\\ \tilde{c} - A \tilde{\beta}&= \tilde{0} && \text{(divide both sides by \$-2\$)}\\ \tilde{c} &= A \tilde{\beta} && \text{(add \$A \tilde{\beta}\$ to both sides)}\\ A \tilde{\beta}&= \tilde{c} && \text{(swap the sides)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Lemma 9 (Normal equations in vector notation)** Let
+>
+> \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}, \qquad \tilde{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_iy_i. \\
+>
+> The [normal equations](#def-normal-equations) of a simple linear regression are equivalent to
+>
+> \\A \tilde{\beta}= \tilde{c}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 12](#exr-normal-equations-vector).
 
 > **NOTE:**
 >
@@ -662,6 +746,18 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
+> **Lemma 10 (Solution of the normal equations in vector notation)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the matrix \\A = \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ is invertible, and the normal equations \\A \tilde{\beta}= \tilde{c}\\ with \\\tilde{c} = \sum\_{i=1}^n\tilde{x}\_iy_i\\ ([Lemma 9](#lem-normal-equations-vector)) have exactly one solution,
+>
+> \\ \tilde{\beta}= A^{-1} \tilde{c} = \begin{pmatrix} \bar{y} - \beta\_{x} \bar{x} \\ S\_{xy} / S\_{xx} \end{pmatrix} \quad \text{with} \quad \beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \\
+>
+> the same solution as [Lemma 5](#lem-solve-normal-equations).
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 13](#exr-solve-normal-equations-vector).
+
+> **NOTE:**
+>
 > **Exercise 14 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
@@ -678,6 +774,18 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
+> **Lemma 11 (Hessian of RSS in vector notation)** The [Hessian](intro-MLEs.llms.md#def-hessian) of the residual sum of squares is
+>
+> \\ \frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta}) = 2 \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}, \\
+>
+> and it is positive definite at every \\\tilde{\beta}\\ when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 14](#exr-rss-hessian-vector).
+
+> **NOTE:**
+>
 > **Theorem 6 (OLS estimates in vector notation)** Suppose \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 12](#def-ols)) is
 >
 > \\ \hat{\tilde{\beta}}= A^{-1} \tilde{c}, \qquad \tilde{c} = \sum\_{i=1}^n\tilde{x}\_iy_i. \\
@@ -686,7 +794,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Exercise 12](#exr-normal-equations-vector), the normal equations are \\A \tilde{\beta}= \tilde{c}\\. By [Exercise 13](#exr-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \tilde{c}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Exercise 14](#exr-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\tilde{\beta}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \tilde{c}\\ is its unique global minimum.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 9](#lem-normal-equations-vector), the normal equations are \\A \tilde{\beta}= \tilde{c}\\. By [Lemma 10](#lem-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \tilde{c}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Lemma 11](#lem-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\tilde{\beta}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \tilde{c}\\ is its unique global minimum.
 
 > **NOTE:**
 >
@@ -825,6 +933,16 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
+> **Lemma 12 (Residual sum of squares of the OLS fit)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)) is
+>
+> \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2 = S\_{yy} - \frac{S\_{xy}^2}{S\_{xx}}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 16](#exr-rss-ols-fit).
+
+> **NOTE:**
+>
 > **Exercise 17 (\\R^2\\ and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), use [Exercise 16](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
 
 > **NOTE:**
@@ -843,7 +961,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 17](#exr-r-squared-slr), which uses the residual sum of squares from [Exercise 16](#exr-rss-ols-fit).
+> *Proof*. This is the solution to [Exercise 17](#exr-r-squared-slr), which uses the residual sum of squares from [Lemma 12](#lem-rss-ols-fit).
 
 > **NOTE:**
 >
