@@ -60,9 +60,19 @@ local function first_label(div)
   })
   if label then return label end
   if video_id then return video_id end
+  -- A list of citations has no link: the first cited key names the box.
+  div:walk({
+    Cite = function(cite)
+      if label == nil and cite.citations[1] then label = cite.citations[1].id end
+    end
+  })
+  if label then return label end
   div:walk({
     Para = function(para)
       if label == nil then label = pandoc.utils.stringify(para) end
+    end,
+    Plain = function(plain)
+      if label == nil then label = pandoc.utils.stringify(plain) end
     end
   })
   return label
