@@ -22,7 +22,9 @@ Each step below changes one thing.
 2. For observation $i$, @eq-fold-assignment gives $i \in \fold{\foldof{i}}$,
    so $\fold{\foldof{i}} = \set{i}$.
    (Fold $\foldof{i}$ holds one index, and that index is $i$.)
-3. The [fold-out rule](#def-fold-out-rule) of observation $i$ is then
+3. Let $g$ be the [fitting procedure](#def-fitting-procedure),
+   the rule that maps a training set to a fitted prediction rule.
+   The [fold-out rule](#def-fold-out-rule) of observation $i$ is then
    $\fittedwo{\foldof{i}}{x} = g\paren{x; \paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \set{i}}}$.
    (@eq-fold-out-rule with $\fold{\foldof{i}} = \set{i}$.)
 4. This rule is fitted to every observation except observation $i$,
