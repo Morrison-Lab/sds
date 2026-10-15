@@ -1,5 +1,5 @@
 :::{#def-cross-product-matrix}
-#### Cross-product matrix
+#### Cross-product matrix (sum-of-squares and cross-products matrix)
 
 The **cross-product matrix** $\sscp$ of [term vectors](#def-term-vector)
 $\termvec{\iobs}$, $\iobs \in \obsidx$, of a training set indexed by $\obsidx$,
@@ -12,7 +12,7 @@ $$ {#eq-cross-product-matrix}
 ::: {.callout-note collapse="true"}
 #### Source
 
-Sanchez [-@sanchez2020matrix4sl, chap. "Matrix Cross-Products"] (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a sum-of-squares and cross-products matrix.
+Sanchez [-@sanchez2020matrix4sl, chap. "Matrix Cross-Products"] (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a **sum-of-squares and cross-products matrix**.
 :::
 
 :::
