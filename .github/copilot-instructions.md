@@ -209,6 +209,13 @@ Comments are still the place for maintainer-only notes
 that are not attributions,
 such as what was checked in a PDF or a wording edit made while porting.
 
+## Useful resources go in every repo that covers their topic
+
+A course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
+even when lds already lists it in a directory (Ezra, 2026-10-15).
+Adapt a resource with attribution only where its license allows adapting, and otherwise link to it.
+See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
+
 ## Code Chunks
 
 ### Every visible chunk shows a result
