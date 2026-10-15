@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 00:59:10 (PDT)
+Last modified: 2026-10-15 01:36:01 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -22,9 +22,23 @@ Last modified: 2026-10-15 00:59:10 (PDT)
 
 > **NOTE:**
 >
+> *Remark 1* (Why the estimated conditional mean is the usual prediction). The prediction in [Example 1](#exm-prediction-cond-mean) is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions \\h\\ of the covariate, \\{\operatorname{E}\mathopen{}\left\[Y \mid X\right\]\mathclose{}}\\ has the smallest expected squared error \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\ ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)). The conditional mean is unknown, so we estimate it from data and predict with the estimate.
+>
+> The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets ([Hastie et al. 2009, 20](#ref-hastie2009elements)).
+
+> **NOTE:**
+>
 > **Definition 2 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ is the [prediction](#def-prediction) at its own covariate value \\x_i\\:
 >
 > \\\hat y_i \stackrel{\text{def}}{=}\hat y(x_i).\\
+
+> **NOTE:**
+>
+> *Remark 2* (Why the fitted value is the estimated conditional mean). The [fitted value](#def-fitted-value) is the prediction at the observed covariate value \\x_i\\, so for the prediction in [Example 1](#exm-prediction-cond-mean) it is the estimated conditional mean at \\x_i\\:
+>
+> \\\hat y_i = \mu(x_i; \hat{\tilde{\theta}}).\\
+>
+> It is chosen for the reason in [Remark 1](#rem-why-cond-mean): the conditional mean is the best prediction under squared error loss.
 
 > **NOTE:**
 >
@@ -126,7 +140,7 @@ Last modified: 2026-10-15 00:59:10 (PDT)
 
 > **NOTE:**
 >
-> *Remark 1* (Prediction errors and residuals). The prediction in [Definition 4](#def-prediction-error) can be a [fitted value](#def-fitted-value), for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](estimation.llms.md#def-estimation-error): estimate minus true value.
+> *Remark 3* (Prediction errors and residuals). The prediction in [Definition 4](#def-prediction-error) can be a [fitted value](#def-fitted-value), for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](estimation.llms.md#def-estimation-error): estimate minus true value.
 >
 > \\ \begin{aligned} \varepsilon&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \hat{\theta}- \theta && \text{(estimation error)} \end{aligned} \\
 >
@@ -142,7 +156,7 @@ Last modified: 2026-10-15 00:59:10 (PDT)
 
 > **NOTE:**
 >
-> *Remark 2* (Prediction MSE, estimator MSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([mean squared error and RSS](correlation-regression.llms.md#thm-mse-rss)):
+> *Remark 4* (Prediction MSE, estimator MSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([mean squared error and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\tilde{\theta}}), \qquad \text{RSS}(\hat{\tilde{\theta}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
@@ -197,7 +211,7 @@ Last modified: 2026-10-15 00:59:10 (PDT)
 
 > **NOTE:**
 >
-> *Remark 3* (Estimation versus prediction). Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error, but they aim at different targets:
+> *Remark 5* (Estimation versus prediction). Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error, but they aim at different targets:
 >
 > - **Target.** An [estimate](estimation.llms.md#def-estimate) aims at a fixed, unknown [estimand](estimation.llms.md#def-estimand). A [prediction](#def-prediction) aims at an outcome \\y\\, which is a random quantity even when the model is known exactly.
 > - **Error.** The [estimation error](estimation.llms.md#def-estimation-error) is the estimate minus the estimand. The [prediction error](#def-prediction-error) is the prediction minus the outcome.
@@ -209,5 +223,7 @@ Last modified: 2026-10-15 00:59:10 (PDT)
 Back to top
 
 ## References
+
+Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. 2nd ed. Springer. <https://doi.org/10.1007/978-0-387-84858-7>.
 
 Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.

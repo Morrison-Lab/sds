@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 00:59:10 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 01:36:01 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -371,9 +371,18 @@ text-align: center;
 <p><span class="theorem-title"><strong>Example 1 (Predicting with an estimated conditional mean)</strong></span> Suppose a model specifies the conditional mean <span class="math inline">\(\operatorname{E}\mathopen{}\left[Y \mid X = x\right]\mathclose{}\)</span> as a function <span class="math inline">\(\mu(x; \tilde{\theta})\)</span> of a parameter vector <span class="math inline">\(\tilde{\theta}\)</span>, and <span class="math inline">\(\hat{\tilde{\theta}}\)</span> is an estimate of <span class="math inline">\(\tilde{\theta}\)</span>. The usual prediction (<a href="#/def-prediction" class="quarto-xref">Definition&nbsp;1</a>) of <span class="math inline">\(Y\)</span> at <span class="math inline">\(X = x\)</span> is the estimated conditional mean:</p>
 <p><span class="math display">\[\hat y(x) = \mu(x; \hat{\tilde{\theta}}).\]</span></p>
 </div>
+</section><section class="slide level2"><div id="rem-why-cond-mean" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Why the estimated conditional mean is the usual prediction). </span>The prediction in <a href="#/exm-prediction-cond-mean" class="quarto-xref">Example&nbsp;1</a> is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions <span class="math inline">\(h\)</span> of the covariate, <span class="math inline">\({\operatorname{E}\mathopen{}\left[Y \mid X\right]\mathclose{}}\)</span> has the smallest expected squared error <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}\)</span> (<a href="https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor">conditional mean minimizes squared-error risk</a>). The conditional mean is unknown, so we estimate it from data and predict with the estimate.</p>
+<p>The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets <span class="citation" data-cites="hastie2009elements">(<a href="#/sec-estimation-vs-prediction" role="doc-biblioref" onclick="">Hastie et al. 2009, 20</a>)</span>.</p>
+</div>
 </section><section class="slide level2"><div id="def-fitted-value" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Fitted value)</strong></span> The <strong>fitted value</strong> <span class="math inline">\(\hat y_i\)</span> of observation <span class="math inline">\(i\)</span> is the <a href="#/def-prediction">prediction</a> at its own covariate value <span class="math inline">\(x_i\)</span>:</p>
 <p><span class="math display">\[\hat y_i \stackrel{\text{def}}{=}\hat y(x_i).\]</span></p>
+</div>
+</section><section class="slide level2"><div id="rem-fitted-value-cond-mean" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Why the fitted value is the estimated conditional mean). </span>The <a href="#/def-fitted-value">fitted value</a> is the prediction at the observed covariate value <span class="math inline">\(x_i\)</span>, so for the prediction in <a href="#/exm-prediction-cond-mean" class="quarto-xref">Example&nbsp;1</a> it is the estimated conditional mean at <span class="math inline">\(x_i\)</span>:</p>
+<p><span class="math display">\[\hat y_i = \mu(x_i; \hat{\tilde{\theta}}).\]</span></p>
+<p>It is chosen for the reason in <a href="#/rem-why-cond-mean" class="quarto-xref">Remark&nbsp;1</a>: the conditional mean is the best prediction under squared error loss.</p>
 </div>
 </section><section class="slide level2"><div id="def-residual" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Residual)</strong></span> The <strong>residual</strong> for observation <span class="math inline">\(i\)</span> is its observed outcome minus its <a href="#/def-fitted-value">fitted value</a>:</p>
@@ -479,7 +488,7 @@ text-align: center;
 <p>The last two columns agree in every row, and the largest difference between them over all 189 babies is 0, as <a href="#/cor-residual-prediction-error" class="quarto-xref">Corollary&nbsp;1</a> says.</p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-error" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Prediction errors and residuals). </span>The prediction in <a href="#/def-prediction-error" class="quarto-xref">Definition&nbsp;4</a> can be a <a href="#/def-fitted-value">fitted value</a>, for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as <a href="./estimation.html#def-estimation-error">estimation error</a>: estimate minus true value.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Prediction errors and residuals). </span>The prediction in <a href="#/def-prediction-error" class="quarto-xref">Definition&nbsp;4</a> can be a <a href="#/def-fitted-value">fitted value</a>, for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as <a href="./estimation.html#def-estimation-error">estimation error</a>: estimate minus true value.</p>
 <p><span class="math display">\[
 \begin{aligned}
 \varepsilon&amp;= \hat y- y
@@ -498,7 +507,7 @@ text-align: center;
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n\varepsilon_i^2.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-mse" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Prediction MSE, estimator MSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;5</a> averages squared errors over observations, where the <a href="./estimation.html#def-mse">mean squared error of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">mean squared error and RSS</a>):</p>
+<p><span class="proof-title"><em>Remark 4</em> (Prediction MSE, estimator MSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;5</a> averages squared errors over observations, where the <a href="./estimation.html#def-mse">mean squared error of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">mean squared error and RSS</a>):</p>
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\tilde{\theta}}),
 \qquad
 \text{RSS}(\hat{\tilde{\theta}}) = n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\]</span></p>
@@ -593,7 +602,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <span class="header-section-number">3</span> Estimation versus prediction</h2>
 <!-- No slidebreak here: the heading shares its slide with the remark. -->
 <div id="rem-estimation-vs-prediction" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Estimation versus prediction). </span>Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error, but they aim at different targets:</p>
+<p><span class="proof-title"><em>Remark 5</em> (Estimation versus prediction). </span>Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error, but they aim at different targets:</p>
 <ul>
 <li>
 <strong>Target.</strong> An <a href="./estimation.html#def-estimate">estimate</a> aims at a fixed, unknown <a href="./estimation.html#def-estimand">estimand</a>. A <a href="#/def-prediction">prediction</a> aims at an outcome <span class="math inline">\(y\)</span>, which is a random quantity even when the model is known exactly.</li>
@@ -795,6 +804,9 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
   }
 })();
 </script><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+</div>
 <div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
 Hosmer, David W., and Stanley Lemeshow. 1989. <em>Applied Logistic Regression</em>. Wiley.
 </div>
