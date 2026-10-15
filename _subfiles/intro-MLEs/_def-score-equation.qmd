@@ -1,7 +1,7 @@
 :::{#def-score-equation}
-#### Score equation
+#### Score equation (estimating equation)
 
-The **score equation** (also called the estimating equation)
+The **score equation** (also called the **estimating equation**)
 is the equation that sets the [score function](#def-score) to zero:
 
 $$
