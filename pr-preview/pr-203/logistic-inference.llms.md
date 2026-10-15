@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 08:52:19 (PDT)
+Last modified: 2026-10-15 09:14:12 (PDT)
 
 ## 1 Introduction
 
@@ -40,9 +40,9 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 2 (Deviance)** The **deviance** of a fitted logistic regression is twice the amount by which its maximized log-likelihood falls short of the largest log-likelihood any model could reach on the same labels. For labels \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ the largest log-likelihood is \\0\\, reached by a model that gives each label probability \\1\\, so the deviance is
+> **Definition 2 (Deviance)** The **deviance** of a fitted logistic regression with labels \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ is minus twice its maximized log-likelihood:
 >
-> \\ D \stackrel{\text{def}}{=}-2 \\ \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i \ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\\\mathclose{}, \tag{2}\\
+> \\ D\stackrel{\text{def}}{=}-2 \\ \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i \ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\\\mathclose{}, \tag{2}\\
 >
 > where \\\hat\pi_i = \sigma\mathopen{}\left(\hat{\tilde{\beta}} \cdot \tilde{x}\_i\right)\mathclose{}\\ is the fitted probability.
 
@@ -66,17 +66,23 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > #> 7.63817 7.63817
 > ```
 >
-> Both give \\D = 7.638\\.
+> Both give \\D= 7.638\\.
 
 > **NOTE:**
 >
-> **Definition 3 (Null deviance)** The **null deviance** is the [deviance](#def-deviance) of the model with an intercept and no other predictors. Its fitted probability is the overall fraction \\\bar y\\ of labels equal to \\1\\, so
->
-> \\ D_0 = -2 n \mathopen{}\left\\\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} \ln\mathopen{}\left(1 - \bar y\right)\mathclose{}\right\\\mathclose{}. \tag{3}\\
+> *Remark 1* (Why the deviance measures a shortfall). For labels \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ the largest log-likelihood any model can reach is \\0\\, by giving each label probability \\1\\. So \\D\\ is twice the amount by which the maximized log-likelihood falls short of that largest value.
 
 > **NOTE:**
 >
-> **Example 3 (The null deviance of the six-patient trial)** Three of the six patients recovered, so \\\bar y= 1/2\\ and [Equation 3](#eq-null-deviance) gives \\D_0 = 2 \times 6 \ln 2\\.
+> **Definition 3 (Null deviance)** The **null deviance** is the [deviance](#def-deviance) of the model with an intercept and no other predictors:
+>
+> \\ D_0= -2 n \mathopen{}\left\\\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} \ln\mathopen{}\left(1 - \bar y\right)\mathclose{}\right\\\mathclose{}, \tag{3}\\
+>
+> where \\\bar y\\ is the fraction of labels equal to \\1\\.
+
+> **NOTE:**
+>
+> **Example 3 (The null deviance of the six-patient trial)** Three of the six patients recovered, so \\\bar y= 1/2\\ and [Equation 3](#eq-null-deviance) gives \\D_0= 2 \times 6 \ln 2\\.
 >
 > ``` downlit
 > # null deviance from the formula with ybar = 1/2
@@ -88,17 +94,21 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 > #> 8.31777 8.31777
 > ```
 >
-> Both give \\D_0 = 8.318\\.
+> Both give \\D_0= 8.318\\.
+
+> **NOTE:**
+>
+> *Remark 2* (Where the null deviance formula comes from). The intercept-only model gives every observation the same fitted probability, and the maximizing value is the overall fraction \\\bar y\\ of labels equal to \\1\\. Substituting \\\bar y\\ for each \\\hat\pi_i\\ in [Equation 2](#eq-deviance) gives [Equation 3](#eq-null-deviance).
 
 > **NOTE:**
 >
 > **Theorem 1 (The drop in deviance is the likelihood ratio statistic)** Let \\D_0\\ be the [null deviance](#def-null-deviance) and \\D\\ the [deviance](#def-deviance) of a logistic regression with \\q\\ predictors besides the intercept. Then the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat) of \\H_0\\: all \\q\\ slopes are zero is
 >
-> \\ \Lambda= D_0 - D. \\
+> \\ \Lambda= D_0- D. \\
 
 > **NOTE:**
 >
-> *Proof*. In the notation of the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat), the unrestricted MLE \\\hat\theta\_{\text{ML}}\\ is the fitted coefficient vector \\\hat{\tilde{\beta}}\\, and \\\hat{\theta}\_0\\ is the fit of the intercept-only model that \\H_0\\ imposes. Then \\\ell\mathopen{}\left(\hat\theta\_{\text{ML}}\right)\mathclose{} = -D / 2\\ and \\\ell\mathopen{}\left(\hat{\theta}\_0\right)\mathclose{} = -D_0 / 2\\. Substituting both into the definition gives \\\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0 - D\\.
+> *Proof*. In the notation of the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat), the unrestricted MLE \\\hat\theta\_{\text{ML}}\\ is the fitted coefficient vector \\\hat{\tilde{\beta}}\\, and \\\hat{\theta}\_0\\ is the fit of the intercept-only model that \\H_0\\ imposes. Then \\\ell\mathopen{}\left(\hat\theta\_{\text{ML}}\right)\mathclose{} = -D/ 2\\ and \\\ell\mathopen{}\left(\hat{\theta}\_0\right)\mathclose{} = -D_0/ 2\\. Substituting both into the definition gives \\\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0- D\\.
 
 > **NOTE:**
 >
@@ -115,7 +125,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Corollary 1 (Distribution of the drop in deviance)** Suppose the regularity conditions of [Wilks’ theorem](intro-MLEs.llms.md#thm-wilks) hold for the logistic regression model. Then for a large sample the drop in deviance \\D_0 - D\\ has approximately a \\\chi^2_q\\ distribution when \\H_0\\ holds.
+> **Corollary 1 (Distribution of the drop in deviance)** Suppose the regularity conditions of [Wilks’ theorem](intro-MLEs.llms.md#thm-wilks) hold for the logistic regression model. Then for a large sample the drop in deviance \\D_0- D\\ has approximately a \\\chi^2_q\\ distribution when \\H_0\\ holds.
 
 > **NOTE:**
 >

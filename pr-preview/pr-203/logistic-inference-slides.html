@@ -360,7 +360,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 08:52:19 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 09:14:12 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -397,9 +397,9 @@ text-align: center;
 <span class="header-section-number">2</span> Deviance</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-deviance div. -->
 <div id="def-deviance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Deviance)</strong></span> The <strong>deviance</strong> of a fitted logistic regression is twice the amount by which its maximized log-likelihood falls short of the largest log-likelihood any model could reach on the same labels. For labels <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> the largest log-likelihood is <span class="math inline">\(0\)</span>, reached by a model that gives each label probability <span class="math inline">\(1\)</span>, so the deviance is</p>
+<p><span class="theorem-title"><strong>Definition 2 (Deviance)</strong></span> The <strong>deviance</strong> of a fitted logistic regression with labels <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> is minus twice its maximized log-likelihood:</p>
 <p><span id="eq-deviance"><span class="math display">\[
-D \stackrel{\text{def}}{=}-2 \, \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{}
+D\stackrel{\text{def}}{=}-2 \, \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{}
 = -2 \sum_{i=1}^n\mathopen{}\left\{y_i \ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\}\mathclose{},
 \tag{2}\]</span></span></p>
 <p>where <span class="math inline">\(\hat\pi_i = \sigma\mathopen{}\left(\hat{\tilde{\beta}} \cdot \tilde{x}_i\right)\mathclose{}\)</span> is the fitted probability.</p>
@@ -430,16 +430,20 @@ D \stackrel{\text{def}}{=}-2 \, \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\
 <span id="cb2-8"><a aria-label="8"></a><span class="co">#&gt; by_hand     glm </span></span>
 <span id="cb2-9"><a aria-label="9"></a><span class="co">#&gt; 7.63817 7.63817</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Both give <span class="math inline">\(D = 7.638\)</span>.</p>
+<p>Both give <span class="math inline">\(D= 7.638\)</span>.</p>
+</div>
+<div id="rem-deviance-shortfall" class="proof remark">
+<p><span class="proof-title"><em>Remark 1</em> (Why the deviance measures a shortfall). </span>For labels <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> the largest log-likelihood any model can reach is <span class="math inline">\(0\)</span>, by giving each label probability <span class="math inline">\(1\)</span>. So <span class="math inline">\(D\)</span> is twice the amount by which the maximized log-likelihood falls short of that largest value.</p>
 </div>
 </section><section class="slide level2"><div id="def-null-deviance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Null deviance)</strong></span> The <strong>null deviance</strong> is the <a href="#/def-deviance">deviance</a> of the model with an intercept and no other predictors. Its fitted probability is the overall fraction <span class="math inline">\(\bar y\)</span> of labels equal to <span class="math inline">\(1\)</span>, so</p>
+<p><span class="theorem-title"><strong>Definition 3 (Null deviance)</strong></span> The <strong>null deviance</strong> is the <a href="#/def-deviance">deviance</a> of the model with an intercept and no other predictors:</p>
 <p><span id="eq-null-deviance"><span class="math display">\[
-D_0 = -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} \ln\mathopen{}\left(1 - \bar y\right)\mathclose{}\right\}\mathclose{}.
+D_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)\mathclose{} \ln\mathopen{}\left(1 - \bar y\right)\mathclose{}\right\}\mathclose{},
 \tag{3}\]</span></span></p>
+<p>where <span class="math inline">\(\bar y\)</span> is the fraction of labels equal to <span class="math inline">\(1\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-null-deviance" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (The null deviance of the six-patient trial)</strong></span> Three of the six patients recovered, so <span class="math inline">\(\bar y= 1/2\)</span> and <a href="#/eq-null-deviance" class="quarto-xref">Equation&nbsp;3</a> gives <span class="math inline">\(D_0 = 2 \times 6 \ln 2\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 3 (The null deviance of the six-patient trial)</strong></span> Three of the six patients recovered, so <span class="math inline">\(\bar y= 1/2\)</span> and <a href="#/eq-null-deviance" class="quarto-xref">Equation&nbsp;3</a> gives <span class="math inline">\(D_0= 2 \times 6 \ln 2\)</span>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># null deviance from the formula with ybar = 1/2</span></span>
 <span id="cb3-2"><a aria-label="2"></a>wf_null_hand <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">6</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span>)</span>
@@ -449,16 +453,19 @@ D_0 = -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right
 <span id="cb3-6"><a aria-label="6"></a><span class="co">#&gt; by_hand     glm </span></span>
 <span id="cb3-7"><a aria-label="7"></a><span class="co">#&gt; 8.31777 8.31777</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Both give <span class="math inline">\(D_0 = 8.318\)</span>.</p>
+<p>Both give <span class="math inline">\(D_0= 8.318\)</span>.</p>
+</div>
+<div id="rem-null-deviance-fit" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Where the null deviance formula comes from). </span>The intercept-only model gives every observation the same fitted probability, and the maximizing value is the overall fraction <span class="math inline">\(\bar y\)</span> of labels equal to <span class="math inline">\(1\)</span>. Substituting <span class="math inline">\(\bar y\)</span> for each <span class="math inline">\(\hat\pi_i\)</span> in <a href="#/eq-deviance" class="quarto-xref">Equation&nbsp;2</a> gives <a href="#/eq-null-deviance" class="quarto-xref">Equation&nbsp;3</a>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-deviance-drop" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (The drop in deviance is the likelihood ratio statistic)</strong></span> Let <span class="math inline">\(D_0\)</span> be the <a href="#/def-null-deviance">null deviance</a> and <span class="math inline">\(D\)</span> the <a href="#/def-deviance">deviance</a> of a logistic regression with <span class="math inline">\(q\)</span> predictors besides the intercept. Then the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio statistic</a> of <span class="math inline">\(H_0\)</span>: all <span class="math inline">\(q\)</span> slopes are zero is</p>
 <p><span class="math display">\[
-\Lambda= D_0 - D.
+\Lambda= D_0- D.
 \]</span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>In the notation of the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio statistic</a>, the unrestricted MLE <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> is the fitted coefficient vector <span class="math inline">\(\hat{\tilde{\beta}}\)</span>, and <span class="math inline">\(\hat{\theta}_0\)</span> is the fit of the intercept-only model that <span class="math inline">\(H_0\)</span> imposes. Then <span class="math inline">\(\ell\mathopen{}\left(\hat\theta_{\text{ML}}\right)\mathclose{} = -D / 2\)</span> and <span class="math inline">\(\ell\mathopen{}\left(\hat{\theta}_0\right)\mathclose{} = -D_0 / 2\)</span>. Substituting both into the definition gives <span class="math inline">\(\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0 - D\)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>In the notation of the <a href="./intro-MLEs.html#def-lrt-stat">likelihood ratio statistic</a>, the unrestricted MLE <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> is the fitted coefficient vector <span class="math inline">\(\hat{\tilde{\beta}}\)</span>, and <span class="math inline">\(\hat{\theta}_0\)</span> is the fit of the intercept-only model that <span class="math inline">\(H_0\)</span> imposes. Then <span class="math inline">\(\ell\mathopen{}\left(\hat\theta_{\text{ML}}\right)\mathclose{} = -D/ 2\)</span> and <span class="math inline">\(\ell\mathopen{}\left(\hat{\theta}_0\right)\mathclose{} = -D_0/ 2\)</span>. Substituting both into the definition gives <span class="math inline">\(\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0- D\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-deviance-drop" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (The likelihood ratio statistic of the treatment effect)</strong></span> In the six-patient trial, <span class="math inline">\(q = 1\)</span>.</p>
@@ -471,7 +478,7 @@ D_0 = -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right
 <p>The statistic is <span class="math inline">\(0.68\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="cor-deviance-drop-distribution" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1 (Distribution of the drop in deviance)</strong></span> Suppose the regularity conditions of <a href="./intro-MLEs.html#thm-wilks">Wilks’ theorem</a> hold for the logistic regression model. Then for a large sample the drop in deviance <span class="math inline">\(D_0 - D\)</span> has approximately a <span class="math inline">\(\chi^2_q\)</span> distribution when <span class="math inline">\(H_0\)</span> holds.</p>
+<p><span class="theorem-title"><strong>Corollary 1 (Distribution of the drop in deviance)</strong></span> Suppose the regularity conditions of <a href="./intro-MLEs.html#thm-wilks">Wilks’ theorem</a> hold for the logistic regression model. Then for a large sample the drop in deviance <span class="math inline">\(D_0- D\)</span> has approximately a <span class="math inline">\(\chi^2_q\)</span> distribution when <span class="math inline">\(H_0\)</span> holds.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-deviance-drop" class="quarto-xref">Theorem&nbsp;1</a> the drop in deviance is the likelihood ratio statistic of <span class="math inline">\(q\)</span> constraints, and <a href="./intro-MLEs.html#thm-wilks">Wilks’ theorem</a> gives its approximate distribution.</p>
