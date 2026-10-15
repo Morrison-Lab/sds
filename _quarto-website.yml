@@ -58,6 +58,8 @@ website:
             href: categorical-tests.qmd
           - text: "Correlation & Regression"
             href: correlation-regression.qmd
+          - text: "Prediction"
+            href: prediction.qmd
           - text: "Validating Predictions"
             href: model-validation.qmd
           - text: "Classification"
@@ -112,6 +114,8 @@ website:
             href: categorical-tests.qmd
           - text: "Correlation & Regression"
             href: correlation-regression.qmd
+          - text: "Prediction"
+            href: prediction.qmd
           - text: "Validating Predictions"
             href: model-validation.qmd
           - text: "Classification"
