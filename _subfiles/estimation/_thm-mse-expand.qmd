@@ -1,0 +1,15 @@
+::: {#thm-mse-expand}
+#### Expanded mean squared error
+
+For any one-dimensional estimator $\hparam$ of an estimand $\param$,
+the [mean squared error](#def-mse) is:
+
+$$\mselr{\hparam} = \E{\hparam^2} - 2\E{\hparam}\param + \param^2$$
+
+:::
+
+::: proof
+
+This is the solution to @exr-mse-expand, worked in @sol-mse-expand.
+
+:::

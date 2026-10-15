@@ -1,8 +1,8 @@
 :::{#exr-loocv}
 #### The largest number of folds
 
-Suppose we take $k = n$ in [$k$-fold cross-validation](#def-kfold)
-on the $n = 32$ cars in `mtcars`.
+Suppose we take $\nfolds = \nobs$ in [$\nfolds$-fold cross-validation](#def-kfold)
+on the $\nobs = 32$ cars in `mtcars`.
 
 1. How many cars are in each fold?
 2. How many models are fit, and how many cars is each fitted to?

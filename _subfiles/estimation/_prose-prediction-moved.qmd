@@ -1,0 +1,4 @@
+Predictions, fitted values, residuals, prediction errors and the mean squared error of predictions
+have their own page, [Prediction](prediction.qmd).
+That page also contrasts them with the estimation quantities defined here:
+[estimation error](#def-estimation-error) and the [mean squared error of an estimator](#mean-squared-error).

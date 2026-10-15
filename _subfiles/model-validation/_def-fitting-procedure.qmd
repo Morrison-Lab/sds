@@ -1,20 +1,20 @@
 :::{#def-fitting-procedure}
 #### Fitting procedure
 
-A **fitting procedure** is a rule $g$ that,
-given any data $\paren{(x_i, y_i)}_{i \in I}$ and any covariate value $x$,
-computes a [prediction](estimation.qmd#def-prediction) of the outcome at $x$:
+A **fitting procedure** is a rule $\fitproc$ that,
+given any data $\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}$ and any covariate value $\predvar$,
+computes a [prediction](prediction.qmd#def-prediction) of the outcome at $\predvar$:
 
 $$
-\paren{x; \paren{(x_i, y_i)}_{i \in I}}
+\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}
 \mapsto
-g\paren{x; \paren{(x_i, y_i)}_{i \in I}}.
+\fitproc\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}.
 $$ {#eq-fitting-procedure}
 
 ::: {.callout-note collapse="true"}
 #### Source
 
-The rule $g$ of the [definition of a prediction](estimation.qmd#def-prediction).
+The rule $\fitproc$ of the [definition of a prediction](prediction.qmd#def-prediction).
 @hastie2009elements [sec. 7.2] write the model estimated from a training set as $\hat f$.
 :::
 

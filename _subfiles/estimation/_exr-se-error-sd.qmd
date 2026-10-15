@@ -1,9 +1,9 @@
 :::{#exr-se-error-sd}
 #### Spread of the estimation error
 
-Show that the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd)
+Find the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd)
 of the [estimation error](#def-estimation-error) $\erf{\hparam}$
-equals the [standard error](#def-SE) of $\hparam$.
+in terms of the [standard error](#def-SE) of $\hparam$.
 :::
 
 {{< slidebreak >}}

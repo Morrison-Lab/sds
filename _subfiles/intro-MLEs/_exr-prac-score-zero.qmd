@@ -7,11 +7,11 @@ Let $\dsn{X} \siid \Pois(\rate)$.
 
 **(b)** Derive the score function $\score(\rate; \vx)$.
 
-**(c)** Show that $\hat\rate_{ML} = \bar{x}$,
-and verify that the score equals zero at the MLE.
+**(c)** Find the MLE $\hat\rate_{ML}$,
+and evaluate the score at the MLE.
 
-**(d)** Provide an intuitive interpretation:
-why does the score being zero at $\hat\rate_{ML}$ make sense?
+**(d)** Provide an intuitive interpretation
+of the value of the score at $\hat\rate_{ML}$.
 :::
 
 :::{#sol-prac-score-zero}
@@ -87,6 +87,8 @@ $$
 
 **(c)**
 
+The MLE solves $\score(\rate; \vx) = 0$,
+so evaluating the score there afterwards is a check on the algebra.
 Setting $\score(\rate; \vx) = 0$:
 
 $$
