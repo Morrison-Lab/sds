@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 23:10:54 (PDT)
+Last modified: 2026-10-15 00:29:36 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -316,11 +316,11 @@ hers |> head()
 >
 > *Solution 3*. First, each squared [prediction error](estimation.llms.md#def-prediction-error) equals the squared residual at \\\tilde{\theta}\\:
 >
-> \\ \begin{aligned} e_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \tilde{\theta}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \tilde{\theta})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\tilde{\theta})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= r_i(\tilde{\theta})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
+> \\ \begin{aligned} \varepsilon_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \tilde{\theta}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \tilde{\theta})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\tilde{\theta})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= r_i(\tilde{\theta})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
 >
 > So the mean squared error is the residual sum of squares divided by \\n\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^ne_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\tilde{\theta})^2 && \text{(\$e_i^2 = r_i(\tilde{\theta})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\tilde{\theta}) && \text{(definition of RSS)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\tilde{\theta})^2 && \text{(\$\varepsilon_i^2 = r_i(\tilde{\theta})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\tilde{\theta}) && \text{(definition of RSS)} \end{aligned} \\
 >
 > Solving for \\\text{RSS}(\tilde{\theta})\\:
 >

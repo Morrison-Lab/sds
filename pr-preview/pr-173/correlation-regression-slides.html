@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-14 23:10:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 00:29:36 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -754,7 +754,7 @@ Figure&nbsp;2: The three points, the line with intercept 1 and slope 0.5, and th
 <p><span class="proof-title"><em>Solution 3</em>. </span>First, each squared <a href="./estimation.html#def-prediction-error">prediction error</a> equals the squared residual at <span class="math inline">\(\tilde{\theta}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-e_i^2
+\varepsilon_i^2
 &amp;= (\hat y_i - y_i)^2
 &amp;&amp; \text{(definition of prediction error)}\\
 &amp;= \mathopen{}\left(\mu(x_i; \tilde{\theta}) - y_i\right)\mathclose{}^2
@@ -772,10 +772,10 @@ e_i^2
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
-&amp;= \frac{1}{n}\sum_{i=1}^ne_i^2
+&amp;= \frac{1}{n}\sum_{i=1}^n\varepsilon_i^2
 &amp;&amp; \text{(definition of mean squared error)}\\
 &amp;= \frac{1}{n}\sum_{i=1}^nr_i(\tilde{\theta})^2
-&amp;&amp; \text{($e_i^2 = r_i(\tilde{\theta})^2$)}\\
+&amp;&amp; \text{($\varepsilon_i^2 = r_i(\tilde{\theta})^2$)}\\
 &amp;= \frac{1}{n} \text{RSS}(\tilde{\theta})
 &amp;&amp; \text{(definition of RSS)}
 \end{aligned}

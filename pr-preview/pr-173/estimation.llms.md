@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 23:10:54 (PDT)
+Last modified: 2026-10-15 00:29:36 (PDT)
 
 ## 1 Scientific models
 
@@ -162,7 +162,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Remark 1* (Why the estimated conditional mean is the usual prediction). The prediction in [Example 7](#exm-prediction-cond-mean) is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions \\g\\ of the covariate, \\\operatorname{E}\mathopen{}\left\[Y \mid X\right\]\mathclose{}\\ has the smallest expected squared error \\\operatorname{E}\mathopen{}\left\[\mathopen{}\left(Y - g(X)\right)^2\mathclose{}\right\]\mathclose{}\\ ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)). The conditional mean is unknown, so we estimate it from data and predict with the estimate.
+> *Remark 1* (Why the estimated conditional mean is the usual prediction). The prediction in [Example 7](#exm-prediction-cond-mean) is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions \\h\\ of the covariate, \\{\operatorname{E}\mathopen{}\left\[Y \mid X\right\]\mathclose{}}\\ has the smallest expected squared error \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\ ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)). The conditional mean is unknown, so we estimate it from data and predict with the estimate.
 >
 > The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets ([Hastie et al. 2009, 20](#ref-hastie2009elements)).
 
@@ -190,21 +190,21 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Definition 10 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) \\\hat y\\ (such as \\\hat y(x)\\ or a fitted value \\\hat y_i\\) of an observed outcome \\y\\ is the prediction minus the outcome:
 >
-> \\e\stackrel{\text{def}}{=}\hat y- y.\\
+> \\\varepsilon\stackrel{\text{def}}{=}\hat y- y.\\
 
 > **NOTE:**
 >
-> **Exercise 1 (Prediction error and residual of a fitted observation)** For an observation \\i\\ that was used to fit the model, write its [prediction error](#def-prediction-error) \\e_i\\ in terms of its [residual](#def-residual) \\r_i\\.
+> **Exercise 1 (Prediction error and residual of a fitted observation)** For an observation \\i\\ that was used to fit the model, write its [prediction error](#def-prediction-error) \\\varepsilon_i\\ in terms of its [residual](#def-residual) \\r_i\\.
 
 > **NOTE:**
 >
-> *Solution 1*. \\ \begin{aligned} e_i &= \hat y_i - y_i && \text{(definition of prediction error)}\\ &= -(y_i - \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
+> *Solution 1*. \\ \begin{aligned} \varepsilon_i &= \hat y_i - y_i && \text{(definition of prediction error)}\\ &= -(y_i - \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 1 (Prediction error is the negative of the residual)** For an observation \\i\\ that was used to fit the model, the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value) is the negative of its [residual](#def-residual):
 >
-> \\e_i = -r_i.\\
+> \\\varepsilon_i = -r_i.\\
 
 > **NOTE:**
 >
@@ -214,7 +214,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Corollary 1 (The residual is the negative of the prediction error)** For an observation \\i\\ that was used to fit the model, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
 >
-> \\r_i = -e_i.\\
+> \\r_i = -\varepsilon_i.\\
 
 > **NOTE:**
 >
@@ -282,7 +282,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > *Remark 3* (Prediction errors and residuals). The prediction in [Definition 10](#def-prediction-error) can be a [fitted value](#def-fitted-value), for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value.
 >
-> \\ \begin{aligned} e&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \hat{\theta}- \theta && \text{(estimation error)} \end{aligned} \\
+> \\ \begin{aligned} \varepsilon&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \hat{\theta}- \theta && \text{(estimation error)} \end{aligned} \\
 >
 > For an observation used to fit the model, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
 
@@ -290,7 +290,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Definition 11 (Mean squared error of predictions)** The **mean squared error** of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^ne_i^2.\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2.\\
 
 > **NOTE:**
 >
@@ -302,7 +302,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Example 9 (Fitted values, residuals, and prediction errors for three points)** Take the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
 >
-> | \\x_i\\ | \\y_i\\ | \\\hat y_i = 1 + 0.5 x_i\\ | \\r_i = y_i - \hat y_i\\ | \\e_i = \hat y_i - y_i\\ |
+> | \\x_i\\ | \\y_i\\ | \\\hat y_i = 1 + 0.5 x_i\\ | \\r_i = y_i - \hat y_i\\ | \\\varepsilon_i = \hat y_i - y_i\\ |
 > |:--:|:--:|:--:|:--:|:--:|
 > | 0 | 1 | 1 | 0 | 0 |
 > | 1 | 2 | 1.5 | 0.5 | \\-0.5\\ |
@@ -385,29 +385,29 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Definition 13 (Mean squared error)** The **mean squared error** of an estimator \\\hat{\theta}\\, denoted \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{}\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\
 
 > **NOTE:**
 >
-> **Exercise 3 (Expanding the squared bias)** Using [Theorem 2](#thm-bias-exprs), expand the squared [bias](#def-bias) \\\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\ and the estimand \\\theta\\.
+> **Exercise 3 (Expanding the squared bias)** Using [Theorem 2](#thm-bias-exprs), expand the squared [bias](#def-bias) \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\ and the estimand \\\theta\\.
 
 > **NOTE:**
 >
-> *Solution 3*. \\ \begin{aligned} \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} - \theta\right)^2\mathclose{} && \text{(bias equals expectation minus truth)}\\ &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(expand the binomial square)} \end{aligned} \\
+> *Solution 3*. \\ \begin{aligned} {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &= {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} - \theta\right)\mathclose{}}^2 && \text{(bias equals expectation minus truth)}\\ &= {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(expand the binomial square)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Exercise 4 (Squared bias plus variance)** Using [Exercise 3](#exr-sq-bias-expand), write \\\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
+> **Exercise 4 (Squared bias plus variance)** Using [Exercise 3](#exr-sq-bias-expand), write \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
 
 > **NOTE:**
 >
 > *Solution 4*. The variance is ([simplified expression for variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)):
 >
-> \\\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} \tag{2}\\
+> \\\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 \tag{2}\\
 >
 > Add it to the squared bias from [Exercise 3](#exr-sq-bias-expand) and simplify:
 >
-> \\ \begin{aligned} \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(substitute the squared bias)}\\ &= \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} && \text{(substitute the variance)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} && \text{(reorder the terms)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \mathopen{}\left(\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{} - \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)^2\mathclose{}\right)\mathclose{} && \text{(group the last two terms)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + 0 && \text{(\$a - a = 0\$)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(\$a + 0 = a\$)} \end{aligned} \tag{3}\\
+> \\ \begin{aligned} {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(substitute the squared bias)}\\ &= {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 && \text{(substitute the variance)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 && \text{(reorder the terms)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + \mathopen{}\left({\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2 - {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\right)\mathclose{}}^2\right)\mathclose{} && \text{(group the last two terms)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 + 0 && \text{(\$a - a = 0\$)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(\$a + 0 = a\$)} \end{aligned} \tag{3}\\
 
 > **NOTE:**
 >
@@ -415,17 +415,17 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Solution 5*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &\stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\right\]\mathclose{} && \text{(definition of MSE)}\\ &= \operatorname{E}\mathopen{}\left\[(\hat{\theta}- \theta)^2\right\]\mathclose{} && \text{(definition of estimation error)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2 - 2\hat{\theta}\theta+ \theta^2\right\]\mathclose{} && \text{(expand the binomial square)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[2\hat{\theta}\theta\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{} && \text{(factor the constant \$2\theta\$ out of the middle expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(the expectation of a constant is that constant)} \end{aligned} \\
+> *Solution 5*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &\stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(definition of MSE)}\\ &= \operatorname{E}\mathopen{}\left\[(\hat{\theta}- \theta)^2\right\]\mathclose{} && \text{(definition of estimation error)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2 - 2\hat{\theta}\theta+ \theta^2\right\]\mathclose{} && \text{(expand the binomial square)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[2\hat{\theta}\theta\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{} && \text{(factor the constant \$2\theta\$ out of the middle expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(the expectation of a constant is that constant)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 3 (Mean squared error equals bias squared plus variance)** For any one-dimensional estimator \\\hat{\theta}\\:
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
 
 > **NOTE:**
 >
-> *Proof*. By [Exercise 5](#exr-mse-expand) and [Exercise 4](#exr-bias-sq-plus-var), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ and \\\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ both equal \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\, so they are equal to each other.
+> *Proof*. By [Exercise 5](#exr-mse-expand) and [Exercise 4](#exr-bias-sq-plus-var), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ and \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ both equal \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\, so they are equal to each other.
 
 > **NOTE:**
 >
@@ -437,7 +437,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > For \\\bar X\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &= \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(zero bias)}\\ &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(\$0^2 = 0\$)}\\ &= \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nX_i\right)\mathclose{} && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} && \text{(variance of a linear combination of independent variables)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\sigma^2 && \text{(\$\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\$ for every \$i\$)}\\ &= \frac{1}{n^2} \cdot n\sigma^2 && \text{(sum of \$n\$ copies of \$\sigma^2\$)}\\ &= \frac{\sigma^2}{n} && \text{(cancel one factor of \$n\$)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(zero bias)}\\ &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(\$0^2 = 0\$)}\\ &= \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nX_i\right)\mathclose{} && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} && \text{(variance of a linear combination of independent variables)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\sigma^2 && \text{(\$\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\$ for every \$i\$)}\\ &= \frac{1}{n^2} \cdot n\sigma^2 && \text{(sum of \$n\$ copies of \$\sigma^2\$)}\\ &= \frac{\sigma^2}{n} && \text{(cancel one factor of \$n\$)} \end{aligned} \\
 >
 > The step to \\\frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}\\ uses the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom), whose covariance terms are all zero for independent variables.
 >
@@ -488,11 +488,11 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n(X_i - \bar X)^2\\, so we first find its expectation. Using
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} &= \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)^2\mathclose{} \\ &= \sigma^2+ \mu^2 \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} &= \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)\mathclose{}}^2 \\ &= \sigma^2+ \mu^2 \end{aligned} \\
 >
 > and
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + \mathopen{}\left(\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}\right)^2\mathclose{} \\ &= \sigma^2/n + \mu^2 \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} + {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{}\right)\mathclose{}}^2 \\ &= \sigma^2/n + \mu^2 \end{aligned} \\
 >
 > (by [Example 11](#exm-mse-sample-mean) and [Example 10](#exm-bias-sample-mean)):
 >
@@ -526,7 +526,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> *Solution 7*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(definition of unbiased)}\\ &= \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(\$0^2 = 0\$)} \end{aligned} \\
+> *Solution 7*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(definition of unbiased)}\\ &= \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(\$0^2 = 0\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -602,17 +602,17 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 
 > **NOTE:**
 >
-> **Exercise 9 (Squared standard error from MSE and bias)** Using [Theorem 3](#thm-mse-bias-variance), write the squared [standard error](#def-SE) \\\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\\ in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of \\\hat{\theta}\\.
+> **Exercise 9 (Squared standard error from MSE and bias)** Using [Theorem 3](#thm-mse-bias-variance), write the squared [standard error](#def-SE) \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\ in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of \\\hat{\theta}\\.
 
 > **NOTE:**
 >
-> *Solution 9*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} && \text{(subtract \$\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\$ from both sides)}\\ \mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} && \text{(\$\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\$)}\\ \mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} && \text{(definition of standard error: \$\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\$)} \end{aligned} \\
+> *Solution 9*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(subtract \${\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\$ from both sides)}\\ {\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(\$\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\$)}\\ {\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(definition of standard error: \$\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Corollary 2 (Standard error squared equals MSE minus squared bias)** The squared standard error is what remains of the mean squared error after the squared bias is removed:
 >
-> \\\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{} = \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - \mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)^2\mathclose{}\\
+> \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 = \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\
 
 > **NOTE:**
 >
