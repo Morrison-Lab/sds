@@ -50,6 +50,8 @@ website:
             href: inference.qmd
           - text: "Maximum Likelihood"
             href: intro-MLEs.qmd
+          - text: "Properties of Estimators"
+            href: estimator-properties.qmd
       - text: "Methods"
         menu:
           - text: "Comparing Means"
@@ -106,6 +108,8 @@ website:
             href: inference.qmd
           - text: "Maximum Likelihood"
             href: intro-MLEs.qmd
+          - text: "Properties of Estimators"
+            href: estimator-properties.qmd
       - section: "Methods"
         contents:
           - text: "Comparing Means"
