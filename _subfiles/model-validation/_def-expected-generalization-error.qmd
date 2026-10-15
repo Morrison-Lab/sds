@@ -20,7 +20,7 @@ $$ {#eq-expected-generalization-error}
 :::{#rem-source-expected-generalization-error}
 #### Source: Expected generalization error (expected prediction error, expected test error)
 
-Also called the **expected prediction error** or **expected test error** [@hastie2009elements, sec. 7.2],
-where it is written $\generr$, without the argument $\nobs$.
+Also called the **expected prediction error** or **expected test error** [@hastie2009elements, sec. 7.2].
+That book writes the quantity as $\generr$, without the argument $\nobs$.
 
 :::
