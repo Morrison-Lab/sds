@@ -12,10 +12,11 @@ $$
 \cvest{\nfolds} \eqdef \frac{1}{\nobs} \sum_{\iobs \in \obsidx} \sqf{\fittedwo{\foldof{\iobs}}{\predvar_{\iobs}} - \outvar_{\iobs}}.
 $$ {#eq-cv-estimate}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-cv-estimate}
+#### Source: Cross-validation estimate
 
 @hastie2009elements [sec. 7.10.1], for the per-observation form with the fold index $\foldof{\iobs}$.
-:::
 
 :::

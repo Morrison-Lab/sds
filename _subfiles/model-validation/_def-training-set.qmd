@@ -10,10 +10,11 @@ $$
 \trainset \eqdef \paren{(\vpredvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}, \quad \abs{\obsidx} = \nobs.
 $$ {#eq-training-set}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-training-set}
+#### Source: Training set
 
 @hastie2009elements [sec. 7.2], who also write the training set as $\mathcal{T}$.
-:::
 
 :::

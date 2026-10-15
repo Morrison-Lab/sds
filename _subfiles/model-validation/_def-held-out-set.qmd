@@ -11,10 +11,11 @@ $$
 \paren{(\heldpredval{1}, \heldoutval{1}), \ldots, (\heldpredval{\nheld}, \heldoutval{\nheld})}.
 $$ {#eq-held-out-set}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-held-out-set}
+#### Source: Held-out set (hold-out set)
 
 @james2021islr2e [sec. 5.1.1], who call it a **hold-out set**.
-:::
 
 :::
