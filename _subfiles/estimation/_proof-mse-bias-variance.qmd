@@ -16,10 +16,10 @@ The squared-error split has two forms, and they differ in what the estimate is c
 - **Estimation.** @thm-mse-bias-variance compares an estimator $\hparam$ with a fixed parameter $\param$.
   The target is a constant, so the expected squared error is squared bias plus variance, with no other term.
 - **Prediction.** The target is a new outcome, which is itself random.
-  The probability notes prove that
-  [expected squared prediction error](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error)
+  The model validation notes prove that
+  [expected squared prediction error](model-validation.qmd#thm-epe-decomposition)
   equals squared bias plus variance plus the noise variance,
-  the [irreducible error](https://morrison-lab.github.io/pds/variance-covariance.html#def-irreducible-error)
+  the [irreducible error](model-validation.qmd#def-irreducible-error)
   of that outcome.
   No choice of prediction can remove the extra term.
 
