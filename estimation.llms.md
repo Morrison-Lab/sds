@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 02:58:11 (PDT)
+Last modified: 2026-10-15 03:11:32 (PDT)
 
 ## 1 Scientific models
 
@@ -415,7 +415,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Exercise 7 (Spread of the estimation error)** Show that the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of the [estimation error](#def-estimation-error) \\\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ equals the [standard error](#def-SE) of \\\hat{\theta}\\.
+> **Exercise 7 (Spread of the estimation error)** Find the [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd) of the [estimation error](#def-estimation-error) \\\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of the [standard error](#def-SE) of \\\hat{\theta}\\.
 
 > **NOTE:**
 >
