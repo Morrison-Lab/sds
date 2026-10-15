@@ -177,18 +177,25 @@ The sister-repository credit may be left out of new work,
 but an existing one is not removed unless the maintainer asks.
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
-Follow PSW's
-[Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material):
-put the credit in a collapsed `.callout-note` titled "Source",
+PSW's
+[Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material)
+says to put a credit in a div, never in running prose.
+Here, put it in its own `rem-source-` remark div titled "Source: ...",
 which frames the credit and keeps it out of the way on the page.
-Place it at the end of the item's own div,
+A definition or result div holds only the statement
+(a theorem's proof stays with it),
+and all commentary, a credit included, goes in a separate remark div
+(maintainer directive, 2026-10-15), so the credit never sits inside it.
+Place the remark right after the item's div and its proof,
+in the same subfile,
 so it travels with the fragment when a host site includes it:
 
 ```markdown
-::: {.callout-note collapse="true"}
-#### Source
+::: {#rem-source-cv-estimate}
+#### Source: cross-validation estimate
 
 @james2021islr2e [sec. 5.1].
+
 :::
 ```
 
