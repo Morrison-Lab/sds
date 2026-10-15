@@ -50,6 +50,8 @@ website:
             href: inference.qmd
           - text: "Maximum Likelihood"
             href: intro-MLEs.qmd
+          - text: "Properties of Estimators"
+            href: estimator-properties.qmd
       - text: "Methods"
         menu:
           - text: "Comparing Means"
@@ -106,6 +108,8 @@ website:
             href: inference.qmd
           - text: "Maximum Likelihood"
             href: intro-MLEs.qmd
+          - text: "Properties of Estimators"
+            href: estimator-properties.qmd
       - section: "Methods"
         contents:
           - text: "Comparing Means"
@@ -135,65 +139,33 @@ website:
           - text: "Fitting Models with JAGS"
             href: bayesian-examples.qmd
 
+# Each type below gets a title bar (type, number, name) apart from the body,
+# and folds, open by default: the callouty-theorem defaults since 1.4.0.
 callouty-theorem:
   thm:
-    title-ref: true
-    override-title: false # do not have the filter set
-                          # or override a callout title
-    callout: # parameters of the wrapping callout
-             # see Quarto callout docs for details
-      type: lem  # same color as lem (royal blue); color set in custom-callout block below
-      appearance: minimal
-      collapse: false # foldable, open by default
-  lem:
-    title-ref: true
-    override-title: false
     callout:
       type: lem
-      appearance: minimal
-      collapse: false # foldable, open by default
+  lem:
+    callout:
+      type: lem
   cor:
-    title-ref: true
-    override-title: false
     callout:
       type: cor
-      appearance: minimal
-      collapse: false # foldable, open by default
   prp:
-    title-ref: true
-    override-title: false
     callout:
       type: prp
-      appearance: minimal
-      collapse: false # foldable, open by default
   cnj:
-    title-ref: true
-    override-title: false
     callout:
       type: cnj
-      appearance: minimal
-      collapse: false # foldable, open by default
   def:
-    title-ref: true
-    override-title: false
     callout:
       type: def
-      appearance: minimal
-      collapse: false # foldable, open by default
   exm:
-    title-ref: true
-    override-title: false
     callout:
       type: exm
-      appearance: minimal
-      collapse: false # foldable, open by default
   exr:
-    title-ref: true
-    override-title: false
     callout:
       type: exr
-      appearance: minimal
-      collapse: false # foldable, open by default
   proof: # also support wrapping proof-like environments
     override-title: true # override the callout title with
                          # the proof-type label,
@@ -211,12 +183,8 @@ callouty-theorem:
       collapse: true
       icon: false
   remark:
-    title-ref: true
-    override-title: false
     callout:
       type: remark
-      appearance: minimal
-      collapse: false # foldable, open by default
   # Figures and tables are wrapped whole; the caption keeps its own
   # "Figure 1" label, so there is no title override.
   fig:
@@ -274,7 +242,9 @@ format:
       dark: darkly
     # Replaces Quarto's two-way toggle with a Light / Off-white / Parchment / Dark dropdown.
     include-in-header: theme-picker.html
-    include-after-body: anchor-landing.html
+    include-after-body:
+      - anchor-landing.html
+      - table-roles.html
     css: styles.css
     toc: true
     anchor-sections: true
