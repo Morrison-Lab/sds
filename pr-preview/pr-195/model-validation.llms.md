@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 01:39:34 (PDT)
+Last modified: 2026-10-15 02:20:35 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -461,7 +461,7 @@ Last modified: 2026-10-15 01:39:34 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 7 (A held-out set estimates the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 7](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\.
+> **Exercise 7 (Held-out predictions and the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 7](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\.
 >
 > Find, given \\\mathcal{D}\_{\text{train}}\\, the expected [mean squared error](prediction.llms.md#def-prediction-mse) of the held-out predictions, in terms of the generalization error \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
 >
@@ -1372,10 +1372,10 @@ Last modified: 2026-10-15 01:39:34 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 11](#sol-loocv)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Solution 11](#sol-loocv)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
