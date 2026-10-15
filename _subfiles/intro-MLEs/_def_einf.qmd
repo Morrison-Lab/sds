@@ -1,5 +1,5 @@
 :::{#def-einf}
-#### Expected information
+#### Expected information matrix (Fisher information matrix, information matrix)
 
 The **expected information matrix**,
 also called the **Fisher information matrix**

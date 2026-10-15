@@ -1,0 +1,22 @@
+::: {#lem-normal-equations-vector}
+#### Normal equations in vector notation
+
+Let
+
+$$
+A \eqdef \sumin \soprod{\vxi},
+\qquad
+\v{c} \eqdef \sumin \vxi y_i.
+$$
+
+The [normal equations](#def-normal-equations) of a simple linear regression
+are equivalent to
+
+$$A \vcoef = \v{c}.$$
+:::
+
+::: proof
+
+This is the solution to @exr-normal-equations-vector.
+
+:::

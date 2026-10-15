@@ -1,5 +1,5 @@
 ::: {#def-contingency-table}
-#### Contingency table
+#### Contingency table (cross-tabulation)
 
 A **contingency table** (or **cross-tabulation**) displays
 the joint frequencies of two categorical variables:

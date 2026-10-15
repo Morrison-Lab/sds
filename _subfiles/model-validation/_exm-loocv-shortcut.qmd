@@ -50,7 +50,7 @@ The two columns differ by at most `r format(signif(loocv_max_diff, 2), scientifi
 which is rounding error.
 The single-fit formula needs one fit per model instead of 32.
 LOOCV picks degree `r mtcars_best_loocv`,
-and because LOOCV is not random (@sol-loocv),
+and because LOOCV is not random (@lem-loocv-not-random),
 rerunning it always gives the same choice.
 
 :::

@@ -12,7 +12,7 @@ $$\Prf{A_1 \cup A_2 \cup \cdots \cup A_m} = 1 - \paren{1 - \siglevel}^m.$$
 
 ::: proof
 
-The last line below is @sol-no-rejection-prob.
+The last line below is @lem-no-rejection-prob.
 
 $$
 \begin{aligned}

@@ -33,3 +33,23 @@ $$
 $$
 
 :::
+
+{{< slidebreak >}}
+
+:::{#lem-bonferroni-false-positive-prob}
+#### Probability of a false positive under the Bonferroni correction
+
+Let $m$ null hypotheses have valid p-values (@def-valid-p-value),
+let $\truenulls$ be the set of $m_0$ indices of the true null hypotheses,
+and let $V$ be the number of true null hypotheses that the
+[Bonferroni correction](#def-bonferroni) at level $\siglevel$ rejects.
+Then the probability that at least one true null hypothesis is rejected is at most $m_0 \siglevel / m$:
+
+$$\Prf{V \ge 1} \le \frac{m_0 \siglevel}{m}.$$
+
+:::
+
+::: proof
+This is the solution to @exr-bonferroni-fwer, worked in @sol-bonferroni-fwer.
+It uses the union bound (@thm-union-bound).
+:::

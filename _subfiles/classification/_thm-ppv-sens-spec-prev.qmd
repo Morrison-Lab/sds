@@ -20,7 +20,7 @@ $$ {#eq-ppv-sens-spec-prev}
 
 ::: proof
 
-This result is the solution to @exr-ppv-ratio-form,
-which builds on @exr-ppv-bayes and @exr-prob-positive.
+This result is the solution to @exr-ppv-ratio-form, worked in @sol-ppv-ratio-form,
+which builds on @thm-ppv-bayes and @thm-prob-positive.
 
 :::

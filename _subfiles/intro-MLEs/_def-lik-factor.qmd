@@ -1,5 +1,5 @@
 :::{#def-lik-factor}
-#### Likelihood components
+#### Likelihood component (likelihood factor)
 
 For a dataset $\vx$ of mutually independent observations,
 the **likelihood component** (or **likelihood factor**)

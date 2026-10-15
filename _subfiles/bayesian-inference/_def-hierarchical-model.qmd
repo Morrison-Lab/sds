@@ -1,5 +1,5 @@
 ::: {#def-hierarchical-model}
-#### Hierarchical model
+#### Hierarchical model (multilevel model)
 
 A **hierarchical model**, also called a **multilevel model**,
 is a model in which the data depend on group-level parameters,
