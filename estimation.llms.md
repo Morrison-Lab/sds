@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-14 22:39:48 (PDT)
+Last modified: 2026-10-14 23:57:22 (PDT)
 
 ## 1 Scientific models
 
@@ -176,21 +176,21 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Definition 10 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) \\\hat y\\ (such as \\\hat y(x)\\ or a fitted value \\\hat y_i\\) of an observed outcome \\y\\ is the prediction minus the outcome:
 >
-> \\e\stackrel{\text{def}}{=}\hat y- y.\\
+> \\\varepsilon\stackrel{\text{def}}{=}\hat y- y.\\
 
 > **NOTE:**
 >
-> **Exercise 1 (Prediction error and residual of a fitted observation)** For an observation \\i\\ that was used to fit the model, write its [prediction error](#def-prediction-error) \\e_i\\ in terms of its [residual](#def-residual) \\r_i\\.
+> **Exercise 1 (Prediction error and residual of a fitted observation)** For an observation \\i\\ that was used to fit the model, write its [prediction error](#def-prediction-error) \\\varepsilon_i\\ in terms of its [residual](#def-residual) \\r_i\\.
 
 > **NOTE:**
 >
-> *Solution 1*. \\ \begin{aligned} e_i &= \hat y_i - y_i && \text{(definition of prediction error)}\\ &= -(y_i - \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
+> *Solution 1*. \\ \begin{aligned} \varepsilon_i &= \hat y_i - y_i && \text{(definition of prediction error)}\\ &= -(y_i - \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 1 (Prediction error is the negative of the residual)** For an observation \\i\\ that was used to fit the model, the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value) is the negative of its [residual](#def-residual):
 >
-> \\e_i = -r_i.\\
+> \\\varepsilon_i = -r_i.\\
 
 > **NOTE:**
 >
@@ -200,7 +200,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Corollary 1 (The residual is the negative of the prediction error)** For an observation \\i\\ that was used to fit the model, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
 >
-> \\r_i = -e_i.\\
+> \\r_i = -\varepsilon_i.\\
 
 > **NOTE:**
 >
@@ -268,7 +268,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > *Remark 1* (Prediction errors and residuals). The prediction in [Definition 10](#def-prediction-error) can be a [fitted value](#def-fitted-value), for an observation used to fit the model, or a prediction for an observation that was not used to fit the model. Prediction error is oriented the same way as [estimation error](#def-estimation-error): estimate minus true value.
 >
-> \\ \begin{aligned} e&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \hat{\theta}- \theta && \text{(estimation error)} \end{aligned} \\
+> \\ \begin{aligned} \varepsilon&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \hat{\theta}- \theta && \text{(estimation error)} \end{aligned} \\
 >
 > For an observation used to fit the model, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
 
@@ -276,7 +276,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Definition 11 (Mean squared error of predictions)** The **mean squared error** of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^ne_i^2.\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2.\\
 
 > **NOTE:**
 >
@@ -288,7 +288,7 @@ The accuracy of an estimator has no single, agreed formal definition. The usual 
 >
 > **Example 9 (Fitted values, residuals, and prediction errors for three points)** Take the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
 >
-> | \\x_i\\ | \\y_i\\ | \\\hat y_i = 1 + 0.5 x_i\\ | \\r_i = y_i - \hat y_i\\ | \\e_i = \hat y_i - y_i\\ |
+> | \\x_i\\ | \\y_i\\ | \\\hat y_i = 1 + 0.5 x_i\\ | \\r_i = y_i - \hat y_i\\ | \\\varepsilon_i = \hat y_i - y_i\\ |
 > |:--:|:--:|:--:|:--:|:--:|
 > | 0 | 1 | 1 | 0 | 0 |
 > | 1 | 2 | 1.5 | 0.5 | \\-0.5\\ |
