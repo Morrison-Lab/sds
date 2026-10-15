@@ -8,12 +8,13 @@ the reference estimator's, that of $\hparam_b$, in the numerator:
 
 $$\frac{\mselr{\hparam_b}}{\mselr{\hparam_a}}$$
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-relative-efficiency}
+#### Source: Relative efficiency
 
 @CaseBerg01 define the asymptotic version, through variances, in Def. 10.1.16 (p. 476);
 this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
-:::
 
 :::
 
