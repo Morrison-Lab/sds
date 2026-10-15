@@ -17,9 +17,9 @@ by at least $\varepsilon = 100$ grams.
 For each $n$ we repeat the sampling 2000 times
 and report the fraction of repeats that miss,
 with a 95% confidence interval for that probability
-(the Wilson interval from `prop.test()`),
+(the Wilson score interval with continuity correction, the default of `prop.test()`),
 next to the bound $\varpar / (n \varepsilon^2)$
-that @lem-estimation-error-bound gives,
+that @lem-estimation-error-bound gives, capped at 1 because a probability cannot exceed 1,
 using $\mselr{\bar X_n} = \varpar / n$ from [the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean).
 
 ```{r}
@@ -97,7 +97,7 @@ p <- ggplot(consistency_sim, aes(x = n)) +
   ) +
   labs(
     x = "sample size n",
-    y = "P(|sample mean - population mean| >= 100 g)"
+    y = "probability of a miss"
   )
 if (knitr::is_html_output()) plotly::ggplotly(p) else p
 ```

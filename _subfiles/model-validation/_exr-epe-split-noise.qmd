@@ -1,0 +1,21 @@
+:::{#exr-epe-split-noise}
+#### Separate the noise
+
+Suppose that, given $\newpredvar = \predvar$,
+the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
+where the noise $\noise$ has mean $0$ and variance $\varpar$,
+and that $\newoutvar$ is independent of the random [training set](#def-training-set) $\trainset$.
+Take every expectation below to be conditional on $\newpredvar = \predvar$.
+Add and subtract $\mean(\predvar)$ inside the square of the [expected squared prediction error](#def-epe),
+
+$$
+\E{\sqf{\newoutvar - \fitproc\paren{\predvar; \trainset}}},
+$$
+
+expand it, and take the expectation term by term.
+
+Two of the three terms simplify.
+Say what each becomes,
+and name the assumptions that make the cross term zero.
+
+:::

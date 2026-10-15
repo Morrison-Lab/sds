@@ -3,11 +3,11 @@
 
 Let $\vX$ have density $\p(\vx \mid \param)$ for a scalar parameter $\param$,
 under the assumptions of [the exercise on the mean of the score](intro-MLEs.qmd#exr-score-mean-zero),
-and let $T = T(\vX)$ be an [unbiased](estimation.qmd#def-unbiased) estimator of $\param$
+and let $\hparam = \hparam(\vX)$ be an [unbiased](estimation.qmd#def-unbiased) estimator of $\param$
 with finite variance.
-Show that the covariance of $T$ with the [score](intro-MLEs.qmd#def-score)
+Show that the covariance of $\hparam$ with the [score](intro-MLEs.qmd#def-score)
 $\score(\vX \mid \param)$ equals 1.
-Assume the derivative of $\E{T}$ with respect to $\param$
+Assume the derivative of $\E{\hparam}$ with respect to $\param$
 can be taken inside the integral.
 :::
 
@@ -20,27 +20,27 @@ The step that rewrites the product of the score and the density uses [the exerci
 
 $$
 \begin{aligned}
-\Covs{T}{\score}
-&= \E{T \score} - \E{T}\,\E{\score}
+\Covs{\hparam}{\score}
+&= \E{\hparam \score} - \E{\hparam}\,\E{\score}
 && \text{(definition of covariance)}\\
-&= \E{T \score} - \E{T} \cdot 0
+&= \E{\hparam \score} - \E{\hparam} \cdot 0
 && \text{(the score has mean zero)}\\
-&= \E{T \score} - 0
+&= \E{\hparam \score} - 0
 && \text{($b \cdot 0 = 0$)}\\
-&= \E{T \score}
+&= \E{\hparam \score}
 && \text{($a - 0 = a$)}\\
-&= \int T(\vx) \, \score(\vx \mid \param) \, \p(\vx \mid \param) \, d\vx
+&= \int \hparam(\vx) \, \score(\vx \mid \param) \, \p(\vx \mid \param) \, d\vx
 && \text{(definition of expectation)}\\
-&= \int T(\vx) \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
+&= \int \hparam(\vx) \paren{\deriv{\param} \log \p(\vx \mid \param)} \p(\vx \mid \param) \, d\vx
 && \text{(definition of the score)}\\
-&= \int T(\vx) \, \deriv{\param} \p(\vx \mid \param) \, d\vx
-&& \text{(density derivative through its logarithm)}\\
-&= \deriv{\param} \int T(\vx) \, \p(\vx \mid \param) \, d\vx
+&= \int \hparam(\vx) \, \deriv{\param} \p(\vx \mid \param) \, d\vx
+&& \text{(derivative of a log density)}\\
+&= \deriv{\param} \int \hparam(\vx) \, \p(\vx \mid \param) \, d\vx
 && \text{(exchange derivative and integral)}\\
-&= \deriv{\param} \E{T}
+&= \deriv{\param} \E{\hparam}
 && \text{(definition of expectation)}\\
 &= \deriv{\param} \param
-&& \text{($T$ is unbiased)}\\
+&& \text{($\hparam$ is unbiased)}\\
 &= 1
 && \text{(derivative of $\param$ with respect to $\param$)}
 \end{aligned}

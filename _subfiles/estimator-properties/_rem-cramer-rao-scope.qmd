@@ -8,11 +8,12 @@ as for the uniform distribution on $[0, \param]$,
 the conditions fail and the bound need not hold
 (compare [the uniform example](intro-MLEs.qmd#exm-information-equality-fails)).
 
-A biased estimator can beat the bound,
-because [mean squared error](estimation.qmd#thm-mse-bias-variance)
-adds squared bias to the variance,
-and trading a little bias for a large drop in variance
-can lower the mean squared error.
+A biased estimator can have a variance below the bound,
+because the bound relies on [the covariance of an estimator and the score](#exr-cov-estimator-score),
+which assumes the estimator is unbiased.
+Its [mean squared error](estimation.qmd#thm-mse-bias-variance) adds the squared bias to the variance,
+so trading a little bias for a large drop in variance
+can also lower the mean squared error.
 
 The information from $n$ independent observations is $n$ times
 the information from one,

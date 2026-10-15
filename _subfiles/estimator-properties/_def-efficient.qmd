@@ -1,11 +1,11 @@
 :::{#def-efficient}
 #### Efficient estimator
 
-An [unbiased](estimation.qmd#def-unbiased) estimator $T$ of $\param$ is **efficient**
+An [unbiased](estimation.qmd#def-unbiased) estimator $\hparam$ of $\param$ is **efficient**
 if its variance equals the [Cramér--Rao lower bound](#thm-cramer-rao):
 
 $$
-\Var{T} = \frac{1}{\einf(\param)}
+\Var{\hparam} = \frac{1}{\einf(\param)}
 $$
 
 ::: {.callout-note collapse="true"}

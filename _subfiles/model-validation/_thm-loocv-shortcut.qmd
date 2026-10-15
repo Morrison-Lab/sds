@@ -5,8 +5,8 @@ For a linear model fitted by [ordinary least squares](correlation-regression.qmd
 with every [leverage](#def-leverage) $\lev{\iobs} < 1$,
 the [leave-one-out estimate](#def-loocv)
 can be computed from the single fit to all $\nobs$ observations,
-from its [fitted values](estimation.qmd#def-fitted-value) $\fitted_{\iobs}$,
-their [prediction errors](estimation.qmd#def-prediction-error)
+from its [fitted values](prediction.qmd#def-fitted-value) $\fitted_{\iobs}$,
+their [prediction errors](prediction.qmd#def-prediction-error)
 $\prederr_{\iobs} = \fitted_{\iobs} - \outvar_{\iobs}$,
 and the leverages:
 
