@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 00:40:06 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 05:45:04 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1322,9 +1322,20 @@ Figure&nbsp;4: Prior and posterior densities of <span class="math inline">\(\pi\
 <p><span class="theorem-title"><strong>Definition 12 (Weakly informative prior)</strong></span> A <strong>weakly informative prior</strong> is a <a href="#/def-prior">prior</a> that gives little probability to implausible values of <span class="math inline">\(\theta\)</span>, while spreading its probability nearly evenly across the range of scientifically plausible values.</p>
 </div>
 </section><section class="slide level2"><div id="def-flat-prior" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Flat prior (uniform prior, noninformative prior))</strong></span> A <strong>flat prior</strong>, also called a <strong>uniform</strong> or <strong>noninformative</strong> prior, is a <a href="#/def-prior">prior</a> whose density is constant on the parameter space: <span class="math inline">\(\operatorname{p}(\theta) \propto 1\)</span> for <span class="math inline">\(\theta\in \Theta\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 13 (Flat prior (uniform prior))</strong></span> A <strong>flat prior</strong>, also called a <strong>uniform prior</strong>, is a <a href="#/def-prior">prior</a> whose density is constant on the parameter space: <span class="math inline">\(\operatorname{p}(\theta) \propto 1\)</span> for <span class="math inline">\(\theta\in \Theta\)</span>.</p>
 </div>
-</section><section class="slide level2"><div id="def-improper-prior" class="theorem definition">
+<aside class="notes"><p>A flat prior is a common choice of noninformative prior, but “noninformative prior” is the broader idea: other noninformative priors, such as Jeffreys priors, are not flat.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section class="slide level2"><div id="def-improper-prior" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Improper prior)</strong></span> An <strong>improper prior</strong> is a nonnegative function <span class="math inline">\(\operatorname{p}(\theta)\)</span>, used in place of a prior density, whose integral over the parameter space is infinite, so that it is not a probability density.</p>
 </div>
 </section><section class="slide level2"><div id="exm-prior-spectrum" class="theorem example">
