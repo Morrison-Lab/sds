@@ -7,7 +7,8 @@
 --   the callout: it gets a fold toggle and starts open.
 -- * Anchored: a div without an id gets one, `watch-<slug>` or `read-<slug>`,
 --   from the id of an embedded video (`vid-...`), else the text of its first
---   link (or the YouTube id of that link), else its first paragraph, made unique
+--   link (or the YouTube id of that link), else the key of its first citation,
+--   else its first paragraph or list item, made unique
 --   within the page. The id goes on a wrapper div around the callout, so
 --   `page.html#watch-...` links to it. An id the author wrote is kept as it is.
 -- A single div opts out of folding with `collapse="none"`.
