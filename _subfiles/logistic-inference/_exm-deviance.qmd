@@ -16,6 +16,6 @@ wf_dev_glm <- deviance(wf_fit)
 c(by_hand = wf_dev_hand, glm = wf_dev_glm)
 ```
 
-Both give $D = `r round(wf_dev_glm, 3)`$.
+Both give $\deviance = `r round(wf_dev_glm, 3)`$.
 
 :::

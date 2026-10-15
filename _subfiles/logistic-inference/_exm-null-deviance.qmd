@@ -2,7 +2,7 @@
 
 #### The null deviance of the six-patient trial
 
-Three of the six patients recovered, so $\bar\outvar = 1/2$ and @eq-null-deviance gives $D_0 = 2 \times 6 \ln 2$.
+Three of the six patients recovered, so $\bar\outvar = 1/2$ and @eq-null-deviance gives $\nulldeviance = 2 \times 6 \ln 2$.
 
 ```{r}
 #| code-fold: false
@@ -13,6 +13,6 @@ wf_null_glm <- wf_fit$null.deviance
 c(by_hand = wf_null_hand, glm = wf_null_glm)
 ```
 
-Both give $D_0 = `r round(wf_null_glm, 3)`$.
+Both give $\nulldeviance = `r round(wf_null_glm, 3)`$.
 
 :::

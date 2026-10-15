@@ -2,17 +2,17 @@
 
 #### The drop in deviance is the likelihood ratio statistic
 
-Let $D_0$ be the [null deviance](#def-null-deviance) and $D$ the [deviance](#def-deviance) of a logistic regression with $q$ predictors besides the intercept.
+Let $\nulldeviance$ be the [null deviance](#def-null-deviance) and $\deviance$ the [deviance](#def-deviance) of a logistic regression with $q$ predictors besides the intercept.
 Then the [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat) of $H_0$: all $q$ slopes are zero is
 
 $$
-\lrstat = D_0 - D.
+\lrstat = \nulldeviance - \deviance.
 $$
 
 :::
 
 ::: proof
 In the notation of the [likelihood ratio statistic](intro-MLEs.qmd#def-lrt-stat), the unrestricted MLE $\hthml$ is the fitted coefficient vector $\hvcoef$, and $\hparam_0$ is the fit of the intercept-only model that $H_0$ imposes.
-Then $\llikf{\hthml} = -D / 2$ and $\llikf{\hparam_0} = -D_0 / 2$.
-Substituting both into the definition gives $\lrstat = 2 \paren{-D/2 + D_0/2} = D_0 - D$.
+Then $\llikf{\hthml} = -\deviance / 2$ and $\llikf{\hparam_0} = -\nulldeviance / 2$.
+Substituting both into the definition gives $\lrstat = 2 \paren{-\deviance/2 + \nulldeviance/2} = \nulldeviance - \deviance$.
 :::

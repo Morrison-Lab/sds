@@ -34,6 +34,8 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_exm-deviance.qmd >}}
 
+{{< include sds/_subfiles/logistic-inference/_rem-deviance-shortfall.qmd >}}
+
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/logistic-inference/_def-null-deviance.qmd >}}
@@ -41,6 +43,8 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/logistic-inference/_exm-null-deviance.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-null-deviance-fit.qmd >}}
 
 {{< slidebreak >}}
 
