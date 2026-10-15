@@ -2,14 +2,14 @@
 #### The expected generalization error averages the error at each covariate value
 
 If the random [training set](#def-training-set) $\trainset$
-is independent of the new observation $(X_0, Y_0)$,
+is independent of the new observation $(\newpredvar, \newoutvar)$,
 the [expected generalization error](#def-expected-generalization-error)
-of a [fitting procedure](#def-fitting-procedure) $g$
-is the mean of its [expected squared prediction error at $x$](#def-epe)
-over the distribution of $X_0$:
+of a [fitting procedure](#def-fitting-procedure) $\fitproc$
+is the mean of its [expected squared prediction error at $\predvar$](#def-epe)
+over the distribution of $\newpredvar$:
 
 $$
-\expgenerr{g}{n} = \E{\epe{g}{n}{X_0}}.
+\expgenerr{\fitproc}{\nobs} = \E{\epe{\fitproc}{\nobs}{\newpredvar}}.
 $$ {#eq-expected-error-epe}
 
 :::

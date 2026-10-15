@@ -13,7 +13,7 @@ are replaced by one plotting helper.
 
 This example (@exm-train-validation-test-split)
 uses R's built-in `mtcars` dataset
-($n=32$ cars)
+($\nobs=32$ cars)
 to predict fuel efficiency (`mpg`)
 from vehicle weight (`wt`).
 It uses one random split

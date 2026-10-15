@@ -2,13 +2,13 @@
 #### Score a fitted model on a car it has not seen
 
 A [prediction rule](#def-prediction-rule) $\fitted$
-has been fitted to a [training set](#def-training-set) $\trainset$ of $n$ observations,
+has been fitted to a [training set](#def-training-set) $\trainset$ of $\nobs$ observations,
 such as the 20 training cars of @exr-overfitting.
-A new car $(X_0, Y_0)$ is then drawn from the same population,
+A new car $(\newpredvar, \newoutvar)$ is then drawn from the same population,
 independently of $\trainset$.
 
 1. Holding $\trainset$ fixed,
-   write the average squared [prediction error](estimation.qmd#def-prediction-error)
+   write the average squared [prediction error](prediction.qmd#def-prediction-error)
    that $\fitted$ would make over all such new cars,
    as an expectation.
 2. Which parts of your expression do you know,

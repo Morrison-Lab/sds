@@ -1,7 +1,7 @@
 :::{#exr-overfitting}
 #### Training error versus error on new cars
 
-The built-in `mtcars` data frame has $n = 32$ cars.
+The built-in `mtcars` data frame has $\nobs = 32$ cars.
 Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`,
 of degree 1, 2, 3, and 4,
 using only the first 20 rows as the [training set](#def-training-set).

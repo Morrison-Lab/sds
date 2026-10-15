@@ -10,11 +10,15 @@ format:
     output-file: nonparametric-models-handout.docx
 ---
 
-## Empirical CDF
+## Empirical distribution
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
-<!-- No slidebreak here: the heading shares its slide with the def-empirical-cdf div. -->
+<!-- No slidebreak here: the heading shares its slide with the def-empirical-distribution div. -->
+
+{{< include sds/_subfiles/nonparametric-models/_def-empirical-distribution.qmd >}}
+
+## Empirical CDF
 
 {{< include sds/_subfiles/nonparametric-models/_def-empirical-cdf.qmd >}}
 
