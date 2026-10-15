@@ -1,5 +1,5 @@
 ::: {#def-sample-p-quantile}
-#### Sample quantile (sample $100p$th percentile)
+#### Sample $p$ quantile (sample $100p$th percentile)
 
 For a given $p$, the value $\hat Q(p)$ of the [sample quantile function](#def-sample-quantile)
 is the **sample $p$ quantile**,
