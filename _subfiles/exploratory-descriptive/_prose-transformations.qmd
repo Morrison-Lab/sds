@@ -35,7 +35,7 @@ wcgs |>
   ggplot2::ggplot() +
   ggplot2::aes(x = sbp) +
   ggplot2::geom_histogram(bins = 30, fill = "coral", color = "white") +
-  ggplot2::scale_x_log10(breaks = c(100, 140, 200, 250)) +
+  ggplot2::scale_x_log10(breaks = c(100, 140, 200)) +
   ggplot2::labs(x = "Systolic BP (mmHg), log scale", y = "Count")
 ```
 
