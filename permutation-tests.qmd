@@ -90,6 +90,7 @@ resources:
 
 - @good2005permutation is a book-length treatment of permutation tests.
 - @phipson2010permutation explains why Monte Carlo permutation p-values need the added 1.
+- Chapter 12 of the [*Computational and Inferential Thinking*](https://www.inferentialthinking.com/) textbook for UC Berkeley's Data 8 tests hypotheses by permutation, in plain-language A/B tests; its Creative Commons NoDerivatives license allows linking but not adapting.
 - Chapter 13 of @james2021islr2e applies permutation and other resampling methods to multiple testing.
 
 ## References {.unnumbered}

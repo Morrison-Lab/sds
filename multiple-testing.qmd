@@ -184,6 +184,7 @@ resources:
 - Chapter 13 of @james2021islr2e covers the same procedures, with labs.
 - Chapter 15 of @efron2016computer treats large-scale testing and the false discovery rate.
 - Andrew Lin's [notes on Stanford STATS 300C](https://web.stanford.edu/~lindrew/stats300C.pdf) (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.
+- Will Fithian's [Stat 212A, *Topics in Selective Inference*](https://www.stat.berkeley.edu/~wfithian/courses/stat212a/) (UC Berkeley, Fall 2015) has a syllabus, references and homework with solutions on inference after selection, including multiple testing.
 - The [permutation tests](permutation-tests.qmd) page computes valid p-values by relabeling the data,
   without a distributional model for the test statistic.
 
