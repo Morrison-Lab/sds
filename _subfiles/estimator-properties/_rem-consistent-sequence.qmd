@@ -1,0 +1,15 @@
+:::{#rem-consistent-sequence}
+#### Consistency describes a sequence of estimators
+
+An estimator such as the [sample mean](exploratory-descriptive.qmd#def-sample-mean)
+is a formula that applies to any sample size,
+so $\hparam_1, \hparam_2, \ldots$ is a sequence of estimators,
+one for each $n$.
+[Unbiasedness](estimation.qmd#def-unbiased) and
+[mean squared error](estimation.qmd#def-mse)
+describe an estimator at one fixed sample size;
+consistency describes what happens to the whole sequence as $n$ grows.
+An estimator can be consistent and biased at every $n$,
+or unbiased at every $n$ and not consistent
+(the single-observation estimator $X_1$ of a mean is the standard example).
+:::

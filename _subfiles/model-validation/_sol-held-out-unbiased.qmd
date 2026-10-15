@@ -1,37 +1,37 @@
 :::{#sol-held-out-unbiased}
 
 Given $\trainset$, the rule $\fitted$ is fixed.
-Each held-out pair has the same distribution as $(X_0, Y_0)$
+Each held-out pair has the same distribution as $(\newpredvar, \newoutvar)$
 and is independent of $\trainset$,
 so each squared prediction error has conditional expectation
-$\E{\sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset} = \generr_{\trainset}$
+$\E{\sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset} = \generr_{\trainset}$
 by @eq-generalization-error.
 Then
 
 $$
 \ba
-& \E{\frac{1}{m} \sumto{j}{m} \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+& \E{\frac{1}{\nheld} \sumto{\ifold}{\nheld} \sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}
 \\
-&\quad = \frac{1}{m} \E{\sumto{j}{m} \sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
-&& \text{(constant } 1/m \text{ out)}
+&\quad = \frac{1}{\nheld} \E{\sumto{\ifold}{\nheld} \sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}
+&& \text{(constant } 1/\nheld \text{ out)}
 \\
-&\quad = \frac{1}{m} \sumto{j}{m} \E{\sqf{\fitted(X_{0,j}) - Y_{0,j}} \mid \trainset}
+&\quad = \frac{1}{\nheld} \sumto{\ifold}{\nheld} \E{\sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}
 && \text{(linearity of } \Ep \text{)}
 \\
-&\quad = \frac{1}{m} \sumto{j}{m} \generr_{\trainset}
+&\quad = \frac{1}{\nheld} \sumto{\ifold}{\nheld} \generr_{\trainset}
 && \text{(each term, as above)}
 \\
-&\quad = \frac{1}{m} \paren{m \, \generr_{\trainset}}
-&& \text{(} m \text{ equal terms)}
+&\quad = \frac{1}{\nheld} \paren{\nheld \, \generr_{\trainset}}
+&& \text{(} \nheld \text{ equal terms)}
 \\
-&\quad = \paren{\frac{1}{m} \cdot m} \generr_{\trainset}
+&\quad = \paren{\frac{1}{\nheld} \cdot \nheld} \generr_{\trainset}
 && \text{(regroup the product)}
 \\
 &\quad = 1 \cdot \generr_{\trainset}
-&& (\tfrac{1}{m} \cdot m = 1)
+&& (\tfrac{1}{\nheld} \cdot \nheld = 1)
 \\
 &\quad = \generr_{\trainset}
-&& (1 \cdot b = b)
+&& \text{(multiplying by 1 changes nothing)}
 \ea
 $$
 
