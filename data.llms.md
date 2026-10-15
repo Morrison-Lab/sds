@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:42:47 (PDT)
+Last modified: 2026-10-15 12:56:30 (PDT)
 
 ## 1 Types of variables
 
@@ -115,10 +115,10 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 > **NOTE:**
 >
 > **Definition 10 (Dummy variables)** **Dummy variables** are numeric variables that, together, are a numeric representation of a categorical variable.
+
+> **NOTE:**
 >
-> > **NOTE:**
-> >
-> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
+> *Remark 3* (Source: Dummy variables). Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
 
 > **NOTE:**
 >
@@ -126,27 +126,27 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 3* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett ([2018](#ref-dobson4e)), section 2.4, for details.
+> *Remark 4* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett ([2018](#ref-dobson4e)), section 2.4, for details.
 
 > **NOTE:**
 >
 > **Definition 11 (Indicator variable)** An **indicator variable** is a [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
->
-> > **NOTE:**
-> >
-> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
 
 > **NOTE:**
 >
-> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 3](#rem-dummy-other-codings)) is not an indicator variable.
+> *Remark 5* (Source: Indicator variable). Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
+
+> **NOTE:**
+>
+> **Example 11 (Indicator variables for chromosomal sex)** In [Example 10](#exm-dummy-sex), \\M\\ and \\F\\ are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values \\-1\\ and \\1\\ ([Remark 4](#rem-dummy-other-codings)) is not an indicator variable.
 
 > **NOTE:**
 >
 > **Definition 12 (Reference level)** The **reference level** of a categorical variable is the category that does not have its own [indicator variable](#def-indicator-variable). An observation in the reference level has the value 0 for every indicator variable of that categorical variable.
+
+> **NOTE:**
 >
-> > **NOTE:**
-> >
-> > Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)), who call this the corner point parameterization.
+> *Remark 6* (Source: Reference level). Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)), who call this the corner point parameterization.
 
 > **NOTE:**
 >
@@ -154,7 +154,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 4* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
+> *Remark 7* (Any category can be the reference level). The choice of reference level changes how we code the categories. It does not change what the data say. For example, in [Example 12](#exm-reference-level-sex), we could instead use “male” as the reference level and the indicator variable \\F\\ for “female”. Both choices describe the same two groups.
 
 ## 3 Taxonomy of variable types
 

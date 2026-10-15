@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 12:42:47 (PDT)
+Last modified: 2026-10-15 12:56:30 (PDT)
 
 ## 1 Introduction
 
@@ -708,16 +708,17 @@ The WCGS dataset already contains log-transformed versions of two variables:
 > ``` downlit
 > wcgs |>
 >   ggplot2::ggplot() +
->   ggplot2::aes(x = lnsbp) +
+>   ggplot2::aes(x = sbp) +
 >   ggplot2::geom_histogram(bins = 30, fill = "coral", color = "white") +
->   ggplot2::labs(x = "log(Systolic BP)", y = "Count")
+>   ggplot2::scale_x_log10(breaks = c(100, 140, 200, 250)) +
+>   ggplot2::labs(x = "Systolic BP (mmHg), log scale", y = "Count")
 > ```
 >
 > [![](exploratory-descriptive_files/figure-html/unnamed-chunk-19-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-19-1.png "Figure 9 (b): Log scale")
 >
 > \(b\) Log scale
 >
-> Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales
+> Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales. Both panels label the axis in mmHg; the right panel spaces the values logarithmically, so its histogram is the histogram of `lnsbp`.
 
 Show R code
 
@@ -772,26 +773,26 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
->
-> > **NOTE:**
-> >
-> > James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
 
 > **NOTE:**
 >
-> *Remark 5* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
+> *Remark 5* (Source: Standardization). James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
+
+> **NOTE:**
+>
+> *Remark 6* (Standardized values have no units). In [Exercise 2](#exr-standardize), the standardized value of a cholesterol of 250 mg/dL is the number of sample standard deviations between 250 and the sample mean. Standardizing puts variables measured in different units on a comparable scale. For example, a salary in dollars and an age in years both become unitless numbers of standard deviations.
 
 > **NOTE:**
 >
 > **Theorem 2 (Standardized values have mean 0 and standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
->
-> > **NOTE:**
-> >
-> > Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
 
 > **NOTE:**
 >
 > *Proof*. The sample mean of the \\z_i\\ is \\ \begin{aligned} \frac{1}{n}\sum\_{i=1}^n\frac{x_i - \bar x}{s} &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i - \bar x\right)\mathclose{}\\ &= \frac{1}{s} (\bar x - \bar x)\\ &= 0. \end{aligned} \\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\ \begin{aligned} \frac{1}{n-1} \sum\_{i=1}^nz_i^2 &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar x)^2\\ &= \frac{s^2}{s^2}\\ &= 1, \end{aligned} \\ so their sample standard deviation is \\\sqrt{1} = 1\\.
+
+> **NOTE:**
+>
+> *Remark 7* (Source: Standardized values have mean 0 and standard deviation 1). Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
 
 > **NOTE:**
 >
@@ -812,14 +813,14 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
->
-> > **NOTE:**
-> >
-> > Géron ([2017](#ref-geron2017hands), ch. 2).
 
 > **NOTE:**
 >
-> *Remark 6* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+> *Remark 8* (Source: Min-max scaling). Géron ([2017](#ref-geron2017hands), ch. 2).
+
+> **NOTE:**
+>
+> *Remark 9* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
 >
 > Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
 
