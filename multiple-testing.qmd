@@ -144,6 +144,11 @@ resources:
 
 {{< include sds/_subfiles/multiple-testing/_thm-holm-fwer.qmd >}}
 
+::: {.reading}
+- @CaseBerg01 [Sec. 11.2.5, pp. 534--535] covers simultaneous estimation of contrasts.
+- @rice2007mathematical [Sec. 12.2.2, pp. 485--487] covers multiple comparisons.
+:::
+
 {{< slidebreak >}}
 
 ## Controlling the false discovery rate {#sec-fdr-control}
@@ -181,3 +186,8 @@ resources:
 - Andrew Lin's [notes on Stanford STATS 300C](https://web.stanford.edu/~lindrew/stats300C.pdf) (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.
 - The [permutation tests](permutation-tests.qmd) page computes valid p-values by relabeling the data,
   without a distributional model for the test statistic.
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

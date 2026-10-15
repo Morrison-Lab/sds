@@ -26,6 +26,11 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-crosstab.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 7.3, pp. 323--328] covers confidence intervals for proportions.
+- @hoggtanis2015 [Sec. 8.4, pp. 385--391] covers tests about proportions.
+:::
+
 {{< slidebreak >}}
 
 ### The chi-square test {#sec-chi-square}
@@ -50,6 +55,14 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-chisq.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 9.1, pp. 425--434] covers chi-square goodness-of-fit tests.
+- @hoggtanis2015 [Sec. 9.2, pp. 435--445] covers contingency tables.
+- @rice2007mathematical [Sec. 13.3, pp. 516--519] covers the chi-square test of homogeneity.
+- @rice2007mathematical [Sec. 13.4, pp. 520--522] covers the chi-square test of independence.
+- @rice2007mathematical [Sec. 9.5, pp. 341--346] covers likelihood ratio tests for the multinomial distribution.
+:::
+
 {{< slidebreak >}}
 
 ### Fisher's exact test {#sec-fisher}
@@ -62,11 +75,19 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-fisher.qmd >}}
 
+::: {.reading}
+@rice2007mathematical [Sec. 13.2, pp. 514--515] covers Fisher's exact test.
+:::
+
 {{< slidebreak >}}
 
 ### Measures of association for $2 \times 2$ tables {#sec-2x2-measures}
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-2x2-measures.qmd >}}
+
+::: {.reading}
+@rice2007mathematical [Sec. 13.6, pp. 526--529] covers odds ratios.
+:::
 
 ## References {.unnumbered}
 
