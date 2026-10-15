@@ -6,7 +6,7 @@ for a scalar parameter $\param$.
 Suppose the set of possible data values does not depend on $\param$,
 and the order of differentiation with respect to $\param$
 and integration over the data can be exchanged.
-Show that the [score](#def-score) has mean zero.
+Find the mean of the [score](#def-score).
 :::
 
 {{< slidebreak >}}

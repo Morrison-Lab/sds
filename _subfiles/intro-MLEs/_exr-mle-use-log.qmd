@@ -2,8 +2,8 @@
 #### Comparing likelihoods through log-likelihoods
 
 Suppose $\Lik(\param) > 0$ for every $\param$.
-Show that a parameter value $\param^*$ maximizes the likelihood $\Lik$
-if and only if it maximizes the [log-likelihood](#def-loglik) $\lik$.
+Determine how the parameter values that maximize the likelihood $\Lik$
+relate to the parameter values that maximize the [log-likelihood](#def-loglik) $\lik$.
 :::
 
 {{< slidebreak >}}
@@ -16,5 +16,6 @@ $\Lik(\param_1) \ge \Lik(\param_2)$ if and only if $\log \Lik(\param_1) \ge \log
 that is, $\lik(\param_1) \ge \lik(\param_2)$.
 So $\param^*$ satisfies $\Lik(\param^*) \ge \Lik(\param)$ for every $\param$
 if and only if it satisfies $\lik(\param^*) \ge \lik(\param)$ for every $\param$.
+So a parameter value $\param^*$ maximizes $\Lik$ if and only if it maximizes $\lik$.
 
 :::

@@ -6,14 +6,7 @@ Let $\dsn{X} \siid \Normal(\mean, \varpar)$.
 **(a)** Write the likelihood $\Lik(\mean, \varpar; \vx)$
 for the observed data $\vx = (\dsn{x})$.
 
-**(b)** Write the log-likelihood $\llik(\mean, \varpar; \vx)$.
-Show that it can be written as
-
-$$
-\llik(\mean, \varpar; \vx)
-= -\frac{n}{2}\logf{2\pi\varpar}
-  - \frac{1}{2\varpar}\sumin (x_i - \mean)^2.
-$$
+**(b)** Write the log-likelihood $\llik(\mean, \varpar; \vx)$ in simplified form.
 
 **(c)** Derive the MLE $\hmean_{ML}$ and $\hvarpar_{ML}$.
 :::
