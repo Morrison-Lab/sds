@@ -87,7 +87,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./classification.html" rel="next">
-<link href="./correlation-regression.html" rel="prev">
+<link href="./prediction.html" rel="prev">
 <script src="site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -221,46 +221,6 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-tbl.callout {
-  border-left-color: #757575;
-}
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-cnj.callout {
   border-left-color: #558B2F;
 }
@@ -270,6 +230,16 @@ div.callout-cnj.callout-style-default .callout-header {
 div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -281,6 +251,16 @@ div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-remark.callout {
   border-left-color: #AD1457;
 }
@@ -291,15 +271,15 @@ div.callout-remark .callout-toggle::before {  background-image: url('data:image/
 div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-fig.callout {
-  border-left-color: #757575;
+div.callout-cor.callout {
+  border-left-color: #00838F;
 }
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
 }
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
   border-left-color: #283593;
@@ -315,35 +295,45 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   content: '\f144' !important;
   background-image: none;
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-tbl.callout {
+  border-left-color: #757575;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-def.callout {
-  border-left-color: #1B5E20;
+div.callout-proof.callout {
+  border-left-color: #37474F;
 }
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
 }
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-cor.callout {
-  border-left-color: #00838F;
+div.callout-lem.callout {
+  border-left-color: #1565C0;
 }
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
 }
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-prp.callout {
   border-left-color: #827717;
@@ -354,6 +344,16 @@ div.callout-prp.callout-style-default .callout-header {
 div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -616,6 +616,10 @@ window.Quarto = {
  <span class="dropdown-text">Correlation &amp; Regression</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./prediction.html">
+ <span class="dropdown-text">Prediction</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./model-validation.html">
  <span class="dropdown-text">Validating Predictions</span></a>
   </li>  
@@ -773,6 +777,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./prediction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prediction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./model-validation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Validating Predictions</span></a>
   </div>
@@ -866,7 +876,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-15 00:45:59 (PDT)</p>
+      <p class="date">Last modified: 2026-10-15 00:58:20 (PDT)</p>
     </div>
   </div>
   
@@ -1020,7 +1030,7 @@ text-align: center;
 <div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-fitting-procedure" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Fitting procedure)</strong></span> A <strong>fitting procedure</strong> is a rule <span class="math inline">\(g\)</span> that, given any data <span class="math inline">\(\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\)</span> and any covariate value <span class="math inline">\(x\)</span>, computes a <a href="./estimation.html#def-prediction">prediction</a> of the outcome at <span class="math inline">\(x\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 4 (Fitting procedure)</strong></span> A <strong>fitting procedure</strong> is a rule <span class="math inline">\(g\)</span> that, given any data <span class="math inline">\(\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\)</span> and any covariate value <span class="math inline">\(x\)</span>, computes a <a href="./prediction.html#def-prediction">prediction</a> of the outcome at <span class="math inline">\(x\)</span>:</p>
 <p><span id="eq-fitting-procedure"><span class="math display">\[
 \mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\right)\mathclose{}
 \mapsto
@@ -1038,7 +1048,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The rule <span class="math inline">\(g\)</span> of the <a href="./estimation.html#def-prediction">definition of a prediction</a>. <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#ref-hastie2009elements" role="doc-biblioref">2009, sec. 7.2</a>)</span> write the model estimated from a training set as <span class="math inline">\(\hat f\)</span>.</p>
+<p>The rule <span class="math inline">\(g\)</span> of the <a href="./prediction.html#def-prediction">definition of a prediction</a>. <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#ref-hastie2009elements" role="doc-biblioref">2009, sec. 7.2</a>)</span> write the model estimated from a training set as <span class="math inline">\(\hat f\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1096,7 +1106,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-10" class="callout-10-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-prediction-rule" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Prediction rule)</strong></span> The <strong>prediction rule</strong> <span class="math inline">\(\hat y\)</span> that a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is the function that maps each covariate value <span class="math inline">\(x\)</span> to the <a href="./estimation.html#def-prediction">prediction</a> that <span class="math inline">\(g\)</span> computes from <span class="math inline">\(x\)</span> and <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 6 (Prediction rule)</strong></span> The <strong>prediction rule</strong> <span class="math inline">\(\hat y\)</span> that a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is the function that maps each covariate value <span class="math inline">\(x\)</span> to the <a href="./prediction.html#def-prediction">prediction</a> that <span class="math inline">\(g\)</span> computes from <span class="math inline">\(x\)</span> and <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
 <p><span id="eq-prediction-rule"><span class="math display">\[
 \hat y: x\mapsto g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}.
 \tag{6}\]</span></span></p>
@@ -1117,7 +1127,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-generalization-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Generalization error)</strong></span> The <strong>generalization error</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is its expected squared <a href="./estimation.html#def-prediction-error">prediction error</a> on a new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> drawn from the same population independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, with <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> held fixed:</p>
+<p><span class="theorem-title"><strong>Definition 7 (Generalization error)</strong></span> The <strong>generalization error</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is its expected squared <a href="./prediction.html#def-prediction-error">prediction error</a> on a new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> drawn from the same population independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, with <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> held fixed:</p>
 <p><span id="eq-generalization-error"><span class="math display">\[
 \operatorname{Err}_{\mathcal{D}_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left(\hat y(X_{*}) - Y_{*}\right)^2\mathclose{} \mid \mathcal{D}_{\text{train}}\right]\mathclose{}.
 \tag{7}\]</span></span></p>
@@ -1191,7 +1201,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-15" class="callout-15-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-prediction-rmse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Root mean squared error of predictions)</strong></span> The <strong>root mean squared error</strong> (RMSE) of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the square root of their <a href="./estimation.html#def-prediction-mse">mean squared error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 9 (Root mean squared error of predictions)</strong></span> The <strong>root mean squared error</strong> (RMSE) of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the square root of their <a href="./prediction.html#def-prediction-mse">mean squared error</a>:</p>
 <p><span id="eq-prediction-rmse"><span class="math display">\[
 \operatorname{RMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}}.
 \tag{9}\]</span></span></p>
@@ -1212,7 +1222,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-17" class="callout-17-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-training-mse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Training error)</strong></span> The <strong>training error</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is the <a href="./estimation.html#def-prediction-mse">mean squared error</a> of its <a href="./estimation.html#def-fitted-value">fitted values</a> <span class="math inline">\(\hat y_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, as predictions of the training outcomes <span class="math inline">\(y_{i}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 10 (Training error)</strong></span> The <strong>training error</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is the <a href="./prediction.html#def-prediction-mse">mean squared error</a> of its <a href="./prediction.html#def-fitted-value">fitted values</a> <span class="math inline">\(\hat y_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, as predictions of the training outcomes <span class="math inline">\(y_{i}\)</span>:</p>
 <p><span id="eq-training-mse"><span class="math display">\[
 \overline{\operatorname{err}}\stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I} \mathopen{}\left(\hat y_{i} - y_{i}\right)^2\mathclose{}.
 \tag{10}\]</span></span></p>
@@ -1384,7 +1394,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="exr-generalization-error" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 2 (Score a fitted model on a car it has not seen)</strong></span> A <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> has been fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations, such as the 20 training cars of <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>. A new car <span class="math inline">\((X_{*}, Y_{*})\)</span> is then drawn from the same population, independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
 <ol type="1">
-<li>Holding <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> fixed, write the average squared <a href="./estimation.html#def-prediction-error">prediction error</a> that <span class="math inline">\(\hat y\)</span> would make over all such new cars, as an expectation.</li>
+<li>Holding <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> fixed, write the average squared <a href="./prediction.html#def-prediction-error">prediction error</a> that <span class="math inline">\(\hat y\)</span> would make over all such new cars, as an expectation.</li>
 <li>Which parts of your expression do you know, and which do you not know?</li>
 <li>The training RMSE of <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> is the square root of the <a href="#def-training-mse">training error</a> <span class="math inline">\(\overline{\operatorname{err}}\)</span>. What does <span class="math inline">\(\overline{\operatorname{err}}\)</span> use in place of your expectation?</li>
 </ol>
@@ -1491,7 +1501,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-28" class="callout-28-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-epe" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14 (Expected squared prediction error at a covariate value)</strong></span> The <strong>expected squared prediction error at <span class="math inline">\(x\)</span></strong> of a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the mean squared <a href="./estimation.html#def-prediction-error">prediction error</a> of its prediction at <span class="math inline">\(x\)</span> for a new outcome <span class="math inline">\(Y_{*}\)</span> with <span class="math inline">\(X_{*}= x\)</span>, averaged over random <a href="#def-training-set">training sets</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently of <span class="math inline">\((X_{*}, Y_{*})\)</span>, and over <span class="math inline">\(Y_{*}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 14 (Expected squared prediction error at a covariate value)</strong></span> The <strong>expected squared prediction error at <span class="math inline">\(x\)</span></strong> of a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the mean squared <a href="./prediction.html#def-prediction-error">prediction error</a> of its prediction at <span class="math inline">\(x\)</span> for a new outcome <span class="math inline">\(Y_{*}\)</span> with <span class="math inline">\(X_{*}= x\)</span>, averaged over random <a href="#def-training-set">training sets</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently of <span class="math inline">\((X_{*}, Y_{*})\)</span>, and over <span class="math inline">\(Y_{*}\)</span>:</p>
 <p><span id="eq-epe"><span class="math display">\[
 \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{} - Y_{*}\right)^2\mathclose{} \mid X_{*}= x\right]\mathclose{}.
 \tag{13}\]</span></span></p>
@@ -2040,7 +2050,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <div class="callout-body-container callout-body">
 <div id="exr-held-out-unbiased" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 5 (A held-out set estimates the generalization error)</strong></span> A <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> is fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. A <a href="#def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> is drawn from the same population as the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span> of <a href="#def-generalization-error" class="quarto-xref">Definition&nbsp;7</a>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
-<p>Show that, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected <a href="./estimation.html#def-prediction-mse">mean squared error</a> of the held-out predictions is <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>:</p>
+<p>Show that, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the held-out predictions is <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>:</p>
 <p><span class="math display">\[
 \operatorname{E}\mathopen{}\left[\frac{1}{m} \sum_{j=1}^{m} \mathopen{}\left(\hat y(X_{*,j}) - Y_{*,j}\right)^2\mathclose{} \mid \mathcal{D}_{\text{train}}\right]\mathclose{}
 = \operatorname{Err}_{\mathcal{D}_{\text{train}}}.
@@ -2107,7 +2117,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <div id="callout-50" class="callout-50-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-held-out-unbiased" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Held-out mean squared error estimates the generalization error)</strong></span> Let a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> be fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and let a <a href="#def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> be drawn from the same population as <span class="math inline">\((X_{*}, Y_{*})\)</span>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Then, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected <a href="./estimation.html#def-prediction-mse">mean squared error</a> of the held-out predictions is the <a href="#def-generalization-error">generalization error</a>:</p>
+<p><span class="theorem-title"><strong>Theorem 3 (Held-out mean squared error estimates the generalization error)</strong></span> Let a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> be fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and let a <a href="#def-held-out-set">held-out set</a> of <span class="math inline">\(m\)</span> observations <span class="math inline">\((X_{*,1}, Y_{*,1}), \ldots, (X_{*,m}, Y_{*,m})\)</span> be drawn from the same population as <span class="math inline">\((X_{*}, Y_{*})\)</span>, each independently of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Then, given <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, the expected <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the held-out predictions is the <a href="#def-generalization-error">generalization error</a>:</p>
 <p><span class="math display">\[
 \operatorname{E}\mathopen{}\left[\frac{1}{m} \sum_{j=1}^{m} \mathopen{}\left(\hat y(X_{*,j}) - Y_{*,j}\right)^2\mathclose{} \mid \mathcal{D}_{\text{train}}\right]\mathclose{}
 = \operatorname{Err}_{\mathcal{D}_{\text{train}}}.
@@ -2461,7 +2471,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div id="callout-62" class="callout-62-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-validation-choice" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 22 (Validation choice)</strong></span> Given candidate <a href="#def-fitting-procedure">fitting procedures</a> <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, the <strong>validation choice</strong> <span class="math inline">\(\hat{l}\)</span> is the index of the candidate whose <a href="#def-prediction-rule">prediction rule</a>, fitted to the training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, has the smallest <a href="./estimation.html#def-prediction-mse">mean squared error</a> on the <a href="#def-validation-set">validation set</a>:</p>
+<p><span class="theorem-title"><strong>Definition 22 (Validation choice)</strong></span> Given candidate <a href="#def-fitting-procedure">fitting procedures</a> <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, the <strong>validation choice</strong> <span class="math inline">\(\hat{l}\)</span> is the index of the candidate whose <a href="#def-prediction-rule">prediction rule</a>, fitted to the training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, has the smallest <a href="./prediction.html#def-prediction-mse">mean squared error</a> on the <a href="#def-validation-set">validation set</a>:</p>
 <p><span id="eq-validation-choice"><span class="math display">\[
 \hat{l} \stackrel{\text{def}}{=}\arg \min_{l} \frac{1}{\mathopen{}\left|I_{\text{val}}\right|\mathclose{}} \sum_{i\in I_{\text{val}}}
 \mathopen{}\left(g_{l}\mathopen{}\left(x_{i}; \mathcal{D}_{\text{train}}\right)\mathclose{} - y_{i}\right)^2\mathclose{}.
@@ -3149,7 +3159,7 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 <div id="callout-79" class="callout-79-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-cv-estimate" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 29 (Cross-validation estimate)</strong></span> The <strong><span class="math inline">\(k\)</span>-fold cross-validation estimate</strong> <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> is the <a href="./estimation.html#def-prediction-mse">mean squared error</a> of the predictions that each observation <span class="math inline">\(i\in I\)</span> of the training set receives from the <a href="#def-fold-out-rule">fold-out rule</a> of its <a href="#def-fold-assignment">fold assignment</a> <span class="math inline">\(\kappa(i)\)</span> in <a href="#def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a>:</p>
+<p><span class="theorem-title"><strong>Definition 29 (Cross-validation estimate)</strong></span> The <strong><span class="math inline">\(k\)</span>-fold cross-validation estimate</strong> <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> is the <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the predictions that each observation <span class="math inline">\(i\in I\)</span> of the training set receives from the <a href="#def-fold-out-rule">fold-out rule</a> of its <a href="#def-fold-assignment">fold assignment</a> <span class="math inline">\(\kappa(i)\)</span> in <a href="#def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a>:</p>
 <p><span id="eq-cv-estimate"><span class="math display">\[
 \widehat{\operatorname{Err}}_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I} \mathopen{}\left(\hat y^{(-\kappa(i))}\mathopen{}\left(x_{i}\right)\mathclose{} - y_{i}\right)^2\mathclose{}.
 \tag{28}\]</span></span></p>
@@ -3275,7 +3285,7 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 <div id="callout-85" class="callout-85-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-fold-mse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 30 (Fold mean squared error)</strong></span> The <strong>fold mean squared error</strong> <span class="math inline">\(\operatorname{MSE}_{j}\)</span> of <a href="#def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span> is the <a href="./estimation.html#def-prediction-mse">mean squared error</a> of the <a href="#def-fold-out-rule">fold-out rule</a>’s predictions for the <span class="math inline">\(n_{j}\)</span> (<a href="#def-fold-size">fold size</a>) observations in that fold:</p>
+<p><span class="theorem-title"><strong>Definition 30 (Fold mean squared error)</strong></span> The <strong>fold mean squared error</strong> <span class="math inline">\(\operatorname{MSE}_{j}\)</span> of <a href="#def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span> is the <a href="./prediction.html#def-prediction-mse">mean squared error</a> of the <a href="#def-fold-out-rule">fold-out rule</a>’s predictions for the <span class="math inline">\(n_{j}\)</span> (<a href="#def-fold-size">fold size</a>) observations in that fold:</p>
 <p><span id="eq-fold-mse"><span class="math display">\[
 \operatorname{MSE}_{j} \stackrel{\text{def}}{=}\frac{1}{n_{j}} \sum_{i\in \mathcal{F}_{j}} \mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x_{i}\right)\mathclose{} - y_{i}\right)^2\mathclose{}.
 \tag{30}\]</span></span></p>
@@ -3920,7 +3930,7 @@ h_{i} \stackrel{\text{def}}{=}{\tilde{t}_{i}}^{\top} A^{-1} \tilde{t}_{i}.
 <div id="callout-103" class="callout-103-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-loocv-shortcut" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 (Leave-one-out cross-validation for least squares)</strong></span> For a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a> with every <a href="#def-leverage">leverage</a> <span class="math inline">\(h_{i} &lt; 1\)</span>, the <a href="#def-loocv">leave-one-out estimate</a> can be computed from the single fit to all <span class="math inline">\(n\)</span> observations, from its <a href="./estimation.html#def-fitted-value">fitted values</a> <span class="math inline">\(\hat y_{i}\)</span>, their <a href="./estimation.html#def-prediction-error">prediction errors</a> <span class="math inline">\(\varepsilon_{i} = \hat y_{i} - y_{i}\)</span>, and the leverages:</p>
+<p><span class="theorem-title"><strong>Theorem 5 (Leave-one-out cross-validation for least squares)</strong></span> For a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a> with every <a href="#def-leverage">leverage</a> <span class="math inline">\(h_{i} &lt; 1\)</span>, the <a href="#def-loocv">leave-one-out estimate</a> can be computed from the single fit to all <span class="math inline">\(n\)</span> observations, from its <a href="./prediction.html#def-fitted-value">fitted values</a> <span class="math inline">\(\hat y_{i}\)</span>, their <a href="./prediction.html#def-prediction-error">prediction errors</a> <span class="math inline">\(\varepsilon_{i} = \hat y_{i} - y_{i}\)</span>, and the leverages:</p>
 <p><span id="eq-loocv-shortcut"><span class="math display">\[
 \widehat{\operatorname{Err}}_{\text{CV}(n)} = \frac{1}{n} \sum_{i\in I} \mathopen{}\left(\frac{\varepsilon_{i}}{1 - h_{i}}\right)^2\mathclose{}.
 \tag{35}\]</span></span></p>
@@ -5332,8 +5342,8 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./correlation-regression.html" class="pagination-link" aria-label="Correlation &amp; Regression">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Correlation &amp; Regression</span>
+      <a href="./prediction.html" class="pagination-link" aria-label="Prediction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Prediction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

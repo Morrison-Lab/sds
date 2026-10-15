@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 00:45:59 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 00:58:20 (PDT)</p>
 </section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -692,7 +692,7 @@ f_{\varepsilon}(t)
 <div id="def-rss" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Residual sum of squares)</strong></span> For a regression model whose conditional mean <span class="math inline">\(\mu(x; \tilde{\theta})\)</span> depends on a parameter vector <span class="math inline">\(\tilde{\theta}\)</span>, the <strong>residual sum of squares</strong> at <span class="math inline">\(\tilde{\theta}\)</span> is the sum of the squared residuals <span class="math inline">\(r_i(\tilde{\theta}) \stackrel{\text{def}}{=}y_i - \mu(x_i; \tilde{\theta})\)</span> that the model has when its parameters equal <span class="math inline">\(\tilde{\theta}\)</span>:</p>
 <p><span class="math display">\[\text{RSS}(\tilde{\theta}) \stackrel{\text{def}}{=}\sum_{i=1}^nr_i(\tilde{\theta})^2.\]</span></p>
-<p>At the estimate <span class="math inline">\(\hat{\tilde{\theta}}\)</span>, <span class="math inline">\(r_i(\hat{\tilde{\theta}})\)</span> is the <a href="./estimation.html#def-residual">residual</a> <span class="math inline">\(r_i\)</span> of the fitted model.</p>
+<p>At the estimate <span class="math inline">\(\hat{\tilde{\theta}}\)</span>, <span class="math inline">\(r_i(\hat{\tilde{\theta}})\)</span> is the <a href="./prediction.html#def-residual">residual</a> <span class="math inline">\(r_i\)</span> of the fitted model.</p>
 </div>
 </section><section class="slide level2"><div id="exm-rss-slr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Residual sum of squares of a simple linear regression)</strong></span> The mean function of a <a href="#/def-slr">simple linear regression</a> model has parameter vector <span class="math inline">\(\tilde{\theta}= (\beta_{0}, \beta_{x})\)</span>, so write <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> for its residual sum of squares (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>):</p>
@@ -748,10 +748,10 @@ Figure&nbsp;2: The three points, the line with intercept 1 and slope 0.5, and th
 </div>
 </div>
 </section><section class="slide level2"><div id="exr-mse-rss" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (Mean squared error and residual sum of squares)</strong></span> For a regression model with conditional mean <span class="math inline">\(\mu(x; \tilde{\theta})\)</span>, let <span class="math inline">\(\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\)</span> be its predictions of <span class="math inline">\(n \ge 1\)</span> outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span>, and let <span class="math inline">\(\text{RSS}(\tilde{\theta})\)</span> (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>) be taken over those same outcomes. Write the <a href="./estimation.html#def-prediction-mse">mean squared error</a> of these predictions in terms of <span class="math inline">\(\text{RSS}(\tilde{\theta})\)</span>, and <span class="math inline">\(\text{RSS}(\tilde{\theta})\)</span> in terms of that mean squared error.</p>
+<p><span class="theorem-title"><strong>Exercise 3 (Mean squared error and residual sum of squares)</strong></span> For a regression model with conditional mean <span class="math inline">\(\mu(x; \tilde{\theta})\)</span>, let <span class="math inline">\(\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\)</span> be its predictions of <span class="math inline">\(n \ge 1\)</span> outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span>, and let <span class="math inline">\(\text{RSS}(\tilde{\theta})\)</span> (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>) be taken over those same outcomes. Write the <a href="./prediction.html#def-prediction-mse">mean squared error</a> of these predictions in terms of <span class="math inline">\(\text{RSS}(\tilde{\theta})\)</span>, and <span class="math inline">\(\text{RSS}(\tilde{\theta})\)</span> in terms of that mean squared error.</p>
 </div>
 </section><section class="slide level2"><div id="sol-mse-rss" class="proof solution">
-<p><span class="proof-title"><em>Solution 3</em>. </span>First, each squared <a href="./estimation.html#def-prediction-error">prediction error</a> equals the squared residual at <span class="math inline">\(\tilde{\theta}\)</span>:</p>
+<p><span class="proof-title"><em>Solution 3</em>. </span>First, each squared <a href="./prediction.html#def-prediction-error">prediction error</a> equals the squared residual at <span class="math inline">\(\tilde{\theta}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \varepsilon_i^2
@@ -796,7 +796,7 @@ n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-mse-rss" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Mean squared error is the residual sum of squares divided by <span class="math inline">\(n\)</span>)</strong></span> For a regression model with conditional mean <span class="math inline">\(\mu(x; \tilde{\theta})\)</span>, the <a href="./estimation.html#def-prediction-mse">mean squared error</a> of its predictions <span class="math inline">\(\hat y_i = \mu(x_i; \tilde{\theta})\)</span> of <span class="math inline">\(n \ge 1\)</span> outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> and the residual sum of squares <span class="math inline">\(\text{RSS}(\tilde{\theta})\)</span> (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>) over those same <span class="math inline">\(n\)</span> outcomes satisfy</p>
+<p><span class="theorem-title"><strong>Theorem 4 (Mean squared error is the residual sum of squares divided by <span class="math inline">\(n\)</span>)</strong></span> For a regression model with conditional mean <span class="math inline">\(\mu(x; \tilde{\theta})\)</span>, the <a href="./prediction.html#def-prediction-mse">mean squared error</a> of its predictions <span class="math inline">\(\hat y_i = \mu(x_i; \tilde{\theta})\)</span> of <span class="math inline">\(n \ge 1\)</span> outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> and the residual sum of squares <span class="math inline">\(\text{RSS}(\tilde{\theta})\)</span> (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>) over those same <span class="math inline">\(n\)</span> outcomes satisfy</p>
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\tilde{\theta}),\]</span></p>
 <p>and equivalently</p>
 <p><span class="math display">\[\text{RSS}(\tilde{\theta}) = n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\]</span></p>
@@ -1849,7 +1849,7 @@ Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
 <p><span class="theorem-title"><strong>Exercise 16 (Residual sum of squares of the OLS fit)</strong></span> Assuming <span class="math inline">\(S_{xx} &gt; 0\)</span> (<a href="#/def-centered-sums" class="quarto-xref">Definition&nbsp;14</a>), write the <a href="#/def-rss">residual sum of squares</a> at the OLS estimates (<a href="#/thm-ols-slr" class="quarto-xref">Theorem&nbsp;5</a>), <span class="math inline">\(\text{RSS}(\hat{\beta}_{0}, \hat{\beta}_{x}) = \sum_{i=1}^nr_i^2\)</span>, in terms of <span class="math inline">\(S_{xx}\)</span>, <span class="math inline">\(S_{yy}\)</span> and <span class="math inline">\(S_{xy}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-rss-ols-fit" class="proof solution">
-<p><span class="proof-title"><em>Solution 16</em>. </span>The <a href="./estimation.html#def-fitted-value">fitted values</a> of the OLS fit are <span class="math inline">\(\hat y_i = \hat{\beta}_{0}+ \hat{\beta}_{x} x_i\)</span>, so each <a href="./estimation.html#def-residual">residual</a> is</p>
+<p><span class="proof-title"><em>Solution 16</em>. </span>The <a href="./prediction.html#def-fitted-value">fitted values</a> of the OLS fit are <span class="math inline">\(\hat y_i = \hat{\beta}_{0}+ \hat{\beta}_{x} x_i\)</span>, so each <a href="./prediction.html#def-residual">residual</a> is</p>
 <p><span class="math display">\[
 \begin{aligned}
 r_i
