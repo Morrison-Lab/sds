@@ -20,120 +20,22 @@ $$ {#eq-epe-decomposition}
 
 :::
 
+
 ::: proof
 
-Write $\targeterrf{\predvar} \eqdef \mean(\predvar) - \fitproc\paren{\predvar; \trainset}$,
-the error of the prediction as an estimate of $\mean(\predvar)$.
-Given $\newpredvar = \predvar$, the noise has mean 0 by @eq-mean-function and variance $\varpar$,
-and it is independent of $\fitproc\paren{\predvar; \trainset}$
-because $\newoutvar$ is independent of $\trainset$;
-hence it is independent of $\targeterrf{\predvar}$,
-because $\mean(\predvar)$ is a constant.
-
-First, the prediction error in terms of $\noise$ and $\targeterrf{\predvar}$:
-
-$$
-\ba
-\newoutvar - \fitproc\paren{\predvar; \trainset}
-&= \paren{\mean(\predvar) + \noise} - \fitproc\paren{\predvar; \trainset}
-&& \text{(definition of } \newoutvar \text{)} \\
-&= \noise + \paren{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
-&& \text{(reorder the terms of the sum)} \\
-&= \noise + \targeterrf{\predvar}
-&& \text{(definition of } \targeterrf{\predvar} \text{)}
-\ea
-$$
-
-Next, expand the square and split the expectation.
-The first line is the definition of the expected squared prediction error at $\predvar$,
-which conditions on $\newpredvar = \predvar$;
-all expectations in the lines after it are conditional on $\newpredvar = \predvar$ too.
-The last two steps use
-[linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation),
-first for the expectation of a sum and then for a constant factor:
+By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the mean squared error of the prediction as an estimate of $\mean(\predvar)$.
+By @sol-epe-split-bias, that mean squared error is the squared bias plus the variance.
+Substituting @eq-epe-after-bias into @eq-epe-after-noise:
 
 $$
 \ba
 \epe{\fitproc}{\nobs}{\predvar}
-&= \E{\sqf{\noise + \targeterrf{\predvar}} \mid \newpredvar = \predvar}
-&& \text{(definition and the error above)} \\
-&= \E{\noise^2 + 2 \noise \targeterrf{\predvar} + \sqf{\targeterrf{\predvar}}}
-&& \text{(expand the square of a sum)} \\
-&= \E{\noise^2} + \E{2 \noise \targeterrf{\predvar}} + \E{\sqf{\targeterrf{\predvar}}}
-&& \text{(expectation of a sum)} \\
-&= \E{\noise^2} + 2\E{\noise \targeterrf{\predvar}} + \E{\sqf{\targeterrf{\predvar}}}
-&& \text{(constant factor 2)}
-\ea
-$$
-
-Each of the three terms is evaluated in turn.
-
-- For the noise term, the
-  [variance identity](https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance)
-  gives $\varpar = \E{\noise^2} - \sqf{\E{\noise}}$,
-  and $\E{\noise} = 0$, so $\E{\noise^2} = \varpar$.
-- For the cross term,
-  $\noise$ is independent of $\targeterrf{\predvar}$,
-  so the expectation of the product is the product of the expectations:
-
-  $$
-  \ba
-  \E{\noise \targeterrf{\predvar}}
-  &= \E{\noise}\E{\targeterrf{\predvar}}
-  && \text{(independence)} \\
-  &= 0 \cdot \E{\targeterrf{\predvar}}
-  && \text{(} \E{\noise} = 0 \text{)} \\
-  &= 0
-  && \text{(zero times a number)}
-  \ea
-  $$
-
-- For the last term,
-  the variance identity gives
-  $\E{\sqf{\targeterrf{\predvar}}} = \Var{\targeterrf{\predvar}} + \sqf{\E{\targeterrf{\predvar}}}$.
-  The mean of $\targeterrf{\predvar}$ is
-
-  $$
-  \ba
-  \E{\targeterrf{\predvar}}
-  &= \E{\mean(\predvar)} - \E{\fitproc\paren{\predvar; \trainset}}
-  && \text{(expectation of a difference)} \\
-  &= \mean(\predvar) - \E{\fitproc\paren{\predvar; \trainset}}
-  && \text{(} \mean(\predvar) \text{ is a constant)} \\
-  &= -\paren{\E{\fitproc\paren{\predvar; \trainset}} - \mean(\predvar)}
-  && \text{(factor out } -1 \text{)} \\
-  &= -\bias{\fitproc\paren{\predvar; \trainset}}
-  && \text{(definition of bias)}
-  \ea
-  $$
-
-  so $\sqf{\E{\targeterrf{\predvar}}} = \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}$,
-  because a number and its negative have the same square.
-  The variance of $\targeterrf{\predvar}$ is
-
-  $$
-  \ba
-  \Var{\targeterrf{\predvar}}
-  &= \E{\sqf{\targeterrf{\predvar} - \E{\targeterrf{\predvar}}}}
-  && \text{(definition of variance)} \\
-  &= \E{\sqf{-\paren{\fitproc\paren{\predvar; \trainset} - \E{\fitproc\paren{\predvar; \trainset}}}}}
-  && \text{(substitute; the constant } \mean(\predvar) \text{ cancels)} \\
-  &= \E{\sqf{\fitproc\paren{\predvar; \trainset} - \E{\fitproc\paren{\predvar; \trainset}}}}
-  && \text{(a number and its negative have the same square)} \\
-  &= \Var{\fitproc\paren{\predvar; \trainset}}
-  && \text{(definition of variance)}
-  \ea
-  $$
-
-Substituting the three terms into the expansion gives
-
-$$
-\ba
-\epe{\fitproc}{\nobs}{\predvar}
-&= \varpar + 2 \cdot 0 + \paren{\Var{\fitproc\paren{\predvar; \trainset}} + \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}}
-&& \text{(the three terms above)} \\
+&= \varpar + \E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}
+&& \text{(separating the noise)} \\
+&= \varpar + \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}}
+&& \text{(separating the bias)} \\
 &= \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}} + \varpar
-&& \text{(drop } 2 \cdot 0 \text{, reorder the terms)}
+&& \text{(reorder the terms)}
 \ea
 $$
 
