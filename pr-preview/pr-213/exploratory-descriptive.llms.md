@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 09:31:15 (PDT)
+Last modified: 2026-10-15 12:43:45 (PDT)
 
 ## 1 Introduction
 
@@ -708,16 +708,17 @@ The WCGS dataset already contains log-transformed versions of two variables:
 > ``` downlit
 > wcgs |>
 >   ggplot2::ggplot() +
->   ggplot2::aes(x = lnsbp) +
+>   ggplot2::aes(x = sbp) +
 >   ggplot2::geom_histogram(bins = 30, fill = "coral", color = "white") +
->   ggplot2::labs(x = "log(Systolic BP)", y = "Count")
+>   ggplot2::scale_x_log10(breaks = c(100, 140, 200, 250)) +
+>   ggplot2::labs(x = "Systolic BP (mmHg), log scale", y = "Count")
 > ```
 >
 > [![](exploratory-descriptive_files/figure-html/unnamed-chunk-19-1.png)](exploratory-descriptive_files/figure-html/unnamed-chunk-19-1.png "Figure 9 (b): Log scale")
 >
 > \(b\) Log scale
 >
-> Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales
+> Figure 9: Distribution of systolic blood pressure in the WCGS, on two scales. Both panels label the axis in mmHg; the right panel spaces the values logarithmically, so its histogram is the histogram of `lnsbp`.
 
 Show R code
 
