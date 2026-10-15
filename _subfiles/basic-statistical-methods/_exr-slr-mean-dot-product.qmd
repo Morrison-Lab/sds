@@ -1,5 +1,5 @@
 :::{#exr-slr-mean-dot-product}
-#### Mean as a dot product
+#### The conditional mean and the covariate vector
 
 In simple linear regression (@def-slr),
 express the conditional mean $\mean(x_i)$ as a dot product

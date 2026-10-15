@@ -2,7 +2,7 @@
 #### Expanding the centered sum of squares
 
 Expand the centered sum of squares $S_{xx}$ (@def-centered-sums)
-into an expression in terms of $\sumin x_i^2$ and $\bar{x}$.
+into an expression in terms of $n$, $\sumin x_i^2$ and $\bar{x}$.
 :::
 
 {{< slidebreak >}}

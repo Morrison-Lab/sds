@@ -1,5 +1,5 @@
 :::{#exr-slr-additive}
-#### Outcome as mean plus deviation
+#### Decomposing an outcome
 
 Express each outcome $Y_i$ in a conditional Gaussian model (@def-cond-gaussian)
 in terms of its conditional mean $\mean_i$ and its deviation $\cdev_i$ (@def-slr-deviation).
@@ -9,7 +9,7 @@ in terms of its conditional mean $\mean_i$ and its deviation $\cdev_i$ (@def-slr
 
 :::{#sol-slr-additive}
 
-Start from the right-hand side:
+Check that $Y_i = \mean_i + \cdev_i$, starting from the right-hand side:
 
 $$
 \begin{aligned}
