@@ -1,15 +1,15 @@
 :::{#def-flexibility}
 #### Flexibility
 
-Let $g_1$ and $g_2$ be [fitting procedures](#def-fitting-procedure)
+Let $\candproc{1}$ and $\candproc{2}$ be [fitting procedures](#def-fitting-procedure)
 that each choose, by least squares,
 a [prediction rule](#def-prediction-rule) from a set of candidate functions,
-$\mathcal{G}_1$ and $\mathcal{G}_2$ respectively.
-The procedure $g_2$ is **at least as flexible** as $g_1$
-if every candidate of $g_1$ is also a candidate of $g_2$:
+$\candfnset{1}$ and $\candfnset{2}$ respectively.
+The procedure $\candproc{2}$ is **at least as flexible** as $\candproc{1}$
+if every candidate of $\candproc{1}$ is also a candidate of $\candproc{2}$:
 
 $$
-\mathcal{G}_1 \subseteq \mathcal{G}_2.
+\candfnset{1} \subseteq \candfnset{2}.
 $$ {#eq-flexibility}
 
 ::: {.callout-note collapse="true"}

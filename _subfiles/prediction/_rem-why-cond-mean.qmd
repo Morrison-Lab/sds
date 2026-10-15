@@ -1,0 +1,17 @@
+::: {#rem-why-cond-mean .remark}
+#### Why the estimated conditional mean is the usual prediction
+
+The prediction in @exm-prediction-cond-mean is chosen
+because the conditional mean is the best possible prediction under squared error loss.
+Among all functions $\modmem$ of the covariate,
+$\condE{\Outvar}{\Predvar}$ has the smallest expected squared error
+$\E{\sqf{\Outvar - \modmemf{\Predvar}}}$
+([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)).
+The conditional mean is unknown,
+so we estimate it from data and predict with the estimate.
+
+The target depends on the loss.
+For absolute error loss, the best prediction is the conditional median instead,
+and other losses have other targets
+[@hastie2009elements, p. 20].
+:::
