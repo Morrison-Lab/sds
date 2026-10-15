@@ -76,11 +76,17 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/logistic-inference/_def-pattern-events.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/logistic-inference/_exm-covariate-patterns.qmd >}}
 
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/logistic-inference/_def-saturated-model.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-source-saturated-model.qmd >}}
 
 {{< slidebreak >}}
 

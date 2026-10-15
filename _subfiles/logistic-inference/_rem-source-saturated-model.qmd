@@ -1,0 +1,9 @@
+::: {#rem-source-saturated-model .callout-note appearance="simple" collapse=true}
+
+## Source: saturated model
+
+@dobson4e [Section 5.5] defines the saturated model as the model with the maximum number of parameters that can be estimated, one per distinct covariate pattern, and says it is also called a maximal or full model.
+In model selection, "full model" often means something else: the model with every candidate predictor [@dobson4e, Section 6.3].
+That model is generally smaller than the saturated model.
+
+:::

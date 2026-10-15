@@ -13,5 +13,6 @@ $$
 ::: proof
 @def-deviance gives $\deviance = -2 \llikf{\hvcoef}$.
 Distributing the $2$ in @eq-saturated-deviance gives $\satdeviance = 2 \satllik - 2 \llikf{\hvcoef}$.
-Substituting the first into the second gives $\satdeviance = 2 \satllik + \deviance$, and subtracting $2 \satllik$ from both sides gives the claim.
+Substituting $\deviance = -2 \llikf{\hvcoef}$ into this expression gives $\satdeviance = 2 \satllik + \deviance$.
+Subtracting $2 \satllik$ from both sides gives the claim.
 :::

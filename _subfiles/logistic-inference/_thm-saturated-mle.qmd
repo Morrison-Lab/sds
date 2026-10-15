@@ -2,7 +2,7 @@
 
 #### The saturated model fits each pattern's observed proportion
 
-The maximum likelihood estimate of $\prob_k$ in the [saturated model](#def-saturated-model) is the observed proportion of events among the replicates of pattern $k$:
+The maximum likelihood estimate of $\prob_k$ in the [saturated model](#def-saturated-model) is the observed proportion of [events](#def-pattern-events) among the replicates of pattern $k$:
 
 $$
 \hat\prob_k = \frac{\nevents_k}{\nreps_k}.
@@ -13,12 +13,16 @@ $$
 ::: proof
 Independence gives each pattern its own log-likelihood term, and the outcomes at pattern $k$ contribute $\nevents_k \ln \prob_k + \paren{\nreps_k - \nevents_k} \ln\paren{1 - \prob_k}$.
 The terms share no parameters, so each is maximized on its own.
+First suppose $0 < \nevents_k < \nreps_k$, so that both logarithms are defined for $0 < \prob_k < 1$.
 Setting the derivative with respect to $\prob_k$ to zero gives $\nevents_k / \prob_k - \paren{\nreps_k - \nevents_k} / \paren{1 - \prob_k} = 0$.
 Multiplying through by $\prob_k \paren{1 - \prob_k}$ gives $\nevents_k \paren{1 - \prob_k} = \paren{\nreps_k - \nevents_k} \prob_k$.
 Expanding gives $\nevents_k - \nevents_k \prob_k = \nreps_k \prob_k - \nevents_k \prob_k$.
-Adding $\nevents_k \prob_k$ to both sides gives $\nevents_k = \nreps_k \prob_k$, so $\prob_k = \nevents_k / \nreps_k$.
+Adding $\nevents_k \prob_k$ to both sides gives $\nevents_k = \nreps_k \prob_k$.
+Dividing both sides by $\nreps_k$ gives $\hat\prob_k = \nevents_k / \nreps_k$.
 The log-likelihood term increases to this point and decreases after it, so the point is a maximum.
-When $\nevents_k = 0$ the term is $\nreps_k \ln\paren{1 - \prob_k}$, which decreases in $\prob_k$ and so peaks at $\prob_k = 0$.
-When $\nevents_k = \nreps_k$ the term is $\nreps_k \ln \prob_k$, which peaks at $\prob_k = 1$.
+Now suppose $\nevents_k = 0$.
+The term is $\nreps_k \ln\paren{1 - \prob_k}$, which decreases in $\prob_k$ and so peaks at $\prob_k = 0$.
+Next suppose $\nevents_k = \nreps_k$.
+The term is $\nreps_k \ln \prob_k$, which peaks at $\prob_k = 1$.
 Both agree with $\nevents_k / \nreps_k$.
 :::

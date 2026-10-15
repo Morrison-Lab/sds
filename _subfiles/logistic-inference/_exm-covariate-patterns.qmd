@@ -24,7 +24,7 @@ bw_grouped
 ```
 
 There are $\npatterns = `r nrow(bw_grouped)`$ covariate patterns among $\nobs = `r nrow(bw)`$ babies.
-The pattern with the most [replicates](#def-replicates) is smoke = `r bw_grouped$smoke[which.max(bw_grouped$nreps)]`,
-race = `r bw_grouped$race[which.max(bw_grouped$nreps)]`, with $\nreps_k = `r max(bw_grouped$nreps)`$.
+The pattern with the most [replicates](#def-replicates) has `smoke` = `r bw_grouped$smoke[which.max(bw_grouped$nreps)]` and
+`race` = `r bw_grouped$race[which.max(bw_grouped$nreps)]`, and it has `r max(bw_grouped$nreps)` of them.
 
 :::
