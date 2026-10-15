@@ -1,0 +1,11 @@
+::: {#def-outcome-vector}
+
+#### Outcome vector
+
+The **outcome vector** $\voutvar$ of a [data set](#def-data-set) $\dataset$ stacks its $\nobs$ outcomes $\outvar_i$:
+
+$$
+\voutvar = \begin{bmatrix} \outvar_1 \\ \vdots \\ \outvar_{\nobs} \end{bmatrix} .
+$$ {#eq-outcome-vector}
+
+:::
