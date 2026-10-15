@@ -1,0 +1,7 @@
+:::{#rem-source-sufficient}
+#### Source: sufficient statistic
+
+@fisher1922mathematical introduced sufficiency;
+@CaseBerg01 [Def. 6.2.1, p. 272].
+
+:::

@@ -11,12 +11,6 @@ $$
 \Var{\condE{\hparam}{\statf{\vX}}} \le \Var{\hparam}
 $$ {#eq-rao-blackwell}
 
-::: {.callout-note collapse="true"}
-#### Source
-
-@rao1945information; @blackwell1947conditional; @CaseBerg01 [Thm. 7.3.17, p. 342].
-:::
-
 :::
 
 ::: proof
