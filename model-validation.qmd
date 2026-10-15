@@ -86,7 +86,23 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-prediction-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exr-epe-three-sources.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-epe-three-sources.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_thm-epe-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-irreducible-error.qmd >}}
 
 {{< slidebreak >}}
 
