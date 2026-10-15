@@ -1,5 +1,5 @@
 ::: {#def-prediction}
-#### Prediction
+#### Prediction (predicted value)
 
 A **prediction** (or **predicted value**) $\fitted(x)$
 of an outcome $Y$ with covariate value $X = x$
