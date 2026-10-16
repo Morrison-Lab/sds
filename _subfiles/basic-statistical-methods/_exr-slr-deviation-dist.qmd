@@ -15,7 +15,7 @@ Every probability, CDF and density in this solution is
 on $X_i = x_i$;
 the condition is left out of the notation to keep the lines short.
 Write $F_{\cdev}$ and $f_{\cdev}$ for the CDF and density of $\cdev_i$,
-and $F_Y$ and $f_Y$ for those of $Y_i$.
+and $F_Y$ and $f_Y$ for those of $\Outvar_\iobs$.
 
 First, the CDF of $\cdev_i$:
 
@@ -24,11 +24,11 @@ $$
 F_{\cdev}(t)
 &= \Prf{\cdev_i \le t}
 && \text{(definition of a CDF)}\\
-&= \Prf{Y_i - \mean(x_i) \le t}
+&= \Prf{\Outvar_\iobs - \mean(x_i) \le t}
 && \text{(definition of $\cdev_i$)}\\
-&= \Prf{Y_i - \mean_i \le t}
+&= \Prf{\Outvar_\iobs - \mean_i \le t}
 && \text{(definition of $\mean_i$)}\\
-&= \Prf{Y_i \le t + \mean_i}
+&= \Prf{\Outvar_\iobs \le t + \mean_i}
 && \text{(add $\mean_i$ to both sides of the inequality)}\\
 &= F_Y(t + \mean_i)
 && \text{(definition of a CDF)}
@@ -69,7 +69,7 @@ $$
 
 Plugging the inner derivative back in,
 and using the [Gaussian density](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
-of $Y_i$, which has mean $\mean_i = \mean(x_i)$
+of $\Outvar_\iobs$, which has mean $\mean_i = \mean(x_i)$
 and variance $\varpar_i$ (@def-cond-gaussian):
 
 $$
@@ -95,15 +95,15 @@ so $\cdev_i \mid X_i = x_i \sim \ndist{0, \varpar_i}$.
 
 For independence, factor the joint CDF of $\dsn{\cdev}$,
 using the same CDF step as above for each $i$
-and the independence of the $Y_i$ given the covariates (@def-cond-gaussian):
+and the independence of the $\Outvar_\iobs$ given the covariates (@def-cond-gaussian):
 
 $$
 \begin{aligned}
 \Prf{\cdev_1 \le t_1, \ldots, \cdev_n \le t_n}
 &= \Prf{Y_1 \le t_1 + \mean_1, \ldots, Y_n \le t_n + \mean_n}
 && \text{(add $\mean_i$ to both sides of each inequality)}\\
-&= \prodin \Prf{Y_i \le t_i + \mean_i}
-&& \text{(the $Y_i$ are independent)}\\
+&= \prodin \Prf{\Outvar_\iobs \le t_i + \mean_i}
+&& \text{(the $\Outvar_\iobs$ are independent)}\\
 &= \prodin \Prf{\cdev_i \le t_i}
 && \text{(subtract $\mean_i$ from both sides of each inequality)}
 \end{aligned}

@@ -8,7 +8,7 @@ and the vector of OLS estimates (@def-ols) is
 $$
 \hvcoef = A^{-1} \v{c},
 \qquad
-\v{c} = \sumin \vxi y_i.
+\v{c} = \sumin \vxi \outvar_\iobs.
 $$
 
 Its entries are the estimates of @thm-ols-slr.

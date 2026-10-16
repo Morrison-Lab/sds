@@ -8,6 +8,6 @@ The residual sum of squares is then a function of the coefficient vector $\vcoef
 the same function as $\text{RSS}(\intcoef, \coef{x})$ in @exm-rss-slr:
 
 $$
-\text{RSS}(\vcoef) = \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2.
+\text{RSS}(\vcoef) = \sumin \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}^2.
 $$
 :::

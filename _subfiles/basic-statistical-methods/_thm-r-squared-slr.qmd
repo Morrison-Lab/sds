@@ -5,7 +5,7 @@ For the OLS fit of a simple linear regression,
 with $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums),
 $R^2$ is the square of the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r) $r$
-of the $x_i$ and $y_i$,
+of the $x_i$ and $\outvar_\iobs$,
 and so lies between 0 and 1:
 
 $$

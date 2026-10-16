@@ -1,8 +1,8 @@
 :::{#exm-score-equation}
 #### Score equation of a Bernoulli sample
 
-For $n$ independent Bernoulli observations with $r = \sum_i y_i$ successes,
-the score is $\sumin (y_i - \prob)/\paren{\prob(1 - \prob)} = (r - n\prob)/\paren{\prob(1-\prob)}$
+For $n$ independent Bernoulli observations with $r = \sum_i \outvar_\iobs$ successes,
+the score is $\sumin (\outvar_\iobs - \prob)/\paren{\prob(1 - \prob)} = (r - n\prob)/\paren{\prob(1-\prob)}$
 (summing @thm-bernoulli-score over the observations),
 so for $0 < r < n$ the score equation $(r - n\prob)/\paren{\prob(1-\prob)} = 0$
 has the single solution $\prob = r/n$.

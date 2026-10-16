@@ -7,7 +7,7 @@ with predictor vectors $\vpredvar_1, \dots, \vpredvar_n$
 says that the outcomes are independent and that
 
 $$
-\Prf{\Outvar_i = 1 \mid \vpredvar_i} = \prob_i
+\Prf{\Outvar_\iobs = 1 \mid \vpredvar_i} = \prob_i
 = \sigmoidf{\dprod{\vcoef}{\vpredvar_i}},
 \qquad
 \sigmoidf{u} = \frac{1}{1 + e^{-u}},

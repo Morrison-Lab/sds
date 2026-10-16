@@ -3,7 +3,7 @@
 
 If $S_{xx} > 0$ (@def-centered-sums),
 the matrix $A = \sumin \soprod{\vxi}$ is invertible,
-and the normal equations $A \vcoef = \v{c}$ with $\v{c} = \sumin \vxi y_i$
+and the normal equations $A \vcoef = \v{c}$ with $\v{c} = \sumin \vxi \outvar_\iobs$
 (@lem-normal-equations-vector) have exactly one solution,
 
 $$

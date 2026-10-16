@@ -4,7 +4,7 @@
 The gradient of the residual sum of squares in vector notation (@exm-rss-vector) is
 
 $$\deriv{\vcoef} \text{RSS}(\vcoef)
-= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}.$$
+= -2 \sumin \vxi \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}.$$
 :::
 
 ::: proof

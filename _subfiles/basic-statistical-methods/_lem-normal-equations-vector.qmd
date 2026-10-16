@@ -6,7 +6,7 @@ Let
 $$
 A \eqdef \sumin \soprod{\vxi},
 \qquad
-\v{c} \eqdef \sumin \vxi y_i.
+\v{c} \eqdef \sumin \vxi \outvar_\iobs.
 $$
 
 The [normal equations](#def-normal-equations) of a simple linear regression
