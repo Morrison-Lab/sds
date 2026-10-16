@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 10:20:46 (PDT)
+Last modified: 2026-10-16 11:26:47 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -337,11 +337,9 @@ Last modified: 2026-10-16 10:20:46 (PDT)
 
 > **NOTE:**
 >
-> **Definition 19 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ is a random variable, because it depends on the random training data. The **bias** of the prediction is the [bias](estimation.llms.md#def-bias) of \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ used as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu(x)\\, which is its estimand here, not the new outcome it predicts:
+> **Definition 19 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ is a random variable, because it depends on the random training data. The **bias** of the prediction is the expected [estimation error](estimation.llms.md#def-estimation-error) of the prediction as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu(x)\\, which is its estimand here, not the new outcome it predicts:
 >
-> \\ \operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right\]\mathclose{} - \mu(x), \tag{18}\\
->
-> which is the [average fit](#def-average-fit) \\\bar{h}\mathopen{}\left(x\right)\mathclose{}\\ minus \\\mu(x)\\.
+> \\ \operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right\]\mathclose{}. \tag{18}\\
 
 > **NOTE:**
 >
@@ -351,7 +349,7 @@ Last modified: 2026-10-16 10:20:46 (PDT)
 >
 > **Example 5 (Computing the bias of a prediction)** Suppose \\\mu(x) = 10\\, and the predictions \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\, over repeated training sets, average \\11\\. Then
 >
-> \\ \begin{aligned} \operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} &= 11 - 10 \\ &= 1. \end{aligned} \\
+> \\ \begin{aligned} \operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right\]\mathclose{} \\ &= \operatorname{E}\mathopen{}\left\[g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right\]\mathclose{} - \mu(x) \\ &= 11 - 10 \\ &= 1. \end{aligned} \\
 >
 > The squared bias is \\1^2 = 1\\, the value in [Exercise 4](#exr-epe-three-sources).
 
@@ -1462,10 +1460,10 @@ Last modified: 2026-10-16 10:20:46 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
