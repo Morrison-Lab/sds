@@ -6,7 +6,7 @@ Let $\hparam$ be an estimator of $\param$ with finite
 and let $\varepsilon > 0$.
 Use [Markov's inequality](https://morrison-lab.github.io/pds/limit-theorems.html#thm-markov)
 to show that
-$\Prf{\abs{\hparam - \param} \ge \varepsilon} \le \mselr{\hparam} / \varepsilon^2$.
+$\Prf{\abs{\hparam - \param} \ge \varepsilon} \le \pMSE{\hparam} / \varepsilon^2$.
 :::
 
 {{< slidebreak >}}
@@ -27,7 +27,7 @@ $$
 && \text{(Markov's inequality, $a = \varepsilon^2 > 0$)}\\
 &= \frac{\E{\sqf{\erf{\hparam}}}}{\varepsilon^2}
 && \text{(definition of the estimation error)}\\
-&= \frac{\mselr{\hparam}}{\varepsilon^2}
+&= \frac{\pMSE{\hparam}}{\varepsilon^2}
 && \text{(definition of the mean squared error)}
 \end{aligned}
 $$

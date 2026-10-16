@@ -3,7 +3,7 @@
 
 If $\hparam$ is [unbiased](#def-unbiased), then its standard error equals its [pRMSE](#def-rmse):
 
-$$\SE{\hparam} = \sqrt{\mselr{\hparam}}$$
+$$\SE{\hparam} = \sqrt{\pMSE{\hparam}}$$
 
 :::
 

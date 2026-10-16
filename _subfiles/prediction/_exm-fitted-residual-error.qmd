@@ -49,7 +49,7 @@ The sMSE of these predictions is
 
 $$
 \ba
-\mselr{\fitted}
+\sMSE{\fitted}
 &= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\
 &= \frac{0.25}{3}\\
 &\approx 0.083,

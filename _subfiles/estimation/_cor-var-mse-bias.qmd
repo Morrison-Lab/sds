@@ -4,7 +4,7 @@
 The squared standard error is what remains of the pMSE
 after the squared bias is removed:
 
-$$\sqf{\SE{\hparam}} = \mselr{\hparam} - \sqf{\bias{\hparam}}$$
+$$\sqf{\SE{\hparam}} = \pMSE{\hparam} - \sqf{\bias{\hparam}}$$
 
 :::
 

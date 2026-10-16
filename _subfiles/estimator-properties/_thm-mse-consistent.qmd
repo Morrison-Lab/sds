@@ -5,7 +5,7 @@ If the pMSE of $\hparam_n$ goes to zero as $n$ grows,
 then $\hparam_n$ is a [consistent](#def-consistent) estimator of $\param$:
 
 $$
-\lim_{n \to \infty} \mselr{\hparam_n} = 0
+\lim_{n \to \infty} \pMSE{\hparam_n} = 0
 \quad \Longrightarrow \quad
 \hparam_n \inprob \param
 $$ {#eq-mse-consistent}
@@ -16,10 +16,10 @@ $$ {#eq-mse-consistent}
 
 Fix $\varepsilon > 0$.
 By @lem-estimation-error-bound,
-$0 \le \Prf{\abs{\hparam_n - \param} \ge \varepsilon} \le \mselr{\hparam_n} / \varepsilon^2$
+$0 \le \Prf{\abs{\hparam_n - \param} \ge \varepsilon} \le \pMSE{\hparam_n} / \varepsilon^2$
 for every $n$.
 The upper bound goes to zero as $n \to \infty$,
-because $\varepsilon$ is fixed and $\mselr{\hparam_n} \to 0$,
+because $\varepsilon$ is fixed and $\pMSE{\hparam_n} \to 0$,
 so the probability, squeezed between zero and the bound, goes to zero.
 This holds for every $\varepsilon > 0$, which is @eq-consistent.
 

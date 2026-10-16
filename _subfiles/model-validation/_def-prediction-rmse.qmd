@@ -8,7 +8,7 @@ of observed outcomes $\dsn{\outvar}$
 is the square root of their [sMSE](prediction.qmd#def-prediction-mse):
 
 $$
-\rmselr{\fitted} \eqdef \sqrt{\mselr{\fitted}}.
+\sRMSE{\fitted} \eqdef \sqrt{\sMSE{\fitted}}.
 $$ {#eq-prediction-rmse}
 
 :::

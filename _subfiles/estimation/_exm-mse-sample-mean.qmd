@@ -12,7 +12,7 @@ For $X_1$,
 
 $$
 \begin{aligned}
-  \mselr{X_1} &= 0^2 + \Var{X_1} \\
+  \pMSE{X_1} &= 0^2 + \Var{X_1} \\
   &= \varpar.
 \end{aligned}
 $$
@@ -21,7 +21,7 @@ For $\bar X$:
 
 $$
 \begin{aligned}
-\mselr{\bar X}
+\pMSE{\bar X}
 &= \sqf{\bias{\bar X}} + \Var{\bar X}
 && \text{(pMSE equals bias squared plus variance)}\\
 &= 0^2 + \Var{\bar X}
@@ -49,9 +49,9 @@ So for any sample size $n > 1$,
 
 $$
 \begin{aligned}
-  \mselr{\bar X} &= \varpar/n \\
+  \pMSE{\bar X} &= \varpar/n \\
   &< \varpar \\
-  &= \mselr{X_1}:
+  &= \pMSE{X_1}:
 \end{aligned}
 $$
 

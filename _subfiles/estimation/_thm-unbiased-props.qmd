@@ -5,7 +5,7 @@ If $\hparam$ is an [unbiased](#def-unbiased) estimator of $\param$, then:
 
 $$\E{\hparam} = \param$$ {#eq-unbiased-exp}
 
-$$\mselr{\hparam} = \var{\hparam}$$ {#eq-unbiased-mse}
+$$\pMSE{\hparam} = \var{\hparam}$$ {#eq-unbiased-mse}
 
 :::
 
