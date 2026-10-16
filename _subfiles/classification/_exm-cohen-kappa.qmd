@@ -1,0 +1,33 @@
+:::{#exm-cohen-kappa-covid}
+#### Cohen's kappa for the COVID-19 test
+
+For the agreement table of @exm-agreement-table-covid,
+$p_o = 0.99$ (@exm-overall-agreement)
+and $p_e = 0.862404$ (@exm-chance-agreement),
+so Cohen's kappa (@def-cohen-kappa) is:
+
+$$
+\ba
+\kappa
+&= \frac{0.99 - 0.862404}{1 - 0.862404}
+&& \text{(definition of } \kappa \text{)} \\
+&= \frac{0.127596}{1 - 0.862404}
+&& \text{(subtract in the numerator)} \\
+&= \frac{0.127596}{0.137596}
+&& \text{(subtract in the denominator)} \\
+&\approx 0.927
+&& \text{(divide)}
+\ea
+$$ {#eq-exm-cohen-kappa}
+
+```{r}
+kappa_from_table <- function(a, b, c, d) {
+  n <- a + b + c + d
+  p_o <- (a + d) / n
+  p_e <- ((a + b) * (a + c) + (c + d) * (b + d)) / n^2
+  (p_o - p_e) / (1 - p_e)
+}
+do.call(kappa_from_table, as.list(agree_covid))
+```
+
+:::
