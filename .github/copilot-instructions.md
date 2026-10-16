@@ -216,9 +216,11 @@ such as what was checked in a PDF or a wording edit made while porting.
 A resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
 even when lds or another Morrison-Lab site already lists it
 (maintainer directive, 2026-10-15, answering a review question on Morrison-Lab/lds#841, a private repository the link checker cannot reach).
-If the matching page has no Further reading section, add one headed `## Further reading`.
 If no page matches, add the resource to the Further reading section of the closest related page.
+If that page has no Further reading section, add one headed `## Further reading`.
 Link the resource, and adapt its material only where its license allows,
+following its other terms (NonCommercial, ShareAlike) and this repository's license,
+and link only where the two licenses conflict,
 crediting the adapted material as "Attributions are reader-visible" above says.
 See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
 
