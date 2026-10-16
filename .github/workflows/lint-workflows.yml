@@ -4,8 +4,8 @@
 #
 # Warn-only for now (`fail: false`), unlike lds, where it blocks: zizmor
 # reports findings against the workflows already here (`dangerous-triggers`
-# on claude.yml and preview-deploy.yml, `artipacked` on three
-# checkouts, `unpinned-images` in check-spelling). Switch to `fail: true` once
+# on preview-deploy.yml, `artipacked` on four checkouts, `unpinned-images` in
+# check-spelling). Switch to `fail: true` once
 # those are fixed or ignored with a reason. `.github/zizmor.yml` accepts tag
 # pins (and `.github/dependabot.yml` keeps them current) while still flagging
 # a branch pin such as `@main`.
@@ -22,6 +22,6 @@ jobs:
   lint:
     permissions:
       contents: read
-    uses: Morrison-Lab/gha/.github/workflows/lint-workflows.yml@v2
+    uses: Morrison-Lab/gha/.github/workflows/lint-workflows.yml@v3
     with:
       fail: false
