@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:36:08 (PDT)
+Last modified: 2026-10-16 07:21:05 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -329,21 +329,21 @@ hers |> head()
 >
 > So the sMSE is the residual sum of squares divided by \\n\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of sMSE)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\underset{\sim}{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\underset{\sim}{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of sMSE)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\underset{\sim}{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\underset{\sim}{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
 >
 > Solving for \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(result above)}\\ n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(multiply both sides by \$n\$)}\\ \text{RSS}(\mathord{\underset{\sim}{\theta}}) &= n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} && \text{(swap the two sides)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(result above)}\\ n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(multiply both sides by \$n\$)}\\ \text{RSS}(\mathord{\underset{\sim}{\theta}}) &= n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} && \text{(swap the two sides)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 4 (Sample mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \mathord{\underset{\sim}{\theta}})\\, the [sMSE](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i= \mu(x_i; \mathord{\underset{\sim}{\theta}})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}),\\
+> \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}),\\
 >
 > and equivalently
 >
-> \\\text{RSS}(\mathord{\underset{\sim}{\theta}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
+> \\\text{RSS}(\mathord{\underset{\sim}{\theta}}) = n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
 > **NOTE:**
 >

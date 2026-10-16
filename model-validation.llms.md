@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:36:08 (PDT)
+Last modified: 2026-10-16 07:21:05 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -148,7 +148,7 @@ Last modified: 2026-10-16 05:36:08 (PDT)
 >
 > **Definition 11 (Root mean squared error of predictions)** The **sample root mean squared error (sRMSE)** of predictions, also called their **root mean squared error**, \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the square root of their [sMSE](prediction.llms.md#def-prediction-mse):
 >
-> \\ \operatorname{RMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}}. \tag{10}\\
+> \\ \operatorname{sRMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}}. \tag{10}\\
 
 > **NOTE:**
 >
