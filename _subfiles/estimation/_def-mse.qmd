@@ -3,8 +3,8 @@
 
 The **population mean squared error (pMSE)** of an estimator $\hparam$,
 also called its **mean squared error**, denoted
-$\mselr{\hparam}$, is the expectation of the square
+$\pMSE{\hparam}$, is the expectation of the square
 of the [estimation error](#def-estimation-error):
 
-$$\mselr{\hparam} \eqdef \E{\sqf{\erf{\hparam}}}$$
+$$\pMSE{\hparam} \eqdef \E{\sqf{\erf{\hparam}}}$$
 :::

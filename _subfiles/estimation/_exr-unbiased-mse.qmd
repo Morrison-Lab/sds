@@ -12,7 +12,7 @@ in terms of its variance.
 
 $$
 \begin{aligned}
-\mselr{\hparam}
+\pMSE{\hparam}
 &= \sqf{\bias{\hparam}} + \var{\hparam}
 && \text{(MSE equals bias squared plus variance)}\\
 &= 0^2 + \var{\hparam}

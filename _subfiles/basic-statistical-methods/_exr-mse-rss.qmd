@@ -39,7 +39,7 @@ So the sMSE is the residual sum of squares divided by $n$:
 
 $$
 \begin{aligned}
-\mselr{\fitted}
+\sMSE{\fitted}
 &= \avgin \prederr_\iobs^2
 && \text{(definition of sMSE)}\\
 &= \avgin \resid_\iobs(\vparam)^2
@@ -53,14 +53,14 @@ Solving for $\text{RSS}(\vparam)$:
 
 $$
 \begin{aligned}
-\mselr{\fitted}
+\sMSE{\fitted}
 &= \frac{1}{n} \text{RSS}(\vparam)
 && \text{(result above)}\\
-n \, \mselr{\fitted}
+n \, \sMSE{\fitted}
 &= \text{RSS}(\vparam)
 && \text{(multiply both sides by $n$)}\\
 \text{RSS}(\vparam)
-&= n \, \mselr{\fitted}
+&= n \, \sMSE{\fitted}
 && \text{(swap the two sides)}
 \end{aligned}
 $$

@@ -8,11 +8,11 @@ of $n \ge 1$ outcomes $\dsn{y}$
 and the residual sum of squares $\text{RSS}(\vparam)$ (@def-rss)
 over those same $n$ outcomes satisfy
 
-$$\mselr{\fitted} = \frac{1}{n} \text{RSS}(\vparam),$$
+$$\sMSE{\fitted} = \frac{1}{n} \text{RSS}(\vparam),$$
 
 and equivalently
 
-$$\text{RSS}(\vparam) = n \, \mselr{\fitted}.$$
+$$\text{RSS}(\vparam) = n \, \sMSE{\fitted}.$$
 :::
 
 ::: proof
