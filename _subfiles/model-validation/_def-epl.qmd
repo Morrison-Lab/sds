@@ -4,14 +4,17 @@
 The **expected prediction loss at $\predvar$**
 of a [fitting procedure](#def-fitting-procedure) $\fitproc$
 at training-set size $\nobs$
-is the expected [loss](#def-observation-loss) $\obsloss{*}$
-of its prediction $\fitproc\paren{\predvar; \trainset}$ for a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
+is the expected [loss](#def-observation-loss) $\obsloss{*}\paren{\fitted}$
+of the [prediction rule](#def-prediction-rule) $\fitted : \predvar \mapsto \fitproc\paren{\predvar; \trainset}$
+that $\fitproc$ produces from $\trainset$,
+on a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
 averaged over random [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
 drawn independently of $(\newpredvar, \newoutvar)$,
-and over $\newoutvar$:
+and over $\newoutvar$.
+The rule $\fitproc\paren{\cdot; \trainset}$ is random because $\trainset$ is:
 
 $$
-\epl{\fitproc}{\nobs}{\predvar} \eqdef \E{\obsloss{*} \mid \newpredvar = \predvar}.
+\epl{\fitproc}{\nobs}{\predvar} \eqdef \E{\obsloss{*}\paren{\fitproc\paren{\cdot; \trainset}} \mid \newpredvar = \predvar}.
 $$ {#eq-epl}
 
 :::
