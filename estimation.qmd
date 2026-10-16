@@ -246,7 +246,7 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< slidebreak >}}
 
-### Population mean absolute error
+### Population mean absolute error {#mean-absolute-error}
 
 <!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
 
