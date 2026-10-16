@@ -23,8 +23,8 @@ $$ {#eq-epe-decomposition}
 ::: proof
 
 Every expectation below is conditional on $\newpredvar = \predvar$, as in the exercises.
-By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the mean squared error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$.
-By @sol-epe-split-bias, that mean squared error is the squared bias plus the variance.
+By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$.
+By @sol-epe-split-bias, that pMSE is the squared bias plus the variance.
 Substituting @eq-epe-after-bias into @eq-epe-after-noise:
 
 $$

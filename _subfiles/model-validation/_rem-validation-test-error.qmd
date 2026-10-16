@@ -14,7 +14,7 @@ the test error is computed once, after the choice, so it is not.
 Here the test error is the number computed from the test set, and the generalization error is what it estimates.
 
 Each definition holds for any [loss](#def-observation-loss).
-Under squared-error loss, they are mean squared errors;
-under absolute-error loss, they are mean absolute errors.
+Under squared-error loss, they are sample mean squared errors;
+under absolute-error loss, they are sample mean absolute errors.
 
 :::

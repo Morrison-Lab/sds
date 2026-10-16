@@ -1,5 +1,5 @@
 ::: {#exm-bootstrap-distribution-toy}
-#### Bootstrap distribution of a mean of ten glucose values
+#### Bootstrap distribution of the sample mean of ten glucose values
 
 Take the baseline fasting glucose values
 of the first ten HERS participants,
@@ -23,7 +23,7 @@ is close to the usual estimate $s / \sqrt{n}$.
 Each bootstrap draw has variance
 $\hvarpar \eqdef \avgin (\predvar_\iobs - \predbar)^2$
 around $\predbar$, and the $n$ draws are independent,
-so as $B$ grows the bootstrap standard error of the mean
+so as $B$ grows the bootstrap standard error of the sample mean
 approaches $\hsdpar / \sqrt{n}$ (`divide_by_n_se`),
 which is smaller than $s / \sqrt{n}$ by the factor $\sqrt{(n-1)/n}$.
 @fig-boot-dist-toy shows the bootstrap distribution.
@@ -40,9 +40,9 @@ tibble::tibble(mean = boot_means10) |>
   ggplot2::labs(x = "Bootstrap mean (mg/dL)", y = "Count")
 ```
 
-Bootstrap distribution of the mean fasting glucose
+Bootstrap distribution of the sample mean fasting glucose
 of the first ten HERS participants ($B = 1{,}000$).
-The red line marks the observed mean.
+The red line marks the observed sample mean.
 
 :::
 

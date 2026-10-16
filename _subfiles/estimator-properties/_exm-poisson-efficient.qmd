@@ -4,7 +4,7 @@
 For $\dsn{X} \siid \Pois(\rate)$,
 the sample mean $\bar X$ is unbiased for $\rate$ ([the bias example](estimation.qmd#exm-bias-sample-mean)),
 and, because $\Var{\Rvar_\iobs} = \rate$ for a Poisson variable,
-$\Var{\bar X} = \rate / n$ ([the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean)).
+$\Var{\bar X} = \rate / n$ ([the example on two estimators of a population mean](estimation.qmd#exm-mse-sample-mean)).
 The expected information is $\einf(\rate) = n / \rate$ ([the Poisson information example](intro-MLEs.qmd#exm-information-poisson)), so
 
 $$

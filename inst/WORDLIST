@@ -64,9 +64,12 @@ npv
 NPV
 overfit
 pds
+pMAE
+pMSE
 ppv
 PPV
 prev
+pRMSE
 PSC
 Pois
 quartic
@@ -84,7 +87,10 @@ setminus
 Sherman
 Sizemore
 Slutsky's
+sMAE
+sMSE
 soprod
+sRMSE
 Stata
 summand
 termvec

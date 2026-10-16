@@ -65,7 +65,7 @@ mtcars_cv_best <-
 mtcars_cv_best
 ```
 
-Degree with the smallest 4-fold cross-validated RMSE
+Degree with the smallest 4-fold cross-validated sRMSE
 in each of `r n_repeats` random fold assignments
 :::
 

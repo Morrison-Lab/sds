@@ -1,8 +1,8 @@
 ::: {#thm-mse-rss}
-#### Mean squared error is the residual sum of squares divided by $n$
+#### Sample mean squared error is the residual sum of squares divided by $n$
 
 For a regression model with conditional mean $\mean(x; \vparam)$,
-the [mean squared error](prediction.qmd#def-prediction-mse)
+the [sMSE](prediction.qmd#def-prediction-mse)
 of its predictions $\fitted_\iobs = \mean(\predvar_\iobs; \vparam)$
 of $n \ge 1$ outcomes $\dsn{y}$
 and the residual sum of squares $\text{RSS}(\vparam)$ (@def-rss)
@@ -22,9 +22,9 @@ Both equations are derived in @exr-mse-rss.
 ::: {#rem-mse-rss}
 #### The same observations on both sides
 
-The identities in @thm-mse-rss need the mean squared error
+The identities in @thm-mse-rss need the sMSE
 and the residual sum of squares to be taken over the same $n$ observations.
 The RSS minimized in fitting is taken over the fitting data,
-so dividing it by $n$ gives the mean squared error on the fitting data,
-not the mean squared error of predictions of new outcomes.
+so dividing it by $n$ gives the sMSE on the fitting data,
+not the sMSE of predictions of new outcomes.
 :::

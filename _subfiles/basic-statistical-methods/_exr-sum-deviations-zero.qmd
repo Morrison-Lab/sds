@@ -1,5 +1,5 @@
 :::{#exr-sum-deviations-zero}
-#### Summing the deviations from the mean
+#### Summing the deviations from the sample mean
 
 Find $\sumin (\predvar_\iobs - \predbar)$.
 :::

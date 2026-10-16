@@ -11,7 +11,7 @@ each independently of $\trainset$.
 Write $\obsloss{*,\ifold}$ for the [loss](#def-observation-loss) of $\fitted$ on held-out observation $\ifold$.
 
 Find, given $\trainset$,
-the expected mean loss of the held-out predictions,
+the expected sample mean loss of the held-out predictions,
 in terms of the generalization error $\generr_{\trainset}$:
 
 $$

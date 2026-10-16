@@ -2,8 +2,8 @@
 #### Potential scale reduction factor
 
 Suppose $m$ chains each contribute $n$ draws of a parameter $\param$ after burn-in,
-with chain means $\bar\param_1, \ldots, \bar\param_m$,
-overall mean $\bar\param$,
+with chain sample means $\bar\param_1, \ldots, \bar\param_m$,
+overall sample mean $\bar\param$,
 and within-chain sample variances $s_1^2, \ldots, s_m^2$.
 Let
 

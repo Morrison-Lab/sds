@@ -2,11 +2,11 @@
 #### Prediction intervals versus confidence intervals
 
 A [confidence interval](inference.qmd#def-confidence-interval)
-covers a fixed parameter, such as the mean $\mean$.
+covers a fixed parameter, such as the population mean $\mean$.
 A prediction interval (@def-prediction-interval)
 covers a random quantity,
 such as a new outcome,
-or, in the example above, the mean $\bar X^*$ of $m$ new observations.
+or, in the example above, the sample mean $\bar X^*$ of $m$ new observations.
 Its probability accounts for the randomness of the new observations,
 not only of the observed data.
 
@@ -27,7 +27,7 @@ $$
 
 The prediction interval is always the wider of the two,
 because its variance has the extra term $\varpar / m$,
-the variance of the new observations' mean.
+the variance of the new observations' sample mean.
 As $n$ grows,
 the width of the confidence interval shrinks to 0,
 but the width of the prediction interval shrinks only to $2 z_{1 - \siglevel/2} \, \sdpar / \sqrt{m}$:

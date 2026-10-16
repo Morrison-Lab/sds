@@ -1,13 +1,13 @@
 :::{#exr-mse-rss}
-#### Mean squared error and residual sum of squares
+#### Sample mean squared error and residual sum of squares
 
 For a regression model with conditional mean $\mean(x; \vparam)$,
 let $\fitted_\iobs \eqdef \mean(\predvar_\iobs; \vparam)$
 be its predictions of $n \ge 1$ outcomes $\dsn{y}$,
 and let $\text{RSS}(\vparam)$ (@def-rss) be taken over those same outcomes.
-Write the [mean squared error](prediction.qmd#def-prediction-mse)
+Write the [sMSE](prediction.qmd#def-prediction-mse)
 of these predictions in terms of $\text{RSS}(\vparam)$,
-and $\text{RSS}(\vparam)$ in terms of that mean squared error.
+and $\text{RSS}(\vparam)$ in terms of that sMSE.
 :::
 
 {{< slidebreak >}}
@@ -35,13 +35,13 @@ $$
 
 {{< slidebreak >}}
 
-So the mean squared error is the residual sum of squares divided by $n$:
+So the sMSE is the residual sum of squares divided by $n$:
 
 $$
 \begin{aligned}
 \mselr{\fitted}
 &= \avgin \prederr_\iobs^2
-&& \text{(definition of mean squared error)}\\
+&& \text{(definition of sMSE)}\\
 &= \avgin \resid_\iobs(\vparam)^2
 && \text{($\prederr_\iobs^2 = \resid_\iobs(\vparam)^2$)}\\
 &= \frac{1}{n} \text{RSS}(\vparam)

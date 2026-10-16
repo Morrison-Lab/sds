@@ -1,11 +1,11 @@
 ::: {#exm-mse-sample-mean}
-#### Mean squared error of two estimators of a mean
+#### Population mean squared error of two estimators of a population mean
 
 Continuing @exm-bias-sample-mean,
 suppose also that $\dsn{X}$ are mutually independent,
 each with variance $\Var{\Rvar_\iobs} = \varpar$.
 Both $\bar X$ and $X_1$ have zero bias,
-so by @thm-mse-bias-variance each estimator's mean squared error
+so by @thm-mse-bias-variance each estimator's pMSE
 equals its variance.
 
 For $X_1$,
@@ -23,7 +23,7 @@ $$
 \begin{aligned}
 \mselr{\bar X}
 &= \sqf{\bias{\bar X}} + \Var{\bar X}
-&& \text{(MSE equals bias squared plus variance)}\\
+&& \text{(pMSE equals bias squared plus variance)}\\
 &= 0^2 + \Var{\bar X}
 && \text{(zero bias)}\\
 &= \Var{\bar X}

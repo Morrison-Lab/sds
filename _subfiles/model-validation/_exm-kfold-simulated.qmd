@@ -49,7 +49,7 @@ table(fold = sim_folds)
 The same fold assignment is used for every degree,
 so the degrees are compared on the same splits.
 The table and figure report the square root of each cross-validation estimate,
-so that it is in the same unit as the training and generalization RMSE of @exm-train-test-error-simulated.
+so that it is in the same unit as the training sRMSE and generalization pRMSE of @exm-train-test-error-simulated.
 
 ```{r}
 #| label: cv-simulated-table
@@ -136,7 +136,7 @@ At degree `r max(sim_degrees)`,
 polynomials fitted to `r sim_n_fit` points predict their held-out points
 much worse than the fit to all 30 predicts new data:
 the cross-validation estimate is
-`r round(sim_cv_ratio_top, 1)` times the estimated generalization RMSE.
+`r round(sim_cv_ratio_top, 1)` times the estimated generalization pRMSE.
 
 Part of that gap is expected:
 by @rem-cv-estimate,
@@ -188,7 +188,7 @@ sim_size_effect
 
 Over `r sim_n_reps` simulated training sets of each size,
 degree-`r max(sim_degrees)` fits to `r sim_n_fit` points
-have median generalization MSE
+have median generalization pMSE
 `r round(sim_size_effect$median[[1]], 2)`,
 against `r round(sim_size_effect$median[[2]], 2)`
 for fits to `r nrow(sim_train)` points,

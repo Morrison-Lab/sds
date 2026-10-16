@@ -8,7 +8,7 @@ The `wcgs` data frame is the sample (@def-sample):
 it holds `r nrow(wcgs)` of the men in that population.
 The men volunteered, through 10 companies,
 so the sample is not a random sample (@def-random-sample) of the population.
-Its mean cholesterol, `r round(mean(wcgs$chol, na.rm = TRUE), 1)` mg/dL,
+Its sample mean cholesterol, `r round(mean(wcgs$chol, na.rm = TRUE), 1)` mg/dL,
 describes these `r nrow(wcgs)` men exactly,
 but it estimates the population mean well
 only to the extent that the volunteers resemble the rest of the population.

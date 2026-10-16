@@ -1,7 +1,8 @@
 ::: {#def-prediction-mse}
 #### Mean squared error of predictions
 
-The **mean squared error** of predictions
+The **sample mean squared error (sMSE)** of predictions,
+also called their **mean squared error**,
 $\dsn{\fitted}$
 of observed outcomes $\dsn{y}$
 is the mean of their squared [prediction errors](#def-prediction-error):

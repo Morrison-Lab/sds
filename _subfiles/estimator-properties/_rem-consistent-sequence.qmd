@@ -6,7 +6,7 @@ is a formula that applies to any sample size,
 so $\hparam_1, \hparam_2, \ldots$ is a sequence of estimators,
 one for each $n$.
 [Unbiasedness](estimation.qmd#def-unbiased) and
-[mean squared error](estimation.qmd#def-mse)
+[pMSE](estimation.qmd#def-mse)
 describe an estimator at one fixed sample size;
 consistency describes what happens to the whole sequence as $n$ grows.
 An estimator can be consistent and biased at every $n$,

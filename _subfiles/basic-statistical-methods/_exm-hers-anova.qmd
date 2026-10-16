@@ -1,7 +1,7 @@
 ::: {#exm-hers-anova}
 #### Fasting glucose by race/ethnicity in HERS
 
-The group sizes, means, and standard deviations
+The group sizes, sample means, and sample standard deviations
 of baseline fasting glucose:
 
 ```{r}
@@ -48,7 +48,7 @@ aov(glucose ~ raceth, data = hers) |>
 ```
 
 The p-value is far below 0.05:
-mean fasting glucose differs among the three race/ethnicity groups.
+population mean fasting glucose differs among the three race/ethnicity groups.
 :::
 
 {{< slidebreak >}}

@@ -1,5 +1,5 @@
 ::: {#rem-rmse-units}
-#### Units of the root mean squared error
+#### Units of the population root mean squared error
 
-The root mean squared error has the same units as the estimand.
+The pRMSE has the same units as the estimand.
 :::

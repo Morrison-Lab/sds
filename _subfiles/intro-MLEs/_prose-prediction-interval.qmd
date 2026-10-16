@@ -1,5 +1,5 @@
 Suppose $\dsn{X} \siid \ndist{\mean, \varpar}$ with $\varpar$ known,
-and we want to predict the mean $\bar X^*$ of $m$ new observations
+and we want to predict the sample mean $\bar X^*$ of $m$ new observations
 from the same distribution,
 independent of the first $n$.
 The MLE of $\mean$ is $\hmean = \bar X$,

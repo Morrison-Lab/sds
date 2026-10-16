@@ -53,7 +53,7 @@ To shorten the next steps, write
 $d_i \eqdef (\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)$,
 so that $\partial \text{RSS} / \partial \coef{x} = -2 \sumin \predvar_\iobs d_i$.
 The $d_i$ sum to zero,
-because deviations from a mean sum to zero (@exr-sum-deviations-zero):
+because deviations from a sample mean sum to zero (@exr-sum-deviations-zero):
 
 $$
 \begin{aligned}

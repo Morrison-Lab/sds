@@ -50,5 +50,5 @@ and avoids computing $\accept$ itself,
 which can overflow or underflow.
 Every accepted proposal changes the chain's value,
 so the fraction of iterations that change estimates the acceptance rate.
-The chain's mean is close to the exact posterior mean $56/93$.
+The chain's sample mean is close to the exact posterior mean $56/93$.
 :::

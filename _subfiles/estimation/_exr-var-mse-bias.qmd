@@ -1,9 +1,9 @@
 :::{#exr-var-mse-bias}
-#### Squared standard error from MSE and bias
+#### Squared standard error from pMSE and bias
 
 Using @thm-mse-bias-variance,
 write the squared [standard error](#def-SE) $\sqf{\SE{\hparam}}$
-in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of $\hparam$.
+in terms of the [pMSE](#def-mse) and the [bias](#def-bias) of $\hparam$.
 :::
 
 {{< slidebreak >}}

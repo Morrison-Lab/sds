@@ -11,7 +11,7 @@ does not hold for them,
 and the [training error](#def-training-mse) $\trainerr$ is typically *smaller*
 than $\generr_{\trainset}$ [@hastie2009elements, sec. 7.4].
 @exr-overfitting shows the pattern:
-training RMSE keeps falling as the degree grows,
-while held-out RMSE does not.
+training sRMSE keeps falling as the degree grows,
+while held-out sRMSE does not.
 
 :::
