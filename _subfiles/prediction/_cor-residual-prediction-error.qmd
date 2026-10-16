@@ -1,7 +1,7 @@
 ::: {#cor-residual-prediction-error}
 #### The residual is the negative of the prediction error
 
-For an observation $i$ that was used to fit the model,
+For an observation $i$,
 its [residual](#def-residual) is the negative of
 the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
 

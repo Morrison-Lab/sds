@@ -17,7 +17,7 @@ $$
 \end{aligned}
 $$
 
-For an observation used to fit the model,
+For a fitted value,
 the prediction error is the negative of the residual
 (@thm-prediction-error-residual),
 so the two differ only in orientation.

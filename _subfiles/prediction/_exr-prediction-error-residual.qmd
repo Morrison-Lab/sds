@@ -1,7 +1,7 @@
 :::{#exr-prediction-error-residual}
-#### Prediction error and residual of a fitted observation
+#### Prediction error and residual
 
-For an observation $i$ that was used to fit the model,
+For an observation $i$,
 write its [prediction error](#def-prediction-error) $\prederr_i$
 in terms of its [residual](#def-residual) $\resid_i$.
 :::
