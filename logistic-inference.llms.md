@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 18:55:10 (PDT)
+Last modified: 2026-10-16 00:14:28 (PDT)
 
 ## 1 Introduction
 
@@ -156,7 +156,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> Dobson and Barnett ([2018, sec. 5.5](#ref-dobson4e)) introduces both terms: observations that share a combination of factor levels and the same values of any continuous predictors have the same covariate pattern, and are called replicates. This section follows the treatment in [rme](https://morrison-lab.github.io/rme/), adapted to logistic regression.
+> Dobson and Barnett ([2018, sec. 5.5](#ref-dobson4e)) introduces both terms: observations that share a combination of factor levels and the same values of any continuous predictors have the same covariate pattern, and are called replicates.
 
 > **NOTE:**
 >
