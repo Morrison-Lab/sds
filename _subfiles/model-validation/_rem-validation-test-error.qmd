@@ -13,8 +13,8 @@ the test error is computed once, after the choice, so it is not.
 @hastie2009elements [sec. 7.2] use "test error" for the generalization error of the fitted rule itself.
 Here the test error is the number computed from the test set, and the generalization error is what it estimates.
 
-This page scores predictions by squared error throughout, so both errors are mean squared errors.
-Averaging any other loss over the same set, such as the absolute error,
-gives the corresponding validation and test errors.
+Each definition holds for any [loss](#def-observation-loss).
+Under squared-error loss, they are mean squared errors;
+under absolute-error loss, they are mean absolute errors.
 
 :::

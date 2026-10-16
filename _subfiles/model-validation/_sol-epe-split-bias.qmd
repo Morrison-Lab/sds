@@ -88,6 +88,6 @@ $$ {#eq-epe-after-bias}
 Neither cross term needed the noise to be normal,
 and neither assumed anything about the fitting procedure:
 $\fitproc$ can be a line, a tree or a neural network.
-This split is specific to squared-error loss, the loss these notes use.
+This split is specific to squared-error loss, the loss of this chapter's examples.
 
 :::

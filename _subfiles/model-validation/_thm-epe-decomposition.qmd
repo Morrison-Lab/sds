@@ -7,7 +7,7 @@ the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
 where $\noise$, the noise in the outcome at $\predvar$, has mean $0$ and variance $\varpar$,
 and that $\newoutvar$ is independent of the random training set $\trainset$,
 and that $\E{\fitproc\paren{\predvar; \trainset}^2} < \infty$.
-Then the [expected squared prediction error at $\predvar$](#def-epe)
+Then the [expected prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)
 of the prediction $\fitproc\paren{\predvar; \trainset}$, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),

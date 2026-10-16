@@ -5,7 +5,7 @@ Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let the random [training set](#def-training-set) $\trainset$ of $\nobs$ observations
 be independent of the new observation $(\newpredvar, \newoutvar)$.
 Write the [expected generalization error](#def-expected-generalization-error) $\expgenerr{\fitproc}{\nobs}$
-in terms of the [expected squared prediction error at $\predvar$](#def-epe), $\epe{\fitproc}{\nobs}{\predvar}$,
+in terms of the [expected prediction loss at $\predvar$](#def-epl), $\epl{\fitproc}{\nobs}{\predvar}$,
 and the distribution of $\newpredvar$.
 
 :::
