@@ -8,13 +8,11 @@
 # Pages here are heavy with math, which makes that failure mode likely
 # rather than hypothetical.
 #
-# The crawl took about 4.8 minutes when it ran, on 11% of the Actions minutes
-# measured on 2026-10-12, and most PRs change prose that has no math. The
+# The crawl is slow, and many PRs change prose that has no math. The
 # `needs-check` job therefore skips the crawl for a PR whose changes are all
-# `.qmd` or `.md` sources and whose changed lines hold nothing that could
-# be math: no
-# `$`, backslash, `^`, `_`, `{` or `=`. Anything else runs it, as does a PR it
-# cannot read (no PR number, a file with no patch). The check stays a
+# `.qmd` or `.md` sources and whose changed lines hold nothing that could be
+# math: no `$`, backslash, `^`, `_`, `{` or `=`. Anything else runs it, as does
+# a PR it cannot read (no PR number, a file with no patch). The check stays a
 # non-required status, so a skipped run blocks nothing.
 #
 # NOTE: the `workflows:` value below MUST match the `name:` of the build
@@ -58,7 +56,7 @@ jobs:
           # whose added or removed lines contain no math-like character.
           skip=$(jq -r '
             def changed: .patch // "" | split("\n")
-              | map(select(test("^[+-]") and (test("^(\\+\\+\\+|---)") | not)));
+              | map(select(test("^[+-]")));
             if length == 0 then "false"
             elif all(.[]; (.filename | test("\\.(qmd|md)$")) and (.patch != null)
                      and ((changed | map(select(test("[$\\\\^_{=]"))) | length) == 0))
@@ -76,4 +74,4 @@ jobs:
     permissions:
       contents: read
       actions: read  # needed to download the build artifact
-    uses: Morrison-Lab/gha/.github/workflows/check-equation-renders.yml@v2
+    uses: Morrison-Lab/gha/.github/workflows/check-equation-renders.yml@v3
