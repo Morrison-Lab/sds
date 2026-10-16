@@ -13,11 +13,6 @@ $$
 \cvest{\nobs} = \frac{1}{\nobs} \sum_{\iobs \in \obsidx} \sqf{\fittedwo{\foldof{\iobs}}{\predvar_{\iobs}} - \outvar_{\iobs}}.
 $$ {#eq-loocv}
 
-:::
-
-:::{#rem-source-loocv}
-#### Source: Leave-one-out cross-validation
-
-@james2021islr2e [sec. 5.1.2].
+Source: @james2021islr2e [sec. 5.1.2].
 
 :::
