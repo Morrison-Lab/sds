@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 04:59:09 (PDT)
+Last modified: 2026-10-16 05:11:27 (PDT)
 
 ## 1 Scientific models
 
@@ -272,6 +272,13 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
+> *Remark 1* (Estimation versus prediction). The squared-error split has two forms, and they differ in what the estimate is compared with.
+>
+> - **Estimation.** [Theorem 5](#thm-mse-bias-variance) compares an estimator \\\hat{\theta}\\ with a fixed parameter \\\theta\\. The target is a constant, so the expected squared error is squared bias plus variance, with no other term.
+> - **Prediction.** The target is a new outcome, which is itself random. The model validation notes prove that [expected squared prediction error](model-validation.llms.md#thm-epe-decomposition) equals squared bias plus variance plus the noise variance, the [irreducible error](model-validation.llms.md#def-irreducible-error) of that outcome. No choice of prediction can remove the extra term.
+
+> **NOTE:**
+>
 > **Example 8 (Mean squared error of two estimators of a mean)** Continuing [Example 7](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 5](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
 >
 > For \\X_1\\,
@@ -302,7 +309,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> *Remark 1* (Units of the root mean squared error). The root mean squared error has the same units as the estimand.
+> *Remark 2* (Units of the root mean squared error). The root mean squared error has the same units as the estimand.
 
 > **NOTE:**
 >
@@ -445,7 +452,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> *Remark 2* (The name “standard error”). “Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the [estimation error](#def-estimation-error) (although [Theorem 7](#thm-se-error-sd) shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.
+> *Remark 3* (The name “standard error”). “Standard error” is a confusing name in two ways. It is defined through the estimator’s own spread, not through the [estimation error](#def-estimation-error) (although [Theorem 7](#thm-se-error-sd) shows that the two spreads are equal). It is also a synonym for the standard deviation of an estimator, so it can look redundant. The name persists because standard errors are the building blocks of p-values and confidence intervals, so they come up often enough to deserve their own name.
 
 > **NOTE:**
 >
