@@ -1,0 +1,12 @@
+:::{#rem-squared-error-loss}
+#### Squared-error loss
+
+Each error defined below holds for any [loss](#def-observation-loss).
+The examples, exercises and the bias-variance decomposition use *squared-error loss*,
+$\lossf{\outvar, \hat{\outvar}} = \sqf{\hat{\outvar} - \outvar}$,
+unless they say otherwise.
+Then the loss on an observation is the square of its [prediction error](prediction.qmd#def-prediction-error),
+$\obsloss{\iobs} = \prederr_{\iobs}^2$,
+and each average loss below is a mean squared error.
+
+:::

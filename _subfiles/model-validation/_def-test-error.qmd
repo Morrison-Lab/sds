@@ -3,12 +3,11 @@
 
 The **test error** of a [prediction rule](#def-prediction-rule) $\fitted$
 fitted to a [training set](#def-training-set) $\trainset$
-is the [mean squared error](prediction.qmd#def-prediction-mse)
-of its predictions for the [test set](#def-test-set),
-indexed by $\testidx$:
+is its mean [loss](#def-observation-loss) $\obsloss{\iobs}$
+on the [test set](#def-test-set), indexed by $\testidx$:
 
 $$
-\testerr \eqdef \frac{1}{\abs{\testidx}} \sum_{\iobs \in \testidx} \sqf{\fitted\paren{\predvar_{\iobs}} - \outvar_{\iobs}}.
+\testerr \eqdef \avgon{\testidx} \obsloss{\iobs}.
 $$ {#eq-test-error}
 
 :::

@@ -3,19 +3,19 @@
 Given $\trainset$, the rule $\fitted$ is fixed.
 Each held-out pair has the same distribution as $(\newpredvar, \newoutvar)$
 and is independent of $\trainset$,
-so each squared prediction error has conditional expectation
-$\E{\sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset} = \generr_{\trainset}$
+so each loss has conditional expectation
+$\E{\obsloss{*,\ifold} \mid \trainset} = \generr_{\trainset}$
 by @eq-generalization-error.
 Then
 
 $$
 \ba
-& \E{\frac{1}{\nheld} \sumto{\ifold}{\nheld} \sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}
+& \E{\avgto{\ifold}{\nheld} \obsloss{*,\ifold} \mid \trainset}
 \\
-&\quad = \frac{1}{\nheld} \E{\sumto{\ifold}{\nheld} \sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}
+&\quad = \frac{1}{\nheld} \E{\sumto{\ifold}{\nheld} \obsloss{*,\ifold} \mid \trainset}
 && \text{(constant } 1/\nheld \text{ out)}
 \\
-&\quad = \frac{1}{\nheld} \sumto{\ifold}{\nheld} \E{\sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}
+&\quad = \frac{1}{\nheld} \sumto{\ifold}{\nheld} \E{\obsloss{*,\ifold} \mid \trainset}
 && \text{(linearity of } \Ep \text{)}
 \\
 &\quad = \frac{1}{\nheld} \sumto{\ifold}{\nheld} \generr_{\trainset}
