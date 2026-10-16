@@ -28,8 +28,8 @@ It is not the [mean squared error of an estimator](estimation.qmd#def-mse):
 @thm-epe-decomposition shows that it exceeds the mean squared error
 of the prediction as an estimator of the [mean function](#def-mean-function) value $\mean(\predvar)$
 by the noise variance.
-The acronym keeps no "squared" because "error" names the squared prediction error here,
-as in "mean squared error"; another loss gives an expected prediction loss, not an EPE.
+The acronym omits "squared" because "error" already means squared error here.
+Another loss gives an expected prediction loss, not an EPE.
 
 :::
 
