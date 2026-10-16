@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 05:26:23 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 10:01:37 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -504,13 +504,13 @@ text-align: center;
 <!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. -->
 <div id="def-prediction-mse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Mean squared error of predictions)</strong></span> The <strong>sample mean squared error (sMSE)</strong> of predictions, also called their <strong>mean squared error</strong>, <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
-<p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n\varepsilon_i^2.\]</span></p>
+<p><span class="math display">\[\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n\varepsilon_i^2.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-mse" class="proof remark">
 <p><span class="proof-title"><em>Remark 4</em> (Prediction sMSE, estimator pMSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;5</a> averages squared errors over observations, where the <a href="./estimation.html#def-mse">pMSE of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">sMSE and RSS</a>):</p>
-<p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}),
+<p><span class="math display">\[\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}),
 \qquad
-\text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}) = n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\]</span></p>
+\text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}) = n \, \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-fitted-residual-error" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Fitted values, residuals, and prediction errors for three points)</strong></span> Take the points <span class="math inline">\((0, 1)\)</span>, <span class="math inline">\((1, 2)\)</span>, <span class="math inline">\((2, 2)\)</span> and the line with <span class="math inline">\(\beta_{0}= 1\)</span> and <span class="math inline">\(\beta_{x} = 0.5\)</span> from <a href="./correlation-regression.html#exm-rss">the residual sum of squares example</a>, and treat the line as the fitted model.</p>
@@ -590,7 +590,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <p>The sMSE of these predictions is</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
+\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}
 &amp;= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\
 &amp;= \frac{0.25}{3}\\
 &amp;\approx 0.083,

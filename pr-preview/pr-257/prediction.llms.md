@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:26:23 (PDT)
+Last modified: 2026-10-16 10:01:37 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -152,13 +152,13 @@ Last modified: 2026-10-16 05:26:23 (PDT)
 >
 > **Definition 5 (Mean squared error of predictions)** The **sample mean squared error (sMSE)** of predictions, also called their **mean squared error**, \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2.\\
+> \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2.\\
 
 > **NOTE:**
 >
 > *Remark 4* (Prediction sMSE, estimator pMSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [pMSE of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([sMSE and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}), \qquad \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
+> \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}), \qquad \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}) = n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
 > **NOTE:**
 >
@@ -203,7 +203,7 @@ Last modified: 2026-10-16 05:26:23 (PDT)
 >
 > The sMSE of these predictions is
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\ &= \frac{0.25}{3}\\ &\approx 0.083, \end{aligned} \\
+> \\ \begin{aligned} \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\ &= \frac{0.25}{3}\\ &\approx 0.083, \end{aligned} \\
 >
 > the residual sum of squares, \\0.25\\, divided by \\n = 3\\.
 

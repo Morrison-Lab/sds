@@ -333,6 +333,16 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-remark.callout {
   border-left-color: #AD1457;
 }
@@ -353,16 +363,6 @@ div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-proof.callout {
   border-left-color: #37474F;
 }
@@ -372,90 +372,6 @@ div.callout-proof.callout-style-default .callout-header {
 div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-videos.callout {
-  border-left-color: #283593;
-}
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
-}
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
-}
-div.callout-tbl.callout {
-  border-left-color: #757575;
-}
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-reading.callout {
   border-left-color: #00695C;
@@ -480,6 +396,90 @@ div.callout-def.callout-style-default .callout-header {
 div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-tbl.callout {
+  border-left-color: #757575;
+}
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-videos.callout {
+  border-left-color: #283593;
+}
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
+}
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -1054,19 +1054,6 @@ window.Quarto = {
         <strong>📋 Other Formats:</strong> <a href="estimation-slides.html">🎞️ Slides</a>
     </p>
 </div>
-
-<!-- gha-preview-page-banner:start -->
-<div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
-    <p style="margin: 0;">
-        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~1% of content changed).
-        <br>
-        <strong>🎨 Highlighting Legend:</strong> 
-        <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 3px; border-radius: 2px;">Modified text (yellow)</mark> shows changed words/phrases, 
-        <mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 3px; border-radius: 2px;">added text (green)</mark> shows new content, and 
-        <mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 3px; border-radius: 2px;">new sections (blue)</mark> highlight entirely new paragraphs.
-    </p>
-</div>
-<!-- gha-preview-page-banner:end -->
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./estimation.html">Inference</a></li><li class="breadcrumb-item"><a href="./estimation.html">Estimation</a></li></ol></nav><div class="quarto-title">
 <div class="quarto-title-block"><div><h1 class="title">Estimation</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
@@ -1079,7 +1066,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-16 05:26:23 (PDT)</p>
+      <p class="date">Last modified: 2026-10-16 10:01:37 (PDT)</p>
     </div>
   </div>
   
@@ -1184,7 +1171,7 @@ text-align: center;
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-estimand" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Mean height of students)</strong></span> If we are trying to determine the<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> population</mark> mean height of students at our school, then the <em>population mean</em> is our <a href="#def-estimand">estimand</a>.</p>
+<p><span class="theorem-title"><strong>Example 2 (Mean height of students)</strong></span> If we are trying to determine the population mean height of students at our school, then the <em>population mean</em> is our <a href="#def-estimand">estimand</a>.</p>
 </div>
 </div>
 </div>
@@ -1312,12 +1299,12 @@ text-align: center;
 <div id="callout-11" class="callout-11-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-estimator" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4 (Mean height of students)</strong></span> Suppose we want to estimate the<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> population</mark> mean height of students at our school, which we will represent as <span class="math inline">\(\mu\)</span>, and we measure the heights of <span class="math inline">\(n = 50\)</span> randomly sampled students as random variables <span class="math inline">\(X_1, \ldots, X_n\)</span>. Then we could use the function</p>
+<p><span class="theorem-title"><strong>Example 4 (Mean height of students)</strong></span> Suppose we want to estimate the population mean height of students at our school, which we will represent as <span class="math inline">\(\mu\)</span>, and we measure the heights of <span class="math inline">\(n = 50\)</span> randomly sampled students as random variables <span class="math inline">\(X_1, \ldots, X_n\)</span>. Then we could use the function</p>
 <p><span class="math display">\[\hat{\mu}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^nX_i\stackrel{\text{def}}{=}\bar X\]</span></p>
 <p>as an <a href="#def-estimator"><em>estimator</em></a> to produce an <em>estimate</em> <span class="math inline">\(\hat{\mu}= \bar x\)</span> of <span class="math inline">\(\mu\)</span>.</p>
 <p>Another estimator would be just the height of the first student sampled:</p>
 <p><span class="math display">\[\hat{\mu}^{(2)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}X_1\]</span></p>
-<p>A third possible estimator would be the<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> sample</mark> mean of all sampled students’ heights, except for the two most extreme. Using the <a href="./nonparametric-models.html#def-order-statistics">order statistics</a> <span class="math inline">\(X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}\)</span> (the observations sorted in increasing order), this estimator drops <span class="math inline">\(X_{(1)}\)</span> and <span class="math inline">\(X_{(n)}\)</span> and averages the remaining <span class="math inline">\(n - 2\)</span> observations:</p>
+<p>A third possible estimator would be the sample mean of all sampled students’ heights, except for the two most extreme. Using the <a href="./nonparametric-models.html#def-order-statistics">order statistics</a> <span class="math inline">\(X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}\)</span> (the observations sorted in increasing order), this estimator drops <span class="math inline">\(X_{(1)}\)</span> and <span class="math inline">\(X_{(n)}\)</span> and averages the remaining <span class="math inline">\(n - 2\)</span> observations:</p>
 <p><span class="math display">\[\hat{\mu}^{(3)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n-2}\sum_{i=2}^{n-1} X_{(i)}\]</span></p>
 <p>Which of these estimators is best? The answer depends on how we evaluate them (see <a href="#sec-est-accuracy" class="quarto-xref">Section&nbsp;3</a>).</p>
 </div>
@@ -1455,12 +1442,12 @@ text-align: center;
 </div>
 </div>
 </div>
-<p>The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, <mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">population </mark>mean squared error, and<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> population</mark> mean absolute error defined in this section, are all functions of the distribution of the estimator’s <a href="#def-estimation-error">estimation error</a>.</p>
+<p>The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, population mean squared error, and population mean absolute error defined in this section, are all functions of the distribution of the estimator’s <a href="#def-estimation-error">estimation error</a>.</p>
 </section><section id="residuals" class="level3" data-number="3.3"><h3 data-number="3.3" class="anchored" data-anchor-id="residuals">
 <span class="header-section-number">3.3</span> Predictions and residuals</h3>
 <!-- The explicit {#residuals} keeps the anchor this section had when its heading was "Residuals". -->
 <!-- No slidebreak here: the heading shares its slide with the prose. -->
-<p>Predictions, fitted values, residuals, prediction errors and the<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> sample</mark> mean squared error of predictions have their own page, <a href="./prediction.html">Prediction</a>. That page also contrasts them with the estimation quantities defined here: <a href="#def-estimation-error">estimation error</a> and the <a href="#mean-squared-error"><mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">population </mark>mean squared error of an estimator</a>.</p>
+<p>Predictions, fitted values, residuals, prediction errors and the sample mean squared error of predictions have their own page, <a href="./prediction.html">Prediction</a>. That page also contrasts them with the estimation quantities defined here: <a href="#def-estimation-error">estimation error</a> and the <a href="#mean-squared-error">population mean squared error of an estimator</a>.</p>
 </section><section id="bias" class="level3" data-number="3.4"><h3 data-number="3.4" class="anchored" data-anchor-id="bias">
 <span class="header-section-number">3.4</span> Bias</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-bias div. -->
@@ -1580,7 +1567,7 @@ text-align: center;
 <div id="callout-22" class="callout-22-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-bias-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Bias of two estimators of a<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> population</mark> mean)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> each have expectation <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} = \mu\)</span>, as in <a href="#exm-estimator" class="quarto-xref">Example&nbsp;4</a>. By <a href="#thm-bias-exprs" class="quarto-xref">Theorem&nbsp;1</a>, the bias of the sample mean <span class="math inline">\(\bar X\)</span> is:</p>
+<p><span class="theorem-title"><strong>Example 7 (Bias of two estimators of a population mean)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> each have expectation <span class="math inline">\(\operatorname{E}\mathopen{}\left[X_i\right]\mathclose{} = \mu\)</span>, as in <a href="#exm-estimator" class="quarto-xref">Example&nbsp;4</a>. By <a href="#thm-bias-exprs" class="quarto-xref">Theorem&nbsp;1</a>, the bias of the sample mean <span class="math inline">\(\bar X\)</span> is:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}
@@ -1620,7 +1607,7 @@ text-align: center;
 </div>
 </div>
 </section><section id="mean-squared-error" class="level3" data-number="3.5"><h3 data-number="3.5" class="anchored" data-anchor-id="mean-squared-error">
-<span class="header-section-number">3.5</span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Population mean</mark> squared error of an estimator</h3>
+<span class="header-section-number">3.5</span> Population mean squared error of an estimator</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-mse div. -->
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
@@ -1635,8 +1622,8 @@ text-align: center;
 <div id="callout-23" class="callout-23-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-mse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Mean squared error)</strong></span> The <strong><mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">population </mark>mean squared error<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> (pMSE)</mark></strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span>,<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> also called its </mark><strong><mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">mean squared error</mark></strong><mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> denoted <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>, is the expectation of the square of the <a href="#def-estimation-error">estimation error</a>:</p>
-<p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}\]</span></p>
+<p><span class="theorem-title"><strong>Definition 8 (Mean squared error)</strong></span> The <strong>population mean squared error (pMSE)</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span>, also called its <strong>mean squared error</strong>, denoted <span class="math inline">\(\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>, is the expectation of the square of the <a href="#def-estimation-error">estimation error</a>:</p>
+<p><span class="math display">\[\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}\]</span></p>
 </div>
 </div>
 </div>
@@ -1827,7 +1814,7 @@ text-align: center;
 <div id="callout-32" class="callout-32-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-mse-expand" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Expanding the<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> population</mark> mean squared error)</strong></span> Write the <a href="#def-mse"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark></a> <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> in terms of <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{}\)</span>, <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\)</span>, and the estimand <span class="math inline">\(\theta\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 4 (Expanding the population mean squared error)</strong></span> Write the <a href="#def-mse">pMSE</a> <span class="math inline">\(\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> in terms of <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{}\)</span>, <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\)</span>, and the estimand <span class="math inline">\(\theta\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1847,7 +1834,7 @@ text-align: center;
 <div id="sol-mse-expand" class="proof solution">
 <p><span class="proof-title"><em>Solution 4</em>. </span><span class="math display">\[
 \begin{aligned}
-\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
+\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
 &amp;\stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}
 &amp;&amp; \text{(definition of MSE)}\\
 &amp;= \operatorname{E}\mathopen{}\left[(\hat{\theta}- \theta)^2\right]\mathclose{}
@@ -1879,8 +1866,8 @@ text-align: center;
 <div id="callout-34" class="callout-34-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-mse-expand" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Expanded<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> population</mark> mean squared error)</strong></span> For any one-dimensional estimator <span class="math inline">\(\hat{\theta}\)</span> of an estimand <span class="math inline">\(\theta\)</span>, the <a href="#def-mse"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark></a> is:</p>
-<p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\theta+ \theta^2\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 4 (Expanded population mean squared error)</strong></span> For any one-dimensional estimator <span class="math inline">\(\hat{\theta}\)</span> of an estimand <span class="math inline">\(\theta\)</span>, the <a href="#def-mse">pMSE</a> is:</p>
+<p><span class="math display">\[\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\theta+ \theta^2\]</span></p>
 </div>
 </div>
 </div>
@@ -1916,8 +1903,8 @@ text-align: center;
 <div id="callout-36" class="callout-36-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-mse-bias-variance" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 5 <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(Population mean</mark> squared error equals bias squared plus variance)</strong></span> For any one-dimensional estimator <span class="math inline">\(\hat{\theta}\)</span>:</p>
-<p><span id="eq-mse"><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\]</span></span></p>
+<p><span class="theorem-title"><strong>Theorem 5 (Population mean squared error equals bias squared plus variance)</strong></span> For any one-dimensional estimator <span class="math inline">\(\hat{\theta}\)</span>:</p>
+<p><span id="eq-mse"><span class="math display">\[\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -1935,7 +1922,7 @@ text-align: center;
 <div id="callout-37" class="callout-37-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#thm-mse-expand" class="quarto-xref">Theorem&nbsp;4</a> and <a href="#thm-bias-sq-plus-var" class="quarto-xref">Theorem&nbsp;3</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> and <span class="math inline">\({\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> both equal <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\theta+ \theta^2\)</span>, so they are equal to each other.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#thm-mse-expand" class="quarto-xref">Theorem&nbsp;4</a> and <a href="#thm-bias-sq-plus-var" class="quarto-xref">Theorem&nbsp;3</a>, <span class="math inline">\(\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> and <span class="math inline">\({\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span> both equal <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\theta+ \theta^2\)</span>, so they are equal to each other.</p>
 </div>
 </div>
 </div>
@@ -1977,18 +1964,18 @@ text-align: center;
 <div id="callout-39" class="callout-39-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-mse-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(Population mean</mark> squared error of two estimators of a<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> population</mark> mean)</strong></span> Continuing <a href="#exm-bias-sample-mean" class="quarto-xref">Example&nbsp;7</a>, suppose also that <span class="math inline">\(X_1, \ldots, X_n\)</span> are mutually independent, each with variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\)</span>. Both <span class="math inline">\(\bar X\)</span> and <span class="math inline">\(X_1\)</span> have zero bias, so by <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;5</a> each estimator’s <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark> equals its variance.</p>
+<p><span class="theorem-title"><strong>Example 8 (Population mean squared error of two estimators of a population mean)</strong></span> Continuing <a href="#exm-bias-sample-mean" class="quarto-xref">Example&nbsp;7</a>, suppose also that <span class="math inline">\(X_1, \ldots, X_n\)</span> are mutually independent, each with variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\)</span>. Both <span class="math inline">\(\bar X\)</span> and <span class="math inline">\(X_1\)</span> have zero bias, so by <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;5</a> each estimator’s pMSE equals its variance.</p>
 <p>For <span class="math inline">\(X_1\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} &amp;= 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} \\
+  \operatorname{pMSE}\mathopen{}\left(X_1\right)\mathclose{} &amp;= 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} \\
   &amp;= \sigma^2.
 \end{aligned}
 \]</span></p>
 <p>For <span class="math inline">\(\bar X\)</span>:</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="math display">\[
 \begin{aligned}
-\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{}
+\operatorname{pMSE}\mathopen{}\left(\bar X\right)\mathclose{}
 &amp;= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}
 &amp;&amp; \text{(pMSE equals bias squared plus variance)}\\
 &amp;= 0^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{}
@@ -2006,14 +1993,14 @@ text-align: center;
 &amp;= \frac{\sigma^2}{n}
 &amp;&amp; \text{(cancel one factor of $n$)}
 \end{aligned}
-\]</mark></span></p>
+\]</span></p>
 <p>The step to <span class="math inline">\(\frac{1}{n^2}\sum_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}\)</span> uses the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom">variance of a linear combination</a>, whose covariance terms are all zero for independent variables.</p>
 <p>So for any sample size <span class="math inline">\(n &gt; 1\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &amp;= \sigma^2/n \\
+  \operatorname{pMSE}\mathopen{}\left(\bar X\right)\mathclose{} &amp;= \sigma^2/n \\
   &amp;&lt; \sigma^2\\
-  &amp;= \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}:
+  &amp;= \operatorname{pMSE}\mathopen{}\left(X_1\right)\mathclose{}:
 \end{aligned}
 \]</span></p>
 <p>by mean squared error, the sample mean is the more accurate estimator. With <span class="math inline">\(n = 50\)</span> students, as in <a href="#exm-estimator" class="quarto-xref">Example&nbsp;4</a>, the sample mean’s mean squared error is <span class="math inline">\(1/50\)</span> of <span class="math inline">\(X_1\)</span>’s.</p>
@@ -2034,8 +2021,8 @@ text-align: center;
 <div id="callout-40" class="callout-40-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-rmse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Root mean squared error)</strong></span> The <strong><mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">population </mark>root mean squared error <mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">(pRMSE)</mark></strong><mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> </mark>of an estimator <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat{\theta}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">, also called its </mark><strong><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">root mean squared error</mark></strong><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> is the square root of its <a href="#def-mse"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">:</mark></p>
-<p><span class="math display">\[\operatorname{RMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\]</span></p>
+<p><span class="theorem-title"><strong>Definition 9 (Root mean squared error)</strong></span> The <strong>population root mean squared error (pRMSE)</strong> of an estimator <span class="math inline">\(\hat{\theta}\)</span>, also called its <strong>root mean squared error</strong>, is the square root of its <a href="#def-mse">pMSE</a>:</p>
+<p><span class="math display">\[\operatorname{pRMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\]</span></p>
 </div>
 </div>
 </div>
@@ -2053,7 +2040,7 @@ text-align: center;
 <div id="callout-41" class="callout-41-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-rmse-sample-mean" class="theorem example">
-<p><span class="theorem-title"><strong>Example 9 <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(Population root</mark> mean squared error of the sample mean)</strong></span> In <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;8</a>, the <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pRMSE</mark> of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 9 (Population root mean squared error of the sample mean)</strong></span> In <a href="#exm-mse-sample-mean" class="quarto-xref">Example&nbsp;8</a>, the pRMSE of <span class="math inline">\(\bar X\)</span> is <span class="math inline">\(\sigma/\sqrt{n}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2071,7 +2058,7 @@ text-align: center;
 <div id="callout-42" class="callout-42-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-rmse-units" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Units of the<mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> population</mark> root mean squared error). </span>The <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pRMSE</mark> has the same units as the estimand.</p>
+<p><span class="proof-title"><em>Remark 2</em> (Units of the population root mean squared error). </span>The pRMSE has the same units as the estimand.</p>
 </div>
 </div>
 </div>
@@ -2321,7 +2308,7 @@ text-align: center;
 <div id="callout-50" class="callout-50-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-unbiased-mse" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 6 <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(Population mean</mark> squared error of an unbiased estimator)</strong></span> Using <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;5</a>, write the <a href="#def-mse"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark></a> of an <a href="#def-unbiased">unbiased</a> estimator <span class="math inline">\(\hat{\theta}\)</span> in terms of its variance.</p>
+<p><span class="theorem-title"><strong>Exercise 6 (Population mean squared error of an unbiased estimator)</strong></span> Using <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;5</a>, write the <a href="#def-mse">pMSE</a> of an <a href="#def-unbiased">unbiased</a> estimator <span class="math inline">\(\hat{\theta}\)</span> in terms of its variance.</p>
 </div>
 </div>
 </div>
@@ -2341,7 +2328,7 @@ text-align: center;
 <div id="sol-unbiased-mse" class="proof solution">
 <p><span class="proof-title"><em>Solution 6</em>. </span><span class="math display">\[
 \begin{aligned}
-\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
+\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
 &amp;= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
 &amp;&amp; \text{(MSE equals bias squared plus variance)}\\
 &amp;= 0^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
@@ -2369,7 +2356,7 @@ text-align: center;
 <div id="thm-unbiased-props" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 6 (Properties of unbiased estimators)</strong></span> If <span class="math inline">\(\hat{\theta}\)</span> is an <a href="#def-unbiased">unbiased</a> estimator of <span class="math inline">\(\theta\)</span>, then:</p>
 <p><span id="eq-unbiased-exp"><span class="math display">\[\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{} = \theta \tag{5}\]</span></span></p>
-<p><span id="eq-unbiased-mse"><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{6}\]</span></span></p>
+<p><span id="eq-unbiased-mse"><span class="math display">\[\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{6}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -2411,7 +2398,7 @@ text-align: center;
 </div>
 </div>
 </section><section id="mean-absolute-error" class="level3" data-number="3.7"><h3 data-number="3.7" class="anchored" data-anchor-id="mean-absolute-error">
-<span class="header-section-number">3.7</span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Population mean</mark> absolute error</h3>
+<span class="header-section-number">3.7</span> Population mean absolute error</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-mae div. -->
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-55-contents" aria-controls="callout-55" aria-expanded="true" aria-label="Toggle callout">
@@ -2426,7 +2413,7 @@ text-align: center;
 <div id="callout-55" class="callout-55-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-mae" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Mean absolute error)</strong></span> The <strong><mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">population </mark>mean absolute error <mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;">(pMAE)</mark></strong><mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 2px; border-radius: 2px;"> </mark>of an <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">estimator, also called its </mark><strong><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">mean absolute error</mark></strong><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> is the expectation of the absolute value of the <a href="#def-estimation-error">estimation error</a>:</p>
+<p><span class="theorem-title"><strong>Definition 12 (Mean absolute error)</strong></span> The <strong>population mean absolute error (pMAE)</strong> of an estimator, also called its <strong>mean absolute error</strong>, is the expectation of the absolute value of the <a href="#def-estimation-error">estimation error</a>:</p>
 <p><span class="math display">\[
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\mathopen{}\left|\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right|\mathclose{}\right]\mathclose{}
 \]</span></p>
@@ -2447,7 +2434,7 @@ text-align: center;
 <div id="callout-56" class="callout-56-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-mae-gaussian" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(Population mean</mark> absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat{\theta}\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
+<p><span class="theorem-title"><strong>Example 12 (Population mean absolute error of a Gaussian estimator)</strong></span> Suppose an estimator <span class="math inline">\(\hat{\theta}\)</span> has a Gaussian distribution with mean <span class="math inline">\(\theta\)</span> and standard deviation <span class="math inline">\(\tau\)</span>, so that its estimation error <span class="math inline">\(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\)</span> has the same distribution as <span class="math inline">\(\tau Z\)</span>, where <span class="math inline">\(Z\)</span> has a standard Gaussian distribution with density <span class="math inline">\(\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\)</span>. Then:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
@@ -2487,7 +2474,7 @@ text-align: center;
 &amp;&amp; \text{(cancel the common factor 2 in $4/(2\pi)$)}
 \end{aligned}
 \]</span></p>
-<p>So for an <a href="#def-unbiased">unbiased</a> Gaussian estimator, the <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMAE</mark> is about <span class="math inline">\(0.80\)</span> times the standard deviation <span class="math inline">\(\tau\)</span>, while the <a href="#def-rmse"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pRMSE</mark></a> is <span class="math inline">\(\tau\)</span> itself (<a href="#thm-unbiased-props" class="quarto-xref">Theorem&nbsp;6</a>).</p>
+<p>So for an <a href="#def-unbiased">unbiased</a> Gaussian estimator, the pMAE is about <span class="math inline">\(0.80\)</span> times the standard deviation <span class="math inline">\(\tau\)</span>, while the <a href="#def-rmse">pRMSE</a> is <span class="math inline">\(\tau\)</span> itself (<a href="#thm-unbiased-props" class="quarto-xref">Theorem&nbsp;6</a>).</p>
 </div>
 </div>
 </div>
@@ -2657,7 +2644,7 @@ text-align: center;
 <div id="callout-64" class="callout-64-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-var-mse-bias" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 8 (Squared standard error from <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark> and bias)</strong></span> Using <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;5</a>, write the squared <a href="#def-SE">standard error</a> <span class="math inline">\({\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\)</span> in terms of the <a href="#def-mse"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark></a> and the <a href="#def-bias">bias</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 8 (Squared standard error from pMSE and bias)</strong></span> Using <a href="#thm-mse-bias-variance" class="quarto-xref">Theorem&nbsp;5</a>, write the squared <a href="#def-SE">standard error</a> <span class="math inline">\({\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\)</span> in terms of the <a href="#def-mse">pMSE</a> and the <a href="#def-bias">bias</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2677,13 +2664,13 @@ text-align: center;
 <div id="sol-var-mse-bias" class="proof solution">
 <p><span class="proof-title"><em>Solution 8</em>. </span><span class="math display">\[
 \begin{aligned}
-\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &amp;= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
+\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &amp;= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
 &amp;&amp; \text{(MSE equals bias squared plus variance)}\\
-\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &amp;= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2
+\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &amp;= \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2
 &amp;&amp; \text{(subtract ${\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2$ from both sides)}\\
-{\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &amp;= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2
+{\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &amp;= \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2
 &amp;&amp; \text{($\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2$)}\\
-{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &amp;= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2
+{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &amp;= \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2
 &amp;&amp; \text{(definition of standard error: $\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}$)}
 \end{aligned}
 \]</span></p>
@@ -2704,8 +2691,8 @@ text-align: center;
 <div id="callout-66" class="callout-66-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="cor-var-mse-bias" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 1 (Standard error squared equals <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark> minus squared bias)</strong></span> The squared standard error is what remains of the <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark> after the squared bias is removed:</p>
-<p><span class="math display">\[{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 = \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\]</span></p>
+<p><span class="theorem-title"><strong>Corollary 1 (Standard error squared equals pMSE minus squared bias)</strong></span> The squared standard error is what remains of the pMSE after the squared bias is removed:</p>
+<p><span class="math display">\[{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 = \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\]</span></p>
 </div>
 </div>
 </div>
@@ -2741,7 +2728,7 @@ text-align: center;
 <div id="callout-68" class="callout-68-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-se-rmse-unbiased" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 9 (Standard error of an unbiased estimator)</strong></span> Using <a href="#eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a>, write the <a href="#def-SE">standard error</a> of an <a href="#def-unbiased">unbiased</a> estimator <span class="math inline">\(\hat{\theta}\)</span> in terms of its <a href="#def-mse"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pMSE</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></p>
+<p><span class="theorem-title"><strong>Exercise 9 (Standard error of an unbiased estimator)</strong></span> Using <a href="#eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a>, write the <a href="#def-SE">standard error</a> of an <a href="#def-unbiased">unbiased</a> estimator <span class="math inline">\(\hat{\theta}\)</span> in terms of its <a href="#def-mse">pMSE</a>.</p>
 </div>
 </div>
 </div>
@@ -2759,10 +2746,10 @@ text-align: center;
 <div id="callout-69" class="callout-69-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-se-rmse-unbiased" class="proof solution">
-<p><span class="proof-title"><em>Solution 9</em>. </span>By <a href="#eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>. Taking square roots of both sides,</p>
+<p><span class="proof-title"><em>Solution 9</em>. </span>By <a href="#eq-unbiased-mse" class="quarto-xref">Equation&nbsp;6</a>, <span class="math inline">\(\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\)</span>. Taking square roots of both sides,</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &amp;= \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \\
+  \sqrt{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &amp;= \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \\
   &amp;= \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}.
 \end{aligned}
 \]</span></p>
@@ -2783,8 +2770,8 @@ text-align: center;
 <div id="callout-70" class="callout-70-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="cor-se-rmse-unbiased" class="theorem corollary">
-<p><span class="theorem-title"><strong>Corollary 2 (For unbiased estimators, SE equals <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pRMSE)</mark></strong></span> If <span class="math inline">\(\hat{\theta}\)</span> is <a href="#def-unbiased">unbiased</a>, then its standard error equals its <a href="#def-rmse"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">pRMSE</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">:</mark></p>
-<p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\]</span></p>
+<p><span class="theorem-title"><strong>Corollary 2 (For unbiased estimators, SE equals pRMSE)</strong></span> If <span class="math inline">\(\hat{\theta}\)</span> is <a href="#def-unbiased">unbiased</a>, then its standard error equals its <a href="#def-rmse">pRMSE</a>:</p>
+<p><span class="math display">\[\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \sqrt{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\]</span></p>
 </div>
 </div>
 </div>

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:26:23 (PDT)
+Last modified: 2026-10-16 10:01:37 (PDT)
 
 ## 1 Scientific models
 
@@ -196,9 +196,9 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error**, denoted \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
+> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error**, denoted \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\
+> \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\
 
 > **NOTE:**
 >
@@ -244,17 +244,17 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Exercise 4 (Expanding the population mean squared error)** Write the [pMSE](#def-mse) \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
+> **Exercise 4 (Expanding the population mean squared error)** Write the [pMSE](#def-mse) \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
 
 > **NOTE:**
 >
-> *Solution 4*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &\stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(definition of MSE)}\\ &= \operatorname{E}\mathopen{}\left\[(\hat{\theta}- \theta)^2\right\]\mathclose{} && \text{(definition of estimation error)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2 - 2\hat{\theta}\theta+ \theta^2\right\]\mathclose{} && \text{(expand the binomial square)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[2\hat{\theta}\theta\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{} && \text{(factor the constant \$2\theta\$ out of the middle expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(the expectation of a constant is that constant)} \end{aligned} \\
+> *Solution 4*. \\ \begin{aligned} \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &\stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(definition of MSE)}\\ &= \operatorname{E}\mathopen{}\left\[(\hat{\theta}- \theta)^2\right\]\mathclose{} && \text{(definition of estimation error)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2 - 2\hat{\theta}\theta+ \theta^2\right\]\mathclose{} && \text{(expand the binomial square)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[2\hat{\theta}\theta\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \operatorname{E}\mathopen{}\left\[\theta^2\right\]\mathclose{} && \text{(factor the constant \$2\theta\$ out of the middle expectation)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2 && \text{(the expectation of a constant is that constant)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 4 (Expanded population mean squared error)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the [pMSE](#def-mse) is:
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
+> \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
 
 > **NOTE:**
 >
@@ -264,11 +264,11 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > **Theorem 5 (Population mean squared error equals bias squared plus variance)** For any one-dimensional estimator \\\hat{\theta}\\:
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
+> \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
 
 > **NOTE:**
 >
-> *Proof*. By [Theorem 4](#thm-mse-expand) and [Theorem 3](#thm-bias-sq-plus-var), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ and \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ both equal \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\, so they are equal to each other.
+> *Proof*. By [Theorem 4](#thm-mse-expand) and [Theorem 3](#thm-bias-sq-plus-var), \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ and \\{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ both equal \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\, so they are equal to each other.
 
 > **NOTE:**
 >
@@ -283,17 +283,17 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > For \\X_1\\,
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} &= 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} \\ &= \sigma^2. \end{aligned} \\
+> \\ \begin{aligned} \operatorname{pMSE}\mathopen{}\left(X_1\right)\mathclose{} &= 0^2 + \operatorname{Var}\mathopen{}\left(X_1\right)\mathclose{} \\ &= \sigma^2. \end{aligned} \\
 >
 > For \\\bar X\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(pMSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(zero bias)}\\ &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(\$0^2 = 0\$)}\\ &= \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nX_i\right)\mathclose{} && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} && \text{(variance of a linear combination of independent variables)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\sigma^2 && \text{(\$\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\$ for every \$i\$)}\\ &= \frac{1}{n^2} \cdot n\sigma^2 && \text{(sum of \$n\$ copies of \$\sigma^2\$)}\\ &= \frac{\sigma^2}{n} && \text{(cancel one factor of \$n\$)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{pMSE}\mathopen{}\left(\bar X\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(pMSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(zero bias)}\\ &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(\$0^2 = 0\$)}\\ &= \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nX_i\right)\mathclose{} && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} && \text{(variance of a linear combination of independent variables)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\sigma^2 && \text{(\$\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\$ for every \$i\$)}\\ &= \frac{1}{n^2} \cdot n\sigma^2 && \text{(sum of \$n\$ copies of \$\sigma^2\$)}\\ &= \frac{\sigma^2}{n} && \text{(cancel one factor of \$n\$)} \end{aligned} \\
 >
 > The step to \\\frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}\\ uses the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom), whose covariance terms are all zero for independent variables.
 >
 > So for any sample size \\n \> 1\\,
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &= \sigma^2/n \\ &\< \sigma^2\\ &= \operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}: \end{aligned} \\
+> \\ \begin{aligned} \operatorname{pMSE}\mathopen{}\left(\bar X\right)\mathclose{} &= \sigma^2/n \\ &\< \sigma^2\\ &= \operatorname{pMSE}\mathopen{}\left(X_1\right)\mathclose{}: \end{aligned} \\
 >
 > by mean squared error, the sample mean is the more accurate estimator. With \\n = 50\\ students, as in [Example 4](#exm-estimator), the sample mean’s mean squared error is \\1/50\\ of \\X_1\\’s.
 
@@ -301,7 +301,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > **Definition 9 (Root mean squared error)** The **population root mean squared error (pRMSE)** of an estimator \\\hat{\theta}\\, also called its **root mean squared error**, is the square root of its [pMSE](#def-mse):
 >
-> \\\operatorname{RMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\
+> \\\operatorname{pRMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\
 
 > **NOTE:**
 >
@@ -380,7 +380,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> *Solution 6*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(definition of unbiased)}\\ &= \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(\$0^2 = 0\$)} \end{aligned} \\
+> *Solution 6*. \\ \begin{aligned} \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(definition of unbiased)}\\ &= \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(\$0^2 = 0\$)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -388,7 +388,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} = \theta \tag{5}\\
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{6}\\
+> \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{6}\\
 
 > **NOTE:**
 >
@@ -460,13 +460,13 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> *Solution 8*. \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(subtract \${\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\$ from both sides)}\\ {\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(\$\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\$)}\\ {\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &= \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(definition of standard error: \$\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\$)} \end{aligned} \\
+> *Solution 8*. \\ \begin{aligned} \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(subtract \${\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\$ from both sides)}\\ {\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &= \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(\$\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\$)}\\ {\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 &= \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(definition of standard error: \$\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Corollary 1 (Standard error squared equals pMSE minus squared bias)** The squared standard error is what remains of the pMSE after the squared bias is removed:
 >
-> \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 = \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\
+> \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 = \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\
 
 > **NOTE:**
 >
@@ -478,15 +478,15 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> *Solution 9*. By [Equation 6](#eq-unbiased-mse), \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\. Taking square roots of both sides,
+> *Solution 9*. By [Equation 6](#eq-unbiased-mse), \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\. Taking square roots of both sides,
 >
-> \\ \begin{aligned} \sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \\ &= \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}. \end{aligned} \\
+> \\ \begin{aligned} \sqrt{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}} &= \operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \\ &= \operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}. \end{aligned} \\
 
 > **NOTE:**
 >
 > **Corollary 2 (For unbiased estimators, SE equals pRMSE)** If \\\hat{\theta}\\ is [unbiased](#def-unbiased), then its standard error equals its [pRMSE](#def-rmse):
 >
-> \\\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\
+> \\\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \sqrt{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\
 
 > **NOTE:**
 >

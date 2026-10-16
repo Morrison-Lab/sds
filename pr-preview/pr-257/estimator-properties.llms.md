@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:26:23 (PDT)
+Last modified: 2026-10-16 10:01:37 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -36,19 +36,19 @@ Last modified: 2026-10-16 05:26:23 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 1 (Bounding the chance of a large estimation error)** Let \\\hat{\theta}\\ be an estimator of \\\theta\\ with finite [pMSE](estimation.llms.md#def-mse), and let \\\varepsilon \> 0\\. Use [Markov’s inequality](https://morrison-lab.github.io/pds/limit-theorems.html#thm-markov) to show that \\\Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} / \varepsilon^2\\.
+> **Exercise 1 (Bounding the chance of a large estimation error)** Let \\\hat{\theta}\\ be an estimator of \\\theta\\ with finite [pMSE](estimation.llms.md#def-mse), and let \\\varepsilon \> 0\\. Use [Markov’s inequality](https://morrison-lab.github.io/pds/limit-theorems.html#thm-markov) to show that \\\Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} / \varepsilon^2\\.
 
 > **NOTE:**
 >
 > *Solution 1*. Both sides of \\\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\\ are nonnegative, so squaring them keeps the inequality. The random variable \\{\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2\\ is nonnegative, so Markov’s inequality applies to it with \\a = \varepsilon^2\\:
 >
-> \\ \begin{aligned} \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} &= \Pr\mathopen{}\left({\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2 \ge \varepsilon^2\right)\mathclose{} && \text{(square both nonnegative sides)}\\ &\le \frac{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2\right\]\mathclose{}}{\varepsilon^2} && \text{(Markov's inequality, \$a = \varepsilon^2 \> 0\$)}\\ &= \frac{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}}{\varepsilon^2} && \text{(definition of the estimation error)}\\ &= \frac{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}{\varepsilon^2} && \text{(definition of the mean squared error)} \end{aligned} \\
+> \\ \begin{aligned} \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} &= \Pr\mathopen{}\left({\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2 \ge \varepsilon^2\right)\mathclose{} && \text{(square both nonnegative sides)}\\ &\le \frac{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2\right\]\mathclose{}}{\varepsilon^2} && \text{(Markov's inequality, \$a = \varepsilon^2 \> 0\$)}\\ &= \frac{\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}}{\varepsilon^2} && \text{(definition of the estimation error)}\\ &= \frac{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}{\varepsilon^2} && \text{(definition of the mean squared error)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Lemma 1 (Chance of a large estimation error)** If \\\hat{\theta}\\ is an estimator of \\\theta\\ with finite pMSE, then for every \\\varepsilon \> 0\\ the probability of an estimation error of at least \\\varepsilon\\ is at most the pMSE divided by \\\varepsilon^2\\:
 >
-> \\ \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \frac{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}{\varepsilon^2} \tag{2}\\
+> \\ \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \frac{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}{\varepsilon^2} \tag{2}\\
 
 > **NOTE:**
 >
@@ -58,11 +58,11 @@ Last modified: 2026-10-16 05:26:23 (PDT)
 >
 > **Theorem 1 (Vanishing population mean squared error implies consistency)** If the pMSE of \\\hat{\theta}\_n\\ goes to zero as \\n\\ grows, then \\\hat{\theta}\_n\\ is a [consistent](#def-consistent) estimator of \\\theta\\:
 >
-> \\ \lim\_{n \to \infty} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} = 0 \quad \Longrightarrow \quad \hat{\theta}\_n \overset{\scriptstyle p}{\longrightarrow}\theta \tag{3}\\
+> \\ \lim\_{n \to \infty} \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} = 0 \quad \Longrightarrow \quad \hat{\theta}\_n \overset{\scriptstyle p}{\longrightarrow}\theta \tag{3}\\
 
 > **NOTE:**
 >
-> *Proof*. Fix \\\varepsilon \> 0\\. By [Lemma 1](#lem-estimation-error-bound), \\0 \le \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}\_n - \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{MSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} / \varepsilon^2\\ for every \\n\\. The upper bound goes to zero as \\n \to \infty\\, because \\\varepsilon\\ is fixed and \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} \to 0\\, so the probability, squeezed between zero and the bound, goes to zero. This holds for every \\\varepsilon \> 0\\, which is [Equation 1](#eq-consistent).
+> *Proof*. Fix \\\varepsilon \> 0\\. By [Lemma 1](#lem-estimation-error-bound), \\0 \le \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}\_n - \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} / \varepsilon^2\\ for every \\n\\. The upper bound goes to zero as \\n \to \infty\\, because \\\varepsilon\\ is fixed and \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} \to 0\\, so the probability, squeezed between zero and the bound, goes to zero. This holds for every \\\varepsilon \> 0\\, which is [Equation 1](#eq-consistent).
 
 > **NOTE:**
 >
@@ -70,13 +70,13 @@ Last modified: 2026-10-16 05:26:23 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. By [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean), \\\operatorname{MSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\\, which goes to zero as \\n \to \infty\\. [Theorem 1](#thm-mse-consistent) then gives \\\bar X_n \overset{\scriptstyle p}{\longrightarrow}\mu\\. This is the [weak law of large numbers](https://morrison-lab.github.io/pds/limit-theorems.html#thm-wlln), proved in pds directly from Chebyshev’s inequality.
+> *Proof*. By [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean), \\\operatorname{pMSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\\, which goes to zero as \\n \to \infty\\. [Theorem 1](#thm-mse-consistent) then gives \\\bar X_n \overset{\scriptstyle p}{\longrightarrow}\mu\\. This is the [weak law of large numbers](https://morrison-lab.github.io/pds/limit-theorems.html#thm-wlln), proved in pds directly from Chebyshev’s inequality.
 
 > **NOTE:**
 >
 > **Example 1 (Consistency of the sample mean for birth weights)** The `birthwt` data record the birth weight (grams) of 189 babies from a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
 >
-> To see [Corollary 1](#cor-sample-mean-consistent) at work, treat these babies as a finite population and let the estimand \\\mu\\ be their population mean birth weight. We draw \\n\\ babies at random with replacement, so the draws are independent with the population’s mean and variance, and we ask how often the sample mean misses \\\mu\\ by at least \\\varepsilon = 100\\ grams. For each \\n\\ we repeat the sampling 2000 times and report the fraction of repeats that miss, with a 95% confidence interval for that probability (the Wilson score interval with continuity correction, the default of [`prop.test()`](https://rdrr.io/r/stats/prop.test.html)), next to the bound \\\sigma^2/ (n \varepsilon^2)\\ that [Lemma 1](#lem-estimation-error-bound) gives, capped at 1 because a probability cannot exceed 1, using \\\operatorname{MSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\\ from [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean).
+> To see [Corollary 1](#cor-sample-mean-consistent) at work, treat these babies as a finite population and let the estimand \\\mu\\ be their population mean birth weight. We draw \\n\\ babies at random with replacement, so the draws are independent with the population’s mean and variance, and we ask how often the sample mean misses \\\mu\\ by at least \\\varepsilon = 100\\ grams. For each \\n\\ we repeat the sampling 2000 times and report the fraction of repeats that miss, with a 95% confidence interval for that probability (the Wilson score interval with continuity correction, the default of [`prop.test()`](https://rdrr.io/r/stats/prop.test.html)), next to the bound \\\sigma^2/ (n \varepsilon^2)\\ that [Lemma 1](#lem-estimation-error-bound) gives, capped at 1 because a probability cannot exceed 1, using \\\operatorname{pMSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\\ from [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean).
 >
 > Show R code
 >
@@ -149,7 +149,7 @@ Last modified: 2026-10-16 05:26:23 (PDT)
 >
 > **Definition 2 (Relative efficiency)** Let \\\hat{\theta}\_a\\ and \\\hat{\theta}\_b\\ be two estimators of the same estimand \\\theta\\. The **relative efficiency** of \\\hat{\theta}\_a\\ with respect to \\\hat{\theta}\_b\\ is the ratio of their [pMSEs](estimation.llms.md#def-mse), the reference estimator’s, that of \\\hat{\theta}\_b\\, in the numerator:
 >
-> \\\frac{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\_b\right)\mathclose{}}{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\_a\right)\mathclose{}}\\
+> \\\frac{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_b\right)\mathclose{}}{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_a\right)\mathclose{}}\\
 
 > **NOTE:**
 >
@@ -161,9 +161,9 @@ Last modified: 2026-10-16 05:26:23 (PDT)
 
 > **NOTE:**
 >
-> **Example 2 (Relative efficiency of two estimators of a mean)** In [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean) the sample mean has \\\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\\ and the single-observation estimator has \\\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} = \sigma^2\\. The relative efficiency of the sample mean with respect to \\X_1\\ is
+> **Example 2 (Relative efficiency of two estimators of a mean)** In [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean) the sample mean has \\\operatorname{pMSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\\ and the single-observation estimator has \\\operatorname{pMSE}\mathopen{}\left(X_1\right)\mathclose{} = \sigma^2\\. The relative efficiency of the sample mean with respect to \\X_1\\ is
 >
-> \\ \begin{aligned} \frac{\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{}}{\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{}} &= \frac{\sigma^2}{\sigma^2/ n} && \text{(substitute the two mean squared errors)}\\ &= \sigma^2\cdot \frac{n}{\sigma^2} && \text{(divide by a fraction: multiply by its reciprocal)}\\ &= n \cdot \frac{\sigma^2}{\sigma^2} && \text{(reorder the factors)}\\ &= n \cdot 1 && \text{(\$a / a = 1\$)}\\ &= n && \text{(\$b \cdot 1 = b\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\operatorname{pMSE}\mathopen{}\left(X_1\right)\mathclose{}}{\operatorname{pMSE}\mathopen{}\left(\bar X\right)\mathclose{}} &= \frac{\sigma^2}{\sigma^2/ n} && \text{(substitute the two mean squared errors)}\\ &= \sigma^2\cdot \frac{n}{\sigma^2} && \text{(divide by a fraction: multiply by its reciprocal)}\\ &= n \cdot \frac{\sigma^2}{\sigma^2} && \text{(reorder the factors)}\\ &= n \cdot 1 && \text{(\$a / a = 1\$)}\\ &= n && \text{(\$b \cdot 1 = b\$)} \end{aligned} \\
 >
 > so with \\n = 50\\ students, as in [the student-height example](estimation.llms.md#exm-estimator), the sample mean is 50 times as efficient as \\X_1\\.
 
