@@ -160,24 +160,40 @@ Never nest one theorem-type div inside another.
 
 ## Attributions are reader-visible
 
-Credit every source a reader would want to know about where readers can see it:
+Credit every outside source a reader would want to know about where readers can see it:
 
 - the book or paper an item follows;
-- another course's site, notes, or repository it was adapted from;
+- another outside course's site, notes, or repository it was adapted from;
 - the person whose lecture, notes or code it was adapted from.
 
 When a source credits its own upstream,
 carry that credit along.
 
-Content taken from the maintainer's own repositories (rme, lds, pds, ...)
-does not have to be credited to them
-(maintainer directive, 2026-10-05).
-The exemption covers only that hop:
-whatever such a repository credits
-(a book, a paper, or any person other than the maintainer)
-is still credited.
-The sister-repository credit may be left out of new work,
-but an existing one is not removed unless the maintainer asks.
+"The group" means the maintainer (Ezra Morrison) and the members of the lab that maintains these repositories.
+Content taken from the group's own repositories (rme, lds, pds, ...)
+or from other works the group wrote alone or with others
+(the UCD-SERG lab manual, papers, packages)
+is never credited to the group or to those repositories and works
+(maintainer directives, 2026-10-05 and 2026-10-16),
+with two exceptions that stay ordinary citation:
+the group's published paper or released software cited
+as the original publication of a result or as a tool used,
+and a citation that a publisher's reuse terms require.
+A credit to such a repository or work is left out of new work,
+and an existing one is removed.
+This rule covers only the hop from the group's own work to the page you write.
+Whatever such a repository or work itself credits
+(a book, a paper, or any person outside the group)
+is still credited, by name for a person.
+A co-author outside the group keeps their credit by name.
+For a definition or result, cite the original publication
+and, where one exists, a modern textbook.
+
+A link to the group's page on the topic, or to another of the group's sites, that sends the reader to further reading
+is a cross-reference, not an attribution, and stays.
+An sds page never relies on a link to lds, rme, win or cie to define or explain something it needs
+(see "Where sds sits among the lab's sites" in `CLAUDE.md`).
+
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
 PSW's
