@@ -174,17 +174,18 @@ is not credited to them
 (maintainer directives, 2026-10-05 and 2026-10-16).
 Content taken from the maintainer's other co-authored works
 (a lab manual, their papers, their packages)
-is not credited to them either,
-but co-authors outside the group keep their credit by name.
+is not credited to the maintainer or to those works either,
+but a co-author other than the maintainer keeps their credit by name.
 The rule covers only that hop:
-whatever such a repository credits
+whatever such a repository or work credits
 (a book, a paper, or any person other than the maintainer)
 is still credited.
-The sister-repository credit is left out of new work,
+Such a credit is left out of new work,
 and an existing one is removed.
 
 A link to a sister site that sends the reader to further reading
 is a cross-reference, not an attribution, and stays.
+
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
 PSW's
