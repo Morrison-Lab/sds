@@ -37,11 +37,6 @@ The two specific agreements show where the disagreement lies:
 the test and the reference agree on negatives
 and disagree on about half of the positive calls.
 
-::: {.callout-note collapse="true"}
-#### Source
-
-High overall agreement with low kappa is the first paradox
-described by @feinstein1990high.
-:::
+Source: @feinstein1990high (the first paradox).
 
 :::

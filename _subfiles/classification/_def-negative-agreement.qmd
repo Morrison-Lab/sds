@@ -11,10 +11,6 @@ as a proportion of all their negative calls:
 
 $$p_{\text{neg}} \eqdef \frac{2d}{2d + b + c}$$ {#eq-negative-agreement}
 
-::: {.callout-note collapse="true"}
-#### Source
-
-@cicchetti1990high.
-:::
+Source: @cicchetti1990high.
 
 :::

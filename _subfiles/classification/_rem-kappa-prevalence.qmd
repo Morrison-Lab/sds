@@ -10,11 +10,6 @@ as @exm-kappa-paradox shows.
 the positive and negative agreements alongside kappa,
 so that poor agreement on the rarer category is not hidden.
 
-::: {.callout-note collapse="true"}
-#### Source
-
-@feinstein1990high;
-@cicchetti1990high.
-:::
+Source: @feinstein1990high; @cicchetti1990high.
 
 :::

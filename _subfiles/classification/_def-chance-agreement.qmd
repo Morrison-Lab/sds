@@ -8,10 +8,6 @@ each with its observed proportion of positive calls:
 
 $$p_e \eqdef \frac{(a + b)(a + c) + (c + d)(b + d)}{n^2}$$ {#eq-chance-agreement}
 
-::: {.callout-note collapse="true"}
-#### Source
-
-@cohen1960coefficient.
-:::
+Source: @cohen1960coefficient.
 
 :::

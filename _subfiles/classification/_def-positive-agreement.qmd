@@ -11,10 +11,6 @@ as a proportion of all their positive calls:
 
 $$p_{\text{pos}} \eqdef \frac{2a}{2a + b + c}$$ {#eq-positive-agreement}
 
-::: {.callout-note collapse="true"}
-#### Source
-
-@cicchetti1990high.
-:::
+Source: @cicchetti1990high.
 
 :::
