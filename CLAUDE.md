@@ -60,6 +60,18 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - **Definitions and results**: a prose statement plus a display equation inside the same div, built from terms already defined, compact and general; regression models by their conditional distribution given the covariates, followed by examples from most general to most specific and a remark for any commentary. One term per `#def-` div, aliases in the same div, and a second new term in its own div ([Writing for teaching](https://morrison-lab.github.io/psw/chapters/teaching.html)). See "Definitions and results" in `.github/copilot-instructions.md`.
 - **Derivations**: present them as exercise -> solution -> theorem -> proof, one exercise per step, with the proof citing the exercises; one operation per displayed line, each with its own justification, and never "cancel" as one step (removing parentheses, reordering, grouping, $a - a = 0$ and $a + 0 = a$ each get a line); start from the side that simplifies rather than adding and subtracting a term; one result per theorem div (a semicolon joining two results is a sign to split). See "Derivations" in `.github/copilot-instructions.md`.
 - **Attributions**: credit sources where readers can see them (a credit to the maintainer's own rme, lds, pds, ... is optional, but what those sites credit is still carried). A credit that is only a citation goes inside the item's div as a final "Source: @key [locator]." line; substantial prose about the source or history goes in a `rem-source-` remark div titled "Source: ..." right after the item's div and its proof; never only in an HTML comment (maintainer directive, 2026-10-15). See "Attributions are reader-visible" in `.github/copilot-instructions.md`.
+- **Useful resources**: a resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
+  even when lds or another Morrison-Lab site already lists it
+  (maintainer directive, 2026-10-15, answering a review question on Morrison-Lab/lds#841, a private repository the link checker cannot reach).
+  If no page matches, add the resource to the Further reading section of the closest related page.
+  If the page chosen has no Further reading section, add one headed `## Further reading`.
+  Always link the resource.
+  Adapt its material only where its license allows,
+  and only when its terms (NonCommercial, ShareAlike) are compatible with this repository's license.
+  Where they conflict, link and do not adapt.
+  Credit adapted material as the Attributions bullet above says.
+  See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md),
+  and "Useful resources go in every repo that covers their topic" in `.github/copilot-instructions.md`.
 - **Quarto chunks**: prefer chunk options as YAML-style `#|` directives, not as inline `r, opt = val` arguments.
 
 ## Working in this repo

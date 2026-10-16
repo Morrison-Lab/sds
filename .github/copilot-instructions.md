@@ -211,6 +211,20 @@ Comments are still the place for maintainer-only notes
 that are not attributions,
 such as what was checked in a PDF or a wording edit made while porting.
 
+## Useful resources go in every repo that covers their topic
+
+A resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
+even when lds or another Morrison-Lab site already lists it
+(maintainer directive, 2026-10-15, answering a review question on Morrison-Lab/lds#841, a private repository the link checker cannot reach).
+If no page matches, add the resource to the Further reading section of the closest related page.
+If the page chosen has no Further reading section, add one headed `## Further reading`.
+Always link the resource.
+Adapt its material only where its license allows,
+and only when its terms (NonCommercial, ShareAlike) are compatible with this repository's license.
+Where they conflict, link and do not adapt.
+Credit adapted material as "Attributions are reader-visible" above says.
+See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
+
 ## Code Chunks
 
 ### Every visible chunk shows a result
