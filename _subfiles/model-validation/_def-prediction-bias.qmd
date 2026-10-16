@@ -7,11 +7,10 @@ At a covariate value $\predvar$,
 the prediction $\fitproc\paren{\predvar; \trainset}$ is a random variable,
 because it depends on the random training data.
 The **bias** of the prediction
-is its [bias](estimation.qmd#def-bias) as an [estimator](estimation.qmd#def-estimator)
+is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
+as an [estimator](estimation.qmd#def-estimator)
 of the [mean function](#def-mean-function) value $\mean(\predvar)$,
-which is its estimand here, not the new outcome it predicts.
-That is, the bias is the expected
-[estimation error](estimation.qmd#def-estimation-error) of the prediction:
+which is its estimand here, not the new outcome it predicts:
 
 $$
 \bias{\fitproc\paren{\predvar; \trainset}}
