@@ -7,15 +7,15 @@ At a covariate value $\predvar$,
 the prediction $\fitproc\paren{\predvar; \trainset}$ is a random variable,
 because it depends on the random training data.
 The **bias** of the prediction
-is the [bias](estimation.qmd#def-bias) of $\fitproc\paren{\predvar; \trainset}$
-used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\targetfnf{\predvar}$,
+is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
+as an [estimator](estimation.qmd#def-estimator)
+of the [mean function](#def-mean-function) value $\targetfnf{\predvar}$,
 which is its estimand here, not the new outcome it predicts:
 
 $$
-\bias{\fitproc\paren{\predvar; \trainset}} = \E{\fitproc\paren{\predvar; \trainset}} - \targetfnf{\predvar},
+\bias{\fitproc\paren{\predvar; \trainset}}
+= \E{\erf{\fitproc\paren{\predvar; \trainset}}}.
 $$ {#eq-prediction-bias}
-
-which is the [average fit](#def-average-fit) $\avgfitf{\predvar}$ minus $\targetfnf{\predvar}$.
 
 :::
 
@@ -39,7 +39,10 @@ Then
 
 $$
 \begin{aligned}
-\bias{\fitproc\paren{\predvar; \trainset}} &= 11 - 10 \\
+\bias{\fitproc\paren{\predvar; \trainset}}
+&= \E{\erf{\fitproc\paren{\predvar; \trainset}}} \\
+&= \E{\fitproc\paren{\predvar; \trainset}} - \targetfnf{\predvar} \\
+&= 11 - 10 \\
 &= 1.
 \end{aligned}
 $$
