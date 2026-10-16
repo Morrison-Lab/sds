@@ -17,12 +17,12 @@ starting from the definition (@exm-rss-slr):
 $$
 \begin{aligned}
 \frac{\partial \text{RSS}}{\partial \intcoef}
-&= \deriv{\intcoef} \sumin (\outvar_\iobs - \intcoef - \coef{x} x_i)^2
+&= \deriv{\intcoef} \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)^2
 && \text{(definition of RSS)}\\
-&= \sumin \deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} x_i)^2
+&= \sumin \deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)^2
 && \text{(derivative of a sum)}\\
-&= \sumin 2 (\outvar_\iobs - \intcoef - \coef{x} x_i)
-  \deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} x_i)
+&= \sumin 2 (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+  \deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(chain rule)}
 \end{aligned}
 $$
@@ -31,13 +31,13 @@ The inner derivative:
 
 $$
 \begin{aligned}
-\deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} x_i)
+\deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 &= \frac{\partial \outvar_\iobs}{\partial \intcoef}
   - \frac{\partial \intcoef}{\partial \intcoef}
-  - \frac{\partial (\coef{x} x_i)}{\partial \intcoef}
+  - \frac{\partial (\coef{x} \predvar_\iobs)}{\partial \intcoef}
 && \text{(derivative of a sum)}\\
 &= 0 - 1 - 0
-&& \text{($\outvar_\iobs$ and $\coef{x} x_i$ do not depend on $\intcoef$)}\\
+&& \text{($\outvar_\iobs$ and $\coef{x} \predvar_\iobs$ do not depend on $\intcoef$)}\\
 &= -1
 && \text{(subtract)}
 \end{aligned}
@@ -48,22 +48,22 @@ Plugging the inner derivative back in:
 $$
 \begin{aligned}
 \frac{\partial \text{RSS}}{\partial \intcoef}
-&= \sumin 2 (\outvar_\iobs - \intcoef - \coef{x} x_i) (-1)
+&= \sumin 2 (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs) (-1)
 && \text{(inner derivative is $-1$)}\\
-&= \sumin -2 (\outvar_\iobs - \intcoef - \coef{x} x_i)
+&= \sumin -2 (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(multiply $2$ by $-1$)}\\
-&= -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} x_i)
+&= -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(constant factor out of the sum)}\\
-&= -2 \paren{\sumin \outvar_\iobs - \sumin \intcoef - \sumin \coef{x} x_i}
+&= -2 \paren{\sumin \outvar_\iobs - \sumin \intcoef - \sumin \coef{x} \predvar_\iobs}
 && \text{(split the sum)}\\
-&= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \sumin \coef{x} x_i}
+&= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \sumin \coef{x} \predvar_\iobs}
 && \text{(sum of a constant)}\\
-&= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \coef{x} \sumin x_i}
+&= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \coef{x} \sumin \predvar_\iobs}
 && \text{(constant factor out of the sum)}\\
-&= -2 \paren{n \bar{y} - n \intcoef - \coef{x} \sumin x_i}
+&= -2 \paren{n \bar{y} - n \intcoef - \coef{x} \sumin \predvar_\iobs}
 && \text{($\sumin \outvar_\iobs = n \bar{y}$)}\\
 &= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
-&& \text{($\sumin x_i = n \bar{x}$)}
+&& \text{($\sumin \predvar_\iobs = n \bar{x}$)}
 \end{aligned}
 $$
 

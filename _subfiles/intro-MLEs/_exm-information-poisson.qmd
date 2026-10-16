@@ -5,26 +5,26 @@ For $\dsn{X} \siid \Pois(\rate)$,
 one observation's score is $x/\rate - 1$ (@thm-pois-score),
 whose derivative with respect to $\rate$ is $-x/\rate^2$.
 Summing over the observations (@thm-deriv-llik-iid),
-the Hessian is $\hess = -\sumin x_i / \rate^2$, so:
+the Hessian is $\hess = -\sumin \rvar_\iobs / \rate^2$, so:
 
 $$
 \begin{aligned}
 \oinf(\rate)
 &= -\hess
 && \text{(observed information: negative Hessian)}\\
-&= -\paren{-\frac{\sumin x_i}{\rate^2}}
+&= -\paren{-\frac{\sumin \rvar_\iobs}{\rate^2}}
 && \text{(substitute the Hessian)}\\
-&= \frac{\sumin x_i}{\rate^2}
+&= \frac{\sumin \rvar_\iobs}{\rate^2}
 && \text{(two negatives make a positive)}\\
 \einf(\rate)
-&= \E{\frac{\sumin X_i}{\rate^2}}
+&= \E{\frac{\sumin \Rvar_\iobs}{\rate^2}}
 && \text{(expected information)}\\
-&= \frac{\E{\sumin X_i}}{\rate^2}
+&= \frac{\E{\sumin \Rvar_\iobs}}{\rate^2}
 && \text{(factor the constant $\tfrac{1}{\rate^2}$ out of the expectation)}\\
-&= \frac{\sumin \E{X_i}}{\rate^2}
+&= \frac{\sumin \E{\Rvar_\iobs}}{\rate^2}
 && \text{(linearity of expectation)}\\
 &= \frac{\sumin \rate}{\rate^2}
-&& \text{($\E{X_i} = \rate$)}\\
+&& \text{($\E{\Rvar_\iobs} = \rate$)}\\
 &= \frac{n\rate}{\rate^2}
 && \text{(sum of $n$ copies of $\rate$)}\\
 &= \frac{n}{\rate}

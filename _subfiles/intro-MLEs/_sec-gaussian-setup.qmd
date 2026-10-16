@@ -8,7 +8,7 @@ By @thm-lik-iid, the likelihood is:
 
 $$
 \Lik(\mean, \varpar) = \prodin (2\pi\varpar)^{-1/2}
-\expf{-\frac{(x_i - \mean)^2}{2\varpar}}
+\expf{-\frac{(\rvar_\iobs - \mean)^2}{2\varpar}}
 $$
 
 and by @thm-loglik-iid, the log-likelihood is:
@@ -17,30 +17,30 @@ $$
 \begin{aligned}
 \llik(\mean, \varpar)
 &= \sumin \logf{(2\pi\varpar)^{-1/2}
-\expf{-\frac{(x_i - \mean)^2}{2\varpar}}}
+\expf{-\frac{(\rvar_\iobs - \mean)^2}{2\varpar}}}
 && \text{(log of each Gaussian density)}\\
 &= \sumin \paren{\logf{(2\pi\varpar)^{-1/2}}
- + \logf{\expf{-\frac{(x_i - \mean)^2}{2\varpar}}}}
+ + \logf{\expf{-\frac{(\rvar_\iobs - \mean)^2}{2\varpar}}}}
 && \text{(log of a product)}\\
 &= \sumin \paren{-\frac{1}{2}\logf{2\pi\varpar}
- + \logf{\expf{-\frac{(x_i - \mean)^2}{2\varpar}}}}
+ + \logf{\expf{-\frac{(\rvar_\iobs - \mean)^2}{2\varpar}}}}
 && \text{(log of a power)}\\
-&= \sumin \paren{-\frac{1}{2}\logf{2\pi\varpar} - \frac{(x_i - \mean)^2}{2\varpar}}
+&= \sumin \paren{-\frac{1}{2}\logf{2\pi\varpar} - \frac{(\rvar_\iobs - \mean)^2}{2\varpar}}
 && \text{($\logt$ undoes $\expt$)}\\
 &= \sumin \paren{-\frac{1}{2}\logf{2\pi\varpar}}
- - \sumin \frac{(x_i - \mean)^2}{2\varpar}
+ - \sumin \frac{(\rvar_\iobs - \mean)^2}{2\varpar}
 && \text{(split the sum)}\\
 &= -\frac{n}{2}\logf{2\pi\varpar}
- - \sumin \frac{(x_i - \mean)^2}{2\varpar}
+ - \sumin \frac{(\rvar_\iobs - \mean)^2}{2\varpar}
 && \text{(sum of $n$ identical terms)}\\
 &= -\frac{n}{2}\logf{2\pi\varpar}
- - \frac{1}{2\varpar}\sumin (x_i - \mean)^2
+ - \frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2
 && \text{(factor the constant $\tfrac{1}{2\varpar}$ out of the sum)}\\
 &= -\frac{n}{2}\paren{\logf{2\pi} + \logf{\varpar}}
- - \frac{1}{2\varpar}\sumin (x_i - \mean)^2
+ - \frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2
 && \text{(log of a product)}\\
 &= -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
- - \frac{1}{2\varpar}\sumin (x_i - \mean)^2
+ - \frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2
 && \text{(distribute $-\tfrac{n}{2}$)}
 \end{aligned}
 $$

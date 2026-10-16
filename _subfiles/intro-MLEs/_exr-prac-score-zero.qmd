@@ -21,31 +21,31 @@ of the value of the score at $\hat\rate_{ML}$.
 $$
 \ba
 \llik(\rate; \vx)
-&= \logf{\prodin \frac{\rate^{x_i} e^{-\rate}}{x_i!}}
+&= \logf{\prodin \frac{\rate^{\rvar_\iobs} e^{-\rate}}{\rvar_\iobs!}}
 && \text{(log of the likelihood of an $\iid$ sample)}
 \\
-&= \sumin \logf{\frac{\rate^{x_i} e^{-\rate}}{x_i!}}
+&= \sumin \logf{\frac{\rate^{\rvar_\iobs} e^{-\rate}}{\rvar_\iobs!}}
 && \text{(log of a product)}
 \\
-&= \sumin \paren{\logf{\rate^{x_i} e^{-\rate}} - \logf{x_i!}}
+&= \sumin \paren{\logf{\rate^{\rvar_\iobs} e^{-\rate}} - \logf{\rvar_\iobs!}}
 && \text{(log of a quotient)}
 \\
-&= \sumin \paren{\logf{\rate^{x_i}} + \logf{e^{-\rate}} - \logf{x_i!}}
+&= \sumin \paren{\logf{\rate^{\rvar_\iobs}} + \logf{e^{-\rate}} - \logf{\rvar_\iobs!}}
 && \text{(log of a product)}
 \\
-&= \sumin \paren{x_i \logf{\rate} + \logf{e^{-\rate}} - \logf{x_i!}}
+&= \sumin \paren{\rvar_\iobs \logf{\rate} + \logf{e^{-\rate}} - \logf{\rvar_\iobs!}}
 && \text{(log of a power)}
 \\
-&= \sumin \paren{x_i \logf{\rate} - \rate - \logf{x_i!}}
+&= \sumin \paren{\rvar_\iobs \logf{\rate} - \rate - \logf{\rvar_\iobs!}}
 && \text{($\logt$ undoes $\expt$)}
 \\
-&= \sumin x_i \logf{\rate} - \sumin \rate - \sumin \logf{x_i!}
+&= \sumin \rvar_\iobs \logf{\rate} - \sumin \rate - \sumin \logf{\rvar_\iobs!}
 && \text{(split the sum)}
 \\
-&= \paren{\sumin x_i}\logf{\rate} - \sumin \rate - \sumin \logf{x_i!}
+&= \paren{\sumin \rvar_\iobs}\logf{\rate} - \sumin \rate - \sumin \logf{\rvar_\iobs!}
 && \text{(factor $\logf{\rate}$ out of the first sum)}
 \\
-&= \paren{\sumin x_i}\logf{\rate} - n\rate - \sumin \logf{x_i!}
+&= \paren{\sumin \rvar_\iobs}\logf{\rate} - n\rate - \sumin \logf{\rvar_\iobs!}
 && \text{(sum of $n$ copies of $\rate$)}
 \ea
 $$
@@ -55,33 +55,33 @@ $$
 $$
 \ba
 \score(\rate; \vx)
-&= \deriv{\rate}\sb{\paren{\sumin x_i}\logf{\rate} - n\rate - \sumin \logf{x_i!}}
+&= \deriv{\rate}\sb{\paren{\sumin \rvar_\iobs}\logf{\rate} - n\rate - \sumin \logf{\rvar_\iobs!}}
 && \text{(log-likelihood from (a))}
 \\
-&= \deriv{\rate}\sb{\paren{\sumin x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate}
-   - \deriv{\rate}\sb{\sumin \logf{x_i!}}
+&= \deriv{\rate}\sb{\paren{\sumin \rvar_\iobs}\logf{\rate}} - \deriv{\rate}\sb{n\rate}
+   - \deriv{\rate}\sb{\sumin \logf{\rvar_\iobs!}}
 && \text{(linearity of differentiation)}
 \\
-&= \deriv{\rate}\sb{\paren{\sumin x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate} - 0
+&= \deriv{\rate}\sb{\paren{\sumin \rvar_\iobs}\logf{\rate}} - \deriv{\rate}\sb{n\rate} - 0
 && \text{(derivative of a constant)}
 \\
-&= \deriv{\rate}\sb{\paren{\sumin x_i}\logf{\rate}} - \deriv{\rate}\sb{n\rate}
+&= \deriv{\rate}\sb{\paren{\sumin \rvar_\iobs}\logf{\rate}} - \deriv{\rate}\sb{n\rate}
 && \text{(drop the zero term)}
 \\
-&= \paren{\sumin x_i}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate
+&= \paren{\sumin \rvar_\iobs}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate
 && \text{(constant multiple rule)}
 \\
-&= \paren{\sumin x_i}\rate^{-1} - n\deriv{\rate}\rate
+&= \paren{\sumin \rvar_\iobs}\rate^{-1} - n\deriv{\rate}\rate
 && \text{(derivative of $\log$)}
 \\
-&= \paren{\sumin x_i}\rate^{-1} - n
+&= \paren{\sumin \rvar_\iobs}\rate^{-1} - n
 && \text{(derivative of $\rate$ with respect to itself)}
 \\
-&= \frac{\sumin x_i}{\rate} - n
+&= \frac{\sumin \rvar_\iobs}{\rate} - n
 && \text{(write the negative power as a fraction)}
 \\
 &= \frac{n\bar{x}}{\rate} - n
-&& \text{($\textstyle\sumin x_i = n\bar{x}$)}
+&& \text{($\textstyle\sumin \rvar_\iobs = n\bar{x}$)}
 \ea
 $$
 
@@ -109,7 +109,7 @@ $$
 
 If $\bar{x} > 0$
 (equivalently,
-at least one $x_i > 0$),
+at least one $\rvar_\iobs > 0$),
 then
 
 $$
@@ -126,7 +126,7 @@ $$
 \ea
 $$
 
-If instead all $x_i = 0$,
+If instead all $\rvar_\iobs = 0$,
 then $\bar{x} = 0$ and $\hat\rate_{ML} = 0$ is a boundary value.
 In that case,
 the score formula

@@ -7,18 +7,18 @@ and let $n \ge 2$.
 Consider two estimators of $\varpar$:
 
 - the [sample variance](exploratory-descriptive.qmd#def-sample-variance)
-  $S^2 \eqdef \frac{1}{n-1} \sumin (X_i - \bar X)^2$;
+  $S^2 \eqdef \frac{1}{n-1} \sumin (\Rvar_\iobs - \bar X)^2$;
 - the divide-by-$n$ estimator
-  $\hvarpar \eqdef \avgin (X_i - \bar X)^2$.
+  $\hvarpar \eqdef \avgin (\Rvar_\iobs - \bar X)^2$.
 
 Both estimators are built from the sum of squared deviations
-$\sumin (X_i - \bar X)^2$,
+$\sumin (\Rvar_\iobs - \bar X)^2$,
 so we first find its expectation.
 Using
 
 $$
 \begin{aligned}
-  \E{X_i^2} &= \Var{X_i} + \sqf{\E{X_i}} \\
+  \E{\Rvar_\iobs^2} &= \Var{\Rvar_\iobs} + \sqf{\E{\Rvar_\iobs}} \\
   &= \varpar + \mean^2
 \end{aligned}
 $$
@@ -36,29 +36,29 @@ $$
 
 $$
 \begin{aligned}
-\E{\sumin (X_i - \bar X)^2}
-&= \E{\sumin \paren{X_i^2 - 2 X_i \bar X + \bar X^2}}
+\E{\sumin (\Rvar_\iobs - \bar X)^2}
+&= \E{\sumin \paren{\Rvar_\iobs^2 - 2 \Rvar_\iobs \bar X + \bar X^2}}
 && \text{(expand each square)}\\
-&= \E{\sumin X_i^2 - \sumin 2 X_i \bar X + \sumin \bar X^2}
+&= \E{\sumin \Rvar_\iobs^2 - \sumin 2 \Rvar_\iobs \bar X + \sumin \bar X^2}
 && \text{(split the sum)}\\
-&= \E{\sumin X_i^2 - 2\bar X \sumin X_i + \sumin \bar X^2}
+&= \E{\sumin \Rvar_\iobs^2 - 2\bar X \sumin \Rvar_\iobs + \sumin \bar X^2}
 && \text{(factor $2\bar X$ out of the middle sum)}\\
-&= \E{\sumin X_i^2 - 2\bar X \sumin X_i + n \bar X^2}
+&= \E{\sumin \Rvar_\iobs^2 - 2\bar X \sumin \Rvar_\iobs + n \bar X^2}
 && \text{(sum of $n$ copies of $\bar X^2$)}\\
-&= \E{\sumin X_i^2 - 2\bar X \cdot n \bar X + n \bar X^2}
-&& \text{($\textstyle\sumin X_i = n \bar X$)}\\
-&= \E{\sumin X_i^2 - 2n \bar X^2 + n \bar X^2}
+&= \E{\sumin \Rvar_\iobs^2 - 2\bar X \cdot n \bar X + n \bar X^2}
+&& \text{($\textstyle\sumin \Rvar_\iobs = n \bar X$)}\\
+&= \E{\sumin \Rvar_\iobs^2 - 2n \bar X^2 + n \bar X^2}
 && \text{(multiply $2\bar X \cdot n \bar X$)}\\
-&= \E{\sumin X_i^2 - n \bar X^2}
+&= \E{\sumin \Rvar_\iobs^2 - n \bar X^2}
 && \text{(collect the $\bar X^2$ terms)}\\
-&= \E{\sumin X_i^2} - \E{n \bar X^2}
+&= \E{\sumin \Rvar_\iobs^2} - \E{n \bar X^2}
 && \text{(linearity of expectation)}\\
-&= \sumin \E{X_i^2} - \E{n \bar X^2}
+&= \sumin \E{\Rvar_\iobs^2} - \E{n \bar X^2}
 && \text{(linearity of expectation)}\\
-&= \sumin \E{X_i^2} - n \E{\bar X^2}
+&= \sumin \E{\Rvar_\iobs^2} - n \E{\bar X^2}
 && \text{(factor the constant $n$ out of the expectation)}\\
 &= \sumin (\varpar + \mean^2) - n \E{\bar X^2}
-&& \text{(substitute $\E{X_i^2}$)}\\
+&& \text{(substitute $\E{\Rvar_\iobs^2}$)}\\
 &= n(\varpar + \mean^2) - n \E{\bar X^2}
 && \text{(sum of $n$ copies of $\varpar + \mean^2$)}\\
 &= n(\varpar + \mean^2) - n\paren{\frac{\varpar}{n} + \mean^2}

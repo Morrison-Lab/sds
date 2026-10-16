@@ -10,9 +10,9 @@ Treat counts like these as a Poisson sample, $\dsn{X} \siid \Pois(\rate)$,
 with $\rate$ equal to the mean of `ptl`, `r round(mean(read.csv("data/birthwt.csv")$ptl), 3)`.
 
 The estimand is the probability of a zero count,
-$\prob = \Pr(X_i = 0) = e^{-\rate}$.
+$\prob = \Pr(\Rvar_\iobs = 0) = e^{-\rate}$.
 Index the model by $\prob$ instead of $\rate$ (the map $\rate \mapsto e^{-\rate}$ is one-to-one);
-then the sum $S = \sumin X_i$ is still [sufficient](#def-sufficient), by @exm-poisson-sufficient.
+then the sum $S = \sumin \Rvar_\iobs$ is still [sufficient](#def-sufficient), by @exm-poisson-sufficient.
 
 The crude estimator is the indicator that the first observation is zero,
 $\hprob_1 = \indiccb{X_1 = 0}$, which uses one observation and is unbiased for $\prob$.

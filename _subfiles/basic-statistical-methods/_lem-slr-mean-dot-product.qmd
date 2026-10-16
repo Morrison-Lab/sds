@@ -6,7 +6,7 @@ the conditional mean of observation $i$ is the dot product
 of its covariate vector (@def-slr-covariate-vector)
 and the coefficient vector $\vcoef$ (@exm-normal-equations-slr):
 
-$$\mean(x_i) = \dprod{\vxi}{\vcoef}.$$
+$$\mean(\predvar_\iobs) = \dprod{\vxi}{\vcoef}.$$
 :::
 
 ::: proof

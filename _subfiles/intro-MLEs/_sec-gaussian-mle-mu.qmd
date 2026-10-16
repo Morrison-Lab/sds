@@ -2,13 +2,13 @@ Setting $\deriv{\mean}\llik = 0$:
 
 $$
 \begin{aligned}
-0 &= \frac{1}{\varpar}\paren{\sumin x_i - n\mean}
+0 &= \frac{1}{\varpar}\paren{\sumin \rvar_\iobs - n\mean}
 && \text{(score for $\mean$)}\\
-0 &= \sumin x_i - n\mean
+0 &= \sumin \rvar_\iobs - n\mean
 && \text{(multiply both sides by $\varpar$)}\\
-n\mean &= \sumin x_i
+n\mean &= \sumin \rvar_\iobs
 && \text{(add $n\mean$ to both sides)}\\
-\mean &= \avgin x_i
+\mean &= \avgin \rvar_\iobs
 && \text{(divide by $n$)}\\
 \mean &= \bar x
 && \text{(definition of $\bar x$)}
@@ -21,14 +21,14 @@ The second derivative is
 $$
 \begin{aligned}
 \frac{\partial^2 \llik}{\partial \mean^2}
-&= \deriv{\mean}\paren{\frac{1}{\varpar}\paren{\sumin x_i - n\mean}}
+&= \deriv{\mean}\paren{\frac{1}{\varpar}\paren{\sumin \rvar_\iobs - n\mean}}
 && \text{(differentiate the score for $\mean$)}\\
-&= \frac{1}{\varpar}\deriv{\mean}\paren{\sumin x_i - n\mean}
+&= \frac{1}{\varpar}\deriv{\mean}\paren{\sumin \rvar_\iobs - n\mean}
 && \text{(constant multiple rule)}\\
-&= \frac{1}{\varpar}\paren{\deriv{\mean}\sumin x_i - \deriv{\mean}\paren{n\mean}}
+&= \frac{1}{\varpar}\paren{\deriv{\mean}\sumin \rvar_\iobs - \deriv{\mean}\paren{n\mean}}
 && \text{(linearity of differentiation)}\\
 &= \frac{1}{\varpar}\paren{0 - \deriv{\mean}\paren{n\mean}}
-&& \text{($\textstyle\sumin x_i$ does not depend on $\mean$)}\\
+&& \text{($\textstyle\sumin \rvar_\iobs$ does not depend on $\mean$)}\\
 &= \frac{1}{\varpar}\paren{0 - n\deriv{\mean}\mean}
 && \text{(constant multiple rule)}\\
 &= \frac{1}{\varpar}\paren{0 - n}

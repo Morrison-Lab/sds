@@ -3,7 +3,7 @@
 #### Approximate distribution of the fitted coefficients
 
 Suppose the outcomes follow the [logistic regression model](#def-logistic-regression).
-Let $X$ be the matrix whose rows are $\tp{\vpredvar_i}$,
+Let $X$ be the matrix whose rows are $\tp{\vpredvar_\iobs}$,
 and let $W$ be the diagonal matrix with entries $\prob_i \paren{1 - \prob_i}$.
 Under regularity conditions, for a large sample the fitted coefficients are approximately Gaussian,
 

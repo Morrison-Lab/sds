@@ -2,7 +2,7 @@
 #### When the support depends on the parameter
 
 Let $\dsn{X} \siid \text{Uniform}(0, \param)$.
-The likelihood is $\Lik(\param) = \param^{-n}$ for $\param \ge \max_i x_i$
+The likelihood is $\Lik(\param) = \param^{-n}$ for $\param \ge \max_i \rvar_\iobs$
 (and 0 otherwise),
 so on that range $\llik(\param) = -n \log \param$
 and $\score(\param) = -n/\param$.

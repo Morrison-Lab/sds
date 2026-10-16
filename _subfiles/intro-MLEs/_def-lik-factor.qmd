@@ -3,9 +3,9 @@
 
 For a dataset $\vx$ of mutually independent observations,
 the **likelihood component** (or **likelihood factor**)
-of observation $X_i = x_i$
+of observation $\Rvar_\iobs = \rvar_\iobs$
 is the likelihood of that observation alone:
 
-$$\Lik_i(\param) \eqdef \p(X_i = x_i \mid \param)$$
+$$\Lik_\iobs(\param) \eqdef \p(\Rvar_\iobs = \rvar_\iobs \mid \param)$$
 
 :::

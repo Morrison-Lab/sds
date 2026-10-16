@@ -2,7 +2,7 @@
 #### Mean squared error and residual sum of squares
 
 For a regression model with conditional mean $\mean(x; \vparam)$,
-let $\fitted_\iobs \eqdef \mean(x_i; \vparam)$
+let $\fitted_\iobs \eqdef \mean(\predvar_\iobs; \vparam)$
 be its predictions of $n \ge 1$ outcomes $\dsn{y}$,
 and let $\text{RSS}(\vparam)$ (@def-rss) be taken over those same outcomes.
 Write the [mean squared error](prediction.qmd#def-prediction-mse)
@@ -22,9 +22,9 @@ $$
 \prederr_\iobs^2
 &= (\fitted_\iobs - \outvar_\iobs)^2
 && \text{(definition of prediction error)}\\
-&= \paren{\mean(x_i; \vparam) - \outvar_\iobs}^2
+&= \paren{\mean(\predvar_\iobs; \vparam) - \outvar_\iobs}^2
 && \text{(definition of $\fitted_\iobs$)}\\
-&= \paren{-\paren{\outvar_\iobs - \mean(x_i; \vparam)}}^2
+&= \paren{-\paren{\outvar_\iobs - \mean(\predvar_\iobs; \vparam)}}^2
 && \text{(factor out $-1$)}\\
 &= \paren{-\resid_\iobs(\vparam)}^2
 && \text{(definition of $\resid_\iobs(\vparam)$)}\\
