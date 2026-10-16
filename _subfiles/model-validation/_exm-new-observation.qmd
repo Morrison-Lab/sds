@@ -4,8 +4,8 @@
 Take the first five cars of `mtcars` as the [training set](#def-training-set),
 with the gross horsepower `hp` and weight `wt` as the covariate values and the fuel economy `mpg` as the outcome,
 as in @exm-input-matrix.
-Any other car in the data is a new observation, because it is not in the training set.
-Take the sixth car:
+Treat the sixth car as a new observation:
+a car from the same population that was not used to form the training set.
 
 ```{r}
 #| label: new-observation-mtcars
