@@ -6,3 +6,21 @@ both equal $\E{\hparam^2} - 2\E{\hparam}\param + \param^2$,
 so they are equal to each other.
 
 :::
+
+::: {#rem-mse-bias-variance-prediction}
+
+#### Estimation versus prediction
+
+The squared-error split has two forms, and they differ in what the estimate is compared with.
+
+- **Estimation.** @thm-mse-bias-variance compares an estimator $\hparam$ with a fixed parameter $\param$.
+  The target is a constant, so the expected squared error is squared bias plus variance, with no other term.
+- **Prediction.** The target is a new outcome, which is itself random.
+  The model validation notes prove that
+  [expected squared prediction error](model-validation.qmd#thm-epe-decomposition)
+  equals squared bias plus variance plus the noise variance,
+  the [irreducible error](model-validation.qmd#def-irreducible-error)
+  of that outcome.
+  No choice of prediction can remove the extra term.
+
+:::
