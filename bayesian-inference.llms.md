@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 10:06:09 (PDT)
+Last modified: 2026-10-16 10:20:46 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -206,7 +206,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > [Corollary 2](#cor-map-penalized) gives the same answer from the penalized form. Up to terms that do not involve \\\mu\\, the negative log-likelihood is \\\frac{1}{2}\sum\_{i=1}^n(x_i- \mu)^2\\ and the penalty is \\\frac{1}{2}\mu^2\\. Setting the derivative of their sum to zero gives
 >
-> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n(x_i- \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n\bar{x} + n\mu+ \mu && \text{(\$\sum_i x_i= n\bar{x}\$)}\\ &= (n+1)\mu- n\bar{x}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= -\sum\_{i=1}^n(x_i- \mu) + \mu && \text{(derivative of the sum with respect to \$\mu\$)}\\ &= -n\bar{x}+ n\mu+ \mu && \text{(\$\sum_i x_i= n\bar{x}\$)}\\ &= (n+1)\mu- n\bar{x}, && \text{(collecting the terms in \$\mu\$)} \end{aligned} \\
 >
 > so \\\mu= \frac{n}{n+1}\bar{x}\\. The penalty \\\frac{1}{2}\mu^2\\ pulls the estimate toward the prior mean \\0\\, and its pull weakens relative to the data as \\n\\ grows.
 >

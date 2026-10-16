@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 10:06:09 (PDT)
+Last modified: 2026-10-16 10:20:46 (PDT)
 
 ## 1 Introduction
 
@@ -140,7 +140,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Definition 1 (One-sample t-test)** Let \\x_1, \ldots, x_n\\ be observations with \\n \ge 2\\, sample mean \\\bar{x}\\, and sample standard deviation \\s\\. The **one-sample t-test** of \\H_0: \mu= \mu_0\\ against \\H_1: \mu\neq \mu_0\\ uses the statistic
 >
-> \\t \stackrel{\text{def}}{=}\frac{\bar{x} - \mu_0}{s / \sqrt{n}}.\\
+> \\t \stackrel{\text{def}}{=}\frac{\bar{x}- \mu_0}{s / \sqrt{n}}.\\
 >
 > Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{n-1}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 

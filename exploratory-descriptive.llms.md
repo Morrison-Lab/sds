@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 10:06:09 (PDT)
+Last modified: 2026-10-16 10:20:46 (PDT)
 
 ## 1 Introduction
 
@@ -201,7 +201,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 5 (Sample mean)** The **sample mean** of \\n\\ observations \\x_1, \ldots, x_n\\ is:
 >
-> \\\bar{x} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\
+> \\\bar{x}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\
 
 > **NOTE:**
 >

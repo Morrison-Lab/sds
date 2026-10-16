@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 10:06:09 (PDT)
+Last modified: 2026-10-16 10:20:46 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -2237,7 +2237,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \mu}\ell &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n2(x_i- \mu) \cdot (-1) && \text{(inner derivative is \$-1\$)} \\ &= -\frac{1}{2\sigma^2}\sum\_{i=1}^n-2(x_i- \mu) && \text{(multiply)} \\ &= -\frac{1}{2\sigma^2} \cdot (-2) \sum\_{i=1}^n(x_i- \mu) && \text{(factor the constant \$-2\$ out of the sum)} \\ &= \frac{1}{\sigma^2}\sum\_{i=1}^n(x_i- \mu) && \text{(multiply the constants)} \\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- \sum\_{i=1}^n\mu\right)\mathclose{} && \text{(split the sum)} \\ &= \frac{1}{\sigma^2}\mathopen{}\left(\sum\_{i=1}^nx_i- n\mu\right)\mathclose{} && \text{(sum of \$n\$ copies of \$\mu\$)} \end{aligned} \\
 >
-> Setting this to zero: \\\hat{\mu}\_{ML} = \bar{x} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\.
+> Setting this to zero: \\\hat{\mu}\_{ML} = \bar{x}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nx_i\\.
 >
 > **Deriving \\\hat{\sigma}^2\_{ML}\\:**
 >
@@ -2279,13 +2279,13 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > The MLE solves \\\ell'({\lambda}; \mathord{\underset{\sim}{x}}) = 0\\, so evaluating the score there afterwards is a check on the algebra. Setting \\\ell'({\lambda}; \mathord{\underset{\sim}{x}}) = 0\\:
 >
-> \\ \begin{aligned} 0 &= \frac{n\bar{x}}{{\lambda}} - n && \text{(score from (b))} \\ \frac{n\bar{x}}{{\lambda}} &= n && \text{(add \$n\$ to both sides)} \\ n\bar{x} &= n{\lambda} && \text{(multiply both sides by \${\lambda}\$)} \\ \hat{\lambda}\_{ML} &= \bar{x} && \text{(divide both sides by \$n\$)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= \frac{n\bar{x}}{{\lambda}} - n && \text{(score from (b))} \\ \frac{n\bar{x}}{{\lambda}} &= n && \text{(add \$n\$ to both sides)} \\ n\bar{x}&= n{\lambda} && \text{(multiply both sides by \${\lambda}\$)} \\ \hat{\lambda}\_{ML} &= \bar{x} && \text{(divide both sides by \$n\$)} \end{aligned} \\
 >
-> If \\\bar{x} \> 0\\ (equivalently, at least one \\x_i\> 0\\), then
+> If \\\bar{x}\> 0\\ (equivalently, at least one \\x_i\> 0\\), then
 >
-> \\ \begin{aligned} \ell'(\bar{x}; \mathord{\underset{\sim}{x}}) &= \frac{n\bar{x}}{\bar{x}} - n && \text{(score from (b) at \${\lambda}= \bar{x}\$)} \\ &= n - n && \text{(cancel \$\bar{x}\$, since \$\bar{x} \> 0\$)} \\ &= 0 && \text{(subtract)} \end{aligned} \\
+> \\ \begin{aligned} \ell'(\bar{x}; \mathord{\underset{\sim}{x}}) &= \frac{n\bar{x}}{\bar{x}} - n && \text{(score from (b) at \${\lambda}= \bar{x}\$)} \\ &= n - n && \text{(cancel \$\bar{x}\$, since \$\bar{x}\> 0\$)} \\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
-> If instead all \\x_i= 0\\, then \\\bar{x} = 0\\ and \\\hat{\lambda}\_{ML} = 0\\ is a boundary value. In that case, the score formula \\\ell'({\lambda}; \mathord{\underset{\sim}{x}}) = \frac{n\bar{x}}{{\lambda}} - n\\ is not defined at \\{\lambda}= 0\\, so the usual interior verification \\\ell'(\hat{\lambda}\_{ML}; \mathord{\underset{\sim}{x}}) = 0\\ does not apply.
+> If instead all \\x_i= 0\\, then \\\bar{x}= 0\\ and \\\hat{\lambda}\_{ML} = 0\\ is a boundary value. In that case, the score formula \\\ell'({\lambda}; \mathord{\underset{\sim}{x}}) = \frac{n\bar{x}}{{\lambda}} - n\\ is not defined at \\{\lambda}= 0\\, so the usual interior verification \\\ell'(\hat{\lambda}\_{ML}; \mathord{\underset{\sim}{x}}) = 0\\ does not apply.
 >
 > **(d)**
 >
@@ -2317,7 +2317,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(c)**
 >
-> Assuming \\\bar{x} \> 0\\ (i.e., at least one \\x_i\> 0\\), substituting \\\hat{\lambda}\_{ML} = \bar{x}\\:
+> Assuming \\\bar{x}\> 0\\ (i.e., at least one \\x_i\> 0\\), substituting \\\hat{\lambda}\_{ML} = \bar{x}\\:
 >
 > \\ \begin{aligned} I(\hat{\lambda}\_{ML}; \mathord{\underset{\sim}{x}}) &= \frac{n\bar{x}}{\bar{x}^2} && \text{(observed information at \${\lambda}= \bar{x}\$)} \\ &= \frac{n}{\bar{x}} && \text{(cancel one factor of \$\bar{x}\$)} \end{aligned} \\
 >
@@ -2333,7 +2333,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > An approximate 95% CI for \\{\lambda}\\ is:
 >
-> \\ \hat{\lambda}\_{ML} \pm 1.96 \times \sqrt{\frac{\bar{x}}{n}} = \bar{x} \pm 1.96\sqrt{\frac{\bar{x}}{n}} \\
+> \\ \hat{\lambda}\_{ML} \pm 1.96 \times \sqrt{\frac{\bar{x}}{n}} = \bar{x}\pm 1.96\sqrt{\frac{\bar{x}}{n}} \\
 
 > **NOTE:**
 >
@@ -2355,13 +2355,13 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(b)**
 >
-> \\ \begin{aligned} \ell'(\mu; \mathord{\underset{\sim}{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - \frac{n\bar{x}}{\mu}\right)\mathclose{} && \text{(log-likelihood from (a))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - n\bar{x}\mu^{-1}\right)\mathclose{} && \text{(write \$\tfrac{n\bar{x}}{\mu}\$ as \$n\bar{x}\mu^{-1}\$)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}\right)\mathclose{} - \frac{\partial}{\partial \mu}\mathopen{}\left(n\bar{x}\mu^{-1}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - n\bar{x}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(constant multiple rule)} \\ &= -n\mu^{-1} - n\bar{x}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(derivative of \$\log\$)} \\ &= -n\mu^{-1} - n\bar{x}\mathopen{}\left(-\mu^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n\mu^{-1} + n\bar{x}\mu^{-2} && \text{(multiply)} \\ &= -\frac{n}{\mu} + \frac{n\bar{x}}{\mu^2} && \text{(write the negative powers as fractions)} \\ &= -\frac{n\mu}{\mu^2} + \frac{n\bar{x}}{\mu^2} && \text{(write both terms over the common denominator)} \\ &= \frac{-n\mu+ n\bar{x}}{\mu^2} && \text{(combine the fractions)} \\ &= \frac{n\bar{x} - n\mu}{\mu^2} && \text{(reorder the numerator)} \\ &= \frac{n}{\mu^2}\mathopen{}\left(\bar{x} - \mu\right)\mathclose{} && \text{(factor out \$\tfrac{n}{\mu^2}\$)} \end{aligned} \\
+> \\ \begin{aligned} \ell'(\mu; \mathord{\underset{\sim}{x}}) &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - \frac{n\bar{x}}{\mu}\right)\mathclose{} && \text{(log-likelihood from (a))} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - n\bar{x}\mu^{-1}\right)\mathclose{} && \text{(write \$\tfrac{n\bar{x}}{\mu}\$ as \$n\bar{x}\mu^{-1}\$)} \\ &= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{}\right)\mathclose{} - \frac{\partial}{\partial \mu}\mathopen{}\left(n\bar{x}\mu^{-1}\right)\mathclose{} && \text{(linearity of differentiation)} \\ &= -n\frac{\partial}{\partial \mu}\operatorname{log}\mathopen{}\left\\\mu\right\\\mathclose{} - n\bar{x}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(constant multiple rule)} \\ &= -n\mu^{-1} - n\bar{x}\frac{\partial}{\partial \mu}\mu^{-1} && \text{(derivative of \$\log\$)} \\ &= -n\mu^{-1} - n\bar{x}\mathopen{}\left(-\mu^{-2}\right)\mathclose{} && \text{(power rule)} \\ &= -n\mu^{-1} + n\bar{x}\mu^{-2} && \text{(multiply)} \\ &= -\frac{n}{\mu} + \frac{n\bar{x}}{\mu^2} && \text{(write the negative powers as fractions)} \\ &= -\frac{n\mu}{\mu^2} + \frac{n\bar{x}}{\mu^2} && \text{(write both terms over the common denominator)} \\ &= \frac{-n\mu+ n\bar{x}}{\mu^2} && \text{(combine the fractions)} \\ &= \frac{n\bar{x}- n\mu}{\mu^2} && \text{(reorder the numerator)} \\ &= \frac{n}{\mu^2}\mathopen{}\left(\bar{x}- \mu\right)\mathclose{} && \text{(factor out \$\tfrac{n}{\mu^2}\$)} \end{aligned} \\
 >
 > **(c)**
 >
 > Setting \\\ell'(\mu; \mathord{\underset{\sim}{x}}) = 0\\:
 >
-> \\ \begin{aligned} 0 &= \frac{n}{\mu^2}\mathopen{}\left(\bar{x} - \mu\right)\mathclose{} && \text{(score from (b))} \\ 0 &= \bar{x} - \mu && \text{(multiply both sides by \$\tfrac{\mu^2}{n}\$)} \\ \hat\mu\_{ML} &= \bar{x} && \text{(add \$\mu\$ to both sides)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= \frac{n}{\mu^2}\mathopen{}\left(\bar{x}- \mu\right)\mathclose{} && \text{(score from (b))} \\ 0 &= \bar{x}- \mu && \text{(multiply both sides by \$\tfrac{\mu^2}{n}\$)} \\ \hat\mu\_{ML} &= \bar{x} && \text{(add \$\mu\$ to both sides)} \end{aligned} \\
 >
 > The second derivative is:
 >
@@ -2387,7 +2387,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > An approximate 95% CI for \\\mu\\ is:
 >
-> \\ \hat\mu\_{ML} \pm 1.96 \times \frac{\bar{x}}{\sqrt{n}} = \bar{x} \pm \frac{1.96\bar{x}}{\sqrt{n}} \\
+> \\ \hat\mu\_{ML} \pm 1.96 \times \frac{\bar{x}}{\sqrt{n}} = \bar{x}\pm \frac{1.96\bar{x}}{\sqrt{n}} \\
 >
 > Note: the exponential distribution has \\\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} = \mu^2\\, so \\\operatorname{SE}\mathopen{}\left(\hat\mu\_{ML}\right)\mathclose{} = \mu/\sqrt{n}\\, which is estimated by \\\bar{x}/\sqrt{n}\\. More generally, the standard error of a sample mean is \\\operatorname{SD}\mathopen{}\left(X\right)\mathclose{}/\sqrt{n}\\; here that reduces to \\\mu/\sqrt{n}\\ because \\\operatorname{SD}\mathopen{}\left(X\right)\mathclose{} = \mu\\ for the exponential distribution.
 

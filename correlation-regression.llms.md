@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 10:06:09 (PDT)
+Last modified: 2026-10-16 10:20:46 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -425,13 +425,13 @@ hers |> head()
 >
 > **Definition 14 (Centered sums of squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **centered sums of squares** of the \\x_i\\ and of the \\y_i\\ are
 >
-> \\ \begin{aligned} S\_{xx} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i- \bar{x})^2, & S\_{yy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i- \bar{y})^2. \end{aligned} \\
+> \\ \begin{aligned} S\_{xx}&\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i- \bar{x})^2, & S\_{yy}&\stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i- \bar{y})^2. \end{aligned} \\
 
 > **NOTE:**
 >
 > **Definition 15 (Centered sum of cross-products)** For the data of [Definition 14](#def-centered-sums), the **centered sum of cross-products** is
 >
-> \\ S\_{xy} \stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}). \\
+> \\ S\_{xy}\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}). \\
 
 > **NOTE:**
 >
@@ -439,7 +439,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Solution 4*. \\ \begin{aligned} \sum\_{i=1}^n(x_i- \bar{x}) &= \sum\_{i=1}^nx_i- \sum\_{i=1}^n\bar{x} && \text{(split the sum)}\\ &= \sum\_{i=1}^nx_i- n \bar{x} && \text{(sum of a constant)}\\ &= n \bar{x} - n \bar{x} && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
+> *Solution 4*. \\ \begin{aligned} \sum\_{i=1}^n(x_i- \bar{x}) &= \sum\_{i=1}^nx_i- \sum\_{i=1}^n\bar{x} && \text{(split the sum)}\\ &= \sum\_{i=1}^nx_i- n \bar{x} && \text{(sum of a constant)}\\ &= n \bar{x}- n \bar{x} && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
 > The same steps with \\y_i\\ in place of \\x_i\\ show that \\\sum\_{i=1}^n(y_i- \bar{y}) = 0\\.
 
@@ -459,13 +459,13 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Solution 5*. \\ \begin{aligned} S\_{xx} &= \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(definition of \$S\_{xx}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i^2 - 2 \bar{x} x_i+ \bar{x}^2\right)\mathclose{} && \text{(expand the square)}\\ &= \sum\_{i=1}^nx_i^2 - \sum\_{i=1}^n2 \bar{x} x_i+ \sum\_{i=1}^n\bar{x}^2 && \text{(split the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \sum\_{i=1}^nx_i+ \sum\_{i=1}^n\bar{x}^2 && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \sum\_{i=1}^nx_i+ n \bar{x}^2 && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \cdot n \bar{x} + n \bar{x}^2 && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)}\\ &= \sum\_{i=1}^nx_i^2 - 2 n \bar{x}^2 + n \bar{x}^2 && \text{(multiply)}\\ &= \sum\_{i=1}^nx_i^2 - n \bar{x}^2 && \text{(collect the \$\bar{x}^2\$ terms)} \end{aligned} \\
+> *Solution 5*. \\ \begin{aligned} S\_{xx} &= \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(definition of \$S\_{xx}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i^2 - 2 \bar{x}x_i+ \bar{x}^2\right)\mathclose{} && \text{(expand the square)}\\ &= \sum\_{i=1}^nx_i^2 - \sum\_{i=1}^n2 \bar{x}x_i+ \sum\_{i=1}^n\bar{x}^2 && \text{(split the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x}\sum\_{i=1}^nx_i+ \sum\_{i=1}^n\bar{x}^2 && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x}\sum\_{i=1}^nx_i+ n \bar{x}^2 && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x}\cdot n \bar{x}+ n \bar{x}^2 && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)}\\ &= \sum\_{i=1}^nx_i^2 - 2 n \bar{x}^2 + n \bar{x}^2 && \text{(multiply)}\\ &= \sum\_{i=1}^nx_i^2 - n \bar{x}^2 && \text{(collect the \$\bar{x}^2\$ terms)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Lemma 2 (Expanded centered sum of squares)** The centered sum of squares \\S\_{xx}\\ ([Definition 14](#def-centered-sums)) equals
 >
-> \\S\_{xx} = \sum\_{i=1}^nx_i^2 - n \bar{x}^2.\\
+> \\S\_{xx}= \sum\_{i=1}^nx_i^2 - n \bar{x}^2.\\
 
 > **NOTE:**
 >
@@ -487,13 +487,13 @@ hers |> head()
 >
 > Plugging the inner derivative back in:
 >
-> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{0}} &= \sum\_{i=1}^n2 (y_i- \beta\_{0}- \beta\_{x} x_i) (-1) && \text{(inner derivative is \$-1\$)}\\ &= \sum\_{i=1}^n-2 (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(multiply \$2\$ by \$-1\$)}\\ &= -2 \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(split the sum)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(sum of a constant)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(\$\sum\_{i=1}^ny_i= n \bar{y}\$)}\\ &= -2 \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{0}} &= \sum\_{i=1}^n2 (y_i- \beta\_{0}- \beta\_{x} x_i) (-1) && \text{(inner derivative is \$-1\$)}\\ &= \sum\_{i=1}^n-2 (y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(multiply \$2\$ by \$-1\$)}\\ &= -2 \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- \sum\_{i=1}^n\beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(split the sum)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \sum\_{i=1}^n\beta\_{x} x_i\right)\mathclose{} && \text{(sum of a constant)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^ny_i- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(constant factor out of the sum)}\\ &= -2 \mathopen{}\left(n \bar{y}- n \beta\_{0}- \beta\_{x} \sum\_{i=1}^nx_i\right)\mathclose{} && \text{(\$\sum\_{i=1}^ny_i= n \bar{y}\$)}\\ &= -2 \mathopen{}\left(n \bar{y}- n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Lemma 3 (Derivative of RSS with respect to the intercept)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the intercept is
 >
-> \\\frac{\partial \text{RSS}}{\partial \beta\_{0}} = -2 \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i) = -2 \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{}.\\
+> \\\frac{\partial \text{RSS}}{\partial \beta\_{0}} = -2 \sum\_{i=1}^n(y_i- \beta\_{0}- \beta\_{x} x_i) = -2 \mathopen{}\left(n \bar{y}- n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{}.\\
 
 > **NOTE:**
 >
@@ -529,37 +529,37 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 8 (Solving the normal equations)** Using [Exercise 6](#exr-rss-deriv-intercept) and [Exercise 7](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
+> **Exercise 8 (Solving the normal equations)** Using [Exercise 6](#exr-rss-deriv-intercept) and [Exercise 7](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
 > *Solution 8*. **First normal equation.** Set the derivative from [Exercise 6](#exr-rss-deriv-intercept) to zero, then isolate \\\beta\_{0}\\:
 >
-> \\ \begin{aligned} 0 &= -2 \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(first normal equation)}\\ 0 &= n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x} && \text{(divide both sides by \$-2\$)}\\ 0 &= \bar{y} - \beta\_{0}- \beta\_{x} \bar{x} && \text{(divide both sides by \$n\$)}\\ \beta\_{0}&= \bar{y} - \beta\_{x} \bar{x} && \text{(add \$\beta\_{0}\$ to both sides)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= -2 \mathopen{}\left(n \bar{y}- n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(first normal equation)}\\ 0 &= n \bar{y}- n \beta\_{0}- \beta\_{x} n \bar{x} && \text{(divide both sides by \$-2\$)}\\ 0 &= \bar{y}- \beta\_{0}- \beta\_{x} \bar{x} && \text{(divide both sides by \$n\$)}\\ \beta\_{0}&= \bar{y}- \beta\_{x} \bar{x} && \text{(add \$\beta\_{0}\$ to both sides)} \end{aligned} \\
 >
 > **Second normal equation.** Substitute that intercept into the derivative from [Exercise 7](#exr-rss-deriv-slope):
 >
-> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{x}} &= -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(derivative with respect to \$\beta\_{x}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- (\bar{y} - \beta\_{x} \bar{x}) - \beta\_{x} x_i\right)\mathclose{} && \text{(substitute \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- \bar{y} + \beta\_{x} \bar{x} - \beta\_{x} x_i\right)\mathclose{} && \text{(remove the inner parentheses)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- \bar{y}) - (\beta\_{x} x_i- \beta\_{x} \bar{x})\right)\mathclose{} && \text{(group terms)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\right)\mathclose{} && \text{(factor out \$\beta\_{x}\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{x}} &= -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(derivative with respect to \$\beta\_{x}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- (\bar{y}- \beta\_{x} \bar{x}) - \beta\_{x} x_i\right)\mathclose{} && \text{(substitute \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- \bar{y}+ \beta\_{x} \bar{x}- \beta\_{x} x_i\right)\mathclose{} && \text{(remove the inner parentheses)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- \bar{y}) - (\beta\_{x} x_i- \beta\_{x} \bar{x})\right)\mathclose{} && \text{(group terms)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\right)\mathclose{} && \text{(factor out \$\beta\_{x}\$)} \end{aligned} \\
 >
 > To shorten the next steps, write \\d_i \stackrel{\text{def}}{=}(y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\\, so that \\\partial \text{RSS} / \partial \beta\_{x} = -2 \sum\_{i=1}^nx_id_i\\. The \\d_i\\ sum to zero, because deviations from a sample mean sum to zero ([Exercise 4](#exr-sum-deviations-zero)):
 >
 > \\ \begin{aligned} \sum\_{i=1}^nd_i &= \sum\_{i=1}^n\mathopen{}\left((y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n(y_i- \bar{y}) - \sum\_{i=1}^n\beta\_{x} (x_i- \bar{x}) && \text{(split the sum)}\\ &= \sum\_{i=1}^n(y_i- \bar{y}) - \beta\_{x} \sum\_{i=1}^n(x_i- \bar{x}) && \text{(constant factor out of the sum)}\\ &= 0 - \beta\_{x} \cdot 0 && \text{(deviations sum to zero)}\\ &= 0 - 0 && \text{(multiply)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
-> So subtracting \\\bar{x} \sum\_{i=1}^nd_i\\ from \\\sum\_{i=1}^nx_id_i\\ does not change it:
+> So subtracting \\\bar{x}\sum\_{i=1}^nd_i\\ from \\\sum\_{i=1}^nx_id_i\\ does not change it:
 >
-> \\ \begin{aligned} \sum\_{i=1}^nx_id_i &= \sum\_{i=1}^nx_id_i - \bar{x} \sum\_{i=1}^nd_i && \text{(\$\sum\_{i=1}^nd_i = 0\$)}\\ &= \sum\_{i=1}^nx_id_i - \sum\_{i=1}^n\bar{x} d_i && \text{(constant factor into the sum)}\\ &= \sum\_{i=1}^n(x_i- \bar{x}) d_i && \text{(combine the sums)}\\ &= \sum\_{i=1}^n(x_i- \bar{x}) \mathopen{}\left((y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left((x_i- \bar{x})(y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})^2\right)\mathclose{} && \text{(distribute)}\\ &= \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) - \sum\_{i=1}^n\beta\_{x} (x_i- \bar{x})^2 && \text{(split the sum)}\\ &= \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) - \beta\_{x} \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(constant factor out of the sum)}\\ &= S\_{xy} - \beta\_{x} \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(definition of \$S\_{xy}\$)}\\ &= S\_{xy} - \beta\_{x} S\_{xx} && \text{(definition of \$S\_{xx}\$)} \end{aligned} \\
+> \\ \begin{aligned} \sum\_{i=1}^nx_id_i &= \sum\_{i=1}^nx_id_i - \bar{x}\sum\_{i=1}^nd_i && \text{(\$\sum\_{i=1}^nd_i = 0\$)}\\ &= \sum\_{i=1}^nx_id_i - \sum\_{i=1}^n\bar{x}d_i && \text{(constant factor into the sum)}\\ &= \sum\_{i=1}^n(x_i- \bar{x}) d_i && \text{(combine the sums)}\\ &= \sum\_{i=1}^n(x_i- \bar{x}) \mathopen{}\left((y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left((x_i- \bar{x})(y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})^2\right)\mathclose{} && \text{(distribute)}\\ &= \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) - \sum\_{i=1}^n\beta\_{x} (x_i- \bar{x})^2 && \text{(split the sum)}\\ &= \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) - \beta\_{x} \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(constant factor out of the sum)}\\ &= S\_{xy}- \beta\_{x} \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(definition of \$S\_{xy}\$)}\\ &= S\_{xy}- \beta\_{x} S\_{xx} && \text{(definition of \$S\_{xx}\$)} \end{aligned} \\
 >
-> So \\\partial \text{RSS} / \partial \beta\_{x} = -2 \mathopen{}\left(S\_{xy} - \beta\_{x} S\_{xx}\right)\mathclose{}\\. Set it to zero and isolate \\\beta\_{x}\\:
+> So \\\partial \text{RSS} / \partial \beta\_{x} = -2 \mathopen{}\left(S\_{xy}- \beta\_{x} S\_{xx}\right)\mathclose{}\\. Set it to zero and isolate \\\beta\_{x}\\:
 >
-> \\ \begin{aligned} 0 &= -2 \mathopen{}\left(S\_{xy} - \beta\_{x} S\_{xx}\right)\mathclose{} && \text{(second normal equation)}\\ 0 &= S\_{xy} - \beta\_{x} S\_{xx} && \text{(divide both sides by \$-2\$)}\\ \beta\_{x} S\_{xx} &= S\_{xy} && \text{(add \$\beta\_{x} S\_{xx}\$ to both sides)}\\ \beta\_{x} &= \frac{S\_{xy}}{S\_{xx}} && \text{(divide both sides by \$S\_{xx} \> 0\$)} \end{aligned} \\
+> \\ \begin{aligned} 0 &= -2 \mathopen{}\left(S\_{xy}- \beta\_{x} S\_{xx}\right)\mathclose{} && \text{(second normal equation)}\\ 0 &= S\_{xy}- \beta\_{x} S\_{xx} && \text{(divide both sides by \$-2\$)}\\ \beta\_{x} S\_{xx}&= S\_{xy} && \text{(add \$\beta\_{x} S\_{xx}\$ to both sides)}\\ \beta\_{x} &= \frac{S\_{xy}}{S\_{xx}} && \text{(divide both sides by \$S\_{xx}\> 0\$)} \end{aligned} \\
 >
-> So the normal equations have exactly one solution: \\\beta\_{x} = S\_{xy} / S\_{xx}\\ and \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\.
+> So the normal equations have exactly one solution: \\\beta\_{x} = S\_{xy}/ S\_{xx}\\ and \\\beta\_{0}= \bar{y}- \beta\_{x} \bar{x}\\.
 
 > **NOTE:**
 >
-> **Lemma 5 (Solution of the normal equations)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the normal equations of [Example 6](#exm-normal-equations-slr) have exactly one solution:
+> **Lemma 5 (Solution of the normal equations)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the normal equations of [Example 6](#exm-normal-equations-slr) have exactly one solution:
 >
-> \\\beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \beta\_{0}= \bar{y} - \beta\_{x} \bar{x}.\\
+> \\\beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \beta\_{0}= \bar{y}- \beta\_{x} \bar{x}.\\
 
 > **NOTE:**
 >
@@ -567,19 +567,19 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 9 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
+> **Exercise 9 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\, and show that it is positive definite when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
 > *Solution 9*. Differentiate each first derivative again.
 >
-> **Derivatives of \\\partial \text{RSS} / \partial \beta\_{0}\\.** By [Exercise 6](#exr-rss-deriv-intercept), \\\partial \text{RSS} / \partial \beta\_{0} = -2 \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{}\\. Differentiating with respect to \\\beta\_{0}\\:
+> **Derivatives of \\\partial \text{RSS} / \partial \beta\_{0}\\.** By [Exercise 6](#exr-rss-deriv-intercept), \\\partial \text{RSS} / \partial \beta\_{0} = -2 \mathopen{}\left(n \bar{y}- n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{}\\. Differentiating with respect to \\\beta\_{0}\\:
 >
-> \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{0}^2} &= -2 \frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n \bar{y})}{\partial \beta\_{0}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{0}} - \frac{\partial (\beta\_{x} n \bar{x})}{\partial \beta\_{0}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - n - 0) && \text{(differentiate each term)}\\ &= -2 (-n) && \text{(drop the zeros)}\\ &= 2n && \text{(multiply)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{0}^2} &= -2 \frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(n \bar{y}- n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n \bar{y})}{\partial \beta\_{0}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{0}} - \frac{\partial (\beta\_{x} n \bar{x})}{\partial \beta\_{0}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - n - 0) && \text{(differentiate each term)}\\ &= -2 (-n) && \text{(drop the zeros)}\\ &= 2n && \text{(multiply)} \end{aligned} \\
 >
 > Differentiating with respect to \\\beta\_{x}\\:
 >
-> \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{x} \\ \partial \beta\_{0}} &= -2 \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n \bar{y})}{\partial \beta\_{x}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{x}} - \frac{\partial (\beta\_{x} n \bar{x})}{\partial \beta\_{x}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - 0 - n \bar{x}) && \text{(differentiate each term)}\\ &= -2 (-n \bar{x}) && \text{(drop the zeros)}\\ &= 2 n \bar{x} && \text{(multiply)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial^2 \text{RSS}}{\partial \beta\_{x} \\ \partial \beta\_{0}} &= -2 \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(n \bar{y}- n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left( \frac{\partial (n \bar{y})}{\partial \beta\_{x}} - \frac{\partial (n \beta\_{0})}{\partial \beta\_{x}} - \frac{\partial (\beta\_{x} n \bar{x})}{\partial \beta\_{x}}\right)\mathclose{} && \text{(derivative of a sum)}\\ &= -2 (0 - 0 - n \bar{x}) && \text{(differentiate each term)}\\ &= -2 (-n \bar{x}) && \text{(drop the zeros)}\\ &= 2 n \bar{x} && \text{(multiply)} \end{aligned} \\
 >
 > **Derivatives of \\\partial \text{RSS} / \partial \beta\_{x}\\.** By [Exercise 7](#exr-rss-deriv-slope), \\\partial \text{RSS} / \partial \beta\_{x} = -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i)\\. Differentiating with respect to \\\beta\_{0}\\, and reusing the inner derivative \\-1\\ from [Exercise 6](#exr-rss-deriv-intercept):
 >
@@ -591,19 +591,19 @@ hers |> head()
 >
 > **The matrix.** Collecting the four second derivatives, the matrix of second derivatives is
 >
-> \\ \begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sum\_{i=1}^nx_i^2 \end{pmatrix}. \\
+> \\ \begin{pmatrix} 2n & 2 n \bar{x}\\ 2 n \bar{x}& 2 \sum\_{i=1}^nx_i^2 \end{pmatrix}. \\
 >
 > Its top-left entry, \\2n\\, is positive. Its determinant, using the expanded form of \\S\_{xx}\\ from [Exercise 5](#exr-sxx-expand), is
 >
-> \\ \begin{aligned} \det \begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sum\_{i=1}^nx_i^2 \end{pmatrix} &= (2n) \mathopen{}\left(2 \sum\_{i=1}^nx_i^2\right)\mathclose{} - (2 n \bar{x}) (2 n \bar{x}) && \text{(\$2 \times 2\$ determinant)}\\ &= 4 n \sum\_{i=1}^nx_i^2 - 4 n^2 \bar{x}^2 && \text{(multiply)}\\ &= 4 n \mathopen{}\left(\sum\_{i=1}^nx_i^2 - n \bar{x}^2\right)\mathclose{} && \text{(factor out \$4n\$)}\\ &= 4 n S\_{xx} && \text{(expanded form of \$S\_{xx}\$)} \end{aligned} \\
+> \\ \begin{aligned} \det \begin{pmatrix} 2n & 2 n \bar{x}\\ 2 n \bar{x}& 2 \sum\_{i=1}^nx_i^2 \end{pmatrix} &= (2n) \mathopen{}\left(2 \sum\_{i=1}^nx_i^2\right)\mathclose{} - (2 n \bar{x}) (2 n \bar{x}) && \text{(\$2 \times 2\$ determinant)}\\ &= 4 n \sum\_{i=1}^nx_i^2 - 4 n^2 \bar{x}^2 && \text{(multiply)}\\ &= 4 n \mathopen{}\left(\sum\_{i=1}^nx_i^2 - n \bar{x}^2\right)\mathclose{} && \text{(factor out \$4n\$)}\\ &= 4 n S\_{xx} && \text{(expanded form of \$S\_{xx}\$)} \end{aligned} \\
 >
-> which is positive when \\S\_{xx} \> 0\\. A symmetric \\2 \times 2\\ matrix with a positive top-left entry and a positive determinant is positive definite.
+> which is positive when \\S\_{xx}\> 0\\. A symmetric \\2 \times 2\\ matrix with a positive top-left entry and a positive determinant is positive definite.
 
 > **NOTE:**
 >
-> **Lemma 6 (Second derivatives of RSS)** The matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ is positive definite at every \\(\beta\_{0}, \beta\_{x})\\ when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), and equals
+> **Lemma 6 (Second derivatives of RSS)** The matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ is positive definite at every \\(\beta\_{0}, \beta\_{x})\\ when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), and equals
 >
-> \\\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sum\_{i=1}^nx_i^2 \end{pmatrix}.\\
+> \\\begin{pmatrix} 2n & 2 n \bar{x}\\ 2 n \bar{x}& 2 \sum\_{i=1}^nx_i^2 \end{pmatrix}.\\
 
 > **NOTE:**
 >
@@ -611,13 +611,13 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Theorem 5 (Closed-form OLS estimates)** Suppose \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Example 5](#exm-ols-slr)) are unique, and
+> **Theorem 5 (Closed-form OLS estimates)** Suppose \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Example 5](#exm-ols-slr)) are unique, and
 >
-> \\\hat{\beta}\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat{\beta}\_{0}= \bar{y} - \hat{\beta}\_{x} \bar{x}.\\
+> \\\hat{\beta}\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat{\beta}\_{0}= \bar{y}- \hat{\beta}\_{x} \bar{x}.\\
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 5](#lem-solve-normal-equations), the normal equations have exactly one solution, \\\beta\_{x} = S\_{xy} / S\_{xx}\\ and \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\. By [Lemma 6](#lem-rss-hessian), the matrix of second derivatives of \\\text{RSS}\\ is positive definite at every point, so \\\text{RSS}\\ is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 5](#lem-solve-normal-equations), the normal equations have exactly one solution, \\\beta\_{x} = S\_{xy}/ S\_{xx}\\ and \\\beta\_{0}= \bar{y}- \beta\_{x} \bar{x}\\. By [Lemma 6](#lem-rss-hessian), the matrix of second derivatives of \\\text{RSS}\\ is positive definite at every point, so \\\text{RSS}\\ is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.
 
 The same estimates follow from a derivation in vector notation, which treats \\(\beta\_{0}, \beta\_{x})\\ as a single vector instead of differentiating with respect to each component separately.
 
@@ -729,37 +729,37 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 13 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), show that \\A\\ from [Exercise 12](#exr-normal-equations-vector) is invertible, solve \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ for \\\mathord{\underset{\sim}{\beta}}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
+> **Exercise 13 (Solving the normal equations in vector notation)** Assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), show that \\A\\ from [Exercise 12](#exr-normal-equations-vector) is invertible, solve \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ for \\\mathord{\underset{\sim}{\beta}}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
 > *Solution 13*. Write out the entries of each term of \\A\\ and \\\mathord{\underset{\sim}{c}}\\, then add them up:
 >
-> \\ \begin{aligned} A &= \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top} && \text{(definition of \$A\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} 1 & x_i\\ x_i& x_i^2 \end{pmatrix} && \text{(outer product of \$\mathord{\underset{\sim}{x}}\_i\$)}\\ &= \begin{pmatrix} \sum\_{i=1}^n1 & \sum\_{i=1}^nx_i\\ \sum\_{i=1}^nx_i& \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(matrices add entrywise)}\\ &= \begin{pmatrix} n & \sum\_{i=1}^nx_i\\ \sum\_{i=1}^nx_i& \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(sum of a constant)}\\ &= \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)} \end{aligned} \\
+> \\ \begin{aligned} A &= \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top} && \text{(definition of \$A\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} 1 & x_i\\ x_i& x_i^2 \end{pmatrix} && \text{(outer product of \$\mathord{\underset{\sim}{x}}\_i\$)}\\ &= \begin{pmatrix} \sum\_{i=1}^n1 & \sum\_{i=1}^nx_i\\ \sum\_{i=1}^nx_i& \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(matrices add entrywise)}\\ &= \begin{pmatrix} n & \sum\_{i=1}^nx_i\\ \sum\_{i=1}^nx_i& \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(sum of a constant)}\\ &= \begin{pmatrix} n & n\bar{x}\\ n\bar{x}& \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)} \end{aligned} \\
 >
-> \\ \begin{aligned} \mathord{\underset{\sim}{c}} &= \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i && \text{(definition of \$\mathord{\underset{\sim}{c}}\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} y_i\\ x_iy_i\end{pmatrix} && \text{(scalar times a vector)}\\ &= \begin{pmatrix} \sum\_{i=1}^ny_i\\ \sum\_{i=1}^nx_iy_i\end{pmatrix} && \text{(vectors add entrywise)}\\ &= \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_iy_i\end{pmatrix} && \text{(\$\sum\_{i=1}^ny_i= n \bar{y}\$)} \end{aligned} \\
+> \\ \begin{aligned} \mathord{\underset{\sim}{c}} &= \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i && \text{(definition of \$\mathord{\underset{\sim}{c}}\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} y_i\\ x_iy_i\end{pmatrix} && \text{(scalar times a vector)}\\ &= \begin{pmatrix} \sum\_{i=1}^ny_i\\ \sum\_{i=1}^nx_iy_i\end{pmatrix} && \text{(vectors add entrywise)}\\ &= \begin{pmatrix} n\bar{y}\\ \sum\_{i=1}^nx_iy_i\end{pmatrix} && \text{(\$\sum\_{i=1}^ny_i= n \bar{y}\$)} \end{aligned} \\
 >
 > The determinant of \\A\\ is
 >
 > \\ \begin{aligned} \det A &= n \sum\_{i=1}^nx_i^2 - \mathopen{}\left(n\bar{x}\right)\mathclose{} \mathopen{}\left(n\bar{x}\right)\mathclose{} && \text{(determinant of a \$2 \times 2\$ matrix)}\\ &= n \sum\_{i=1}^nx_i^2 - n^2 \bar{x}^2 && \text{(multiply)}\\ &= n \mathopen{}\left(\sum\_{i=1}^nx_i^2 - n \bar{x}^2\right)\mathclose{} && \text{(factor out \$n\$)}\\ &= n S\_{xx} && \text{(expansion of \$S\_{xx}\$)} \end{aligned} \\
 >
-> where the last step uses [Exercise 5](#exr-sxx-expand). Since \\n \> 0\\ and \\S\_{xx} \> 0\\, \\\det A \> 0\\, so \\A\\ is invertible, and \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ has exactly one solution, \\A^{-1} \mathord{\underset{\sim}{c}}\\.
+> where the last step uses [Exercise 5](#exr-sxx-expand). Since \\n \> 0\\ and \\S\_{xx}\> 0\\, \\\det A \> 0\\, so \\A\\ is invertible, and \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ has exactly one solution, \\A^{-1} \mathord{\underset{\sim}{c}}\\.
 >
-> To simplify \\A^{-1} \mathord{\underset{\sim}{c}}\\, we need two expansions of uncentered sums. Adding \\n \bar{x}^2\\ to both sides of [Exercise 5](#exr-sxx-expand) gives \\\sum\_{i=1}^nx_i^2 = S\_{xx} + n \bar{x}^2\\. The cross-product sum expands the same way:
+> To simplify \\A^{-1} \mathord{\underset{\sim}{c}}\\, we need two expansions of uncentered sums. Adding \\n \bar{x}^2\\ to both sides of [Exercise 5](#exr-sxx-expand) gives \\\sum\_{i=1}^nx_i^2 = S\_{xx}+ n \bar{x}^2\\. The cross-product sum expands the same way:
 >
-> \\ \begin{aligned} S\_{xy} &= \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) && \text{(definition of \$S\_{xy}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_iy_i- x_i\bar{y} - \bar{x} y_i+ \bar{x} \bar{y}\right)\mathclose{} && \text{(expand the product)}\\ &= \sum\_{i=1}^nx_iy_i- \sum\_{i=1}^nx_i\bar{y} - \sum\_{i=1}^n\bar{x} y_i+ \sum\_{i=1}^n\bar{x} \bar{y} && \text{(sum of a sum)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y} \sum\_{i=1}^nx_i- \sum\_{i=1}^n\bar{x} y_i+ \sum\_{i=1}^n\bar{x} \bar{y} && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y} \sum\_{i=1}^nx_i- \bar{x} \sum\_{i=1}^ny_i+ \sum\_{i=1}^n\bar{x} \bar{y} && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y} \sum\_{i=1}^nx_i- \bar{x} \sum\_{i=1}^ny_i+ n \bar{x} \bar{y} && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y} \mathopen{}\left(n \bar{x}\right)\mathclose{} - \bar{x} \sum\_{i=1}^ny_i+ n \bar{x} \bar{y} && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y} \mathopen{}\left(n \bar{x}\right)\mathclose{} - \bar{x} \mathopen{}\left(n \bar{y}\right)\mathclose{} + n \bar{x} \bar{y} && \text{(\$\sum\_{i=1}^ny_i= n \bar{y}\$)}\\ &= \sum\_{i=1}^nx_iy_i- n \bar{x} \bar{y} - n \bar{x} \bar{y} + n \bar{x} \bar{y} && \text{(reorder the factors)}\\ &= \sum\_{i=1}^nx_iy_i- n \bar{x} \bar{y} && \text{(combine like terms)} \end{aligned} \\
+> \\ \begin{aligned} S\_{xy} &= \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) && \text{(definition of \$S\_{xy}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_iy_i- x_i\bar{y}- \bar{x}y_i+ \bar{x}\bar{y}\right)\mathclose{} && \text{(expand the product)}\\ &= \sum\_{i=1}^nx_iy_i- \sum\_{i=1}^nx_i\bar{y}- \sum\_{i=1}^n\bar{x}y_i+ \sum\_{i=1}^n\bar{x}\bar{y} && \text{(sum of a sum)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y}\sum\_{i=1}^nx_i- \sum\_{i=1}^n\bar{x}y_i+ \sum\_{i=1}^n\bar{x}\bar{y} && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y}\sum\_{i=1}^nx_i- \bar{x}\sum\_{i=1}^ny_i+ \sum\_{i=1}^n\bar{x}\bar{y} && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y}\sum\_{i=1}^nx_i- \bar{x}\sum\_{i=1}^ny_i+ n \bar{x}\bar{y} && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y}\mathopen{}\left(n \bar{x}\right)\mathclose{} - \bar{x}\sum\_{i=1}^ny_i+ n \bar{x}\bar{y} && \text{(\$\sum\_{i=1}^nx_i= n \bar{x}\$)}\\ &= \sum\_{i=1}^nx_iy_i- \bar{y}\mathopen{}\left(n \bar{x}\right)\mathclose{} - \bar{x}\mathopen{}\left(n \bar{y}\right)\mathclose{} + n \bar{x}\bar{y} && \text{(\$\sum\_{i=1}^ny_i= n \bar{y}\$)}\\ &= \sum\_{i=1}^nx_iy_i- n \bar{x}\bar{y}- n \bar{x}\bar{y}+ n \bar{x}\bar{y} && \text{(reorder the factors)}\\ &= \sum\_{i=1}^nx_iy_i- n \bar{x}\bar{y} && \text{(combine like terms)} \end{aligned} \\
 >
-> Adding \\n \bar{x} \bar{y}\\ to both sides gives \\\sum\_{i=1}^nx_iy_i= S\_{xy} + n \bar{x} \bar{y}\\. Now compute the solution:
+> Adding \\n \bar{x}\bar{y}\\ to both sides gives \\\sum\_{i=1}^nx_iy_i= S\_{xy}+ n \bar{x}\bar{y}\\. Now compute the solution:
 >
-> \\ \begin{aligned} A^{-1} \mathord{\underset{\sim}{c}} &= \frac{1}{\det A} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \mathord{\underset{\sim}{c}} && \text{(inverse of a \$2 \times 2\$ matrix)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \mathord{\underset{\sim}{c}} && \text{(\$\det A = n S\_{xx}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_iy_i\end{pmatrix} && \text{(substitute \$\mathord{\underset{\sim}{c}}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 \cdot n\bar{y} + \mathopen{}\left(-n\bar{x}\right)\mathclose{} \sum\_{i=1}^nx_iy_i\\ \mathopen{}\left(-n\bar{x}\right)\mathclose{} \cdot n\bar{y} + n \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(matrix times a vector)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} n \bar{y} \sum\_{i=1}^nx_i^2 - n \bar{x} \sum\_{i=1}^nx_iy_i\\ -n^2 \bar{x} \bar{y} + n \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(multiply out the products)}\\ &= \frac{1}{n S\_{xx}} \\ n \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_iy_i\\ -n \bar{x} \bar{y} + \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(factor \$n\$ out of the vector)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_iy_i\\ -n \bar{x} \bar{y} + \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(cancel \$n\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_iy_i\\ \sum\_{i=1}^nx_iy_i- n \bar{x} \bar{y} \end{pmatrix} && \text{(reorder the terms of the second entry)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \mathopen{}\left(S\_{xx} + n\bar{x}^2\right)\mathclose{} - \bar{x} \sum\_{i=1}^nx_iy_i\\ \sum\_{i=1}^nx_iy_i- n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i^2 = S\_{xx} + n\bar{x}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \mathopen{}\left(S\_{xx} + n\bar{x}^2\right)\mathclose{} - \bar{x} \mathopen{}\left(S\_{xy} + n\bar{x}\bar{y}\right)\mathclose{} \\ \mathopen{}\left(S\_{xy} + n\bar{x}\bar{y}\right)\mathclose{} - n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_iy_i= S\_{xy} + n\bar{x}\bar{y}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + \bar{y} n\bar{x}^2 - \bar{x} S\_{xy} - \bar{x} n\bar{x}\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(distribute)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + n\bar{x}^2\bar{y} - \bar{x} S\_{xy} - n\bar{x}\bar{x}\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(reorder the factors)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + n\bar{x}^2\bar{y} - \bar{x} S\_{xy} - n\bar{x}^2\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\bar{x} \bar{x} = \bar{x}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} - \bar{x} S\_{xy} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(first entry: cancel \$\pm n\bar{x}^2\bar{y}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} - \bar{x} S\_{xy} \\ S\_{xy} \end{pmatrix} && \text{(second entry: cancel \$\pm n\bar{x}\bar{y}\$)}\\ &= \begin{pmatrix} \bar{y} S\_{xx} / S\_{xx} - \bar{x} \\ S\_{xy} / S\_{xx} \\ S\_{xy} / S\_{xx} \end{pmatrix} && \text{(multiply each entry by \$1 / S\_{xx}\$)}\\ &= \begin{pmatrix} \bar{y} - \bar{x} \\ S\_{xy} / S\_{xx} \\ S\_{xy} / S\_{xx} \end{pmatrix} && \text{(cancel \$S\_{xx}\$)} \end{aligned} \\
+> \\ \begin{aligned} A^{-1} \mathord{\underset{\sim}{c}} &= \frac{1}{\det A} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x}\\ -n\bar{x}& n \end{pmatrix} \mathord{\underset{\sim}{c}} && \text{(inverse of a \$2 \times 2\$ matrix)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x}\\ -n\bar{x}& n \end{pmatrix} \mathord{\underset{\sim}{c}} && \text{(\$\det A = n S\_{xx}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x}\\ -n\bar{x}& n \end{pmatrix} \begin{pmatrix} n\bar{y}\\ \sum\_{i=1}^nx_iy_i\end{pmatrix} && \text{(substitute \$\mathord{\underset{\sim}{c}}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 \cdot n\bar{y}+ \mathopen{}\left(-n\bar{x}\right)\mathclose{} \sum\_{i=1}^nx_iy_i\\ \mathopen{}\left(-n\bar{x}\right)\mathclose{} \cdot n\bar{y}+ n \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(matrix times a vector)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} n \bar{y}\sum\_{i=1}^nx_i^2 - n \bar{x}\sum\_{i=1}^nx_iy_i\\ -n^2 \bar{x}\bar{y}+ n \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(multiply out the products)}\\ &= \frac{1}{n S\_{xx}} \\ n \begin{pmatrix} \bar{y}\sum\_{i=1}^nx_i^2 - \bar{x}\sum\_{i=1}^nx_iy_i\\ -n \bar{x}\bar{y}+ \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(factor \$n\$ out of the vector)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}\sum\_{i=1}^nx_i^2 - \bar{x}\sum\_{i=1}^nx_iy_i\\ -n \bar{x}\bar{y}+ \sum\_{i=1}^nx_iy_i \end{pmatrix} && \text{(cancel \$n\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}\sum\_{i=1}^nx_i^2 - \bar{x}\sum\_{i=1}^nx_iy_i\\ \sum\_{i=1}^nx_iy_i- n \bar{x}\bar{y} \end{pmatrix} && \text{(reorder the terms of the second entry)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}\mathopen{}\left(S\_{xx}+ n\bar{x}^2\right)\mathclose{} - \bar{x}\sum\_{i=1}^nx_iy_i\\ \sum\_{i=1}^nx_iy_i- n \bar{x}\bar{y} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i^2 = S\_{xx}+ n\bar{x}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}\mathopen{}\left(S\_{xx}+ n\bar{x}^2\right)\mathclose{} - \bar{x}\mathopen{}\left(S\_{xy}+ n\bar{x}\bar{y}\right)\mathclose{} \\ \mathopen{}\left(S\_{xy}+ n\bar{x}\bar{y}\right)\mathclose{} - n \bar{x}\bar{y} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_iy_i= S\_{xy}+ n\bar{x}\bar{y}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}S\_{xx}+ \bar{y}n\bar{x}^2 - \bar{x}S\_{xy}- \bar{x}n\bar{x}\bar{y}\\ S\_{xy}+ n\bar{x}\bar{y}- n \bar{x}\bar{y} \end{pmatrix} && \text{(distribute)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}S\_{xx}+ n\bar{x}^2\bar{y}- \bar{x}S\_{xy}- n\bar{x}\bar{x}\bar{y}\\ S\_{xy}+ n\bar{x}\bar{y}- n \bar{x}\bar{y} \end{pmatrix} && \text{(reorder the factors)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}S\_{xx}+ n\bar{x}^2\bar{y}- \bar{x}S\_{xy}- n\bar{x}^2\bar{y}\\ S\_{xy}+ n\bar{x}\bar{y}- n \bar{x}\bar{y} \end{pmatrix} && \text{(\$\bar{x}\bar{x}= \bar{x}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}S\_{xx}- \bar{x}S\_{xy}\\ S\_{xy}+ n\bar{x}\bar{y}- n \bar{x}\bar{y} \end{pmatrix} && \text{(first entry: cancel \$\pm n\bar{x}^2\bar{y}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y}S\_{xx}- \bar{x}S\_{xy}\\ S\_{xy} \end{pmatrix} && \text{(second entry: cancel \$\pm n\bar{x}\bar{y}\$)}\\ &= \begin{pmatrix} \bar{y}S\_{xx}/ S\_{xx}- \bar{x}\\ S\_{xy}/ S\_{xx}\\ S\_{xy}/ S\_{xx} \end{pmatrix} && \text{(multiply each entry by \$1 / S\_{xx}\$)}\\ &= \begin{pmatrix} \bar{y}- \bar{x}\\ S\_{xy}/ S\_{xx}\\ S\_{xy}/ S\_{xx} \end{pmatrix} && \text{(cancel \$S\_{xx}\$)} \end{aligned} \\
 >
-> Its entries are \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\ and \\\beta\_{x} = S\_{xy} / S\_{xx}\\, the same solution as [Exercise 8](#exr-solve-normal-equations).
+> Its entries are \\\beta\_{0}= \bar{y}- \beta\_{x} \bar{x}\\ and \\\beta\_{x} = S\_{xy}/ S\_{xx}\\, the same solution as [Exercise 8](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
-> **Lemma 10 (Solution of the normal equations in vector notation)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the matrix \\A = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\\ is invertible, and the normal equations \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ with \\\mathord{\underset{\sim}{c}} = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i\\ ([Lemma 9](#lem-normal-equations-vector)) have exactly one solution,
+> **Lemma 10 (Solution of the normal equations in vector notation)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the matrix \\A = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\\ is invertible, and the normal equations \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ with \\\mathord{\underset{\sim}{c}} = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i\\ ([Lemma 9](#lem-normal-equations-vector)) have exactly one solution,
 >
-> \\ \mathord{\underset{\sim}{\beta}}= A^{-1} \mathord{\underset{\sim}{c}} = \begin{pmatrix} \bar{y} - \beta\_{x} \bar{x} \\ S\_{xy} / S\_{xx} \end{pmatrix} \quad \text{with} \quad \beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \\
+> \\ \mathord{\underset{\sim}{\beta}}= A^{-1} \mathord{\underset{\sim}{c}} = \begin{pmatrix} \bar{y}- \beta\_{x} \bar{x}\\ S\_{xy}/ S\_{xx}\end{pmatrix} \quad \text{with} \quad \beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \\
 >
 > the same solution as [Lemma 5](#lem-solve-normal-equations).
 
@@ -769,7 +769,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 14 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \text{RSS}(\mathord{\underset{\sim}{\beta}})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
+> **Exercise 14 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \text{RSS}(\mathord{\underset{\sim}{\beta}})\\, and show that it is positive definite when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -781,7 +781,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > \\ \begin{aligned} {\mathord{\underset{\sim}{v}}}^{\top} \mathopen{}\left(2 A\right)\mathclose{} \mathord{\underset{\sim}{v}} &= 2 \\ {\mathord{\underset{\sim}{v}}}^{\top} A \mathord{\underset{\sim}{v}} && \text{(constant factor)}\\ &= 2 \\ {\mathord{\underset{\sim}{v}}}^{\top} \mathopen{}\left(\sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\right)\mathclose{} \mathord{\underset{\sim}{v}} && \text{(definition of \$A\$)}\\ &= 2 \sum\_{i=1}^n{\mathord{\underset{\sim}{v}}}^{\top} \mathopen{}\left(\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\right)\mathclose{} \mathord{\underset{\sim}{v}} && \text{(matrix multiplication distributes over the sum)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left({\mathord{\underset{\sim}{v}}}^{\top} \mathord{\underset{\sim}{x}}\_i\right)\mathclose{} \mathopen{}\left({\mathord{\underset{\sim}{x}}\_i}^{\top} \mathord{\underset{\sim}{v}}\right)\mathclose{} && \text{(matrix multiplication is associative)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(\mathord{\underset{\sim}{v}} \cdot \mathord{\underset{\sim}{x}}\_i\right)\mathclose{} \mathopen{}\left(\mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{v}}\right)\mathclose{} && \text{(transpose products as dot products)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(\mathord{\underset{\sim}{v}} \cdot \mathord{\underset{\sim}{x}}\_i\right)\mathclose{}^2 && \text{(dot product is symmetric)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(v_0 + v_x x_i\right)\mathclose{}^2 && \text{(write out the dot product)}\\ &\ge 0 && \text{(sum of squares)} \end{aligned} \\
 >
-> Equality would need \\v_0 + v_x x_i= 0\\ for every \\i\\. If \\v_x \neq 0\\, that would force every \\x_i= -v_0 / v_x\\, contradicting \\S\_{xx} \> 0\\; if \\v_x = 0\\, it would force \\v_0 = 0\\, contradicting \\\mathord{\underset{\sim}{v}} \neq \mathord{\underset{\sim}{0}}\\. So the inequality is strict, and the Hessian is positive definite at every \\\mathord{\underset{\sim}{\beta}}\\.
+> Equality would need \\v_0 + v_x x_i= 0\\ for every \\i\\. If \\v_x \neq 0\\, that would force every \\x_i= -v_0 / v_x\\, contradicting \\S\_{xx}\> 0\\; if \\v_x = 0\\, it would force \\v_0 = 0\\, contradicting \\\mathord{\underset{\sim}{v}} \neq \mathord{\underset{\sim}{0}}\\. So the inequality is strict, and the Hessian is positive definite at every \\\mathord{\underset{\sim}{\beta}}\\.
 
 > **NOTE:**
 >
@@ -789,7 +789,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > \\ \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \text{RSS}(\mathord{\underset{\sim}{\beta}}) = 2 \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}, \\
 >
-> and it is positive definite at every \\\mathord{\underset{\sim}{\beta}}\\ when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
+> and it is positive definite at every \\\mathord{\underset{\sim}{\beta}}\\ when \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -797,7 +797,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Theorem 6 (OLS estimates in vector notation)** Suppose \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 12](#def-ols)) is
+> **Theorem 6 (OLS estimates in vector notation)** Suppose \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 12](#def-ols)) is
 >
 > \\ \hat{\mathord{\underset{\sim}{\beta}}}= A^{-1} \mathord{\underset{\sim}{c}}, \qquad \mathord{\underset{\sim}{c}} = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i. \\
 >
@@ -809,21 +809,21 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 15 (OLS slope and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 5](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
+> **Exercise 15 (OLS slope and the correlation)** Assuming \\S\_{xx}\> 0\\ and \\S\_{yy}\> 0\\ ([Definition 14](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 5](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
 
 > **NOTE:**
 >
 > *Solution 15*. In terms of the centered sums ([Definition 14](#def-centered-sums), [Definition 15](#def-centered-cross-product)),
 >
-> \\ r = \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}, \qquad s_x = \sqrt{\frac{S\_{xx}}{n-1}}, \qquad s_y = \sqrt{\frac{S\_{yy}}{n-1}}. \\
+> \\ r = \frac{S\_{xy}}{\sqrt{S\_{xx}S\_{yy}}}, \qquad s_x = \sqrt{\frac{S\_{xx}}{n-1}}, \qquad s_y = \sqrt{\frac{S\_{yy}}{n-1}}. \\
 >
 > So:
 >
-> \\ \begin{aligned} r \\ \frac{s_y}{s_x} &= \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}} \cdot \frac{\sqrt{S\_{yy} / (n-1)}}{\sqrt{S\_{xx} / (n-1)}} && \text{(substitute \$r\$, \$s_x\$, \$s_y\$)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy} / (n-1)}}{\sqrt{S\_{xx} / (n-1)}} && \text{(square root of a product)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}} / \sqrt{n-1}}{\sqrt{S\_{xx}} / \sqrt{n-1}} && \text{(square root of a quotient)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}}}{\sqrt{S\_{xx}}} && \text{(cancel the factors of \$\sqrt{n - 1}\$)}\\ &= \frac{S\_{xy} \sqrt{S\_{yy}}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}} \sqrt{S\_{xx}}} && \text{(multiply the fractions)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{xx}}} && \text{(cancel \$\sqrt{S\_{yy}}\$, which is positive)}\\ &= \frac{S\_{xy}}{S\_{xx}} && \text{(\$\sqrt{S\_{xx}} \sqrt{S\_{xx}} = S\_{xx}\$)}\\ &= \hat{\beta}\_{x} && \text{(closed-form OLS slope)} \end{aligned} \\
+> \\ \begin{aligned} r \\ \frac{s_y}{s_x} &= \frac{S\_{xy}}{\sqrt{S\_{xx}S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}/ (n-1)}}{\sqrt{S\_{xx}/ (n-1)}} && \text{(substitute \$r\$, \$s_x\$, \$s_y\$)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}/ (n-1)}}{\sqrt{S\_{xx}/ (n-1)}} && \text{(square root of a product)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}} / \sqrt{n-1}}{\sqrt{S\_{xx}} / \sqrt{n-1}} && \text{(square root of a quotient)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}}} \cdot \frac{\sqrt{S\_{yy}}}{\sqrt{S\_{xx}}} && \text{(cancel the factors of \$\sqrt{n - 1}\$)}\\ &= \frac{S\_{xy}\sqrt{S\_{yy}}}{\sqrt{S\_{xx}} \sqrt{S\_{yy}} \sqrt{S\_{xx}}} && \text{(multiply the fractions)}\\ &= \frac{S\_{xy}}{\sqrt{S\_{xx}} \sqrt{S\_{xx}}} && \text{(cancel \$\sqrt{S\_{yy}}\$, which is positive)}\\ &= \frac{S\_{xy}}{S\_{xx}} && \text{(\$\sqrt{S\_{xx}} \sqrt{S\_{xx}} = S\_{xx}\$)}\\ &= \hat{\beta}\_{x} && \text{(closed-form OLS slope)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Corollary 2 (OLS slope in terms of the correlation)** If \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), then
+> **Corollary 2 (OLS slope in terms of the correlation)** If \\S\_{xx}\> 0\\ and \\S\_{yy}\> 0\\ ([Definition 14](#def-centered-sums)), then
 >
 > \\\hat{\beta}\_{x} = r \\ \frac{s_y}{s_x},\\
 >
@@ -936,23 +936,23 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 16 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
+> **Exercise 16 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
 
 > **NOTE:**
 >
 > *Solution 16*. The [fitted values](prediction.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i= \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](prediction.llms.md#def-residual) is
 >
-> \\ \begin{aligned} r_i &= y_i- \hat y_i && \text{(definition of a residual)}\\ &= y_i- \mathopen{}\left(\hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat y_i\$)}\\ &= y_i- \mathopen{}\left(\bar{y} - \hat{\beta}\_{x} \bar{x} + \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= y_i- \bar{y} + \hat{\beta}\_{x} \bar{x} - \hat{\beta}\_{x} x_i && \text{(distribute the minus sign)}\\ &= (y_i- \bar{y}) - \mathopen{}\left(\hat{\beta}\_{x} x_i- \hat{\beta}\_{x} \bar{x}\right)\mathclose{} && \text{(group terms)}\\ &= (y_i- \bar{y}) - \hat{\beta}\_{x} (x_i- \bar{x}) && \text{(factor out \$\hat{\beta}\_{x}\$)} \end{aligned} \\
+> \\ \begin{aligned} r_i &= y_i- \hat y_i && \text{(definition of a residual)}\\ &= y_i- \mathopen{}\left(\hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat y_i\$)}\\ &= y_i- \mathopen{}\left(\bar{y}- \hat{\beta}\_{x} \bar{x}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= y_i- \bar{y}+ \hat{\beta}\_{x} \bar{x}- \hat{\beta}\_{x} x_i && \text{(distribute the minus sign)}\\ &= (y_i- \bar{y}) - \mathopen{}\left(\hat{\beta}\_{x} x_i- \hat{\beta}\_{x} \bar{x}\right)\mathclose{} && \text{(group terms)}\\ &= (y_i- \bar{y}) - \hat{\beta}\_{x} (x_i- \bar{x}) && \text{(factor out \$\hat{\beta}\_{x}\$)} \end{aligned} \\
 >
 > Squaring and summing:
 >
-> \\ \begin{aligned} \sum\_{i=1}^nr_i^2 &= \sum\_{i=1}^n\mathopen{}\left((y_i- \bar{y}) - \hat{\beta}\_{x} (x_i- \bar{x})\right)\mathclose{}^2 && \text{(substitute \$r_i\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left((y_i- \bar{y})^2 - 2 \hat{\beta}\_{x} (x_i- \bar{x})(y_i- \bar{y}) + \hat{\beta}\_{x}^2 (x_i- \bar{x})^2\right)\mathclose{} && \text{(expand the square)}\\ &= \sum\_{i=1}^n(y_i- \bar{y})^2 - \sum\_{i=1}^n2 \hat{\beta}\_{x} (x_i- \bar{x})(y_i- \bar{y}) + \sum\_{i=1}^n\hat{\beta}\_{x}^2 (x_i- \bar{x})^2 && \text{(sum of a sum)}\\ &= \sum\_{i=1}^n(y_i- \bar{y})^2 - 2 \hat{\beta}\_{x} \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) + \sum\_{i=1}^n\hat{\beta}\_{x}^2 (x_i- \bar{x})^2 && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^n(y_i- \bar{y})^2 - 2 \hat{\beta}\_{x} \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) + \hat{\beta}\_{x}^2 \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(constant factor out of the sum)}\\ &= S\_{yy} - 2 \hat{\beta}\_{x} \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) + \hat{\beta}\_{x}^2 \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(definition of \$S\_{yy}\$)}\\ &= S\_{yy} - 2 \hat{\beta}\_{x} S\_{xy} + \hat{\beta}\_{x}^2 \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(definition of \$S\_{xy}\$)}\\ &= S\_{yy} - 2 \hat{\beta}\_{x} S\_{xy} + \hat{\beta}\_{x}^2 S\_{xx} && \text{(definition of \$S\_{xx}\$)}\\ &= S\_{yy} - 2 \frac{S\_{xy}}{S\_{xx}} S\_{xy} + \mathopen{}\left(\frac{S\_{xy}}{S\_{xx}}\right)\mathclose{}^2 S\_{xx} && \text{(substitute \$\hat{\beta}\_{x} = S\_{xy} / S\_{xx}\$)}\\ &= S\_{yy} - 2 \frac{S\_{xy}^2}{S\_{xx}} + \mathopen{}\left(\frac{S\_{xy}}{S\_{xx}}\right)\mathclose{}^2 S\_{xx} && \text{(multiply)}\\ &= S\_{yy} - 2 \frac{S\_{xy}^2}{S\_{xx}} + \frac{S\_{xy}^2}{S\_{xx}^2} S\_{xx} && \text{(square of a quotient)}\\ &= S\_{yy} - 2 \frac{S\_{xy}^2}{S\_{xx}} + \frac{S\_{xy}^2}{S\_{xx}} && \text{(cancel one factor of \$S\_{xx}\$)}\\ &= S\_{yy} - \frac{S\_{xy}^2}{S\_{xx}} && \text{(combine like terms)} \end{aligned} \\
+> \\ \begin{aligned} \sum\_{i=1}^nr_i^2 &= \sum\_{i=1}^n\mathopen{}\left((y_i- \bar{y}) - \hat{\beta}\_{x} (x_i- \bar{x})\right)\mathclose{}^2 && \text{(substitute \$r_i\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left((y_i- \bar{y})^2 - 2 \hat{\beta}\_{x} (x_i- \bar{x})(y_i- \bar{y}) + \hat{\beta}\_{x}^2 (x_i- \bar{x})^2\right)\mathclose{} && \text{(expand the square)}\\ &= \sum\_{i=1}^n(y_i- \bar{y})^2 - \sum\_{i=1}^n2 \hat{\beta}\_{x} (x_i- \bar{x})(y_i- \bar{y}) + \sum\_{i=1}^n\hat{\beta}\_{x}^2 (x_i- \bar{x})^2 && \text{(sum of a sum)}\\ &= \sum\_{i=1}^n(y_i- \bar{y})^2 - 2 \hat{\beta}\_{x} \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) + \sum\_{i=1}^n\hat{\beta}\_{x}^2 (x_i- \bar{x})^2 && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^n(y_i- \bar{y})^2 - 2 \hat{\beta}\_{x} \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) + \hat{\beta}\_{x}^2 \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(constant factor out of the sum)}\\ &= S\_{yy}- 2 \hat{\beta}\_{x} \sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}) + \hat{\beta}\_{x}^2 \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(definition of \$S\_{yy}\$)}\\ &= S\_{yy}- 2 \hat{\beta}\_{x} S\_{xy}+ \hat{\beta}\_{x}^2 \sum\_{i=1}^n(x_i- \bar{x})^2 && \text{(definition of \$S\_{xy}\$)}\\ &= S\_{yy}- 2 \hat{\beta}\_{x} S\_{xy}+ \hat{\beta}\_{x}^2 S\_{xx} && \text{(definition of \$S\_{xx}\$)}\\ &= S\_{yy}- 2 \frac{S\_{xy}}{S\_{xx}} S\_{xy}+ \mathopen{}\left(\frac{S\_{xy}}{S\_{xx}}\right)\mathclose{}^2 S\_{xx} && \text{(substitute \$\hat{\beta}\_{x} = S\_{xy}/ S\_{xx}\$)}\\ &= S\_{yy}- 2 \frac{S\_{xy}^2}{S\_{xx}} + \mathopen{}\left(\frac{S\_{xy}}{S\_{xx}}\right)\mathclose{}^2 S\_{xx} && \text{(multiply)}\\ &= S\_{yy}- 2 \frac{S\_{xy}^2}{S\_{xx}} + \frac{S\_{xy}^2}{S\_{xx}^2} S\_{xx} && \text{(square of a quotient)}\\ &= S\_{yy}- 2 \frac{S\_{xy}^2}{S\_{xx}} + \frac{S\_{xy}^2}{S\_{xx}} && \text{(cancel one factor of \$S\_{xx}\$)}\\ &= S\_{yy}- \frac{S\_{xy}^2}{S\_{xx}} && \text{(combine like terms)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Lemma 12 (Residual sum of squares of the OLS fit)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)) is
+> **Lemma 12 (Residual sum of squares of the OLS fit)** If \\S\_{xx}\> 0\\ ([Definition 14](#def-centered-sums)), the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)) is
 >
-> \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2 = S\_{yy} - \frac{S\_{xy}^2}{S\_{xx}}.\\
+> \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2 = S\_{yy}- \frac{S\_{xy}^2}{S\_{xx}}.\\
 
 > **NOTE:**
 >
@@ -960,19 +960,19 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 17 (\\R^2\\ and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), use [Exercise 16](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
+> **Exercise 17 (\\R^2\\ and the correlation)** Assuming \\S\_{xx}\> 0\\ and \\S\_{yy}\> 0\\ ([Definition 14](#def-centered-sums)), use [Exercise 16](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
 
 > **NOTE:**
 >
 > *Solution 17*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 14](#def-centered-sums)), and [Exercise 16](#exr-rss-ols-fit) gives the residual sum of squares, so:
 >
-> \\ \begin{aligned} R^2 &= 1 - \frac{\text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}})}{\text{TSS}} && \text{(definition of \$R^2\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{\text{TSS}} && \text{(the OLS estimate is \$(\hat{\beta}\_{0}, \hat{\beta}\_{x})\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{S\_{yy}} && \text{(TSS is \$S\_{yy}\$)}\\ &= 1 - \frac{S\_{yy} - S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(residual sum of squares of the OLS fit)}\\ &= 1 - \mathopen{}\left(\frac{S\_{yy}}{S\_{yy}} - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(split the fraction)}\\ &= 1 - \mathopen{}\left(1 - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(\$S\_{yy} / S\_{yy} = 1\$)}\\ &= 1 - 1 + \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(distribute the minus sign)}\\ &= \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(\$1 - 1 = 0\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx} S\_{yy}} && \text{(divide a fraction by \$S\_{yy}\$)}\\ &= \mathopen{}\left(\frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}\right)\mathclose{}^2 && \text{(write as a square)}\\ &= r^2 && \text{(\$r = S\_{xy} / \sqrt{S\_{xx} S\_{yy}}\$)} \end{aligned} \\
+> \\ \begin{aligned} R^2 &= 1 - \frac{\text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}})}{\text{TSS}} && \text{(definition of \$R^2\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{\text{TSS}} && \text{(the OLS estimate is \$(\hat{\beta}\_{0}, \hat{\beta}\_{x})\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{S\_{yy}} && \text{(TSS is \$S\_{yy}\$)}\\ &= 1 - \frac{S\_{yy}- S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(residual sum of squares of the OLS fit)}\\ &= 1 - \mathopen{}\left(\frac{S\_{yy}}{S\_{yy}} - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(split the fraction)}\\ &= 1 - \mathopen{}\left(1 - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(\$S\_{yy}/ S\_{yy}= 1\$)}\\ &= 1 - 1 + \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(distribute the minus sign)}\\ &= \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(\$1 - 1 = 0\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx}S\_{yy}} && \text{(divide a fraction by \$S\_{yy}\$)}\\ &= \mathopen{}\left(\frac{S\_{xy}}{\sqrt{S\_{xx}S\_{yy}}}\right)\mathclose{}^2 && \text{(write as a square)}\\ &= r^2 && \text{(\$r = S\_{xy}/ \sqrt{S\_{xx}S\_{yy}}\$)} \end{aligned} \\
 >
 > Since \\-1 \le r \le 1\\ ([range of the correlation coefficient](exploratory-descriptive.llms.md#thm-pearson-r-range)), \\0 \le r^2 \le 1\\.
 
 > **NOTE:**
 >
-> **Theorem 7 (\\R^2\\ of a simple linear regression)** For the OLS fit of a simple linear regression, with \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), \\R^2\\ is the square of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ of the \\x_i\\ and \\y_i\\, and so lies between 0 and 1:
+> **Theorem 7 (\\R^2\\ of a simple linear regression)** For the OLS fit of a simple linear regression, with \\S\_{xx}\> 0\\ and \\S\_{yy}\> 0\\ ([Definition 14](#def-centered-sums)), \\R^2\\ is the square of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ of the \\x_i\\ and \\y_i\\, and so lies between 0 and 1:
 >
 > \\ \begin{aligned} R^2 &= r^2, & 0 \le R^2 &\le 1. \end{aligned} \\
 
