@@ -8,12 +8,7 @@ $$
 \Var{\hparam} = \frac{1}{\einf(\param)}
 $$
 
-:::
-
-:::{#rem-source-efficient}
-#### Source: Efficient estimator
-
-@CaseBerg01 [sec. 7.3.2].
+Source: @CaseBerg01 [sec. 7.3.2].
 
 :::
 

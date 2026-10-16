@@ -1,0 +1,20 @@
+:::{#rem-validation-test-error}
+#### What the validation and test errors estimate
+
+The [validation error](#def-validation-error) and the [test error](#def-test-error)
+differ from the [training error](#def-training-mse) $\trainerr$ only in the set that scores the rule.
+The rule was not fitted to the validation or test set,
+so each estimates the [generalization error](#def-generalization-error) of the fitted rule
+without the optimism of the training error.
+The [validation choice](#def-validation-choice) selects the rule with the smallest validation error,
+so the validation error of the chosen rule is still optimistic;
+the test error is computed once, after the choice, so it is not.
+
+@hastie2009elements [sec. 7.2] use "test error" for the generalization error of the fitted rule itself.
+Here the test error is the number computed from the test set, and the generalization error is what it estimates.
+
+This page scores predictions by squared error throughout, so both errors are mean squared errors.
+Averaging any other loss over the same set, such as the absolute error,
+gives the corresponding validation and test errors.
+
+:::

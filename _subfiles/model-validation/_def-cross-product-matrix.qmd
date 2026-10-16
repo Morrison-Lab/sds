@@ -14,6 +14,8 @@ $$ {#eq-cross-product-matrix}
 :::{#rem-source-cross-product-matrix}
 #### Source: Cross-product matrix (sum-of-squares and cross-products matrix)
 
-Sanchez [-@sanchez2020matrix4sl, chap. "Matrix Cross-Products"] (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) names this matrix a **sum-of-squares and cross-products matrix**.
+Also called a **sum-of-squares and cross-products matrix**
+[@sanchez2020matrix4sl, chap. "Matrix Cross-Products"]
+(see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
 
 :::

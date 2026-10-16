@@ -1,0 +1,14 @@
+:::{#def-validation-error}
+#### Validation error
+
+The **validation error** of a [prediction rule](#def-prediction-rule) $\fitted$
+fitted to a [training set](#def-training-set) $\trainset$
+is the [mean squared error](prediction.qmd#def-prediction-mse)
+of its predictions for the [validation set](#def-validation-set),
+indexed by $\validx$:
+
+$$
+\valerr \eqdef \frac{1}{\abs{\validx}} \sum_{\iobs \in \validx} \sqf{\fitted\paren{\predvar_{\iobs}} - \outvar_{\iobs}}.
+$$ {#eq-validation-error}
+
+:::

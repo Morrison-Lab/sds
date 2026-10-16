@@ -13,7 +13,7 @@ $$\min_{j \in \truenulls} p_j \le \frac{\siglevel}{m_0}.$$
 
 ::: {#sol-holm-threshold}
 
-Order the p-values as in @def-holm,
+Order the p-values as in @def-holm-cutoff,
 and let $r$ be the smallest rank held by a true null hypothesis,
 so that $p_{(r)} = \min_{j \in \truenulls} p_j$.
 

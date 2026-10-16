@@ -8,12 +8,7 @@ The -1/1 example in the notes is an illustration written for this page.
 **Dummy variables** are numeric variables that, together,
 are a numeric representation of a categorical variable.
 
-:::
-
-:::{#rem-source-dummy-variable}
-#### Source: Dummy variables
-
-@dobson4e [sec. 2.4].
+Source: @dobson4e [sec. 2.4].
 
 :::
 

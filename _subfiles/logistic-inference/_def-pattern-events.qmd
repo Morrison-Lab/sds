@@ -1,0 +1,13 @@
+::: {#def-pattern-events}
+
+#### Events at a covariate pattern
+
+The number of **events** at the [covariate pattern](#def-covariate-pattern) $\vpredvar^{(k)}$ is the sum of the binary outcomes over its [replicates](#def-replicates):
+
+$$
+\nevents_k = \sum_{i:\, \vpredvar_i = \vpredvar^{(k)}} \outvar_i,
+$$
+
+so $0 \le \nevents_k \le \nreps_k$.
+
+:::

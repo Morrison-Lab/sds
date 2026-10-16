@@ -7,12 +7,7 @@ Dobson and Barnett: text checked in the PDF; page number not recorded.
 An **indicator variable** is a
 [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
 
-:::
-
-:::{#rem-source-indicator-variable}
-#### Source: Indicator variable
-
-@dobson4e [sec. 2.4].
+Source: @dobson4e [sec. 2.4].
 
 :::
 

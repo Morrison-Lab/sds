@@ -183,21 +183,23 @@ because no reader of the website, slides or handout ever sees it.
 PSW's
 [Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material)
 says to put a credit in a div, never in running prose.
-Here, put it in its own `rem-source-` remark div titled "Source: ...",
-which frames the credit and keeps it out of the way on the page.
-A definition or result div holds only the statement
-(a theorem's proof stays with it),
-and all commentary, a credit included, goes in a separate remark div
-(maintainer directive, 2026-10-15), so the credit never sits inside it.
-Place the remark right after the item's div and its proof,
+Here, a credit that is only a citation goes inside the item's div,
+as a final line "Source: @key [locator]." (maintainer directive, 2026-10-15),
+because one reference adds no commentary to the statement.
+Substantial prose about the source or history of the content
+(a comparison of notation, an account of who proved what, a note that a proof is omitted)
+is commentary, so it goes in its own `rem-source-` remark div titled "Source: ...",
+placed right after the item's div and its proof,
 in the same subfile,
 so it travels with the fragment when a host site includes it:
 
 ```markdown
-::: {#rem-source-cv-estimate}
-#### Source: cross-validation estimate
+::: {#def-cv-estimate}
+#### Cross-validation estimate
 
-@james2021islr2e [sec. 5.1].
+Statement of the definition.
+
+Source: @james2021islr2e [sec. 5.1].
 
 :::
 ```
@@ -212,10 +214,12 @@ such as what was checked in a PDF or a wording edit made while porting.
 ## Useful resources go in every repo that covers their topic
 
 A resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
-even when lds or another Morrison-Lab site already lists it (maintainer directive, 2026-10-15, review of Morrison-Lab/lds#841).
-If the matching page has no Further reading section, add one headed `## Further reading`; if no page matches, add the resource to the Further reading section of the closest related page.
+even when lds or another Morrison-Lab site already lists it
+(maintainer directive, 2026-10-15, answering a review question on [Morrison-Lab/lds#841](https://github.com/Morrison-Lab/lds/pull/841)).
+If the matching page has no Further reading section, add one headed `## Further reading`.
+If no page matches, add the resource to the Further reading section of the closest related page.
 Link the resource, and adapt its material only where its license allows,
-crediting the adapted material in a `rem-source-` remark (see "Attributions are reader-visible" above).
+crediting the adapted material as "Attributions are reader-visible" above says.
 See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
 
 ## Code Chunks
