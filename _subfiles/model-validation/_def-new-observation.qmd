@@ -3,10 +3,9 @@
 
 A **new observation** $(\newpredvar, \newoutvar)$ relative to a [training set](#def-training-set) $\trainset$
 is a [new observation](https://morrison-lab.github.io/pds/expectation.html#def-new-observation)
-whose prediction is chosen using the observations of $\trainset$.
-It is a covariate value and an outcome
-drawn from the same population as the observations of $\trainset$,
-[statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $\trainset$.
+for a prediction function fitted to $\trainset$.
+Its covariate value and outcome are drawn from the same population as the observations of $\trainset$,
+and are [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $\trainset$.
 The subscript $*$ marks a quantity of the new observation,
 as in $\newpredvar$ and $\newoutvar$,
 and distinguishes it from the indexed observations $(\vpredvar_{\iobs}, \outvar_{\iobs})$ of $\trainset$.
