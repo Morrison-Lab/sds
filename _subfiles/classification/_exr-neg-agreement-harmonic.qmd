@@ -1,0 +1,47 @@
+:::{#exr-neg-agreement-harmonic}
+#### Negative agreement from NPV and specificity
+
+For an agreement table (@def-agreement-table) with $d > 0$,
+write the [harmonic mean](#def-harmonic-mean)
+of the estimated negative predictive value and specificity
+(@def-agreement-test-measures)
+in terms of the table's cells.
+:::
+
+{{< slidebreak >}}
+
+:::{#sol-neg-agreement-harmonic}
+
+Because $d > 0$,
+both $c + d$ and $b + d$ are positive,
+so both estimates are defined and positive:
+
+$$
+\ba
+H\paren{\Est{\text{NPV}}, \Est{\text{specificity}}}
+&= \frac{2}{\frac{1}{\Est{\text{NPV}}} + \frac{1}{\Est{\text{specificity}}}}
+&& \text{(definition of } H \text{)} \\
+&= \frac{2}{\frac{1}{d / (c + d)} + \frac{1}{\Est{\text{specificity}}}}
+&& \text{(definition of } \Est{\text{NPV}} \text{)} \\
+&= \frac{2}{\frac{1}{d / (c + d)} + \frac{1}{d / (b + d)}}
+&& \text{(definition of } \Est{\text{specificity}} \text{)} \\
+&= \frac{2}{\frac{c + d}{d} + \frac{1}{d / (b + d)}}
+&& \text{(reciprocal of a fraction)} \\
+&= \frac{2}{\frac{c + d}{d} + \frac{b + d}{d}}
+&& \text{(reciprocal of a fraction)} \\
+&= \frac{2}{\frac{(c + d) + (b + d)}{d}}
+&& \text{(add fractions with a common denominator)} \\
+&= \frac{2}{\frac{c + d + b + d}{d}}
+&& \text{(remove parentheses)} \\
+&= \frac{2}{\frac{d + d + b + c}{d}}
+&& \text{(reorder terms)} \\
+&= \frac{2}{\frac{2d + b + c}{d}}
+&& \text{(} d + d = 2d \text{)} \\
+&= 2 \cd \frac{d}{2d + b + c}
+&& \text{(dividing by a fraction multiplies by its reciprocal)} \\
+&= \frac{2d}{2d + b + c}
+&& \text{(multiply)}
+\ea
+$$ {#eq-exr-neg-agreement-harmonic}
+
+:::
