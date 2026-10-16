@@ -57,9 +57,9 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - **Derivations**: present them as exercise -> solution -> theorem -> proof, one exercise per step, with the proof citing the exercises; one operation per displayed line, each with its own justification, and never "cancel" as one step (removing parentheses, reordering, grouping, $a - a = 0$ and $a + 0 = a$ each get a line); start from the side that simplifies rather than adding and subtracting a term; one result per theorem div (a semicolon joining two results is a sign to split). See "Derivations" in `.github/copilot-instructions.md`.
 - **Attributions**: credit sources where readers can see them (a credit to the maintainer's own rme, lds, pds, ... is optional, but what those sites credit is still carried), in a `rem-source-` remark div titled "Source: ..." right after the item's div and its proof, never inside a definition or theorem div and never only in an HTML comment (a def or thm div holds only the statement; maintainer directive, 2026-10-15). See "Attributions are reader-visible" in `.github/copilot-instructions.md`.
 - **Useful resources**: a resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
-  even when lds or another sibling site already lists it (maintainer directive, 2026-10-15, review of Morrison-Lab/lds#841).
-  If the matching page has no Further reading section, add one; if no page matches, add the resource to the closest related page.
-  Link the resource, and adapt it only where its license allows adapting,
+  even when lds or another Morrison-Lab site already lists it (maintainer directive, 2026-10-15, review of Morrison-Lab/lds#841).
+  If the matching page has no Further reading section, add one headed `## Further reading`; if no page matches, add the resource to the Further reading section of the closest related page.
+  Link the resource, and adapt its material only where its license allows,
   crediting the adapted material in a `rem-source-` remark (see the Attributions bullet above).
   See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md),
   and "Useful resources go in every repo that covers their topic" in `.github/copilot-instructions.md`.

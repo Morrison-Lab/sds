@@ -212,9 +212,9 @@ such as what was checked in a PDF or a wording edit made while porting.
 ## Useful resources go in every repo that covers their topic
 
 A resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
-even when lds or another sibling site already lists it (maintainer directive, 2026-10-15, review of Morrison-Lab/lds#841).
-If the matching page has no Further reading section, add one; if no page matches, add the resource to the closest related page.
-Link the resource, and adapt it only where its license allows adapting,
+even when lds or another Morrison-Lab site already lists it (maintainer directive, 2026-10-15, review of Morrison-Lab/lds#841).
+If the matching page has no Further reading section, add one headed `## Further reading`; if no page matches, add the resource to the Further reading section of the closest related page.
+Link the resource, and adapt its material only where its license allows,
 crediting the adapted material in a `rem-source-` remark (see "Attributions are reader-visible" above).
 See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
 
