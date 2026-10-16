@@ -1,6 +1,8 @@
 :::{#sol-epe-split-noise}
 
-Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\targetfnf{\predvar}$:
+Write the prediction error as noise plus the error of the prediction,
+used as an [estimator](estimation.qmd#def-estimator)
+of the [mean function](#def-mean-function) value $\targetfnf{\predvar}$:
 
 $$
 \ba
@@ -74,7 +76,9 @@ $$ {#eq-epe-after-noise}
 
 The cross term vanished because the noise has mean $0$ and,
 for a new outcome, is independent of the training set.
-Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}$, which need not be zero.
+Without the zero mean,
+independence alone would leave $2 \E{\noise}$ times $\E{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}$,
+which need not be zero.
 That holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.
