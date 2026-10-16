@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 00:59:06 (PDT)
+Last modified: 2026-10-16 01:26:27 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -54,7 +54,7 @@ Last modified: 2026-10-16 00:59:06 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 1 (Prediction error and residual of a fitted observation)** For an observation \\i\\ that was used to fit the model, write its [prediction error](#def-prediction-error) \\\varepsilon_i\\ in terms of its [residual](#def-residual) \\r_i\\.
+> **Exercise 1 (Prediction error and residual)** For an observation \\i\\, write its [prediction error](#def-prediction-error) \\\varepsilon_i\\ in terms of its [residual](#def-residual) \\r_i\\.
 
 > **NOTE:**
 >
@@ -72,7 +72,7 @@ Last modified: 2026-10-16 00:59:06 (PDT)
 
 > **NOTE:**
 >
-> **Corollary 1 (The residual is the negative of the prediction error)** For an observation \\i\\ that was used to fit the model, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
+> **Corollary 1 (The residual is the negative of the prediction error)** For an observation \\i\\, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
 >
 > \\r_i = -\varepsilon_i.\\
 
@@ -144,7 +144,7 @@ Last modified: 2026-10-16 00:59:06 (PDT)
 >
 > \\ \begin{aligned} \varepsilon&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \hat{\theta}- \theta && \text{(estimation error)} \end{aligned} \\
 >
-> For an observation used to fit the model, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
+> For a fitted value, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
 
 ## 2 Mean squared error of predictions
 
