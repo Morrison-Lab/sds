@@ -350,6 +350,19 @@
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
+<!-- gha-preview-page-banner:start -->
+<div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
+    <p style="margin: 0;">
+        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~7% of content changed).
+        <br>
+        <strong>🎨 Highlighting Legend:</strong> 
+        <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 3px; border-radius: 2px;">Modified text (yellow)</mark> shows changed words/phrases, 
+        <mark class="preview-text-added" style="background-color: #d1e7dd; color: inherit; padding: 1px 3px; border-radius: 2px;">added text (green)</mark> shows new content, and 
+        <mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 3px; border-radius: 2px;">new sections (blue)</mark> highlight entirely new paragraphs.
+    </p>
+</div>
+<!-- gha-preview-page-banner:end -->
+
   <div class="reveal">
     <div class="slides">
 
@@ -358,7 +371,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 02:19:08 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 02:36:01 (PDT)</p>
 </section><section id="sec-intro-MLEs" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Overview of maximum likelihood estimation</h2>
 <style>
@@ -393,13 +406,13 @@ text-align: center;
 <p>for <span class="math inline">\(x \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. If we observe <span class="math inline">\(x = 1\)</span>, the likelihood is <span class="math inline">\(\mathcal{L}(\pi) = \pi\)</span>: for example, <span class="math inline">\(\mathcal{L}(0.2) = 0.2\)</span> and <span class="math inline">\(\mathcal{L}(0.7) = 0.7\)</span>, so the observation <span class="math inline">\(x = 1\)</span> is more likely under <span class="math inline">\(\pi= 0.7\)</span> than under <span class="math inline">\(\pi= 0.2\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-lik" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Likelihood of a dataset)</strong></span> Let <span class="math inline">\(\tilde{x}\stackrel{\text{def}}{=}x_1, \ldots, x_n\)</span> be a dataset with corresponding random vector <span class="math inline">\(\tilde{X}\)</span>, and let <span class="math inline">\(\operatorname{p}_{\Theta}(\tilde{X}= \tilde{x})\)</span> be a probability model for the distribution of <span class="math inline">\(\tilde{X}\)</span>, with unknown parameter vector <span class="math inline">\(\Theta\)</span>. The <strong>likelihood</strong> of the parameter value <span class="math inline">\(\theta\)</span>, for model <span class="math inline">\(\operatorname{p}_{\Theta}\)</span> and data <span class="math inline">\(\tilde{X}= \tilde{x}\)</span>, is the <em>joint probability</em> (or joint density) of <span class="math inline">\(\tilde{X}= \tilde{x}\)</span> when <span class="math inline">\(\Theta= \theta\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 2 (Likelihood of a dataset)</strong></span> Let <span class="math inline">\(\underset{\sim}{x}\stackrel{\text{def}}{=}x_1, \ldots, x_n\)</span> be a dataset with corresponding random vector <span class="math inline">\(\underset{\sim}{X}\)</span>, and let <span class="math inline">\(\operatorname{p}_{\Theta}(\underset{\sim}{X}= \underset{\sim}{x})\)</span> be a probability model for the distribution of <span class="math inline">\(\underset{\sim}{X}\)</span>, with unknown parameter vector <span class="math inline">\(\Theta\)</span>. The <strong>likelihood</strong> of the parameter value <span class="math inline">\(\theta\)</span>, for model <span class="math inline">\(\operatorname{p}_{\Theta}\)</span> and data <span class="math inline">\(\underset{\sim}{X}= \underset{\sim}{x}\)</span>, is the <em>joint probability</em> (or joint density) of <span class="math inline">\(\underset{\sim}{X}= \underset{\sim}{x}\)</span> when <span class="math inline">\(\Theta= \theta\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathcal{L}(\theta) &amp;\stackrel{\text{def}}{=}\operatorname{p}(\tilde{X}= \tilde{x}\mid \Theta= \theta)
+\mathcal{L}(\theta) &amp;\stackrel{\text{def}}{=}\operatorname{p}(\underset{\sim}{X}= \underset{\sim}{x}\mid \Theta= \theta)
 &amp;&amp; \text{(definition of the likelihood)}\\
 &amp;= \operatorname{p}(X_1 = x_1, \ldots, X_n = x_n \mid \Theta= \theta)
-&amp;&amp; \text{(write $\tilde{X}= \tilde{x}$ componentwise)}
+&amp;&amp; \text{(write $\underset{\sim}{X}= \underset{\sim}{x}$ componentwise)}
 \end{aligned}
 \]</span></p>
 </div>
@@ -417,11 +430,11 @@ text-align: center;
 <li>
 <span class="math inline">\(\mathcal{L}(\theta)\)</span>;</li>
 <li>
-<span class="math inline">\(\mathcal{L}(\tilde{x}; \theta)\)</span> or <span class="math inline">\(\mathcal{L}(\theta; \tilde{x})\)</span>;</li>
+<span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathcal{L}(\underset{\sim}{x}; \theta)\)</mark></span> or <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathcal{L}(\theta; \underset{\sim}{x})\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">;</mark></li>
 <li>
-<span class="math inline">\(\mathcal{L}_{\tilde{x}}(\theta)\)</span> or <span class="math inline">\(\mathcal{L}_{\theta}(\tilde{x})\)</span>;</li>
+<span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathcal{L}_{\underset{\sim}{x}}(\theta)\)</mark></span> or <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathcal{L}_{\theta}(\underset{\sim}{x})\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">;</mark></li>
 <li>
-<span class="math inline">\(\mathcal{L}(\tilde{x}\mid \theta)\)</span>.</li>
+<span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mathcal{L}(\underset{\sim}{x}\mid \theta)\)</mark></span>.</li>
 </ul>
 <p>These notes mostly write <span class="math inline">\(\mathcal{L}(\theta)\)</span>, leaving the data implicit, to emphasize that the likelihood is a function of the parameters, with the data held fixed at their observed values.</p>
 </div>
@@ -449,11 +462,11 @@ text-align: center;
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-lik-iid" class="quarto-xref">Exercise&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-lik-factor" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Likelihood component (likelihood factor))</strong></span> For a dataset <span class="math inline">\(\tilde{x}\)</span> of mutually independent observations, the <strong>likelihood component</strong> (or <strong>likelihood factor</strong>) of observation <span class="math inline">\(X_i = x_i\)</span> is the likelihood of that observation alone:</p>
+<p><span class="theorem-title"><strong>Definition 3 (Likelihood component (likelihood factor))</strong></span> For a dataset <span class="math inline">\(\underset{\sim}{x}\)</span> of mutually independent observations, the <strong>likelihood component</strong> (or <strong>likelihood factor</strong>) of observation <span class="math inline">\(X_i = x_i\)</span> is the likelihood of that observation alone:</p>
 <p><span class="math display">\[\mathcal{L}_i(\theta) \stackrel{\text{def}}{=}\operatorname{p}(X_i = x_i \mid \theta)\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-ds-lik-obs-lik" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (Dataset likelihood from likelihood components)</strong></span> For mutually independent data <span class="math inline">\(\tilde{x}\stackrel{\text{def}}{=}x_1, \ldots, x_n\)</span>, use <a href="#/thm-lik-iid" class="quarto-xref">Theorem&nbsp;1</a> to write the likelihood of the dataset in terms of the observations’ <a href="#/def-lik-factor">likelihood components</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 2 (Dataset likelihood from likelihood components)</strong></span> For mutually independent data <span class="math inline">\(\underset{\sim}{x}\stackrel{\text{def}}{=}x_1, \ldots, x_n\)</span>, use <a href="#/thm-lik-iid" class="quarto-xref">Theorem&nbsp;1</a> to write the likelihood of the dataset in terms of the observations’ <a href="#/def-lik-factor">likelihood components</a>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-ds-lik-obs-lik" class="proof solution">
 <p><span class="proof-title"><em>Solution 2</em>. </span><span class="math display">\[
@@ -467,7 +480,7 @@ text-align: center;
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-ds-lik-obs-lik" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Dataset likelihood as a product of observation likelihoods)</strong></span> For mutually independent data <span class="math inline">\(\tilde{x}\stackrel{\text{def}}{=}x_1, \ldots, x_n\)</span>, the likelihood of the dataset is the product of the observations’ <a href="#/def-lik-factor">likelihood components</a>:</p>
+<p><span class="theorem-title"><strong>Theorem 2 (Dataset likelihood as a product of observation likelihoods)</strong></span> For mutually independent data <span class="math inline">\(\underset{\sim}{x}\stackrel{\text{def}}{=}x_1, \ldots, x_n\)</span>, the likelihood of the dataset is the product of the observations’ <a href="#/def-lik-factor">likelihood components</a>:</p>
 <p><span class="math display">\[\mathcal{L}(\theta) = \prod_{i=1}^n\mathcal{L}_i(\theta)\]</span></p>
 </div>
 <div class="proof">
@@ -485,12 +498,12 @@ text-align: center;
 &amp;&amp; \text{(combine the two cases)}
 \end{aligned}
 \]</span></p>
-<p>Let <span class="math inline">\(\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\)</span> be a dataset of mutually independent binary outcomes, all with the same event probability <span class="math inline">\(\pi\)</span>: <span class="math inline">\(Y_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span>. Write the likelihood of <span class="math inline">\(\tilde{y}\)</span>.</p>
+<p>Let <span class="math inline">\(\underset{\sim}{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\)</span> be a dataset of mutually independent binary outcomes, all with the same event probability <span class="math inline">\(\pi\)</span>: <span class="math inline">\(Y_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span>. Write the likelihood of <span class="math inline">\(\underset{\sim}{y}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-likelihood-one-group" class="proof solution">
 <p><span class="proof-title"><em>Solution 3</em>. </span><span class="math display">\[
 \begin{aligned}
-\mathcal{L}(\pi; \tilde{y})
+\mathcal{L}(\pi; \underset{\sim}{y})
 &amp;= \prod_{i=1}^n\mathcal{L}_i(\pi)
 &amp;&amp; \text{(product of likelihood components)}\\
 &amp;= \prod_{i=1}^n\Pr(Y_i = y_i)
@@ -509,8 +522,8 @@ text-align: center;
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-bernoulli-likelihood-one-group" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 3 (Likelihood of binary outcomes with one event probability)</strong></span> Let <span class="math inline">\(Y_1, \dots, Y_n\)</span> be mutually independent binary random variables, each with the same event probability <span class="math inline">\(\pi\)</span>: <span class="math inline">\(Y_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span>. For observed outcomes <span class="math inline">\(\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\)</span>, with each <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>, the likelihood <span class="math inline">\(\mathcal{L}(\pi; \tilde{y})\)</span> of <span class="math inline">\(\pi\)</span> depends on the data only through the number of events <span class="math inline">\(\sum_{i=1}^ny_i\)</span>:</p>
-<p><span class="math display">\[\mathcal{L}(\pi; \tilde{y}) = \pi^{\sum_{i=1}^ny_i} (1 - \pi)^{n - \sum_{i=1}^ny_i}\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 3 (Likelihood of binary outcomes with one event probability)</strong></span> Let <span class="math inline">\(Y_1, \dots, Y_n\)</span> be mutually independent binary random variables, each with the same event probability <span class="math inline">\(\pi\)</span>: <span class="math inline">\(Y_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span>. For observed outcomes <span class="math inline">\(\underset{\sim}{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\)</span>, with each <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>, the likelihood <span class="math inline">\(\mathcal{L}(\pi; \underset{\sim}{y})\)</span> of <span class="math inline">\(\pi\)</span> depends on the data only through the number of events <span class="math inline">\(\sum_{i=1}^ny_i\)</span>:</p>
+<p><span class="math display">\[\mathcal{L}(\pi; \underset{\sim}{y}) = \pi^{\sum_{i=1}^ny_i} (1 - \pi)^{n - \sum_{i=1}^ny_i}\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-likelihood-one-group" class="quarto-xref">Exercise&nbsp;3</a>, worked in <a href="#/sol-bernoulli-likelihood-one-group" class="quarto-xref">Solution&nbsp;3</a>.</p>
@@ -542,11 +555,11 @@ text-align: center;
 <span class="header-section-number">1.3</span> Finding the maximum of a function</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-critical-point div. -->
 <div id="def-critical-point" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Critical point)</strong></span> A <strong>critical point</strong> of a differentiable function <span class="math inline">\(f\)</span> is an input value <span class="math inline">\(x_0\)</span> where the derivative of <span class="math inline">\(f\)</span> is zero, or, for a function of a vector, a point <span class="math inline">\(\tilde{x}_0\)</span> where the gradient <span class="math inline">\(f'\)</span> of <span class="math inline">\(f\)</span> is the zero vector:</p>
+<p><span class="theorem-title"><strong>Definition 5 (Critical point)</strong></span> A <strong>critical point</strong> of a differentiable function <span class="math inline">\(f\)</span> is an input value <span class="math inline">\(x_0\)</span> where the derivative of <span class="math inline">\(f\)</span> is zero, or, for a function of a vector, a point <span class="math inline">\(\underset{\sim}{x}_0\)</span> where the gradient <span class="math inline">\(f'\)</span> of <span class="math inline">\(f\)</span> is the zero vector:</p>
 <p><span class="math display">\[
 \begin{aligned}
 f'(x_0) &amp;= 0 &amp;&amp; \text{(scalar input)}\\
-f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
+f'(\underset{\sim}{x}_0) &amp;= \underset{\sim}{0}&amp;&amp; \text{(vector input)}
 \end{aligned}
 \]</span></p>
 </div>
@@ -568,8 +581,8 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 <span class="header-section-number">1.5</span> The log-likelihood function</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-loglik div. -->
 <div id="def-loglik" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (Log-likelihood)</strong></span> The <strong>log-likelihood</strong> of parameter value <span class="math inline">\(\theta\)</span>, for model <span class="math inline">\(\operatorname{p}_{\Theta}(\tilde{X})\)</span> and data <span class="math inline">\(\tilde{X}= \tilde{x}\)</span>, is the natural logarithm of the likelihood:</p>
-<p><span id="eq-def-loglik"><span class="math display">\[\ell\stackrel{\text{def}}{=}\operatorname{log}\mathopen{}\left\{\mathcal{L}(\tilde{x}|\theta)\right\}\mathclose{} \tag{4}\]</span></span></p>
+<p><span class="theorem-title"><strong>Definition 6 (Log-likelihood)</strong></span> The <strong>log-likelihood</strong> of parameter value <span class="math inline">\(\theta\)</span>, for model <span class="math inline">\(\operatorname{p}_{\Theta}(\underset{\sim}{X})\)</span> and data <span class="math inline">\(\underset{\sim}{X}= \underset{\sim}{x}\)</span>, is the natural logarithm of the likelihood:</p>
+<p><span id="eq-def-loglik"><span class="math display">\[\ell\stackrel{\text{def}}{=}\operatorname{log}\mathopen{}\left\{\mathcal{L}(\underset{\sim}{x}|\theta)\right\}\mathclose{} \tag{4}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="exm-loglik-bernoulli" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Log-likelihood of one Bernoulli observation)</strong></span> In <a href="#/exm-lik-obs" class="quarto-xref">Example&nbsp;1</a>, <span class="math inline">\(\mathcal{L}(\pi) = \pi\)</span>, so <span class="math inline">\(\ell(\pi) = \log \pi\)</span>; for example, <span class="math inline">\(\ell(0.7) = \log 0.7 \approx -0.357\)</span>.</p>
@@ -643,13 +656,13 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-deriv-llik-iid" class="quarto-xref">Exercise&nbsp;6</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-bernoulli-loglik-one-group" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 7 (Log-likelihood of binary outcomes with one event probability)</strong></span> Write the log-likelihood of <span class="math inline">\(\tilde{y}\)</span> from <a href="#/exr-bernoulli-likelihood-one-group" class="quarto-xref">Exercise&nbsp;3</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 7 (Log-likelihood of binary outcomes with one event probability)</strong></span> Write the log-likelihood of <span class="math inline">\(\underset{\sim}{y}\)</span> from <a href="#/exr-bernoulli-likelihood-one-group" class="quarto-xref">Exercise&nbsp;3</a>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-bernoulli-loglik-one-group" class="proof solution">
 <p><span class="proof-title"><em>Solution 7</em>. </span>Starting from the likelihood in <a href="#/thm-bernoulli-likelihood-one-group" class="quarto-xref">Theorem&nbsp;3</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell(\pi; \tilde{y})
+\ell(\pi; \underset{\sim}{y})
 &amp;= \operatorname{log}\mathopen{}\left\{\pi^{\sum_{i=1}^ny_i} (1 - \pi)^{n - \sum_{i=1}^ny_i}\right\}\mathclose{}
 &amp;&amp; \text{(log of the likelihood)}\\
 &amp;= \operatorname{log}\mathopen{}\left\{\pi^{\sum_{i=1}^ny_i}\right\}\mathclose{} + \operatorname{log}\mathopen{}\left\{(1 - \pi)^{n - \sum_{i=1}^ny_i}\right\}\mathclose{}
@@ -670,8 +683,8 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-bernoulli-loglik-one-group" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 7 (Log-likelihood of binary outcomes with one event probability)</strong></span> Let <span class="math inline">\(Y_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i = 1, \dots, n\)</span>, with observed outcomes <span class="math inline">\(\tilde{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\)</span>, each <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. The log-likelihood <span class="math inline">\(\ell(\pi; \tilde{y})\)</span> of the event probability <span class="math inline">\(\pi\)</span>, written with the log-odds <span class="math inline">\(\operatorname{logit}(\pi)\)</span>, is:</p>
-<p><span class="math display">\[\ell(\pi; \tilde{y}) = \mathopen{}\left(\sum_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n \operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}\]</span></p>
+<p><span class="theorem-title"><strong>Theorem 7 (Log-likelihood of binary outcomes with one event probability)</strong></span> Let <span class="math inline">\(Y_i \ \sim_{\perp\!\!\!\perp}\ \operatorname{Ber}(\pi)\)</span> for <span class="math inline">\(i = 1, \dots, n\)</span>, with observed outcomes <span class="math inline">\(\underset{\sim}{y}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\)</span>, each <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span>. The log-likelihood <span class="math inline">\(\ell(\pi; \underset{\sim}{y})\)</span> of the event probability <span class="math inline">\(\pi\)</span>, written with the log-odds <span class="math inline">\(\operatorname{logit}(\pi)\)</span>, is:</p>
+<p><span class="math display">\[\ell(\pi; \underset{\sim}{y}) = \mathopen{}\left(\sum_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n \operatorname{log}\mathopen{}\left\{1 - \pi\right\}\mathclose{}\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-bernoulli-loglik-one-group" class="quarto-xref">Exercise&nbsp;7</a>, worked in <a href="#/sol-bernoulli-loglik-one-group" class="quarto-xref">Solution&nbsp;7</a>. It builds on <a href="#/thm-bernoulli-likelihood-one-group" class="quarto-xref">Theorem&nbsp;3</a>.</p>
@@ -680,11 +693,11 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 <span class="header-section-number">1.6</span> The score function</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-score div. -->
 <div id="def-score" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Score function)</strong></span> The <strong>score function</strong> of a statistical model <span class="math inline">\(\operatorname{p}(\tilde{X}= \tilde{x})\)</span> is the gradient (vector of first derivatives) of the model’s log-likelihood with respect to the parameters:</p>
-<p><span id="eq-def-score"><span class="math display">\[\ell'\stackrel{\text{def}}{=}\frac{\partial}{\partial \theta} \ell(\tilde{x}|\theta) \tag{7}\]</span></span></p>
+<p><span class="theorem-title"><strong>Definition 7 (Score function)</strong></span> The <strong>score function</strong> of a statistical model <span class="math inline">\(\operatorname{p}(\underset{\sim}{X}= \underset{\sim}{x})\)</span> is the gradient (vector of first derivatives) of the model’s log-likelihood with respect to the parameters:</p>
+<p><span id="eq-def-score"><span class="math display">\[\ell'\stackrel{\text{def}}{=}\frac{\partial}{\partial \theta} \ell(\underset{\sim}{x}|\theta) \tag{7}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="rem-score-notation" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Notation for the score function). </span>We often omit the arguments <span class="math inline">\(\tilde{x}\)</span> and <span class="math inline">\(\theta\)</span>, writing <span class="math inline">\(\ell'\stackrel{\text{def}}{=}\ell'(\tilde{x}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\)</span>. Some sources write <span class="math inline">\(U\)</span> or <span class="math inline">\(S\)</span> for the score function instead of <span class="math inline">\(\ell'\)</span>; for example, <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> write <span class="math inline">\(U\)</span>. These notes use <span class="math inline">\(\ell'\)</span>, which keeps <span class="math inline">\(U\)</span> and <span class="math inline">\(S\)</span> free for other uses and needs no extra symbol to memorize.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Notation for the score function). </span>We often omit the arguments <span class="math inline">\(\underset{\sim}{x}\)</span> and <span class="math inline">\(\theta\)</span>, writing <span class="math inline">\(\ell'\stackrel{\text{def}}{=}\ell'(\underset{\sim}{x}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\)</span>. Some sources write <span class="math inline">\(U\)</span> or <span class="math inline">\(S\)</span> for the score function instead of <span class="math inline">\(\ell'\)</span>; for example, <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span> write <span class="math inline">\(U\)</span>. These notes use <span class="math inline">\(\ell'\)</span>, which keeps <span class="math inline">\(U\)</span> and <span class="math inline">\(S\)</span> free for other uses and needs no extra symbol to memorize.</p>
 </div>
 </section><section class="slide level2"><div id="exr-derive-bernoulli-score" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 8 (Score function of a Bernoulli variable)</strong></span> Derive the score function for a single Bernoulli random variable <span class="math inline">\(X\)</span>. In other words, differentiate the log-likelihood of a single Bernoulli random variable <span class="math inline">\(X\)</span> with respect to the event probability parameter <span class="math inline">\(\pi\)</span>. Simplify as much as possible.</p>
@@ -919,7 +932,7 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 </section><section class="slide level2"><div id="def-score-equation" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Score equation)</strong></span> The <strong>score equation</strong> is the equation that sets the <a href="#/def-score">score function</a> to zero:</p>
 <p><span class="math display">\[
-\ell'(\tilde{\theta}) = \tilde{0}
+\ell'(\underset{\sim}{\theta}) = \underset{\sim}{0}
 \]</span></p>
 </div>
 <aside class="notes"><p>The score equation is one example of an <strong>estimating equation</strong>, an equation whose solution defines an estimator. Estimating equations in general need not come from a likelihood.</p>
@@ -942,7 +955,7 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 <div id="def-hessian" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Hessian)</strong></span> The <strong>Hessian matrix</strong> of the log-likelihood function is the matrix of its second derivatives with respect to the parameters:</p>
 <p><span id="eq-def-hess"><span class="math display">\[
-\ell''\stackrel{\text{def}}{=}\frac{\partial}{\partial \tilde{\theta}}\frac{\partial}{\partial \tilde{\theta}^{\top}} \ell(\tilde{x}| \tilde{\theta})
+\ell''\stackrel{\text{def}}{=}\frac{\partial}{\partial \underset{\sim}{\theta}}\frac{\partial}{\partial \underset{\sim}{\theta}^{\top}} \ell(\underset{\sim}{x}| \underset{\sim}{\theta})
 \tag{8}\]</span></span></p>
 </div>
 <aside class="notes"><p>The Hessian is named after the mathematician <a href="https://en.wikipedia.org/wiki/Otto_Hesse">Otto Hesse</a>.</p>
@@ -957,16 +970,16 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section class="slide level2"><div id="exr-hessian-elements" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 12 (Entries of the Hessian)</strong></span> If <span class="math inline">\(\tilde{\theta}\)</span> is a <span class="math inline">\(p \times 1\)</span> vector, find the dimensions of the <a href="#/def-hessian">Hessian</a> <span class="math inline">\(\frac{\partial}{\partial \tilde{\theta}}\frac{\partial}{\partial \tilde{\theta}^{\top}}\ell\)</span> and an expression for its <span class="math inline">\(ij\)</span>th entry.</p>
+<p><span class="theorem-title"><strong>Exercise 12 (Entries of the Hessian)</strong></span> If <span class="math inline">\(\underset{\sim}{\theta}\)</span> is a <span class="math inline">\(p \times 1\)</span> vector, find the dimensions of the <a href="#/def-hessian">Hessian</a> <span class="math inline">\(\frac{\partial}{\partial \underset{\sim}{\theta}}\frac{\partial}{\partial \underset{\sim}{\theta}^{\top}}\ell\)</span> and an expression for its <span class="math inline">\(ij\)</span>th entry.</p>
 </div>
 </section><section class="slide level2"><div id="sol-hessian-elements" class="proof solution">
-<p><span class="proof-title"><em>Solution 12</em>. </span><span class="math inline">\(\frac{\partial}{\partial \tilde{\theta}^{\top}}\ell\)</span> is the <span class="math inline">\(1 \times p\)</span> row vector whose <span class="math inline">\(j\)</span>th entry is <span class="math inline">\(\frac{\partial}{\partial \theta_j}\ell\)</span>. Differentiating each entry with respect to the <span class="math inline">\(p \times 1\)</span> vector <span class="math inline">\(\tilde{\theta}\)</span> gives a <span class="math inline">\(p \times 1\)</span> column of derivatives per entry, so <span class="math inline">\(\frac{\partial}{\partial \tilde{\theta}}\frac{\partial}{\partial \tilde{\theta}^{\top}}\ell\)</span> is <span class="math inline">\(p \times p\)</span>, with <span class="math inline">\(ij\)</span>th entry <span class="math inline">\(\frac{\partial}{\partial \theta_i}\frac{\partial}{\partial \theta_j}\ell\)</span>.</p>
+<p><span class="proof-title"><em>Solution 12</em>. </span><span class="math inline">\(\frac{\partial}{\partial \underset{\sim}{\theta}^{\top}}\ell\)</span> is the <span class="math inline">\(1 \times p\)</span> row vector whose <span class="math inline">\(j\)</span>th entry is <span class="math inline">\(\frac{\partial}{\partial \theta_j}\ell\)</span>. Differentiating each entry with respect to the <span class="math inline">\(p \times 1\)</span> vector <span class="math inline">\(\underset{\sim}{\theta}\)</span> gives a <span class="math inline">\(p \times 1\)</span> column of derivatives per entry, so <span class="math inline">\(\frac{\partial}{\partial \underset{\sim}{\theta}}\frac{\partial}{\partial \underset{\sim}{\theta}^{\top}}\ell\)</span> is <span class="math inline">\(p \times p\)</span>, with <span class="math inline">\(ij\)</span>th entry <span class="math inline">\(\frac{\partial}{\partial \theta_i}\frac{\partial}{\partial \theta_j}\ell\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-hessian-elements" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 12 (Elements of the Hessian matrix)</strong></span> If <span class="math inline">\(\tilde{\theta}\)</span> is a <span class="math inline">\(p \times 1\)</span> vector, then the Hessian is a <span class="math inline">\(p \times p\)</span> matrix, whose <span class="math inline">\(ij\)</span>th entry is:</p>
+<p><span class="theorem-title"><strong>Theorem 12 (Elements of the Hessian matrix)</strong></span> If <span class="math inline">\(\underset{\sim}{\theta}\)</span> is a <span class="math inline">\(p \times 1\)</span> vector, then the Hessian is a <span class="math inline">\(p \times p\)</span> matrix, whose <span class="math inline">\(ij\)</span>th entry is:</p>
 <p><span id="eq-hess-entries"><span class="math display">\[
 \ell_{ij}''=
-\frac{\partial}{\partial \theta_i}\frac{\partial}{\partial \theta_j} \ell(\tilde{X}= \tilde{x}| \tilde{\theta})
+\frac{\partial}{\partial \theta_i}\frac{\partial}{\partial \theta_j} \ell(\underset{\sim}{X}= \underset{\sim}{x}| \underset{\sim}{\theta})
 \tag{9}\]</span></span></p>
 </div>
 <div class="proof">
@@ -976,11 +989,11 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 <p><span class="theorem-title"><strong>Exercise 13 (Hessian from the score)</strong></span> Write the <a href="#/def-hessian">Hessian</a> <span class="math inline">\(\ell''\)</span> as a derivative of the <a href="#/def-score">score function</a> <span class="math inline">\(\ell'\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-hessian-score" class="proof solution">
-<p><span class="proof-title"><em>Solution 13</em>. </span>By <a href="#/def-score" class="quarto-xref">Definition&nbsp;7</a>, <span class="math inline">\(\ell'= \frac{\partial}{\partial \tilde{\theta}}\ell\)</span>, so <span class="math inline">\({\mathopen{}\left(\ell'\right)\mathclose{}}^{\top} = \frac{\partial}{\partial \tilde{\theta}^{\top}}\ell\)</span>. Then:</p>
+<p><span class="proof-title"><em>Solution 13</em>. </span>By <a href="#/def-score" class="quarto-xref">Definition&nbsp;7</a>, <span class="math inline">\(\ell'= \frac{\partial}{\partial \underset{\sim}{\theta}}\ell\)</span>, so <span class="math inline">\({\mathopen{}\left(\ell'\right)\mathclose{}}^{\top} = \frac{\partial}{\partial \underset{\sim}{\theta}^{\top}}\ell\)</span>. Then:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\frac{\partial}{\partial \tilde{\theta}}{\mathopen{}\left(\ell'\right)\mathclose{}}^{\top}
-&amp;= \frac{\partial}{\partial \tilde{\theta}}\frac{\partial}{\partial \tilde{\theta}^{\top}}\ell
+\frac{\partial}{\partial \underset{\sim}{\theta}}{\mathopen{}\left(\ell'\right)\mathclose{}}^{\top}
+&amp;= \frac{\partial}{\partial \underset{\sim}{\theta}}\frac{\partial}{\partial \underset{\sim}{\theta}^{\top}}\ell
 &amp;&amp; \text{(transpose of the score)}\\
 &amp;= \ell''
 &amp;&amp; \text{(definition of the Hessian)}
@@ -989,22 +1002,22 @@ f'(\tilde{x}_0) &amp;= \tilde{0}&amp;&amp; \text{(vector input)}
 </div>
 </section><section class="slide level2"><div id="thm-hessian-score" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 13 (Hessian is the derivative of the transposed score)</strong></span> <span class="math display">\[
-\ell''(\tilde{x}\mid \tilde{\theta}) = \frac{\partial}{\partial \tilde{\theta}} {\mathopen{}\left(\ell'(\tilde{x}\mid \tilde{\theta})\right)\mathclose{}}^{\top}
+\ell''(\underset{\sim}{x}\mid \underset{\sim}{\theta}) = \frac{\partial}{\partial \underset{\sim}{\theta}} {\mathopen{}\left(\ell'(\underset{\sim}{x}\mid \underset{\sim}{\theta})\right)\mathclose{}}^{\top}
 \]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-hessian-score" class="quarto-xref">Exercise&nbsp;13</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-einf" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Expected information matrix (Fisher information matrix, information matrix))</strong></span> The <strong>expected information matrix</strong>, also called the <strong>Fisher information matrix</strong> or just the <strong>information matrix</strong>, is written <span class="math inline">\(\mathcal{I}\)</span>, and is the expected value of the negative <a href="#/def-hessian">Hessian</a> of the log-likelihood, with the data <span class="math inline">\(\tilde{X}\)</span> treated as random:</p>
-<p><span id="eq-def-einf"><span class="math display">\[\mathcal{I}(\tilde{\theta}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[-\ell''(\tilde{X}\mid \tilde{\theta})\right]\mathclose{} \tag{10}\]</span></span></p>
+<p><span class="theorem-title"><strong>Definition 10 (Expected information matrix (Fisher information matrix, information matrix))</strong></span> The <strong>expected information matrix</strong>, also called the <strong>Fisher information matrix</strong> or just the <strong>information matrix</strong>, is written <span class="math inline">\(\mathcal{I}\)</span>, and is the expected value of the negative <a href="#/def-hessian">Hessian</a> of the log-likelihood, with the data <span class="math inline">\(\underset{\sim}{X}\)</span> treated as random:</p>
+<p><span id="eq-def-einf"><span class="math display">\[\mathcal{I}(\underset{\sim}{\theta}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[-\ell''(\underset{\sim}{X}\mid \underset{\sim}{\theta})\right]\mathclose{} \tag{10}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="rem-einf-vs-oinf" class="proof remark">
 <p><span class="proof-title"><em>Remark 3</em> (The expected information is a function of the parameter alone). </span>The expected information is a function of the parameter alone, so it is the quantity that the <a href="#/def-oinf">observed information</a> estimates from one data set.</p>
 </div>
 </section><section class="slide level2"><div id="def-oinf" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Observed information matrix)</strong></span> The <strong>observed information matrix</strong>, written <span class="math inline">\(I\)</span>, is the negative of the <a href="#/def-hessian">Hessian</a> of the log-likelihood, evaluated at the observed data:</p>
-<p><span id="eq-def-oinf"><span class="math display">\[I\stackrel{\text{def}}{=}-\ell''(\tilde{x}|\tilde{\theta}) \tag{11}\]</span></span></p>
+<p><span id="eq-def-oinf"><span class="math display">\[I\stackrel{\text{def}}{=}-\ell''(\underset{\sim}{x}|\underset{\sim}{\theta}) \tag{11}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="rem-oinf-vs-einf" class="proof remark">
 <p><span class="proof-title"><em>Remark 4</em> (The observed information is the sample counterpart of the expected information). </span>The observed information matrix is the sample counterpart of the <a href="#/def-einf">expected information</a>, which averages the same quantity over possible data sets.</p>
@@ -1037,15 +1050,15 @@ I({\lambda})
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-deriv-log-density" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 14 (Derivative of a density through its logarithm)</strong></span> Let <span class="math inline">\(\operatorname{p}(\tilde{x}\mid \theta)\)</span> be a density that is positive and differentiable in a scalar parameter <span class="math inline">\(\theta\)</span>. Write <span class="math inline">\(\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta)\)</span> in terms of <span class="math inline">\(\frac{\partial}{\partial \theta}\log \operatorname{p}(\tilde{x}\mid \theta)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 14 (Derivative of a density through its logarithm)</strong></span> Let <span class="math inline">\(\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> be a density that is positive and differentiable in a scalar parameter <span class="math inline">\(\theta\)</span>. Write <span class="math inline">\(\frac{\partial}{\partial \theta}\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> in terms of <span class="math inline">\(\frac{\partial}{\partial \theta}\log \operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-deriv-log-density" class="proof solution">
-<p><span class="proof-title"><em>Solution 14</em>. </span>By the chain rule, with outer function <span class="math inline">\(\log u\)</span> and inner function <span class="math inline">\(u = \operatorname{p}(\tilde{x}\mid \theta)\)</span>:</p>
+<p><span class="proof-title"><em>Solution 14</em>. </span>By the chain rule, with outer function <span class="math inline">\(\log u\)</span> and inner function <span class="math inline">\(u = \operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span>:</p>
 <p><span class="math display">\[
-\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)
-= \left.{\mathopen{}\left(\frac{d}{du} \log u\right)\mathclose{}}\right|_{u = \operatorname{p}(\tilde{x}\mid \theta)} \frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta).
+\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)
+= \left.{\mathopen{}\left(\frac{d}{du} \log u\right)\mathclose{}}\right|_{u = \operatorname{p}(\underset{\sim}{x}\mid \theta)} \frac{\partial}{\partial \theta}\operatorname{p}(\underset{\sim}{x}\mid \theta).
 \]</span></p>
-<p>The inner derivative <span class="math inline">\(\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta)\)</span> is the quantity we want, so only the outer derivative needs working out:</p>
+<p>The inner derivative <span class="math inline">\(\frac{\partial}{\partial \theta}\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> is the quantity we want, so only the outer derivative needs working out:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{d}{du} \log u
@@ -1056,39 +1069,39 @@ I({\lambda})
 <p>Plugging the outer derivative back in:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)
-&amp;= \frac{1}{\operatorname{p}(\tilde{x}\mid \theta)} \frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta)
+\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)
+&amp;= \frac{1}{\operatorname{p}(\underset{\sim}{x}\mid \theta)} \frac{\partial}{\partial \theta}\operatorname{p}(\underset{\sim}{x}\mid \theta)
 &amp;&amp; \text{(outer derivative is $1/u$)}\\
-\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta)
-&amp;= \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta)
-&amp;&amp; \text{(multiply both sides by $\operatorname{p}(\tilde{x}\mid \theta) &gt; 0$)}
+\frac{\partial}{\partial \theta}\operatorname{p}(\underset{\sim}{x}\mid \theta)
+&amp;= \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta)
+&amp;&amp; \text{(multiply both sides by $\operatorname{p}(\underset{\sim}{x}\mid \theta) &gt; 0$)}
 \end{aligned}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="lem-deriv-log-density" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1 (Derivative of a density through its logarithm)</strong></span> Let <span class="math inline">\(\operatorname{p}(\tilde{x}\mid \theta)\)</span> be a density that is positive and differentiable in a scalar parameter <span class="math inline">\(\theta\)</span>. Then its derivative with respect to <span class="math inline">\(\theta\)</span> is the derivative of its logarithm times the density:</p>
-<p><span class="math display">\[\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta) = \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta)\]</span></p>
+<p><span class="theorem-title"><strong>Lemma 1 (Derivative of a density through its logarithm)</strong></span> Let <span class="math inline">\(\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> be a density that is positive and differentiable in a scalar parameter <span class="math inline">\(\theta\)</span>. Then its derivative with respect to <span class="math inline">\(\theta\)</span> is the derivative of its logarithm times the density:</p>
+<p><span class="math display">\[\frac{\partial}{\partial \theta}\operatorname{p}(\underset{\sim}{x}\mid \theta) = \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta)\]</span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-deriv-log-density" class="quarto-xref">Exercise&nbsp;14</a>, worked in <a href="#/sol-deriv-log-density" class="quarto-xref">Solution&nbsp;14</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-score-mean-zero" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 15 (Mean of the score)</strong></span> Let <span class="math inline">\(\tilde{X}\)</span> be continuous with density <span class="math inline">\(\operatorname{p}(\tilde{x}\mid \theta)\)</span> for a scalar parameter <span class="math inline">\(\theta\)</span>. Suppose the set of possible data values does not depend on <span class="math inline">\(\theta\)</span>, and the order of differentiation with respect to <span class="math inline">\(\theta\)</span> and integration over the data can be exchanged. Find the mean of the <a href="#/def-score">score</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 15 (Mean of the score)</strong></span> Let <span class="math inline">\(\underset{\sim}{X}\)</span> be continuous with density <span class="math inline">\(\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> for a scalar parameter <span class="math inline">\(\theta\)</span>. Suppose the set of possible data values does not depend on <span class="math inline">\(\theta\)</span>, and the order of differentiation with respect to <span class="math inline">\(\theta\)</span> and integration over the data can be exchanged. Find the mean of the <a href="#/def-score">score</a>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-score-mean-zero" class="proof solution">
-<p><span class="proof-title"><em>Solution 15</em>. </span>The step that rewrites the derivative of <span class="math inline">\(\log \operatorname{p}(\tilde{x}\mid \theta)\)</span> uses <a href="#/lem-deriv-log-density" class="quarto-xref">Lemma&nbsp;1</a>:</p>
+<p><span class="proof-title"><em>Solution 15</em>. </span>The step that rewrites the derivative of <span class="math inline">\(\log \operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> uses <a href="#/lem-deriv-log-density" class="quarto-xref">Lemma&nbsp;1</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{E}\mathopen{}\left[\ell'\right]\mathclose{}
-&amp;= \int \ell'\, \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \ell'\, \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(definition of expectation)}\\
-&amp;= \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(definition of the score)}\\
-&amp;= \int \frac{\frac{\partial}{\partial \theta} \operatorname{p}(\tilde{x}\mid \theta)}{\operatorname{p}(\tilde{x}\mid \theta)} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \frac{\frac{\partial}{\partial \theta} \operatorname{p}(\underset{\sim}{x}\mid \theta)}{\operatorname{p}(\underset{\sim}{x}\mid \theta)} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(chain rule for $\log$)}\\
-&amp;= \int \frac{\partial}{\partial \theta} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
-&amp;&amp; \text{(cancel $\operatorname{p}(\tilde{x}\mid \theta)$)}\\
-&amp;= \frac{\partial}{\partial \theta} \int \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \frac{\partial}{\partial \theta} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
+&amp;&amp; \text{(cancel $\operatorname{p}(\underset{\sim}{x}\mid \theta)$)}\\
+&amp;= \frac{\partial}{\partial \theta} \int \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(exchange derivative and integral)}\\
 &amp;= \frac{\partial}{\partial \theta} 1
 &amp;&amp; \text{(a density integrates to 1)}\\
@@ -1098,7 +1111,7 @@ I({\lambda})
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-score-mean-zero" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 14 (Mean of the score)</strong></span> Let <span class="math inline">\(\tilde{X}\)</span> be a continuous random vector with density <span class="math inline">\(\operatorname{p}(\tilde{x}\mid \theta)\)</span> for a scalar parameter <span class="math inline">\(\theta\)</span>. Suppose the set of possible data values does not depend on <span class="math inline">\(\theta\)</span>, and the order of differentiation with respect to <span class="math inline">\(\theta\)</span> and integration over the data can be exchanged. Then the <a href="#/def-score">score</a> <span class="math inline">\(\ell'\)</span>, the derivative of the log-likelihood with respect to <span class="math inline">\(\theta\)</span>, has expectation zero:</p>
+<p><span class="theorem-title"><strong>Theorem 14 (Mean of the score)</strong></span> Let <span class="math inline">\(\underset{\sim}{X}\)</span> be a continuous random vector with density <span class="math inline">\(\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> for a scalar parameter <span class="math inline">\(\theta\)</span>. Suppose the set of possible data values does not depend on <span class="math inline">\(\theta\)</span>, and the order of differentiation with respect to <span class="math inline">\(\theta\)</span> and integration over the data can be exchanged. Then the <a href="#/def-score">score</a> <span class="math inline">\(\ell'\)</span>, the derivative of the log-likelihood with respect to <span class="math inline">\(\theta\)</span>, has expectation zero:</p>
 <p><span class="math display">\[\operatorname{E}\mathopen{}\left[\ell'\right]\mathclose{} = 0\]</span></p>
 </div>
 <div class="proof">
@@ -1108,32 +1121,32 @@ I({\lambda})
 <p><span class="theorem-title"><strong>Exercise 16 (Second moment of the score)</strong></span> Under the assumptions of <a href="#/exr-score-mean-zero" class="quarto-xref">Exercise&nbsp;15</a>, show that <span class="math inline">\(\operatorname{E}\mathopen{}\left[\ell'^2\right]\mathclose{} = \mathcal{I}(\theta)\)</span>, the <a href="#/def-einf">expected information</a>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-score-second-moment" class="proof solution">
-<p><span class="proof-title"><em>Solution 16</em>. </span>By <a href="#/thm-score-mean-zero" class="quarto-xref">Theorem&nbsp;14</a>, <span class="math inline">\(0 = \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}\)</span> for every <span class="math inline">\(\theta\)</span>. Differentiate this identity with respect to <span class="math inline">\(\theta\)</span>; the step that substitutes for <span class="math inline">\(\frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta)\)</span> uses <a href="#/lem-deriv-log-density" class="quarto-xref">Lemma&nbsp;1</a>:</p>
+<p><span class="proof-title"><em>Solution 16</em>. </span>By <a href="#/thm-score-mean-zero" class="quarto-xref">Theorem&nbsp;14</a>, <span class="math inline">\(0 = \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}\)</span> for every <span class="math inline">\(\theta\)</span>. Differentiate this identity with respect to <span class="math inline">\(\theta\)</span>; the step that substitutes for <span class="math inline">\(\frac{\partial}{\partial \theta}\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> uses <a href="#/lem-deriv-log-density" class="quarto-xref">Lemma&nbsp;1</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \frac{\partial}{\partial \theta} 0
-&amp;= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(differentiate both sides)}\\
 0
-&amp;= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \frac{\partial}{\partial \theta} \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(derivative of a constant)}\\
-&amp;= \int \frac{\partial}{\partial \theta}\mathopen{}\left[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta)\right]\mathclose{} d\tilde{x}
+&amp;= \int \frac{\partial}{\partial \theta}\mathopen{}\left[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta)\right]\mathclose{} d\underset{\sim}{x}
 &amp;&amp; \text{(exchange derivative and integral)}\\
-&amp;= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
-+ \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \frac{\partial}{\partial \theta}\operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
++ \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \frac{\partial}{\partial \theta}\operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(product rule)}\\
-&amp;= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
-+ \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \mathopen{}\left(\frac{\partial}{\partial \theta}\log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
++ \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \mathopen{}\left(\frac{\partial}{\partial \theta}\log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{($\frac{\partial}{\partial \theta}\operatorname{p}= \mathopen{}\left(\frac{\partial}{\partial \theta}\log \operatorname{p}\right)\mathclose{} \operatorname{p}$)}\\
-&amp;= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
-+ \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \mathopen{}\left(\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
++ \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(product of two equal factors is a square)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\tilde{X}\mid \theta)\right]\mathclose{}
-+ \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \operatorname{E}\mathopen{}\left[\frac{\partial^2}{\partial \theta^2} \log \operatorname{p}(\underset{\sim}{X}\mid \theta)\right]\mathclose{}
++ \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(definition of expectation)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\ell''\right]\mathclose{} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \operatorname{E}\mathopen{}\left[\ell''\right]\mathclose{} + \int \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{}^2 \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(definition of the Hessian)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\ell''\right]\mathclose{} + \operatorname{E}\mathopen{}\left[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{X}\mid \theta)\right)\mathclose{}^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\ell''\right]\mathclose{} + \operatorname{E}\mathopen{}\left[\mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{X}\mid \theta)\right)\mathclose{}^2\right]\mathclose{}
 &amp;&amp; \text{(definition of expectation)}\\
 &amp;= \operatorname{E}\mathopen{}\left[\ell''\right]\mathclose{} + \operatorname{E}\mathopen{}\left[\ell'^2\right]\mathclose{}
 &amp;&amp; \text{(definition of the score)}
@@ -1162,18 +1175,18 @@ I({\lambda})
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-score-second-moment" class="quarto-xref">Exercise&nbsp;16</a>, worked in <a href="#/sol-score-second-moment" class="quarto-xref">Solution&nbsp;16</a>. It builds on <a href="#/thm-score-mean-zero" class="quarto-xref">Theorem&nbsp;14</a> and <a href="#/lem-deriv-log-density" class="quarto-xref">Lemma&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-information-equality" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 16 (Mean and variance of the score)</strong></span> Suppose the set of possible data values does not depend on <span class="math inline">\(\tilde{\theta}\)</span>, and the order of differentiation with respect to <span class="math inline">\(\tilde{\theta}\)</span> and integration over the data can be exchanged. Then the score has mean zero, and its variance is the expected information:</p>
-<p><span id="eq-score-mean-zero"><span class="math display">\[\operatorname{E}\mathopen{}\left[\ell'(\tilde{X}\mid \tilde{\theta})\right]\mathclose{} = \mathbf{0}_{p \times 1} \tag{12}\]</span></span></p>
+<p><span class="theorem-title"><strong>Theorem 16 (Mean and variance of the score)</strong></span> Suppose the set of possible data values does not depend on <span class="math inline">\(\underset{\sim}{\theta}\)</span>, and the order of differentiation with respect to <span class="math inline">\(\underset{\sim}{\theta}\)</span> and integration over the data can be exchanged. Then the score has mean zero, and its variance is the expected information:</p>
+<p><span id="eq-score-mean-zero"><span class="math display">\[\operatorname{E}\mathopen{}\left[\ell'(\underset{\sim}{X}\mid \underset{\sim}{\theta})\right]\mathclose{} = \mathbf{0}_{p \times 1} \tag{12}\]</span></span></p>
 <p><span id="eq-information-equality"><span class="math display">\[
 \begin{aligned}
-\mathcal{I}(\tilde{\theta})
-&amp;= \operatorname{Cov}\mathopen{}\left(\ell'(\tilde{X}\mid \tilde{\theta})\right)\mathclose{}\\
+\mathcal{I}(\underset{\sim}{\theta})
+&amp;= \operatorname{Cov}\mathopen{}\left(\ell'(\underset{\sim}{X}\mid \underset{\sim}{\theta})\right)\mathclose{}\\
 &amp;= \operatorname{E}\mathopen{}\left[\ell'{\ell'}^{\top}\right]\mathclose{}
 \end{aligned}
 \tag{13}\]</span></span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>We give the proof for a scalar <span class="math inline">\(\theta\)</span> and a continuous <span class="math inline">\(\tilde{X}\)</span> with density <span class="math inline">\(\operatorname{p}(\tilde{x}\mid \theta)\)</span>; the vector case applies the same steps to each pair of entries, and a discrete <span class="math inline">\(\tilde{X}\)</span> replaces integrals with sums.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>We give the proof for a scalar <span class="math inline">\(\theta\)</span> and a continuous <span class="math inline">\(\underset{\sim}{X}\)</span> with density <span class="math inline">\(\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span>; the vector case applies the same steps to each pair of entries, and a discrete <span class="math inline">\(\underset{\sim}{X}\)</span> replaces integrals with sums.</p>
 <p><a href="#/eq-score-mean-zero" class="quarto-xref">Equation&nbsp;12</a> follows from <a href="#/thm-score-mean-zero" class="quarto-xref">Theorem&nbsp;14</a>. For <a href="#/eq-information-equality" class="quarto-xref">Equation&nbsp;13</a>, <a href="#/thm-score-second-moment" class="quarto-xref">Theorem&nbsp;15</a> gives <span class="math inline">\(\mathcal{I}(\theta) = \operatorname{E}\mathopen{}\left[\ell'^2\right]\mathclose{}\)</span>, and because <span class="math inline">\(\operatorname{E}\mathopen{}\left[\ell'\right]\mathclose{} = 0\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -1273,9 +1286,9 @@ Table&nbsp;1: Notation for information matrices in several sources
 <span class="header-section-number">1.8</span> Asymptotic distribution of the maximum likelihood estimate</h3>
 <!-- No slidebreak here: the heading shares its slide with the thm-dist-mle div. -->
 <div id="thm-dist-mle" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 17 (Central limit theorem for MLEs)</strong></span> For <span class="math inline">\(\operatorname{iid}\)</span> data from a correctly specified model satisfying regularity conditions (including those of <a href="#/thm-information-equality" class="quarto-xref">Theorem&nbsp;16</a>, an identifiable parameter, a true parameter value in the interior of the parameter space, and a positive definite information matrix), a consistent solution <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> of the <a href="#/def-score-equation">score equation</a> exists, and for large <span class="math inline">\(n\)</span> it has approximately a Gaussian distribution, centered at the true parameter value <span class="math inline">\(\tilde{\theta}\)</span>, with covariance matrix equal to the inverse of the expected information:</p>
+<p><span class="theorem-title"><strong>Theorem 17 (Central limit theorem for MLEs)</strong></span> For <span class="math inline">\(\operatorname{iid}\)</span> data from a correctly specified model satisfying regularity conditions (including those of <a href="#/thm-information-equality" class="quarto-xref">Theorem&nbsp;16</a>, an identifiable parameter, a true parameter value in the interior of the parameter space, and a positive definite information matrix), a consistent solution <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> of the <a href="#/def-score-equation">score equation</a> exists, and for large <span class="math inline">\(n\)</span> it has approximately a Gaussian distribution, centered at the true parameter value <span class="math inline">\(\underset{\sim}{\theta}\)</span>, with covariance matrix equal to the inverse of the expected information:</p>
 <p><span id="eq-adist-mle"><span class="math display">\[
-\hat\theta_{\text{ML}}\ \dot{\sim} \ \operatorname{N}\mathopen{}\left(\tilde{\theta}, {\mathopen{}\left(\mathcal{I}(\tilde{\theta})\right)\mathclose{}}^{-1}\right)\mathclose{}
+\hat\theta_{\text{ML}}\ \dot{\sim} \ \operatorname{N}\mathopen{}\left(\underset{\sim}{\theta}, {\mathopen{}\left(\mathcal{I}(\underset{\sim}{\theta})\right)\mathclose{}}^{-1}\right)\mathclose{}
 \tag{14}\]</span></span></p>
 </div>
 <div class="proof">
@@ -1289,11 +1302,11 @@ Table&nbsp;1: Notation for information matrices in several sources
 <p><span class="math display">\[\hat{\lambda}_{\text{ML}} \ \dot{\sim} \ \operatorname{N}\mathopen{}\left({\lambda}, \frac{{\lambda}}{n}\right)\mathclose{}\]</span></p>
 <p>In this example the mean and variance are exact: <span class="math inline">\(\operatorname{E}\mathopen{}\left[\bar X\right]\mathclose{} = {\lambda}\)</span> and <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = {\lambda}/n\)</span>. The approximation is in the Gaussian shape.</p>
 </div>
-</section><section class="slide level2"><p><a href="#/thm-dist-mle" class="quarto-xref">Theorem&nbsp;17</a> involves the unknown <span class="math inline">\(\tilde{\theta}\)</span>, so to use it we estimate <span class="math inline">\(\mathcal{I}(\tilde{\theta})\)</span>, by either the expected information at the MLE, <span class="math inline">\(\mathcal{I}(\hat\theta_{\text{ML}})\)</span>, or the observed information at the MLE, <span class="math inline">\(I(\tilde{x}; \hat\theta_{\text{ML}})\)</span>. Either way, the estimated standard error of the <span class="math inline">\(k\)</span>th entry of <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> is:</p>
+</section><section class="slide level2"><p><a href="#/thm-dist-mle" class="quarto-xref">Theorem&nbsp;17</a> involves the unknown <span class="math inline">\(\underset{\sim}{\theta}\)</span>, so to use it we estimate <span class="math inline">\(\mathcal{I}(\underset{\sim}{\theta})\)</span>, by either the expected information at the MLE, <span class="math inline">\(\mathcal{I}(\hat\theta_{\text{ML}})\)</span>, or the observed information at the MLE, <span class="math inline">\(I(\underset{\sim}{x}; \hat\theta_{\text{ML}})\)</span>. Either way, the estimated standard error of the <span class="math inline">\(k\)</span>th entry of <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> is:</p>
 <p><span class="math display">\[
 \mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{} = \sqrt{\mathopen{}\left[{\mathopen{}\left(\hat{\mathcal{I}}\right)\mathclose{}}^{-1}\right]\mathclose{}_{kk}}
 \]</span></p>
-<p>where <span class="math inline">\(\hat{\mathcal{I}}\)</span> is whichever estimate of <span class="math inline">\(\mathcal{I}(\tilde{\theta})\)</span> we chose.</p>
+<p>where <span class="math inline">\(\hat{\mathcal{I}}\)</span> is whichever estimate of <span class="math inline">\(\mathcal{I}(\underset{\sim}{\theta})\)</span> we chose.</p>
 </section><section class="slide level2"><div id="rem-observed-information-se" class="proof remark">
 <p><span class="proof-title"><em>Remark 6</em> (Observed versus expected information). </span>Using the observed information is often more convenient, and there are settings where it is provably better by some criteria <span class="citation" data-cites="efron1978assessing">(<a href="#/references" role="doc-biblioref" onclick="">Efron and Hinkley 1978</a>)</span>.</p>
 </div>
@@ -1332,7 +1345,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <p><span class="math display">\[Z \stackrel{\text{def}}{=}\frac{\hat{\theta}_k - \theta_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{}}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-wald-statistic-q" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 14 (Wald statistic for several constraints)</strong></span> For <span class="math inline">\(q\)</span> constraints <span class="math inline">\(H_0: \tilde{\theta}_{(q)} = \tilde{\theta}_{(q),0}\)</span> on a <span class="math inline">\(q \times 1\)</span> subvector, the <strong>Wald statistic</strong> is <span class="math inline">\({\mathopen{}\left(\hat{\tilde{\theta}}_{(q)} - \tilde{\theta}_{(q),0}\right)\mathclose{}}^{\top}\,{\mathopen{}\left(\hat{V}_{(q)}\right)\mathclose{}}^{-1}\,\mathopen{}\left(\hat{\tilde{\theta}}_{(q)} - \tilde{\theta}_{(q),0}\right)\mathclose{}\)</span>, where <span class="math inline">\(\hat V_{(q)}\)</span> is the corresponding <span class="math inline">\(q \times q\)</span> block of <span class="math inline">\({\mathopen{}\left(\hat{\mathcal{I}}\right)\mathclose{}}^{-1}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 14 (Wald statistic for several constraints)</strong></span> For <span class="math inline">\(q\)</span> constraints <span class="math inline">\(H_0: \underset{\sim}{\theta}_{(q)} = \underset{\sim}{\theta}_{(q),0}\)</span> on a <span class="math inline">\(q \times 1\)</span> subvector, the <strong>Wald statistic</strong> is <span class="math inline">\({\mathopen{}\left(\hat{\underset{\sim}{\theta}}_{(q)} - \underset{\sim}{\theta}_{(q),0}\right)\mathclose{}}^{\top}\,{\mathopen{}\left(\hat{V}_{(q)}\right)\mathclose{}}^{-1}\,\mathopen{}\left(\hat{\underset{\sim}{\theta}}_{(q)} - \underset{\sim}{\theta}_{(q),0}\right)\mathclose{}\)</span>, where <span class="math inline">\(\hat V_{(q)}\)</span> is the corresponding <span class="math inline">\(q \times q\)</span> block of <span class="math inline">\({\mathopen{}\left(\hat{\mathcal{I}}\right)\mathclose{}}^{-1}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-wald-poisson" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Wald interval and test for a Poisson rate)</strong></span> For <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>, <span class="math inline">\(\hat{\lambda}_{\text{ML}} = \bar x\)</span> and <span class="math inline">\(\mathcal{I}({\lambda}) = n/{\lambda}\)</span> (<a href="#/exm-dist-mle-poisson" class="quarto-xref">Example&nbsp;8</a>), so <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\lambda}\right)\mathclose{} = \sqrt{\bar x/n}\)</span>. With <span class="math inline">\(n = 13\)</span> and <span class="math inline">\(\bar x = 72/13\)</span>, the 95% Wald interval for <span class="math inline">\({\lambda}\)</span>, and the Wald test of <span class="math inline">\(H_0: {\lambda}= 4\)</span>, are:</p>
@@ -1357,7 +1370,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 </section><section class="slide level2"><h4 id="sec-lrt-mles">Likelihood ratio tests for MLEs</h4>
 <!-- No slidebreak here: the heading shares its slide with the def-lrt-stat div. -->
 <div id="def-lrt-stat" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Likelihood ratio statistic)</strong></span> Suppose a null hypothesis <span class="math inline">\(H_0\)</span> imposes <span class="math inline">\(q\)</span> constraints on the parameter vector <span class="math inline">\(\tilde{\theta}\)</span>. Let <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> be the unrestricted MLE and <span class="math inline">\(\hat{\theta}_0\)</span> the MLE under <span class="math inline">\(H_0\)</span>. The <strong>likelihood ratio statistic</strong> is</p>
+<p><span class="theorem-title"><strong>Definition 15 (Likelihood ratio statistic)</strong></span> Suppose a null hypothesis <span class="math inline">\(H_0\)</span> imposes <span class="math inline">\(q\)</span> constraints on the parameter vector <span class="math inline">\(\underset{\sim}{\theta}\)</span>. Let <span class="math inline">\(\hat\theta_{\text{ML}}\)</span> be the unrestricted MLE and <span class="math inline">\(\hat{\theta}_0\)</span> the MLE under <span class="math inline">\(H_0\)</span>. The <strong>likelihood ratio statistic</strong> is</p>
 <p><span class="math display">\[
 \Lambda\stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat{\theta}_0)\right)\mathclose{}
 \]</span></p>
@@ -1469,7 +1482,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-wilks-std-gaussian" class="quarto-xref">Exercise&nbsp;19</a>, worked in <a href="#/sol-wilks-std-gaussian" class="quarto-xref">Solution&nbsp;19</a>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-wilks" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 18 (Wilks’ theorem)</strong></span> Suppose the conditions of <a href="#/thm-dist-mle" class="quarto-xref">Theorem&nbsp;17</a> hold, and a null hypothesis <span class="math inline">\(H_0\)</span> imposes <span class="math inline">\(q\)</span> constraints on the parameter vector <span class="math inline">\(\tilde{\theta}\)</span>. Then, if <span class="math inline">\(H_0\)</span> is true, as <span class="math inline">\(n \to \infty\)</span>, the <a href="#/def-lrt-stat">likelihood ratio statistic</a> <span class="math inline">\(\Lambda\)</span> satisfies:</p>
+<p><span class="theorem-title"><strong>Theorem 18 (Wilks’ theorem)</strong></span> Suppose the conditions of <a href="#/thm-dist-mle" class="quarto-xref">Theorem&nbsp;17</a> hold, and a null hypothesis <span class="math inline">\(H_0\)</span> imposes <span class="math inline">\(q\)</span> constraints on the parameter vector <span class="math inline">\(\underset{\sim}{\theta}\)</span>. Then, if <span class="math inline">\(H_0\)</span> is true, as <span class="math inline">\(n \to \infty\)</span>, the <a href="#/def-lrt-stat">likelihood ratio statistic</a> <span class="math inline">\(\Lambda\)</span> satisfies:</p>
 <p><span class="math display">\[
 \Lambda
 \overset{d}{\to}
@@ -1917,8 +1930,8 @@ Table&nbsp;4: Summary statistics for the <code>cyclones</code> data
 </section><section class="slide level2"><div id="sol-sample-likelihood" class="proof solution">
 <p><span class="proof-title"><em>Solution 25</em>. </span><span class="math display">\[
 \begin{aligned}
-\mathcal{L}({\lambda}; \tilde{x})
-&amp;\stackrel{\text{def}}{=}\Pr(\tilde{X}= \tilde{x})
+\mathcal{L}({\lambda}; \underset{\sim}{x})
+&amp;\stackrel{\text{def}}{=}\Pr(\underset{\sim}{X}= \underset{\sim}{x})
 &amp;&amp; \text{(definition of likelihood)}\\
 &amp;= \Pr(X_1 = x_1, X_2 = x_2, \ldots, X_{13} = x_{13})
 &amp;&amp; \text{(write out the vector)}\\
@@ -1970,8 +1983,8 @@ Figure&nbsp;3: Likelihood of the cyclone data
 </section><section class="slide level2"><div id="sol-sample-llik" class="proof solution">
 <p><span class="proof-title"><em>Solution 27</em>. </span><span class="math display">\[
 \begin{aligned}
-\ell({\lambda}; \tilde{x})
-&amp;\stackrel{\text{def}}{=}\operatorname{log}\mathopen{}\left\{\mathcal{L}({\lambda}; \tilde{x})\right\}\mathclose{}
+\ell({\lambda}; \underset{\sim}{x})
+&amp;\stackrel{\text{def}}{=}\operatorname{log}\mathopen{}\left\{\mathcal{L}({\lambda}; \underset{\sim}{x})\right\}\mathclose{}
 &amp;&amp; \text{(definition of log-likelihood)}\\
 &amp;= \operatorname{log}\mathopen{}\left\{\prod_{i=1}^n\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\}\mathclose{}
 &amp;&amp; \text{(likelihood of the dataset)}\\
@@ -2027,7 +2040,7 @@ Figure&nbsp;4: Log-likelihood of the cyclone data
 <p><span class="proof-title"><em>Solution 29</em>. </span>The score function is the first derivative of the log-likelihood from <a href="#/exr-sample-llik" class="quarto-xref">Exercise&nbsp;27</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell'({\lambda}; \tilde{x})
+\ell'({\lambda}; \underset{\sim}{x})
 &amp;\stackrel{\text{def}}{=}\frac{\partial}{\partial {\lambda}}\mathopen{}\left(\mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{} - n{\lambda}- \sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}\right)\mathclose{}
 &amp;&amp; \text{(definition of the score)}\\
 &amp;= \mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\frac{\partial}{\partial {\lambda}}\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{} - n\frac{\partial}{\partial {\lambda}}{\lambda}- \frac{\partial}{\partial {\lambda}}\sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}
@@ -2038,7 +2051,7 @@ Figure&nbsp;4: Log-likelihood of the cyclone data
 &amp;&amp; \text{($\textstyle\sum_{i=1}^nx_i = n \bar x$)}
 \end{aligned}
 \]</span></p>
-<p>For the cyclone data, <span class="math inline">\(n = 13\)</span> and <span class="math inline">\(n \bar x = 72\)</span>, so <span class="math inline">\(\ell'({\lambda}; \tilde{x}) = 72/{\lambda}- 13\)</span>.</p>
+<p>For the cyclone data, <span class="math inline">\(n = 13\)</span> and <span class="math inline">\(n \bar x = 72\)</span>, so <span class="math inline">\(\ell'({\lambda}; \underset{\sim}{x}) = 72/{\lambda}- 13\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-graph-score-function" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 30 (Graphing the score function)</strong></span> Graph the score function.</p>
@@ -2081,7 +2094,7 @@ Figure&nbsp;5: Score function of the cyclone data
 <p><span class="proof-title"><em>Solution 31</em>. </span>With one parameter, the Hessian is the second derivative of the log-likelihood, which is the derivative of the score from <a href="#/exr-cyclone-score-fn" class="quarto-xref">Exercise&nbsp;29</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell''({\lambda}; \tilde{x})
+\ell''({\lambda}; \underset{\sim}{x})
 &amp;= \frac{\partial}{\partial {\lambda}}\mathopen{}\left(\frac{n \bar x}{{\lambda}} - n\right)\mathclose{}
 &amp;&amp; \text{(differentiate the score)}\\
 &amp;= n \bar x \frac{\partial}{\partial {\lambda}}\frac{1}{{\lambda}} - \frac{\partial}{\partial {\lambda}} n
@@ -2090,7 +2103,7 @@ Figure&nbsp;5: Score function of the cyclone data
 &amp;&amp; \text{($\tfrac{d}{d{\lambda}}{\lambda}^{-1} = -{\lambda}^{-2}$; $n$ is constant)}
 \end{aligned}
 \]</span></p>
-<p>For the cyclone data, <span class="math inline">\(\ell''({\lambda}; \tilde{x}) = -72/{\lambda}^2\)</span>.</p>
+<p>For the cyclone data, <span class="math inline">\(\ell''({\lambda}; \underset{\sim}{x}) = -72/{\lambda}^2\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exr-graph-hessian" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 32 (Graphing the Hessian)</strong></span> Graph the Hessian.</p>
@@ -2129,7 +2142,7 @@ Figure&nbsp;6: Hessian of the cyclone data’s log-likelihood
 <p><span class="theorem-title"><strong>Exercise 33 (Score equation)</strong></span> Write the <a href="#/def-score-equation">score equation</a>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-score-equation" class="proof solution">
-<p><span class="proof-title"><em>Solution 33</em>. </span><span class="math display">\[\ell'({\lambda}; \tilde{x}) = 0\]</span></p>
+<p><span class="proof-title"><em>Solution 33</em>. </span><span class="math display">\[\ell'({\lambda}; \underset{\sim}{x}) = 0\]</span></p>
 </div>
 </section><section class="slide level2"><h3 data-number="2.5" id="finding-the-mle-analytically">
 <span class="header-section-number">2.5</span> Finding the MLE analytically</h3>
@@ -2154,12 +2167,12 @@ n{\lambda}&amp;= n \bar x
 <p>Call this solution of the score equation <span class="math inline">\(\tilde {\lambda}\)</span> for now:</p>
 <p><span class="math display">\[\tilde {\lambda}\stackrel{\text{def}}{=}\bar x\]</span></p>
 </section><section class="slide level2"><div id="exr-check-hessian" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 35 (Checking the second derivative)</strong></span> Confirm that the Hessian <span class="math inline">\(\ell''({\lambda}; \tilde{x})\)</span> is negative when evaluated at <span class="math inline">\(\tilde {\lambda}\)</span>, using <a href="#/exr-hessian" class="quarto-xref">Exercise&nbsp;31</a>.</p>
+<p><span class="theorem-title"><strong>Exercise 35 (Checking the second derivative)</strong></span> Confirm that the Hessian <span class="math inline">\(\ell''({\lambda}; \underset{\sim}{x})\)</span> is negative when evaluated at <span class="math inline">\(\tilde {\lambda}\)</span>, using <a href="#/exr-hessian" class="quarto-xref">Exercise&nbsp;31</a>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-check-hessian" class="proof solution">
 <p><span class="proof-title"><em>Solution 35</em>. </span><span class="math display">\[
 \begin{aligned}
-\ell''(\tilde{\lambda}; \tilde{x})
+\ell''(\tilde{\lambda}; \underset{\sim}{x})
 &amp;= -\frac{n \bar x}{\tilde{\lambda}^2}
 &amp;&amp; \text{(Hessian of the log-likelihood)}\\
 &amp;= -\frac{n \bar x}{\bar x^2}
@@ -2175,7 +2188,7 @@ n{\lambda}&amp;= n \bar x
 <p><span class="theorem-title"><strong>Exercise 36 (Identifying the MLE)</strong></span> Draw conclusions about the MLE of <span class="math inline">\({\lambda}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-find-mle" class="proof solution">
-<p><span class="proof-title"><em>Solution 36</em>. </span>Since <span class="math inline">\(\ell''(\tilde {\lambda}; \tilde{x}) &lt; 0\)</span>, <span class="math inline">\(\tilde {\lambda}\)</span> is a local maximizer of the log-likelihood. Moreover, <span class="math inline">\(\ell''({\lambda}; \tilde{x}) = -n\bar x/{\lambda}^2 &lt; 0\)</span> for every <span class="math inline">\({\lambda}&gt; 0\)</span>, so the log-likelihood is strictly concave, and a local maximizer of a strictly concave function is its unique global maximizer. So <span class="math inline">\(\tilde {\lambda}\)</span> maximizes <span class="math inline">\(\ell\)</span>, and therefore <span class="math inline">\(\mathcal{L}\)</span>:</p>
+<p><span class="proof-title"><em>Solution 36</em>. </span>Since <span class="math inline">\(\ell''(\tilde {\lambda}; \underset{\sim}{x}) &lt; 0\)</span>, <span class="math inline">\(\tilde {\lambda}\)</span> is a local maximizer of the log-likelihood. Moreover, <span class="math inline">\(\ell''({\lambda}; \underset{\sim}{x}) = -n\bar x/{\lambda}^2 &lt; 0\)</span> for every <span class="math inline">\({\lambda}&gt; 0\)</span>, so the log-likelihood is strictly concave, and a local maximizer of a strictly concave function is its unique global maximizer. So <span class="math inline">\(\tilde {\lambda}\)</span> maximizes <span class="math inline">\(\ell\)</span>, and therefore <span class="math inline">\(\mathcal{L}\)</span>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>mle <span class="ot">&lt;-</span> <span class="fu">mean</span>(cyclones<span class="sc">$</span>number)</span>
 <span id="cb11-2"><a aria-label="2"></a>mle</span>
@@ -2213,7 +2226,7 @@ Figure&nbsp;7: Log-likelihood of the cyclone data, with the MLE marked in red
 </figure>
 </div>
 </div>
-</section><section class="slide level2"><p><a href="#/fig-obs-inf-matrix" class="quarto-xref">Figure&nbsp;8</a> graphs the <a href="./intro-MLEs.html#def-oinf">observed information</a>, <span class="math inline">\(I({\lambda}; \tilde{x}) = -\ell''({\lambda}; \tilde{x})\)</span>.</p>
+</section><section class="slide level2"><p><a href="#/fig-obs-inf-matrix" class="quarto-xref">Figure&nbsp;8</a> graphs the <a href="./intro-MLEs.html#def-oinf">observed information</a>, <span class="math inline">\(I({\lambda}; \underset{\sim}{x}) = -\ell''({\lambda}; \underset{\sim}{x})\)</span>.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>obs_inf <span class="ot">&lt;-</span> <span class="cf">function</span>(...) <span class="sc">-</span><span class="fu">hessian</span>(...) <span class="co"># nolint: object_usage_linter.</span></span>
 <span id="cb13-2"><a aria-label="2"></a>ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb13-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">geom_function</span>(<span class="at">fun =</span> obs_inf, <span class="at">n =</span> <span class="dv">1001</span>) <span class="sc">+</span></span>
@@ -2245,8 +2258,8 @@ Figure&nbsp;8: Observed information of the cyclone data
 <p><span class="math display">\[
 \begin{aligned}
 {\widehat{\theta}}^*
-&amp;\leftarrow {\widehat{\theta}}^* - {\mathopen{}\left(\ell''\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^*\right)\mathclose{}\\
-&amp;= {\widehat{\theta}}^* + {\mathopen{}\left(I\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^*\right)\mathclose{}
+&amp;\leftarrow {\widehat{\theta}}^* - {\mathopen{}\left(\ell''\mathopen{}\left(\underset{\sim}{x}; {\widehat{\theta}}^*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\underset{\sim}{x}; {\widehat{\theta}}^*\right)\mathclose{}\\
+&amp;= {\widehat{\theta}}^* + {\mathopen{}\left(I\mathopen{}\left(\underset{\sim}{x}; {\widehat{\theta}}^*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\underset{\sim}{x}; {\widehat{\theta}}^*\right)\mathclose{}
 \end{aligned}
 \]</span></p>
 <p>until the estimate stops changing.</p>
@@ -2275,9 +2288,9 @@ Figure&nbsp;8: Observed information of the cyclone data
 \]</span></p>
 <p>and the solution becomes the next guess.</p>
 </section><section class="slide level2"><div id="def-fisher-scoring" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 18 (Fisher scoring (method of scoring))</strong></span> <strong>Fisher scoring</strong> (also called the <strong>method of scoring</strong>) is the <a href="#/def-newton-raphson">Newton-Raphson algorithm</a> with the observed information <span class="math inline">\(I(\tilde{x}; {\widehat{\theta}}^*)\)</span> in the update replaced by the <a href="#/def-einf">expected information</a> <span class="math inline">\(\mathcal{I}({\widehat{\theta}}^*)\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 18 (Fisher scoring (method of scoring))</strong></span> <strong>Fisher scoring</strong> (also called the <strong>method of scoring</strong>) is the <a href="#/def-newton-raphson">Newton-Raphson algorithm</a> with the observed information <span class="math inline">\(I(\underset{\sim}{x}; {\widehat{\theta}}^*)\)</span> in the update replaced by the <a href="#/def-einf">expected information</a> <span class="math inline">\(\mathcal{I}({\widehat{\theta}}^*)\)</span>:</p>
 <p><span class="math display">\[
-{\widehat{\theta}}^* \leftarrow {\widehat{\theta}}^* + {\mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\tilde{x}; {\widehat{\theta}}^*\right)\mathclose{}
+{\widehat{\theta}}^* \leftarrow {\widehat{\theta}}^* + {\mathopen{}\left(\mathcal{I}\mathopen{}\left({\widehat{\theta}}^*\right)\mathclose{}\right)\mathclose{}}^{-1} \ell'\mathopen{}\left(\underset{\sim}{x}; {\widehat{\theta}}^*\right)\mathclose{}
 \]</span></p>
 </div>
 <p>The expected information is sometimes simpler to compute than the observed information.</p>
@@ -2299,13 +2312,13 @@ Figure&nbsp;8: Observed information of the cyclone data
 </section><section class="slide level2"><div id="def-empirical-information" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 19 (Empirical information matrix)</strong></span> For mutually independent observations, the <strong>empirical information matrix</strong> is <span class="citation" data-cites="mclachlan2007em">(<a href="#/references" role="doc-biblioref" onclick="">McLachlan and Krishnan 2007</a>)</span>:</p>
 <p><span class="math display">\[
-I_e(\theta; \tilde{x}) \stackrel{\text{def}}{=}
+I_e(\theta; \underset{\sim}{x}) \stackrel{\text{def}}{=}
 \sum_{i=1}^n\ell'_i {\ell'_i}^{\top}
 - \frac{1}{n} \ell'{\ell'}^{\top}
 \]</span></p>
 <p>where <span class="math inline">\(\ell'_i\)</span> is the score of the <span class="math inline">\(i\)</span>th observation’s log-likelihood, and <span class="math inline">\(\ell'= \sum_{i=1}^n\ell'_i\)</span>.</p>
 </div>
-<p>For <span class="math inline">\(\operatorname{iid}\)</span> data, <span class="math inline">\(\frac{1}{n}I_e(\theta; \tilde{x})\)</span> is the sample covariance matrix (with divisor <span class="math inline">\(n\)</span>) of the observations’ scores, so it estimates the covariance matrix of one observation’s score, <span class="math inline">\(\mathcal{I}(\theta)/n\)</span> (<a href="#/thm-information-equality" class="quarto-xref">Theorem&nbsp;16</a>). The empirical information needs only first derivatives, so it can be easier to compute than the observed information, and it can replace the observed information in the Newton-Raphson update.</p>
+<p>For <span class="math inline">\(\operatorname{iid}\)</span> data, <span class="math inline">\(\frac{1}{n}I_e(\theta; \underset{\sim}{x})\)</span> is the sample covariance matrix (with divisor <span class="math inline">\(n\)</span>) of the observations’ scores, so it estimates the covariance matrix of one observation’s score, <span class="math inline">\(\mathcal{I}(\theta)/n\)</span> (<a href="#/thm-information-equality" class="quarto-xref">Theorem&nbsp;16</a>). The empirical information needs only first derivatives, so it can be easier to compute than the observed information, and it can replace the observed information in the Newton-Raphson update.</p>
 </section><section class="slide level2"><h4 id="applying-newton-raphson-to-the-cyclone-data">Applying Newton-Raphson to the cyclone data</h4>
 <div id="exm-dobson-cyclones-Newton" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12 (Finding the MLE using the Newton-Raphson algorithm)</strong></span> We found the MLE <span class="math inline">\(\hat{{\lambda}}= \bar{x}\)</span> by solving the score equation <span class="math inline">\(\ell'({\lambda}) = 0\)</span> algebraically (<a href="#/exr-solve-score-equation" class="quarto-xref">Exercise&nbsp;34</a>). If we could not have solved it, we could instead start from an initial guess such as <span class="math inline">\({\widehat{\lambda}}^*= 3\)</span> and apply the <a href="#/sec-newton-raphson">Newton-Raphson algorithm</a>.</p>
@@ -2318,8 +2331,8 @@ I_e(\theta; \tilde{x}) \stackrel{\text{def}}{=}
 </section><section class="slide level2"><p>From <a href="#/exr-cyclone-score-fn" class="quarto-xref">Exercise&nbsp;29</a> and <a href="#/exr-hessian" class="quarto-xref">Exercise&nbsp;31</a>, the score function and Hessian are:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell'({\lambda}; \tilde{x}) &amp;= \frac{72}{{\lambda}} - 13\\
-\ell''({\lambda}; \tilde{x}) &amp;= -\frac{72}{{\lambda}^2}
+\ell'({\lambda}; \underset{\sim}{x}) &amp;= \frac{72}{{\lambda}} - 13\\
+\ell''({\lambda}; \underset{\sim}{x}) &amp;= -\frac{72}{{\lambda}^2}
 \end{aligned}
 \]</span></p>
 <p>So the first-order Taylor approximation of the score function around <span class="math inline">\({\widehat{\lambda}}^*\)</span> is:</p>
@@ -2663,7 +2676,7 @@ Figure&nbsp;13: Newton-Raphson steps toward the MLE of the Poisson model (<a hre
 </div>
 </section><section id="sec-gaussian-mle" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Maximum likelihood for univariate Gaussian models</h2>
-<p>Suppose <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\)</span>, and let <span class="math inline">\(x_1, \ldots, x_n\)</span> be the observed values. The parameter vector is <span class="math inline">\(\tilde{\theta}= (\mu, \sigma^2)\)</span>. We treat <span class="math inline">\(\sigma^2\)</span>, rather than <span class="math inline">\(\sigma\)</span>, as the second parameter, and differentiate with respect to <span class="math inline">\(\sigma^2\)</span> directly.</p>
+<p>Suppose <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\)</span>, and let <span class="math inline">\(x_1, \ldots, x_n\)</span> be the observed values. The parameter vector is <span class="math inline">\(\underset{\sim}{\theta}= (\mu, \sigma^2)\)</span>. We treat <span class="math inline">\(\sigma^2\)</span>, rather than <span class="math inline">\(\sigma\)</span>, as the second parameter, and differentiate with respect to <span class="math inline">\(\sigma^2\)</span> directly.</p>
 <p>By <a href="#/thm-lik-iid" class="quarto-xref">Theorem&nbsp;1</a>, the likelihood is:</p>
 <p><span class="math display">\[
 \mathcal{L}(\mu, \sigma^2) = \prod_{i=1}^n(2\pi\sigma^2)^{-1/2}
@@ -3277,8 +3290,8 @@ Figure&nbsp;18: Log-likelihood of the HERS glucose data as a function of <span c
 </figcaption><div aria-describedby="fig-3d-llik-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-13f5a552a185626d716d" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-13f5a552a185626d716d">{"x":{"visdat":{"399546273f63":["function () ","plotlyVisDat"]},"cur_data":"399546273f63","attrs":{"399546273f63":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"mu"},"yaxis":{"title":"sigma"},"zaxis":{"title":"log-likelihood"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"t(lliks)","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.041666666666667","rgba(70,19,97,1)"],["0.0833333333333339","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.249999999999999","rgba(60,82,138,1)"],["0.291666666666666","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333334","rgba(79,191,110,1)"],["0.750000000000001","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666666","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[94,94.416666666666671,94.833333333333329,95.25,95.666666666666671,96.083333333333329,96.5,96.916666666666671,97.333333333333329,97.75,98.166666666666671,98.583333333333329,99,99.416666666666671,99.833333333333329,100.25,100.66666666666667,101.08333333333333,101.5,101.91666666666667,102.33333333333333,102.75,103.16666666666667,103.58333333333333,104],"y":[7,7.333333333333333,7.666666666666667,8,8.3333333333333339,8.6666666666666661,9,9.3333333333333321,9.6666666666666661,10,10.333333333333332,10.666666666666666,11,11.333333333333332,11.666666666666666,12,12.333333333333332,12.666666666666666,13,13.333333333333332,13.666666666666666,14,14.333333333333332,14.666666666666666,15],"z":[[-415.52568455252924,-411.74025371352673,-408.30913126454709,-405.23231720559045,-402.50981153665555,-400.14161425774478,-398.12772536885575,-396.46814486998971,-395.16287276114656,-394.21190904232515,-393.61525371352673,-393.37290677475119,-393.48486822599864,-393.95113806726783,-394.7717162985611,-395.94660291987617,-397.47579793121417,-399.35930133257511,-401.5971131239578,-404.18923330536347,-407.13566187679203,-410.43639883824352,-414.091444189718,-418.10079793121298,-422.46446006273334],[-408.71331607047961,-405.26419416965291,-402.13790284733886,-399.33444210353747,-396.85381193824765,-394.6960123514715,-392.86104334320692,-391.34890491345493,-390.15959706221565,-389.29311978948789,-388.74947309527278,-388.52865697957031,-388.63067144238045,-389.05551648370215,-389.80319210353758,-390.87369830188459,-392.26703507874424,-393.98320243411649,-396.02220036800031,-398.38402888039673,-401.06868797130585,-404.07617764072756,-407.40649788866193,-411.05964871510673,-415.0356301200664],[-403.15671523371685,-400.00099689723271,-397.14064718078657,-394.57566608437844,-392.3060536080074,-390.33180975167534,-388.65293451538037,-387.2694278991234,-386.18128990290444,-385.38852052672252,-384.8911197705786,-384.6890876344728,-384.78242411840495,-385.17112922237413,-385.85520294638235,-386.8346452904276,-388.10945625451092,-389.67963583863224,-391.54518404279054,-393.70610086698696,-396.16238631122133,-398.91404037549376,-401.96106305980425,-405.30345436415075,-408.94121428853725],[-398.6348824884509,-395.73666200233959,-393.10970887733959,-390.7540231134509,-388.66960471067262,-386.85645366900656,-385.3145699884509,-384.04395366900656,-383.04460471067353,-382.3165231134509,-381.85970887733959,-381.67416200233959,-381.7598824884509,-382.11687033567262,-382.74512554400656,-383.6446481134509,-384.81543804400656,-386.25749533567353,-387.9708199884509,-389.95541200233959,-392.21127137733959,-394.7383981134509,-397.53679221067353,-400.60645366900565,-403.9473824884509],[-394.97140694047636,-392.30040694047614,-389.87940694047614,-387.70840694047638,-385.78740694047588,-384.11640694047645,-382.69540694047635,-381.52440694047641,-380.6034069404767,-379.93240694047637,-379.51140694047615,-379.34040694047616,-379.41940694047634,-379.74840694047589,-380.32740694047646,-381.15640694047636,-382.23540694047642,-383.56440694047672,-385.14340694047632,-386.97240694047616,-389.05140694047617,-391.38040694047635,-393.9594069404767,-396.78840694047562,-399.86740694047637],[-392.02423091852643,-389.55474127355581,-387.31639068183983,-385.30917914337846,-383.53310665817094,-381.98817322621881,-380.67437884752047,-379.59172352207679,-378.7402072498877,-378.11983003095247,-377.73059186527178,-377.57249275284573,-377.64553269367434,-377.94971168775675,-378.48502973509454,-379.25148683568614,-380.24908298953244,-381.47781819663328,-382.93769245698797,-384.62870577059721,-386.55085813746115,-388.70414955757968,-391.08858003095281,-393.70414955757894,-396.55085813746132],[-389.67803944915096,-387.38808746012472,-385.31247017617409,-383.45118759729911,-381.80423972349899,-380.37162655477516,-379.1533480911263,-378.14940433255299,-377.35979527905528,-376.78452093063243,-376.42358128728523,-376.27697634901364,-376.34470611581764,-376.62677058769651,-377.12316976465172,-377.83390364668185,-378.75897223378752,-379.89837552596885,-381.25211352322503,-382.82018622555682,-384.60259363296427,-386.59933574544726,-388.81041256300591,-391.23582408563868,-393.87557031334848],[-387.83853465485021,-385.7092298079113,-383.77922343036028,-382.04851552219714,-380.51710608342125,-379.18499511403394,-378.05218261403388,-377.11866858342171,-376.38445302219742,-375.84953593036039,-375.5139173079113,-375.37759715485004,-375.44057547117671,-375.70285225689065,-376.16442751199315,-376.82530123648286,-377.6854734303605,-378.74494409362603,-380.00371322627876,-381.46178082831943,-383.11914689974799,-384.97581144056448,-387.03177445076886,-389.28703593035982,-391.74159587934003],[-386.42808141187567,-384.44309330248194,-382.64389591841535,-381.0304892596759,-379.60287332626297,-378.36104811817773,-377.30501363541907,-376.43476987798749,-375.75031684588305,-375.25165453910512,-374.93878295765433,-374.81170210153067,-374.87041197073415,-375.11491256526415,-375.54520388512185,-376.16128593030606,-376.96315870081747,-377.95082219665596,-379.12427641782097,-380.48352136431311,-382.02855703613233,-383.75938343327874,-385.67600055575224,-387.77840840355168,-390.06660697667945],[-385.38236261987186,-383.52750150876062,-381.84625150876059,-380.33861261987181,-379.00458484209372,-377.84416817542746,-376.85736261987182,-376.04416817542744,-375.40458484209432,-374.93861261987183,-374.6462515087606,-374.52750150876062,-374.58236261987184,-374.81083484209375,-375.21291817542749,-375.78861261987186,-376.53791817542748,-377.4608348420943,-378.55736261987181,-379.82750150876058,-381.2712515087606,-382.88861261987182,-384.6795848420943,-386.6441681754269,-388.78236261987183],[-384.64778610924691,-382.91066332048513,-381.33613158271197,-379.9241908959275,-378.67484126013113,-377.58808267532402,-376.66391514150502,-375.90233865867469,-375.303353226833,-374.86695884597952,-374.59315551611468,-374.48194323723851,-374.53332200935097,-374.74729183245165,-375.12385270654147,-375.66300463161946,-376.36474760768613,-377.22908163474148,-378.25600671278494,-379.44552284181702,-380.79763002183785,-382.31232825284735,-383.98961753484554,-385.82949786783126,-387.83196925180675],[-384.17945692112897,-382.54920789769136,-381.07154676487886,-379.74647352269147,-378.57398817112869,-377.55409071019153,-376.68678113987897,-375.97205946019153,-375.4099256711292,-375.00037977269147,-374.74342176487886,-374.63905164769136,-374.68726942112897,-374.88807508519119,-375.24146863987903,-375.74745008519147,-376.40601942112903,-377.2171766476917,-378.18092176487897,-379.29725477269136,-380.56617567112886,-381.98768446019147,-383.5617811398792,-385.28846571019102,-387.16773817112897],[-383.9395789474118,-382.40663588037773,-381.01717307046033,-379.77119051765976,-378.66868822197534,-377.70966618340816,-376.89412440195724,-376.22206287762305,-375.69348161040557,-375.30838060030436,-375.06675984731987,-374.96861935145211,-375.01395911270106,-375.20277913106628,-375.53507940654868,-376.01085993914734,-376.63012072886272,-377.39286177569483,-378.2990830796432,-379.34878464070829,-380.5419664588901,-381.87862853418864,-383.35877086660395,-384.98239345613496,-386.74949630278371],[-383.89618556579148,-382.45208954503016,-381.14315788413046,-379.96939058309249,-378.9307876419158,-378.02734906060124,-377.2590748391479,-376.62596497755624,-376.12801947582631,-375.76523833395754,-375.53762155195056,-375.44516912980521,-375.48788106752158,-375.66575736509918,-375.97879802253897,-376.42700303983992,-377.0103724170026,-377.72890615402696,-378.5826042509126,-379.57146670765991,-380.6954935242689,-381.95468470073956,-383.34904023707196,-384.87856013326513,-386.54324438932088],[-384.0221244801487,-382.65936937810778,-381.42416529647511,-380.31651223525074,-379.33641019443417,-378.48385917402629,-377.75885917402621,-377.16141019443444,-376.69151223525091,-376.34916529647523,-376.13436937810775,-376.04712448014857,-376.08743060259769,-376.25528774545455,-376.55069590872017,-376.97365509239359,-377.52416529647525,-378.20222652096521,-379.00783876586297,-379.94100203116898,-381.00171631688329,-382.18998162300585,-383.5057979495366,-384.9491652964748,-386.52008366382216],[-384.29424052148954,-383.00614252766229,-381.83860780544006,-380.79163635482286,-379.86522817581027,-379.05938326840317,-378.37410163260063,-377.80938326840317,-377.36522817581067,-377.04163635482286,-376.83860780544006,-376.75614252766229,-376.79424052148954,-376.95290178692142,-377.23212632395871,-377.63191413260063,-378.15226521284762,-378.79317956469959,-379.55465718815617,-380.43669808321783,-381.43930224988452,-382.56246968815617,-383.8062003980329,-385.17049437951385,-386.65535163260063],[-384.69271374583627,-383.47330176628907,-382.36802419141685,-381.37688102121973,-380.49987225569726,-379.73699789485016,-379.08825793867771,-378.55365238718031,-378.13318124035794,-377.82684449821022,-377.63464216073754,-377.5565742279399,-377.59264069981725,-377.74284157636924,-378.00717685759668,-378.38564654349875,-378.87825063407587,-379.48498912932803,-380.20586202925477,-381.04086933385662,-381.99001104313345,-383.05328715708532,-384.23069767571224,-385.5222425990134,-386.92792192699039],[-385.20052020468819,-384.04444333488203,-382.99657283626709,-382.05690870884331,-381.22545095261046,-380.50219956756911,-379.88715455371869,-379.38031591105943,-378.98168363959144,-378.69125773931421,-378.50903821022831,-378.43502505233357,-378.46921826563005,-378.61161785011734,-378.86222380579625,-379.22103613266603,-379.68805483072703,-380.26327989997924,-380.94671134042227,-381.73834915205657,-382.63819333488203,-383.64624388889871,-384.76250081410666,-385.98696411050503,-387.31963377809541],[-385.80299025005286,-384.70543929673261,-383.71061681152548,-382.81852279443154,-382.02915724545045,-381.34252016458282,-380.75861155182804,-380.27743140718638,-379.89897973065786,-379.62325652224223,-379.45026178193973,-379.37999550975036,-379.41245770567417,-379.54764836971077,-379.78556750186095,-380.12621510212387,-380.56959117049996,-381.11569570698924,-381.76452871159131,-382.51609018430656,-383.37038012513494,-384.32739853407656,-385.38714541113126,-386.54962075629845,-387.81482456957951],[-386.48744486504995,-385.44408549004987,-384.49838236504985,-383.65033549004994,-382.89994486504975,-382.24721049004995,-381.69213236504993,-381.23471049004996,-380.87494486505005,-380.61283549004992,-380.44838236504984,-380.38158549004987,-380.41244486504991,-380.54096049004971,-380.76713236504997,-381.09096049004989,-381.51244486504993,-382.03158549005008,-382.64838236504994,-383.36283549004986,-384.17494486504984,-385.08471049004993,-386.09213236505008,-387.19721049004966,-388.39994486504992],[-387.2428947766748,-386.24981030314706,-385.34967645424757,-384.5424932299764,-383.82826063033315,-383.20697865531849,-382.67864730493176,-382.24326657917334,-381.90083647804317,-381.65135700154093,-381.494828149667,-381.43124992242127,-381.46062231980386,-381.58294534181442,-381.79821898845353,-382.10644325972061,-382.50761815561594,-383.00174367613954,-383.58881982129105,-384.26884659107088,-385.04182398547903,-385.90775200451537,-386.86663064817998,-387.91845991647222,-389.06323980939339],[-388.05979036362578,-387.11343265387512,-386.25565204163024,-385.48644852689108,-384.80582210965736,-384.21377278992969,-383.71030056770741,-383.2954054429909,-382.96908741578011,-382.73134648607476,-382.58218265387512,-382.52159591918127,-382.54958628199313,-382.66615374231043,-382.87129830013373,-383.16501995546253,-383.54731870829704,-384.01819455863728,-384.57764750648295,-385.22567755183434,-385.96228469469145,-386.78746893505433,-387.70123027292294,-388.7035687082967,-389.7944842411768],[-388.9298128753652,-388.02695998190922,-387.20861222636569,-386.47476960873462,-385.82543212901567,-385.26059978720946,-384.78027258331542,-384.38445051733385,-384.07313358926473,-383.84632179910778,-383.70401514686324,-383.64621363253116,-383.67291725611153,-383.78412601760408,-383.97983991700937,-384.26005895432678,-384.6247831295567,-385.07401244269903,-385.60774689375353,-386.22598648272049,-386.92873120959985,-387.71598107439172,-388.587736077096,-389.54399621771216,-390.58476149624136],[-389.84569941573039,-388.98341894052368,-388.20184610994517,-387.50098092399486,-386.88082338267236,-386.34137348597835,-385.88263123391221,-385.50459662647421,-385.20726966366436,-384.99065034548244,-384.85473867192866,-384.79953464300303,-384.8250382587056,-384.93124951903599,-385.11816842399486,-385.3857949735816,-385.73412916779654,-386.16317100663957,-386.67292049011053,-387.26337761820963,-387.93454239093694,-388.68641480829234,-389.51899487027595,-390.43228257688713,-391.42627792812709],[-390.80109565291048,-389.97671293686102,-389.22949071463881,-388.5594289862438,-387.96652775167576,-387.45078701093519,-387.01220676402158,-386.65078701093518,-386.36652775167602,-386.15942898624382,-386.02949071463883,-385.97671293686102,-386.00109565291046,-386.10263886278688,-386.28134256649076,-386.53720676402156,-386.87023145537967,-387.28041664056491,-387.76776231957712,-388.33226849241657,-388.97393515908328,-389.69276231957713,-390.48874997389822,-391.36189812204606,-392.3122067640216]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-6e199b581d99fd762da1" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-6e199b581d99fd762da1">{"x":{"visdat":{"38693d63a7d8":["function () ","plotlyVisDat"]},"cur_data":"38693d63a7d8","attrs":{"38693d63a7d8":{"x":{},"y":{},"z":{},"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"surface"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"scene":{"xaxis":{"title":"mu"},"yaxis":{"title":"sigma"},"zaxis":{"title":"log-likelihood"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"t(lliks)","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.041666666666667","rgba(70,19,97,1)"],["0.0833333333333339","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333334","rgba(64,70,135,1)"],["0.249999999999999","rgba(60,82,138,1)"],["0.291666666666666","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666667","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333334","rgba(79,191,110,1)"],["0.750000000000001","rgba(98,199,98,1)"],["0.791666666666666","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666666","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"x":[94,94.416666666666671,94.833333333333329,95.25,95.666666666666671,96.083333333333329,96.5,96.916666666666671,97.333333333333329,97.75,98.166666666666671,98.583333333333329,99,99.416666666666671,99.833333333333329,100.25,100.66666666666667,101.08333333333333,101.5,101.91666666666667,102.33333333333333,102.75,103.16666666666667,103.58333333333333,104],"y":[7,7.333333333333333,7.666666666666667,8,8.3333333333333339,8.6666666666666661,9,9.3333333333333321,9.6666666666666661,10,10.333333333333332,10.666666666666666,11,11.333333333333332,11.666666666666666,12,12.333333333333332,12.666666666666666,13,13.333333333333332,13.666666666666666,14,14.333333333333332,14.666666666666666,15],"z":[[-415.52568455252924,-411.74025371352673,-408.30913126454709,-405.23231720559045,-402.50981153665555,-400.14161425774478,-398.12772536885575,-396.46814486998971,-395.16287276114656,-394.21190904232515,-393.61525371352673,-393.37290677475119,-393.48486822599864,-393.95113806726783,-394.7717162985611,-395.94660291987617,-397.47579793121417,-399.35930133257511,-401.5971131239578,-404.18923330536347,-407.13566187679203,-410.43639883824352,-414.091444189718,-418.10079793121298,-422.46446006273334],[-408.71331607047961,-405.26419416965291,-402.13790284733886,-399.33444210353747,-396.85381193824765,-394.6960123514715,-392.86104334320692,-391.34890491345493,-390.15959706221565,-389.29311978948789,-388.74947309527278,-388.52865697957031,-388.63067144238045,-389.05551648370215,-389.80319210353758,-390.87369830188459,-392.26703507874424,-393.98320243411649,-396.02220036800031,-398.38402888039673,-401.06868797130585,-404.07617764072756,-407.40649788866193,-411.05964871510673,-415.0356301200664],[-403.15671523371685,-400.00099689723271,-397.14064718078657,-394.57566608437844,-392.3060536080074,-390.33180975167534,-388.65293451538037,-387.2694278991234,-386.18128990290444,-385.38852052672252,-384.8911197705786,-384.6890876344728,-384.78242411840495,-385.17112922237413,-385.85520294638235,-386.8346452904276,-388.10945625451092,-389.67963583863224,-391.54518404279054,-393.70610086698696,-396.16238631122133,-398.91404037549376,-401.96106305980425,-405.30345436415075,-408.94121428853725],[-398.6348824884509,-395.73666200233959,-393.10970887733959,-390.7540231134509,-388.66960471067262,-386.85645366900656,-385.3145699884509,-384.04395366900656,-383.04460471067353,-382.3165231134509,-381.85970887733959,-381.67416200233959,-381.7598824884509,-382.11687033567262,-382.74512554400656,-383.6446481134509,-384.81543804400656,-386.25749533567353,-387.9708199884509,-389.95541200233959,-392.21127137733959,-394.7383981134509,-397.53679221067353,-400.60645366900565,-403.9473824884509],[-394.97140694047636,-392.30040694047614,-389.87940694047614,-387.70840694047638,-385.78740694047588,-384.11640694047645,-382.69540694047635,-381.52440694047641,-380.6034069404767,-379.93240694047637,-379.51140694047615,-379.34040694047616,-379.41940694047634,-379.74840694047589,-380.32740694047646,-381.15640694047636,-382.23540694047642,-383.56440694047672,-385.14340694047632,-386.97240694047616,-389.05140694047617,-391.38040694047635,-393.9594069404767,-396.78840694047562,-399.86740694047637],[-392.02423091852643,-389.55474127355581,-387.31639068183983,-385.30917914337846,-383.53310665817094,-381.98817322621881,-380.67437884752047,-379.59172352207679,-378.7402072498877,-378.11983003095247,-377.73059186527178,-377.57249275284573,-377.64553269367434,-377.94971168775675,-378.48502973509454,-379.25148683568614,-380.24908298953244,-381.47781819663328,-382.93769245698797,-384.62870577059721,-386.55085813746115,-388.70414955757968,-391.08858003095281,-393.70414955757894,-396.55085813746132],[-389.67803944915096,-387.38808746012472,-385.31247017617409,-383.45118759729911,-381.80423972349899,-380.37162655477516,-379.1533480911263,-378.14940433255299,-377.35979527905528,-376.78452093063243,-376.42358128728523,-376.27697634901364,-376.34470611581764,-376.62677058769651,-377.12316976465172,-377.83390364668185,-378.75897223378752,-379.89837552596885,-381.25211352322503,-382.82018622555682,-384.60259363296427,-386.59933574544726,-388.81041256300591,-391.23582408563868,-393.87557031334848],[-387.83853465485021,-385.7092298079113,-383.77922343036028,-382.04851552219714,-380.51710608342125,-379.18499511403394,-378.05218261403388,-377.11866858342171,-376.38445302219742,-375.84953593036039,-375.5139173079113,-375.37759715485004,-375.44057547117671,-375.70285225689065,-376.16442751199315,-376.82530123648286,-377.6854734303605,-378.74494409362603,-380.00371322627876,-381.46178082831943,-383.11914689974799,-384.97581144056448,-387.03177445076886,-389.28703593035982,-391.74159587934003],[-386.42808141187567,-384.44309330248194,-382.64389591841535,-381.0304892596759,-379.60287332626297,-378.36104811817773,-377.30501363541907,-376.43476987798749,-375.75031684588305,-375.25165453910512,-374.93878295765433,-374.81170210153067,-374.87041197073415,-375.11491256526415,-375.54520388512185,-376.16128593030606,-376.96315870081747,-377.95082219665596,-379.12427641782097,-380.48352136431311,-382.02855703613233,-383.75938343327874,-385.67600055575224,-387.77840840355168,-390.06660697667945],[-385.38236261987186,-383.52750150876062,-381.84625150876059,-380.33861261987181,-379.00458484209372,-377.84416817542746,-376.85736261987182,-376.04416817542744,-375.40458484209432,-374.93861261987183,-374.6462515087606,-374.52750150876062,-374.58236261987184,-374.81083484209375,-375.21291817542749,-375.78861261987186,-376.53791817542748,-377.4608348420943,-378.55736261987181,-379.82750150876058,-381.2712515087606,-382.88861261987182,-384.6795848420943,-386.6441681754269,-388.78236261987183],[-384.64778610924691,-382.91066332048513,-381.33613158271197,-379.9241908959275,-378.67484126013113,-377.58808267532402,-376.66391514150502,-375.90233865867469,-375.303353226833,-374.86695884597952,-374.59315551611468,-374.48194323723851,-374.53332200935097,-374.74729183245165,-375.12385270654147,-375.66300463161946,-376.36474760768613,-377.22908163474148,-378.25600671278494,-379.44552284181702,-380.79763002183785,-382.31232825284735,-383.98961753484554,-385.82949786783126,-387.83196925180675],[-384.17945692112897,-382.54920789769136,-381.07154676487886,-379.74647352269147,-378.57398817112869,-377.55409071019153,-376.68678113987897,-375.97205946019153,-375.4099256711292,-375.00037977269147,-374.74342176487886,-374.63905164769136,-374.68726942112897,-374.88807508519119,-375.24146863987903,-375.74745008519147,-376.40601942112903,-377.2171766476917,-378.18092176487897,-379.29725477269136,-380.56617567112886,-381.98768446019147,-383.5617811398792,-385.28846571019102,-387.16773817112897],[-383.9395789474118,-382.40663588037773,-381.01717307046033,-379.77119051765976,-378.66868822197534,-377.70966618340816,-376.89412440195724,-376.22206287762305,-375.69348161040557,-375.30838060030436,-375.06675984731987,-374.96861935145211,-375.01395911270106,-375.20277913106628,-375.53507940654868,-376.01085993914734,-376.63012072886272,-377.39286177569483,-378.2990830796432,-379.34878464070829,-380.5419664588901,-381.87862853418864,-383.35877086660395,-384.98239345613496,-386.74949630278371],[-383.89618556579148,-382.45208954503016,-381.14315788413046,-379.96939058309249,-378.9307876419158,-378.02734906060124,-377.2590748391479,-376.62596497755624,-376.12801947582631,-375.76523833395754,-375.53762155195056,-375.44516912980521,-375.48788106752158,-375.66575736509918,-375.97879802253897,-376.42700303983992,-377.0103724170026,-377.72890615402696,-378.5826042509126,-379.57146670765991,-380.6954935242689,-381.95468470073956,-383.34904023707196,-384.87856013326513,-386.54324438932088],[-384.0221244801487,-382.65936937810778,-381.42416529647511,-380.31651223525074,-379.33641019443417,-378.48385917402629,-377.75885917402621,-377.16141019443444,-376.69151223525091,-376.34916529647523,-376.13436937810775,-376.04712448014857,-376.08743060259769,-376.25528774545455,-376.55069590872017,-376.97365509239359,-377.52416529647525,-378.20222652096521,-379.00783876586297,-379.94100203116898,-381.00171631688329,-382.18998162300585,-383.5057979495366,-384.9491652964748,-386.52008366382216],[-384.29424052148954,-383.00614252766229,-381.83860780544006,-380.79163635482286,-379.86522817581027,-379.05938326840317,-378.37410163260063,-377.80938326840317,-377.36522817581067,-377.04163635482286,-376.83860780544006,-376.75614252766229,-376.79424052148954,-376.95290178692142,-377.23212632395871,-377.63191413260063,-378.15226521284762,-378.79317956469959,-379.55465718815617,-380.43669808321783,-381.43930224988452,-382.56246968815617,-383.8062003980329,-385.17049437951385,-386.65535163260063],[-384.69271374583627,-383.47330176628907,-382.36802419141685,-381.37688102121973,-380.49987225569726,-379.73699789485016,-379.08825793867771,-378.55365238718031,-378.13318124035794,-377.82684449821022,-377.63464216073754,-377.5565742279399,-377.59264069981725,-377.74284157636924,-378.00717685759668,-378.38564654349875,-378.87825063407587,-379.48498912932803,-380.20586202925477,-381.04086933385662,-381.99001104313345,-383.05328715708532,-384.23069767571224,-385.5222425990134,-386.92792192699039],[-385.20052020468819,-384.04444333488203,-382.99657283626709,-382.05690870884331,-381.22545095261046,-380.50219956756911,-379.88715455371869,-379.38031591105943,-378.98168363959144,-378.69125773931421,-378.50903821022831,-378.43502505233357,-378.46921826563005,-378.61161785011734,-378.86222380579625,-379.22103613266603,-379.68805483072703,-380.26327989997924,-380.94671134042227,-381.73834915205657,-382.63819333488203,-383.64624388889871,-384.76250081410666,-385.98696411050503,-387.31963377809541],[-385.80299025005286,-384.70543929673261,-383.71061681152548,-382.81852279443154,-382.02915724545045,-381.34252016458282,-380.75861155182804,-380.27743140718638,-379.89897973065786,-379.62325652224223,-379.45026178193973,-379.37999550975036,-379.41245770567417,-379.54764836971077,-379.78556750186095,-380.12621510212387,-380.56959117049996,-381.11569570698924,-381.76452871159131,-382.51609018430656,-383.37038012513494,-384.32739853407656,-385.38714541113126,-386.54962075629845,-387.81482456957951],[-386.48744486504995,-385.44408549004987,-384.49838236504985,-383.65033549004994,-382.89994486504975,-382.24721049004995,-381.69213236504993,-381.23471049004996,-380.87494486505005,-380.61283549004992,-380.44838236504984,-380.38158549004987,-380.41244486504991,-380.54096049004971,-380.76713236504997,-381.09096049004989,-381.51244486504993,-382.03158549005008,-382.64838236504994,-383.36283549004986,-384.17494486504984,-385.08471049004993,-386.09213236505008,-387.19721049004966,-388.39994486504992],[-387.2428947766748,-386.24981030314706,-385.34967645424757,-384.5424932299764,-383.82826063033315,-383.20697865531849,-382.67864730493176,-382.24326657917334,-381.90083647804317,-381.65135700154093,-381.494828149667,-381.43124992242127,-381.46062231980386,-381.58294534181442,-381.79821898845353,-382.10644325972061,-382.50761815561594,-383.00174367613954,-383.58881982129105,-384.26884659107088,-385.04182398547903,-385.90775200451537,-386.86663064817998,-387.91845991647222,-389.06323980939339],[-388.05979036362578,-387.11343265387512,-386.25565204163024,-385.48644852689108,-384.80582210965736,-384.21377278992969,-383.71030056770741,-383.2954054429909,-382.96908741578011,-382.73134648607476,-382.58218265387512,-382.52159591918127,-382.54958628199313,-382.66615374231043,-382.87129830013373,-383.16501995546253,-383.54731870829704,-384.01819455863728,-384.57764750648295,-385.22567755183434,-385.96228469469145,-386.78746893505433,-387.70123027292294,-388.7035687082967,-389.7944842411768],[-388.9298128753652,-388.02695998190922,-387.20861222636569,-386.47476960873462,-385.82543212901567,-385.26059978720946,-384.78027258331542,-384.38445051733385,-384.07313358926473,-383.84632179910778,-383.70401514686324,-383.64621363253116,-383.67291725611153,-383.78412601760408,-383.97983991700937,-384.26005895432678,-384.6247831295567,-385.07401244269903,-385.60774689375353,-386.22598648272049,-386.92873120959985,-387.71598107439172,-388.587736077096,-389.54399621771216,-390.58476149624136],[-389.84569941573039,-388.98341894052368,-388.20184610994517,-387.50098092399486,-386.88082338267236,-386.34137348597835,-385.88263123391221,-385.50459662647421,-385.20726966366436,-384.99065034548244,-384.85473867192866,-384.79953464300303,-384.8250382587056,-384.93124951903599,-385.11816842399486,-385.3857949735816,-385.73412916779654,-386.16317100663957,-386.67292049011053,-387.26337761820963,-387.93454239093694,-388.68641480829234,-389.51899487027595,-390.43228257688713,-391.42627792812709],[-390.80109565291048,-389.97671293686102,-389.22949071463881,-388.5594289862438,-387.96652775167576,-387.45078701093519,-387.01220676402158,-386.65078701093518,-386.36652775167602,-386.15942898624382,-386.02949071463883,-385.97671293686102,-386.00109565291046,-386.10263886278688,-386.28134256649076,-386.53720676402156,-386.87023145537967,-387.28041664056491,-387.76776231957712,-388.33226849241657,-388.97393515908328,-389.69276231957713,-390.48874997389822,-391.36189812204606,-392.3122067640216]],"type":"surface","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -3673,15 +3686,15 @@ y &amp;= n\pi
 </div>
 </section><section class="slide level2"><div id="exr-prac-gauss-iid-lik" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 39 (Gaussian log-likelihood (adapted from <span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)\)</span>.</p>
-<p><strong>(a)</strong> Write the likelihood <span class="math inline">\(\mathcal{L}(\mu, \sigma^2; \tilde{x})\)</span> for the observed data <span class="math inline">\(\tilde{x}= (x_1, \ldots, x_n)\)</span>.</p>
-<p><strong>(b)</strong> Write the log-likelihood <span class="math inline">\(\ell(\mu, \sigma^2; \tilde{x})\)</span> in simplified form, as the sum of a term that depends on the data only through <span class="math inline">\(n\)</span> and a term that depends on the data only through <span class="math inline">\(\sum_{i=1}^n(x_i - \mu)^2\)</span>.</p>
+<p><strong>(a)</strong> Write the likelihood <span class="math inline">\(\mathcal{L}(\mu, \sigma^2; \underset{\sim}{x})\)</span> for the observed data <span class="math inline">\(\underset{\sim}{x}= (x_1, \ldots, x_n)\)</span>.</p>
+<p><strong>(b)</strong> Write the log-likelihood <span class="math inline">\(\ell(\mu, \sigma^2; \underset{\sim}{x})\)</span> in simplified form, as the sum of a term that depends on the data only through <span class="math inline">\(n\)</span> and a term that depends on the data only through <span class="math inline">\(\sum_{i=1}^n(x_i - \mu)^2\)</span>.</p>
 <p><strong>(c)</strong> Derive the MLE <span class="math inline">\(\hat{\mu}_{ML}\)</span> and <span class="math inline">\(\hat{\sigma}^2_{ML}\)</span>.</p>
 </div>
 <div id="sol-prac-gauss-iid-lik" class="proof solution">
 <p><span class="proof-title"><em>Solution 39</em>. </span><strong>(a)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
-\mathcal{L}(\mu, \sigma^2; \tilde{x})
+\mathcal{L}(\mu, \sigma^2; \underset{\sim}{x})
 &amp;= \prod_{i=1}^n(2\pi\sigma^2)^{-1/2}
   \operatorname{exp}\mathopen{}\left\{-\frac{(x_i - \mu)^2}{2\sigma^2}\right\}\mathclose{}
 &amp;&amp; \text{(likelihood of an $\operatorname{iid}$ sample)}
@@ -3706,8 +3719,8 @@ y &amp;= n\pi
 <p><strong>(b)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell(\mu, \sigma^2; \tilde{x})
-&amp;= \operatorname{log}\mathopen{}\left\{\mathcal{L}(\mu, \sigma^2; \tilde{x})\right\}\mathclose{}
+\ell(\mu, \sigma^2; \underset{\sim}{x})
+&amp;= \operatorname{log}\mathopen{}\left\{\mathcal{L}(\mu, \sigma^2; \underset{\sim}{x})\right\}\mathclose{}
 &amp;&amp; \text{(definition of the log-likelihood)}
 \\
 &amp;= \operatorname{log}\mathopen{}\left\{(2\pi\sigma^2)^{-n/2}
@@ -3891,8 +3904,8 @@ n\sigma^2
 </div>
 </section><section class="slide level2"><div id="exr-prac-score-zero" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 40 (Score at the MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
-<p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell({\lambda}; \tilde{x})\)</span>.</p>
-<p><strong>(b)</strong> Derive the score function <span class="math inline">\(\ell'({\lambda}; \tilde{x})\)</span>.</p>
+<p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell({\lambda}; \underset{\sim}{x})\)</span>.</p>
+<p><strong>(b)</strong> Derive the score function <span class="math inline">\(\ell'({\lambda}; \underset{\sim}{x})\)</span>.</p>
 <p><strong>(c)</strong> Find the MLE <span class="math inline">\(\hat{\lambda}_{ML}\)</span>, and evaluate the score at the MLE.</p>
 <p><strong>(d)</strong> Provide an intuitive interpretation of the value of the score at <span class="math inline">\(\hat{\lambda}_{ML}\)</span>.</p>
 </div>
@@ -3900,7 +3913,7 @@ n\sigma^2
 <p><span class="proof-title"><em>Solution 40</em>. </span><strong>(a)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell({\lambda}; \tilde{x})
+\ell({\lambda}; \underset{\sim}{x})
 &amp;= \operatorname{log}\mathopen{}\left\{\prod_{i=1}^n\frac{{\lambda}^{x_i} e^{-{\lambda}}}{x_i!}\right\}\mathclose{}
 &amp;&amp; \text{(log of the likelihood of an $\operatorname{iid}$ sample)}
 \\
@@ -3932,7 +3945,7 @@ n\sigma^2
 <p><strong>(b)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell'({\lambda}; \tilde{x})
+\ell'({\lambda}; \underset{\sim}{x})
 &amp;= \frac{\partial}{\partial {\lambda}}\mathopen{}\left[\mathopen{}\left(\sum_{i=1}^nx_i\right)\mathclose{}\operatorname{log}\mathopen{}\left\{{\lambda}\right\}\mathclose{} - n{\lambda}- \sum_{i=1}^n\operatorname{log}\mathopen{}\left\{x_i!\right\}\mathclose{}\right]\mathclose{}
 &amp;&amp; \text{(log-likelihood from (a))}
 \\
@@ -3963,7 +3976,7 @@ n\sigma^2
 \end{aligned}
 \]</span></p>
 <p><strong>(c)</strong></p>
-<p>The MLE solves <span class="math inline">\(\ell'({\lambda}; \tilde{x}) = 0\)</span>, so evaluating the score there afterwards is a check on the algebra. Setting <span class="math inline">\(\ell'({\lambda}; \tilde{x}) = 0\)</span>:</p>
+<p>The MLE solves <span class="math inline">\(\ell'({\lambda}; \underset{\sim}{x}) = 0\)</span>, so evaluating the score there afterwards is a check on the algebra. Setting <span class="math inline">\(\ell'({\lambda}; \underset{\sim}{x}) = 0\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 0 &amp;= \frac{n\bar{x}}{{\lambda}} - n
@@ -3982,7 +3995,7 @@ n\bar{x} &amp;= n{\lambda}
 <p>If <span class="math inline">\(\bar{x} &gt; 0\)</span> (equivalently, at least one <span class="math inline">\(x_i &gt; 0\)</span>), then</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell'(\bar{x}; \tilde{x})
+\ell'(\bar{x}; \underset{\sim}{x})
 &amp;= \frac{n\bar{x}}{\bar{x}} - n
 &amp;&amp; \text{(score from (b) at ${\lambda}= \bar{x}$)}
 \\
@@ -3993,23 +4006,23 @@ n\bar{x} &amp;= n{\lambda}
 &amp;&amp; \text{(subtract)}
 \end{aligned}
 \]</span></p>
-<p>If instead all <span class="math inline">\(x_i = 0\)</span>, then <span class="math inline">\(\bar{x} = 0\)</span> and <span class="math inline">\(\hat{\lambda}_{ML} = 0\)</span> is a boundary value. In that case, the score formula <span class="math inline">\(\ell'({\lambda}; \tilde{x}) = \frac{n\bar{x}}{{\lambda}} - n\)</span> is not defined at <span class="math inline">\({\lambda}= 0\)</span>, so the usual interior verification <span class="math inline">\(\ell'(\hat{\lambda}_{ML}; \tilde{x}) = 0\)</span> does not apply.</p>
+<p>If instead all <span class="math inline">\(x_i = 0\)</span>, then <span class="math inline">\(\bar{x} = 0\)</span> and <span class="math inline">\(\hat{\lambda}_{ML} = 0\)</span> is a boundary value. In that case, the score formula <span class="math inline">\(\ell'({\lambda}; \underset{\sim}{x}) = \frac{n\bar{x}}{{\lambda}} - n\)</span> is not defined at <span class="math inline">\({\lambda}= 0\)</span>, so the usual interior verification <span class="math inline">\(\ell'(\hat{\lambda}_{ML}; \underset{\sim}{x}) = 0\)</span> does not apply.</p>
 <p><strong>(d)</strong></p>
 <p>The score measures the rate of change of the log-likelihood. When it equals zero, increasing or decreasing <span class="math inline">\({\lambda}\)</span> slightly would not improve the fit; we are at a “flat” point. Intuitively, <span class="math inline">\(\hat{\lambda}_{ML} = \bar{x}\)</span> is the value of <span class="math inline">\({\lambda}\)</span> that makes the expected count per observation (<span class="math inline">\({\lambda}\)</span>) exactly equal to the observed average count (<span class="math inline">\(\bar{x}\)</span>).</p>
 </div>
 </section><section class="slide level2"><div id="exr-prac-mle-se" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 41 (Standard error of an MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
-<p><strong>(a)</strong> Derive the Hessian <span class="math inline">\(\ell''({\lambda}; \tilde{x}) = \frac{\partial}{\partial [}2]{{\lambda}}\ell({\lambda};\tilde{x})\)</span>.</p>
-<p><strong>(b)</strong> Derive the observed information <span class="math inline">\(I({\lambda}; \tilde{x}) = -\ell''({\lambda}; \tilde{x})\)</span>.</p>
-<p><strong>(c)</strong> Evaluate <span class="math inline">\(I(\hat{\lambda}_{ML}; \tilde{x})\)</span>.</p>
+<p><strong>(a)</strong> Derive the Hessian <span class="math inline">\(\ell''({\lambda}; \underset{\sim}{x}) = \frac{\partial}{\partial [}2]{{\lambda}}\ell({\lambda};\underset{\sim}{x})\)</span>.</p>
+<p><strong>(b)</strong> Derive the observed information <span class="math inline">\(I({\lambda}; \underset{\sim}{x}) = -\ell''({\lambda}; \underset{\sim}{x})\)</span>.</p>
+<p><strong>(c)</strong> Evaluate <span class="math inline">\(I(\hat{\lambda}_{ML}; \underset{\sim}{x})\)</span>.</p>
 <p><strong>(d)</strong> Give an approximate 95% confidence interval for <span class="math inline">\({\lambda}\)</span> using the asymptotic normal distribution of the MLE.</p>
 </div>
 <div id="sol-prac-mle-se" class="proof solution">
 <p><span class="proof-title"><em>Solution 41</em>. </span><strong>(a)</strong></p>
-<p>From <a href="#/exr-prac-score-zero" class="quarto-xref">Exercise&nbsp;40</a>, <span class="math inline">\(\ell'({\lambda}; \tilde{x}) = \frac{n\bar{x}}{{\lambda}} - n\)</span>.</p>
+<p>From <a href="#/exr-prac-score-zero" class="quarto-xref">Exercise&nbsp;40</a>, <span class="math inline">\(\ell'({\lambda}; \underset{\sim}{x}) = \frac{n\bar{x}}{{\lambda}} - n\)</span>.</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell''({\lambda}; \tilde{x})
+\ell''({\lambda}; \underset{\sim}{x})
 &amp;= \frac{\partial}{\partial {\lambda}}\mathopen{}\left[\frac{n\bar{x}}{{\lambda}} - n\right]\mathclose{}
 &amp;&amp; \text{(Poisson score)}
 \\
@@ -4041,8 +4054,8 @@ n\bar{x} &amp;= n{\lambda}
 <p><strong>(b)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
-I({\lambda}; \tilde{x})
-&amp;= -\ell''({\lambda}; \tilde{x})
+I({\lambda}; \underset{\sim}{x})
+&amp;= -\ell''({\lambda}; \underset{\sim}{x})
 &amp;&amp; \text{(observed information is the negative Hessian)}
 \\
 &amp;= -\mathopen{}\left(-\frac{n\bar{x}}{{\lambda}^2}\right)\mathclose{}
@@ -4056,7 +4069,7 @@ I({\lambda}; \tilde{x})
 <p>Assuming <span class="math inline">\(\bar{x} &gt; 0\)</span> (i.e., at least one <span class="math inline">\(x_i &gt; 0\)</span>), substituting <span class="math inline">\(\hat{\lambda}_{ML} = \bar{x}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-I(\hat{\lambda}_{ML}; \tilde{x})
+I(\hat{\lambda}_{ML}; \underset{\sim}{x})
 &amp;= \frac{n\bar{x}}{\bar{x}^2}
 &amp;&amp; \text{(observed information at ${\lambda}= \bar{x}$)}
 \\
@@ -4071,7 +4084,7 @@ I(\hat{\lambda}_{ML}; \tilde{x})
 \;\dot\sim\;
 \operatorname{N}\!\mathopen{}\left({\lambda},\; {\mathopen{}\left(\mathcal{I}({\lambda})\right)\mathclose{}}^{-1}\right)\mathclose{}
 \]</span></p>
-<p>We estimate this asymptotic variance using the observed information evaluated at the MLE. Since <span class="math inline">\(I(\hat{\lambda}_{ML};\tilde{x})^{-1} = \bar{x}/n\)</span>:</p>
+<p>We estimate this asymptotic variance using the observed information evaluated at the MLE. Since <span class="math inline">\(I(\hat{\lambda}_{ML};\underset{\sim}{x})^{-1} = \bar{x}/n\)</span>:</p>
 <p><span class="math display">\[
 \operatorname{SE}\mathopen{}\left(\hat{\lambda}_{ML}\right)\mathclose{} \approx \sqrt{\frac{\bar{x}}{n}}
 \]</span></p>
@@ -4086,16 +4099,16 @@ I(\hat{\lambda}_{ML}; \tilde{x})
 \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu},
 \quad x &gt; 0, \quad \mu&gt; 0.
 \]</span></p>
-<p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell(\mu; \tilde{x})\)</span> for the observed data <span class="math inline">\(\tilde{x}= (x_1, \ldots, x_n)\)</span>.</p>
-<p><strong>(b)</strong> Derive the score function <span class="math inline">\(\ell'(\mu; \tilde{x}) = \frac{\partial}{\partial \mu}\ell(\mu; \tilde{x})\)</span>.</p>
+<p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell(\mu; \underset{\sim}{x})\)</span> for the observed data <span class="math inline">\(\underset{\sim}{x}= (x_1, \ldots, x_n)\)</span>.</p>
+<p><strong>(b)</strong> Derive the score function <span class="math inline">\(\ell'(\mu; \underset{\sim}{x}) = \frac{\partial}{\partial \mu}\ell(\mu; \underset{\sim}{x})\)</span>.</p>
 <p><strong>(c)</strong> Set the score equal to zero and show that <span class="math inline">\(\hat\mu_{ML} = \bar{x}\)</span>. Compute the second derivative and verify this critical point is a maximum.</p>
-<p><strong>(d)</strong> Derive the observed information <span class="math inline">\(I(\mu; \tilde{x}) = -\ell''(\mu; \tilde{x})\)</span>, evaluate it at <span class="math inline">\(\hat\mu_{ML}\)</span>, and give an approximate 95% confidence interval for <span class="math inline">\(\mu\)</span>.</p>
+<p><strong>(d)</strong> Derive the observed information <span class="math inline">\(I(\mu; \underset{\sim}{x}) = -\ell''(\mu; \underset{\sim}{x})\)</span>, evaluate it at <span class="math inline">\(\hat\mu_{ML}\)</span>, and give an approximate 95% confidence interval for <span class="math inline">\(\mu\)</span>.</p>
 </div>
 <div id="sol-prac-exp-mle" class="proof solution">
 <p><span class="proof-title"><em>Solution 42</em>. </span><strong>(a)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell(\mu; \tilde{x})
+\ell(\mu; \underset{\sim}{x})
 &amp;= \operatorname{log}\mathopen{}\left\{\prod_{i=1}^n\frac{1}{\mu} e^{-x_i/\mu}\right\}\mathclose{}
 &amp;&amp; \text{(log of the likelihood of an $\operatorname{iid}$ sample)}
 \\
@@ -4127,7 +4140,7 @@ I(\hat{\lambda}_{ML}; \tilde{x})
 <p><strong>(b)</strong></p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell'(\mu; \tilde{x})
+\ell'(\mu; \underset{\sim}{x})
 &amp;= \frac{\partial}{\partial \mu}\mathopen{}\left(-n\operatorname{log}\mathopen{}\left\{\mu\right\}\mathclose{} - \frac{n\bar{x}}{\mu}\right)\mathclose{}
 &amp;&amp; \text{(log-likelihood from (a))}
 \\
@@ -4166,7 +4179,7 @@ I(\hat{\lambda}_{ML}; \tilde{x})
 \end{aligned}
 \]</span></p>
 <p><strong>(c)</strong></p>
-<p>Setting <span class="math inline">\(\ell'(\mu; \tilde{x}) = 0\)</span>:</p>
+<p>Setting <span class="math inline">\(\ell'(\mu; \underset{\sim}{x}) = 0\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 0 &amp;= \frac{n}{\mu^2}\mathopen{}\left(\bar{x} - \mu\right)\mathclose{}
@@ -4182,7 +4195,7 @@ I(\hat{\lambda}_{ML}; \tilde{x})
 <p>The second derivative is:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell''(\mu; \tilde{x})
+\ell''(\mu; \underset{\sim}{x})
 &amp;= \frac{\partial}{\partial \mu}\mathopen{}\left(-\frac{n}{\mu} + \frac{n\bar{x}}{\mu^2}\right)\mathclose{}
 &amp;&amp; \text{(score from (b))}
 \\
@@ -4211,7 +4224,7 @@ I(\hat{\lambda}_{ML}; \tilde{x})
 <p>Evaluated at <span class="math inline">\(\hat\mu_{ML} = \bar{x}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\ell''(\bar{x}; \tilde{x})
+\ell''(\bar{x}; \underset{\sim}{x})
 &amp;= \frac{n}{\bar{x}^2} - \frac{2n\bar{x}}{\bar{x}^3}
 &amp;&amp; \text{(second derivative at $\mu= \bar{x}$)}
 \\
@@ -4227,8 +4240,8 @@ I(\hat{\lambda}_{ML}; \tilde{x})
 <p>The observed information is:</p>
 <p><span class="math display">\[
 \begin{aligned}
-I(\mu; \tilde{x})
-&amp;= -\ell''(\mu; \tilde{x})
+I(\mu; \underset{\sim}{x})
+&amp;= -\ell''(\mu; \underset{\sim}{x})
 &amp;&amp; \text{(observed information is the negative Hessian)}
 \\
 &amp;= -\mathopen{}\left(\frac{n}{\mu^2} - \frac{2n\bar{x}}{\mu^3}\right)\mathclose{}
@@ -4244,7 +4257,7 @@ I(\mu; \tilde{x})
 <p>Evaluated at <span class="math inline">\(\hat\mu_{ML} = \bar{x}\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-I(\hat\mu_{ML}; \tilde{x})
+I(\hat\mu_{ML}; \underset{\sim}{x})
 &amp;= \frac{2n\bar{x}}{\bar{x}^3} - \frac{n}{\bar{x}^2}
 &amp;&amp; \text{(observed information at $\mu= \bar{x}$)}
 \\
@@ -4255,7 +4268,7 @@ I(\hat\mu_{ML}; \tilde{x})
 &amp;&amp; \text{(combine like terms)}
 \end{aligned}
 \]</span></p>
-<p>So <span class="math inline">\(\operatorname{SE}\mathopen{}\left(\hat\mu_{ML}\right)\mathclose{} \approx \sqrt{I(\hat\mu_{ML}; \tilde{x})^{-1}} = \frac{\bar{x}}{\sqrt{n}}\)</span>.</p>
+<p>So <span class="math inline">\(\operatorname{SE}\mathopen{}\left(\hat\mu_{ML}\right)\mathclose{} \approx \sqrt{I(\hat\mu_{ML}; \underset{\sim}{x})^{-1}} = \frac{\bar{x}}{\sqrt{n}}\)</span>.</p>
 <p>An approximate 95% CI for <span class="math inline">\(\mu\)</span> is:</p>
 <p><span class="math display">\[
 \hat\mu_{ML} \pm 1.96 \times \frac{\bar{x}}{\sqrt{n}}
