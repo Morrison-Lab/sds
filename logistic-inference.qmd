@@ -62,6 +62,60 @@ format:
 
 {{< include sds/_subfiles/logistic-inference/_exm-deviance-drop-distribution.qmd >}}
 
+## Covariate patterns and the saturated model
+
+<!-- No slidebreak here: the heading shares its slide with the def-covariate-pattern div. -->
+
+{{< include sds/_subfiles/logistic-inference/_def-covariate-pattern.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_def-replicates.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-source-covariate-pattern.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_def-pattern-events.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-covariate-patterns.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_def-saturated-model.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-source-saturated-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_thm-saturated-mle.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_def-saturated-deviance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_thm-saturated-deviance.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-source-saturated-deviance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_cor-deviance-shift.qmd >}}
+
+{{< include sds/_subfiles/logistic-inference/_rem-deviance-shift.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-saturated-deviance.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/logistic-inference/_exm-deviance-shift.qmd >}}
+
 ## Confidence intervals for the coefficients
 
 <!-- No slidebreak here: the heading shares its slide with the theorem. -->

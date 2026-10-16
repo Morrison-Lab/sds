@@ -1,0 +1,8 @@
+::: {#def-replicates}
+
+#### Replicates
+
+The **replicates** of the [covariate pattern](#def-covariate-pattern) $\vpredvar^{(k)}$ are the observations $i$ with $\vpredvar_i = \vpredvar^{(k)}$.
+Their number is written $\nreps_k$, so $\sumkK \nreps_k = \nobs$.
+
+:::

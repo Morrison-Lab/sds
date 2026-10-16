@@ -1,0 +1,28 @@
+::: {#exm-deviance-shift}
+
+#### The shift between the two deviances
+
+For the two fits of @exm-saturated-deviance,
+@cor-deviance-shift says that $\deviance - \satdeviance = -2 \satllik$.
+The left side is `r round(deviance(bw_fit) - deviance(bw_fit_grouped), 3)`.
+We compute the right side from the observed proportions of @thm-saturated-mle.
+
+```{r}
+#| code-fold: false
+# twice the saturated log-likelihood, from the observed proportions
+bw_phat_sat <- bw_grouped$nevents / bw_grouped$nreps
+bw_two_llik_sat <- 2 * sum(
+  ifelse(bw_grouped$nevents == 0, 0, bw_grouped$nevents * log(bw_phat_sat)) +
+    ifelse(
+      bw_grouped$nreps == bw_grouped$nevents,
+      0,
+      (bw_grouped$nreps - bw_grouped$nevents) * log(1 - bw_phat_sat)
+    )
+)
+c(
+  difference = deviance(bw_fit) - deviance(bw_fit_grouped),
+  minus_two_llik_sat = -bw_two_llik_sat
+)
+```
+
+:::

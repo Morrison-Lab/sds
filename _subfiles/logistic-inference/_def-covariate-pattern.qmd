@@ -1,0 +1,8 @@
+::: {#def-covariate-pattern}
+
+#### Covariate pattern
+
+A **covariate pattern** is a distinct value of the predictor vector among the observations $\vpredvar_1, \dots, \vpredvar_\nobs$.
+The $\npatterns$ distinct values are written $\vpredvar^{(1)}, \dots, \vpredvar^{(\npatterns)}$, so $\npatterns \le \nobs$.
+
+:::
