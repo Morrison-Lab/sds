@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 01:22:59 (PDT)
+Last modified: 2026-10-16 01:48:44 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
