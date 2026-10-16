@@ -48,6 +48,7 @@ Authoritative style guide: [UCD-SERG Lab Manual](https://ucd-serg.github.io/lab-
 
 Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Key points:
 
+- **Semantic line breaks**: write one sentence per source line, and break a long sentence at a clause boundary, in every `.qmd` and `.md` file (Ezra, 2026-10-16: every Morrison-Lab repository uses them). `check-new-line-breaks.yml` blocks a PR that adds a packed line.
 - **Lists of 3+ items**: use bullet lists rather than comma-separated prose. Always leave a blank line before a markdown bullet list (especially in `.qmd` files).
 - **Code chunks**: HTML output folds code by default: `_quarto-website.yml` sets `code-fold: true` (with `code-tools: true`, so readers can show all code at once), as rme does. Keep the default when the *output* (plot, table) is the point and the code is incidental. Set `#| code-fold: false` on tutorial code, short examples, code that is the main focus, and chunks where the console output is the main content.
 - **Visible results**: every code chunk readers can see should produce a visible result (figure, table, or console output); end assignment-only chunks with an expression that shows what they made. See "Every visible chunk shows a result" in `.github/copilot-instructions.md`.

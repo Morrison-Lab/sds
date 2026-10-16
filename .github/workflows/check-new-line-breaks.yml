@@ -7,8 +7,7 @@
 # no `push` or `workflow_dispatch` trigger: neither has a PR base to diff
 # against, so the reusable workflow would check nothing and report success.
 #
-# Warn-only: a PR that adds a packed-sentence line gets a warning, not a
-# failure. Set `fail: true` below to make it blocking.
+# Blocking: a PR that adds a packed-sentence line fails this check.
 name: Check new markdown lines for missing semantic breaks
 
 on:
@@ -26,6 +25,5 @@ jobs:
       # Vendored Quarto extensions and the macros submodule are not ours to
       # reflow. `**`, not `*`: gha's matcher stops a single `*` at a `/`.
       paths-ignore: '_extensions/**,latex-macros/**'
-      # Warn only: sds has no written semantic-line-break rule yet, so a
-      # packed line is reported but does not fail the PR.
-      fail: false
+      # Blocking: every Morrison-Lab repository uses semantic line breaks.
+      fail: true
