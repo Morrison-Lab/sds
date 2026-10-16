@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 11:26:47 (PDT)
+Last modified: 2026-10-16 16:37:17 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -18,7 +18,7 @@ When the posterior has a known closed form, as in [the Beta-Bernoulli example](b
 
 > **NOTE:**
 >
-> **Example 1 (A sequence that converges to the standard Gaussian)** Let \\\theta^{(t+1)} = 0.5\\\theta^{(t)} + \varepsilon_t\\, with \\\varepsilon_t \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}\\ independent of the past. Each draw depends on the previous one. If \\\theta^{(t)}\\ has mean \\m_t\\ and variance \\v_t\\, then \\m\_{t+1} = 0.5\\ m_t\\ and \\v\_{t+1} = 0.25\\ v_t + 0.75\\, so from any starting value \\m_t \to 0\\ and \\v_t \to 1\\: the draws’ distribution converges to \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.
+> **Example 1 (A sequence that converges to the standard Gaussian)** Let \\\theta^{(t+1)} = 0.5\\\theta^{(t)} + \nu_t\\, with \\\nu_t \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}\\ independent of the past. Each draw depends on the previous one. If \\\theta^{(t)}\\ has mean \\m_t\\ and variance \\v_t\\, then \\m\_{t+1} = 0.5\\ m_t\\ and \\v\_{t+1} = 0.25\\ v_t + 0.75\\, so from any starting value \\m_t \to 0\\ and \\v_t \to 1\\: the draws’ distribution converges to \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.
 
 ### 1.1 Why the normalizing constant is hard to compute
 

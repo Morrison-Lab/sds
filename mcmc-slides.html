@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 11:26:47 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 16:37:17 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -369,7 +369,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 1 (Markov chain Monte Carlo)</strong></span> A <strong>Markov chain Monte Carlo (MCMC)</strong> method for a target distribution generates a sequence of draws <span class="math inline">\(\mathord{\underset{\sim}{\theta}}^{(1)}, \mathord{\underset{\sim}{\theta}}^{(2)}, \ldots\)</span>, each drawn from a distribution that depends on the previous draw, such that the distribution of <span class="math inline">\(\mathord{\underset{\sim}{\theta}}^{(t)}\)</span> converges to the target as <span class="math inline">\(t \to \infty\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-mcmc" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (A sequence that converges to the standard Gaussian)</strong></span> Let <span class="math inline">\(\theta^{(t+1)} = 0.5\,\theta^{(t)} + \varepsilon_t\)</span>, with <span class="math inline">\(\varepsilon_t \ \sim_{\operatorname{iid}}\ \operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}\)</span> independent of the past. Each draw depends on the previous one. If <span class="math inline">\(\theta^{(t)}\)</span> has mean <span class="math inline">\(m_t\)</span> and variance <span class="math inline">\(v_t\)</span>, then <span class="math inline">\(m_{t+1} = 0.5\, m_t\)</span> and <span class="math inline">\(v_{t+1} = 0.25\, v_t + 0.75\)</span>, so from any starting value <span class="math inline">\(m_t \to 0\)</span> and <span class="math inline">\(v_t \to 1\)</span>: the draws’ distribution converges to <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\)</span>. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.</p>
+<p><span class="theorem-title"><strong>Example 1 (A sequence that converges to the standard Gaussian)</strong></span> Let <span class="math inline">\(\theta^{(t+1)} = 0.5\,\theta^{(t)} + \nu_t\)</span>, with <span class="math inline">\(\nu_t \ \sim_{\operatorname{iid}}\ \operatorname{N}\mathopen{}\left(0, 0.75\right)\mathclose{}\)</span> independent of the past. Each draw depends on the previous one. If <span class="math inline">\(\theta^{(t)}\)</span> has mean <span class="math inline">\(m_t\)</span> and variance <span class="math inline">\(v_t\)</span>, then <span class="math inline">\(m_{t+1} = 0.5\, m_t\)</span> and <span class="math inline">\(v_{t+1} = 0.25\, v_t + 0.75\)</span>, so from any starting value <span class="math inline">\(m_t \to 0\)</span> and <span class="math inline">\(v_t \to 1\)</span>: the draws’ distribution converges to <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\)</span>. This sequence is an MCMC method for sampling the standard Gaussian distribution; its draws are correlated, unlike independent draws.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="1.1" id="why-the-normalizing-constant-is-hard-to-compute">
 <span class="header-section-number">1.1</span> Why the normalizing constant is hard to compute</h3>

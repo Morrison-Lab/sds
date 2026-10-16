@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 11:26:47 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 16:37:17 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -728,7 +728,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <p>The squared bias is <span class="math inline">\(1^2 = 1\)</span>, the value in <a href="#/exr-epe-three-sources" class="quarto-xref">Exercise&nbsp;4</a>.</p>
 </div>
 </section><section class="slide level2 scrollable"><div id="exr-epe-three-sources" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Expected squared error from three sources)</strong></span> A prediction <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span> at a covariate value <span class="math inline">\(x\)</span> has squared bias <span class="math inline">\([\operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}]^2 = 1\)</span> and variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{} = 2\)</span>. The new outcome is <span class="math inline">\(Y_{*}= \mu(x) + \varepsilon\)</span>, where <span class="math inline">\(\varepsilon\)</span> has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2= 3\)</span> and is independent of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 4 (Expected squared error from three sources)</strong></span> A prediction <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span> at a covariate value <span class="math inline">\(x\)</span> has squared bias <span class="math inline">\([\operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}]^2 = 1\)</span> and variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{} = 2\)</span>. The new outcome is <span class="math inline">\(Y_{*}= \mu(x) + \nu\)</span>, where <span class="math inline">\(\nu\)</span> has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2= 3\)</span> and is independent of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>.</p>
 <ol type="1">
 <li>What is the expected squared prediction error <span class="math inline">\(\operatorname{E}\mathopen{}\left[(Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{})^2\right]\mathclose{}\)</span>?</li>
 <li>If we could remove all bias and all variance of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, what would the expected squared prediction error be?</li>
@@ -740,11 +740,11 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <ol type="1">
 <li><p>The expected squared error is the sum of the three sources: <span class="math inline">\(1 + 2 + 3 = 6\)</span>.</p></li>
 <li><p><span class="math inline">\(0 + 0 + 3 = 3\)</span>. The noise variance <span class="math inline">\(\sigma^2= 3\)</span> remains, so <span class="math inline">\(3\)</span> is the smallest expected squared error any prediction can have here.</p></li>
-<li><p>A better method can reduce the squared bias and the variance of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, because both depend on how <span class="math inline">\(g\)</span> is built. It cannot reduce <span class="math inline">\(\sigma^2\)</span>, which is the variance of the noise <span class="math inline">\(\varepsilon\)</span> in the new outcome.</p></li>
+<li><p>A better method can reduce the squared bias and the variance of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, because both depend on how <span class="math inline">\(g\)</span> is built. It cannot reduce <span class="math inline">\(\sigma^2\)</span>, which is the variance of the noise <span class="math inline">\(\nu\)</span> in the new outcome.</p></li>
 </ol>
 </div>
 </section><section class="slide level2"><div id="exr-epe-split-noise" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5 (Separate the noise)</strong></span> Suppose that, given <span class="math inline">\(X_{*}= x\)</span>, the new outcome is <span class="math inline">\(Y_{*}= \mu(x) + \varepsilon\)</span>, where the noise <span class="math inline">\(\varepsilon\)</span> has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and that <span class="math inline">\(Y_{*}\)</span> is independent of the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Take every expectation below to be conditional on <span class="math inline">\(X_{*}= x\)</span>. Add and subtract <span class="math inline">\(\mu(x)\)</span> inside the square of the <a href="#/def-epe">expected prediction error</a>,</p>
+<p><span class="theorem-title"><strong>Exercise 5 (Separate the noise)</strong></span> Suppose that, given <span class="math inline">\(X_{*}= x\)</span>, the new outcome is <span class="math inline">\(Y_{*}= \mu(x) + \nu\)</span>, where the noise <span class="math inline">\(\nu\)</span> has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and that <span class="math inline">\(Y_{*}\)</span> is independent of the random <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Take every expectation below to be conditional on <span class="math inline">\(X_{*}= x\)</span>. Add and subtract <span class="math inline">\(\mu(x)\)</span> inside the square of the <a href="#/def-epe">expected prediction error</a>,</p>
 <p><span class="math display">\[
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{},
 \]</span></p>
@@ -758,7 +758,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 &amp;= \mathopen{}\left(Y_{*}- \mu(x)\right)\mathclose{} + \mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}
 &amp;&amp; \text{(add and subtract } \mu(x) \text{)} \\
-&amp;= \varepsilon+ \mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}
+&amp;= \nu+ \mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}
 &amp;&amp; \text{(definition of } Y_{*}\text{)}
 \end{aligned}
 \]</span></p>
@@ -766,18 +766,18 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <p><span class="math display">\[
 \begin{aligned}
 {\mathopen{}\left(Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}}^2
-&amp;= \varepsilon^2
-+ 2 \varepsilon\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}
+&amp;= \nu^2
++ 2 \nu\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}
 + {\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}}^2
 &amp;&amp; \text{(expand the square of a sum)}
 \end{aligned}
 \]</span></p>
 <p>Take the expectation of each term in turn, using <a href="https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation">linearity of expectation</a> to split the sum.</p>
-<p>For the noise term, the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance">variance identity</a> gives <span class="math inline">\(\sigma^2= \operatorname{E}\mathopen{}\left[\varepsilon^2\right]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left[\varepsilon\right]\mathclose{}\right)\mathclose{}}^2\)</span>:</p>
+<p>For the noise term, the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance">variance identity</a> gives <span class="math inline">\(\sigma^2= \operatorname{E}\mathopen{}\left[\nu^2\right]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left[\nu\right]\mathclose{}\right)\mathclose{}}^2\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{E}\mathopen{}\left[\varepsilon^2\right]\mathclose{}
-&amp;= \sigma^2+ {\mathopen{}\left(\operatorname{E}\mathopen{}\left[\varepsilon\right]\mathclose{}\right)\mathclose{}}^2
+\operatorname{E}\mathopen{}\left[\nu^2\right]\mathclose{}
+&amp;= \sigma^2+ {\mathopen{}\left(\operatorname{E}\mathopen{}\left[\nu\right]\mathclose{}\right)\mathclose{}}^2
 &amp;&amp; \text{(variance identity)} \\
 &amp;= \sigma^2+ 0^2
 &amp;&amp; \text{(the noise has mean } 0 \text{)} \\
@@ -785,13 +785,13 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 &amp;&amp; \text{(} 0^2 = 0 \text{, and } \sigma^2+ 0 = \sigma^2\text{)}
 \end{aligned}
 \]</span></p>
-<p>For the cross term, <span class="math inline">\(\varepsilon= Y_{*}- \mu(x)\)</span> shifts <span class="math inline">\(Y_{*}\)</span> by a constant, and <span class="math inline">\(Y_{*}\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, so <span class="math inline">\(\varepsilon\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and hence of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span> and of <span class="math inline">\(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>. The expectation of a product of independent random variables is the product of their expectations:</p>
+<p>For the cross term, <span class="math inline">\(\nu= Y_{*}- \mu(x)\)</span> shifts <span class="math inline">\(Y_{*}\)</span> by a constant, and <span class="math inline">\(Y_{*}\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, so <span class="math inline">\(\nu\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and hence of <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span> and of <span class="math inline">\(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>. The expectation of a product of independent random variables is the product of their expectations:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{E}\mathopen{}\left[2 \varepsilon\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right]\mathclose{}
-&amp;= 2 \operatorname{E}\mathopen{}\left[\varepsilon\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right]\mathclose{}
+\operatorname{E}\mathopen{}\left[2 \nu\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right]\mathclose{}
+&amp;= 2 \operatorname{E}\mathopen{}\left[\nu\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right]\mathclose{}
 &amp;&amp; \text{(constant factor 2)} \\
-&amp;= 2 \operatorname{E}\mathopen{}\left[\varepsilon\right]\mathclose{} \operatorname{E}\mathopen{}\left[\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right]\mathclose{}
+&amp;= 2 \operatorname{E}\mathopen{}\left[\nu\right]\mathclose{} \operatorname{E}\mathopen{}\left[\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right]\mathclose{}
 &amp;&amp; \text{(independence)} \\
 &amp;= 2 \cdot 0 \cdot \operatorname{E}\mathopen{}\left[\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right]\mathclose{}
 &amp;&amp; \text{(the noise has mean } 0 \text{)} \\
@@ -804,7 +804,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}
 = \sigma^2+ \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}.
 \tag{19}\]</span></span></p>
-<p>The cross term vanished because the noise has mean <span class="math inline">\(0\)</span> and, for a new outcome, is independent of the training set. Without the zero mean, independence alone would leave <span class="math inline">\(2 \operatorname{E}\mathopen{}\left[\varepsilon\right]\mathclose{}\)</span> times <span class="math inline">\(\operatorname{E}\mathopen{}\left[\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right]\mathclose{}\)</span>, which need not be zero. That holds for a fresh observation, and it fails for an observation the procedure was trained on, whose noise helped determine the prediction.</p>
+<p>The cross term vanished because the noise has mean <span class="math inline">\(0\)</span> and, for a new outcome, is independent of the training set. Without the zero mean, independence alone would leave <span class="math inline">\(2 \operatorname{E}\mathopen{}\left[\nu\right]\mathclose{}\)</span> times <span class="math inline">\(\operatorname{E}\mathopen{}\left[\mu(x) - g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right]\mathclose{}\)</span>, which need not be zero. That holds for a fresh observation, and it fails for an observation the procedure was trained on, whose noise helped determine the prediction.</p>
 </div>
 </section><section class="slide level2"><div id="exr-epe-split-bias" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6 (Separate the bias)</strong></span> <a href="#/eq-epe-after-noise" class="quarto-xref">Equation&nbsp;19</a> leaves one term that still mixes two ideas:</p>
@@ -883,7 +883,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 <p>Neither cross term needed the noise to be normal, and neither assumed anything about the fitting procedure: <span class="math inline">\(g\)</span> can be a line, a tree or a neural network. This split is specific to squared-error loss, the loss of this chapter’s examples.</p>
 </div>
 </section><section class="slide level2"><div id="thm-epe-decomposition" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Bias, variance and noise)</strong></span> Let <span class="math inline">\(\mu\)</span> be the <a href="#/def-mean-function">mean function</a> of the outcome given the covariate. Suppose that, given <span class="math inline">\(X_{*}= x\)</span>, the new outcome is <span class="math inline">\(Y_{*}= \mu(x) + \varepsilon\)</span>, where <span class="math inline">\(\varepsilon\)</span>, the noise in the outcome at <span class="math inline">\(x\)</span>, has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and that <span class="math inline">\(Y_{*}\)</span> is independent of the random training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and that <span class="math inline">\(\operatorname{E}\mathopen{}\left[g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}^2\right]\mathclose{} &lt; \infty\)</span>. Then the <a href="#/def-epe">expected prediction error at <span class="math inline">\(x\)</span></a> is the squared <a href="#/def-prediction-bias">bias</a> of the prediction <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu(x)\)</span>, plus its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, plus <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span class="theorem-title"><strong>Theorem 2 (Bias, variance and noise)</strong></span> Let <span class="math inline">\(\mu\)</span> be the <a href="#/def-mean-function">mean function</a> of the outcome given the covariate. Suppose that, given <span class="math inline">\(X_{*}= x\)</span>, the new outcome is <span class="math inline">\(Y_{*}= \mu(x) + \nu\)</span>, where <span class="math inline">\(\nu\)</span>, the noise in the outcome at <span class="math inline">\(x\)</span>, has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and that <span class="math inline">\(Y_{*}\)</span> is independent of the random training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and that <span class="math inline">\(\operatorname{E}\mathopen{}\left[g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}^2\right]\mathclose{} &lt; \infty\)</span>. Then the <a href="#/def-epe">expected prediction error at <span class="math inline">\(x\)</span></a> is the squared <a href="#/def-prediction-bias">bias</a> of the prediction <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu(x)\)</span>, plus its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, plus <span class="math inline">\(\sigma^2\)</span>:</p>
 <p><span id="eq-epe-decomposition"><span class="math display">\[
 \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right)\mathclose{}}^2
 + \operatorname{Var}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{} + \sigma^2.
@@ -904,7 +904,7 @@ Y_{*}- g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-irreducible-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 20 (Irreducible error)</strong></span> In <a href="#/thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a>, the term <span class="math inline">\(\sigma^2= \operatorname{Var}\mathopen{}\left(\varepsilon\right)\mathclose{}\)</span> is the <strong>irreducible error</strong>. It does not depend on the fitting procedure <span class="math inline">\(g\)</span>, so no choice of prediction can remove it. The theorem concerns the single covariate value <span class="math inline">\(x\)</span>, so <span class="math inline">\(\sigma^2\)</span> may differ from one covariate value to another: it does not assume constant noise variance across covariate values. For example, in <a href="#/exr-epe-three-sources" class="quarto-xref">Exercise&nbsp;4</a>, <span class="math inline">\(\sigma^2= 3\)</span>, so every prediction there has expected squared error at least <span class="math inline">\(3\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 20 (Irreducible error)</strong></span> In <a href="#/thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a>, the term <span class="math inline">\(\sigma^2= \operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\)</span> is the <strong>irreducible error</strong>. It does not depend on the fitting procedure <span class="math inline">\(g\)</span>, so no choice of prediction can remove it. The theorem concerns the single covariate value <span class="math inline">\(x\)</span>, so <span class="math inline">\(\sigma^2\)</span> may differ from one covariate value to another: it does not assume constant noise variance across covariate values. For example, in <a href="#/exr-epe-three-sources" class="quarto-xref">Exercise&nbsp;4</a>, <span class="math inline">\(\sigma^2= 3\)</span>, so every prediction there has expected squared error at least <span class="math inline">\(3\)</span>.</p>
 </div>
 <aside class="notes proof remark"><p><span class="proof-title"><em>Remark</em>. </span>This expected prediction error decomposition into squared bias, variance, and irreducible error follows <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 2.2.2</a>)</span>.</p>
 <style type="text/css">
@@ -2045,10 +2045,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb26-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb26-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb26-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb26-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 33</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;27</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;26</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
