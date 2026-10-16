@@ -1,6 +1,6 @@
 :::{#sol-epe-split-noise}
 
-Write the prediction error as noise plus the error of the prediction as an estimate of $\mean(\predvar)$:
+Write the prediction error as noise plus the error of the prediction, used as an estimator of $\mean(\predvar)$:
 
 $$
 \ba
