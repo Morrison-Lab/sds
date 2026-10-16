@@ -9,7 +9,7 @@ because it depends on the random training data.
 The **bias** of the prediction
 is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
 as an [estimator](estimation.qmd#def-estimator)
-of the [mean function](#def-mean-function) value $\targetfnf{\predvar}$,
+of the [mean function](#def-mean-function) value $\mean(\predvar)$,
 which is its estimand here, not the new outcome it predicts:
 
 $$
@@ -31,7 +31,7 @@ the bias reflects the error introduced by approximating a real-world relationshi
 :::{#exm-prediction-bias}
 #### Computing the bias of a prediction
 
-Suppose $\targetfnf{\predvar} = 10$,
+Suppose $\mean(\predvar) = 10$,
 and the predictions $\fitproc\paren{\predvar; \trainset}$,
 over repeated training sets,
 average $11$.
@@ -41,7 +41,7 @@ $$
 \begin{aligned}
 \bias{\fitproc\paren{\predvar; \trainset}}
 &= \E{\erf{\fitproc\paren{\predvar; \trainset}}} \\
-&= \E{\fitproc\paren{\predvar; \trainset}} - \targetfnf{\predvar} \\
+&= \E{\fitproc\paren{\predvar; \trainset}} - \mean(\predvar) \\
 &= 11 - 10 \\
 &= 1.
 \end{aligned}

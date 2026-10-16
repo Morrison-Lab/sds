@@ -13,7 +13,7 @@ The smallest of $\epe{\candproc{1}}{\nobs}{\predvar}, \ldots, \epe{\candproc{\nc
 is often at some $\candproc{\icand}$ with $1 < \icand < \ncand$
 [@james2021islr2e, sec. 2.2.2],
 but not always:
-if the mean function $\targetfn$ is a candidate of $\candproc{1}$,
+if the mean function $\mean$ is a candidate of $\candproc{1}$,
 the squared bias of $\candproc{1}$ can be zero,
 and then no later $\candproc{\icand}$ has a smaller squared bias
 and, under the trade-off, none has a smaller variance,

@@ -1,15 +1,13 @@
 :::{#sol-epe-split-noise}
 
-Write the prediction error as noise plus the error of the prediction,
-used as an [estimator](estimation.qmd#def-estimator)
-of the [mean function](#def-mean-function) value $\targetfnf{\predvar}$:
+Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\mean(\predvar)$:
 
 $$
 \ba
 \newoutvar - \fitproc\paren{\predvar; \trainset}
-&= \paren{\newoutvar - \targetfnf{\predvar}} + \paren{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}
-&& \text{(add and subtract } \targetfnf{\predvar} \text{)} \\
-&= \noise + \paren{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}
+&= \paren{\newoutvar - \mean(\predvar)} + \paren{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
+&& \text{(add and subtract } \mean(\predvar) \text{)} \\
+&= \noise + \paren{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
 && \text{(definition of } \newoutvar \text{)}
 \ea
 $$
@@ -20,8 +18,8 @@ $$
 \ba
 \sqf{\newoutvar - \fitproc\paren{\predvar; \trainset}}
 &= \noise^2
-+ 2 \noise \paren{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}
-+ \sqf{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}
++ 2 \noise \paren{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
++ \sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
 && \text{(expand the square of a sum)}
 \ea
 $$
@@ -47,20 +45,20 @@ $$
 $$
 
 For the cross term,
-$\noise = \newoutvar - \targetfnf{\predvar}$ shifts $\newoutvar$ by a constant,
+$\noise = \newoutvar - \mean(\predvar)$ shifts $\newoutvar$ by a constant,
 and $\newoutvar$ is independent of $\trainset$,
 so $\noise$ is independent of $\trainset$,
-and hence of $\fitproc\paren{\predvar; \trainset}$ and of $\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}$.
+and hence of $\fitproc\paren{\predvar; \trainset}$ and of $\mean(\predvar) - \fitproc\paren{\predvar; \trainset}$.
 The expectation of a product of independent random variables is the product of their expectations:
 
 $$
 \ba
-\E{2 \noise \paren{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}}
-&= 2 \E{\noise \paren{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}}
+\E{2 \noise \paren{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}
+&= 2 \E{\noise \paren{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}
 && \text{(constant factor 2)} \\
-&= 2 \E{\noise} \E{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}
+&= 2 \E{\noise} \E{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
 && \text{(independence)} \\
-&= 2 \cdot 0 \cdot \E{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}
+&= 2 \cdot 0 \cdot \E{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
 && \text{(the noise has mean } 0 \text{)} \\
 &= 0
 && \text{(zero times a number)}
@@ -71,14 +69,12 @@ Adding the three expectations,
 
 $$
 \E{\sqf{\newoutvar - \fitproc\paren{\predvar; \trainset}}}
-= \varpar + \E{\sqf{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}}.
+= \varpar + \E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}.
 $$ {#eq-epe-after-noise}
 
 The cross term vanished because the noise has mean $0$ and,
 for a new outcome, is independent of the training set.
-Without the zero mean,
-independence alone would leave $2 \E{\noise}$ times $\E{\targetfnf{\predvar} - \fitproc\paren{\predvar; \trainset}}$,
-which need not be zero.
+Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}$, which need not be zero.
 That holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.
