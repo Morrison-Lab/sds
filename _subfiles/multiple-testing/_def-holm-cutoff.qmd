@@ -10,4 +10,6 @@ with $k^* \eqdef m + 1$ if there is no such rank:
 
 $$k^* \eqdef \min \set{k : p_{(k)} > \frac{\siglevel}{m - k + 1}}.$$
 
+Source: Holm [-@holm1979simple].
+
 :::

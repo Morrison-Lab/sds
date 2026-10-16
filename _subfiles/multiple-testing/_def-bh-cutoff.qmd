@@ -8,4 +8,6 @@ with $\hat k \eqdef 0$ if there is no such rank:
 
 $$\hat k \eqdef \max \set{k : p_{(k)} \le \frac{k q}{m}}.$$
 
+Source: Benjamini and Hochberg [-@benjamini1995controlling].
+
 :::
