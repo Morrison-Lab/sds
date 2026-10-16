@@ -1,5 +1,5 @@
 ::: {#exm-sample-mean}
-#### Mean cholesterol in the WCGS
+#### Sample mean cholesterol in the WCGS
 
 Total cholesterol (`chol`) is missing for
 `r sum(is.na(wcgs$chol))` of the `r nrow(wcgs)` WCGS participants.

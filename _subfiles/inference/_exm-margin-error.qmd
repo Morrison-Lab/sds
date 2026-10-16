@@ -1,5 +1,5 @@
 :::{#exm-margin-error}
-#### Margin of error for mean cholesterol
+#### Margin of error for population mean cholesterol
 
 In @exm-confidence-interval-wcgs,
 the margin of error is

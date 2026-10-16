@@ -15,7 +15,7 @@ independently of $\trainset$.
    as the average squared [prediction error](prediction.qmd#def-prediction-error).
 2. Which parts of your expression do you know,
    and which do you not know?
-3. The training RMSE of @exr-overfitting
+3. The training sRMSE of @exr-overfitting
    is the square root of the [training error](#def-training-mse) $\trainerr$ under squared-error loss.
    What does $\trainerr$ use in place of your expectation?
 

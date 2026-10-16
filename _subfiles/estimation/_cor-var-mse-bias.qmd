@@ -1,7 +1,7 @@
 :::{#cor-var-mse-bias}
-#### Standard error squared equals MSE minus squared bias
+#### Standard error squared equals pMSE minus squared bias
 
-The squared standard error is what remains of the mean squared error
+The squared standard error is what remains of the pMSE
 after the squared bias is removed:
 
 $$\sqf{\SE{\hparam}} = \mselr{\hparam} - \sqf{\bias{\hparam}}$$

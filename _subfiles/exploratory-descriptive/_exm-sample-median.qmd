@@ -6,11 +6,11 @@
 median(wcgs$chol, na.rm = TRUE)
 ```
 
-The median cholesterol is a little lower than the mean
+The median cholesterol is a little lower than the sample mean
 (@exm-sample-mean).
 Cholesterol has a longer right tail than left tail
 (the maximum is `r max(wcgs$chol, na.rm = TRUE)` mg/dL),
-and the large values in that tail pull the mean upward
+and the large values in that tail pull the sample mean upward
 but barely change which value is in the middle.
-A median is less sensitive to extreme values than a mean.
+A median is less sensitive to extreme values than a sample mean.
 :::

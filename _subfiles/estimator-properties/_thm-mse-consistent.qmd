@@ -1,7 +1,7 @@
 :::{#thm-mse-consistent}
-#### Vanishing mean squared error implies consistency
+#### Vanishing population mean squared error implies consistency
 
-If the mean squared error of $\hparam_n$ goes to zero as $n$ grows,
+If the pMSE of $\hparam_n$ goes to zero as $n$ grows,
 then $\hparam_n$ is a [consistent](#def-consistent) estimator of $\param$:
 
 $$

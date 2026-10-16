@@ -2,7 +2,8 @@
 #### Estimation versus prediction
 
 Estimation and prediction both measure error as a signed difference,
-and both summarize it with a mean squared error,
+and both summarize it with a mean squared error
+(a pMSE for an estimator, an sMSE for predictions),
 but they aim at different targets:
 
 - **Target.**
@@ -13,9 +14,9 @@ but they aim at different targets:
   The [estimation error](estimation.qmd#def-estimation-error) is the estimate minus the estimand.
   The [prediction error](#def-prediction-error) is the prediction minus the outcome.
 - **Mean squared error.**
-  The [mean squared error of an estimator](estimation.qmd#mean-squared-error)
+  The [pMSE of an estimator](estimation.qmd#mean-squared-error)
   is an expectation over repeated samples.
-  The [mean squared error of predictions](#def-prediction-mse)
+  The [sMSE of predictions](#def-prediction-mse)
   is an average over observations.
 - **What cannot be removed.**
   The error of a consistent estimator shrinks toward zero as the sample grows.

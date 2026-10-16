@@ -11,9 +11,9 @@ the conditions fail and the bound need not hold
 A biased estimator can have a variance below the bound,
 because the bound relies on [the covariance of an estimator and the score](#exr-cov-estimator-score),
 which assumes the estimator is unbiased.
-Its [mean squared error](estimation.qmd#thm-mse-bias-variance) adds the squared bias to the variance,
+Its [pMSE](estimation.qmd#thm-mse-bias-variance) adds the squared bias to the variance,
 so trading a little bias for a large drop in variance
-can also lower the mean squared error.
+can also lower the pMSE.
 
 The information from $n$ independent observations is $n$ times
 the information from one,

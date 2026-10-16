@@ -1,8 +1,8 @@
 ::: {#thm-mse-expand}
-#### Expanded mean squared error
+#### Expanded population mean squared error
 
 For any one-dimensional estimator $\hparam$ of an estimand $\param$,
-the [mean squared error](#def-mse) is:
+the [pMSE](#def-mse) is:
 
 $$\mselr{\hparam} = \E{\hparam^2} - 2\E{\hparam}\param + \param^2$$
 

@@ -26,7 +26,7 @@ and quartic models
 `mpg ~ wt + I(wt^2) + I(wt^3)`,
 and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`)
 on a validation set,
-then reports the chosen model's test RMSE
+then reports the chosen model's test sRMSE
 on untouched test data
 [@james2021islr2e, p. 213].
 
@@ -262,12 +262,12 @@ Quartic model fit superimposed on data partitions
 validation_results
 ```
 
-Training and validation RMSE for candidate models
+Training and validation sRMSE for candidate models
 :::
 
 The chosen model is
 the `r chosen_model_label`,
-because it has the lowest validation RMSE of the four.
+because it has the lowest validation sRMSE of the four.
 This split uses different cars from @exr-overfitting,
 and its validation set has only 6 cars,
 so the model it picks can differ from the one chosen there.
@@ -277,7 +277,7 @@ so the model it picks can differ from the one chosen there.
 performance_comparison
 ```
 
-Validation and test RMSE
+Validation and test sRMSE
 for the chosen model
 :::
 

@@ -4,7 +4,7 @@
 The **fold-based standard error** $\cvse{\nfolds}$
 of a $\nfolds$-fold [cross-validation estimate](#def-cv-estimate)
 is the [sample standard deviation](exploratory-descriptive.qmd#def-sample-sd)
-of the $\nfolds$ [fold mean squared errors](#def-fold-mse),
+of the $\nfolds$ [fold sMSEs](#def-fold-mse),
 divided by $\sqrt{\nfolds}$:
 
 $$

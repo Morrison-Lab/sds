@@ -2,7 +2,7 @@
 #### Bounding the chance of a large estimation error
 
 Let $\hparam$ be an estimator of $\param$ with finite
-[mean squared error](estimation.qmd#def-mse),
+[pMSE](estimation.qmd#def-mse),
 and let $\varepsilon > 0$.
 Use [Markov's inequality](https://morrison-lab.github.io/pds/limit-theorems.html#thm-markov)
 to show that

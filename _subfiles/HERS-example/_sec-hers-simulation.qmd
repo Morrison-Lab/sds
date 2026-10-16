@@ -140,7 +140,7 @@ Across `r nrow(sim_results)` simulated datasets:
   close to their nominal 95%;
 - the test of $H_0: \mean = 0.9\,\hmean$ rejected in
   `r round(100 * sim_summary$power, 1)`% of datasets:
-  with $n = 100$, a 10% difference in the mean is easy to detect.
+  with $n = 100$, a 10% difference in the population mean is easy to detect.
 
 Changing the sample size, the true $\mean$, or $\varpar$
 in `do_n_sims()` shows how these properties depend on them.

@@ -1,5 +1,5 @@
 :::{#thm-held-out-unbiased}
-#### The held-out mean loss estimates the generalization error
+#### The held-out sample mean loss estimates the generalization error
 
 Let a [prediction rule](#def-prediction-rule) $\fitted$
 be fitted to a [training set](#def-training-set) $\trainset$,
@@ -9,7 +9,7 @@ be drawn from the same population as $(\newpredvar, \newoutvar)$,
 each independently of $\trainset$.
 Write $\obsloss{*,\ifold}$ for the [loss](#def-observation-loss) of $\fitted$ on held-out observation $\ifold$.
 Then, given $\trainset$,
-the expected mean loss of the held-out predictions
+the expected sample mean loss of the held-out predictions
 is the [generalization error](#def-generalization-error):
 
 $$

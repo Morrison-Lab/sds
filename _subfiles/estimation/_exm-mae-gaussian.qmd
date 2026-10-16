@@ -1,5 +1,5 @@
 ::: {#exm-mae-gaussian}
-#### Mean absolute error of a Gaussian estimator
+#### Population mean absolute error of a Gaussian estimator
 
 Suppose an estimator $\hparam$ has a Gaussian distribution
 with mean $\param$ and standard deviation $\sdest$,
@@ -50,7 +50,7 @@ $$
 $$
 
 So for an [unbiased](#def-unbiased) Gaussian estimator,
-the mean absolute error is about $0.80$ times the standard deviation $\sdest$,
-while the [root mean squared error](#def-rmse) is $\sdest$ itself
+the pMAE is about $0.80$ times the standard deviation $\sdest$,
+while the [pRMSE](#def-rmse) is $\sdest$ itself
 (@thm-unbiased-props).
 :::

@@ -4,7 +4,7 @@
 We test $H_0: \mean_\text{HT} = \mean_\text{placebo}$
 against $H_1: \mean_\text{HT} \neq \mean_\text{placebo}$,
 where $\mean_\text{HT}$ and $\mean_\text{placebo}$
-are the mean baseline fasting glucose levels
+are the population mean baseline fasting glucose levels
 in the hormone therapy and placebo populations.
 @fig-hers-boxplot compares the two groups' distributions.
 
@@ -56,5 +56,5 @@ The p-value is large,
 so the data give no evidence against $H_0$.
 That result is expected here:
 treatment was randomized,
-so the groups' baseline means differ only by chance.
+so the groups' baseline sample means differ only by chance.
 :::

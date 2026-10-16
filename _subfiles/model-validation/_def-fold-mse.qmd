@@ -2,7 +2,7 @@
 #### Fold mean squared error
 
 The **fold mean squared error** $\foldmse{\ifold}$ of [fold](#def-folds) $\fold{\ifold}$
-is the [mean squared error](prediction.qmd#def-prediction-mse)
+is the [sMSE](prediction.qmd#def-prediction-mse)
 of the [fold-out rule](#def-fold-out-rule)'s predictions
 for the $\foldsize{\ifold}$ ([fold size](#def-fold-size)) observations in that fold:
 

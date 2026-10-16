@@ -4,7 +4,7 @@
 The **fold-based standard error of procedure** $\fitproc$ on a training set $\trainset$,
 $\cvseof{\nfolds}{\fitproc}\paren{\trainset}$,
 is the [fold-based standard error](#def-cv-se)
-computed from the [fold mean squared errors of $\fitproc$](#def-fold-mse-indexed):
+computed from the [fold sMSEs of $\fitproc$](#def-fold-mse-indexed):
 
 $$
 \cvseof{\nfolds}{\fitproc}\paren{\trainset} \eqdef \frac{\hSD{\foldmseof{1}{\fitproc}\paren{\trainset}, \ldots, \foldmseof{\nfolds}{\fitproc}\paren{\trainset}}}{\sqrt{\nfolds}}.
