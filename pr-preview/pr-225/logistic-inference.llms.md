@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 15:42:22 (PDT)
+Last modified: 2026-10-15 17:49:49 (PDT)
 
 ## 1 Introduction
 
@@ -206,7 +206,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. Independence gives each pattern its own log-likelihood term, and the outcomes at pattern \\k\\ contribute \\s_k \ln \pi_k + \mathopen{}\left(m_k - s_k\right)\mathclose{} \ln\mathopen{}\left(1 - \pi_k\right)\mathclose{}\\. The terms share no parameters, so each is maximized on its own. First suppose \\0 \< s_k \< m_k\\, so that both logarithms are defined for \\0 \< \pi_k \< 1\\. Setting the derivative with respect to \\\pi_k\\ to zero gives \\s_k / \pi_k - \mathopen{}\left(m_k - s_k\right)\mathclose{} / \mathopen{}\left(1 - \pi_k\right)\mathclose{} = 0\\. Multiplying through by \\\pi_k \mathopen{}\left(1 - \pi_k\right)\mathclose{}\\ gives \\s_k \mathopen{}\left(1 - \pi_k\right)\mathclose{} = \mathopen{}\left(m_k - s_k\right)\mathclose{} \pi_k\\. Expanding gives \\s_k - s_k \pi_k = m_k \pi_k - s_k \pi_k\\. Adding \\s_k \pi_k\\ to both sides gives \\s_k = m_k \pi_k\\. Dividing both sides by \\m_k\\ gives \\\hat\pi_k = s_k / m_k\\. The log-likelihood term increases to this point and decreases after it, so the point is a maximum. Now suppose \\s_k = 0\\. The term is \\m_k \ln\mathopen{}\left(1 - \pi_k\right)\mathclose{}\\, which decreases in \\\pi_k\\ and so peaks at \\\pi_k = 0\\. Next suppose \\s_k = m_k\\. The term is \\m_k \ln \pi_k\\, which peaks at \\\pi_k = 1\\. Both agree with \\s_k / m_k\\.
+> *Proof*. Independence gives each pattern its own log-likelihood term, and the outcomes at pattern \\k\\ contribute \\s_k \ln \pi_k + \mathopen{}\left(m_k - s_k\right)\mathclose{} \ln\mathopen{}\left(1 - \pi_k\right)\mathclose{}\\. The terms share no parameters, so each is maximized on its own. First suppose \\0 \< s_k \< m_k\\, so that both logarithms are defined for \\0 \< \pi_k \< 1\\. Setting the derivative with respect to \\\pi_k\\ to zero gives \\s_k / \pi_k - \mathopen{}\left(m_k - s_k\right)\mathclose{} / \mathopen{}\left(1 - \pi_k\right)\mathclose{} = 0\\. Multiplying through by \\\pi_k \mathopen{}\left(1 - \pi_k\right)\mathclose{}\\ gives \\s_k \mathopen{}\left(1 - \pi_k\right)\mathclose{} = \mathopen{}\left(m_k - s_k\right)\mathclose{} \pi_k\\. Expanding gives \\s_k - s_k \pi_k = m_k \pi_k - s_k \pi_k\\. Adding \\s_k \pi_k\\ to both sides gives \\s_k = m_k \pi_k\\. Dividing both sides by \\m_k\\ gives \\\hat\pi_k = s_k / m_k\\. The log-likelihood term increases to this point and decreases after it, so the point is a maximum. Now suppose \\s_k = 0\\. A count of \\0\\ times a logarithm is taken as \\0\\, so the term is \\m_k \ln\mathopen{}\left(1 - \pi_k\right)\mathclose{}\\, which decreases in \\\pi_k\\ and so peaks at \\\pi_k = 0\\. Next suppose \\s_k = m_k\\. By the same convention, the term is \\m_k \ln \pi_k\\, which peaks at \\\pi_k = 1\\. Both agree with \\s_k / m_k\\.
 
 > **NOTE:**
 >

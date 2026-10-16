@@ -221,6 +221,76 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-prp.callout {
   border-left-color: #827717;
 }
@@ -240,70 +310,6 @@ div.callout-exr.callout-style-default .callout-header {
 div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-videos.callout {
-  border-left-color: #283593;
-}
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
-}
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-remark.callout {
   border-left-color: #AD1457;
@@ -329,16 +335,6 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-tbl.callout {
   border-left-color: #757575;
 }
@@ -349,25 +345,29 @@ div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-videos.callout {
+  border-left-color: #283593;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
 }
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
+div.callout-proof.callout {
+  border-left-color: #37474F;
 }
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
 }
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -968,7 +968,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-15 15:42:22 (PDT)</p>
+      <p class="date">Last modified: 2026-10-15 17:49:49 (PDT)</p>
     </div>
   </div>
   
@@ -1565,23 +1565,23 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
 <span>    digits <span class="op">=</span> <span class="fu">gtsummary</span><span class="fu">::</span><span class="fu"><a href="https://www.danieldsjoberg.com/gtsummary/reference/select_helpers.html">all_continuous</a></span><span class="op">(</span><span class="op">)</span> <span class="op">~</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="znineqpnvo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#znineqpnvo table {
+<div id="kwbftnvdql" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kwbftnvdql table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#znineqpnvo thead, #znineqpnvo tbody, #znineqpnvo tfoot, #znineqpnvo tr, #znineqpnvo td, #znineqpnvo th {
+#kwbftnvdql thead, #kwbftnvdql tbody, #kwbftnvdql tfoot, #kwbftnvdql tr, #kwbftnvdql td, #kwbftnvdql th {
   border-style: none;
 }
 
-#znineqpnvo p {
+#kwbftnvdql p {
   margin: 0;
   padding: 0;
 }
 
-#znineqpnvo .gt_table {
+#kwbftnvdql .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1607,12 +1607,12 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-left-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_caption {
+#kwbftnvdql .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#znineqpnvo .gt_title {
+#kwbftnvdql .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1624,7 +1624,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-width: 0;
 }
 
-#znineqpnvo .gt_subtitle {
+#kwbftnvdql .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1636,7 +1636,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-top-width: 0;
 }
 
-#znineqpnvo .gt_heading {
+#kwbftnvdql .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1648,13 +1648,13 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_bottom_border {
+#kwbftnvdql .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_col_headings {
+#kwbftnvdql .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1669,7 +1669,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_col_heading {
+#kwbftnvdql .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1689,7 +1689,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   overflow-x: hidden;
 }
 
-#znineqpnvo .gt_column_spanner_outer {
+#kwbftnvdql .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1701,15 +1701,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 4px;
 }
 
-#znineqpnvo .gt_column_spanner_outer:first-child {
+#kwbftnvdql .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#znineqpnvo .gt_column_spanner_outer:last-child {
+#kwbftnvdql .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#znineqpnvo .gt_column_spanner {
+#kwbftnvdql .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1721,11 +1721,11 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   width: 100%;
 }
 
-#znineqpnvo .gt_spanner_row {
+#kwbftnvdql .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#znineqpnvo .gt_group_heading {
+#kwbftnvdql .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1751,7 +1751,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   text-align: left;
 }
 
-#znineqpnvo .gt_empty_group_heading {
+#kwbftnvdql .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1766,15 +1766,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   vertical-align: middle;
 }
 
-#znineqpnvo .gt_from_md > :first-child {
+#kwbftnvdql .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#znineqpnvo .gt_from_md > :last-child {
+#kwbftnvdql .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#znineqpnvo .gt_row {
+#kwbftnvdql .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1793,7 +1793,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   overflow-x: hidden;
 }
 
-#znineqpnvo .gt_stub {
+#kwbftnvdql .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1806,7 +1806,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#znineqpnvo .gt_stub_row_group {
+#kwbftnvdql .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1820,15 +1820,15 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   vertical-align: top;
 }
 
-#znineqpnvo .gt_row_group_first td {
+#kwbftnvdql .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#znineqpnvo .gt_row_group_first th {
+#kwbftnvdql .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#znineqpnvo .gt_summary_row {
+#kwbftnvdql .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1838,16 +1838,16 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#znineqpnvo .gt_first_summary_row {
+#kwbftnvdql .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_first_summary_row.thick {
+#kwbftnvdql .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#znineqpnvo .gt_last_summary_row {
+#kwbftnvdql .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1857,7 +1857,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_grand_summary_row {
+#kwbftnvdql .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1867,7 +1867,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#znineqpnvo .gt_first_grand_summary_row {
+#kwbftnvdql .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1877,7 +1877,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-top-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_last_grand_summary_row_top {
+#kwbftnvdql .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1887,11 +1887,11 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_striped {
+#kwbftnvdql .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#znineqpnvo .gt_table_body {
+#kwbftnvdql .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1900,7 +1900,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-bottom-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_footnotes {
+#kwbftnvdql .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1914,7 +1914,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_footnote {
+#kwbftnvdql .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1923,7 +1923,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#znineqpnvo .gt_sourcenotes {
+#kwbftnvdql .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1937,7 +1937,7 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   border-right-color: #D3D3D3;
 }
 
-#znineqpnvo .gt_sourcenote {
+#kwbftnvdql .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1945,72 +1945,72 @@ Table&nbsp;1: WCGS: descriptive statistics for continuous variables
   padding-right: 5px;
 }
 
-#znineqpnvo .gt_left {
+#kwbftnvdql .gt_left {
   text-align: left;
 }
 
-#znineqpnvo .gt_center {
+#kwbftnvdql .gt_center {
   text-align: center;
 }
 
-#znineqpnvo .gt_right {
+#kwbftnvdql .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#znineqpnvo .gt_font_normal {
+#kwbftnvdql .gt_font_normal {
   font-weight: normal;
 }
 
-#znineqpnvo .gt_font_bold {
+#kwbftnvdql .gt_font_bold {
   font-weight: bold;
 }
 
-#znineqpnvo .gt_font_italic {
+#kwbftnvdql .gt_font_italic {
   font-style: italic;
 }
 
-#znineqpnvo .gt_super {
+#kwbftnvdql .gt_super {
   font-size: 65%;
 }
 
-#znineqpnvo .gt_footnote_marks {
+#kwbftnvdql .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#znineqpnvo .gt_asterisk {
+#kwbftnvdql .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#znineqpnvo .gt_indent_1 {
+#kwbftnvdql .gt_indent_1 {
   text-indent: 5px;
 }
 
-#znineqpnvo .gt_indent_2 {
+#kwbftnvdql .gt_indent_2 {
   text-indent: 10px;
 }
 
-#znineqpnvo .gt_indent_3 {
+#kwbftnvdql .gt_indent_3 {
   text-indent: 15px;
 }
 
-#znineqpnvo .gt_indent_4 {
+#kwbftnvdql .gt_indent_4 {
   text-indent: 20px;
 }
 
-#znineqpnvo .gt_indent_5 {
+#kwbftnvdql .gt_indent_5 {
   text-indent: 25px;
 }
 
-#znineqpnvo .katex-display {
+#kwbftnvdql .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#znineqpnvo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kwbftnvdql div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2131,23 +2131,23 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
 </figcaption><div aria-describedby="tbl-wcgs-summary-cat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="bouevppaun" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bouevppaun table {
+<div id="hicnuvmohc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#hicnuvmohc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bouevppaun thead, #bouevppaun tbody, #bouevppaun tfoot, #bouevppaun tr, #bouevppaun td, #bouevppaun th {
+#hicnuvmohc thead, #hicnuvmohc tbody, #hicnuvmohc tfoot, #hicnuvmohc tr, #hicnuvmohc td, #hicnuvmohc th {
   border-style: none;
 }
 
-#bouevppaun p {
+#hicnuvmohc p {
   margin: 0;
   padding: 0;
 }
 
-#bouevppaun .gt_table {
+#hicnuvmohc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2173,12 +2173,12 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-left-color: #D3D3D3;
 }
 
-#bouevppaun .gt_caption {
+#hicnuvmohc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bouevppaun .gt_title {
+#hicnuvmohc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2190,7 +2190,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-width: 0;
 }
 
-#bouevppaun .gt_subtitle {
+#hicnuvmohc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2202,7 +2202,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-top-width: 0;
 }
 
-#bouevppaun .gt_heading {
+#hicnuvmohc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2214,13 +2214,13 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#bouevppaun .gt_bottom_border {
+#hicnuvmohc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bouevppaun .gt_col_headings {
+#hicnuvmohc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2235,7 +2235,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#bouevppaun .gt_col_heading {
+#hicnuvmohc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2255,7 +2255,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   overflow-x: hidden;
 }
 
-#bouevppaun .gt_column_spanner_outer {
+#hicnuvmohc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2267,15 +2267,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 4px;
 }
 
-#bouevppaun .gt_column_spanner_outer:first-child {
+#hicnuvmohc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bouevppaun .gt_column_spanner_outer:last-child {
+#hicnuvmohc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bouevppaun .gt_column_spanner {
+#hicnuvmohc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2287,11 +2287,11 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   width: 100%;
 }
 
-#bouevppaun .gt_spanner_row {
+#hicnuvmohc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bouevppaun .gt_group_heading {
+#hicnuvmohc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2317,7 +2317,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   text-align: left;
 }
 
-#bouevppaun .gt_empty_group_heading {
+#hicnuvmohc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2332,15 +2332,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   vertical-align: middle;
 }
 
-#bouevppaun .gt_from_md > :first-child {
+#hicnuvmohc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bouevppaun .gt_from_md > :last-child {
+#hicnuvmohc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bouevppaun .gt_row {
+#hicnuvmohc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2359,7 +2359,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   overflow-x: hidden;
 }
 
-#bouevppaun .gt_stub {
+#hicnuvmohc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2372,7 +2372,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#bouevppaun .gt_stub_row_group {
+#hicnuvmohc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2386,15 +2386,15 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   vertical-align: top;
 }
 
-#bouevppaun .gt_row_group_first td {
+#hicnuvmohc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bouevppaun .gt_row_group_first th {
+#hicnuvmohc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bouevppaun .gt_summary_row {
+#hicnuvmohc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2404,16 +2404,16 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#bouevppaun .gt_first_summary_row {
+#hicnuvmohc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bouevppaun .gt_first_summary_row.thick {
+#hicnuvmohc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bouevppaun .gt_last_summary_row {
+#hicnuvmohc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2423,7 +2423,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#bouevppaun .gt_grand_summary_row {
+#hicnuvmohc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2433,7 +2433,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#bouevppaun .gt_first_grand_summary_row {
+#hicnuvmohc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2443,7 +2443,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-top-color: #D3D3D3;
 }
 
-#bouevppaun .gt_last_grand_summary_row_top {
+#hicnuvmohc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2453,11 +2453,11 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#bouevppaun .gt_striped {
+#hicnuvmohc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bouevppaun .gt_table_body {
+#hicnuvmohc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2466,7 +2466,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-bottom-color: #D3D3D3;
 }
 
-#bouevppaun .gt_footnotes {
+#hicnuvmohc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2480,7 +2480,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#bouevppaun .gt_footnote {
+#hicnuvmohc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2489,7 +2489,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#bouevppaun .gt_sourcenotes {
+#hicnuvmohc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2503,7 +2503,7 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   border-right-color: #D3D3D3;
 }
 
-#bouevppaun .gt_sourcenote {
+#hicnuvmohc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2511,72 +2511,72 @@ Table&nbsp;2: Frequency table for categorical variables in the WCGS dataset
   padding-right: 5px;
 }
 
-#bouevppaun .gt_left {
+#hicnuvmohc .gt_left {
   text-align: left;
 }
 
-#bouevppaun .gt_center {
+#hicnuvmohc .gt_center {
   text-align: center;
 }
 
-#bouevppaun .gt_right {
+#hicnuvmohc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bouevppaun .gt_font_normal {
+#hicnuvmohc .gt_font_normal {
   font-weight: normal;
 }
 
-#bouevppaun .gt_font_bold {
+#hicnuvmohc .gt_font_bold {
   font-weight: bold;
 }
 
-#bouevppaun .gt_font_italic {
+#hicnuvmohc .gt_font_italic {
   font-style: italic;
 }
 
-#bouevppaun .gt_super {
+#hicnuvmohc .gt_super {
   font-size: 65%;
 }
 
-#bouevppaun .gt_footnote_marks {
+#hicnuvmohc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bouevppaun .gt_asterisk {
+#hicnuvmohc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bouevppaun .gt_indent_1 {
+#hicnuvmohc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bouevppaun .gt_indent_2 {
+#hicnuvmohc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bouevppaun .gt_indent_3 {
+#hicnuvmohc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bouevppaun .gt_indent_4 {
+#hicnuvmohc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bouevppaun .gt_indent_5 {
+#hicnuvmohc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bouevppaun .katex-display {
+#hicnuvmohc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bouevppaun div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#hicnuvmohc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3286,23 +3286,23 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
 </figcaption><div aria-describedby="tbl-chol-by-chd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="eruzvnwkrj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#eruzvnwkrj table {
+<div id="apujdulawe" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#apujdulawe table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#eruzvnwkrj thead, #eruzvnwkrj tbody, #eruzvnwkrj tfoot, #eruzvnwkrj tr, #eruzvnwkrj td, #eruzvnwkrj th {
+#apujdulawe thead, #apujdulawe tbody, #apujdulawe tfoot, #apujdulawe tr, #apujdulawe td, #apujdulawe th {
   border-style: none;
 }
 
-#eruzvnwkrj p {
+#apujdulawe p {
   margin: 0;
   padding: 0;
 }
 
-#eruzvnwkrj .gt_table {
+#apujdulawe .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3328,12 +3328,12 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-left-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_caption {
+#apujdulawe .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#eruzvnwkrj .gt_title {
+#apujdulawe .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3345,7 +3345,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-width: 0;
 }
 
-#eruzvnwkrj .gt_subtitle {
+#apujdulawe .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3357,7 +3357,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-top-width: 0;
 }
 
-#eruzvnwkrj .gt_heading {
+#apujdulawe .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3369,13 +3369,13 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_bottom_border {
+#apujdulawe .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_col_headings {
+#apujdulawe .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3390,7 +3390,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_col_heading {
+#apujdulawe .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3410,7 +3410,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   overflow-x: hidden;
 }
 
-#eruzvnwkrj .gt_column_spanner_outer {
+#apujdulawe .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3422,15 +3422,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 4px;
 }
 
-#eruzvnwkrj .gt_column_spanner_outer:first-child {
+#apujdulawe .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#eruzvnwkrj .gt_column_spanner_outer:last-child {
+#apujdulawe .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#eruzvnwkrj .gt_column_spanner {
+#apujdulawe .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3442,11 +3442,11 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   width: 100%;
 }
 
-#eruzvnwkrj .gt_spanner_row {
+#apujdulawe .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#eruzvnwkrj .gt_group_heading {
+#apujdulawe .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3472,7 +3472,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   text-align: left;
 }
 
-#eruzvnwkrj .gt_empty_group_heading {
+#apujdulawe .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3487,15 +3487,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   vertical-align: middle;
 }
 
-#eruzvnwkrj .gt_from_md > :first-child {
+#apujdulawe .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#eruzvnwkrj .gt_from_md > :last-child {
+#apujdulawe .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#eruzvnwkrj .gt_row {
+#apujdulawe .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3514,7 +3514,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   overflow-x: hidden;
 }
 
-#eruzvnwkrj .gt_stub {
+#apujdulawe .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3527,7 +3527,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#eruzvnwkrj .gt_stub_row_group {
+#apujdulawe .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3541,15 +3541,15 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   vertical-align: top;
 }
 
-#eruzvnwkrj .gt_row_group_first td {
+#apujdulawe .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#eruzvnwkrj .gt_row_group_first th {
+#apujdulawe .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#eruzvnwkrj .gt_summary_row {
+#apujdulawe .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3559,16 +3559,16 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#eruzvnwkrj .gt_first_summary_row {
+#apujdulawe .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_first_summary_row.thick {
+#apujdulawe .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#eruzvnwkrj .gt_last_summary_row {
+#apujdulawe .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3578,7 +3578,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_grand_summary_row {
+#apujdulawe .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3588,7 +3588,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#eruzvnwkrj .gt_first_grand_summary_row {
+#apujdulawe .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3598,7 +3598,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-top-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_last_grand_summary_row_top {
+#apujdulawe .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3608,11 +3608,11 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_striped {
+#apujdulawe .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#eruzvnwkrj .gt_table_body {
+#apujdulawe .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3621,7 +3621,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-bottom-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_footnotes {
+#apujdulawe .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3635,7 +3635,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_footnote {
+#apujdulawe .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3644,7 +3644,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#eruzvnwkrj .gt_sourcenotes {
+#apujdulawe .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3658,7 +3658,7 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   border-right-color: #D3D3D3;
 }
 
-#eruzvnwkrj .gt_sourcenote {
+#apujdulawe .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3666,72 +3666,72 @@ Table&nbsp;3: Cholesterol, systolic blood pressure, and BMI by CHD status in the
   padding-right: 5px;
 }
 
-#eruzvnwkrj .gt_left {
+#apujdulawe .gt_left {
   text-align: left;
 }
 
-#eruzvnwkrj .gt_center {
+#apujdulawe .gt_center {
   text-align: center;
 }
 
-#eruzvnwkrj .gt_right {
+#apujdulawe .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#eruzvnwkrj .gt_font_normal {
+#apujdulawe .gt_font_normal {
   font-weight: normal;
 }
 
-#eruzvnwkrj .gt_font_bold {
+#apujdulawe .gt_font_bold {
   font-weight: bold;
 }
 
-#eruzvnwkrj .gt_font_italic {
+#apujdulawe .gt_font_italic {
   font-style: italic;
 }
 
-#eruzvnwkrj .gt_super {
+#apujdulawe .gt_super {
   font-size: 65%;
 }
 
-#eruzvnwkrj .gt_footnote_marks {
+#apujdulawe .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#eruzvnwkrj .gt_asterisk {
+#apujdulawe .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#eruzvnwkrj .gt_indent_1 {
+#apujdulawe .gt_indent_1 {
   text-indent: 5px;
 }
 
-#eruzvnwkrj .gt_indent_2 {
+#apujdulawe .gt_indent_2 {
   text-indent: 10px;
 }
 
-#eruzvnwkrj .gt_indent_3 {
+#apujdulawe .gt_indent_3 {
   text-indent: 15px;
 }
 
-#eruzvnwkrj .gt_indent_4 {
+#apujdulawe .gt_indent_4 {
   text-indent: 20px;
 }
 
-#eruzvnwkrj .gt_indent_5 {
+#apujdulawe .gt_indent_5 {
   text-indent: 25px;
 }
 
-#eruzvnwkrj .katex-display {
+#apujdulawe .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#eruzvnwkrj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#apujdulawe div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3893,23 +3893,23 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
 </figcaption><div aria-describedby="tbl-gtsummary-smoke-chd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="vncjqjokyp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vncjqjokyp table {
+<div id="egaxshegra" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#egaxshegra table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vncjqjokyp thead, #vncjqjokyp tbody, #vncjqjokyp tfoot, #vncjqjokyp tr, #vncjqjokyp td, #vncjqjokyp th {
+#egaxshegra thead, #egaxshegra tbody, #egaxshegra tfoot, #egaxshegra tr, #egaxshegra td, #egaxshegra th {
   border-style: none;
 }
 
-#vncjqjokyp p {
+#egaxshegra p {
   margin: 0;
   padding: 0;
 }
 
-#vncjqjokyp .gt_table {
+#egaxshegra .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3935,12 +3935,12 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-left-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_caption {
+#egaxshegra .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vncjqjokyp .gt_title {
+#egaxshegra .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3952,7 +3952,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-width: 0;
 }
 
-#vncjqjokyp .gt_subtitle {
+#egaxshegra .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3964,7 +3964,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-top-width: 0;
 }
 
-#vncjqjokyp .gt_heading {
+#egaxshegra .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3976,13 +3976,13 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_bottom_border {
+#egaxshegra .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_col_headings {
+#egaxshegra .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3997,7 +3997,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_col_heading {
+#egaxshegra .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4017,7 +4017,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   overflow-x: hidden;
 }
 
-#vncjqjokyp .gt_column_spanner_outer {
+#egaxshegra .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4029,15 +4029,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 4px;
 }
 
-#vncjqjokyp .gt_column_spanner_outer:first-child {
+#egaxshegra .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vncjqjokyp .gt_column_spanner_outer:last-child {
+#egaxshegra .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vncjqjokyp .gt_column_spanner {
+#egaxshegra .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4049,11 +4049,11 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   width: 100%;
 }
 
-#vncjqjokyp .gt_spanner_row {
+#egaxshegra .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vncjqjokyp .gt_group_heading {
+#egaxshegra .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4079,7 +4079,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   text-align: left;
 }
 
-#vncjqjokyp .gt_empty_group_heading {
+#egaxshegra .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4094,15 +4094,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   vertical-align: middle;
 }
 
-#vncjqjokyp .gt_from_md > :first-child {
+#egaxshegra .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vncjqjokyp .gt_from_md > :last-child {
+#egaxshegra .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vncjqjokyp .gt_row {
+#egaxshegra .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4121,7 +4121,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   overflow-x: hidden;
 }
 
-#vncjqjokyp .gt_stub {
+#egaxshegra .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4134,7 +4134,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#vncjqjokyp .gt_stub_row_group {
+#egaxshegra .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4148,15 +4148,15 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   vertical-align: top;
 }
 
-#vncjqjokyp .gt_row_group_first td {
+#egaxshegra .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vncjqjokyp .gt_row_group_first th {
+#egaxshegra .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vncjqjokyp .gt_summary_row {
+#egaxshegra .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4166,16 +4166,16 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#vncjqjokyp .gt_first_summary_row {
+#egaxshegra .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_first_summary_row.thick {
+#egaxshegra .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vncjqjokyp .gt_last_summary_row {
+#egaxshegra .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4185,7 +4185,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_grand_summary_row {
+#egaxshegra .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4195,7 +4195,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#vncjqjokyp .gt_first_grand_summary_row {
+#egaxshegra .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4205,7 +4205,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-top-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_last_grand_summary_row_top {
+#egaxshegra .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4215,11 +4215,11 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_striped {
+#egaxshegra .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vncjqjokyp .gt_table_body {
+#egaxshegra .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4228,7 +4228,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-bottom-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_footnotes {
+#egaxshegra .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4242,7 +4242,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_footnote {
+#egaxshegra .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4251,7 +4251,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#vncjqjokyp .gt_sourcenotes {
+#egaxshegra .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4265,7 +4265,7 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   border-right-color: #D3D3D3;
 }
 
-#vncjqjokyp .gt_sourcenote {
+#egaxshegra .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4273,72 +4273,72 @@ Table&nbsp;4: Smoking status and CHD event in the WCGS
   padding-right: 5px;
 }
 
-#vncjqjokyp .gt_left {
+#egaxshegra .gt_left {
   text-align: left;
 }
 
-#vncjqjokyp .gt_center {
+#egaxshegra .gt_center {
   text-align: center;
 }
 
-#vncjqjokyp .gt_right {
+#egaxshegra .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vncjqjokyp .gt_font_normal {
+#egaxshegra .gt_font_normal {
   font-weight: normal;
 }
 
-#vncjqjokyp .gt_font_bold {
+#egaxshegra .gt_font_bold {
   font-weight: bold;
 }
 
-#vncjqjokyp .gt_font_italic {
+#egaxshegra .gt_font_italic {
   font-style: italic;
 }
 
-#vncjqjokyp .gt_super {
+#egaxshegra .gt_super {
   font-size: 65%;
 }
 
-#vncjqjokyp .gt_footnote_marks {
+#egaxshegra .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vncjqjokyp .gt_asterisk {
+#egaxshegra .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vncjqjokyp .gt_indent_1 {
+#egaxshegra .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vncjqjokyp .gt_indent_2 {
+#egaxshegra .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vncjqjokyp .gt_indent_3 {
+#egaxshegra .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vncjqjokyp .gt_indent_4 {
+#egaxshegra .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vncjqjokyp .gt_indent_5 {
+#egaxshegra .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vncjqjokyp .katex-display {
+#egaxshegra .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vncjqjokyp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#egaxshegra div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4812,23 +4812,23 @@ Table&nbsp;5: Summary of selected WCGS variables
 </figcaption><div aria-describedby="tbl-wcgs-all-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="rmbsigyiba" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#rmbsigyiba table {
+<div id="omewhspbnd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#omewhspbnd table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#rmbsigyiba thead, #rmbsigyiba tbody, #rmbsigyiba tfoot, #rmbsigyiba tr, #rmbsigyiba td, #rmbsigyiba th {
+#omewhspbnd thead, #omewhspbnd tbody, #omewhspbnd tfoot, #omewhspbnd tr, #omewhspbnd td, #omewhspbnd th {
   border-style: none;
 }
 
-#rmbsigyiba p {
+#omewhspbnd p {
   margin: 0;
   padding: 0;
 }
 
-#rmbsigyiba .gt_table {
+#omewhspbnd .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -4854,12 +4854,12 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-left-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_caption {
+#omewhspbnd .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#rmbsigyiba .gt_title {
+#omewhspbnd .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -4871,7 +4871,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-width: 0;
 }
 
-#rmbsigyiba .gt_subtitle {
+#omewhspbnd .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -4883,7 +4883,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-top-width: 0;
 }
 
-#rmbsigyiba .gt_heading {
+#omewhspbnd .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -4895,13 +4895,13 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_bottom_border {
+#omewhspbnd .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_col_headings {
+#omewhspbnd .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4916,7 +4916,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_col_heading {
+#omewhspbnd .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4936,7 +4936,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   overflow-x: hidden;
 }
 
-#rmbsigyiba .gt_column_spanner_outer {
+#omewhspbnd .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4948,15 +4948,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 4px;
 }
 
-#rmbsigyiba .gt_column_spanner_outer:first-child {
+#omewhspbnd .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#rmbsigyiba .gt_column_spanner_outer:last-child {
+#omewhspbnd .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#rmbsigyiba .gt_column_spanner {
+#omewhspbnd .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -4968,11 +4968,11 @@ Table&nbsp;5: Summary of selected WCGS variables
   width: 100%;
 }
 
-#rmbsigyiba .gt_spanner_row {
+#omewhspbnd .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#rmbsigyiba .gt_group_heading {
+#omewhspbnd .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4998,7 +4998,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   text-align: left;
 }
 
-#rmbsigyiba .gt_empty_group_heading {
+#omewhspbnd .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -5013,15 +5013,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   vertical-align: middle;
 }
 
-#rmbsigyiba .gt_from_md > :first-child {
+#omewhspbnd .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#rmbsigyiba .gt_from_md > :last-child {
+#omewhspbnd .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#rmbsigyiba .gt_row {
+#omewhspbnd .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5040,7 +5040,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   overflow-x: hidden;
 }
 
-#rmbsigyiba .gt_stub {
+#omewhspbnd .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5053,7 +5053,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#rmbsigyiba .gt_stub_row_group {
+#omewhspbnd .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -5067,15 +5067,15 @@ Table&nbsp;5: Summary of selected WCGS variables
   vertical-align: top;
 }
 
-#rmbsigyiba .gt_row_group_first td {
+#omewhspbnd .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#rmbsigyiba .gt_row_group_first th {
+#omewhspbnd .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#rmbsigyiba .gt_summary_row {
+#omewhspbnd .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5085,16 +5085,16 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#rmbsigyiba .gt_first_summary_row {
+#omewhspbnd .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_first_summary_row.thick {
+#omewhspbnd .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#rmbsigyiba .gt_last_summary_row {
+#omewhspbnd .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5104,7 +5104,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_grand_summary_row {
+#omewhspbnd .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -5114,7 +5114,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#rmbsigyiba .gt_first_grand_summary_row {
+#omewhspbnd .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5124,7 +5124,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-top-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_last_grand_summary_row_top {
+#omewhspbnd .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -5134,11 +5134,11 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_striped {
+#omewhspbnd .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#rmbsigyiba .gt_table_body {
+#omewhspbnd .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -5147,7 +5147,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-bottom-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_footnotes {
+#omewhspbnd .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5161,7 +5161,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_footnote {
+#omewhspbnd .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -5170,7 +5170,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#rmbsigyiba .gt_sourcenotes {
+#omewhspbnd .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -5184,7 +5184,7 @@ Table&nbsp;5: Summary of selected WCGS variables
   border-right-color: #D3D3D3;
 }
 
-#rmbsigyiba .gt_sourcenote {
+#omewhspbnd .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -5192,72 +5192,72 @@ Table&nbsp;5: Summary of selected WCGS variables
   padding-right: 5px;
 }
 
-#rmbsigyiba .gt_left {
+#omewhspbnd .gt_left {
   text-align: left;
 }
 
-#rmbsigyiba .gt_center {
+#omewhspbnd .gt_center {
   text-align: center;
 }
 
-#rmbsigyiba .gt_right {
+#omewhspbnd .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#rmbsigyiba .gt_font_normal {
+#omewhspbnd .gt_font_normal {
   font-weight: normal;
 }
 
-#rmbsigyiba .gt_font_bold {
+#omewhspbnd .gt_font_bold {
   font-weight: bold;
 }
 
-#rmbsigyiba .gt_font_italic {
+#omewhspbnd .gt_font_italic {
   font-style: italic;
 }
 
-#rmbsigyiba .gt_super {
+#omewhspbnd .gt_super {
   font-size: 65%;
 }
 
-#rmbsigyiba .gt_footnote_marks {
+#omewhspbnd .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#rmbsigyiba .gt_asterisk {
+#omewhspbnd .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#rmbsigyiba .gt_indent_1 {
+#omewhspbnd .gt_indent_1 {
   text-indent: 5px;
 }
 
-#rmbsigyiba .gt_indent_2 {
+#omewhspbnd .gt_indent_2 {
   text-indent: 10px;
 }
 
-#rmbsigyiba .gt_indent_3 {
+#omewhspbnd .gt_indent_3 {
   text-indent: 15px;
 }
 
-#rmbsigyiba .gt_indent_4 {
+#omewhspbnd .gt_indent_4 {
   text-indent: 20px;
 }
 
-#rmbsigyiba .gt_indent_5 {
+#omewhspbnd .gt_indent_5 {
   text-indent: 25px;
 }
 
-#rmbsigyiba .katex-display {
+#omewhspbnd .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#rmbsigyiba div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#omewhspbnd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
