@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 15:15:08 (PDT)
+Last modified: 2026-10-16 03:35:32 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -22,7 +22,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Definition 1 (Statistic)** A **statistic** is a function of the sample, \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\, that does not depend on any unknown parameter. Its value at the observed data, \\T\mathopen{}\left(\tilde{x}\right)\mathclose{}\\, is a number or vector we can compute.
+> **Definition 1 (Statistic)** A **statistic** is a function of the sample, \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\, that does not depend on any unknown parameter. Its value at the observed data, \\T\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{}\\, is a number or vector we can compute.
 
 > **NOTE:**
 >
@@ -30,9 +30,9 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Definition 2 (Sufficient statistic)** Let \\\tilde{X}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\tilde{x}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability:
+> **Definition 2 (Sufficient statistic)** Let \\\underset{\sim}{X}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\underset{\sim}{x}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability:
 >
-> \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \quad \text{wherever } \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0 \tag{1}\\
+> \\ \Pr\_{\theta}\mathopen{}\left(\underset{\sim}{X}= \underset{\sim}{x}\mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \quad \text{wherever } \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} \> 0 \tag{1}\\
 
 > **NOTE:**
 >
@@ -40,9 +40,9 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Remark 3* (What sufficiency says). Once we know \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\, the remaining randomness in the sample has the same distribution whatever the parameter is, so the sample carries no further information about \\\theta\\ beyond \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\. A statistic can therefore stand in for the whole sample when we estimate \\\theta\\.
+> *Remark 3* (What sufficiency says). Once we know \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\, the remaining randomness in the sample has the same distribution whatever the parameter is, so the sample carries no further information about \\\theta\\ beyond \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\. A statistic can therefore stand in for the whole sample when we estimate \\\theta\\.
 >
-> The sample itself, taking \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = \tilde{X}\\, is always sufficient but does not reduce the data; a useful sufficient statistic is a much shorter summary, such as a sum or a mean.
+> The sample itself, taking \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = \underset{\sim}{X}\\, is always sufficient but does not reduce the data; a useful sufficient statistic is a much shorter summary, such as a sum or a mean.
 >
 > Sufficiency by itself does not give a best estimator: it says which summaries lose nothing, not which function of them to use. The Rao–Blackwell theorem below shows how to improve a given unbiased estimator.
 >
@@ -50,29 +50,29 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Theorem 1 (Factorization theorem)** Let \\\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}\\ be the joint probability mass function of a discrete sample \\\tilde{X}\\. A statistic \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is [sufficient](#def-sufficient) for \\\theta\\ if and only if there are nonnegative functions \\g\\ and \\h\\ such that, for every sample \\\tilde{x}\\ and every \\\theta\\,
+> **Theorem 1 (Factorization theorem)** Let \\\operatorname{f}\mathopen{}\left(\underset{\sim}{x}; \theta\right)\mathclose{}\\ be the joint probability mass function of a discrete sample \\\underset{\sim}{X}\\. A statistic \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ is [sufficient](#def-sufficient) for \\\theta\\ if and only if there are nonnegative functions \\g\\ and \\h\\ such that, for every sample \\\underset{\sim}{x}\\ and every \\\theta\\,
 >
-> \\ \operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{} = g\mathopen{}\left(T\mathopen{}\left(\tilde{x}\right)\mathclose{} ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{} \tag{2}\\
+> \\ \operatorname{f}\mathopen{}\left(\underset{\sim}{x}; \theta\right)\mathclose{} = g\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{} ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{} \tag{2}\\
 >
-> where \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ does not depend on \\\theta\\.
+> where \\h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{}\\ does not depend on \\\theta\\.
 
 > **NOTE:**
 >
-> *Proof*. Fix a sample \\\tilde{x}\\ and write \\t \stackrel{\text{def}}{=}T\mathopen{}\left(\tilde{x}\right)\mathclose{}\\. The event \\\tilde{X}= \tilde{x}\\ lies inside the event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\.
+> *Proof*. Fix a sample \\\underset{\sim}{x}\\ and write \\t \stackrel{\text{def}}{=}T\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{}\\. The event \\\underset{\sim}{X}= \underset{\sim}{x}\\ lies inside the event \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\\.
 >
-> **Sufficient implies a factorization.** Define \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \stackrel{\text{def}}{=}\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}\\ and let \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ be the conditional probability \\\Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}\\ at any \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. By [sufficiency](#eq-sufficient), \\h\mathopen{}\left(\tilde{x}\right)\mathclose{}\\ does not depend on which such \\\theta\\ we use. (If \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ for every \\\theta\\, set \\h\mathopen{}\left(\tilde{x}\right)\mathclose{} \stackrel{\text{def}}{=}0\\.) Both functions are nonnegative, and at a \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ both sides of [Equation 2](#eq-factorization) are zero, because the event \\\tilde{X}= \tilde{x}\\ lies inside the event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\. At every other \\\theta\\,
+> **Sufficient implies a factorization.** Define \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \stackrel{\text{def}}{=}\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{}\\ and let \\h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{}\\ be the conditional probability \\\Pr\_{\theta}\mathopen{}\left(\underset{\sim}{X}= \underset{\sim}{x}\mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{}\\ at any \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. By [sufficiency](#eq-sufficient), \\h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{}\\ does not depend on which such \\\theta\\ we use. (If \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ for every \\\theta\\, set \\h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{} \stackrel{\text{def}}{=}0\\.) Both functions are nonnegative, and at a \\\theta\\ with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} = 0\\ both sides of [Equation 2](#eq-factorization) are zero, because the event \\\underset{\sim}{X}= \underset{\sim}{x}\\ lies inside the event \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\\. At every other \\\theta\\,
 >
-> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{} &= \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\right)\mathclose{} && \text{(definition of the joint mass function)}\\ &= \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x},\\ T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(the first event is inside the second)}\\ &= \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(conditional probability)}\\ &= g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{} && \text{(definitions of \$g\$ and \$h\$)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(\underset{\sim}{x}; \theta\right)\mathclose{} &= \Pr\_{\theta}\mathopen{}\left(\underset{\sim}{X}= \underset{\sim}{x}\right)\mathclose{} && \text{(definition of the joint mass function)}\\ &= \Pr\_{\theta}\mathopen{}\left(\underset{\sim}{X}= \underset{\sim}{x},\\ T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(the first event is inside the second)}\\ &= \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\underset{\sim}{X}= \underset{\sim}{x}\mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(conditional probability)}\\ &= g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{} && \text{(definitions of \$g\$ and \$h\$)} \end{aligned} \\
 >
-> **A factorization implies sufficient.** Suppose [Equation 2](#eq-factorization) holds, and let \\t\\ be a value with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. The event \\T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\\ is the union of the disjoint events \\\tilde{X}= \tilde{y}\\ over the samples \\\tilde{y}\\ with \\T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t\\, so
+> **A factorization implies sufficient.** Suppose [Equation 2](#eq-factorization) holds, and let \\t\\ be a value with \\\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} \> 0\\. The event \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\\ is the union of the disjoint events \\\underset{\sim}{X}= \underset{\sim}{y}\\ over the samples \\\underset{\sim}{y}\\ with \\T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} = t\\, so
 >
-> \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} &= \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} \operatorname{f}\mathopen{}\left(\tilde{y}; \theta\right)\mathclose{} && \text{(disjoint events add)}\\ &= \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} g\mathopen{}\left(T\mathopen{}\left(\tilde{y}\right)\mathclose{} ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{y}\right)\mathclose{} && \text{(factorization)}\\ &= \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{y}\right)\mathclose{} && \text{(each term has \$T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t\$)}\\ &= g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{} && \text{(factor out the common term)} \end{aligned} \\
+> \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} &= \sum\_{\underset{\sim}{y}:\\ T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} = t} \operatorname{f}\mathopen{}\left(\underset{\sim}{y}; \theta\right)\mathclose{} && \text{(disjoint events add)}\\ &= \sum\_{\underset{\sim}{y}:\\ T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} = t} g\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} && \text{(factorization)}\\ &= \sum\_{\underset{\sim}{y}:\\ T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} = t} g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} && \text{(each term has \$T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} = t\$)}\\ &= g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\underset{\sim}{y}:\\ T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} = t} h\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} && \text{(factor out the common term)} \end{aligned} \\
 >
-> This is positive, so \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\\. For a sample \\\tilde{x}\\ with \\T\mathopen{}\left(\tilde{x}\right)\mathclose{} = t\\,
+> This is positive, so \\g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\\. For a sample \\\underset{\sim}{x}\\ with \\T\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{} = t\\,
 >
-> \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} &= \frac{\operatorname{f}\mathopen{}\left(\tilde{x}; \theta\right)\mathclose{}}{\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{}} && \text{(conditional probability)}\\ &= \frac{g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\tilde{x}\right)\mathclose{}} {g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(factorization, and the display above)}\\ &= \frac{h\mathopen{}\left(\tilde{x}\right)\mathclose{}}{\sum\_{\tilde{y}:\\ T\mathopen{}\left(\tilde{y}\right)\mathclose{} = t} h\mathopen{}\left(\tilde{y}\right)\mathclose{}} && \text{(divide by \$g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\$)} \end{aligned} \\
+> \\ \begin{aligned} \Pr\_{\theta}\mathopen{}\left(\underset{\sim}{X}= \underset{\sim}{x}\mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} &= \frac{\operatorname{f}\mathopen{}\left(\underset{\sim}{x}; \theta\right)\mathclose{}}{\Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{}} && \text{(conditional probability)}\\ &= \frac{g\mathopen{}\left(t ; \theta\right)\mathclose{} \\ h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{}} {g\mathopen{}\left(t ; \theta\right)\mathclose{} \sum\_{\underset{\sim}{y}:\\ T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} = t} h\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{}} && \text{(factorization, and the display above)}\\ &= \frac{h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{}}{\sum\_{\underset{\sim}{y}:\\ T\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{} = t} h\mathopen{}\left(\underset{\sim}{y}\right)\mathclose{}} && \text{(divide by \$g\mathopen{}\left(t ; \theta\right)\mathclose{} \> 0\$)} \end{aligned} \\
 >
-> which does not depend on \\\theta\\. For a sample \\\tilde{x}\\ with \\T\mathopen{}\left(\tilde{x}\right)\mathclose{} \neq t\\ the conditional probability is zero, which does not depend on \\\theta\\ either. So \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is sufficient.
+> which does not depend on \\\theta\\. For a sample \\\underset{\sim}{x}\\ with \\T\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{} \neq t\\ the conditional probability is zero, which does not depend on \\\theta\\ either. So \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ is sufficient.
 
 > **NOTE:**
 >
@@ -82,55 +82,53 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > **Example 1 (The sum is sufficient for a Poisson rate)** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\ and \\S \stackrel{\text{def}}{=}\sum\_{i=1}^nX_i\\. The joint mass function of the sample is
 >
-> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(\tilde{x}; {\lambda}\right)\mathclose{} &= \prod\_{i=1}^n \frac{e^{-{\lambda}} {\lambda}^{x_i}}{x_i!} && \text{(independent Poisson mass functions)}\\ &= e^{-n{\lambda}} {\lambda}^{\sum\_{i=1}^nx_i} \prod\_{i=1}^n \frac{1}{x_i!} && \text{(collect the factors)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{f}\mathopen{}\left(\underset{\sim}{x}; {\lambda}\right)\mathclose{} &= \prod\_{i=1}^n \frac{e^{-{\lambda}} {\lambda}^{x_i}}{x_i!} && \text{(independent Poisson mass functions)}\\ &= e^{-n{\lambda}} {\lambda}^{\sum\_{i=1}^nx_i} \prod\_{i=1}^n \frac{1}{x_i!} && \text{(collect the factors)} \end{aligned} \\
 >
-> This has the form of [Equation 2](#eq-factorization) with \\g\mathopen{}\left(t ; {\lambda}\right)\mathclose{} = e^{-n{\lambda}} {\lambda}^{t}\\ and \\h\mathopen{}\left(\tilde{x}\right)\mathclose{} = \prod\_{i=1}^n 1 / x_i!\\, where \\t = \sum\_{i=1}^nx_i\\. So the sum \\S\\ is [sufficient](#def-sufficient) for \\{\lambda}\\ by [Theorem 1](#thm-factorization).
+> This has the form of [Equation 2](#eq-factorization) with \\g\mathopen{}\left(t ; {\lambda}\right)\mathclose{} = e^{-n{\lambda}} {\lambda}^{t}\\ and \\h\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{} = \prod\_{i=1}^n 1 / x_i!\\, where \\t = \sum\_{i=1}^nx_i\\. So the sum \\S\\ is [sufficient](#def-sufficient) for \\{\lambda}\\ by [Theorem 1](#thm-factorization).
 
 ## 2 The Rao–Blackwell theorem
 
 > **NOTE:**
 >
-> **Definition 3 (Rao–Blackwellized estimator)** Let \\\hat{\theta}\\ be an [estimator](estimation.llms.md#def-estimator) of \\\theta\\, and let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. The **Rao–Blackwellized estimator** is the conditional expectation of \\\hat{\theta}\\ given the statistic:
+> **Definition 3 (Rao–Blackwellized estimator)** Let \\\hat{\theta}\\ be an [estimator](estimation.llms.md#def-estimator) of \\\theta\\, and let \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. The **Rao–Blackwellized estimator** is the conditional expectation of \\\hat{\theta}\\ given the statistic:
 >
-> \\ \hat{\theta}\_{\mathrm{RB}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}} \tag{3}\\
+> \\ \hat{\theta}\_{\mathrm{RB}} \stackrel{\text{def}}{=}{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right\]\mathclose{}} \tag{3}\\
 
 > **NOTE:**
 >
-> **Lemma 1 (The Rao–Blackwellized estimator is a statistic)** Let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\ and \\\hat{\theta}\\ an estimator of \\\theta\\ with finite expectation. Then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ does not depend on \\\theta\\, so it is a [statistic](#def-statistic) and an estimator.
+> **Lemma 1 (The Rao–Blackwellized estimator is a statistic)** Let \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\ and \\\hat{\theta}\\ an estimator of \\\theta\\ with finite expectation. Then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right\]\mathclose{}}\\ does not depend on \\\theta\\, so it is a [statistic](#def-statistic) and an estimator.
 
 > **NOTE:**
 >
-> *Proof*. Take a discrete sample, and fix a value \\t\\ that \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ takes with positive probability. Write \\\hat{\theta}= \hat{\theta}\mathopen{}\left(\tilde{X}\right)\mathclose{}\\.
+> *Proof*. Take a discrete sample, and fix a value \\t\\ that \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ takes with positive probability. Write \\\hat{\theta}= \hat{\theta}\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\.
 >
-> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right\]\mathclose{}} &= \sum\_{\tilde{x}} \hat{\theta}\mathopen{}\left(\tilde{x}\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\tilde{X}= \tilde{x}\mid T\mathopen{}\left(\tilde{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(conditional expectation)} \end{aligned} \\
+> \\ \begin{aligned} {\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right\]\mathclose{}} &= \sum\_{\underset{\sim}{x}} \hat{\theta}\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{} \\ \Pr\_{\theta}\mathopen{}\left(\underset{\sim}{X}= \underset{\sim}{x}\mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{} = t\right)\mathclose{} && \text{(conditional expectation)} \end{aligned} \\
 >
-> Each term involves \\\hat{\theta}\mathopen{}\left(\tilde{x}\right)\mathclose{}\\, which does not depend on \\\theta\\, and the conditional probability, which does not depend on \\\theta\\ by [Equation 1](#eq-sufficient). So the sum does not depend on \\\theta\\.
+> Each term involves \\\hat{\theta}\mathopen{}\left(\underset{\sim}{x}\right)\mathclose{}\\, which does not depend on \\\theta\\, and the conditional probability, which does not depend on \\\theta\\ by [Equation 1](#eq-sufficient). So the sum does not depend on \\\theta\\.
 
 > **NOTE:**
 >
-> **Theorem 2 (Rao–Blackwellizing preserves unbiasedness)** If \\\hat{\theta}\\ is an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ and \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is a [sufficient](#def-sufficient) statistic for \\\theta\\, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ is also unbiased for \\\theta\\.
+> **Theorem 2 (Rao–Blackwellizing preserves unbiasedness)** If \\\hat{\theta}\\ is an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ and \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ is a [sufficient](#def-sufficient) statistic for \\\theta\\, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right\]\mathclose{}}\\ is also unbiased for \\\theta\\.
 
 > **NOTE:**
 >
 > *Proof*. We use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie):
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} && \text{(law of iterated expectations)}\\ &= \theta && \text{(\$\hat{\theta}\$ is unbiased)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right\]\mathclose{}}\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} && \text{(law of iterated expectations)}\\ &= \theta && \text{(\$\hat{\theta}\$ is unbiased)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\:
+> **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\:
 >
-> \\ \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
+> \\ \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
+>
+> Source: ([Rao 1945](#ref-rao1945information); [Blackwell 1947](#ref-blackwell1947conditional); [Casella and Berger 2002](#ref-CaseBerg01), Thm. 7.3.17, p. 342).
 
 > **NOTE:**
 >
 > *Proof*. Unbiasedness is [Theorem 2](#thm-rb-unbiased). For the variance, we use the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance):
 >
-> \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} + \operatorname{E}\mathopen{}\left\[{\operatorname{Var}\mathopen{}\left(\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right)\mathclose{}}\right\]\mathclose{} && \text{(law of total variance)}\\ &\ge \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} && \text{(a variance is nonnegative)} \end{aligned} \\
-
-> **NOTE:**
->
-> *Remark 5* (Source: Rao–Blackwell theorem). Rao ([1945](#ref-rao1945information)); Blackwell ([1947](#ref-blackwell1947conditional)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 7.3.17, p. 342).
+> \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} + \operatorname{E}\mathopen{}\left\[{\operatorname{Var}\mathopen{}\left(\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right)\mathclose{}}\right\]\mathclose{} && \text{(law of total variance)}\\ &\ge \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} && \text{(a variance is nonnegative)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -236,7 +234,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Remark 6* (Sufficiency is needed). If \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
+> *Remark 5* (Sufficiency is needed). If \\T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\underset{\sim}{X}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
 
 ## 3 Further reading
 

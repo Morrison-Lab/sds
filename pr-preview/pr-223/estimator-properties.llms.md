@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 15:15:08 (PDT)
+Last modified: 2026-10-16 03:35:32 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -27,14 +27,12 @@ Last modified: 2026-10-15 15:15:08 (PDT)
 > \\ \lim\_{n \to \infty} \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}\_n - \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} = 0 \tag{1}\\
 >
 > In words, \\\hat{\theta}\_n\\ [converges in probability](https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability) to \\\theta\\, which we write \\\hat{\theta}\_n \overset{\scriptstyle p}{\longrightarrow}\theta\\.
+>
+> Source: Casella and Berger ([2002](#ref-CaseBerg01), Def. 10.1.1).
 
 > **NOTE:**
 >
-> *Remark 1* (Source: Consistent estimator). Casella and Berger ([2002](#ref-CaseBerg01), Def. 10.1.1).
-
-> **NOTE:**
->
-> *Remark 2* (Consistency describes a sequence of estimators). An estimator such as the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is a formula that applies to any sample size, so \\\hat{\theta}\_1, \hat{\theta}\_2, \ldots\\ is a sequence of estimators, one for each \\n\\. [Unbiasedness](estimation.llms.md#def-unbiased) and [mean squared error](estimation.llms.md#def-mse) describe an estimator at one fixed sample size; consistency describes what happens to the whole sequence as \\n\\ grows. An estimator can be consistent and biased at every \\n\\, or unbiased at every \\n\\ and not consistent (the single-observation estimator \\X_1\\ of a mean is the standard example).
+> *Remark 1* (Consistency describes a sequence of estimators). An estimator such as the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is a formula that applies to any sample size, so \\\hat{\theta}\_1, \hat{\theta}\_2, \ldots\\ is a sequence of estimators, one for each \\n\\. [Unbiasedness](estimation.llms.md#def-unbiased) and [mean squared error](estimation.llms.md#def-mse) describe an estimator at one fixed sample size; consistency describes what happens to the whole sequence as \\n\\ grows. An estimator can be consistent and biased at every \\n\\, or unbiased at every \\n\\ and not consistent (the single-observation estimator \\X_1\\ of a mean is the standard example).
 
 > **NOTE:**
 >
@@ -155,11 +153,11 @@ Last modified: 2026-10-15 15:15:08 (PDT)
 
 > **NOTE:**
 >
-> *Remark 3* (Source: Relative efficiency). Casella and Berger ([2002](#ref-CaseBerg01)) define the asymptotic version, through variances, in Def. 10.1.16 (p. 476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
+> *Remark 2* (Source: Relative efficiency). Casella and Berger ([2002](#ref-CaseBerg01)) define the asymptotic version, through variances, in Def. 10.1.16 (p. 476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
 
 > **NOTE:**
 >
-> *Remark 4* (Reading the relative efficiency). A relative efficiency above 1 means \\\hat{\theta}\_a\\ is more accurate than \\\hat{\theta}\_b\\, and below 1 means it is less accurate. For two [unbiased](estimation.llms.md#def-unbiased) estimators the mean squared errors are the variances ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias), so the relative efficiency is the ratio of the variances.
+> *Remark 3* (Reading the relative efficiency). A relative efficiency above 1 means \\\hat{\theta}\_a\\ is more accurate than \\\hat{\theta}\_b\\, and below 1 means it is less accurate. For two [unbiased](estimation.llms.md#def-unbiased) estimators the mean squared errors are the variances ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias), so the relative efficiency is the ratio of the variances.
 
 > **NOTE:**
 >
@@ -177,19 +175,19 @@ Last modified: 2026-10-15 15:15:08 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 2 (Covariance of an unbiased estimator with the score)** Let \\\tilde{X}\\ have density \\\operatorname{p}(\tilde{x}\mid \theta)\\ for a scalar parameter \\\theta\\, under the assumptions of [the exercise on the mean of the score](intro-MLEs.llms.md#exr-score-mean-zero), and let \\\hat{\theta}= \hat{\theta}(\tilde{X})\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance. Show that the covariance of \\\hat{\theta}\\ with the [score](intro-MLEs.llms.md#def-score) \\\ell'(\tilde{X}\mid \theta)\\ equals 1. Assume the derivative of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\ with respect to \\\theta\\ can be taken inside the integral.
+> **Exercise 2 (Covariance of an unbiased estimator with the score)** Let \\\underset{\sim}{X}\\ have density \\\operatorname{p}(\underset{\sim}{x}\mid \theta)\\ for a scalar parameter \\\theta\\, under the assumptions of [the exercise on the mean of the score](intro-MLEs.llms.md#exr-score-mean-zero), and let \\\hat{\theta}= \hat{\theta}(\underset{\sim}{X})\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance. Show that the covariance of \\\hat{\theta}\\ with the [score](intro-MLEs.llms.md#def-score) \\\ell'(\underset{\sim}{X}\mid \theta)\\ equals 1. Assume the derivative of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\ with respect to \\\theta\\ can be taken inside the integral.
 
 > **NOTE:**
 >
 > *Solution 2*. The score has mean zero by [the exercise on the mean of the score](intro-MLEs.llms.md#exr-score-mean-zero). The step that rewrites the product of the score and the density uses [the exercise on the derivative of a density](intro-MLEs.llms.md#exr-deriv-log-density):
 >
-> \\ \begin{aligned} \operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\ell'\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} && \text{(definition of covariance)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\ell'\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} \cdot 0 && \text{(the score has mean zero)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\ell'\right\]\mathclose{} - 0 && \text{(\$b \cdot 0 = 0\$)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\ell'\right\]\mathclose{} && \text{(\$a - 0 = a\$)}\\ &= \int \hat{\theta}(\tilde{x}) \\ \ell'(\tilde{x}\mid \theta) \\ \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(definition of expectation)}\\ &= \int \hat{\theta}(\tilde{x}) \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(definition of the score)}\\ &= \int \hat{\theta}(\tilde{x}) \\ \frac{\partial}{\partial \theta} \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(derivative of a log density)}\\ &= \frac{\partial}{\partial \theta} \int \hat{\theta}(\tilde{x}) \\ \operatorname{p}(\tilde{x}\mid \theta) \\ d\tilde{x} && \text{(exchange derivative and integral)}\\ &= \frac{\partial}{\partial \theta} \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} && \text{(definition of expectation)}\\ &= \frac{\partial}{\partial \theta} \theta && \text{(\$\hat{\theta}\$ is unbiased)}\\ &= 1 && \text{(derivative of \$\theta\$ with respect to \$\theta\$)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\ell'\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\\operatorname{E}\mathopen{}\left\[\ell'\right\]\mathclose{} && \text{(definition of covariance)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\ell'\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} \cdot 0 && \text{(the score has mean zero)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\ell'\right\]\mathclose{} - 0 && \text{(\$b \cdot 0 = 0\$)}\\ &= \operatorname{E}\mathopen{}\left\[\hat{\theta}\ell'\right\]\mathclose{} && \text{(\$a - 0 = a\$)}\\ &= \int \hat{\theta}(\underset{\sim}{x}) \\ \ell'(\underset{\sim}{x}\mid \theta) \\ \operatorname{p}(\underset{\sim}{x}\mid \theta) \\ d\underset{\sim}{x} && \text{(definition of expectation)}\\ &= \int \hat{\theta}(\underset{\sim}{x}) \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \\ d\underset{\sim}{x} && \text{(definition of the score)}\\ &= \int \hat{\theta}(\underset{\sim}{x}) \\ \frac{\partial}{\partial \theta} \operatorname{p}(\underset{\sim}{x}\mid \theta) \\ d\underset{\sim}{x} && \text{(derivative of a log density)}\\ &= \frac{\partial}{\partial \theta} \int \hat{\theta}(\underset{\sim}{x}) \\ \operatorname{p}(\underset{\sim}{x}\mid \theta) \\ d\underset{\sim}{x} && \text{(exchange derivative and integral)}\\ &= \frac{\partial}{\partial \theta} \operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{} && \text{(definition of expectation)}\\ &= \frac{\partial}{\partial \theta} \theta && \text{(\$\hat{\theta}\$ is unbiased)}\\ &= 1 && \text{(derivative of \$\theta\$ with respect to \$\theta\$)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Lemma 2 (Covariance of an unbiased estimator with the score)** Under the assumptions of [Exercise 2](#exr-cov-estimator-score), an unbiased estimator \\\hat{\theta}\\ of \\\theta\\ has covariance 1 with the score:
 >
-> \\ \operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'(\tilde{X}\mid \theta)\right)\mathclose{} = 1 \tag{4}\\
+> \\ \operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'(\underset{\sim}{X}\mid \theta)\right)\mathclose{} = 1 \tag{4}\\
 
 > **NOTE:**
 >
@@ -200,6 +198,8 @@ Last modified: 2026-10-15 15:15:08 (PDT)
 > **Theorem 2 (Cramér–Rao lower bound)** Under the assumptions of [Exercise 2](#exr-cov-estimator-score), suppose the [expected information](intro-MLEs.llms.md#def-einf) satisfies \\0 \< \mathcal{I}(\theta) \< \infty\\. Then every unbiased estimator \\\hat{\theta}\\ of \\\theta\\ has variance at least the reciprocal of the expected information:
 >
 > \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \ge \frac{1}{\mathcal{I}(\theta)} \tag{5}\\
+>
+> Source: ([Rao 1945](#ref-rao1945information); [Cramér 1946](#ref-cramer1946mathematical); [Casella and Berger 2002](#ref-CaseBerg01), Thm. 7.3.9, p. 335).
 
 > **NOTE:**
 >
@@ -211,21 +211,15 @@ Last modified: 2026-10-15 15:15:08 (PDT)
 
 > **NOTE:**
 >
-> *Remark 5* (Source: Cramér–Rao lower bound). Rao ([1945](#ref-rao1945information)); Cramér ([1946](#ref-cramer1946mathematical)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 7.3.9, p. 335).
-
-> **NOTE:**
->
 > **Definition 3 (Efficient estimator)** An [unbiased](estimation.llms.md#def-unbiased) estimator \\\hat{\theta}\\ of \\\theta\\ is **efficient** if its variance equals the [Cramér–Rao lower bound](#thm-cramer-rao):
 >
 > \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \frac{1}{\mathcal{I}(\theta)} \\
+>
+> Source: Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01)).
 
 > **NOTE:**
 >
-> *Remark 6* (Source: Efficient estimator). Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01)).
-
-> **NOTE:**
->
-> *Remark 7* (An efficient estimator has the smallest variance). By the Cramér–Rao lower bound, no unbiased estimator that satisfies its assumptions has a smaller variance than an efficient one. Among such estimators, an efficient estimator therefore also has the smallest mean squared error ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias).
+> *Remark 4* (An efficient estimator has the smallest variance). By the Cramér–Rao lower bound, no unbiased estimator that satisfies its assumptions has a smaller variance than an efficient one. Among such estimators, an efficient estimator therefore also has the smallest mean squared error ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias).
 
 > **NOTE:**
 >
@@ -237,7 +231,7 @@ Last modified: 2026-10-15 15:15:08 (PDT)
 
 > **NOTE:**
 >
-> *Remark 8* (What the bound does and does not say). The bound holds only for unbiased estimators, and only when the regularity conditions of [the exercise on the mean of the score](intro-MLEs.llms.md#exr-score-mean-zero) hold. When the set of possible data values depends on the parameter, as for the uniform distribution on \\\[0, \theta\]\\, the conditions fail and the bound need not hold (compare [the uniform example](intro-MLEs.llms.md#exm-information-equality-fails)).
+> *Remark 5* (What the bound does and does not say). The bound holds only for unbiased estimators, and only when the regularity conditions of [the exercise on the mean of the score](intro-MLEs.llms.md#exr-score-mean-zero) hold. When the set of possible data values depends on the parameter, as for the uniform distribution on \\\[0, \theta\]\\, the conditions fail and the bound need not hold (compare [the uniform example](intro-MLEs.llms.md#exm-information-equality-fails)).
 >
 > A biased estimator can have a variance below the bound, because the bound relies on [the covariance of an estimator and the score](#exr-cov-estimator-score), which assumes the estimator is unbiased. Its [mean squared error](estimation.llms.md#thm-mse-bias-variance) adds the squared bias to the variance, so trading a little bias for a large drop in variance can also lower the mean squared error.
 >
