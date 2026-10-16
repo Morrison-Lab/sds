@@ -11,6 +11,15 @@ $$
 \fitproc\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}.
 $$ {#eq-fitting-procedure}
 
+It is specified by these inputs, besides the data:
+
+- the set of candidate models it searches, called the model family;
+- the objective function that scores each candidate against the data;
+- the optimization algorithm that searches the family for a candidate with a good score, with its starting values and stopping rule;
+- the random seed, when the algorithm or the data splitting draws random numbers;
+- the [tuning parameters](#def-tuning-parameter), which it does not compute from the data;
+- the preprocessing of the covariates, such as scaling, encoding and feature choice.
+
 :::
 
 :::{#rem-source-fitting-procedure}

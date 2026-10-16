@@ -38,6 +38,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_exm-fitting-procedure.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-training-set.qmd >}}
 
 {{< slidebreak >}}

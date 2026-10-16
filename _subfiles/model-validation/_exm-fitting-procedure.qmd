@@ -1,0 +1,20 @@
+:::{#exm-fitting-procedure}
+#### Inputs of two fitting procedures
+
+Least-squares polynomial fitting of degree $\polydeg$ has these inputs:
+
+- model family: the polynomials of degree at most $\polydeg$;
+- objective function: the sum of squared errors over the training set;
+- optimization algorithm: solving the normal equations, which finds the unique minimizer exactly;
+- random seed: none, since nothing is random;
+- tuning parameter: the degree $\polydeg$;
+- preprocessing: none.
+
+Because the minimizer is unique and exact, the family, the training set and the objective already determine the fitted rule.
+
+The lasso fitted by coordinate descent, with its penalty chosen by cross-validation, is different.
+Its tuning parameter $\tuning$ is the penalty,
+its preprocessing includes scaling the covariates to a common scale,
+and the random seed fixes the cross-validation splits, so two seeds can choose different penalties and give different fitted rules from the same training set.
+
+:::
