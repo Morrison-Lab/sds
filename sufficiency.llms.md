@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 03:46:21 (PDT)
+Last modified: 2026-10-16 04:05:26 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -235,6 +235,10 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > **NOTE:**
 >
 > *Remark 5* (Sufficiency is needed). If \\T\mathopen{}\left(\mathord{\underset{\sim}{X}}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\mathord{\underset{\sim}{X}}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
+
+## 3 Further reading
+
+- The [Fall 2024 course site for UC Berkeley’s Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation.
 
 ## References
 

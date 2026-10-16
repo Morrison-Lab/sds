@@ -33,6 +33,17 @@
     ]
   },
   {
+    "objectID": "sufficiency.html#sec-sufficiency-reading",
+    "href": "sufficiency.html#sec-sufficiency-reading",
+    "title": "Sufficiency and the Rao–Blackwell Theorem",
+    "section": "\n3 Further reading",
+    "text": "3 Further reading\n\nThe Fall 2024 course site for UC Berkeley’s Stat 210A, Theoretical Statistics (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation.",
+    "crumbs": [
+      "Inference",
+      "Sufficiency"
+    ]
+  },
+  {
     "objectID": "sufficiency.html#references",
     "href": "sufficiency.html#references",
     "title": "Sufficiency and the Rao–Blackwell Theorem",
@@ -114,7 +125,7 @@
     "href": "permutation-tests.html#sec-permutation-reading",
     "title": "Permutation Tests",
     "section": "\n6 Further reading",
-    "text": "6 Further reading\n\n\nGood (2005) is a book-length treatment of permutation tests.\n\nPhipson and Smyth (2010) explains why Monte Carlo permutation p-values need the added 1.\nChapter 13 of James et al. (2021) applies permutation and other resampling methods to multiple testing.",
+    "text": "6 Further reading\n\n\nGood (2005) is a book-length treatment of permutation tests.\n\nPhipson and Smyth (2010) explains why Monte Carlo permutation p-values need the added 1.\nChapter 12 of the Computational and Inferential Thinking textbook for UC Berkeley’s Data 8 introduces permutation tests through plain-language A/B testing examples.\nChapter 13 of James et al. (2021) applies permutation and other resampling methods to multiple testing.",
     "crumbs": [
       "Methods",
       "Permutation Tests"
@@ -224,7 +235,7 @@
     "href": "multiple-testing.html#sec-multiple-testing-reading",
     "title": "Multiple Testing",
     "section": "\n8 Further reading",
-    "text": "8 Further reading\n\nChapter 13 of James et al. (2021) covers the same procedures, with labs.\nChapter 15 of Efron and Hastie (2016) treats large-scale testing and the false discovery rate.\nAndrew Lin’s notes on Stanford STATS 300C (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.\nThe permutation tests page computes valid p-values by relabeling the data, without a distributional model for the test statistic.",
+    "text": "8 Further reading\n\nChapter 13 of James et al. (2021) covers the same procedures, with labs.\nChapter 15 of Efron and Hastie (2016) treats large-scale testing and the false discovery rate.\nAndrew Lin’s notes on Stanford STATS 300C (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.\nWill Fithian’s Stat 212A, Topics in Selective Inference (UC Berkeley, Fall 2015) has a syllabus, references and homework with solutions on inference after selection, including multiple testing.\nThe permutation tests page computes valid p-values by relabeling the data, without a distributional model for the test statistic.",
     "crumbs": [
       "Methods",
       "Multiple Testing"
