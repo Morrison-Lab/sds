@@ -1,7 +1,7 @@
 ::: {#exm-estimator}
 #### Mean height of students
 
-Suppose we want to estimate the mean height of students at our school,
+Suppose we want to estimate the population mean height of students at our school,
 which we will represent as $\mean$,
 and we measure the heights of
 $n = 50$ randomly sampled students as random variables $\dsn{X}$.
@@ -15,7 +15,7 @@ Another estimator would be just the height of the first student sampled:
 
 $$\hmean^{(2)}(\dsn{X}) \eqdef X_1$$
 
-A third possible estimator would be the mean of all sampled students'
+A third possible estimator would be the sample mean of all sampled students'
 heights, except for the two most extreme.
 Using the [order statistics](nonparametric-models.qmd#def-order-statistics)
 $X_{(1)} \le X_{(2)} \le \cdots \le X_{(n)}$

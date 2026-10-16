@@ -3,7 +3,7 @@
 
 In a conditional Gaussian model (@def-cond-gaussian),
 the **deviation** $\cdev_\iobs$ of outcome $\Outvar_\iobs$
-is its [deviation from its mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean),
+is its [deviation from its population mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean),
 taking the mean conditional on $\Predvar_\iobs = \predvar_\iobs$:
 
 $$\cdev_\iobs \eqdef \Outvar_\iobs - \mean(\predvar_\iobs).$$

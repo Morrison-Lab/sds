@@ -1,5 +1,5 @@
 ::: {#exm-bias-sample-mean}
-#### Bias of two estimators of a mean
+#### Bias of two estimators of a population mean
 
 Let $\dsn{X}$ each have expectation $\E{\Rvar_\iobs} = \mean$,
 as in @exm-estimator.
