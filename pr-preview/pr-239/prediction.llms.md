@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 01:58:20 (PDT)
+Last modified: 2026-10-16 02:24:37 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -58,13 +58,13 @@ Last modified: 2026-10-16 01:58:20 (PDT)
 
 > **NOTE:**
 >
-> *Solution 1*. \\ \begin{aligned} \varepsilon_i &= \hat y_i - y_i && \text{(definition of prediction error)}\\ &= -(y_i - \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
+> *Solution 1*. \\ \begin{aligned} \varepsilon_i &= \hat y_i- y_i && \text{(definition of prediction error)}\\ &= -(y_i- \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Theorem 1 (Prediction error is the negative of the residual)** For an observation \\i\\, the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value) is the negative of its [residual](#def-residual):
 >
-> \\\varepsilon_i = -r_i.\\
+> \\\varepsilon_i= -r_i.\\
 
 > **NOTE:**
 >
@@ -74,7 +74,7 @@ Last modified: 2026-10-16 01:58:20 (PDT)
 >
 > **Corollary 1 (The residual is the negative of the prediction error)** For an observation \\i\\, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
 >
-> \\r_i = -\varepsilon_i.\\
+> \\r_i= -\varepsilon_i.\\
 
 > **NOTE:**
 >
