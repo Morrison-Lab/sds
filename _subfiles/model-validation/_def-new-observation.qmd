@@ -2,14 +2,15 @@
 #### New observation
 
 A **new observation** $(\newpredvar, \newoutvar)$ relative to a [training set](#def-training-set) $\trainset$
-is a [new observation](https://morrison-lab.github.io/pds/expectation.html#def-new-observation)
-when the [prediction function](https://morrison-lab.github.io/pds/expectation.html#def-prediction)
-that predicts its outcome from its covariate value
-is obtained by applying a [fitting procedure](#def-fitting-procedure) to $\trainset$.
-Its covariate value and outcome are drawn from the same population as the observations of $\trainset$,
-and are [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $\trainset$.
+is a covariate value and an outcome
+drawn from the same population as the observations of $\trainset$,
+and [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of $\trainset$.
 The subscript $*$ marks a quantity of the new observation,
 as in $\newpredvar$ and $\newoutvar$,
 and distinguishes it from the indexed observations $(\vpredvar_{\iobs}, \outvar_{\iobs})$ of $\trainset$.
+It is the [new observation](https://morrison-lab.github.io/pds/expectation.html#def-new-observation) of the pds notes,
+where the data used to choose the [prediction function](https://morrison-lab.github.io/pds/expectation.html#def-prediction)
+is $\trainset$,
+to which a [fitting procedure](#def-fitting-procedure) is applied.
 
 :::
