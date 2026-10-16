@@ -8,14 +8,14 @@ the prediction $\fitproc\paren{\predvar; \trainset}$ is a random variable,
 because it depends on the random training data.
 The **bias** of the prediction
 is the [bias](estimation.qmd#def-bias) of $\fitproc\paren{\predvar; \trainset}$
-used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\mean(\predvar)$,
+used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\targetfnf{\predvar}$,
 which is its estimand here, not the new outcome it predicts:
 
 $$
-\bias{\fitproc\paren{\predvar; \trainset}} = \E{\fitproc\paren{\predvar; \trainset}} - \mean(\predvar),
+\bias{\fitproc\paren{\predvar; \trainset}} = \E{\fitproc\paren{\predvar; \trainset}} - \targetfnf{\predvar},
 $$ {#eq-prediction-bias}
 
-which is the [average fit](#def-average-fit) $\avgfitf{\predvar}$ minus $\mean(\predvar)$.
+which is the [average fit](#def-average-fit) $\avgfitf{\predvar}$ minus $\targetfnf{\predvar}$.
 
 :::
 
@@ -31,7 +31,7 @@ the bias reflects the error introduced by approximating a real-world relationshi
 :::{#exm-prediction-bias}
 #### Computing the bias of a prediction
 
-Suppose $\mean(\predvar) = 10$,
+Suppose $\targetfnf{\predvar} = 10$,
 and the predictions $\fitproc\paren{\predvar; \trainset}$,
 over repeated training sets,
 average $11$.

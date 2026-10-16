@@ -4,7 +4,7 @@
 A prediction $\fitproc\paren{\predvar; \trainset}$ at a covariate value $\predvar$ has
 squared bias $[\bias{\fitproc\paren{\predvar; \trainset}}]^2 = 1$
 and variance $\Var{\fitproc\paren{\predvar; \trainset}} = 2$.
-The new outcome is $\newoutvar = \mean(\predvar) + \noise$,
+The new outcome is $\newoutvar = \targetfnf{\predvar} + \noise$,
 where $\noise$ has mean $0$ and variance $\varpar = 3$
 and is independent of $\fitproc\paren{\predvar; \trainset}$.
 

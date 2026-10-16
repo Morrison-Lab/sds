@@ -5,11 +5,11 @@ Let $\candproc{1}, \ldots, \candproc{\ncand}$ be [fitting procedures](#def-fitti
 each [at least as flexible](#def-flexibility) as the one before,
 and let $\trainset$ be a random [training set](#def-training-set).
 At a covariate value $\predvar$,
-with $\mean$ the [mean function](#def-mean-function),
+with $\targetfn$ the [mean function](#def-mean-function),
 there is a **bias--variance trade-off** among them
 when, from each procedure to the next,
 the squared [bias](#def-prediction-bias)
-of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$, does not rise
+of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\targetfnf{\predvar}$, does not rise
 and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance)
 does not fall:
 

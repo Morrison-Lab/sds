@@ -1,11 +1,11 @@
 :::{#def-mean-function}
 #### Mean function
 
-The **mean function** $\mean$ of an outcome $\Outvar$ given a covariate $\Predvar$
+The **mean function** $\targetfn$ of an outcome $\Outvar$ given a covariate $\Predvar$
 maps each covariate value $\predvar$ to the mean of $\Outvar$ given $\Predvar = \predvar$:
 
 $$
-\mean(\predvar) \eqdef \E{\Outvar \mid \Predvar = \predvar}.
+\targetfnf{\predvar} \eqdef \E{\Outvar \mid \Predvar = \predvar}.
 $$ {#eq-mean-function}
 
 :::
