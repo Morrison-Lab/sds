@@ -1,4 +1,4 @@
-# Third leg of the PR-preview family, delegated to the reusable workflow in
+# Fourth leg of the PR-preview family, delegated to the reusable workflow in
 # Morrison-Lab/gha. Downloads the build artifact and crawls it with a headless
 # browser to catch equations MathJax cannot render.
 #
@@ -12,7 +12,8 @@
 # `needs-check` job therefore skips the crawl for a PR whose changes are all
 # `.qmd` or `.md` sources and whose changed lines hold nothing that could be
 # math: no `$`, backslash, `^`, `_`, `{` or `=`. Anything else runs it, as does
-# a PR it cannot read (no PR number, a file with no patch). The check stays a
+# a PR it cannot read (no PR number, a failed file listing, a file with no
+# patch). The check stays a
 # non-required status, so a skipped run blocks nothing.
 #
 # NOTE: the `workflows:` value below MUST match the `name:` of the build
@@ -50,8 +51,12 @@ jobs:
             echo "run=true" >> "${GITHUB_OUTPUT}"
             exit 0
           fi
-          gh api --paginate "repos/${REPO}/pulls/${PR}/files?per_page=100" \
-            | jq -s 'add' > files.json
+          if ! gh api --paginate "repos/${REPO}/pulls/${PR}/files?per_page=100" \
+              | jq -s 'add' > files.json; then
+            echo "Could not read the PR's files: run the check."
+            echo "run=true" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
           # `true` (skip) only if every file is a `.qmd` or `.md` source and has a patch
           # whose added or removed lines contain no math-like character.
           skip=$(jq -r '
