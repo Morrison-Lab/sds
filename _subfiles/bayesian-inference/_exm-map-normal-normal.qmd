@@ -2,11 +2,11 @@
 #### The MAP estimate of a Gaussian mean
 
 In @exm-normal-normal,
-the posterior is $\ndist{\frac{n}{n+1}\bar{x}, \frac{1}{n+1}}$.
+the posterior is $\ndist{\frac{n}{n+1}\rvarbar, \frac{1}{n+1}}$.
 A Gaussian density is largest at its mean,
 so
 
-$$\hparam_{\text{MAP}} = \frac{n}{n+1}\bar{x}.$$
+$$\hparam_{\text{MAP}} = \frac{n}{n+1}\rvarbar.$$
 
 @cor-map-penalized gives the same answer from the penalized form.
 Up to terms that do not involve $\mean$,
@@ -19,14 +19,14 @@ $$
 0
 &= -\sumin (\rvar_\iobs - \mean) + \mean
 && \text{(derivative of the sum with respect to $\mean$)}\\
-&= -n\bar{x} + n\mean + \mean
-&& \text{($\sum_i \rvar_\iobs = n\bar{x}$)}\\
-&= (n+1)\mean - n\bar{x},
+&= -n\rvarbar + n\mean + \mean
+&& \text{($\sum_i \rvar_\iobs = n\rvarbar$)}\\
+&= (n+1)\mean - n\rvarbar,
 && \text{(collecting the terms in $\mean$)}
 \ea
 $$
 
-so $\mean = \frac{n}{n+1}\bar{x}$.
+so $\mean = \frac{n}{n+1}\rvarbar$.
 The penalty $\frac{1}{2}\mean^2$ pulls the estimate toward the prior mean $0$,
 and its pull weakens relative to the data as $n$ grows.
 

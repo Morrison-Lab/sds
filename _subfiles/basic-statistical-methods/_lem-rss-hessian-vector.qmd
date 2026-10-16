@@ -8,7 +8,7 @@ $$
 = 2 \sumin \soprod{\vxi},
 $$
 
-and it is positive definite at every $\vcoef$ when $S_{xx} > 0$ (@def-centered-sums).
+and it is positive definite at every $\vcoef$ when $\sspred > 0$ (@def-centered-sums).
 :::
 
 ::: proof

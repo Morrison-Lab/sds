@@ -2,7 +2,7 @@
 #### $R^2$ of a simple linear regression
 
 For the OLS fit of a simple linear regression,
-with $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums),
+with $\sspred > 0$ and $\ssout > 0$ (@def-centered-sums),
 $R^2$ is the square of the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r) $r$
 of the $\predvar_\iobs$ and $\outvar_\iobs$,

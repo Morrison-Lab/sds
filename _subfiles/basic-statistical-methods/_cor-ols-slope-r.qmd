@@ -1,7 +1,7 @@
 ::: {#cor-ols-slope-r}
 #### OLS slope in terms of the correlation
 
-If $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums), then
+If $\sspred > 0$ and $\ssout > 0$ (@def-centered-sums), then
 
 $$\hcoef{x} = r \, \frac{s_y}{s_x},$$
 

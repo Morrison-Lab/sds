@@ -1,11 +1,11 @@
 :::{#exr-rss-ols-fit}
 #### Residual sum of squares of the OLS fit
 
-Assuming $S_{xx} > 0$ (@def-centered-sums),
+Assuming $\sspred > 0$ (@def-centered-sums),
 write the [residual sum of squares](#def-rss)
 at the OLS estimates (@thm-ols-slr),
 $\text{RSS}(\hintcoef, \hcoef{x}) = \sumin \resid_\iobs^2$,
-in terms of $S_{xx}$, $S_{yy}$ and $S_{xy}$.
+in terms of $\sspred$, $\ssout$ and $\sspredout$.
 :::
 
 {{< slidebreak >}}
@@ -23,13 +23,13 @@ $$
 && \text{(definition of a residual)}\\
 &= \outvar_\iobs - \paren{\hintcoef + \hcoef{x} \predvar_\iobs}
 && \text{(substitute $\fitted_\iobs$)}\\
-&= \outvar_\iobs - \paren{\bar{y} - \hcoef{x} \bar{x} + \hcoef{x} \predvar_\iobs}
+&= \outvar_\iobs - \paren{\outbar - \hcoef{x} \predbar + \hcoef{x} \predvar_\iobs}
 && \text{(substitute $\hintcoef$)}\\
-&= \outvar_\iobs - \bar{y} + \hcoef{x} \bar{x} - \hcoef{x} \predvar_\iobs
+&= \outvar_\iobs - \outbar + \hcoef{x} \predbar - \hcoef{x} \predvar_\iobs
 && \text{(distribute the minus sign)}\\
-&= (\outvar_\iobs - \bar{y}) - \paren{\hcoef{x} \predvar_\iobs - \hcoef{x} \bar{x}}
+&= (\outvar_\iobs - \outbar) - \paren{\hcoef{x} \predvar_\iobs - \hcoef{x} \predbar}
 && \text{(group terms)}\\
-&= (\outvar_\iobs - \bar{y}) - \hcoef{x} (\predvar_\iobs - \bar{x})
+&= (\outvar_\iobs - \outbar) - \hcoef{x} (\predvar_\iobs - \predbar)
 && \text{(factor out $\hcoef{x}$)}
 \end{aligned}
 $$
@@ -39,36 +39,36 @@ Squaring and summing:
 $$
 \begin{aligned}
 \sumin \resid_\iobs^2
-&= \sumin \paren{(\outvar_\iobs - \bar{y}) - \hcoef{x} (\predvar_\iobs - \bar{x})}^2
+&= \sumin \paren{(\outvar_\iobs - \outbar) - \hcoef{x} (\predvar_\iobs - \predbar)}^2
 && \text{(substitute $\resid_\iobs$)}\\
-&= \sumin \paren{(\outvar_\iobs - \bar{y})^2 - 2 \hcoef{x} (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y})
-  + \hcoef{x}^2 (\predvar_\iobs - \bar{x})^2}
+&= \sumin \paren{(\outvar_\iobs - \outbar)^2 - 2 \hcoef{x} (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar)
+  + \hcoef{x}^2 (\predvar_\iobs - \predbar)^2}
 && \text{(expand the square)}\\
-&= \sumin (\outvar_\iobs - \bar{y})^2 - \sumin 2 \hcoef{x} (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y})
-  + \sumin \hcoef{x}^2 (\predvar_\iobs - \bar{x})^2
+&= \sumin (\outvar_\iobs - \outbar)^2 - \sumin 2 \hcoef{x} (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar)
+  + \sumin \hcoef{x}^2 (\predvar_\iobs - \predbar)^2
 && \text{(sum of a sum)}\\
-&= \sumin (\outvar_\iobs - \bar{y})^2 - 2 \hcoef{x} \sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y})
-  + \sumin \hcoef{x}^2 (\predvar_\iobs - \bar{x})^2
+&= \sumin (\outvar_\iobs - \outbar)^2 - 2 \hcoef{x} \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar)
+  + \sumin \hcoef{x}^2 (\predvar_\iobs - \predbar)^2
 && \text{(constant factor out of the sum)}\\
-&= \sumin (\outvar_\iobs - \bar{y})^2 - 2 \hcoef{x} \sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y})
-  + \hcoef{x}^2 \sumin (\predvar_\iobs - \bar{x})^2
+&= \sumin (\outvar_\iobs - \outbar)^2 - 2 \hcoef{x} \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar)
+  + \hcoef{x}^2 \sumin (\predvar_\iobs - \predbar)^2
 && \text{(constant factor out of the sum)}\\
-&= S_{yy} - 2 \hcoef{x} \sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y})
-  + \hcoef{x}^2 \sumin (\predvar_\iobs - \bar{x})^2
-&& \text{(definition of $S_{yy}$)}\\
-&= S_{yy} - 2 \hcoef{x} S_{xy} + \hcoef{x}^2 \sumin (\predvar_\iobs - \bar{x})^2
-&& \text{(definition of $S_{xy}$)}\\
-&= S_{yy} - 2 \hcoef{x} S_{xy} + \hcoef{x}^2 S_{xx}
-&& \text{(definition of $S_{xx}$)}\\
-&= S_{yy} - 2 \frac{S_{xy}}{S_{xx}} S_{xy} + \paren{\frac{S_{xy}}{S_{xx}}}^2 S_{xx}
-&& \text{(substitute $\hcoef{x} = S_{xy} / S_{xx}$)}\\
-&= S_{yy} - 2 \frac{S_{xy}^2}{S_{xx}} + \paren{\frac{S_{xy}}{S_{xx}}}^2 S_{xx}
+&= \ssout - 2 \hcoef{x} \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar)
+  + \hcoef{x}^2 \sumin (\predvar_\iobs - \predbar)^2
+&& \text{(definition of $\ssout$)}\\
+&= \ssout - 2 \hcoef{x} \sspredout + \hcoef{x}^2 \sumin (\predvar_\iobs - \predbar)^2
+&& \text{(definition of $\sspredout$)}\\
+&= \ssout - 2 \hcoef{x} \sspredout + \hcoef{x}^2 \sspred
+&& \text{(definition of $\sspred$)}\\
+&= \ssout - 2 \frac{\sspredout}{\sspred} \sspredout + \paren{\frac{\sspredout}{\sspred}}^2 \sspred
+&& \text{(substitute $\hcoef{x} = \sspredout / \sspred$)}\\
+&= \ssout - 2 \frac{\sspredout^2}{\sspred} + \paren{\frac{\sspredout}{\sspred}}^2 \sspred
 && \text{(multiply)}\\
-&= S_{yy} - 2 \frac{S_{xy}^2}{S_{xx}} + \frac{S_{xy}^2}{S_{xx}^2} S_{xx}
+&= \ssout - 2 \frac{\sspredout^2}{\sspred} + \frac{\sspredout^2}{\sspred^2} \sspred
 && \text{(square of a quotient)}\\
-&= S_{yy} - 2 \frac{S_{xy}^2}{S_{xx}} + \frac{S_{xy}^2}{S_{xx}}
-&& \text{(cancel one factor of $S_{xx}$)}\\
-&= S_{yy} - \frac{S_{xy}^2}{S_{xx}}
+&= \ssout - 2 \frac{\sspredout^2}{\sspred} + \frac{\sspredout^2}{\sspred}
+&& \text{(cancel one factor of $\sspred$)}\\
+&= \ssout - \frac{\sspredout^2}{\sspred}
 && \text{(combine like terms)}
 \end{aligned}
 $$

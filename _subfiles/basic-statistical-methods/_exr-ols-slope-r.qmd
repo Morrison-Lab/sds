@@ -1,7 +1,7 @@
 :::{#exr-ols-slope-r}
 #### OLS slope and the correlation
 
-Assuming $S_{xx} > 0$ and $S_{yy} > 0$ (@def-centered-sums),
+Assuming $\sspred > 0$ and $\ssout > 0$ (@def-centered-sums),
 write the OLS slope $\hcoef{x}$ from @thm-ols-slr
 in terms of the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r) $r$
@@ -17,11 +17,11 @@ $s_x$ and $s_y$ of the $\predvar_\iobs$ and the $\outvar_\iobs$.
 In terms of the centered sums (@def-centered-sums, @def-centered-cross-product),
 
 $$
-r = \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}},
+r = \frac{\sspredout}{\sqrt{\sspred \ssout}},
 \qquad
-s_x = \sqrt{\frac{S_{xx}}{n-1}},
+s_x = \sqrt{\frac{\sspred}{n-1}},
 \qquad
-s_y = \sqrt{\frac{S_{yy}}{n-1}}.
+s_y = \sqrt{\frac{\ssout}{n-1}}.
 $$
 
 So:
@@ -29,24 +29,24 @@ So:
 $$
 \begin{aligned}
 r \, \frac{s_y}{s_x}
-&= \frac{S_{xy}}{\sqrt{S_{xx} S_{yy}}} \cdot
-  \frac{\sqrt{S_{yy} / (n-1)}}{\sqrt{S_{xx} / (n-1)}}
+&= \frac{\sspredout}{\sqrt{\sspred \ssout}} \cdot
+  \frac{\sqrt{\ssout / (n-1)}}{\sqrt{\sspred / (n-1)}}
 && \text{(substitute $r$, $s_x$, $s_y$)}\\
-&= \frac{S_{xy}}{\sqrt{S_{xx}} \sqrt{S_{yy}}} \cdot
-  \frac{\sqrt{S_{yy} / (n-1)}}{\sqrt{S_{xx} / (n-1)}}
+&= \frac{\sspredout}{\sqrt{\sspred} \sqrt{\ssout}} \cdot
+  \frac{\sqrt{\ssout / (n-1)}}{\sqrt{\sspred / (n-1)}}
 && \text{(square root of a product)}\\
-&= \frac{S_{xy}}{\sqrt{S_{xx}} \sqrt{S_{yy}}} \cdot
-  \frac{\sqrt{S_{yy}} / \sqrt{n-1}}{\sqrt{S_{xx}} / \sqrt{n-1}}
+&= \frac{\sspredout}{\sqrt{\sspred} \sqrt{\ssout}} \cdot
+  \frac{\sqrt{\ssout} / \sqrt{n-1}}{\sqrt{\sspred} / \sqrt{n-1}}
 && \text{(square root of a quotient)}\\
-&= \frac{S_{xy}}{\sqrt{S_{xx}} \sqrt{S_{yy}}} \cdot
-  \frac{\sqrt{S_{yy}}}{\sqrt{S_{xx}}}
+&= \frac{\sspredout}{\sqrt{\sspred} \sqrt{\ssout}} \cdot
+  \frac{\sqrt{\ssout}}{\sqrt{\sspred}}
 && \text{(cancel the factors of $\sqrt{n - 1}$)}\\
-&= \frac{S_{xy} \sqrt{S_{yy}}}{\sqrt{S_{xx}} \sqrt{S_{yy}} \sqrt{S_{xx}}}
+&= \frac{\sspredout \sqrt{\ssout}}{\sqrt{\sspred} \sqrt{\ssout} \sqrt{\sspred}}
 && \text{(multiply the fractions)}\\
-&= \frac{S_{xy}}{\sqrt{S_{xx}} \sqrt{S_{xx}}}
-&& \text{(cancel $\sqrt{S_{yy}}$, which is positive)}\\
-&= \frac{S_{xy}}{S_{xx}}
-&& \text{($\sqrt{S_{xx}} \sqrt{S_{xx}} = S_{xx}$)}\\
+&= \frac{\sspredout}{\sqrt{\sspred} \sqrt{\sspred}}
+&& \text{(cancel $\sqrt{\ssout}$, which is positive)}\\
+&= \frac{\sspredout}{\sspred}
+&& \text{($\sqrt{\sspred} \sqrt{\sspred} = \sspred$)}\\
 &= \hcoef{x}
 && \text{(closed-form OLS slope)}
 \end{aligned}

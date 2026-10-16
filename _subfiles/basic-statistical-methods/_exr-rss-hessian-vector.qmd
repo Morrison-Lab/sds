@@ -3,7 +3,7 @@
 
 Find the [Hessian](intro-MLEs.qmd#def-hessian)
 $\deriv{\vcoef} \deriv{\tp{\vcoef}} \text{RSS}(\vcoef)$,
-and show that it is positive definite when $S_{xx} > 0$ (@def-centered-sums).
+and show that it is positive definite when $\sspred > 0$ (@def-centered-sums).
 :::
 
 {{< slidebreak >}}
@@ -69,7 +69,7 @@ $$
 
 Equality would need $v_0 + v_x \predvar_\iobs = 0$ for every $i$.
 If $v_x \neq 0$, that would force every $\predvar_\iobs = -v_0 / v_x$,
-contradicting $S_{xx} > 0$;
+contradicting $\sspred > 0$;
 if $v_x = 0$, it would force $v_0 = 0$,
 contradicting $\v{v} \neq \vzero$.
 So the inequality is strict,

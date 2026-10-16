@@ -1,7 +1,7 @@
 :::{#exm-dobson-cyclones-Newton}
 #### Finding the MLE using the Newton-Raphson algorithm
 
-We found the MLE $\hrate = \bar{x}$
+We found the MLE $\hrate = \rvarbar$
 by solving the score equation $\score(\rate) = 0$ algebraically
 (@exr-solve-score-equation).
 If we could not have solved it,

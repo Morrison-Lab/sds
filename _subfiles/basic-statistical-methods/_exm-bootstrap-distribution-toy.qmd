@@ -21,8 +21,8 @@ c(
 The bootstrap standard error (@def-bootstrap-se)
 is close to the usual estimate $s / \sqrt{n}$.
 Each bootstrap draw has variance
-$\hvarpar \eqdef \avgin (\predvar_\iobs - \bar{x})^2$
-around $\bar{x}$, and the $n$ draws are independent,
+$\hvarpar \eqdef \avgin (\predvar_\iobs - \rvarbar)^2$
+around $\rvarbar$, and the $n$ draws are independent,
 so as $B$ grows the bootstrap standard error of the mean
 approaches $\hsdpar / \sqrt{n}$ (`divide_by_n_se`),
 which is smaller than $s / \sqrt{n}$ by the factor $\sqrt{(n-1)/n}$.

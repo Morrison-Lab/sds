@@ -4,7 +4,7 @@
 Using @exr-rss-deriv-intercept and @exr-rss-deriv-slope,
 solve the normal equations of @exm-normal-equations-slr
 for $\intcoef$ and $\coef{x}$,
-assuming $S_{xx} > 0$ (@def-centered-sums).
+assuming $\sspred > 0$ (@def-centered-sums).
 :::
 
 {{< slidebreak >}}
@@ -17,13 +17,13 @@ then isolate $\intcoef$:
 
 $$
 \begin{aligned}
-0 &= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
+0 &= -2 \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
 && \text{(first normal equation)}\\
-0 &= n \bar{y} - n \intcoef - \coef{x} n \bar{x}
+0 &= n \outbar - n \intcoef - \coef{x} n \predbar
 && \text{(divide both sides by $-2$)}\\
-0 &= \bar{y} - \intcoef - \coef{x} \bar{x}
+0 &= \outbar - \intcoef - \coef{x} \predbar
 && \text{(divide both sides by $n$)}\\
-\intcoef &= \bar{y} - \coef{x} \bar{x}
+\intcoef &= \outbar - \coef{x} \predbar
 && \text{(add $\intcoef$ to both sides)}
 \end{aligned}
 $$
@@ -38,19 +38,19 @@ $$
 \frac{\partial \text{RSS}}{\partial \coef{x}}
 &= -2 \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(derivative with respect to $\coef{x}$)}\\
-&= -2 \sumin \predvar_\iobs \paren{\outvar_\iobs - (\bar{y} - \coef{x} \bar{x}) - \coef{x} \predvar_\iobs}
+&= -2 \sumin \predvar_\iobs \paren{\outvar_\iobs - (\outbar - \coef{x} \predbar) - \coef{x} \predvar_\iobs}
 && \text{(substitute $\intcoef$)}\\
-&= -2 \sumin \predvar_\iobs \paren{\outvar_\iobs - \bar{y} + \coef{x} \bar{x} - \coef{x} \predvar_\iobs}
+&= -2 \sumin \predvar_\iobs \paren{\outvar_\iobs - \outbar + \coef{x} \predbar - \coef{x} \predvar_\iobs}
 && \text{(remove the inner parentheses)}\\
-&= -2 \sumin \predvar_\iobs \paren{(\outvar_\iobs - \bar{y}) - (\coef{x} \predvar_\iobs - \coef{x} \bar{x})}
+&= -2 \sumin \predvar_\iobs \paren{(\outvar_\iobs - \outbar) - (\coef{x} \predvar_\iobs - \coef{x} \predbar)}
 && \text{(group terms)}\\
-&= -2 \sumin \predvar_\iobs \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})}
+&= -2 \sumin \predvar_\iobs \paren{(\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)}
 && \text{(factor out $\coef{x}$)}
 \end{aligned}
 $$
 
 To shorten the next steps, write
-$d_i \eqdef (\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})$,
+$d_i \eqdef (\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)$,
 so that $\partial \text{RSS} / \partial \coef{x} = -2 \sumin \predvar_\iobs d_i$.
 The $d_i$ sum to zero,
 because deviations from a mean sum to zero (@exr-sum-deviations-zero):
@@ -58,11 +58,11 @@ because deviations from a mean sum to zero (@exr-sum-deviations-zero):
 $$
 \begin{aligned}
 \sumin d_i
-&= \sumin \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})}
+&= \sumin \paren{(\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)}
 && \text{(definition of $d_i$)}\\
-&= \sumin (\outvar_\iobs - \bar{y}) - \sumin \coef{x} (\predvar_\iobs - \bar{x})
+&= \sumin (\outvar_\iobs - \outbar) - \sumin \coef{x} (\predvar_\iobs - \predbar)
 && \text{(split the sum)}\\
-&= \sumin (\outvar_\iobs - \bar{y}) - \coef{x} \sumin (\predvar_\iobs - \bar{x})
+&= \sumin (\outvar_\iobs - \outbar) - \coef{x} \sumin (\predvar_\iobs - \predbar)
 && \text{(constant factor out of the sum)}\\
 &= 0 - \coef{x} \cdot 0
 && \text{(deviations sum to zero)}\\
@@ -75,50 +75,50 @@ $$
 
 {{< slidebreak >}}
 
-So subtracting $\bar{x} \sumin d_i$ from $\sumin \predvar_\iobs d_i$
+So subtracting $\predbar \sumin d_i$ from $\sumin \predvar_\iobs d_i$
 does not change it:
 
 $$
 \begin{aligned}
 \sumin \predvar_\iobs d_i
-&= \sumin \predvar_\iobs d_i - \bar{x} \sumin d_i
+&= \sumin \predvar_\iobs d_i - \predbar \sumin d_i
 && \text{($\sumin d_i = 0$)}\\
-&= \sumin \predvar_\iobs d_i - \sumin \bar{x} d_i
+&= \sumin \predvar_\iobs d_i - \sumin \predbar d_i
 && \text{(constant factor into the sum)}\\
-&= \sumin (\predvar_\iobs - \bar{x}) d_i
+&= \sumin (\predvar_\iobs - \predbar) d_i
 && \text{(combine the sums)}\\
-&= \sumin (\predvar_\iobs - \bar{x}) \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})}
+&= \sumin (\predvar_\iobs - \predbar) \paren{(\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)}
 && \text{(definition of $d_i$)}\\
-&= \sumin \paren{(\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})^2}
+&= \sumin \paren{(\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar) - \coef{x} (\predvar_\iobs - \predbar)^2}
 && \text{(distribute)}\\
-&= \sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y}) - \sumin \coef{x} (\predvar_\iobs - \bar{x})^2
+&= \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar) - \sumin \coef{x} (\predvar_\iobs - \predbar)^2
 && \text{(split the sum)}\\
-&= \sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y}) - \coef{x} \sumin (\predvar_\iobs - \bar{x})^2
+&= \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar) - \coef{x} \sumin (\predvar_\iobs - \predbar)^2
 && \text{(constant factor out of the sum)}\\
-&= S_{xy} - \coef{x} \sumin (\predvar_\iobs - \bar{x})^2
-&& \text{(definition of $S_{xy}$)}\\
-&= S_{xy} - \coef{x} S_{xx}
-&& \text{(definition of $S_{xx}$)}
+&= \sspredout - \coef{x} \sumin (\predvar_\iobs - \predbar)^2
+&& \text{(definition of $\sspredout$)}\\
+&= \sspredout - \coef{x} \sspred
+&& \text{(definition of $\sspred$)}
 \end{aligned}
 $$
 
-So $\partial \text{RSS} / \partial \coef{x} = -2 \paren{S_{xy} - \coef{x} S_{xx}}$.
+So $\partial \text{RSS} / \partial \coef{x} = -2 \paren{\sspredout - \coef{x} \sspred}$.
 Set it to zero and isolate $\coef{x}$:
 
 $$
 \begin{aligned}
-0 &= -2 \paren{S_{xy} - \coef{x} S_{xx}}
+0 &= -2 \paren{\sspredout - \coef{x} \sspred}
 && \text{(second normal equation)}\\
-0 &= S_{xy} - \coef{x} S_{xx}
+0 &= \sspredout - \coef{x} \sspred
 && \text{(divide both sides by $-2$)}\\
-\coef{x} S_{xx} &= S_{xy}
-&& \text{(add $\coef{x} S_{xx}$ to both sides)}\\
-\coef{x} &= \frac{S_{xy}}{S_{xx}}
-&& \text{(divide both sides by $S_{xx} > 0$)}
+\coef{x} \sspred &= \sspredout
+&& \text{(add $\coef{x} \sspred$ to both sides)}\\
+\coef{x} &= \frac{\sspredout}{\sspred}
+&& \text{(divide both sides by $\sspred > 0$)}
 \end{aligned}
 $$
 
 So the normal equations have exactly one solution:
-$\coef{x} = S_{xy} / S_{xx}$ and $\intcoef = \bar{y} - \coef{x} \bar{x}$.
+$\coef{x} = \sspredout / \sspred$ and $\intcoef = \outbar - \coef{x} \predbar$.
 
 :::

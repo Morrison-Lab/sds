@@ -6,7 +6,7 @@ with true mean $\mean = 2$,
 and compute both a 95% confidence interval,
 $\bar x \pm 1.96 / \sqrt{n}$ (the variance is known to be 1),
 and the equal-tailed 95% credible interval
-from the $\ndist{\frac{n}{n+1}\bar{x},\, \frac{1}{n+1}}$ posterior:
+from the $\ndist{\frac{n}{n+1}\rvarbar,\, \frac{1}{n+1}}$ posterior:
 
 ```{r}
 #| label: normal-credible-vs-confidence

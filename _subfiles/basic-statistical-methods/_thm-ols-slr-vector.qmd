@@ -1,7 +1,7 @@
 ::: {#thm-ols-slr-vector}
 #### OLS estimates in vector notation
 
-Suppose $S_{xx} > 0$ (@def-centered-sums).
+Suppose $\sspred > 0$ (@def-centered-sums).
 Then the matrix $A = \sumin \soprod{\vxi}$ is invertible,
 and the vector of OLS estimates (@def-ols) is
 

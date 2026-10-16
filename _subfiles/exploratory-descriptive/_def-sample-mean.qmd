@@ -3,5 +3,5 @@
 
 The **sample mean** of $n$ observations $\dsn{x}$ is:
 
-$$\bar{x} \eqdef \avgin \rvar_\iobs$$
+$$\rvarbar \eqdef \avgin \rvar_\iobs$$
 :::

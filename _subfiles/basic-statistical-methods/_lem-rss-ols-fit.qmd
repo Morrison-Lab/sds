@@ -1,11 +1,11 @@
 ::: {#lem-rss-ols-fit}
 #### Residual sum of squares of the OLS fit
 
-If $S_{xx} > 0$ (@def-centered-sums),
+If $\sspred > 0$ (@def-centered-sums),
 the [residual sum of squares](#def-rss)
 at the OLS estimates (@thm-ols-slr) is
 
-$$\text{RSS}(\hintcoef, \hcoef{x}) = \sumin \resid_\iobs^2 = S_{yy} - \frac{S_{xy}^2}{S_{xx}}.$$
+$$\text{RSS}(\hintcoef, \hcoef{x}) = \sumin \resid_\iobs^2 = \ssout - \frac{\sspredout^2}{\sspred}.$$
 :::
 
 ::: proof
