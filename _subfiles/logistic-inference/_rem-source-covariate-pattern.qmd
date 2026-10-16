@@ -3,6 +3,5 @@
 ## Source: covariate patterns and replicates
 
 @dobson4e [Section 5.5] introduces both terms: observations that share a combination of factor levels and the same values of any continuous predictors have the same covariate pattern, and are called replicates.
-This section follows the treatment in [rme](https://morrison-lab.github.io/rme/), adapted to logistic regression.
 
 :::
