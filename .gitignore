@@ -9,6 +9,7 @@
 # Source HTML partials we intentionally track (not build output).
 !qwt-reveal-toggle.html
 !theme-picker.html
+!language-picker.html
 !anchor-landing.html
 !watch-anchors.html
 !table-roles.html
