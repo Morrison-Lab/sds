@@ -170,14 +170,21 @@ When a source credits its own upstream,
 carry that credit along.
 
 Content taken from the maintainer's own repositories (rme, lds, pds, ...)
-is not credited to them, nor are the maintainer's other co-authored works
+is not credited to them
 (maintainer directives, 2026-10-05 and 2026-10-16).
+Content taken from the maintainer's other co-authored works
+(a lab manual, their papers, their packages)
+is not credited to them either,
+but co-authors outside the group keep their credit by name.
 The rule covers only that hop:
 whatever such a repository credits
 (a book, a paper, or any person other than the maintainer)
 is still credited.
 The sister-repository credit is left out of new work,
-and an existing one is removed. A link to the sister site stays.
+and an existing one is removed.
+
+A link to a sister site that sends the reader to further reading
+is a cross-reference, not an attribution, and stays.
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
 PSW's
