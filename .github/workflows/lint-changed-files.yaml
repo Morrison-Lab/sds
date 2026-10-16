@@ -24,6 +24,8 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       # `sds` is a self-referential symlink (`sds -> .`, see CLAUDE.md). Left
       # in place, `all_files` below would also list every real file a second
