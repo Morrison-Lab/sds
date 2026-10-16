@@ -1,11 +1,11 @@
 ::: {#cor-residual-prediction-error}
 #### The residual is the negative of the prediction error
 
-For an observation $i$,
+For an observation $\iobs$,
 its [residual](#def-residual) is the negative of
 the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
 
-$$\resid_i = -\prederr_i.$$
+$$\resid_\iobs = -\prederr_\iobs.$$
 :::
 
 ::: proof

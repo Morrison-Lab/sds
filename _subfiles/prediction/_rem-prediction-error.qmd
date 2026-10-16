@@ -10,7 +10,7 @@ estimate minus true value.
 
 $$
 \begin{aligned}
-\prederr &= \fitted - y
+\prederr &= \fitted - \outvar
 && \text{(prediction error)}\\
 \erf{\hparam} &= \hparam - \param
 && \text{(estimation error)}
