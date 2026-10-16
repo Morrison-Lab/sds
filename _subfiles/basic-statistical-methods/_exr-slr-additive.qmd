@@ -2,27 +2,27 @@
 #### Decomposing an outcome
 
 Express each outcome $\Outvar_\iobs$ in a conditional Gaussian model (@def-cond-gaussian)
-in terms of its conditional mean $\mean_i$ and its deviation $\cdev_i$ (@def-slr-deviation).
+in terms of its conditional mean $\mean_\iobs$ and its deviation $\cdev_\iobs$ (@def-slr-deviation).
 :::
 
 {{< slidebreak >}}
 
 :::{#sol-slr-additive}
 
-Check that $\Outvar_\iobs = \mean_i + \cdev_i$, starting from the right-hand side:
+Check that $\Outvar_\iobs = \mean_\iobs + \cdev_\iobs$, starting from the right-hand side:
 
 $$
 \begin{aligned}
-\mean_i + \cdev_i
-&= \mean(x_i) + \cdev_i
-&& \text{(definition of $\mean_i$)}\\
-&= \mean(x_i) + \paren{\Outvar_\iobs - \mean(x_i)}
-&& \text{(definition of $\cdev_i$)}\\
-&= \mean(x_i) + \Outvar_\iobs - \mean(x_i)
+\mean_\iobs + \cdev_\iobs
+&= \mean(\predvar_\iobs) + \cdev_\iobs
+&& \text{(definition of $\mean_\iobs$)}\\
+&= \mean(\predvar_\iobs) + \paren{\Outvar_\iobs - \mean(\predvar_\iobs)}
+&& \text{(definition of $\cdev_\iobs$)}\\
+&= \mean(\predvar_\iobs) + \Outvar_\iobs - \mean(\predvar_\iobs)
 && \text{(remove the parentheses)}\\
-&= \Outvar_\iobs + \mean(x_i) - \mean(x_i)
+&= \Outvar_\iobs + \mean(\predvar_\iobs) - \mean(\predvar_\iobs)
 && \text{(reorder the terms)}\\
-&= \Outvar_\iobs + \paren{\mean(x_i) - \mean(x_i)}
+&= \Outvar_\iobs + \paren{\mean(\predvar_\iobs) - \mean(\predvar_\iobs)}
 && \text{(group the last two terms)}\\
 &= \Outvar_\iobs + 0
 && \text{($a - a = 0$)}\\
@@ -31,41 +31,41 @@ $$
 \end{aligned}
 $$
 
-So $\Outvar_\iobs = \mean_i + \cdev_i$.
+So $\Outvar_\iobs = \mean_\iobs + \cdev_\iobs$.
 
 {{< slidebreak >}}
 
-Alternatively, solve the definition of $\cdev_i$ for $\Outvar_\iobs$:
+Alternatively, solve the definition of $\cdev_\iobs$ for $\Outvar_\iobs$:
 
 $$
 \begin{aligned}
-\cdev_i
-&= \Outvar_\iobs - \mean(x_i)
-&& \text{(definition of $\cdev_i$)}\\
-\cdev_i + \mean(x_i)
-&= \Outvar_\iobs - \mean(x_i) + \mean(x_i)
-&& \text{(add $\mean(x_i)$ to both sides)}\\
-\cdev_i + \mean(x_i)
-&= \Outvar_\iobs + \paren{-\mean(x_i)} + \mean(x_i)
+\cdev_\iobs
+&= \Outvar_\iobs - \mean(\predvar_\iobs)
+&& \text{(definition of $\cdev_\iobs$)}\\
+\cdev_\iobs + \mean(\predvar_\iobs)
+&= \Outvar_\iobs - \mean(\predvar_\iobs) + \mean(\predvar_\iobs)
+&& \text{(add $\mean(\predvar_\iobs)$ to both sides)}\\
+\cdev_\iobs + \mean(\predvar_\iobs)
+&= \Outvar_\iobs + \paren{-\mean(\predvar_\iobs)} + \mean(\predvar_\iobs)
 && \text{(subtracting is adding the negative)}\\
-\cdev_i + \mean(x_i)
-&= \Outvar_\iobs + \paren{-\mean(x_i) + \mean(x_i)}
+\cdev_\iobs + \mean(\predvar_\iobs)
+&= \Outvar_\iobs + \paren{-\mean(\predvar_\iobs) + \mean(\predvar_\iobs)}
 && \text{(group the last two terms)}\\
-\cdev_i + \mean(x_i)
+\cdev_\iobs + \mean(\predvar_\iobs)
 &= \Outvar_\iobs + 0
 && \text{($-a + a = 0$)}\\
-\cdev_i + \mean(x_i)
+\cdev_\iobs + \mean(\predvar_\iobs)
 &= \Outvar_\iobs
 && \text{($a + 0 = a$)}\\
 \Outvar_\iobs
-&= \cdev_i + \mean(x_i)
+&= \cdev_\iobs + \mean(\predvar_\iobs)
 && \text{(swap the two sides)}\\
 \Outvar_\iobs
-&= \mean(x_i) + \cdev_i
+&= \mean(\predvar_\iobs) + \cdev_\iobs
 && \text{(reorder the terms)}\\
 \Outvar_\iobs
-&= \mean_i + \cdev_i
-&& \text{(definition of $\mean_i$)}
+&= \mean_\iobs + \cdev_\iobs
+&& \text{(definition of $\mean_\iobs$)}
 \end{aligned}
 $$
 

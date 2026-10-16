@@ -4,8 +4,8 @@
 Two variables can be strongly related
 and still have a correlation near zero,
 if the relationship is not linear.
-For example, if $\outvar_\iobs = x_i^2$, the $x_i$ are symmetric around 0,
-and the $\abs{x_i}$ are not all equal,
+For example, if $\outvar_\iobs = \rvar_\iobs^2$, the $\rvar_\iobs$ are symmetric around 0,
+and the $\abs{\rvar_\iobs}$ are not all equal,
 then $r = 0$,
 although $y$ is a function of $x$.
 Correlation also does not imply causation.

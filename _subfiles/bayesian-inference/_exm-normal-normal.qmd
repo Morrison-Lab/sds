@@ -13,25 +13,25 @@ The likelihood is
 $$
 \ba
 \p(\vx \mid \mean)
-&= \prodin (2\pi)^{-1/2} \expf{-\frac{1}{2}(x_i - \mean)^2}
+&= \prodin (2\pi)^{-1/2} \expf{-\frac{1}{2}(\rvar_\iobs - \mean)^2}
 && \text{(independent Gaussian observations)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin (x_i - \mean)^2}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(combining the exponents)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin \paren{x_i^2 - 2 \mean x_i + \mean^2}}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin \paren{\rvar_\iobs^2 - 2 \mean \rvar_\iobs + \mean^2}}
 && \text{(expanding each square)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - \sumin 2 \mean x_i + \sumin \mean^2}}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin \rvar_\iobs^2 - \sumin 2 \mean \rvar_\iobs + \sumin \mean^2}}
 && \text{(splitting the sum)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mean \sumin x_i + \sumin \mean^2}}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin \rvar_\iobs^2 - 2 \mean \sumin \rvar_\iobs + \sumin \mean^2}}
 && \text{(factoring the constant $2 \mean$ out of the middle sum)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mean \sumin x_i + n \mean^2}}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin \rvar_\iobs^2 - 2 \mean \sumin \rvar_\iobs + n \mean^2}}
 && \text{(summing the constant $\mean^2$ over $n$ terms)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 - 2 \mean n \bar x + n \mean^2}}
-&& \text{(substituting $\sumin x_i = n \bar x$)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin x_i^2 + \paren{n \mean^2 - 2 \mean n \bar x}}}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin \rvar_\iobs^2 - 2 \mean n \bar x + n \mean^2}}
+&& \text{(substituting $\sumin \rvar_\iobs = n \bar x$)}\\
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\paren{\sumin \rvar_\iobs^2 + \paren{n \mean^2 - 2 \mean n \bar x}}}
 && \text{(reordering and grouping the terms that involve $\mean$)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin x_i^2 - \frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin \rvar_\iobs^2 - \frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
 && \text{(distributing $-\tfrac{1}{2}$)}\\
-&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin x_i^2}
+&= (2\pi)^{-n/2} \expf{-\frac{1}{2}\sumin \rvar_\iobs^2}
   \cdot \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}
 && \text{(writing the exponential of a sum as a product of exponentials)}\\
 &\propto \expf{-\frac{1}{2}\paren{n \mean^2 - 2 \mean n \bar x}}

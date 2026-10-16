@@ -36,33 +36,33 @@ Substitute that intercept into the derivative from @exr-rss-deriv-slope:
 $$
 \begin{aligned}
 \frac{\partial \text{RSS}}{\partial \coef{x}}
-&= -2 \sumin x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)
+&= -2 \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(derivative with respect to $\coef{x}$)}\\
-&= -2 \sumin x_i \paren{\outvar_\iobs - (\bar{y} - \coef{x} \bar{x}) - \coef{x} x_i}
+&= -2 \sumin \predvar_\iobs \paren{\outvar_\iobs - (\bar{y} - \coef{x} \bar{x}) - \coef{x} \predvar_\iobs}
 && \text{(substitute $\intcoef$)}\\
-&= -2 \sumin x_i \paren{\outvar_\iobs - \bar{y} + \coef{x} \bar{x} - \coef{x} x_i}
+&= -2 \sumin \predvar_\iobs \paren{\outvar_\iobs - \bar{y} + \coef{x} \bar{x} - \coef{x} \predvar_\iobs}
 && \text{(remove the inner parentheses)}\\
-&= -2 \sumin x_i \paren{(\outvar_\iobs - \bar{y}) - (\coef{x} x_i - \coef{x} \bar{x})}
+&= -2 \sumin \predvar_\iobs \paren{(\outvar_\iobs - \bar{y}) - (\coef{x} \predvar_\iobs - \coef{x} \bar{x})}
 && \text{(group terms)}\\
-&= -2 \sumin x_i \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&= -2 \sumin \predvar_\iobs \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})}
 && \text{(factor out $\coef{x}$)}
 \end{aligned}
 $$
 
 To shorten the next steps, write
-$d_i \eqdef (\outvar_\iobs - \bar{y}) - \coef{x} (x_i - \bar{x})$,
-so that $\partial \text{RSS} / \partial \coef{x} = -2 \sumin x_i d_i$.
+$d_i \eqdef (\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})$,
+so that $\partial \text{RSS} / \partial \coef{x} = -2 \sumin \predvar_\iobs d_i$.
 The $d_i$ sum to zero,
 because deviations from a mean sum to zero (@exr-sum-deviations-zero):
 
 $$
 \begin{aligned}
 \sumin d_i
-&= \sumin \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&= \sumin \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})}
 && \text{(definition of $d_i$)}\\
-&= \sumin (\outvar_\iobs - \bar{y}) - \sumin \coef{x} (x_i - \bar{x})
+&= \sumin (\outvar_\iobs - \bar{y}) - \sumin \coef{x} (\predvar_\iobs - \bar{x})
 && \text{(split the sum)}\\
-&= \sumin (\outvar_\iobs - \bar{y}) - \coef{x} \sumin (x_i - \bar{x})
+&= \sumin (\outvar_\iobs - \bar{y}) - \coef{x} \sumin (\predvar_\iobs - \bar{x})
 && \text{(constant factor out of the sum)}\\
 &= 0 - \coef{x} \cdot 0
 && \text{(deviations sum to zero)}\\
@@ -75,27 +75,27 @@ $$
 
 {{< slidebreak >}}
 
-So subtracting $\bar{x} \sumin d_i$ from $\sumin x_i d_i$
+So subtracting $\bar{x} \sumin d_i$ from $\sumin \predvar_\iobs d_i$
 does not change it:
 
 $$
 \begin{aligned}
-\sumin x_i d_i
-&= \sumin x_i d_i - \bar{x} \sumin d_i
+\sumin \predvar_\iobs d_i
+&= \sumin \predvar_\iobs d_i - \bar{x} \sumin d_i
 && \text{($\sumin d_i = 0$)}\\
-&= \sumin x_i d_i - \sumin \bar{x} d_i
+&= \sumin \predvar_\iobs d_i - \sumin \bar{x} d_i
 && \text{(constant factor into the sum)}\\
-&= \sumin (x_i - \bar{x}) d_i
+&= \sumin (\predvar_\iobs - \bar{x}) d_i
 && \text{(combine the sums)}\\
-&= \sumin (x_i - \bar{x}) \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (x_i - \bar{x})}
+&= \sumin (\predvar_\iobs - \bar{x}) \paren{(\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})}
 && \text{(definition of $d_i$)}\\
-&= \sumin \paren{(x_i - \bar{x})(\outvar_\iobs - \bar{y}) - \coef{x} (x_i - \bar{x})^2}
+&= \sumin \paren{(\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y}) - \coef{x} (\predvar_\iobs - \bar{x})^2}
 && \text{(distribute)}\\
-&= \sumin (x_i - \bar{x})(\outvar_\iobs - \bar{y}) - \sumin \coef{x} (x_i - \bar{x})^2
+&= \sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y}) - \sumin \coef{x} (\predvar_\iobs - \bar{x})^2
 && \text{(split the sum)}\\
-&= \sumin (x_i - \bar{x})(\outvar_\iobs - \bar{y}) - \coef{x} \sumin (x_i - \bar{x})^2
+&= \sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y}) - \coef{x} \sumin (\predvar_\iobs - \bar{x})^2
 && \text{(constant factor out of the sum)}\\
-&= S_{xy} - \coef{x} \sumin (x_i - \bar{x})^2
+&= S_{xy} - \coef{x} \sumin (\predvar_\iobs - \bar{x})^2
 && \text{(definition of $S_{xy}$)}\\
 &= S_{xy} - \coef{x} S_{xx}
 && \text{(definition of $S_{xx}$)}

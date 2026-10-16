@@ -66,51 +66,51 @@ $$
 **Derivatives of $\partial \text{RSS} / \partial \coef{x}$.**
 By @exr-rss-deriv-slope,
 $\partial \text{RSS} / \partial \coef{x}
-= -2 \sumin x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)$.
+= -2 \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)$.
 Differentiating with respect to $\intcoef$,
 and reusing the inner derivative $-1$ from @exr-rss-deriv-intercept:
 
 $$
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \intcoef \, \partial \coef{x}}
-&= -2 \deriv{\intcoef} \sumin x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)
+&= -2 \deriv{\intcoef} \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(constant factor)}\\
-&= -2 \sumin \deriv{\intcoef} \paren{x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)}
+&= -2 \sumin \deriv{\intcoef} \paren{\predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)}
 && \text{(derivative of a sum)}\\
-&= -2 \sumin x_i \deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} x_i)
-&& \text{($x_i$ does not depend on $\intcoef$)}\\
-&= -2 \sumin x_i (-1)
+&= -2 \sumin \predvar_\iobs \deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&& \text{($\predvar_\iobs$ does not depend on $\intcoef$)}\\
+&= -2 \sumin \predvar_\iobs (-1)
 && \text{(inner derivative is $-1$)}\\
-&= -2 \sumin (-x_i)
+&= -2 \sumin (-\predvar_\iobs)
 && \text{(multiply)}\\
-&= -2 \paren{-\sumin x_i}
+&= -2 \paren{-\sumin \predvar_\iobs}
 && \text{(constant factor out of the sum)}\\
-&= 2 \sumin x_i
+&= 2 \sumin \predvar_\iobs
 && \text{(multiply)}\\
 &= 2 n \bar{x}
-&& \text{($\sumin x_i = n \bar{x}$)}
+&& \text{($\sumin \predvar_\iobs = n \bar{x}$)}
 \end{aligned}
 $$
 
 Differentiating with respect to $\coef{x}$,
-and reusing the inner derivative $-x_i$ from @exr-rss-deriv-slope:
+and reusing the inner derivative $-\predvar_\iobs$ from @exr-rss-deriv-slope:
 
 $$
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \coef{x}^2}
-&= -2 \frac{\partial}{\partial \coef{x}} \sumin x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)
+&= -2 \frac{\partial}{\partial \coef{x}} \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 && \text{(constant factor)}\\
-&= -2 \sumin \frac{\partial}{\partial \coef{x}} \paren{x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)}
+&= -2 \sumin \frac{\partial}{\partial \coef{x}} \paren{\predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)}
 && \text{(derivative of a sum)}\\
-&= -2 \sumin x_i \frac{\partial}{\partial \coef{x}} (\outvar_\iobs - \intcoef - \coef{x} x_i)
-&& \text{($x_i$ does not depend on $\coef{x}$)}\\
-&= -2 \sumin x_i (-x_i)
-&& \text{(inner derivative is $-x_i$)}\\
-&= -2 \sumin \paren{-x_i^2}
+&= -2 \sumin \predvar_\iobs \frac{\partial}{\partial \coef{x}} (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
+&& \text{($\predvar_\iobs$ does not depend on $\coef{x}$)}\\
+&= -2 \sumin \predvar_\iobs (-\predvar_\iobs)
+&& \text{(inner derivative is $-\predvar_\iobs$)}\\
+&= -2 \sumin \paren{-\predvar_\iobs^2}
 && \text{(multiply)}\\
-&= -2 \paren{-\sumin x_i^2}
+&= -2 \paren{-\sumin \predvar_\iobs^2}
 && \text{(constant factor out of the sum)}\\
-&= 2 \sumin x_i^2
+&= 2 \sumin \predvar_\iobs^2
 && \text{(multiply)}
 \end{aligned}
 $$
@@ -122,7 +122,7 @@ Collecting the four second derivatives,
 the matrix of second derivatives is
 
 $$
-\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin x_i^2 \end{pmatrix}.
+\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin \predvar_\iobs^2 \end{pmatrix}.
 $$
 
 Its top-left entry, $2n$, is positive.
@@ -131,12 +131,12 @@ using the expanded form of $S_{xx}$ from @exr-sxx-expand, is
 
 $$
 \begin{aligned}
-\det \begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin x_i^2 \end{pmatrix}
-&= (2n) \paren{2 \sumin x_i^2} - (2 n \bar{x}) (2 n \bar{x})
+\det \begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin \predvar_\iobs^2 \end{pmatrix}
+&= (2n) \paren{2 \sumin \predvar_\iobs^2} - (2 n \bar{x}) (2 n \bar{x})
 && \text{($2 \times 2$ determinant)}\\
-&= 4 n \sumin x_i^2 - 4 n^2 \bar{x}^2
+&= 4 n \sumin \predvar_\iobs^2 - 4 n^2 \bar{x}^2
 && \text{(multiply)}\\
-&= 4 n \paren{\sumin x_i^2 - n \bar{x}^2}
+&= 4 n \paren{\sumin \predvar_\iobs^2 - n \bar{x}^2}
 && \text{(factor out $4n$)}\\
 &= 4 n S_{xx}
 && \text{(expanded form of $S_{xx}$)}

@@ -2,7 +2,7 @@
 #### The conditional mean and the covariate vector
 
 In simple linear regression (@def-slr),
-express the conditional mean $\mean(x_i)$ as a dot product
+express the conditional mean $\mean(\predvar_\iobs)$ as a dot product
 of the covariate vector $\vxi$ (@def-slr-covariate-vector)
 and the coefficient vector $\vcoef = \tp{\paren{\intcoef, \coef{x}}}$ (@exm-normal-equations-slr).
 :::
@@ -16,21 +16,21 @@ Start from the dot product:
 $$
 \begin{aligned}
 \dprod{\vxi}{\vcoef}
-&= \dprod{\begin{pmatrix} 1 \\ x_i \end{pmatrix}}{\vcoef}
+&= \dprod{\begin{pmatrix} 1 \\ \predvar_\iobs \end{pmatrix}}{\vcoef}
 && \text{(definition of $\vxi$)}\\
-&= \dprod{\begin{pmatrix} 1 \\ x_i \end{pmatrix}}{\begin{pmatrix} \intcoef \\ \coef{x} \end{pmatrix}}
+&= \dprod{\begin{pmatrix} 1 \\ \predvar_\iobs \end{pmatrix}}{\begin{pmatrix} \intcoef \\ \coef{x} \end{pmatrix}}
 && \text{(definition of $\vcoef$, written as a column)}\\
-&= 1 \cdot \intcoef + x_i \coef{x}
+&= 1 \cdot \intcoef + \predvar_\iobs \coef{x}
 && \text{(definition of the dot product)}\\
-&= \intcoef + x_i \coef{x}
+&= \intcoef + \predvar_\iobs \coef{x}
 && \text{($1 \cdot a = a$)}\\
-&= \intcoef + \coef{x} x_i
+&= \intcoef + \coef{x} \predvar_\iobs
 && \text{(reorder the factors)}\\
-&= \mean(x_i)
+&= \mean(\predvar_\iobs)
 && \text{(definition of $\mean(x)$)}
 \end{aligned}
 $$
 
-So $\mean(x_i) = \dprod{\vxi}{\vcoef}$.
+So $\mean(\predvar_\iobs) = \dprod{\vxi}{\vcoef}$.
 
 :::

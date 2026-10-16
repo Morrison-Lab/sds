@@ -5,5 +5,5 @@ A conditional Gaussian model (@def-cond-gaussian) is **homoskedastic**
 if all outcomes share one variance $\varpar$,
 which does not depend on $i$:
 
-$$\varpar_i = \varpar \text{ for all } i.$$
+$$\varpar_\iobs = \varpar \text{ for all } i.$$
 :::

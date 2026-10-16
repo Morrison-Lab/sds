@@ -2,18 +2,18 @@
 #### Exponential survival regression fitted by Bayesian inference
 
 We simulate $N = 200$ right-censored exponential survival times,
-with a binary covariate $x_i$ (say, treatment)
-and hazard $\haz_i = \expf{\intcoef + \coef{x} x_i}$,
+with a binary covariate $\predvar_\iobs$ (say, treatment)
+and hazard $\haz_\iobs = \expf{\intcoef + \coef{x} \predvar_\iobs}$,
 where the log baseline hazard is $\intcoef = \log 0.05$
 and the log hazard ratio is $\coef{x} = -0.7$.
-With event indicator $\event_i$ (1 for an event, 0 for a censored time)
+With event indicator $\event_\iobs$ (1 for an event, 0 for a censored time)
 and follow-up time $t_i$,
-the exponential density is $\haz_i e^{-\haz_i t}$
-and its survival function is $e^{-\haz_i t}$,
+the exponential density is $\haz_\iobs e^{-\haz_\iobs t}$
+and its survival function is $e^{-\haz_\iobs t}$,
 so observation $i$ contributes the log-likelihood
 
 $$
-\llik_i \eqdef \event_i \log \haz_i - \haz_i t_i.
+\llik_\iobs \eqdef \event_\iobs \log \haz_\iobs - \haz_\iobs t_i.
 $$
 
 JAGS has no built-in distribution for this contribution,

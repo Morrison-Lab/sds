@@ -15,14 +15,14 @@ from @exr-sample-llik:
 $$
 \begin{aligned}
 \score(\rate; \vx)
-&\eqdef \deriv{\rate}\paren{\paren{\sumin x_i}\logf{\rate} - n\rate - \sumin \logf{x_i!}}
+&\eqdef \deriv{\rate}\paren{\paren{\sumin \rvar_\iobs}\logf{\rate} - n\rate - \sumin \logf{\rvar_\iobs!}}
 && \text{(definition of the score)}\\
-&= \paren{\sumin x_i}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate - \deriv{\rate}\sumin \logf{x_i!}
+&= \paren{\sumin \rvar_\iobs}\deriv{\rate}\logf{\rate} - n\deriv{\rate}\rate - \deriv{\rate}\sumin \logf{\rvar_\iobs!}
 && \text{(linearity of differentiation)}\\
-&= \paren{\sumin x_i}\frac{1}{\rate} - n - 0
+&= \paren{\sumin \rvar_\iobs}\frac{1}{\rate} - n - 0
 && \text{(derivatives of $\log \rate$, $\rate$, and a constant)}\\
 &= \frac{n \bar x}{\rate} - n
-&& \text{($\textstyle\sumin x_i = n \bar x$)}
+&& \text{($\textstyle\sumin \rvar_\iobs = n \bar x$)}
 \end{aligned}
 $$
 

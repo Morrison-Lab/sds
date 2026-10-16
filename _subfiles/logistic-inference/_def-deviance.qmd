@@ -9,7 +9,7 @@ $$
 = -2 \sumin \cb{\outvar_\iobs \ln \hat\prob_i + \paren{1 - \outvar_\iobs} \ln\paren{1 - \hat\prob_i}},
 $$ {#eq-deviance}
 
-where $\hat\prob_i = \sigmoidf{\dprod{\hvcoef}{\vpredvar_i}}$ is the fitted probability.
+where $\hat\prob_i = \sigmoidf{\dprod{\hvcoef}{\vpredvar_\iobs}}$ is the fitted probability.
 
 :::
 

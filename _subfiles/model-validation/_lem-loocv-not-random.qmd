@@ -1,7 +1,7 @@
 :::{#lem-loocv-not-random}
 #### Leave-one-out cross-validation does not depend on the fold assignment
 
-Let $\trainset = \paren{(x_i, \outvar_\iobs)}_{i \in I}$ be a [training set](#def-training-set)
+Let $\trainset = \paren{(\predvar_\iobs, \outvar_\iobs)}_{i \in I}$ be a [training set](#def-training-set)
 of $n = \abs{I}$ observations, indexed by $I$.
 Then the [cross-validation estimate](#def-cv-estimate) $\cvest{n}$
 of [leave-one-out cross-validation](#def-loocv) ($k = n$)
@@ -30,14 +30,14 @@ Each step below changes one thing.
 4. This rule is fitted to every observation except observation $i$,
    and it does not involve $\foldof{i}$ itself.
    (Step 3 depends on $i$ and $\fitproc$ only.)
-5. Hence each term $\sqf{\fittedwo{\foldof{i}}{x_i} - \outvar_\iobs}$ of @eq-cv-estimate is the same
+5. Hence each term $\sqf{\fittedwo{\foldof{i}}{\predvar_\iobs} - \outvar_\iobs}$ of @eq-cv-estimate is the same
    for every fold assignment.
-   (Each term is a function of the rule in step 4, $x_i$ and $\outvar_\iobs$.)
+   (Each term is a function of the rule in step 4, $\predvar_\iobs$ and $\outvar_\iobs$.)
 6. Therefore the sum over $i \in I$ in @eq-cv-estimate,
    and its factor $1/n$, are the same for every fold assignment:
 
    $$
-   \cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{\foldof{i}}{x_i} - \outvar_\iobs}.
+   \cvest{n} = \frac{1}{n} \sum_{i \in I} \sqf{\fittedwo{\foldof{i}}{\predvar_\iobs} - \outvar_\iobs}.
    $$
 
    Different assignments give the same $n$ fits, with the folds numbered differently.

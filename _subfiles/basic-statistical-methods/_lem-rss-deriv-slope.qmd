@@ -6,7 +6,7 @@ residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
 with respect to the slope is
 
 $$\frac{\partial \text{RSS}}{\partial \coef{x}}
-= -2 \sumin x_i (\outvar_\iobs - \intcoef - \coef{x} x_i).$$
+= -2 \sumin \predvar_\iobs (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs).$$
 :::
 
 ::: proof

@@ -12,8 +12,8 @@ have sample mean $0$ and sample standard deviation $1$.
 The sample mean of the $z_i$ is
 $$
 \ba
-\avgin \frac{x_i - \bar x}{s}
-&= \frac{1}{s} \paren{\avgin x_i - \bar x}\\
+\avgin \frac{\rvar_\iobs - \bar x}{s}
+&= \frac{1}{s} \paren{\avgin \rvar_\iobs - \bar x}\\
 &= \frac{1}{s} (\bar x - \bar x)\\
 &= 0.
 \ea
@@ -23,7 +23,7 @@ their sample variance is
 $$
 \ba
 \frac{1}{n-1} \sumin z_i^2
-&= \frac{1}{s^2} \cdot \frac{1}{n-1} \sumin (x_i - \bar x)^2\\
+&= \frac{1}{s^2} \cdot \frac{1}{n-1} \sumin (\rvar_\iobs - \bar x)^2\\
 &= \frac{s^2}{s^2}\\
 &= 1,
 \ea

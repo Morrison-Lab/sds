@@ -10,17 +10,17 @@ $$\hparam_{\text{MAP}} = \frac{n}{n+1}\bar{x}.$$
 
 @cor-map-penalized gives the same answer from the penalized form.
 Up to terms that do not involve $\mean$,
-the negative log-likelihood is $\frac{1}{2}\sumin (x_i - \mean)^2$
+the negative log-likelihood is $\frac{1}{2}\sumin (\rvar_\iobs - \mean)^2$
 and the penalty is $\frac{1}{2}\mean^2$.
 Setting the derivative of their sum to zero gives
 
 $$
 \ba
 0
-&= -\sumin (x_i - \mean) + \mean
+&= -\sumin (\rvar_\iobs - \mean) + \mean
 && \text{(derivative of the sum with respect to $\mean$)}\\
 &= -n\bar{x} + n\mean + \mean
-&& \text{($\sum_i x_i = n\bar{x}$)}\\
+&& \text{($\sum_i \rvar_\iobs = n\bar{x}$)}\\
 &= (n+1)\mean - n\bar{x},
 && \text{(collecting the terms in $\mean$)}
 \ea
