@@ -4,8 +4,7 @@
 The **generalization error** of a [prediction rule](#def-prediction-rule) $\fitted$
 fitted to a [training set](#def-training-set) $\trainset$
 is its expected squared [prediction error](prediction.qmd#def-prediction-error)
-on a new observation $(\newpredvar, \newoutvar)$
-drawn from the same population independently of $\trainset$,
+on a [new observation](#def-new-observation) $(\newpredvar, \newoutvar)$,
 with $\trainset$ held fixed:
 
 $$
