@@ -1,0 +1,23 @@
+:::{#thm-epe-split-noise}
+#### The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance
+
+Suppose that, given $\newpredvar = \predvar$,
+the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
+where the noise $\noise$ has mean $0$ and variance $\varpar$,
+and that $\newoutvar$ is independent of the random [training set](#def-training-set) $\trainset$.
+Then, given $\newpredvar = \predvar$,
+the [expected prediction error](#def-epe) of $\fitproc\paren{\predvar; \trainset}$
+is the [irreducible error](#def-irreducible-error) $\varpar$
+plus the pMSE of $\fitproc\paren{\predvar; \trainset}$
+as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$:
+
+$$
+\E{\sqf{\newoutvar - \fitproc\paren{\predvar; \trainset}}}
+= \varpar + \E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}.
+$$ {#eq-epe-split-noise}
+
+:::
+
+::: proof
+This is @sol-epe-split-noise.
+:::

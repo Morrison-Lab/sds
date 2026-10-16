@@ -1,0 +1,48 @@
+:::{#exm-epe-split-noise}
+#### The two pMSEs differ by the noise variance
+
+Take a population whose mean function is known:
+$\Outvar \mid \Predvar = \predvar \sim \ndist{\sin(2 \pi \predvar), \varpar}$ with $\sdpar = 0.3$.
+Fix $\predvar = 0.25$, where $\mean(\predvar) = 1$,
+and let $\fitproc$ fit a cubic polynomial by least squares to $\nobs = 30$ observations.
+We draw $5{,}000$ training sets,
+each with its own new outcome at $\predvar$,
+and average the squared errors of the two targets over them.
+
+```{r}
+#| label: epe-split-noise-sim
+#| code-fold: false
+split_x0 <- 0.25
+split_reps <- 5000
+split_sigma <- 0.3
+split_truth <- function(x) sin(2 * pi * x)
+split_draw <- function(n) {
+  x <- stats::runif(n)
+  tibble::tibble(x = x, y = split_truth(x) + stats::rnorm(n, sd = split_sigma))
+}
+
+set.seed(2)
+split_errors <- purrr::map(seq_len(split_reps), \(i) {
+  train <- split_draw(30)
+  fit <- predict(lm(y ~ poly(x, 3), data = train), tibble::tibble(x = split_x0))
+  new_y <- split_truth(split_x0) + stats::rnorm(1, sd = split_sigma)
+  tibble::tibble(
+    new_outcome = (new_y - fit)^2,
+    mean_estimate = (split_truth(split_x0) - fit)^2
+  )
+}) |>
+  dplyr::bind_rows()
+
+split_pmse <- colMeans(split_errors)
+```
+
+The pMSE of the prediction of the new outcome is
+`r sprintf("%.3f", split_pmse[["new_outcome"]])`.
+The pMSE of the prediction as an estimate of the mean is
+`r sprintf("%.3f", split_pmse[["mean_estimate"]])`.
+Their difference, `r sprintf("%.3f", split_pmse[["new_outcome"]] - split_pmse[["mean_estimate"]])`,
+is close to $\varpar =$ `r sprintf("%.2f", split_sigma^2)`,
+as @thm-epe-split-noise says.
+It is not exactly equal because $5{,}000$ training sets give only a Monte Carlo approximation to each expectation.
+
+:::
