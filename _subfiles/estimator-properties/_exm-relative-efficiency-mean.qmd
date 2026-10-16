@@ -1,13 +1,13 @@
 :::{#exm-relative-efficiency-mean}
 #### Relative efficiency of two estimators of a mean
 
-In [the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean) the sample mean has $\mselr{\bar X} = \varpar / n$
-and the single-observation estimator has $\mselr{X_1} = \varpar$.
+In [the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean) the sample mean has $\pMSE{\bar X} = \varpar / n$
+and the single-observation estimator has $\pMSE{X_1} = \varpar$.
 The relative efficiency of the sample mean with respect to $X_1$ is
 
 $$
 \begin{aligned}
-\frac{\mselr{X_1}}{\mselr{\bar X}}
+\frac{\pMSE{X_1}}{\pMSE{\bar X}}
 &= \frac{\varpar}{\varpar / n}
 && \text{(substitute the two mean squared errors)}\\
 &= \varpar \cdot \frac{n}{\varpar}

@@ -7,7 +7,7 @@ of at least $\varepsilon$ is at most the pMSE
 divided by $\varepsilon^2$:
 
 $$
-\Prf{\abs{\hparam - \param} \ge \varepsilon} \le \frac{\mselr{\hparam}}{\varepsilon^2}
+\Prf{\abs{\hparam - \param} \ge \varepsilon} \le \frac{\pMSE{\hparam}}{\varepsilon^2}
 $$ {#eq-estimation-error-bound}
 
 :::

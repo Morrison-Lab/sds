@@ -5,5 +5,5 @@ The **population root mean squared error (pRMSE)** of an estimator $\hparam$,
 also called its **root mean squared error**,
 is the square root of its [pMSE](#def-mse):
 
-$$\operatorname{RMSE}\paren{\hparam} \eqdef \sqrt{\mselr{\hparam}}$$
+$$\pRMSE{\hparam} \eqdef \sqrt{\pMSE{\hparam}}$$
 :::

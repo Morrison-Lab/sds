@@ -1,7 +1,7 @@
 :::{#exr-mse-expand}
 #### Expanding the population mean squared error
 
-Write the [pMSE](#def-mse) $\mselr{\hparam}$
+Write the [pMSE](#def-mse) $\pMSE{\hparam}$
 in terms of $\E{\hparam^2}$, $\E{\hparam}$, and the estimand $\param$.
 :::
 
@@ -11,7 +11,7 @@ in terms of $\E{\hparam^2}$, $\E{\hparam}$, and the estimand $\param$.
 
 $$
 \begin{aligned}
-\mselr{\hparam}
+\pMSE{\hparam}
 &\eqdef \E{\sqf{\erf{\hparam}}}
 && \text{(definition of MSE)}\\
 &= \E{(\hparam - \param)^2}

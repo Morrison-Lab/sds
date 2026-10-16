@@ -10,12 +10,12 @@ in terms of its [pMSE](#def-mse).
 
 :::{#sol-se-rmse-unbiased}
 
-By @eq-unbiased-mse, $\mselr{\hparam} = \Var{\hparam}$.
+By @eq-unbiased-mse, $\pMSE{\hparam} = \Var{\hparam}$.
 Taking square roots of both sides,
 
 $$
 \begin{aligned}
-  \sqrt{\mselr{\hparam}} &= \SD{\hparam} \\
+  \sqrt{\pMSE{\hparam}} &= \SD{\hparam} \\
   &= \SE{\hparam}.
 \end{aligned}
 $$

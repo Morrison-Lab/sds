@@ -3,6 +3,6 @@
 
 For any one-dimensional estimator $\hparam$:
 
-$$\mselr{\hparam} = \sqf{\bias{\hparam}} + \var{\hparam}$$ {#eq-mse}
+$$\pMSE{\hparam} = \sqf{\bias{\hparam}} + \var{\hparam}$$ {#eq-mse}
 
 :::

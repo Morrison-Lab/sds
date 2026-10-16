@@ -12,13 +12,13 @@ in terms of the [pMSE](#def-mse) and the [bias](#def-bias) of $\hparam$.
 
 $$
 \begin{aligned}
-\mselr{\hparam} &= \sqf{\bias{\hparam}} + \Var{\hparam}
+\pMSE{\hparam} &= \sqf{\bias{\hparam}} + \Var{\hparam}
 && \text{(MSE equals bias squared plus variance)}\\
-\Var{\hparam} &= \mselr{\hparam} - \sqf{\bias{\hparam}}
+\Var{\hparam} &= \pMSE{\hparam} - \sqf{\bias{\hparam}}
 && \text{(subtract $\sqf{\bias{\hparam}}$ from both sides)}\\
-\sqf{\SD{\hparam}} &= \mselr{\hparam} - \sqf{\bias{\hparam}}
+\sqf{\SD{\hparam}} &= \pMSE{\hparam} - \sqf{\bias{\hparam}}
 && \text{($\Var{\hparam} = \sqf{\SD{\hparam}}$)}\\
-\sqf{\SE{\hparam}} &= \mselr{\hparam} - \sqf{\bias{\hparam}}
+\sqf{\SE{\hparam}} &= \pMSE{\hparam} - \sqf{\bias{\hparam}}
 && \text{(definition of standard error: $\SE{\hparam} = \SD{\hparam}$)}
 \end{aligned}
 $$

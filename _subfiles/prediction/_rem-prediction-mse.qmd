@@ -10,7 +10,7 @@ the sMSE of the fitted values is the
 divided by $n$
 ([sMSE and RSS](correlation-regression.qmd#thm-mse-rss)):
 
-$$\mselr{\fitted} = \frac{1}{n} \text{RSS}(\est{\vparam}),
+$$\sMSE{\fitted} = \frac{1}{n} \text{RSS}(\est{\vparam}),
 \qquad
-\text{RSS}(\est{\vparam}) = n \, \mselr{\fitted}.$$
+\text{RSS}(\est{\vparam}) = n \, \sMSE{\fitted}.$$
 :::
