@@ -352,7 +352,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 04:15:16 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 04:40:51 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -368,7 +368,7 @@ text-align: center;
 \qquad
 \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}},
 \tag{1}\]</span></span></p>
-<p>where <span class="math inline">\(\mathord{\underset{\sim}{x}}_i = {\mathopen{}\left(1, x_{i1}, \dots, x_{ip}\right)\mathclose{}}^{\top}\)</span> and <span class="math inline">\(\mathord{\underset{\sim}{\beta}}= {\mathopen{}\left(\beta_{0}, \beta_{1}, \dots, \beta_{p}\right)\mathclose{}}^{\top}\)</span>. The leading <span class="math inline">\(1\)</span> in <span class="math inline">\(\mathord{\underset{\sim}{x}}_i\)</span> makes <span class="math inline">\(\beta_{0}\)</span> the intercept, and <span class="math inline">\(\beta_{j}\)</span> for <span class="math inline">\(j \ge 1\)</span> is the slope for the <span class="math inline">\(j\)</span>th predictor.</p>
+<p>where <span class="math inline">\(\mathord{\underset{\sim}{x}}_i= {\mathopen{}\left(1, x_{i1}, \dots, x_{ip}\right)\mathclose{}}^{\top}\)</span> and <span class="math inline">\(\mathord{\underset{\sim}{\beta}}= {\mathopen{}\left(\beta_{0}, \beta_{1}, \dots, \beta_{p}\right)\mathclose{}}^{\top}\)</span>. The leading <span class="math inline">\(1\)</span> in <span class="math inline">\(\mathord{\underset{\sim}{x}}_i\)</span> makes <span class="math inline">\(\beta_{0}\)</span> the intercept, and <span class="math inline">\(\beta_{j}\)</span> for <span class="math inline">\(j \ge 1\)</span> is the slope for the <span class="math inline">\(j\)</span>th predictor.</p>
 </div>
 </section><section class="slide level2"><div id="exm-logistic-regression" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (A six-patient trial)</strong></span> Six patients are split into a control group, coded <span class="math inline">\(x= -1\)</span>, and a treatment group, coded <span class="math inline">\(x= +1\)</span>. The outcome is <span class="math inline">\(y= 1\)</span> if the patient recovered. Fitting the model of <a href="#/eq-logistic-model" class="quarto-xref">Equation&nbsp;1</a> by maximum likelihood gives the coefficients below.</p>
@@ -492,7 +492,7 @@ D_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)
 <p><span class="theorem-title"><strong>Definition 4 (Covariate pattern)</strong></span> A <strong>covariate pattern</strong> is a distinct value of the predictor vector among the observations <span class="math inline">\(\mathord{\underset{\sim}{x}}_1, \dots, \mathord{\underset{\sim}{x}}_n\)</span>. The <span class="math inline">\(K\)</span> distinct values are written <span class="math inline">\(\mathord{\underset{\sim}{x}}^{(1)}, \dots, \mathord{\underset{\sim}{x}}^{(K)}\)</span>, so <span class="math inline">\(K\le n\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-replicates" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Replicates)</strong></span> The <strong>replicates</strong> of the <a href="#/def-covariate-pattern">covariate pattern</a> <span class="math inline">\(\mathord{\underset{\sim}{x}}^{(k)}\)</span> are the observations <span class="math inline">\(i\)</span> with <span class="math inline">\(\mathord{\underset{\sim}{x}}_i = \mathord{\underset{\sim}{x}}^{(k)}\)</span>. Their number is written <span class="math inline">\(m_k\)</span>, so <span class="math inline">\(\sum_{k=1}^{K}m_k = n\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 5 (Replicates)</strong></span> The <strong>replicates</strong> of the <a href="#/def-covariate-pattern">covariate pattern</a> <span class="math inline">\(\mathord{\underset{\sim}{x}}^{(k)}\)</span> are the observations <span class="math inline">\(i\)</span> with <span class="math inline">\(\mathord{\underset{\sim}{x}}_i= \mathord{\underset{\sim}{x}}^{(k)}\)</span>. Their number is written <span class="math inline">\(m_k\)</span>, so <span class="math inline">\(\sum_{k=1}^{K}m_k = n\)</span>.</p>
 </div>
 <div id="rem-source-covariate-pattern">
 <div id="rem-source-covariate-pattern" class="callout callout-note callout-titled callout-style-simple">
@@ -512,7 +512,7 @@ D_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)
 </section><section class="slide level2"><div id="def-pattern-events" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Events at a covariate pattern)</strong></span> The number of <strong>events</strong> at the <a href="#/def-covariate-pattern">covariate pattern</a> <span class="math inline">\(\mathord{\underset{\sim}{x}}^{(k)}\)</span> is the sum of the binary outcomes over its <a href="#/def-replicates">replicates</a>:</p>
 <p><span class="math display">\[
-s_k = \sum_{i:\, \mathord{\underset{\sim}{x}}_i = \mathord{\underset{\sim}{x}}^{(k)}} y_i,
+s_k = \sum_{i:\, \mathord{\underset{\sim}{x}}_i= \mathord{\underset{\sim}{x}}^{(k)}} y_i,
 \]</span></p>
 <p>so <span class="math inline">\(0 \le s_k \le m_k\)</span>.</p>
 </div>
@@ -543,7 +543,7 @@ s_k = \sum_{i:\, \mathord{\underset{\sim}{x}}_i = \mathord{\underset{\sim}{x}}^{
 </section><section class="slide level2"><div id="def-saturated-model" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Saturated model (full model, maximal model))</strong></span> The <strong>saturated model</strong> (also called the <strong>full model</strong> <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, sec. 5.5</a>)</span> or <strong>maximal model</strong> <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, sec. 5.5</a>)</span>) for binary outcomes gives each pattern its own free event probability:</p>
 <p><span id="eq-saturated-model"><span class="math display">\[
-\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}_i = \mathord{\underset{\sim}{x}}^{(k)}\right)\mathclose{} = \pi_k,
+\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}_i= \mathord{\underset{\sim}{x}}^{(k)}\right)\mathclose{} = \pi_k,
 \qquad k = 1, \dots, K,
 \tag{4}\]</span></span></p>
 <p>with the outcomes independent given the predictors.</p>

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 04:15:16 (PDT)
+Last modified: 2026-10-16 04:40:51 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -127,7 +127,7 @@ For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operato
 
 Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 327). Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
 
-When a model’s log-likelihood contribution \\\ell_i\\ for observation \\i\\ is not one of the distributions built into JAGS, the *zeros trick* supplies it. An observed value of 0 from a Poisson distribution with mean \\\phi_i\\ has probability \\e^{-\phi_i}\\, and with \\\phi_i \stackrel{\text{def}}{=}C - \ell_i\\ for a constant \\C\\,
+When a model’s log-likelihood contribution \\\ell_i\\ for observation \\i\\ is not one of the distributions built into JAGS, the *zeros trick* supplies it. An observed value of 0 from a Poisson distribution with mean \\\phi_i\\ has probability \\e^{-\phi_i}\\, and with \\\phi_i\stackrel{\text{def}}{=}C - \ell_i\\ for a constant \\C\\,
 
 \\ \begin{aligned} e^{-\phi_i} &= e^{-(C - \ell_i)} && \text{(definition of \$\phi_i\$)}\\ &= e^{-C} e^{\ell_i} && \text{(splitting the exponent)}\\ &\propto e^{\ell_i} && \text{(\$C\$ does not depend on the parameters)}, \end{aligned} \\
 
@@ -135,9 +135,9 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 > **NOTE:**
 >
-> **Example 3 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i = \operatorname{exp}\mathopen{}\left\\\beta\_{0}+ \beta\_{x} x_i\right\\\mathclose{}\\, where the log baseline hazard is \\\beta\_{0}= \log 0.05\\ and the log hazard ratio is \\\beta\_{x} = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_i e^{-{\lambda}\_i t}\\ and its survival function is \\e^{-{\lambda}\_i t}\\, so observation \\i\\ contributes the log-likelihood
+> **Example 3 (Exponential survival regression fitted by Bayesian inference)** We simulate \\N = 200\\ right-censored exponential survival times, with a binary covariate \\x_i\\ (say, treatment) and hazard \\{\lambda}\_i= \operatorname{exp}\mathopen{}\left\\\beta\_{0}+ \beta\_{x} x_i\right\\\mathclose{}\\, where the log baseline hazard is \\\beta\_{0}= \log 0.05\\ and the log hazard ratio is \\\beta\_{x} = -0.7\\. With event indicator \\\delta_i\\ (1 for an event, 0 for a censored time) and follow-up time \\t_i\\, the exponential density is \\{\lambda}\_ie^{-{\lambda}\_it}\\ and its survival function is \\e^{-{\lambda}\_it}\\, so observation \\i\\ contributes the log-likelihood
 >
-> \\ \ell_i \stackrel{\text{def}}{=}\delta_i \log {\lambda}\_i - {\lambda}\_i t_i. \\
+> \\ \ell_i\stackrel{\text{def}}{=}\delta_i\log {\lambda}\_i- {\lambda}\_it_i. \\
 >
 > JAGS has no built-in distribution for this contribution, so we fit it with the zeros trick. In the code, `beta0` and `beta1` are \\\beta\_{0}\\ and \\\beta\_{x}\\.
 >

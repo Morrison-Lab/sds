@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 04:15:16 (PDT)
+Last modified: 2026-10-16 04:40:51 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -156,7 +156,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > **Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)** The `birthwt` data record the number of previous premature labors (`ptl`) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv). Treat counts like these as a Poisson sample, \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, with \\{\lambda}\\ equal to the mean of `ptl`, 0.196.
 >
-> The estimand is the probability of a zero count, \\\pi= \Pr(X_i = 0) = e^{-{\lambda}}\\. Index the model by \\\pi\\ instead of \\{\lambda}\\ (the map \\{\lambda}\mapsto e^{-{\lambda}}\\ is one-to-one); then the sum \\S = \sum\_{i=1}^nX_i\\ is still [sufficient](#def-sufficient), by [Example 1](#exm-poisson-sufficient).
+> The estimand is the probability of a zero count, \\\pi= \Pr(X_i= 0) = e^{-{\lambda}}\\. Index the model by \\\pi\\ instead of \\{\lambda}\\ (the map \\{\lambda}\mapsto e^{-{\lambda}}\\ is one-to-one); then the sum \\S = \sum\_{i=1}^nX_i\\ is still [sufficient](#def-sufficient), by [Example 1](#exm-poisson-sufficient).
 >
 > The crude estimator is the indicator that the first observation is zero, \\\hat{\pi}\_1 = \mathbb{1}\mathopen{}\left\\X_1 = 0\right\\\mathclose{}\\, which uses one observation and is unbiased for \\\pi\\. Its Rao–Blackwellization is
 >

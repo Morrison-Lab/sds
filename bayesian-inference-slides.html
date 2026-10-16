@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 04:15:16 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 04:40:51 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -530,20 +530,20 @@ text-align: center;
 <p><span id="eq-normal-normal-exm"><span class="math display">\[
 \begin{aligned}
 \operatorname{p}(\mathord{\underset{\sim}{x}}\mid \mu)
-&amp;= \prod_{i=1}^n(2\pi)^{-1/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}(x_i - \mu)^2\right\}\mathclose{}
+&amp;= \prod_{i=1}^n(2\pi)^{-1/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}(x_i- \mu)^2\right\}\mathclose{}
 &amp;&amp; \text{(independent Gaussian observations)}\\
-&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^n(x_i - \mu)^2\right\}\mathclose{}
+&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^n(x_i- \mu)^2\right\}\mathclose{}
 &amp;&amp; \text{(combining the exponents)}\\
-&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^n\mathopen{}\left(x_i^2 - 2 \mu x_i + \mu^2\right)\mathclose{}\right\}\mathclose{}
+&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^n\mathopen{}\left(x_i^2 - 2 \mu x_i+ \mu^2\right)\mathclose{}\right\}\mathclose{}
 &amp;&amp; \text{(expanding each square)}\\
-&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - \sum_{i=1}^n2 \mu x_i + \sum_{i=1}^n\mu^2\right)\mathclose{}\right\}\mathclose{}
+&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - \sum_{i=1}^n2 \mu x_i+ \sum_{i=1}^n\mu^2\right)\mathclose{}\right\}\mathclose{}
 &amp;&amp; \text{(splitting the sum)}\\
-&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - 2 \mu\sum_{i=1}^nx_i + \sum_{i=1}^n\mu^2\right)\mathclose{}\right\}\mathclose{}
+&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - 2 \mu\sum_{i=1}^nx_i+ \sum_{i=1}^n\mu^2\right)\mathclose{}\right\}\mathclose{}
 &amp;&amp; \text{(factoring the constant $2 \mu$ out of the middle sum)}\\
-&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - 2 \mu\sum_{i=1}^nx_i + n \mu^2\right)\mathclose{}\right\}\mathclose{}
+&amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - 2 \mu\sum_{i=1}^nx_i+ n \mu^2\right)\mathclose{}\right\}\mathclose{}
 &amp;&amp; \text{(summing the constant $\mu^2$ over $n$ terms)}\\
 &amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 - 2 \mu n \bar x + n \mu^2\right)\mathclose{}\right\}\mathclose{}
-&amp;&amp; \text{(substituting $\sum_{i=1}^nx_i = n \bar x$)}\\
+&amp;&amp; \text{(substituting $\sum_{i=1}^nx_i= n \bar x$)}\\
 &amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\mathopen{}\left(\sum_{i=1}^nx_i^2 + \mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right)\mathclose{}\right\}\mathclose{}
 &amp;&amp; \text{(reordering and grouping the terms that involve $\mu$)}\\
 &amp;= (2\pi)^{-n/2} \operatorname{exp}\mathopen{}\left\{-\frac{1}{2}\sum_{i=1}^nx_i^2 - \frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\}\mathclose{}
@@ -655,14 +655,14 @@ text-align: center;
 </section><section class="slide level2"><div id="exm-map-normal-normal" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (The MAP estimate of a Gaussian mean)</strong></span> In <a href="#/exm-normal-normal" class="quarto-xref">Example&nbsp;6</a>, the posterior is <span class="math inline">\(\operatorname{N}\mathopen{}\left(\frac{n}{n+1}\bar{x}, \frac{1}{n+1}\right)\mathclose{}\)</span>. A Gaussian density is largest at its mean, so</p>
 <p><span class="math display">\[\hat{\theta}_{\text{MAP}} = \frac{n}{n+1}\bar{x}.\]</span></p>
-<p><a href="#/cor-map-penalized" class="quarto-xref">Corollary&nbsp;2</a> gives the same answer from the penalized form. Up to terms that do not involve <span class="math inline">\(\mu\)</span>, the negative log-likelihood is <span class="math inline">\(\frac{1}{2}\sum_{i=1}^n(x_i - \mu)^2\)</span> and the penalty is <span class="math inline">\(\frac{1}{2}\mu^2\)</span>. Setting the derivative of their sum to zero gives</p>
+<p><a href="#/cor-map-penalized" class="quarto-xref">Corollary&nbsp;2</a> gives the same answer from the penalized form. Up to terms that do not involve <span class="math inline">\(\mu\)</span>, the negative log-likelihood is <span class="math inline">\(\frac{1}{2}\sum_{i=1}^n(x_i- \mu)^2\)</span> and the penalty is <span class="math inline">\(\frac{1}{2}\mu^2\)</span>. Setting the derivative of their sum to zero gives</p>
 <p><span class="math display">\[
 \begin{aligned}
 0
-&amp;= -\sum_{i=1}^n(x_i - \mu) + \mu
+&amp;= -\sum_{i=1}^n(x_i- \mu) + \mu
 &amp;&amp; \text{(derivative of the sum with respect to $\mu$)}\\
 &amp;= -n\bar{x} + n\mu+ \mu
-&amp;&amp; \text{($\sum_i x_i = n\bar{x}$)}\\
+&amp;&amp; \text{($\sum_i x_i= n\bar{x}$)}\\
 &amp;= (n+1)\mu- n\bar{x},
 &amp;&amp; \text{(collecting the terms in $\mu$)}
 \end{aligned}

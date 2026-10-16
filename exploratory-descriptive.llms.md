@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 04:15:16 (PDT)
+Last modified: 2026-10-16 04:40:51 (PDT)
 
 ## 1 Introduction
 
@@ -236,7 +236,7 @@ dplyr::glimpse(wcgs)
 >
 > **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
 >
-> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar{x})^2\\
+> \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar{x})^2\\
 
 > **NOTE:**
 >
@@ -543,7 +543,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 >
 > **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
 >
-> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i - \bar{x})(y_i- \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i - \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i- \bar{y})^2}}\\
+> \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i- \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i- \bar{y})^2}}\\
 >
 > It is defined when neither variable is constant, so that both sums of squares are positive.
 
@@ -557,9 +557,9 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> *Proof*. Write \\a_i \stackrel{\text{def}}{=}x_i - \bar x\\ and \\b_i \stackrel{\text{def}}{=}y_i- \bar y\\, so that \\r = \sum_i a_i b_i / \mathopen{}\left(\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\right)\mathclose{}\\. The Cauchy–Schwarz inequality states that \\\mathopen{}\left\|\sum_i a_i b_i\right\|\mathclose{} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\\, with equality if and only if one of the vectors \\(a_1, \ldots, a_n)\\ and \\(b_1, \ldots, b_n)\\ is a scalar multiple of the other. Dividing both sides by the (positive) right-hand side gives \\\mathopen{}\left\|r\right\|\mathclose{} \le 1\\.
+> *Proof*. Write \\a_i \stackrel{\text{def}}{=}x_i- \bar x\\ and \\b_i \stackrel{\text{def}}{=}y_i- \bar y\\, so that \\r = \sum_i a_i b_i / \mathopen{}\left(\sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\right)\mathclose{}\\. The Cauchy–Schwarz inequality states that \\\mathopen{}\left\|\sum_i a_i b_i\right\|\mathclose{} \le \sqrt{\sum_i a_i^2} \sqrt{\sum_i b_i^2}\\, with equality if and only if one of the vectors \\(a_1, \ldots, a_n)\\ and \\(b_1, \ldots, b_n)\\ is a scalar multiple of the other. Dividing both sides by the (positive) right-hand side gives \\\mathopen{}\left\|r\right\|\mathclose{} \le 1\\.
 >
-> Equality \\\mathopen{}\left\|r\right\|\mathclose{} = 1\\ therefore holds if and only if \\b_i = c \\ a_i\\ for some constant \\c \ne 0\\ and every \\i\\, that is, \\y_i= \bar y + c(x_i - \bar x)\\: the points lie on a line with slope \\c\\. Then \\\sum_i a_i b_i = c \sum_i a_i^2\\ has the sign of \\c\\, so \\r = 1\\ when \\c \> 0\\ and \\r = -1\\ when \\c \< 0\\.
+> Equality \\\mathopen{}\left\|r\right\|\mathclose{} = 1\\ therefore holds if and only if \\b_i = c \\ a_i\\ for some constant \\c \ne 0\\ and every \\i\\, that is, \\y_i= \bar y + c(x_i- \bar x)\\: the points lie on a line with slope \\c\\. Then \\\sum_i a_i b_i = c \sum_i a_i^2\\ has the sign of \\c\\, so \\r = 1\\ when \\c \> 0\\ and \\r = -1\\ when \\c \< 0\\.
 
 > **NOTE:**
 >
@@ -788,7 +788,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
 >
-> \\z_i \stackrel{\text{def}}{=}\frac{x_i - \bar x}{s}\\
+> \\z_i \stackrel{\text{def}}{=}\frac{x_i- \bar x}{s}\\
 
 > **NOTE:**
 >
@@ -804,7 +804,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Proof*. The sample mean of the \\z_i\\ is \\ \begin{aligned} \frac{1}{n}\sum\_{i=1}^n\frac{x_i - \bar x}{s} &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i - \bar x\right)\mathclose{}\\ &= \frac{1}{s} (\bar x - \bar x)\\ &= 0. \end{aligned} \\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\ \begin{aligned} \frac{1}{n-1} \sum\_{i=1}^nz_i^2 &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i - \bar x)^2\\ &= \frac{s^2}{s^2}\\ &= 1, \end{aligned} \\ so their sample standard deviation is \\\sqrt{1} = 1\\.
+> *Proof*. The sample mean of the \\z_i\\ is \\ \begin{aligned} \frac{1}{n}\sum\_{i=1}^n\frac{x_i- \bar x}{s} &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i- \bar x\right)\mathclose{}\\ &= \frac{1}{s} (\bar x - \bar x)\\ &= 0. \end{aligned} \\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\ \begin{aligned} \frac{1}{n-1} \sum\_{i=1}^nz_i^2 &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar x)^2\\ &= \frac{s^2}{s^2}\\ &= 1, \end{aligned} \\ so their sample standard deviation is \\\sqrt{1} = 1\\.
 
 > **NOTE:**
 >
@@ -828,7 +828,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 >
 > **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
-> \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
+> \\\frac{x_i- x\_{\min}}{x\_{\max} - x\_{\min}}\\
 >
 > Source: Géron ([2017](#ref-geron2017hands), ch. 2).
 

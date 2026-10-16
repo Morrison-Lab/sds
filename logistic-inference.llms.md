@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 04:15:16 (PDT)
+Last modified: 2026-10-16 04:40:51 (PDT)
 
 ## 1 Introduction
 
@@ -16,7 +16,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}\_i\right)\mathclose{} = \pi_i = \sigma\mathopen{}\left(\mathord{\underset{\sim}{\beta}} \cdot \mathord{\underset{\sim}{x}}\_i\right)\mathclose{}, \qquad \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}}, \tag{1}\\
 >
-> where \\\mathord{\underset{\sim}{x}}\_i = {\mathopen{}\left(1, x\_{i1}, \dots, x\_{ip}\right)\mathclose{}}^{\top}\\ and \\\mathord{\underset{\sim}{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{1}, \dots, \beta\_{p}\right)\mathclose{}}^{\top}\\. The leading \\1\\ in \\\mathord{\underset{\sim}{x}}\_i\\ makes \\\beta\_{0}\\ the intercept, and \\\beta\_{j}\\ for \\j \ge 1\\ is the slope for the \\j\\th predictor.
+> where \\\mathord{\underset{\sim}{x}}\_i= {\mathopen{}\left(1, x\_{i1}, \dots, x\_{ip}\right)\mathclose{}}^{\top}\\ and \\\mathord{\underset{\sim}{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{1}, \dots, \beta\_{p}\right)\mathclose{}}^{\top}\\. The leading \\1\\ in \\\mathord{\underset{\sim}{x}}\_i\\ makes \\\beta\_{0}\\ the intercept, and \\\beta\_{j}\\ for \\j \ge 1\\ is the slope for the \\j\\th predictor.
 
 > **NOTE:**
 >
@@ -152,7 +152,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 5 (Replicates)** The **replicates** of the [covariate pattern](#def-covariate-pattern) \\\mathord{\underset{\sim}{x}}^{(k)}\\ are the observations \\i\\ with \\\mathord{\underset{\sim}{x}}\_i = \mathord{\underset{\sim}{x}}^{(k)}\\. Their number is written \\m_k\\, so \\\sum\_{k=1}^{K}m_k = n\\.
+> **Definition 5 (Replicates)** The **replicates** of the [covariate pattern](#def-covariate-pattern) \\\mathord{\underset{\sim}{x}}^{(k)}\\ are the observations \\i\\ with \\\mathord{\underset{\sim}{x}}\_i= \mathord{\underset{\sim}{x}}^{(k)}\\. Their number is written \\m_k\\, so \\\sum\_{k=1}^{K}m_k = n\\.
 
 > **NOTE:**
 >
@@ -162,7 +162,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 6 (Events at a covariate pattern)** The number of **events** at the [covariate pattern](#def-covariate-pattern) \\\mathord{\underset{\sim}{x}}^{(k)}\\ is the sum of the binary outcomes over its [replicates](#def-replicates):
 >
-> \\ s_k = \sum\_{i:\\ \mathord{\underset{\sim}{x}}\_i = \mathord{\underset{\sim}{x}}^{(k)}} y_i, \\
+> \\ s_k = \sum\_{i:\\ \mathord{\underset{\sim}{x}}\_i= \mathord{\underset{\sim}{x}}^{(k)}} y_i, \\
 >
 > so \\0 \le s_k \le m_k\\.
 
@@ -190,7 +190,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 7 (Saturated model (full model, maximal model))** The **saturated model** (also called the **full model** ([Dobson and Barnett 2018, sec. 5.5](#ref-dobson4e)) or **maximal model** ([Dobson and Barnett 2018, sec. 5.5](#ref-dobson4e))) for binary outcomes gives each pattern its own free event probability:
 >
-> \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}\_i = \mathord{\underset{\sim}{x}}^{(k)}\right)\mathclose{} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
+> \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}\_i= \mathord{\underset{\sim}{x}}^{(k)}\right)\mathclose{} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
 >
 > with the outcomes independent given the predictors.
 
