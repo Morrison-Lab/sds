@@ -8,7 +8,7 @@ the prediction $\fitproc\paren{\predvar; \trainset}$ is a random variable,
 because it depends on the random training data.
 The **bias** of the prediction
 is the [bias](estimation.qmd#def-bias) of $\fitproc\paren{\predvar; \trainset}$
-used as an estimator of the [mean function](#def-mean-function) value $\mean(\predvar)$,
+used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\mean(\predvar)$,
 which is its estimand here, not the new outcome it predicts:
 
 $$
