@@ -172,7 +172,7 @@ carry that credit along.
 Content taken from the maintainer's own repositories (rme, lds, pds, ...)
 is not credited to them, nor are the maintainer's other co-authored works
 (maintainer directives, 2026-10-05 and 2026-10-16).
-The exemption covers only that hop:
+The rule covers only that hop:
 whatever such a repository credits
 (a book, a paper, or any person other than the maintainer)
 is still credited.
