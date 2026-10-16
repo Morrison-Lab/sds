@@ -3,9 +3,9 @@
 
 In simple linear regression (@def-slr),
 the **covariate vector** $\vxi$ of observation $i$
-is its covariate value $\rvar_\iobs$, preceded by a 1 for the intercept:
+is its covariate value $\predvar_\iobs$, preceded by a 1 for the intercept:
 
 $$
-\vxi \eqdef \begin{pmatrix} 1 \\ \rvar_\iobs \end{pmatrix}.
+\vxi \eqdef \begin{pmatrix} 1 \\ \predvar_\iobs \end{pmatrix}.
 $$
 :::

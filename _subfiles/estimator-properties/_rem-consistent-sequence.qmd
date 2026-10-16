@@ -11,5 +11,5 @@ describe an estimator at one fixed sample size;
 consistency describes what happens to the whole sequence as $n$ grows.
 An estimator can be consistent and biased at every $n$,
 or unbiased at every $n$ and not consistent
-(the single-observation estimator $\Rvar_1$ of a mean is the standard example).
+(the single-observation estimator $X_1$ of a mean is the standard example).
 :::

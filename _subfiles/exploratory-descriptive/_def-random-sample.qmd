@@ -6,7 +6,7 @@ such that the observations are
 [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid)
 draws from the population distribution (@def-population-distribution):
 
-$$\Rvar_1, \ldots, \Rvar_n \iid\ \P,$$
+$$X_1, \ldots, X_n \iid\ \P,$$
 
 where $\P$ is the population distribution.
 :::

@@ -1,7 +1,7 @@
 :::{#thm-bernoulli-likelihood-one-group}
 #### Likelihood of binary outcomes with one event probability
 
-Let $\Outvar_1, \dots, \Outvar_n$ be mutually independent binary random variables,
+Let $Y_1, \dots, Y_n$ be mutually independent binary random variables,
 each with the same event probability $\prob$:
 $\Outvar_\iobs \simind \Ber(\prob)$.
 For observed outcomes $\vy \eqdef (\dsn{y})$, with each $\outvar_\iobs \in \cb{0, 1}$,

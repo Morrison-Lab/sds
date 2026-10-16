@@ -3,7 +3,7 @@
 
 The centered sum of squares $S_{xx}$ (@def-centered-sums) equals
 
-$$S_{xx} = \sumin \rvar_\iobs^2 - n \bar{x}^2.$$
+$$S_{xx} = \sumin \predvar_\iobs^2 - n \bar{x}^2.$$
 :::
 
 ::: proof

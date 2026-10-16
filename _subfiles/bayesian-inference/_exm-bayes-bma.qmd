@@ -12,8 +12,8 @@ $$
 \frac{\expf{-\tfrac{1}{2}\operatorname{BIC}_k}}{\sumto{l}{K} \expf{-\tfrac{1}{2}\operatorname{BIC}_l}}.
 $$
 
-We simulate data in which only $\rvar_1$ and $x_2$ affect the outcome,
-fit a linear regression for every subset of the three predictors $\rvar_1$, $x_2$ and $x_3$,
+We simulate data in which only $x_1$ and $x_2$ affect the outcome,
+fit a linear regression for every subset of the three predictors $x_1$, $x_2$ and $x_3$,
 and compute these approximate posterior model probabilities:
 
 ```{r}
@@ -65,9 +65,9 @@ vapply(predictors, function(v) sum(weight[includes(v)]), numeric(1)) |>
   round(3)
 ```
 
-For the model-averaged slope of $\rvar_1$,
+For the model-averaged slope of $x_1$,
 we approximate its posterior mean within each model by the least-squares estimate,
-taken as $0$ in models that exclude $\rvar_1$,
+taken as $0$ in models that exclude $x_1$,
 and average with the posterior model probabilities as weights:
 
 ```{r}
@@ -84,12 +84,12 @@ c(
   round(3)
 ```
 
-The predictors that affect the outcome, $\rvar_1$ and $x_2$,
+The predictors that affect the outcome, $x_1$ and $x_2$,
 have inclusion probabilities near 1,
 and the irrelevant $x_3$ a much smaller one.
-The models without $\rvar_1$ get almost no weight,
-so the model-averaged slope of $\rvar_1$ is close to its least-squares estimate
-in the model with $\rvar_1$ and $x_2$ only.
+The models without $x_1$ get almost no weight,
+so the model-averaged slope of $x_1$ is close to its least-squares estimate
+in the model with $x_1$ and $x_2$ only.
 Both differ from the true slope $0.8$ by sampling variation in this data set,
 not because of the averaging.
 :::

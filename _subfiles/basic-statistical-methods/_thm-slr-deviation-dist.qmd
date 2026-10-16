@@ -6,7 +6,7 @@ given the covariates,
 the deviations (@def-slr-deviation) are independent and Gaussian
 with mean 0 and variance $\varpar_\iobs$:
 
-$$\cdev_\iobs \mid \Rvar_\iobs = \rvar_\iobs \simind \ndist{0, \varpar_\iobs}.$$
+$$\cdev_\iobs \mid \Predvar_\iobs = \predvar_\iobs \simind \ndist{0, \varpar_\iobs}.$$
 :::
 
 ::: proof

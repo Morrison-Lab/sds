@@ -4,15 +4,15 @@
 Continuing @exm-bias-sample-mean,
 suppose also that $\dsn{X}$ are mutually independent,
 each with variance $\Var{\Rvar_\iobs} = \varpar$.
-Both $\bar X$ and $\Rvar_1$ have zero bias,
+Both $\bar X$ and $X_1$ have zero bias,
 so by @thm-mse-bias-variance each estimator's mean squared error
 equals its variance.
 
-For $\Rvar_1$,
+For $X_1$,
 
 $$
 \begin{aligned}
-  \mselr{\Rvar_1} &= 0^2 + \Var{\Rvar_1} \\
+  \mselr{X_1} &= 0^2 + \Var{X_1} \\
   &= \varpar.
 \end{aligned}
 $$
@@ -51,12 +51,12 @@ $$
 \begin{aligned}
   \mselr{\bar X} &= \varpar/n \\
   &< \varpar \\
-  &= \mselr{\Rvar_1}:
+  &= \mselr{X_1}:
 \end{aligned}
 $$
 
 by mean squared error, the sample mean is the more accurate estimator.
 With $n = 50$ students, as in @exm-estimator,
-the sample mean's mean squared error is $1/50$ of $\Rvar_1$'s.
+the sample mean's mean squared error is $1/50$ of $X_1$'s.
 
 :::

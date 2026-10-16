@@ -15,7 +15,7 @@ Index the model by $\prob$ instead of $\rate$ (the map $\rate \mapsto e^{-\rate}
 then the sum $S = \sumin \Rvar_\iobs$ is still [sufficient](#def-sufficient), by @exm-poisson-sufficient.
 
 The crude estimator is the indicator that the first observation is zero,
-$\hprob_1 = \indiccb{\Rvar_1 = 0}$, which uses one observation and is unbiased for $\prob$.
+$\hprob_1 = \indiccb{X_1 = 0}$, which uses one observation and is unbiased for $\prob$.
 Its Rao--Blackwellization is
 
 $$
@@ -23,7 +23,7 @@ $$
 \hprob_2
 &= \condE{\hprob_1}{S}
 && \text{(definition of the Rao--Blackwellized estimator)}\\
-&= \Pr\paren{\Rvar_1 = 0 \given S}
+&= \Pr\paren{X_1 = 0 \given S}
 && \text{(the mean of an indicator is a probability)}\\
 &= \paren{\frac{n-1}{n}}^S
 && \text{(conditional probability of a zero)}

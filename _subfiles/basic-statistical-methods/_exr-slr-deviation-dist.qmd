@@ -100,7 +100,7 @@ and the independence of the $\Outvar_\iobs$ given the covariates (@def-cond-gaus
 $$
 \begin{aligned}
 \Prf{\cdev_1 \le t_1, \ldots, \cdev_n \le t_n}
-&= \Prf{\Outvar_1 \le t_1 + \mean_1, \ldots, \Outvar_n \le t_n + \mean_n}
+&= \Prf{Y_1 \le t_1 + \mean_1, \ldots, Y_n \le t_n + \mean_n}
 && \text{(add $\mean_\iobs$ to both sides of each inequality)}\\
 &= \prodin \Prf{\Outvar_\iobs \le t_i + \mean_\iobs}
 && \text{(the $\Outvar_\iobs$ are independent)}\\

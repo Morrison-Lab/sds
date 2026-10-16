@@ -4,7 +4,7 @@
 For $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin \Rvar_\iobs$,
 
 $$
-\Pr\paren{\Rvar_1 = 0 \given S = t} = \paren{\frac{n-1}{n}}^t
+\Pr\paren{X_1 = 0 \given S = t} = \paren{\frac{n-1}{n}}^t
 $$ {#eq-poisson-zero-conditional}
 
 for every $t = 0, 1, 2, \ldots$.

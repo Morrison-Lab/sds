@@ -28,21 +28,21 @@ $$
 \end{aligned}
 $$
 
-and the bias of the single-observation estimator $\hmean^{(2)} = \Rvar_1$ is:
+and the bias of the single-observation estimator $\hmean^{(2)} = X_1$ is:
 
 $$
 \begin{aligned}
-\bias{\Rvar_1}
-&= \E{\Rvar_1} - \mean
+\bias{X_1}
+&= \E{X_1} - \mean
 && \text{(bias equals expectation minus truth)}\\
 &= \mean - \mean
-&& \text{($\E{\Rvar_1} = \mean$)}\\
+&& \text{($\E{X_1} = \mean$)}\\
 &= 0
 && \text{(subtract)}
 \end{aligned}
 $$
 
 So both estimators have zero bias,
-even though $\bar X$ uses all $n$ observations and $\Rvar_1$ uses only one.
+even though $\bar X$ uses all $n$ observations and $X_1$ uses only one.
 
 :::

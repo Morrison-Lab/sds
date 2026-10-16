@@ -1,7 +1,7 @@
 ::: {#def-centered-sums}
 #### Centered sums of squares
 
-For data $(\predvar_1, \outvar_1), \ldots, (\predvar_n, \outvar_n)$,
+For data $(x_1, y_1), \ldots, (x_n, y_n)$,
 the **centered sums of squares** of the $\predvar_\iobs$ and of the $\outvar_\iobs$ are
 
 $$

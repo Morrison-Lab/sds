@@ -1,7 +1,7 @@
 :::{#exr-sum-deviations-zero}
 #### Summing the deviations from the mean
 
-Find $\sumin (\rvar_\iobs - \bar{x})$.
+Find $\sumin (\predvar_\iobs - \bar{x})$.
 :::
 
 {{< slidebreak >}}
@@ -10,19 +10,19 @@ Find $\sumin (\rvar_\iobs - \bar{x})$.
 
 $$
 \begin{aligned}
-\sumin (\rvar_\iobs - \bar{x})
-&= \sumin \rvar_\iobs - \sumin \bar{x}
+\sumin (\predvar_\iobs - \bar{x})
+&= \sumin \predvar_\iobs - \sumin \bar{x}
 && \text{(split the sum)}\\
-&= \sumin \rvar_\iobs - n \bar{x}
+&= \sumin \predvar_\iobs - n \bar{x}
 && \text{(sum of a constant)}\\
 &= n \bar{x} - n \bar{x}
-&& \text{($\sumin \rvar_\iobs = n \bar{x}$)}\\
+&& \text{($\sumin \predvar_\iobs = n \bar{x}$)}\\
 &= 0
 && \text{(subtract)}
 \end{aligned}
 $$
 
-The same steps with $\outvar_\iobs$ in place of $\rvar_\iobs$
+The same steps with $\outvar_\iobs$ in place of $\predvar_\iobs$
 show that $\sumin (\outvar_\iobs - \bar{y}) = 0$.
 
 :::

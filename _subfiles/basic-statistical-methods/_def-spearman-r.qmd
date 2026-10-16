@@ -1,7 +1,7 @@
 ::: {#def-spearman-r}
 #### Spearman rank correlation
 
-Replace each $\rvar_\iobs$ by its rank $u_i$ among $\dsn{x}$,
+Replace each $\predvar_\iobs$ by its rank $u_i$ among $\dsn{x}$,
 and each $\outvar_\iobs$ by its rank $v_i$ among $\dsn{y}$,
 giving tied values the average of the ranks they span.
 The **Spearman rank correlation** $r_S$ is the

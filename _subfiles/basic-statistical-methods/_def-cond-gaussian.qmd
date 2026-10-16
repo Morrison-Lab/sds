@@ -7,13 +7,13 @@ with covariate values $\dsn{x}$
 says that, given the covariates,
 the outcomes are independent and Gaussian:
 outcome $\Outvar_\iobs$ is centered on a mean function $\mean(x)$
-evaluated at $\rvar_\iobs$,
+evaluated at $\predvar_\iobs$,
 and has its own variance $\varpar_\iobs$:
 
 $$
 \begin{aligned}
-\Outvar_\iobs \mid \Rvar_\iobs = \rvar_\iobs &\simind \ndist{\mean_\iobs, \varpar_\iobs},\\
-\mean_\iobs &\eqdef \mean(\rvar_\iobs).
+\Outvar_\iobs \mid \Predvar_\iobs = \predvar_\iobs &\simind \ndist{\mean_\iobs, \varpar_\iobs},\\
+\mean_\iobs &\eqdef \mean(\predvar_\iobs).
 \end{aligned}
 $$
 :::

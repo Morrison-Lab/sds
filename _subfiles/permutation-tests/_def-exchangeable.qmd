@@ -1,9 +1,9 @@
 ::: {#def-exchangeable}
 #### Exchangeable random variables
 
-For a permutation $\pi$ of $\set{1, \ldots, n}$ and a vector $y = (\outvar_1, \ldots, \outvar_n)$,
+For a permutation $\pi$ of $\set{1, \ldots, n}$ and a vector $y = (y_1, \ldots, y_n)$,
 write $y_\pi \eqdef (y_{\pi(1)}, \ldots, y_{\pi(n)})$ for the vector with its entries reordered by $\pi$.
-Random variables $\Outvar_1, \ldots, \Outvar_n$ are **exchangeable** if reordering them does not change their joint distribution:
+Random variables $Y_1, \ldots, Y_n$ are **exchangeable** if reordering them does not change their joint distribution:
 for every permutation $\pi$ and every set $A$ of vectors,
 
 $$\Pr(Y_\pi \in A) = \Pr(Y \in A).$$
@@ -17,7 +17,7 @@ $$\Pr(Y_\pi \in A) = \Pr(Y \in A).$$
 
 Let a gene's expression be measured in $n_1$ samples from tumor class 2 and $n_2$ samples from tumor class 4,
 and let $H_0$ say that the expression has the same distribution in both classes.
-Under $H_0$ the $n = n_1 + n_2$ values $\Outvar_1, \ldots, \Outvar_n$ are independent and identically distributed,
+Under $H_0$ the $n = n_1 + n_2$ values $Y_1, \ldots, Y_n$ are independent and identically distributed,
 and independent, identically distributed variables are exchangeable,
 because their joint distribution is the product of the same marginal distribution $n$ times,
 which does not depend on the order of the factors.

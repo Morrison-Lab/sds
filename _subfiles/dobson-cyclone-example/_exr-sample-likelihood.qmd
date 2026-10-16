@@ -13,7 +13,7 @@ $$
 \Lik(\rate; \vx)
 &\eqdef \Pr(\vX = \vx)
 && \text{(definition of likelihood)}\\
-&= \Pr(\Rvar_1 = \rvar_1, X_2 = x_2, \ldots, X_{13} = x_{13})
+&= \Pr(X_1 = x_1, X_2 = x_2, \ldots, X_{13} = x_{13})
 && \text{(write out the vector)}\\
 &= \prod_{i=1}^{13} \Pr(\Rvar_\iobs = \rvar_\iobs)
 && \text{(independence)}\\
