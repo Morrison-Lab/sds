@@ -1,0 +1,27 @@
+:::{#exm-chance-agreement}
+#### Chance agreement for the COVID-19 test
+
+For the agreement table of @exm-agreement-table-covid,
+the chance agreement (@def-chance-agreement) is:
+
+$$
+\ba
+p_e
+&= \frac{786 \times 700 + 9{,}214 \times 9{,}300}{10{,}000^2}
+&& \text{(definition of } p_e \text{, with the table's counts)} \\
+&= \frac{550{,}200 + 85{,}690{,}200}{10{,}000^2}
+&& \text{(multiply)} \\
+&= \frac{86{,}240{,}400}{10{,}000^2}
+&& \text{(add)} \\
+&= \frac{86{,}240{,}400}{100{,}000{,}000}
+&& \text{(square)} \\
+&= 0.862404
+&& \text{(divide)}
+\ea
+$$ {#eq-exm-chance-agreement}
+
+Because nearly everyone tests negative and is negative,
+two independent classifiers with these margins
+would agree on about 86% of people by chance alone.
+
+:::
