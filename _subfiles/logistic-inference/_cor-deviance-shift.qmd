@@ -1,0 +1,18 @@
+::: {#cor-deviance-shift}
+
+#### The deviance is the saturated-model deviance shifted by a constant
+
+The [deviance](#def-deviance) of a fitted logistic regression and its [deviance relative to the saturated model](#def-saturated-deviance) differ by a constant that depends on the data and not on the fitted model:
+
+$$
+\deviance = \satdeviance - 2 \satllik.
+$$
+
+:::
+
+::: proof
+@def-deviance gives $\deviance = -2 \llikf{\hvcoef}$.
+Distributing the $2$ in @eq-saturated-deviance gives $\satdeviance = 2 \satllik - 2 \llikf{\hvcoef}$.
+Substituting $\deviance = -2 \llikf{\hvcoef}$ into this expression gives $\satdeviance = 2 \satllik + \deviance$.
+Subtracting $2 \satllik$ from both sides gives the claim.
+:::

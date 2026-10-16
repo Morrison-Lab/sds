@@ -1,0 +1,30 @@
+:::{#def-epl}
+#### Expected prediction loss at a covariate value
+
+The **expected prediction loss at $\predvar$**
+of a [fitting procedure](#def-fitting-procedure) $\fitproc$
+at training-set size $\nobs$
+is the expected [loss](#def-observation-loss) $\obsloss{*}$
+of its prediction $\fitproc\paren{\predvar; \trainset}$ for a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
+averaged over random [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
+drawn independently of $(\newpredvar, \newoutvar)$,
+and over $\newoutvar$:
+
+$$
+\epl{\fitproc}{\nobs}{\predvar} \eqdef \E{\obsloss{*} \mid \newpredvar = \predvar}.
+$$ {#eq-epl}
+
+:::
+
+:::{#rem-epl-generalization-error}
+#### The expected prediction loss and the generalization error
+
+The [generalization error](#def-generalization-error) $\generr_{\trainset}$
+holds the training set fixed and averages the loss over new covariate values too.
+The expected prediction loss at $\predvar$ averages over training sets as well,
+and holds the covariate value fixed.
+Neither is the [test error](#def-test-error):
+the test error is an average over a finite test set,
+so it estimates the generalization error without equalling it.
+
+:::

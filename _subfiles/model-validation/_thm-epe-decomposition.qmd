@@ -7,9 +7,9 @@ the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
 where $\noise$, the noise in the outcome at $\predvar$, has mean $0$ and variance $\varpar$,
 and that $\newoutvar$ is independent of the random training set $\trainset$,
 and that $\E{\fitproc\paren{\predvar; \trainset}^2} < \infty$.
-Then the [expected squared prediction error at $\predvar$](#def-epe)
+Then the [expected prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)
-of the prediction $\fitproc\paren{\predvar; \trainset}$ as a prediction of $\mean(\predvar)$,
+of the prediction $\fitproc\paren{\predvar; \trainset}$, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 
@@ -23,7 +23,7 @@ $$ {#eq-epe-decomposition}
 ::: proof
 
 Every expectation below is conditional on $\newpredvar = \predvar$, as in the exercises.
-By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the mean squared error of the prediction as an estimate of $\mean(\predvar)$.
+By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the mean squared error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$.
 By @sol-epe-split-bias, that mean squared error is the squared bias plus the variance.
 Substituting @eq-epe-after-bias into @eq-epe-after-noise:
 

@@ -24,12 +24,7 @@ $$
 \ea
 $$ {#eq-data-splits}
 
-:::
-
-:::{#rem-source-data-splits}
-#### Source: Training/validation/test split
-
-@james2021islr2e [pp. 198--201].
+Source: @james2021islr2e [pp. 198--201].
 
 :::
 

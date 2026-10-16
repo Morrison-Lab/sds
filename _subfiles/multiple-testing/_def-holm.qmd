@@ -1,23 +1,10 @@
 ::: {#def-holm}
 #### Holm's step-down procedure
 
-Given $m$ null hypotheses with p-values and a level $\siglevel$,
-order the p-values from smallest to largest,
-$p_{(1)} \le p_{(2)} \le \cdots \le p_{(m)}$,
-and let $H_{(k)}$ be the null hypothesis with p-value $p_{(k)}$.
-Let $k^*$ be the first rank at which the p-value exceeds its threshold $\siglevel / (m - k + 1)$,
-with $k^* \eqdef m + 1$ if there is no such rank:
-
-$$k^* \eqdef \min \set{k : p_{(k)} > \frac{\siglevel}{m - k + 1}}.$$
-
+Given the cutoff rank $k^*$ of @def-holm-cutoff,
 **Holm's procedure** rejects $H_{(1)}, \ldots, H_{(k^* - 1)}$ and no others.
 
-:::
-
-:::{#rem-source-holm}
-#### Source: Holm's step-down procedure
-
-Holm [-@holm1979simple].
+Source: Holm [-@holm1979simple].
 
 :::
 

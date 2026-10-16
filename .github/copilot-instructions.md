@@ -151,6 +151,10 @@ A second new bolded term gets its own `#def-` div with its own id, titled with t
 placed right after the first, or before it when the first uses it,
 and the later div links to the earlier one.
 Aliases of a term ("also called") stay in the same div, in bold and in the div title.
+Cite a source that uses an alias on the bold alias itself,
+as in `**training error** [@hastie2009esl, sec. 7.2]`;
+never write "the book uses that name",
+because the citation already says so (Ezra, 2026-10-15).
 A theorem, lemma, corollary or proposition states one result.
 Never nest one theorem-type div inside another.
 
@@ -179,21 +183,23 @@ because no reader of the website, slides or handout ever sees it.
 PSW's
 [Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material)
 says to put a credit in a div, never in running prose.
-Here, put it in its own `rem-source-` remark div titled "Source: ...",
-which frames the credit and keeps it out of the way on the page.
-A definition or result div holds only the statement
-(a theorem's proof stays with it),
-and all commentary, a credit included, goes in a separate remark div
-(maintainer directive, 2026-10-15), so the credit never sits inside it.
-Place the remark right after the item's div and its proof,
+Here, a credit that is only a citation goes inside the item's div,
+as a final line "Source: @key [locator]." (maintainer directive, 2026-10-15),
+because one reference adds no commentary to the statement.
+Substantial prose about the source or history of the content
+(a comparison of notation, an account of who proved what, a note that a proof is omitted)
+is commentary, so it goes in its own `rem-source-` remark div titled "Source: ...",
+placed right after the item's div and its proof,
 in the same subfile,
 so it travels with the fragment when a host site includes it:
 
 ```markdown
-::: {#rem-source-cv-estimate}
-#### Source: cross-validation estimate
+::: {#def-cv-estimate}
+#### Cross-validation estimate
 
-@james2021islr2e [sec. 5.1].
+Statement of the definition.
+
+Source: @james2021islr2e [sec. 5.1].
 
 :::
 ```
@@ -204,6 +210,20 @@ checking that the anchor exists and holds the text the credit points to.
 Comments are still the place for maintainer-only notes
 that are not attributions,
 such as what was checked in a PDF or a wording edit made while porting.
+
+## Useful resources go in every repo that covers their topic
+
+A resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
+even when lds or another Morrison-Lab site already lists it
+(maintainer directive, 2026-10-15, answering a review question on Morrison-Lab/lds#841, a private repository the link checker cannot reach).
+If no page matches, add the resource to the Further reading section of the closest related page.
+If the page chosen has no Further reading section, add one headed `## Further reading`.
+Always link the resource.
+Adapt its material only where its license allows,
+and only when its terms (NonCommercial, ShareAlike) are compatible with this repository's license.
+Where they conflict, link and do not adapt.
+Credit adapted material as "Attributions are reader-visible" above says.
+See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
 
 ## Code Chunks
 

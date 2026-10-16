@@ -1,21 +1,10 @@
 ::: {#def-bh}
 #### Benjamini--Hochberg procedure
 
-Given $m$ null hypotheses with ordered p-values $p_{(1)} \le \cdots \le p_{(m)}$
-(as in @def-holm) and a level $q$,
-let $\hat k$ be the largest rank whose p-value is at most $k q / m$,
-with $\hat k \eqdef 0$ if there is no such rank:
+Given the cutoff rank $\hat k$ of @def-bh-cutoff,
+the **Benjamini--Hochberg procedure** (BH) rejects $H_{(1)}, \ldots, H_{(\hat k)}$ and no others.
 
-$$\hat k \eqdef \max \set{k : p_{(k)} \le \frac{k q}{m}}.$$
-
-The **Benjamini--Hochberg procedure** (BH) rejects $H_{(1)}, \ldots, H_{(\hat k)}$ and no others.
-
-:::
-
-:::{#rem-source-bh}
-#### Source: Benjamini--Hochberg procedure
-
-Benjamini and Hochberg [-@benjamini1995controlling].
+Source: Benjamini and Hochberg [-@benjamini1995controlling].
 
 :::
 

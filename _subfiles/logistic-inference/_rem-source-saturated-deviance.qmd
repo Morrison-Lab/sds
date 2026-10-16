@@ -1,0 +1,8 @@
+::: {#rem-source-saturated-deviance .callout-note appearance="simple" collapse=true}
+
+## Source: deviance from grouped counts
+
+@dobson4e [Section 5.6.1] derives the deviance of a binomial model relative to the saturated model, and Section 7.5 writes it in the form of @eq-saturated-deviance-grouped.
+Section 7.5 also notes that when every observation has its own covariate pattern, so each count is $0$ or $1$, this deviance is not a useful measure of fit.
+
+:::

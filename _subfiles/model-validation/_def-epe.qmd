@@ -1,24 +1,42 @@
 :::{#def-epe}
-#### Expected squared prediction error at a covariate value
+#### Expected prediction error at a covariate value
 
-The **expected squared prediction error at $\predvar$**
+The **expected prediction error at $\predvar$**
+(**EPE**; also the expected squared prediction error)
 of a [fitting procedure](#def-fitting-procedure) $\fitproc$
 at training-set size $\nobs$
-is the mean squared [prediction error](prediction.qmd#def-prediction-error)
-of its prediction at $\predvar$ for a new outcome $\newoutvar$ with $\newpredvar = \predvar$,
-averaged over random [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
-drawn independently of $(\newpredvar, \newoutvar)$,
-and over $\newoutvar$:
+is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss),
+the expected square of the [prediction error](prediction.qmd#def-prediction-error) $\prederr_{*}$:
 
 $$
-\epe{\fitproc}{\nobs}{\predvar} \eqdef \E{\sqf{\fitproc\paren{\predvar; \trainset} - \newoutvar} \mid \newpredvar = \predvar}.
+\epe{\fitproc}{\nobs}{\predvar} \eqdef \E{\prederr_{*}^2 \mid \newpredvar = \predvar}.
 $$ {#eq-epe}
 
 :::
 
-:::{#rem-source-epe}
-#### Source: Expected squared prediction error at a covariate value
+:::{#rem-epe-mse}
+#### The expected prediction error is a mean squared error
 
-@hastie2009elements [sec. 7.3], who write this quantity as $\generr(x_0)$.
+The expected prediction error is the [mean squared error of predictions](prediction.qmd#def-prediction-mse)
+with the average over observations replaced by an expectation
+over training sets and new outcomes:
+the mean squared error of the prediction $\fitproc\paren{\predvar; \trainset}$
+as a prediction of the new outcome $\newoutvar$.
+With squared-error loss, $\epl{\fitproc}{\nobs}{\predvar} = \epe{\fitproc}{\nobs}{\predvar}$.
+
+It is not the [mean squared error of an estimator](estimation.qmd#def-mse):
+@thm-epe-decomposition shows that it exceeds the mean squared error
+of the prediction as an estimator of the [mean function](#def-mean-function) value $\mean(\predvar)$
+by the noise variance.
+The acronym omits "squared" because "error" already means squared error here.
+Another loss gives an expected prediction loss, not an EPE.
+
+:::
+
+:::{#rem-source-epe}
+#### Source: Expected prediction error at a covariate value
+
+@hastie2009elements [section 7.3] write this quantity as $\generr(x_0)$
+for squared-error loss.
 
 :::

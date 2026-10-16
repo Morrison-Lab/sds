@@ -8,14 +8,14 @@ $(\heldpredvar{1}, \heldoutvar{1}), \ldots, (\heldpredvar{\nheld}, \heldoutvar{\
 is drawn from the same population as the new observation $(\newpredvar, \newoutvar)$
 of @def-generalization-error,
 each independently of $\trainset$.
+Write $\obsloss{*,\ifold}$ for the [loss](#def-observation-loss) of $\fitted$ on held-out observation $\ifold$.
 
 Find, given $\trainset$,
-the expected [mean squared error](prediction.qmd#def-prediction-mse)
-of the held-out predictions,
+the expected mean loss of the held-out predictions,
 in terms of the generalization error $\generr_{\trainset}$:
 
 $$
-\E{\frac{1}{\nheld} \sumto{\ifold}{\nheld} \sqf{\fitted(\heldpredvar{\ifold}) - \heldoutvar{\ifold}} \mid \trainset}.
+\E{\avgto{\ifold}{\nheld} \obsloss{*,\ifold} \mid \trainset}.
 $$
 
 :::

@@ -8,13 +8,15 @@ A new car $(\newpredvar, \newoutvar)$ is then drawn from the same population,
 independently of $\trainset$.
 
 1. Holding $\trainset$ fixed,
-   write the average squared [prediction error](prediction.qmd#def-prediction-error)
-   that $\fitted$ would make over all such new cars,
+   write the average [loss](#def-observation-loss) $\obsloss{*}$
+   that $\fitted$ would incur over all such new cars,
    as an expectation.
+   Then write it for squared-error loss,
+   as the average squared [prediction error](prediction.qmd#def-prediction-error).
 2. Which parts of your expression do you know,
    and which do you not know?
 3. The training RMSE of @exr-overfitting
-   is the square root of the [training error](#def-training-mse) $\trainerr$.
+   is the square root of the [training error](#def-training-mse) $\trainerr$ under squared-error loss.
    What does $\trainerr$ use in place of your expectation?
 
 :::

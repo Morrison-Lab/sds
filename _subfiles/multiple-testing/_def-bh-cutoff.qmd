@@ -1,0 +1,13 @@
+::: {#def-bh-cutoff}
+#### Benjamini--Hochberg cutoff rank
+
+Given $m$ null hypotheses with ordered p-values $p_{(1)} \le \cdots \le p_{(m)}$
+(as in @def-holm-cutoff) and a level $q$,
+the **Benjamini--Hochberg cutoff rank** $\hat k$ is the largest rank whose p-value is at most $k q / m$,
+with $\hat k \eqdef 0$ if there is no such rank:
+
+$$\hat k \eqdef \max \set{k : p_{(k)} \le \frac{k q}{m}}.$$
+
+Source: Benjamini and Hochberg [-@benjamini1995controlling].
+
+:::

@@ -46,6 +46,22 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-new-observation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-new-observation.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-observation-loss.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-squared-error-loss.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-generalization-error.qmd >}}
 
 {{< slidebreak >}}
@@ -87,6 +103,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-mean-function.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-epl.qmd >}}
 
 {{< slidebreak >}}
 
@@ -214,6 +234,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-validation-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-validation-choice.qmd >}}
 
 {{< slidebreak >}}
@@ -222,7 +246,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-test-error.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_rem-data-splits.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-validation-test-error.qmd >}}
 
 {{< slidebreak >}}
 

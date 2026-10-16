@@ -1,0 +1,13 @@
+:::{#def-validation-error}
+#### Validation error
+
+The **validation error** of a [prediction rule](#def-prediction-rule) $\fitted$
+fitted to a [training set](#def-training-set) $\trainset$
+is its mean [loss](#def-observation-loss) $\obsloss{\iobs}$
+on the [validation set](#def-validation-set), indexed by $\validx$:
+
+$$
+\valerr \eqdef \avgon{\validx} \obsloss{\iobs}.
+$$ {#eq-validation-error}
+
+:::

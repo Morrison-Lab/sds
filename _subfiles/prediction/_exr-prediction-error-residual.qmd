@@ -1,9 +1,9 @@
 :::{#exr-prediction-error-residual}
-#### Prediction error and residual of a fitted observation
+#### Prediction error and residual
 
-For an observation $i$ that was used to fit the model,
-write its [prediction error](#def-prediction-error) $\prederr_i$
-in terms of its [residual](#def-residual) $\resid_i$.
+For an observation $\iobs$,
+write its [prediction error](#def-prediction-error) $\prederr_\iobs$
+in terms of its [residual](#def-residual) $\resid_\iobs$.
 :::
 
 {{< slidebreak >}}
@@ -12,12 +12,12 @@ in terms of its [residual](#def-residual) $\resid_i$.
 
 $$
 \begin{aligned}
-\prederr_i
-&= \fitted_i - y_i
+\prederr_\iobs
+&= \fitted_\iobs - \outvar_\iobs
 && \text{(definition of prediction error)}\\
-&= -(y_i - \fitted_i)
+&= -(\outvar_\iobs - \fitted_\iobs)
 && \text{(factor out $-1$)}\\
-&= -\resid_i
+&= -\resid_\iobs
 && \text{(definition of residual)}
 \end{aligned}
 $$
