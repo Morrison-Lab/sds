@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 15:28:39 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 03:12:26 (PDT)</p>
 </section><section id="types-of-variables" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Types of variables</h2>
 <style>
@@ -451,26 +451,22 @@ Dobson and Barnett: text checked in the PDF; page number not recorded.
 The -1/1 example in the notes is an illustration written for this page.
 --><div id="def-dummy-variable" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Dummy variables)</strong></span> <strong>Dummy variables</strong> are numeric variables that, together, are a numeric representation of a categorical variable.</p>
-</div>
-<div id="rem-source-dummy-variable" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Source: Dummy variables). </span><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.4</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.4</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-dummy-sex" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Dummy variables for chromosomal sex)</strong></span> Let <span class="math inline">\(S\)</span> be the chromosomal sex of a newborn, a categorical variable with the categories “female” and “male”. Let <span class="math inline">\(M = 1\)</span> if <span class="math inline">\(S\)</span> is “male” and <span class="math inline">\(M = 0\)</span> if <span class="math inline">\(S\)</span> is “female”, and let <span class="math inline">\(F = 1\)</span> if <span class="math inline">\(S\)</span> is “female” and <span class="math inline">\(F = 0\)</span> if <span class="math inline">\(S\)</span> is “male”. Together, <span class="math inline">\(M\)</span> and <span class="math inline">\(F\)</span> are dummy variables for <span class="math inline">\(S\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-dummy-other-codings" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Other ways to code dummy variables). </span>There are other ways to construct dummy variables. One is to use the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>: for example, <span class="math inline">\(-1\)</span> for “female” and <span class="math inline">\(1\)</span> for “male”. See <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, section 2.4, for details.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Other ways to code dummy variables). </span>There are other ways to construct dummy variables. One is to use the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>: for example, <span class="math inline">\(-1\)</span> for “female” and <span class="math inline">\(1\)</span> for “male”. See <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018</a>)</span>, section 2.4, for details.</p>
 </div>
 </section><section class="slide level2"><!--
 Dobson and Barnett: text checked in the PDF; page number not recorded.
 --><div id="def-indicator-variable" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Indicator variable)</strong></span> An <strong>indicator variable</strong> is a <a href="#/def-dummy-variable">dummy variable</a> whose only values are 0 and 1.</p>
-</div>
-<div id="rem-source-indicator-variable" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Source: Indicator variable). </span><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.4</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.4</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-indicator-sex" class="theorem example">
-<p><span class="theorem-title"><strong>Example 11 (Indicator variables for chromosomal sex)</strong></span> In <a href="#/exm-dummy-sex" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(M\)</span> and <span class="math inline">\(F\)</span> are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> (<a href="#/rem-dummy-other-codings" class="quarto-xref">Remark&nbsp;4</a>) is not an indicator variable.</p>
+<p><span class="theorem-title"><strong>Example 11 (Indicator variables for chromosomal sex)</strong></span> In <a href="#/exm-dummy-sex" class="quarto-xref">Example&nbsp;10</a>, <span class="math inline">\(M\)</span> and <span class="math inline">\(F\)</span> are indicator variables: each takes only the values 0 and 1. A dummy variable that uses the values <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> (<a href="#/rem-dummy-other-codings" class="quarto-xref">Remark&nbsp;3</a>) is not an indicator variable.</p>
 </div>
 </section><section class="slide level2"><!--
 Dobson and Barnett: text checked in the PDF; page number not recorded.
@@ -479,13 +475,13 @@ The one-sentence definition is written for this page.
 <p><span class="theorem-title"><strong>Definition 12 (Reference level)</strong></span> The <strong>reference level</strong> of a categorical variable is the category that does not have its own <a href="#/def-indicator-variable">indicator variable</a>. An observation in the reference level has the value 0 for every indicator variable of that categorical variable.</p>
 </div>
 <div id="rem-source-reference-level" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Source: Reference level). </span><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.4</a>)</span>, who call this the corner point parameterization.</p>
+<p><span class="proof-title"><em>Remark 4</em> (Source: Reference level). </span><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 2.4</a>)</span>, who call this the corner point parameterization.</p>
 </div>
 </section><section class="slide level2"><div id="exm-reference-level-sex" class="theorem example">
 <p><span class="theorem-title"><strong>Example 12 (The reference level for chromosomal sex)</strong></span> Take chromosomal sex <span class="math inline">\(S\)</span> with the indicator variable <span class="math inline">\(M\)</span> for “male” (<a href="#/exm-dummy-sex" class="quarto-xref">Example&nbsp;10</a>). The category “female” has no indicator variable, so “female” is the reference level, and a female newborn has <span class="math inline">\(M = 0\)</span>. In <a href="#/exr-dummy-coding" class="quarto-xref">Exercise&nbsp;1</a>, category A1 of <code>behpat</code> is the reference level.</p>
 </div>
 </section><section class="slide level2"><div id="rem-reference-level-choice" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (Any category can be the reference level). </span>The choice of reference level changes how we code the categories. It does not change what the data say. For example, in <a href="#/exm-reference-level-sex" class="quarto-xref">Example&nbsp;12</a>, we could instead use “male” as the reference level and the indicator variable <span class="math inline">\(F\)</span> for “female”. Both choices describe the same two groups.</p>
+<p><span class="proof-title"><em>Remark 5</em> (Any category can be the reference level). </span>The choice of reference level changes how we code the categories. It does not change what the data say. For example, in <a href="#/exm-reference-level-sex" class="quarto-xref">Example&nbsp;12</a>, we could instead use “male” as the reference level and the indicator variable <span class="math inline">\(F\)</span> for “female”. Both choices describe the same two groups.</p>
 </div>
 </section><section id="taxonomy-of-variable-types" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Taxonomy of variable types</h2>

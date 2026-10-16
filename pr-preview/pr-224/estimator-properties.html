@@ -221,15 +221,45 @@ cookieconsent.run({
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-def.callout {
-  border-left-color: #1B5E20;
+div.callout-cor.callout {
+  border-left-color: #00838F;
 }
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
 }
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exr.callout {
   border-left-color: #FFA500;
@@ -241,19 +271,25 @@ div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-videos.callout {
-  border-left-color: #283593;
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
 }
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
 }
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-solution.callout {
   border-left-color: #4E342E;
@@ -275,65 +311,15 @@ div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
+div.callout-def.callout {
+  border-left-color: #1B5E20;
 }
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
 }
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-reading.callout {
   border-left-color: #00695C;
@@ -368,6 +354,20 @@ div.callout-tbl.callout-style-default .callout-header {
 div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-videos.callout {
+  border-left-color: #283593;
+}
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
+}
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -928,7 +928,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-15 15:28:39 (PDT)</p>
+      <p class="date">Last modified: 2026-10-16 03:12:26 (PDT)</p>
     </div>
   </div>
   
@@ -963,6 +963,7 @@ text-align: center;
 \lim_{n \to \infty} \Pr\mathopen{}\left(\mathopen{}\left|\hat{\theta}_n - \theta\right|\mathclose{} \ge \varepsilon\right)\mathclose{} = 0
 \tag{1}\]</span></span></p>
 <p>In words, <span class="math inline">\(\hat{\theta}_n\)</span> <a href="https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability">converges in probability</a> to <span class="math inline">\(\theta\)</span>, which we write <span class="math inline">\(\hat{\theta}_n \overset{\scriptstyle p}{\longrightarrow}\theta\)</span>.</p>
+<p>Source: <span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002</a>, Def. 10.1.1)</span>.</p>
 </div>
 </div>
 </div>
@@ -973,38 +974,20 @@ text-align: center;
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-source-consistent" class="quarto-xref">Remark&nbsp;1</a> (Source: Consistent estimator)
+<span class="screen-reader-only">Remark</span><a href="#rem-consistent-sequence" class="quarto-xref">Remark&nbsp;1</a> (Consistency describes a sequence of estimators)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="rem-source-consistent" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Source: Consistent estimator). </span><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002</a>, Def. 10.1.1)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-consistent-sequence" class="quarto-xref">Remark&nbsp;2</a> (Consistency describes a sequence of estimators)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
 <div id="rem-consistent-sequence" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Consistency describes a sequence of estimators). </span>An estimator such as the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> is a formula that applies to any sample size, so <span class="math inline">\(\hat{\theta}_1, \hat{\theta}_2, \ldots\)</span> is a sequence of estimators, one for each <span class="math inline">\(n\)</span>. <a href="./estimation.html#def-unbiased">Unbiasedness</a> and <a href="./estimation.html#def-mse">mean squared error</a> describe an estimator at one fixed sample size; consistency describes what happens to the whole sequence as <span class="math inline">\(n\)</span> grows. An estimator can be consistent and biased at every <span class="math inline">\(n\)</span>, or unbiased at every <span class="math inline">\(n\)</span> and not consistent (the single-observation estimator <span class="math inline">\(X_1\)</span> of a mean is the standard example).</p>
+<p><span class="proof-title"><em>Remark 1</em> (Consistency describes a sequence of estimators). </span>An estimator such as the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a> is a formula that applies to any sample size, so <span class="math inline">\(\hat{\theta}_1, \hat{\theta}_2, \ldots\)</span> is a sequence of estimators, one for each <span class="math inline">\(n\)</span>. <a href="./estimation.html#def-unbiased">Unbiasedness</a> and <a href="./estimation.html#def-mse">mean squared error</a> describe an estimator at one fixed sample size; consistency describes what happens to the whole sequence as <span class="math inline">\(n\)</span> grows. An estimator can be consistent and biased at every <span class="math inline">\(n\)</span>, or unbiased at every <span class="math inline">\(n\)</span> and not consistent (the single-observation estimator <span class="math inline">\(X_1\)</span> of a mean is the standard example).</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-exr callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1013,7 +996,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-estimation-error-bound" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 1 (Bounding the chance of a large estimation error)</strong></span> Let <span class="math inline">\(\hat{\theta}\)</span> be an estimator of <span class="math inline">\(\theta\)</span> with finite <a href="./estimation.html#def-mse">mean squared error</a>, and let <span class="math inline">\(\varepsilon &gt; 0\)</span>. Use <a href="https://morrison-lab.github.io/pds/limit-theorems.html#thm-markov">Markov’s inequality</a> to show that <span class="math inline">\(\Pr\mathopen{}\left(\mathopen{}\left|\hat{\theta}- \theta\right|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} / \varepsilon^2\)</span>.</p>
@@ -1022,7 +1005,7 @@ text-align: center;
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1031,7 +1014,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-estimation-error-bound" class="proof solution">
 <p><span class="proof-title"><em>Solution 1</em>. </span>Both sides of <span class="math inline">\(\mathopen{}\left|\hat{\theta}- \theta\right|\mathclose{} \ge \varepsilon\)</span> are nonnegative, so squaring them keeps the inequality. The random variable <span class="math inline">\({\mathopen{}\left(\hat{\theta}- \theta\right)\mathclose{}}^2\)</span> is nonnegative, so Markov’s inequality applies to it with <span class="math inline">\(a = \varepsilon^2\)</span>:</p>
@@ -1053,7 +1036,7 @@ text-align: center;
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-lem callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1062,7 +1045,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="lem-estimation-error-bound" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 1 (Chance of a large estimation error)</strong></span> If <span class="math inline">\(\hat{\theta}\)</span> is an estimator of <span class="math inline">\(\theta\)</span> with finite mean squared error, then for every <span class="math inline">\(\varepsilon &gt; 0\)</span> the probability of an estimation error of at least <span class="math inline">\(\varepsilon\)</span> is at most the mean squared error divided by <span class="math inline">\(\varepsilon^2\)</span>:</p>
@@ -1074,7 +1057,7 @@ text-align: center;
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1083,7 +1066,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#exr-estimation-error-bound" class="quarto-xref">Exercise&nbsp;1</a>.</p>
@@ -1092,7 +1075,7 @@ text-align: center;
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-lem callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1101,7 +1084,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-mse-consistent" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Vanishing mean squared error implies consistency)</strong></span> If the mean squared error of <span class="math inline">\(\hat{\theta}_n\)</span> goes to zero as <span class="math inline">\(n\)</span> grows, then <span class="math inline">\(\hat{\theta}_n\)</span> is a <a href="#def-consistent">consistent</a> estimator of <span class="math inline">\(\theta\)</span>:</p>
@@ -1115,7 +1098,7 @@ text-align: center;
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1124,7 +1107,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Fix <span class="math inline">\(\varepsilon &gt; 0\)</span>. By <a href="#lem-estimation-error-bound" class="quarto-xref">Lemma&nbsp;1</a>, <span class="math inline">\(0 \le \Pr\mathopen{}\left(\mathopen{}\left|\hat{\theta}_n - \theta\right|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{MSE}\mathopen{}\left(\hat{\theta}_n\right)\mathclose{} / \varepsilon^2\)</span> for every <span class="math inline">\(n\)</span>. The upper bound goes to zero as <span class="math inline">\(n \to \infty\)</span>, because <span class="math inline">\(\varepsilon\)</span> is fixed and <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\hat{\theta}_n\right)\mathclose{} \to 0\)</span>, so the probability, squeezed between zero and the bound, goes to zero. This holds for every <span class="math inline">\(\varepsilon &gt; 0\)</span>, which is <a href="#eq-consistent" class="quarto-xref">Equation&nbsp;1</a>.</p>
@@ -1133,7 +1116,7 @@ text-align: center;
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-cor callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1142,7 +1125,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="cor-sample-mean-consistent" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1 (The sample mean is consistent)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be independent with common mean <span class="math inline">\(\mu\)</span> and common finite variance <span class="math inline">\(\sigma^2\)</span>. Then the sample mean is a <a href="#def-consistent">consistent</a> estimator of <span class="math inline">\(\mu\)</span>: <span class="math inline">\(\bar X_n \overset{\scriptstyle p}{\longrightarrow}\mu\)</span>.</p>
@@ -1151,7 +1134,7 @@ text-align: center;
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1160,7 +1143,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="./estimation.html#exm-mse-sample-mean">the example on two estimators of a mean</a>, <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\)</span>, which goes to zero as <span class="math inline">\(n \to \infty\)</span>. <a href="#thm-mse-consistent" class="quarto-xref">Theorem&nbsp;1</a> then gives <span class="math inline">\(\bar X_n \overset{\scriptstyle p}{\longrightarrow}\mu\)</span>. This is the <a href="https://morrison-lab.github.io/pds/limit-theorems.html#thm-wlln">weak law of large numbers</a>, proved in pds directly from Chebyshev’s inequality.</p>
@@ -1169,7 +1152,7 @@ text-align: center;
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-exm callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1178,7 +1161,7 @@ text-align: center;
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-consistency-birthwt" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Consistency of the sample mean for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied">(<a href="#ref-hosmer1989applied" role="doc-biblioref">Hosmer and Lemeshow 1989</a>)</span>; the data ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
@@ -1254,7 +1237,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <div class="cell">
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-80e4fa71c69fe2188f06" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-80e4fa71c69fe2188f06">{"x":{"data":[{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058,2.5051499783199058,2.5051499783199058,2.204119982655925,1.9030899869919435,1.6020599913279625,1.3010299956639813,1,0.69897000433601886,0.69897000433601886],"y":[0.74412642085190062,0.6275620769472674,0.50533818540028108,0.34442468759560502,0.20118085408834369,0.079869152366822072,0.007875933252589902,0.007875933252589902,0.018091204478120012,0.10572594390584567,0.23791136600264648,0.38709710028076422,0.54955517342634796,0.66985982235767061,0.78184975102102827,0.74412642085190062],"text":["n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:   5<br />lower: 0.74412642<br />upper: 0.7818498"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(51,51,51,0.25)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635<br />linetype: simulated","n:  10<br />miss_prob: 0.6490<br />linetype: simulated","n:  20<br />miss_prob: 0.5275<br />linetype: simulated","n:  40<br />miss_prob: 0.3655<br />linetype: simulated","n:  80<br />miss_prob: 0.2190<br />linetype: simulated","n: 160<br />miss_prob: 0.0920<br />linetype: simulated","n: 320<br />miss_prob: 0.0120<br />linetype: simulated"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","name":"simulated","legendgroup":"simulated","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635","n:  10<br />miss_prob: 0.6490","n:  20<br />miss_prob: 0.5275","n:  40<br />miss_prob: 0.3655","n:  80<br />miss_prob: 0.2190","n: 160<br />miss_prob: 0.0920","n: 320<br />miss_prob: 0.0120"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[1,1,1,1,0.66117497228521038,0.33058748614260519,0.1652937430713026],"text":["n:   5<br />bound: 1.000000<br />linetype: bound","n:  10<br />bound: 1.000000<br />linetype: bound","n:  20<br />bound: 1.000000<br />linetype: bound","n:  40<br />bound: 1.000000<br />linetype: bound","n:  80<br />bound: 0.661175<br />linetype: bound","n: 160<br />bound: 0.330587<br />linetype: bound","n: 320<br />bound: 0.165294<br />linetype: bound"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","name":"bound","legendgroup":"bound","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":39.651307596513085,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.60866100563682446,2.5954589770191001],"tickmode":"array","ticktext":["5","10","20","40","80","160","320"],"tickvals":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"categoryorder":"array","categoryarray":["5","10","20","40","80","160","320"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"sample size n","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.041730270084780606,1.0496062033373705],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.24999999999999997,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"probability of a miss","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"33f2609745e2":{"x":{},"ymin":{},"ymax":{},"type":"scatter"},"33f220ab7e11":{"x":{},"y":{},"linetype":{}},"33f26a8581bc":{"x":{},"y":{}},"33f21ef8bbd7":{"x":{},"y":{},"linetype":{}}},"cur_data":"33f2609745e2","visdat":{"33f2609745e2":["function (y) ","x"],"33f220ab7e11":["function (y) ","x"],"33f26a8581bc":["function (y) ","x"],"33f21ef8bbd7":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-80e4fa71c69fe2188f06">{"x":{"data":[{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058,2.5051499783199058,2.5051499783199058,2.204119982655925,1.9030899869919435,1.6020599913279625,1.3010299956639813,1,0.69897000433601886,0.69897000433601886],"y":[0.74412642085190062,0.6275620769472674,0.50533818540028108,0.34442468759560502,0.20118085408834369,0.079869152366822072,0.007875933252589902,0.007875933252589902,0.018091204478120012,0.10572594390584567,0.23791136600264648,0.38709710028076422,0.54955517342634796,0.66985982235767061,0.78184975102102827,0.74412642085190062],"text":["n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:   5<br />lower: 0.74412642<br />upper: 0.7818498"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(51,51,51,0.25)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635<br />linetype: simulated","n:  10<br />miss_prob: 0.6490<br />linetype: simulated","n:  20<br />miss_prob: 0.5275<br />linetype: simulated","n:  40<br />miss_prob: 0.3655<br />linetype: simulated","n:  80<br />miss_prob: 0.2190<br />linetype: simulated","n: 160<br />miss_prob: 0.0920<br />linetype: simulated","n: 320<br />miss_prob: 0.0120<br />linetype: simulated"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","name":"simulated","legendgroup":"simulated","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635","n:  10<br />miss_prob: 0.6490","n:  20<br />miss_prob: 0.5275","n:  40<br />miss_prob: 0.3655","n:  80<br />miss_prob: 0.2190","n: 160<br />miss_prob: 0.0920","n: 320<br />miss_prob: 0.0120"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[1,1,1,1,0.66117497228521038,0.33058748614260519,0.1652937430713026],"text":["n:   5<br />bound: 1.000000<br />linetype: bound","n:  10<br />bound: 1.000000<br />linetype: bound","n:  20<br />bound: 1.000000<br />linetype: bound","n:  40<br />bound: 1.000000<br />linetype: bound","n:  80<br />bound: 0.661175<br />linetype: bound","n: 160<br />bound: 0.330587<br />linetype: bound","n: 320<br />bound: 0.165294<br />linetype: bound"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","name":"bound","legendgroup":"bound","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":39.651307596513085,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.60866100563682446,2.5954589770191001],"tickmode":"array","ticktext":["5","10","20","40","80","160","320"],"tickvals":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"categoryorder":"array","categoryarray":["5","10","20","40","80","160","320"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"sample size n","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.041730270084780606,1.0496062033373705],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.24999999999999997,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"probability of a miss","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"36b53dad6a9a":{"x":{},"ymin":{},"ymax":{},"type":"scatter"},"36b523964774":{"x":{},"y":{},"linetype":{}},"36b52092ddc4":{"x":{},"y":{}},"36b57a2f7b83":{"x":{},"y":{},"linetype":{}}},"cur_data":"36b53dad6a9a","visdat":{"36b53dad6a9a":["function (y) ","x"],"36b523964774":["function (y) ","x"],"36b52092ddc4":["function (y) ","x"],"36b57a2f7b83":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1271,7 +1254,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </section><section id="sec-efficiency" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="sec-efficiency">
 <span class="header-section-number">2</span> Efficiency</h2>
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1280,11 +1263,29 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-relative-efficiency" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Relative efficiency)</strong></span> Let <span class="math inline">\(\hat{\theta}_a\)</span> and <span class="math inline">\(\hat{\theta}_b\)</span> be two estimators of the same estimand <span class="math inline">\(\theta\)</span>. The <strong>relative efficiency</strong> of <span class="math inline">\(\hat{\theta}_a\)</span> with respect to <span class="math inline">\(\hat{\theta}_b\)</span> is the ratio of their <a href="./estimation.html#def-mse">mean squared errors</a>, the reference estimator’s, that of <span class="math inline">\(\hat{\theta}_b\)</span>, in the numerator:</p>
 <p><span class="math display">\[\frac{\operatorname{MSE}\mathopen{}\left(\hat{\theta}_b\right)\mathclose{}}{\operatorname{MSE}\mathopen{}\left(\hat{\theta}_a\right)\mathclose{}}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-source-relative-efficiency" class="quarto-xref">Remark&nbsp;2</a> (Source: Relative efficiency)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="rem-source-relative-efficiency" class="proof remark">
+<p><span class="proof-title"><em>Remark 2</em> (Source: Relative efficiency). </span><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002</a>)</span> define the asymptotic version, through variances, in Def. 10.1.16 (p.&nbsp;476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p.&nbsp;330).</p>
 </div>
 </div>
 </div>
@@ -1295,38 +1296,20 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-source-relative-efficiency" class="quarto-xref">Remark&nbsp;3</a> (Source: Relative efficiency)
+<span class="screen-reader-only">Remark</span><a href="#rem-relative-efficiency" class="quarto-xref">Remark&nbsp;3</a> (Reading the relative efficiency)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div id="rem-source-relative-efficiency" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Source: Relative efficiency). </span><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002</a>)</span> define the asymptotic version, through variances, in Def. 10.1.16 (p.&nbsp;476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p.&nbsp;330).</p>
-</div>
-</div>
-</div>
-</div>
-<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-relative-efficiency" class="quarto-xref">Remark&nbsp;4</a> (Reading the relative efficiency)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
 <div id="rem-relative-efficiency" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Reading the relative efficiency). </span>A relative efficiency above 1 means <span class="math inline">\(\hat{\theta}_a\)</span> is more accurate than <span class="math inline">\(\hat{\theta}_b\)</span>, and below 1 means it is less accurate. For two <a href="./estimation.html#def-unbiased">unbiased</a> estimators the mean squared errors are the variances (<a href="./estimation.html#thm-mse-bias-variance">mean squared error equals bias squared plus variance</a>, with zero bias), so the relative efficiency is the ratio of the variances.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Reading the relative efficiency). </span>A relative efficiency above 1 means <span class="math inline">\(\hat{\theta}_a\)</span> is more accurate than <span class="math inline">\(\hat{\theta}_b\)</span>, and below 1 means it is less accurate. For two <a href="./estimation.html#def-unbiased">unbiased</a> estimators the mean squared errors are the variances (<a href="./estimation.html#thm-mse-bias-variance">mean squared error equals bias squared plus variance</a>, with zero bias), so the relative efficiency is the ratio of the variances.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-exm callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1335,7 +1318,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-relative-efficiency-mean" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Relative efficiency of two estimators of a mean)</strong></span> In <a href="./estimation.html#exm-mse-sample-mean">the example on two estimators of a mean</a> the sample mean has <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\)</span> and the single-observation estimator has <span class="math inline">\(\operatorname{MSE}\mathopen{}\left(X_1\right)\mathclose{} = \sigma^2\)</span>. The relative efficiency of the sample mean with respect to <span class="math inline">\(X_1\)</span> is</p>
@@ -1361,7 +1344,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div id="read-caseberg01" class="watch-anchor">
 <div class="callout callout-style-default callout-reading callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1370,7 +1353,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 10.1</a>, pp.&nbsp;467–480)</span> covers point estimation, including consistency, efficiency and bootstrap standard errors.</p>
 </div>
@@ -1380,7 +1363,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </section><section id="sec-cramer-rao" class="level2" data-number="3"><h2 data-number="3" class="anchored" data-anchor-id="sec-cramer-rao">
 <span class="header-section-number">3</span> The Cramér–Rao lower bound</h2>
 <div class="callouty-titled callout callout-style-default callout-exr callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1389,16 +1372,16 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-cov-estimator-score" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (Covariance of an unbiased estimator with the score)</strong></span> Let <span class="math inline">\(\tilde{X}\)</span> have density <span class="math inline">\(\operatorname{p}(\tilde{x}\mid \theta)\)</span> for a scalar parameter <span class="math inline">\(\theta\)</span>, under the assumptions of <a href="./intro-MLEs.html#exr-score-mean-zero">the exercise on the mean of the score</a>, and let <span class="math inline">\(\hat{\theta}= \hat{\theta}(\tilde{X})\)</span> be an <a href="./estimation.html#def-unbiased">unbiased</a> estimator of <span class="math inline">\(\theta\)</span> with finite variance. Show that the covariance of <span class="math inline">\(\hat{\theta}\)</span> with the <a href="./intro-MLEs.html#def-score">score</a> <span class="math inline">\(\ell'(\tilde{X}\mid \theta)\)</span> equals 1. Assume the derivative of <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\)</span> with respect to <span class="math inline">\(\theta\)</span> can be taken inside the integral.</p>
+<p><span class="theorem-title"><strong>Exercise 2 (Covariance of an unbiased estimator with the score)</strong></span> Let <span class="math inline">\(\underset{\sim}{X}\)</span> have density <span class="math inline">\(\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> for a scalar parameter <span class="math inline">\(\theta\)</span>, under the assumptions of <a href="./intro-MLEs.html#exr-score-mean-zero">the exercise on the mean of the score</a>, and let <span class="math inline">\(\hat{\theta}= \hat{\theta}(\underset{\sim}{X})\)</span> be an <a href="./estimation.html#def-unbiased">unbiased</a> estimator of <span class="math inline">\(\theta\)</span> with finite variance. Show that the covariance of <span class="math inline">\(\hat{\theta}\)</span> with the <a href="./intro-MLEs.html#def-score">score</a> <span class="math inline">\(\ell'(\underset{\sim}{X}\mid \theta)\)</span> equals 1. Assume the derivative of <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\)</span> with respect to <span class="math inline">\(\theta\)</span> can be taken inside the integral.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1407,7 +1390,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-cov-estimator-score" class="proof solution">
 <p><span class="proof-title"><em>Solution 2</em>. </span>The score has mean zero by <a href="./intro-MLEs.html#exr-score-mean-zero">the exercise on the mean of the score</a>. The step that rewrites the product of the score and the density uses <a href="./intro-MLEs.html#exr-deriv-log-density">the exercise on the derivative of a density</a>:</p>
@@ -1422,13 +1405,13 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 &amp;&amp; \text{($b \cdot 0 = 0$)}\\
 &amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}\ell'\right]\mathclose{}
 &amp;&amp; \text{($a - 0 = a$)}\\
-&amp;= \int \hat{\theta}(\tilde{x}) \, \ell'(\tilde{x}\mid \theta) \, \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \hat{\theta}(\underset{\sim}{x}) \, \ell'(\underset{\sim}{x}\mid \theta) \, \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(definition of expectation)}\\
-&amp;= \int \hat{\theta}(\tilde{x}) \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\tilde{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \hat{\theta}(\underset{\sim}{x}) \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(definition of the score)}\\
-&amp;= \int \hat{\theta}(\tilde{x}) \, \frac{\partial}{\partial \theta} \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \int \hat{\theta}(\underset{\sim}{x}) \, \frac{\partial}{\partial \theta} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(derivative of a log density)}\\
-&amp;= \frac{\partial}{\partial \theta} \int \hat{\theta}(\tilde{x}) \, \operatorname{p}(\tilde{x}\mid \theta) \, d\tilde{x}
+&amp;= \frac{\partial}{\partial \theta} \int \hat{\theta}(\underset{\sim}{x}) \, \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
 &amp;&amp; \text{(exchange derivative and integral)}\\
 &amp;= \frac{\partial}{\partial \theta} \operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}
 &amp;&amp; \text{(definition of expectation)}\\
@@ -1443,7 +1426,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-lem callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1452,19 +1435,19 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="lem-cov-estimator-score" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 2 (Covariance of an unbiased estimator with the score)</strong></span> Under the assumptions of <a href="#exr-cov-estimator-score" class="quarto-xref">Exercise&nbsp;2</a>, an unbiased estimator <span class="math inline">\(\hat{\theta}\)</span> of <span class="math inline">\(\theta\)</span> has covariance 1 with the score:</p>
 <p><span id="eq-cov-estimator-score"><span class="math display">\[
-\operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'(\tilde{X}\mid \theta)\right)\mathclose{} = 1
+\operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'(\underset{\sim}{X}\mid \theta)\right)\mathclose{} = 1
 \tag{4}\]</span></span></p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1473,7 +1456,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#exr-cov-estimator-score" class="quarto-xref">Exercise&nbsp;2</a>.</p>
@@ -1482,7 +1465,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-lem callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1491,19 +1474,20 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-cramer-rao" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (Cramér–Rao lower bound)</strong></span> Under the assumptions of <a href="#exr-cov-estimator-score" class="quarto-xref">Exercise&nbsp;2</a>, suppose the <a href="./intro-MLEs.html#def-einf">expected information</a> satisfies <span class="math inline">\(0 &lt; \mathcal{I}(\theta) &lt; \infty\)</span>. Then every unbiased estimator <span class="math inline">\(\hat{\theta}\)</span> of <span class="math inline">\(\theta\)</span> has variance at least the reciprocal of the expected information:</p>
 <p><span id="eq-cramer-rao"><span class="math display">\[
 \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \ge \frac{1}{\mathcal{I}(\theta)}
 \tag{5}\]</span></span></p>
+<p>Source: <span class="citation" data-cites="rao1945information cramer1946mathematical CaseBerg01">(<a href="#ref-rao1945information" role="doc-biblioref">Rao 1945</a>; <a href="#ref-cramer1946mathematical" role="doc-biblioref">Cramér 1946</a>; <a href="#ref-CaseBerg01" role="doc-biblioref">Casella and Berger 2002</a>, Thm. 7.3.9, p.&nbsp;335)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1512,7 +1496,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>The score has variance <span class="math inline">\(\mathcal{I}(\theta) &gt; 0\)</span> by <a href="./intro-MLEs.html#thm-information-equality">the theorem on the mean and variance of the score</a>, and <span class="math inline">\(\operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'\right)\mathclose{} = 1\)</span> by <a href="#lem-cov-estimator-score" class="quarto-xref">Lemma&nbsp;2</a>. A constant has covariance zero with every random variable, so <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &gt; 0\)</span>. The <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-correlation">correlation</a> of <span class="math inline">\(\hat{\theta}\)</span> and the score is therefore defined, and by <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-cor-bounds">its bounds</a> its square is at most 1:</p>
@@ -1534,26 +1518,8 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 </div>
 </div>
-<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-source-cramer-rao" class="quarto-xref">Remark&nbsp;5</a> (Source: Cramér–Rao lower bound)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div id="rem-source-cramer-rao" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Source: Cramér–Rao lower bound). </span><span class="citation" data-cites="rao1945information">Rao (<a href="#ref-rao1945information" role="doc-biblioref">1945</a>)</span>; <span class="citation" data-cites="cramer1946mathematical">Cramér (<a href="#ref-cramer1946mathematical" role="doc-biblioref">1946</a>)</span>; <span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002</a>, Thm. 7.3.9, p.&nbsp;335)</span>.</p>
-</div>
-</div>
-</div>
-</div>
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1562,55 +1528,38 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-efficient" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Efficient estimator)</strong></span> An <a href="./estimation.html#def-unbiased">unbiased</a> estimator <span class="math inline">\(\hat{\theta}\)</span> of <span class="math inline">\(\theta\)</span> is <strong>efficient</strong> if its variance equals the <a href="#thm-cramer-rao">Cramér–Rao lower bound</a>:</p>
 <p><span class="math display">\[
 \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \frac{1}{\mathcal{I}(\theta)}
 \]</span></p>
+<p>Source: <span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 7.3.2</a>)</span>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-remark callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-source-efficient" class="quarto-xref">Remark&nbsp;6</a> (Source: Efficient estimator)
+<span class="screen-reader-only">Remark</span><a href="#rem-efficient-minimum-variance" class="quarto-xref">Remark&nbsp;4</a> (An efficient estimator has the smallest variance)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<div id="rem-source-efficient" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Source: Efficient estimator). </span><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 7.3.2</a>)</span>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-efficient-minimum-variance" class="quarto-xref">Remark&nbsp;7</a> (An efficient estimator has the smallest variance)
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse show">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-efficient-minimum-variance" class="proof remark">
-<p><span class="proof-title"><em>Remark 7</em> (An efficient estimator has the smallest variance). </span>By the Cramér–Rao lower bound, no unbiased estimator that satisfies its assumptions has a smaller variance than an efficient one. Among such estimators, an efficient estimator therefore also has the smallest mean squared error (<a href="./estimation.html#thm-mse-bias-variance">mean squared error equals bias squared plus variance</a>, with zero bias).</p>
+<p><span class="proof-title"><em>Remark 4</em> (An efficient estimator has the smallest variance). </span>By the Cramér–Rao lower bound, no unbiased estimator that satisfies its assumptions has a smaller variance than an efficient one. Among such estimators, an efficient estimator therefore also has the smallest mean squared error (<a href="./estimation.html#thm-mse-bias-variance">mean squared error equals bias squared plus variance</a>, with zero bias).</p>
 </div>
 </div>
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-exm callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1619,7 +1568,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse show">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-poisson-efficient" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (The sample mean is efficient for Poisson data)</strong></span> For <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>, the sample mean <span class="math inline">\(\bar X\)</span> is unbiased for <span class="math inline">\({\lambda}\)</span> (<a href="./estimation.html#exm-bias-sample-mean">the bias example</a>), and, because <span class="math inline">\(\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = {\lambda}\)</span> for a Poisson variable, <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = {\lambda}/ n\)</span> (<a href="./estimation.html#exm-mse-sample-mean">the example on two estimators of a mean</a>). The expected information is <span class="math inline">\(\mathcal{I}({\lambda}) = n / {\lambda}\)</span> (<a href="./intro-MLEs.html#exm-information-poisson">the Poisson information example</a>), so</p>
@@ -1640,19 +1589,19 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 </div>
 <div class="callouty-titled callout callout-style-default callout-remark callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Remark</span><a href="#rem-cramer-rao-scope" class="quarto-xref">Remark&nbsp;8</a> (What the bound does and does not say)
+<span class="screen-reader-only">Remark</span><a href="#rem-cramer-rao-scope" class="quarto-xref">Remark&nbsp;5</a> (What the bound does and does not say)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse show">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-cramer-rao-scope" class="proof remark">
-<p><span class="proof-title"><em>Remark 8</em> (What the bound does and does not say). </span>The bound holds only for unbiased estimators, and only when the regularity conditions of <a href="./intro-MLEs.html#exr-score-mean-zero">the exercise on the mean of the score</a> hold. When the set of possible data values depends on the parameter, as for the uniform distribution on <span class="math inline">\([0, \theta]\)</span>, the conditions fail and the bound need not hold (compare <a href="./intro-MLEs.html#exm-information-equality-fails">the uniform example</a>).</p>
+<p><span class="proof-title"><em>Remark 5</em> (What the bound does and does not say). </span>The bound holds only for unbiased estimators, and only when the regularity conditions of <a href="./intro-MLEs.html#exr-score-mean-zero">the exercise on the mean of the score</a> hold. When the set of possible data values depends on the parameter, as for the uniform distribution on <span class="math inline">\([0, \theta]\)</span>, the conditions fail and the bound need not hold (compare <a href="./intro-MLEs.html#exm-information-equality-fails">the uniform example</a>).</p>
 <p>A biased estimator can have a variance below the bound, because the bound relies on <a href="#exr-cov-estimator-score">the covariance of an estimator and the score</a>, which assumes the estimator is unbiased. Its <a href="./estimation.html#thm-mse-bias-variance">mean squared error</a> adds the squared bias to the variance, so trading a little bias for a large drop in variance can also lower the mean squared error.</p>
 <p>The information from <span class="math inline">\(n\)</span> independent observations is <span class="math inline">\(n\)</span> times the information from one, so for a sample of size <span class="math inline">\(n\)</span> the bound shrinks like <span class="math inline">\(1/n\)</span>. That is the rate at which the variance of an efficient estimator falls, and the <a href="./intro-MLEs.html#thm-dist-mle">maximum likelihood estimator</a> attains it asymptotically.</p>
 </div>
@@ -1661,7 +1610,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div id="read-hoggtanis2015" class="watch-anchor">
 <div class="callout callout-style-default callout-reading callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1670,7 +1619,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse show">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <ul>
 <li>

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 15:28:39 (PDT)
+Last modified: 2026-10-16 03:12:26 (PDT)
 
 ## 1 Introduction
 
@@ -829,14 +829,12 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
 >
 > \\\frac{x_i - x\_{\min}}{x\_{\max} - x\_{\min}}\\
+>
+> Source: Géron ([2017](#ref-geron2017hands), ch. 2).
 
 > **NOTE:**
 >
-> *Remark 8* (Source: Min-max scaling). Géron ([2017](#ref-geron2017hands), ch. 2).
-
-> **NOTE:**
->
-> *Remark 9* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
+> *Remark 8* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
 >
 > Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
 
