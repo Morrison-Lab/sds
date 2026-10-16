@@ -71,8 +71,8 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
   `\resid` ($r = y - \hat y$, from the macros repo) for a residual,
   and `\prederr` ($e = \hat y - y$) for a prediction error.
 - **Inner products**: write the inner product of two vectors as a dot product,
-  `\dprod{\vxi}{\vcoef}` ($\tilde x_i \cdot \tilde\beta$),
-  rather than as a transpose product `\tprod{\vxi}{\vcoef}` ($\tilde x_i^\top \tilde\beta$).
+  `\dprod{\vxi}{\vcoef}` (two vectors, each with a tilde under the letter),
+  rather than as a transpose product `\tprod{\vxi}{\vcoef}` (the same two vectors, with a transpose).
   Keep the transpose where it is needed:
   outer products (`\soprod{\vxi}`), quadratic forms with a matrix, and derivatives with respect to a row vector.
 - **Chain rule steps**:
