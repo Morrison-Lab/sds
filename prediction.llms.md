@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 04:05:26 (PDT)
+Last modified: 2026-10-16 04:15:16 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -30,13 +30,13 @@ Last modified: 2026-10-16 04:05:26 (PDT)
 >
 > **Definition 2 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ is the [prediction](#def-prediction) at its own covariate value \\x_i\\:
 >
-> \\\hat y_i \stackrel{\text{def}}{=}\hat y(x_i).\\
+> \\\hat y_i\stackrel{\text{def}}{=}\hat y(x_i).\\
 
 > **NOTE:**
 >
 > *Remark 2* (Why the fitted value is the estimated conditional mean). The [fitted value](#def-fitted-value) is the prediction at the observed covariate value \\x_i\\, so for the prediction in [Example 1](#exm-prediction-cond-mean) it is the estimated conditional mean at \\x_i\\:
 >
-> \\\hat y_i = \mu(x_i; \hat{\mathord{\underset{\sim}{\theta}}}).\\
+> \\\hat y_i= \mu(x_i; \hat{\mathord{\underset{\sim}{\theta}}}).\\
 >
 > It is chosen for the reason in [Remark 1](#rem-why-cond-mean): the conditional mean is the best prediction under squared error loss.
 
@@ -44,7 +44,7 @@ Last modified: 2026-10-16 04:05:26 (PDT)
 >
 > **Definition 3 (Residual)** The **residual** for observation \\i\\ is its observed outcome minus its [fitted value](#def-fitted-value):
 >
-> \\r_i \stackrel{\text{def}}{=}y_i - \hat y_i\\
+> \\r_i\stackrel{\text{def}}{=}y_i- \hat y_i\\
 
 > **NOTE:**
 >
@@ -164,7 +164,7 @@ Last modified: 2026-10-16 04:05:26 (PDT)
 >
 > **Example 3 (Fitted values, residuals, and prediction errors for three points)** Take the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
 >
-> | \\x_i\\ | \\y_i\\ | \\\hat y_i = 1 + 0.5 x_i\\ | \\r_i = y_i - \hat y_i\\ | \\\varepsilon_i = \hat y_i - y_i\\ |
+> | \\x_i\\ | \\y_i\\ | \\\hat y_i= 1 + 0.5 x_i\\ | \\r_i= y_i- \hat y_i\\ | \\\varepsilon_i= \hat y_i- y_i\\ |
 > |:--:|:--:|:--:|:--:|:--:|
 > | 0 | 1 | 1 | 0 | 0 |
 > | 1 | 2 | 1.5 | 0.5 | \\-0.5\\ |

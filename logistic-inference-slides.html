@@ -352,7 +352,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 04:05:26 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 04:15:16 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -363,7 +363,7 @@ text-align: center;
 </section><section class="slide level2"><div id="def-logistic-regression" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Logistic regression)</strong></span> A <strong>logistic regression</strong> model for binary outcomes <span class="math inline">\(y_1, \dots, y_n \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> with predictor vectors <span class="math inline">\(\mathord{\underset{\sim}{x}}_1, \dots, \mathord{\underset{\sim}{x}}_n\)</span> says that the outcomes are independent and that</p>
 <p><span id="eq-logistic-model"><span class="math display">\[
-\Pr\mathopen{}\left(Y_i = 1 \mid \mathord{\underset{\sim}{x}}_i\right)\mathclose{} = \pi_i
+\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}_i\right)\mathclose{} = \pi_i
 = \sigma\mathopen{}\left(\mathord{\underset{\sim}{\beta}} \cdot \mathord{\underset{\sim}{x}}_i\right)\mathclose{},
 \qquad
 \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}},
@@ -389,10 +389,10 @@ text-align: center;
 <span class="header-section-number">2</span> Deviance</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-deviance div. -->
 <div id="def-deviance" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Deviance)</strong></span> The <strong>deviance</strong> of a fitted logistic regression with labels <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> is minus twice its maximized log-likelihood:</p>
+<p><span class="theorem-title"><strong>Definition 2 (Deviance)</strong></span> The <strong>deviance</strong> of a fitted logistic regression with labels <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> is minus twice its maximized log-likelihood:</p>
 <p><span id="eq-deviance"><span class="math display">\[
 D\stackrel{\text{def}}{=}-2 \, \ell\mathopen{}\left(\hat{\mathord{\underset{\sim}{\beta}}}\right)\mathclose{}
-= -2 \sum_{i=1}^n\mathopen{}\left\{y_i \ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\}\mathclose{},
+= -2 \sum_{i=1}^n\mathopen{}\left\{y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\}\mathclose{},
 \tag{2}\]</span></span></p>
 <p>where <span class="math inline">\(\hat\pi_i = \sigma\mathopen{}\left(\hat{\mathord{\underset{\sim}{\beta}}} \cdot \mathord{\underset{\sim}{x}}_i\right)\mathclose{}\)</span> is the fitted probability.</p>
 </div>
@@ -425,7 +425,7 @@ D\stackrel{\text{def}}{=}-2 \, \ell\mathopen{}\left(\hat{\mathord{\underset{\sim
 <p>Both give <span class="math inline">\(D= 7.638\)</span>.</p>
 </div>
 <div id="rem-deviance-shortfall" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Why the deviance measures a shortfall). </span>For labels <span class="math inline">\(y_i \in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> the largest log-likelihood any model can reach is <span class="math inline">\(0\)</span>, by giving each label probability <span class="math inline">\(1\)</span>. So <span class="math inline">\(D\)</span> is twice the amount by which the maximized log-likelihood falls short of that largest value.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Why the deviance measures a shortfall). </span>For labels <span class="math inline">\(y_i\in \mathopen{}\left\{0, 1\right\}\mathclose{}\)</span> the largest log-likelihood any model can reach is <span class="math inline">\(0\)</span>, by giving each label probability <span class="math inline">\(1\)</span>. So <span class="math inline">\(D\)</span> is twice the amount by which the maximized log-likelihood falls short of that largest value.</p>
 </div>
 </section><section class="slide level2"><div id="def-null-deviance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Null deviance)</strong></span> The <strong>null deviance</strong> is the <a href="#/def-deviance">deviance</a> of the model with an intercept and no other predictors:</p>
@@ -543,7 +543,7 @@ s_k = \sum_{i:\, \mathord{\underset{\sim}{x}}_i = \mathord{\underset{\sim}{x}}^{
 </section><section class="slide level2"><div id="def-saturated-model" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Saturated model (full model, maximal model))</strong></span> The <strong>saturated model</strong> (also called the <strong>full model</strong> <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, sec. 5.5</a>)</span> or <strong>maximal model</strong> <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, sec. 5.5</a>)</span>) for binary outcomes gives each pattern its own free event probability:</p>
 <p><span id="eq-saturated-model"><span class="math display">\[
-\Pr\mathopen{}\left(Y_i = 1 \mid \mathord{\underset{\sim}{x}}_i = \mathord{\underset{\sim}{x}}^{(k)}\right)\mathclose{} = \pi_k,
+\Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}_i = \mathord{\underset{\sim}{x}}^{(k)}\right)\mathclose{} = \pi_k,
 \qquad k = 1, \dots, K,
 \tag{4}\]</span></span></p>
 <p>with the outcomes independent given the predictors.</p>

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 04:05:26 (PDT)
+Last modified: 2026-10-16 04:15:16 (PDT)
 
 ## 1 Introduction
 
@@ -14,7 +14,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 1 (Logistic regression)** A **logistic regression** model for binary outcomes \\y_1, \dots, y_n \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with predictor vectors \\\mathord{\underset{\sim}{x}}\_1, \dots, \mathord{\underset{\sim}{x}}\_n\\ says that the outcomes are independent and that
 >
-> \\ \Pr\mathopen{}\left(Y_i = 1 \mid \mathord{\underset{\sim}{x}}\_i\right)\mathclose{} = \pi_i = \sigma\mathopen{}\left(\mathord{\underset{\sim}{\beta}} \cdot \mathord{\underset{\sim}{x}}\_i\right)\mathclose{}, \qquad \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}}, \tag{1}\\
+> \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}\_i\right)\mathclose{} = \pi_i = \sigma\mathopen{}\left(\mathord{\underset{\sim}{\beta}} \cdot \mathord{\underset{\sim}{x}}\_i\right)\mathclose{}, \qquad \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}}, \tag{1}\\
 >
 > where \\\mathord{\underset{\sim}{x}}\_i = {\mathopen{}\left(1, x\_{i1}, \dots, x\_{ip}\right)\mathclose{}}^{\top}\\ and \\\mathord{\underset{\sim}{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{1}, \dots, \beta\_{p}\right)\mathclose{}}^{\top}\\. The leading \\1\\ in \\\mathord{\underset{\sim}{x}}\_i\\ makes \\\beta\_{0}\\ the intercept, and \\\beta\_{j}\\ for \\j \ge 1\\ is the slope for the \\j\\th predictor.
 
@@ -40,9 +40,9 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 2 (Deviance)** The **deviance** of a fitted logistic regression with labels \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ is minus twice its maximized log-likelihood:
+> **Definition 2 (Deviance)** The **deviance** of a fitted logistic regression with labels \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ is minus twice its maximized log-likelihood:
 >
-> \\ D\stackrel{\text{def}}{=}-2 \\ \ell\mathopen{}\left(\hat{\mathord{\underset{\sim}{\beta}}}\right)\mathclose{} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i \ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\\\mathclose{}, \tag{2}\\
+> \\ D\stackrel{\text{def}}{=}-2 \\ \ell\mathopen{}\left(\hat{\mathord{\underset{\sim}{\beta}}}\right)\mathclose{} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\\\mathclose{}, \tag{2}\\
 >
 > where \\\hat\pi_i = \sigma\mathopen{}\left(\hat{\mathord{\underset{\sim}{\beta}}} \cdot \mathord{\underset{\sim}{x}}\_i\right)\mathclose{}\\ is the fitted probability.
 
@@ -70,7 +70,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Remark 1* (Why the deviance measures a shortfall). For labels \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ the largest log-likelihood any model can reach is \\0\\, by giving each label probability \\1\\. So \\D\\ is twice the amount by which the maximized log-likelihood falls short of that largest value.
+> *Remark 1* (Why the deviance measures a shortfall). For labels \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ the largest log-likelihood any model can reach is \\0\\, by giving each label probability \\1\\. So \\D\\ is twice the amount by which the maximized log-likelihood falls short of that largest value.
 
 > **NOTE:**
 >
@@ -190,7 +190,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 7 (Saturated model (full model, maximal model))** The **saturated model** (also called the **full model** ([Dobson and Barnett 2018, sec. 5.5](#ref-dobson4e)) or **maximal model** ([Dobson and Barnett 2018, sec. 5.5](#ref-dobson4e))) for binary outcomes gives each pattern its own free event probability:
 >
-> \\ \Pr\mathopen{}\left(Y_i = 1 \mid \mathord{\underset{\sim}{x}}\_i = \mathord{\underset{\sim}{x}}^{(k)}\right)\mathclose{} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
+> \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\underset{\sim}{x}}\_i = \mathord{\underset{\sim}{x}}^{(k)}\right)\mathclose{} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
 >
 > with the outcomes independent given the predictors.
 

@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 04:05:26 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 04:15:16 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -377,16 +377,16 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="def-fitted-value" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Fitted value)</strong></span> The <strong>fitted value</strong> <span class="math inline">\(\hat y_i\)</span> of observation <span class="math inline">\(i\)</span> is the <a href="#/def-prediction">prediction</a> at its own covariate value <span class="math inline">\(x_i\)</span>:</p>
-<p><span class="math display">\[\hat y_i \stackrel{\text{def}}{=}\hat y(x_i).\]</span></p>
+<p><span class="math display">\[\hat y_i\stackrel{\text{def}}{=}\hat y(x_i).\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-fitted-value-cond-mean" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Why the fitted value is the estimated conditional mean). </span>The <a href="#/def-fitted-value">fitted value</a> is the prediction at the observed covariate value <span class="math inline">\(x_i\)</span>, so for the prediction in <a href="#/exm-prediction-cond-mean" class="quarto-xref">Example&nbsp;1</a> it is the estimated conditional mean at <span class="math inline">\(x_i\)</span>:</p>
-<p><span class="math display">\[\hat y_i = \mu(x_i; \hat{\mathord{\underset{\sim}{\theta}}}).\]</span></p>
+<p><span class="math display">\[\hat y_i= \mu(x_i; \hat{\mathord{\underset{\sim}{\theta}}}).\]</span></p>
 <p>It is chosen for the reason in <a href="#/rem-why-cond-mean" class="quarto-xref">Remark&nbsp;1</a>: the conditional mean is the best prediction under squared error loss.</p>
 </div>
 </section><section class="slide level2"><div id="def-residual" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Residual)</strong></span> The <strong>residual</strong> for observation <span class="math inline">\(i\)</span> is its observed outcome minus its <a href="#/def-fitted-value">fitted value</a>:</p>
-<p><span class="math display">\[r_i \stackrel{\text{def}}{=}y_i - \hat y_i\]</span></p>
+<p><span class="math display">\[r_i\stackrel{\text{def}}{=}y_i- \hat y_i\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-prediction-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Prediction error)</strong></span> The <strong>prediction error</strong> of a <a href="#/def-prediction">prediction</a> <span class="math inline">\(\hat y\)</span> (such as <span class="math inline">\(\hat y(x)\)</span> or a fitted value <span class="math inline">\(\hat y_i\)</span>) of an observed outcome <span class="math inline">\(y\)</span> is the prediction minus the outcome:</p>
@@ -525,9 +525,9 @@ text-align: center;
 <thead><tr class="header">
 <th style="text-align: center;"><span class="math inline">\(x_i\)</span></th>
 <th style="text-align: center;"><span class="math inline">\(y_i\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\hat y_i = 1 + 0.5 x_i\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(r_i = y_i - \hat y_i\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(\varepsilon_i = \hat y_i - y_i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\hat y_i= 1 + 0.5 x_i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(r_i= y_i- \hat y_i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(\varepsilon_i= \hat y_i- y_i\)</span></th>
 </tr></thead>
 <tbody>
 <tr class="odd">

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 04:05:26 (PDT)
+Last modified: 2026-10-16 04:15:16 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -103,15 +103,15 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 >
 > \\ \begin{aligned} \Pr(Y = 1) &= \pi && \text{(definition of the event probability)}\\ \Pr(Y = 0) &= 1 - \pi && \text{(complement rule)}\\ \Pr(Y = y) &= \pi^y (1 - \pi)^{1 - y}, \quad y \in \mathopen{}\left\\0, 1\right\\\mathclose{} && \text{(combine the two cases)} \end{aligned} \\
 >
-> Let \\\mathord{\underset{\sim}{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\ be a dataset of mutually independent binary outcomes, all with the same event probability \\\pi\\: \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. Write the likelihood of \\\mathord{\underset{\sim}{y}}\\.
+> Let \\\mathord{\underset{\sim}{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\ be a dataset of mutually independent binary outcomes, all with the same event probability \\\pi\\: \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. Write the likelihood of \\\mathord{\underset{\sim}{y}}\\.
 
 > **NOTE:**
 >
-> *Solution 3*. \\ \begin{aligned} \mathcal{L}(\pi; \mathord{\underset{\sim}{y}}) &= \prod\_{i=1}^n\mathcal{L}\_i(\pi) && \text{(product of likelihood components)}\\ &= \prod\_{i=1}^n\Pr(Y_i = y_i) && \text{(definition of likelihood components)}\\ &= \prod\_{i=1}^n\pi^{y_i} (1 - \pi)^{1 - y_i} && \text{(Bernoulli PMF)}\\ &= \mathopen{}\left(\prod\_{i=1}^n\pi^{y_i}\right)\mathclose{} \mathopen{}\left(\prod\_{i=1}^n(1 - \pi)^{1 - y_i}\right)\mathclose{} && \text{(regroup the factors of the product)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n(1 - y_i)} && \text{(product of powers of a common base)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n1 - \sum\_{i=1}^ny_i} && \text{(split the sum in the exponent)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i} && \text{(\$\textstyle\sum\_{i=1}^n1 = n\$)} \end{aligned} \\
+> *Solution 3*. \\ \begin{aligned} \mathcal{L}(\pi; \mathord{\underset{\sim}{y}}) &= \prod\_{i=1}^n\mathcal{L}\_i(\pi) && \text{(product of likelihood components)}\\ &= \prod\_{i=1}^n\Pr(Y_i= y_i) && \text{(definition of likelihood components)}\\ &= \prod\_{i=1}^n\pi^{y_i} (1 - \pi)^{1 - y_i} && \text{(Bernoulli PMF)}\\ &= \mathopen{}\left(\prod\_{i=1}^n\pi^{y_i}\right)\mathclose{} \mathopen{}\left(\prod\_{i=1}^n(1 - \pi)^{1 - y_i}\right)\mathclose{} && \text{(regroup the factors of the product)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n(1 - y_i)} && \text{(product of powers of a common base)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{\sum\_{i=1}^n1 - \sum\_{i=1}^ny_i} && \text{(split the sum in the exponent)}\\ &= \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i} && \text{(\$\textstyle\sum\_{i=1}^n1 = n\$)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 3 (Likelihood of binary outcomes with one event probability)** Let \\Y_1, \dots, Y_n\\ be mutually independent binary random variables, each with the same event probability \\\pi\\: \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. For observed outcomes \\\mathord{\underset{\sim}{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, with each \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, the likelihood \\\mathcal{L}(\pi; \mathord{\underset{\sim}{y}})\\ of \\\pi\\ depends on the data only through the number of events \\\sum\_{i=1}^ny_i\\:
+> **Theorem 3 (Likelihood of binary outcomes with one event probability)** Let \\Y_1, \dots, Y_n\\ be mutually independent binary random variables, each with the same event probability \\\pi\\: \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\. For observed outcomes \\\mathord{\underset{\sim}{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, with each \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\, the likelihood \\\mathcal{L}(\pi; \mathord{\underset{\sim}{y}})\\ of \\\pi\\ depends on the data only through the number of events \\\sum\_{i=1}^ny_i\\:
 >
 > \\\mathcal{L}(\pi; \mathord{\underset{\sim}{y}}) = \pi^{\sum\_{i=1}^ny_i} (1 - \pi)^{n - \sum\_{i=1}^ny_i}\\
 
@@ -247,7 +247,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> **Theorem 7 (Log-likelihood of binary outcomes with one event probability)** Let \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i = 1, \dots, n\\, with observed outcomes \\\mathord{\underset{\sim}{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, each \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The log-likelihood \\\ell(\pi; \mathord{\underset{\sim}{y}})\\ of the event probability \\\pi\\, written with the log-odds \\\operatorname{logit}(\pi)\\, is:
+> **Theorem 7 (Log-likelihood of binary outcomes with one event probability)** Let \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{Ber}(\pi)\\ for \\i = 1, \dots, n\\, with observed outcomes \\\mathord{\underset{\sim}{y}}\stackrel{\text{def}}{=}(y_1, \ldots, y_n)\\, each \\y_i\in \mathopen{}\left\\0, 1\right\\\mathclose{}\\. The log-likelihood \\\ell(\pi; \mathord{\underset{\sim}{y}})\\ of the event probability \\\pi\\, written with the log-odds \\\operatorname{logit}(\pi)\\, is:
 >
 > \\\ell(\pi; \mathord{\underset{\sim}{y}}) = \mathopen{}\left(\sum\_{i=1}^ny_i\right)\mathclose{} \operatorname{logit}(\pi) + n \operatorname{log}\mathopen{}\left\\1 - \pi\right\\\mathclose{}\\
 
@@ -383,7 +383,7 @@ The score equation is one example of an **estimating equation**, an equation who
 
 > **NOTE:**
 >
-> **Example 4 (Score equation of a Bernoulli sample)** For \\n\\ independent Bernoulli observations with \\r = \sum_i y_i\\ successes, the score is \\\sum\_{i=1}^n(y_i - \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\\ (summing [Theorem 8](#thm-bernoulli-score) over the observations), so for \\0 \< r \< n\\ the score equation \\(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\\ has the single solution \\\pi= r/n\\.
+> **Example 4 (Score equation of a Bernoulli sample)** For \\n\\ independent Bernoulli observations with \\r = \sum_i y_i\\ successes, the score is \\\sum\_{i=1}^n(y_i- \pi)/\mathopen{}\left(\pi(1 - \pi)\right)\mathclose{} = (r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{}\\ (summing [Theorem 8](#thm-bernoulli-score) over the observations), so for \\0 \< r \< n\\ the score equation \\(r - n\pi)/\mathopen{}\left(\pi(1-\pi)\right)\mathclose{} = 0\\ has the single solution \\\pi= r/n\\.
 
 ### 1.7 Information matrices
 
@@ -804,7 +804,7 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 
 > **NOTE:**
 >
-> *Remark 9* (Exact and approximate tests). The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume \\Y_i \\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 17](#thm-dist-mle), Gaussian or not.
+> *Remark 9* (Exact and approximate tests). The \\t\\ and \\F\\ distributions are defined in [Statistical Inference](inference.llms.md#sec-reference-distributions). The exact tests assume \\Y_i\\ \sim\_{\perp\\\\\\\perp}\\ N(\mu_i, \sigma^2)\\, with a common variance. The approximate tests hold asymptotically, for any model that is correctly specified and satisfies the regularity conditions of [Theorem 17](#thm-dist-mle), Gaussian or not.
 
 #### 1.9.5 Prediction intervals
 
