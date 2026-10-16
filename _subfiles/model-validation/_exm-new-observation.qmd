@@ -1,0 +1,23 @@
+:::{#exm-new-observation}
+#### A new observation for the first five cars
+
+Take the first five cars of `mtcars` as the [training set](#def-training-set),
+with the gross horsepower `hp` and weight `wt` as the covariate values and the fuel economy `mpg` as the outcome,
+as in @exm-input-matrix.
+Any other car in the data is a new observation, because it is not in the training set.
+Take the sixth car:
+
+```{r}
+#| label: new-observation-mtcars
+#| code-fold: false
+
+# the sixth car is not among the five training cars
+new_car <- mtcars |>
+  dplyr::slice(6) |>
+  dplyr::select(hp, wt, mpg)
+new_car
+```
+
+Its covariate value is $\newpredvar = (`r new_car$hp`, `r new_car$wt`)$ and its outcome is $\newoutvar = `r new_car$mpg`$.
+
+:::

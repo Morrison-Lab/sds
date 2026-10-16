@@ -1,0 +1,12 @@
+:::{#def-new-observation}
+#### New observation
+
+A **new observation** is a pair $(\newpredvar, \newoutvar)$
+of a covariate value and an outcome
+drawn from the same population as the observations of a [training set](#def-training-set) $\trainset$,
+independently of $\trainset$.
+The subscript $*$ marks a quantity of the new observation,
+as in $\newpredvar$ and $\newoutvar$,
+and distinguishes it from the indexed observations $(\vpredvar_{\iobs}, \outvar_{\iobs})$ of $\trainset$.
+
+:::
