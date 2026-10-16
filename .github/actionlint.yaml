@@ -1,0 +1,7 @@
+# actionlint configuration, read by `lint-workflows.yml`.
+paths:
+  .github/workflows/summary.yml:
+    ignore:
+      # `models: read` is the GitHub Models permission scope, which the
+      # `summary` reusable workflow needs. actionlint's scope list predates it.
+      - 'unknown permission scope "models"'
