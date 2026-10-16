@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 00:46:06 (PDT)
+Last modified: 2026-10-16 05:04:52 (PDT)
 
 The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
@@ -399,6 +399,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 - Good ([2005](#ref-good2005permutation)) is a book-length treatment of permutation tests.
 - Phipson and Smyth ([2010](#ref-phipson2010permutation)) explains why Monte Carlo permutation p-values need the added 1.
+- Chapter 12 of the [*Computational and Inferential Thinking*](https://www.inferentialthinking.com/) textbook for UC Berkeley’s Data 8 introduces permutation tests through plain-language A/B testing examples.
 - Chapter 13 of James et al. ([2021](#ref-james2021islr2e)) applies permutation and other resampling methods to multiple testing.
 
 ## References

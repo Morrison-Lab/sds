@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 00:46:06 (PDT)
+Last modified: 2026-10-16 05:04:52 (PDT)
 
 ## 1 Scientific models
 
@@ -88,7 +88,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > **Example 4 (Mean height of students)** Suppose we want to estimate the mean height of students at our school, which we will represent as \\\mu\\, and we measure the heights of \\n = 50\\ randomly sampled students as random variables \\X_1, \ldots, X_n\\. Then we could use the function
 >
-> \\\hat{\mu}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nX_i \stackrel{\text{def}}{=}\bar X\\
+> \\\hat{\mu}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nX_i\stackrel{\text{def}}{=}\bar X\\
 >
 > as an [*estimator*](#def-estimator) to produce an *estimate* \\\hat{\mu}= \bar x\\ of \\\mu\\.
 >
@@ -108,7 +108,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> **Example 5 (Sampling distribution of a sample mean)** Suppose student heights are \\X_i \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with standard deviation \\\sigma= 10\\ cm, and we sample \\n = 25\\ students. The sample mean \\\bar X\\ is a linear combination of independent Gaussian variables, so it is also Gaussian, with mean \\\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{} = \mu\\ and variance \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\\. Its sampling distribution is therefore
+> **Example 5 (Sampling distribution of a sample mean)** Suppose student heights are \\X_i\\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with standard deviation \\\sigma= 10\\ cm, and we sample \\n = 25\\ students. The sample mean \\\bar X\\ is a linear combination of independent Gaussian variables, so it is also Gaussian, with mean \\\operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{} = \mu\\ and variance \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = \sigma^2/ n\\. Its sampling distribution is therefore
 >
 > \\\bar X \sim \operatorname{N}\mathopen{}\left(\mu, \sigma^2/ 25\right)\mathclose{},\\
 >
@@ -330,10 +330,10 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 >
 > **Example 11 (A biased estimator of the variance)** Let \\X_1, \ldots, X_n\\ be mutually independent, each with expectation \\\mu\\ and variance \\\sigma^2\\, and let \\n \ge 2\\. Consider two estimators of \\\sigma^2\\:
 >
-> - the [sample variance](exploratory-descriptive.llms.md#def-sample-variance) \\S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(X_i - \bar X)^2\\;
-> - the divide-by-\\n\\ estimator \\\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(X_i - \bar X)^2\\.
+> - the [sample variance](exploratory-descriptive.llms.md#def-sample-variance) \\S^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(X_i- \bar X)^2\\;
+> - the divide-by-\\n\\ estimator \\\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(X_i- \bar X)^2\\.
 >
-> Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n(X_i - \bar X)^2\\, so we first find its expectation. Using
+> Both estimators are built from the sum of squared deviations \\\sum\_{i=1}^n(X_i- \bar X)^2\\, so we first find its expectation. Using
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} &= \operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} + {\mathopen{}\left(\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{}\right)\mathclose{}}^2 \\ &= \sigma^2+ \mu^2 \end{aligned} \\
 >
@@ -343,7 +343,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 >
 > (by [Example 8](#exm-mse-sample-mean) and [Example 7](#exm-bias-sample-mean)):
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n(X_i - \bar X)^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n\mathopen{}\left(X_i^2 - 2 X_i \bar X + \bar X^2\right)\mathclose{}\right\]\mathclose{} && \text{(expand each square)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - \sum\_{i=1}^n2 X_i \bar X + \sum\_{i=1}^n\bar X^2\right\]\mathclose{} && \text{(split the sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i + \sum\_{i=1}^n\bar X^2\right\]\mathclose{} && \text{(factor \$2\bar X\$ out of the middle sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i + n \bar X^2\right\]\mathclose{} && \text{(sum of \$n\$ copies of \$\bar X^2\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right\]\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^nX_i = n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2n \bar X^2 + n \bar X^2\right\]\mathclose{} && \text{(multiply \$2\bar X \cdot n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - n \bar X^2\right\]\mathclose{} && \text{(collect the \$\bar X^2\$ terms)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(factor the constant \$n\$ out of the expectation)}\\ &= \sum\_{i=1}^n(\sigma^2+ \mu^2) - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(substitute \$\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}\$)}\\ &= n(\sigma^2+ \mu^2) - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(sum of \$n\$ copies of \$\sigma^2+ \mu^2\$)}\\ &= n(\sigma^2+ \mu^2) - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(substitute \$\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}\$)}\\ &= n\sigma^2+ n\mu^2 - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\sigma^2+ \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(n \cdot \frac{\sigma^2}{n} + n\mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\frac{\sigma^2}{n} + \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(\sigma^2+ n\mu^2\right)\mathclose{} && \text{(cancel \$n\$ in \$n \cdot \frac{\sigma^2}{n}\$)}\\ &= n\sigma^2+ n\mu^2 - \sigma^2- n\mu^2 && \text{(distribute the minus sign)}\\ &= n\sigma^2- \sigma^2 && \text{(cancel \$n\mu^2\$)}\\ &= (n - 1)\sigma^2 && \text{(factor out \$\sigma^2\$)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n(X_i- \bar X)^2\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^n\mathopen{}\left(X_i^2 - 2 X_i\bar X + \bar X^2\right)\mathclose{}\right\]\mathclose{} && \text{(expand each square)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - \sum\_{i=1}^n2 X_i\bar X + \sum\_{i=1}^n\bar X^2\right\]\mathclose{} && \text{(split the sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i+ \sum\_{i=1}^n\bar X^2\right\]\mathclose{} && \text{(factor \$2\bar X\$ out of the middle sum)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \sum\_{i=1}^nX_i+ n \bar X^2\right\]\mathclose{} && \text{(sum of \$n\$ copies of \$\bar X^2\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2\bar X \cdot n \bar X + n \bar X^2\right\]\mathclose{} && \text{(\$\textstyle\sum\_{i=1}^nX_i= n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - 2n \bar X^2 + n \bar X^2\right\]\mathclose{} && \text{(multiply \$2\bar X \cdot n \bar X\$)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2 - n \bar X^2\right\]\mathclose{} && \text{(collect the \$\bar X^2\$ terms)}\\ &= \operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[n \bar X^2\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \sum\_{i=1}^n\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{} - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(factor the constant \$n\$ out of the expectation)}\\ &= \sum\_{i=1}^n(\sigma^2+ \mu^2) - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(substitute \$\operatorname{E}\mathopen{}\left\[X_i^2\right\]\mathclose{}\$)}\\ &= n(\sigma^2+ \mu^2) - n \operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{} && \text{(sum of \$n\$ copies of \$\sigma^2+ \mu^2\$)}\\ &= n(\sigma^2+ \mu^2) - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(substitute \$\operatorname{E}\mathopen{}\left\[\bar X^2\right\]\mathclose{}\$)}\\ &= n\sigma^2+ n\mu^2 - n\mathopen{}\left(\frac{\sigma^2}{n} + \mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\sigma^2+ \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(n \cdot \frac{\sigma^2}{n} + n\mu^2\right)\mathclose{} && \text{(distribute \$n\$ over \$\frac{\sigma^2}{n} + \mu^2\$)}\\ &= n\sigma^2+ n\mu^2 - \mathopen{}\left(\sigma^2+ n\mu^2\right)\mathclose{} && \text{(cancel \$n\$ in \$n \cdot \frac{\sigma^2}{n}\$)}\\ &= n\sigma^2+ n\mu^2 - \sigma^2- n\mu^2 && \text{(distribute the minus sign)}\\ &= n\sigma^2- \sigma^2 && \text{(cancel \$n\mu^2\$)}\\ &= (n - 1)\sigma^2 && \text{(factor out \$\sigma^2\$)} \end{aligned} \\
 >
 > So
 >
