@@ -1,9 +1,9 @@
 :::{#lem-estimation-error-bound}
 #### Chance of a large estimation error
 
-If $\hparam$ is an estimator of $\param$ with finite mean squared error,
+If $\hparam$ is an estimator of $\param$ with finite pMSE,
 then for every $\varepsilon > 0$ the probability of an estimation error
-of at least $\varepsilon$ is at most the mean squared error
+of at least $\varepsilon$ is at most the pMSE
 divided by $\varepsilon^2$:
 
 $$

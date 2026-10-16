@@ -1,7 +1,8 @@
 ::: {#def-mse}
 #### Mean squared error
 
-The **mean squared error** of an estimator $\hparam$, denoted
+The **population mean squared error (pMSE)** of an estimator $\hparam$,
+also called its **mean squared error**, denoted
 $\mselr{\hparam}$, is the expectation of the square
 of the [estimation error](#def-estimation-error):
 

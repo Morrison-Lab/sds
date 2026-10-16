@@ -1,5 +1,5 @@
 ::: {#exm-confidence-interval-wcgs}
-#### Confidence interval for mean cholesterol in the WCGS
+#### Confidence interval for population mean cholesterol in the WCGS
 
 By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt),
 the sample mean $\bar X$ of a large sample

@@ -78,8 +78,8 @@ sim_errors |>
   ggplot2::theme(legend.position = "top")
 ```
 
-Training RMSE and estimated generalization error
-(RMSE on $10{,}000$ new observations)
+Training sRMSE and estimated generalization error
+(sRMSE on $10{,}000$ new observations)
 of polynomial fits to one simulated training set of $\nobs = 30$.
 The dashed line is the noise standard deviation $\sdpar$,
 the square root of the [irreducible error](#def-irreducible-error).
@@ -105,8 +105,8 @@ The training error is smallest at degree `r sim_best_training`
 and never rises as the degree grows,
 because each polynomial family contains the one before it.
 The estimated generalization error is smallest at degree `r sim_best_generalization`.
-No prediction rule can have generalization RMSE below $\sdpar = `r sim_sigma`$.
-Yet the training RMSE falls below $\sdpar$
+No prediction rule can have generalization pRMSE below $\sdpar = `r sim_sigma`$.
+Yet the training sRMSE falls below $\sdpar$
 at `r sim_n_below[["training"]]` of the ten degrees,
 while the estimated generalization error falls below it
 at `r sim_n_below[["generalization"]]` of them:

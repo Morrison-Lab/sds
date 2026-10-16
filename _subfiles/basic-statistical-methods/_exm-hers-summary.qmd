@@ -3,7 +3,7 @@
 
 @tbl-hers-summary summarizes the HERS participants at baseline,
 separately for each randomized group.
-Continuous variables are summarized by mean (standard deviation),
+Continuous variables are summarized by sample mean (standard deviation),
 and categorical variables by count (percent).
 
 ::: {#tbl-hers-summary}

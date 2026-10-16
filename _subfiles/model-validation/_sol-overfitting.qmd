@@ -42,19 +42,19 @@ best_held_out <- overfitting_results$degree[
 c(best_train = best_train, best_held_out = best_held_out)
 ```
 
-1. The smallest training RMSE is at degree `r best_train`.
+1. The smallest training sRMSE is at degree `r best_train`.
    Each model contains the previous one as a special case,
-   so its training RMSE cannot increase as the degree grows.
+   so its training sRMSE cannot increase as the degree grows.
 
-2. The smallest held-out RMSE is at degree `r best_held_out`.
+2. The smallest held-out sRMSE is at degree `r best_held_out`.
 
 3. No.
-   Going from degree 2 to degree 3 or 4 lowers the training RMSE a little
-   but leaves the held-out RMSE essentially unchanged
+   Going from degree 2 to degree 3 or 4 lowers the training sRMSE a little
+   but leaves the held-out sRMSE essentially unchanged
    (it does not fall below its degree-2 value).
    The terms beyond degree 2 improve the fit to the 20 training cars
    without improving predictions for the 12 held-out cars.
    Degree 1 to degree 2 is different:
-   there the held-out RMSE also falls.
+   there the held-out sRMSE also falls.
 
 :::

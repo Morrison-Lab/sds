@@ -9,7 +9,7 @@ and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
 
 To see @cor-sample-mean-consistent at work,
 treat these babies as a finite population
-and let the estimand $\mean$ be their mean birth weight.
+and let the estimand $\mean$ be their population mean birth weight.
 We draw $n$ babies at random with replacement,
 so the draws are independent with the population's mean and variance,
 and we ask how often the sample mean misses $\mean$
@@ -102,7 +102,7 @@ p <- ggplot(consistency_sim, aes(x = n)) +
 if (knitr::is_html_output()) plotly::ggplotly(p) else p
 ```
 
-The chance that the sample mean of $n$ birth weights misses the mean by 100 g or more,
+The chance that the sample mean of $n$ birth weights misses the population mean by 100 g or more,
 by simulation (2000 repeats per $n$, with 95% confidence bands) and by the bound from @lem-estimation-error-bound
 :::
 

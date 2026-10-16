@@ -1,8 +1,8 @@
 :::{#exr-unbiased-mse}
-#### Mean squared error of an unbiased estimator
+#### Population mean squared error of an unbiased estimator
 
 Using @thm-mse-bias-variance,
-write the [mean squared error](#def-mse) of an [unbiased](#def-unbiased) estimator $\hparam$
+write the [pMSE](#def-mse) of an [unbiased](#def-unbiased) estimator $\hparam$
 in terms of its variance.
 :::
 

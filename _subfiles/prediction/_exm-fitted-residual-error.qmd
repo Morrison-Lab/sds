@@ -45,7 +45,7 @@ which points up from its fitted value to its observed outcome
 
 :::
 
-The mean squared error of these predictions is
+The sMSE of these predictions is
 
 $$
 \ba

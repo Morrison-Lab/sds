@@ -15,17 +15,17 @@ $$ {#eq-epe}
 :::
 
 :::{#rem-epe-mse}
-#### The expected prediction error is a mean squared error
+#### The expected prediction error is a population mean squared error
 
-The expected prediction error is the [mean squared error of predictions](prediction.qmd#def-prediction-mse)
+The expected prediction error is the [sMSE of predictions](prediction.qmd#def-prediction-mse)
 with the average over observations replaced by an expectation
 over training sets and new outcomes:
-the mean squared error of the prediction $\fitproc\paren{\predvar; \trainset}$
+the pMSE of the prediction $\fitproc\paren{\predvar; \trainset}$
 as a prediction of the new outcome $\newoutvar$.
 With squared-error loss, $\epl{\fitproc}{\nobs}{\predvar} = \epe{\fitproc}{\nobs}{\predvar}$.
 
-It is not the [mean squared error of an estimator](estimation.qmd#def-mse):
-@thm-epe-decomposition shows that it exceeds the mean squared error
+It is not the [pMSE of an estimator](estimation.qmd#def-mse):
+@thm-epe-decomposition shows that it exceeds the pMSE
 of the prediction as an estimator of the [mean function](#def-mean-function) value $\mean(\predvar)$
 by the noise variance.
 The acronym omits "squared" because "error" already means squared error here.

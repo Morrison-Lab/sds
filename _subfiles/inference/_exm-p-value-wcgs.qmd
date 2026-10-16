@@ -1,5 +1,5 @@
 ::: {#exm-p-value-wcgs}
-#### Testing whether mean cholesterol differs by CHD status
+#### Testing whether population mean cholesterol differs by CHD status
 
 Continuing @exm-hypotheses-wcgs,
 let $\bar x_1$ and $\bar x_0$ be the two groups' sample mean cholesterol,
@@ -31,5 +31,5 @@ c(difference = diff_means, se = se_diff, z = z, p_value = p_value)
 The p-value is far below 0.05,
 so at significance level 0.05 the test rejects $H_0$:
 the data provide [statistically significant](#def-statistically-significant) evidence
-that mean cholesterol differs between the two groups.
+that population mean cholesterol differs between the two groups.
 :::

@@ -7,6 +7,6 @@ $\lossf{\outvar, \hat{\outvar}} = \sqf{\hat{\outvar} - \outvar}$,
 unless they say otherwise.
 Then the loss on an observation is the square of its [prediction error](prediction.qmd#def-prediction-error),
 $\obsloss{\iobs} = \prederr_{\iobs}^2$,
-and each average loss below is a mean squared error.
+and each average loss below is a sample mean squared error.
 
 :::

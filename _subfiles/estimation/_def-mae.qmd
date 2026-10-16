@@ -1,7 +1,9 @@
 ::: {#def-mae}
 #### Mean absolute error
 
-The **mean absolute error** of an estimator is the expectation of the
+The **population mean absolute error (pMAE)** of an estimator,
+also called its **mean absolute error**,
+is the expectation of the
 absolute value of the [estimation error](#def-estimation-error):
 
 $$

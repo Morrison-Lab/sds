@@ -1,5 +1,5 @@
 ::: {#thm-mse-bias-variance}
-#### Mean squared error equals bias squared plus variance
+#### Population mean squared error equals bias squared plus variance
 
 For any one-dimensional estimator $\hparam$:
 

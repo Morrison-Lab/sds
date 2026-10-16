@@ -72,7 +72,7 @@ reticulate::py_require(c("numpy", "pandas"))
 
 {{< slidebreak >}}
 
-## Mean squared error of predictions {#sec-prediction-mse}
+## Sample mean squared error of predictions {#sec-prediction-mse}
 
 <!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. -->
 

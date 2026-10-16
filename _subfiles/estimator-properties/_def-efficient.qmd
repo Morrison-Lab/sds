@@ -19,6 +19,6 @@ Source: @CaseBerg01 [sec. 7.3.2].
 
 By the Cramér--Rao lower bound, no unbiased estimator that satisfies its assumptions
 has a smaller variance than an efficient one.
-Among such estimators, an efficient estimator therefore also has the smallest mean squared error
-([mean squared error equals bias squared plus variance](estimation.qmd#thm-mse-bias-variance), with zero bias).
+Among such estimators, an efficient estimator therefore also has the smallest pMSE
+([pMSE equals bias squared plus variance](estimation.qmd#thm-mse-bias-variance), with zero bias).
 :::
