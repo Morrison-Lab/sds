@@ -219,7 +219,8 @@ even when lds or another Morrison-Lab site already lists it
 If no page matches, add the resource to the Further reading section of the closest related page.
 If the page chosen has no Further reading section, add one headed `## Further reading`.
 Always link the resource.
-Adapt its material only where its license allows, and only when its terms (NonCommercial, ShareAlike) are compatible with this repository's license.
+Adapt its material only where its license allows,
+and only when its terms (NonCommercial, ShareAlike) are compatible with this repository's license.
 Where they conflict, link and do not adapt.
 Credit adapted material as "Attributions are reader-visible" above says.
 See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
