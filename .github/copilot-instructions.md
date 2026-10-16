@@ -170,18 +170,21 @@ When a source credits its own upstream,
 carry that credit along.
 
 Content taken from the maintainer's own repositories (rme, lds, pds, ...)
-or from their other co-authored works (a lab manual, their papers, their packages)
-is not credited to the maintainer or to those repositories and works
+or from other works the maintainer wrote alone or with others
+(a lab manual, papers, packages)
+is never credited to the maintainer or to those repositories and works
 (maintainer directives, 2026-10-05 and 2026-10-16).
 A credit to such a repository or work is left out of new work,
-and an existing one is removed.
-The rule covers only that hop:
-whatever such a repository or work itself credits
+and an existing one is removed, but its link to the sister page stays.
+This exemption covers only the hop from the maintainer's own work to the page.
+Whatever such a repository or work itself credits
 (a book, a paper, or any person other than the maintainer)
 is still credited, by name for a person.
-The credit names the person or source, and does not cite the maintainer's work.
+A co-author outside the maintainer's lab keeps their credit by name.
+Citing the maintainer's published paper or released software
+as the original publication of a result, or as a tool used, is ordinary citation and stays.
 
-A link to a sister site that sends the reader to further reading
+A link to one of the maintainer's other sites that sends the reader to further reading
 is a cross-reference, not an attribution, and stays.
 
 An HTML comment is not an attribution,
