@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 03:31:39 (PDT)
+Last modified: 2026-10-16 03:46:21 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -274,17 +274,17 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 11 (Residual sum of squares)** For a regression model whose conditional mean \\\mu(x; \underset{\sim}{\theta})\\ depends on a parameter vector \\\underset{\sim}{\theta}\\, the **residual sum of squares** at \\\underset{\sim}{\theta}\\ is the sum of the squared residuals \\r_i(\underset{\sim}{\theta}) \stackrel{\text{def}}{=}y_i - \mu(x_i; \underset{\sim}{\theta})\\ that the model has when its parameters equal \\\underset{\sim}{\theta}\\:
+> **Definition 11 (Residual sum of squares)** For a regression model whose conditional mean \\\mu(x; \mathord{\underset{\sim}{\theta}})\\ depends on a parameter vector \\\mathord{\underset{\sim}{\theta}}\\, the **residual sum of squares** at \\\mathord{\underset{\sim}{\theta}}\\ is the sum of the squared residuals \\r_i(\mathord{\underset{\sim}{\theta}}) \stackrel{\text{def}}{=}y_i - \mu(x_i; \mathord{\underset{\sim}{\theta}})\\ that the model has when its parameters equal \\\mathord{\underset{\sim}{\theta}}\\:
 >
-> \\\text{RSS}(\underset{\sim}{\theta}) \stackrel{\text{def}}{=}\sum\_{i=1}^nr_i(\underset{\sim}{\theta})^2.\\
+> \\\text{RSS}(\mathord{\underset{\sim}{\theta}}) \stackrel{\text{def}}{=}\sum\_{i=1}^nr_i(\mathord{\underset{\sim}{\theta}})^2.\\
 >
-> At the estimate \\\hat{\underset{\sim}{\theta}}\\, \\r_i(\hat{\underset{\sim}{\theta}})\\ is the [residual](prediction.llms.md#def-residual) \\r_i\\ of the fitted model.
+> At the estimate \\\hat{\mathord{\underset{\sim}{\theta}}}\\, \\r_i(\hat{\mathord{\underset{\sim}{\theta}}})\\ is the [residual](prediction.llms.md#def-residual) \\r_i\\ of the fitted model.
 
 > **NOTE:**
 >
-> **Example 3 (Residual sum of squares of a simple linear regression)** The mean function of a [simple linear regression](#def-slr) model has parameter vector \\\underset{\sim}{\theta}= (\beta\_{0}, \beta\_{x})\\, so write \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for its residual sum of squares ([Definition 11](#def-rss)):
+> **Example 3 (Residual sum of squares of a simple linear regression)** The mean function of a [simple linear regression](#def-slr) model has parameter vector \\\mathord{\underset{\sim}{\theta}}= (\beta\_{0}, \beta\_{x})\\, so write \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for its residual sum of squares ([Definition 11](#def-rss)):
 >
-> \\ \begin{aligned} \text{RSS}(\beta\_{0}, \beta\_{x}) &= \sum\_{i=1}^nr_i(\beta\_{0}, \beta\_{x})^2 && \text{(definition of RSS)}\\ &= \sum\_{i=1}^n\mathopen{}\left(y_i - \mu(x_i; \beta\_{0}, \beta\_{x})\right)\mathclose{}^2 && \text{(definition of \$r_i(\underset{\sim}{\theta})\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(y_i - (\beta\_{0}+ \beta\_{x} x_i)\right)\mathclose{}^2 && \text{(definition of \$\mu(x)\$)}\\ &= \sum\_{i=1}^n(y_i - \beta\_{0}- \beta\_{x} x_i)^2 && \text{(distribute the minus sign)} \end{aligned} \\
+> \\ \begin{aligned} \text{RSS}(\beta\_{0}, \beta\_{x}) &= \sum\_{i=1}^nr_i(\beta\_{0}, \beta\_{x})^2 && \text{(definition of RSS)}\\ &= \sum\_{i=1}^n\mathopen{}\left(y_i - \mu(x_i; \beta\_{0}, \beta\_{x})\right)\mathclose{}^2 && \text{(definition of \$r_i(\mathord{\underset{\sim}{\theta}})\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(y_i - (\beta\_{0}+ \beta\_{x} x_i)\right)\mathclose{}^2 && \text{(definition of \$\mu(x)\$)}\\ &= \sum\_{i=1}^n(y_i - \beta\_{0}- \beta\_{x} x_i)^2 && \text{(distribute the minus sign)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -319,31 +319,31 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \underset{\sim}{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \underset{\sim}{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\underset{\sim}{\theta})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [mean squared error](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\underset{\sim}{\theta})\\, and \\\text{RSS}(\underset{\sim}{\theta})\\ in terms of that mean squared error.
+> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \mathord{\underset{\sim}{\theta}})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \mathord{\underset{\sim}{\theta}})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [mean squared error](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\, and \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ in terms of that mean squared error.
 
 > **NOTE:**
 >
-> *Solution 3*. First, each squared [prediction error](prediction.llms.md#def-prediction-error) equals the squared residual at \\\underset{\sim}{\theta}\\:
+> *Solution 3*. First, each squared [prediction error](prediction.llms.md#def-prediction-error) equals the squared residual at \\\mathord{\underset{\sim}{\theta}}\\:
 >
-> \\ \begin{aligned} \varepsilon_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \underset{\sim}{\theta}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \underset{\sim}{\theta})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\underset{\sim}{\theta})\right)\mathclose{}^2 && \text{(definition of \$r_i(\underset{\sim}{\theta})\$)}\\ &= r_i(\underset{\sim}{\theta})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
+> \\ \begin{aligned} \varepsilon_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \mathord{\underset{\sim}{\theta}}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \mathord{\underset{\sim}{\theta}})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\mathord{\underset{\sim}{\theta}})\right)\mathclose{}^2 && \text{(definition of \$r_i(\mathord{\underset{\sim}{\theta}})\$)}\\ &= r_i(\mathord{\underset{\sim}{\theta}})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
 >
 > So the mean squared error is the residual sum of squares divided by \\n\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\underset{\sim}{\theta})^2 && \text{(\$\varepsilon_i^2 = r_i(\underset{\sim}{\theta})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\underset{\sim}{\theta}) && \text{(definition of RSS)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\underset{\sim}{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\underset{\sim}{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
 >
-> Solving for \\\text{RSS}(\underset{\sim}{\theta})\\:
+> Solving for \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n} \text{RSS}(\underset{\sim}{\theta}) && \text{(result above)}\\ n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \text{RSS}(\underset{\sim}{\theta}) && \text{(multiply both sides by \$n\$)}\\ \text{RSS}(\underset{\sim}{\theta}) &= n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} && \text{(swap the two sides)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(result above)}\\ n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(multiply both sides by \$n\$)}\\ \text{RSS}(\mathord{\underset{\sim}{\theta}}) &= n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} && \text{(swap the two sides)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \underset{\sim}{\theta})\\, the [mean squared error](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \underset{\sim}{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\underset{\sim}{\theta})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
+> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \mathord{\underset{\sim}{\theta}})\\, the [mean squared error](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \mathord{\underset{\sim}{\theta}})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\underset{\sim}{\theta}),\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}),\\
 >
 > and equivalently
 >
-> \\\text{RSS}(\underset{\sim}{\theta}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
+> \\\text{RSS}(\mathord{\underset{\sim}{\theta}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
 > **NOTE:**
 >
@@ -355,9 +355,9 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 12 (Ordinary least squares)** The **ordinary least squares (OLS) estimate** of a model’s parameter vector \\\underset{\sim}{\theta}\\ is the value of \\\underset{\sim}{\theta}\\ that minimizes the [residual sum of squares](#def-rss):
+> **Definition 12 (Ordinary least squares)** The **ordinary least squares (OLS) estimate** of a model’s parameter vector \\\mathord{\underset{\sim}{\theta}}\\ is the value of \\\mathord{\underset{\sim}{\theta}}\\ that minimizes the [residual sum of squares](#def-rss):
 >
-> \\\hat{\underset{\sim}{\theta}} \stackrel{\text{def}}{=}\arg \min\_{\underset{\sim}{\theta}} \text{RSS}(\underset{\sim}{\theta}).\\
+> \\\hat{\mathord{\underset{\sim}{\theta}}} \stackrel{\text{def}}{=}\arg \min\_{\mathord{\underset{\sim}{\theta}}} \text{RSS}(\mathord{\underset{\sim}{\theta}}).\\
 
 > **NOTE:**
 >
@@ -411,13 +411,13 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 13 (Normal equations)** For a model fitted by least squares with parameter vector \\\underset{\sim}{\theta}\\, the **normal equations** set the gradient of the [residual sum of squares](#def-rss) to zero:
+> **Definition 13 (Normal equations)** For a model fitted by least squares with parameter vector \\\mathord{\underset{\sim}{\theta}}\\, the **normal equations** set the gradient of the [residual sum of squares](#def-rss) to zero:
 >
-> \\\frac{\partial}{\partial \underset{\sim}{\theta}} \text{RSS}(\underset{\sim}{\theta}) = \underset{\sim}{0}.\\
+> \\\frac{\partial}{\partial \mathord{\underset{\sim}{\theta}}} \text{RSS}(\mathord{\underset{\sim}{\theta}}) = \mathord{\underset{\sim}{0}}.\\
 
 > **NOTE:**
 >
-> **Example 6 (Normal equations of a simple linear regression)** For a simple linear regression, the parameter vector is \\\underset{\sim}{\beta}\stackrel{\text{def}}{=}{\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\, and \\\text{RSS}(\underset{\sim}{\beta})\\ is \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). Its gradient has one entry per coefficient, so the normal equations ([Definition 13](#def-normal-equations)) are two scalar equations:
+> **Example 6 (Normal equations of a simple linear regression)** For a simple linear regression, the parameter vector is \\\mathord{\underset{\sim}{\beta}}\stackrel{\text{def}}{=}{\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\, and \\\text{RSS}(\mathord{\underset{\sim}{\beta}})\\ is \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). Its gradient has one entry per coefficient, so the normal equations ([Definition 13](#def-normal-equations)) are two scalar equations:
 >
 > \\ \frac{\partial \text{RSS}}{\partial \beta\_{0}} = 0, \qquad \frac{\partial \text{RSS}}{\partial \beta\_{x}} = 0. \\
 
@@ -623,27 +623,27 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Definition 16 (Covariate vector)** In simple linear regression ([Definition 8](#def-slr)), the **covariate vector** \\\underset{\sim}{x}\_i\\ of observation \\i\\ is its covariate value \\x_i\\, preceded by a 1 for the intercept:
+> **Definition 16 (Covariate vector)** In simple linear regression ([Definition 8](#def-slr)), the **covariate vector** \\\mathord{\underset{\sim}{x}}\_i\\ of observation \\i\\ is its covariate value \\x_i\\, preceded by a 1 for the intercept:
 >
-> \\ \underset{\sim}{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}. \\
+> \\ \mathord{\underset{\sim}{x}}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}. \\
 
 > **NOTE:**
 >
-> **Exercise 10 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\underset{\sim}{x}\_i\\ ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\underset{\sim}{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
+> **Exercise 10 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\mathord{\underset{\sim}{x}}\_i\\ ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\mathord{\underset{\sim}{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
 
 > **NOTE:**
 >
 > *Solution 10*. Start from the dot product:
 >
-> \\ \begin{aligned} \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta} &= \begin{pmatrix} 1 \\ x_i \end{pmatrix} \cdot \underset{\sim}{\beta} && \text{(definition of \$\underset{\sim}{x}\_i\$)}\\ &= \begin{pmatrix} 1 \\ x_i \end{pmatrix} \cdot \begin{pmatrix} \beta\_{0}\\ \beta\_{x} \end{pmatrix} && \text{(definition of \$\underset{\sim}{\beta}\$, written as a column)}\\ &= 1 \cdot \beta\_{0}+ x_i \beta\_{x} && \text{(definition of the dot product)}\\ &= \beta\_{0}+ x_i \beta\_{x} && \text{(\$1 \cdot a = a\$)}\\ &= \beta\_{0}+ \beta\_{x} x_i && \text{(reorder the factors)}\\ &= \mu(x_i) && \text{(definition of \$\mu(x)\$)} \end{aligned} \\
+> \\ \begin{aligned} \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}} &= \begin{pmatrix} 1 \\ x_i \end{pmatrix} \cdot \mathord{\underset{\sim}{\beta}} && \text{(definition of \$\mathord{\underset{\sim}{x}}\_i\$)}\\ &= \begin{pmatrix} 1 \\ x_i \end{pmatrix} \cdot \begin{pmatrix} \beta\_{0}\\ \beta\_{x} \end{pmatrix} && \text{(definition of \$\mathord{\underset{\sim}{\beta}}\$, written as a column)}\\ &= 1 \cdot \beta\_{0}+ x_i \beta\_{x} && \text{(definition of the dot product)}\\ &= \beta\_{0}+ x_i \beta\_{x} && \text{(\$1 \cdot a = a\$)}\\ &= \beta\_{0}+ \beta\_{x} x_i && \text{(reorder the factors)}\\ &= \mu(x_i) && \text{(definition of \$\mu(x)\$)} \end{aligned} \\
 >
-> So \\\mu(x_i) = \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\\.
+> So \\\mu(x_i) = \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\\.
 
 > **NOTE:**
 >
-> **Lemma 7 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\underset{\sim}{\beta}\\ ([Example 6](#exm-normal-equations-slr)):
+> **Lemma 7 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\mathord{\underset{\sim}{\beta}}\\ ([Example 6](#exm-normal-equations-slr)):
 >
-> \\\mu(x_i) = \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}.\\
+> \\\mu(x_i) = \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}.\\
 
 > **NOTE:**
 >
@@ -651,37 +651,37 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\underset{\sim}{\theta}= \underset{\sim}{\beta}\\ and substitute \\\mu(x_i) = \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\\ ([Lemma 7](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 11](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\underset{\sim}{\beta}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
+> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\mathord{\underset{\sim}{\theta}}= \mathord{\underset{\sim}{\beta}}\\ and substitute \\\mu(x_i) = \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\\ ([Lemma 7](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 11](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\mathord{\underset{\sim}{\beta}}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
 >
-> \\ \text{RSS}(\underset{\sim}{\beta}) = \sum\_{i=1}^n\mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{}^2. \\
+> \\ \text{RSS}(\mathord{\underset{\sim}{\beta}}) = \sum\_{i=1}^n\mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{}^2. \\
 
 > **NOTE:**
 >
-> **Exercise 11 (Gradient of RSS in vector notation)** Find the gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)), \\\frac{\partial}{\partial \underset{\sim}{\beta}} \text{RSS}(\underset{\sim}{\beta})\\, by differentiating with respect to the vector \\\underset{\sim}{\beta}\\ directly, rather than one component at a time.
+> **Exercise 11 (Gradient of RSS in vector notation)** Find the gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)), \\\frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \text{RSS}(\mathord{\underset{\sim}{\beta}})\\, by differentiating with respect to the vector \\\mathord{\underset{\sim}{\beta}}\\ directly, rather than one component at a time.
 
 > **NOTE:**
 >
-> *Solution 11*. Differentiate one operation at a time, starting from \\\text{RSS}(\underset{\sim}{\beta})\\ in vector notation ([Example 7](#exm-rss-vector)):
+> *Solution 11*. Differentiate one operation at a time, starting from \\\text{RSS}(\mathord{\underset{\sim}{\beta}})\\ in vector notation ([Example 7](#exm-rss-vector)):
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \underset{\sim}{\beta}} \text{RSS}(\underset{\sim}{\beta}) &= \frac{\partial}{\partial \underset{\sim}{\beta}} \sum\_{i=1}^n\mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{}^2 && \text{(RSS in vector form)}\\ &= \sum\_{i=1}^n\frac{\partial}{\partial \underset{\sim}{\beta}} \mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{}^2 && \text{(derivative of a sum)}\\ &= \sum\_{i=1}^n2 \mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} \frac{\partial}{\partial \underset{\sim}{\beta}} \mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} && \text{(chain rule)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \text{RSS}(\mathord{\underset{\sim}{\beta}}) &= \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \sum\_{i=1}^n\mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{}^2 && \text{(RSS in vector form)}\\ &= \sum\_{i=1}^n\frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{}^2 && \text{(derivative of a sum)}\\ &= \sum\_{i=1}^n2 \mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(chain rule)} \end{aligned} \\
 >
-> For the inner derivative, we need the gradient of a linear function. For any constant vector \\\underset{\sim}{a}= {(a_0, a_x)}^{\top}\\:
+> For the inner derivative, we need the gradient of a linear function. For any constant vector \\\mathord{\underset{\sim}{a}}= {(a_0, a_x)}^{\top}\\:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \underset{\sim}{\beta}} \underset{\sim}{a} \cdot \underset{\sim}{\beta} &= \frac{\partial}{\partial \underset{\sim}{\beta}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} && \text{(write out the dot product)}\\ &= \begin{pmatrix} \frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} \\ \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} \end{pmatrix} && \text{(definition of the gradient)}\\ &= \begin{pmatrix} a_0 + 0 \\ 0 + a_x \end{pmatrix} && \text{(derivative of each term)}\\ &= \begin{pmatrix} a_0 \\ a_x \end{pmatrix} && \text{(add zero)}\\ &= \underset{\sim}{a} && \text{(definition of \$\underset{\sim}{a}\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \mathord{\underset{\sim}{a}} \cdot \mathord{\underset{\sim}{\beta}} &= \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} && \text{(write out the dot product)}\\ &= \begin{pmatrix} \frac{\partial}{\partial \beta\_{0}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} \\ \frac{\partial}{\partial \beta\_{x}} \mathopen{}\left(a_0 \beta\_{0}+ a_x \beta\_{x}\right)\mathclose{} \end{pmatrix} && \text{(definition of the gradient)}\\ &= \begin{pmatrix} a_0 + 0 \\ 0 + a_x \end{pmatrix} && \text{(derivative of each term)}\\ &= \begin{pmatrix} a_0 \\ a_x \end{pmatrix} && \text{(add zero)}\\ &= \mathord{\underset{\sim}{a}} && \text{(definition of \$\mathord{\underset{\sim}{a}}\$)} \end{aligned} \\
 >
-> With \\\underset{\sim}{a}= \underset{\sim}{x}\_i\\:
+> With \\\mathord{\underset{\sim}{a}}= \mathord{\underset{\sim}{x}}\_i\\:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \underset{\sim}{\beta}} \mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} &= \frac{\partial}{\partial \underset{\sim}{\beta}} y_i - \frac{\partial}{\partial \underset{\sim}{\beta}} \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta} && \text{(derivative of a difference)}\\ &= \underset{\sim}{0}- \frac{\partial}{\partial \underset{\sim}{\beta}} \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta} && \text{(\$y_i\$ does not depend on \$\underset{\sim}{\beta}\$)}\\ &= \underset{\sim}{0}- \underset{\sim}{x}\_i && \text{(gradient of a linear function)}\\ &= -\underset{\sim}{x}\_i && \text{(subtract from zero)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} &= \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} y_i - \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}} && \text{(derivative of a difference)}\\ &= \mathord{\underset{\sim}{0}}- \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}} && \text{(\$y_i\$ does not depend on \$\mathord{\underset{\sim}{\beta}}\$)}\\ &= \mathord{\underset{\sim}{0}}- \mathord{\underset{\sim}{x}}\_i && \text{(gradient of a linear function)}\\ &= -\mathord{\underset{\sim}{x}}\_i && \text{(subtract from zero)} \end{aligned} \\
 >
 > Plugging the inner derivative back in:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \underset{\sim}{\beta}} \text{RSS}(\underset{\sim}{\beta}) &= \sum\_{i=1}^n2 \mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} \mathopen{}\left(-\underset{\sim}{x}\_i\right)\mathclose{} && \text{(inner derivative is \$-\underset{\sim}{x}\_i\$)}\\ &= \sum\_{i=1}^n2 \mathopen{}\left(-\underset{\sim}{x}\_i\right)\mathclose{} \mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} && \text{(reorder the scalar and vector factors)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-2\right)\mathclose{} \underset{\sim}{x}\_i\mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} && \text{(\$2 \mathopen{}\left(-\underset{\sim}{x}\_i\right)\mathclose{} = -2 \underset{\sim}{x}\_i\$)}\\ &= -2 \sum\_{i=1}^n\underset{\sim}{x}\_i\mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} && \text{(constant factor out of the sum)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \text{RSS}(\mathord{\underset{\sim}{\beta}}) &= \sum\_{i=1}^n2 \mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} \mathopen{}\left(-\mathord{\underset{\sim}{x}}\_i\right)\mathclose{} && \text{(inner derivative is \$-\mathord{\underset{\sim}{x}}\_i\$)}\\ &= \sum\_{i=1}^n2 \mathopen{}\left(-\mathord{\underset{\sim}{x}}\_i\right)\mathclose{} \mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(reorder the scalar and vector factors)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-2\right)\mathclose{} \mathord{\underset{\sim}{x}}\_i\mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(\$2 \mathopen{}\left(-\mathord{\underset{\sim}{x}}\_i\right)\mathclose{} = -2 \mathord{\underset{\sim}{x}}\_i\$)}\\ &= -2 \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i\mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(constant factor out of the sum)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Lemma 8 (Gradient of RSS in vector notation)** The gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)) is
 >
-> \\\frac{\partial}{\partial \underset{\sim}{\beta}} \text{RSS}(\underset{\sim}{\beta}) = -2 \sum\_{i=1}^n\underset{\sim}{x}\_i\mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{}.\\
+> \\\frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \text{RSS}(\mathord{\underset{\sim}{\beta}}) = -2 \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i\mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{}.\\
 
 > **NOTE:**
 >
@@ -691,37 +691,37 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > **Exercise 12 (Normal equations in vector notation)** Define the matrix and vector
 >
-> \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}, \qquad \underset{\sim}{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\underset{\sim}{x}\_iy_i. \\
+> \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}, \qquad \mathord{\underset{\sim}{c}} \stackrel{\text{def}}{=}\sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i. \\
 >
-> Using [Exercise 11](#exr-rss-gradient-vector), show that the [normal equations](#def-normal-equations) can be written as \\A \underset{\sim}{\beta}= \underset{\sim}{c}\\.
+> Using [Exercise 11](#exr-rss-gradient-vector), show that the [normal equations](#def-normal-equations) can be written as \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\.
 
 > **NOTE:**
 >
 > *Solution 12*. Distribute the sum in the gradient from [Exercise 11](#exr-rss-gradient-vector):
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \underset{\sim}{\beta}} \text{RSS}(\underset{\sim}{\beta}) &= -2 \sum\_{i=1}^n\underset{\sim}{x}\_i\mathopen{}\left(y_i - \underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} && \text{(gradient of RSS)}\\ &= -2 \sum\_{i=1}^n\mathopen{}\left(\underset{\sim}{x}\_iy_i - \underset{\sim}{x}\_i\mathopen{}\left(\underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{}\right)\mathclose{} && \text{(distribute \$\underset{\sim}{x}\_i\$)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^n\underset{\sim}{x}\_iy_i - \sum\_{i=1}^n\underset{\sim}{x}\_i\mathopen{}\left(\underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{}\right)\mathclose{} && \text{(sum of differences)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \text{RSS}(\mathord{\underset{\sim}{\beta}}) &= -2 \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i\mathopen{}\left(y_i - \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(gradient of RSS)}\\ &= -2 \sum\_{i=1}^n\mathopen{}\left(\mathord{\underset{\sim}{x}}\_iy_i - \mathord{\underset{\sim}{x}}\_i\mathopen{}\left(\mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{}\right)\mathclose{} && \text{(distribute \$\mathord{\underset{\sim}{x}}\_i\$)}\\ &= -2 \mathopen{}\left(\sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i - \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i\mathopen{}\left(\mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{}\right)\mathclose{} && \text{(sum of differences)} \end{aligned} \\
 >
-> Each term of the second sum regroups as a matrix times \\\underset{\sim}{\beta}\\:
+> Each term of the second sum regroups as a matrix times \\\mathord{\underset{\sim}{\beta}}\\:
 >
-> \\ \begin{aligned} \underset{\sim}{x}\_i\mathopen{}\left(\underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{} &= \underset{\sim}{x}\_i\mathopen{}\left({\underset{\sim}{x}\_i}^{\top} \underset{\sim}{\beta}\right)\mathclose{} && \text{(dot product as a transpose product)}\\ &= \mathopen{}\left(\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}\right)\mathclose{} \underset{\sim}{\beta} && \text{(matrix multiplication is associative)} \end{aligned} \\
+> \\ \begin{aligned} \mathord{\underset{\sim}{x}}\_i\mathopen{}\left(\mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{} &= \mathord{\underset{\sim}{x}}\_i\mathopen{}\left({\mathord{\underset{\sim}{x}}\_i}^{\top} \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(dot product as a transpose product)}\\ &= \mathopen{}\left(\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\right)\mathclose{} \mathord{\underset{\sim}{\beta}} && \text{(matrix multiplication is associative)} \end{aligned} \\
 >
 > So the gradient is
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \underset{\sim}{\beta}} \text{RSS}(\underset{\sim}{\beta}) &= -2 \mathopen{}\left(\underset{\sim}{c} - \sum\_{i=1}^n\underset{\sim}{x}\_i\mathopen{}\left(\underset{\sim}{x}\_i \cdot \underset{\sim}{\beta}\right)\mathclose{}\right)\mathclose{} && \text{(definition of \$\underset{\sim}{c}\$)}\\ &= -2 \mathopen{}\left(\underset{\sim}{c} - \sum\_{i=1}^n\mathopen{}\left(\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}\right)\mathclose{} \underset{\sim}{\beta}\right)\mathclose{} && \text{(regroup each term)}\\ &= -2 \mathopen{}\left(\underset{\sim}{c} - \mathopen{}\left(\sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}\right)\mathclose{} \underset{\sim}{\beta}\right)\mathclose{} && \text{(factor \$\underset{\sim}{\beta}\$ out of the sum)}\\ &= -2 \mathopen{}\left(\underset{\sim}{c} - A \underset{\sim}{\beta}\right)\mathclose{} && \text{(definition of \$A\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \text{RSS}(\mathord{\underset{\sim}{\beta}}) &= -2 \mathopen{}\left(\mathord{\underset{\sim}{c}} - \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i\mathopen{}\left(\mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\right)\mathclose{}\right)\mathclose{} && \text{(definition of \$\mathord{\underset{\sim}{c}}\$)}\\ &= -2 \mathopen{}\left(\mathord{\underset{\sim}{c}} - \sum\_{i=1}^n\mathopen{}\left(\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\right)\mathclose{} \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(regroup each term)}\\ &= -2 \mathopen{}\left(\mathord{\underset{\sim}{c}} - \mathopen{}\left(\sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\right)\mathclose{} \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(factor \$\mathord{\underset{\sim}{\beta}}\$ out of the sum)}\\ &= -2 \mathopen{}\left(\mathord{\underset{\sim}{c}} - A \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(definition of \$A\$)} \end{aligned} \\
 >
-> The normal equations set this gradient equal to \\\underset{\sim}{0}\\. Solving for \\A \underset{\sim}{\beta}\\ one operation at a time:
+> The normal equations set this gradient equal to \\\mathord{\underset{\sim}{0}}\\. Solving for \\A \mathord{\underset{\sim}{\beta}}\\ one operation at a time:
 >
-> \\ \begin{aligned} -2 \mathopen{}\left(\underset{\sim}{c} - A \underset{\sim}{\beta}\right)\mathclose{} &= \underset{\sim}{0} && \text{(normal equations)}\\ \underset{\sim}{c} - A \underset{\sim}{\beta}&= \underset{\sim}{0} && \text{(divide both sides by \$-2\$)}\\ \underset{\sim}{c} &= A \underset{\sim}{\beta} && \text{(add \$A \underset{\sim}{\beta}\$ to both sides)}\\ A \underset{\sim}{\beta}&= \underset{\sim}{c} && \text{(swap the sides)} \end{aligned} \\
+> \\ \begin{aligned} -2 \mathopen{}\left(\mathord{\underset{\sim}{c}} - A \mathord{\underset{\sim}{\beta}}\right)\mathclose{} &= \mathord{\underset{\sim}{0}} && \text{(normal equations)}\\ \mathord{\underset{\sim}{c}} - A \mathord{\underset{\sim}{\beta}}&= \mathord{\underset{\sim}{0}} && \text{(divide both sides by \$-2\$)}\\ \mathord{\underset{\sim}{c}} &= A \mathord{\underset{\sim}{\beta}} && \text{(add \$A \mathord{\underset{\sim}{\beta}}\$ to both sides)}\\ A \mathord{\underset{\sim}{\beta}}&= \mathord{\underset{\sim}{c}} && \text{(swap the sides)} \end{aligned} \\
 
 > **NOTE:**
 >
 > **Lemma 9 (Normal equations in vector notation)** Let
 >
-> \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}, \qquad \underset{\sim}{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\underset{\sim}{x}\_iy_i. \\
+> \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}, \qquad \mathord{\underset{\sim}{c}} \stackrel{\text{def}}{=}\sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i. \\
 >
 > The [normal equations](#def-normal-equations) of a simple linear regression are equivalent to
 >
-> \\A \underset{\sim}{\beta}= \underset{\sim}{c}.\\
+> \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}.\\
 
 > **NOTE:**
 >
@@ -729,37 +729,37 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 13 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), show that \\A\\ from [Exercise 12](#exr-normal-equations-vector) is invertible, solve \\A \underset{\sim}{\beta}= \underset{\sim}{c}\\ for \\\underset{\sim}{\beta}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
+> **Exercise 13 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), show that \\A\\ from [Exercise 12](#exr-normal-equations-vector) is invertible, solve \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ for \\\mathord{\underset{\sim}{\beta}}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
-> *Solution 13*. Write out the entries of each term of \\A\\ and \\\underset{\sim}{c}\\, then add them up:
+> *Solution 13*. Write out the entries of each term of \\A\\ and \\\mathord{\underset{\sim}{c}}\\, then add them up:
 >
-> \\ \begin{aligned} A &= \sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top} && \text{(definition of \$A\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix} && \text{(outer product of \$\underset{\sim}{x}\_i\$)}\\ &= \begin{pmatrix} \sum\_{i=1}^n1 & \sum\_{i=1}^nx_i \\ \sum\_{i=1}^nx_i & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(matrices add entrywise)}\\ &= \begin{pmatrix} n & \sum\_{i=1}^nx_i \\ \sum\_{i=1}^nx_i & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(sum of a constant)}\\ &= \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i = n \bar{x}\$)} \end{aligned} \\
+> \\ \begin{aligned} A &= \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top} && \text{(definition of \$A\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} 1 & x_i \\ x_i & x_i^2 \end{pmatrix} && \text{(outer product of \$\mathord{\underset{\sim}{x}}\_i\$)}\\ &= \begin{pmatrix} \sum\_{i=1}^n1 & \sum\_{i=1}^nx_i \\ \sum\_{i=1}^nx_i & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(matrices add entrywise)}\\ &= \begin{pmatrix} n & \sum\_{i=1}^nx_i \\ \sum\_{i=1}^nx_i & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(sum of a constant)}\\ &= \begin{pmatrix} n & n\bar{x} \\ n\bar{x} & \sum\_{i=1}^nx_i^2 \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i = n \bar{x}\$)} \end{aligned} \\
 >
-> \\ \begin{aligned} \underset{\sim}{c} &= \sum\_{i=1}^n\underset{\sim}{x}\_iy_i && \text{(definition of \$\underset{\sim}{c}\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} y_i \\ x_i y_i \end{pmatrix} && \text{(scalar times a vector)}\\ &= \begin{pmatrix} \sum\_{i=1}^ny_i \\ \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(vectors add entrywise)}\\ &= \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(\$\sum\_{i=1}^ny_i = n \bar{y}\$)} \end{aligned} \\
+> \\ \begin{aligned} \mathord{\underset{\sim}{c}} &= \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i && \text{(definition of \$\mathord{\underset{\sim}{c}}\$)}\\ &= \sum\_{i=1}^n\begin{pmatrix} y_i \\ x_i y_i \end{pmatrix} && \text{(scalar times a vector)}\\ &= \begin{pmatrix} \sum\_{i=1}^ny_i \\ \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(vectors add entrywise)}\\ &= \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(\$\sum\_{i=1}^ny_i = n \bar{y}\$)} \end{aligned} \\
 >
 > The determinant of \\A\\ is
 >
 > \\ \begin{aligned} \det A &= n \sum\_{i=1}^nx_i^2 - \mathopen{}\left(n\bar{x}\right)\mathclose{} \mathopen{}\left(n\bar{x}\right)\mathclose{} && \text{(determinant of a \$2 \times 2\$ matrix)}\\ &= n \sum\_{i=1}^nx_i^2 - n^2 \bar{x}^2 && \text{(multiply)}\\ &= n \mathopen{}\left(\sum\_{i=1}^nx_i^2 - n \bar{x}^2\right)\mathclose{} && \text{(factor out \$n\$)}\\ &= n S\_{xx} && \text{(expansion of \$S\_{xx}\$)} \end{aligned} \\
 >
-> where the last step uses [Exercise 5](#exr-sxx-expand). Since \\n \> 0\\ and \\S\_{xx} \> 0\\, \\\det A \> 0\\, so \\A\\ is invertible, and \\A \underset{\sim}{\beta}= \underset{\sim}{c}\\ has exactly one solution, \\A^{-1} \underset{\sim}{c}\\.
+> where the last step uses [Exercise 5](#exr-sxx-expand). Since \\n \> 0\\ and \\S\_{xx} \> 0\\, \\\det A \> 0\\, so \\A\\ is invertible, and \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ has exactly one solution, \\A^{-1} \mathord{\underset{\sim}{c}}\\.
 >
-> To simplify \\A^{-1} \underset{\sim}{c}\\, we need two expansions of uncentered sums. Adding \\n \bar{x}^2\\ to both sides of [Exercise 5](#exr-sxx-expand) gives \\\sum\_{i=1}^nx_i^2 = S\_{xx} + n \bar{x}^2\\. The cross-product sum expands the same way:
+> To simplify \\A^{-1} \mathord{\underset{\sim}{c}}\\, we need two expansions of uncentered sums. Adding \\n \bar{x}^2\\ to both sides of [Exercise 5](#exr-sxx-expand) gives \\\sum\_{i=1}^nx_i^2 = S\_{xx} + n \bar{x}^2\\. The cross-product sum expands the same way:
 >
 > \\ \begin{aligned} S\_{xy} &= \sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}) && \text{(definition of \$S\_{xy}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i y_i - x_i \bar{y} - \bar{x} y_i + \bar{x} \bar{y}\right)\mathclose{} && \text{(expand the product)}\\ &= \sum\_{i=1}^nx_i y_i - \sum\_{i=1}^nx_i \bar{y} - \sum\_{i=1}^n\bar{x} y_i + \sum\_{i=1}^n\bar{x} \bar{y} && \text{(sum of a sum)}\\ &= \sum\_{i=1}^nx_i y_i - \bar{y} \sum\_{i=1}^nx_i - \sum\_{i=1}^n\bar{x} y_i + \sum\_{i=1}^n\bar{x} \bar{y} && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_i y_i - \bar{y} \sum\_{i=1}^nx_i - \bar{x} \sum\_{i=1}^ny_i + \sum\_{i=1}^n\bar{x} \bar{y} && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_i y_i - \bar{y} \sum\_{i=1}^nx_i - \bar{x} \sum\_{i=1}^ny_i + n \bar{x} \bar{y} && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_i y_i - \bar{y} \mathopen{}\left(n \bar{x}\right)\mathclose{} - \bar{x} \sum\_{i=1}^ny_i + n \bar{x} \bar{y} && \text{(\$\sum\_{i=1}^nx_i = n \bar{x}\$)}\\ &= \sum\_{i=1}^nx_i y_i - \bar{y} \mathopen{}\left(n \bar{x}\right)\mathclose{} - \bar{x} \mathopen{}\left(n \bar{y}\right)\mathclose{} + n \bar{x} \bar{y} && \text{(\$\sum\_{i=1}^ny_i = n \bar{y}\$)}\\ &= \sum\_{i=1}^nx_i y_i - n \bar{x} \bar{y} - n \bar{x} \bar{y} + n \bar{x} \bar{y} && \text{(reorder the factors)}\\ &= \sum\_{i=1}^nx_i y_i - n \bar{x} \bar{y} && \text{(combine like terms)} \end{aligned} \\
 >
 > Adding \\n \bar{x} \bar{y}\\ to both sides gives \\\sum\_{i=1}^nx_i y_i = S\_{xy} + n \bar{x} \bar{y}\\. Now compute the solution:
 >
-> \\ \begin{aligned} A^{-1} \underset{\sim}{c} &= \frac{1}{\det A} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \underset{\sim}{c} && \text{(inverse of a \$2 \times 2\$ matrix)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \underset{\sim}{c} && \text{(\$\det A = n S\_{xx}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(substitute \$\underset{\sim}{c}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 \cdot n\bar{y} + \mathopen{}\left(-n\bar{x}\right)\mathclose{} \sum\_{i=1}^nx_i y_i \\ \mathopen{}\left(-n\bar{x}\right)\mathclose{} \cdot n\bar{y} + n \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(matrix times a vector)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} n \bar{y} \sum\_{i=1}^nx_i^2 - n \bar{x} \sum\_{i=1}^nx_i y_i \\ -n^2 \bar{x} \bar{y} + n \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(multiply out the products)}\\ &= \frac{1}{n S\_{xx}} \\ n \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_i y_i \\ -n \bar{x} \bar{y} + \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(factor \$n\$ out of the vector)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_i y_i \\ -n \bar{x} \bar{y} + \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(cancel \$n\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_i y_i \\ \sum\_{i=1}^nx_i y_i - n \bar{x} \bar{y} \end{pmatrix} && \text{(reorder the terms of the second entry)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \mathopen{}\left(S\_{xx} + n\bar{x}^2\right)\mathclose{} - \bar{x} \sum\_{i=1}^nx_i y_i \\ \sum\_{i=1}^nx_i y_i - n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i^2 = S\_{xx} + n\bar{x}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \mathopen{}\left(S\_{xx} + n\bar{x}^2\right)\mathclose{} - \bar{x} \mathopen{}\left(S\_{xy} + n\bar{x}\bar{y}\right)\mathclose{} \\ \mathopen{}\left(S\_{xy} + n\bar{x}\bar{y}\right)\mathclose{} - n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i y_i = S\_{xy} + n\bar{x}\bar{y}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + \bar{y} n\bar{x}^2 - \bar{x} S\_{xy} - \bar{x} n\bar{x}\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(distribute)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + n\bar{x}^2\bar{y} - \bar{x} S\_{xy} - n\bar{x}\bar{x}\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(reorder the factors)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + n\bar{x}^2\bar{y} - \bar{x} S\_{xy} - n\bar{x}^2\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\bar{x} \bar{x} = \bar{x}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} - \bar{x} S\_{xy} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(first entry: cancel \$\pm n\bar{x}^2\bar{y}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} - \bar{x} S\_{xy} \\ S\_{xy} \end{pmatrix} && \text{(second entry: cancel \$\pm n\bar{x}\bar{y}\$)}\\ &= \begin{pmatrix} \bar{y} S\_{xx} / S\_{xx} - \bar{x} \\ S\_{xy} / S\_{xx} \\ S\_{xy} / S\_{xx} \end{pmatrix} && \text{(multiply each entry by \$1 / S\_{xx}\$)}\\ &= \begin{pmatrix} \bar{y} - \bar{x} \\ S\_{xy} / S\_{xx} \\ S\_{xy} / S\_{xx} \end{pmatrix} && \text{(cancel \$S\_{xx}\$)} \end{aligned} \\
+> \\ \begin{aligned} A^{-1} \mathord{\underset{\sim}{c}} &= \frac{1}{\det A} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \mathord{\underset{\sim}{c}} && \text{(inverse of a \$2 \times 2\$ matrix)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \mathord{\underset{\sim}{c}} && \text{(\$\det A = n S\_{xx}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 & -n\bar{x} \\ -n\bar{x} & n \end{pmatrix} \begin{pmatrix} n\bar{y} \\ \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(substitute \$\mathord{\underset{\sim}{c}}\$)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} \sum\_{i=1}^nx_i^2 \cdot n\bar{y} + \mathopen{}\left(-n\bar{x}\right)\mathclose{} \sum\_{i=1}^nx_i y_i \\ \mathopen{}\left(-n\bar{x}\right)\mathclose{} \cdot n\bar{y} + n \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(matrix times a vector)}\\ &= \frac{1}{n S\_{xx}} \begin{pmatrix} n \bar{y} \sum\_{i=1}^nx_i^2 - n \bar{x} \sum\_{i=1}^nx_i y_i \\ -n^2 \bar{x} \bar{y} + n \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(multiply out the products)}\\ &= \frac{1}{n S\_{xx}} \\ n \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_i y_i \\ -n \bar{x} \bar{y} + \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(factor \$n\$ out of the vector)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_i y_i \\ -n \bar{x} \bar{y} + \sum\_{i=1}^nx_i y_i \end{pmatrix} && \text{(cancel \$n\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \sum\_{i=1}^nx_i^2 - \bar{x} \sum\_{i=1}^nx_i y_i \\ \sum\_{i=1}^nx_i y_i - n \bar{x} \bar{y} \end{pmatrix} && \text{(reorder the terms of the second entry)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \mathopen{}\left(S\_{xx} + n\bar{x}^2\right)\mathclose{} - \bar{x} \sum\_{i=1}^nx_i y_i \\ \sum\_{i=1}^nx_i y_i - n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i^2 = S\_{xx} + n\bar{x}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} \mathopen{}\left(S\_{xx} + n\bar{x}^2\right)\mathclose{} - \bar{x} \mathopen{}\left(S\_{xy} + n\bar{x}\bar{y}\right)\mathclose{} \\ \mathopen{}\left(S\_{xy} + n\bar{x}\bar{y}\right)\mathclose{} - n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\sum\_{i=1}^nx_i y_i = S\_{xy} + n\bar{x}\bar{y}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + \bar{y} n\bar{x}^2 - \bar{x} S\_{xy} - \bar{x} n\bar{x}\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(distribute)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + n\bar{x}^2\bar{y} - \bar{x} S\_{xy} - n\bar{x}\bar{x}\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(reorder the factors)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} + n\bar{x}^2\bar{y} - \bar{x} S\_{xy} - n\bar{x}^2\bar{y} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(\$\bar{x} \bar{x} = \bar{x}^2\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} - \bar{x} S\_{xy} \\ S\_{xy} + n\bar{x}\bar{y} - n \bar{x} \bar{y} \end{pmatrix} && \text{(first entry: cancel \$\pm n\bar{x}^2\bar{y}\$)}\\ &= \frac{1}{S\_{xx}} \begin{pmatrix} \bar{y} S\_{xx} - \bar{x} S\_{xy} \\ S\_{xy} \end{pmatrix} && \text{(second entry: cancel \$\pm n\bar{x}\bar{y}\$)}\\ &= \begin{pmatrix} \bar{y} S\_{xx} / S\_{xx} - \bar{x} \\ S\_{xy} / S\_{xx} \\ S\_{xy} / S\_{xx} \end{pmatrix} && \text{(multiply each entry by \$1 / S\_{xx}\$)}\\ &= \begin{pmatrix} \bar{y} - \bar{x} \\ S\_{xy} / S\_{xx} \\ S\_{xy} / S\_{xx} \end{pmatrix} && \text{(cancel \$S\_{xx}\$)} \end{aligned} \\
 >
 > Its entries are \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\ and \\\beta\_{x} = S\_{xy} / S\_{xx}\\, the same solution as [Exercise 8](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
-> **Lemma 10 (Solution of the normal equations in vector notation)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the matrix \\A = \sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}\\ is invertible, and the normal equations \\A \underset{\sim}{\beta}= \underset{\sim}{c}\\ with \\\underset{\sim}{c} = \sum\_{i=1}^n\underset{\sim}{x}\_iy_i\\ ([Lemma 9](#lem-normal-equations-vector)) have exactly one solution,
+> **Lemma 10 (Solution of the normal equations in vector notation)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the matrix \\A = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\\ is invertible, and the normal equations \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\ with \\\mathord{\underset{\sim}{c}} = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i\\ ([Lemma 9](#lem-normal-equations-vector)) have exactly one solution,
 >
-> \\ \underset{\sim}{\beta}= A^{-1} \underset{\sim}{c} = \begin{pmatrix} \bar{y} - \beta\_{x} \bar{x} \\ S\_{xy} / S\_{xx} \end{pmatrix} \quad \text{with} \quad \beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \\
+> \\ \mathord{\underset{\sim}{\beta}}= A^{-1} \mathord{\underset{\sim}{c}} = \begin{pmatrix} \bar{y} - \beta\_{x} \bar{x} \\ S\_{xy} / S\_{xx} \end{pmatrix} \quad \text{with} \quad \beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \\
 >
 > the same solution as [Lemma 5](#lem-solve-normal-equations).
 
@@ -769,27 +769,27 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 14 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \underset{\sim}{\beta}} \frac{\partial}{\partial {\underset{\sim}{\beta}}^{\top}} \text{RSS}(\underset{\sim}{\beta})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
+> **Exercise 14 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \text{RSS}(\mathord{\underset{\sim}{\beta}})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
-> *Solution 14*. Differentiate the gradient \\-2 \mathopen{}\left(\underset{\sim}{c} - A \underset{\sim}{\beta}\right)\mathclose{}\\ from [Exercise 12](#exr-normal-equations-vector) with respect to \\{\underset{\sim}{\beta}}^{\top}\\. \\\underset{\sim}{c}\\ does not depend on \\\underset{\sim}{\beta}\\. Each entry of \\A \underset{\sim}{\beta}\\ is the dot product of a row of \\A\\ with \\\underset{\sim}{\beta}\\, so by the gradient of a linear function ([Exercise 11](#exr-rss-gradient-vector)), the derivative of \\A \underset{\sim}{\beta}\\ with respect to \\{\underset{\sim}{\beta}}^{\top}\\ is \\A\\. So:
+> *Solution 14*. Differentiate the gradient \\-2 \mathopen{}\left(\mathord{\underset{\sim}{c}} - A \mathord{\underset{\sim}{\beta}}\right)\mathclose{}\\ from [Exercise 12](#exr-normal-equations-vector) with respect to \\{\mathord{\underset{\sim}{\beta}}}^{\top}\\. \\\mathord{\underset{\sim}{c}}\\ does not depend on \\\mathord{\underset{\sim}{\beta}}\\. Each entry of \\A \mathord{\underset{\sim}{\beta}}\\ is the dot product of a row of \\A\\ with \\\mathord{\underset{\sim}{\beta}}\\, so by the gradient of a linear function ([Exercise 11](#exr-rss-gradient-vector)), the derivative of \\A \mathord{\underset{\sim}{\beta}}\\ with respect to \\{\mathord{\underset{\sim}{\beta}}}^{\top}\\ is \\A\\. So:
 >
-> \\ \begin{aligned} \frac{\partial}{\partial \underset{\sim}{\beta}} \frac{\partial}{\partial {\underset{\sim}{\beta}}^{\top}} \text{RSS}(\underset{\sim}{\beta}) &= \frac{\partial}{\partial {\underset{\sim}{\beta}}^{\top}} \mathopen{}\left(-2 \mathopen{}\left(\underset{\sim}{c} - A \underset{\sim}{\beta}\right)\mathclose{}\right)\mathclose{} && \text{(differentiate the gradient)}\\ &= -2 \frac{\partial}{\partial {\underset{\sim}{\beta}}^{\top}} \mathopen{}\left(\underset{\sim}{c} - A \underset{\sim}{\beta}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left(\frac{\partial}{\partial {\underset{\sim}{\beta}}^{\top}} \underset{\sim}{c} - \frac{\partial}{\partial {\underset{\sim}{\beta}}^{\top}} A \underset{\sim}{\beta}\right)\mathclose{} && \text{(derivative of a difference)}\\ &= -2 \mathopen{}\left(\mathbf{0} - \frac{\partial}{\partial {\underset{\sim}{\beta}}^{\top}} A \underset{\sim}{\beta}\right)\mathclose{} && \text{(\$\underset{\sim}{c}\$ does not depend on \$\underset{\sim}{\beta}\$)}\\ &= -2 \mathopen{}\left(\mathbf{0} - A\right)\mathclose{} && \text{(derivative of a linear function)}\\ &= -2 \mathopen{}\left(-A\right)\mathclose{} && \text{(subtract from zero)}\\ &= 2 A && \text{(multiply)}\\ &= 2 \sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top} && \text{(definition of \$A\$)} \end{aligned} \\
+> \\ \begin{aligned} \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \text{RSS}(\mathord{\underset{\sim}{\beta}}) &= \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \mathopen{}\left(-2 \mathopen{}\left(\mathord{\underset{\sim}{c}} - A \mathord{\underset{\sim}{\beta}}\right)\mathclose{}\right)\mathclose{} && \text{(differentiate the gradient)}\\ &= -2 \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \mathopen{}\left(\mathord{\underset{\sim}{c}} - A \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(constant factor)}\\ &= -2 \mathopen{}\left(\frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \mathord{\underset{\sim}{c}} - \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} A \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(derivative of a difference)}\\ &= -2 \mathopen{}\left(\mathbf{0} - \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} A \mathord{\underset{\sim}{\beta}}\right)\mathclose{} && \text{(\$\mathord{\underset{\sim}{c}}\$ does not depend on \$\mathord{\underset{\sim}{\beta}}\$)}\\ &= -2 \mathopen{}\left(\mathbf{0} - A\right)\mathclose{} && \text{(derivative of a linear function)}\\ &= -2 \mathopen{}\left(-A\right)\mathclose{} && \text{(subtract from zero)}\\ &= 2 A && \text{(multiply)}\\ &= 2 \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top} && \text{(definition of \$A\$)} \end{aligned} \\
 >
-> To show it is positive definite, take any vector \\\underset{\sim}{v} = {(v_0, v_x)}^{\top} \neq \underset{\sim}{0}\\:
+> To show it is positive definite, take any vector \\\mathord{\underset{\sim}{v}} = {(v_0, v_x)}^{\top} \neq \mathord{\underset{\sim}{0}}\\:
 >
-> \\ \begin{aligned} {\underset{\sim}{v}}^{\top} \mathopen{}\left(2 A\right)\mathclose{} \underset{\sim}{v} &= 2 \\ {\underset{\sim}{v}}^{\top} A \underset{\sim}{v} && \text{(constant factor)}\\ &= 2 \\ {\underset{\sim}{v}}^{\top} \mathopen{}\left(\sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}\right)\mathclose{} \underset{\sim}{v} && \text{(definition of \$A\$)}\\ &= 2 \sum\_{i=1}^n{\underset{\sim}{v}}^{\top} \mathopen{}\left(\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}\right)\mathclose{} \underset{\sim}{v} && \text{(matrix multiplication distributes over the sum)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left({\underset{\sim}{v}}^{\top} \underset{\sim}{x}\_i\right)\mathclose{} \mathopen{}\left({\underset{\sim}{x}\_i}^{\top} \underset{\sim}{v}\right)\mathclose{} && \text{(matrix multiplication is associative)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(\underset{\sim}{v} \cdot \underset{\sim}{x}\_i\right)\mathclose{} \mathopen{}\left(\underset{\sim}{x}\_i \cdot \underset{\sim}{v}\right)\mathclose{} && \text{(transpose products as dot products)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(\underset{\sim}{v} \cdot \underset{\sim}{x}\_i\right)\mathclose{}^2 && \text{(dot product is symmetric)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(v_0 + v_x x_i\right)\mathclose{}^2 && \text{(write out the dot product)}\\ &\ge 0 && \text{(sum of squares)} \end{aligned} \\
+> \\ \begin{aligned} {\mathord{\underset{\sim}{v}}}^{\top} \mathopen{}\left(2 A\right)\mathclose{} \mathord{\underset{\sim}{v}} &= 2 \\ {\mathord{\underset{\sim}{v}}}^{\top} A \mathord{\underset{\sim}{v}} && \text{(constant factor)}\\ &= 2 \\ {\mathord{\underset{\sim}{v}}}^{\top} \mathopen{}\left(\sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\right)\mathclose{} \mathord{\underset{\sim}{v}} && \text{(definition of \$A\$)}\\ &= 2 \sum\_{i=1}^n{\mathord{\underset{\sim}{v}}}^{\top} \mathopen{}\left(\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\right)\mathclose{} \mathord{\underset{\sim}{v}} && \text{(matrix multiplication distributes over the sum)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left({\mathord{\underset{\sim}{v}}}^{\top} \mathord{\underset{\sim}{x}}\_i\right)\mathclose{} \mathopen{}\left({\mathord{\underset{\sim}{x}}\_i}^{\top} \mathord{\underset{\sim}{v}}\right)\mathclose{} && \text{(matrix multiplication is associative)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(\mathord{\underset{\sim}{v}} \cdot \mathord{\underset{\sim}{x}}\_i\right)\mathclose{} \mathopen{}\left(\mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{v}}\right)\mathclose{} && \text{(transpose products as dot products)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(\mathord{\underset{\sim}{v}} \cdot \mathord{\underset{\sim}{x}}\_i\right)\mathclose{}^2 && \text{(dot product is symmetric)}\\ &= 2 \sum\_{i=1}^n\mathopen{}\left(v_0 + v_x x_i\right)\mathclose{}^2 && \text{(write out the dot product)}\\ &\ge 0 && \text{(sum of squares)} \end{aligned} \\
 >
-> Equality would need \\v_0 + v_x x_i = 0\\ for every \\i\\. If \\v_x \neq 0\\, that would force every \\x_i = -v_0 / v_x\\, contradicting \\S\_{xx} \> 0\\; if \\v_x = 0\\, it would force \\v_0 = 0\\, contradicting \\\underset{\sim}{v} \neq \underset{\sim}{0}\\. So the inequality is strict, and the Hessian is positive definite at every \\\underset{\sim}{\beta}\\.
+> Equality would need \\v_0 + v_x x_i = 0\\ for every \\i\\. If \\v_x \neq 0\\, that would force every \\x_i = -v_0 / v_x\\, contradicting \\S\_{xx} \> 0\\; if \\v_x = 0\\, it would force \\v_0 = 0\\, contradicting \\\mathord{\underset{\sim}{v}} \neq \mathord{\underset{\sim}{0}}\\. So the inequality is strict, and the Hessian is positive definite at every \\\mathord{\underset{\sim}{\beta}}\\.
 
 > **NOTE:**
 >
 > **Lemma 11 (Hessian of RSS in vector notation)** The [Hessian](intro-MLEs.llms.md#def-hessian) of the residual sum of squares is
 >
-> \\ \frac{\partial}{\partial \underset{\sim}{\beta}} \frac{\partial}{\partial {\underset{\sim}{\beta}}^{\top}} \text{RSS}(\underset{\sim}{\beta}) = 2 \sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}, \\
+> \\ \frac{\partial}{\partial \mathord{\underset{\sim}{\beta}}} \frac{\partial}{\partial {\mathord{\underset{\sim}{\beta}}}^{\top}} \text{RSS}(\mathord{\underset{\sim}{\beta}}) = 2 \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}, \\
 >
-> and it is positive definite at every \\\underset{\sim}{\beta}\\ when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
+> and it is positive definite at every \\\mathord{\underset{\sim}{\beta}}\\ when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -797,15 +797,15 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Theorem 6 (OLS estimates in vector notation)** Suppose \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\underset{\sim}{x}\_i {\underset{\sim}{x}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 12](#def-ols)) is
+> **Theorem 6 (OLS estimates in vector notation)** Suppose \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_i {\mathord{\underset{\sim}{x}}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 12](#def-ols)) is
 >
-> \\ \hat{\underset{\sim}{\beta}}= A^{-1} \underset{\sim}{c}, \qquad \underset{\sim}{c} = \sum\_{i=1}^n\underset{\sim}{x}\_iy_i. \\
+> \\ \hat{\mathord{\underset{\sim}{\beta}}}= A^{-1} \mathord{\underset{\sim}{c}}, \qquad \mathord{\underset{\sim}{c}} = \sum\_{i=1}^n\mathord{\underset{\sim}{x}}\_iy_i. \\
 >
 > Its entries are the estimates of [Theorem 5](#thm-ols-slr).
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 9](#lem-normal-equations-vector), the normal equations are \\A \underset{\sim}{\beta}= \underset{\sim}{c}\\. By [Lemma 10](#lem-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \underset{\sim}{c}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Lemma 11](#lem-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\underset{\sim}{\beta}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \underset{\sim}{c}\\ is its unique global minimum.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 9](#lem-normal-equations-vector), the normal equations are \\A \mathord{\underset{\sim}{\beta}}= \mathord{\underset{\sim}{c}}\\. By [Lemma 10](#lem-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \mathord{\underset{\sim}{c}}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Lemma 11](#lem-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\mathord{\underset{\sim}{\beta}}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \mathord{\underset{\sim}{c}}\\ is its unique global minimum.
 
 > **NOTE:**
 >
@@ -926,9 +926,9 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Definition 18 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\underset{\sim}{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\underset{\sim}{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
+> **Definition 18 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\mathord{\underset{\sim}{\theta}}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\mathord{\underset{\sim}{\theta}}}\\ to the [total sum of squares](#def-tss) of its outcomes:
 >
-> \\R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\underset{\sim}{\theta}})}{\text{TSS}}.\\
+> \\R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}})}{\text{TSS}}.\\
 
 > **NOTE:**
 >
@@ -966,7 +966,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > *Solution 17*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 14](#def-centered-sums)), and [Exercise 16](#exr-rss-ols-fit) gives the residual sum of squares, so:
 >
-> \\ \begin{aligned} R^2 &= 1 - \frac{\text{RSS}(\hat{\underset{\sim}{\theta}})}{\text{TSS}} && \text{(definition of \$R^2\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{\text{TSS}} && \text{(the OLS estimate is \$(\hat{\beta}\_{0}, \hat{\beta}\_{x})\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{S\_{yy}} && \text{(TSS is \$S\_{yy}\$)}\\ &= 1 - \frac{S\_{yy} - S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(residual sum of squares of the OLS fit)}\\ &= 1 - \mathopen{}\left(\frac{S\_{yy}}{S\_{yy}} - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(split the fraction)}\\ &= 1 - \mathopen{}\left(1 - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(\$S\_{yy} / S\_{yy} = 1\$)}\\ &= 1 - 1 + \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(distribute the minus sign)}\\ &= \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(\$1 - 1 = 0\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx} S\_{yy}} && \text{(divide a fraction by \$S\_{yy}\$)}\\ &= \mathopen{}\left(\frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}\right)\mathclose{}^2 && \text{(write as a square)}\\ &= r^2 && \text{(\$r = S\_{xy} / \sqrt{S\_{xx} S\_{yy}}\$)} \end{aligned} \\
+> \\ \begin{aligned} R^2 &= 1 - \frac{\text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}})}{\text{TSS}} && \text{(definition of \$R^2\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{\text{TSS}} && \text{(the OLS estimate is \$(\hat{\beta}\_{0}, \hat{\beta}\_{x})\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{S\_{yy}} && \text{(TSS is \$S\_{yy}\$)}\\ &= 1 - \frac{S\_{yy} - S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(residual sum of squares of the OLS fit)}\\ &= 1 - \mathopen{}\left(\frac{S\_{yy}}{S\_{yy}} - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(split the fraction)}\\ &= 1 - \mathopen{}\left(1 - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(\$S\_{yy} / S\_{yy} = 1\$)}\\ &= 1 - 1 + \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(distribute the minus sign)}\\ &= \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(\$1 - 1 = 0\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx} S\_{yy}} && \text{(divide a fraction by \$S\_{yy}\$)}\\ &= \mathopen{}\left(\frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}\right)\mathclose{}^2 && \text{(write as a square)}\\ &= r^2 && \text{(\$r = S\_{xy} / \sqrt{S\_{xx} S\_{yy}}\$)} \end{aligned} \\
 >
 > Since \\-1 \le r \le 1\\ ([range of the correlation coefficient](exploratory-descriptive.llms.md#thm-pearson-r-range)), \\0 \le r^2 \le 1\\.
 

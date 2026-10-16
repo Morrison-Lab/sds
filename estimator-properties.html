@@ -221,60 +221,6 @@ cookieconsent.run({
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-videos.callout {
-  border-left-color: #283593;
-}
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
-}
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-tbl.callout {
-  border-left-color: #757575;
-}
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-lem.callout {
   border-left-color: #1565C0;
 }
@@ -284,16 +230,6 @@ div.callout-lem.callout-style-default .callout-header {
 div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exm.callout {
   border-left-color: #6A1B9A;
@@ -305,25 +241,25 @@ div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-fig.callout {
-  border-left-color: #757575;
+div.callout-exr.callout {
+  border-left-color: #FFA500;
 }
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
 }
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-cor.callout {
+  border-left-color: #00838F;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-reading.callout {
   border-left-color: #00695C;
@@ -339,6 +275,16 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-remark.callout {
   border-left-color: #AD1457;
 }
@@ -348,6 +294,16 @@ div.callout-remark.callout-style-default .callout-header {
 div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-proof.callout {
+  border-left-color: #37474F;
+}
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
+}
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-prp.callout {
   border-left-color: #827717;
@@ -359,6 +315,40 @@ div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-tbl.callout {
+  border-left-color: #757575;
+}
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-videos.callout {
+  border-left-color: #283593;
+}
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
+}
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
+}
 div.callout-def.callout {
   border-left-color: #1B5E20;
 }
@@ -368,6 +358,16 @@ div.callout-def.callout-style-default .callout-header {
 div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -913,7 +913,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-16 03:31:39 (PDT)</p>
+      <p class="date">Last modified: 2026-10-16 03:46:21 (PDT)</p>
     </div>
   </div>
   
@@ -1222,7 +1222,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <div class="cell">
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-80e4fa71c69fe2188f06" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-80e4fa71c69fe2188f06">{"x":{"data":[{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058,2.5051499783199058,2.5051499783199058,2.204119982655925,1.9030899869919435,1.6020599913279625,1.3010299956639813,1,0.69897000433601886,0.69897000433601886],"y":[0.74412642085190062,0.6275620769472674,0.50533818540028108,0.34442468759560502,0.20118085408834369,0.079869152366822072,0.007875933252589902,0.007875933252589902,0.018091204478120012,0.10572594390584567,0.23791136600264648,0.38709710028076422,0.54955517342634796,0.66985982235767061,0.78184975102102827,0.74412642085190062],"text":["n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:   5<br />lower: 0.74412642<br />upper: 0.7818498"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(51,51,51,0.25)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635<br />linetype: simulated","n:  10<br />miss_prob: 0.6490<br />linetype: simulated","n:  20<br />miss_prob: 0.5275<br />linetype: simulated","n:  40<br />miss_prob: 0.3655<br />linetype: simulated","n:  80<br />miss_prob: 0.2190<br />linetype: simulated","n: 160<br />miss_prob: 0.0920<br />linetype: simulated","n: 320<br />miss_prob: 0.0120<br />linetype: simulated"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","name":"simulated","legendgroup":"simulated","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635","n:  10<br />miss_prob: 0.6490","n:  20<br />miss_prob: 0.5275","n:  40<br />miss_prob: 0.3655","n:  80<br />miss_prob: 0.2190","n: 160<br />miss_prob: 0.0920","n: 320<br />miss_prob: 0.0120"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[1,1,1,1,0.66117497228521038,0.33058748614260519,0.1652937430713026],"text":["n:   5<br />bound: 1.000000<br />linetype: bound","n:  10<br />bound: 1.000000<br />linetype: bound","n:  20<br />bound: 1.000000<br />linetype: bound","n:  40<br />bound: 1.000000<br />linetype: bound","n:  80<br />bound: 0.661175<br />linetype: bound","n: 160<br />bound: 0.330587<br />linetype: bound","n: 320<br />bound: 0.165294<br />linetype: bound"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","name":"bound","legendgroup":"bound","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":39.651307596513085,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.60866100563682446,2.5954589770191001],"tickmode":"array","ticktext":["5","10","20","40","80","160","320"],"tickvals":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"categoryorder":"array","categoryarray":["5","10","20","40","80","160","320"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"sample size n","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.041730270084780606,1.0496062033373705],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.24999999999999997,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"probability of a miss","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"34da20fb887d":{"x":{},"ymin":{},"ymax":{},"type":"scatter"},"34da145779b7":{"x":{},"y":{},"linetype":{}},"34da3f426a75":{"x":{},"y":{}},"34da7de6b94a":{"x":{},"y":{},"linetype":{}}},"cur_data":"34da20fb887d","visdat":{"34da20fb887d":["function (y) ","x"],"34da145779b7":["function (y) ","x"],"34da3f426a75":["function (y) ","x"],"34da7de6b94a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-80e4fa71c69fe2188f06">{"x":{"data":[{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058,2.5051499783199058,2.5051499783199058,2.204119982655925,1.9030899869919435,1.6020599913279625,1.3010299956639813,1,0.69897000433601886,0.69897000433601886],"y":[0.74412642085190062,0.6275620769472674,0.50533818540028108,0.34442468759560502,0.20118085408834369,0.079869152366822072,0.007875933252589902,0.007875933252589902,0.018091204478120012,0.10572594390584567,0.23791136600264648,0.38709710028076422,0.54955517342634796,0.66985982235767061,0.78184975102102827,0.74412642085190062],"text":["n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:   5<br />lower: 0.74412642<br />upper: 0.7818498"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(51,51,51,0.25)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635<br />linetype: simulated","n:  10<br />miss_prob: 0.6490<br />linetype: simulated","n:  20<br />miss_prob: 0.5275<br />linetype: simulated","n:  40<br />miss_prob: 0.3655<br />linetype: simulated","n:  80<br />miss_prob: 0.2190<br />linetype: simulated","n: 160<br />miss_prob: 0.0920<br />linetype: simulated","n: 320<br />miss_prob: 0.0120<br />linetype: simulated"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","name":"simulated","legendgroup":"simulated","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635","n:  10<br />miss_prob: 0.6490","n:  20<br />miss_prob: 0.5275","n:  40<br />miss_prob: 0.3655","n:  80<br />miss_prob: 0.2190","n: 160<br />miss_prob: 0.0920","n: 320<br />miss_prob: 0.0120"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[1,1,1,1,0.66117497228521038,0.33058748614260519,0.1652937430713026],"text":["n:   5<br />bound: 1.000000<br />linetype: bound","n:  10<br />bound: 1.000000<br />linetype: bound","n:  20<br />bound: 1.000000<br />linetype: bound","n:  40<br />bound: 1.000000<br />linetype: bound","n:  80<br />bound: 0.661175<br />linetype: bound","n: 160<br />bound: 0.330587<br />linetype: bound","n: 320<br />bound: 0.165294<br />linetype: bound"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","name":"bound","legendgroup":"bound","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":39.651307596513085,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.60866100563682446,2.5954589770191001],"tickmode":"array","ticktext":["5","10","20","40","80","160","320"],"tickvals":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"categoryorder":"array","categoryarray":["5","10","20","40","80","160","320"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"sample size n","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.041730270084780606,1.0496062033373705],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.24999999999999997,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"probability of a miss","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"34a360c90bf8":{"x":{},"ymin":{},"ymax":{},"type":"scatter"},"34a37d1c7b8":{"x":{},"y":{},"linetype":{}},"34a321d7d3c3":{"x":{},"y":{}},"34a36de7e129":{"x":{},"y":{},"linetype":{}}},"cur_data":"34a360c90bf8","visdat":{"34a360c90bf8":["function (y) ","x"],"34a37d1c7b8":["function (y) ","x"],"34a321d7d3c3":["function (y) ","x"],"34a36de7e129":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1360,7 +1360,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <div id="callout-17" class="callout-17-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-cov-estimator-score" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 2 (Covariance of an unbiased estimator with the score)</strong></span> Let <span class="math inline">\(\underset{\sim}{X}\)</span> have density <span class="math inline">\(\operatorname{p}(\underset{\sim}{x}\mid \theta)\)</span> for a scalar parameter <span class="math inline">\(\theta\)</span>, under the assumptions of <a href="./intro-MLEs.html#exr-score-mean-zero">the exercise on the mean of the score</a>, and let <span class="math inline">\(\hat{\theta}= \hat{\theta}(\underset{\sim}{X})\)</span> be an <a href="./estimation.html#def-unbiased">unbiased</a> estimator of <span class="math inline">\(\theta\)</span> with finite variance. Show that the covariance of <span class="math inline">\(\hat{\theta}\)</span> with the <a href="./intro-MLEs.html#def-score">score</a> <span class="math inline">\(\ell'(\underset{\sim}{X}\mid \theta)\)</span> equals 1. Assume the derivative of <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\)</span> with respect to <span class="math inline">\(\theta\)</span> can be taken inside the integral.</p>
+<p><span class="theorem-title"><strong>Exercise 2 (Covariance of an unbiased estimator with the score)</strong></span> Let <span class="math inline">\(\mathord{\underset{\sim}{X}}\)</span> have density <span class="math inline">\(\operatorname{p}(\mathord{\underset{\sim}{x}}\mid \theta)\)</span> for a scalar parameter <span class="math inline">\(\theta\)</span>, under the assumptions of <a href="./intro-MLEs.html#exr-score-mean-zero">the exercise on the mean of the score</a>, and let <span class="math inline">\(\hat{\theta}= \hat{\theta}(\mathord{\underset{\sim}{X}})\)</span> be an <a href="./estimation.html#def-unbiased">unbiased</a> estimator of <span class="math inline">\(\theta\)</span> with finite variance. Show that the covariance of <span class="math inline">\(\hat{\theta}\)</span> with the <a href="./intro-MLEs.html#def-score">score</a> <span class="math inline">\(\ell'(\mathord{\underset{\sim}{X}}\mid \theta)\)</span> equals 1. Assume the derivative of <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\)</span> with respect to <span class="math inline">\(\theta\)</span> can be taken inside the integral.</p>
 </div>
 </div>
 </div>
@@ -1390,13 +1390,13 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 &amp;&amp; \text{($b \cdot 0 = 0$)}\\
 &amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}\ell'\right]\mathclose{}
 &amp;&amp; \text{($a - 0 = a$)}\\
-&amp;= \int \hat{\theta}(\underset{\sim}{x}) \, \ell'(\underset{\sim}{x}\mid \theta) \, \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
+&amp;= \int \hat{\theta}(\mathord{\underset{\sim}{x}}) \, \ell'(\mathord{\underset{\sim}{x}}\mid \theta) \, \operatorname{p}(\mathord{\underset{\sim}{x}}\mid \theta) \, d\mathord{\underset{\sim}{x}}
 &amp;&amp; \text{(definition of expectation)}\\
-&amp;= \int \hat{\theta}(\underset{\sim}{x}) \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\underset{\sim}{x}\mid \theta)\right)\mathclose{} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
+&amp;= \int \hat{\theta}(\mathord{\underset{\sim}{x}}) \mathopen{}\left(\frac{\partial}{\partial \theta} \log \operatorname{p}(\mathord{\underset{\sim}{x}}\mid \theta)\right)\mathclose{} \operatorname{p}(\mathord{\underset{\sim}{x}}\mid \theta) \, d\mathord{\underset{\sim}{x}}
 &amp;&amp; \text{(definition of the score)}\\
-&amp;= \int \hat{\theta}(\underset{\sim}{x}) \, \frac{\partial}{\partial \theta} \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
+&amp;= \int \hat{\theta}(\mathord{\underset{\sim}{x}}) \, \frac{\partial}{\partial \theta} \operatorname{p}(\mathord{\underset{\sim}{x}}\mid \theta) \, d\mathord{\underset{\sim}{x}}
 &amp;&amp; \text{(derivative of a log density)}\\
-&amp;= \frac{\partial}{\partial \theta} \int \hat{\theta}(\underset{\sim}{x}) \, \operatorname{p}(\underset{\sim}{x}\mid \theta) \, d\underset{\sim}{x}
+&amp;= \frac{\partial}{\partial \theta} \int \hat{\theta}(\mathord{\underset{\sim}{x}}) \, \operatorname{p}(\mathord{\underset{\sim}{x}}\mid \theta) \, d\mathord{\underset{\sim}{x}}
 &amp;&amp; \text{(exchange derivative and integral)}\\
 &amp;= \frac{\partial}{\partial \theta} \operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}
 &amp;&amp; \text{(definition of expectation)}\\
@@ -1425,7 +1425,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <div id="lem-cov-estimator-score" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lemma 2 (Covariance of an unbiased estimator with the score)</strong></span> Under the assumptions of <a href="#exr-cov-estimator-score" class="quarto-xref">Exercise&nbsp;2</a>, an unbiased estimator <span class="math inline">\(\hat{\theta}\)</span> of <span class="math inline">\(\theta\)</span> has covariance 1 with the score:</p>
 <p><span id="eq-cov-estimator-score"><span class="math display">\[
-\operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'(\underset{\sim}{X}\mid \theta)\right)\mathclose{} = 1
+\operatorname{Cov}\mathopen{}\left(\hat{\theta}, \ell'(\mathord{\underset{\sim}{X}}\mid \theta)\right)\mathclose{} = 1
 \tag{4}\]</span></span></p>
 </div>
 </div>

@@ -14,15 +14,15 @@ Code
 
 Published
 
-Last modified: 2026-10-16 03:31:39 (PDT)
+Last modified: 2026-10-16 03:46:21 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
 > **NOTE:**
 >
-> **Definition 1 (Data set)** A **data set** is a finite collection of \\n\\ labelled observations, that is, \\n\\ pairs \\(\underset{\sim}{x}\_i, y_i)\\, where \\\underset{\sim}{x}\_i\\ is an input vector and \\y_i\\ is the corresponding outcome:
+> **Definition 1 (Data set)** A **data set** is a finite collection of \\n\\ labelled observations, that is, \\n\\ pairs \\(\mathord{\underset{\sim}{x}}\_i, y_i)\\, where \\\mathord{\underset{\sim}{x}}\_i\\ is an input vector and \\y_i\\ is the corresponding outcome:
 >
-> \\ \mathcal{D}\stackrel{\text{def}}{=}\mathopen{}\left\\(\underset{\sim}{x}\_i, y_i) : i = 1, \ldots, n\right\\\mathclose{} . \tag{1}\\
+> \\ \mathcal{D}\stackrel{\text{def}}{=}\mathopen{}\left\\(\mathord{\underset{\sim}{x}}\_i, y_i) : i = 1, \ldots, n\right\\\mathclose{} . \tag{1}\\
 
 > **NOTE:**
 >
@@ -30,15 +30,15 @@ Last modified: 2026-10-16 03:31:39 (PDT)
 
 > **NOTE:**
 >
-> **Definition 2 (Input matrix)** The **input matrix** \\\mathbf{X}\\ of a [data set](#def-data-set) \\\mathcal{D}\\ stacks the \\n\\ inputs \\\underset{\sim}{x}\_i\\ as rows, with one column for each of the \\p\\ input variables:
+> **Definition 2 (Input matrix)** The **input matrix** \\\mathbf{X}\\ of a [data set](#def-data-set) \\\mathcal{D}\\ stacks the \\n\\ inputs \\\mathord{\underset{\sim}{x}}\_i\\ as rows, with one column for each of the \\p\\ input variables:
 >
-> \\ \mathbf{X}= \begin{bmatrix} {\underset{\sim}{x}\_1}^{\top} \\ \vdots \\ {\underset{\sim}{x}\_{n}}^{\top} \end{bmatrix} . \tag{2}\\
+> \\ \mathbf{X}= \begin{bmatrix} {\mathord{\underset{\sim}{x}}\_1}^{\top} \\ \vdots \\ {\mathord{\underset{\sim}{x}}\_{n}}^{\top} \end{bmatrix} . \tag{2}\\
 
 > **NOTE:**
 >
-> **Definition 3 (Outcome vector)** The **outcome vector** \\\underset{\sim}{y}\\ of a [data set](#def-data-set) \\\mathcal{D}\\ stacks its \\n\\ outcomes \\y_i\\:
+> **Definition 3 (Outcome vector)** The **outcome vector** \\\mathord{\underset{\sim}{y}}\\ of a [data set](#def-data-set) \\\mathcal{D}\\ stacks its \\n\\ outcomes \\y_i\\:
 >
-> \\ \underset{\sim}{y}= \begin{bmatrix} y_1 \\ \vdots \\ y\_{n} \end{bmatrix} . \tag{3}\\
+> \\ \mathord{\underset{\sim}{y}}= \begin{bmatrix} y_1 \\ \vdots \\ y\_{n} \end{bmatrix} . \tag{3}\\
 
 > **NOTE:**
 >
@@ -82,7 +82,7 @@ Last modified: 2026-10-16 03:31:39 (PDT)
 >
 > **Definition 5 (Training set)** A **training set** is the data to which a [fitting procedure](#def-fitting-procedure) is applied: \\n\\ observations, written as an ordered list indexed by a set \\I\\ of \\n\\ observation numbers:
 >
-> \\ \mathcal{D}\_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\underset{\sim}{x}\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{5}\\
+> \\ \mathcal{D}\_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\mathord{\underset{\sim}{x}}\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{5}\\
 
 > **NOTE:**
 >
@@ -96,7 +96,7 @@ Last modified: 2026-10-16 03:31:39 (PDT)
 
 > **NOTE:**
 >
-> **Definition 7 (New observation)** A **new observation** is a pair \\(X\_{\*}, Y\_{\*})\\ of a covariate value and an outcome drawn from the same population as the observations of a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of \\\mathcal{D}\_{\text{train}}\\. The subscript \\\*\\ marks a quantity of the new observation, as in \\X\_{\*}\\ and \\Y\_{\*}\\, and distinguishes it from the indexed observations \\(\underset{\sim}{x}\_{i}, y\_{i})\\ of \\\mathcal{D}\_{\text{train}}\\.
+> **Definition 7 (New observation)** A **new observation** is a pair \\(X\_{\*}, Y\_{\*})\\ of a covariate value and an outcome drawn from the same population as the observations of a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, [statistically independent](https://morrison-lab.github.io/pds/independence.html#def-indpt) of \\\mathcal{D}\_{\text{train}}\\. The subscript \\\*\\ marks a quantity of the new observation, as in \\X\_{\*}\\ and \\Y\_{\*}\\, and distinguishes it from the indexed observations \\(\mathord{\underset{\sim}{x}}\_{i}, y\_{i})\\ of \\\mathcal{D}\_{\text{train}}\\.
 
 > **NOTE:**
 >
@@ -1373,19 +1373,19 @@ Last modified: 2026-10-16 03:31:39 (PDT)
 
 > **NOTE:**
 >
-> **Definition 38 (Term vector)** Consider a model whose mean is a linear combination of \\p^{\*}\\ terms \\t\_{1}(x), \ldots, t\_{p^{\*}}(x)\\ of the covariate value, such as \\1\\, \\x\\ and \\x^2\\. The **term vector** \\\underset{\sim}{t}\_{i}\\ of observation \\i\\ is the column of its terms:
+> **Definition 38 (Term vector)** Consider a model whose mean is a linear combination of \\p^{\*}\\ terms \\t\_{1}(x), \ldots, t\_{p^{\*}}(x)\\ of the covariate value, such as \\1\\, \\x\\ and \\x^2\\. The **term vector** \\\mathord{\underset{\sim}{t}}\_{i}\\ of observation \\i\\ is the column of its terms:
 >
-> \\ \underset{\sim}{t}\_{i} \stackrel{\text{def}}{=}{\mathopen{}\left(t\_{1}(x\_{i}), \ldots, t\_{p^{\*}}(x\_{i})\right)\mathclose{}}^{\top}. \tag{39}\\
+> \\ \mathord{\underset{\sim}{t}}\_{i} \stackrel{\text{def}}{=}{\mathopen{}\left(t\_{1}(x\_{i}), \ldots, t\_{p^{\*}}(x\_{i})\right)\mathclose{}}^{\top}. \tag{39}\\
 
 > **NOTE:**
 >
-> *Remark 28* (The term vector of simple linear regression). In simple linear regression the terms are \\1\\ and \\x\\, so the [term vector](#def-term-vector) \\\underset{\sim}{t}\_{i}\\ is the [covariate vector](correlation-regression.llms.md#def-slr-covariate-vector) \\\underset{\sim}{x}\_i\\.
+> *Remark 28* (The term vector of simple linear regression). In simple linear regression the terms are \\1\\ and \\x\\, so the [term vector](#def-term-vector) \\\mathord{\underset{\sim}{t}}\_{i}\\ is the [covariate vector](correlation-regression.llms.md#def-slr-covariate-vector) \\\mathord{\underset{\sim}{x}}\_i\\.
 
 > **NOTE:**
 >
-> **Definition 39 (Cross-product matrix (sum-of-squares and cross-products matrix))** The **cross-product matrix** \\A\\ of [term vectors](#def-term-vector) \\\underset{\sim}{t}\_{i}\\, \\i\in I\\, of a training set indexed by \\I\\, is the sum of their outer products:
+> **Definition 39 (Cross-product matrix (sum-of-squares and cross-products matrix))** The **cross-product matrix** \\A\\ of [term vectors](#def-term-vector) \\\mathord{\underset{\sim}{t}}\_{i}\\, \\i\in I\\, of a training set indexed by \\I\\, is the sum of their outer products:
 >
-> \\ A\stackrel{\text{def}}{=}\sum\_{i\in I} \underset{\sim}{t}\_{i} {\underset{\sim}{t}\_{i}}^{\top}. \tag{40}\\
+> \\ A\stackrel{\text{def}}{=}\sum\_{i\in I} \mathord{\underset{\sim}{t}}\_{i} {\mathord{\underset{\sim}{t}}\_{i}}^{\top}. \tag{40}\\
 
 > **NOTE:**
 >
@@ -1393,7 +1393,7 @@ Last modified: 2026-10-16 03:31:39 (PDT)
 
 > **NOTE:**
 >
-> *Remark 30* (Cross-product matrix as a matrix product). Let \\D\\ be the matrix whose rows are the transposed [term vectors](#def-term-vector) \\{\underset{\sim}{t}\_{i}}^{\top}\\, \\i\in I\\. The cross-product matrix then equals the matrix product
+> *Remark 30* (Cross-product matrix as a matrix product). Let \\D\\ be the matrix whose rows are the transposed [term vectors](#def-term-vector) \\{\mathord{\underset{\sim}{t}}\_{i}}^{\top}\\, \\i\in I\\. The cross-product matrix then equals the matrix product
 >
 > \\ A= {D}^{\top} D. \\
 >
@@ -1405,9 +1405,9 @@ Last modified: 2026-10-16 03:31:39 (PDT)
 
 > **NOTE:**
 >
-> **Definition 40 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) \\\underset{\sim}{t}\_{i}\\, \\i\in I\\, and an invertible [cross-product matrix](#def-cross-product-matrix) \\A\\. The **leverage** of observation \\i\\ is
+> **Definition 40 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) \\\mathord{\underset{\sim}{t}}\_{i}\\, \\i\in I\\, and an invertible [cross-product matrix](#def-cross-product-matrix) \\A\\. The **leverage** of observation \\i\\ is
 >
-> \\ h\_{i} \stackrel{\text{def}}{=}{\underset{\sim}{t}\_{i}}^{\top} A^{-1} \underset{\sim}{t}\_{i}. \tag{41}\\
+> \\ h\_{i} \stackrel{\text{def}}{=}{\mathord{\underset{\sim}{t}}\_{i}}^{\top} A^{-1} \mathord{\underset{\sim}{t}}\_{i}. \tag{41}\\
 
 > **NOTE:**
 >
@@ -1421,7 +1421,7 @@ Last modified: 2026-10-16 03:31:39 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. Not derived here; see the sources named under the theorem. The derivation needs a formula for how the inverse of the [cross-product matrix](#def-cross-product-matrix) \\A\\ changes when one observation’s outer product \\\underset{\sim}{t}\_{i} {\underset{\sim}{t}\_{i}}^{\top}\\ is removed from it (the Sherman–Morrison formula), which this page does not develop.
+> *Proof*. Not derived here; see the sources named under the theorem. The derivation needs a formula for how the inverse of the [cross-product matrix](#def-cross-product-matrix) \\A\\ changes when one observation’s outer product \\\mathord{\underset{\sim}{t}}\_{i} {\mathord{\underset{\sim}{t}}\_{i}}^{\top}\\ is removed from it (the Sherman–Morrison formula), which this page does not develop.
 
 > **NOTE:**
 >

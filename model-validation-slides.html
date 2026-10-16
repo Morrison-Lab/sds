@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 03:31:39 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 03:46:21 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -363,28 +363,28 @@ text-align: center;
 </style></section><section id="sec-data-sets" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Data sets, input matrices and outcome vectors</h2>
 <div id="def-data-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Data set)</strong></span> A <strong>data set</strong> is a finite collection of <span class="math inline">\(n\)</span> labelled observations, that is, <span class="math inline">\(n\)</span> pairs <span class="math inline">\((\underset{\sim}{x}_i, y_i)\)</span>, where <span class="math inline">\(\underset{\sim}{x}_i\)</span> is an input vector and <span class="math inline">\(y_i\)</span> is the corresponding outcome:</p>
+<p><span class="theorem-title"><strong>Definition 1 (Data set)</strong></span> A <strong>data set</strong> is a finite collection of <span class="math inline">\(n\)</span> labelled observations, that is, <span class="math inline">\(n\)</span> pairs <span class="math inline">\((\mathord{\underset{\sim}{x}}_i, y_i)\)</span>, where <span class="math inline">\(\mathord{\underset{\sim}{x}}_i\)</span> is an input vector and <span class="math inline">\(y_i\)</span> is the corresponding outcome:</p>
 <p><span id="eq-data-set"><span class="math display">\[
-\mathcal{D}\stackrel{\text{def}}{=}\mathopen{}\left\{(\underset{\sim}{x}_i, y_i) : i = 1, \ldots, n\right\}\mathclose{} .
+\mathcal{D}\stackrel{\text{def}}{=}\mathopen{}\left\{(\mathord{\underset{\sim}{x}}_i, y_i) : i = 1, \ldots, n\right\}\mathclose{} .
 \tag{1}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="rem-data-set-subsets" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (The sets we split a data set into). </span>We divide a <a href="#/def-data-set">data set</a> into subsets, each with its own job. “Set” in the names training set, validation set and test set is short for “subset of the data set”. A <a href="#/def-data-splits">training/validation/test split</a> assigns each observation to one of them, and the <a href="#/def-training-set">training set</a> is the subset a fitting procedure is applied to.</p>
 </div>
 </section><section class="slide level2"><div id="def-input-matrix" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Input matrix)</strong></span> The <strong>input matrix</strong> <span class="math inline">\(\mathbf{X}\)</span> of a <a href="#/def-data-set">data set</a> <span class="math inline">\(\mathcal{D}\)</span> stacks the <span class="math inline">\(n\)</span> inputs <span class="math inline">\(\underset{\sim}{x}_i\)</span> as rows, with one column for each of the <span class="math inline">\(p\)</span> input variables:</p>
+<p><span class="theorem-title"><strong>Definition 2 (Input matrix)</strong></span> The <strong>input matrix</strong> <span class="math inline">\(\mathbf{X}\)</span> of a <a href="#/def-data-set">data set</a> <span class="math inline">\(\mathcal{D}\)</span> stacks the <span class="math inline">\(n\)</span> inputs <span class="math inline">\(\mathord{\underset{\sim}{x}}_i\)</span> as rows, with one column for each of the <span class="math inline">\(p\)</span> input variables:</p>
 <p><span id="eq-input-matrix"><span class="math display">\[
 \mathbf{X}= \begin{bmatrix}
-  {\underset{\sim}{x}_1}^{\top} \\
+  {\mathord{\underset{\sim}{x}}_1}^{\top} \\
   \vdots \\
-  {\underset{\sim}{x}_{n}}^{\top}
+  {\mathord{\underset{\sim}{x}}_{n}}^{\top}
 \end{bmatrix} .
 \tag{2}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="def-outcome-vector" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Outcome vector)</strong></span> The <strong>outcome vector</strong> <span class="math inline">\(\underset{\sim}{y}\)</span> of a <a href="#/def-data-set">data set</a> <span class="math inline">\(\mathcal{D}\)</span> stacks its <span class="math inline">\(n\)</span> outcomes <span class="math inline">\(y_i\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 3 (Outcome vector)</strong></span> The <strong>outcome vector</strong> <span class="math inline">\(\mathord{\underset{\sim}{y}}\)</span> of a <a href="#/def-data-set">data set</a> <span class="math inline">\(\mathcal{D}\)</span> stacks its <span class="math inline">\(n\)</span> outcomes <span class="math inline">\(y_i\)</span>:</p>
 <p><span id="eq-outcome-vector"><span class="math display">\[
-\underset{\sim}{y}= \begin{bmatrix} y_1 \\ \vdots \\ y_{n} \end{bmatrix} .
+\mathord{\underset{\sim}{y}}= \begin{bmatrix} y_1 \\ \vdots \\ y_{n} \end{bmatrix} .
 \tag{3}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="exm-input-matrix" class="theorem example">
@@ -426,7 +426,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </section><section class="slide level2"><div id="def-training-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Training set)</strong></span> A <strong>training set</strong> is the data to which a <a href="#/def-fitting-procedure">fitting procedure</a> is applied: <span class="math inline">\(n\)</span> observations, written as an ordered list indexed by a set <span class="math inline">\(I\)</span> of <span class="math inline">\(n\)</span> observation numbers:</p>
 <p><span id="eq-training-set"><span class="math display">\[
-\mathcal{D}_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\underset{\sim}{x}_{i}, y_{i})\right)\mathclose{}_{i\in I}, \quad \mathopen{}\left|I\right|\mathclose{} = n.
+\mathcal{D}_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\mathord{\underset{\sim}{x}}_{i}, y_{i})\right)\mathclose{}_{i\in I}, \quad \mathopen{}\left|I\right|\mathclose{} = n.
 \tag{5}\]</span></span></p>
 </div>
 <div id="rem-source-training-set" class="proof remark">
@@ -439,7 +439,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 \tag{6}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="def-new-observation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (New observation)</strong></span> A <strong>new observation</strong> is a pair <span class="math inline">\((X_{*}, Y_{*})\)</span> of a covariate value and an outcome drawn from the same population as the observations of a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">statistically independent</a> of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. The subscript <span class="math inline">\(*\)</span> marks a quantity of the new observation, as in <span class="math inline">\(X_{*}\)</span> and <span class="math inline">\(Y_{*}\)</span>, and distinguishes it from the indexed observations <span class="math inline">\((\underset{\sim}{x}_{i}, y_{i})\)</span> of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 7 (New observation)</strong></span> A <strong>new observation</strong> is a pair <span class="math inline">\((X_{*}, Y_{*})\)</span> of a covariate value and an outcome drawn from the same population as the observations of a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">statistically independent</a> of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. The subscript <span class="math inline">\(*\)</span> marks a quantity of the new observation, as in <span class="math inline">\(X_{*}\)</span> and <span class="math inline">\(Y_{*}\)</span>, and distinguishes it from the indexed observations <span class="math inline">\((\mathord{\underset{\sim}{x}}_{i}, y_{i})\)</span> of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-new-observation" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (A new observation for the first five cars)</strong></span> Take the first five cars of <code>mtcars</code> as the <a href="#/def-training-set">training set</a>, with the gross horsepower <code>hp</code> and weight <code>wt</code> as the covariate values and the fuel economy <code>mpg</code> as the outcome, as in <a href="#/exm-input-matrix" class="quarto-xref">Example&nbsp;1</a>. Treat the sixth car as a new observation: a car from the same population that was not used to form the training set.</p>
@@ -1942,25 +1942,25 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 </ol>
 </div>
 </section><section class="slide level2"><div id="def-term-vector" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 38 (Term vector)</strong></span> Consider a model whose mean is a linear combination of <span class="math inline">\(p^{*}\)</span> terms <span class="math inline">\(t_{1}(x), \ldots, t_{p^{*}}(x)\)</span> of the covariate value, such as <span class="math inline">\(1\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(x^2\)</span>. The <strong>term vector</strong> <span class="math inline">\(\underset{\sim}{t}_{i}\)</span> of observation <span class="math inline">\(i\)</span> is the column of its terms:</p>
+<p><span class="theorem-title"><strong>Definition 38 (Term vector)</strong></span> Consider a model whose mean is a linear combination of <span class="math inline">\(p^{*}\)</span> terms <span class="math inline">\(t_{1}(x), \ldots, t_{p^{*}}(x)\)</span> of the covariate value, such as <span class="math inline">\(1\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(x^2\)</span>. The <strong>term vector</strong> <span class="math inline">\(\mathord{\underset{\sim}{t}}_{i}\)</span> of observation <span class="math inline">\(i\)</span> is the column of its terms:</p>
 <p><span id="eq-term-vector"><span class="math display">\[
-\underset{\sim}{t}_{i} \stackrel{\text{def}}{=}{\mathopen{}\left(t_{1}(x_{i}), \ldots, t_{p^{*}}(x_{i})\right)\mathclose{}}^{\top}.
+\mathord{\underset{\sim}{t}}_{i} \stackrel{\text{def}}{=}{\mathopen{}\left(t_{1}(x_{i}), \ldots, t_{p^{*}}(x_{i})\right)\mathclose{}}^{\top}.
 \tag{39}\]</span></span></p>
 </div>
 </section><section class="slide level2"><div id="rem-term-vector" class="proof remark">
-<p><span class="proof-title"><em>Remark 28</em> (The term vector of simple linear regression). </span>In simple linear regression the terms are <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span>, so the <a href="#/def-term-vector">term vector</a> <span class="math inline">\(\underset{\sim}{t}_{i}\)</span> is the <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a> <span class="math inline">\(\underset{\sim}{x}_i\)</span>.</p>
+<p><span class="proof-title"><em>Remark 28</em> (The term vector of simple linear regression). </span>In simple linear regression the terms are <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span>, so the <a href="#/def-term-vector">term vector</a> <span class="math inline">\(\mathord{\underset{\sim}{t}}_{i}\)</span> is the <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a> <span class="math inline">\(\mathord{\underset{\sim}{x}}_i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-cross-product-matrix" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 39 (Cross-product matrix (sum-of-squares and cross-products matrix))</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\underset{\sim}{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
+<p><span class="theorem-title"><strong>Definition 39 (Cross-product matrix (sum-of-squares and cross-products matrix))</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\mathord{\underset{\sim}{t}}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
 <p><span id="eq-cross-product-matrix"><span class="math display">\[
-A\stackrel{\text{def}}{=}\sum_{i\in I} \underset{\sim}{t}_{i} {\underset{\sim}{t}_{i}}^{\top}.
+A\stackrel{\text{def}}{=}\sum_{i\in I} \mathord{\underset{\sim}{t}}_{i} {\mathord{\underset{\sim}{t}}_{i}}^{\top}.
 \tag{40}\]</span></span></p>
 </div>
 <div id="rem-source-cross-product-matrix" class="proof remark">
 <p><span class="proof-title"><em>Remark 29</em> (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). </span>Also called a <strong>sum-of-squares and cross-products matrix</strong> <span class="citation" data-cites="sanchez2020matrix4sl">(<a href="#/references" role="doc-biblioref" onclick="">Sanchez 2020</a>, chap.&nbsp;“Matrix Cross-Products”)</span> (see <a href="https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products">the chapter online</a>).</p>
 </div>
 </section><section class="slide level2"><div id="rem-cross-product-matrix" class="proof remark">
-<p><span class="proof-title"><em>Remark 30</em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(D\)</span> be the matrix whose rows are the transposed <a href="#/def-term-vector">term vectors</a> <span class="math inline">\({\underset{\sim}{t}_{i}}^{\top}\)</span>, <span class="math inline">\(i\in I\)</span>. The cross-product matrix then equals the matrix product</p>
+<p><span class="proof-title"><em>Remark 30</em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(D\)</span> be the matrix whose rows are the transposed <a href="#/def-term-vector">term vectors</a> <span class="math inline">\({\mathord{\underset{\sim}{t}}_{i}}^{\top}\)</span>, <span class="math inline">\(i\in I\)</span>. The cross-product matrix then equals the matrix product</p>
 <p><span class="math display">\[
 A= {D}^{\top} D.
 \]</span></p>
@@ -1980,9 +1980,9 @@ A= {D}^{\top} D.
 </div>
 </div>
 </section><section class="slide level2"><div id="def-leverage" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 40 (Leverage)</strong></span> Consider a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a>, with <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\underset{\sim}{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, and an invertible <a href="#/def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span>. The <strong>leverage</strong> of observation <span class="math inline">\(i\)</span> is</p>
+<p><span class="theorem-title"><strong>Definition 40 (Leverage)</strong></span> Consider a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a>, with <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\mathord{\underset{\sim}{t}}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, and an invertible <a href="#/def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span>. The <strong>leverage</strong> of observation <span class="math inline">\(i\)</span> is</p>
 <p><span id="eq-leverage"><span class="math display">\[
-h_{i} \stackrel{\text{def}}{=}{\underset{\sim}{t}_{i}}^{\top} A^{-1} \underset{\sim}{t}_{i}.
+h_{i} \stackrel{\text{def}}{=}{\mathord{\underset{\sim}{t}}_{i}}^{\top} A^{-1} \mathord{\underset{\sim}{t}}_{i}.
 \tag{41}\]</span></span></p>
 </div>
 <div id="rem-source-leverage" class="proof remark">
@@ -1995,7 +1995,7 @@ h_{i} \stackrel{\text{def}}{=}{\underset{\sim}{t}_{i}}^{\top} A^{-1} \underset{\
 \tag{42}\]</span></span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Not derived here; see the sources named under the theorem. The derivation needs a formula for how the inverse of the <a href="#/def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span> changes when one observation’s outer product <span class="math inline">\(\underset{\sim}{t}_{i} {\underset{\sim}{t}_{i}}^{\top}\)</span> is removed from it (the Sherman–Morrison formula), which this page does not develop.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Not derived here; see the sources named under the theorem. The derivation needs a formula for how the inverse of the <a href="#/def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span> changes when one observation’s outer product <span class="math inline">\(\mathord{\underset{\sim}{t}}_{i} {\mathord{\underset{\sim}{t}}_{i}}^{\top}\)</span> is removed from it (the Sherman–Morrison formula), which this page does not develop.</p>
 </div>
 <div id="rem-source-loocv-shortcut" class="proof remark">
 <p><span class="proof-title"><em>Remark 32</em> (Source: Leave-one-out cross-validation for least squares). </span><span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021, sec. 5.1.2</a>)</span> states this formula for least squares linear or polynomial regression, and <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 7.10.1</a>)</span> for many linear fitting methods.</p>
