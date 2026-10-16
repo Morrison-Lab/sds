@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 16:39:05 (PDT)
+Last modified: 2026-10-16 00:09:51 (PDT)
 
 ## 1 Introduction
 
@@ -89,40 +89,42 @@ That page also defines the graphs used here, including [box plots](exploratory-d
 >
 > **Example 1 (HERS baseline characteristics by treatment group)** [Table 1](#tbl-hers-summary) summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by mean (standard deviation), and categorical variables by count (percent).
 >
-> Show R code
->
-> ``` downlit
-> hers |>
->   dplyr::select(
->     age, BMI, glucose, SBP, DBP,
->     HT, raceth, exercise, smoking, diabetes
->   ) |>
->   gtsummary::tbl_summary(
->     by = HT,
->     statistic = list(
->       gtsummary::all_continuous() ~ "{mean} ({sd})",
->       gtsummary::all_categorical() ~ "{n} ({p}%)"
->     ),
->     digits = gtsummary::all_continuous() ~ 1,
->     label = list(
->       age ~ "Age (years)",
->       BMI ~ "BMI (kg/m^2)",
->       glucose ~ "Fasting glucose (mg/dL)",
->       SBP ~ "Systolic BP (mmHg)",
->       DBP ~ "Diastolic BP (mmHg)",
->       raceth ~ "Race/ethnicity",
->       exercise ~ "Exercises regularly",
->       smoking ~ "Current smoker",
->       diabetes ~ "Diabetes"
->     )
->   ) |>
->   gtsummary::add_overall() |>
->   gtsummary::bold_labels()
-> ```
->
-> [TABLE]
->
-> Table 1: HERS: baseline characteristics by treatment group
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > hers |>
+> >   dplyr::select(
+> >     age, BMI, glucose, SBP, DBP,
+> >     HT, raceth, exercise, smoking, diabetes
+> >   ) |>
+> >   gtsummary::tbl_summary(
+> >     by = HT,
+> >     statistic = list(
+> >       gtsummary::all_continuous() ~ "{mean} ({sd})",
+> >       gtsummary::all_categorical() ~ "{n} ({p}%)"
+> >     ),
+> >     digits = gtsummary::all_continuous() ~ 1,
+> >     label = list(
+> >       age ~ "Age (years)",
+> >       BMI ~ "BMI (kg/m^2)",
+> >       glucose ~ "Fasting glucose (mg/dL)",
+> >       SBP ~ "Systolic BP (mmHg)",
+> >       DBP ~ "Diastolic BP (mmHg)",
+> >       raceth ~ "Race/ethnicity",
+> >       exercise ~ "Exercises regularly",
+> >       smoking ~ "Current smoker",
+> >       diabetes ~ "Diabetes"
+> >     )
+> >   ) |>
+> >   gtsummary::add_overall() |>
+> >   gtsummary::bold_labels()
+> > ```
+> >
+> > [TABLE]
+> >
+> > Table 1: HERS: baseline characteristics by treatment group
 >
 > Because treatment was assigned at random, the two groups differ at baseline only by chance, and their summaries are close.
 
@@ -224,22 +226,24 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Example 3 (Baseline fasting glucose by treatment group in HERS)** We test \\H_0: \mu\_\text{HT} = \mu\_\text{placebo}\\ against \\H_1: \mu\_\text{HT} \neq \mu\_\text{placebo}\\, where \\\mu\_\text{HT}\\ and \\\mu\_\text{placebo}\\ are the mean baseline fasting glucose levels in the hormone therapy and placebo populations. [Figure 1](#fig-hers-boxplot) compares the two groups’ distributions.
 >
-> Show R code
->
-> ``` downlit
-> hers |>
->   ggplot2::ggplot() +
->   ggplot2::aes(x = HT, y = glucose) +
->   ggplot2::geom_boxplot() +
->   ggplot2::labs(
->     x = "Treatment group",
->     y = "Fasting glucose (mg/dL)"
->   )
-> ```
->
-> [![](basic-statistical-methods_files/figure-html/unnamed-chunk-4-1.png)](basic-statistical-methods_files/figure-html/unnamed-chunk-4-1.png "Figure 1: Baseline fasting glucose by treatment group in HERS")
->
-> Figure 1: Baseline fasting glucose by treatment group in HERS
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > hers |>
+> >   ggplot2::ggplot() +
+> >   ggplot2::aes(x = HT, y = glucose) +
+> >   ggplot2::geom_boxplot() +
+> >   ggplot2::labs(
+> >     x = "Treatment group",
+> >     y = "Fasting glucose (mg/dL)"
+> >   )
+> > ```
+> >
+> > [![](basic-statistical-methods_files/figure-html/unnamed-chunk-4-1.png)](basic-statistical-methods_files/figure-html/unnamed-chunk-4-1.png "Figure 1: Baseline fasting glucose by treatment group in HERS")
+> >
+> > Figure 1: Baseline fasting glucose by treatment group in HERS
 >
 > The statistic and degrees of freedom of [Definition 3](#def-two-sample-t-test):
 >
@@ -296,6 +300,10 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
+> *Remark 3* (What the pooled variance estimates). When the two populations share one variance \\\sigma^2\\, the pooled variance estimates it.
+
+> **NOTE:**
+>
 > **Definition 5 (Pooled two-sample t-test)** With the notation of [Definition 3](#def-two-sample-t-test) and the [pooled variance](#def-pooled-variance) \\s_p^2\\, the **pooled two-sample t-test** of \\H_0: \mu_1 = \mu_2\\ uses the statistic
 >
 > \\t_p \stackrel{\text{def}}{=}\frac{\bar{x}\_1 - \bar{x}\_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}}.\\
@@ -308,7 +316,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Remark 3* (The equal-variance assumption). [Theorem 2](#thm-pooled-t-null) needs equal variances in the two groups, and Welch’s test ([Definition 3](#def-two-sample-t-test)) does not, so these notes use Welch’s test by default.
+> *Remark 4* (The equal-variance assumption). [Theorem 2](#thm-pooled-t-null) needs equal variances in the two groups, and Welch’s test ([Definition 3](#def-two-sample-t-test)) does not, so these notes use Welch’s test by default.
 
 > **NOTE:**
 >
@@ -328,6 +336,12 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > #> mean of x mean of y 
 > #>   111.854   112.449
 > ```
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 8.2](#ref-hoggtanis2015), pp. 369–377) covers tests of the equality of two means.
+> - Rice ([2007, sec. 11.2.1](#ref-rice2007mathematical), pp. 421–432) covers normal-theory methods for two independent samples.
+> - Rice ([2007, sec. 11.3.1](#ref-rice2007mathematical), pp. 446–447) covers normal-theory methods for paired samples.
 
 ### 4.5 Confidence intervals for the difference in means
 
@@ -351,6 +365,10 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > ```
 >
 > This interval matches the one [`t.test()`](https://rdrr.io/r/stats/t.test.html) reports in [Example 3](#exm-hers-ttest). It contains 0, consistent with the large p-value there.
+
+> **NOTE:**
+>
+> Hogg et al. ([2019, sec. 7.2](#ref-hoggtanis2015), pp. 314–322) covers confidence intervals for the difference of two means.
 
 ## 5 One-way analysis of variance
 
@@ -380,7 +398,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 9 (Mean squares)** In one-way analysis of variance, the **mean squares** are the sums of squares divided by their degrees of freedom: \\\text{MS}\_\text{between} \stackrel{\text{def}}{=}\text{SS}\_\text{between} / (k - 1)\\ and \\\text{MS}\_\text{within} \stackrel{\text{def}}{=}\text{SS}\_\text{within} / (n - k)\\.
+> **Definition 9 (Mean squares)** In one-way analysis of variance, the **mean squares** are the sums of squares divided by their degrees of freedom: \\\text{MS}\_\text{between} \stackrel{\text{def}}{=}\text{SS}\_\text{between} / (k - 1)\\ and \\\text{MS}\_\text{within} \stackrel{\text{def}}{=}\text{SS}\_\text{within} / (n - k)\\. When the \\k\\ groups share one variance \\\sigma^2\\, \\\text{MS}\_\text{within}\\ estimates it.
 
 > **NOTE:**
 >
@@ -406,7 +424,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Remark 4* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares),
+> *Remark 5* (Interpreting the F statistic). Large values of \\F\\ mean that the group means are spread out more than the variation within groups would explain. For the groups of [Example 9](#exm-mean-squares),
 >
 > \\ \begin{aligned} F &= 13.5 / 1 \\ &= 13.5. \end{aligned} \\
 
@@ -470,7 +488,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Remark 5* (Unequal variances in the HERS glucose groups). The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of [Theorem 3](#thm-anova-null) is questionable. [`oneway.test()`](https://rdrr.io/r/stats/oneway.test.html) performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:
+> *Remark 6* (Unequal variances in the HERS glucose groups). The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of [Theorem 3](#thm-anova-null) is questionable. [`oneway.test()`](https://rdrr.io/r/stats/oneway.test.html) performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:
 >
 > ``` downlit
 > oneway.test(glucose ~ raceth, data = hers)
@@ -507,11 +525,21 @@ c(
 #>  0.180281  0.180281
 ```
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 9.3](#ref-hoggtanis2015), pp. 446–455) covers one-factor analysis of variance.
+> - Casella and Berger ([2002, sec. 11.2](#ref-CaseBerg01), pp. 522–538) covers oneway analysis of variance.
+> - Rice ([2007, sec. 12.2](#ref-rice2007mathematical), pp. 477–488) covers the one-way layout.
+
 ## References
+
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
 
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” *JAMA : The Journal of the American Medical Association* (Chicago, IL) 280 (7): 605–13. <https://doi.org/10.1001/jama.280.7.605>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

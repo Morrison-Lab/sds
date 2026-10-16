@@ -355,13 +355,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-09 16:39:05 (PDT)</p>
-</section><section class="slide level2"><!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. --><style>
+  <p class="date">Last modified: 2026-10-16 00:09:51 (PDT)</p>
+</section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
-<p>This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a <a href="./correlation-regression.html#sec-simple-linear-regression">simple linear regression</a>. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, Section 3.6.</p>
+<p>This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of a statistic. Its HERS example bootstraps the slope of a <a href="./correlation-regression.html#sec-simple-linear-regression">simple linear regression</a>. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, Section 3.6.</p>
 </section><section id="the-hers-data" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
@@ -380,7 +380,7 @@ text-align: center;
 <span class="header-section-number">2</span> Bootstrap confidence intervals</h2>
 <h3 data-number="2.1" id="sec-bootstrap-when">
 <span class="header-section-number">2.1</span> When to use the bootstrap</h3>
-<p>The bootstrap <span class="citation" data-cites="efron1979bootstrap efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron 1979</a>; <a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span> estimates the sampling distribution of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short <span class="citation" data-cites="vittinghoff2e">(<a href="#/references" role="doc-biblioref" onclick="">Vittinghoff et al. 2012, chap. 3</a>)</span>:</p>
+<p>The bootstrap <span class="citation" data-cites="efron1979bootstrap efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron 1979</a>; <a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span> estimates the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short <span class="citation" data-cites="vittinghoff2e">(<a href="#/references" role="doc-biblioref" onclick="">Vittinghoff et al. 2012, chap. 3</a>)</span>:</p>
 <ul>
 <li>approximate methods for valid confidence intervals exist, but standard software does not implement them conveniently;</li>
 <li>no closed-form approximate method has been found;</li>
@@ -417,7 +417,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 2 (Bootstrap distribution)</strong></span> Let <span class="math inline">\(\hat{\theta}\)</span> be a statistic computed from the observed data. Draw <span class="math inline">\(B\)</span> independent <a href="#/def-bootstrap-sample">bootstrap samples</a>, and compute the statistic on each one, giving <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span>. The <strong>bootstrap distribution</strong> of <span class="math inline">\(\hat{\theta}\)</span> is the empirical distribution of <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-bootstrap-distribution-role" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (What the bootstrap distribution estimates). </span>The bootstrap distribution estimates the sampling distribution of <span class="math inline">\(\hat{\theta}\)</span>. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.</p>
+<p><span class="proof-title"><em>Remark 2</em> (What the bootstrap distribution estimates). </span>The bootstrap distribution estimates the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of <span class="math inline">\(\hat{\theta}\)</span>. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.</p>
 </div>
 </section><section class="slide level2"><div id="def-bootstrap-se" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Bootstrap standard error)</strong></span> The <strong>bootstrap standard error</strong> of a statistic <span class="math inline">\(\hat{\theta}\)</span>, written <span class="math inline">\(\widehat{\text{SE}}_\text{boot}\)</span>, is the sample standard deviation of the bootstrap replicates <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span> (<a href="#/def-bootstrap-distribution" class="quarto-xref">Definition&nbsp;2</a>). It estimates the <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>
@@ -460,6 +460,18 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 </figure>
 </div>
 </div>
+<div class="reading">
+<ul>
+<li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 7.7</a>, pp.&nbsp;353–360)</span> covers resampling methods.</li>
+<li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 10.1.4</a>, pp.&nbsp;478–480)</span> covers bootstrap standard errors.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 10.4.6</a>, pp.&nbsp;399–400)</span> covers variability of location estimates by the bootstrap.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 14.6</a>, pp.&nbsp;585–586)</span> covers conditional inference, unconditional inference and the bootstrap.</li>
+</ul>
+</div>
 </section><section class="slide level2"><h3 data-number="2.3" id="sec-bootstrap-methods">
 <span class="header-section-number">2.3</span> Bootstrap confidence interval methods</h3>
 <p>There are three common methods for turning a bootstrap distribution into a <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval for a parameter <span class="math inline">\(\theta\)</span> <span class="citation" data-cites="vittinghoff2e efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Vittinghoff et al. 2012, chap. 3</a>; <a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span>. Each is an approximate <a href="./inference.html#def-confidence-interval">confidence interval</a>. Throughout, <span class="math inline">\(z_q\)</span> is the <span class="math inline">\(q\)</span> quantile of the standard Gaussian distribution and <span class="math inline">\(\Phi\)</span> is its CDF.</p>
@@ -471,7 +483,7 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 <p>where <span class="math inline">\(\widehat{\text{SE}}_\text{boot}\)</span> is the bootstrap standard error (<a href="#/def-bootstrap-se" class="quarto-xref">Definition&nbsp;3</a>).</p>
 </div>
 </section><section class="slide level2"><div id="rem-bootstrap-ci-normal-assumptions" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (When the normal bootstrap interval is reliable). </span>This interval assumes that the sampling distribution of <span class="math inline">\(\hat{\theta}\)</span> is approximately Gaussian and centered at <span class="math inline">\(\theta\)</span>, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals <span class="citation" data-cites="efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 3</em> (When the normal bootstrap interval is reliable). </span>This interval assumes that the <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> of <span class="math inline">\(\hat{\theta}\)</span> is approximately Gaussian and centered at <span class="math inline">\(\theta\)</span>, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals <span class="citation" data-cites="efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bootstrap-normal-toy" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Normal bootstrap interval for the mean of ten glucose values)</strong></span> Continuing <a href="#/exm-bootstrap-distribution-toy" class="quarto-xref">Example&nbsp;2</a>, the 95% interval of <a href="#/def-bootstrap-ci-normal" class="quarto-xref">Definition&nbsp;4</a> is:</p>
@@ -641,6 +653,9 @@ Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first t
 </div>
 </section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
+</div>
 <div id="ref-davison1997bootstrap" class="csl-entry" role="listitem">
 Davison, Anthony C., and David V. Hinkley. 1997. <em>Bootstrap Methods and Their Application</em>. Cambridge Series in Statistical and Probabilistic Mathematics 1. Cambridge University Press. <a href="https://doi.org/10.1017/CBO9780511802843">https://doi.org/10.1017/CBO9780511802843</a>.
 </div>
@@ -649,6 +664,12 @@ Efron, Bradley. 1979. <span>“Bootstrap Methods: Another Look at the Jackknife.
 </div>
 <div id="ref-efron1993introduction" class="csl-entry" role="listitem">
 Efron, Bradley, and Robert J. Tibshirani. 1993. <em>An Introduction to the Bootstrap</em>. Monographs on Statistics and Applied Probability 57. Chapman &amp; Hall/CRC. <a href="https://doi.org/10.1201/9780429246593">https://doi.org/10.1201/9780429246593</a>.
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
 </div>
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.

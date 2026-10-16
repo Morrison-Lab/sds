@@ -87,7 +87,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./categorical-tests.html" rel="next">
-<link href="./intro-MLEs.html" rel="prev">
+<link href="./sufficiency.html" rel="prev">
 <script src="site_libs/cookie-consent/cookie-consent.js"></script>
 <link href="site_libs/cookie-consent/cookie-consent.css" rel="stylesheet">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
@@ -105,6 +105,9 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-dark-c086fb9aa89bc5726abb3173de9057c1.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="site_libs/bootstrap/bootstrap-33c90a2a9295b6ab69d7f48c49ac5fff.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/code-language-labels-1.0.2/code-language-labels.css" rel="stylesheet">
+<script src="site_libs/quarto-contrib/callouty-theorem-1.4.2/callouty-theorem.js"></script>
+<link href="site_libs/quarto-contrib/callouty-theorem-1.4.2/callouty-theorem.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome-7-free-7.2.0/fontawesome.css" rel="stylesheet">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
@@ -218,15 +221,45 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-prp.callout {
-  border-left-color: #827717;
+div.callout-remark.callout {
+  border-left-color: #AD1457;
 }
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
 }
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-def.callout {
   border-left-color: #1B5E20;
@@ -248,16 +281,6 @@ div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-proof.callout {
   border-left-color: #37474F;
 }
@@ -268,15 +291,59 @@ div.callout-proof .callout-toggle::before {  background-image: url('data:image/s
 div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-lem.callout {
-  border-left-color: #1565C0;
+div.callout-videos.callout {
+  border-left-color: #283593;
 }
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
 }
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
+}
+div.callout-tbl.callout {
+  border-left-color: #757575;
+}
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exm.callout {
   border-left-color: #6A1B9A;
@@ -288,35 +355,19 @@ div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-cor.callout {
-  border-left-color: #00838F;
+div.callout-reading.callout {
+  border-left-color: #00695C;
 }
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
+div.callout-reading.callout-style-default .callout-header {
+  background-color: rgba(0, 105, 92, 0.13);
 }
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f518' !important;
+  background-image: none;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -559,6 +610,14 @@ window.Quarto = {
     <a class="dropdown-item" href="./intro-MLEs.html">
  <span class="dropdown-text">Maximum Likelihood</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./estimator-properties.html">
+ <span class="dropdown-text">Properties of Estimators</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sufficiency.html">
+ <span class="dropdown-text">Sufficiency</span></a>
+  </li>  
     </ul>
 </li>
   <li class="nav-item dropdown ">
@@ -579,6 +638,10 @@ window.Quarto = {
  <span class="dropdown-text">Correlation &amp; Regression</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./prediction.html">
+ <span class="dropdown-text">Prediction</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./model-validation.html">
  <span class="dropdown-text">Validating Predictions</span></a>
   </li>  
@@ -587,8 +650,20 @@ window.Quarto = {
  <span class="dropdown-text">Classification</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./logistic-inference.html">
+ <span class="dropdown-text">Logistic Regression Inference</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./bootstrap.html">
  <span class="dropdown-text">The Bootstrap</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./permutation-tests.html">
+ <span class="dropdown-text">Permutation Tests</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./multiple-testing.html">
+ <span class="dropdown-text">Multiple Testing</span></a>
   </li>  
     </ul>
 </li>
@@ -697,6 +772,18 @@ window.Quarto = {
  <span class="menu-text">Maximum Likelihood</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./estimator-properties.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Properties of Estimators</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sufficiency.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sufficiency</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -728,6 +815,12 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./prediction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prediction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./model-validation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Validating Predictions</span></a>
   </div>
@@ -740,8 +833,26 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./logistic-inference.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logistic Regression Inference</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./bootstrap.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">The Bootstrap</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./permutation-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Permutation Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multiple-testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Multiple Testing</span></a>
   </div>
 </li>
       </ul>
@@ -804,7 +915,7 @@ window.Quarto = {
 <main class="content" id="quarto-document-content"><!-- qwt-page-banners -->
 <div class="preview-changes-banner" style="background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px; padding: 12px; margin: 16px 0;">
     <p style="margin: 0;">
-        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="nonparametric-models.html">Nonparametric Models</a>
+        <strong>📋 Changes in this PR:</strong> <a href="basic-statistical-methods.html">Comparing Means</a>, <a href="bayesian-examples.html">Fitting Models by Bayesian Inference with JAGS</a>, <a href="bayesian-inference.html">Bayesian Inference</a>, <a href="bootstrap.html">The Bootstrap</a>, <a href="categorical-tests.html">Comparing Proportions</a>, <a href="classification.html">Classification and Diagnostic Tests</a>, <a href="correlation-regression.html">Correlation and Simple Linear Regression</a>, <a href="data.html">Types of Variables</a>, <a href="estimation.html">Estimation</a>, <a href="estimator-properties.html">Properties of Estimators</a>, <a href="exploratory-descriptive.html">Exploratory Data Analysis</a>, <a href="index.html">Statistics for Data Science</a>, <a href="inference.html">Statistical Inference</a>, <a href="intro-MLEs.html">Introduction to Maximum Likelihood Inference</a>, <a href="logistic-inference.html">Inference for Logistic Regression</a>, <a href="mcmc.html">Markov Chain Monte Carlo</a>, <a href="model-validation.html">Validating Predictions</a>, <a href="multiple-testing.html">Multiple Testing</a>, <a href="nonparametric-models.html">Nonparametric Models</a>, <a href="permutation-tests.html">Permutation Tests</a>, <a href="prediction.html">Prediction</a>, <a href="sufficiency.html">Sufficiency and the Rao–Blackwell Theorem</a>
         <br>
         <strong>💡 Tip:</strong> If change highlighting is glitchy, add the <code>no-preview-highlights</code> label to this PR to disable it.
     </p>
@@ -828,7 +939,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-09 16:39:05 (PDT)</p>
+      <p class="date">Last modified: 2026-10-16 00:09:51 (PDT)</p>
     </div>
   </div>
   
@@ -839,7 +950,6 @@ window.Quarto = {
 
 </header><section id="introduction" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="introduction">
 <span class="header-section-number">1</span> Introduction</h2>
-<!-- Repo-level semantic notation; \providecommand lets the macros repo's defaults take precedence once it defines the same names. -->
 <style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -948,14 +1058,26 @@ text-align: center;
 <li>the <a href="./exploratory-descriptive.html#def-sample-proportion">sample proportion</a>.</li>
 </ul>
 <p>That page also defines the graphs used here, including <a href="./exploratory-descriptive.html#def-boxplot">box plots</a> and <a href="./exploratory-descriptive.html#def-scatterplot">scatter plots</a>.</p>
-<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-hers-summary" class="quarto-xref">Example&nbsp;1</a> (HERS baseline characteristics by treatment group)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="exm-hers-summary" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1 (HERS baseline characteristics by treatment group)</strong></span> <a href="#tbl-hers-summary" class="quarto-xref">Table&nbsp;1</a> summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by mean (standard deviation), and categorical variables by count (percent).</p>
+<div class="callout callout-style-simple callout-tbl no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<div id="exm-hers-summary" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (HERS baseline characteristics by treatment group)</strong></span> <a href="#tbl-hers-summary" class="quarto-xref">Table&nbsp;1</a> summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by mean (standard deviation), and categorical variables by count (percent).</p>
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hers</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span></span>
 <span>    <span class="va">age</span>, <span class="va">BMI</span>, <span class="va">glucose</span>, <span class="va">SBP</span>, <span class="va">DBP</span>,</span>
@@ -988,23 +1110,23 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
 </figcaption><div aria-describedby="tbl-hers-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="hwvrhtoiow" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hwvrhtoiow table {
+<div id="ztiiyzsnkz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ztiiyzsnkz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#hwvrhtoiow thead, #hwvrhtoiow tbody, #hwvrhtoiow tfoot, #hwvrhtoiow tr, #hwvrhtoiow td, #hwvrhtoiow th {
+#ztiiyzsnkz thead, #ztiiyzsnkz tbody, #ztiiyzsnkz tfoot, #ztiiyzsnkz tr, #ztiiyzsnkz td, #ztiiyzsnkz th {
   border-style: none;
 }
 
-#hwvrhtoiow p {
+#ztiiyzsnkz p {
   margin: 0;
   padding: 0;
 }
 
-#hwvrhtoiow .gt_table {
+#ztiiyzsnkz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1030,12 +1152,12 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-left-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_caption {
+#ztiiyzsnkz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#hwvrhtoiow .gt_title {
+#ztiiyzsnkz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1047,7 +1169,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-width: 0;
 }
 
-#hwvrhtoiow .gt_subtitle {
+#ztiiyzsnkz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1059,7 +1181,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-width: 0;
 }
 
-#hwvrhtoiow .gt_heading {
+#ztiiyzsnkz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1071,13 +1193,13 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_bottom_border {
+#ztiiyzsnkz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_col_headings {
+#ztiiyzsnkz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1092,7 +1214,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_col_heading {
+#ztiiyzsnkz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1112,7 +1234,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#hwvrhtoiow .gt_column_spanner_outer {
+#ztiiyzsnkz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1124,15 +1246,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 4px;
 }
 
-#hwvrhtoiow .gt_column_spanner_outer:first-child {
+#ztiiyzsnkz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hwvrhtoiow .gt_column_spanner_outer:last-child {
+#ztiiyzsnkz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hwvrhtoiow .gt_column_spanner {
+#ztiiyzsnkz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1144,11 +1266,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   width: 100%;
 }
 
-#hwvrhtoiow .gt_spanner_row {
+#ztiiyzsnkz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#hwvrhtoiow .gt_group_heading {
+#ztiiyzsnkz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1174,7 +1296,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   text-align: left;
 }
 
-#hwvrhtoiow .gt_empty_group_heading {
+#ztiiyzsnkz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1189,15 +1311,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: middle;
 }
 
-#hwvrhtoiow .gt_from_md > :first-child {
+#ztiiyzsnkz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hwvrhtoiow .gt_from_md > :last-child {
+#ztiiyzsnkz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hwvrhtoiow .gt_row {
+#ztiiyzsnkz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1216,7 +1338,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#hwvrhtoiow .gt_stub {
+#ztiiyzsnkz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1229,7 +1351,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#hwvrhtoiow .gt_stub_row_group {
+#ztiiyzsnkz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1243,15 +1365,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: top;
 }
 
-#hwvrhtoiow .gt_row_group_first td {
+#ztiiyzsnkz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#hwvrhtoiow .gt_row_group_first th {
+#ztiiyzsnkz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#hwvrhtoiow .gt_summary_row {
+#ztiiyzsnkz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1261,16 +1383,16 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#hwvrhtoiow .gt_first_summary_row {
+#ztiiyzsnkz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_first_summary_row.thick {
+#ztiiyzsnkz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#hwvrhtoiow .gt_last_summary_row {
+#ztiiyzsnkz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1280,7 +1402,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_grand_summary_row {
+#ztiiyzsnkz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1290,7 +1412,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#hwvrhtoiow .gt_first_grand_summary_row {
+#ztiiyzsnkz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1300,7 +1422,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_last_grand_summary_row_top {
+#ztiiyzsnkz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1310,11 +1432,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_striped {
+#ztiiyzsnkz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hwvrhtoiow .gt_table_body {
+#ztiiyzsnkz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1323,7 +1445,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_footnotes {
+#ztiiyzsnkz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1337,7 +1459,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_footnote {
+#ztiiyzsnkz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1346,7 +1468,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#hwvrhtoiow .gt_sourcenotes {
+#ztiiyzsnkz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1360,7 +1482,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#hwvrhtoiow .gt_sourcenote {
+#ztiiyzsnkz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1368,72 +1490,72 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#hwvrhtoiow .gt_left {
+#ztiiyzsnkz .gt_left {
   text-align: left;
 }
 
-#hwvrhtoiow .gt_center {
+#ztiiyzsnkz .gt_center {
   text-align: center;
 }
 
-#hwvrhtoiow .gt_right {
+#ztiiyzsnkz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hwvrhtoiow .gt_font_normal {
+#ztiiyzsnkz .gt_font_normal {
   font-weight: normal;
 }
 
-#hwvrhtoiow .gt_font_bold {
+#ztiiyzsnkz .gt_font_bold {
   font-weight: bold;
 }
 
-#hwvrhtoiow .gt_font_italic {
+#ztiiyzsnkz .gt_font_italic {
   font-style: italic;
 }
 
-#hwvrhtoiow .gt_super {
+#ztiiyzsnkz .gt_super {
   font-size: 65%;
 }
 
-#hwvrhtoiow .gt_footnote_marks {
+#ztiiyzsnkz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#hwvrhtoiow .gt_asterisk {
+#ztiiyzsnkz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#hwvrhtoiow .gt_indent_1 {
+#ztiiyzsnkz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#hwvrhtoiow .gt_indent_2 {
+#ztiiyzsnkz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#hwvrhtoiow .gt_indent_3 {
+#ztiiyzsnkz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#hwvrhtoiow .gt_indent_4 {
+#ztiiyzsnkz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#hwvrhtoiow .gt_indent_5 {
+#ztiiyzsnkz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#hwvrhtoiow .katex-display {
+#ztiiyzsnkz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#hwvrhtoiow div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ztiiyzsnkz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1556,6 +1678,9 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </div>
 </figure>
 </div>
+</div>
+</div>
+</div>
 <p>Because treatment was assigned at random, the two groups differ at baseline only by chance, and their summaries are close.</p>
 </div>
 </div>
@@ -1569,12 +1694,18 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </section><section id="sec-one-sample-t-test" class="level3" data-number="4.2"><h3 data-number="4.2" class="anchored" data-anchor-id="sec-one-sample-t-test">
 <span class="header-section-number">4.2</span> One-sample t-test</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-one-sample-t-test div. -->
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-one-sample-t-test" class="quarto-xref">Definition&nbsp;1</a> (One-sample t-test)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-one-sample-t-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (One-sample t-test)</strong></span> Let <span class="math inline">\(x_1, \ldots, x_n\)</span> be observations with <span class="math inline">\(n \ge 2\)</span>, sample mean <span class="math inline">\(\bar{x}\)</span>, and sample standard deviation <span class="math inline">\(s\)</span>. The <strong>one-sample t-test</strong> of <span class="math inline">\(H_0: \mu= \mu_0\)</span> against <span class="math inline">\(H_1: \mu\neq \mu_0\)</span> uses the statistic</p>
 <p><span class="math display">\[t \stackrel{\text{def}}{=}\frac{\bar{x} - \mu_0}{s / \sqrt{n}}.\]</span></p>
@@ -1583,20 +1714,26 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-lem no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Lem</span><a href="#thm-one-sample-t-null" class="quarto-xref">Theorem&nbsp;1</a> (Null distribution of the one-sample t statistic)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="thm-one-sample-t-null" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (Null distribution of the one-sample t statistic)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n\)</span> be independent, each Gaussian with mean <span class="math inline">\(\mu_0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, with <span class="math inline">\(n \ge 2\)</span>. Then the statistic <span class="math inline">\(T \stackrel{\text{def}}{=}(\bar X - \mu_0) / (S / \sqrt{n})\)</span> of <a href="#def-one-sample-t-test" class="quarto-xref">Definition&nbsp;1</a>, computed from these random variables, has the <span class="math inline">\(t_{n-1}\)</span> distribution.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-proof callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callouty-titled callout callout-style-default callout-proof callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1605,7 +1742,7 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>We use a standard fact about Gaussian samples <span class="citation" data-cites="hoggtanis2015">(<a href="#ref-hoggtanis2015" role="doc-biblioref">Hogg et al. 2019, sec. 5.5</a>, pp.&nbsp;203-205)</span>: <span class="math inline">\(\bar X\)</span> and <span class="math inline">\(S^2\)</span> are independent, and <span class="math inline">\(V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2\)</span> has the <span class="math inline">\(\chi^2_{n-1}\)</span> distribution. Also, <span class="math inline">\(Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma/ \sqrt{n})\)</span> has the standard Gaussian distribution, and <span class="math inline">\(Z\)</span> is independent of <span class="math inline">\(V\)</span> because <span class="math inline">\(\bar X\)</span> is independent of <span class="math inline">\(S^2\)</span>. So by the <a href="./inference.html#def-t-dist">definition of the t-distribution</a>, <span class="math inline">\(Z / \sqrt{V / (n-1)}\)</span> has the <span class="math inline">\(t_{n-1}\)</span> distribution, and this ratio equals <span class="math inline">\(T\)</span>:</p>
@@ -1625,12 +1762,18 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-remark no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-t-statistic-nongaussian" class="quarto-xref">Remark&nbsp;1</a> (Non-Gaussian data)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="rem-t-statistic-nongaussian" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Non-Gaussian data). </span>When the observations are not Gaussian, <span class="math inline">\(T\)</span> still has approximately the standard Gaussian distribution when <span class="math inline">\(n\)</span> is large, by the <a href="https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt">central limit theorem</a>, and then <span class="math inline">\(t_{n-1}\)</span> is close to the standard Gaussian distribution (<a href="./inference.html#exm-t-dist">t quantiles approach Gaussian quantiles</a>).</p>
 </div>
@@ -1640,24 +1783,36 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </section><section id="sec-paired-t-test" class="level3" data-number="4.3"><h3 data-number="4.3" class="anchored" data-anchor-id="sec-paired-t-test">
 <span class="header-section-number">4.3</span> Paired t-test</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-paired-t-test div. -->
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-paired-t-test" class="quarto-xref">Definition&nbsp;2</a> (Paired t-test)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-paired-t-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Paired t-test)</strong></span> Let <span class="math inline">\((x_{1,1}, x_{1,2}), \ldots, (x_{n,1}, x_{n,2})\)</span> be pairs of related measurements, such as the same participants measured at two times, and let <span class="math inline">\(d_i \stackrel{\text{def}}{=}x_{i,2} - x_{i,1}\)</span> be the within-pair differences, with population mean <span class="math inline">\(\mu_d\)</span>. The <strong>paired t-test</strong> of <span class="math inline">\(H_0: \mu_d = 0\)</span> against <span class="math inline">\(H_1: \mu_d \neq 0\)</span> is the one-sample t-test (<a href="#def-one-sample-t-test" class="quarto-xref">Definition&nbsp;1</a>) of <span class="math inline">\(H_0: \mu= 0\)</span> applied to <span class="math inline">\(d_1, \ldots, d_n\)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-hers-paired" class="quarto-xref">Example&nbsp;2</a> (Change in fasting glucose over the first year of HERS)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="exm-hers-paired" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Change in fasting glucose over the first year of HERS)</strong></span> We test whether mean fasting glucose changed between baseline (<code>glucose</code>) and the year-1 visit (<code>glucose1</code>), across both treatment groups. Participants missing either measurement are dropped. The t statistic of <a href="#def-one-sample-t-test" class="quarto-xref">Definition&nbsp;1</a>, computed on the differences:</p>
 <div class="cell">
@@ -1699,12 +1854,18 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </section><section id="sec-two-sample-t-test" class="level3" data-number="4.4"><h3 data-number="4.4" class="anchored" data-anchor-id="sec-two-sample-t-test">
 <span class="header-section-number">4.4</span> Two-sample t-tests</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-two-sample-t-test div. -->
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a> (Welch’s two-sample t-test)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-two-sample-t-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Welch’s two-sample t-test)</strong></span> Let two independent groups have sample sizes <span class="math inline">\(n_1, n_2 \ge 2\)</span>, sample means <span class="math inline">\(\bar{x}_1\)</span> and <span class="math inline">\(\bar{x}_2\)</span>, and sample variances <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_2^2\)</span>. <strong>Welch’s two-sample t-test</strong> of <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> against <span class="math inline">\(H_1: \mu_1 \neq \mu_2\)</span> uses the statistic</p>
 <p><span class="math display">\[t \stackrel{\text{def}}{=}\frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}}\]</span></p>
@@ -1716,26 +1877,44 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-remark no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-welch-test-properties" class="quarto-xref">Remark&nbsp;2</a> (Properties of Welch’s test)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="rem-welch-test-properties" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Properties of Welch’s test). </span>Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, <span class="math inline">\(t_{\hat{\nu}}\)</span> is only an approximation to the null distribution of <span class="math inline">\(t\)</span>. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under <span class="math inline">\(H_0\)</span>, as in <a href="./inference.html#exm-p-value-wcgs">the WCGS cholesterol example</a>. Welch’s test is the default in R’s <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code>.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-hers-ttest" class="quarto-xref">Example&nbsp;3</a> (Baseline fasting glucose by treatment group in HERS)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="exm-hers-ttest" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3 (Baseline fasting glucose by treatment group in HERS)</strong></span> We test <span class="math inline">\(H_0: \mu_\text{HT} = \mu_\text{placebo}\)</span> against <span class="math inline">\(H_1: \mu_\text{HT} \neq \mu_\text{placebo}\)</span>, where <span class="math inline">\(\mu_\text{HT}\)</span> and <span class="math inline">\(\mu_\text{placebo}\)</span> are the mean baseline fasting glucose levels in the hormone therapy and placebo populations. <a href="#fig-hers-boxplot" class="quarto-xref">Figure&nbsp;1</a> compares the two groups’ distributions.</p>
+<div class="callout callout-style-simple callout-fig no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<div id="exm-hers-ttest" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Baseline fasting glucose by treatment group in HERS)</strong></span> We test <span class="math inline">\(H_0: \mu_\text{HT} = \mu_\text{placebo}\)</span> against <span class="math inline">\(H_1: \mu_\text{HT} \neq \mu_\text{placebo}\)</span>, where <span class="math inline">\(\mu_\text{HT}\)</span> and <span class="math inline">\(\mu_\text{placebo}\)</span> are the mean baseline fasting glucose levels in the hormone therapy and placebo populations. <a href="#fig-hers-boxplot" class="quarto-xref">Figure&nbsp;1</a> compares the two groups’ distributions.</p>
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hers</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">HT</span>, y <span class="op">=</span> <span class="va">glucose</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1758,6 +1937,9 @@ Figure&nbsp;1: Baseline fasting glucose by treatment group in HERS
 </div>
 </div>
 </figure>
+</div>
+</div>
+</div>
 </div>
 <p>The statistic and degrees of freedom of <a href="#def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a>:</p>
 <div class="cell">
@@ -1797,12 +1979,18 @@ Figure&nbsp;1: Baseline fasting glucose by treatment group in HERS
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-pooled-variance" class="quarto-xref">Definition&nbsp;4</a> (Pooled variance)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-pooled-variance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Pooled variance)</strong></span> For two samples of sizes <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> with sample variances <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_2^2\)</span>, the <strong>pooled variance</strong> is</p>
 <p><span class="math display">\[s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}.\]</span></p>
@@ -1810,12 +1998,18 @@ Figure&nbsp;1: Baseline fasting glucose by treatment group in HERS
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-pooled-variance" class="quarto-xref">Example&nbsp;4</a> (Pooled variance of two small samples)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="exm-pooled-variance" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Pooled variance of two small samples)</strong></span> With <span class="math inline">\(n_1 = 3\)</span>, <span class="math inline">\(s_1^2 = 4\)</span>, <span class="math inline">\(n_2 = 5\)</span>, and <span class="math inline">\(s_2^2 = 9\)</span>:</p>
 <p><span class="math display">\[
@@ -1834,12 +2028,36 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-pooled-variance-estimates" class="quarto-xref">Remark&nbsp;3</a> (What the pooled variance estimates)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div id="rem-pooled-variance-estimates" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (What the pooled variance estimates). </span>When the two populations share one variance <span class="math inline">\(\sigma^2\)</span>, the pooled variance estimates it.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-pooled-t-test" class="quarto-xref">Definition&nbsp;5</a> (Pooled two-sample t-test)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-pooled-t-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Pooled two-sample t-test)</strong></span> With the notation of <a href="#def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a> and the <a href="#def-pooled-variance">pooled variance</a> <span class="math inline">\(s_p^2\)</span>, the <strong>pooled two-sample t-test</strong> of <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span> uses the statistic</p>
 <p><span class="math display">\[t_p \stackrel{\text{def}}{=}\frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}}}.\]</span></p>
@@ -1848,36 +2066,54 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-lem no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Lem</span><a href="#thm-pooled-t-null" class="quarto-xref">Theorem&nbsp;2</a> (Null distribution of the pooled t statistic)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="thm-pooled-t-null" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 2 (Null distribution of the pooled t statistic)</strong></span> Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance <span class="math inline">\(\sigma^2\)</span>. Then <span class="math inline">\(t_p\)</span> (<a href="#def-pooled-t-test" class="quarto-xref">Definition&nbsp;5</a>), computed from these random variables, has the <span class="math inline">\(t_{n_1 + n_2 - 2}\)</span> distribution <span class="citation" data-cites="hoggtanis2015">(<a href="#ref-hoggtanis2015" role="doc-biblioref">Hogg et al. 2019, sec. 8.2</a>, p.&nbsp;371)</span>.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-remark no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-pooled-t-equal-variances" class="quarto-xref">Remark&nbsp;4</a> (The equal-variance assumption)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="rem-pooled-t-equal-variances" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (The equal-variance assumption). </span><a href="#thm-pooled-t-null" class="quarto-xref">Theorem&nbsp;2</a> needs equal variances in the two groups, and Welch’s test (<a href="#def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a>) does not, so these notes use Welch’s test by default.</p>
+<p><span class="proof-title"><em>Remark 4</em> (The equal-variance assumption). </span><a href="#thm-pooled-t-null" class="quarto-xref">Theorem&nbsp;2</a> needs equal variances in the two groups, and Welch’s test (<a href="#def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a>) does not, so these notes use Welch’s test by default.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-hers-pooled-ttest" class="quarto-xref">Example&nbsp;5</a> (Pooled t-test of baseline glucose in HERS)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="exm-hers-pooled-ttest" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (Pooled t-test of baseline glucose in HERS)</strong></span> In HERS, the two groups have nearly equal sizes (1380 and 1383) and nearly equal standard deviations (36.9 and 36.8 mg/dL), so the pooled test gives almost the same result as Welch’s test in <a href="#exm-hers-ttest" class="quarto-xref">Example&nbsp;3</a>:</p>
 <div class="cell">
@@ -1898,15 +2134,46 @@ s_p^2
 </div>
 </div>
 </div>
+<div id="read-hoggtanis2015" class="watch-anchor">
+<div class="callout callout-style-default callout-reading callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Reading</span>Read
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 8.2</a>, pp.&nbsp;369–377)</span> covers tests of the equality of two means.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 11.2.1</a>, pp.&nbsp;421–432)</span> covers normal-theory methods for two independent samples.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 11.3.1</a>, pp.&nbsp;446–447)</span> covers normal-theory methods for paired samples.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section><section id="sec-CI-diff-means" class="level3" data-number="4.5"><h3 data-number="4.5" class="anchored" data-anchor-id="sec-CI-diff-means">
 <span class="header-section-number">4.5</span> Confidence intervals for the difference in means</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-ci-diff-means div. -->
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-ci-diff-means" class="quarto-xref">Definition&nbsp;6</a> (Welch confidence interval for a difference in means)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-ci-diff-means" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Welch confidence interval for a difference in means)</strong></span> With the notation of <a href="#def-two-sample-t-test" class="quarto-xref">Definition&nbsp;3</a>, the <strong>Welch <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval</strong> for <span class="math inline">\(\mu_1 - \mu_2\)</span> is</p>
 <p><span class="math display">\[(\bar{x}_1 - \bar{x}_2) \pm t_{\hat{\nu},\, 1 - \alpha/2}
@@ -1916,12 +2183,18 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-hers-diff-means-ci" class="quarto-xref">Example&nbsp;6</a> (Confidence interval for the HERS baseline glucose difference)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="exm-hers-diff-means-ci" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Confidence interval for the HERS baseline glucose difference)</strong></span> Continuing <a href="#exm-hers-ttest" class="quarto-xref">Example&nbsp;3</a>, the 95% interval of <a href="#def-ci-diff-means" class="quarto-xref">Definition&nbsp;6</a> is:</p>
 <div class="cell">
@@ -1935,15 +2208,39 @@ s_p^2
 </div>
 </div>
 </div>
+<div id="read-hoggtanis2015-2" class="watch-anchor">
+<div class="callout callout-style-default callout-reading callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Reading</span>Read
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 7.2</a>, pp.&nbsp;314–322)</span> covers confidence intervals for the difference of two means.</p>
+</div>
+</div>
+</div>
+</div>
 </section></section><section id="sec-anova" class="level2" data-number="5"><h2 data-number="5" class="anchored" data-anchor-id="sec-anova">
 <span class="header-section-number">5</span> One-way analysis of variance</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-ss-between div. -->
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-ss-between" class="quarto-xref">Definition&nbsp;7</a> (Between-group sum of squares)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-ss-between" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Between-group sum of squares)</strong></span> Let <span class="math inline">\(y_{j1}, \ldots, y_{jn_j}\)</span> be the <span class="math inline">\(n_j\)</span> observations in group <span class="math inline">\(j\)</span>, for <span class="math inline">\(k \ge 2\)</span> groups with <span class="math inline">\(n \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j\)</span> observations in all, let <span class="math inline">\(\bar{y}_j\)</span> be the sample mean of group <span class="math inline">\(j\)</span>, and let <span class="math inline">\(\bar{y}\)</span> be the sample mean of all <span class="math inline">\(n\)</span> observations. The <strong>between-group sum of squares</strong> is</p>
 <p><span class="math display">\[\text{SS}_\text{between} \stackrel{\text{def}}{=}\sum_{j=1}^{k} n_j (\bar{y}_j - \bar{y})^2.\]</span></p>
@@ -1951,12 +2248,18 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-ss-between" class="quarto-xref">Example&nbsp;7</a> (Between-group sum of squares of two small groups)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="exm-ss-between" class="theorem example">
 <p><span class="theorem-title"><strong>Example 7 (Between-group sum of squares of two small groups)</strong></span> Let group 1 be <span class="math inline">\(\mathopen{}\left\{1, 2, 3\right\}\mathclose{}\)</span> and group 2 be <span class="math inline">\(\mathopen{}\left\{4, 5, 6\right\}\mathclose{}\)</span>, so <span class="math inline">\(\bar y_1 = 2\)</span>, <span class="math inline">\(\bar y_2 = 5\)</span>, and <span class="math inline">\(\bar y = 3.5\)</span>. Then:</p>
 <p><span class="math display">\[
@@ -1974,12 +2277,18 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-ss-within" class="quarto-xref">Definition&nbsp;8</a> (Within-group sum of squares)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-ss-within" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Within-group sum of squares)</strong></span> With the notation of <a href="#def-ss-between" class="quarto-xref">Definition&nbsp;7</a>, the <strong>within-group sum of squares</strong> is</p>
 <p><span class="math display">\[\text{SS}_\text{within} \stackrel{\text{def}}{=}\sum_{j=1}^{k} \sum_{i=1}^{n_j} (y_{ji} - \bar{y}_j)^2.\]</span></p>
@@ -1987,12 +2296,18 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-ss-within" class="quarto-xref">Example&nbsp;8</a> (Within-group sum of squares of two small groups)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="exm-ss-within" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Within-group sum of squares of two small groups)</strong></span> For the groups of <a href="#exm-ss-between" class="quarto-xref">Example&nbsp;7</a>:</p>
 <p><span class="math display">\[
@@ -2010,24 +2325,36 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-mean-squares" class="quarto-xref">Definition&nbsp;9</a> (Mean squares)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-mean-squares" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 9 (Mean squares)</strong></span> In one-way analysis of variance, the <strong>mean squares</strong> are the sums of squares divided by their degrees of freedom: <span class="math inline">\(\text{MS}_\text{between} \stackrel{\text{def}}{=}\text{SS}_\text{between} / (k - 1)\)</span> and <span class="math inline">\(\text{MS}_\text{within} \stackrel{\text{def}}{=}\text{SS}_\text{within} / (n - k)\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 9 (Mean squares)</strong></span> In one-way analysis of variance, the <strong>mean squares</strong> are the sums of squares divided by their degrees of freedom: <span class="math inline">\(\text{MS}_\text{between} \stackrel{\text{def}}{=}\text{SS}_\text{between} / (k - 1)\)</span> and <span class="math inline">\(\text{MS}_\text{within} \stackrel{\text{def}}{=}\text{SS}_\text{within} / (n - k)\)</span>. When the <span class="math inline">\(k\)</span> groups share one variance <span class="math inline">\(\sigma^2\)</span>, <span class="math inline">\(\text{MS}_\text{within}\)</span> estimates it.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-mean-squares" class="quarto-xref">Example&nbsp;9</a> (Mean squares of two small groups)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="exm-mean-squares" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Mean squares of two small groups)</strong></span> For the groups of <a href="#exm-ss-between" class="quarto-xref">Example&nbsp;7</a>, <span class="math inline">\(k = 2\)</span> and <span class="math inline">\(n = 6\)</span>, so</p>
 <p><span class="math display">\[
@@ -2047,12 +2374,18 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-def no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-def callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Def</span><a href="#def-one-way-anova" class="quarto-xref">Definition&nbsp;10</a> (One-way analysis of variance)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="def-one-way-anova" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (One-way analysis of variance)</strong></span> With the <a href="#def-mean-squares">mean squares</a> of <span class="math inline">\(k \ge 2\)</span> groups and <span class="math inline">\(n &gt; k\)</span> observations in all, the <strong>one-way analysis of variance (ANOVA)</strong> F-test of</p>
 <p><span class="math display">\[
@@ -2069,14 +2402,20 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-remark no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-f-statistic-size" class="quarto-xref">Remark&nbsp;5</a> (Interpreting the F statistic)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="rem-f-statistic-size" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Interpreting the F statistic). </span>Large values of <span class="math inline">\(F\)</span> mean that the group means are spread out more than the variation within groups would explain. For the groups of <a href="#exm-mean-squares" class="quarto-xref">Example&nbsp;9</a>,</p>
+<p><span class="proof-title"><em>Remark 5</em> (Interpreting the F statistic). </span>Large values of <span class="math inline">\(F\)</span> mean that the group means are spread out more than the variation within groups would explain. For the groups of <a href="#exm-mean-squares" class="quarto-xref">Example&nbsp;9</a>,</p>
 <p><span class="math display">\[
 \begin{aligned}
   F &amp;= 13.5 / 1 \\
@@ -2087,12 +2426,18 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-lem no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-lem callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Lem</span><a href="#thm-anova-null" class="quarto-xref">Theorem&nbsp;3</a> (Null distribution of the ANOVA F statistic)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="thm-anova-null" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 3 (Null distribution of the ANOVA F statistic)</strong></span> Let all <span class="math inline">\(n\)</span> observations be independent, with observation <span class="math inline">\(y_{ji}\)</span> Gaussian with mean <span class="math inline">\(\mu_j\)</span> and the same variance <span class="math inline">\(\sigma^2\)</span> in every group. If</p>
 <p><span class="math display">\[
@@ -2106,12 +2451,18 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-exm no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-exm callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Exm</span><a href="#exm-hers-anova" class="quarto-xref">Example&nbsp;10</a> (Fasting glucose by race/ethnicity in HERS)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="exm-hers-anova" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Fasting glucose by race/ethnicity in HERS)</strong></span> The group sizes, means, and standard deviations of baseline fasting glucose:</p>
 <div class="cell">
@@ -2196,14 +2547,20 @@ s_p^2
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-remark no-icon">
-<div class="callout-body d-flex">
+<div class="callouty-titled callout callout-style-default callout-remark callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Remark</span><a href="#rem-hers-anova-variances" class="quarto-xref">Remark&nbsp;6</a> (Unequal variances in the HERS glucose groups)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
 <div id="rem-hers-anova-variances" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Unequal variances in the HERS glucose groups). </span>The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of <a href="#thm-anova-null" class="quarto-xref">Theorem&nbsp;3</a> is questionable. <code><a href="https://rdrr.io/r/stats/oneway.test.html">oneway.test()</a></code> performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:</p>
+<p><span class="proof-title"><em>Remark 6</em> (Unequal variances in the HERS glucose groups). </span>The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of <a href="#thm-anova-null" class="quarto-xref">Theorem&nbsp;3</a> is questionable. <code><a href="https://rdrr.io/r/stats/oneway.test.html">oneway.test()</a></code> performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/oneway.test.html">oneway.test</a></span><span class="op">(</span><span class="va">glucose</span> <span class="op">~</span> <span class="va">raceth</span>, data <span class="op">=</span> <span class="va">hers</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -2263,13 +2620,44 @@ s_p^2
 <span><span class="co">#&gt;         f t_squared </span></span>
 <span><span class="co">#&gt;  0.180281  0.180281</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div id="read-hoggtanis2015-3" class="watch-anchor">
+<div class="callout callout-style-default callout-reading callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Reading</span>Read
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<ul>
+<li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 9.3</a>, pp.&nbsp;446–455)</span> covers one-factor analysis of variance.</li>
+<li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 11.2</a>, pp.&nbsp;522–538)</span> covers oneway analysis of variance.</li>
+<li>
+<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 12.2</a>, pp.&nbsp;477–488)</span> covers the one-way layout.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
+</div>
 <div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
 </div>
 <div id="ref-HulleyStephen1998RToE" class="csl-entry" role="listitem">
 Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. <span>“Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.”</span> <em>JAMA : The Journal of the American Medical Association</em> (Chicago, IL) 280 (7): 605–13. <a href="https://doi.org/10.1001/jama.280.7.605">https://doi.org/10.1001/jama.280.7.605</a>.
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
 </div>
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.
@@ -2527,7 +2915,84 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 window.addEventListener("load", alignEquationAnchorsWithDefault);
-</script></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</script></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script>
+// A link to #target scrolls the browser to the target before MathJax and the
+// images have set their final heights. Equations above the target then grow
+// and push it up out of view. Scroll to the target again once the page has
+// settled, so the CSS scroll-margin-top in styles.css places it mid-view.
+(function () {
+  function land() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    var el = id && document.getElementById(id);
+    if (el) el.scrollIntoView();
+  }
+  if (!location.hash) return;
+  function afterMath() {
+    var mj = window.MathJax;
+    var ready = mj && mj.startup && mj.startup.promise;
+    (ready || Promise.resolve()).then(land, land);
+  }
+  if (document.readyState === "complete") afterMath();
+  else window.addEventListener("load", afterMath);
+})();
+</script><style>
+/* The § link of a Watch or Read callout: shown on hover or focus, as on a theorem div. */
+.watch-anchor .callout-title-container .div-anchor {
+  opacity: 0;
+  margin-left: 0.5em;
+  font-size: 0.875em;
+  font-weight: 400;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.watch-anchor:is(:hover, :focus-within) .callout-title-container .div-anchor,
+.watch-anchor .callout-title-container .div-anchor:focus {
+  opacity: 1;
+}
+</style>
+<script>
+// Adds a "§" link to the title bar of each Watch and Read callout, which
+// filters/watch-callouts.lua wraps in a div that carries the callout's id.
+// The link reuses the div-anchor style of theorem divs and appears on hover.
+(function () {
+  function add() {
+    document.querySelectorAll("div.watch-anchor[id]").forEach(function (wrap) {
+      var title = wrap.querySelector(".callout-title-container");
+      if (!title || title.querySelector("a.div-anchor")) return;
+      var a = document.createElement("a");
+      a.href = "#" + wrap.id;
+      a.className = "div-anchor";
+      a.setAttribute("aria-label", "Link to this box");
+      var icon = document.createElement("span");
+      icon.setAttribute("aria-hidden", "true");
+      icon.textContent = "§";
+      a.appendChild(icon);
+      title.appendChild(a);
+    });
+  }
+  // The title bar is the fold toggle, and Bootstrap cancels a click on a link
+  // inside it in the capture phase on document. Stop the click earlier, on
+  // window, so the browser follows the link and the box does not fold.
+  window.addEventListener("click", function (e) {
+    if (e.target && e.target.closest &&
+        e.target.closest(".watch-anchor .callout-title-container a.div-anchor")) {
+      e.stopPropagation();
+    }
+  }, true);
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", add);
+  else add();
+})();
+</script><script>
+// The table-fit rule makes a page table a block box so it can scroll.
+// Some browsers then drop the table role, so give each one back.
+document.querySelectorAll("main table").forEach(function (t) {
+  if (!t.hasAttribute("role")) {
+    t.setAttribute("role", "table");
+  }
+});
+</script><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -2993,8 +3458,8 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./intro-MLEs.html" class="pagination-link" aria-label="Maximum Likelihood">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Maximum Likelihood</span>
+      <a href="./sufficiency.html" class="pagination-link" aria-label="Sufficiency">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sufficiency</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -3089,74 +3554,94 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
 <span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-pooled-t-test.qmd &gt;}}</span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_rem-pooled-variance-estimates.qmd &gt;}}</span>
 <span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-pooled-t-null.qmd &gt;}}</span>
+<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-pooled-t-test.qmd &gt;}}</span>
 <span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-pooled-ttest.qmd &gt;}}</span>
+<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-pooled-t-null.qmd &gt;}}</span>
 <span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confidence intervals for the difference in means {#sec-CI-diff-means}</span></span>
+<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-pooled-ttest.qmd &gt;}}</span>
 <span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-ci-diff-means div. --&gt;</span></span>
-<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ci-diff-means.qmd &gt;}}</span>
-<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
+<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 8.2, pp. 369--377</span><span class="co">]</span> covers tests of the equality of two means.</span>
+<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 11.2.1, pp. 421--432</span><span class="co">]</span> covers normal-theory methods for two independent samples.</span>
+<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 11.3.1, pp. 446--447</span><span class="co">]</span> covers normal-theory methods for paired samples.</span>
+<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-diff-means-ci.qmd &gt;}}</span>
+<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-way analysis of variance {#sec-anova}</span></span>
+<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a><span class="fu">### Confidence intervals for the difference in means {#sec-CI-diff-means}</span></span>
 <span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-ss-between div. --&gt;</span></span>
+<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-ci-diff-means div. --&gt;</span></span>
 <span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ss-between.qmd &gt;}}</span>
+<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ci-diff-means.qmd &gt;}}</span>
 <span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-ss-between.qmd &gt;}}</span>
+<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-diff-means-ci.qmd &gt;}}</span>
 <span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
-<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ss-within.qmd &gt;}}</span>
+<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
+<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 7.2, pp. 314--322</span><span class="co">]</span> covers confidence intervals for the difference of two means.</span>
+<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a><span class="fu">## One-way analysis of variance {#sec-anova}</span></span>
 <span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-ss-within.qmd &gt;}}</span>
+<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- No slidebreak here: the heading shares its slide with the def-ss-between div. --&gt;</span></span>
 <span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ss-between.qmd &gt;}}</span>
 <span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-mean-squares.qmd &gt;}}</span>
+<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-ss-between.qmd &gt;}}</span>
 <span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-mean-squares.qmd &gt;}}</span>
+<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-ss-within.qmd &gt;}}</span>
 <span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-one-way-anova.qmd &gt;}}</span>
+<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-ss-within.qmd &gt;}}</span>
 <span id="cb18-140"><a href="#cb18-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-anova-null.qmd &gt;}}</span>
+<span id="cb18-141"><a href="#cb18-141" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-142"><a href="#cb18-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-143"><a href="#cb18-143" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-mean-squares.qmd &gt;}}</span>
 <span id="cb18-144"><a href="#cb18-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-anova.qmd &gt;}}</span>
+<span id="cb18-145"><a href="#cb18-145" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-146"><a href="#cb18-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-147"><a href="#cb18-147" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-mean-squares.qmd &gt;}}</span>
 <span id="cb18-148"><a href="#cb18-148" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_note-anova-regression.qmd &gt;}}</span>
+<span id="cb18-149"><a href="#cb18-149" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
 <span id="cb18-150"><a href="#cb18-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb18-151"><a href="#cb18-151" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_def-one-way-anova.qmd &gt;}}</span>
 <span id="cb18-152"><a href="#cb18-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb18-153"><a href="#cb18-153" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-154"><a href="#cb18-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-155"><a href="#cb18-155" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_thm-anova-null.qmd &gt;}}</span>
+<span id="cb18-156"><a href="#cb18-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-157"><a href="#cb18-157" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-158"><a href="#cb18-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-159"><a href="#cb18-159" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_exm-hers-anova.qmd &gt;}}</span>
+<span id="cb18-160"><a href="#cb18-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-161"><a href="#cb18-161" aria-hidden="true" tabindex="-1"></a>{{&lt; slidebreak &gt;}}</span>
+<span id="cb18-162"><a href="#cb18-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-163"><a href="#cb18-163" aria-hidden="true" tabindex="-1"></a>{{&lt; include sds/_subfiles/basic-statistical-methods/_note-anova-regression.qmd &gt;}}</span>
+<span id="cb18-164"><a href="#cb18-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-165"><a href="#cb18-165" aria-hidden="true" tabindex="-1"></a>::: {.reading}</span>
+<span id="cb18-166"><a href="#cb18-166" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@hoggtanis2015 <span class="co">[</span><span class="ot">Sec. 9.3, pp. 446--455</span><span class="co">]</span> covers one-factor analysis of variance.</span>
+<span id="cb18-167"><a href="#cb18-167" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@CaseBerg01 <span class="co">[</span><span class="ot">Sec. 11.2, pp. 522--538</span><span class="co">]</span> covers oneway analysis of variance.</span>
+<span id="cb18-168"><a href="#cb18-168" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 12.2, pp. 477--488</span><span class="co">]</span> covers the one-way layout.</span>
+<span id="cb18-169"><a href="#cb18-169" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb18-170"><a href="#cb18-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-171"><a href="#cb18-171" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb18-172"><a href="#cb18-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-173"><a href="#cb18-173" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb18-174"><a href="#cb18-174" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">

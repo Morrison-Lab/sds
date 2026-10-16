@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 16:39:05 (PDT)
+Last modified: 2026-10-16 00:09:51 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -55,24 +55,26 @@ hers |> head()
 >
 > **Example 1 (Correlation between BMI and fasting glucose in HERS)** [Figure 1](#fig-hers-scatter) plots baseline fasting glucose against BMI.
 >
-> Show R code
->
-> ``` downlit
-> hers |>
->   dplyr::filter(!is.na(BMI)) |>
->   ggplot2::ggplot() +
->   ggplot2::aes(x = BMI, y = glucose) +
->   ggplot2::geom_point(alpha = 0.3) +
->   ggplot2::geom_smooth(method = "lm", formula = y ~ x) +
->   ggplot2::labs(
->     x = "BMI (kg/m^2)",
->     y = "Fasting glucose (mg/dL)"
->   )
-> ```
->
-> [![](correlation-regression_files/figure-html/unnamed-chunk-1-1.png)](correlation-regression_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Baseline fasting glucose against BMI in HERS, with the least-squares line")
->
-> Figure 1: Baseline fasting glucose against BMI in HERS, with the least-squares line
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > hers |>
+> >   dplyr::filter(!is.na(BMI)) |>
+> >   ggplot2::ggplot() +
+> >   ggplot2::aes(x = BMI, y = glucose) +
+> >   ggplot2::geom_point(alpha = 0.3) +
+> >   ggplot2::geom_smooth(method = "lm", formula = y ~ x) +
+> >   ggplot2::labs(
+> >     x = "BMI (kg/m^2)",
+> >     y = "Fasting glucose (mg/dL)"
+> >   )
+> > ```
+> >
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-1-1.png)](correlation-regression_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Baseline fasting glucose against BMI in HERS, with the least-squares line")
+> >
+> > Figure 1: Baseline fasting glucose against BMI in HERS, with the least-squares line
 >
 > The statistic of [Definition 2](#def-pearson-test), using the 2758 participants with a BMI measurement:
 >
@@ -104,6 +106,11 @@ hers |> head()
 > ```
 >
 > The correlation is positive but modest: glucose tends to be higher at higher BMI, with wide scatter around the line in [Figure 1](#fig-hers-scatter).
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 9.6](#ref-hoggtanis2015), pp. 471–476) covers tests concerning regression and correlation.
+> - Rice ([2007, sec. 14.2.3](#ref-rice2007mathematical), pp. 560–563) covers correlation and regression.
 
 ### 2.2 Spearman rank correlation
 
@@ -157,11 +164,11 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 1 (Outcome as mean plus deviation)** Show that each outcome in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) is its conditional mean plus its deviation ([Definition 5](#def-slr-deviation)): \\Y_i = \mu_i + \varepsilon_i\\.
+> **Exercise 1 (Decomposing an outcome)** Express each outcome \\Y_i\\ in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)) in terms of its conditional mean \\\mu_i\\ and its deviation \\\varepsilon_i\\ ([Definition 5](#def-slr-deviation)).
 
 > **NOTE:**
 >
-> *Solution 1*. Start from the right-hand side:
+> *Solution 1*. Check that \\Y_i = \mu_i + \varepsilon_i\\, starting from the right-hand side:
 >
 > \\ \begin{aligned} \mu_i + \varepsilon_i &= \mu(x_i) + \varepsilon_i && \text{(definition of \$\mu_i\$)}\\ &= \mu(x_i) + \mathopen{}\left(Y_i - \mu(x_i)\right)\mathclose{} && \text{(definition of \$\varepsilon_i\$)}\\ &= \mu(x_i) + Y_i - \mu(x_i) && \text{(remove the parentheses)}\\ &= Y_i + \mu(x_i) - \mu(x_i) && \text{(reorder the terms)}\\ &= Y_i + \mathopen{}\left(\mu(x_i) - \mu(x_i)\right)\mathclose{} && \text{(group the last two terms)}\\ &= Y_i + 0 && \text{(\$a - a = 0\$)}\\ &= Y_i && \text{(\$a + 0 = a\$)} \end{aligned} \\
 >
@@ -183,7 +190,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 2 (Distribution of the deviations)** Show that in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariate values, the deviations ([Definition 5](#def-slr-deviation)) are independent and each is Gaussian with mean 0 and the same variance \\\sigma^2_i\\ as \\Y_i\\: \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
+> **Exercise 2 (Distribution of the deviations)** Find the joint distribution of the deviations ([Definition 5](#def-slr-deviation)) in a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), given the covariate values.
 
 > **NOTE:**
 >
@@ -211,7 +218,7 @@ hers |> head()
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(\varepsilon_1 \le t_1, \ldots, \varepsilon_n \le t_n\right)\mathclose{} &= \Pr\mathopen{}\left(Y_1 \le t_1 + \mu_1, \ldots, Y_n \le t_n + \mu_n\right)\mathclose{} && \text{(add \$\mu_i\$ to both sides of each inequality)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(Y_i \le t_i + \mu_i\right)\mathclose{} && \text{(the \$Y_i\$ are independent)}\\ &= \prod\_{i=1}^n\Pr\mathopen{}\left(\varepsilon_i \le t_i\right)\mathclose{} && \text{(subtract \$\mu_i\$ from both sides of each inequality)} \end{aligned} \\
 >
-> The joint CDF is the product of the marginal CDFs, so \\\varepsilon_1, \ldots, \varepsilon_n\\ are independent.
+> The joint CDF is the product of the marginal CDFs, so \\\varepsilon_1, \ldots, \varepsilon_n\\ are independent. Given the covariate values, the deviations are therefore independent, with \\\varepsilon_i \mid X_i = x_i \\ \sim\_{\perp\\\\\\\perp}\\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -253,25 +260,29 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Remark 4* (Interpreting the parameters).
+> **Definition 9 (Intercept)** In a simple linear regression model ([Definition 8](#def-slr)), the **intercept** is \\\beta\_{0}= \mu(0)\\: the mean of \\Y\\ among observations with \\X = 0\\.
+
+> **NOTE:**
 >
-> - \\\beta\_{0}= \mu(0)\\ is the **intercept**: the mean of \\Y\\ among observations with \\X = 0\\.
-> - \\\beta\_{x} = \mu(x + 1) - \mu(x)\\ is the **slope**: the difference in the mean of \\Y\\ between two groups whose values of \\X\\ differ by one unit.
-> - \\\sigma^2\\ is the variance of \\Y\\ around its mean at each value of \\X\\.
+> **Definition 10 (Slope)** In a simple linear regression model ([Definition 8](#def-slr)), the **slope** is \\\beta\_{x} = \mu(x + 1) - \mu(x)\\: the difference in the mean of \\Y\\ between two groups whose values of \\X\\ differ by one unit.
+
+> **NOTE:**
+>
+> *Remark 4* (Interpreting the variance parameter). \\\sigma^2\\ is the variance of \\Y\\ around its mean at each value of \\X\\.
 
 ### 3.2 Ordinary least squares estimation
 
 > **NOTE:**
 >
-> **Definition 9 (Residual sum of squares)** For a regression model whose conditional mean \\\mu(x; \tilde{\theta})\\ depends on a parameter vector \\\tilde{\theta}\\, the **residual sum of squares** at \\\tilde{\theta}\\ is the sum of the squared residuals \\r_i(\tilde{\theta}) \stackrel{\text{def}}{=}y_i - \mu(x_i; \tilde{\theta})\\ that the model has when its parameters equal \\\tilde{\theta}\\:
+> **Definition 11 (Residual sum of squares)** For a regression model whose conditional mean \\\mu(x; \tilde{\theta})\\ depends on a parameter vector \\\tilde{\theta}\\, the **residual sum of squares** at \\\tilde{\theta}\\ is the sum of the squared residuals \\r_i(\tilde{\theta}) \stackrel{\text{def}}{=}y_i - \mu(x_i; \tilde{\theta})\\ that the model has when its parameters equal \\\tilde{\theta}\\:
 >
 > \\\text{RSS}(\tilde{\theta}) \stackrel{\text{def}}{=}\sum\_{i=1}^nr_i(\tilde{\theta})^2.\\
 >
-> At the estimate \\\hat{\tilde{\theta}}\\, \\r_i(\hat{\tilde{\theta}})\\ is the [residual](estimation.llms.md#def-residual) \\r_i\\ of the fitted model.
+> At the estimate \\\hat{\tilde{\theta}}\\, \\r_i(\hat{\tilde{\theta}})\\ is the [residual](prediction.llms.md#def-residual) \\r_i\\ of the fitted model.
 
 > **NOTE:**
 >
-> **Example 3 (Residual sum of squares of a simple linear regression)** The mean function of a [simple linear regression](#def-slr) model has parameter vector \\\tilde{\theta}= (\beta\_{0}, \beta\_{x})\\, so write \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for its residual sum of squares ([Definition 9](#def-rss)):
+> **Example 3 (Residual sum of squares of a simple linear regression)** The mean function of a [simple linear regression](#def-slr) model has parameter vector \\\tilde{\theta}= (\beta\_{0}, \beta\_{x})\\, so write \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for its residual sum of squares ([Definition 11](#def-rss)):
 >
 > \\ \begin{aligned} \text{RSS}(\beta\_{0}, \beta\_{x}) &= \sum\_{i=1}^nr_i(\beta\_{0}, \beta\_{x})^2 && \text{(definition of RSS)}\\ &= \sum\_{i=1}^n\mathopen{}\left(y_i - \mu(x_i; \beta\_{0}, \beta\_{x})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(y_i - (\beta\_{0}+ \beta\_{x} x_i)\right)\mathclose{}^2 && \text{(definition of \$\mu(x)\$)}\\ &= \sum\_{i=1}^n(y_i - \beta\_{0}- \beta\_{x} x_i)^2 && \text{(distribute the minus sign)} \end{aligned} \\
 
@@ -283,40 +294,42 @@ hers |> head()
 >
 > ([Figure 2](#fig-rss-three-points)).
 >
-> Show R code
->
-> ``` downlit
-> rss_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>
->   dplyr::mutate(fitted = 1 + 0.5 * x)
->
-> ggplot2::ggplot(rss_points, ggplot2::aes(x = x, y = y)) +
->   ggplot2::geom_abline(intercept = 1, slope = 0.5) +
->   ggplot2::geom_segment(
->     ggplot2::aes(xend = x, yend = fitted),
->     linetype = "dashed",
->     color = "firebrick"
->   ) +
->   ggplot2::geom_point(size = 3) +
->   ggplot2::coord_cartesian(xlim = c(-0.25, 2.25), ylim = c(0.75, 2.25))
-> ```
->
-> [![](correlation-regression_files/figure-html/unnamed-chunk-5-1.png)](correlation-regression_files/figure-html/unnamed-chunk-5-1.png "Figure 2: The three points, the line with intercept 1 and slope 0.5, and the one nonzero residual (dashed)")
->
-> Figure 2: The three points, the line with intercept 1 and slope 0.5, and the one nonzero residual (dashed)
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > rss_points <- tibble::tibble(x = c(0, 1, 2), y = c(1, 2, 2)) |>
+> >   dplyr::mutate(fitted = 1 + 0.5 * x)
+> >
+> > ggplot2::ggplot(rss_points, ggplot2::aes(x = x, y = y)) +
+> >   ggplot2::geom_abline(intercept = 1, slope = 0.5) +
+> >   ggplot2::geom_segment(
+> >     ggplot2::aes(xend = x, yend = fitted),
+> >     linetype = "dashed",
+> >     color = "firebrick"
+> >   ) +
+> >   ggplot2::geom_point(size = 3) +
+> >   ggplot2::coord_cartesian(xlim = c(-0.25, 2.25), ylim = c(0.75, 2.25))
+> > ```
+> >
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-5-1.png)](correlation-regression_files/figure-html/unnamed-chunk-5-1.png "Figure 2: The three points, the line with intercept 1 and slope 0.5, and the one nonzero residual (dashed)")
+> >
+> > Figure 2: The three points, the line with intercept 1 and slope 0.5, and the one nonzero residual (dashed)
 
 > **NOTE:**
 >
-> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\tilde{\theta})\\ ([Definition 9](#def-rss)) be taken over those same outcomes. Write the [mean squared error](estimation.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\tilde{\theta})\\, and \\\text{RSS}(\tilde{\theta})\\ in terms of that mean squared error.
+> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, let \\\hat y_i \stackrel{\text{def}}{=}\mu(x_i; \tilde{\theta})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [mean squared error](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\tilde{\theta})\\, and \\\text{RSS}(\tilde{\theta})\\ in terms of that mean squared error.
 
 > **NOTE:**
 >
-> *Solution 3*. First, each squared [prediction error](estimation.llms.md#def-prediction-error) equals the squared residual at \\\tilde{\theta}\\:
+> *Solution 3*. First, each squared [prediction error](prediction.llms.md#def-prediction-error) equals the squared residual at \\\tilde{\theta}\\:
 >
-> \\ \begin{aligned} e_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \tilde{\theta}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \tilde{\theta})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\tilde{\theta})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= r_i(\tilde{\theta})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
+> \\ \begin{aligned} \varepsilon_i^2 &= (\hat y_i - y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \tilde{\theta}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i - \mu(x_i; \tilde{\theta})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\tilde{\theta})\right)\mathclose{}^2 && \text{(definition of \$r_i(\tilde{\theta})\$)}\\ &= r_i(\tilde{\theta})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
 >
 > So the mean squared error is the residual sum of squares divided by \\n\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^ne_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\tilde{\theta})^2 && \text{(\$e_i^2 = r_i(\tilde{\theta})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\tilde{\theta}) && \text{(definition of RSS)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\tilde{\theta})^2 && \text{(\$\varepsilon_i^2 = r_i(\tilde{\theta})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\tilde{\theta}) && \text{(definition of RSS)} \end{aligned} \\
 >
 > Solving for \\\text{RSS}(\tilde{\theta})\\:
 >
@@ -324,7 +337,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, the [mean squared error](estimation.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \tilde{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\tilde{\theta})\\ ([Definition 9](#def-rss)) over those same \\n\\ outcomes satisfy
+> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \tilde{\theta})\\, the [mean squared error](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i = \mu(x_i; \tilde{\theta})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\tilde{\theta})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\tilde{\theta}),\\
 >
@@ -342,79 +355,87 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 10 (Ordinary least squares)** The **ordinary least squares (OLS) estimate** of a model’s parameter vector \\\tilde{\theta}\\ is the value of \\\tilde{\theta}\\ that minimizes the [residual sum of squares](#def-rss):
+> **Definition 12 (Ordinary least squares)** The **ordinary least squares (OLS) estimate** of a model’s parameter vector \\\tilde{\theta}\\ is the value of \\\tilde{\theta}\\ that minimizes the [residual sum of squares](#def-rss):
 >
 > \\\hat{\tilde{\theta}} \stackrel{\text{def}}{=}\arg \min\_{\tilde{\theta}} \text{RSS}(\tilde{\theta}).\\
 
 > **NOTE:**
 >
-> **Example 5 (OLS estimates of a simple linear regression)** For a simple linear regression, the OLS estimates ([Definition 10](#def-ols)) \\\hat{\beta}\_{0}\\ and \\\hat{\beta}\_{x}\\ are the values of \\\beta\_{0}\\ and \\\beta\_{x}\\ that minimize \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). [Figure 3](#fig-rss-surface) shows \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss): the OLS estimates sit at the bottom of the bowl, and the line of [Example 4](#exm-rss) sits higher up.
+> **Example 5 (OLS estimates of a simple linear regression)** For a simple linear regression, the OLS estimates ([Definition 12](#def-ols)) \\\hat{\beta}\_{0}\\ and \\\hat{\beta}\_{x}\\ are the values of \\\beta\_{0}\\ and \\\beta\_{x}\\ that minimize \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). [Figure 3](#fig-rss-surface) shows \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss): the OLS estimates sit at the bottom of the bowl, and the line of [Example 4](#exm-rss) sits higher up.
 >
-> Show R code
->
-> ``` downlit
-> rss_grid <- expand.grid(
->   b0 = seq(0, 2.5, length.out = 101),
->   bx = seq(-0.5, 1.5, length.out = 101)
-> )
-> rss_grid$rss <- mapply(
->   function(b0, bx) sum((rss_points$y - b0 - bx * rss_points$x)^2),
->   rss_grid$b0,
->   rss_grid$bx
-> )
-> ols_coefs <- coef(lm(y ~ x, data = rss_points))
->
-> ggplot2::ggplot(rss_grid, ggplot2::aes(x = b0, y = bx, z = rss)) +
->   ggplot2::geom_contour(
->     ggplot2::aes(color = ggplot2::after_stat(level)),
->     breaks = c(0.25, 0.5, 1, 2, 4, 8)
->   ) +
->   ggplot2::annotate(
->     "point",
->     x = ols_coefs[[1]], y = ols_coefs[[2]], size = 3
->   ) +
->   ggplot2::annotate("point", x = 1, y = 0.5, shape = 4, size = 3) +
->   ggplot2::labs(
->     x = expression(beta[0]),
->     y = expression(beta[x]),
->     color = "RSS"
->   )
-> ```
->
-> Show R code
->
-> ``` downlit
->
-> ols_coefs
-> #> (Intercept)           x 
-> #>     1.16667     0.50000
-> ```
->
-> [![](correlation-regression_files/figure-html/unnamed-chunk-6-1.png)](correlation-regression_files/figure-html/unnamed-chunk-6-1.png "Figure 3: Contours of \text{RSS}(\beta_{0}, \beta_{x}) for the three points of Example 4. The dot marks the OLS estimates; the cross marks the line of Example 4.")
->
-> Figure 3: Contours of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss). The dot marks the OLS estimates; the cross marks the line of [Example 4](#exm-rss).
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > rss_grid <- expand.grid(
+> >   b0 = seq(0, 2.5, length.out = 101),
+> >   bx = seq(-0.5, 1.5, length.out = 101)
+> > )
+> > rss_grid$rss <- mapply(
+> >   function(b0, bx) sum((rss_points$y - b0 - bx * rss_points$x)^2),
+> >   rss_grid$b0,
+> >   rss_grid$bx
+> > )
+> > ols_coefs <- coef(lm(y ~ x, data = rss_points))
+> >
+> > ggplot2::ggplot(rss_grid, ggplot2::aes(x = b0, y = bx, z = rss)) +
+> >   ggplot2::geom_contour(
+> >     ggplot2::aes(color = ggplot2::after_stat(level)),
+> >     breaks = c(0.25, 0.5, 1, 2, 4, 8)
+> >   ) +
+> >   ggplot2::annotate(
+> >     "point",
+> >     x = ols_coefs[[1]], y = ols_coefs[[2]], size = 3
+> >   ) +
+> >   ggplot2::annotate("point", x = 1, y = 0.5, shape = 4, size = 3) +
+> >   ggplot2::labs(
+> >     x = expression(beta[0]),
+> >     y = expression(beta[x]),
+> >     color = "RSS"
+> >   )
+> > ```
+> >
+> > Show R code
+> >
+> > ``` downlit
+> >
+> > ols_coefs
+> > #> (Intercept)           x 
+> > #>     1.16667     0.50000
+> > ```
+> >
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-6-1.png)](correlation-regression_files/figure-html/unnamed-chunk-6-1.png "Figure 3: Contours of \text{RSS}(\beta_{0}, \beta_{x}) for the three points of Example 4. The dot marks the OLS estimates; the cross marks the line of Example 4.")
+> >
+> > Figure 3: Contours of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ for the three points of [Example 4](#exm-rss). The dot marks the OLS estimates; the cross marks the line of [Example 4](#exm-rss).
 
 > **NOTE:**
 >
-> **Definition 11 (Normal equations)** For a model fitted by least squares with parameter vector \\\tilde{\theta}\\, the **normal equations** set the gradient of the [residual sum of squares](#def-rss) to zero:
+> **Definition 13 (Normal equations)** For a model fitted by least squares with parameter vector \\\tilde{\theta}\\, the **normal equations** set the gradient of the [residual sum of squares](#def-rss) to zero:
 >
 > \\\frac{\partial}{\partial \tilde{\theta}} \text{RSS}(\tilde{\theta}) = \tilde{0}.\\
 
 > **NOTE:**
 >
-> **Example 6 (Normal equations of a simple linear regression)** For a simple linear regression, the parameter vector is \\\tilde{\beta}\stackrel{\text{def}}{=}{\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\, and \\\text{RSS}(\tilde{\beta})\\ is \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). Its gradient has one entry per coefficient, so the normal equations ([Definition 11](#def-normal-equations)) are two scalar equations:
+> **Example 6 (Normal equations of a simple linear regression)** For a simple linear regression, the parameter vector is \\\tilde{\beta}\stackrel{\text{def}}{=}{\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\, and \\\text{RSS}(\tilde{\beta})\\ is \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ from [Example 3](#exm-rss-slr). Its gradient has one entry per coefficient, so the normal equations ([Definition 13](#def-normal-equations)) are two scalar equations:
 >
 > \\ \frac{\partial \text{RSS}}{\partial \beta\_{0}} = 0, \qquad \frac{\partial \text{RSS}}{\partial \beta\_{x}} = 0. \\
 
 > **NOTE:**
 >
-> **Definition 12 (Centered sums of squares and cross-products)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **centered sums of squares** of the \\x_i\\ and of the \\y_i\\, and their **centered sum of cross-products**, are
+> **Definition 14 (Centered sums of squares)** For data \\(x_1, y_1), \ldots, (x_n, y_n)\\, the **centered sums of squares** of the \\x_i\\ and of the \\y_i\\ are
 >
-> \\ \begin{aligned} S\_{xx} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})^2, & S\_{yy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2, & S\_{xy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}). \end{aligned} \\
+> \\ \begin{aligned} S\_{xx} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})^2, & S\_{yy} &\stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2. \end{aligned} \\
 
 > **NOTE:**
 >
-> **Exercise 4 (Deviations from the mean sum to zero)** Show that \\\sum\_{i=1}^n(x_i - \bar{x}) = 0\\.
+> **Definition 15 (Centered sum of cross-products)** For the data of [Definition 14](#def-centered-sums), the **centered sum of cross-products** is
+>
+> \\ S\_{xy} \stackrel{\text{def}}{=}\sum\_{i=1}^n(x_i - \bar{x})(y_i - \bar{y}). \\
+
+> **NOTE:**
+>
+> **Exercise 4 (Summing the deviations from the mean)** Find \\\sum\_{i=1}^n(x_i - \bar{x})\\.
 
 > **NOTE:**
 >
@@ -424,11 +445,31 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 5 (Expanding the centered sum of squares)** Show that \\S\_{xx} = \sum\_{i=1}^nx_i^2 - n \bar{x}^2\\ ([Definition 12](#def-centered-sums)).
+> **Lemma 1 (Deviations from the mean sum to zero)** For any data \\z_1, \ldots, z_n\\ with mean \\\bar{z}\\ (for example, the \\x_i\\ or the \\y_i\\), the deviations from the mean sum to zero:
+>
+> \\\sum\_{i=1}^n(z_i - \bar{z}) = 0.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 4](#exr-sum-deviations-zero).
+
+> **NOTE:**
+>
+> **Exercise 5 (Expanding the centered sum of squares)** Expand the centered sum of squares \\S\_{xx}\\ ([Definition 14](#def-centered-sums)) into an expression in terms of \\n\\, \\\sum\_{i=1}^nx_i^2\\ and \\\bar{x}\\.
 
 > **NOTE:**
 >
 > *Solution 5*. \\ \begin{aligned} S\_{xx} &= \sum\_{i=1}^n(x_i - \bar{x})^2 && \text{(definition of \$S\_{xx}\$)}\\ &= \sum\_{i=1}^n\mathopen{}\left(x_i^2 - 2 \bar{x} x_i + \bar{x}^2\right)\mathclose{} && \text{(expand the square)}\\ &= \sum\_{i=1}^nx_i^2 - \sum\_{i=1}^n2 \bar{x} x_i + \sum\_{i=1}^n\bar{x}^2 && \text{(split the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \sum\_{i=1}^nx_i + \sum\_{i=1}^n\bar{x}^2 && \text{(constant factor out of the sum)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \sum\_{i=1}^nx_i + n \bar{x}^2 && \text{(sum of a constant)}\\ &= \sum\_{i=1}^nx_i^2 - 2 \bar{x} \cdot n \bar{x} + n \bar{x}^2 && \text{(\$\sum\_{i=1}^nx_i = n \bar{x}\$)}\\ &= \sum\_{i=1}^nx_i^2 - 2 n \bar{x}^2 + n \bar{x}^2 && \text{(multiply)}\\ &= \sum\_{i=1}^nx_i^2 - n \bar{x}^2 && \text{(collect the \$\bar{x}^2\$ terms)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Lemma 2 (Expanded centered sum of squares)** The centered sum of squares \\S\_{xx}\\ ([Definition 14](#def-centered-sums)) equals
+>
+> \\S\_{xx} = \sum\_{i=1}^nx_i^2 - n \bar{x}^2.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 5](#exr-sxx-expand).
 
 > **NOTE:**
 >
@@ -450,6 +491,16 @@ hers |> head()
 
 > **NOTE:**
 >
+> **Lemma 3 (Derivative of RSS with respect to the intercept)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the intercept is
+>
+> \\\frac{\partial \text{RSS}}{\partial \beta\_{0}} = -2 \sum\_{i=1}^n(y_i - \beta\_{0}- \beta\_{x} x_i) = -2 \mathopen{}\left(n \bar{y} - n \beta\_{0}- \beta\_{x} n \bar{x}\right)\mathclose{}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 6](#exr-rss-deriv-intercept).
+
+> **NOTE:**
+>
 > **Exercise 7 (Derivative of RSS with respect to the slope)** Find the partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the slope, \\\partial \text{RSS} / \partial \beta\_{x}\\.
 
 > **NOTE:**
@@ -468,7 +519,17 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 8 (Solving the normal equations)** Using [Exercise 6](#exr-rss-deriv-intercept) and [Exercise 7](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)).
+> **Lemma 4 (Derivative of RSS with respect to the slope)** The partial derivative of the simple linear regression residual sum of squares \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to the slope is
+>
+> \\\frac{\partial \text{RSS}}{\partial \beta\_{x}} = -2 \sum\_{i=1}^nx_i (y_i - \beta\_{0}- \beta\_{x} x_i).\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 7](#exr-rss-deriv-slope).
+
+> **NOTE:**
+>
+> **Exercise 8 (Solving the normal equations)** Using [Exercise 6](#exr-rss-deriv-intercept) and [Exercise 7](#exr-rss-deriv-slope), solve the normal equations of [Example 6](#exm-normal-equations-slr) for \\\beta\_{0}\\ and \\\beta\_{x}\\, assuming \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -496,7 +557,17 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 9 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)).
+> **Lemma 5 (Solution of the normal equations)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the normal equations of [Example 6](#exm-normal-equations-slr) have exactly one solution:
+>
+> \\\beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \beta\_{0}= \bar{y} - \beta\_{x} \bar{x}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 8](#exr-solve-normal-equations).
+
+> **NOTE:**
+>
+> **Exercise 9 (Second derivatives of RSS)** Find the matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -530,25 +601,35 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Theorem 5 (Closed-form OLS estimates)** Suppose \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Example 5](#exm-ols-slr)) are unique, and
+> **Lemma 6 (Second derivatives of RSS)** The matrix of second derivatives of \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ ([Example 3](#exm-rss-slr)) with respect to \\\beta\_{0}\\ and \\\beta\_{x}\\ is positive definite at every \\(\beta\_{0}, \beta\_{x})\\ when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), and equals
+>
+> \\\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sum\_{i=1}^nx_i^2 \end{pmatrix}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 9](#exr-rss-hessian).
+
+> **NOTE:**
+>
+> **Theorem 5 (Closed-form OLS estimates)** Suppose \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), that is, not all \\x_i\\ are equal. Then the OLS estimates ([Example 5](#exm-ols-slr)) are unique, and
 >
 > \\\hat{\beta}\_{x} = \frac{S\_{xy}}{S\_{xx}}, \qquad \hat{\beta}\_{0}= \bar{y} - \hat{\beta}\_{x} \bar{x}.\\
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Exercise 8](#exr-solve-normal-equations), the normal equations have exactly one solution, \\\beta\_{x} = S\_{xy} / S\_{xx}\\ and \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\. By [Exercise 9](#exr-rss-hessian), the matrix of second derivatives of \\\text{RSS}\\ is positive definite at every point, so \\\text{RSS}\\ is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 5](#lem-solve-normal-equations), the normal equations have exactly one solution, \\\beta\_{x} = S\_{xy} / S\_{xx}\\ and \\\beta\_{0}= \bar{y} - \beta\_{x} \bar{x}\\. By [Lemma 6](#lem-rss-hessian), the matrix of second derivatives of \\\text{RSS}\\ is positive definite at every point, so \\\text{RSS}\\ is strictly convex and its only stationary point is its unique global minimum. So the OLS estimates exist, are unique, and equal that solution.
 
 The same estimates follow from a derivation in vector notation, which treats \\(\beta\_{0}, \beta\_{x})\\ as a single vector instead of differentiating with respect to each component separately.
 
 > **NOTE:**
 >
-> **Definition 13 (Covariate vector)** In simple linear regression ([Definition 8](#def-slr)), the **covariate vector** \\\tilde{x}\_i\\ of observation \\i\\ is its covariate value \\x_i\\, preceded by a 1 for the intercept:
+> **Definition 16 (Covariate vector)** In simple linear regression ([Definition 8](#def-slr)), the **covariate vector** \\\tilde{x}\_i\\ of observation \\i\\ is its covariate value \\x_i\\, preceded by a 1 for the intercept:
 >
 > \\ \tilde{x}\_i\stackrel{\text{def}}{=}\begin{pmatrix} 1 \\ x_i \end{pmatrix}. \\
 
 > **NOTE:**
 >
-> **Exercise 10 (Mean as a dot product)** Show that in simple linear regression ([Definition 8](#def-slr)), the conditional mean \\\mu(x_i)\\ is the dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 13](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)): \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\.
+> **Exercise 10 (The conditional mean and the covariate vector)** In simple linear regression ([Definition 8](#def-slr)), express the conditional mean \\\mu(x_i)\\ as a dot product of the covariate vector \\\tilde{x}\_i\\ ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{x}\right)\mathclose{}}^{\top}\\ ([Example 6](#exm-normal-equations-slr)).
 
 > **NOTE:**
 >
@@ -560,7 +641,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Lemma 1 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 13](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}\\ ([Example 6](#exm-normal-equations-slr)):
+> **Lemma 7 (The conditional mean is a dot product)** In simple linear regression ([Definition 8](#def-slr)), the conditional mean of observation \\i\\ is the dot product of its covariate vector ([Definition 16](#def-slr-covariate-vector)) and the coefficient vector \\\tilde{\beta}\\ ([Example 6](#exm-normal-equations-slr)):
 >
 > \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}.\\
 
@@ -570,7 +651,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\tilde{\theta}= \tilde{\beta}\\ and substitute \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\ ([Lemma 1](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 9](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\tilde{\beta}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
+> **Example 7 (Residual sum of squares in vector notation)** In simple linear regression, take \\\tilde{\theta}= \tilde{\beta}\\ and substitute \\\mu(x_i) = \tilde{x}\_i \cdot \tilde{\beta}\\ ([Lemma 7](#lem-slr-mean-dot-product)) into each residual of the residual sum of squares ([Definition 11](#def-rss)). The residual sum of squares is then a function of the coefficient vector \\\tilde{\beta}\\, the same function as \\\text{RSS}(\beta\_{0}, \beta\_{x})\\ in [Example 3](#exm-rss-slr):
 >
 > \\ \text{RSS}(\tilde{\beta}) = \sum\_{i=1}^n\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}^2. \\
 
@@ -595,6 +676,16 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 > Plugging the inner derivative back in:
 >
 > \\ \begin{aligned} \frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) &= \sum\_{i=1}^n2 \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} \mathopen{}\left(-\tilde{x}\_i\right)\mathclose{} && \text{(inner derivative is \$-\tilde{x}\_i\$)}\\ &= \sum\_{i=1}^n2 \mathopen{}\left(-\tilde{x}\_i\right)\mathclose{} \mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} && \text{(reorder the scalar and vector factors)}\\ &= \sum\_{i=1}^n\mathopen{}\left(-2\right)\mathclose{} \tilde{x}\_i\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} && \text{(\$2 \mathopen{}\left(-\tilde{x}\_i\right)\mathclose{} = -2 \tilde{x}\_i\$)}\\ &= -2 \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{} && \text{(constant factor out of the sum)} \end{aligned} \\
+
+> **NOTE:**
+>
+> **Lemma 8 (Gradient of RSS in vector notation)** The gradient of the residual sum of squares in vector notation ([Example 7](#exm-rss-vector)) is
+>
+> \\\frac{\partial}{\partial \tilde{\beta}} \text{RSS}(\tilde{\beta}) = -2 \sum\_{i=1}^n\tilde{x}\_i\mathopen{}\left(y_i - \tilde{x}\_i \cdot \tilde{\beta}\right)\mathclose{}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 11](#exr-rss-gradient-vector).
 
 > **NOTE:**
 >
@@ -624,7 +715,21 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 13 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), show that \\A\\ from [Exercise 12](#exr-normal-equations-vector) is invertible, solve \\A \tilde{\beta}= \tilde{c}\\ for \\\tilde{\beta}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
+> **Lemma 9 (Normal equations in vector notation)** Let
+>
+> \\ A \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}, \qquad \tilde{c} \stackrel{\text{def}}{=}\sum\_{i=1}^n\tilde{x}\_iy_i. \\
+>
+> The [normal equations](#def-normal-equations) of a simple linear regression are equivalent to
+>
+> \\A \tilde{\beta}= \tilde{c}.\\
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 12](#exr-normal-equations-vector).
+
+> **NOTE:**
+>
+> **Exercise 13 (Solving the normal equations in vector notation)** Assuming \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), show that \\A\\ from [Exercise 12](#exr-normal-equations-vector) is invertible, solve \\A \tilde{\beta}= \tilde{c}\\ for \\\tilde{\beta}\\, and compare the result with [Exercise 8](#exr-solve-normal-equations).
 
 > **NOTE:**
 >
@@ -652,7 +757,19 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 14 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)).
+> **Lemma 10 (Solution of the normal equations in vector notation)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the matrix \\A = \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ is invertible, and the normal equations \\A \tilde{\beta}= \tilde{c}\\ with \\\tilde{c} = \sum\_{i=1}^n\tilde{x}\_iy_i\\ ([Lemma 9](#lem-normal-equations-vector)) have exactly one solution,
+>
+> \\ \tilde{\beta}= A^{-1} \tilde{c} = \begin{pmatrix} \bar{y} - \beta\_{x} \bar{x} \\ S\_{xy} / S\_{xx} \end{pmatrix} \quad \text{with} \quad \beta\_{x} = \frac{S\_{xy}}{S\_{xx}}, \\
+>
+> the same solution as [Lemma 5](#lem-solve-normal-equations).
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 13](#exr-solve-normal-equations-vector).
+
+> **NOTE:**
+>
+> **Exercise 14 (Hessian of RSS in vector notation)** Find the [Hessian](intro-MLEs.llms.md#def-hessian) \\\frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta})\\, and show that it is positive definite when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
 
 > **NOTE:**
 >
@@ -668,7 +785,19 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Theorem 6 (OLS estimates in vector notation)** Suppose \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 10](#def-ols)) is
+> **Lemma 11 (Hessian of RSS in vector notation)** The [Hessian](intro-MLEs.llms.md#def-hessian) of the residual sum of squares is
+>
+> \\ \frac{\partial}{\partial \tilde{\beta}} \frac{\partial}{\partial {\tilde{\beta}}^{\top}} \text{RSS}(\tilde{\beta}) = 2 \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}, \\
+>
+> and it is positive definite at every \\\tilde{\beta}\\ when \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)).
+
+> **NOTE:**
+>
+> *Proof*. This is the solution to [Exercise 14](#exr-rss-hessian-vector).
+
+> **NOTE:**
+>
+> **Theorem 6 (OLS estimates in vector notation)** Suppose \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)). Then the matrix \\A = \sum\_{i=1}^n\tilde{x}\_i {\tilde{x}\_i}^{\top}\\ is invertible, and the vector of OLS estimates ([Definition 12](#def-ols)) is
 >
 > \\ \hat{\tilde{\beta}}= A^{-1} \tilde{c}, \qquad \tilde{c} = \sum\_{i=1}^n\tilde{x}\_iy_i. \\
 >
@@ -676,15 +805,15 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Exercise 12](#exr-normal-equations-vector), the normal equations are \\A \tilde{\beta}= \tilde{c}\\. By [Exercise 13](#exr-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \tilde{c}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Exercise 14](#exr-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\tilde{\beta}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \tilde{c}\\ is its unique global minimum.
+> *Proof*. \\\text{RSS}\\ is differentiable, so any point that minimizes it solves the [normal equations](#def-normal-equations). By [Lemma 9](#lem-normal-equations-vector), the normal equations are \\A \tilde{\beta}= \tilde{c}\\. By [Lemma 10](#lem-solve-normal-equations-vector), \\A\\ is invertible, so their only solution is \\A^{-1} \tilde{c}\\, whose entries are those of [Theorem 5](#thm-ols-slr). By [Lemma 11](#lem-rss-hessian-vector), the Hessian of \\\text{RSS}\\ is positive definite at every \\\tilde{\beta}\\, so \\\text{RSS}\\ is strictly convex and \\A^{-1} \tilde{c}\\ is its unique global minimum.
 
 > **NOTE:**
 >
-> **Exercise 15 (OLS slope and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 5](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
+> **Exercise 15 (OLS slope and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), write the OLS slope \\\hat{\beta}\_{x}\\ from [Theorem 5](#thm-ols-slr) in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ and the [sample standard deviations](exploratory-descriptive.llms.md#def-sample-sd) \\s_x\\ and \\s_y\\ of the \\x_i\\ and the \\y_i\\.
 
 > **NOTE:**
 >
-> *Solution 15*. In terms of the centered sums ([Definition 12](#def-centered-sums)),
+> *Solution 15*. In terms of the centered sums ([Definition 14](#def-centered-sums), [Definition 15](#def-centered-cross-product)),
 >
 > \\ r = \frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}, \qquad s_x = \sqrt{\frac{S\_{xx}}{n-1}}, \qquad s_y = \sqrt{\frac{S\_{yy}}{n-1}}. \\
 >
@@ -694,7 +823,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Corollary 2 (OLS slope in terms of the correlation)** If \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), then
+> **Corollary 2 (OLS slope in terms of the correlation)** If \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), then
 >
 > \\\hat{\beta}\_{x} = r \\ \frac{s_y}{s_x},\\
 >
@@ -707,6 +836,12 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 > **TIP:**
 >
 > Hutchinson’s [Linear Regression (pt1)](https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/#linear_regression) (17 min) covers fitting a linear regression by least squares, framed as machine learning ([Hutchinson, n.d.](#ref-hutchinson_wwu_ml_videos)). The login for the video site is posted [on Canvas](https://wwu.instructure.com/courses/1906010/modules#module_3922392).
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.5](#ref-hoggtanis2015), pp. 277–284) covers a simple regression problem.
+> - Casella and Berger ([2002, sec. 11.3](#ref-CaseBerg01), pp. 539–562) covers simple linear regression.
+> - Rice ([2007, sec. 14.2.1](#ref-rice2007mathematical), pp. 547–549) covers slope and intercept properties.
 
 ### 3.3 Fitting a simple linear regression in R
 
@@ -754,22 +889,24 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > [Figure 4](#fig-hers-slr) shows the data with the fitted line.
 >
-> Show R code
->
-> ``` downlit
-> ggplot2::ggplot(hers_bmi, ggplot2::aes(x = BMI, y = glucose)) +
->   ggplot2::geom_point(alpha = 0.2) +
->   ggplot2::geom_abline(
->     intercept = coef(slr_fit)[[1]],
->     slope = coef(slr_fit)[["BMI"]],
->     color = "firebrick"
->   ) +
->   ggplot2::labs(x = "BMI (kg/m^2)", y = "Fasting glucose (mg/dL)")
-> ```
->
-> [![](correlation-regression_files/figure-html/unnamed-chunk-9-1.png)](correlation-regression_files/figure-html/unnamed-chunk-9-1.png "Figure 4: Fasting glucose against BMI in HERS, with the OLS line")
->
-> Figure 4: Fasting glucose against BMI in HERS, with the OLS line
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > ggplot2::ggplot(hers_bmi, ggplot2::aes(x = BMI, y = glucose)) +
+> >   ggplot2::geom_point(alpha = 0.2) +
+> >   ggplot2::geom_abline(
+> >     intercept = coef(slr_fit)[[1]],
+> >     slope = coef(slr_fit)[["BMI"]],
+> >     color = "firebrick"
+> >   ) +
+> >   ggplot2::labs(x = "BMI (kg/m^2)", y = "Fasting glucose (mg/dL)")
+> > ```
+> >
+> > [![](correlation-regression_files/figure-html/unnamed-chunk-9-1.png)](correlation-regression_files/figure-html/unnamed-chunk-9-1.png "Figure 4: Fasting glucose against BMI in HERS, with the OLS line")
+> >
+> > Figure 4: Fasting glucose against BMI in HERS, with the OLS line
 >
 > The estimated slope is \\\hat{\beta}\_{\text{BMI}} = 1.82\\ mg/dL per kg/m²: mean fasting glucose is about 1.8 mg/dL higher among participants whose BMI is 1 kg/m² higher. The t statistic for the slope equals the correlation test statistic of [Example 1](#exm-hers-cor).
 
@@ -777,7 +914,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Definition 14 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
+> **Definition 17 (Total sum of squares)** The **total sum of squares** of \\y_1, \ldots, y_n\\ is
 >
 > \\\text{TSS} \stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i - \bar{y})^2.\\
 
@@ -789,7 +926,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Definition 15 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\tilde{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\tilde{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
+> **Definition 18 (Coefficient of determination)** The **coefficient of determination** of a model fitted with parameter estimate \\\hat{\tilde{\theta}}\\ is one minus the ratio of its [residual sum of squares](#def-rss) at \\\hat{\tilde{\theta}}\\ to the [total sum of squares](#def-tss) of its outcomes:
 >
 > \\R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}}.\\
 
@@ -799,11 +936,11 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 16 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx} \> 0\\ ([Definition 12](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
+> **Exercise 16 (Residual sum of squares of the OLS fit)** Assuming \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), write the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)), \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2\\, in terms of \\S\_{xx}\\, \\S\_{yy}\\ and \\S\_{xy}\\.
 
 > **NOTE:**
 >
-> *Solution 16*. The [fitted values](estimation.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](estimation.llms.md#def-residual) is
+> *Solution 16*. The [fitted values](prediction.llms.md#def-fitted-value) of the OLS fit are \\\hat y_i = \hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\\, so each [residual](prediction.llms.md#def-residual) is
 >
 > \\ \begin{aligned} r_i &= y_i - \hat y_i && \text{(definition of a residual)}\\ &= y_i - \mathopen{}\left(\hat{\beta}\_{0}+ \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat y_i\$)}\\ &= y_i - \mathopen{}\left(\bar{y} - \hat{\beta}\_{x} \bar{x} + \hat{\beta}\_{x} x_i\right)\mathclose{} && \text{(substitute \$\hat{\beta}\_{0}\$)}\\ &= y_i - \bar{y} + \hat{\beta}\_{x} \bar{x} - \hat{\beta}\_{x} x_i && \text{(distribute the minus sign)}\\ &= (y_i - \bar{y}) - \mathopen{}\left(\hat{\beta}\_{x} x_i - \hat{\beta}\_{x} \bar{x}\right)\mathclose{} && \text{(group terms)}\\ &= (y_i - \bar{y}) - \hat{\beta}\_{x} (x_i - \bar{x}) && \text{(factor out \$\hat{\beta}\_{x}\$)} \end{aligned} \\
 >
@@ -813,11 +950,21 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Exercise 17 (\\R^2\\ and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), use [Exercise 16](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
+> **Lemma 12 (Residual sum of squares of the OLS fit)** If \\S\_{xx} \> 0\\ ([Definition 14](#def-centered-sums)), the [residual sum of squares](#def-rss) at the OLS estimates ([Theorem 5](#thm-ols-slr)) is
+>
+> \\\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x}) = \sum\_{i=1}^nr_i^2 = S\_{yy} - \frac{S\_{xy}^2}{S\_{xx}}.\\
 
 > **NOTE:**
 >
-> *Solution 17*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 12](#def-centered-sums)), and [Exercise 16](#exr-rss-ols-fit) gives the residual sum of squares, so:
+> *Proof*. This is the solution to [Exercise 16](#exr-rss-ols-fit).
+
+> **NOTE:**
+>
+> **Exercise 17 (\\R^2\\ and the correlation)** Assuming \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), use [Exercise 16](#exr-rss-ols-fit) to write the [coefficient of determination](#def-r-squared) \\R^2\\ of the OLS fit in terms of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\, and show that \\0 \le R^2 \le 1\\.
+
+> **NOTE:**
+>
+> *Solution 17*. The [total sum of squares](#def-tss) is \\S\_{yy}\\ ([Definition 14](#def-centered-sums)), and [Exercise 16](#exr-rss-ols-fit) gives the residual sum of squares, so:
 >
 > \\ \begin{aligned} R^2 &= 1 - \frac{\text{RSS}(\hat{\tilde{\theta}})}{\text{TSS}} && \text{(definition of \$R^2\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{\text{TSS}} && \text{(the OLS estimate is \$(\hat{\beta}\_{0}, \hat{\beta}\_{x})\$)}\\ &= 1 - \frac{\text{RSS}(\hat{\beta}\_{0}, \hat{\beta}\_{x})}{S\_{yy}} && \text{(TSS is \$S\_{yy}\$)}\\ &= 1 - \frac{S\_{yy} - S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(residual sum of squares of the OLS fit)}\\ &= 1 - \mathopen{}\left(\frac{S\_{yy}}{S\_{yy}} - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(split the fraction)}\\ &= 1 - \mathopen{}\left(1 - \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}}\right)\mathclose{} && \text{(\$S\_{yy} / S\_{yy} = 1\$)}\\ &= 1 - 1 + \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(distribute the minus sign)}\\ &= \frac{S\_{xy}^2 / S\_{xx}}{S\_{yy}} && \text{(\$1 - 1 = 0\$)}\\ &= \frac{S\_{xy}^2}{S\_{xx} S\_{yy}} && \text{(divide a fraction by \$S\_{yy}\$)}\\ &= \mathopen{}\left(\frac{S\_{xy}}{\sqrt{S\_{xx} S\_{yy}}}\right)\mathclose{}^2 && \text{(write as a square)}\\ &= r^2 && \text{(\$r = S\_{xy} / \sqrt{S\_{xx} S\_{yy}}\$)} \end{aligned} \\
 >
@@ -825,17 +972,17 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> **Theorem 7 (\\R^2\\ of a simple linear regression)** For the OLS fit of a simple linear regression, with \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 12](#def-centered-sums)), \\R^2\\ is the square of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ of the \\x_i\\ and \\y_i\\, and so lies between 0 and 1:
+> **Theorem 7 (\\R^2\\ of a simple linear regression)** For the OLS fit of a simple linear regression, with \\S\_{xx} \> 0\\ and \\S\_{yy} \> 0\\ ([Definition 14](#def-centered-sums)), \\R^2\\ is the square of the [Pearson correlation coefficient](exploratory-descriptive.llms.md#def-pearson-r) \\r\\ of the \\x_i\\ and \\y_i\\, and so lies between 0 and 1:
 >
 > \\ \begin{aligned} R^2 &= r^2, & 0 \le R^2 &\le 1. \end{aligned} \\
 
 > **NOTE:**
 >
-> *Proof*. This is the solution to [Exercise 17](#exr-r-squared-slr), which uses the residual sum of squares from [Exercise 16](#exr-rss-ols-fit).
+> *Proof*. This is the solution to [Exercise 17](#exr-r-squared-slr), which uses the residual sum of squares from [Lemma 12](#lem-rss-ols-fit).
 
 > **NOTE:**
 >
-> **Example 10 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 8](#exm-hers-slr), \\R^2\\ computed from [Definition 15](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
+> **Example 10 (\\R^2\\ for the regression of glucose on BMI in HERS)** For the fit in [Example 8](#exm-hers-slr), \\R^2\\ computed from [Definition 18](#def-r-squared), the square of the Pearson correlation, and [`lm()`](https://rdrr.io/r/stats/lm.html)’s value agree:
 >
 > ``` downlit
 > fit <- lm(glucose ~ BMI, data = hers)
@@ -851,15 +998,24 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > BMI accounts for only about 7% of the variation in baseline fasting glucose.
 
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 7.6](#ref-hoggtanis2015), pp. 344–352) covers more regression.
+> - Rice ([2007, sec. 14.2.2](#ref-rice2007mathematical), pp. 550–559) covers assessing the fit of a regression line.
+
 ### 3.5 Further reading
 
 [Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html) covers linear regression in depth, including inference for the coefficients and multiple predictors. Vittinghoff et al. ([2012](#ref-vittinghoff2e)) cover linear regression in Chapter 4.
 
 ## References
 
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+
 Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
 
 Hutchinson, Brian. n.d. *DATA 471/571 (Machine Learning) and CSCI 481/581 (Deep Learning) Video Lectures*. Western Washington University. Accessed September 28, 2026. <https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/>.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

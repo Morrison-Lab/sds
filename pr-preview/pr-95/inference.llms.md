@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 16:39:05 (PDT)
+Last modified: 2026-10-16 00:09:51 (PDT)
 
 ## 1 Inference
 
@@ -104,6 +104,17 @@ There are two predominant paradigms for statistical inference:
 >
 > The p-value is far below 0.05, so at significance level 0.05 the test rejects \\H_0\\: the data provide [statistically significant](#def-statistically-significant) evidence that mean cholesterol differs between the two groups.
 
+> **NOTE:**
+>
+> 5MinuteAI explains [hypothesis testing](https://www.youtube.com/watch?v=Plya_ZXkOvs) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 8.1](#ref-hoggtanis2015), pp. 361–368) covers tests about one mean.
+> - Hogg et al. ([2019, sec. 8.6](#ref-hoggtanis2015), pp. 403–409) covers power of a statistical test.
+> - Casella and Berger ([2002, sec. 8.3](#ref-CaseBerg01), pp. 382–401) covers methods of evaluating tests.
+> - Rice ([2007, sec. 9.2](#ref-rice2007mathematical), pp. 331–336) covers the Neyman–Pearson paradigm.
+
 ## 3 Reference distributions
 
 The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually [independent](https://morrison-lab.github.io/pds/independence.html#def-indpt).
@@ -124,11 +135,11 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 10 (t-distribution)** Let \\Z\\ have the standard Gaussian distribution, let \\V\\ have the \\\chi^2_k\\ distribution ([Definition 9](#def-chi-square-dist)), and let \\Z\\ and \\V\\ be independent. The distribution of
+> **Definition 10 (t-distribution (Student’s t-distribution))** Let \\Z\\ have the standard Gaussian distribution, let \\V\\ have the \\\chi^2_k\\ distribution ([Definition 9](#def-chi-square-dist)), and let \\Z\\ and \\V\\ be independent. The distribution of
 >
 > \\\frac{Z}{\sqrt{V/k}}\\
 >
-> is the **t-distribution with \\k\\ degrees of freedom** (or Student’s t-distribution), written \\t_k\\.
+> is the **t-distribution with \\k\\ degrees of freedom** (or **Student’s t-distribution**), written \\t_k\\.
 
 > **NOTE:**
 >
@@ -195,11 +206,21 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 15 (Margin of error)** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
+> **Definition 15 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
 
 > **NOTE:**
 >
 > **Example 8 (Margin of error for mean cholesterol)** In [Example 7](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
+
+> **NOTE:**
+>
+> 5MinuteAI explains [confidence intervals](https://www.youtube.com/watch?v=XdaAhYUqWsg) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 7.1](#ref-hoggtanis2015), pp. 307–313) covers confidence intervals for means.
+> - Casella and Berger ([2002, sec. 9.2](#ref-CaseBerg01), pp. 420–439) covers methods of finding interval estimators.
+> - Rice ([2007, sec. 9.3](#ref-rice2007mathematical), pp. 337–338) covers duality of confidence intervals and hypothesis tests.
 
 ## 5 Further reading on confidence intervals
 
@@ -224,38 +245,48 @@ Conversely, even statistically significant evidence of a non-null value does not
 
 [Figure 1](#fig-CI-interp) sketches these scenarios.
 
-Show R code
-
-``` downlit
-ci_scenarios <- tibble::tribble(
-  ~scenario, ~lower, ~upper,
-  "not enough data: we know almost nothing", 0.2, 5,
-  "absence of evidence", 0.5, 2,
-  "\"trending toward significance\" (still absence of evidence)", 0.95, 2.5,
-  "evidence of absence", 0.97, 1.03,
-  "evidence of a negligible effect", 1.02, 1.1,
-  "uncertain whether negligible or substantial", 1.05, 1.8,
-  "evidence of a substantial effect", 1.7, 1.8,
-  "substantial, but imprecise", 1.5, 4
-) |>
-  dplyr::mutate(scenario = factor(scenario, levels = rev(scenario)))
-
-ci_scenarios |>
-  ggplot2::ggplot() +
-  ggplot2::aes(y = scenario, xmin = lower, xmax = upper) +
-  ggplot2::geom_errorbarh(height = 0.3) +
-  ggplot2::geom_vline(xintercept = 1, linetype = "dashed") +
-  ggplot2::scale_x_log10() +
-  ggplot2::labs(x = "Ratio estimand (log scale); null value = 1", y = NULL)
-```
-
-[![](inference_files/figure-html/unnamed-chunk-6-1.png)](inference_files/figure-html/unnamed-chunk-6-1.png "Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.")
-
-Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.
+> **NOTE:**
+>
+> Show R code
+>
+> ``` downlit
+> ci_scenarios <- tibble::tribble(
+>   ~scenario, ~lower, ~upper,
+>   "not enough data: we know almost nothing", 0.2, 5,
+>   "absence of evidence", 0.5, 2,
+>   "\"trending toward significance\" (still absence of evidence)", 0.95, 2.5,
+>   "evidence of absence", 0.97, 1.03,
+>   "evidence of a negligible effect", 1.02, 1.1,
+>   "uncertain whether negligible or substantial", 1.05, 1.8,
+>   "evidence of a substantial effect", 1.7, 1.8,
+>   "substantial, but imprecise", 1.5, 4
+> ) |>
+>   dplyr::mutate(scenario = factor(scenario, levels = rev(scenario)))
+>
+> ci_scenarios |>
+>   ggplot2::ggplot() +
+>   ggplot2::aes(y = scenario, xmin = lower, xmax = upper) +
+>   ggplot2::geom_errorbarh(height = 0.3) +
+>   ggplot2::geom_vline(xintercept = 1, linetype = "dashed") +
+>   ggplot2::scale_x_log10() +
+>   ggplot2::labs(x = "Ratio estimand (log scale); null value = 1", y = NULL)
+> ```
+>
+> [![](inference_files/figure-html/unnamed-chunk-6-1.png)](inference_files/figure-html/unnamed-chunk-6-1.png "Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.")
+>
+> Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.
 
 See also ([Vittinghoff et al. 2012, sec. 3.7](#ref-vittinghoff2e)).
 
 ## References
+
+5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
+
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

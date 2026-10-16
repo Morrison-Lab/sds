@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-09 16:39:05 (PDT)
+Last modified: 2026-10-16 00:09:51 (PDT)
 
 These notes collect the statistics that data science courses assume.
 
@@ -22,7 +22,9 @@ Inference:
 
 - [Estimation](estimation.llms.md): estimands, estimators, bias, mean squared error, and standard error;
 - [Statistical inference](inference.llms.md): hypothesis tests, p-values, the \\t\\, chi-square, and \\F\\ distributions, confidence intervals, and how to interpret negative findings;
-- [Maximum likelihood inference](intro-MLEs.llms.md): likelihood, score, information, the asymptotic distribution of MLEs, Wald and likelihood ratio tests, and Newton-Raphson, with worked examples.
+- [Maximum likelihood inference](intro-MLEs.llms.md): likelihood, score, information, the asymptotic distribution of MLEs, Wald and likelihood ratio tests, and Newton-Raphson, with worked examples;
+- [Properties of estimators](estimator-properties.llms.md): consistency, relative efficiency, and the Cramér–Rao lower bound.
+- [Sufficiency and the Rao–Blackwell theorem](sufficiency.llms.md): sufficient statistics, the factorization theorem, and improving an unbiased estimator.
 
 Methods:
 
@@ -30,6 +32,8 @@ Methods:
 - [Comparing proportions](categorical-tests.llms.md): the chi-square test and Fisher’s exact test;
 - [Correlation and simple linear regression](correlation-regression.llms.md);
 - [The bootstrap](bootstrap.llms.md);
+- [Permutation tests](permutation-tests.llms.md): exchangeability, the permutation distribution, and exact and Monte Carlo permutation p-values;
+- [Multiple testing](multiple-testing.llms.md): the family-wise error rate, the false discovery rate, the Bonferroni, Holm, and Benjamini–Hochberg procedures, and adjusted p-values;
 - [Validating predictions](model-validation.llms.md): overfitting, generalization error, training/validation/test splits, \\k\\-fold and leave-one-out cross-validation, and choosing a model by cross-validation;
 - [Classification and diagnostic tests](classification.llms.md): sensitivity, specificity, prevalence, and positive and negative predictive values.
 
@@ -38,6 +42,15 @@ Bayesian:
 - [Bayesian inference](bayesian-inference.llms.md): the Bayesian paradigm, priors, posteriors, and hierarchical models;
 - [Markov chain Monte Carlo](mcmc.llms.md): Monte Carlo integration, the Metropolis–Hastings and Gibbs samplers, convergence diagnostics, and the deviance information criterion;
 - [Fitting models by Bayesian inference with JAGS](bayesian-examples.llms.md): a proportion, logistic regression, survival, random effects, and Bayesian model averaging.
+
+## Comparable courses
+
+Stanford’s statistics department posts the materials of several courses that cover the same inference topics at a more mathematical level:
+
+- **STATS 200**, [*Introduction to Statistical Inference*](https://web.stanford.edu/class/archive/stats/stats200/stats200.1172/lectures.html) (Zhou Fan, Autumn 2016): 29 lecture PDFs on testing, maximum likelihood, the bootstrap, Bayesian analysis and regression, following Rice’s *Mathematical Statistics and Data Analysis*.
+- **STATS 300A**, [*Theory of Statistics*](https://web.stanford.edu/class/stats300a/) (Andrea Montanari, Autumn 2018; see also [Lester Mackey’s 2015 scribed notes](https://web.stanford.edu/~lmackey/stats300a/)): finite-sample optimality, exponential families, and testing theory.
+- **STATS 300B**, [*Theory of Statistics II*](https://web.stanford.edu/class/stats300b/lectures.html) (John Duchi, Winter 2021): slides on asymptotic statistics and concentration.
+- **STATS 305B**, [*Methods for Applied Statistics*](https://web.stanford.edu/class/stats305b/) (Jonathan Taylor): contingency tables, logistic regression and generalized linear models.
 
 ## 2 Origin
 

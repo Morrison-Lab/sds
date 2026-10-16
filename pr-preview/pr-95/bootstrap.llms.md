@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-09 16:39:05 (PDT)
+Last modified: 2026-10-16 00:09:51 (PDT)
 
-This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the sampling distribution of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
+This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
 
 ## 1 The HERS data
 
@@ -21,7 +21,7 @@ hers |> head()
 
 ### 2.1 When to use the bootstrap
 
-The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993](#ref-efron1993introduction)) estimates the sampling distribution of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short ([Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)):
+The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993](#ref-efron1993introduction)) estimates the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short ([Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)):
 
 - approximate methods for valid confidence intervals exist, but standard software does not implement them conveniently;
 - no closed-form approximate method has been found;
@@ -65,7 +65,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 
 > **NOTE:**
 >
-> *Remark 2* (What the bootstrap distribution estimates). The bootstrap distribution estimates the sampling distribution of \\\hat{\theta}\\. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.
+> *Remark 2* (What the bootstrap distribution estimates). The bootstrap distribution estimates the [sampling distribution](estimation.llms.md#def-sampling-distribution) of \\\hat{\theta}\\. The observed sample stands in for the population, and resampling from it stands in for drawing new samples from the population.
 
 > **NOTE:**
 >
@@ -91,20 +91,29 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > The bootstrap standard error ([Definition 3](#def-bootstrap-se)) is close to the usual estimate \\s / \sqrt{n}\\. Each bootstrap draw has variance \\\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n(x_i - \bar{x})^2\\ around \\\bar{x}\\, and the \\n\\ draws are independent, so as \\B\\ grows the bootstrap standard error of the mean approaches \\\hat{\sigma}/ \sqrt{n}\\ (`divide_by_n_se`), which is smaller than \\s / \sqrt{n}\\ by the factor \\\sqrt{(n-1)/n}\\. [Figure 1](#fig-boot-dist-toy) shows the bootstrap distribution.
 >
-> Show R code
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > tibble::tibble(mean = boot_means10) |>
+> >   ggplot2::ggplot() +
+> >   ggplot2::aes(x = mean) +
+> >   ggplot2::geom_histogram(bins = 30, color = "white") +
+> >   ggplot2::geom_vline(xintercept = mean(glucose10), color = "red") +
+> >   ggplot2::labs(x = "Bootstrap mean (mg/dL)", y = "Count")
+> > ```
+> >
+> > [![](bootstrap_files/figure-html/unnamed-chunk-3-1.png)](bootstrap_files/figure-html/unnamed-chunk-3-1.png "Figure 1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (B = 1{,}000). The red line marks the observed mean.")
+> >
+> > Figure 1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (\\B = 1{,}000\\). The red line marks the observed mean.
+
+> **NOTE:**
 >
-> ``` downlit
-> tibble::tibble(mean = boot_means10) |>
->   ggplot2::ggplot() +
->   ggplot2::aes(x = mean) +
->   ggplot2::geom_histogram(bins = 30, color = "white") +
->   ggplot2::geom_vline(xintercept = mean(glucose10), color = "red") +
->   ggplot2::labs(x = "Bootstrap mean (mg/dL)", y = "Count")
-> ```
->
-> [![](bootstrap_files/figure-html/unnamed-chunk-3-1.png)](bootstrap_files/figure-html/unnamed-chunk-3-1.png "Figure 1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (B = 1{,}000). The red line marks the observed mean.")
->
-> Figure 1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (\\B = 1{,}000\\). The red line marks the observed mean.
+> - Hogg et al. ([2019, sec. 7.7](#ref-hoggtanis2015), pp. 353–360) covers resampling methods.
+> - Casella and Berger ([2002, sec. 10.1.4](#ref-CaseBerg01), pp. 478–480) covers bootstrap standard errors.
+> - Rice ([2007, sec. 10.4.6](#ref-rice2007mathematical), pp. 399–400) covers variability of location estimates by the bootstrap.
+> - Rice ([2007, sec. 14.6](#ref-rice2007mathematical), pp. 585–586) covers conditional inference, unconditional inference and the bootstrap.
 
 ### 2.3 Bootstrap confidence interval methods
 
@@ -122,7 +131,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the sampling distribution of \\\hat{\theta}\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
+> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the [sampling distribution](estimation.llms.md#def-sampling-distribution) of \\\hat{\theta}\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
 
 > **NOTE:**
 >
@@ -283,11 +292,17 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 
 ## References
 
+Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+
 Davison, Anthony C., and David V. Hinkley. 1997. *Bootstrap Methods and Their Application*. Cambridge Series in Statistical and Probabilistic Mathematics 1. Cambridge University Press. <https://doi.org/10.1017/CBO9780511802843>.
 
 Efron, Bradley. 1979. “Bootstrap Methods: Another Look at the Jackknife.” *The Annals of Statistics* 7 (1): 1–26. <https://doi.org/10.1214/aos/1176344552>.
 
 Efron, Bradley, and Robert J. Tibshirani. 1993. *An Introduction to the Bootstrap*. Monographs on Statistics and Applied Probability 57. Chapman & Hall/CRC. <https://doi.org/10.1201/9780429246593>.
+
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
 

@@ -2,9 +2,19 @@
 
 Code
 
+- [Show All Code](javascript:void(0))
+
+- [Hide All Code](javascript:void(0))
+
+- 
+
+  ------------------------------------------------------------------------
+
+- [View Source](javascript:void(0))
+
 Published
 
-Last modified: 2026-10-09 16:39:05 (PDT)
+Last modified: 2026-10-16 00:09:51 (PDT)
 
 This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
@@ -14,7 +24,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 1 (Frequentist paradigm)** In the **frequentist** paradigm of statistical inference, an unknown parameter \\\theta\\ is a fixed constant, probability describes long-run frequencies over repetitions of the data-generating process, and uncertainty about \\\theta\\ is quantified by the sampling distribution of an estimator \\\hat{\theta}\\.
+> **Definition 1 (Frequentist paradigm)** In the **frequentist** paradigm of statistical inference, an unknown parameter \\\theta\\ is a fixed constant, probability describes long-run frequencies over repetitions of the data-generating process, and uncertainty about \\\theta\\ is quantified by the [sampling distribution](estimation.llms.md#def-sampling-distribution) of an estimator \\\hat{\theta}\\.
 
 > **NOTE:**
 >
@@ -54,7 +64,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 5 (Marginal likelihood)** Given a prior \\\operatorname{p}(\theta)\\ and a model \\\operatorname{p}(\tilde{y}\mid \theta)\\ for the data given \\\theta\\, the **marginal likelihood** (also called the **evidence**) of observed data \\\tilde{y}\\ is
+> **Definition 5 (Marginal likelihood (evidence))** Given a prior \\\operatorname{p}(\theta)\\ and a model \\\operatorname{p}(\tilde{y}\mid \theta)\\ for the data given \\\theta\\, the **marginal likelihood** (also called the **evidence**) of observed data \\\tilde{y}\\ is
 >
 > \\ \operatorname{p}(\tilde{y}) \stackrel{\text{def}}{=}\int \operatorname{p}(\tilde{y}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta, \\
 >
@@ -145,8 +155,6 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 > **Definition 6 (Maximum a posteriori estimate)** The **maximum a posteriori** (MAP) estimate of a parameter \\\theta\\, given observed data \\\tilde{Y}= \tilde{y}\\, written \\\hat{\theta}\_{\text{MAP}}\\, is the value of \\\theta\\ that maximizes the [posterior density](#def-posterior):
 >
 > \\\hat{\theta}\_{\text{MAP}} \stackrel{\text{def}}{=}\arg \max\_\theta\operatorname{p}(\theta\mid \tilde{y}) \tag{9}\\
->
-> The MAP estimate is the mode of the posterior distribution.
 
 > **NOTE:**
 >
@@ -169,6 +177,10 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 > ```
 >
 > The mode equals the sample proportion \\r / n\\, because the uniform prior adds no pseudo-counts that pull it away. The mean is a little closer to \\\frac{1}{2}\\.
+
+> **NOTE:**
+>
+> *Remark 2* (The MAP estimate is the posterior mode). The MAP estimate is the mode of the posterior distribution.
 
 > **NOTE:**
 >
@@ -200,34 +212,36 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > [Figure 1](#fig-map-penalized) shows the penalized form for simulated data (\\n = 20\\, true mean \\2\\). The penalty is a parabola centered at the prior mean \\0\\. Adding it to the negative log-likelihood moves the minimizer from the sample mean toward \\0\\.
 >
-> Show R code
->
-> ``` downlit
-> set.seed(1)
-> n <- 20
-> x <- rnorm(n = n, mean = 2, sd = 1)
-> xbar <- mean(x)
-> map_est <- n / (n + 1) * xbar
-> mu_grid <- seq(-1, 4, length.out = 501)
-> nll <- vapply(mu_grid, function(m) sum((x - m)^2) / 2, numeric(1))
-> curves <- tibble::tibble(
->   mu = rep(mu_grid, times = 3),
->   curve = rep(
->     c("negative log-likelihood", "penalty", "sum"),
->     each = length(mu_grid)
->   ),
->   value = c(nll, mu_grid^2 / 2, nll + mu_grid^2 / 2)
-> )
-> ggplot2::ggplot(curves) +
->   ggplot2::aes(x = mu, y = value, colour = curve) +
->   ggplot2::geom_line() +
->   ggplot2::geom_vline(xintercept = c(xbar, map_est), linetype = "dashed") +
->   ggplot2::labs(x = expression(mu), y = NULL, colour = NULL)
-> ```
->
-> [![Three curves over the mean mu. The negative log-likelihood is a parabola with its minimum at the sample mean, near 2.2. The penalty is a parabola with its minimum at 0. Their sum is a parabola with its minimum between the two, slightly left of the sample mean. Vertical lines mark the sample mean and the MAP estimate.](bayesian-inference_files/figure-html/unnamed-chunk-1-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Negative log-likelihood, penalty, and their sum, up to constants. The dashed lines mark the sample mean (right) and the MAP estimate (left).")
->
-> Figure 1: Negative log-likelihood, penalty, and their sum, up to constants. The dashed lines mark the sample mean (right) and the MAP estimate (left).
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > set.seed(1)
+> > n <- 20
+> > x <- rnorm(n = n, mean = 2, sd = 1)
+> > xbar <- mean(x)
+> > map_est <- n / (n + 1) * xbar
+> > mu_grid <- seq(-1, 4, length.out = 501)
+> > nll <- vapply(mu_grid, function(m) sum((x - m)^2) / 2, numeric(1))
+> > curves <- tibble::tibble(
+> >   mu = rep(mu_grid, times = 3),
+> >   curve = rep(
+> >     c("negative log-likelihood", "penalty", "sum"),
+> >     each = length(mu_grid)
+> >   ),
+> >   value = c(nll, mu_grid^2 / 2, nll + mu_grid^2 / 2)
+> > )
+> > ggplot2::ggplot(curves) +
+> >   ggplot2::aes(x = mu, y = value, colour = curve) +
+> >   ggplot2::geom_line() +
+> >   ggplot2::geom_vline(xintercept = c(xbar, map_est), linetype = "dashed") +
+> >   ggplot2::labs(x = expression(mu), y = NULL, colour = NULL)
+> > ```
+> >
+> > [![Three curves over the mean mu. The negative log-likelihood is a parabola with its minimum at the sample mean, near 2.2. The penalty is a parabola with its minimum at 0. Their sum is a parabola with its minimum between the two, slightly left of the sample mean. Vertical lines mark the sample mean and the MAP estimate.](bayesian-inference_files/figure-html/unnamed-chunk-1-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-1-1.png "Figure 1: Negative log-likelihood, penalty, and their sum, up to constants. The dashed lines mark the sample mean (right) and the MAP estimate (left).")
+> >
+> > Figure 1: Negative log-likelihood, penalty, and their sum, up to constants. The dashed lines mark the sample mean (right) and the MAP estimate (left).
 
 ### 2.3 Two readings of an interval estimate
 
@@ -275,28 +289,30 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > [Figure 2](#fig-normal-prior-lik-post) shows how the posterior combines prior and data. Completing the square in the likelihood of [Example 6](#exm-normal-normal) as a function of \\\mu\\ alone shows that the likelihood is proportional to a \\\operatorname{N}\mathopen{}\left(\bar x, 1/n\right)\mathclose{}\\ density, which is the curve drawn for it.
 >
-> Show R code
->
-> ``` downlit
-> mu_grid <- seq(-3, 5, length.out = 801)
-> curves <- tibble::tibble(
->   mu = rep(mu_grid, times = 3),
->   curve = rep(c("prior", "likelihood", "posterior"), each = length(mu_grid)),
->   density = c(
->     stats::dnorm(mu_grid, mean = 0, sd = 1),
->     stats::dnorm(mu_grid, mean = xbar, sd = 1 / sqrt(n)),
->     stats::dnorm(mu_grid, mean = post_mean, sd = post_sd)
->   )
-> )
-> ggplot2::ggplot(curves) +
->   ggplot2::aes(x = mu, y = density, colour = curve) +
->   ggplot2::geom_line() +
->   ggplot2::labs(x = expression(mu), y = "density", colour = NULL)
-> ```
->
-> [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The \operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 10.")
->
-> Figure 2: The \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \\\mu\\, for the data of [Example 10](#exm-normal-credible-vs-confidence).
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > mu_grid <- seq(-3, 5, length.out = 801)
+> > curves <- tibble::tibble(
+> >   mu = rep(mu_grid, times = 3),
+> >   curve = rep(c("prior", "likelihood", "posterior"), each = length(mu_grid)),
+> >   density = c(
+> >     stats::dnorm(mu_grid, mean = 0, sd = 1),
+> >     stats::dnorm(mu_grid, mean = xbar, sd = 1 / sqrt(n)),
+> >     stats::dnorm(mu_grid, mean = post_mean, sd = post_sd)
+> >   )
+> > )
+> > ggplot2::ggplot(curves) +
+> >   ggplot2::aes(x = mu, y = density, colour = curve) +
+> >   ggplot2::geom_line() +
+> >   ggplot2::labs(x = expression(mu), y = "density", colour = NULL)
+> > ```
+> >
+> > [![Three bell-shaped curves over the mean mu: a wide prior centered at 0, a narrow likelihood centered near 2.2, and a posterior just as narrow, centered slightly closer to 0 than the likelihood.](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png)](bayesian-inference_files/figure-html/unnamed-chunk-2-1.png "Figure 2: The \operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{} prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \mu, for the data of Example 10.")
+> >
+> > Figure 2: The \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior, the likelihood (scaled to integrate to 1), and the posterior for the mean \\\mu\\, for the data of [Example 10](#exm-normal-credible-vs-confidence).
 >
 > Because \\\mu\\ has a distribution, the Bayesian can also compute the posterior probability that \\\mu\\ lies in the realized *confidence* interval:
 >
@@ -308,6 +324,122 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > That probability is 0.931, not 0.95: under this prior, the confidence interval sits slightly too far from \\0\\. A frequentist cannot assign any probability to the event that \\\mu\\ lies in one realized interval, since both are fixed.
 
+> **NOTE:**
+>
+> **Example 11 (A discrete prior on a grid: 8 successes in 10 trials)** Suppose \\\pi\\ can take only the eleven values \\0, 0.1, 0.2, \ldots, 1\\, and we give them equal prior probability, \\\operatorname{p}(\pi) = 1/11\\. We observe \\x = 8\\ successes in \\n = 10\\ independent trials, so that given \\\pi\\ the count is \\\operatorname{Binomial}(10, \pi)\\:
+>
+> \\ \operatorname{p}(x \mid \pi) = \binom{10}{x}\pi^{x}(1-\pi)^{10-x}. \\
+>
+> Because \\\pi\\ is discrete, the [marginal likelihood](#def-marginal-likelihood) is a sum over the grid rather than an integral, and [Theorem 1](#thm-bayes-posterior) gives
+>
+> \\ \operatorname{p}(\pi\mid x = 8) = \frac{\operatorname{p}(x = 8 \mid \pi)\\ \operatorname{p}(\pi)} {\sum\_{\pi'} \operatorname{p}(x = 8 \mid \pi')\\ \operatorname{p}(\pi')}, \\
+>
+> where the sum runs over the eleven grid values \\\pi'\\. The table builds the posterior one column at a time: the prior, the likelihood of the observed count, their product, and the product divided by its sum.
+>
+> ``` downlit
+> n_trials <- 10
+> x_obs <- 8
+>
+> discrete_post <- data.frame(prob = seq(0, 1, by = 0.1))
+> discrete_post$prior <- 1 / nrow(discrete_post)
+> discrete_post$likelihood <- stats::dbinom(
+>   x_obs,
+>   size = n_trials,
+>   prob = discrete_post$prob
+> )
+> discrete_post$product <- discrete_post$prior * discrete_post$likelihood
+> marginal_likelihood <- sum(discrete_post$product)
+> discrete_post$posterior <- discrete_post$product / marginal_likelihood
+>
+> knitr::kable(discrete_post, digits = 4)
+> ```
+>
+> | prob |  prior | likelihood | product | posterior |
+> |-----:|-------:|-----------:|--------:|----------:|
+> |  0.0 | 0.0909 |     0.0000 |  0.0000 |    0.0000 |
+> |  0.1 | 0.0909 |     0.0000 |  0.0000 |    0.0000 |
+> |  0.2 | 0.0909 |     0.0001 |  0.0000 |    0.0001 |
+> |  0.3 | 0.0909 |     0.0014 |  0.0001 |    0.0016 |
+> |  0.4 | 0.0909 |     0.0106 |  0.0010 |    0.0117 |
+> |  0.5 | 0.0909 |     0.0439 |  0.0040 |    0.0485 |
+> |  0.6 | 0.0909 |     0.1209 |  0.0110 |    0.1335 |
+> |  0.7 | 0.0909 |     0.2335 |  0.0212 |    0.2576 |
+> |  0.8 | 0.0909 |     0.3020 |  0.0275 |    0.3333 |
+> |  0.9 | 0.0909 |     0.1937 |  0.0176 |    0.2138 |
+> |  1.0 | 0.0909 |     0.0000 |  0.0000 |    0.0000 |
+>
+> The marginal likelihood is 0.0824 (with a uniform prior over eleven values, the average of the likelihood column), and the posterior probabilities sum to 1. [Figure 3](#fig-discrete-prior) compares the prior with the posterior.
+>
+> Show R code
+>
+> ``` downlit
+> discrete_long <- rbind(
+>   data.frame(
+>     prob = discrete_post$prob,
+>     distribution = "prior",
+>     probability = discrete_post$prior
+>   ),
+>   data.frame(
+>     prob = discrete_post$prob,
+>     distribution = "posterior",
+>     probability = discrete_post$posterior
+>   )
+> )
+> discrete_long$distribution <- factor(
+>   discrete_long$distribution,
+>   levels = c("prior", "posterior")
+> )
+>
+> ggplot2::ggplot(discrete_long, ggplot2::aes(prob, probability)) +
+>   ggplot2::geom_col(width = 0.06) +
+>   ggplot2::facet_wrap(~distribution) +
+>   ggplot2::scale_x_continuous(breaks = seq(0, 1, by = 0.2)) +
+>   ggplot2::labs(x = "success probability", y = "probability")
+> ```
+>
+> > **NOTE:**
+> >
+> > [![Two bar charts side by side, each with the grid values 0 to 1 on the horizontal axis and probability on the vertical axis. The prior panel has eleven bars of equal height, 0.091. The posterior panel is hump-shaped, it is tallest at 0.8 with probability 0.333, and the bars at 0 and 1 are zero or nearly zero.](bayesian-inference_files/figure-html/fig-discrete-prior-1.png)](bayesian-inference_files/figure-html/fig-discrete-prior-1.png "Figure 3: Prior and posterior probabilities on the grid of values of the success probability, after 8 successes in 10 trials.")
+> >
+> > Figure 3: Prior and posterior probabilities on the grid of values of the success probability, after 8 successes in 10 trials.
+>
+> To get an interval, accumulate the posterior probabilities from the bottom of the grid. For each grid value \\\pi_j\\, the upper-tail probability \\\Pr(\pi\> \pi_j \mid x = 8)\\ is one minus the cumulative probability up to and including \\\pi_j\\.
+>
+> ``` downlit
+> discrete_post$cum_posterior <- cumsum(discrete_post$posterior)
+> discrete_post$upper_tail <- 1 - discrete_post$cum_posterior
+>
+> lower_bound <- max(discrete_post$prob[discrete_post$upper_tail >= 0.95])
+> tail_at_bound <- discrete_post$upper_tail[discrete_post$prob == lower_bound]
+>
+> knitr::kable(
+>   discrete_post[, c("prob", "posterior", "cum_posterior", "upper_tail")],
+>   digits = 4
+> )
+> ```
+>
+> | prob | posterior | cum_posterior | upper_tail |
+> |-----:|----------:|--------------:|-----------:|
+> |  0.0 |    0.0000 |        0.0000 |     1.0000 |
+> |  0.1 |    0.0000 |        0.0000 |     1.0000 |
+> |  0.2 |    0.0001 |        0.0001 |     0.9999 |
+> |  0.3 |    0.0016 |        0.0017 |     0.9983 |
+> |  0.4 |    0.0117 |        0.0134 |     0.9866 |
+> |  0.5 |    0.0485 |        0.0619 |     0.9381 |
+> |  0.6 |    0.1335 |        0.1953 |     0.8047 |
+> |  0.7 |    0.2576 |        0.4530 |     0.5470 |
+> |  0.8 |    0.3333 |        0.7862 |     0.2138 |
+> |  0.9 |    0.2138 |        1.0000 |     0.0000 |
+> |  1.0 |    0.0000 |        1.0000 |     0.0000 |
+>
+> The largest grid value whose upper-tail probability is still at least 0.95 is \\\pi=\\ 0.4. So \\\Pr(\pi\> 0.4 \mid x = 8) =\\ 0.9866, and the one-sided 95% [credible interval](#def-credible-interval) for \\\pi\\ is \\(0.4, 1\]\\: given 8 successes in 10 trials and this prior, the probability that \\\pi\\ exceeds 0.4 is at least 0.95.
+>
+> Unlike a continuous posterior, a discrete posterior can rarely reach a probability of exactly 0.95, because its probability comes in lumps. [Definition 7](#def-credible-interval) asks for probability exactly \\1 - \alpha\\; on a grid we ask for probability *at least* \\1 - \alpha\\, and take the largest lower endpoint that achieves it. That makes the interval conservative: here its posterior probability is 0.9866, not 0.95.
+
+> **NOTE:**
+>
+> Casella and Berger ([2002, sec. 9.2.4](#ref-CaseBerg01), pp. 435–439) covers Bayesian intervals.
+
 ### 2.4 The parameter space
 
 > **NOTE:**
@@ -318,7 +450,7 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 
 > **NOTE:**
 >
-> **Example 11 (Parameter spaces and priors that respect them)**  
+> **Example 12 (Parameter spaces and priors that respect them)**  
 >
 > - A probability \\\pi\\ has parameter space \\(0, 1)\\, so its prior should be a distribution on the unit interval, such as the uniform prior of [Example 2](#exm-prior).
 > - A variance \\\sigma^2\\ has parameter space \\(0, \infty)\\, so its prior should be a distribution on the positive half-line.
@@ -334,7 +466,13 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 
 > **NOTE:**
 >
-> **Example 12 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on \\(0, 0.5)\\ for the smoking probability \\\pi\\. By [Corollary 3](#cor-prior-support), the posterior then gives probability 0 to \\\pi\> 0.5\\, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
+> **Example 13 (A prior that rules out the truth)** An analyst sure that fewer than half of adults smoke might put a uniform prior on \\(0, 0.5)\\ for the smoking probability \\\pi\\. By [Corollary 3](#cor-prior-support), the posterior then gives probability 0 to \\\pi\> 0.5\\, even if 90 of 100 sampled adults smoke. The support of the prior is itself a modeling assumption, and one that no amount of data can correct.
+
+> **NOTE:**
+>
+> - Hogg et al. ([2019, sec. 6.8](#ref-hoggtanis2015), pp. 298–305) covers Bayesian estimation.
+> - Casella and Berger ([2002, sec. 7.2.3](#ref-CaseBerg01), pp. 324–325) covers Bayes estimators.
+> - Rice ([2007, sec. 8.6](#ref-rice2007mathematical), pp. 285–297) covers the Bayesian approach to parameter estimation.
 
 ## 3 Priors
 
@@ -350,7 +488,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 
 > **NOTE:**
 >
-> **Example 13 (Beta-Bernoulli updating)** Let \\Y_1, \ldots, Y_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Bernoulli}(\pi)\\ given \\\pi\\, with \\r = \sum\_{i=1}^ny_i\\ successes, and let the prior for \\\pi\\ be a \\\operatorname{Beta}(a, b)\\ distribution, whose density is proportional to \\\pi^{a-1}(1-\pi)^{b-1}\\ on \\(0, 1)\\. The likelihood is
+> **Example 14 (Beta-Bernoulli updating)** Let \\Y_1, \ldots, Y_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Bernoulli}(\pi)\\ given \\\pi\\, with \\r = \sum\_{i=1}^ny_i\\ successes, and let the prior for \\\pi\\ be a \\\operatorname{Beta}(a, b)\\ distribution, whose density is proportional to \\\pi^{a-1}(1-\pi)^{b-1}\\ on \\(0, 1)\\. The likelihood is
 >
 > \\ \begin{aligned} \operatorname{p}(\tilde{y}\mid \pi) &= \prod\_{i=1}^n\pi^{y_i}(1-\pi)^{1-y_i} && \text{(independent Bernoulli observations)}\\ &= \pi^{\sum_i y_i}(1-\pi)^{n - \sum_i y_i} && \text{(adding exponents)}\\ &= \pi^{r}(1-\pi)^{n-r} && \text{(definition of \$r\$)}. \end{aligned} \\
 >
@@ -380,7 +518,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 
 > **NOTE:**
 >
-> **Example 14 (Prior and posterior, with and without a known truth)** Plotting the prior and posterior densities together shows how much the data moved our beliefs. We use the Beta-Bernoulli model of [Example 13](#exm-beta-bernoulli) with the uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior of [Example 2](#exm-prior) on two data sets:
+> **Example 15 (Prior and posterior, with and without a known truth)** Plotting the prior and posterior densities together shows how much the data moved our beliefs. We use the Beta-Bernoulli model of [Example 14](#exm-beta-bernoulli) with the uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior of [Example 2](#exm-prior) on two data sets:
 >
 > - **Simulated data.** We choose the true value of \\\pi\\ ourselves, draw Bernoulli observations with that probability, and then check where the posterior puts the truth.
 > - **Real data.** We use the `birthwt` data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied); [Venables and Ripley 2002, sec. 7.2](#ref-venables2002modern)). Here \\\pi\\ is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s `MASS` package as [`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html); the Python code reads [`data/birthwt.csv`](data/birthwt.csv), a copy of the same table on this site, which is also posted as a CSV file by the [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
@@ -457,100 +595,102 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 >
 > R and Python use different random-number generators, so their simulated draws differ, and their summaries can differ too; the numbers in the text below come from the R code.
 >
-> [Figure 3](#fig-prior-posterior) plots each prior and posterior density.
+> [Figure 4](#fig-prior-posterior) plots each prior and posterior density.
 >
-> Show R code
->
-> ``` downlit
-> prob_grid <- seq(0.001, 0.999, length.out = 500)
-> density_curves <- dplyr::bind_rows(
->   lapply(rownames(post_params), \(data_set) {
->     dplyr::bind_rows(
->       tibble::tibble(
->         data_set = data_set,
->         prob = prob_grid,
->         distribution = "prior",
->         density = stats::dbeta(prob_grid, prior_a, prior_b)
->       ),
->       tibble::tibble(
->         data_set = data_set,
->         prob = prob_grid,
->         distribution = "posterior",
->         density = stats::dbeta(
->           prob_grid,
->           post_params[data_set, "a"],
->           post_params[data_set, "b"]
->         )
->       )
->     )
->   })
-> )
-> density_curves$data_set <- factor(
->   density_curves$data_set,
->   levels = rownames(post_params)
-> )
-> density_curves$distribution <- factor(
->   density_curves$distribution,
->   levels = c("prior", "posterior")
-> )
->
-> ggplot2::ggplot(
->   density_curves,
->   ggplot2::aes(prob, density, colour = distribution, linetype = distribution)
-> ) +
->   ggplot2::geom_line(linewidth = 0.8) +
->   ggplot2::geom_vline(
->     data = tibble::tibble(
->       data_set = factor("simulated", levels = rownames(post_params)),
->       truth = sim_truth
->     ),
->     ggplot2::aes(xintercept = truth),
->     linetype = "dashed"
->   ) +
->   ggplot2::facet_wrap(~data_set) +
->   ggplot2::labs(
->     x = "probability of a success",
->     y = "density",
->     colour = NULL,
->     linetype = NULL
->   )
-> ```
->
-> Show Python code
->
-> ``` python
-> import matplotlib.pyplot as plt
-> import numpy as np
-> from scipy import stats
->
-> prob_grid = np.linspace(0.001, 0.999, 500)
-> data_sets = {"simulated": sim_y, "real (birthwt)": smoke_y}
-> fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
-> for ax, (name, y) in zip(axes, data_sets.items()):
->     post_a, post_b = beta_posterior(y)
->     ax.plot(prob_grid, stats.beta.pdf(prob_grid, prior_a, prior_b),
->             label="prior")
->     ax.plot(prob_grid, stats.beta.pdf(prob_grid, post_a, post_b),
->             linestyle="--", label="posterior")
->     if name == "simulated":
->         ax.axvline(sim_truth, color="black", linestyle=":", label="truth")
->     ax.set_title(name)
->     ax.set_xlabel("probability of a success")
-> axes[0].set_ylabel("density")
-> axes[0].legend()
-> plt.tight_layout()
-> plt.show()
-> ```
->
-> ## R
->
-> [![Two side-by-side panels of densities for the probability of a success, each on the interval from 0 to 1. In both panels the uniform prior is a flat line at height 1, and the posterior is a hump. In the left panel (simulated data, 50 observations), a dashed vertical line at the true value 0.3 passes through the posterior hump, which is centred near 0.33. In the right panel (real birthwt data, 189 births), the posterior hump is narrower, centred near 0.39, and no true value is marked.](bayesian-inference_files/figure-html/prior-posterior-plot-1.png)](bayesian-inference_files/figure-html/prior-posterior-plot-1.png "Figure 3: Prior and posterior densities of \pi under a uniform \operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{} prior. Left: 50 simulated Bernoulli observations, drawn with true \pi= 0.3 (vertical line). Right: whether each of the 189 mothers in the birthwt data smoked during pregnancy; the true \pi is unknown.")
->
-> ## Python
->
-> [![Two side-by-side panels of densities for the probability of a success, each on the interval from 0 to 1. In both panels the uniform prior is a flat line, and the posterior is a hump. In the left panel (simulated data) a dotted vertical line marks the true value. In the right panel (real birthwt data) the posterior hump is narrower, and no true value is marked.](bayesian-inference_files/figure-html/prior-posterior-plot-py-1.png)](bayesian-inference_files/figure-html/prior-posterior-plot-py-1.png "Figure 3: Prior and posterior densities of \pi under a uniform \operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{} prior. Left: 50 simulated Bernoulli observations, drawn with true \pi= 0.3 (vertical line). Right: whether each of the 189 mothers in the birthwt data smoked during pregnancy; the true \pi is unknown.")
->
-> Figure 3: Prior and posterior densities of \\\pi\\ under a uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior. Left: 50 simulated Bernoulli observations, drawn with true \\\pi= 0.3\\ (vertical line). Right: whether each of the 189 mothers in the `birthwt` data smoked during pregnancy; the true \\\pi\\ is unknown.
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > prob_grid <- seq(0.001, 0.999, length.out = 500)
+> > density_curves <- dplyr::bind_rows(
+> >   lapply(rownames(post_params), \(data_set) {
+> >     dplyr::bind_rows(
+> >       tibble::tibble(
+> >         data_set = data_set,
+> >         prob = prob_grid,
+> >         distribution = "prior",
+> >         density = stats::dbeta(prob_grid, prior_a, prior_b)
+> >       ),
+> >       tibble::tibble(
+> >         data_set = data_set,
+> >         prob = prob_grid,
+> >         distribution = "posterior",
+> >         density = stats::dbeta(
+> >           prob_grid,
+> >           post_params[data_set, "a"],
+> >           post_params[data_set, "b"]
+> >         )
+> >       )
+> >     )
+> >   })
+> > )
+> > density_curves$data_set <- factor(
+> >   density_curves$data_set,
+> >   levels = rownames(post_params)
+> > )
+> > density_curves$distribution <- factor(
+> >   density_curves$distribution,
+> >   levels = c("prior", "posterior")
+> > )
+> >
+> > ggplot2::ggplot(
+> >   density_curves,
+> >   ggplot2::aes(prob, density, colour = distribution, linetype = distribution)
+> > ) +
+> >   ggplot2::geom_line(linewidth = 0.8) +
+> >   ggplot2::geom_vline(
+> >     data = tibble::tibble(
+> >       data_set = factor("simulated", levels = rownames(post_params)),
+> >       truth = sim_truth
+> >     ),
+> >     ggplot2::aes(xintercept = truth),
+> >     linetype = "dashed"
+> >   ) +
+> >   ggplot2::facet_wrap(~data_set) +
+> >   ggplot2::labs(
+> >     x = "probability of a success",
+> >     y = "density",
+> >     colour = NULL,
+> >     linetype = NULL
+> >   )
+> > ```
+> >
+> > Show Python code
+> >
+> > ``` python
+> > import matplotlib.pyplot as plt
+> > import numpy as np
+> > from scipy import stats
+> >
+> > prob_grid = np.linspace(0.001, 0.999, 500)
+> > data_sets = {"simulated": sim_y, "real (birthwt)": smoke_y}
+> > fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
+> > for ax, (name, y) in zip(axes, data_sets.items()):
+> >     post_a, post_b = beta_posterior(y)
+> >     ax.plot(prob_grid, stats.beta.pdf(prob_grid, prior_a, prior_b),
+> >             label="prior")
+> >     ax.plot(prob_grid, stats.beta.pdf(prob_grid, post_a, post_b),
+> >             linestyle="--", label="posterior")
+> >     if name == "simulated":
+> >         ax.axvline(sim_truth, color="black", linestyle=":", label="truth")
+> >     ax.set_title(name)
+> >     ax.set_xlabel("probability of a success")
+> > axes[0].set_ylabel("density")
+> > axes[0].legend()
+> > plt.tight_layout()
+> > plt.show()
+> > ```
+> >
+> > ## R
+> >
+> > [![Two side-by-side panels of densities for the probability of a success, each on the interval from 0 to 1. In both panels the uniform prior is a flat line at height 1, and the posterior is a hump. In the left panel (simulated data, 50 observations), a dashed vertical line at the true value 0.3 passes through the posterior hump, which is centred near 0.33. In the right panel (real birthwt data, 189 births), the posterior hump is narrower, centred near 0.39, and no true value is marked.](bayesian-inference_files/figure-html/prior-posterior-plot-1.png)](bayesian-inference_files/figure-html/prior-posterior-plot-1.png "Figure 4: Prior and posterior densities of \pi under a uniform \operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{} prior. Left: 50 simulated Bernoulli observations, drawn with true \pi= 0.3 (vertical line). Right: whether each of the 189 mothers in the birthwt data smoked during pregnancy; the true \pi is unknown.")
+> >
+> > ## Python
+> >
+> > [![Two side-by-side panels of densities for the probability of a success, each on the interval from 0 to 1. In both panels the uniform prior is a flat line, and the posterior is a hump. In the left panel (simulated data) a dotted vertical line marks the true value. In the right panel (real birthwt data) the posterior hump is narrower, and no true value is marked.](bayesian-inference_files/figure-html/prior-posterior-plot-py-1.png)](bayesian-inference_files/figure-html/prior-posterior-plot-py-1.png "Figure 4: Prior and posterior densities of \pi under a uniform \operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{} prior. Left: 50 simulated Bernoulli observations, drawn with true \pi= 0.3 (vertical line). Right: whether each of the 189 mothers in the birthwt data smoked during pregnancy; the true \pi is unknown.")
+> >
+> > Figure 4: Prior and posterior densities of \\\pi\\ under a uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior. Left: 50 simulated Bernoulli observations, drawn with true \\\pi= 0.3\\ (vertical line). Right: whether each of the 189 mothers in the `birthwt` data smoked during pregnancy; the true \\\pi\\ is unknown.
 >
 > In the simulated panel, 16 of the 50 draws were successes, so the posterior is \\\operatorname{Beta}\mathopen{}\left(17, 35\right)\mathclose{}\\. Its mean is 0.327, and its equal-tailed 95% [credible interval](#def-credible-interval) runs from 0.208 to 0.459, which contains the true value 0.3. Because we chose the truth, we can check the posterior against it.
 >
@@ -568,7 +708,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> *Remark 2* (An informative prior pulls the posterior). An informative prior pulls the posterior toward its region, most strongly when the data are sparse.
+> *Remark 3* (An informative prior pulls the posterior). An informative prior pulls the posterior toward its region, most strongly when the data are sparse.
 
 > **NOTE:**
 >
@@ -576,7 +716,9 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Definition 13 (Flat prior)** A **flat prior**, also called a **uniform** or **noninformative** prior, is a [prior](#def-prior) whose density is constant on the parameter space: \\\operatorname{p}(\theta) \propto 1\\ for \\\theta\in \Theta\\.
+> **Definition 13 (Flat prior (uniform prior))** A **flat prior**, also called a **uniform prior**, is a [prior](#def-prior) whose density is constant on the parameter space: \\\operatorname{p}(\theta) \propto 1\\ for \\\theta\in \Theta\\.
+
+A flat prior is a common choice of noninformative prior, but “noninformative prior” is the broader idea: other noninformative priors, such as Jeffreys priors, are not flat.
 
 > **NOTE:**
 >
@@ -584,7 +726,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 15 (Three priors for a log odds ratio)** Let \\\beta\\ be the log odds ratio of disease for exposed versus unexposed people, so the odds ratio is \\e^\beta\\, and \\\beta\\ can be any real number.
+> **Example 16 (Three priors for a log odds ratio)** Let \\\beta\\ be the log odds ratio of disease for exposed versus unexposed people, so the odds ratio is \\e^\beta\\, and \\\beta\\ can be any real number.
 >
 > - [Informative](#def-informative-prior): a previous study estimated the odds ratio as 1.5, with a standard error of 0.2 for its logarithm, so an analyst adopts the prior \\\beta\sim \operatorname{N}\mathopen{}\left(\log 1.5,\\ 0.2^2\right)\mathclose{}\\.
 > - [Weakly informative](#def-weakly-informative-prior): an analyst with no previous study, who nonetheless regards odds ratios above 100 as implausible, adopts \\\beta\sim \operatorname{N}\mathopen{}\left(0,\\ 2.5^2\right)\mathclose{}\\.
@@ -613,7 +755,7 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> **Example 16 (A flat prior on a probability is not flat on its log-odds)** A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated. Let \\\pi\\ have the uniform prior of [Example 2](#exm-prior), and let \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ be its log-odds, so that
+> **Example 17 (A flat prior on a probability is not flat on its log-odds)** A [flat prior](#def-flat-prior) is flat only on the scale on which it is stated. Let \\\pi\\ have the uniform prior of [Example 2](#exm-prior), and let \\\eta\stackrel{\text{def}}{=}\operatorname{logit}(\pi)\\ be its log-odds, so that
 >
 > \\ \begin{aligned} \pi&= \operatorname{expit}(\eta) \\ &= 1 / (1 + e^{-\eta}). \end{aligned} \\
 >
@@ -641,11 +783,11 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> *Remark 3* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improper](#def-improper-prior), so it does not define a joint distribution of \\\theta\\ and \\\tilde{Y}\\, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
+> *Remark 4* (Flat priors can be improper). A flat prior on an unbounded parameter space, such as \\\mathbb{R}\\, is [improper](#def-improper-prior), so it does not define a joint distribution of \\\theta\\ and \\\tilde{Y}\\, and [Definition 4](#def-posterior) does not apply directly. In practice the posterior is then *defined* as likelihood times prior, normalized to integrate to 1, which is possible only when that product has a finite integral; the posterior is again proportional to the likelihood.
 
 > **NOTE:**
 >
-> **Example 17 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 13](#exm-beta-bernoulli) the prior is uniform on \\(0, 1)\\, so by [Corollary 4](#cor-flat-prior-posterior) the posterior density, proportional to \\\pi^{55}(1-\pi)^{36}\\, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood \\r \log \pi+ (n - r)\log(1 - \pi)\\, which is \\r/\pi- (n - r)/(1 - \pi)\\, to zero gives
+> **Example 18 (Posterior mode and maximum likelihood estimate for a probability)** In [Example 14](#exm-beta-bernoulli) the prior is uniform on \\(0, 1)\\, so by [Corollary 4](#cor-flat-prior-posterior) the posterior density, proportional to \\\pi^{55}(1-\pi)^{36}\\, is maximized at the maximum likelihood estimate. Setting the derivative of the log-likelihood \\r \log \pi+ (n - r)\log(1 - \pi)\\, which is \\r/\pi- (n - r)/(1 - \pi)\\, to zero gives
 >
 > \\ \begin{aligned} \hat{\pi}&= r/n \\ &= 55/91 \\ &\approx 0.604. \end{aligned} \\
 >
@@ -659,11 +801,11 @@ Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson
 
 > **NOTE:**
 >
-> *Remark 4* (What a skeptical prior asks). A skeptical prior asks how strong the data must be to overturn a default of no effect.
+> *Remark 5* (What a skeptical prior asks). A skeptical prior asks how strong the data must be to overturn a default of no effect.
 
 > **NOTE:**
 >
-> **Example 18 (A skeptical prior for a Gaussian mean)** In the model of [Example 6](#exm-normal-normal), replace the \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior by the [skeptical prior](#def-skeptical-prior) \\\mu\sim \operatorname{N}\mathopen{}\left(0, \tau^2\right)\mathclose{}\\, whose standard deviation \\\tau\\ sets how skeptical it is. Its density is proportional to \\\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mu^2/\tau^2\right\\\mathclose{}\\. Let \\m\_\tau\stackrel{\text{def}}{=}\frac{n \bar x}{n + 1/\tau^2}\\. Reusing the likelihood from [Example 6](#exm-normal-normal):
+> **Example 19 (A skeptical prior for a Gaussian mean)** In the model of [Example 6](#exm-normal-normal), replace the \\\operatorname{N}\mathopen{}\left(0, 1\right)\mathclose{}\\ prior by the [skeptical prior](#def-skeptical-prior) \\\mu\sim \operatorname{N}\mathopen{}\left(0, \tau^2\right)\mathclose{}\\, whose standard deviation \\\tau\\ sets how skeptical it is. Its density is proportional to \\\operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mu^2/\tau^2\right\\\mathclose{}\\. Let \\m\_\tau\stackrel{\text{def}}{=}\frac{n \bar x}{n + 1/\tau^2}\\. Reusing the likelihood from [Example 6](#exm-normal-normal):
 >
 > \\ \begin{aligned} \operatorname{p}(\mu\mid \tilde{x}) &\propto \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n \mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{} \cdot \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\frac{\mu^2}{\tau^2}\right\\\mathclose{} && \text{(likelihood times prior)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mu^2 - 2 \mu n \bar x\right)\mathclose{}\right\\\mathclose{} && \text{(adding exponents)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mathopen{}\left(\mu^2 - 2 \mu m\_\tau\right)\mathclose{}\right\\\mathclose{} && \text{(factoring; definition of \$m\_\tau\$)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}\mathopen{}\left((\mu- m\_\tau)^2 - m\_\tau^2\right)\mathclose{}\right\\\mathclose{} && \text{(completing the square)}\\ &\propto \operatorname{exp}\mathopen{}\left\\-\frac{1}{2}\mathopen{}\left(n + \frac{1}{\tau^2}\right)\mathclose{}(\mu- m\_\tau)^2\right\\\mathclose{} && \text{(dropping a factor that does not involve \$\mu\$)}. \end{aligned} \\
 >
@@ -689,15 +831,13 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 16 (Prior predictive distribution)** The **prior predictive distribution** of the data \\\tilde{Y}\\ is the distribution of \\\tilde{Y}\\ implied by the [prior](#def-prior) \\\operatorname{p}(\theta)\\ and the model \\\operatorname{p}(\tilde{y}\mid \theta)\\, before any data are observed:
+> **Definition 16 (Prior predictive distribution)** The **prior predictive distribution** of the data \\\tilde{Y}\\ is the distribution of \\\tilde{Y}\\ implied by the [prior](#def-prior) \\\operatorname{p}(\theta)\\ and the model \\\operatorname{p}(\tilde{y}\mid \theta)\\, before any data are observed ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.3):
 >
 > \\ \operatorname{p}(\tilde{y}) = \int \operatorname{p}(\tilde{y}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta. \\
->
-> It is the [marginal likelihood](#def-marginal-likelihood), read as a distribution over possible data sets ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.3).
 
 > **NOTE:**
 >
-> **Example 19 (Prior predictive distribution of a count)** In the Beta-Bernoulli model of [Example 13](#exm-beta-bernoulli), the number of successes \\R = \sum\_{i=1}^nY_i\\ given \\\pi\\ is \\\operatorname{Binomial}(n, \pi)\\. Under the uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior, its prior predictive probabilities are
+> **Example 20 (Prior predictive distribution of a count)** In the Beta-Bernoulli model of [Example 14](#exm-beta-bernoulli), the number of successes \\R = \sum\_{i=1}^nY_i\\ given \\\pi\\ is \\\operatorname{Binomial}(n, \pi)\\. Under the uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior, its prior predictive probabilities are
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(R = r\right)\mathclose{} &= \int_0^1 \binom{n}{r} \pi^{r} (1 - \pi)^{n - r} \cdot 1 \\ d\pi && \text{(definition of the prior predictive distribution)}\\ &= \binom{n}{r} \frac{r!\\(n - r)!}{(n + 1)!} && \text{(the Beta integral)}\\ &= \frac{n!}{r!\\(n - r)!} \cdot \frac{r!\\(n - r)!}{(n + 1)!} && \text{(definition of the binomial coefficient)}\\ &= \frac{n!}{(n + 1)!} && \text{(the factor \$r!\\(n - r)!\$ appears above and below)}\\ &= \frac{1}{n + 1} && \text{(\$(n + 1)! = (n + 1) \cdot n!\$)}, \end{aligned} \\
 >
@@ -739,6 +879,10 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
+> *Remark 6* (The prior predictive distribution and the marginal likelihood). The prior predictive distribution ([Definition 16](#def-prior-predictive)) is the [marginal likelihood](#def-marginal-likelihood), read as a distribution over possible data sets ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.3).
+
+> **NOTE:**
+>
 > **Definition 17 (Posterior predictive distribution)** The **posterior predictive distribution** of a new observation \\Y^{\mathrm{new}}\\, given observed data \\\tilde{Y}= \tilde{y}\\, is the distribution of \\Y^{\mathrm{new}}\\ implied by the [posterior](#def-posterior) \\\operatorname{p}(\theta\mid \tilde{y})\\ and the model \\\operatorname{p}(y^{\mathrm{new}} \mid \theta)\\:
 >
 > \\ \operatorname{p}(y^{\mathrm{new}} \mid \tilde{y}) = \int \operatorname{p}(y^{\mathrm{new}} \mid \theta)\\ \operatorname{p}(\theta\mid \tilde{y})\\ d\theta, \\
@@ -747,11 +891,11 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Example 20 (Will the next mother smoke?)** Let \\Y^{\mathrm{new}} = 1\\ if one more mother from the `birthwt` population smoked during pregnancy, and \\Y^{\mathrm{new}} = 0\\ if she did not. Given \\\pi\\,
+> **Example 21 (Will the next mother smoke?)** Let \\Y^{\mathrm{new}} = 1\\ if one more mother from the `birthwt` population smoked during pregnancy, and \\Y^{\mathrm{new}} = 0\\ if she did not. Given \\\pi\\,
 >
 > \\ \Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{} = \pi. \\
 >
-> With the posterior \\\operatorname{p}(\pi\mid \tilde{y})\\ of [Example 14](#exm-prior-posterior-figure),
+> With the posterior \\\operatorname{p}(\pi\mid \tilde{y})\\ of [Example 15](#exm-prior-posterior-figure),
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \tilde{y}\right)\mathclose{} &= \int_0^1 \Pr\mathopen{}\left(Y^{\mathrm{new}} = 1 \mid \pi\right)\mathclose{}\\ \operatorname{p}(\pi\mid \tilde{y})\\ d\pi && \text{(definition of the posterior predictive distribution)}\\ &= \int_0^1 \pi\\ \operatorname{p}(\pi\mid \tilde{y})\\ d\pi && \text{(Bernoulli model)}\\ &= \operatorname{E}\mathopen{}\left\[\pi\mid \tilde{y}\right\]\mathclose{} && \text{(definition of the posterior mean)}. \end{aligned} \\
 >
@@ -798,7 +942,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Example 21 (Two test quantities for the smoking data)** The `birthwt` data also record each mother’s race, coded as white, Black, or other. The Beta-Bernoulli model gives every mother the same probability \\\pi\\ of smoking, whatever her race. Two test quantities for these data are:
+> **Example 22 (Two test quantities for the smoking data)** The `birthwt` data also record each mother’s race, coded as white, Black, or other. The Beta-Bernoulli model gives every mother the same probability \\\pi\\ of smoking, whatever her race. Two test quantities for these data are:
 >
 > - the number of mothers who smoked, \\T_1(\tilde{y}) = \sum\_{i=1}^ny_i\\;
 > - the spread of the smoking proportions across the three race groups, \\T_2(\tilde{y}) = \max_g \bar{y}\_g - \min_g \bar{y}\_g\\, where \\\bar{y}\_g\\ is the proportion of mothers in group \\g\\ who smoked.
@@ -858,7 +1002,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Example 22 (Checking two priors for the smoking probability)** We compare two priors for \\\pi\\ in the `birthwt` data:
+> **Example 23 (Checking two priors for the smoking probability)** We compare two priors for \\\pi\\ in the `birthwt` data:
 >
 > - the uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior of [Example 2](#exm-prior);
 > - a \\\operatorname{Beta}\mathopen{}\left(1, 19\right)\mathclose{}\\ prior, with prior mean \\1 / (1 + 19) = 0.05\\, which an analyst might choose if they believed that smoking during pregnancy was rare.
@@ -920,44 +1064,46 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > The output is the proportion of simulated counts at least as large as the observed count, 74.
 >
-> [Figure 4](#fig-prior-predictive-check) plots the simulated counts.
+> [Figure 5](#fig-prior-predictive-check) plots the simulated counts.
 >
-> Show R code
->
-> ``` downlit
-> ggplot2::ggplot(prior_pred_counts, ggplot2::aes(count)) +
->   ggplot2::geom_histogram(binwidth = 5, boundary = 0) +
->   ggplot2::geom_vline(xintercept = t_count(smoke_y), linetype = "dashed") +
->   ggplot2::facet_wrap(~prior) +
->   ggplot2::labs(x = "number of smokers", y = "number of simulations")
-> ```
->
-> Show Python code
->
-> ``` python
-> import matplotlib.pyplot as plt
-> import numpy as np
->
-> fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
-> for ax, (name, counts) in zip(axes, prior_pred_counts.items()):
->     ax.hist(counts, bins=np.arange(0, n_mothers + 6, 5), color="grey")
->     ax.axvline(smoke_y.sum(), color="black", linestyle="--")
->     ax.set_title(name)
->     ax.set_xlabel("number of smokers")
-> axes[0].set_ylabel("number of simulations")
-> plt.tight_layout()
-> plt.show()
-> ```
->
-> ## R
->
-> [![Two side-by-side histograms of the number of smokers among 189 mothers, simulated from two priors. Under the uniform Beta(1, 1) prior, the counts spread evenly from 0 to 189, and the observed count of 74, marked by a dashed vertical line, sits in the middle. Under the Beta(1, 19) prior, most counts are small, and the observed count is far to the right of almost all of them.](bayesian-inference_files/figure-html/prior-predictive-check-plot-1.png)](bayesian-inference_files/figure-html/prior-predictive-check-plot-1.png "Figure 4: Prior predictive distributions of the number of smokers among the 189 mothers in the birthwt data, from 4000 simulations under each prior. The dashed line is the observed count, 74.")
->
-> ## Python
->
-> [![Two side-by-side histograms of the number of smokers, simulated from two priors. Under the uniform Beta(1, 1) prior, the counts spread evenly, and the observed count, marked by a dashed vertical line, sits in the middle. Under the Beta(1, 19) prior, most counts are small, and the observed count is far to the right of almost all of them.](bayesian-inference_files/figure-html/prior-predictive-check-plot-py-1.png)](bayesian-inference_files/figure-html/prior-predictive-check-plot-py-1.png "Figure 4: Prior predictive distributions of the number of smokers among the 189 mothers in the birthwt data, from 4000 simulations under each prior. The dashed line is the observed count, 74.")
->
-> Figure 4: Prior predictive distributions of the number of smokers among the 189 mothers in the `birthwt` data, from 4000 simulations under each prior. The dashed line is the observed count, 74.
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > ggplot2::ggplot(prior_pred_counts, ggplot2::aes(count)) +
+> >   ggplot2::geom_histogram(binwidth = 5, boundary = 0) +
+> >   ggplot2::geom_vline(xintercept = t_count(smoke_y), linetype = "dashed") +
+> >   ggplot2::facet_wrap(~prior) +
+> >   ggplot2::labs(x = "number of smokers", y = "number of simulations")
+> > ```
+> >
+> > Show Python code
+> >
+> > ``` python
+> > import matplotlib.pyplot as plt
+> > import numpy as np
+> >
+> > fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
+> > for ax, (name, counts) in zip(axes, prior_pred_counts.items()):
+> >     ax.hist(counts, bins=np.arange(0, n_mothers + 6, 5), color="grey")
+> >     ax.axvline(smoke_y.sum(), color="black", linestyle="--")
+> >     ax.set_title(name)
+> >     ax.set_xlabel("number of smokers")
+> > axes[0].set_ylabel("number of simulations")
+> > plt.tight_layout()
+> > plt.show()
+> > ```
+> >
+> > ## R
+> >
+> > [![Two side-by-side histograms of the number of smokers among 189 mothers, simulated from two priors. Under the uniform Beta(1, 1) prior, the counts spread evenly from 0 to 189, and the observed count of 74, marked by a dashed vertical line, sits in the middle. Under the Beta(1, 19) prior, most counts are small, and the observed count is far to the right of almost all of them.](bayesian-inference_files/figure-html/prior-predictive-check-plot-1.png)](bayesian-inference_files/figure-html/prior-predictive-check-plot-1.png "Figure 5: Prior predictive distributions of the number of smokers among the 189 mothers in the birthwt data, from 4000 simulations under each prior. The dashed line is the observed count, 74.")
+> >
+> > ## Python
+> >
+> > [![Two side-by-side histograms of the number of smokers, simulated from two priors. Under the uniform Beta(1, 1) prior, the counts spread evenly, and the observed count, marked by a dashed vertical line, sits in the middle. Under the Beta(1, 19) prior, most counts are small, and the observed count is far to the right of almost all of them.](bayesian-inference_files/figure-html/prior-predictive-check-plot-py-1.png)](bayesian-inference_files/figure-html/prior-predictive-check-plot-py-1.png "Figure 5: Prior predictive distributions of the number of smokers among the 189 mothers in the birthwt data, from 4000 simulations under each prior. The dashed line is the observed count, 74.")
+> >
+> > Figure 5: Prior predictive distributions of the number of smokers among the 189 mothers in the `birthwt` data, from 4000 simulations under each prior. The dashed line is the observed count, 74.
 >
 > Under the uniform prior, 0.611 of the simulated counts are at least as large as the observed count, so the data are unsurprising under that prior. Under the \\\operatorname{Beta}\mathopen{}\left(1, 19\right)\mathclose{}\\ prior, 2 of the 4000 simulated counts are: that prior and the data disagree, and the analyst should rethink the prior before trusting a posterior built on it.
 
@@ -967,7 +1113,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Example 23 (Does one smoking probability fit every group?)** We check the Beta-Bernoulli model with the race-spread test quantity \\T_2\\ of [Example 21](#exm-test-quantity), on two data sets:
+> **Example 24 (Does one smoking probability fit every group?)** We check the Beta-Bernoulli model with the race-spread test quantity \\T_2\\ of [Example 22](#exm-test-quantity), on two data sets:
 >
 > - **Simulated data.** We draw 189 Bernoulli observations with the same true \\\pi= 0.3\\ for every mother, and attach the race labels of the `birthwt` mothers. The model is true for these data.
 > - **Real data.** The smoking indicators of the `birthwt` mothers.
@@ -1040,50 +1186,52 @@ A Bayesian model makes predictions about data, both before and after the data ar
 > #> {'simulated': np.float64(0.13168532338308458), 'real (birthwt)': np.float64(0.36256218905472637)}
 > ```
 >
-> [Figure 5](#fig-posterior-predictive-check) compares the replicated and observed values of \\T_2\\.
+> [Figure 6](#fig-posterior-predictive-check) compares the replicated and observed values of \\T_2\\.
 >
-> Show R code
->
-> ``` downlit
-> ggplot2::ggplot(ppc_draws, ggplot2::aes(t_rep)) +
->   ggplot2::geom_histogram(bins = 40) +
->   ggplot2::geom_vline(
->     data = ppc_obs,
->     ggplot2::aes(xintercept = t_obs),
->     linetype = "dashed"
->   ) +
->   ggplot2::facet_wrap(~data_set) +
->   ggplot2::labs(
->     x = "spread of smoking proportions across race groups",
->     y = "number of simulations"
->   )
-> ```
->
-> Show Python code
->
-> ``` python
-> import matplotlib.pyplot as plt
->
-> fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
-> for ax, (name, (t_rep, t_obs)) in zip(axes, ppc_draws.items()):
->     ax.hist(t_rep, bins=40, color="grey")
->     ax.axvline(t_obs, color="black", linestyle="--")
->     ax.set_title(name)
->     ax.set_xlabel("spread of smoking proportions across race groups")
-> axes[0].set_ylabel("number of simulations")
-> plt.tight_layout()
-> plt.show()
-> ```
->
-> ## R
->
-> [![Two side-by-side histograms of the spread in smoking proportions across race groups, in data sets replicated from the posterior. In the left panel (simulated data), the observed spread of 0.13, marked by a dashed vertical line, falls inside the histogram. In the right panel (real birthwt data), the observed spread of 0.36 lies to the right of nearly all the replicated values.](bayesian-inference_files/figure-html/posterior-predictive-check-plot-1.png)](bayesian-inference_files/figure-html/posterior-predictive-check-plot-1.png "Figure 5: Posterior predictive distributions of T_2, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true \pi= 0.3 for every mother. Right: the birthwt data.")
->
-> ## Python
->
-> [![Two side-by-side histograms of the spread in smoking proportions across race groups, in data sets replicated from the posterior. In each panel a dashed vertical line marks the observed spread. In the left panel (simulated data) it falls inside the histogram; in the right panel (real birthwt data) it lies to the right of nearly all the replicated values.](bayesian-inference_files/figure-html/posterior-predictive-check-plot-py-1.png)](bayesian-inference_files/figure-html/posterior-predictive-check-plot-py-1.png "Figure 5: Posterior predictive distributions of T_2, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true \pi= 0.3 for every mother. Right: the birthwt data.")
->
-> Figure 5: Posterior predictive distributions of \\T_2\\, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true \\\pi= 0.3\\ for every mother. Right: the `birthwt` data.
+> > **NOTE:**
+> >
+> > Show R code
+> >
+> > ``` downlit
+> > ggplot2::ggplot(ppc_draws, ggplot2::aes(t_rep)) +
+> >   ggplot2::geom_histogram(bins = 40) +
+> >   ggplot2::geom_vline(
+> >     data = ppc_obs,
+> >     ggplot2::aes(xintercept = t_obs),
+> >     linetype = "dashed"
+> >   ) +
+> >   ggplot2::facet_wrap(~data_set) +
+> >   ggplot2::labs(
+> >     x = "spread of smoking proportions across race groups",
+> >     y = "number of simulations"
+> >   )
+> > ```
+> >
+> > Show Python code
+> >
+> > ``` python
+> > import matplotlib.pyplot as plt
+> >
+> > fig, axes = plt.subplots(1, 2, figsize=(8, 3.5), sharey=True)
+> > for ax, (name, (t_rep, t_obs)) in zip(axes, ppc_draws.items()):
+> >     ax.hist(t_rep, bins=40, color="grey")
+> >     ax.axvline(t_obs, color="black", linestyle="--")
+> >     ax.set_title(name)
+> >     ax.set_xlabel("spread of smoking proportions across race groups")
+> > axes[0].set_ylabel("number of simulations")
+> > plt.tight_layout()
+> > plt.show()
+> > ```
+> >
+> > ## R
+> >
+> > [![Two side-by-side histograms of the spread in smoking proportions across race groups, in data sets replicated from the posterior. In the left panel (simulated data), the observed spread of 0.13, marked by a dashed vertical line, falls inside the histogram. In the right panel (real birthwt data), the observed spread of 0.36 lies to the right of nearly all the replicated values.](bayesian-inference_files/figure-html/posterior-predictive-check-plot-1.png)](bayesian-inference_files/figure-html/posterior-predictive-check-plot-1.png "Figure 6: Posterior predictive distributions of T_2, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true \pi= 0.3 for every mother. Right: the birthwt data.")
+> >
+> > ## Python
+> >
+> > [![Two side-by-side histograms of the spread in smoking proportions across race groups, in data sets replicated from the posterior. In each panel a dashed vertical line marks the observed spread. In the left panel (simulated data) it falls inside the histogram; in the right panel (real birthwt data) it lies to the right of nearly all the replicated values.](bayesian-inference_files/figure-html/posterior-predictive-check-plot-py-1.png)](bayesian-inference_files/figure-html/posterior-predictive-check-plot-py-1.png "Figure 6: Posterior predictive distributions of T_2, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true \pi= 0.3 for every mother. Right: the birthwt data.")
+> >
+> > Figure 6: Posterior predictive distributions of \\T_2\\, the spread of the smoking proportions across the three race groups, from 4000 replicated data sets under the Beta-Bernoulli model with a uniform prior. The dashed lines are the observed values. Left: 189 simulated observations with the same true \\\pi= 0.3\\ for every mother. Right: the `birthwt` data.
 >
 > For the simulated data, the observed spread looks like the replicated spreads, as it should, because the model generated those data. For the real data, the observed spread is larger than almost every replicated spread: the smoking proportion really does differ by race in these data, and a model with one \\\pi\\ for everyone cannot reproduce that.
 
@@ -1093,11 +1241,11 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > \\ p_B = \Pr\mathopen{}\left(T(\tilde{Y}^{\mathrm{rep}}) \ge T(\tilde{y}) \mid \tilde{y}\right)\mathclose{}, \\
 >
-> where the probability is over \\\theta\\ drawn from its [posterior](#def-posterior) and \\\tilde{Y}^{\mathrm{rep}}\\ drawn from the model given \\\theta\\ ([Gelman et al. 2013, sec. 6.3](#ref-gelman2013bda), p. 146). With simulations from a [posterior predictive check](#def-posterior-predictive-check), \\p_B\\ is estimated by the proportion of replicated values at least as large as the observed value. A value near 0 or 1 means the observed data are unusual under the model.
+> where the probability is over \\\theta\\ drawn from its [posterior](#def-posterior) and \\\tilde{Y}^{\mathrm{rep}}\\ drawn from the model given \\\theta\\ ([Gelman et al. 2013, sec. 6.3](#ref-gelman2013bda), p. 146).
 
 > **NOTE:**
 >
-> **Example 24 (Posterior predictive p-values for the race spread)** From the simulations of [Example 23](#exm-posterior-predictive-check):
+> **Example 25 (Posterior predictive p-values for the race spread)** From the simulations of [Example 24](#exm-posterior-predictive-check):
 >
 > ## R
 >
@@ -1121,15 +1269,19 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > R and Python draw different random numbers, so their p-values differ a little; the text uses the R results. For the simulated data, \\p_B\\ is 0.367, so the model passes this check. For the real data, \\p_B\\ is 0.002, so the model fails it. The next step would be a model that lets the smoking probability depend on race, such as the [Bayesian logistic regression](bayesian-examples.llms.md#exm-bayes-logistic) fitted on the companion page.
 
+> **NOTE:**
+>
+> *Remark 7* (Estimating and interpreting the posterior predictive p-value). With simulations from a [posterior predictive check](#def-posterior-predictive-check), \\p_B\\ is estimated by the proportion of replicated values at least as large as the observed value. A value near 0 or 1 means the observed data are unusual under the model.
+
 ## 5 Distributions and hierarchies
 
 > **NOTE:**
 >
-> **Definition 22 (Hierarchical model)** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
+> **Definition 22 (Hierarchical model (multilevel model))** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
 
 > **NOTE:**
 >
-> *Remark 5* (A hierarchical model is a model structure). A hierarchical model is a model structure, not an inference method: it can be fit by maximum likelihood or by Bayesian inference. Bayesian inference also gives the further unknown parameters a prior (a *hyperprior*).
+> *Remark 8* (A hierarchical model is a model structure). A hierarchical model is a model structure, not an inference method: it can be fit by maximum likelihood or by Bayesian inference. Bayesian inference also gives the further unknown parameters a prior (a *hyperprior*).
 
 > **NOTE:**
 >
@@ -1141,7 +1293,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Example 25 (A two-level Gaussian model)** Observations \\Y\_{ij}\\ come from groups \\j = 1, \ldots, J\\, and each group has its own mean \\\theta_j\\. A two-level model specifies
+> **Example 26 (A two-level Gaussian model)** Observations \\Y\_{ij}\\ come from groups \\j = 1, \ldots, J\\, and each group has its own mean \\\theta_j\\. A two-level model specifies
 >
 > \\ \begin{aligned} Y\_{ij} \mid \theta_j &\sim \operatorname{N}\mathopen{}\left(\theta_j,\\ \sigma^2\right)\mathclose{} && \text{(data given group means)}\\ \theta_j \mid \mu, \tau&\sim \operatorname{N}\mathopen{}\left(\mu,\\ \tau^2\right)\mathclose{} && \text{(group means given hyperparameters)}. \end{aligned} \\
 >
@@ -1188,6 +1340,8 @@ Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and 
 
 Hobbs, N. Thompson, and Mevin B Hooten. 2015. *Bayesian Models: A Statistical Primer for Ecologists*. STU - Student edition. Princeton University Press.
 
+Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+
 Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
 
 Kéry, Marc., Michael. Schaub, and Steven R. Beissinger. 2012. *Bayesian Population Analysis Using WinBUGS : A Hierarchical Perspective*. 1st ed. Academic Press. <https://shop.elsevier.com/books/bayesian-population-analysis-using-winbugs/kery/978-0-12-387020-9>.
@@ -1195,6 +1349,8 @@ Kéry, Marc., Michael. Schaub, and Steven R. Beissinger. 2012. *Bayesian Populat
 Korner-Nievergelt, Fränzi, and Fränzi Korner-Nievergelt. 2015. *Bayesian Data Analysis in Ecology Using Linear Models with R, BUGS, and Stan*. 1st ed. Academic Press.
 
 McElreath, Richard. 2020. *Statistical Rethinking : A Bayesian Course with Examples in R and Stan*. Second edition. Chapman & Hall/CRC Texts in Statistical Science Series. CRC Press.
+
+Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
 
 Ross, Kevin. 2022. *An Introduction to Bayesian Reasoning and Methods*. Online. <https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/>.
 
