@@ -6,10 +6,13 @@ is the cost, under a [loss function](https://morrison-lab.github.io/pds/expectat
 of its prediction $\fitted(\predvar_{\iobs})$ of the outcome $\outvar_{\iobs}$:
 
 $$
-\obsloss{\iobs} \eqdef \lossf{\outvar_{\iobs}, \fitted(\predvar_{\iobs})}.
+\obsloss{\iobs}\paren{\fitted} \eqdef \lossf{\outvar_{\iobs}, \fitted(\predvar_{\iobs})}.
 $$ {#eq-observation-loss}
 
+The subscript names the observation, a member of a family of losses,
+and the parentheses hold the prediction rule the loss is evaluated at.
 The index $*$ names the new observation $(\newpredvar, \newoutvar)$,
-so $\obsloss{*} = \lossf{\newoutvar, \fitted(\newpredvar)}$.
+so $\obsloss{*}\paren{\fitted} = \lossf{\newoutvar, \fitted(\newpredvar)}$.
+When the rule is clear from context, we write $\obsloss{\iobs}$ for $\obsloss{\iobs}\paren{\fitted}$.
 
 :::
