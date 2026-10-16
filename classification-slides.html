@@ -36,7 +36,92 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
 <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-3a7eae3b872f08785a56513611f0329a.css">
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VLDZY2T3JF"></script><script type="text/plain" cookie-consent="tracking">
 
@@ -267,7 +352,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 01:43:36 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 01:57:23 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -566,6 +651,452 @@ c(x) \stackrel{\text{def}}{=}
 </section><section class="slide level2"><div id="rem-ppv-prevalence" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (The PPV depends on the population, not only on the test). </span>The sensitivity and specificity describe the test’s performance in a specified setting, and may differ across settings (for example, with the case mix of the people tested or the threshold used to call a result positive), but the ratio <span class="math inline">\(\frac{1 - \pi}{\pi}\)</span> in <a href="#/thm-ppv-sens-spec-prev" class="quarto-xref">Theorem&nbsp;3</a> describes the population being tested. When the disease is rare, that ratio is large, so even a small false positive rate can make the PPV low, as <a href="#/exm-ppv-sens-spec-prev" class="quarto-xref">Example&nbsp;7</a> shows.</p>
 </div>
+</section><section id="agreement-between-two-classifiers" class="slide level2" data-number="5"><h2>
+<span class="header-section-number">5</span> Agreement between two classifiers</h2>
+<p>So far, we have compared a test with the true disease status. The same tools apply whenever we compare two classifiers that label the same observations: for example, a new diagnostic test against a reference test, or an automated grader (an “agent”) against a human grader. We call the classifier being evaluated the <strong>agent</strong> and the one we compare it with the <strong>reference</strong>.</p>
+</section><section class="slide level2"><div id="def-agreement-table" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 9 (Agreement table)</strong></span> For <span class="math inline">\(n\)</span> observations that an agent and a reference each classify as positive or negative, the <strong>agreement table</strong> counts the four combinations:</p>
+<table class="caption-top">
+<thead><tr class="header">
+<th></th>
+<th style="text-align: right;">Reference positive</th>
+<th style="text-align: right;">Reference negative</th>
+<th style="text-align: right;">Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Agent positive</strong></td>
+<td style="text-align: right;"><span class="math inline">\(a\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(b\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(a + b\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Agent negative</strong></td>
+<td style="text-align: right;"><span class="math inline">\(c\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(d\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(c + d\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><span class="math inline">\(a + c\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(b + d\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The cells <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span> count agreements, the cells <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> count disagreements, and the four cells together count every observation:</p>
+<p><span id="eq-agreement-table-n"><span class="math display">\[n \stackrel{\text{def}}{=}a + b + c + d \tag{24}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="exm-agreement-table-covid" class="theorem example">
+<p><span class="theorem-title"><strong>Example 8 (Agreement table for a COVID-19 test)</strong></span> Apply the COVID-19 test of <a href="#/exm-sensitivity" class="quarto-xref">Example&nbsp;2</a> and <a href="#/exm-specificity" class="quarto-xref">Example&nbsp;3</a> to <span class="math inline">\(n = 10{,}000\)</span> people from the population of <a href="#/exm-prevalence" class="quarto-xref">Example&nbsp;4</a>, with the true disease status as the reference. With 7% prevalence, <span class="math inline">\(0.07 \times 10{,}000 = 700\)</span> people have COVID-19 and <span class="math inline">\(10{,}000 - 700 = 9{,}300\)</span> do not. With 99% sensitivity, the test is positive for <span class="math inline">\(0.99 \times 700 = 693\)</span> of the 700; with 99% specificity, it is negative for <span class="math inline">\(0.99 \times 9{,}300 = 9{,}207\)</span> of the 9,300. So the test is positive for <span class="math inline">\(9{,}300 - 9{,}207 = 93\)</span> people without COVID-19 and negative for <span class="math inline">\(700 - 693 = 7\)</span> people with it. The agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) is:</p>
+<table class="caption-top">
+<thead><tr class="header">
+<th></th>
+<th style="text-align: right;">COVID-19</th>
+<th style="text-align: right;">No COVID-19</th>
+<th style="text-align: right;">Total</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Test positive</strong></td>
+<td style="text-align: right;"><span class="math inline">\(a = 693\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(b = 93\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(786\)</span></td>
+</tr>
+<tr class="even">
+<td><strong>Test negative</strong></td>
+<td style="text-align: right;"><span class="math inline">\(c = 7\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(d = 9{,}207\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(9{,}214\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td style="text-align: right;"><span class="math inline">\(700\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(9{,}300\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(10{,}000\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>agree_covid <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a =</span> <span class="dv">693</span>, <span class="at">b =</span> <span class="dv">93</span>, <span class="at">c =</span> <span class="dv">7</span>, <span class="at">d =</span> <span class="dv">9207</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a>agree_covid</span>
+<span id="cb1-3"><a aria-label="3"></a><span class="co">#&gt;    a    b    c    d </span></span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co">#&gt;  693   93    7 9207</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</section><section id="agreement-proportions" class="slide level2" data-number="6"><h2>
+<span class="header-section-number">6</span> Agreement proportions</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-overall-agreement div. -->
+<div id="def-overall-agreement" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 10 (Overall agreement)</strong></span> The <strong>overall agreement</strong> of an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) is the proportion of observations on which the agent and the reference agree:</p>
+<p><span id="eq-overall-agreement"><span class="math display">\[p_o \stackrel{\text{def}}{=}\frac{a + d}{n} \tag{25}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="exm-overall-agreement" class="theorem example">
+<p><span class="theorem-title"><strong>Example 9 (Overall agreement for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the overall agreement (<a href="#/def-overall-agreement" class="quarto-xref">Definition&nbsp;10</a>) is:</p>
+<p><span id="eq-exm-overall-agreement"><span class="math display">\[
+\begin{aligned}
+p_o
+&amp;= \frac{693 + 9{,}207}{10{,}000}
+&amp;&amp; \text{(definition of } p_o \text{, with the table's counts)} \\
+&amp;= \frac{9{,}900}{10{,}000}
+&amp;&amp; \text{(add)} \\
+&amp;= 0.99
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{26}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="def-positive-agreement" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 11 (Positive agreement)</strong></span> The <strong>positive agreement</strong> (also called the <em>average positive agreement</em>) of an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) with <span class="math inline">\(2a + b + c &gt; 0\)</span> is the number of positive calls the agent and the reference share, counted once for each classifier, as a proportion of all their positive calls:</p>
+<p><span id="eq-positive-agreement"><span class="math display">\[p_{\text{pos}} \stackrel{\text{def}}{=}\frac{2a}{2a + b + c} \tag{27}\]</span></span></p>
+<p>Source: <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-positive-agreement" class="theorem example">
+<p><span class="theorem-title"><strong>Example 10 (Positive agreement for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the positive agreement (<a href="#/def-positive-agreement" class="quarto-xref">Definition&nbsp;11</a>) is:</p>
+<p><span id="eq-exm-positive-agreement"><span class="math display">\[
+\begin{aligned}
+p_{\text{pos}}
+&amp;= \frac{2 \times 693}{2 \times 693 + 93 + 7}
+&amp;&amp; \text{(definition of } p_{\text{pos}} \text{, with the table's counts)} \\
+&amp;= \frac{1{,}386}{1{,}386 + 93 + 7}
+&amp;&amp; \text{(multiply)} \\
+&amp;= \frac{1{,}386}{1{,}486}
+&amp;&amp; \text{(add)} \\
+&amp;\approx 0.933
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{28}\]</span></span></p>
+<p>The positive agreement is lower than the overall agreement (<a href="#/exm-overall-agreement" class="quarto-xref">Example&nbsp;9</a>), because the 93 false positives are large relative to the 693 true positives.</p>
+</div>
+</section><section class="slide level2"><div id="def-negative-agreement" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 12 (Negative agreement)</strong></span> The <strong>negative agreement</strong> (also called the <em>average negative agreement</em>) of an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) with <span class="math inline">\(2d + b + c &gt; 0\)</span> is the number of negative calls the agent and the reference share, counted once for each classifier, as a proportion of all their negative calls:</p>
+<p><span id="eq-negative-agreement"><span class="math display">\[p_{\text{neg}} \stackrel{\text{def}}{=}\frac{2d}{2d + b + c} \tag{29}\]</span></span></p>
+<p>Source: <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-negative-agreement" class="theorem example">
+<p><span class="theorem-title"><strong>Example 11 (Negative agreement for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the negative agreement (<a href="#/def-negative-agreement" class="quarto-xref">Definition&nbsp;12</a>) is:</p>
+<p><span id="eq-exm-negative-agreement"><span class="math display">\[
+\begin{aligned}
+p_{\text{neg}}
+&amp;= \frac{2 \times 9{,}207}{2 \times 9{,}207 + 93 + 7}
+&amp;&amp; \text{(definition of } p_{\text{neg}} \text{, with the table's counts)} \\
+&amp;= \frac{18{,}414}{18{,}414 + 93 + 7}
+&amp;&amp; \text{(multiply)} \\
+&amp;= \frac{18{,}414}{18{,}514}
+&amp;&amp; \text{(add)} \\
+&amp;\approx 0.995
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{30}\]</span></span></p>
+<p>The negative agreement is even higher than the overall agreement (<a href="#/exm-overall-agreement" class="quarto-xref">Example&nbsp;9</a>), because the 100 disagreements are small relative to the 9,207 shared negative calls.</p>
+</div>
+</section><section class="slide level2"><div id="def-agent-only-rate" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 13 (Agent-only rate)</strong></span> The <strong>agent-only rate</strong> of an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) is the proportion of observations that the agent calls positive and the reference calls negative:</p>
+<p><span id="eq-agent-only-rate"><span class="math display">\[p_{\text{agent}} \stackrel{\text{def}}{=}\frac{b}{n} \tag{31}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="exm-agent-only-rate" class="theorem example">
+<p><span class="theorem-title"><strong>Example 12 (Agent-only rate for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the agent-only rate (<a href="#/def-agent-only-rate" class="quarto-xref">Definition&nbsp;13</a>) is:</p>
+<p><span id="eq-exm-agent-only-rate"><span class="math display">\[
+\begin{aligned}
+p_{\text{agent}}
+&amp;= \frac{93}{10{,}000}
+&amp;&amp; \text{(definition of } p_{\text{agent}} \text{, with the table's counts)} \\
+&amp;= 0.0093
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{32}\]</span></span></p>
+<p>so about 9 of every 1,000 people tested are called positive by the test and negative by the reference.</p>
+</div>
+</section><section class="slide level2"><div id="def-agreement-test-measures" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 14 (Test measures estimated from an agreement table)</strong></span> Treating the reference as the truth, an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) estimates four measures of the agent:</p>
+<ul>
+<li>its <a href="#/def-sensitivity">sensitivity</a>;</li>
+<li>its <a href="#/def-specificity">specificity</a>;</li>
+<li>its <a href="#/def-ppv">positive predictive value</a>;</li>
+<li>its <a href="#/def-npv">negative predictive value</a>.</li>
+</ul>
+<p>Each estimate is the matching proportion of the table’s cells, defined when its denominator is positive:</p>
+<p><span id="eq-agreement-test-measures"><span class="math display">\[
+\begin{aligned}
+\widehat{\text{sensitivity}} &amp;\stackrel{\text{def}}{=}\frac{a}{a + c},
+\\
+\widehat{\text{specificity}} &amp;\stackrel{\text{def}}{=}\frac{d}{b + d},
+\\
+\widehat{\text{PPV}} &amp;\stackrel{\text{def}}{=}\frac{a}{a + b},
+\\
+\widehat{\text{NPV}} &amp;\stackrel{\text{def}}{=}\frac{d}{c + d}.
+\end{aligned}
+\tag{33}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="exm-agreement-test-measures" class="theorem example">
+<p><span class="theorem-title"><strong>Example 13 (Test measures for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, <a href="#/def-agreement-test-measures" class="quarto-xref">Definition&nbsp;14</a> gives:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>test_measures <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="fu">as.list</span>(agree_covid), <span class="fu">c</span>(</span>
+<span id="cb2-2"><a aria-label="2"></a>  <span class="at">sensitivity =</span> a <span class="sc">/</span> (a <span class="sc">+</span> c),</span>
+<span id="cb2-3"><a aria-label="3"></a>  <span class="at">specificity =</span> d <span class="sc">/</span> (b <span class="sc">+</span> d),</span>
+<span id="cb2-4"><a aria-label="4"></a>  <span class="at">ppv =</span> a <span class="sc">/</span> (a <span class="sc">+</span> b),</span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="at">npv =</span> d <span class="sc">/</span> (c <span class="sc">+</span> d)</span>
+<span id="cb2-6"><a aria-label="6"></a>))</span>
+<span id="cb2-7"><a aria-label="7"></a><span class="fu">round</span>(test_measures, <span class="dv">4</span>)</span>
+<span id="cb2-8"><a aria-label="8"></a><span class="co">#&gt; sensitivity specificity         ppv         npv </span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="co">#&gt;      0.9900      0.9900      0.8817      0.9992</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>These estimates match the test’s sensitivity (0.99) and specificity (0.99), its positive predictive value (about 0.88, <a href="#/exm-ppv" class="quarto-xref">Example&nbsp;5</a>), and its negative predictive value (about 0.999, <a href="#/exm-npv" class="quarto-xref">Example&nbsp;6</a>), because the table’s counts are the expected counts for those values.</p>
+</div>
+</section><section id="positive-and-negative-agreement-as-harmonic-means" class="slide level2" data-number="7"><h2>
+<span class="header-section-number">7</span> Positive and negative agreement as harmonic means</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-harmonic-mean div. -->
+<div id="def-harmonic-mean" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 15 (Harmonic mean)</strong></span> The <strong>harmonic mean</strong> of two positive numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is the reciprocal of the average of their reciprocals:</p>
+<p><span id="eq-harmonic-mean"><span class="math display">\[H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{34}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="exm-harmonic-mean" class="theorem example">
+<p><span class="theorem-title"><strong>Example 14 (Harmonic mean of 0.5 and 1)</strong></span> By <a href="#/def-harmonic-mean" class="quarto-xref">Definition&nbsp;15</a>:</p>
+<p><span id="eq-exm-harmonic-mean"><span class="math display">\[
+\begin{aligned}
+H(0.5, 1)
+&amp;= \frac{2}{\frac{1}{0.5} + \frac{1}{1}}
+&amp;&amp; \text{(definition of } H \text{)} \\
+&amp;= \frac{2}{2 + 1}
+&amp;&amp; \text{(take each reciprocal)} \\
+&amp;= \frac{2}{3}
+&amp;&amp; \text{(add)} \\
+&amp;\approx 0.667
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{35}\]</span></span></p>
+<p>The ordinary average of 0.5 and 1 is 0.75; the harmonic mean sits closer to the smaller number.</p>
+</div>
+</section><section class="slide level2"><div id="exr-pos-agreement-harmonic" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 4 (Positive agreement from PPV and sensitivity)</strong></span> For an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) with <span class="math inline">\(a &gt; 0\)</span>, write the <a href="#/def-harmonic-mean">harmonic mean</a> of the estimated positive predictive value and sensitivity (<a href="#/def-agreement-test-measures" class="quarto-xref">Definition&nbsp;14</a>) in terms of the table’s cells.</p>
+</div>
+</section><section class="slide level2"><div id="sol-pos-agreement-harmonic" class="proof solution">
+<p><span class="proof-title"><em>Solution 4</em>. </span>Because <span class="math inline">\(a &gt; 0\)</span>, both <span class="math inline">\(a + b\)</span> and <span class="math inline">\(a + c\)</span> are positive, so both estimates are defined and positive:</p>
+<p><span id="eq-exr-pos-agreement-harmonic"><span class="math display">\[
+\begin{aligned}
+H\mathopen{}\left(\widehat{\text{PPV}}, \widehat{\text{sensitivity}}\right)\mathclose{}
+&amp;= \frac{2}{\frac{1}{\widehat{\text{PPV}}} + \frac{1}{\widehat{\text{sensitivity}}}}
+&amp;&amp; \text{(definition of } H \text{)} \\
+&amp;= \frac{2}{\frac{1}{a / (a + b)} + \frac{1}{\widehat{\text{sensitivity}}}}
+&amp;&amp; \text{(definition of } \widehat{\text{PPV}} \text{)} \\
+&amp;= \frac{2}{\frac{1}{a / (a + b)} + \frac{1}{a / (a + c)}}
+&amp;&amp; \text{(definition of } \widehat{\text{sensitivity}} \text{)} \\
+&amp;= \frac{2}{\frac{a + b}{a} + \frac{1}{a / (a + c)}}
+&amp;&amp; \text{(reciprocal of a fraction)} \\
+&amp;= \frac{2}{\frac{a + b}{a} + \frac{a + c}{a}}
+&amp;&amp; \text{(reciprocal of a fraction)} \\
+&amp;= \frac{2}{\frac{(a + b) + (a + c)}{a}}
+&amp;&amp; \text{(add fractions with a common denominator)} \\
+&amp;= \frac{2}{\frac{a + b + a + c}{a}}
+&amp;&amp; \text{(remove parentheses)} \\
+&amp;= \frac{2}{\frac{a + a + b + c}{a}}
+&amp;&amp; \text{(reorder terms)} \\
+&amp;= \frac{2}{\frac{2a + b + c}{a}}
+&amp;&amp; \text{(} a + a = 2a \text{)} \\
+&amp;= 2 \cdot\frac{a}{2a + b + c}
+&amp;&amp; \text{(dividing by a fraction multiplies by its reciprocal)} \\
+&amp;= \frac{2a}{2a + b + c}
+&amp;&amp; \text{(multiply)}
+\end{aligned}
+\tag{36}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="thm-pos-agreement-harmonic" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4 (Positive agreement is a harmonic mean)</strong></span> For an agreement table with <span class="math inline">\(a &gt; 0\)</span>, the positive agreement (<a href="#/def-positive-agreement" class="quarto-xref">Definition&nbsp;11</a>) is the harmonic mean (<a href="#/def-harmonic-mean" class="quarto-xref">Definition&nbsp;15</a>) of the estimated positive predictive value and sensitivity (<a href="#/def-agreement-test-measures" class="quarto-xref">Definition&nbsp;14</a>):</p>
+<p><span id="eq-pos-agreement-harmonic"><span class="math display">\[
+p_{\text{pos}} = H\mathopen{}\left(\widehat{\text{PPV}}, \widehat{\text{sensitivity}}\right)\mathclose{}
+\tag{37}\]</span></span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/exr-pos-agreement-harmonic" class="quarto-xref">Exercise&nbsp;4</a>, the harmonic mean equals <span class="math inline">\(2a / (2a + b + c)\)</span>, which is <span class="math inline">\(p_{\text{pos}}\)</span> by <a href="#/def-positive-agreement" class="quarto-xref">Definition&nbsp;11</a>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-pos-agreement-harmonic" class="theorem example">
+<p><span class="theorem-title"><strong>Example 15 (Positive agreement of the COVID-19 test as a harmonic mean)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the estimated positive predictive value is <span class="math inline">\(693 / 786\)</span> and the estimated sensitivity is <span class="math inline">\(693 / 700\)</span> (<a href="#/exm-agreement-test-measures" class="quarto-xref">Example&nbsp;13</a>). <a href="#/thm-pos-agreement-harmonic" class="quarto-xref">Theorem&nbsp;4</a> gives:</p>
+<p><span id="eq-exm-pos-agreement-harmonic"><span class="math display">\[
+\begin{aligned}
+p_{\text{pos}}
+&amp;= \frac{2}{\frac{1}{693 / 786} + \frac{1}{693 / 700}}
+&amp;&amp; \text{(harmonic mean of the two estimates)} \\
+&amp;= \frac{2}{\frac{786}{693} + \frac{1}{693 / 700}}
+&amp;&amp; \text{(reciprocal of a fraction)} \\
+&amp;= \frac{2}{\frac{786}{693} + \frac{700}{693}}
+&amp;&amp; \text{(reciprocal of a fraction)} \\
+&amp;= \frac{2}{\frac{1{,}486}{693}}
+&amp;&amp; \text{(add fractions with a common denominator)} \\
+&amp;= 2 \cdot\frac{693}{1{,}486}
+&amp;&amp; \text{(dividing by a fraction multiplies by its reciprocal)} \\
+&amp;= \frac{1{,}386}{1{,}486}
+&amp;&amp; \text{(multiply)} \\
+&amp;\approx 0.933
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{38}\]</span></span></p>
+<p>which matches <a href="#/exm-positive-agreement" class="quarto-xref">Example&nbsp;10</a>. The lower positive predictive value (about 0.88) pulls the positive agreement down from the sensitivity (0.99), as in <a href="#/exm-harmonic-mean" class="quarto-xref">Example&nbsp;14</a>.</p>
+</div>
+</section><section class="slide level2"><div id="exr-neg-agreement-harmonic" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 5 (Negative agreement from NPV and specificity)</strong></span> For an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) with <span class="math inline">\(d &gt; 0\)</span>, write the <a href="#/def-harmonic-mean">harmonic mean</a> of the estimated negative predictive value and specificity (<a href="#/def-agreement-test-measures" class="quarto-xref">Definition&nbsp;14</a>) in terms of the table’s cells.</p>
+</div>
+</section><section class="slide level2"><div id="sol-neg-agreement-harmonic" class="proof solution">
+<p><span class="proof-title"><em>Solution 5</em>. </span>Because <span class="math inline">\(d &gt; 0\)</span>, both <span class="math inline">\(c + d\)</span> and <span class="math inline">\(b + d\)</span> are positive, so both estimates are defined and positive:</p>
+<p><span id="eq-exr-neg-agreement-harmonic"><span class="math display">\[
+\begin{aligned}
+H\mathopen{}\left(\widehat{\text{NPV}}, \widehat{\text{specificity}}\right)\mathclose{}
+&amp;= \frac{2}{\frac{1}{\widehat{\text{NPV}}} + \frac{1}{\widehat{\text{specificity}}}}
+&amp;&amp; \text{(definition of } H \text{)} \\
+&amp;= \frac{2}{\frac{1}{d / (c + d)} + \frac{1}{\widehat{\text{specificity}}}}
+&amp;&amp; \text{(definition of } \widehat{\text{NPV}} \text{)} \\
+&amp;= \frac{2}{\frac{1}{d / (c + d)} + \frac{1}{d / (b + d)}}
+&amp;&amp; \text{(definition of } \widehat{\text{specificity}} \text{)} \\
+&amp;= \frac{2}{\frac{c + d}{d} + \frac{1}{d / (b + d)}}
+&amp;&amp; \text{(reciprocal of a fraction)} \\
+&amp;= \frac{2}{\frac{c + d}{d} + \frac{b + d}{d}}
+&amp;&amp; \text{(reciprocal of a fraction)} \\
+&amp;= \frac{2}{\frac{(c + d) + (b + d)}{d}}
+&amp;&amp; \text{(add fractions with a common denominator)} \\
+&amp;= \frac{2}{\frac{c + d + b + d}{d}}
+&amp;&amp; \text{(remove parentheses)} \\
+&amp;= \frac{2}{\frac{d + d + b + c}{d}}
+&amp;&amp; \text{(reorder terms)} \\
+&amp;= \frac{2}{\frac{2d + b + c}{d}}
+&amp;&amp; \text{(} d + d = 2d \text{)} \\
+&amp;= 2 \cdot\frac{d}{2d + b + c}
+&amp;&amp; \text{(dividing by a fraction multiplies by its reciprocal)} \\
+&amp;= \frac{2d}{2d + b + c}
+&amp;&amp; \text{(multiply)}
+\end{aligned}
+\tag{39}\]</span></span></p>
+</div>
+</section><section class="slide level2"><div id="thm-neg-agreement-harmonic" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 5 (Negative agreement is a harmonic mean)</strong></span> For an agreement table with <span class="math inline">\(d &gt; 0\)</span>, the negative agreement (<a href="#/def-negative-agreement" class="quarto-xref">Definition&nbsp;12</a>) is the harmonic mean (<a href="#/def-harmonic-mean" class="quarto-xref">Definition&nbsp;15</a>) of the estimated negative predictive value and specificity (<a href="#/def-agreement-test-measures" class="quarto-xref">Definition&nbsp;14</a>):</p>
+<p><span id="eq-neg-agreement-harmonic"><span class="math display">\[
+p_{\text{neg}} = H\mathopen{}\left(\widehat{\text{NPV}}, \widehat{\text{specificity}}\right)\mathclose{}
+\tag{40}\]</span></span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/exr-neg-agreement-harmonic" class="quarto-xref">Exercise&nbsp;5</a>, the harmonic mean equals <span class="math inline">\(2d / (2d + b + c)\)</span>, which is <span class="math inline">\(p_{\text{neg}}\)</span> by <a href="#/def-negative-agreement" class="quarto-xref">Definition&nbsp;12</a>.</p>
+</div>
+</section><section class="slide level2"><div id="exm-neg-agreement-harmonic" class="theorem example">
+<p><span class="theorem-title"><strong>Example 16 (Negative agreement of the COVID-19 test as a harmonic mean)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the estimated negative predictive value is <span class="math inline">\(9{,}207 / 9{,}214\)</span> and the estimated specificity is <span class="math inline">\(9{,}207 / 9{,}300\)</span> (<a href="#/exm-agreement-test-measures" class="quarto-xref">Example&nbsp;13</a>). <a href="#/thm-neg-agreement-harmonic" class="quarto-xref">Theorem&nbsp;5</a> gives:</p>
+<p><span id="eq-exm-neg-agreement-harmonic"><span class="math display">\[
+\begin{aligned}
+p_{\text{neg}}
+&amp;= \frac{2}{\frac{1}{9{,}207 / 9{,}214} + \frac{1}{9{,}207 / 9{,}300}}
+&amp;&amp; \text{(harmonic mean of the two estimates)} \\
+&amp;= \frac{2}{\frac{9{,}214}{9{,}207} + \frac{1}{9{,}207 / 9{,}300}}
+&amp;&amp; \text{(reciprocal of a fraction)} \\
+&amp;= \frac{2}{\frac{9{,}214}{9{,}207} + \frac{9{,}300}{9{,}207}}
+&amp;&amp; \text{(reciprocal of a fraction)} \\
+&amp;= \frac{2}{\frac{18{,}514}{9{,}207}}
+&amp;&amp; \text{(add fractions with a common denominator)} \\
+&amp;= 2 \cdot\frac{9{,}207}{18{,}514}
+&amp;&amp; \text{(dividing by a fraction multiplies by its reciprocal)} \\
+&amp;= \frac{18{,}414}{18{,}514}
+&amp;&amp; \text{(multiply)} \\
+&amp;\approx 0.995
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{41}\]</span></span></p>
+<p>which matches <a href="#/exm-negative-agreement" class="quarto-xref">Example&nbsp;11</a>.</p>
+</div>
+</section><section id="cohens-kappa" class="slide level2" data-number="8"><h2>
+<span class="header-section-number">8</span> Cohen’s kappa</h2>
+<!-- No slidebreak here: the heading shares its slide with the def-chance-agreement div. -->
+<div id="def-chance-agreement" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 16 (Chance agreement)</strong></span> The <strong>chance agreement</strong> of an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) is the overall agreement we would expect if the agent and the reference classified independently, each with its observed proportion of positive calls:</p>
+<p><span id="eq-chance-agreement"><span class="math display">\[p_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{42}\]</span></span></p>
+<p>Source: 1.</p>
+</div>
+</section><section class="slide level2"><div id="exm-chance-agreement" class="theorem example">
+<p><span class="theorem-title"><strong>Example 17 (Chance agreement for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the chance agreement (<a href="#/def-chance-agreement" class="quarto-xref">Definition&nbsp;16</a>) is:</p>
+<p><span id="eq-exm-chance-agreement"><span class="math display">\[
+\begin{aligned}
+p_e
+&amp;= \frac{786 \times 700 + 9{,}214 \times 9{,}300}{10{,}000^2}
+&amp;&amp; \text{(definition of } p_e \text{, with the table's counts)} \\
+&amp;= \frac{550{,}200 + 85{,}690{,}200}{10{,}000^2}
+&amp;&amp; \text{(multiply)} \\
+&amp;= \frac{86{,}240{,}400}{10{,}000^2}
+&amp;&amp; \text{(add)} \\
+&amp;= \frac{86{,}240{,}400}{100{,}000{,}000}
+&amp;&amp; \text{(square)} \\
+&amp;= 0.862404
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{43}\]</span></span></p>
+<p>Because nearly everyone tests negative and is negative, two independent classifiers with these margins would agree on about 86% of people by chance alone.</p>
+</div>
+</section><section class="slide level2 scrollable"><div id="def-cohen-kappa" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 17 (Cohen’s kappa)</strong></span> For an agreement table with <span class="math inline">\(p_e &lt; 1\)</span>, <strong>Cohen’s kappa</strong> is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the overall agreement (<a href="#/def-overall-agreement" class="quarto-xref">Definition&nbsp;10</a>) and the chance agreement (<a href="#/def-chance-agreement" class="quarto-xref">Definition&nbsp;16</a>):</p>
+<p><span id="eq-cohen-kappa"><span class="math display">\[\kappa \stackrel{\text{def}}{=}\frac{p_o - p_e}{1 - p_e} \tag{44}\]</span></span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Source</strong></p>
+</div>
+<div class="callout-content">
+<ol class="example" type="1">
+<li>
+</li></ol>
+</div>
+</div>
+</div>
+</div>
+</section><section class="slide level2"><div id="exm-cohen-kappa-covid" class="theorem example">
+<p><span class="theorem-title"><strong>Example 18 (Cohen’s kappa for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, <span class="math inline">\(p_o = 0.99\)</span> (<a href="#/exm-overall-agreement" class="quarto-xref">Example&nbsp;9</a>) and <span class="math inline">\(p_e = 0.862404\)</span> (<a href="#/exm-chance-agreement" class="quarto-xref">Example&nbsp;17</a>), so Cohen’s kappa (<a href="#/def-cohen-kappa" class="quarto-xref">Definition&nbsp;17</a>) is:</p>
+<p><span id="eq-exm-cohen-kappa"><span class="math display">\[
+\begin{aligned}
+\kappa
+&amp;= \frac{0.99 - 0.862404}{1 - 0.862404}
+&amp;&amp; \text{(definition of } \kappa \text{)} \\
+&amp;= \frac{0.127596}{1 - 0.862404}
+&amp;&amp; \text{(subtract in the numerator)} \\
+&amp;= \frac{0.127596}{0.137596}
+&amp;&amp; \text{(subtract in the denominator)} \\
+&amp;\approx 0.927
+&amp;&amp; \text{(divide)}
+\end{aligned}
+\tag{45}\]</span></span></p>
+<div class="cell">
+<details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>kappa_from_table <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b, c, d) {</span>
+<span id="cb3-2"><a aria-label="2"></a>  n <span class="ot">&lt;-</span> a <span class="sc">+</span> b <span class="sc">+</span> c <span class="sc">+</span> d</span>
+<span id="cb3-3"><a aria-label="3"></a>  p_o <span class="ot">&lt;-</span> (a <span class="sc">+</span> d) <span class="sc">/</span> n</span>
+<span id="cb3-4"><a aria-label="4"></a>  p_e <span class="ot">&lt;-</span> ((a <span class="sc">+</span> b) <span class="sc">*</span> (a <span class="sc">+</span> c) <span class="sc">+</span> (c <span class="sc">+</span> d) <span class="sc">*</span> (b <span class="sc">+</span> d)) <span class="sc">/</span> n<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb3-5"><a aria-label="5"></a>  (p_o <span class="sc">-</span> p_e) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p_e)</span>
+<span id="cb3-6"><a aria-label="6"></a>}</span>
+<span id="cb3-7"><a aria-label="7"></a><span class="fu">do.call</span>(kappa_from_table, <span class="fu">as.list</span>(agree_covid))</span>
+<span id="cb3-8"><a aria-label="8"></a><span class="co">#&gt; [1] 0.927323</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</div>
+</section><section class="slide level2"><div id="exm-kappa-paradox" class="theorem example">
+<p><span class="theorem-title"><strong>Example 19 (High agreement but low kappa)</strong></span> Now apply the same test to <span class="math inline">\(n = 100{,}000\)</span> people in a population where the prevalence is only 0.5%. Then:</p>
+<ul>
+<li>
+<span class="math inline">\(0.005 \times 100{,}000 = 500\)</span> people have COVID-19 and <span class="math inline">\(100{,}000 - 500 = 99{,}500\)</span> do not;</li>
+<li>with 99% sensitivity, the test is positive for <span class="math inline">\(a = 0.99 \times 500 = 495\)</span> people with COVID-19 and negative for <span class="math inline">\(c = 500 - 495 = 5\)</span>;</li>
+<li>with 99% specificity, the false positive rate is <span class="math inline">\(1 - 0.99 = 0.01\)</span>, so the test is positive for <span class="math inline">\(b = 0.01 \times 99{,}500 = 995\)</span> people without COVID-19 and negative for <span class="math inline">\(d = 99{,}500 - 995 = 98{,}505\)</span>.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>agree_rare <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">a =</span> <span class="dv">495</span>, <span class="at">b =</span> <span class="dv">995</span>, <span class="at">c =</span> <span class="dv">5</span>, <span class="at">d =</span> <span class="dv">98505</span>)</span>
+<span id="cb4-2"><a aria-label="2"></a>rare_metrics <span class="ot">&lt;-</span> <span class="fu">with</span>(<span class="fu">as.list</span>(agree_rare), <span class="fu">c</span>(</span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="at">overall =</span> (a <span class="sc">+</span> d) <span class="sc">/</span> (a <span class="sc">+</span> b <span class="sc">+</span> c <span class="sc">+</span> d),</span>
+<span id="cb4-4"><a aria-label="4"></a>  <span class="at">positive =</span> <span class="dv">2</span> <span class="sc">*</span> a <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> a <span class="sc">+</span> b <span class="sc">+</span> c),</span>
+<span id="cb4-5"><a aria-label="5"></a>  <span class="at">negative =</span> <span class="dv">2</span> <span class="sc">*</span> d <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> d <span class="sc">+</span> b <span class="sc">+</span> c),</span>
+<span id="cb4-6"><a aria-label="6"></a>  <span class="at">kappa =</span> <span class="fu">kappa_from_table</span>(a, b, c, d)</span>
+<span id="cb4-7"><a aria-label="7"></a>))</span>
+<span id="cb4-8"><a aria-label="8"></a><span class="fu">round</span>(rare_metrics, <span class="dv">4</span>)</span>
+<span id="cb4-9"><a aria-label="9"></a><span class="co">#&gt;  overall positive negative    kappa </span></span>
+<span id="cb4-10"><a aria-label="10"></a><span class="co">#&gt;   0.9900   0.4975   0.9949   0.4937</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The overall agreement is still 0.99, but kappa drops to about 0.49 and the positive agreement to about 0.50, while the negative agreement stays at about 0.995. The two specific agreements show where the disagreement lies: the test and the reference agree on negatives and disagree on about half of the positive calls.</p>
+<p>Source: <span class="citation" data-cites="feinstein1990high">Feinstein and Cicchetti (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span> (the first paradox).</p>
+</div>
+</section><section class="slide level2 smaller scrollable" id="references"><div id="rem-kappa-prevalence" class="proof remark">
+<p><span class="proof-title"><em>Remark 3</em> (Kappa depends on prevalence). </span>When both classifiers call one category rarely, the chance agreement <span class="math inline">\(p_e\)</span> is close to 1, so the same overall agreement leaves little room for agreement beyond chance, and kappa can be low even when the overall agreement is high, as <a href="#/exm-kappa-paradox" class="quarto-xref">Example&nbsp;19</a> shows. <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span> recommend reporting the positive and negative agreements alongside kappa, so that poor agreement on the rarer category is not hidden.</p>
+<p>Source: <span class="citation" data-cites="feinstein1990high">Feinstein and Cicchetti (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>; <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>.</p>
+</div>
 
 
 <script>
@@ -754,7 +1285,15 @@ window.addEventListener("load", alignEquationAnchorsWithDefault);
     initRevealJsHtmlLink();
   }
 })();
-</script></section>
+</script><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-cicchetti1990high" class="csl-entry" role="listitem">
+Cicchetti, Domenic V., and Alvan R. Feinstein. 1990. <span>“High Agreement but Low Kappa: <span>II</span>. <span>Resolving</span> the Paradoxes.”</span> <em>Journal of Clinical Epidemiology</em> 43 (6): 551–58. <a href="https://doi.org/10.1016/0895-4356(90)90159-M">https://doi.org/10.1016/0895-4356(90)90159-M</a>.
+</div>
+<div id="ref-feinstein1990high" class="csl-entry" role="listitem">
+Feinstein, Alvan R., and Domenic V. Cicchetti. 1990. <span>“High Agreement but Low Kappa: <span>I</span>. <span>The</span> Problems of Two Paradoxes.”</span> <em>Journal of Clinical Epidemiology</em> 43 (6): 543–49. <a href="https://doi.org/10.1016/0895-4356(90)90158-L">https://doi.org/10.1016/0895-4356(90)90158-L</a>.
+</div>
+</div>
+</section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
