@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 18:39:30 (PDT)
+Last modified: 2026-10-15 18:55:10 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -121,16 +121,14 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\:
 >
 > \\ \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
+>
+> Source: ([Rao 1945](#ref-rao1945information); [Blackwell 1947](#ref-blackwell1947conditional); [Casella and Berger 2002](#ref-CaseBerg01), Thm. 7.3.17, p. 342).
 
 > **NOTE:**
 >
 > *Proof*. Unbiasedness is [Theorem 2](#thm-rb-unbiased). For the variance, we use the [law of total variance](https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance):
 >
 > \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} + \operatorname{E}\mathopen{}\left\[{\operatorname{Var}\mathopen{}\left(\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right)\mathclose{}}\right\]\mathclose{} && \text{(law of total variance)}\\ &\ge \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} && \text{(a variance is nonnegative)} \end{aligned} \\
-
-> **NOTE:**
->
-> *Remark 5* (Source: Rao–Blackwell theorem). Rao ([1945](#ref-rao1945information)); Blackwell ([1947](#ref-blackwell1947conditional)); Casella and Berger ([2002](#ref-CaseBerg01), Thm. 7.3.17, p. 342).
 
 > **NOTE:**
 >
@@ -236,7 +234,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Remark 6* (Sufficiency is needed). If \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
+> *Remark 5* (Sufficiency is needed). If \\T\mathopen{}\left(\tilde{X}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\tilde{X}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
 
 ## References
 
