@@ -4,17 +4,17 @@ Code
 
 Published
 
-Last modified: 2026-10-16 02:22:08 (PDT)
+Last modified: 2026-10-16 02:43:34 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
 ## 1 Foundations of MCMC
 
-When the posterior has a known closed form, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), we can compute its summaries exactly or sample from it directly. In most real-world models, however, the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) \\\operatorname{p}(\tilde{y})\\ that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. Markov chain Monte Carlo methods get around this problem: instead of independent draws from the posterior, they generate a correlated sequence of draws whose distribution converges to the posterior ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 287).
+When the posterior has a known closed form, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), we can compute its summaries exactly or sample from it directly. In most real-world models, however, the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) \\\operatorname{p}(\underset{\sim}{y})\\ that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. Markov chain Monte Carlo methods get around this problem: instead of independent draws from the posterior, they generate a correlated sequence of draws whose distribution converges to the posterior ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 287).
 
 > **NOTE:**
 >
-> **Definition 1 (Markov chain Monte Carlo)** A **Markov chain Monte Carlo (MCMC)** method for a target distribution generates a sequence of draws \\\tilde{\theta}^{(1)}, \tilde{\theta}^{(2)}, \ldots\\, each drawn from a distribution that depends on the previous draw, such that the distribution of \\\tilde{\theta}^{(t)}\\ converges to the target as \\t \to \infty\\.
+> **Definition 1 (Markov chain Monte Carlo)** A **Markov chain Monte Carlo (MCMC)** method for a target distribution generates a sequence of draws \\\underset{\sim}{\theta}^{(1)}, \underset{\sim}{\theta}^{(2)}, \ldots\\, each drawn from a distribution that depends on the previous draw, such that the distribution of \\\underset{\sim}{\theta}^{(t)}\\ converges to the target as \\t \to \infty\\.
 
 > **NOTE:**
 >
@@ -22,19 +22,19 @@ When the posterior has a known closed form, as in [the Beta-Bernoulli example](b
 
 ### 1.1 Why the normalizing constant is hard to compute
 
-With a parameter vector \\\tilde{\theta}\\, the normalizing constant of the posterior is
+With a parameter vector \\\underset{\sim}{\theta}\\, the normalizing constant of the posterior is
 
-\\\operatorname{p}(\tilde{y}) = \int \operatorname{p}(\tilde{y}\mid \tilde{\theta})\\ \operatorname{p}(\tilde{\theta})\\ d\tilde{\theta},\\
+\\\operatorname{p}(\underset{\sim}{y}) = \int \operatorname{p}(\underset{\sim}{y}\mid \underset{\sim}{\theta})\\ \operatorname{p}(\underset{\sim}{\theta})\\ d\underset{\sim}{\theta},\\
 
-an integral over every dimension of \\\tilde{\theta}\\ that typically has no closed form. Computing it numerically becomes infeasible as the dimension of \\\tilde{\theta}\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 287). MCMC sidesteps the problem: MCMC samplers use the posterior only through ratios \\\operatorname{p}(\tilde{\theta}^\* \mid \tilde{y}) / \operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, in which the normalizing constant cancels.
+an integral over every dimension of \\\underset{\sim}{\theta}\\ that typically has no closed form. Computing it numerically becomes infeasible as the dimension of \\\underset{\sim}{\theta}\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 287). MCMC sidesteps the problem: MCMC samplers use the posterior only through ratios \\\operatorname{p}(\underset{\sim}{\theta}^\* \mid \underset{\sim}{y}) / \operatorname{p}(\underset{\sim}{\theta}\mid \underset{\sim}{y})\\, in which the normalizing constant cancels.
 
 ### 1.2 Monte Carlo integration
 
 > **NOTE:**
 >
-> **Definition 2 (Monte Carlo estimate)** Given draws \\\tilde{\theta}^{(1)}, \ldots, \tilde{\theta}^{(M)} \\ \sim\_{\operatorname{iid}}\\ \operatorname{p}(\tilde{\theta}\mid \tilde{y})\\ and a function \\g\\, the **Monte Carlo estimate** of the posterior expectation \\\operatorname{E}\mathopen{}\left\[g(\tilde{\theta}) \mid \tilde{y}\right\]\mathclose{}\\ is
+> **Definition 2 (Monte Carlo estimate)** Given draws \\\underset{\sim}{\theta}^{(1)}, \ldots, \underset{\sim}{\theta}^{(M)} \\ \sim\_{\operatorname{iid}}\\ \operatorname{p}(\underset{\sim}{\theta}\mid \underset{\sim}{y})\\ and a function \\g\\, the **Monte Carlo estimate** of the posterior expectation \\\operatorname{E}\mathopen{}\left\[g(\underset{\sim}{\theta}) \mid \underset{\sim}{y}\right\]\mathclose{}\\ is
 >
-> \\ \frac{1}{M} \sum\_{m=1}^{M} g\mathopen{}\left(\tilde{\theta}^{(m)}\right)\mathclose{}. \\
+> \\ \frac{1}{M} \sum\_{m=1}^{M} g\mathopen{}\left(\underset{\sim}{\theta}^{(m)}\right)\mathclose{}. \\
 
 By the law of large numbers, a Monte Carlo estimate converges to the posterior expectation it estimates as the number of draws \\M\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 288). The posterior mean (\\g(\theta) = \theta\\) and posterior probabilities (\\g(\theta) = \text{1}\_{\theta\le c}\\, an indicator) are posterior expectations, so they are estimated by averages of the draws; posterior quantiles, and so credible-interval endpoints, are estimated by the corresponding quantiles of the draws.
 
@@ -68,13 +68,13 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 
 > **NOTE:**
 >
-> **Definition 3 (Markov chain)** A sequence of random variables \\\tilde{\theta}^{(1)}, \tilde{\theta}^{(2)}, \ldots\\ is a **Markov chain** if, for every \\t\\, the conditional distribution of \\\tilde{\theta}^{(t+1)}\\ given all the earlier values depends only on \\\tilde{\theta}^{(t)}\\:
+> **Definition 3 (Markov chain)** A sequence of random variables \\\underset{\sim}{\theta}^{(1)}, \underset{\sim}{\theta}^{(2)}, \ldots\\ is a **Markov chain** if, for every \\t\\, the conditional distribution of \\\underset{\sim}{\theta}^{(t+1)}\\ given all the earlier values depends only on \\\underset{\sim}{\theta}^{(t)}\\:
 >
-> \\ \operatorname{p}\mathopen{}\left(\tilde{\theta}^{(t+1)} \mid \tilde{\theta}^{(t)}, \tilde{\theta}^{(t-1)}, \ldots, \tilde{\theta}^{(1)}\right)\mathclose{} = \operatorname{p}\mathopen{}\left(\tilde{\theta}^{(t+1)} \mid \tilde{\theta}^{(t)}\right)\mathclose{}. \\
+> \\ \operatorname{p}\mathopen{}\left(\underset{\sim}{\theta}^{(t+1)} \mid \underset{\sim}{\theta}^{(t)}, \underset{\sim}{\theta}^{(t-1)}, \ldots, \underset{\sim}{\theta}^{(1)}\right)\mathclose{} = \operatorname{p}\mathopen{}\left(\underset{\sim}{\theta}^{(t+1)} \mid \underset{\sim}{\theta}^{(t)}\right)\mathclose{}. \\
 
 > **NOTE:**
 >
-> **Definition 4 (Stationary distribution)** A distribution \\\pi\\ is a **stationary distribution** of a [Markov chain](#def-markov-chain) if, whenever \\\tilde{\theta}^{(t)}\\ has distribution \\\pi\\, \\\tilde{\theta}^{(t+1)}\\ also has distribution \\\pi\\.
+> **Definition 4 (Stationary distribution)** A distribution \\\pi\\ is a **stationary distribution** of a [Markov chain](#def-markov-chain) if, whenever \\\underset{\sim}{\theta}^{(t)}\\ has distribution \\\pi\\, \\\underset{\sim}{\theta}^{(t+1)}\\ also has distribution \\\pi\\.
 
 > **NOTE:**
 >
@@ -167,7 +167,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > *Proof*. This result is the solution to [Exercise 1](#exr-ar1-stationary).
 
-Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\tilde{\theta}^{(t)}\\ converges to it ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), p. 279; [Robert and Casella 2004, sec. 6.6.1](#ref-robert2004mcsm), Theorem 6.51, p. 234). Averages along the chain also converge to expectations under that distribution, even though successive values are correlated ([Robert and Casella 2004, sec. 6.7.1](#ref-robert2004mcsm), Theorem 6.63, p. 241; [Robert and Casella 2004, sec. 7.2](#ref-robert2004mcsm), p. 269). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\ ([Gelman et al. 2013, chap. 11](#ref-gelman2013bda), p. 275), so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
+Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\underset{\sim}{\theta}^{(t)}\\ converges to it ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), p. 279; [Robert and Casella 2004, sec. 6.6.1](#ref-robert2004mcsm), Theorem 6.51, p. 234). Averages along the chain also converge to expectations under that distribution, even though successive values are correlated ([Robert and Casella 2004, sec. 6.7.1](#ref-robert2004mcsm), Theorem 6.63, p. 241; [Robert and Casella 2004, sec. 7.2](#ref-robert2004mcsm), p. 269). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\underset{\sim}{\theta}\mid \underset{\sim}{y})\\ ([Gelman et al. 2013, chap. 11](#ref-gelman2013bda), p. 275), so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 
 ## 2 MCMC samplers
 
@@ -175,11 +175,11 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 
 > **NOTE:**
 >
-> **Definition 5 (Proposal distribution)** In a Metropolis–Hastings sampler, a **proposal distribution** \\q(\cdot \mid \tilde{\theta})\\ is a conditional distribution from which a candidate value \\\tilde{\theta}^\*\\ is drawn, given the current value \\\tilde{\theta}\\.
+> **Definition 5 (Proposal distribution)** In a Metropolis–Hastings sampler, a **proposal distribution** \\q(\cdot \mid \underset{\sim}{\theta})\\ is a conditional distribution from which a candidate value \\\underset{\sim}{\theta}^\*\\ is drawn, given the current value \\\underset{\sim}{\theta}\\.
 
 > **NOTE:**
 >
-> **Definition 6 (Symmetric proposal)** A [proposal distribution](#def-proposal-distribution) is **symmetric** if \\q(\tilde{\theta}^\* \mid \tilde{\theta}) = q(\tilde{\theta}\mid \tilde{\theta}^\*)\\ for every \\\tilde{\theta}\\ and \\\tilde{\theta}^\*\\.
+> **Definition 6 (Symmetric proposal)** A [proposal distribution](#def-proposal-distribution) is **symmetric** if \\q(\underset{\sim}{\theta}^\* \mid \underset{\sim}{\theta}) = q(\underset{\sim}{\theta}\mid \underset{\sim}{\theta}^\*)\\ for every \\\underset{\sim}{\theta}\\ and \\\underset{\sim}{\theta}^\*\\.
 
 > **NOTE:**
 >
@@ -187,9 +187,9 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 
 > **NOTE:**
 >
-> **Definition 7 (Acceptance ratio)** For a target posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y}) \propto \operatorname{p}(\tilde{y}\mid \tilde{\theta})\\ \operatorname{p}(\tilde{\theta})\\, a [proposal distribution](#def-proposal-distribution) \\q\\, a current value \\\tilde{\theta}^{(t)}\\, and a candidate \\\tilde{\theta}^\*\\, the **acceptance ratio** is
+> **Definition 7 (Acceptance ratio)** For a target posterior \\\operatorname{p}(\underset{\sim}{\theta}\mid \underset{\sim}{y}) \propto \operatorname{p}(\underset{\sim}{y}\mid \underset{\sim}{\theta})\\ \operatorname{p}(\underset{\sim}{\theta})\\, a [proposal distribution](#def-proposal-distribution) \\q\\, a current value \\\underset{\sim}{\theta}^{(t)}\\, and a candidate \\\underset{\sim}{\theta}^\*\\, the **acceptance ratio** is
 >
-> \\ \alpha\stackrel{\text{def}}{=} \frac{\operatorname{p}(\tilde{y}\mid \tilde{\theta}^\*)\\ \operatorname{p}(\tilde{\theta}^\*)}{\operatorname{p}(\tilde{y}\mid \tilde{\theta}^{(t)})\\ \operatorname{p}(\tilde{\theta}^{(t)})} \cdot \frac{q(\tilde{\theta}^{(t)} \mid \tilde{\theta}^\*)}{q(\tilde{\theta}^\* \mid \tilde{\theta}^{(t)})}. \\
+> \\ \alpha\stackrel{\text{def}}{=} \frac{\operatorname{p}(\underset{\sim}{y}\mid \underset{\sim}{\theta}^\*)\\ \operatorname{p}(\underset{\sim}{\theta}^\*)}{\operatorname{p}(\underset{\sim}{y}\mid \underset{\sim}{\theta}^{(t)})\\ \operatorname{p}(\underset{\sim}{\theta}^{(t)})} \cdot \frac{q(\underset{\sim}{\theta}^{(t)} \mid \underset{\sim}{\theta}^\*)}{q(\underset{\sim}{\theta}^\* \mid \underset{\sim}{\theta}^{(t)})}. \\
 
 > **NOTE:**
 >
@@ -201,13 +201,13 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 
 > **NOTE:**
 >
-> **Definition 8 (Metropolis–Hastings algorithm)** Given a target posterior \\\operatorname{p}(\tilde{\theta}\mid \tilde{y})\\, a [proposal distribution](#def-proposal-distribution) \\q(\cdot \mid \tilde{\theta})\\, and a starting value \\\tilde{\theta}^{(1)}\\, the **Metropolis–Hastings algorithm** produces \\\tilde{\theta}^{(t+1)}\\ from \\\tilde{\theta}^{(t)}\\ as follows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 291):
+> **Definition 8 (Metropolis–Hastings algorithm)** Given a target posterior \\\operatorname{p}(\underset{\sim}{\theta}\mid \underset{\sim}{y})\\, a [proposal distribution](#def-proposal-distribution) \\q(\cdot \mid \underset{\sim}{\theta})\\, and a starting value \\\underset{\sim}{\theta}^{(1)}\\, the **Metropolis–Hastings algorithm** produces \\\underset{\sim}{\theta}^{(t+1)}\\ from \\\underset{\sim}{\theta}^{(t)}\\ as follows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 291):
 >
-> 1.  Draw a candidate \\\tilde{\theta}^\* \sim q(\cdot \mid \tilde{\theta}^{(t)})\\.
+> 1.  Draw a candidate \\\underset{\sim}{\theta}^\* \sim q(\cdot \mid \underset{\sim}{\theta}^{(t)})\\.
 > 2.  Compute the [acceptance ratio](#def-acceptance-ratio) \\\alpha\\.
-> 3.  With probability \\\min(1, \alpha)\\, set \\\tilde{\theta}^{(t+1)} = \tilde{\theta}^\*\\ (accept the candidate); otherwise set \\\tilde{\theta}^{(t+1)} = \tilde{\theta}^{(t)}\\ (reject it).
+> 3.  With probability \\\min(1, \alpha)\\, set \\\underset{\sim}{\theta}^{(t+1)} = \underset{\sim}{\theta}^\*\\ (accept the candidate); otherwise set \\\underset{\sim}{\theta}^{(t+1)} = \underset{\sim}{\theta}^{(t)}\\ (reject it).
 
-The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\tilde{\theta}^\* \mid \tilde{y}) / \operatorname{p}(\tilde{\theta}^{(t)} \mid \tilde{y})\\ with the normalizing constant \\\operatorname{p}(\tilde{y})\\ canceled ([the posterior equation](bayesian-inference.llms.md#eq-bayes-posterior)), so the algorithm needs only the unnormalized posterior. When the proposal is [symmetric](#def-symmetric-proposal), as for a random walk \\\tilde{\theta}^\* = \tilde{\theta}^{(t)} + \varepsilon\\ with \\\varepsilon\\ drawn from a distribution symmetric about 0, the second factor equals 1. Provided the proposal can reach every region where the posterior is positive, the resulting chain is a [Markov chain](#def-markov-chain) whose stationary distribution is the posterior ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), pp. 279-280; [Robert and Casella 2004, sec. 7.3.1](#ref-robert2004mcsm), Theorem 7.2, p. 272).
+The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\underset{\sim}{\theta}^\* \mid \underset{\sim}{y}) / \operatorname{p}(\underset{\sim}{\theta}^{(t)} \mid \underset{\sim}{y})\\ with the normalizing constant \\\operatorname{p}(\underset{\sim}{y})\\ canceled ([the posterior equation](bayesian-inference.llms.md#eq-bayes-posterior)), so the algorithm needs only the unnormalized posterior. When the proposal is [symmetric](#def-symmetric-proposal), as for a random walk \\\underset{\sim}{\theta}^\* = \underset{\sim}{\theta}^{(t)} + \varepsilon\\ with \\\varepsilon\\ drawn from a distribution symmetric about 0, the second factor equals 1. Provided the proposal can reach every region where the posterior is positive, the resulting chain is a [Markov chain](#def-markov-chain) whose stationary distribution is the posterior ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), pp. 279-280; [Robert and Casella 2004, sec. 7.3.1](#ref-robert2004mcsm), Theorem 7.2, p. 272).
 
 > **NOTE:**
 >
@@ -295,11 +295,11 @@ A chain started far from where the posterior puts its probability takes some ite
 
 > **NOTE:**
 >
-> **Definition 11 (Full conditional distribution)** For a parameter vector \\\tilde{\theta}= (\theta_1, \ldots, \theta_K)\\, the **full conditional distribution** of the component \\\theta_k\\ is its conditional distribution given the data and all the other components, \\\operatorname{p}(\theta_k \mid \tilde{\theta}\_{-k}, \tilde{y})\\, where \\\tilde{\theta}\_{-k}\\ denotes every component of \\\tilde{\theta}\\ except \\\theta_k\\.
+> **Definition 11 (Full conditional distribution)** For a parameter vector \\\underset{\sim}{\theta}= (\theta_1, \ldots, \theta_K)\\, the **full conditional distribution** of the component \\\theta_k\\ is its conditional distribution given the data and all the other components, \\\operatorname{p}(\theta_k \mid \underset{\sim}{\theta}\_{-k}, \underset{\sim}{y})\\, where \\\underset{\sim}{\theta}\_{-k}\\ denotes every component of \\\underset{\sim}{\theta}\\ except \\\theta_k\\.
 
 > **NOTE:**
 >
-> **Definition 12 (Gibbs sampler)** The **Gibbs sampler** produces \\\tilde{\theta}^{(t+1)}\\ from \\\tilde{\theta}^{(t)}\\ by updating one component at a time: for \\k = 1, \ldots, K\\ in turn, it draws \\\theta_k^{(t+1)}\\ from the [full conditional distribution](#def-full-conditional) of \\\theta_k\\, with each other component set to its most recent value ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293).
+> **Definition 12 (Gibbs sampler)** The **Gibbs sampler** produces \\\underset{\sim}{\theta}^{(t+1)}\\ from \\\underset{\sim}{\theta}^{(t)}\\ by updating one component at a time: for \\k = 1, \ldots, K\\ in turn, it draws \\\theta_k^{(t+1)}\\ from the [full conditional distribution](#def-full-conditional) of \\\theta_k\\, with each other component set to its most recent value ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293).
 
 The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#def-mh), one component at a time, whose proposal is the full conditional itself; with that proposal the acceptance ratio is always 1, so every draw is accepted ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293). It needs a way to draw from each full conditional. JAGS (“Just Another Gibbs Sampler”) builds a Gibbs sampler from a model’s description, choosing a sampling method for each full conditional ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)).
 
@@ -422,33 +422,33 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 
 > **NOTE:**
 >
-> **Definition 14 (Deviance of a parameter value)** In the deviance information criterion, the **deviance** of a parameter value \\\tilde{\theta}\\ is
+> **Definition 14 (Deviance of a parameter value)** In the deviance information criterion, the **deviance** of a parameter value \\\underset{\sim}{\theta}\\ is
 >
-> \\ D(\tilde{\theta}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\tilde{y}\mid \tilde{\theta}). \\
+> \\ D(\underset{\sim}{\theta}) \stackrel{\text{def}}{=}-2 \log \operatorname{p}(\underset{\sim}{y}\mid \underset{\sim}{\theta}). \\
 
 > **NOTE:**
 >
-> *Remark 1* (Bayesian deviance and the generalized linear model deviance). This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on \\\tilde{\theta}\\, so the two differ by a constant that cancels in comparisons between models of the same data.
+> *Remark 1* (Bayesian deviance and the generalized linear model deviance). This deviance is minus twice the log-likelihood. A generalized linear model’s deviance subtracts the same quantity for the saturated model, which does not depend on \\\underset{\sim}{\theta}\\, so the two differ by a constant that cancels in comparisons between models of the same data.
 
 > **NOTE:**
 >
-> **Definition 15 (Effective number of parameters)** Let \\\overline{D} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[D(\tilde{\theta}) \mid \tilde{y}\right\]\mathclose{}\\ be the posterior mean of the [deviance](#def-bayes-deviance), and let \\\bar{\tilde{\theta}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\tilde{\theta}\mid \tilde{y}\right\]\mathclose{}\\ be the posterior mean of the parameters. The **effective number of parameters** is
+> **Definition 15 (Effective number of parameters)** Let \\\overline{D} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[D(\underset{\sim}{\theta}) \mid \underset{\sim}{y}\right\]\mathclose{}\\ be the posterior mean of the [deviance](#def-bayes-deviance), and let \\\bar{\underset{\sim}{\theta}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\underset{\sim}{\theta}\mid \underset{\sim}{y}\right\]\mathclose{}\\ be the posterior mean of the parameters. The **effective number of parameters** is
 >
-> \\ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\tilde{\theta}}). \\
+> \\ p_D \stackrel{\text{def}}{=}\overline{D} - D(\bar{\underset{\sim}{\theta}}). \\
 
 > **NOTE:**
 >
 > **Definition 16 (Deviance information criterion)** The **deviance information criterion** is
 >
-> \\ \operatorname{DIC} \stackrel{\text{def}}{=}D(\bar{\tilde{\theta}}) + 2\\p_D, \\
+> \\ \operatorname{DIC} \stackrel{\text{def}}{=}D(\bar{\underset{\sim}{\theta}}) + 2\\p_D, \\
 >
 > with \\D\\ from [Definition 14](#def-bayes-deviance) and \\p_D\\ from [Definition 15](#def-effective-parameters).
 
 Substituting [Definition 15](#def-effective-parameters) gives an equivalent form:
 
-\\ \begin{aligned} \operatorname{DIC} &= D(\bar{\tilde{\theta}}) + 2\mathopen{}\left(\overline{D} - D(\bar{\tilde{\theta}})\right)\mathclose{} && \text{(definition of \$p_D\$)}\\ &= 2\overline{D} - D(\bar{\tilde{\theta}}) && \text{(collecting terms)}\\ &= \overline{D} + \mathopen{}\left(\overline{D} - D(\bar{\tilde{\theta}})\right)\mathclose{} && \text{(splitting \$2\overline{D}\$)}\\ &= \overline{D} + p_D && \text{(definition of \$p_D\$)}. \end{aligned} \\
+\\ \begin{aligned} \operatorname{DIC} &= D(\bar{\underset{\sim}{\theta}}) + 2\mathopen{}\left(\overline{D} - D(\bar{\underset{\sim}{\theta}})\right)\mathclose{} && \text{(definition of \$p_D\$)}\\ &= 2\overline{D} - D(\bar{\underset{\sim}{\theta}}) && \text{(collecting terms)}\\ &= \overline{D} + \mathopen{}\left(\overline{D} - D(\bar{\underset{\sim}{\theta}})\right)\mathclose{} && \text{(splitting \$2\overline{D}\$)}\\ &= \overline{D} + p_D && \text{(definition of \$p_D\$)}. \end{aligned} \\
 
-The term \\D(\bar{\tilde{\theta}})\\ rewards fit, while \\p_D\\ penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306). Both \\\overline{D}\\ and \\\bar{\tilde{\theta}}\\ are [Monte Carlo estimates](#def-monte-carlo-estimate) from the posterior draws, so DIC is a by-product of an MCMC run.
+The term \\D(\bar{\underset{\sim}{\theta}})\\ rewards fit, while \\p_D\\ penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306). Both \\\overline{D}\\ and \\\bar{\underset{\sim}{\theta}}\\ are [Monte Carlo estimates](#def-monte-carlo-estimate) from the posterior draws, so DIC is a by-product of an MCMC run.
 
 > **NOTE:**
 >

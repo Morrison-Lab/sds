@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 02:22:08 (PDT)
+Last modified: 2026-10-16 02:43:34 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -16,9 +16,9 @@ Last modified: 2026-10-16 02:22:08 (PDT)
 
 > **NOTE:**
 >
-> **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \tilde{\theta})\\ of a parameter vector \\\tilde{\theta}\\, and \\\hat{\tilde{\theta}}\\ is an estimate of \\\tilde{\theta}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
+> **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \underset{\sim}{\theta})\\ of a parameter vector \\\underset{\sim}{\theta}\\, and \\\hat{\underset{\sim}{\theta}}\\ is an estimate of \\\underset{\sim}{\theta}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
 >
-> \\\hat y(x) = \mu(x; \hat{\tilde{\theta}}).\\
+> \\\hat y(x) = \mu(x; \hat{\underset{\sim}{\theta}}).\\
 
 > **NOTE:**
 >
@@ -36,7 +36,7 @@ Last modified: 2026-10-16 02:22:08 (PDT)
 >
 > *Remark 2* (Why the fitted value is the estimated conditional mean). The [fitted value](#def-fitted-value) is the prediction at the observed covariate value \\x_i\\, so for the prediction in [Example 1](#exm-prediction-cond-mean) it is the estimated conditional mean at \\x_i\\:
 >
-> \\\hat y_i = \mu(x_i; \hat{\tilde{\theta}}).\\
+> \\\hat y_i = \mu(x_i; \hat{\underset{\sim}{\theta}}).\\
 >
 > It is chosen for the reason in [Remark 1](#rem-why-cond-mean): the conditional mean is the best prediction under squared error loss.
 
@@ -54,17 +54,17 @@ Last modified: 2026-10-16 02:22:08 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 1 (Prediction error and residual of a fitted observation)** For an observation \\i\\ that was used to fit the model, write its [prediction error](#def-prediction-error) \\\varepsilon_i\\ in terms of its [residual](#def-residual) \\r_i\\.
+> **Exercise 1 (Prediction error and residual)** For an observation \\i\\, write its [prediction error](#def-prediction-error) \\\varepsilon_i\\ in terms of its [residual](#def-residual) \\r_i\\.
 
 > **NOTE:**
 >
-> *Solution 1*. \\ \begin{aligned} \varepsilon_i &= \hat y_i - y_i && \text{(definition of prediction error)}\\ &= -(y_i - \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
+> *Solution 1*. \\ \begin{aligned} \varepsilon_i &= \hat y_i- y_i && \text{(definition of prediction error)}\\ &= -(y_i- \hat y_i) && \text{(factor out \$-1\$)}\\ &= -r_i && \text{(definition of residual)} \end{aligned} \\
 
 > **NOTE:**
 >
-> **Theorem 1 (Prediction error is the negative of the residual)** For an observation \\i\\ that was used to fit the model, the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value) is the negative of its [residual](#def-residual):
+> **Theorem 1 (Prediction error is the negative of the residual)** For an observation \\i\\, the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value) is the negative of its [residual](#def-residual):
 >
-> \\\varepsilon_i = -r_i.\\
+> \\\varepsilon_i= -r_i.\\
 
 > **NOTE:**
 >
@@ -72,9 +72,9 @@ Last modified: 2026-10-16 02:22:08 (PDT)
 
 > **NOTE:**
 >
-> **Corollary 1 (The residual is the negative of the prediction error)** For an observation \\i\\ that was used to fit the model, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
+> **Corollary 1 (The residual is the negative of the prediction error)** For an observation \\i\\, its [residual](#def-residual) is the negative of the [prediction error](#def-prediction-error) of its [fitted value](#def-fitted-value):
 >
-> \\r_i = -\varepsilon_i.\\
+> \\r_i= -\varepsilon_i.\\
 
 > **NOTE:**
 >
@@ -144,7 +144,7 @@ Last modified: 2026-10-16 02:22:08 (PDT)
 >
 > \\ \begin{aligned} \varepsilon&= \hat y- y && \text{(prediction error)}\\ \varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \hat{\theta}- \theta && \text{(estimation error)} \end{aligned} \\
 >
-> For an observation used to fit the model, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
+> For a fitted value, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
 
 ## 2 Mean squared error of predictions
 
@@ -158,7 +158,7 @@ Last modified: 2026-10-16 02:22:08 (PDT)
 >
 > *Remark 4* (Prediction MSE, estimator MSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([mean squared error and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\tilde{\theta}}), \qquad \text{RSS}(\hat{\tilde{\theta}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\underset{\sim}{\theta}}), \qquad \text{RSS}(\hat{\underset{\sim}{\theta}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
 > **NOTE:**
 >
