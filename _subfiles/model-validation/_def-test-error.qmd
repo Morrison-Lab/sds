@@ -1,0 +1,14 @@
+:::{#def-test-error}
+#### Test error
+
+The **test error** of a [prediction rule](#def-prediction-rule) $\fitted$
+fitted to a [training set](#def-training-set) $\trainset$
+is the [mean squared error](prediction.qmd#def-prediction-mse)
+of its predictions for the [test set](#def-test-set),
+indexed by $\testidx$:
+
+$$
+\testerr \eqdef \frac{1}{\abs{\testidx}} \sum_{\iobs \in \testidx} \sqf{\fitted\paren{\predvar_{\iobs}} - \outvar_{\iobs}}.
+$$ {#eq-test-error}
+
+:::

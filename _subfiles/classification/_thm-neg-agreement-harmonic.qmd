@@ -1,0 +1,22 @@
+:::{#thm-neg-agreement-harmonic}
+#### Negative agreement is a harmonic mean
+
+For an agreement table with $d > 0$,
+the negative agreement (@def-negative-agreement)
+is the harmonic mean (@def-harmonic-mean)
+of the estimated negative predictive value and specificity
+(@def-agreement-test-measures):
+
+$$
+p_{\text{neg}} = H\paren{\Est{\text{NPV}}, \Est{\text{specificity}}}
+$$ {#eq-neg-agreement-harmonic}
+
+:::
+
+::: proof
+
+By @exr-neg-agreement-harmonic,
+the harmonic mean equals $2d / (2d + b + c)$,
+which is $p_{\text{neg}}$ by @def-negative-agreement.
+
+:::

@@ -1,0 +1,22 @@
+:::{#thm-pos-agreement-harmonic}
+#### Positive agreement is a harmonic mean
+
+For an agreement table with $a > 0$,
+the positive agreement (@def-positive-agreement)
+is the harmonic mean (@def-harmonic-mean)
+of the estimated positive predictive value and sensitivity
+(@def-agreement-test-measures):
+
+$$
+p_{\text{pos}} = H\paren{\Est{\text{PPV}}, \Est{\text{sensitivity}}}
+$$ {#eq-pos-agreement-harmonic}
+
+:::
+
+::: proof
+
+By @exr-pos-agreement-harmonic,
+the harmonic mean equals $2a / (2a + b + c)$,
+which is $p_{\text{pos}}$ by @def-positive-agreement.
+
+:::
