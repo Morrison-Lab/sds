@@ -1,0 +1,53 @@
+::: {#exr-no-rejection-prob}
+#### Probability that no test rejects
+
+Let $A_1, \ldots, A_m$ be independent events,
+where $A_j$ is the event that the $j$th of $m$ tests rejects its true null hypothesis,
+and each has probability $\Pr(A_j) = \siglevel$
+(see [significance level](inference.qmd#def-significance-level)).
+Find the probability that none of the tests rejects.
+:::
+
+{{< slidebreak >}}
+
+::: {#sol-no-rejection-prob}
+
+No test rejects exactly when every event $A_j$ fails to occur.
+Write $A_j^c$ for the complement of $A_j$.
+
+$$
+\begin{aligned}
+\Prf{\text{no test rejects}}
+&= \Prf{A_1^c \cap A_2^c \cap \cdots \cap A_m^c}
+&& \text{(no test rejects means every $A_j$ fails)}\\
+&= \Pr(A_1^c) \Pr(A_2^c) \cdots \Pr(A_m^c)
+&& \text{(the events are independent, so their complements are)}\\
+&= \paren{1 - \Pr(A_1)} \paren{1 - \Pr(A_2)} \cdots \paren{1 - \Pr(A_m)}
+&& \text{(complement rule, applied to each factor)}\\
+&= \paren{1 - \siglevel} \paren{1 - \siglevel} \cdots \paren{1 - \siglevel}
+&& \text{(each $\Pr(A_j) = \siglevel$)}\\
+&= \paren{1 - \siglevel}^m
+&& \text{(a product of $m$ equal factors)}
+\end{aligned}
+$$
+
+:::
+
+{{< slidebreak >}}
+
+:::{#lem-no-rejection-prob}
+#### Probability that no test rejects
+
+Let $A_1, \ldots, A_m$ be independent events,
+where $A_j$ is the event that the $j$th of $m$ tests rejects its true null hypothesis,
+and each has probability $\Pr(A_j) = \siglevel$
+(see [significance level](inference.qmd#def-significance-level)).
+Then the probability that none of the tests rejects is
+
+$$\Prf{\text{no test rejects}} = \paren{1 - \siglevel}^m.$$
+
+:::
+
+::: proof
+This is the solution to @exr-no-rejection-prob, worked in @sol-no-rejection-prob.
+:::

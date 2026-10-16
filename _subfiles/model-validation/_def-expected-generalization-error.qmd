@@ -1,25 +1,26 @@
 :::{#def-expected-generalization-error}
-#### Expected generalization error
+#### Expected generalization error (expected prediction error, expected test error)
 
-The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) $g$
-at training-set size $n$
+The **expected generalization error** of a [fitting procedure](#def-fitting-procedure) $\fitproc$
+at training-set size $\nobs$
 is the mean,
-over [training sets](#def-training-set) $\trainset$ of $n$ observations
+over [training sets](#def-training-set) $\trainset$ of $\nobs$ observations
 drawn independently from the population,
 of the [generalization error](#def-generalization-error)
-of the [prediction rule](#def-prediction-rule) that $g$ produces from $\trainset$:
+of the [prediction rule](#def-prediction-rule) that $\fitproc$ produces from $\trainset$:
 
 $$
-\expgenerr{g}{n} \eqdef \E{\generr_{\trainset}},
+\expgenerr{\fitproc}{\nobs} \eqdef \E{\generr_{\trainset}},
 \quad
-\trainset = \paren{(X_i, Y_i)}_{i \in I}, \quad \abs{I} = n.
+\trainset = \paren{(\Predvar_{\iobs}, \Outvar_{\iobs})}_{\iobs \in \obsidx}, \quad \abs{\obsidx} = \nobs.
 $$ {#eq-expected-generalization-error}
 
-::: {.callout-note collapse="true"}
-#### Source
-
-@hastie2009elements [sec. 7.2] call this quantity the *expected prediction error*
-(or *expected test error*) and write it $\generr$, without the argument $n$.
 :::
+
+:::{#rem-source-expected-generalization-error}
+#### Source: Expected generalization error (expected prediction error, expected test error)
+
+Also called the **expected prediction error** or **expected test error** [@hastie2009elements, sec. 7.2].
+Hastie et al. write the quantity as $\generr$, without the argument $\nobs$.
 
 :::

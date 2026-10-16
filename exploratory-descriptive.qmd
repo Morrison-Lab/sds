@@ -42,6 +42,28 @@ format:
 
 {{< include sds/_subfiles/exploratory-descriptive/_load-wcgs.qmd >}}
 
+### Populations and samples {#sec-populations-samples}
+
+<!-- No slidebreak here: the heading shares its slide with the def-population div. -->
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-population.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-population-distribution.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-sample.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_def-random-sample.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/exploratory-descriptive/_exm-population-sample-wcgs.qmd >}}
+
 ## Summarizing a single variable
 
 ### Measures of center
@@ -112,6 +134,11 @@ format:
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-categorical.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.1, pp. 233--244] covers descriptive statistics.
+- @rice2007mathematical [Secs. 10.4--10.5, pp. 392--401] covers measures of location and dispersion.
+:::
+
 ## Graphical methods
 
 Graphs can reveal features of a distribution
@@ -179,6 +206,13 @@ Different types of graph suit different types of variable.
 
 {{< include sds/_subfiles/exploratory-descriptive/_fig-qq-chol.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.2, pp. 245--255] covers exploratory data analysis.
+- @rice2007mathematical [Sec. 10.2.3, pp. 385--388] covers quantile-quantile plots.
+- @rice2007mathematical [Sec. 10.3, pp. 389--391] covers histograms, density curves and stem-and-leaf plots.
+- @rice2007mathematical [Sec. 10.6, pp. 402--403] covers boxplots.
+:::
+
 ## Bivariate relationships
 
 ### Two continuous variables
@@ -197,6 +231,10 @@ Different types of graph suit different types of variable.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/exploratory-descriptive/_rem-pearson-r-estimates-population.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/exploratory-descriptive/_thm-pearson-r-range.qmd >}}
 
 {{< slidebreak >}}
@@ -204,6 +242,10 @@ Different types of graph suit different types of variable.
 {{< include sds/_subfiles/exploratory-descriptive/_exm-pearson-r.qmd >}}
 
 {{< include sds/_subfiles/exploratory-descriptive/_note-correlation-caution.qmd >}}
+
+::: {.reading}
+@rice2007mathematical [Sec. 10.7, pp. 404--406] covers scatterplots.
+:::
 
 {{< slidebreak >}}
 

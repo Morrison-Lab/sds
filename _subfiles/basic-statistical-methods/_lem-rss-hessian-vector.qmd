@@ -1,0 +1,18 @@
+::: {#lem-rss-hessian-vector}
+#### Hessian of RSS in vector notation
+
+The [Hessian](intro-MLEs.qmd#def-hessian) of the residual sum of squares is
+
+$$
+\deriv{\vcoef} \deriv{\tp{\vcoef}} \text{RSS}(\vcoef)
+= 2 \sumin \soprod{\vxi},
+$$
+
+and it is positive definite at every $\vcoef$ when $S_{xx} > 0$ (@def-centered-sums).
+:::
+
+::: proof
+
+This is the solution to @exr-rss-hessian-vector.
+
+:::

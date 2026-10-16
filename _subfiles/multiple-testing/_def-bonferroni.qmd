@@ -1,0 +1,54 @@
+::: {#def-bonferroni}
+#### Bonferroni correction
+
+Given $m$ null hypotheses $H_1, \ldots, H_m$ with p-values $p_1, \ldots, p_m$ and a level $\siglevel$,
+the **Bonferroni correction** rejects $H_j$ when its p-value is at most $\siglevel / m$:
+
+$$\text{reject } H_j \iff p_j \le \frac{\siglevel}{m}.$$
+
+Source: @james2021islr2e [ch. 13].
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-bonferroni}
+#### Bonferroni correction for the Khan genes
+
+R functions for this page's procedures take the vector of p-values and a level, and return a logical vector.
+For the Bonferroni correction with $\siglevel = 0.05$:
+
+```{r}
+#| label: bonferroni-reject
+#| code-fold: false
+bonferroni_reject <- function(p, alpha) p <= alpha / length(p)
+
+alpha <- 0.05
+c(
+  threshold = alpha / m,
+  rejections = sum(bonferroni_reject(khan_p, alpha))
+)
+```
+
+With $m =$ `r m` tests the threshold is `r format(alpha / m, digits = 3)`,
+and the correction rejects `r sum(bonferroni_reject(khan_p, alpha))` genes
+out of the `r sum(khan_p <= 0.05)` with an unadjusted p-value of at most 0.05.
+The same functions applied to the first ten genes of the data set show the arithmetic:
+with $m = 10$ the threshold is $0.05 / 10 = 0.005$.
+
+```{r}
+#| label: bonferroni-ten-genes
+fmt_p <- function(p) vapply(p, format, character(1), digits = 3)
+ten_genes <- khan_p[1:10]
+data.frame(
+  gene = names(ten_genes),
+  p_value = ten_genes,
+  threshold = alpha / length(ten_genes),
+  reject = bonferroni_reject(ten_genes, alpha),
+  row.names = NULL
+) |>
+  dplyr::arrange(p_value) |>
+  dplyr::mutate(p_value = fmt_p(p_value)) |>
+  knitr::kable()
+```
+:::

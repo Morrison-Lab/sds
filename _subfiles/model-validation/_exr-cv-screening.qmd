@@ -1,14 +1,14 @@
 :::{#exr-cv-screening}
 #### Screening predictors before cross-validating
 
-A data set has $n = 50$ observations of an outcome $Y$
-and of $p = 1000$ candidate predictors.
+A data set has $\nobs = 50$ observations of an outcome $\Outvar$
+and of $\inputdim = 1000$ candidate predictors.
 In fact every variable is independent standard normal noise,
-so no predictor carries any information about $Y$.
+so no predictor carries any information about $\Outvar$.
 
 An analyst
 
-1. picks the 10 predictors most correlated with $Y$ in all 50 observations,
+1. picks the 10 predictors most correlated with $\Outvar$ in all 50 observations,
    then
 2. estimates the prediction error of a linear model in those 10 predictors
    by 5-fold cross-validation.
@@ -16,7 +16,7 @@ An analyst
 Answer the following:
 
 1. What is the smallest possible generalization error (@eq-generalization-error)
-   of any prediction rule for $Y$ here?
+   of any prediction rule for $\Outvar$ here?
 2. Simulate the analyst's procedure.
    What cross-validation estimate does it report?
 3. Repeat the simulation,

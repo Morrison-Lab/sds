@@ -1,0 +1,201 @@
+---
+title: "Multiple Testing"
+format:
+  html: default
+  revealjs:
+    output-file: multiple-testing-slides.html
+  pdf:
+    output-file: multiple-testing-handout.pdf
+  docx:
+    output-file: multiple-testing-handout.docx
+resources:
+  - data/khan.csv
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+{{< include sds/_subfiles/multiple-testing/_prose-intro.qmd >}}
+
+## The Khan gene expression data {#sec-khan-data}
+
+{{< include sds/_subfiles/shared/_load-khan.qmd >}}
+
+## The multiplicity problem {#sec-multiplicity}
+
+### The chance of a false positive {#sec-false-positive-chance}
+
+<!-- No slidebreak here: the heading shares its slide with the exr-no-rejection-prob div. -->
+
+{{< include sds/_subfiles/multiple-testing/_exr-false-positive-prob.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_thm-false-positive-prob.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_exm-false-positive-prob.qmd >}}
+
+{{< slidebreak >}}
+
+### Testing every gene {#sec-khan-tests}
+
+<!-- No slidebreak here: the heading shares its slide with the exm-khan-pvalues div. -->
+
+{{< include sds/_subfiles/multiple-testing/_exm-khan-pvalues.qmd >}}
+
+{{< slidebreak >}}
+
+## Error rates for a family of tests {#sec-error-rates}
+
+### Counting errors {#sec-rejection-counts}
+
+<!-- No slidebreak here: the heading shares its slide with the def-rejection-counts div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-rejection-counts.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_exm-rejection-counts.qmd >}}
+
+{{< slidebreak >}}
+
+### The family-wise error rate {#sec-fwer}
+
+<!-- No slidebreak here: the heading shares its slide with the def-fwer div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-fwer.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_def-fwer-control.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_exm-fwer.qmd >}}
+
+{{< slidebreak >}}
+
+### The false discovery rate {#sec-fdr}
+
+<!-- No slidebreak here: the heading shares its slide with the def-fdp div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-fdp.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_def-fdr.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_def-fdr-control.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_exm-fdr.qmd >}}
+
+{{< slidebreak >}}
+
+### Valid p-values {#sec-valid-p-values}
+
+<!-- No slidebreak here: the heading shares its slide with the def-valid-p-value div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-valid-p-value.qmd >}}
+
+{{< slidebreak >}}
+
+## Controlling the family-wise error rate {#sec-fwer-control}
+
+### The Bonferroni correction {#sec-bonferroni}
+
+<!-- No slidebreak here: the heading shares its slide with the def-bonferroni div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-bonferroni.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_exr-union-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_thm-union-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_exr-bonferroni-fwer.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_thm-bonferroni-fwer.qmd >}}
+
+{{< slidebreak >}}
+
+### Holm's step-down procedure {#sec-holm}
+
+<!-- No slidebreak here: the heading shares its slide with the def-holm-cutoff div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-holm-cutoff.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_def-holm.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_exr-holm-fwer.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_thm-holm-fwer.qmd >}}
+
+::: {.reading}
+- @CaseBerg01 [Sec. 11.2.5, pp. 534--535] covers simultaneous estimation of contrasts.
+- @rice2007mathematical [Sec. 12.2.2, pp. 485--487] covers multiple comparisons.
+:::
+
+{{< slidebreak >}}
+
+## Controlling the false discovery rate {#sec-fdr-control}
+
+### The Benjamini--Hochberg procedure {#sec-bh}
+
+<!-- No slidebreak here: the heading shares its slide with the def-bh-cutoff div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-bh-cutoff.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_def-bh.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/multiple-testing/_thm-bh-fdr.qmd >}}
+
+{{< slidebreak >}}
+
+## Adjusted p-values and q-values {#sec-adjusted-p-values}
+
+<!-- No slidebreak here: the heading shares its slide with the def-adjusted-p-value div. -->
+
+{{< include sds/_subfiles/multiple-testing/_def-adjusted-p-value.qmd >}}
+
+{{< slidebreak >}}
+
+## Comparing the procedures {#sec-procedure-comparison}
+
+<!-- No slidebreak here: the heading shares its slide with the exm-procedure-comparison div. -->
+
+{{< include sds/_subfiles/multiple-testing/_exm-procedure-comparison.qmd >}}
+
+## Further reading {#sec-multiple-testing-reading}
+
+- Chapter 13 of @james2021islr2e covers the same procedures, with labs.
+- Chapter 15 of @efron2016computer treats large-scale testing and the false discovery rate.
+- Andrew Lin's [notes on Stanford STATS 300C](https://web.stanford.edu/~lindrew/stats300C.pdf) (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.
+- The [permutation tests](permutation-tests.qmd) page computes valid p-values by relabeling the data,
+  without a distributional model for the test statistic.
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

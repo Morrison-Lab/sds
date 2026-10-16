@@ -1,0 +1,67 @@
+::: {#thm-monte-carlo-p-valid}
+#### The Monte Carlo permutation p-value is valid
+
+Let $Y$ be exchangeable under $H_0$ (@def-exchangeable),
+and let $\hat p_{\text{perm}}$ be the [Monte Carlo permutation p-value](#def-monte-carlo-p-value) of $T(Y)$
+from $B$ independent uniform permutations.
+Then $\hat p_{\text{perm}}$ is a [valid p-value](multiple-testing.qmd#def-valid-p-value):
+
+$$\Pr_{H_0}\paren{\hat p_{\text{perm}} \le u} \le u \quad \text{for every } u \in [0, 1].$$
+
+:::
+
+:::{#rem-source-monte-carlo-p-valid}
+#### Source: The Monte Carlo permutation p-value is valid
+
+Phipson and Smyth [-@phipson2010permutation] show that the Monte Carlo p-value with the added 1 is valid for random permutations.
+The proof is omitted here.
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-monte-carlo-p-valid}
+#### Validity in a small simulation
+
+Simulate 2000 data sets of 20 independent standard Gaussian values, ten per group,
+so that $H_0$ holds.
+For each, compute $\hat p_{\text{perm}}$ of the absolute difference in means with $B = 99$:
+
+```{r}
+#| label: monte-carlo-p-valid
+#| code-fold: false
+set.seed(582)
+in_group1 <- rep(c(TRUE, FALSE), each = 10)
+abs_diff_means <- function(y, in1) abs(mean(y[in1]) - mean(y[!in1]))
+p_hat <- replicate(2000, {
+  y <- rnorm(20)
+  t_obs <- abs_diff_means(y, in_group1)
+  t_perm <- replicate(99, abs_diff_means(y, sample(in_group1)))
+  (1 + sum(t_perm >= t_obs)) / 100
+})
+u <- c(0.01, 0.05, 0.1)
+data.frame(
+  u = u,
+  fraction_p_at_most_u = sapply(u, function(x) mean(p_hat <= x))
+)
+```
+
+With $B = 99$ the p-value takes the values $0.01, 0.02, \ldots, 1$,
+and for a statistic with no ties each value has probability $0.01$ under $H_0$,
+so $\Pr(\hat p_{\text{perm}} \le u) = u$ for $u$ in that grid.
+The fractions are close to $u$, within simulation error.
+Choosing $B + 1$ to be a round number such as 100 makes the grid easy to read.
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-plus-one}
+#### Why add 1
+
+Without the 1, a data set whose statistic exceeds all $B$ permuted statistics would get a p-value of 0,
+which claims that the observed result is impossible under $H_0$.
+Under $H_0$, with no ties, that happens with probability $1 / (B + 1)$,
+because the observed statistic is equally likely to be any one of the $B + 1$ values it is compared with.
+A p-value that equals 0 with positive probability is not valid.
+With the 1, the smallest value of $\hat p_{\text{perm}}$ is $1 / (B + 1)$.
+:::

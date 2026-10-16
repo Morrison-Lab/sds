@@ -1,0 +1,8 @@
+::: {#def-slr-slope}
+#### Slope
+
+In a simple linear regression model (@def-slr),
+the **slope** is $\coef{x} = \mean(x + 1) - \mean(x)$:
+the difference in the mean of $Y$
+between two groups whose values of $X$ differ by one unit.
+:::

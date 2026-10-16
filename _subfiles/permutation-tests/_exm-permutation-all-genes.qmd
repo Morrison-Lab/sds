@@ -1,0 +1,73 @@
+::: {#exm-permutation-all-genes}
+#### Permutation p-values for all 2308 genes
+
+Relabeling the samples once permutes every gene at the same time,
+so $B = 1000$ relabelings give a permutation null distribution for each of the 2308 genes.
+This computes $\abs{t}$ for all genes from column means and sums of squares,
+in a function checked against `t.test()` on gene 3:
+
+```{r}
+#| label: permutation-all-genes
+#| code-fold: false
+expr_matrix <- as.matrix(khan_pair[, grepl("^gene_", names(khan_pair))])
+abs_welch_t_all <- function(x, in_group1) {
+  n1 <- sum(in_group1)
+  n2 <- sum(!in_group1)
+  mean1 <- colMeans(x[in_group1, , drop = FALSE])
+  mean2 <- colMeans(x[!in_group1, , drop = FALSE])
+  var1 <- (colSums(x[in_group1, , drop = FALSE]^2) - n1 * mean1^2) / (n1 - 1)
+  var2 <- (colSums(x[!in_group1, , drop = FALSE]^2) - n2 * mean2^2) / (n2 - 1)
+  abs(mean1 - mean2) / sqrt(var1 / n1 + var2 / n2)
+}
+t_all <- abs_welch_t_all(expr_matrix, in_class4)
+all.equal(unname(t_all["gene_3"]), t_obs)
+```
+
+Each relabeling yields 2308 statistics, one per gene.
+The permutation p-value of a gene counts the relabelings whose statistic for that gene reaches its observed one:
+
+```{r}
+#| label: permutation-all-genes-p
+#| code-fold: false
+B_all <- 1000
+set.seed(583)
+exceed_counts <- Reduce(
+  `+`,
+  lapply(seq_len(B_all), function(b) {
+    abs_welch_t_all(expr_matrix, sample(in_class4)) >= t_all
+  })
+)
+p_perm_all <- (1 + exceed_counts) / (B_all + 1)
+c(
+  smallest_possible = 1 / (B_all + 1),
+  genes_at_smallest = sum(p_perm_all == 1 / (B_all + 1)),
+  bonferroni_threshold = 0.05 / length(p_perm_all)
+)
+```
+
+The smallest p-value that `r B_all` relabelings can give is `r format(1 / (B_all + 1), digits = 2)`,
+and `r sum(p_perm_all == 1 / (B_all + 1))` genes reach it.
+The Bonferroni threshold, `r format(0.05 / length(p_perm_all), digits = 2, scientific = FALSE)`, is far below the smallest possible p-value,
+so the Bonferroni correction cannot reject any gene with these p-values.
+For a Bonferroni correction at level $\siglevel$ across $m$ tests the p-values must be able to fall below $\siglevel / m$,
+which needs $B + 1 \ge m / \siglevel$, here $B \ge$ `r format(length(p_perm_all) / 0.05 - 1, big.mark = ",")` relabelings.
+The [BH procedure](multiple-testing.qmd#def-bh) needs less resolution, because its thresholds grow with the rank.
+At $q = 0.05$ it rejects genes from the permutation p-values and from Welch's t-test p-values as follows:
+
+```{r}
+#| label: permutation-all-genes-bh
+#| code-fold: false
+welch_p_all <- vapply(
+  as.data.frame(expr_matrix),
+  function(x) t.test(x ~ khan_pair$tumor_class)$p.value,
+  numeric(1)
+)
+bh_counts <- c(
+  permutation = sum(p.adjust(p_perm_all, method = "BH") <= 0.05),
+  welch = sum(p.adjust(welch_p_all, method = "BH") <= 0.05)
+)
+bh_counts
+```
+
+The two sets of p-values give BH rejection counts of `r bh_counts[["permutation"]]` and `r bh_counts[["welch"]]`.
+:::

@@ -1,0 +1,52 @@
+::: {#def-valid-p-value}
+#### Valid p-value
+
+A [p-value](inference.qmd#def-p-value) $p$ for a null hypothesis $H_0$ is **valid** if,
+when $H_0$ is true, it is stochastically no smaller than a uniform random variable:
+
+$$\Pr_{H_0}(p \le u) \le u \quad \text{for every } u \in [0, 1].$$
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-valid-p-value-uniform}
+#### Uniform p-values
+
+If the inequality in the definition of a valid p-value is an equality,
+$p$ is uniform on $[0, 1]$ under $H_0$.
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-valid-p-value}
+#### The two-sided z-test p-value is valid
+
+For a standard Gaussian statistic $Z$, the p-value $p = 2 \normcdf(-\abs{Z})$
+is the probability that a standard Gaussian variable is at least as extreme as $Z$.
+Because $Z$ has a continuous distribution, this p-value is uniform on $[0, 1]$,
+so $\Pr(p \le u) = u$ exactly.
+Simulating $10^5$ true null hypotheses checks this:
+
+```{r}
+#| label: valid-p-value
+#| code-fold: false
+set.seed(573)
+p_null <- 2 * pnorm(-abs(rnorm(1e5)))
+u <- c(0.01, 0.05, 0.1, 0.5)
+data.frame(u = u, fraction_at_most_u = sapply(u, function(x) mean(p_null <= x)))
+```
+
+Each fraction is close to its $u$.
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-valid-p-value-discrete}
+#### Discrete statistics give conservative p-values
+
+When the test statistic is discrete, as in
+[Fisher's exact test](categorical-tests.qmd#def-fishers-exact),
+a p-value can satisfy $\Pr_{H_0}(p \le u) < u$ for some $u$.
+It is still valid, but conservative:
+it rejects a true null hypothesis less often than its nominal level.
+:::

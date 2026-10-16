@@ -23,8 +23,11 @@ description: "Use when editing Quarto pages, chapters, slides, handouts, or narr
 - Write math notation through semantic macros (for example `\coef{x}`,
   `\intcoef`), not hard-coded symbols; see "Math Notation" in
   [copilot-instructions.md](../copilot-instructions.md).
-- Credit sources where readers can see them (a credit to the maintainer's own sites is optional, but what they credit is still carried): a collapsed
-  `.callout-note` titled "Source" at the end of the item's div, not an HTML comment; see
+- Credit sources where readers can see them (a credit to the maintainer's own sites is optional, but what they credit is still carried):
+  a credit that is only a citation goes inside the item's div as a final "Source: @key [locator]." line;
+  substantial prose about the source or history goes in a `rem-source-` remark div
+  titled "Source: ..." right after the item's div and its proof;
+  never an HTML comment; see
   "Attributions are reader-visible" in
   [copilot-instructions.md](../copilot-instructions.md).
 - Treat files under `_extensions/` as vendored third-party code: read them for

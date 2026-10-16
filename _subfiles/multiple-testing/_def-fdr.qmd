@@ -1,0 +1,19 @@
+::: {#def-fdr}
+#### False discovery rate
+
+The **false discovery rate** (FDR) is the expected value of the
+[false discovery proportion](#def-fdp):
+
+$$
+\text{FDR} \eqdef \E{\text{FDP}}.
+$$
+
+:::
+
+:::{#rem-source-fdr}
+#### Source: False discovery rate
+
+The false discovery rate was introduced by Benjamini and Hochberg [-@benjamini1995controlling];
+the notation $V$, $S$, $U$, $T$ and $R$ follows @james2021islr2e [ch. 13].
+
+:::

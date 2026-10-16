@@ -14,7 +14,7 @@ bootstrap standard error (@def-bootstrap-se).
 ::: {#rem-bootstrap-ci-normal-assumptions}
 #### When the normal bootstrap interval is reliable
 
-This interval assumes that the sampling distribution of $\hparam$
+This interval assumes that the [sampling distribution](estimation.qmd#def-sampling-distribution) of $\hparam$
 is approximately Gaussian and centered at $\param$,
 so it can be unreliable when that distribution is skewed.
 It needs only a standard error,

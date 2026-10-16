@@ -15,7 +15,7 @@ in terms of the [observed information](#def-oinf) $\oinf(\hthml)$.
 
 Under $H_0$, the only allowed value is $\param_0$,
 so the restricted MLE is $\hparam_0 = \param_0$.
-Substituting the approximation from @exr-wilks-taylor:
+Substituting the approximation from @lem-wilks-taylor:
 
 $$
 \begin{aligned}

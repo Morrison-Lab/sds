@@ -1,0 +1,16 @@
+::: {#lem-rss-deriv-slope}
+#### Derivative of RSS with respect to the slope
+
+The partial derivative of the simple linear regression
+residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
+with respect to the slope is
+
+$$\frac{\partial \text{RSS}}{\partial \coef{x}}
+= -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i).$$
+:::
+
+::: proof
+
+This is the solution to @exr-rss-deriv-slope.
+
+:::

@@ -38,6 +38,11 @@ format:
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-cor.qmd >}}
 
+::: {.reading}
+- @hoggtanis2015 [Sec. 9.6, pp. 471--476] covers tests concerning regression and correlation.
+- @rice2007mathematical [Sec. 14.2.3, pp. 560--563] covers correlation and regression.
+:::
+
 {{< slidebreak >}}
 
 ### Spearman rank correlation {#sec-spearman}
@@ -96,6 +101,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_def-slr-intercept.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_def-slr-slope.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_rem-slr-parameters.qmd >}}
 
 {{< slidebreak >}}
@@ -148,7 +161,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-sum-deviations-zero.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-sxx-expand.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-sxx-expand.qmd >}}
 
 {{< slidebreak >}}
 
@@ -156,7 +177,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-deriv-intercept.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-deriv-slope.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-deriv-slope.qmd >}}
 
 {{< slidebreak >}}
 
@@ -164,7 +193,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-solve-normal-equations.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-hessian.qmd >}}
 
 {{< slidebreak >}}
 
@@ -196,7 +233,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-gradient-vector.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-normal-equations-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-normal-equations-vector.qmd >}}
 
 {{< slidebreak >}}
 
@@ -204,7 +249,15 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-solve-normal-equations-vector.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-rss-hessian-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-hessian-vector.qmd >}}
 
 {{< slidebreak >}}
 
@@ -224,6 +277,12 @@ covers fitting a linear regression by least squares,
 framed as machine learning [@hutchinson_wwu_ml_videos].
 The login for the video site is posted
 [on Canvas](https://wwu.instructure.com/courses/1906010/modules#module_3922392).
+:::
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.5, pp. 277--284] covers a simple regression problem.
+- @CaseBerg01 [Sec. 11.3, pp. 539--562] covers simple linear regression.
+- @rice2007mathematical [Sec. 14.2.1, pp. 547--549] covers slope and intercept properties.
 :::
 
 {{< slidebreak >}}
@@ -256,6 +315,10 @@ The login for the video site is posted
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_lem-rss-ols-fit.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_exr-r-squared-slr.qmd >}}
 
 {{< slidebreak >}}
@@ -265,6 +328,11 @@ The login for the video site is posted
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-r-squared.qmd >}}
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 7.6, pp. 344--352] covers more regression.
+- @rice2007mathematical [Sec. 14.2.2, pp. 550--559] covers assessing the fit of a regression line.
+:::
 
 {{< slidebreak >}}
 

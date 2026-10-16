@@ -84,6 +84,10 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/basic-statistical-methods/_rem-pooled-variance-estimates.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/basic-statistical-methods/_def-pooled-t-test.qmd >}}
 
 {{< slidebreak >}}
@@ -93,6 +97,12 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-pooled-ttest.qmd >}}
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 8.2, pp. 369--377] covers tests of the equality of two means.
+- @rice2007mathematical [Sec. 11.2.1, pp. 421--432] covers normal-theory methods for two independent samples.
+- @rice2007mathematical [Sec. 11.3.1, pp. 446--447] covers normal-theory methods for paired samples.
+:::
 
 {{< slidebreak >}}
 
@@ -105,6 +115,10 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_exm-hers-diff-means-ci.qmd >}}
+
+::: {.reading}
+@hoggtanis2015 [Sec. 7.2, pp. 314--322] covers confidence intervals for the difference of two means.
+:::
 
 ## One-way analysis of variance {#sec-anova}
 
@@ -147,6 +161,12 @@ This page is adapted from @vittinghoff2e, Chapter 3.
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/basic-statistical-methods/_note-anova-regression.qmd >}}
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 9.3, pp. 446--455] covers one-factor analysis of variance.
+- @CaseBerg01 [Sec. 11.2, pp. 522--538] covers oneway analysis of variance.
+- @rice2007mathematical [Sec. 12.2, pp. 477--488] covers the one-way layout.
+:::
 
 ## References {.unnumbered}
 

@@ -10,7 +10,7 @@ from @exr-bernoulli-likelihood-one-group.
 
 :::{#sol-bernoulli-loglik-one-group}
 
-Starting from the likelihood in @sol-bernoulli-likelihood-one-group:
+Starting from the likelihood in @thm-bernoulli-likelihood-one-group:
 
 $$
 \begin{aligned}

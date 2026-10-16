@@ -3,17 +3,18 @@
 
 A **training set** is the data
 to which a [fitting procedure](#def-fitting-procedure) is applied:
-$n$ observations,
-written as an ordered list indexed by a set $I$ of $n$ observation numbers:
+$\nobs$ observations,
+written as an ordered list indexed by a set $\obsidx$ of $\nobs$ observation numbers:
 
 $$
-\trainset \eqdef \paren{(x_i, y_i)}_{i \in I}, \quad \abs{I} = n.
+\trainset \eqdef \paren{(\vpredvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}, \quad \abs{\obsidx} = \nobs.
 $$ {#eq-training-set}
 
-::: {.callout-note collapse="true"}
-#### Source
+:::
+
+:::{#rem-source-training-set}
+#### Source: Training set
 
 @hastie2009elements [sec. 7.2], who also write the training set as $\mathcal{T}$.
-:::
 
 :::

@@ -1,0 +1,37 @@
+::: {#exm-procedure-comparison}
+#### Comparing the procedures in the simulated family
+
+Each procedure was run on the same simulated family of @exm-rejection-counts
+in 2000 repetitions.
+The table collects the estimated FWER, FDR and power:
+
+```{r}
+#| label: procedure-comparison
+#| code-fold: false
+comparison <- t(sapply(sim_counts, summarize_counts))
+rownames(comparison) <- c(
+  "Unadjusted", "Bonferroni", "Holm", "Benjamini-Hochberg"
+)
+knitr::kable(comparison, digits = 3)
+```
+
+Unadjusted testing has the highest power and no error control.
+The two FWER procedures keep the FWER below 0.05 and give up most of the power;
+Holm's procedure never rejects fewer hypotheses than the Bonferroni correction.
+In this simulation BH has the highest power among the procedures that control an error rate,
+because it only promises to control the FDR.
+Its FWER is far above 0.05, which BH does not promise to control.
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-choosing-error-rate}
+#### Choosing an error rate
+
+Control the FWER when a single false positive is costly,
+as in a confirmatory trial that tests a handful of outcomes.
+Control the FDR when the rejections are leads to follow up,
+as in a screen of thousands of genes,
+where a small fraction of false leads is acceptable.
+The choice should be made before looking at the data.
+:::

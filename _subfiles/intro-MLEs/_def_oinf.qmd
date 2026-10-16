@@ -2,7 +2,8 @@
 #### Observed information matrix
 
 The **observed information matrix**, written $\oinf$,
-is the negative of the [Hessian](#def-hessian) of the log-likelihood:
+is the negative of the [Hessian](#def-hessian) of the log-likelihood,
+evaluated at the observed data:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_oinf.qmd >}}
 

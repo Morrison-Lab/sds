@@ -1,0 +1,81 @@
+::: {#def-bh}
+#### Benjamini--Hochberg procedure
+
+Given the cutoff rank $\hat k$ of @def-bh-cutoff,
+the **Benjamini--Hochberg procedure** (BH) rejects $H_{(1)}, \ldots, H_{(\hat k)}$ and no others.
+
+Source: Benjamini and Hochberg [-@benjamini1995controlling].
+
+:::
+
+{{< slidebreak >}}
+
+::: {#rem-bh-step-up}
+#### BH is a step-up procedure
+
+Holm's procedure starts at the smallest p-value and stops at the first failure.
+BH starts at the largest p-value and works down until one passes its threshold $k q / m$.
+Every hypothesis ranked at or below $\hat k$ is rejected,
+including those with p-values above their own thresholds.
+The thresholds $k q / m$ grow with the rank $k$,
+and the smallest, $q / m$, equals the Bonferroni threshold,
+so BH rejects every hypothesis that the Bonferroni correction rejects at level $\siglevel = q$.
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-bh}
+#### The BH procedure for the Khan genes
+
+```{r}
+#| label: bh-reject
+#| code-fold: false
+bh_reject <- function(p, q) {
+  m <- length(p)
+  ord <- order(p)
+  passes <- which(p[ord] <= seq_len(m) * q / m)
+  k_hat <- if (length(passes) > 0) max(passes) else 0
+  reject <- rep(FALSE, m)
+  reject[ord[seq_len(k_hat)]] <- TRUE
+  reject
+}
+```
+
+For the first ten genes at $q = 0.05$ the thresholds $k \times 0.05 / 10$ rise from $0.005$ to $0.05$:
+
+```{r}
+#| label: bh-ten-genes
+bh_ten <- data.frame(
+  gene = names(ten_genes),
+  p_value = ten_genes,
+  row.names = NULL
+) |>
+  dplyr::arrange(p_value) |>
+  dplyr::mutate(
+    rank = dplyr::row_number(),
+    threshold = rank * alpha / length(ten_genes),
+    passes = p_value <= threshold
+  )
+bh_ten |>
+  dplyr::mutate(p_value = fmt_p(p_value)) |>
+  knitr::kable()
+```
+
+The largest rank that passes is $\hat k =$ `r max(which(bh_ten$passes))`,
+so BH rejects the `r max(which(bh_ten$passes))` genes with the smallest p-values.
+On all 2308 genes at $q = 0.05$, BH rejects far more genes than the Bonferroni correction:
+
+```{r}
+#| label: bh-khan
+#| code-fold: false
+c(
+  unadjusted = sum(khan_p <= 0.05),
+  bonferroni = sum(bonferroni_reject(khan_p, 0.05)),
+  holm = sum(holm_reject(khan_p, 0.05)),
+  bh = sum(bh_reject(khan_p, 0.05))
+)
+```
+
+A guarantee that $\text{FDR} \le 0.05$ is a statement about the average false discovery proportion over repeated data sets,
+not about this particular list of `r sum(bh_reject(khan_p, 0.05))` genes.
+:::

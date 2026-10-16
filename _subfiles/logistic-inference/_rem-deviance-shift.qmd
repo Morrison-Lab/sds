@@ -1,0 +1,9 @@
+::: {#rem-deviance-shift}
+
+#### Why the shift does not change the drop in deviance
+
+The constant $2 \satllik$ in @cor-deviance-shift is the same for every model fit to the same data, because the saturated model depends only on the data.
+So the difference between the deviances of two models, such as the drop in deviance of @thm-deviance-drop, is the same whether it is computed from $\deviance$ or from $\satdeviance$.
+The two deviances differ in their size, though: when every pattern has one replicate, the saturated model fits every label exactly, $\satllik = 0$, and $\satdeviance = \deviance$.
+
+:::

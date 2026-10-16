@@ -9,8 +9,8 @@ and prediction_mse(), from _sol-overfitting.qmd.
 :::{#exm-kfold-simulated}
 #### Cross-validation versus the generalization error
 
-This example applies [$k$-fold cross-validation](#def-kfold)
-with $k = 5$
+This example applies [$\nfolds$-fold cross-validation](#def-kfold)
+with $\nfolds = 5$
 to the simulated training set of @exm-train-test-error-simulated,
 using only those 30 observations.
 The function `assign_folds()` assigns each observation to a fold at random,
@@ -48,6 +48,8 @@ table(fold = sim_folds)
 
 The same fold assignment is used for every degree,
 so the degrees are compared on the same splits.
+The table and figure report the square root of each cross-validation estimate,
+so that it is in the same unit as the training and generalization RMSE of @exm-train-test-error-simulated.
 
 ```{r}
 #| label: cv-simulated-table
@@ -55,7 +57,7 @@ sim_errors_cv <- sim_errors |>
   dplyr::mutate(
     cv_5 = purrr::map_dbl(
       degree,
-      \(d) cv_mse(y ~ poly(x, d), sim_train, sim_folds)
+      \(d) sqrt(cv_mse(y ~ poly(x, d), sim_train, sim_folds))
     )
   )
 
@@ -66,7 +68,7 @@ sim_errors_cv
 
 ```{r}
 #| label: cv-simulated-plot
-#| fig-alt: Mean squared error against polynomial degree from 1 to 10,
+#| fig-alt: Root mean squared error against polynomial degree from 1 to 10,
 #|   with three curves for the training error,
 #|   the estimated generalization error,
 #|   and the 5-fold cross-validation estimate.
@@ -78,7 +80,7 @@ sim_errors_cv |>
   tidyr::pivot_longer(
     c(training, generalization, cv_5),
     names_to = "error",
-    values_to = "mse"
+    values_to = "rmse"
   ) |>
   dplyr::mutate(
     error = factor(
@@ -87,15 +89,15 @@ sim_errors_cv |>
       labels = c("training", "5-fold CV", "generalization")
     )
   ) |>
-  ggplot2::ggplot(ggplot2::aes(degree, mse, colour = error, shape = error)) +
-  ggplot2::geom_hline(yintercept = sim_sigma^2, linetype = "dashed") +
+  ggplot2::ggplot(ggplot2::aes(degree, rmse, colour = error, shape = error)) +
+  ggplot2::geom_hline(yintercept = sim_sigma, linetype = "dashed") +
   ggplot2::geom_line() +
   ggplot2::geom_point(size = 2) +
   ggplot2::scale_x_continuous(breaks = sim_degrees) +
   ggplot2::scale_y_log10() +
   ggplot2::labs(
     x = "polynomial degree",
-    y = "mean squared error (log scale)",
+    y = "root mean squared error (log scale)",
     colour = NULL,
     shape = NULL
   ) +
@@ -134,12 +136,12 @@ At degree `r max(sim_degrees)`,
 polynomials fitted to `r sim_n_fit` points predict their held-out points
 much worse than the fit to all 30 predicts new data:
 the cross-validation estimate is
-`r round(sim_cv_ratio_top, 1)` times the estimated generalization error.
+`r round(sim_cv_ratio_top, 1)` times the estimated generalization RMSE.
 
 Part of that gap is expected:
 by @rem-cv-estimate,
-with $g$ the least-squares fit of a degree-`r max(sim_degrees)` polynomial,
-the cross-validation estimate targets $\expgenerr{g}{`r sim_n_fit`}$,
+with $\fitproc$ the least-squares fit of a degree-`r max(sim_degrees)` polynomial,
+the cross-validation estimate targets $\expgenerr{\fitproc}{`r sim_n_fit`}$,
 not the error of a fit to 30 points.
 A simulation of many training sets of each size
 shows how much the size alone matters at this degree.
@@ -186,14 +188,14 @@ sim_size_effect
 
 Over `r sim_n_reps` simulated training sets of each size,
 degree-`r max(sim_degrees)` fits to `r sim_n_fit` points
-have median generalization error
+have median generalization MSE
 `r round(sim_size_effect$median[[1]], 2)`,
 against `r round(sim_size_effect$median[[2]], 2)`
 for fits to `r nrow(sim_train)` points,
 and 90th percentiles of
 `r round(sim_size_effect$quantile_90[[1]], 2)`
 and `r round(sim_size_effect$quantile_90[[2]], 2)`.
-The sample means are no guide to $\expgenerr{g}{`r sim_n_fit`}$ here:
+The sample means are no guide to $\expgenerr{\fitproc}{`r sim_n_fit`}$ here:
 the largest single value among the fits to `r sim_n_fit` points is
 `r format(signif(sim_size_effect$largest[[1]], 2), big.mark = ",", scientific = FALSE)`,
 from one fit that is wildly wrong away from the data,

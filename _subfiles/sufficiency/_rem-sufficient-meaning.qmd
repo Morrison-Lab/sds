@@ -1,0 +1,19 @@
+:::{#rem-sufficient-meaning}
+#### What sufficiency says
+
+Once we know $\statf{\vX}$, the remaining randomness in the sample
+has the same distribution whatever the parameter is,
+so the sample carries no further information about $\param$ beyond $\statf{\vX}$.
+A statistic can therefore stand in for the whole sample when we estimate $\param$.
+
+The sample itself, taking $\statf{\vX} = \vX$, is always sufficient but does not reduce the data;
+a useful sufficient statistic is a much shorter summary,
+such as a sum or a mean.
+
+Sufficiency by itself does not give a best estimator:
+it says which summaries lose nothing, not which function of them to use.
+The Rao--Blackwell theorem below shows how to improve a given unbiased estimator.
+
+For a continuous sample, the definition, the factorization theorem and the conditional expectations below
+use densities and integrals instead of probability mass functions and sums.
+:::

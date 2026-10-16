@@ -1,0 +1,97 @@
+---
+title: "Properties of Estimators"
+format:
+  html: default
+  revealjs:
+    output-file: estimator-properties-slides.html
+  pdf:
+    output-file: estimator-properties-handout.pdf
+  docx:
+    output-file: estimator-properties-handout.docx
+resources:
+  - data/birthwt.csv
+---
+
+{{< include sds/_subfiles/shared-config.qmd >}}
+
+[Estimation](estimation.qmd) defines the accuracy of an estimator
+at one sample size, through its bias, variance and mean squared error.
+This page asks two further questions:
+what happens to an estimator as the sample size grows,
+and how small can the variance of an unbiased estimator be?
+
+## Consistency {#sec-consistency}
+
+{{< include sds/_subfiles/estimator-properties/_def-consistent.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_rem-consistent-sequence.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_exr-estimation-error-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_lem-estimation-error-bound.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_thm-mse-consistent.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_cor-sample-mean-consistent.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_exm-consistency-birthwt.qmd >}}
+
+## Efficiency {#sec-efficiency}
+
+{{< include sds/_subfiles/estimator-properties/_def-relative-efficiency.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_exm-relative-efficiency-mean.qmd >}}
+
+::: {.reading}
+@CaseBerg01 [Sec. 10.1, pp. 467--480] covers point estimation, including consistency, efficiency and bootstrap standard errors.
+:::
+
+## The Cramér--Rao lower bound {#sec-cramer-rao}
+
+{{< include sds/_subfiles/estimator-properties/_exr-cov-estimator-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_lem-cov-estimator-score.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_thm-cramer-rao.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_def-efficient.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_exm-poisson-efficient.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/estimator-properties/_rem-cramer-rao-scope.qmd >}}
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 6.6, pp. 285--289] covers asymptotic distributions of maximum likelihood estimators.
+- @CaseBerg01 [Sec. 7.3.2, pp. 334--341] covers best unbiased estimators and the Cramér--Rao bound.
+- @rice2007mathematical [Sec. 8.5.2, pp. 274--278] covers large-sample theory for maximum likelihood estimators.
+- @rice2007mathematical [Sec. 8.7, pp. 298--304] covers efficiency and the Cramér--Rao lower bound.
+:::
+
+## References {.unnumbered}
+
+::: {#refs}
+:::

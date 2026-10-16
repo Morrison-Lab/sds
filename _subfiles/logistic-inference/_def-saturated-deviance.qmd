@@ -1,0 +1,11 @@
+::: {#def-saturated-deviance}
+
+#### Deviance relative to the saturated model
+
+The **deviance relative to the saturated model** of a fitted model is twice the amount by which its maximized log-likelihood $\llikf{\hvcoef}$ falls short of the maximized log-likelihood $\satllik$ of the [saturated model](#def-saturated-model):
+
+$$
+\satdeviance = 2 \paren{\satllik - \llikf{\hvcoef}}.
+$$ {#eq-saturated-deviance}
+
+:::

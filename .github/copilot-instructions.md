@@ -55,10 +55,9 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
 - **Use semantic macros, not hard-coded symbols.**
   Write notation through a macro that names its meaning,
   so a convention can change in one place.
-  Defaults come from the [`latex-macros`](https://github.com/d-morrison/macros) submodule;
-  repo-level conventions it does not cover yet live in
-  [`_subfiles/_macros-sds.qmd`](../_subfiles/_macros-sds.qmd),
-  defined with `\providecommand` so the macros repo's definitions win once it adds the same names.
+  All macros come from the [`latex-macros`](https://github.com/Morrison-Lab/macros) submodule.
+  When no macro covers a concept, add one to the macros repo first and bump the pin;
+  never define a local copy here.
 - **Regression coefficients**:
   `\coef{x}` ($\beta_x$), `\intcoef` ($\beta_0$), `\hcoef{x}` and `\hintcoef` (estimates),
   `\vcoef` and `\hvcoef` (vectors).
@@ -147,6 +146,16 @@ Put special cases in example divs right after it, from the most general to the m
 (the simple linear regression case, then a numerical example),
 each linking back to the definition.
 Put commentary (scope, orientation, relations to other quantities) in a remark div after the definition, never inside it.
+Define one term per `#def-` div (Ezra, 2026-10-12; psw's [Writing for teaching](https://morrison-lab.github.io/psw/chapters/teaching.html)).
+A second new bolded term gets its own `#def-` div with its own id, titled with the term,
+placed right after the first, or before it when the first uses it,
+and the later div links to the earlier one.
+Aliases of a term ("also called") stay in the same div, in bold and in the div title.
+Cite a source that uses an alias on the bold alias itself,
+as in `**training error** [@hastie2009esl, sec. 7.2]`;
+never write "the book uses that name",
+because the citation already says so (Ezra, 2026-10-15).
+A theorem, lemma, corollary or proposition states one result.
 Never nest one theorem-type div inside another.
 
 ## Attributions are reader-visible
@@ -171,18 +180,27 @@ The sister-repository credit may be left out of new work,
 but an existing one is not removed unless the maintainer asks.
 An HTML comment is not an attribution,
 because no reader of the website, slides or handout ever sees it.
-Follow PSW's
-[Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material):
-put the credit in a collapsed `.callout-note` titled "Source",
-which frames the credit and keeps it out of the way on the page.
-Place it at the end of the item's own div,
+PSW's
+[Adapting another course's material](https://morrison-lab.github.io/psw/chapters/citations-evidence.html#adapting-another-courses-material)
+says to put a credit in a div, never in running prose.
+Here, a credit that is only a citation goes inside the item's div,
+as a final line "Source: @key [locator]." (maintainer directive, 2026-10-15),
+because one reference adds no commentary to the statement.
+Substantial prose about the source or history of the content
+(a comparison of notation, an account of who proved what, a note that a proof is omitted)
+is commentary, so it goes in its own `rem-source-` remark div titled "Source: ...",
+placed right after the item's div and its proof,
+in the same subfile,
 so it travels with the fragment when a host site includes it:
 
 ```markdown
-::: {.callout-note collapse="true"}
-#### Source
+::: {#def-cv-estimate}
+#### Cross-validation estimate
 
-@james2021islr2e [sec. 5.1].
+Statement of the definition.
+
+Source: @james2021islr2e [sec. 5.1].
+
 :::
 ```
 

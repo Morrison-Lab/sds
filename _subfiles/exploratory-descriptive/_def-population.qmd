@@ -1,0 +1,6 @@
+::: {#def-population}
+#### Population
+
+A **population** is the entire collection of units
+(people, animals, objects, or events) that a study aims to learn about.
+:::

@@ -1,12 +1,21 @@
 :::{#def-cross-product-matrix}
-#### Cross-product matrix
+#### Cross-product matrix (sum-of-squares and cross-products matrix)
 
-The **cross-product matrix** $A$ of [term vectors](#def-term-vector)
-$\termvec{i}$, $i \in I$, of a training set indexed by $I$,
+The **cross-product matrix** $\sscp$ of [term vectors](#def-term-vector)
+$\termvec{\iobs}$, $\iobs \in \obsidx$, of a training set indexed by $\obsidx$,
 is the sum of their outer products:
 
 $$
-A \eqdef \sum_{i \in I} \soprod{\termvec{i}}.
+\sscp \eqdef \sum_{\iobs \in \obsidx} \soprod{\termvec{\iobs}}.
 $$ {#eq-cross-product-matrix}
+
+:::
+
+:::{#rem-source-cross-product-matrix}
+#### Source: Cross-product matrix (sum-of-squares and cross-products matrix)
+
+Also called a **sum-of-squares and cross-products matrix**
+[@sanchez2020matrix4sl, chap. "Matrix Cross-Products"]
+(see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
 
 :::

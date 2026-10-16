@@ -1,0 +1,23 @@
+::: {#thm-saturated-deviance}
+
+#### The deviance relative to the saturated model, from grouped counts
+
+For a fitted logistic regression with fitted event probabilities $\hat\prob_k$ at the $\npatterns$ covariate patterns,
+
+$$
+\satdeviance
+= 2 \sumkK \cb{\nevents_k \ln\paren{\frac{\nevents_k}{\nreps_k \hat\prob_k}}
++ \paren{\nreps_k - \nevents_k} \ln\paren{\frac{\nreps_k - \nevents_k}{\nreps_k \paren{1 - \hat\prob_k}}}},
+$$ {#eq-saturated-deviance-grouped}
+
+where a term with $\nevents_k = 0$ or $\nevents_k = \nreps_k$ contributes $0$ in its zero-count part.
+
+:::
+
+::: proof
+Grouping the outcomes by pattern, the fitted model's log-likelihood is $\llikf{\hvcoef} = \sumkK \cb{\nevents_k \ln \hat\prob_k + \paren{\nreps_k - \nevents_k} \ln\paren{1 - \hat\prob_k}}$.
+By @thm-saturated-mle, the saturated log-likelihood is the same sum with $\hat\prob_k$ replaced by $\nevents_k / \nreps_k$.
+Subtracting the fitted from the saturated log-likelihood, term by term, replaces each $\ln\paren{\nevents_k / \nreps_k} - \ln \hat\prob_k$ by $\ln\paren{\nevents_k / \paren{\nreps_k \hat\prob_k}}$, and likewise for the non-events.
+Multiplying by $2$, as @eq-saturated-deviance does, gives @eq-saturated-deviance-grouped.
+A count of $0$ times $\ln 0$ is taken as $0$, its limit.
+:::

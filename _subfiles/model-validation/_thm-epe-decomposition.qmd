@@ -2,31 +2,41 @@
 #### Bias, variance and noise
 
 Let $\mean$ be the [mean function](#def-mean-function) of the outcome given the covariate.
-Suppose that, given $X_0 = x$,
-the new outcome $Y_0$ has variance $\varpar$
-and is independent of the random training set $\trainset$,
-and that $\E{g\paren{x; \trainset}^2} < \infty$.
-Then the [expected squared prediction error at $x$](#def-epe)
-is the squared [bias](https://morrison-lab.github.io/pds/variance-covariance.html#def-prediction-bias)
-of the prediction $g\paren{x; \trainset}$ as a prediction of $\mean(x)$,
+Suppose that, given $\newpredvar = \predvar$,
+the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
+where $\noise$, the noise in the outcome at $\predvar$, has mean $0$ and variance $\varpar$,
+and that $\newoutvar$ is independent of the random training set $\trainset$,
+and that $\E{\fitproc\paren{\predvar; \trainset}^2} < \infty$.
+Then the [expected squared prediction error at $\predvar$](#def-epe)
+is the squared [bias](#def-prediction-bias)
+of the prediction $\fitproc\paren{\predvar; \trainset}$ as a prediction of $\mean(\predvar)$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 
 $$
-\epe{g}{n}{x} = \sqf{\E{g\paren{x; \trainset}} - \mean(x)}
-+ \Var{g\paren{x; \trainset}} + \varpar.
+\epe{\fitproc}{\nobs}{\predvar} = \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}
++ \Var{\fitproc\paren{\predvar; \trainset}} + \varpar.
 $$ {#eq-epe-decomposition}
 
 :::
 
 ::: proof
-This is the [expected squared prediction error theorem](https://morrison-lab.github.io/pds/variance-covariance.html#thm-prediction-error)
-of the pds notes,
-with $f(x_0) = \mean(x)$,
-prediction $\hat f(x_0) = g\paren{x; \trainset}$,
-and noise $\noise = Y_0 - \mean(x)$,
-applied conditionally on $X_0 = x$.
-Given $X_0 = x$, that noise has mean 0 by @eq-mean-function and variance $\varpar$,
-and it is independent of $g\paren{x; \trainset}$
-because $Y_0$ is independent of $\trainset$.
+
+Every expectation below is conditional on $\newpredvar = \predvar$, as in the exercises.
+By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the mean squared error of the prediction as an estimate of $\mean(\predvar)$.
+By @sol-epe-split-bias, that mean squared error is the squared bias plus the variance.
+Substituting @eq-epe-after-bias into @eq-epe-after-noise:
+
+$$
+\ba
+\epe{\fitproc}{\nobs}{\predvar}
+&= \varpar + \E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}
+&& \text{(separating the noise)} \\
+&= \varpar + \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}}
+&& \text{(separating the bias)} \\
+&= \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}} + \varpar
+&& \text{(reorder the terms)}
+\ea
+$$
+
 :::

@@ -1,0 +1,63 @@
+::: {#thm-holm-fwer}
+#### Holm's procedure controls the FWER
+
+If all p-values of true null hypotheses are valid (@def-valid-p-value),
+[Holm's procedure](#def-holm) at level $\siglevel$ satisfies
+
+$$\text{FWER} \le \siglevel,$$
+
+whatever the dependence between the p-values.
+:::
+
+::: proof
+
+If $m_0 = 0$ there is no true null hypothesis to reject, so $V = 0$ and $\text{FWER} = 0$.
+If $m_0 \ge 1$, the event $V \ge 1$ means Holm's procedure rejects a true null hypothesis,
+so by @lem-holm-threshold it is contained in the event $\min_{j \in \truenulls} p_j \le \siglevel / m_0$:
+
+$$
+\begin{aligned}
+\text{FWER}
+&= \Prf{V \ge 1}
+&& \text{(definition of the FWER)}\\
+&\le \Prf{\min_{j \in \truenulls} p_j \le \frac{\siglevel}{m_0}}
+&& \text{(the event $V \ge 1$ lies inside this event)}\\
+&= \Prf{\bigcup_{j \in \truenulls} \set{p_j \le \frac{\siglevel}{m_0}}}
+&& \text{(the minimum is at most a bound exactly when some term is)}\\
+&\le \sum_{j \in \truenulls} \Prf{p_j \le \frac{\siglevel}{m_0}}
+&& \text{(union bound)}\\
+&\le \sum_{j \in \truenulls} \frac{\siglevel}{m_0}
+&& \text{(each $p_j$ is valid, with $u = \siglevel / m_0$)}\\
+&= m_0 \cdot \frac{\siglevel}{m_0}
+&& \text{(a sum of $m_0$ equal terms)}\\
+&= \siglevel
+&& \text{($m_0 \cdot \frac{1}{m_0} = 1$)}
+\end{aligned}
+$$
+
+The union bound is @thm-union-bound and validity is @def-valid-p-value.
+As for the Bonferroni correction, no assumption about dependence is needed.
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-holm-fwer}
+#### FWER of Holm's procedure in the simulated family
+
+Repeating the simulation of @exm-rejection-counts 2000 times with Holm's procedure:
+
+```{r}
+#| label: fwer-holm
+#| code-fold: false
+set.seed(575)
+sim_counts$holm <- run_simulation(function(p) holm_reject(p, 0.05))
+summarize_counts(sim_counts$holm)
+```
+
+The estimated FWER, `r round(summarize_counts(sim_counts$holm)[["FWER"]], 3)`,
+is below $\siglevel = 0.05$, up to simulation error.
+Holm's power is `r round(summarize_counts(sim_counts$holm)[["power"]], 3)`,
+against `r round(summarize_counts(sim_counts$bonferroni)[["power"]], 3)` for the Bonferroni correction:
+Holm's procedure can only reject more, but here the extra rejections are rare.
+:::

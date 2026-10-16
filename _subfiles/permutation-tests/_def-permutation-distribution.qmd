@@ -1,0 +1,59 @@
+::: {#def-permutation-distribution}
+#### Permutation distribution
+
+Let $y = (y_1, \ldots, y_n)$ hold the observed values,
+with the first $n_1$ entries belonging to group 1 and the rest to group 2,
+and let $T(y)$ be a [test statistic](inference.qmd#def-test-statistic)
+computed from the data and the group assignment.
+Let $S_n$ be the set of all $n!$ permutations of $\set{1, \ldots, n}$.
+The **permutation distribution** of $T$ is the distribution of $T(y_\pi)$
+when $\pi$ is drawn uniformly from $S_n$ and $y$ is held fixed.
+It puts probability $1 / n!$ on each relabeling $y_\pi$, so for every $t$
+
+$$\Pr_\pi\paren{T(y_\pi) \ge t} \eqdef \frac{1}{n!} \sum_{\pi \in S_n} \indic{T(y_\pi) \ge t}.$$
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-permutation-distribution}
+#### The permutation distribution of six expression values
+
+Take gene 3 in the Khan data, and keep the first three samples from tumor class 2 and the first three from class 4.
+The test statistic is the absolute value of
+[Welch's t statistic](basic-statistical-methods.qmd#def-two-sample-t-test).
+Only $\binom{6}{3} =$ `r choose(6, 3)` relabelings differ in which values form group 1
+(the other $3! \times 3!$ permutations within each group give the same statistic),
+so all of them can be listed:
+
+```{r}
+#| label: permutation-distribution-toy
+#| code-fold: false
+toy <- rbind(
+  head(khan_pair[khan_pair$tumor_class == 2, ], 3),
+  head(khan_pair[khan_pair$tumor_class == 4, ], 3)
+)
+y_toy <- toy$gene_3
+abs_welch_t <- function(y, in_group1) {
+  x1 <- y[in_group1]
+  x2 <- y[!in_group1]
+  abs(mean(x1) - mean(x2)) / sqrt(var(x1) / length(x1) + var(x2) / length(x2))
+}
+group1_choices <- combn(6, 3)
+t_toy <- apply(
+  group1_choices, 2,
+  function(idx) abs_welch_t(y_toy, seq_along(y_toy) %in% idx)
+)
+t_observed_toy <- abs_welch_t(y_toy, seq_along(y_toy) %in% 1:3)
+data.frame(
+  group_1 = apply(group1_choices, 2, paste, collapse = " "),
+  statistic = t_toy
+) |>
+  dplyr::arrange(dplyr::desc(statistic)) |>
+  knitr::kable(digits = 3)
+```
+
+The statistics come in equal pairs,
+because swapping the two groups gives the same absolute value.
+The observed statistic is `r round(t_observed_toy, 3)`, the value of the relabeling `1 2 3`.
+:::

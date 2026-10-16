@@ -12,6 +12,26 @@ format:
 
 {{< include sds/_subfiles/shared-config.qmd >}}
 
+## Data sets, input matrices and outcome vectors {#sec-data-sets}
+
+{{< include sds/_subfiles/model-validation/_def-data-set.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-data-set-subsets.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-input-matrix.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-outcome-vector.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-input-matrix.qmd >}}
+
 ## Fitting and scoring prediction rules {#sec-prediction-rules}
 
 {{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}
@@ -23,6 +43,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-prediction-rule.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-generalization-error.qmd >}}
 
 {{< slidebreak >}}
 
@@ -58,10 +82,6 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-generalization-error.qmd >}}
-
-{{< slidebreak >}}
-
 {{< include sds/_subfiles/model-validation/_def-expected-generalization-error.qmd >}}
 
 {{< slidebreak >}}
@@ -86,7 +106,43 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-average-fit.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-prediction-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exr-epe-three-sources.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-epe-three-sources.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exr-epe-split-noise.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-epe-split-noise.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exr-epe-split-bias.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_sol-epe-split-bias.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_thm-epe-decomposition.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-irreducible-error.qmd >}}
 
 {{< slidebreak >}}
 
@@ -250,6 +306,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_lem-loocv-not-random.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-term-vector.qmd >}}
 
 {{< slidebreak >}}
@@ -259,6 +319,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-cross-product-matrix.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_rem-cross-product-matrix.qmd >}}
 
 {{< slidebreak >}}
 
@@ -331,6 +395,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_rem-cv-every-step.qmd >}}
+
+## Further reading
+
+{{< include sds/_subfiles/model-validation/_prose-further-reading.qmd >}}
 
 ## References {.unnumbered}
 

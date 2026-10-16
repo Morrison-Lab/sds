@@ -1,14 +1,14 @@
 :::{#def-fold-mse-indexed}
 #### Fold mean squared error of a named procedure
 
-The **fold mean squared error of procedure** $g$ for [fold](#def-folds) $\fold{j}$
-of a training set $\trainset$, indexed by $I$,
+The **fold mean squared error of procedure** $\fitproc$ for [fold](#def-folds) $\fold{\ifold}$
+of a training set $\trainset$, indexed by $\obsidx$,
 is the [fold mean squared error](#def-fold-mse)
-computed with the [fold-out rule](#def-fold-out-rule) that $g$ produces:
+computed with the [fold-out rule](#def-fold-out-rule) that $\fitproc$ produces:
 
 $$
-\foldmseof{j}{g}\paren{\trainset} \eqdef \frac{1}{\foldsize{j}} \sum_{i \in \fold{j}}
-\sqf{g\paren{x_i; \paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \fold{j}}} - y_i}.
+\foldmseof{\ifold}{\fitproc}\paren{\trainset} \eqdef \frac{1}{\foldsize{\ifold}} \sum_{\iobs \in \fold{\ifold}}
+\sqf{\fitproc\paren{\predvar_{\iobs}; \paren{(\predvar_{\iobs'}, \outvar_{\iobs'})}_{\iobs' \in \obsidx \setminus \fold{\ifold}}} - \outvar_{\iobs}}.
 $$ {#eq-fold-mse-indexed}
 
 :::

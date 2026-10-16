@@ -1,12 +1,12 @@
 :::{#def-einf}
-#### Expected information
+#### Expected information matrix (Fisher information matrix, information matrix)
 
 The **expected information matrix**,
 also called the **Fisher information matrix**
 or just the **information matrix**,
 is written $\einf$,
-and is the expected value of the
-[observed information matrix](#def-oinf),
+and is the expected value of the negative
+[Hessian](#def-hessian) of the log-likelihood,
 with the data $\vX$ treated as random:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_einf.qmd >}}

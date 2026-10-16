@@ -1,0 +1,7 @@
+::: {#rem-classification-binary-labels}
+#### Labels in binary classification
+
+In the binary case ($K = 2$),
+the two classes are often labeled "positive" and "negative",
+or "diseased" and "healthy".
+:::

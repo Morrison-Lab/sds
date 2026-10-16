@@ -1,18 +1,19 @@
 :::{#def-fold-assignment}
 #### Fold assignment
 
-Given [folds](#def-folds) $\fold{1}, \ldots, \fold{k}$,
-the **fold assignment** $\foldof{i}$ of observation $i$
+Given [folds](#def-folds) $\fold{1}, \ldots, \fold{\nfolds}$,
+the **fold assignment** $\foldof{\iobs}$ of observation $\iobs$
 is the index of the fold that contains it:
 
 $$
-i \in \fold{\foldof{i}}.
+\iobs \in \fold{\foldof{\iobs}}.
 $$ {#eq-fold-assignment}
 
-::: {.callout-note collapse="true"}
-#### Source
-
-The fold-assignment function $\foldof{i}$ follows @hastie2009elements [sec. 7.10.1].
 :::
+
+:::{#rem-source-fold-assignment}
+#### Source: Fold assignment
+
+The fold-assignment function $\foldof{\iobs}$ follows @hastie2009elements [sec. 7.10.1].
 
 :::

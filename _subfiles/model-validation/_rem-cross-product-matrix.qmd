@@ -1,0 +1,24 @@
+::: {#rem-cross-product-matrix}
+#### Cross-product matrix as a matrix product
+
+Let $\design$ be the matrix whose rows are the transposed [term vectors](#def-term-vector) $\tp{\termvec{\iobs}}$, $\iobs \in \obsidx$.
+The cross-product matrix then equals the matrix product
+
+$$
+\sscp = \tp{\design} \design.
+$$
+
+Its diagonal entries are sums of squares of one term over the training set.
+Its off-diagonal entries are sums of cross-products of two different terms.
+Statisticians therefore call $\sscp$ the sum-of-squares and cross-products (SSCP) matrix of the terms.
+When every column of $\design$ has mean zero, $\sscp / (\abs{\obsidx} - 1)$ is the sample covariance matrix of the terms.
+
+::: {.callout-note collapse="true"}
+#### Source
+
+I restated the SSCP reading and the covariance special case from Sanchez [-@sanchez2020matrix4sl, chap. "Matrix Cross-Products"] (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) in this page's notation.
+The book carries a non-commercial, share-alike license,
+so I paraphrased it and copied none of its text.
+:::
+
+:::

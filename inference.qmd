@@ -76,6 +76,18 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 
 {{< include sds/_subfiles/inference/_exm-p-value-wcgs.qmd >}}
 
+::: {.videos}
+5MinuteAI explains [hypothesis testing](https://www.youtube.com/watch?v=Plya_ZXkOvs) in five minutes,
+following the University of Washington's CSE 312 [@fiveminuteai_probstat].
+:::
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 8.1, pp. 361--368] covers tests about one mean.
+- @hoggtanis2015 [Sec. 8.6, pp. 403--409] covers power of a statistical test.
+- @CaseBerg01 [Sec. 8.3, pp. 382--401] covers methods of evaluating tests.
+- @rice2007mathematical [Sec. 9.2, pp. 331--336] covers the Neyman--Pearson paradigm.
+:::
+
 ## Reference distributions {#sec-reference-distributions}
 
 {{< include sds/_subfiles/basic-statistical-methods/_prose-reference-distributions.qmd >}}
@@ -129,6 +141,17 @@ wcgs <- rmb::wcgs |> haven::as_factor()
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/inference/_exm-margin-error.qmd >}}
+
+::: {.videos}
+5MinuteAI explains [confidence intervals](https://www.youtube.com/watch?v=XdaAhYUqWsg) in five minutes,
+following the University of Washington's CSE 312 [@fiveminuteai_probstat].
+:::
+
+::: {.reading}
+- @hoggtanis2015 [Sec. 7.1, pp. 307--313] covers confidence intervals for means.
+- @CaseBerg01 [Sec. 9.2, pp. 420--439] covers methods of finding interval estimators.
+- @rice2007mathematical [Sec. 9.3, pp. 337--338] covers duality of confidence intervals and hypothesis tests.
+:::
 
 ## Further reading on confidence intervals
 

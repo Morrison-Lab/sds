@@ -1,0 +1,55 @@
+::: {#thm-bonferroni-fwer}
+#### The Bonferroni correction controls the FWER
+
+If all p-values of true null hypotheses are valid (@def-valid-p-value),
+the [Bonferroni correction](#def-bonferroni) at level $\siglevel$ satisfies
+
+$$\text{FWER} \le \frac{m_0}{m} \siglevel \le \siglevel,$$
+
+whatever the dependence between the p-values.
+:::
+
+::: proof
+
+The first line below is @def-fwer, and the second is @lem-bonferroni-false-positive-prob.
+
+$$
+\begin{aligned}
+\text{FWER}
+&= \Prf{V \ge 1}
+&& \text{(definition of the FWER)}\\
+&\le \frac{m_0}{m} \siglevel
+&& \text{(bound from the exercise)}\\
+&\le \siglevel
+&& \text{($m_0 \le m$, so $m_0 / m \le 1$)}
+\end{aligned}
+$$
+
+The proof uses only the union bound and the validity of each p-value,
+so it needs no assumption about how the p-values depend on each other.
+
+:::
+
+{{< slidebreak >}}
+
+::: {#exm-bonferroni-fwer}
+#### FWER of the Bonferroni correction in the simulated family
+
+In the simulated family of @exm-rejection-counts, $m_0 / m = 0.9$,
+so @thm-bonferroni-fwer bounds the FWER by $0.9 \times 0.05 =$ `r 0.9 * 0.05`.
+Repeating the simulation 2000 times with the Bonferroni correction:
+
+```{r}
+#| label: fwer-bonferroni
+#| code-fold: false
+set.seed(574)
+sim_counts$bonferroni <- run_simulation(function(p) bonferroni_reject(p, 0.05))
+summarize_counts(sim_counts$bonferroni)
+```
+
+The estimated FWER, `r round(summarize_counts(sim_counts$bonferroni)[["FWER"]], 3)`,
+is below the bound, up to simulation error.
+The Bonferroni correction loses power in exchange:
+it finds `r round(100 * summarize_counts(sim_counts$bonferroni)[["power"]])`% of the 100 false null hypotheses,
+against `r round(100 * summarize_counts(sim_counts$unadjusted)[["power"]])`% for unadjusted testing.
+:::

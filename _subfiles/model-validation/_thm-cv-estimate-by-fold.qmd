@@ -5,10 +5,10 @@ The [cross-validation estimate](#def-cv-estimate) sums,
 fold by fold,
 the squared errors of each fold's observations
 under the rule fitted without that [fold](#def-folds),
-and divides the total by $n$:
+and divides the total by $\nobs$:
 
 $$
-\cvest{k} = \frac{1}{n} \sumto{j}{k} \sum_{i \in \fold{j}} \sqf{\fittedwo{j}{x_i} - y_i}.
+\cvest{\nfolds} = \frac{1}{\nobs} \sumto{\ifold}{\nfolds} \sum_{\iobs \in \fold{\ifold}} \sqf{\fittedwo{\ifold}{\predvar_{\iobs}} - \outvar_{\iobs}}.
 $$ {#eq-cv-estimate-by-fold}
 
 :::
