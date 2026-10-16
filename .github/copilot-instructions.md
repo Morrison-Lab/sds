@@ -170,18 +170,16 @@ When a source credits its own upstream,
 carry that credit along.
 
 Content taken from the maintainer's own repositories (rme, lds, pds, ...)
-is not credited to them
+or from their other co-authored works (a lab manual, their papers, their packages)
+is not credited to the maintainer or to those repositories and works
 (maintainer directives, 2026-10-05 and 2026-10-16).
-Content taken from the maintainer's other co-authored works
-(a lab manual, their papers, their packages)
-is not credited to the maintainer or to those works either,
-but a co-author other than the maintainer keeps their credit by name.
-The rule covers only that hop:
-whatever such a repository or work credits
-(a book, a paper, or any person other than the maintainer)
-is still credited.
-Such a credit is left out of new work,
+A credit to such a repository or work is left out of new work,
 and an existing one is removed.
+The rule covers only that hop:
+whatever such a repository or work itself credits
+(a book, a paper, or any person other than the maintainer)
+is still credited, by name for a person.
+The credit names the person or source, and does not cite the maintainer's work.
 
 A link to a sister site that sends the reader to further reading
 is a cross-reference, not an attribution, and stays.
