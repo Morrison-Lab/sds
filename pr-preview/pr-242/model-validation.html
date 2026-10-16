@@ -221,45 +221,39 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-tbl.callout {
+div.callout-reading.callout {
+  border-left-color: #00695C;
+}
+div.callout-reading.callout-style-default .callout-header {
+  background-color: rgba(0, 105, 92, 0.13);
+}
+div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f518' !important;
+  background-image: none;
+}
+div.callout-fig.callout {
   border-left-color: #757575;
 }
-div.callout-tbl.callout-style-default .callout-header {
+div.callout-fig.callout-style-default .callout-header {
   background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-lem.callout {
-  border-left-color: #1565C0;
+div.callout-exr.callout {
+  border-left-color: #FFA500;
 }
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
 }
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-proof.callout {
   border-left-color: #37474F;
@@ -271,14 +265,54 @@ div.callout-proof .callout-toggle::before {  background-image: url('data:image/s
 div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-fig.callout {
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-tbl.callout {
   border-left-color: #757575;
 }
-div.callout-fig.callout-style-default .callout-header {
+div.callout-tbl.callout-style-default .callout-header {
   background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
@@ -294,60 +328,6 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   font-style: normal;
   content: '\f144' !important;
   background-image: none;
-}
-div.callout-solution.callout {
-  border-left-color: #4E342E;
-}
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
-}
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-reading.callout {
-  border-left-color: #00695C;
-}
-div.callout-reading.callout-style-default .callout-header {
-  background-color: rgba(0, 105, 92, 0.13);
-}
-div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-remark.callout {
   border-left-color: #AD1457;
@@ -368,6 +348,26 @@ div.callout-def.callout-style-default .callout-header {
 div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -927,7 +927,7 @@ window.Quarto = {
 <!-- gha-preview-page-banner:start -->
 <div class="preview-page-changes-banner" style="background: #f8f9fa; border-left: 4px solid #0d6efd; padding: 10px 15px; margin: 15px 0; border-radius: 4px;">
     <p style="margin: 0;">
-        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~9% of content changed).
+        <strong>📝 Preview Changes:</strong> This page has been modified in this pull request (~5% of content changed).
         <br>
         <strong>🎨 Highlighting Legend:</strong> 
         <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 3px; border-radius: 2px;">Modified text (yellow)</mark> shows changed words/phrases, 
@@ -948,7 +948,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-16 02:40:41 (PDT)</p>
+      <p class="date">Last modified: 2026-10-16 02:56:53 (PDT)</p>
     </div>
   </div>
   
@@ -977,10 +977,10 @@ text-align: center;
 <div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-data-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Data set)</strong></span> A <strong>data set</strong> is a finite collection of <span class="math inline">\(n\)</span> labelled observations, that is, <span class="math inline">\(n\)</span> pairs <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\((\underset{\sim}{x}_i, y_i)\)</mark></span>, where <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{x}_i\)</mark></span> is an input vector and <span class="math inline">\(y_i\)</span> is the corresponding outcome:</p>
-<p><span id="eq-data-set"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="theorem-title"><strong>Definition 1 (Data set)</strong></span> A <strong>data set</strong> is a finite collection of <span class="math inline">\(n\)</span> labelled observations, that is, <span class="math inline">\(n\)</span> pairs <span class="math inline">\((\underset{\sim}{x}_i, y_i)\)</span>, where <span class="math inline">\(\underset{\sim}{x}_i\)</span> is an input vector and <span class="math inline">\(y_i\)</span> is the corresponding outcome:</p>
+<p><span id="eq-data-set"><span class="math display">\[
 \mathcal{D}\stackrel{\text{def}}{=}\mathopen{}\left\{(\underset{\sim}{x}_i, y_i) : i = 1, \ldots, n\right\}\mathclose{} .
-\tag{1}\]</mark></span></span></p>
+\tag{1}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -1016,14 +1016,14 @@ text-align: center;
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-input-matrix" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Input matrix)</strong></span> The <strong>input matrix</strong> <span class="math inline">\(\mathbf{X}\)</span> of a <a href="#def-data-set">data set</a> <span class="math inline">\(\mathcal{D}\)</span> stacks the <span class="math inline">\(n\)</span> inputs <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{x}_i\)</mark></span> as rows, with one column for each of the <span class="math inline">\(p\)</span> input variables:</p>
-<p><span id="eq-input-matrix"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="theorem-title"><strong>Definition 2 (Input matrix)</strong></span> The <strong>input matrix</strong> <span class="math inline">\(\mathbf{X}\)</span> of a <a href="#def-data-set">data set</a> <span class="math inline">\(\mathcal{D}\)</span> stacks the <span class="math inline">\(n\)</span> inputs <span class="math inline">\(\underset{\sim}{x}_i\)</span> as rows, with one column for each of the <span class="math inline">\(p\)</span> input variables:</p>
+<p><span id="eq-input-matrix"><span class="math display">\[
 \mathbf{X}= \begin{bmatrix}
   {\underset{\sim}{x}_1}^{\top} \\
   \vdots \\
   {\underset{\sim}{x}_{n}}^{\top}
 \end{bmatrix} .
-\tag{2}\]</mark></span></span></p>
+\tag{2}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -1041,10 +1041,10 @@ text-align: center;
 <div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-outcome-vector" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Outcome vector)</strong></span> The <strong>outcome vector</strong> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{y}\)</mark></span> of a <a href="#def-data-set">data set</a> <span class="math inline">\(\mathcal{D}\)</span> stacks its <span class="math inline">\(n\)</span> outcomes <span class="math inline">\(y_i\)</span>:</p>
-<p><span id="eq-outcome-vector"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="theorem-title"><strong>Definition 3 (Outcome vector)</strong></span> The <strong>outcome vector</strong> <span class="math inline">\(\underset{\sim}{y}\)</span> of a <a href="#def-data-set">data set</a> <span class="math inline">\(\mathcal{D}\)</span> stacks its <span class="math inline">\(n\)</span> outcomes <span class="math inline">\(y_i\)</span>:</p>
+<p><span id="eq-outcome-vector"><span class="math display">\[
 \underset{\sim}{y}= \begin{bmatrix} y_1 \\ \vdots \\ y_{n} \end{bmatrix} .
-\tag{3}\]</mark></span></span></p>
+\tag{3}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -1144,9 +1144,9 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div class="callout-body-container callout-body">
 <div id="def-training-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Training set)</strong></span> A <strong>training set</strong> is the data to which a <a href="#def-fitting-procedure">fitting procedure</a> is applied: <span class="math inline">\(n\)</span> observations, written as an ordered list indexed by a set <span class="math inline">\(I\)</span> of <span class="math inline">\(n\)</span> observation numbers:</p>
-<p><span id="eq-training-set"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span id="eq-training-set"><span class="math display">\[
 \mathcal{D}_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\underset{\sim}{x}_{i}, y_{i})\right)\mathclose{}_{i\in I}, \quad \mathopen{}\left|I\right|\mathclose{} = n.
-\tag{5}\]</mark></span></span></p>
+\tag{5}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -1203,7 +1203,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-11" class="callout-11-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-new-observation" class="theorem definition">
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Definition 7 (New observation)</strong></span> A <strong>new observation</strong> is a pair <span class="math inline">\((X_{*}, Y_{*})\)</span> of a covariate value and an outcome drawn from the same population as the observations of a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">statistically independent</a> of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. The subscript <span class="math inline">\(*\)</span> marks a quantity of the new observation, as in <span class="math inline">\(X_{*}\)</span> and <span class="math inline">\(Y_{*}\)</span>, and distinguishes it from the indexed observations <span class="math inline">\((\underset{\sim}{x}_{i}, y_{i})\)</span> of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</mark></p>
+<p><span class="theorem-title"><strong>Definition 7 (New observation)</strong></span> A <strong>new observation</strong> is a pair <span class="math inline">\((X_{*}, Y_{*})\)</span> of a covariate value and an outcome drawn from the same population as the observations of a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">statistically independent</a> of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. The subscript <span class="math inline">\(*\)</span> marks a quantity of the new observation, as in <span class="math inline">\(X_{*}\)</span> and <span class="math inline">\(Y_{*}\)</span>, and distinguishes it from the indexed observations <span class="math inline">\((\underset{\sim}{x}_{i}, y_{i})\)</span> of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1221,7 +1221,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-12" class="callout-12-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-new-observation" class="theorem example">
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Example 2 (A new observation for the first five cars)</strong></span> Take the first five cars of <code>mtcars</code> as the <a href="#def-training-set">training set</a>, with the gross horsepower <code>hp</code> and weight <code>wt</code> as the covariate values and the fuel economy <code>mpg</code> as the outcome, as in <a href="#exm-input-matrix" class="quarto-xref">Example&nbsp;1</a>. Treat the sixth car as a new observation: a car from the same population that was not used to form the training set.</mark></p>
+<p><span class="theorem-title"><strong>Example 2 (A new observation for the first five cars)</strong></span> Take the first five cars of <code>mtcars</code> as the <a href="#def-training-set">training set</a>, with the gross horsepower <code>hp</code> and weight <code>wt</code> as the covariate values and the fuel economy <code>mpg</code> as the outcome, as in <a href="#exm-input-matrix" class="quarto-xref">Example&nbsp;1</a>. Treat the sixth car as a new observation: a car from the same population that was not used to form the training set.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># the sixth car is not among the five training cars</span></span>
 <span><span class="va">new_car</span> <span class="op">&lt;-</span> <span class="va">mtcars</span> <span class="op">|&gt;</span></span>
@@ -1236,7 +1236,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 </div>
 </div>
 </div>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">Its covariate value is <span class="math inline">\(X_{*}= (105, 3.46)\)</span> and its outcome is <span class="math inline">\(Y_{*}= 18.1\)</span>.</mark></p>
+<p>Its covariate value is <span class="math inline">\(X_{*}= (105, 3.46)\)</span> and its outcome is <span class="math inline">\(Y_{*}= 18.1\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1294,7 +1294,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-15" class="callout-15-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-generalization-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">9</mark> (Generalization error)</strong></span> The <strong>generalization error</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is its expected <a href="#def-observation-loss"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">loss</mark></a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\ell_{*}\)</mark></span> on a <a href="#def-new-observation">new observation</a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\((X_{*}, Y_{*})\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> with <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> held fixed:</p>
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">9</mark> (Generalization error)</strong></span> The <strong>generalization error</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is its expected <a href="#def-observation-loss"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">loss</mark></a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\ell_{*}\)</mark></span> on a <a href="#def-new-observation">new observation</a> <span class="math inline">\((X_{*}, Y_{*})\)</span>, with <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> held fixed:</p>
 <p><span id="eq-generalization-error"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \operatorname{Err}_{\mathcal{D}_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\ell_{*} \mid \mathcal{D}_{\text{train}}\right]\mathclose{}.
 \tag{8}\]</mark></span></span></p>
@@ -1545,7 +1545,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-25" class="callout-25-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-overfitting-polynomial-cars" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">3</mark> (Overfitting in polynomial fits to cars)</strong></span> In <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, the terms beyond degree 2 fit the 20 training cars more closely but do not predict the 12 held-out cars better. The effect is small here: it is the beginning of overfitting, not a dramatic case.</p>
+<p><span class="theorem-title"><strong>Example 3 (Overfitting in polynomial fits to cars)</strong></span> In <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, the terms beyond degree 2 fit the 20 training cars more closely but do not predict the 12 held-out cars better. The effect is small here: it is the beginning of overfitting, not a dramatic case.</p>
 </div>
 </div>
 </div>
@@ -1757,7 +1757,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-35" class="callout-35-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-source-epe" class="proof remark">
-<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">11</mark></em> (Source: Expected prediction error at a covariate value). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#ref-hastie2009elements" role="doc-biblioref">2009, sec. 7.3</a>)</span>, who write this quantity as <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\operatorname{Err}(x_0)\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;"> for squared-error loss.</mark></p>
+<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">11</mark></em> (Source: Expected prediction error at a covariate value). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#ref-hastie2009elements" role="doc-biblioref">2009, sec. <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">7.3</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">)</mark></span> write this quantity as <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\operatorname{Err}(x_0)\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;"> for squared-error loss.</mark></p>
 </div>
 </div>
 </div>
@@ -1909,7 +1909,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-42" class="callout-42-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-average-fit" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">4</mark> (Computing the average fit)</strong></span> Suppose the predictions <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span> at <span class="math inline">\(x\)</span> take the values <span class="math inline">\(9\)</span>, <span class="math inline">\(11\)</span> and <span class="math inline">\(13\)</span> with equal probability. Then</p>
+<p><span class="theorem-title"><strong>Example 4 (Computing the average fit)</strong></span> Suppose the predictions <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span> at <span class="math inline">\(x\)</span> take the values <span class="math inline">\(9\)</span>, <span class="math inline">\(11\)</span> and <span class="math inline">\(13\)</span> with equal probability. Then</p>
 <p><span class="math display">\[
 \begin{aligned}
 \bar{h}\mathopen{}\left(x\right)\mathclose{} &amp;= \frac{9 + 11 + 13}{3} \\
@@ -1973,7 +1973,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <div id="callout-45" class="callout-45-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-prediction-bias" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">5</mark> (Computing the bias of a prediction)</strong></span> Suppose <span class="math inline">\(\mu(x) = 10\)</span>, and the predictions <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, over repeated training sets, average <span class="math inline">\(11\)</span>. Then</p>
+<p><span class="theorem-title"><strong>Example 5 (Computing the bias of a prediction)</strong></span> Suppose <span class="math inline">\(\mu(x) = 10\)</span>, and the predictions <span class="math inline">\(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, over repeated training sets, average <span class="math inline">\(11\)</span>. Then</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{} &amp;= 11 - 10 \\
@@ -2599,7 +2599,7 @@ rmse(), from _sol-overfitting.qmd.
 <div id="callout-68" class="callout-68-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-train-test-error-simulated" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">6</mark> (Training error and generalization error by degree)</strong></span> Real data never reveal <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>, but a simulation can, because it can draw as many new observations as we like. Here the population is known: <span class="math inline">\(X\sim \operatorname{Uniform}(0, 1)\)</span> and <span class="math inline">\(Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\)</span>, with <span class="math inline">\(\sigma= 0.3\)</span>. We draw one training set of <span class="math inline">\(n= 30\)</span> observations, fit a polynomial in <span class="math inline">\(x\)</span> of each degree from 1 to 10 by least squares, and score each fit on the training set and on <span class="math inline">\(10{,}000\)</span> new observations. By <a href="#thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a>, the second score has expectation <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> given the training set, and with <span class="math inline">\(10{,}000\)</span> observations it is a precise estimate of it.</p>
+<p><span class="theorem-title"><strong>Example 6 (Training error and generalization error by degree)</strong></span> Real data never reveal <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span>, but a simulation can, because it can draw as many new observations as we like. Here the population is known: <span class="math inline">\(X\sim \operatorname{Uniform}(0, 1)\)</span> and <span class="math inline">\(Y\mid X= x\sim \operatorname{N}\mathopen{}\left(\sin(2 \pi x), \sigma^2\right)\mathclose{}\)</span>, with <span class="math inline">\(\sigma= 0.3\)</span>. We draw one training set of <span class="math inline">\(n= 30\)</span> observations, fit a polynomial in <span class="math inline">\(x\)</span> of each degree from 1 to 10 by least squares, and score each fit on the training set and on <span class="math inline">\(10{,}000\)</span> new observations. By <a href="#thm-held-out-unbiased" class="quarto-xref">Theorem&nbsp;3</a>, the second score has expectation <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> given the training set, and with <span class="math inline">\(10{,}000\)</span> observations it is a precise estimate of it.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_sigma</span> <span class="op">&lt;-</span> <span class="fl">0.3</span></span>
 <span><span class="va">sim_truth</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">sin</a></span><span class="op">(</span><span class="fl">2</span> <span class="op">*</span> <span class="va">pi</span> <span class="op">*</span> <span class="va">x</span><span class="op">)</span></span>
@@ -2797,7 +2797,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div id="callout-72" class="callout-72-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-data-splits-sizes" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">7</mark> (Split sizes for 32 cars)</strong></span> In <a href="#exr-data-splits" class="quarto-xref">Exercise&nbsp;8</a>, a rule of 60% / 20% / 20% on <span class="math inline">\(n= 32\)</span> cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.</p>
+<p><span class="theorem-title"><strong>Example 7 (Split sizes for 32 cars)</strong></span> In <a href="#exr-data-splits" class="quarto-xref">Exercise&nbsp;8</a>, a rule of 60% / 20% / 20% on <span class="math inline">\(n= 32\)</span> cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.</p>
 </div>
 </div>
 </div>
@@ -2836,7 +2836,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div id="callout-74" class="callout-74-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-tuning-parameter" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">8</mark> (Polynomial degree)</strong></span> In <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, least squares computes the coefficients of each polynomial from the 20 training cars, but the degree <span class="math inline">\(d\)</span> is fixed before the fit. So the degree is a <a href="#def-tuning-parameter">tuning parameter</a> of least-squares polynomial fitting, and the four fits are <span class="math inline">\(g_{1}, g_{2}, g_{3}, g_{4}\)</span> with <span class="math inline">\(\lambda= d\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 8 (Polynomial degree)</strong></span> In <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, least squares computes the coefficients of each polynomial from the 20 training cars, but the degree <span class="math inline">\(d\)</span> is fixed before the fit. So the degree is a <a href="#def-tuning-parameter">tuning parameter</a> of least-squares polynomial fitting, and the four fits are <span class="math inline">\(g_{1}, g_{2}, g_{3}, g_{4}\)</span> with <span class="math inline">\(\lambda= d\)</span>.</p>
 </div>
 </div>
 </div>
@@ -3015,7 +3015,7 @@ are replaced by one plotting helper.
 <div id="callout-83" class="callout-83-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-train-validation-test-split" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">9</mark> (Numerical example)</strong></span> This example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">(</mark><a href="#exm-train-validation-test-split" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Example&nbsp;9</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">)</mark> uses R’s built-in <code>mtcars</code> dataset (<span class="math inline">\(n=32\)</span> cars) to predict fuel efficiency (<code>mpg</code>) from vehicle weight (<code>wt</code>). It uses one random split to compare linear, quadratic, cubic, and quartic models (<code>mpg ~ wt</code>, <code>mpg ~ wt + I(wt^2)</code>, <code>mpg ~ wt + I(wt^2) + I(wt^3)</code>, and <code>mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)</code>) on a validation set, then reports the chosen model’s test RMSE on untouched test data <span class="citation" data-cites="james2021islr2e">(<a href="#ref-james2021islr2e" role="doc-biblioref">James et al. 2021, 213</a>)</span>.</p>
+<p><span class="theorem-title"><strong>Example 9 (Numerical example)</strong></span> This example (<a href="#exm-train-validation-test-split" class="quarto-xref">Example&nbsp;9</a>) uses R’s built-in <code>mtcars</code> dataset (<span class="math inline">\(n=32\)</span> cars) to predict fuel efficiency (<code>mpg</code>) from vehicle weight (<code>wt</code>). It uses one random split to compare linear, quadratic, cubic, and quartic models (<code>mpg ~ wt</code>, <code>mpg ~ wt + I(wt^2)</code>, <code>mpg ~ wt + I(wt^2) + I(wt^3)</code>, and <code>mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)</code>) on a validation set, then reports the chosen model’s test RMSE on untouched test data <span class="citation" data-cites="james2021islr2e">(<a href="#ref-james2021islr2e" role="doc-biblioref">James et al. 2021, 213</a>)</span>.</p>
 <div class="callout callout-style-simple callout-tbl no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -3538,9 +3538,9 @@ i\in \mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}}.
 <div class="callout-body-container callout-body">
 <div id="def-fold-out-rule" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">33</mark> (Fold-out rule)</strong></span> For <a href="#def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>, the <strong>fold-out rule</strong> <span class="math inline">\(\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\)</span> is the <a href="#def-prediction-rule">prediction rule</a> that a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from the observations outside that fold:</p>
-<p><span id="eq-fold-out-rule"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-fold-out-rule"><span class="math display">\[
 \hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I\setminus \mathcal{F}_{j}}\right)\mathclose{}.
-\tag{34}\]</mark></span></span></p>
+\tag{34}\]</span></span></mark></p>
 </div>
 </div>
 </div>
@@ -3852,7 +3852,7 @@ and prediction_mse(), from _sol-overfitting.qmd.
 <div id="callout-105" class="callout-105-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-kfold-simulated" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">10</mark> (Cross-validation versus the generalization error)</strong></span> This example applies <a href="#def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a> with <span class="math inline">\(k= 5\)</span> to the simulated training set of <a href="#exm-train-test-error-simulated" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Example&nbsp;6</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> using only those 30 observations. The function <code>assign_folds()</code> assigns each observation to a fold at random, <code>cv_squared_errors()</code> fits the model once per fold without that fold and returns each observation’s squared prediction error, and <code>cv_mse()</code> averages them, which is <a href="#eq-cv-estimate" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Equation&nbsp;35</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></p>
+<p><span class="theorem-title"><strong>Example 10 (Cross-validation versus the generalization error)</strong></span> This example applies <a href="#def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a> with <span class="math inline">\(k= 5\)</span> to the simulated training set of <a href="#exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;6</a>, using only those 30 observations. The function <code>assign_folds()</code> assigns each observation to a fold at random, <code>cv_squared_errors()</code> fits the model once per fold without that fold and returns each observation’s squared prediction error, and <code>cv_mse()</code> averages them, which is <a href="#eq-cv-estimate" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Equation&nbsp;35</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">assign_folds</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">n</span>, <span class="va">k</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep_len</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_len</a></span><span class="op">(</span><span class="va">k</span><span class="op">)</span>, <span class="va">n</span><span class="op">)</span><span class="op">)</span></span>
@@ -3881,7 +3881,7 @@ and prediction_mse(), from _sol-overfitting.qmd.
 <span><span class="co">#&gt; 1 2 3 4 5 </span></span>
 <span><span class="co">#&gt; 6 6 6 6 6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training and generalization RMSE of <a href="#exm-train-test-error-simulated" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Example&nbsp;6</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></p>
+<p>The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training and generalization RMSE of <a href="#exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;6</a>.</p>
 <div class="cell">
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_errors_cv</span> <span class="op">&lt;-</span> <span class="va">sim_errors</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
@@ -4038,7 +4038,7 @@ assign_folds() and cv_mse(), from _exm-kfold-simulated.qmd.
 <div id="callout-106" class="callout-106-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-kfold-mtcars" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">11</mark> (Four-fold cross-validation of the <code>mtcars</code> polynomials)</strong></span> This example applies the <span class="math inline">\(k= 4\)</span> folds of <a href="#exr-kfold" class="quarto-xref">Exercise&nbsp;9</a> to the four polynomial models of <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, now using all <span class="math inline">\(n= 32\)</span> cars and the <code>cv_mse()</code> function of <a href="#exm-kfold-simulated" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Example&nbsp;10</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark> The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.</p>
+<p><span class="theorem-title"><strong>Example 11 (Four-fold cross-validation of the <code>mtcars</code> polynomials)</strong></span> This example applies the <span class="math inline">\(k= 4\)</span> folds of <a href="#exr-kfold" class="quarto-xref">Exercise&nbsp;9</a> to the four polynomial models of <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, now using all <span class="math inline">\(n= 32\)</span> cars and the <code>cv_mse()</code> function of <a href="#exm-kfold-simulated" class="quarto-xref">Example&nbsp;10</a>. The fold assignment is random, so the estimate is too; to show how much, we repeat the whole procedure with 5 different random fold assignments.</p>
 <div class="callout callout-style-simple callout-tbl no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -4199,7 +4199,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 <li>
 <span class="math inline">\(32 / 32 = 1\)</span> car per fold.</li>
 <li>One model per fold, so <span class="math inline">\(32\)</span> models, each fitted to the <span class="math inline">\(32 - 1 = 31\)</span> other cars.</li>
-<li>No. With one car per fold, every assignment of cars to folds produces the same 32 fits, only numbered differently, and <a href="#eq-cv-estimate" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Equation&nbsp;35</mark></a> does not depend on the numbering. Unlike <a href="#exm-kfold-mtcars" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Example&nbsp;11</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> the estimate is not random.</li>
+<li>No. With one car per fold, every assignment of cars to folds produces the same 32 fits, only numbered differently, and <a href="#eq-cv-estimate" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Equation&nbsp;35</mark></a> does not depend on the numbering. Unlike <a href="#exm-kfold-mtcars" class="quarto-xref">Example&nbsp;11</a>, the estimate is not random.</li>
 </ol>
 </div>
 </div>
@@ -4291,7 +4291,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 <div id="callout-112" class="callout-112-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-term-vector" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">38</mark> (Term vector)</strong></span> Consider a model whose mean is a linear combination of <span class="math inline">\(p^{*}\)</span> terms <span class="math inline">\(t_{1}(x), \ldots, t_{p^{*}}(x)\)</span> of the covariate value, such as <span class="math inline">\(1\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(x^2\)</span>. The <strong>term vector</strong> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{t}_{i}\)</mark></span> of observation <span class="math inline">\(i\)</span> is the column of its terms:</p>
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">38</mark> (Term vector)</strong></span> Consider a model whose mean is a linear combination of <span class="math inline">\(p^{*}\)</span> terms <span class="math inline">\(t_{1}(x), \ldots, t_{p^{*}}(x)\)</span> of the covariate value, such as <span class="math inline">\(1\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(x^2\)</span>. The <strong>term vector</strong> <span class="math inline">\(\underset{\sim}{t}_{i}\)</span> of observation <span class="math inline">\(i\)</span> is the column of its terms:</p>
 <p><span id="eq-term-vector"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 \underset{\sim}{t}_{i} \stackrel{\text{def}}{=}{\mathopen{}\left(t_{1}(x_{i}), \ldots, t_{p^{*}}(x_{i})\right)\mathclose{}}^{\top}.
 \tag{39}\]</mark></span></span></p>
@@ -4312,7 +4312,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 <div id="callout-113" class="callout-113-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-term-vector" class="proof remark">
-<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">28</mark></em> (The term vector of simple linear regression). </span>In simple linear regression the terms are <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span>, so the <a href="#def-term-vector">term vector</a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{t}_{i}\)</mark></span> is the <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{x}_i\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></p>
+<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">28</mark></em> (The term vector of simple linear regression). </span>In simple linear regression the terms are <span class="math inline">\(1\)</span> and <span class="math inline">\(x\)</span>, so the <a href="#def-term-vector">term vector</a> <span class="math inline">\(\underset{\sim}{t}_{i}\)</span> is the <a href="./correlation-regression.html#def-slr-covariate-vector">covariate vector</a> <span class="math inline">\(\underset{\sim}{x}_i\)</span>.</p>
 </div>
 </div>
 </div>
@@ -4330,7 +4330,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 
 <div id="callout-114" class="callout-114-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-cross-product-matrix" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">39</mark> (Cross-product matrix (sum-of-squares and cross-products matrix))</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#def-term-vector">term vectors</a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{t}_{i}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">39</mark> (Cross-product matrix (sum-of-squares and cross-products matrix))</strong></span> The <strong>cross-product matrix</strong> <span class="math inline">\(A\)</span> of <a href="#def-term-vector">term vectors</a> <span class="math inline">\(\underset{\sim}{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, of a training set indexed by <span class="math inline">\(I\)</span>, is the sum of their outer products:</p>
 <p><span id="eq-cross-product-matrix"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 A\stackrel{\text{def}}{=}\sum_{i\in I} \underset{\sim}{t}_{i} {\underset{\sim}{t}_{i}}^{\top}.
 \tag{40}\]</mark></span></span></p>
@@ -4369,7 +4369,7 @@ A\stackrel{\text{def}}{=}\sum_{i\in I} \underset{\sim}{t}_{i} {\underset{\sim}{t
 <div id="callout-117" class="callout-117-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-cross-product-matrix" class="proof remark">
-<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">30</mark></em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(D\)</span> be the matrix whose rows are the transposed <a href="#def-term-vector">term vectors</a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({\underset{\sim}{t}_{i}}^{\top}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> <span class="math inline">\(i\in I\)</span>. The cross-product matrix then equals the matrix product</p>
+<p><span class="proof-title"><em>Remark <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">30</mark></em> (Cross-product matrix as a matrix product). </span>Let <span class="math inline">\(D\)</span> be the matrix whose rows are the transposed <a href="#def-term-vector">term vectors</a> <span class="math inline">\({\underset{\sim}{t}_{i}}^{\top}\)</span>, <span class="math inline">\(i\in I\)</span>. The cross-product matrix then equals the matrix product</p>
 <p><span class="math display">\[
 A= {D}^{\top} D.
 \]</span></p>
@@ -4407,10 +4407,10 @@ A= {D}^{\top} D.
 <div id="callout-118" class="callout-118-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-leverage" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">40</mark> (Leverage)</strong></span> Consider a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a>, with <a href="#def-term-vector">term vectors</a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{t}_{i}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> <span class="math inline">\(i\in I\)</span>, and an invertible <a href="#def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span>. The <strong>leverage</strong> of observation <span class="math inline">\(i\)</span> is</p>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-leverage"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definition <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">40</mark> (Leverage)</strong></span> Consider a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a>, with <a href="#def-term-vector">term vectors</a> <span class="math inline">\(\underset{\sim}{t}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, and an invertible <a href="#def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span>. The <strong>leverage</strong> of observation <span class="math inline">\(i\)</span> is</p>
+<p><span id="eq-leverage"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
 h_{i} \stackrel{\text{def}}{=}{\underset{\sim}{t}_{i}}^{\top} A^{-1} \underset{\sim}{t}_{i}.
-\tag{41}\]</span></span></mark></p>
+\tag{41}\]</mark></span></span></p>
 </div>
 </div>
 </div>
@@ -4467,7 +4467,7 @@ h_{i} \stackrel{\text{def}}{=}{\underset{\sim}{t}_{i}}^{\top} A^{-1} \underset{\
 <div id="callout-121" class="callout-121-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Not derived here; see the sources named under the theorem. The derivation needs a formula for how the inverse of the <a href="#def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span> changes when one observation’s outer product <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\underset{\sim}{t}_{i} {\underset{\sim}{t}_{i}}^{\top}\)</mark></span> is removed from it (the Sherman–Morrison formula), which this page does not develop.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>Not derived here; see the sources named under the theorem. The derivation needs a formula for how the inverse of the <a href="#def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span> changes when one observation’s outer product <span class="math inline">\(\underset{\sim}{t}_{i} {\underset{\sim}{t}_{i}}^{\top}\)</span> is removed from it (the Sherman–Morrison formula), which this page does not develop.</p>
 </div>
 </div>
 </div>
@@ -4509,7 +4509,7 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <div id="callout-123" class="callout-123-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-loocv-shortcut" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">12</mark> (Leave-one-out cross-validation of the <code>mtcars</code> polynomials)</strong></span> This example computes <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(32)}\)</span> for the four <code>mtcars</code> polynomials of <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> in two ways: by fitting each model 32 times, as in <a href="#eq-loocv" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Equation&nbsp;38</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> and by the single-fit formula of <a href="#thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a>, with the leverages from <code><a href="https://rdrr.io/r/stats/influence.measures.html">hatvalues()</a></code>.</p>
+<p><span class="theorem-title"><strong>Example 12 (Leave-one-out cross-validation of the <code>mtcars</code> polynomials)</strong></span> This example computes <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(32)}\)</span> for the four <code>mtcars</code> polynomials of <a href="#exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> in two ways: by fitting each model 32 times, as in <a href="#eq-loocv" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Equation&nbsp;38</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> and by the single-fit formula of <a href="#thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a>, with the leverages from <code><a href="https://rdrr.io/r/stats/influence.measures.html">hatvalues()</a></code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">loocv_by_formula</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">formula</span>, <span class="va">data</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">formula</span>, data <span class="op">=</span> <span class="va">data</span><span class="op">)</span></span>
@@ -4545,10 +4545,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span>  <span class="va">mtcars_loocv</span><span class="op">$</span><span class="va">degree</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.min</a></span><span class="op">(</span><span class="va">mtcars_loocv</span><span class="op">$</span><span class="va">formula</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>max_difference <span class="op">=</span> <span class="va">loocv_max_diff</span>, best_degree <span class="op">=</span> <span class="va">mtcars_best_loocv</span><span class="op">)</span></span>
 <span><span class="co">#&gt; max_difference    best_degree </span></span>
-<span><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">7.1e-15,</mark> which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </div>
 </div>
@@ -4850,7 +4850,7 @@ from _exm-train-test-error-simulated.qmd.
 <div id="callout-138" class="callout-138-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-one-se-rule" class="theorem example">
-<p><span class="theorem-title"><strong>Example <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">13</mark> (The one-standard-error rule for the simulated polynomials)</strong></span> This example applies 10-fold cross-validation to the simulated training set of <a href="#exm-train-test-error-simulated" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Example&nbsp;6</mark></a><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> records the mean squared error in each fold, and applies <a href="#def-one-se-rule" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;47</mark></a> to the ten degrees.</p>
+<p><span class="theorem-title"><strong>Example 13 (The one-standard-error rule for the simulated polynomials)</strong></span> This example applies 10-fold cross-validation to the simulated training set of <a href="#exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;6</a>, records the mean squared error in each fold, and applies <a href="#def-one-se-rule" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Definition&nbsp;47</mark></a> to the ten degrees.</p>
 <div class="cell">
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">sim_folds_ten</span> <span class="op">&lt;-</span> <span class="fu">assign_folds</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">sim_train</span><span class="op">)</span>, k <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
@@ -4927,7 +4927,7 @@ Figure&nbsp;7: 10-fold cross-validation estimates, with bars of one <a href="#de
 </div>
 </div>
 </div>
-<p>The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization RMSE of <a href="#exm-train-test-error-simulated" class="quarto-xref"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">Example&nbsp;6</mark></a> for each: 0.335 for degree 8 and 0.315 for degree 3.</p>
+<p>The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization RMSE of <a href="#exm-train-test-error-simulated" class="quarto-xref">Example&nbsp;6</a> for each: 0.335 for degree 8 and 0.315 for degree 3.</p>
 </div>
 </div>
 </div>

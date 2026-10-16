@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 02:40:41 (PDT)
+Last modified: 2026-10-16 02:56:53 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -297,7 +297,7 @@ Last modified: 2026-10-16 02:40:41 (PDT)
 
 > **NOTE:**
 >
-> *Remark 11* (Source: Expected prediction error at a covariate value). Hastie et al. ([2009, sec. 7.3](#ref-hastie2009elements)), who write this quantity as \\\operatorname{Err}(x_0)\\ for squared-error loss.
+> *Remark 11* (Source: Expected prediction error at a covariate value). Hastie et al. ([2009, sec. 7.3](#ref-hastie2009elements)) write this quantity as \\\operatorname{Err}(x_0)\\ for squared-error loss.
 
 > **NOTE:**
 >
@@ -1462,10 +1462,10 @@ Last modified: 2026-10-16 02:40:41 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
