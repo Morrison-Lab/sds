@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 02:24:20 (PDT)
+Last modified: 2026-10-16 02:40:41 (PDT)
 
 ## 1 Introduction
 
@@ -12,11 +12,11 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 1 (Logistic regression)** A **logistic regression** model for binary outcomes \\y_1, \dots, y_n \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with predictor vectors \\\tilde{x}\_1, \dots, \tilde{x}\_n\\ says that the outcomes are independent and that
+> **Definition 1 (Logistic regression)** A **logistic regression** model for binary outcomes \\y_1, \dots, y_n \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with predictor vectors \\\underset{\sim}{x}\_1, \dots, \underset{\sim}{x}\_n\\ says that the outcomes are independent and that
 >
-> \\ \Pr\mathopen{}\left(Y_i = 1 \mid \tilde{x}\_i\right)\mathclose{} = \pi_i = \sigma\mathopen{}\left(\tilde{\beta} \cdot \tilde{x}\_i\right)\mathclose{}, \qquad \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}}, \tag{1}\\
+> \\ \Pr\mathopen{}\left(Y_i = 1 \mid \underset{\sim}{x}\_i\right)\mathclose{} = \pi_i = \sigma\mathopen{}\left(\underset{\sim}{\beta} \cdot \underset{\sim}{x}\_i\right)\mathclose{}, \qquad \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}}, \tag{1}\\
 >
-> where \\\tilde{x}\_i = {\mathopen{}\left(1, x\_{i1}, \dots, x\_{ip}\right)\mathclose{}}^{\top}\\ and \\\tilde{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{1}, \dots, \beta\_{p}\right)\mathclose{}}^{\top}\\. The leading \\1\\ in \\\tilde{x}\_i\\ makes \\\beta\_{0}\\ the intercept, and \\\beta\_{j}\\ for \\j \ge 1\\ is the slope for the \\j\\th predictor.
+> where \\\underset{\sim}{x}\_i = {\mathopen{}\left(1, x\_{i1}, \dots, x\_{ip}\right)\mathclose{}}^{\top}\\ and \\\underset{\sim}{\beta}= {\mathopen{}\left(\beta\_{0}, \beta\_{1}, \dots, \beta\_{p}\right)\mathclose{}}^{\top}\\. The leading \\1\\ in \\\underset{\sim}{x}\_i\\ makes \\\beta\_{0}\\ the intercept, and \\\beta\_{j}\\ for \\j \ge 1\\ is the slope for the \\j\\th predictor.
 
 > **NOTE:**
 >
@@ -42,9 +42,9 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 2 (Deviance)** The **deviance** of a fitted logistic regression with labels \\y_i \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ is minus twice its maximized log-likelihood:
 >
-> \\ D\stackrel{\text{def}}{=}-2 \\ \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i \ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\\\mathclose{}, \tag{2}\\
+> \\ D\stackrel{\text{def}}{=}-2 \\ \ell\mathopen{}\left(\hat{\underset{\sim}{\beta}}\right)\mathclose{} = -2 \sum\_{i=1}^n\mathopen{}\left\\y_i \ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\\\mathclose{}, \tag{2}\\
 >
-> where \\\hat\pi_i = \sigma\mathopen{}\left(\hat{\tilde{\beta}} \cdot \tilde{x}\_i\right)\mathclose{}\\ is the fitted probability.
+> where \\\hat\pi_i = \sigma\mathopen{}\left(\hat{\underset{\sim}{\beta}} \cdot \underset{\sim}{x}\_i\right)\mathclose{}\\ is the fitted probability.
 
 > **NOTE:**
 >
@@ -108,7 +108,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. In the notation of the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat), the unrestricted MLE \\\hat\theta\_{\text{ML}}\\ is the fitted coefficient vector \\\hat{\tilde{\beta}}\\, and \\\hat{\theta}\_0\\ is the fit of the intercept-only model that \\H_0\\ imposes. Then \\\ell\mathopen{}\left(\hat\theta\_{\text{ML}}\right)\mathclose{} = -D/ 2\\ and \\\ell\mathopen{}\left(\hat{\theta}\_0\right)\mathclose{} = -D_0/ 2\\. Substituting both into the definition gives \\\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0- D\\.
+> *Proof*. In the notation of the [likelihood ratio statistic](intro-MLEs.llms.md#def-lrt-stat), the unrestricted MLE \\\hat\theta\_{\text{ML}}\\ is the fitted coefficient vector \\\hat{\underset{\sim}{\beta}}\\, and \\\hat{\theta}\_0\\ is the fit of the intercept-only model that \\H_0\\ imposes. Then \\\ell\mathopen{}\left(\hat\theta\_{\text{ML}}\right)\mathclose{} = -D/ 2\\ and \\\ell\mathopen{}\left(\hat{\theta}\_0\right)\mathclose{} = -D_0/ 2\\. Substituting both into the definition gives \\\Lambda= 2 \mathopen{}\left(-D/2 + D_0/2\right)\mathclose{} = D_0- D\\.
 
 > **NOTE:**
 >
@@ -148,11 +148,11 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 4 (Covariate pattern)** A **covariate pattern** is a distinct value of the predictor vector among the observations \\\tilde{x}\_1, \dots, \tilde{x}\_n\\. The \\K\\ distinct values are written \\\tilde{x}^{(1)}, \dots, \tilde{x}^{(K)}\\, so \\K\le n\\.
+> **Definition 4 (Covariate pattern)** A **covariate pattern** is a distinct value of the predictor vector among the observations \\\underset{\sim}{x}\_1, \dots, \underset{\sim}{x}\_n\\. The \\K\\ distinct values are written \\\underset{\sim}{x}^{(1)}, \dots, \underset{\sim}{x}^{(K)}\\, so \\K\le n\\.
 
 > **NOTE:**
 >
-> **Definition 5 (Replicates)** The **replicates** of the [covariate pattern](#def-covariate-pattern) \\\tilde{x}^{(k)}\\ are the observations \\i\\ with \\\tilde{x}\_i = \tilde{x}^{(k)}\\. Their number is written \\m_k\\, so \\\sum\_{k=1}^{K}m_k = n\\.
+> **Definition 5 (Replicates)** The **replicates** of the [covariate pattern](#def-covariate-pattern) \\\underset{\sim}{x}^{(k)}\\ are the observations \\i\\ with \\\underset{\sim}{x}\_i = \underset{\sim}{x}^{(k)}\\. Their number is written \\m_k\\, so \\\sum\_{k=1}^{K}m_k = n\\.
 
 > **NOTE:**
 >
@@ -160,9 +160,9 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 6 (Events at a covariate pattern)** The number of **events** at the [covariate pattern](#def-covariate-pattern) \\\tilde{x}^{(k)}\\ is the sum of the binary outcomes over its [replicates](#def-replicates):
+> **Definition 6 (Events at a covariate pattern)** The number of **events** at the [covariate pattern](#def-covariate-pattern) \\\underset{\sim}{x}^{(k)}\\ is the sum of the binary outcomes over its [replicates](#def-replicates):
 >
-> \\ s_k = \sum\_{i:\\ \tilde{x}\_i = \tilde{x}^{(k)}} y_i, \\
+> \\ s_k = \sum\_{i:\\ \underset{\sim}{x}\_i = \underset{\sim}{x}^{(k)}} y_i, \\
 >
 > so \\0 \le s_k \le m_k\\.
 
@@ -190,7 +190,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > **Definition 7 (Saturated model (full model, maximal model))** The **saturated model** (also called the **full model** ([Dobson and Barnett 2018, sec. 5.5](#ref-dobson4e)) or **maximal model** ([Dobson and Barnett 2018, sec. 5.5](#ref-dobson4e))) for binary outcomes gives each pattern its own free event probability:
 >
-> \\ \Pr\mathopen{}\left(Y_i = 1 \mid \tilde{x}\_i = \tilde{x}^{(k)}\right)\mathclose{} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
+> \\ \Pr\mathopen{}\left(Y_i = 1 \mid \underset{\sim}{x}\_i = \underset{\sim}{x}^{(k)}\right)\mathclose{} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
 >
 > with the outcomes independent given the predictors.
 
@@ -210,9 +210,9 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 8 (Deviance relative to the saturated model)** The **deviance relative to the saturated model** of a fitted model is twice the amount by which its maximized log-likelihood \\\ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{}\\ falls short of the maximized log-likelihood \\\ell\_{\mathrm{sat}}\\ of the [saturated model](#def-saturated-model):
+> **Definition 8 (Deviance relative to the saturated model)** The **deviance relative to the saturated model** of a fitted model is twice the amount by which its maximized log-likelihood \\\ell\mathopen{}\left(\hat{\underset{\sim}{\beta}}\right)\mathclose{}\\ falls short of the maximized log-likelihood \\\ell\_{\mathrm{sat}}\\ of the [saturated model](#def-saturated-model):
 >
-> \\ D\_{\mathrm{sat}}= 2 \mathopen{}\left(\ell\_{\mathrm{sat}}- \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{}\right)\mathclose{}. \tag{5}\\
+> \\ D\_{\mathrm{sat}}= 2 \mathopen{}\left(\ell\_{\mathrm{sat}}- \ell\mathopen{}\left(\hat{\underset{\sim}{\beta}}\right)\mathclose{}\right)\mathclose{}. \tag{5}\\
 
 > **NOTE:**
 >
@@ -224,7 +224,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. Grouping the outcomes by pattern, the fitted model’s log-likelihood is \\\ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{} = \sum\_{k=1}^{K}\mathopen{}\left\\s_k \ln \hat\pi_k + \mathopen{}\left(m_k - s_k\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}\right\\\mathclose{}\\. By [Theorem 2](#thm-saturated-mle), the saturated log-likelihood is the same sum with \\\hat\pi_k\\ replaced by \\s_k / m_k\\. Subtracting the fitted from the saturated log-likelihood, term by term, replaces each \\\ln\mathopen{}\left(s_k / m_k\right)\mathclose{} - \ln \hat\pi_k\\ by \\\ln\mathopen{}\left(s_k / \mathopen{}\left(m_k \hat\pi_k\right)\mathclose{}\right)\mathclose{}\\, and likewise for the non-events. Multiplying by \\2\\, as [Equation 5](#eq-saturated-deviance) does, gives [Equation 6](#eq-saturated-deviance-grouped). A count of \\0\\ times \\\ln 0\\ is taken as \\0\\, its limit.
+> *Proof*. Grouping the outcomes by pattern, the fitted model’s log-likelihood is \\\ell\mathopen{}\left(\hat{\underset{\sim}{\beta}}\right)\mathclose{} = \sum\_{k=1}^{K}\mathopen{}\left\\s_k \ln \hat\pi_k + \mathopen{}\left(m_k - s_k\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_k\right)\mathclose{}\right\\\mathclose{}\\. By [Theorem 2](#thm-saturated-mle), the saturated log-likelihood is the same sum with \\\hat\pi_k\\ replaced by \\s_k / m_k\\. Subtracting the fitted from the saturated log-likelihood, term by term, replaces each \\\ln\mathopen{}\left(s_k / m_k\right)\mathclose{} - \ln \hat\pi_k\\ by \\\ln\mathopen{}\left(s_k / \mathopen{}\left(m_k \hat\pi_k\right)\mathclose{}\right)\mathclose{}\\, and likewise for the non-events. Multiplying by \\2\\, as [Equation 5](#eq-saturated-deviance) does, gives [Equation 6](#eq-saturated-deviance-grouped). A count of \\0\\ times \\\ln 0\\ is taken as \\0\\, its limit.
 
 > **NOTE:**
 >
@@ -238,7 +238,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. [Definition 2](#def-deviance) gives \\D= -2 \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{}\\. Distributing the \\2\\ in [Equation 5](#eq-saturated-deviance) gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}- 2 \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{}\\. Substituting \\D= -2 \ell\mathopen{}\left(\hat{\tilde{\beta}}\right)\mathclose{}\\ into this expression gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}+ D\\. Subtracting \\2 \ell\_{\mathrm{sat}}\\ from both sides gives the claim.
+> *Proof*. [Definition 2](#def-deviance) gives \\D= -2 \ell\mathopen{}\left(\hat{\underset{\sim}{\beta}}\right)\mathclose{}\\. Distributing the \\2\\ in [Equation 5](#eq-saturated-deviance) gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}- 2 \ell\mathopen{}\left(\hat{\underset{\sim}{\beta}}\right)\mathclose{}\\. Substituting \\D= -2 \ell\mathopen{}\left(\hat{\underset{\sim}{\beta}}\right)\mathclose{}\\ into this expression gives \\D\_{\mathrm{sat}}= 2 \ell\_{\mathrm{sat}}+ D\\. Subtracting \\2 \ell\_{\mathrm{sat}}\\ from both sides gives the claim.
 
 > **NOTE:**
 >
@@ -308,13 +308,13 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Theorem 4 (Approximate distribution of the fitted coefficients)** Suppose the outcomes follow the [logistic regression model](#def-logistic-regression). Let \\X\\ be the matrix whose rows are \\{\tilde{x}\_i}^{\top}\\, and let \\W\\ be the diagonal matrix with entries \\\pi_i \mathopen{}\left(1 - \pi_i\right)\mathclose{}\\. Under regularity conditions, for a large sample the fitted coefficients are approximately Gaussian,
+> **Theorem 4 (Approximate distribution of the fitted coefficients)** Suppose the outcomes follow the [logistic regression model](#def-logistic-regression). Let \\X\\ be the matrix whose rows are \\{\underset{\sim}{x}\_i}^{\top}\\, and let \\W\\ be the diagonal matrix with entries \\\pi_i \mathopen{}\left(1 - \pi_i\right)\mathclose{}\\. Under regularity conditions, for a large sample the fitted coefficients are approximately Gaussian,
 >
-> \\ \hat{\tilde{\beta}}\approx \operatorname{N}\mathopen{}\left(\tilde{\beta}, {\mathopen{}\left({X}^{\top} W X\right)\mathclose{}}^{-1}\right)\mathclose{}. \tag{7}\\
+> \\ \hat{\underset{\sim}{\beta}}\approx \operatorname{N}\mathopen{}\left(\underset{\sim}{\beta}, {\mathopen{}\left({X}^{\top} W X\right)\mathclose{}}^{-1}\right)\mathclose{}. \tag{7}\\
 
 > **NOTE:**
 >
-> *Proof*. The log-likelihood has score \\{X}^{\top} \mathopen{}\left(\tilde{y}- \tilde{\pi}\right)\mathclose{}\\, and its Hessian is \\-{X}^{\top} W X\\, which does not involve the outcomes. The observed and expected information are therefore both \\{X}^{\top} W X\\. The claim is the Gaussian approximation of the [central limit theorem for MLEs](intro-MLEs.llms.md#thm-dist-mle), with this information in place of the inverse covariance. The result is stated for logistic regression by Hastie et al. ([2009, sec. 4.4.3](#ref-hastie2009elements)). For independent but non-identically distributed outcomes it holds under conditions on the predictors that Fahrmeir and Kaufmann ([1985](#ref-fahrmeir1985consistency)) give.
+> *Proof*. The log-likelihood has score \\{X}^{\top} \mathopen{}\left(\underset{\sim}{y}- \underset{\sim}{\pi}\right)\mathclose{}\\, and its Hessian is \\-{X}^{\top} W X\\, which does not involve the outcomes. The observed and expected information are therefore both \\{X}^{\top} W X\\. The claim is the Gaussian approximation of the [central limit theorem for MLEs](intro-MLEs.llms.md#thm-dist-mle), with this information in place of the inverse covariance. The result is stated for logistic regression by Hastie et al. ([2009, sec. 4.4.3](#ref-hastie2009elements)). For independent but non-identically distributed outcomes it holds under conditions on the predictors that Fahrmeir and Kaufmann ([1985](#ref-fahrmeir1985consistency)) give.
 
 > **NOTE:**
 >
