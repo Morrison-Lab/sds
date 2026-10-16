@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 03:03:11 (PDT)
+Last modified: 2026-10-16 04:14:03 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -16,9 +16,9 @@ Last modified: 2026-10-16 03:03:11 (PDT)
 
 > **NOTE:**
 >
-> **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \underset{\sim}{\theta})\\ of a parameter vector \\\underset{\sim}{\theta}\\, and \\\hat{\underset{\sim}{\theta}}\\ is an estimate of \\\underset{\sim}{\theta}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
+> **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \mathord{\underset{\sim}{\theta}})\\ of a parameter vector \\\mathord{\underset{\sim}{\theta}}\\, and \\\hat{\mathord{\underset{\sim}{\theta}}}\\ is an estimate of \\\mathord{\underset{\sim}{\theta}}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
 >
-> \\\hat y(x) = \mu(x; \hat{\underset{\sim}{\theta}}).\\
+> \\\hat y(x) = \mu(x; \hat{\mathord{\underset{\sim}{\theta}}}).\\
 
 > **NOTE:**
 >
@@ -30,13 +30,13 @@ Last modified: 2026-10-16 03:03:11 (PDT)
 >
 > **Definition 2 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ is the [prediction](#def-prediction) at its own covariate value \\x_i\\:
 >
-> \\\hat y_i \stackrel{\text{def}}{=}\hat y(x_i).\\
+> \\\hat y_i\stackrel{\text{def}}{=}\hat y(x_i).\\
 
 > **NOTE:**
 >
 > *Remark 2* (Why the fitted value is the estimated conditional mean). The [fitted value](#def-fitted-value) is the prediction at the observed covariate value \\x_i\\, so for the prediction in [Example 1](#exm-prediction-cond-mean) it is the estimated conditional mean at \\x_i\\:
 >
-> \\\hat y_i = \mu(x_i; \hat{\underset{\sim}{\theta}}).\\
+> \\\hat y_i= \mu(x_i; \hat{\mathord{\underset{\sim}{\theta}}}).\\
 >
 > It is chosen for the reason in [Remark 1](#rem-why-cond-mean): the conditional mean is the best prediction under squared error loss.
 
@@ -44,7 +44,7 @@ Last modified: 2026-10-16 03:03:11 (PDT)
 >
 > **Definition 3 (Residual)** The **residual** for observation \\i\\ is its observed outcome minus its [fitted value](#def-fitted-value):
 >
-> \\r_i \stackrel{\text{def}}{=}y_i - \hat y_i\\
+> \\r_i\stackrel{\text{def}}{=}y_i- \hat y_i\\
 
 > **NOTE:**
 >
@@ -158,13 +158,13 @@ Last modified: 2026-10-16 03:03:11 (PDT)
 >
 > *Remark 4* (Prediction MSE, estimator MSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([mean squared error and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
-> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\underset{\sim}{\theta}}), \qquad \text{RSS}(\hat{\underset{\sim}{\theta}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
+> \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}), \qquad \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
 > **NOTE:**
 >
 > **Example 3 (Fitted values, residuals, and prediction errors for three points)** Take the points \\(0, 1)\\, \\(1, 2)\\, \\(2, 2)\\ and the line with \\\beta\_{0}= 1\\ and \\\beta\_{x} = 0.5\\ from [the residual sum of squares example](correlation-regression.llms.md#exm-rss), and treat the line as the fitted model.
 >
-> | \\x_i\\ | \\y_i\\ | \\\hat y_i = 1 + 0.5 x_i\\ | \\r_i = y_i - \hat y_i\\ | \\\varepsilon_i = \hat y_i - y_i\\ |
+> | \\x_i\\ | \\y_i\\ | \\\hat y_i= 1 + 0.5 x_i\\ | \\r_i= y_i- \hat y_i\\ | \\\varepsilon_i= \hat y_i- y_i\\ |
 > |:--:|:--:|:--:|:--:|:--:|
 > | 0 | 1 | 1 | 0 | 0 |
 > | 1 | 2 | 1.5 | 0.5 | \\-0.5\\ |

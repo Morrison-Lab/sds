@@ -352,7 +352,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 03:03:11 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 04:14:03 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -406,7 +406,7 @@ text-align: center;
 </div>
 </section><section id="sec-bayes-examples-logistic" class="slide level2" data-number="2"><h2>
 <span class="header-section-number">2</span> Binary outcomes: logistic regression</h2>
-<p>For a binary outcome <span class="math inline">\(Y_i \sim \operatorname{Bernoulli}(\pi_i)\)</span> with <span class="math inline">\(\operatorname{logit}(\pi_i) = \underset{\sim}{x}_i \cdot \underset{\sim}{\beta}\)</span>, the <a href="https://morrison-lab.github.io/rme/chapters/logistic-regression.html">logistic regression</a> model, a Bayesian analysis places a prior on the coefficient vector <span class="math inline">\(\underset{\sim}{\beta}\)</span> and samples the posterior <span class="math inline">\(\operatorname{p}(\underset{\sim}{\beta}\mid \underset{\sim}{y})\)</span> by MCMC <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 14</a>, p.&nbsp;318)</span>. Each <span class="math inline">\(\beta_{x_j}\)</span> is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio <span class="math inline">\(e^{\beta_{x_j}}\)</span>, or of any other function of <span class="math inline">\(\underset{\sim}{\beta}\)</span>, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture <a href="https://www.youtube.com/watch?v=RuBUVQELw-c"><em>Modeling Events</em></a> (Statistical Rethinking 2026, Lecture A09).</p>
+<p>For a binary outcome <span class="math inline">\(Y_i\sim \operatorname{Bernoulli}(\pi_i)\)</span> with <span class="math inline">\(\operatorname{logit}(\pi_i) = \mathord{\underset{\sim}{x}}_i \cdot \mathord{\underset{\sim}{\beta}}\)</span>, the <a href="https://morrison-lab.github.io/rme/chapters/logistic-regression.html">logistic regression</a> model, a Bayesian analysis places a prior on the coefficient vector <span class="math inline">\(\mathord{\underset{\sim}{\beta}}\)</span> and samples the posterior <span class="math inline">\(\operatorname{p}(\mathord{\underset{\sim}{\beta}}\mid \mathord{\underset{\sim}{y}})\)</span> by MCMC <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 14</a>, p.&nbsp;318)</span>. Each <span class="math inline">\(\beta_{x_j}\)</span> is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio <span class="math inline">\(e^{\beta_{x_j}}\)</span>, or of any other function of <span class="math inline">\(\mathord{\underset{\sim}{\beta}}\)</span>, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture <a href="https://www.youtube.com/watch?v=RuBUVQELw-c"><em>Modeling Events</em></a> (Statistical Rethinking 2026, Lecture A09).</p>
 </section><section class="slide level2"><div id="exm-bayes-logistic" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Logistic regression fitted by Bayesian inference)</strong></span> We simulate <span class="math inline">\(N = 200\)</span> observations from a logistic model with one continuous predictor, intercept <span class="math inline">\(\beta_{0}= -0.5\)</span> and slope <span class="math inline">\(\beta_{x} = 1.2\)</span>, and place a diffuse <span class="math inline">\(\operatorname{N}\mathopen{}\left(0, 10^2\right)\mathclose{}\)</span> prior on each coefficient (precision <span class="math inline">\(0.01\)</span> in JAGS). The JAGS program also monitors the odds ratio <span class="math inline">\(e^{\beta_{x}}\)</span> for a one-unit increase in <span class="math inline">\(x\)</span>. In the code, <code>beta0</code> and <code>beta1</code> are <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{x}\)</span>.</p>
 <div class="cell">
@@ -639,10 +639,10 @@ e^{-\phi_i}
 <span class="header-section-number">5</span> Bayesian model averaging</h2>
 <p>When several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. Bayesian model averaging instead averages over the models, weighting each by its posterior probability <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, chap. 14</a>, p.&nbsp;339)</span>. This approach carries <em>model</em> uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by <a href="https://morrison-lab.github.io/rme/chapters/predictor-selection.html">predictor selection</a>.</p>
 </section><section class="slide level2"><div id="def-posterior-model-probability" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Posterior model probability)</strong></span> Let <span class="math inline">\(M_1, \ldots, M_K\)</span> be candidate models with prior probabilities <span class="math inline">\(\operatorname{p}(M_k)\)</span> summing to 1, and let <span class="math inline">\(\operatorname{p}(\underset{\sim}{y}\mid M_k)\)</span> be the <a href="./bayesian-inference.html#def-marginal-likelihood">marginal likelihood</a> of the data under model <span class="math inline">\(M_k\)</span>. The <strong>posterior model probability</strong> of <span class="math inline">\(M_k\)</span> is</p>
+<p><span class="theorem-title"><strong>Definition 1 (Posterior model probability)</strong></span> Let <span class="math inline">\(M_1, \ldots, M_K\)</span> be candidate models with prior probabilities <span class="math inline">\(\operatorname{p}(M_k)\)</span> summing to 1, and let <span class="math inline">\(\operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_k)\)</span> be the <a href="./bayesian-inference.html#def-marginal-likelihood">marginal likelihood</a> of the data under model <span class="math inline">\(M_k\)</span>. The <strong>posterior model probability</strong> of <span class="math inline">\(M_k\)</span> is</p>
 <p><span class="math display">\[
-\operatorname{p}(M_k \mid \underset{\sim}{y}) \stackrel{\text{def}}{=}
-\frac{\operatorname{p}(\underset{\sim}{y}\mid M_k)\, \operatorname{p}(M_k)}{\sum_{l=1}^{K} \operatorname{p}(\underset{\sim}{y}\mid M_l)\, \operatorname{p}(M_l)}.
+\operatorname{p}(M_k \mid \mathord{\underset{\sim}{y}}) \stackrel{\text{def}}{=}
+\frac{\operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_k)\, \operatorname{p}(M_k)}{\sum_{l=1}^{K} \operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_l)\, \operatorname{p}(M_l)}.
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-posterior-model-probability" class="theorem example">
@@ -653,19 +653,19 @@ e^{-\phi_i}
   &amp;= 0.5
 \end{aligned}
 \]</span></p>
-<p>and marginal likelihoods <span class="math inline">\(\operatorname{p}(\underset{\sim}{y}\mid M_1) = 0.02\)</span> and <span class="math inline">\(\operatorname{p}(\underset{\sim}{y}\mid M_2) = 0.06\)</span> have posterior probabilities</p>
+<p>and marginal likelihoods <span class="math inline">\(\operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_1) = 0.02\)</span> and <span class="math inline">\(\operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_2) = 0.06\)</span> have posterior probabilities</p>
 <p><span class="math display">\[
 \begin{aligned}
-  \operatorname{p}(M_1 \mid \underset{\sim}{y}) &amp;= 0.01 / (0.01 + 0.03) \\
+  \operatorname{p}(M_1 \mid \mathord{\underset{\sim}{y}}) &amp;= 0.01 / (0.01 + 0.03) \\
   &amp;= 0.25
 \end{aligned}
 \]</span></p>
-<p>and <span class="math inline">\(\operatorname{p}(M_2 \mid \underset{\sim}{y}) = 0.75\)</span>.</p>
+<p>and <span class="math inline">\(\operatorname{p}(M_2 \mid \mathord{\underset{\sim}{y}}) = 0.75\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-bma" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Bayesian model averaging)</strong></span> With the <a href="#/def-posterior-model-probability">posterior model probabilities</a> <span class="math inline">\(\operatorname{p}(M_k \mid \underset{\sim}{y})\)</span> of candidate models <span class="math inline">\(M_1, \ldots, M_K\)</span>, <strong>Bayesian model averaging</strong> estimates a quantity <span class="math inline">\(\Delta\)</span> that has the same meaning in every model by its posterior distribution averaged over the models:</p>
+<p><span class="theorem-title"><strong>Definition 2 (Bayesian model averaging)</strong></span> With the <a href="#/def-posterior-model-probability">posterior model probabilities</a> <span class="math inline">\(\operatorname{p}(M_k \mid \mathord{\underset{\sim}{y}})\)</span> of candidate models <span class="math inline">\(M_1, \ldots, M_K\)</span>, <strong>Bayesian model averaging</strong> estimates a quantity <span class="math inline">\(\Delta\)</span> that has the same meaning in every model by its posterior distribution averaged over the models:</p>
 <p><span class="math display">\[
-\operatorname{p}(\Delta\mid \underset{\sim}{y}) \stackrel{\text{def}}{=}\sum_{k=1}^{K} \operatorname{p}(\Delta\mid M_k, \underset{\sim}{y})\, \operatorname{p}(M_k \mid \underset{\sim}{y}).
+\operatorname{p}(\Delta\mid \mathord{\underset{\sim}{y}}) \stackrel{\text{def}}{=}\sum_{k=1}^{K} \operatorname{p}(\Delta\mid M_k, \mathord{\underset{\sim}{y}})\, \operatorname{p}(M_k \mid \mathord{\underset{\sim}{y}}).
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-pip" class="theorem definition">
@@ -674,7 +674,7 @@ e^{-\phi_i}
 </section><section class="slide level2"><div id="exm-bayes-bma" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (A BIC approximation to Bayesian model averaging)</strong></span> Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the <a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic">Bayesian information criterion</a> gives a large-sample approximation to the posterior model probabilities <span class="citation" data-cites="schwarz1978estimating">(<a href="#/references" role="doc-biblioref" onclick="">Schwarz 1978</a>)</span>:</p>
 <p><span class="math display">\[
-\operatorname{p}(M_k \mid \underset{\sim}{y}) \approx
+\operatorname{p}(M_k \mid \mathord{\underset{\sim}{y}}) \approx
 \frac{\operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_k\right\}\mathclose{}}{\sum_{l=1}^{K} \operatorname{exp}\mathopen{}\left\{-\tfrac{1}{2}\operatorname{BIC}_l\right\}\mathclose{}}.
 \]</span></p>
 <p>We simulate data in which only <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> affect the outcome, fit a linear regression for every subset of the three predictors <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_3\)</span>, and compute these approximate posterior model probabilities:</p>
