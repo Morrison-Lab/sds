@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -154,7 +154,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)** The `birthwt` data record the number of previous premature labors (`ptl`) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv). Treat counts like these as a Poisson sample, \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, with \\{\lambda}\\ equal to the mean of `ptl`, 0.196.
+> **Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)** The `birthwt` data record the number of previous premature labors (`ptl`) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv). Treat counts like these as a Poisson sample, \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, with \\{\lambda}\\ equal to the sample mean of `ptl`, 0.196.
 >
 > The estimand is the probability of a zero count, \\\pi= \Pr(X_i= 0) = e^{-{\lambda}}\\. Index the model by \\\pi\\ instead of \\{\lambda}\\ (the map \\{\lambda}\mapsto e^{-{\lambda}}\\ is one-to-one); then the sum \\S = \sum\_{i=1}^nX_i\\ is still [sufficient](#def-sufficient), by [Example 1](#exm-poisson-sufficient).
 >
@@ -162,7 +162,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > \\ \begin{aligned} \hat{\pi}\_2 &= {\operatorname{E}\mathopen{}\left\[\hat{\pi}\_1 \mid S\right\]\mathclose{}} && \text{(definition of the Rao--Blackwellized estimator)}\\ &= \Pr\mathopen{}\left(X_1 = 0 \mid S\right)\mathclose{} && \text{(the mean of an indicator is a probability)}\\ &= \mathopen{}\left(\frac{n-1}{n}\right)\mathclose{}^S && \text{(conditional probability of a zero)} \end{aligned} \\
 >
-> By [Lemma 2](#lem-poisson-zero-rb), the conditional probability in the last line is the one in [Equation 5](#eq-poisson-zero-conditional). For \\n = 20\\ we draw 10,000 samples, compute both estimators on each, and report each one’s mean (with a 95% confidence interval) and variance (with a 95% confidence interval from the normal approximation to the sampling distribution of a sample variance).
+> By [Lemma 2](#lem-poisson-zero-rb), the conditional probability in the last line is the one in [Equation 5](#eq-poisson-zero-conditional). For \\n = 20\\ we draw 10,000 samples, compute both estimators on each, and report each one’s sample mean (with a 95% confidence interval) and variance (with a 95% confidence interval from the normal approximation to the sampling distribution of a sample variance).
 >
 > Show R code
 >
@@ -208,7 +208,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 > round(rb_summary, 4)
 > ```
 >
-> The estimand is \\\pi=\\ 0.822. Both estimators have simulated means near it, as [Theorem 2](#thm-rb-unbiased) says they must. The variance of the Rao–Blackwellized estimator is about 22.7 times smaller than that of the crude estimator, as [Theorem 3](#thm-rao-blackwell) requires.
+> The estimand is \\\pi=\\ 0.822. Both estimators have simulated sample means near it, as [Theorem 2](#thm-rb-unbiased) says they must. The variance of the Rao–Blackwellized estimator is about 22.7 times smaller than that of the crude estimator, as [Theorem 3](#thm-rao-blackwell) requires.
 >
 > > **NOTE:**
 > >

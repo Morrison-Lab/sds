@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 05:21:29 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 05:36:08 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -511,7 +511,7 @@ Y_i\mid X_i= x_i&amp;\ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-slr-deviation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Deviation from the conditional mean)</strong></span> In a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), the <strong>deviation</strong> <span class="math inline">\(\varepsilon_i\)</span> of outcome <span class="math inline">\(Y_i\)</span> is its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation from its mean</a>, taking the mean conditional on <span class="math inline">\(X_i= x_i\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 5 (Deviation from the conditional mean)</strong></span> In a conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>), the <strong>deviation</strong> <span class="math inline">\(\varepsilon_i\)</span> of outcome <span class="math inline">\(Y_i\)</span> is its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean">deviation from its population mean</a>, taking the mean conditional on <span class="math inline">\(X_i= x_i\)</span>:</p>
 <p><span class="math display">\[\varepsilon_i\stackrel{\text{def}}{=}Y_i- \mu(x_i).\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-slr-additive" class="theorem exercise">
@@ -756,7 +756,7 @@ Figure&nbsp;2: The three points, the line with intercept 1 and slope 0.5, and th
 </div>
 </div>
 </section><section class="slide level2"><div id="exr-mse-rss" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 3 (Mean squared error and residual sum of squares)</strong></span> For a regression model with conditional mean <span class="math inline">\(\mu(x; \mathord{\underset{\sim}{\theta}})\)</span>, let <span class="math inline">\(\hat y_i\stackrel{\text{def}}{=}\mu(x_i; \mathord{\underset{\sim}{\theta}})\)</span> be its predictions of <span class="math inline">\(n \ge 1\)</span> outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span>, and let <span class="math inline">\(\text{RSS}(\mathord{\underset{\sim}{\theta}})\)</span> (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>) be taken over those same outcomes. Write the <a href="./prediction.html#def-prediction-mse">mean squared error</a> of these predictions in terms of <span class="math inline">\(\text{RSS}(\mathord{\underset{\sim}{\theta}})\)</span>, and <span class="math inline">\(\text{RSS}(\mathord{\underset{\sim}{\theta}})\)</span> in terms of that mean squared error.</p>
+<p><span class="theorem-title"><strong>Exercise 3 (Sample mean squared error and residual sum of squares)</strong></span> For a regression model with conditional mean <span class="math inline">\(\mu(x; \mathord{\underset{\sim}{\theta}})\)</span>, let <span class="math inline">\(\hat y_i\stackrel{\text{def}}{=}\mu(x_i; \mathord{\underset{\sim}{\theta}})\)</span> be its predictions of <span class="math inline">\(n \ge 1\)</span> outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span>, and let <span class="math inline">\(\text{RSS}(\mathord{\underset{\sim}{\theta}})\)</span> (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>) be taken over those same outcomes. Write the <a href="./prediction.html#def-prediction-mse">sMSE</a> of these predictions in terms of <span class="math inline">\(\text{RSS}(\mathord{\underset{\sim}{\theta}})\)</span>, and <span class="math inline">\(\text{RSS}(\mathord{\underset{\sim}{\theta}})\)</span> in terms of that sMSE.</p>
 </div>
 </section><section class="slide level2"><div id="sol-mse-rss" class="proof solution">
 <p><span class="proof-title"><em>Solution 3</em>. </span>First, each squared <a href="./prediction.html#def-prediction-error">prediction error</a> equals the squared residual at <span class="math inline">\(\mathord{\underset{\sim}{\theta}}\)</span>:</p>
@@ -776,12 +776,12 @@ Figure&nbsp;2: The three points, the line with intercept 1 and slope 0.5, and th
 \end{aligned}
 \]</span></p>
 <hr>
-<p>So the mean squared error is the residual sum of squares divided by <span class="math inline">\(n\)</span>:</p>
+<p>So the sMSE is the residual sum of squares divided by <span class="math inline">\(n\)</span>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
 &amp;= \frac{1}{n}\sum_{i=1}^n\varepsilon_i^2
-&amp;&amp; \text{(definition of mean squared error)}\\
+&amp;&amp; \text{(definition of sMSE)}\\
 &amp;= \frac{1}{n}\sum_{i=1}^nr_i(\mathord{\underset{\sim}{\theta}})^2
 &amp;&amp; \text{($\varepsilon_i^2 = r_i(\mathord{\underset{\sim}{\theta}})^2$)}\\
 &amp;= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}})
@@ -804,7 +804,7 @@ n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="thm-mse-rss" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4 (Mean squared error is the residual sum of squares divided by <span class="math inline">\(n\)</span>)</strong></span> For a regression model with conditional mean <span class="math inline">\(\mu(x; \mathord{\underset{\sim}{\theta}})\)</span>, the <a href="./prediction.html#def-prediction-mse">mean squared error</a> of its predictions <span class="math inline">\(\hat y_i= \mu(x_i; \mathord{\underset{\sim}{\theta}})\)</span> of <span class="math inline">\(n \ge 1\)</span> outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> and the residual sum of squares <span class="math inline">\(\text{RSS}(\mathord{\underset{\sim}{\theta}})\)</span> (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>) over those same <span class="math inline">\(n\)</span> outcomes satisfy</p>
+<p><span class="theorem-title"><strong>Theorem 4 (Sample mean squared error is the residual sum of squares divided by <span class="math inline">\(n\)</span>)</strong></span> For a regression model with conditional mean <span class="math inline">\(\mu(x; \mathord{\underset{\sim}{\theta}})\)</span>, the <a href="./prediction.html#def-prediction-mse">sMSE</a> of its predictions <span class="math inline">\(\hat y_i= \mu(x_i; \mathord{\underset{\sim}{\theta}})\)</span> of <span class="math inline">\(n \ge 1\)</span> outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> and the residual sum of squares <span class="math inline">\(\text{RSS}(\mathord{\underset{\sim}{\theta}})\)</span> (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>) over those same <span class="math inline">\(n\)</span> outcomes satisfy</p>
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}),\]</span></p>
 <p>and equivalently</p>
 <p><span class="math display">\[\text{RSS}(\mathord{\underset{\sim}{\theta}}) = n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\]</span></p>
@@ -813,7 +813,7 @@ n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
 <p><span class="proof-title"><em>Proof</em>. </span>Both equations are derived in <a href="#/exr-mse-rss" class="quarto-xref">Exercise&nbsp;3</a>.</p>
 </div>
 <div id="rem-mse-rss" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (The same observations on both sides). </span>The identities in <a href="#/thm-mse-rss" class="quarto-xref">Theorem&nbsp;4</a> need the mean squared error and the residual sum of squares to be taken over the same <span class="math inline">\(n\)</span> observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by <span class="math inline">\(n\)</span> gives the mean squared error on the fitting data, not the mean squared error of predictions of new outcomes.</p>
+<p><span class="proof-title"><em>Remark 5</em> (The same observations on both sides). </span>The identities in <a href="#/thm-mse-rss" class="quarto-xref">Theorem&nbsp;4</a> need the sMSE and the residual sum of squares to be taken over the same <span class="math inline">\(n\)</span> observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by <span class="math inline">\(n\)</span> gives the sMSE on the fitting data, not the sMSE of predictions of new outcomes.</p>
 </div>
 </section><section class="slide level2"><div id="def-ols" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Ordinary least squares)</strong></span> The <strong>ordinary least squares (OLS) estimate</strong> of a model’s parameter vector <span class="math inline">\(\mathord{\underset{\sim}{\theta}}\)</span> is the value of <span class="math inline">\(\mathord{\underset{\sim}{\theta}}\)</span> that minimizes the <a href="#/def-rss">residual sum of squares</a>:</p>
@@ -895,7 +895,7 @@ S_{xy} \stackrel{\text{def}}{=}\sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}).
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-sum-deviations-zero" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Summing the deviations from the mean)</strong></span> Find <span class="math inline">\(\sum_{i=1}^n(x_i- \bar{x})\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 4 (Summing the deviations from the sample mean)</strong></span> Find <span class="math inline">\(\sum_{i=1}^n(x_i- \bar{x})\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="sol-sum-deviations-zero" class="proof solution">
 <p><span class="proof-title"><em>Solution 4</em>. </span><span class="math display">\[
@@ -914,7 +914,7 @@ S_{xy} \stackrel{\text{def}}{=}\sum_{i=1}^n(x_i- \bar{x})(y_i- \bar{y}).
 <p>The same steps with <span class="math inline">\(y_i\)</span> in place of <span class="math inline">\(x_i\)</span> show that <span class="math inline">\(\sum_{i=1}^n(y_i- \bar{y}) = 0\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="lem-sum-deviations-zero" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lemma 1 (Deviations from the mean sum to zero)</strong></span> For any data <span class="math inline">\(z_1, \ldots, z_n\)</span> with mean <span class="math inline">\(\bar{z}\)</span> (for example, the <span class="math inline">\(x_i\)</span> or the <span class="math inline">\(y_i\)</span>), the deviations from the mean sum to zero:</p>
+<p><span class="theorem-title"><strong>Lemma 1 (Deviations from the sample mean sum to zero)</strong></span> For any data <span class="math inline">\(z_1, \ldots, z_n\)</span> with sample mean <span class="math inline">\(\bar{z}\)</span> (for example, the <span class="math inline">\(x_i\)</span> or the <span class="math inline">\(y_i\)</span>), the deviations from the sample mean sum to zero:</p>
 <p><span class="math display">\[\sum_{i=1}^n(z_i - \bar{z}) = 0.\]</span></p>
 </div>
 <div class="proof">
@@ -1102,7 +1102,7 @@ S_{xx}
 &amp;&amp; \text{(factor out $\beta_{x}$)}
 \end{aligned}
 \]</span></p>
-<p>To shorten the next steps, write <span class="math inline">\(d_i \stackrel{\text{def}}{=}(y_i- \bar{y}) - \beta_{x} (x_i- \bar{x})\)</span>, so that <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x} = -2 \sum_{i=1}^nx_id_i\)</span>. The <span class="math inline">\(d_i\)</span> sum to zero, because deviations from a mean sum to zero (<a href="#/exr-sum-deviations-zero" class="quarto-xref">Exercise&nbsp;4</a>):</p>
+<p>To shorten the next steps, write <span class="math inline">\(d_i \stackrel{\text{def}}{=}(y_i- \bar{y}) - \beta_{x} (x_i- \bar{x})\)</span>, so that <span class="math inline">\(\partial \text{RSS} / \partial \beta_{x} = -2 \sum_{i=1}^nx_id_i\)</span>. The <span class="math inline">\(d_i\)</span> sum to zero, because deviations from a sample mean sum to zero (<a href="#/exr-sum-deviations-zero" class="quarto-xref">Exercise&nbsp;4</a>):</p>
 <p><span class="math display">\[
 \begin{aligned}
 \sum_{i=1}^nd_i

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
 
@@ -158,7 +158,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 5 (Deviation from the conditional mean)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), the **deviation** \\\varepsilon_i\\ of outcome \\Y_i\\ is its [deviation from its mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean), taking the mean conditional on \\X_i= x_i\\:
+> **Definition 5 (Deviation from the conditional mean)** In a conditional Gaussian model ([Definition 4](#def-cond-gaussian)), the **deviation** \\\varepsilon_i\\ of outcome \\Y_i\\ is its [deviation from its population mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean), taking the mean conditional on \\X_i= x_i\\:
 >
 > \\\varepsilon_i\stackrel{\text{def}}{=}Y_i- \mu(x_i).\\
 
@@ -319,7 +319,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 3 (Mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \mathord{\underset{\sim}{\theta}})\\, let \\\hat y_i\stackrel{\text{def}}{=}\mu(x_i; \mathord{\underset{\sim}{\theta}})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [mean squared error](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\, and \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ in terms of that mean squared error.
+> **Exercise 3 (Sample mean squared error and residual sum of squares)** For a regression model with conditional mean \\\mu(x; \mathord{\underset{\sim}{\theta}})\\, let \\\hat y_i\stackrel{\text{def}}{=}\mu(x_i; \mathord{\underset{\sim}{\theta}})\\ be its predictions of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\, and let \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ ([Definition 11](#def-rss)) be taken over those same outcomes. Write the [sMSE](prediction.llms.md#def-prediction-mse) of these predictions in terms of \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\, and \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ in terms of that sMSE.
 
 > **NOTE:**
 >
@@ -327,9 +327,9 @@ hers |> head()
 >
 > \\ \begin{aligned} \varepsilon_i^2 &= (\hat y_i- y_i)^2 && \text{(definition of prediction error)}\\ &= \mathopen{}\left(\mu(x_i; \mathord{\underset{\sim}{\theta}}) - y_i\right)\mathclose{}^2 && \text{(definition of \$\hat y_i\$)}\\ &= \mathopen{}\left(-\mathopen{}\left(y_i- \mu(x_i; \mathord{\underset{\sim}{\theta}})\right)\mathclose{}\right)\mathclose{}^2 && \text{(factor out \$-1\$)}\\ &= \mathopen{}\left(-r_i(\mathord{\underset{\sim}{\theta}})\right)\mathclose{}^2 && \text{(definition of \$r_i(\mathord{\underset{\sim}{\theta}})\$)}\\ &= r_i(\mathord{\underset{\sim}{\theta}})^2 && \text{(\$(-a)^2 = a^2\$)} \end{aligned} \\
 >
-> So the mean squared error is the residual sum of squares divided by \\n\\:
+> So the sMSE is the residual sum of squares divided by \\n\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of mean squared error)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\underset{\sim}{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\underset{\sim}{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2 && \text{(definition of sMSE)}\\ &= \frac{1}{n}\sum\_{i=1}^nr_i(\mathord{\underset{\sim}{\theta}})^2 && \text{(\$\varepsilon_i^2 = r_i(\mathord{\underset{\sim}{\theta}})^2\$)}\\ &= \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}) && \text{(definition of RSS)} \end{aligned} \\
 >
 > Solving for \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\:
 >
@@ -337,7 +337,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Theorem 4 (Mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \mathord{\underset{\sim}{\theta}})\\, the [mean squared error](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i= \mu(x_i; \mathord{\underset{\sim}{\theta}})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
+> **Theorem 4 (Sample mean squared error is the residual sum of squares divided by \\n\\)** For a regression model with conditional mean \\\mu(x; \mathord{\underset{\sim}{\theta}})\\, the [sMSE](prediction.llms.md#def-prediction-mse) of its predictions \\\hat y_i= \mu(x_i; \mathord{\underset{\sim}{\theta}})\\ of \\n \ge 1\\ outcomes \\y_1, \ldots, y_n\\ and the residual sum of squares \\\text{RSS}(\mathord{\underset{\sim}{\theta}})\\ ([Definition 11](#def-rss)) over those same \\n\\ outcomes satisfy
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\mathord{\underset{\sim}{\theta}}),\\
 >
@@ -351,7 +351,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> *Remark 5* (The same observations on both sides). The identities in [Theorem 4](#thm-mse-rss) need the mean squared error and the residual sum of squares to be taken over the same \\n\\ observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by \\n\\ gives the mean squared error on the fitting data, not the mean squared error of predictions of new outcomes.
+> *Remark 5* (The same observations on both sides). The identities in [Theorem 4](#thm-mse-rss) need the sMSE and the residual sum of squares to be taken over the same \\n\\ observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by \\n\\ gives the sMSE on the fitting data, not the sMSE of predictions of new outcomes.
 
 > **NOTE:**
 >
@@ -435,7 +435,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Exercise 4 (Summing the deviations from the mean)** Find \\\sum\_{i=1}^n(x_i- \bar{x})\\.
+> **Exercise 4 (Summing the deviations from the sample mean)** Find \\\sum\_{i=1}^n(x_i- \bar{x})\\.
 
 > **NOTE:**
 >
@@ -445,7 +445,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Lemma 1 (Deviations from the mean sum to zero)** For any data \\z_1, \ldots, z_n\\ with mean \\\bar{z}\\ (for example, the \\x_i\\ or the \\y_i\\), the deviations from the mean sum to zero:
+> **Lemma 1 (Deviations from the sample mean sum to zero)** For any data \\z_1, \ldots, z_n\\ with sample mean \\\bar{z}\\ (for example, the \\x_i\\ or the \\y_i\\), the deviations from the sample mean sum to zero:
 >
 > \\\sum\_{i=1}^n(z_i - \bar{z}) = 0.\\
 
@@ -541,7 +541,7 @@ hers |> head()
 >
 > \\ \begin{aligned} \frac{\partial \text{RSS}}{\partial \beta\_{x}} &= -2 \sum\_{i=1}^nx_i(y_i- \beta\_{0}- \beta\_{x} x_i) && \text{(derivative with respect to \$\beta\_{x}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- (\bar{y} - \beta\_{x} \bar{x}) - \beta\_{x} x_i\right)\mathclose{} && \text{(substitute \$\beta\_{0}\$)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left(y_i- \bar{y} + \beta\_{x} \bar{x} - \beta\_{x} x_i\right)\mathclose{} && \text{(remove the inner parentheses)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- \bar{y}) - (\beta\_{x} x_i- \beta\_{x} \bar{x})\right)\mathclose{} && \text{(group terms)}\\ &= -2 \sum\_{i=1}^nx_i\mathopen{}\left((y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\right)\mathclose{} && \text{(factor out \$\beta\_{x}\$)} \end{aligned} \\
 >
-> To shorten the next steps, write \\d_i \stackrel{\text{def}}{=}(y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\\, so that \\\partial \text{RSS} / \partial \beta\_{x} = -2 \sum\_{i=1}^nx_id_i\\. The \\d_i\\ sum to zero, because deviations from a mean sum to zero ([Exercise 4](#exr-sum-deviations-zero)):
+> To shorten the next steps, write \\d_i \stackrel{\text{def}}{=}(y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\\, so that \\\partial \text{RSS} / \partial \beta\_{x} = -2 \sum\_{i=1}^nx_id_i\\. The \\d_i\\ sum to zero, because deviations from a sample mean sum to zero ([Exercise 4](#exr-sum-deviations-zero)):
 >
 > \\ \begin{aligned} \sum\_{i=1}^nd_i &= \sum\_{i=1}^n\mathopen{}\left((y_i- \bar{y}) - \beta\_{x} (x_i- \bar{x})\right)\mathclose{} && \text{(definition of \$d_i\$)}\\ &= \sum\_{i=1}^n(y_i- \bar{y}) - \sum\_{i=1}^n\beta\_{x} (x_i- \bar{x}) && \text{(split the sum)}\\ &= \sum\_{i=1}^n(y_i- \bar{y}) - \beta\_{x} \sum\_{i=1}^n(x_i- \bar{x}) && \text{(constant factor out of the sum)}\\ &= 0 - \beta\_{x} \cdot 0 && \text{(deviations sum to zero)}\\ &= 0 - 0 && \text{(multiply)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >

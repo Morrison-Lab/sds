@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 05:21:29 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 05:36:08 (PDT)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <style>
@@ -378,7 +378,7 @@ text-align: center;
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section class="slide level2"><div id="exm-inference" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Inference about cholesterol in the WCGS population)</strong></span> The <a href="./exploratory-descriptive.html#sec-wcgs-data">WCGS</a> measured total cholesterol in 3,142 of its 3,154 participants. Using those measurements to learn about the distribution of cholesterol among men like the participants, for example its mean, and quantifying how uncertain that knowledge is, is statistical inference.</p>
+<p><span class="theorem-title"><strong>Example 1 (Inference about cholesterol in the WCGS population)</strong></span> The <a href="./exploratory-descriptive.html#sec-wcgs-data">WCGS</a> measured total cholesterol in 3,142 of its 3,154 participants. Using those measurements to learn about the distribution of cholesterol among men like the participants, for example its population mean, and quantifying how uncertain that knowledge is, is statistical inference.</p>
 </div>
 </section><section class="slide level2 scrollable"><p>Statistical inference typically consists of two steps:</p>
 <ol type="1">
@@ -404,7 +404,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 4 (Two-sided alternative)</strong></span> For a null hypothesis that a parameter equals a value, such as <span class="math inline">\(H_0: \theta= \theta_0\)</span>, the <strong>two-sided alternative</strong> is that the parameter differs from that value in either direction: <span class="math inline">\(H_1: \theta\ne \theta_0\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-hypotheses-wcgs" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Cholesterol and CHD in the WCGS)</strong></span> Let <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_0\)</span> be the mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the means are equal against the <a href="#/def-two-sided-alternative">two-sided alternative</a> that they differ:</p>
+<p><span class="theorem-title"><strong>Example 2 (Cholesterol and CHD in the WCGS)</strong></span> Let <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_0\)</span> be the population mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the population means are equal against the <a href="#/def-two-sided-alternative">two-sided alternative</a> that they differ:</p>
 <p><span class="math display">\[H_0: \mu_1 = \mu_0 \qquad H_1: \mu_1 \ne \mu_0\]</span></p>
 </div>
 </section><section class="slide level2"><h3 data-number="2.2" id="p-values">
@@ -431,7 +431,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 8 (Statistically significant)</strong></span> A result is <strong>statistically significant</strong> at level <span class="math inline">\(\alpha\)</span> if it leads a test with <a href="#/def-significance-level">significance level</a> <span class="math inline">\(\alpha\)</span> to reject the null hypothesis.</p>
 </div>
 </section><section class="slide level2"><div id="exm-p-value-wcgs" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Testing whether mean cholesterol differs by CHD status)</strong></span> Continuing <a href="#/exm-hypotheses-wcgs" class="quarto-xref">Example&nbsp;2</a>, let <span class="math inline">\(\bar x_1\)</span> and <span class="math inline">\(\bar x_0\)</span> be the two groups’ sample mean cholesterol, with sample variances <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_0^2\)</span> and sample sizes <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_0\)</span>. By the <a href="https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt">central limit theorem</a>, when <span class="math inline">\(H_0\)</span> holds and the samples are large, the statistic</p>
+<p><span class="theorem-title"><strong>Example 3 (Testing whether population mean cholesterol differs by CHD status)</strong></span> Continuing <a href="#/exm-hypotheses-wcgs" class="quarto-xref">Example&nbsp;2</a>, let <span class="math inline">\(\bar x_1\)</span> and <span class="math inline">\(\bar x_0\)</span> be the two groups’ sample mean cholesterol, with sample variances <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_0^2\)</span> and sample sizes <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_0\)</span>. By the <a href="https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt">central limit theorem</a>, when <span class="math inline">\(H_0\)</span> holds and the samples are large, the statistic</p>
 <p><span class="math display">\[Z \stackrel{\text{def}}{=}\frac{\bar x_1 - \bar x_0}{\sqrt{s_1^2/n_1 + s_0^2/n_0}}\]</span></p>
 <p>has approximately a standard Gaussian distribution. Extreme values in either direction are evidence for the two-sided <span class="math inline">\(H_1\)</span>, so the test statistic is <span class="math inline">\(T = \mathopen{}\left|Z\right|\mathclose{}\)</span>, and the p-value is <span class="math inline">\(\Pr(\mathopen{}\left|Z\right|\mathclose{} \ge \mathopen{}\left|z\right|\mathclose{}) = 2\Phi(-\mathopen{}\left|z\right|\mathclose{})\)</span>, where <span class="math inline">\(\Phi\)</span> is the standard Gaussian CDF.</p>
 <div class="cell">
@@ -447,7 +447,7 @@ text-align: center;
 <span id="cb1-10"><a aria-label="10"></a><span class="co">#&gt;  difference          se           z     p_value </span></span>
 <span id="cb1-11"><a aria-label="11"></a><span class="co">#&gt; 2.58087e+01 3.17988e+00 8.11626e+00 4.80780e-16</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The p-value is far below 0.05, so at significance level 0.05 the test rejects <span class="math inline">\(H_0\)</span>: the data provide <a href="#/def-statistically-significant">statistically significant</a> evidence that mean cholesterol differs between the two groups.</p>
+<p>The p-value is far below 0.05, so at significance level 0.05 the test rejects <span class="math inline">\(H_0\)</span>: the data provide <a href="#/def-statistically-significant">statistically significant</a> evidence that population mean cholesterol differs between the two groups.</p>
 </div>
 <div class="videos">
 <p>5MinuteAI explains <a href="https://www.youtube.com/watch?v=Plya_ZXkOvs">hypothesis testing</a> in five minutes, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat">(<a href="#/references" role="doc-biblioref" onclick="">5MinuteAI, n.d.</a>)</span>.</p>
@@ -528,7 +528,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 14 (Approximate confidence interval)</strong></span> An <strong>approximate</strong> <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval is an interval whose <a href="#/def-coverage-probability">coverage probability</a> is approximately <span class="math inline">\(1 - \alpha\)</span>, for example only in large samples.</p>
 </div>
 </section><section class="slide level2"><div id="exm-confidence-interval-wcgs" class="theorem example">
-<p><span class="theorem-title"><strong>Example 7 (Confidence interval for mean cholesterol in the WCGS)</strong></span> By the <a href="https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt">central limit theorem</a>, the sample mean <span class="math inline">\(\bar X\)</span> of a large sample has approximately a Gaussian distribution with mean <span class="math inline">\(\mu\)</span> and <a href="./estimation.html#def-SE">standard error</a> <span class="math inline">\(\sigma/\sqrt{n}\)</span>, which we estimate by <span class="math inline">\(s/\sqrt{n}\)</span>. So <span class="math inline">\(\bar x \pm z_{0.975} \, s/\sqrt{n}\)</span>, where <span class="math inline">\(z_{0.975} \approx 1.96\)</span> is the 0.975 quantile of the standard Gaussian distribution, is an <a href="#/def-approximate-ci">approximate</a> 95% confidence interval for <span class="math inline">\(\mu\)</span>:</p>
+<p><span class="theorem-title"><strong>Example 7 (Confidence interval for population mean cholesterol in the WCGS)</strong></span> By the <a href="https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt">central limit theorem</a>, the sample mean <span class="math inline">\(\bar X\)</span> of a large sample has approximately a Gaussian distribution with mean <span class="math inline">\(\mu\)</span> and <a href="./estimation.html#def-SE">standard error</a> <span class="math inline">\(\sigma/\sqrt{n}\)</span>, which we estimate by <span class="math inline">\(s/\sqrt{n}\)</span>. So <span class="math inline">\(\bar x \pm z_{0.975} \, s/\sqrt{n}\)</span>, where <span class="math inline">\(z_{0.975} \approx 1.96\)</span> is the 0.975 quantile of the standard Gaussian distribution, is an <a href="#/def-approximate-ci">approximate</a> 95% confidence interval for <span class="math inline">\(\mu\)</span>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>chol <span class="ot">&lt;-</span> wcgs<span class="sc">$</span>chol[<span class="sc">!</span><span class="fu">is.na</span>(wcgs<span class="sc">$</span>chol)]</span>
 <span id="cb5-2"><a aria-label="2"></a>se_chol <span class="ot">&lt;-</span> <span class="fu">sd</span>(chol) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">length</span>(chol))</span>
@@ -541,7 +541,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 15 (Margin of error (radius))</strong></span> The <strong>margin of error</strong> (or <strong>radius</strong>) of a <a href="#/def-confidence-interval">confidence interval</a> is half the interval’s width.</p>
 </div>
 </section><section class="slide level2"><div id="exm-margin-error" class="theorem example">
-<p><span class="theorem-title"><strong>Example 8 (Margin of error for mean cholesterol)</strong></span> In <a href="#/exm-confidence-interval-wcgs" class="quarto-xref">Example&nbsp;7</a>, the margin of error is <span class="math inline">\(z_{0.975} \times s/\sqrt{n} \approx\)</span> 1.52 mg/dL.</p>
+<p><span class="theorem-title"><strong>Example 8 (Margin of error for population mean cholesterol)</strong></span> In <a href="#/exm-confidence-interval-wcgs" class="quarto-xref">Example&nbsp;7</a>, the margin of error is <span class="math inline">\(z_{0.975} \times s/\sqrt{n} \approx\)</span> 1.52 mg/dL.</p>
 </div>
 <div class="videos">
 <p>5MinuteAI explains <a href="https://www.youtube.com/watch?v=XdaAhYUqWsg">confidence intervals</a> in five minutes, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat">(<a href="#/references" role="doc-biblioref" onclick="">5MinuteAI, n.d.</a>)</span>.</p>

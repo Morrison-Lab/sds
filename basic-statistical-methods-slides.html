@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 05:21:29 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 05:36:08 (PDT)</p>
 </section><section id="introduction" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Introduction</h2>
 <style>
@@ -467,7 +467,7 @@ text-align: center;
 </ul>
 <p>That page also defines the graphs used here, including <a href="./exploratory-descriptive.html#def-boxplot">box plots</a> and <a href="./exploratory-descriptive.html#def-scatterplot">scatter plots</a>.</p>
 </section><section class="slide level2"><div id="exm-hers-summary" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (HERS baseline characteristics by treatment group)</strong></span> <a href="#/tbl-hers-summary" class="quarto-xref">Table&nbsp;1</a> summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by mean (standard deviation), and categorical variables by count (percent).</p>
+<p><span class="theorem-title"><strong>Example 1 (HERS baseline characteristics by treatment group)</strong></span> <a href="#/tbl-hers-summary" class="quarto-xref">Table&nbsp;1</a> summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by sample mean (standard deviation), and categorical variables by count (percent).</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(</span>
 <span id="cb4-3"><a aria-label="3"></a>    age, BMI, glucose, SBP, DBP,</span>
@@ -500,23 +500,23 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
 </figcaption><div aria-describedby="tbl-hers-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="ubivyocbth" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ubivyocbth table {
+<div id="xtajsdkkdp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xtajsdkkdp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ubivyocbth thead, #ubivyocbth tbody, #ubivyocbth tfoot, #ubivyocbth tr, #ubivyocbth td, #ubivyocbth th {
+#xtajsdkkdp thead, #xtajsdkkdp tbody, #xtajsdkkdp tfoot, #xtajsdkkdp tr, #xtajsdkkdp td, #xtajsdkkdp th {
   border-style: none;
 }
 
-#ubivyocbth p {
+#xtajsdkkdp p {
   margin: 0;
   padding: 0;
 }
 
-#ubivyocbth .gt_table {
+#xtajsdkkdp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -542,12 +542,12 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-left-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_caption {
+#xtajsdkkdp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ubivyocbth .gt_title {
+#xtajsdkkdp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -559,7 +559,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-width: 0;
 }
 
-#ubivyocbth .gt_subtitle {
+#xtajsdkkdp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -571,7 +571,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-width: 0;
 }
 
-#ubivyocbth .gt_heading {
+#xtajsdkkdp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -583,13 +583,13 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_bottom_border {
+#xtajsdkkdp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_col_headings {
+#xtajsdkkdp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -604,7 +604,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_col_heading {
+#xtajsdkkdp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -624,7 +624,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#ubivyocbth .gt_column_spanner_outer {
+#xtajsdkkdp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -636,15 +636,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 4px;
 }
 
-#ubivyocbth .gt_column_spanner_outer:first-child {
+#xtajsdkkdp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ubivyocbth .gt_column_spanner_outer:last-child {
+#xtajsdkkdp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ubivyocbth .gt_column_spanner {
+#xtajsdkkdp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -656,11 +656,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   width: 100%;
 }
 
-#ubivyocbth .gt_spanner_row {
+#xtajsdkkdp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ubivyocbth .gt_group_heading {
+#xtajsdkkdp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -686,7 +686,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   text-align: left;
 }
 
-#ubivyocbth .gt_empty_group_heading {
+#xtajsdkkdp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -701,15 +701,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: middle;
 }
 
-#ubivyocbth .gt_from_md > :first-child {
+#xtajsdkkdp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ubivyocbth .gt_from_md > :last-child {
+#xtajsdkkdp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ubivyocbth .gt_row {
+#xtajsdkkdp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -728,7 +728,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   overflow-x: hidden;
 }
 
-#ubivyocbth .gt_stub {
+#xtajsdkkdp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -741,7 +741,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#ubivyocbth .gt_stub_row_group {
+#xtajsdkkdp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -755,15 +755,15 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   vertical-align: top;
 }
 
-#ubivyocbth .gt_row_group_first td {
+#xtajsdkkdp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ubivyocbth .gt_row_group_first th {
+#xtajsdkkdp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ubivyocbth .gt_summary_row {
+#xtajsdkkdp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -773,16 +773,16 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#ubivyocbth .gt_first_summary_row {
+#xtajsdkkdp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_first_summary_row.thick {
+#xtajsdkkdp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ubivyocbth .gt_last_summary_row {
+#xtajsdkkdp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -792,7 +792,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_grand_summary_row {
+#xtajsdkkdp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -802,7 +802,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#ubivyocbth .gt_first_grand_summary_row {
+#xtajsdkkdp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -812,7 +812,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-top-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_last_grand_summary_row_top {
+#xtajsdkkdp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -822,11 +822,11 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_striped {
+#xtajsdkkdp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ubivyocbth .gt_table_body {
+#xtajsdkkdp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -835,7 +835,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-bottom-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_footnotes {
+#xtajsdkkdp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -849,7 +849,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_footnote {
+#xtajsdkkdp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -858,7 +858,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#ubivyocbth .gt_sourcenotes {
+#xtajsdkkdp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -872,7 +872,7 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   border-right-color: #D3D3D3;
 }
 
-#ubivyocbth .gt_sourcenote {
+#xtajsdkkdp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -880,72 +880,72 @@ Table&nbsp;1: HERS: baseline characteristics by treatment group
   padding-right: 5px;
 }
 
-#ubivyocbth .gt_left {
+#xtajsdkkdp .gt_left {
   text-align: left;
 }
 
-#ubivyocbth .gt_center {
+#xtajsdkkdp .gt_center {
   text-align: center;
 }
 
-#ubivyocbth .gt_right {
+#xtajsdkkdp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ubivyocbth .gt_font_normal {
+#xtajsdkkdp .gt_font_normal {
   font-weight: normal;
 }
 
-#ubivyocbth .gt_font_bold {
+#xtajsdkkdp .gt_font_bold {
   font-weight: bold;
 }
 
-#ubivyocbth .gt_font_italic {
+#xtajsdkkdp .gt_font_italic {
   font-style: italic;
 }
 
-#ubivyocbth .gt_super {
+#xtajsdkkdp .gt_super {
   font-size: 65%;
 }
 
-#ubivyocbth .gt_footnote_marks {
+#xtajsdkkdp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ubivyocbth .gt_asterisk {
+#xtajsdkkdp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ubivyocbth .gt_indent_1 {
+#xtajsdkkdp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ubivyocbth .gt_indent_2 {
+#xtajsdkkdp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ubivyocbth .gt_indent_3 {
+#xtajsdkkdp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ubivyocbth .gt_indent_4 {
+#xtajsdkkdp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ubivyocbth .gt_indent_5 {
+#xtajsdkkdp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ubivyocbth .katex-display {
+#xtajsdkkdp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ubivyocbth div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xtajsdkkdp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1160,7 +1160,7 @@ N = 1,380<span class="gt_footnote_marks" style="white-space:nowrap;font-style:it
 <p><span class="proof-title"><em>Remark 2</em> (Properties of Welch’s test). </span>Welch’s test does not assume that the two groups have equal variances. Even for Gaussian data, <span class="math inline">\(t_{\hat{\nu}}\)</span> is only an approximation to the null distribution of <span class="math inline">\(t\)</span>. For large groups, the central limit theorem makes the statistic approximately standard Gaussian under <span class="math inline">\(H_0\)</span>, as in <a href="./inference.html#exm-p-value-wcgs">the WCGS cholesterol example</a>. Welch’s test is the default in R’s <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-hers-ttest" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3 (Baseline fasting glucose by treatment group in HERS)</strong></span> We test <span class="math inline">\(H_0: \mu_\text{HT} = \mu_\text{placebo}\)</span> against <span class="math inline">\(H_1: \mu_\text{HT} \neq \mu_\text{placebo}\)</span>, where <span class="math inline">\(\mu_\text{HT}\)</span> and <span class="math inline">\(\mu_\text{placebo}\)</span> are the mean baseline fasting glucose levels in the hormone therapy and placebo populations. <a href="#/fig-hers-boxplot" class="quarto-xref">Figure&nbsp;1</a> compares the two groups’ distributions.</p>
+<p><span class="theorem-title"><strong>Example 3 (Baseline fasting glucose by treatment group in HERS)</strong></span> We test <span class="math inline">\(H_0: \mu_\text{HT} = \mu_\text{placebo}\)</span> against <span class="math inline">\(H_1: \mu_\text{HT} \neq \mu_\text{placebo}\)</span>, where <span class="math inline">\(\mu_\text{HT}\)</span> and <span class="math inline">\(\mu_\text{placebo}\)</span> are the population mean baseline fasting glucose levels in the hormone therapy and placebo populations. <a href="#/fig-hers-boxplot" class="quarto-xref">Figure&nbsp;1</a> compares the two groups’ distributions.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb7-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> HT, <span class="at">y =</span> glucose) <span class="sc">+</span></span>
@@ -1217,7 +1217,7 @@ Figure&nbsp;1: Baseline fasting glucose by treatment group in HERS
 <span id="cb9-11"><a aria-label="11"></a><span class="co">#&gt; mean of x mean of y </span></span>
 <span id="cb9-12"><a aria-label="12"></a><span class="co">#&gt;   111.854   112.449</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The p-value is large, so the data give no evidence against <span class="math inline">\(H_0\)</span>. That result is expected here: treatment was randomized, so the groups’ baseline means differ only by chance.</p>
+<p>The p-value is large, so the data give no evidence against <span class="math inline">\(H_0\)</span>. That result is expected here: treatment was randomized, so the groups’ baseline sample means differ only by chance.</p>
 </div>
 </section><section class="slide level2"><div id="def-pooled-variance" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Pooled variance)</strong></span> For two samples of sizes <span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> with sample variances <span class="math inline">\(s_1^2\)</span> and <span class="math inline">\(s_2^2\)</span>, the <strong>pooled variance</strong> is</p>
@@ -1392,7 +1392,7 @@ s_p^2
 <p>holds, then <span class="math inline">\(F\)</span> (<a href="#/def-one-way-anova" class="quarto-xref">Definition&nbsp;10</a>), computed from these random variables, has the <span class="math inline">\(F_{k-1,\, n-k}\)</span> distribution <span class="citation" data-cites="hoggtanis2015">(<a href="#/references" role="doc-biblioref" onclick="">Hogg et al. 2019, sec. 9.3</a>, p.&nbsp;449)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-hers-anova" class="theorem example">
-<p><span class="theorem-title"><strong>Example 10 (Fasting glucose by race/ethnicity in HERS)</strong></span> The group sizes, means, and standard deviations of baseline fasting glucose:</p>
+<p><span class="theorem-title"><strong>Example 10 (Fasting glucose by race/ethnicity in HERS)</strong></span> The group sizes, sample means, and sample standard deviations of baseline fasting glucose:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>hers <span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a aria-label="2"></a>  dplyr<span class="sc">::</span><span class="fu">summarize</span>(</span>
@@ -1470,7 +1470,7 @@ s_p^2
 <p>Anova Table (Type 1 tests)</p>
 </div>
 </div>
-<p>The p-value is far below 0.05: mean fasting glucose differs among the three race/ethnicity groups.</p>
+<p>The p-value is far below 0.05: population mean fasting glucose differs among the three race/ethnicity groups.</p>
 </div>
 </section><section class="slide level2"><div id="rem-hers-anova-variances" class="proof remark">
 <p><span class="proof-title"><em>Remark 6</em> (Unequal variances in the HERS glucose groups). </span>The group standard deviations differ, from 36 to 44 mg/dL, so the equal-variance condition of <a href="#/thm-anova-null" class="quarto-xref">Theorem&nbsp;3</a> is questionable. <code><a href="https://rdrr.io/r/stats/oneway.test.html">oneway.test()</a></code> performs Welch’s version of the F-test, which does not assume equal variances, and reaches the same conclusion:</p>

@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 ## 1 Introduction
 
@@ -191,7 +191,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Example 1 (Population and sample in the WCGS)** In 1960, the WCGS recruited employed men aged 39 to 59 years in California. Take that group of men as the study’s population ([Definition 1](#def-population)), so the population distribution ([Definition 2](#def-population-distribution)) of cholesterol is its distribution among those men. The `wcgs` data frame is the sample ([Definition 3](#def-sample)): it holds 3154 of the men in that population. The men volunteered, through 10 companies, so the sample is not a random sample ([Definition 4](#def-random-sample)) of the population. Its mean cholesterol, 226.4 mg/dL, describes these 3154 men exactly, but it estimates the population mean well only to the extent that the volunteers resemble the rest of the population.
+> **Example 1 (Population and sample in the WCGS)** In 1960, the WCGS recruited employed men aged 39 to 59 years in California. Take that group of men as the study’s population ([Definition 1](#def-population)), so the population distribution ([Definition 2](#def-population-distribution)) of cholesterol is its distribution among those men. The `wcgs` data frame is the sample ([Definition 3](#def-sample)): it holds 3154 of the men in that population. The men volunteered, through 10 companies, so the sample is not a random sample ([Definition 4](#def-random-sample)) of the population. Its sample mean cholesterol, 226.4 mg/dL, describes these 3154 men exactly, but it estimates the population mean well only to the extent that the volunteers resemble the rest of the population.
 
 ## 2 Summarizing a single variable
 
@@ -205,7 +205,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Example 2 (Mean cholesterol in the WCGS)** Total cholesterol (`chol`) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:
+> **Example 2 (Sample mean cholesterol in the WCGS)** Total cholesterol (`chol`) is missing for 12 of the 3154 WCGS participants. The sample mean of the remaining 3142 values is:
 >
 > ``` downlit
 > mean(wcgs$chol, na.rm = TRUE)
@@ -228,7 +228,7 @@ dplyr::glimpse(wcgs)
 > #> [1] 223
 > ```
 >
-> The median cholesterol is a little lower than the mean ([Example 2](#exm-sample-mean)). Cholesterol has a longer right tail than left tail (the maximum is 645 mg/dL), and the large values in that tail pull the mean upward but barely change which value is in the middle. A median is less sensitive to extreme values than a mean.
+> The median cholesterol is a little lower than the sample mean ([Example 2](#exm-sample-mean)). Cholesterol has a longer right tail than left tail (the maximum is 645 mg/dL), and the large values in that tail pull the sample mean upward but barely change which value is in the middle. A median is less sensitive to extreme values than a sample mean.
 
 ### 2.2 Measures of spread
 
@@ -800,15 +800,15 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Theorem 2 (Standardized values have mean 0 and standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
+> **Theorem 2 (Standardized values have sample mean 0 and sample standard deviation 1)** For \\n \ge 2\\ observations with \\s \> 0\\, the [standardized values](#def-standardization) \\z_1, \ldots, z_n\\ have sample mean \\0\\ and sample standard deviation \\1\\.
 
 > **NOTE:**
 >
-> *Proof*. The sample mean of the \\z_i\\ is \\ \begin{aligned} \frac{1}{n}\sum\_{i=1}^n\frac{x_i- \bar x}{s} &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i- \bar x\right)\mathclose{}\\ &= \frac{1}{s} (\bar x - \bar x)\\ &= 0. \end{aligned} \\ Since the mean of the \\z_i\\ is \\0\\, their sample variance is \\ \begin{aligned} \frac{1}{n-1} \sum\_{i=1}^nz_i^2 &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar x)^2\\ &= \frac{s^2}{s^2}\\ &= 1, \end{aligned} \\ so their sample standard deviation is \\\sqrt{1} = 1\\.
+> *Proof*. The sample mean of the \\z_i\\ is \\ \begin{aligned} \frac{1}{n}\sum\_{i=1}^n\frac{x_i- \bar x}{s} &= \frac{1}{s} \mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nx_i- \bar x\right)\mathclose{}\\ &= \frac{1}{s} (\bar x - \bar x)\\ &= 0. \end{aligned} \\ Since the sample mean of the \\z_i\\ is \\0\\, their sample variance is \\ \begin{aligned} \frac{1}{n-1} \sum\_{i=1}^nz_i^2 &= \frac{1}{s^2} \cdot \frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar x)^2\\ &= \frac{s^2}{s^2}\\ &= 1, \end{aligned} \\ so their sample standard deviation is \\\sqrt{1} = 1\\.
 
 > **NOTE:**
 >
-> *Remark 7* (Source: Standardized values have mean 0 and standard deviation 1). Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
+> *Remark 7* (Source: Standardized values have sample mean 0 and sample standard deviation 1). Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
 
 > **NOTE:**
 >
@@ -822,7 +822,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 > #> [1] 1
 > ```
 >
-> The mean is \\0\\ up to rounding error, and the standard deviation is \\1\\, as [Theorem 2](#thm-standardized-mean-sd) says. The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
+> The sample mean is \\0\\ up to rounding error, and the sample standard deviation is \\1\\, as [Theorem 2](#thm-standardized-mean-sd) says. The `na.rm = TRUE` is needed because 12 of the cholesterol values are missing.
 
 > **NOTE:**
 >

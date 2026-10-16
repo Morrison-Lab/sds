@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -796,9 +796,9 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 > | Single coefficient | t-test | \\T\_{n-p}\\ | [Wald](#def-wald-test) z-test | \\Z \sim N(0,1)\\ |
 > | Linear combination of coefficients | t-test | \\T\_{n-p}\\ | [Wald](#def-wald-test) z-test | \\Z \sim N(0,1)\\ |
 > | Nested models (\\q\\ constraints) | Partial F-test | \\F\_{q,\\ n-p}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2_q\\ |
-> | One-sample mean | One-sample t-test | \\T\_{n-1}\\ | z-test | \\Z \sim N(0,1)\\ |
-> | Two-sample means | Two-sample t-test (pooled variance) | \\T\_{n_1+n_2-2}\\ | z-test | \\Z \sim N(0,1)\\ |
-> | \\K\\-group means (ANOVA) | F-test | \\F\_{K-1,\\ n-K}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2\_{K-1}\\ |
+> | One-sample population mean | One-sample t-test | \\T\_{n-1}\\ | z-test | \\Z \sim N(0,1)\\ |
+> | Two-sample population means | Two-sample t-test (pooled variance) | \\T\_{n_1+n_2-2}\\ | z-test | \\Z \sim N(0,1)\\ |
+> | \\K\\-group population means (ANOVA) | F-test | \\F\_{K-1,\\ n-K}\\ | [Likelihood ratio test](#thm-wilks) or [Wald test](#def-wald-test) | \\\chi^2\_{K-1}\\ |
 >
 > Table 2: Exact tests that assume Gaussian outcomes, and their approximate, large-sample counterparts based on maximum likelihood. \\p\\ is the number of regression coefficients.
 
@@ -814,7 +814,7 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 >
 > \\ \Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{} = 1 - \alpha \\
 
-Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](prediction.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
+Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the sample mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](prediction.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
 \\ \begin{aligned} \operatorname{Var}\mathopen{}\left(\bar X^\* - \hat{\mu}\right)\mathclose{} &= \operatorname{Var}\mathopen{}\left(\bar X^\*\right)\mathclose{} + \operatorname{Var}\mathopen{}\left(\hat{\mu}\right)\mathclose{} && \text{(variance of a difference of independent variables)}\\ &= \frac{\sigma^2}{m} + \frac{\sigma^2}{n} && \text{(variance of a sample mean)} \end{aligned} \\
 
@@ -826,13 +826,13 @@ Usually \\m = 1\\. The term \\1/n\\ accounts for the uncertainty in \\\hat{\mu}\
 
 > **NOTE:**
 >
-> *Remark 10* (Prediction intervals versus confidence intervals). A [confidence interval](inference.llms.md#def-confidence-interval) covers a fixed parameter, such as the mean \\\mu\\. A prediction interval ([Definition 16](#def-prediction-interval)) covers a random quantity, such as a new outcome, or, in the example above, the mean \\\bar X^\*\\ of \\m\\ new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.
+> *Remark 10* (Prediction intervals versus confidence intervals). A [confidence interval](inference.llms.md#def-confidence-interval) covers a fixed parameter, such as the population mean \\\mu\\. A prediction interval ([Definition 16](#def-prediction-interval)) covers a random quantity, such as a new outcome, or, in the example above, the sample mean \\\bar X^\*\\ of \\m\\ new observations. Its probability accounts for the randomness of the new observations, not only of the observed data.
 >
 > In the Gaussian example above, the standard error of \\\hat{\mu}= \bar X\\ is \\\sigma/ \sqrt{n}\\, so the two intervals, the [Wald confidence interval](#def-wald-ci) for \\\mu\\ and the prediction interval for \\\bar X^\*\\, are
 >
 > \\ \begin{aligned} &\hat{\mu}\pm z\_{1 - \alpha/2} \\ \sigma\sqrt{\frac{1}{n}} && \text{(confidence interval for \$\mu\$)}\\ &\hat{\mu}\pm z\_{1 - \alpha/2} \\ \sigma\sqrt{\frac{1}{m} + \frac{1}{n}} && \text{(prediction interval for \$\bar X^\*\$)} \end{aligned} \\
 >
-> The prediction interval is always the wider of the two, because its variance has the extra term \\\sigma^2/ m\\, the variance of the new observations’ mean. As \\n\\ grows, the width of the confidence interval shrinks to 0, but the width of the prediction interval shrinks only to \\2 z\_{1 - \alpha/2} \\ \sigma/ \sqrt{m}\\: more data pins down \\\mu\\, but cannot remove the randomness of the new observations. The same contrast holds in regression, between a confidence interval for the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ and a prediction interval for a new outcome \\Y\\ at \\X = x\\.
+> The prediction interval is always the wider of the two, because its variance has the extra term \\\sigma^2/ m\\, the variance of the new observations’ sample mean. As \\n\\ grows, the width of the confidence interval shrinks to 0, but the width of the prediction interval shrinks only to \\2 z\_{1 - \alpha/2} \\ \sigma/ \sqrt{m}\\: more data pins down \\\mu\\, but cannot remove the randomness of the new observations. The same contrast holds in regression, between a confidence interval for the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ and a prediction interval for a new outcome \\Y\\ at \\X = x\\.
 
 ## 2 Example: maximum likelihood for tropical cyclones in Australia
 
@@ -2149,7 +2149,7 @@ Across 1000 simulated datasets:
 - the average error of \\\hat{\mu}\\ is -0.005 mg/dL, small relative to its standard error of 1.02 mg/dL, consistent with \\\hat{\mu}\\ being unbiased;
 - the standard deviation of the \\\hat{\mu}\\ values, 0.996, is close to the true standard error;
 - the 95% confidence intervals covered the true \\\mu\\ in 95.9% of datasets, close to their nominal 95%;
-- the test of \\H_0: \mu= 0.9\\\hat{\mu}\\ rejected in 100% of datasets: with \\n = 100\\, a 10% difference in the mean is easy to detect.
+- the test of \\H_0: \mu= 0.9\\\hat{\mu}\\ rejected in 100% of datasets: with \\n = 100\\, a 10% difference in the population mean is easy to detect.
 
 Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` shows how these properties depend on them.
 
@@ -2289,7 +2289,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 >
 > **(d)**
 >
-> The score measures the rate of change of the log-likelihood. When it equals zero, increasing or decreasing \\{\lambda}\\ slightly would not improve the fit; we are at a “flat” point. Intuitively, \\\hat{\lambda}\_{ML} = \bar{x}\\ is the value of \\{\lambda}\\ that makes the expected count per observation (\\{\lambda}\\) exactly equal to the observed average count (\\\bar{x}\\).
+> The score measures the rate of change of the log-likelihood. When it equals zero, increasing or decreasing \\{\lambda}\\ slightly would not improve the fit; we are at a “flat” point. Intuitively, \\\hat{\lambda}\_{ML} = \bar{x}\\ is the value of \\{\lambda}\\ that makes the expected count per observation (\\{\lambda}\\) exactly equal to the observed sample average count (\\\bar{x}\\).
 
 > **NOTE:**
 >

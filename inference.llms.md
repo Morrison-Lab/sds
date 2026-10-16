@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 ## 1 Inference
 
@@ -16,7 +16,7 @@ This definition is adapted from Wikipedia’s ([Wikipedia contributors 2025](#re
 
 > **NOTE:**
 >
-> **Example 1 (Inference about cholesterol in the WCGS population)** The [WCGS](exploratory-descriptive.llms.md#sec-wcgs-data) measured total cholesterol in 3,142 of its 3,154 participants. Using those measurements to learn about the distribution of cholesterol among men like the participants, for example its mean, and quantifying how uncertain that knowledge is, is statistical inference.
+> **Example 1 (Inference about cholesterol in the WCGS population)** The [WCGS](exploratory-descriptive.llms.md#sec-wcgs-data) measured total cholesterol in 3,142 of its 3,154 participants. Using those measurements to learn about the distribution of cholesterol among men like the participants, for example its population mean, and quantifying how uncertain that knowledge is, is statistical inference.
 
 Statistical inference typically consists of two steps:
 
@@ -46,7 +46,7 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> **Example 2 (Cholesterol and CHD in the WCGS)** Let \\\mu_1\\ and \\\mu_0\\ be the mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the means are equal against the [two-sided alternative](#def-two-sided-alternative) that they differ:
+> **Example 2 (Cholesterol and CHD in the WCGS)** Let \\\mu_1\\ and \\\mu_0\\ be the population mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the population means are equal against the [two-sided alternative](#def-two-sided-alternative) that they differ:
 >
 > \\H_0: \mu_1 = \mu_0 \qquad H_1: \mu_1 \ne \mu_0\\
 
@@ -82,7 +82,7 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> **Example 3 (Testing whether mean cholesterol differs by CHD status)** Continuing [Example 2](#exm-hypotheses-wcgs), let \\\bar x_1\\ and \\\bar x_0\\ be the two groups’ sample mean cholesterol, with sample variances \\s_1^2\\ and \\s_0^2\\ and sample sizes \\n_1\\ and \\n_0\\. By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), when \\H_0\\ holds and the samples are large, the statistic
+> **Example 3 (Testing whether population mean cholesterol differs by CHD status)** Continuing [Example 2](#exm-hypotheses-wcgs), let \\\bar x_1\\ and \\\bar x_0\\ be the two groups’ sample mean cholesterol, with sample variances \\s_1^2\\ and \\s_0^2\\ and sample sizes \\n_1\\ and \\n_0\\. By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), when \\H_0\\ holds and the samples are large, the statistic
 >
 > \\Z \stackrel{\text{def}}{=}\frac{\bar x_1 - \bar x_0}{\sqrt{s_1^2/n_1 + s_0^2/n_0}}\\
 >
@@ -102,7 +102,7 @@ There are two predominant paradigms for statistical inference:
 > #> 2.58087e+01 3.17988e+00 8.11626e+00 4.80780e-16
 > ```
 >
-> The p-value is far below 0.05, so at significance level 0.05 the test rejects \\H_0\\: the data provide [statistically significant](#def-statistically-significant) evidence that mean cholesterol differs between the two groups.
+> The p-value is far below 0.05, so at significance level 0.05 the test rejects \\H_0\\: the data provide [statistically significant](#def-statistically-significant) evidence that population mean cholesterol differs between the two groups.
 
 > **NOTE:**
 >
@@ -194,7 +194,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Example 7 (Confidence interval for mean cholesterol in the WCGS)** By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
+> **Example 7 (Confidence interval for population mean cholesterol in the WCGS)** By the [central limit theorem](https://morrison-lab.github.io/pds/limit-theorems.html#sec-clt), the sample mean \\\bar X\\ of a large sample has approximately a Gaussian distribution with mean \\\mu\\ and [standard error](estimation.llms.md#def-SE) \\\sigma/\sqrt{n}\\, which we estimate by \\s/\sqrt{n}\\. So \\\bar x \pm z\_{0.975} \\ s/\sqrt{n}\\, where \\z\_{0.975} \approx 1.96\\ is the 0.975 quantile of the standard Gaussian distribution, is an [approximate](#def-approximate-ci) 95% confidence interval for \\\mu\\:
 >
 > ``` downlit
 > chol <- wcgs$chol[!is.na(wcgs$chol)]
@@ -210,7 +210,7 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Example 8 (Margin of error for mean cholesterol)** In [Example 7](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
+> **Example 8 (Margin of error for population mean cholesterol)** In [Example 7](#exm-confidence-interval-wcgs), the margin of error is \\z\_{0.975} \times s/\sqrt{n} \approx\\ 1.52 mg/dL.
 
 > **NOTE:**
 >

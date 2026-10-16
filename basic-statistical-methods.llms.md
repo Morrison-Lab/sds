@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 ## 1 Introduction
 
@@ -87,7 +87,7 @@ That page also defines the graphs used here, including [box plots](exploratory-d
 
 > **NOTE:**
 >
-> **Example 1 (HERS baseline characteristics by treatment group)** [Table 1](#tbl-hers-summary) summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by mean (standard deviation), and categorical variables by count (percent).
+> **Example 1 (HERS baseline characteristics by treatment group)** [Table 1](#tbl-hers-summary) summarizes the HERS participants at baseline, separately for each randomized group. Continuous variables are summarized by sample mean (standard deviation), and categorical variables by count (percent).
 >
 > > **NOTE:**
 > >
@@ -224,7 +224,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Example 3 (Baseline fasting glucose by treatment group in HERS)** We test \\H_0: \mu\_\text{HT} = \mu\_\text{placebo}\\ against \\H_1: \mu\_\text{HT} \neq \mu\_\text{placebo}\\, where \\\mu\_\text{HT}\\ and \\\mu\_\text{placebo}\\ are the mean baseline fasting glucose levels in the hormone therapy and placebo populations. [Figure 1](#fig-hers-boxplot) compares the two groups’ distributions.
+> **Example 3 (Baseline fasting glucose by treatment group in HERS)** We test \\H_0: \mu\_\text{HT} = \mu\_\text{placebo}\\ against \\H_1: \mu\_\text{HT} \neq \mu\_\text{placebo}\\, where \\\mu\_\text{HT}\\ and \\\mu\_\text{placebo}\\ are the population mean baseline fasting glucose levels in the hormone therapy and placebo populations. [Figure 1](#fig-hers-boxplot) compares the two groups’ distributions.
 >
 > > **NOTE:**
 > >
@@ -282,7 +282,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 > #>   111.854   112.449
 > ```
 >
-> The p-value is large, so the data give no evidence against \\H_0\\. That result is expected here: treatment was randomized, so the groups’ baseline means differ only by chance.
+> The p-value is large, so the data give no evidence against \\H_0\\. That result is expected here: treatment was randomized, so the groups’ baseline sample means differ only by chance.
 
 > **NOTE:**
 >
@@ -438,7 +438,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Example 10 (Fasting glucose by race/ethnicity in HERS)** The group sizes, means, and standard deviations of baseline fasting glucose:
+> **Example 10 (Fasting glucose by race/ethnicity in HERS)** The group sizes, sample means, and sample standard deviations of baseline fasting glucose:
 >
 > ``` downlit
 > hers |>
@@ -484,7 +484,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > Anova Table (Type 1 tests)
 >
-> The p-value is far below 0.05: mean fasting glucose differs among the three race/ethnicity groups.
+> The p-value is far below 0.05: population mean fasting glucose differs among the three race/ethnicity groups.
 
 > **NOTE:**
 >

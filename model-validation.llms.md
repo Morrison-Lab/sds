@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -122,7 +122,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> *Remark 4* (Squared-error loss). Each error defined below holds for any [loss](#def-observation-loss). The examples, exercises and the bias-variance decomposition use *squared-error loss*, \\L\mathopen{}\left(y, \hat{y}\right)\mathclose{} = {\mathopen{}\left(\hat{y} - y\right)\mathclose{}}^2\\, unless they say otherwise. Then the loss on an observation is the square of its [prediction error](prediction.llms.md#def-prediction-error), \\\ell\_{i} = \varepsilon\_{i}^2\\, and each average loss below is a mean squared error.
+> *Remark 4* (Squared-error loss). Each error defined below holds for any [loss](#def-observation-loss). The examples, exercises and the bias-variance decomposition use *squared-error loss*, \\L\mathopen{}\left(y, \hat{y}\right)\mathclose{} = {\mathopen{}\left(\hat{y} - y\right)\mathclose{}}^2\\, unless they say otherwise. Then the loss on an observation is the square of its [prediction error](prediction.llms.md#def-prediction-error), \\\ell\_{i} = \varepsilon\_{i}^2\\, and each average loss below is a sample mean squared error.
 
 > **NOTE:**
 >
@@ -146,13 +146,13 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Definition 11 (Root mean squared error of predictions)** The **root mean squared error** (RMSE) of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the square root of their [mean squared error](prediction.llms.md#def-prediction-mse):
+> **Definition 11 (Root mean squared error of predictions)** The **sample root mean squared error (sRMSE)** of predictions, also called their **root mean squared error**, \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the square root of their [sMSE](prediction.llms.md#def-prediction-mse):
 >
 > \\ \operatorname{RMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}}. \tag{10}\\
 
 > **NOTE:**
 >
-> **Definition 12 (Training error)** The **training error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the training observations \\i\in I\\:
+> **Definition 12 (Training error)** The **training error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the training observations \\i\in I\\:
 >
 > \\ \overline{\operatorname{err}}\stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\ell\_{i}. \tag{11}\\
 
@@ -164,10 +164,10 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Exercise 1 (Training error versus error on new cars)** The built-in `mtcars` data frame has \\n= 32\\ cars. Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`, of degree 1, 2, 3, and 4, using only the first 20 rows as the [training set](#def-training-set). For each model, compute the [RMSE](#def-prediction-rmse) of its predictions on the 20 training rows and on the remaining 12 rows, a [held-out set](#def-held-out-set).
+> **Exercise 1 (Training error versus error on new cars)** The built-in `mtcars` data frame has \\n= 32\\ cars. Fit four models for fuel efficiency `mpg` as a polynomial in weight `wt`, of degree 1, 2, 3, and 4, using only the first 20 rows as the [training set](#def-training-set). For each model, compute the [sRMSE](#def-prediction-rmse) of its predictions on the 20 training rows and on the remaining 12 rows, a [held-out set](#def-held-out-set).
 >
-> 1.  Which degree has the smallest training RMSE?
-> 2.  Which degree has the smallest RMSE on the 12 held-out rows?
+> 1.  Which degree has the smallest training sRMSE?
+> 2.  Which degree has the smallest sRMSE on the 12 held-out rows?
 > 3.  Do the terms added beyond degree 2 improve predictions for the held-out cars?
 
 > **NOTE:**
@@ -217,11 +217,11 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > #>             4             2
 > ```
 >
-> 1.  The smallest training RMSE is at degree 4. Each model contains the previous one as a special case, so its training RMSE cannot increase as the degree grows.
+> 1.  The smallest training sRMSE is at degree 4. Each model contains the previous one as a special case, so its training sRMSE cannot increase as the degree grows.
 >
-> 2.  The smallest held-out RMSE is at degree 2.
+> 2.  The smallest held-out sRMSE is at degree 2.
 >
-> 3.  No. Going from degree 2 to degree 3 or 4 lowers the training RMSE a little but leaves the held-out RMSE essentially unchanged (it does not fall below its degree-2 value). The terms beyond degree 2 improve the fit to the 20 training cars without improving predictions for the 12 held-out cars. Degree 1 to degree 2 is different: there the held-out RMSE also falls.
+> 3.  No. Going from degree 2 to degree 3 or 4 lowers the training sRMSE a little but leaves the held-out sRMSE essentially unchanged (it does not fall below its degree-2 value). The terms beyond degree 2 improve the fit to the 20 training cars without improving predictions for the 12 held-out cars. Degree 1 to degree 2 is different: there the held-out sRMSE also falls.
 
 > **NOTE:**
 >
@@ -239,7 +239,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 >
 > 1.  Holding \\\mathcal{D}\_{\text{train}}\\ fixed, write the average [loss](#def-observation-loss) \\\ell\_{\*}\\ that \\\hat y\\ would incur over all such new cars, as an expectation. Then write it for squared-error loss, as the average squared [prediction error](prediction.llms.md#def-prediction-error).
 > 2.  Which parts of your expression do you know, and which do you not know?
-> 3.  The training RMSE of [Exercise 1](#exr-overfitting) is the square root of the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ under squared-error loss. What does \\\overline{\operatorname{err}}\\ use in place of your expectation?
+> 3.  The training sRMSE of [Exercise 1](#exr-overfitting) is the square root of the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ under squared-error loss. What does \\\overline{\operatorname{err}}\\ use in place of your expectation?
 
 > **NOTE:**
 >
@@ -291,9 +291,9 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> *Remark 10* (The expected prediction error is a mean squared error). The expected prediction error is the [mean squared error of predictions](prediction.llms.md#def-prediction-mse) with the average over observations replaced by an expectation over training sets and new outcomes: the mean squared error of the prediction \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ as a prediction of the new outcome \\Y\_{\*}\\. With squared-error loss, \\\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}\\.
+> *Remark 10* (The expected prediction error is a population mean squared error). The expected prediction error is the [sMSE of predictions](prediction.llms.md#def-prediction-mse) with the average over observations replaced by an expectation over training sets and new outcomes: the pMSE of the prediction \\g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\\ as a prediction of the new outcome \\Y\_{\*}\\. With squared-error loss, \\\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}\\.
 >
-> It is not the [mean squared error of an estimator](estimation.llms.md#def-mse): [Theorem 2](#thm-epe-decomposition) shows that it exceeds the mean squared error of the prediction as an estimator of the [mean function](#def-mean-function) value \\\mu(x)\\ by the noise variance. The acronym omits “squared” because “error” already means squared error here. Another loss gives an expected prediction loss, not an EPE.
+> It is not the [pMSE of an estimator](estimation.llms.md#def-mse): [Theorem 2](#thm-epe-decomposition) shows that it exceeds the pMSE of the prediction as an estimator of the [mean function](#def-mean-function) value \\\mu(x)\\ by the noise variance. The acronym omits “squared” because “error” already means squared error here. Another loss gives an expected prediction loss, not an EPE.
 
 > **NOTE:**
 >
@@ -459,7 +459,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 5](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the mean squared error of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu(x)\\. By [Solution 6](#sol-epe-split-bias), that mean squared error is the squared bias plus the variance. Substituting [Equation 20](#eq-epe-after-bias) into [Equation 19](#eq-epe-after-noise):
+> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 5](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu(x)\\. By [Solution 6](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 20](#eq-epe-after-bias) into [Equation 19](#eq-epe-after-noise):
 >
 > \\ \begin{aligned} \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} &= \sigma^2+ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu(x) - g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} && \text{(separating the bias)} \\ &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(g\mathopen{}\left(x; \mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
 
@@ -511,7 +511,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 >
 > **Exercise 7 (Held-out predictions and the generalization error)** A [prediction rule](#def-prediction-rule) \\\hat y\\ is fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\. A [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ is drawn from the same population as the new observation \\(X\_{\*}, Y\_{\*})\\ of [Definition 9](#def-generalization-error), each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\.
 >
-> Find, given \\\mathcal{D}\_{\text{train}}\\, the expected mean loss of the held-out predictions, in terms of the generalization error \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
+> Find, given \\\mathcal{D}\_{\text{train}}\\, the expected sample mean loss of the held-out predictions, in terms of the generalization error \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\:
 >
 > \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \\
 
@@ -525,7 +525,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Theorem 3 (The held-out mean loss estimates the generalization error)** Let a [prediction rule](#def-prediction-rule) \\\hat y\\ be fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, and let a [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ be drawn from the same population as \\(X\_{\*}, Y\_{\*})\\, each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\. Then, given \\\mathcal{D}\_{\text{train}}\\, the expected mean loss of the held-out predictions is the [generalization error](#def-generalization-error):
+> **Theorem 3 (The held-out sample mean loss estimates the generalization error)** Let a [prediction rule](#def-prediction-rule) \\\hat y\\ be fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\, and let a [held-out set](#def-held-out-set) of \\m\\ observations \\(X\_{\*,1}, Y\_{\*,1}), \ldots, (X\_{\*,m}, Y\_{\*,m})\\ be drawn from the same population as \\(X\_{\*}, Y\_{\*})\\, each independently of \\\mathcal{D}\_{\text{train}}\\. Write \\\ell\_{\*,j}\\ for the [loss](#def-observation-loss) of \\\hat y\\ on held-out observation \\j\\. Then, given \\\mathcal{D}\_{\text{train}}\\, the expected sample mean loss of the held-out predictions is the [generalization error](#def-generalization-error):
 >
 > \\ \operatorname{E}\mathopen{}\left\[\frac{1}{m}\sum\_{j=1}^{m} \ell\_{\*,j} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{} = \operatorname{Err}\_{\mathcal{D}\_{\text{train}}}. \\
 
@@ -535,7 +535,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> *Remark 17* (Training error is optimistic). The same argument fails for the training set. The training pairs are not independent of \\\mathcal{D}\_{\text{train}}\\: they are \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was fitted to make their prediction errors small. So the argument of [Theorem 3](#thm-held-out-unbiased), that each loss has conditional expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, does not hold for them, and the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ is typically *smaller* than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ ([Hastie et al. 2009, sec. 7.4](#ref-hastie2009elements)). [Exercise 1](#exr-overfitting) shows the pattern: training RMSE keeps falling as the degree grows, while held-out RMSE does not.
+> *Remark 17* (Training error is optimistic). The same argument fails for the training set. The training pairs are not independent of \\\mathcal{D}\_{\text{train}}\\: they are \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was fitted to make their prediction errors small. So the argument of [Theorem 3](#thm-held-out-unbiased), that each loss has conditional expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, does not hold for them, and the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ is typically *smaller* than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ ([Hastie et al. 2009, sec. 7.4](#ref-hastie2009elements)). [Exercise 1](#exr-overfitting) shows the pattern: training sRMSE keeps falling as the degree grows, while held-out sRMSE does not.
 
 > **NOTE:**
 >
@@ -592,9 +592,9 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > >   ggplot2::theme(legend.position = "top")
 > > ```
 > >
-> > [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 1: Training RMSE and estimated generalization error (RMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n= 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error.")
+> > [![Root mean squared error against polynomial degree from 1 to 10. The training error falls as the degree grows. The estimated generalization error falls at the low degrees, then levels off and rises slightly. A dashed horizontal line marks the noise standard deviation, 0.3.](model-validation_files/figure-html/train-test-error-plot-1.png)](model-validation_files/figure-html/train-test-error-plot-1.png "Figure 1: Training sRMSE and estimated generalization error (sRMSE on 10{,}000 new observations) of polynomial fits to one simulated training set of n= 30. The dashed line is the noise standard deviation \sigma, the square root of the irreducible error.")
 > >
-> > Figure 1: Training RMSE and estimated generalization error (RMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [irreducible error](#def-irreducible-error).
+> > Figure 1: Training sRMSE and estimated generalization error (sRMSE on \\10{,}000\\ new observations) of polynomial fits to one simulated training set of \\n= 30\\. The dashed line is the noise standard deviation \\\sigma\\, the square root of the [irreducible error](#def-irreducible-error).
 >
 > Show R code
 >
@@ -617,7 +617,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > #>                             8                             0
 > ```
 >
-> The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization RMSE below \\\sigma= 0.3\\. Yet the training RMSE falls below \\\sigma\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
+> The training error is smallest at degree 10 and never rises as the degree grows, because each polynomial family contains the one before it. The estimated generalization error is smallest at degree 5. No prediction rule can have generalization pRMSE below \\\sigma= 0.3\\. Yet the training sRMSE falls below \\\sigma\\ at 8 of the ten degrees, while the estimated generalization error falls below it at 0 of them: the training error is [optimistic](#rem-training-mse-optimistic).
 
 ## 5 Training, validation, and test sets
 
@@ -665,7 +665,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Definition 26 (Validation error)** The **validation error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the [validation set](#def-validation-set), indexed by \\I\_{\text{val}}\\:
+> **Definition 26 (Validation error)** The **validation error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the [validation set](#def-validation-set), indexed by \\I\_{\text{val}}\\:
 >
 > \\ \overline{\operatorname{err}}\_{\text{val}}\stackrel{\text{def}}{=}\frac{1}{\mathopen{}\left\|I\_{\text{val}}\right\|\mathclose{}}\sum\_{i\in I\_{\text{val}}} \ell\_{i}. \tag{27}\\
 
@@ -683,7 +683,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Definition 29 (Test error)** The **test error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the [test set](#def-test-set), indexed by \\I\_{\text{test}}\\:
+> **Definition 29 (Test error)** The **test error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its sample mean [loss](#def-observation-loss) \\\ell\_{i}\\ on the [test set](#def-test-set), indexed by \\I\_{\text{test}}\\:
 >
 > \\ \overline{\operatorname{err}}\_{\text{test}}\stackrel{\text{def}}{=}\frac{1}{\mathopen{}\left\|I\_{\text{test}}\right\|\mathclose{}}\sum\_{i\in I\_{\text{test}}} \ell\_{i}. \tag{30}\\
 
@@ -705,11 +705,11 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 >
 > Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) use “test error” for the generalization error of the fitted rule itself. Here the test error is the number computed from the test set, and the generalization error is what it estimates.
 >
-> Each definition holds for any [loss](#def-observation-loss). Under squared-error loss, they are mean squared errors; under absolute-error loss, they are mean absolute errors.
+> Each definition holds for any [loss](#def-observation-loss). Under squared-error loss, they are sample mean squared errors; under absolute-error loss, they are sample mean absolute errors.
 
 > **NOTE:**
 >
-> **Example 9 (Numerical example)** This example ([Example 9](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test RMSE on untouched test data ([James et al. 2021, 213](#ref-james2021islr2e)).
+> **Example 9 (Numerical example)** This example ([Example 9](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test sRMSE on untouched test data ([James et al. 2021, 213](#ref-james2021islr2e)).
 >
 > > **NOTE:**
 > >
@@ -938,9 +938,9 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > > validation_results
 > > ```
 > >
-> > Table 2: Training and validation RMSE for candidate models
+> > Table 2: Training and validation sRMSE for candidate models
 >
-> The chosen model is the linear model, because it has the lowest validation RMSE of the four. This split uses different cars from [Exercise 1](#exr-overfitting), and its validation set has only 6 cars, so the model it picks can differ from the one chosen there.
+> The chosen model is the linear model, because it has the lowest validation sRMSE of the four. This split uses different cars from [Exercise 1](#exr-overfitting), and its validation set has only 6 cars, so the model it picks can differ from the one chosen there.
 >
 > > **NOTE:**
 > >
@@ -950,7 +950,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > > performance_comparison
 > > ```
 > >
-> > Table 3: Validation and test RMSE for the chosen model
+> > Table 3: Validation and test sRMSE for the chosen model
 >
 > > **NOTE:**
 > >
@@ -1028,7 +1028,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Definition 35 (Cross-validation estimate)** The **\\k\\-fold cross-validation estimate** \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is the [mean squared error](prediction.llms.md#def-prediction-mse) of the predictions that each observation \\i\in I\\ of the training set receives from the [fold-out rule](#def-fold-out-rule) of its [fold assignment](#def-fold-assignment) \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ in [\\k\\-fold cross-validation](#def-kfold):
+> **Definition 35 (Cross-validation estimate)** The **\\k\\-fold cross-validation estimate** \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the predictions that each observation \\i\in I\\ of the training set receives from the [fold-out rule](#def-fold-out-rule) of its [fold assignment](#def-fold-assignment) \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ in [\\k\\-fold cross-validation](#def-kfold):
 >
 > \\ \widehat{\operatorname{Err}}\_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{35}\\
 
@@ -1060,7 +1060,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Definition 36 (Fold mean squared error)** The **fold mean squared error** \\\operatorname{MSE}\_{j}\\ of [fold](#def-folds) \\\mathcal{F}\_{j}\\ is the [mean squared error](prediction.llms.md#def-prediction-mse) of the [fold-out rule](#def-fold-out-rule)’s predictions for the \\n\_{j}\\ ([fold size](#def-fold-size)) observations in that fold:
+> **Definition 36 (Fold mean squared error)** The **fold mean squared error** \\\operatorname{MSE}\_{j}\\ of [fold](#def-folds) \\\mathcal{F}\_{j}\\ is the [sMSE](prediction.llms.md#def-prediction-mse) of the [fold-out rule](#def-fold-out-rule)’s predictions for the \\n\_{j}\\ ([fold size](#def-fold-size)) observations in that fold:
 >
 > \\ \operatorname{MSE}\_{j} \stackrel{\text{def}}{=}\frac{1}{n\_{j}} \sum\_{i\in \mathcal{F}\_{j}} {\mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{37}\\
 
@@ -1072,7 +1072,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 >
 > *Remark 26* (What the cross-validation estimate estimates). Each prediction in [Equation 35](#eq-cv-estimate) comes from a rule that did not see the observation it predicts, so each squared error is scored as in [Theorem 3](#thm-held-out-unbiased). But the rule for fold \\\mathcal{F}\_{j}\\ was fitted to \\n- n\_{j}\\ observations, not \\n\\, and the \\k\\ rules differ from one another and from the rule fitted to all \\n\\. So \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ estimates the [expected generalization error](#def-expected-generalization-error) of the fitting *procedure* \\g\\ at the smaller training-set sizes \\n- n\_{j}\\, which is \\\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}\\ when every fold has \\n/ k\\ observations, rather than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ for the one rule fitted to all the data ([Hastie et al. 2009, sec. 7.12](#ref-hastie2009elements)).
 >
-> When every [fold](#def-folds) has \\n\_{j} = n/ k\\ observations, \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is also the average of the \\k\\ [fold mean squared errors](#def-fold-mse) \\\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\\, the form James et al. ([2021, sec. 5.1.3](#ref-james2021islr2e)) use.
+> When every [fold](#def-folds) has \\n\_{j} = n/ k\\ observations, \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is also the average of the \\k\\ [fold sMSEs](#def-fold-mse) \\\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\\, the form James et al. ([2021, sec. 5.1.3](#ref-james2021islr2e)) use.
 
 > **NOTE:**
 >
@@ -1117,7 +1117,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > #> 6 6 6 6 6
 > ```
 >
-> The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training and generalization RMSE of [Example 6](#exm-train-test-error-simulated).
+> The same fold assignment is used for every degree, so the degrees are compared on the same splits. The table and figure report the square root of each cross-validation estimate, so that it is in the same unit as the training sRMSE and generalization pRMSE of [Example 6](#exm-train-test-error-simulated).
 >
 > Show R code
 >
@@ -1190,7 +1190,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > #>                             24.00000                              4.07316
 > ```
 >
-> The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ for the fit to all 30 observations, though ([Remark 26](#rem-cv-estimate)). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization RMSE.
+> The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ for the fit to all 30 observations, though ([Remark 26](#rem-cv-estimate)). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization pRMSE.
 >
 > Part of that gap is expected: by [Remark 26](#rem-cv-estimate), with \\g\\ the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets \\\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\\, not the error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.
 >
@@ -1235,7 +1235,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > sim_size_effect
 > ```
 >
-> Over 500 simulated training sets of each size, degree-10 fits to 24 points have median generalization MSE 1.14, against 0.27 for fits to 30 points, and 90th percentiles of 207.31 and 40.65. The sample means are no guide to \\\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\\ here: the largest single value among the fits to 24 points is 18,000,000, from one fit that is wildly wrong away from the data, and the two largest values supply 97% and 51% of the two means. So fits of this degree to 24 points are much worse than fits to 30 points, and a large cross-validation estimate here is no surprise. How much of this particular gap comes from the training-set size, and how much from the chance of this one data set, a single run cannot say. The estimate also jumps around from one degree to the next, because it rests on only 30 observations rather than on \\10{,}000\\ new ones.
+> Over 500 simulated training sets of each size, degree-10 fits to 24 points have median generalization pMSE 1.14, against 0.27 for fits to 30 points, and 90th percentiles of 207.31 and 40.65. The sample means are no guide to \\\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\\ here: the largest single value among the fits to 24 points is 18,000,000, from one fit that is wildly wrong away from the data, and the two largest values supply 97% and 51% of the two means. So fits of this degree to 24 points are much worse than fits to 30 points, and a large cross-validation estimate here is no surprise. How much of this particular gap comes from the training-set size, and how much from the chance of this one data set, a single run cannot say. The estimate also jumps around from one degree to the next, because it rests on only 30 observations rather than on \\10{,}000\\ new ones.
 
 > **NOTE:**
 >
@@ -1291,7 +1291,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > > mtcars_cv_best
 > > ```
 > >
-> > Table 5: Degree with the smallest 4-fold cross-validated RMSE in each of 5 random fold assignments
+> > Table 5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5 random fold assignments
 >
 > Show R code
 >
@@ -1462,10 +1462,10 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
@@ -1509,7 +1509,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Definition 44 (Fold-based standard error)** The **fold-based standard error** \\\operatorname{SE}\_{\text{CV}(k)}\\ of a \\k\\-fold [cross-validation estimate](#def-cv-estimate) is the [sample standard deviation](exploratory-descriptive.llms.md#def-sample-sd) of the \\k\\ [fold mean squared errors](#def-fold-mse), divided by \\\sqrt{k}\\:
+> **Definition 44 (Fold-based standard error)** The **fold-based standard error** \\\operatorname{SE}\_{\text{CV}(k)}\\ of a \\k\\-fold [cross-validation estimate](#def-cv-estimate) is the [sample standard deviation](exploratory-descriptive.llms.md#def-sample-sd) of the \\k\\ [fold sMSEs](#def-fold-mse), divided by \\\sqrt{k}\\:
 >
 > \\ \operatorname{SE}\_{\text{CV}(k)} \stackrel{\text{def}}{=}\frac{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left(\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\right)\mathclose{}}{\sqrt{k}}. \tag{46}\\
 
@@ -1529,7 +1529,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Definition 46 (Fold-based standard error of a named procedure)** The **fold-based standard error of procedure** \\g\\ on a training set \\\mathcal{D}\_{\text{train}}\\, \\\operatorname{SE}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}\\, is the [fold-based standard error](#def-cv-se) computed from the [fold mean squared errors of \\g\\](#def-fold-mse-indexed):
+> **Definition 46 (Fold-based standard error of a named procedure)** The **fold-based standard error of procedure** \\g\\ on a training set \\\mathcal{D}\_{\text{train}}\\, \\\operatorname{SE}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}\\, is the [fold-based standard error](#def-cv-se) computed from the [fold sMSEs of \\g\\](#def-fold-mse-indexed):
 >
 > \\ \operatorname{SE}^{g}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{} \stackrel{\text{def}}{=}\frac{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left(\operatorname{MSE}^{g}\_{1}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}, \ldots, \operatorname{MSE}^{g}\_{k}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}\right)\mathclose{}}{\sqrt{k}}. \tag{48}\\
 
@@ -1543,7 +1543,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Example 13 (The one-standard-error rule for the simulated polynomials)** This example applies 10-fold cross-validation to the simulated training set of [Example 6](#exm-train-test-error-simulated), records the mean squared error in each fold, and applies [Definition 47](#def-one-se-rule) to the ten degrees.
+> **Example 13 (The one-standard-error rule for the simulated polynomials)** This example applies 10-fold cross-validation to the simulated training set of [Example 6](#exm-train-test-error-simulated), records the sMSE in each fold, and applies [Definition 47](#def-one-se-rule) to the ten degrees.
 >
 > Show R code
 >
@@ -1605,7 +1605,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > >
 > > Figure 7: 10-fold cross-validation estimates, with bars of one [fold-based standard error](#def-cv-se) ([Equation 46](#eq-cv-se)). The dashed line is one fold-based standard error above the smallest estimate.
 >
-> The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization RMSE of [Example 6](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
+> The smallest estimate is at degree 8. The lowest degree within one fold-based standard error of it is degree 3, which is the one-standard-error rule’s choice. The rule prefers the simpler model when the data cannot clearly tell it apart from the degree with the smallest estimate. Because the data are simulated, we can check both choices against the estimated generalization pRMSE of [Example 6](#exm-train-test-error-simulated) for each: 0.335 for degree 8 and 0.315 for degree 3.
 
 ## 9 Cross-validating the whole procedure
 

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -146,17 +146,17 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 >
 > For a fitted value, the prediction error is the negative of the residual ([Theorem 1](#thm-prediction-error-residual)), so the two differ only in orientation.
 
-## 2 Mean squared error of predictions
+## 2 Sample mean squared error of predictions
 
 > **NOTE:**
 >
-> **Definition 5 (Mean squared error of predictions)** The **mean squared error** of predictions \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
+> **Definition 5 (Mean squared error of predictions)** The **sample mean squared error (sMSE)** of predictions, also called their **mean squared error**, \\\hat y_1, \ldots, \hat y_n\\ of observed outcomes \\y_1, \ldots, y_n\\ is the mean of their squared [prediction errors](#def-prediction-error):
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2.\\
 
 > **NOTE:**
 >
-> *Remark 4* (Prediction MSE, estimator MSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [mean squared error of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([mean squared error and RSS](correlation-regression.llms.md#thm-mse-rss)):
+> *Remark 4* (Prediction sMSE, estimator pMSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [pMSE of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([sMSE and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}), \qquad \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}) = n \\ \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
@@ -201,7 +201,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > >
 > > Figure 1: Observed outcomes (filled), fitted values on the line (open), and the residual of the second point (dashed), which points up from its fitted value to its observed outcome
 >
-> The mean squared error of these predictions is
+> The sMSE of these predictions is
 >
 > \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} &= \frac{0^2 + (-0.5)^2 + 0^2}{3}\\ &= \frac{0.25}{3}\\ &\approx 0.083, \end{aligned} \\
 >
@@ -211,11 +211,11 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> *Remark 5* (Estimation versus prediction). Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error, but they aim at different targets:
+> *Remark 5* (Estimation versus prediction). Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:
 >
 > - **Target.** An [estimate](estimation.llms.md#def-estimate) aims at a fixed, unknown [estimand](estimation.llms.md#def-estimand). A [prediction](#def-prediction) aims at an outcome \\y\\, which is a random quantity even when the model is known exactly.
 > - **Error.** The [estimation error](estimation.llms.md#def-estimation-error) is the estimate minus the estimand. The [prediction error](#def-prediction-error) is the prediction minus the outcome.
-> - **Mean squared error.** The [mean squared error of an estimator](estimation.llms.md#mean-squared-error) is an expectation over repeated samples. The [mean squared error of predictions](#def-prediction-mse) is an average over observations.
+> - **Mean squared error.** The [pMSE of an estimator](estimation.llms.md#mean-squared-error) is an expectation over repeated samples. The [sMSE of predictions](#def-prediction-mse) is an average over observations.
 > - **What cannot be removed.** The error of a consistent estimator shrinks toward zero as the sample grows. A prediction’s expected squared error cannot fall below the [irreducible error](model-validation.llms.md#def-irreducible-error), the variance of the outcome around its conditional mean.
 >
 > [Validating Predictions](model-validation.llms.md) estimates the prediction error on new observations.

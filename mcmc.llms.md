@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -167,7 +167,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > *Proof*. This result is the solution to [Exercise 1](#exr-ar1-stationary).
 
-Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\mathord{\underset{\sim}{\theta}}^{(t)}\\ converges to it ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), p. 279; [Robert and Casella 2004, sec. 6.6.1](#ref-robert2004mcsm), Theorem 6.51, p. 234). Averages along the chain also converge to expectations under that distribution, even though successive values are correlated ([Robert and Casella 2004, sec. 6.7.1](#ref-robert2004mcsm), Theorem 6.63, p. 241; [Robert and Casella 2004, sec. 7.2](#ref-robert2004mcsm), p. 269). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\mathord{\underset{\sim}{\theta}}\mid \mathord{\underset{\sim}{y}})\\ ([Gelman et al. 2013, chap. 11](#ref-gelman2013bda), p. 275), so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
+Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\mathord{\underset{\sim}{\theta}}^{(t)}\\ converges to it ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), p. 279; [Robert and Casella 2004, sec. 6.6.1](#ref-robert2004mcsm), Theorem 6.51, p. 234). Sample means along the chain also converge to expectations under that distribution, even though successive values are correlated ([Robert and Casella 2004, sec. 6.7.1](#ref-robert2004mcsm), Theorem 6.63, p. 241; [Robert and Casella 2004, sec. 7.2](#ref-robert2004mcsm), p. 269). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\mathord{\underset{\sim}{\theta}}\mid \mathord{\underset{\sim}{y}})\\ ([Gelman et al. 2013, chap. 11](#ref-gelman2013bda), p. 275), so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 
 ## 2 MCMC samplers
 
@@ -247,7 +247,7 @@ The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\mathord{\underse
 > #>           0.710           0.601           0.602
 > ```
 >
-> Comparing \\\log u\\, for \\u\\ uniform on \\(0, 1)\\, with \\\log \alpha\\ accepts with probability \\\min(1, \alpha)\\, and avoids computing \\\alpha\\ itself, which can overflow or underflow. Every accepted proposal changes the chain’s value, so the fraction of iterations that change estimates the acceptance rate. The chain’s mean is close to the exact posterior mean \\56/93\\.
+> Comparing \\\log u\\, for \\u\\ uniform on \\(0, 1)\\, with \\\log \alpha\\ accepts with probability \\\min(1, \alpha)\\, and avoids computing \\\alpha\\ itself, which can overflow or underflow. Every accepted proposal changes the chain’s value, so the fraction of iterations that change estimates the acceptance rate. The chain’s sample mean is close to the exact posterior mean \\56/93\\.
 
 ### 2.2 Trace plots and burn-in
 
@@ -345,7 +345,7 @@ Because MCMC draws are correlated, and a chain may take many iterations to reach
 
 > **NOTE:**
 >
-> **Definition 13 (Potential scale reduction factor)** Suppose \\m\\ chains each contribute \\n\\ draws of a parameter \\\theta\\ after burn-in, with chain means \\\bar\theta_1, \ldots, \bar\theta_m\\, overall mean \\\bar\theta\\, and within-chain sample variances \\s_1^2, \ldots, s_m^2\\. Let
+> **Definition 13 (Potential scale reduction factor)** Suppose \\m\\ chains each contribute \\n\\ draws of a parameter \\\theta\\ after burn-in, with chain sample means \\\bar\theta_1, \ldots, \bar\theta_m\\, overall sample mean \\\bar\theta\\, and within-chain sample variances \\s_1^2, \ldots, s_m^2\\. Let
 >
 > \\ \begin{aligned} W &\stackrel{\text{def}}{=}\frac{1}{m} \sum\_{j=1}^{m} s_j^2 && \text{(within-chain variance)}\\ B &\stackrel{\text{def}}{=}\frac{n}{m - 1} \sum\_{j=1}^{m} \mathopen{}\left(\bar\theta_j - \bar\theta\right)\mathclose{}^2 && \text{(between-chain variance)}\\ \hat V &\stackrel{\text{def}}{=}\frac{n - 1}{n} W + \frac{1}{n} B && \text{(pooled variance estimate)}. \end{aligned} \\
 >

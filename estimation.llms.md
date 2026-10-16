@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
 ## 1 Scientific models
 
@@ -44,7 +44,7 @@ These kinds of *missing data* issues are outside the scope of these notes; see V
 
 > **NOTE:**
 >
-> **Example 2 (Mean height of students)** If we are trying to determine the mean height of students at our school, then the *population mean* is our [estimand](#def-estimand).
+> **Example 2 (Mean height of students)** If we are trying to determine the population mean height of students at our school, then the *population mean* is our [estimand](#def-estimand).
 
 In statistical contexts, most estimands are parameters of probabilistic models, or functions of model parameters.
 
@@ -86,7 +86,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> **Example 4 (Mean height of students)** Suppose we want to estimate the mean height of students at our school, which we will represent as \\\mu\\, and we measure the heights of \\n = 50\\ randomly sampled students as random variables \\X_1, \ldots, X_n\\. Then we could use the function
+> **Example 4 (Mean height of students)** Suppose we want to estimate the population mean height of students at our school, which we will represent as \\\mu\\, and we measure the heights of \\n = 50\\ randomly sampled students as random variables \\X_1, \ldots, X_n\\. Then we could use the function
 >
 > \\\hat{\mu}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^nX_i\stackrel{\text{def}}{=}\bar X\\
 >
@@ -96,7 +96,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > \\\hat{\mu}^{(2)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}X_1\\
 >
-> A third possible estimator would be the mean of all sampled students’ heights, except for the two most extreme. Using the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\X\_{(1)} \le X\_{(2)} \le \cdots \le X\_{(n)}\\ (the observations sorted in increasing order), this estimator drops \\X\_{(1)}\\ and \\X\_{(n)}\\ and averages the remaining \\n - 2\\ observations:
+> A third possible estimator would be the sample mean of all sampled students’ heights, except for the two most extreme. Using the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\X\_{(1)} \le X\_{(2)} \le \cdots \le X\_{(n)}\\ (the observations sorted in increasing order), this estimator drops \\X\_{(1)}\\ and \\X\_{(n)}\\ and averages the remaining \\n - 2\\ observations:
 >
 > \\\hat{\mu}^{(3)}(X_1, \ldots, X_n) \stackrel{\text{def}}{=}\frac{1}{n-2}\sum\_{i=2}^{n-1} X\_{(i)}\\
 >
@@ -150,11 +150,11 @@ To determine which estimator is best, we need to define *best*. Accuracy is usua
 >
 > In practice we never observe an estimation error, because we do not know the estimand’s value; if we did, we would not need to estimate it.
 
-The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, mean squared error, and mean absolute error defined in this section, are all functions of the distribution of the estimator’s [estimation error](#def-estimation-error).
+The accuracy of an estimator has no single, agreed formal definition. The usual measures of accuracy, including the bias, population mean squared error, and population mean absolute error defined in this section, are all functions of the distribution of the estimator’s [estimation error](#def-estimation-error).
 
 ### 3.3 Predictions and residuals
 
-Predictions, fitted values, residuals, prediction errors and the mean squared error of predictions have their own page, [Prediction](prediction.llms.md). That page also contrasts them with the estimation quantities defined here: [estimation error](#def-estimation-error) and the [mean squared error of an estimator](#mean-squared-error).
+Predictions, fitted values, residuals, prediction errors and the sample mean squared error of predictions have their own page, [Prediction](prediction.llms.md). That page also contrasts them with the estimation quantities defined here: [estimation error](#def-estimation-error) and the [population mean squared error of an estimator](#mean-squared-error).
 
 ### 3.4 Bias
 
@@ -182,7 +182,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Example 7 (Bias of two estimators of a mean)** Let \\X_1, \ldots, X_n\\ each have expectation \\\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\\, as in [Example 4](#exm-estimator). By [Theorem 1](#thm-bias-exprs), the bias of the sample mean \\\bar X\\ is:
+> **Example 7 (Bias of two estimators of a population mean)** Let \\X_1, \ldots, X_n\\ each have expectation \\\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\\, as in [Example 4](#exm-estimator). By [Theorem 1](#thm-bias-exprs), the bias of the sample mean \\\bar X\\ is:
 >
 > \\ \begin{aligned} \operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\bar X\right\]\mathclose{} - \mu && \text{(bias equals expectation minus truth)}\\ &= \operatorname{E}\mathopen{}\left\[\frac{1}{n}\sum\_{i=1}^nX_i\right\]\mathclose{} - \mu && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n}\operatorname{E}\mathopen{}\left\[\sum\_{i=1}^nX_i\right\]\mathclose{} - \mu && \text{(factor the constant \$\tfrac{1}{n}\$ out of the expectation)}\\ &= \frac{1}{n}\sum\_{i=1}^n\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} - \mu && \text{(linearity of expectation)}\\ &= \frac{1}{n}\sum\_{i=1}^n\mu- \mu && \text{(\$\operatorname{E}\mathopen{}\left\[X_i\right\]\mathclose{} = \mu\$ for every \$i\$)}\\ &= \frac{1}{n} \cdot n\mu- \mu && \text{(sum of \$n\$ copies of \$\mu\$)}\\ &= \mu- \mu && \text{(cancel \$n\$)}\\ &= 0 && \text{(subtract)} \end{aligned} \\
 >
@@ -192,11 +192,11 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 >
 > So both estimators have zero bias, even though \\\bar X\\ uses all \\n\\ observations and \\X_1\\ uses only one.
 
-### 3.5 Mean squared error of an estimator
+### 3.5 Population mean squared error of an estimator
 
 > **NOTE:**
 >
-> **Definition 8 (Mean squared error)** The **mean squared error** of an estimator \\\hat{\theta}\\, denoted \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
+> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error**, denoted \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\
 
@@ -244,7 +244,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Exercise 4 (Expanding the mean squared error)** Write the [mean squared error](#def-mse) \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
+> **Exercise 4 (Expanding the population mean squared error)** Write the [pMSE](#def-mse) \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ in terms of \\\operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{}\\, \\\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\\, and the estimand \\\theta\\.
 
 > **NOTE:**
 >
@@ -252,7 +252,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Theorem 4 (Expanded mean squared error)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the [mean squared error](#def-mse) is:
+> **Theorem 4 (Expanded population mean squared error)** For any one-dimensional estimator \\\hat{\theta}\\ of an estimand \\\theta\\, the [pMSE](#def-mse) is:
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\hat{\theta}^2\right\]\mathclose{} - 2\operatorname{E}\mathopen{}\left\[\hat{\theta}\right\]\mathclose{}\theta+ \theta^2\\
 
@@ -262,7 +262,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Theorem 5 (Mean squared error equals bias squared plus variance)** For any one-dimensional estimator \\\hat{\theta}\\:
+> **Theorem 5 (Population mean squared error equals bias squared plus variance)** For any one-dimensional estimator \\\hat{\theta}\\:
 >
 > \\\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
 
@@ -279,7 +279,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Example 8 (Mean squared error of two estimators of a mean)** Continuing [Example 7](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 5](#thm-mse-bias-variance) each estimator’s mean squared error equals its variance.
+> **Example 8 (Population mean squared error of two estimators of a population mean)** Continuing [Example 7](#exm-bias-sample-mean), suppose also that \\X_1, \ldots, X_n\\ are mutually independent, each with variance \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\\. Both \\\bar X\\ and \\X_1\\ have zero bias, so by [Theorem 5](#thm-mse-bias-variance) each estimator’s pMSE equals its variance.
 >
 > For \\X_1\\,
 >
@@ -287,7 +287,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 >
 > For \\\bar X\\:
 >
-> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(MSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(zero bias)}\\ &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(\$0^2 = 0\$)}\\ &= \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nX_i\right)\mathclose{} && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} && \text{(variance of a linear combination of independent variables)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\sigma^2 && \text{(\$\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\$ for every \$i\$)}\\ &= \frac{1}{n^2} \cdot n\sigma^2 && \text{(sum of \$n\$ copies of \$\sigma^2\$)}\\ &= \frac{\sigma^2}{n} && \text{(cancel one factor of \$n\$)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{MSE}\mathopen{}\left(\bar X\right)\mathclose{} &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\bar X\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(pMSE equals bias squared plus variance)}\\ &= 0^2 + \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(zero bias)}\\ &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(\$0^2 = 0\$)}\\ &= \operatorname{Var}\mathopen{}\left(\frac{1}{n}\sum\_{i=1}^nX_i\right)\mathclose{} && \text{(definition of \$\bar X\$)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} && \text{(variance of a linear combination of independent variables)}\\ &= \frac{1}{n^2}\sum\_{i=1}^n\sigma^2 && \text{(\$\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = \sigma^2\$ for every \$i\$)}\\ &= \frac{1}{n^2} \cdot n\sigma^2 && \text{(sum of \$n\$ copies of \$\sigma^2\$)}\\ &= \frac{\sigma^2}{n} && \text{(cancel one factor of \$n\$)} \end{aligned} \\
 >
 > The step to \\\frac{1}{n^2}\sum\_{i=1}^n\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{}\\ uses the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom), whose covariance terms are all zero for independent variables.
 >
@@ -299,17 +299,17 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Definition 9 (Root mean squared error)** The **root mean squared error** of an estimator \\\hat{\theta}\\ is the square root of its [mean squared error](#def-mse):
+> **Definition 9 (Root mean squared error)** The **population root mean squared error (pRMSE)** of an estimator \\\hat{\theta}\\, also called its **root mean squared error**, is the square root of its [pMSE](#def-mse):
 >
 > \\\operatorname{RMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\
 
 > **NOTE:**
 >
-> **Example 9 (Root mean squared error of the sample mean)** In [Example 8](#exm-mse-sample-mean), the root mean squared error of \\\bar X\\ is \\\sigma/\sqrt{n}\\.
+> **Example 9 (Population root mean squared error of the sample mean)** In [Example 8](#exm-mse-sample-mean), the pRMSE of \\\bar X\\ is \\\sigma/\sqrt{n}\\.
 
 > **NOTE:**
 >
-> *Remark 2* (Units of the root mean squared error). The root mean squared error has the same units as the estimand.
+> *Remark 2* (Units of the population root mean squared error). The pRMSE has the same units as the estimand.
 
 > **NOTE:**
 >
@@ -376,7 +376,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Exercise 6 (Mean squared error of an unbiased estimator)** Using [Theorem 5](#thm-mse-bias-variance), write the [mean squared error](#def-mse) of an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ in terms of its variance.
+> **Exercise 6 (Population mean squared error of an unbiased estimator)** Using [Theorem 5](#thm-mse-bias-variance), write the [pMSE](#def-mse) of an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ in terms of its variance.
 
 > **NOTE:**
 >
@@ -398,21 +398,21 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 >
 > 5MinuteAI covers the [properties of estimators](https://www.youtube.com/watch?v=sUFpzYNDn3Q), including bias, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
 
-### 3.7 Mean absolute error
+### 3.7 Population mean absolute error
 
 > **NOTE:**
 >
-> **Definition 12 (Mean absolute error)** The **mean absolute error** of an estimator is the expectation of the absolute value of the [estimation error](#def-estimation-error):
+> **Definition 12 (Mean absolute error)** The **population mean absolute error (pMAE)** of an estimator, also called its **mean absolute error**, is the expectation of the absolute value of the [estimation error](#def-estimation-error):
 >
 > \\ \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right\|\mathclose{}\right\]\mathclose{} \\
 
 > **NOTE:**
 >
-> **Example 12 (Mean absolute error of a Gaussian estimator)** Suppose an estimator \\\hat{\theta}\\ has a Gaussian distribution with mean \\\theta\\ and standard deviation \\\tau\\, so that its estimation error \\\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\\ has the same distribution as \\\tau Z\\, where \\Z\\ has a standard Gaussian distribution with density \\\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\\. Then:
+> **Example 12 (Population mean absolute error of a Gaussian estimator)** Suppose an estimator \\\hat{\theta}\\ has a Gaussian distribution with mean \\\theta\\ and standard deviation \\\tau\\, so that its estimation error \\\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \hat{\theta}- \theta\\ has the same distribution as \\\tau Z\\, where \\Z\\ has a standard Gaussian distribution with density \\\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}\\. Then:
 >
 > \\ \begin{aligned} \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\tau Z\right\|\mathclose{}\right\]\mathclose{} && \text{(definition of MAE)}\\ &= \operatorname{E}\mathopen{}\left\[\tau\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{} && \text{(\$\mathopen{}\left\|\tau Z\right\|\mathclose{} = \tau\mathopen{}\left\|Z\right\|\mathclose{}\$ because \$\tau\> 0\$)}\\ &= \tau\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|Z\right\|\mathclose{}\right\]\mathclose{} && \text{(factor the constant \$\tau\$ out of the expectation)}\\ &= \tau\int\_{-\infty}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(expectation of a function of \$Z\$)}\\ &= \tau\cdot 2 \int\_{0}^{\infty} \mathopen{}\left\|z\right\|\mathclose{} \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{}\phi(z)\$ is symmetric about 0)}\\ &= \tau\cdot 2 \int\_{0}^{\infty} z \phi(z) \\ dz && \text{(\$\mathopen{}\left\|z\right\|\mathclose{} = z\$ for \$z \ge 0\$)}\\ &= \tau\cdot 2 \mathopen{}\left\[-\phi(z)\right\]\mathclose{}\_{0}^{\infty} && \text{(\$\phi'(z) = -z\phi(z)\$)}\\ &= \tau\cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} - \mathopen{}\left(-\phi(0)\right)\mathclose{}\right)\mathclose{} && \text{(evaluate at the limits)}\\ &= \tau\cdot 2 \mathopen{}\left(\lim\_{z \to \infty} \mathopen{}\left\[-\phi(z)\right\]\mathclose{} + \phi(0)\right)\mathclose{} && \text{(subtracting a negative is adding)}\\ &= \tau\cdot 2 \mathopen{}\left(0 + \phi(0)\right)\mathclose{} && \text{(\$\phi(z) \to 0\$ as \$z \to \infty\$)}\\ &= \tau\cdot 2 \phi(0) && \text{(drop the zero term)}\\ &= \tau\cdot 2 (2\pi)^{-1/2} && \text{(\$\phi(0) = (2\pi)^{-1/2}\$)}\\ &= \tau\cdot 2 \cdot \frac{1}{\sqrt{2\pi}} && \text{(write \$(2\pi)^{-1/2}\$ as \$1/\sqrt{2\pi}\$)}\\ &= \tau\cdot \frac{2}{\sqrt{2\pi}} && \text{(multiply)}\\ &= \tau\cdot \frac{\sqrt{4}}{\sqrt{2\pi}} && \text{(write \$2\$ as \$\sqrt{4}\$)}\\ &= \tau\sqrt{4/(2\pi)} && \text{(quotient of square roots)}\\ &= \tau\sqrt{2/\pi} && \text{(cancel the common factor 2 in \$4/(2\pi)\$)} \end{aligned} \\
 >
-> So for an [unbiased](#def-unbiased) Gaussian estimator, the mean absolute error is about \\0.80\\ times the standard deviation \\\tau\\, while the [root mean squared error](#def-rmse) is \\\tau\\ itself ([Theorem 6](#thm-unbiased-props)).
+> So for an [unbiased](#def-unbiased) Gaussian estimator, the pMAE is about \\0.80\\ times the standard deviation \\\tau\\, while the [pRMSE](#def-rmse) is \\\tau\\ itself ([Theorem 6](#thm-unbiased-props)).
 
 ### 3.8 Standard error
 
@@ -456,7 +456,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Exercise 8 (Squared standard error from MSE and bias)** Using [Theorem 5](#thm-mse-bias-variance), write the squared [standard error](#def-SE) \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\ in terms of the [mean squared error](#def-mse) and the [bias](#def-bias) of \\\hat{\theta}\\.
+> **Exercise 8 (Squared standard error from pMSE and bias)** Using [Theorem 5](#thm-mse-bias-variance), write the squared [standard error](#def-SE) \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\ in terms of the [pMSE](#def-mse) and the [bias](#def-bias) of \\\hat{\theta}\\.
 
 > **NOTE:**
 >
@@ -464,7 +464,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Corollary 1 (Standard error squared equals MSE minus squared bias)** The squared standard error is what remains of the mean squared error after the squared bias is removed:
+> **Corollary 1 (Standard error squared equals pMSE minus squared bias)** The squared standard error is what remains of the pMSE after the squared bias is removed:
 >
 > \\{\mathopen{}\left(\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 = \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} - {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\\
 
@@ -474,7 +474,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Exercise 9 (Standard error of an unbiased estimator)** Using [Equation 6](#eq-unbiased-mse), write the [standard error](#def-SE) of an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ in terms of its [mean squared error](#def-mse).
+> **Exercise 9 (Standard error of an unbiased estimator)** Using [Equation 6](#eq-unbiased-mse), write the [standard error](#def-SE) of an [unbiased](#def-unbiased) estimator \\\hat{\theta}\\ in terms of its [pMSE](#def-mse).
 
 > **NOTE:**
 >
@@ -484,7 +484,7 @@ Predictions, fitted values, residuals, prediction errors and the mean squared er
 
 > **NOTE:**
 >
-> **Corollary 2 (For unbiased estimators, SE equals root MSE)** If \\\hat{\theta}\\ is [unbiased](#def-unbiased), then its standard error equals its [root mean squared error](#def-rmse):
+> **Corollary 2 (For unbiased estimators, SE equals pRMSE)** If \\\hat{\theta}\\ is [unbiased](#def-unbiased), then its standard error equals its [pRMSE](#def-rmse):
 >
 > \\\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \sqrt{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\
 

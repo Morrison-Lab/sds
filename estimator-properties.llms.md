@@ -14,9 +14,9 @@ Code
 
 Published
 
-Last modified: 2026-10-16 05:21:29 (PDT)
+Last modified: 2026-10-16 05:36:08 (PDT)
 
-[Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
+[Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
 ## 1 Consistency
 
@@ -32,11 +32,11 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> *Remark 1* (Consistency describes a sequence of estimators). An estimator such as the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is a formula that applies to any sample size, so \\\hat{\theta}\_1, \hat{\theta}\_2, \ldots\\ is a sequence of estimators, one for each \\n\\. [Unbiasedness](estimation.llms.md#def-unbiased) and [mean squared error](estimation.llms.md#def-mse) describe an estimator at one fixed sample size; consistency describes what happens to the whole sequence as \\n\\ grows. An estimator can be consistent and biased at every \\n\\, or unbiased at every \\n\\ and not consistent (the single-observation estimator \\X_1\\ of a mean is the standard example).
+> *Remark 1* (Consistency describes a sequence of estimators). An estimator such as the [sample mean](exploratory-descriptive.llms.md#def-sample-mean) is a formula that applies to any sample size, so \\\hat{\theta}\_1, \hat{\theta}\_2, \ldots\\ is a sequence of estimators, one for each \\n\\. [Unbiasedness](estimation.llms.md#def-unbiased) and [pMSE](estimation.llms.md#def-mse) describe an estimator at one fixed sample size; consistency describes what happens to the whole sequence as \\n\\ grows. An estimator can be consistent and biased at every \\n\\, or unbiased at every \\n\\ and not consistent (the single-observation estimator \\X_1\\ of a mean is the standard example).
 
 > **NOTE:**
 >
-> **Exercise 1 (Bounding the chance of a large estimation error)** Let \\\hat{\theta}\\ be an estimator of \\\theta\\ with finite [mean squared error](estimation.llms.md#def-mse), and let \\\varepsilon \> 0\\. Use [Markov’s inequality](https://morrison-lab.github.io/pds/limit-theorems.html#thm-markov) to show that \\\Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} / \varepsilon^2\\.
+> **Exercise 1 (Bounding the chance of a large estimation error)** Let \\\hat{\theta}\\ be an estimator of \\\theta\\ with finite [pMSE](estimation.llms.md#def-mse), and let \\\varepsilon \> 0\\. Use [Markov’s inequality](https://morrison-lab.github.io/pds/limit-theorems.html#thm-markov) to show that \\\Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} / \varepsilon^2\\.
 
 > **NOTE:**
 >
@@ -46,7 +46,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Lemma 1 (Chance of a large estimation error)** If \\\hat{\theta}\\ is an estimator of \\\theta\\ with finite mean squared error, then for every \\\varepsilon \> 0\\ the probability of an estimation error of at least \\\varepsilon\\ is at most the mean squared error divided by \\\varepsilon^2\\:
+> **Lemma 1 (Chance of a large estimation error)** If \\\hat{\theta}\\ is an estimator of \\\theta\\ with finite pMSE, then for every \\\varepsilon \> 0\\ the probability of an estimation error of at least \\\varepsilon\\ is at most the pMSE divided by \\\varepsilon^2\\:
 >
 > \\ \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}- \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} \le \frac{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}{\varepsilon^2} \tag{2}\\
 
@@ -56,7 +56,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Theorem 1 (Vanishing mean squared error implies consistency)** If the mean squared error of \\\hat{\theta}\_n\\ goes to zero as \\n\\ grows, then \\\hat{\theta}\_n\\ is a [consistent](#def-consistent) estimator of \\\theta\\:
+> **Theorem 1 (Vanishing population mean squared error implies consistency)** If the pMSE of \\\hat{\theta}\_n\\ goes to zero as \\n\\ grows, then \\\hat{\theta}\_n\\ is a [consistent](#def-consistent) estimator of \\\theta\\:
 >
 > \\ \lim\_{n \to \infty} \operatorname{MSE}\mathopen{}\left(\hat{\theta}\_n\right)\mathclose{} = 0 \quad \Longrightarrow \quad \hat{\theta}\_n \overset{\scriptstyle p}{\longrightarrow}\theta \tag{3}\\
 
@@ -76,7 +76,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 >
 > **Example 1 (Consistency of the sample mean for birth weights)** The `birthwt` data record the birth weight (grams) of 189 babies from a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
 >
-> To see [Corollary 1](#cor-sample-mean-consistent) at work, treat these babies as a finite population and let the estimand \\\mu\\ be their mean birth weight. We draw \\n\\ babies at random with replacement, so the draws are independent with the population’s mean and variance, and we ask how often the sample mean misses \\\mu\\ by at least \\\varepsilon = 100\\ grams. For each \\n\\ we repeat the sampling 2000 times and report the fraction of repeats that miss, with a 95% confidence interval for that probability (the Wilson score interval with continuity correction, the default of [`prop.test()`](https://rdrr.io/r/stats/prop.test.html)), next to the bound \\\sigma^2/ (n \varepsilon^2)\\ that [Lemma 1](#lem-estimation-error-bound) gives, capped at 1 because a probability cannot exceed 1, using \\\operatorname{MSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\\ from [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean).
+> To see [Corollary 1](#cor-sample-mean-consistent) at work, treat these babies as a finite population and let the estimand \\\mu\\ be their population mean birth weight. We draw \\n\\ babies at random with replacement, so the draws are independent with the population’s mean and variance, and we ask how often the sample mean misses \\\mu\\ by at least \\\varepsilon = 100\\ grams. For each \\n\\ we repeat the sampling 2000 times and report the fraction of repeats that miss, with a 95% confidence interval for that probability (the Wilson score interval with continuity correction, the default of [`prop.test()`](https://rdrr.io/r/stats/prop.test.html)), next to the bound \\\sigma^2/ (n \varepsilon^2)\\ that [Lemma 1](#lem-estimation-error-bound) gives, capped at 1 because a probability cannot exceed 1, using \\\operatorname{MSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\\ from [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean).
 >
 > Show R code
 >
@@ -139,7 +139,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 > > if (knitr::is_html_output()) plotly::ggplotly(p) else p
 > > ```
 > >
-> > Figure 1: The chance that the sample mean of \\n\\ birth weights misses the mean by 100 g or more, by simulation (2000 repeats per \\n\\, with 95% confidence bands) and by the bound from [Lemma 1](#lem-estimation-error-bound)
+> > Figure 1: The chance that the sample mean of \\n\\ birth weights misses the population mean by 100 g or more, by simulation (2000 repeats per \\n\\, with 95% confidence bands) and by the bound from [Lemma 1](#lem-estimation-error-bound)
 >
 > The simulated probability shrinks toward zero as \\n\\ grows, as consistency says it must, and it lies below the bound at every sample size here, which is loose for small \\n\\ but follows the same \\1/n\\ decay.
 
@@ -147,7 +147,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> **Definition 2 (Relative efficiency)** Let \\\hat{\theta}\_a\\ and \\\hat{\theta}\_b\\ be two estimators of the same estimand \\\theta\\. The **relative efficiency** of \\\hat{\theta}\_a\\ with respect to \\\hat{\theta}\_b\\ is the ratio of their [mean squared errors](estimation.llms.md#def-mse), the reference estimator’s, that of \\\hat{\theta}\_b\\, in the numerator:
+> **Definition 2 (Relative efficiency)** Let \\\hat{\theta}\_a\\ and \\\hat{\theta}\_b\\ be two estimators of the same estimand \\\theta\\. The **relative efficiency** of \\\hat{\theta}\_a\\ with respect to \\\hat{\theta}\_b\\ is the ratio of their [pMSEs](estimation.llms.md#def-mse), the reference estimator’s, that of \\\hat{\theta}\_b\\, in the numerator:
 >
 > \\\frac{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\_b\right)\mathclose{}}{\operatorname{MSE}\mathopen{}\left(\hat{\theta}\_a\right)\mathclose{}}\\
 
@@ -157,7 +157,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> *Remark 3* (Reading the relative efficiency). A relative efficiency above 1 means \\\hat{\theta}\_a\\ is more accurate than \\\hat{\theta}\_b\\, and below 1 means it is less accurate. For two [unbiased](estimation.llms.md#def-unbiased) estimators the mean squared errors are the variances ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias), so the relative efficiency is the ratio of the variances.
+> *Remark 3* (Reading the relative efficiency). A relative efficiency above 1 means \\\hat{\theta}\_a\\ is more accurate than \\\hat{\theta}\_b\\, and below 1 means it is less accurate. For two [unbiased](estimation.llms.md#def-unbiased) estimators the pMSEs are the variances ([pMSE equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias), so the relative efficiency is the ratio of the variances.
 
 > **NOTE:**
 >
@@ -219,11 +219,11 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 
 > **NOTE:**
 >
-> *Remark 4* (An efficient estimator has the smallest variance). By the Cramér–Rao lower bound, no unbiased estimator that satisfies its assumptions has a smaller variance than an efficient one. Among such estimators, an efficient estimator therefore also has the smallest mean squared error ([mean squared error equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias).
+> *Remark 4* (An efficient estimator has the smallest variance). By the Cramér–Rao lower bound, no unbiased estimator that satisfies its assumptions has a smaller variance than an efficient one. Among such estimators, an efficient estimator therefore also has the smallest pMSE ([pMSE equals bias squared plus variance](estimation.llms.md#thm-mse-bias-variance), with zero bias).
 
 > **NOTE:**
 >
-> **Example 3 (The sample mean is efficient for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, the sample mean \\\bar X\\ is unbiased for \\{\lambda}\\ ([the bias example](estimation.llms.md#exm-bias-sample-mean)), and, because \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = {\lambda}\\ for a Poisson variable, \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = {\lambda}/ n\\ ([the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean)). The expected information is \\\mathcal{I}({\lambda}) = n / {\lambda}\\ ([the Poisson information example](intro-MLEs.llms.md#exm-information-poisson)), so
+> **Example 3 (The sample mean is efficient for Poisson data)** For \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, the sample mean \\\bar X\\ is unbiased for \\{\lambda}\\ ([the bias example](estimation.llms.md#exm-bias-sample-mean)), and, because \\\operatorname{Var}\mathopen{}\left(X_i\right)\mathclose{} = {\lambda}\\ for a Poisson variable, \\\operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} = {\lambda}/ n\\ ([the example on two estimators of a population mean](estimation.llms.md#exm-mse-sample-mean)). The expected information is \\\mathcal{I}({\lambda}) = n / {\lambda}\\ ([the Poisson information example](intro-MLEs.llms.md#exm-information-poisson)), so
 >
 > \\ \begin{aligned} \frac{1}{\mathcal{I}({\lambda})} &= \frac{1}{n / {\lambda}} && \text{(substitute the expected information)}\\ &= \frac{{\lambda}}{n} && \text{(reciprocal of a fraction)}\\ &= \operatorname{Var}\mathopen{}\left(\bar X\right)\mathclose{} && \text{(variance of the sample mean)} \end{aligned} \\
 >
@@ -233,7 +233,7 @@ Last modified: 2026-10-16 05:21:29 (PDT)
 >
 > *Remark 5* (What the bound does and does not say). The bound holds only for unbiased estimators, and only when the regularity conditions of [the exercise on the mean of the score](intro-MLEs.llms.md#exr-score-mean-zero) hold. When the set of possible data values depends on the parameter, as for the uniform distribution on \\\[0, \theta\]\\, the conditions fail and the bound need not hold (compare [the uniform example](intro-MLEs.llms.md#exm-information-equality-fails)).
 >
-> A biased estimator can have a variance below the bound, because the bound relies on [the covariance of an estimator and the score](#exr-cov-estimator-score), which assumes the estimator is unbiased. Its [mean squared error](estimation.llms.md#thm-mse-bias-variance) adds the squared bias to the variance, so trading a little bias for a large drop in variance can also lower the mean squared error.
+> A biased estimator can have a variance below the bound, because the bound relies on [the covariance of an estimator and the score](#exr-cov-estimator-score), which assumes the estimator is unbiased. Its [pMSE](estimation.llms.md#thm-mse-bias-variance) adds the squared bias to the variance, so trading a little bias for a large drop in variance can also lower the pMSE.
 >
 > The information from \\n\\ independent observations is \\n\\ times the information from one, so for a sample of size \\n\\ the bound shrinks like \\1/n\\. That is the rate at which the variance of an efficient estimator falls, and the [maximum likelihood estimator](intro-MLEs.llms.md#thm-dist-mle) attains it asymptotically.
 

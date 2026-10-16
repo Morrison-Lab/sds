@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 05:21:29 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 05:36:08 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -500,14 +500,14 @@ text-align: center;
 <p>For a fitted value, the prediction error is the negative of the residual (<a href="#/thm-prediction-error-residual" class="quarto-xref">Theorem&nbsp;1</a>), so the two differ only in orientation.</p>
 </div>
 </section><section id="sec-prediction-mse" class="slide level2" data-number="2"><h2>
-<span class="header-section-number">2</span> Mean squared error of predictions</h2>
+<span class="header-section-number">2</span> Sample mean squared error of predictions</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-prediction-mse div. -->
 <div id="def-prediction-mse" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 5 (Mean squared error of predictions)</strong></span> The <strong>mean squared error</strong> of predictions <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
+<p><span class="theorem-title"><strong>Definition 5 (Mean squared error of predictions)</strong></span> The <strong>sample mean squared error (sMSE)</strong> of predictions, also called their <strong>mean squared error</strong>, <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n\varepsilon_i^2.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-mse" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Prediction MSE, estimator MSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;5</a> averages squared errors over observations, where the <a href="./estimation.html#def-mse">mean squared error of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the mean squared error of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">mean squared error and RSS</a>):</p>
+<p><span class="proof-title"><em>Remark 4</em> (Prediction sMSE, estimator pMSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;5</a> averages squared errors over observations, where the <a href="./estimation.html#def-mse">pMSE of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">sMSE and RSS</a>):</p>
 <p><span class="math display">\[\operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}),
 \qquad
 \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}) = n \, \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}.\]</span></p>
@@ -587,7 +587,7 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </figure>
 </div>
-<p>The mean squared error of these predictions is</p>
+<p>The sMSE of these predictions is</p>
 <p><span class="math display">\[
 \begin{aligned}
 \operatorname{MSE}\mathopen{}\left(\hat y\right)\mathclose{}
@@ -602,14 +602,14 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 <span class="header-section-number">3</span> Estimation versus prediction</h2>
 <!-- No slidebreak here: the heading shares its slide with the remark. -->
 <div id="rem-estimation-vs-prediction" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Estimation versus prediction). </span>Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error, but they aim at different targets:</p>
+<p><span class="proof-title"><em>Remark 5</em> (Estimation versus prediction). </span>Estimation and prediction both measure error as a signed difference, and both summarize it with a mean squared error (a pMSE for an estimator, an sMSE for predictions), but they aim at different targets:</p>
 <ul>
 <li>
 <strong>Target.</strong> An <a href="./estimation.html#def-estimate">estimate</a> aims at a fixed, unknown <a href="./estimation.html#def-estimand">estimand</a>. A <a href="#/def-prediction">prediction</a> aims at an outcome <span class="math inline">\(y\)</span>, which is a random quantity even when the model is known exactly.</li>
 <li>
 <strong>Error.</strong> The <a href="./estimation.html#def-estimation-error">estimation error</a> is the estimate minus the estimand. The <a href="#/def-prediction-error">prediction error</a> is the prediction minus the outcome.</li>
 <li>
-<strong>Mean squared error.</strong> The <a href="./estimation.html#mean-squared-error">mean squared error of an estimator</a> is an expectation over repeated samples. The <a href="#/def-prediction-mse">mean squared error of predictions</a> is an average over observations.</li>
+<strong>Mean squared error.</strong> The <a href="./estimation.html#mean-squared-error">pMSE of an estimator</a> is an expectation over repeated samples. The <a href="#/def-prediction-mse">sMSE of predictions</a> is an average over observations.</li>
 <li>
 <strong>What cannot be removed.</strong> The error of a consistent estimator shrinks toward zero as the sample grows. A prediction’s expected squared error cannot fall below the <a href="./model-validation.html#def-irreducible-error">irreducible error</a>, the variance of the outcome around its conditional mean.</li>
 </ul>

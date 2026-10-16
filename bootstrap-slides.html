@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 05:21:29 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 05:36:08 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -423,7 +423,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 3 (Bootstrap standard error)</strong></span> The <strong>bootstrap standard error</strong> of a statistic <span class="math inline">\(\hat{\theta}\)</span>, written <span class="math inline">\(\widehat{\text{SE}}_\text{boot}\)</span>, is the sample standard deviation of the bootstrap replicates <span class="math inline">\(\hat{\theta}^*_1, \ldots, \hat{\theta}^*_B\)</span> (<a href="#/def-bootstrap-distribution" class="quarto-xref">Definition&nbsp;2</a>). It estimates the <a href="./estimation.html#def-SE">standard error</a> of <span class="math inline">\(\hat{\theta}\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-bootstrap-distribution-toy" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Bootstrap distribution of a mean of ten glucose values)</strong></span> Take the baseline fasting glucose values of the first ten HERS participants, and compute the sample mean of each of <span class="math inline">\(B = 1{,}000\)</span> bootstrap samples:</p>
+<p><span class="theorem-title"><strong>Example 2 (Bootstrap distribution of the sample mean of ten glucose values)</strong></span> Take the baseline fasting glucose values of the first ten HERS participants, and compute the sample mean of each of <span class="math inline">\(B = 1{,}000\)</span> bootstrap samples:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>glucose10 <span class="ot">&lt;-</span> hers<span class="sc">$</span>glucose[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
@@ -437,7 +437,7 @@ text-align: center;
 <span id="cb3-10"><a aria-label="10"></a><span class="co">#&gt;  observed_mean   bootstrap_se     formula_se divide_by_n_se </span></span>
 <span id="cb3-11"><a aria-label="11"></a><span class="co">#&gt;      103.80000        3.47992        3.61417        3.42870</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The bootstrap standard error (<a href="#/def-bootstrap-se" class="quarto-xref">Definition&nbsp;3</a>) is close to the usual estimate <span class="math inline">\(s / \sqrt{n}\)</span>. Each bootstrap draw has variance <span class="math inline">\(\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n(x_i- \bar{x})^2\)</span> around <span class="math inline">\(\bar{x}\)</span>, and the <span class="math inline">\(n\)</span> draws are independent, so as <span class="math inline">\(B\)</span> grows the bootstrap standard error of the mean approaches <span class="math inline">\(\hat{\sigma}/ \sqrt{n}\)</span> (<code>divide_by_n_se</code>), which is smaller than <span class="math inline">\(s / \sqrt{n}\)</span> by the factor <span class="math inline">\(\sqrt{(n-1)/n}\)</span>. <a href="#/fig-boot-dist-toy" class="quarto-xref">Figure&nbsp;1</a> shows the bootstrap distribution.</p>
+<p>The bootstrap standard error (<a href="#/def-bootstrap-se" class="quarto-xref">Definition&nbsp;3</a>) is close to the usual estimate <span class="math inline">\(s / \sqrt{n}\)</span>. Each bootstrap draw has variance <span class="math inline">\(\hat{\sigma}^2\stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n(x_i- \bar{x})^2\)</span> around <span class="math inline">\(\bar{x}\)</span>, and the <span class="math inline">\(n\)</span> draws are independent, so as <span class="math inline">\(B\)</span> grows the bootstrap standard error of the sample mean approaches <span class="math inline">\(\hat{\sigma}/ \sqrt{n}\)</span> (<code>divide_by_n_se</code>), which is smaller than <span class="math inline">\(s / \sqrt{n}\)</span> by the factor <span class="math inline">\(\sqrt{(n-1)/n}\)</span>. <a href="#/fig-boot-dist-toy" class="quarto-xref">Figure&nbsp;1</a> shows the bootstrap distribution.</p>
 <details class="code-fold"><summary>[R code]</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>tibble<span class="sc">::</span><span class="fu">tibble</span>(<span class="at">mean =</span> boot_means10) <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a aria-label="2"></a>  ggplot2<span class="sc">::</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb4-3"><a aria-label="3"></a>  ggplot2<span class="sc">::</span><span class="fu">aes</span>(<span class="at">x =</span> mean) <span class="sc">+</span></span>
@@ -446,12 +446,12 @@ text-align: center;
 <span id="cb4-6"><a aria-label="6"></a>  ggplot2<span class="sc">::</span><span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Bootstrap mean (mg/dL)"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="fig-boot-dist-toy" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-boot-dist-toy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (<span class="math inline">\(B = 1{,}000\)</span>). The red line marks the observed mean.
+Figure&nbsp;1: Bootstrap distribution of the sample mean fasting glucose of the first ten HERS participants (<span class="math inline">\(B = 1{,}000\)</span>). The red line marks the observed sample mean.
 </figcaption><div aria-describedby="fig-boot-dist-toy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><a href="bootstrap_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Bootstrap distribution of the mean fasting glucose of the first ten HERS participants (B = 1{,}000). The red line marks the observed mean."><img data-src="bootstrap_files/figure-html/unnamed-chunk-3-1.png" width="672"></a></p>
+<figure><p><a href="bootstrap_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Bootstrap distribution of the sample mean fasting glucose of the first ten HERS participants (B = 1{,}000). The red line marks the observed sample mean."><img data-src="bootstrap_files/figure-html/unnamed-chunk-3-1.png" width="672"></a></p>
 </figure>
 </div>
 </div>
