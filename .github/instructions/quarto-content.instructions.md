@@ -23,7 +23,7 @@ description: "Use when editing Quarto pages, chapters, slides, handouts, or narr
 - Write math notation through semantic macros (for example `\coef{x}`,
   `\intcoef`), not hard-coded symbols; see "Math Notation" in
   [copilot-instructions.md](../copilot-instructions.md).
-- Credit sources where readers can see them (never credit the group's own sites or works, but what they credit is still carried, outside co-authors keep their credit by name, a published paper cited as a result's original publication or software cited as a tool used stays, and links for further reading stay):
+- Credit sources where readers can see them (never credit the group's own sites or works, but what they credit is still carried, outside co-authors keep their credit by name, a published paper cited as a result's original publication, software cited as a tool used, and a publisher-required citation stay, and links for further reading stay):
   a credit that is only a citation goes inside the item's div as a final "Source: @key [locator]." line;
   substantial prose about the source or history goes in a `rem-source-` remark div
   titled "Source: ..." right after the item's div and its proof;

@@ -191,7 +191,7 @@ and, where one exists, a modern textbook.
 
 A link to the group's page on the topic, or to another of the group's sites, that sends the reader to further reading
 is a cross-reference, not an attribution, and stays.
-An sds page never relies on such a link to define or explain something it needs
+An sds page never relies on a link to lds, rme, win or cie to define or explain something it needs
 (see "Where sds sits among the lab's sites" in `CLAUDE.md`).
 
 An HTML comment is not an attribution,
