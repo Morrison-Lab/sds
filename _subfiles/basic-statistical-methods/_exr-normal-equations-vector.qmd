@@ -6,7 +6,7 @@ Define the matrix and vector
 $$
 A \eqdef \sumin \soprod{\vxi},
 \qquad
-\v{c} \eqdef \sumin \vxi y_i.
+\v{c} \eqdef \sumin \vxi \outvar_\iobs.
 $$
 
 Using @exr-rss-gradient-vector,
@@ -23,11 +23,11 @@ Distribute the sum in the gradient from @exr-rss-gradient-vector:
 $$
 \begin{aligned}
 \deriv{\vcoef} \text{RSS}(\vcoef)
-&= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
+&= -2 \sumin \vxi \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}
 && \text{(gradient of RSS)}\\
-&= -2 \sumin \paren{\vxi y_i - \vxi \paren{\dprod{\vxi}{\vcoef}}}
+&= -2 \sumin \paren{\vxi \outvar_\iobs - \vxi \paren{\dprod{\vxi}{\vcoef}}}
 && \text{(distribute $\vxi$)}\\
-&= -2 \paren{\sumin \vxi y_i - \sumin \vxi \paren{\dprod{\vxi}{\vcoef}}}
+&= -2 \paren{\sumin \vxi \outvar_\iobs - \sumin \vxi \paren{\dprod{\vxi}{\vcoef}}}
 && \text{(sum of differences)}
 \end{aligned}
 $$

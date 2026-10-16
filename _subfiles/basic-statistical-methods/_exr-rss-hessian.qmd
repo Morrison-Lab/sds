@@ -66,18 +66,18 @@ $$
 **Derivatives of $\partial \text{RSS} / \partial \coef{x}$.**
 By @exr-rss-deriv-slope,
 $\partial \text{RSS} / \partial \coef{x}
-= -2 \sumin x_i (y_i - \intcoef - \coef{x} x_i)$.
+= -2 \sumin x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)$.
 Differentiating with respect to $\intcoef$,
 and reusing the inner derivative $-1$ from @exr-rss-deriv-intercept:
 
 $$
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \intcoef \, \partial \coef{x}}
-&= -2 \deriv{\intcoef} \sumin x_i (y_i - \intcoef - \coef{x} x_i)
+&= -2 \deriv{\intcoef} \sumin x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)
 && \text{(constant factor)}\\
-&= -2 \sumin \deriv{\intcoef} \paren{x_i (y_i - \intcoef - \coef{x} x_i)}
+&= -2 \sumin \deriv{\intcoef} \paren{x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)}
 && \text{(derivative of a sum)}\\
-&= -2 \sumin x_i \deriv{\intcoef} (y_i - \intcoef - \coef{x} x_i)
+&= -2 \sumin x_i \deriv{\intcoef} (\outvar_\iobs - \intcoef - \coef{x} x_i)
 && \text{($x_i$ does not depend on $\intcoef$)}\\
 &= -2 \sumin x_i (-1)
 && \text{(inner derivative is $-1$)}\\
@@ -98,11 +98,11 @@ and reusing the inner derivative $-x_i$ from @exr-rss-deriv-slope:
 $$
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \coef{x}^2}
-&= -2 \frac{\partial}{\partial \coef{x}} \sumin x_i (y_i - \intcoef - \coef{x} x_i)
+&= -2 \frac{\partial}{\partial \coef{x}} \sumin x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)
 && \text{(constant factor)}\\
-&= -2 \sumin \frac{\partial}{\partial \coef{x}} \paren{x_i (y_i - \intcoef - \coef{x} x_i)}
+&= -2 \sumin \frac{\partial}{\partial \coef{x}} \paren{x_i (\outvar_\iobs - \intcoef - \coef{x} x_i)}
 && \text{(derivative of a sum)}\\
-&= -2 \sumin x_i \frac{\partial}{\partial \coef{x}} (y_i - \intcoef - \coef{x} x_i)
+&= -2 \sumin x_i \frac{\partial}{\partial \coef{x}} (\outvar_\iobs - \intcoef - \coef{x} x_i)
 && \text{($x_i$ does not depend on $\coef{x}$)}\\
 &= -2 \sumin x_i (-x_i)
 && \text{(inner derivative is $-x_i$)}\\

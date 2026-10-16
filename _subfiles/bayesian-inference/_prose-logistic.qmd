@@ -1,4 +1,4 @@
-For a binary outcome $Y_i \sim \Bernoulli(\prob_i)$
+For a binary outcome $\Outvar_\iobs \sim \Bernoulli(\prob_i)$
 with $\logit(\prob_i) = \dprod{\vxi}{\vcoef}$,
 the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model,
 a Bayesian analysis places a prior on the coefficient vector $\vcoef$

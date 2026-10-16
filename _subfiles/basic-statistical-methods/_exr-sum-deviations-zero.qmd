@@ -22,7 +22,7 @@ $$
 \end{aligned}
 $$
 
-The same steps with $y_i$ in place of $x_i$
-show that $\sumin (y_i - \bar{y}) = 0$.
+The same steps with $\outvar_\iobs$ in place of $x_i$
+show that $\sumin (\outvar_\iobs - \bar{y}) = 0$.
 
 :::

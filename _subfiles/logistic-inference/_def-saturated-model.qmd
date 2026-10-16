@@ -5,7 +5,7 @@
 The **saturated model** (also called the **full model** [@dobson4e, Section 5.5] or **maximal model** [@dobson4e, Section 5.5]) for binary outcomes gives each pattern its own free event probability:
 
 $$
-\Prf{\Outvar_i = 1 \mid \vpredvar_i = \vpredvar^{(k)}} = \prob_k,
+\Prf{\Outvar_\iobs = 1 \mid \vpredvar_i = \vpredvar^{(k)}} = \prob_k,
 \qquad k = 1, \dots, \npatterns,
 $$ {#eq-saturated-model}
 

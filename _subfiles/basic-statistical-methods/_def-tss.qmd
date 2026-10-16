@@ -3,6 +3,6 @@
 
 The **total sum of squares** of $\dsn{y}$ is
 
-$$\text{TSS} \eqdef \sumin (y_i - \bar{y})^2.$$
+$$\text{TSS} \eqdef \sumin (\outvar_\iobs - \bar{y})^2.$$
 
 :::
