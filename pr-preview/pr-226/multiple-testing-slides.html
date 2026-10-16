@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-15 15:23:41 (PDT)</p>
+  <p class="date">Last modified: 2026-10-15 18:18:20 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -922,6 +922,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <div id="def-holm-cutoff" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Holm cutoff rank)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with p-values and a level <span class="math inline">\(\alpha\)</span>, order the p-values from smallest to largest, <span class="math inline">\(p_{(1)} \le p_{(2)} \le \cdots \le p_{(m)}\)</span>, and let <span class="math inline">\(H_{(k)}\)</span> be the null hypothesis with p-value <span class="math inline">\(p_{(k)}\)</span>. The <strong>Holm cutoff rank</strong> <span class="math inline">\(k^*\)</span> is the first rank at which the p-value exceeds its threshold <span class="math inline">\(\alpha/ (m - k + 1)\)</span>, with <span class="math inline">\(k^* \stackrel{\text{def}}{=}m + 1\)</span> if there is no such rank:</p>
 <p><span class="math display">\[k^* \stackrel{\text{def}}{=}\min \mathopen{}\left\{k : p_{(k)} &gt; \frac{\alpha}{m - k + 1}\right\}\mathclose{}.\]</span></p>
+<p>Source: Holm <span class="citation" data-cites="holm1979simple">(<a href="#/references" role="doc-biblioref" onclick="">1979</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-holm" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Holm’s step-down procedure)</strong></span> Given the cutoff rank <span class="math inline">\(k^*\)</span> of <a href="#/def-holm-cutoff" class="quarto-xref">Definition&nbsp;9</a>, <strong>Holm’s procedure</strong> rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(k^* - 1)}\)</span> and no others.</p>
@@ -1146,6 +1147,7 @@ Table&nbsp;1: Outcomes of <span class="math inline">\(m\)</span> tests, of which
 <div id="def-bh-cutoff" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Benjamini–Hochberg cutoff rank)</strong></span> Given <span class="math inline">\(m\)</span> null hypotheses with ordered p-values <span class="math inline">\(p_{(1)} \le \cdots \le p_{(m)}\)</span> (as in <a href="#/def-holm-cutoff" class="quarto-xref">Definition&nbsp;9</a>) and a level <span class="math inline">\(q\)</span>, the <strong>Benjamini–Hochberg cutoff rank</strong> <span class="math inline">\(\hat k\)</span> is the largest rank whose p-value is at most <span class="math inline">\(k q / m\)</span>, with <span class="math inline">\(\hat k \stackrel{\text{def}}{=}0\)</span> if there is no such rank:</p>
 <p><span class="math display">\[\hat k \stackrel{\text{def}}{=}\max \mathopen{}\left\{k : p_{(k)} \le \frac{k q}{m}\right\}\mathclose{}.\]</span></p>
+<p>Source: Benjamini and Hochberg <span class="citation" data-cites="benjamini1995controlling">(<a href="#/references" role="doc-biblioref" onclick="">1995</a>)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-bh" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Benjamini–Hochberg procedure)</strong></span> Given the cutoff rank <span class="math inline">\(\hat k\)</span> of <a href="#/def-bh-cutoff" class="quarto-xref">Definition&nbsp;11</a>, the <strong>Benjamini–Hochberg procedure</strong> (BH) rejects <span class="math inline">\(H_{(1)}, \ldots, H_{(\hat k)}\)</span> and no others.</p>

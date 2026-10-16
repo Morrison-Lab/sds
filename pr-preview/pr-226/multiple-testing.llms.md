@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-15 15:23:41 (PDT)
+Last modified: 2026-10-15 18:18:20 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -473,6 +473,8 @@ table(tumor_class = khan_pair$tumor_class)
 > **Definition 9 (Holm cutoff rank)** Given \\m\\ null hypotheses with p-values and a level \\\alpha\\, order the p-values from smallest to largest, \\p\_{(1)} \le p\_{(2)} \le \cdots \le p\_{(m)}\\, and let \\H\_{(k)}\\ be the null hypothesis with p-value \\p\_{(k)}\\. The **Holm cutoff rank** \\k^\*\\ is the first rank at which the p-value exceeds its threshold \\\alpha/ (m - k + 1)\\, with \\k^\* \stackrel{\text{def}}{=}m + 1\\ if there is no such rank:
 >
 > \\k^\* \stackrel{\text{def}}{=}\min \mathopen{}\left\\k : p\_{(k)} \> \frac{\alpha}{m - k + 1}\right\\\mathclose{}.\\
+>
+> Source: Holm ([1979](#ref-holm1979simple)).
 
 > **NOTE:**
 >
@@ -633,6 +635,8 @@ table(tumor_class = khan_pair$tumor_class)
 > **Definition 11 (Benjamini–Hochberg cutoff rank)** Given \\m\\ null hypotheses with ordered p-values \\p\_{(1)} \le \cdots \le p\_{(m)}\\ (as in [Definition 9](#def-holm-cutoff)) and a level \\q\\, the **Benjamini–Hochberg cutoff rank** \\\hat k\\ is the largest rank whose p-value is at most \\k q / m\\, with \\\hat k \stackrel{\text{def}}{=}0\\ if there is no such rank:
 >
 > \\\hat k \stackrel{\text{def}}{=}\max \mathopen{}\left\\k : p\_{(k)} \le \frac{k q}{m}\right\\\mathclose{}.\\
+>
+> Source: Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)).
 
 > **NOTE:**
 >
