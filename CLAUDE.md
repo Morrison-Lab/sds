@@ -62,7 +62,7 @@ Mirrors [`.github/copilot-instructions.md`](.github/copilot-instructions.md). Ke
 - **Attributions**: credit sources where readers can see them (a credit to the maintainer's own rme, lds, pds, ... is optional, but what those sites credit is still carried). A credit that is only a citation goes inside the item's div as a final "Source: @key [locator]." line; substantial prose about the source or history goes in a `rem-source-` remark div titled "Source: ..." right after the item's div and its proof; never only in an HTML comment (maintainer directive, 2026-10-15). See "Attributions are reader-visible" in `.github/copilot-instructions.md`.
 - **Useful resources**: a resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
   even when lds or another Morrison-Lab site already lists it
-  (maintainer directive, 2026-10-15, answering a review question on [Morrison-Lab/lds#841](https://github.com/Morrison-Lab/lds/pull/841)).
+  (maintainer directive, 2026-10-15, answering a review question on Morrison-Lab/lds#841, a private repository the link checker cannot reach).
   If the matching page has no Further reading section, add one headed `## Further reading`.
   If no page matches, add the resource to the Further reading section of the closest related page.
   Link the resource, and adapt its material only where its license allows,

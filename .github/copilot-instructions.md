@@ -215,7 +215,7 @@ such as what was checked in a PDF or a wording edit made while porting.
 
 A resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
 even when lds or another Morrison-Lab site already lists it
-(maintainer directive, 2026-10-15, answering a review question on [Morrison-Lab/lds#841](https://github.com/Morrison-Lab/lds/pull/841)).
+(maintainer directive, 2026-10-15, answering a review question on Morrison-Lab/lds#841, a private repository the link checker cannot reach).
 If the matching page has no Further reading section, add one headed `## Further reading`.
 If no page matches, add the resource to the Further reading section of the closest related page.
 Link the resource, and adapt its material only where its license allows,
