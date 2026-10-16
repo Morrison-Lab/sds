@@ -144,7 +144,7 @@ $$
 \ea
 $$
 
-Setting this to zero: $\hmean_{ML} = \bar{x} \eqdef \avgin \rvar_\iobs$.
+Setting this to zero: $\hmean_{ML} = \rvarbar \eqdef \avgin \rvar_\iobs$.
 
 **Deriving $\hvarpar_{ML}$:**
 
@@ -236,10 +236,10 @@ n\varpar
 \ea
 $$
 
-Substituting $\hmean_{ML} = \bar{x}$:
+Substituting $\hmean_{ML} = \rvarbar$:
 
 $$
-\hvarpar_{ML} = \avgin (\rvar_\iobs - \bar{x})^2
+\hvarpar_{ML} = \avgin (\rvar_\iobs - \rvarbar)^2
 $$
 
 Note: this maximum likelihood estimator is a biased estimator of $\varpar$;

@@ -76,10 +76,10 @@ the density of a Gaussian distribution with mean $m$ and variance $1/(n+1)$,
 so the posterior is
 
 $$
-\mean \mid \vx \;\sim\; \ndist{\frac{n}{n+1}\bar{x},\; \frac{1}{n+1}}.
+\mean \mid \vx \;\sim\; \ndist{\frac{n}{n+1}\rvarbar,\; \frac{1}{n+1}}.
 $$ {#eq-normal-normal-exm-3}
 
-The posterior mean $\frac{n}{n+1}\bar{x}$ is the sample mean
+The posterior mean $\frac{n}{n+1}\rvarbar$ is the sample mean
 shrunk toward the prior mean $0$,
 and the shrinkage factor $\frac{n}{n+1}$ approaches $1$ as $n \to \infty$.
 :::

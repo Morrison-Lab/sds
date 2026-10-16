@@ -36,7 +36,7 @@ anova_parts
 ```
 
 $\text{SS}_\text{between}$ is summed here over observations rather than groups:
-each observation in group $j$ contributes $(\bar{y}_j - \bar{y})^2$,
+each observation in group $j$ contributes $(\outbar_j - \outbar)^2$,
 which gives the $n_j$ weights of @def-one-way-anova.
 `aov()` reports the same sums of squares, F statistic, and p-value:
 

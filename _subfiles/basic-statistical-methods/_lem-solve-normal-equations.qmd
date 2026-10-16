@@ -1,12 +1,12 @@
 ::: {#lem-solve-normal-equations}
 #### Solution of the normal equations
 
-If $S_{xx} > 0$ (@def-centered-sums),
+If $\sspred > 0$ (@def-centered-sums),
 the normal equations of @exm-normal-equations-slr
 have exactly one solution:
 
-$$\coef{x} = \frac{S_{xy}}{S_{xx}},
-\qquad \intcoef = \bar{y} - \coef{x} \bar{x}.$$
+$$\coef{x} = \frac{\sspredout}{\sspred},
+\qquad \intcoef = \outbar - \coef{x} \predbar.$$
 :::
 
 ::: proof

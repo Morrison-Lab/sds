@@ -4,7 +4,7 @@
 Find the matrix of second derivatives of
 $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
 with respect to $\intcoef$ and $\coef{x}$,
-and show that it is positive definite when $S_{xx} > 0$ (@def-centered-sums).
+and show that it is positive definite when $\sspred > 0$ (@def-centered-sums).
 :::
 
 {{< slidebreak >}}
@@ -16,19 +16,19 @@ Differentiate each first derivative again.
 **Derivatives of $\partial \text{RSS} / \partial \intcoef$.**
 By @exr-rss-deriv-intercept,
 $\partial \text{RSS} / \partial \intcoef
-= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}$.
+= -2 \paren{n \outbar - n \intcoef - \coef{x} n \predbar}$.
 Differentiating with respect to $\intcoef$:
 
 $$
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \intcoef^2}
 &= -2 \deriv{\intcoef}
-  \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
+  \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
 && \text{(constant factor)}\\
 &= -2 \paren{
-  \frac{\partial (n \bar{y})}{\partial \intcoef}
+  \frac{\partial (n \outbar)}{\partial \intcoef}
   - \frac{\partial (n \intcoef)}{\partial \intcoef}
-  - \frac{\partial (\coef{x} n \bar{x})}{\partial \intcoef}}
+  - \frac{\partial (\coef{x} n \predbar)}{\partial \intcoef}}
 && \text{(derivative of a sum)}\\
 &= -2 (0 - n - 0)
 && \text{(differentiate each term)}\\
@@ -45,18 +45,18 @@ $$
 \begin{aligned}
 \frac{\partial^2 \text{RSS}}{\partial \coef{x} \, \partial \intcoef}
 &= -2 \frac{\partial}{\partial \coef{x}}
-  \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
+  \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
 && \text{(constant factor)}\\
 &= -2 \paren{
-  \frac{\partial (n \bar{y})}{\partial \coef{x}}
+  \frac{\partial (n \outbar)}{\partial \coef{x}}
   - \frac{\partial (n \intcoef)}{\partial \coef{x}}
-  - \frac{\partial (\coef{x} n \bar{x})}{\partial \coef{x}}}
+  - \frac{\partial (\coef{x} n \predbar)}{\partial \coef{x}}}
 && \text{(derivative of a sum)}\\
-&= -2 (0 - 0 - n \bar{x})
+&= -2 (0 - 0 - n \predbar)
 && \text{(differentiate each term)}\\
-&= -2 (-n \bar{x})
+&= -2 (-n \predbar)
 && \text{(drop the zeros)}\\
-&= 2 n \bar{x}
+&= 2 n \predbar
 && \text{(multiply)}
 \end{aligned}
 $$
@@ -87,8 +87,8 @@ $$
 && \text{(constant factor out of the sum)}\\
 &= 2 \sumin \predvar_\iobs
 && \text{(multiply)}\\
-&= 2 n \bar{x}
-&& \text{($\sumin \predvar_\iobs = n \bar{x}$)}
+&= 2 n \predbar
+&& \text{($\sumin \predvar_\iobs = n \predbar$)}
 \end{aligned}
 $$
 
@@ -122,28 +122,28 @@ Collecting the four second derivatives,
 the matrix of second derivatives is
 
 $$
-\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin \predvar_\iobs^2 \end{pmatrix}.
+\begin{pmatrix} 2n & 2 n \predbar \\ 2 n \predbar & 2 \sumin \predvar_\iobs^2 \end{pmatrix}.
 $$
 
 Its top-left entry, $2n$, is positive.
 Its determinant,
-using the expanded form of $S_{xx}$ from @exr-sxx-expand, is
+using the expanded form of $\sspred$ from @exr-sxx-expand, is
 
 $$
 \begin{aligned}
-\det \begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin \predvar_\iobs^2 \end{pmatrix}
-&= (2n) \paren{2 \sumin \predvar_\iobs^2} - (2 n \bar{x}) (2 n \bar{x})
+\det \begin{pmatrix} 2n & 2 n \predbar \\ 2 n \predbar & 2 \sumin \predvar_\iobs^2 \end{pmatrix}
+&= (2n) \paren{2 \sumin \predvar_\iobs^2} - (2 n \predbar) (2 n \predbar)
 && \text{($2 \times 2$ determinant)}\\
-&= 4 n \sumin \predvar_\iobs^2 - 4 n^2 \bar{x}^2
+&= 4 n \sumin \predvar_\iobs^2 - 4 n^2 \predbar^2
 && \text{(multiply)}\\
-&= 4 n \paren{\sumin \predvar_\iobs^2 - n \bar{x}^2}
+&= 4 n \paren{\sumin \predvar_\iobs^2 - n \predbar^2}
 && \text{(factor out $4n$)}\\
-&= 4 n S_{xx}
-&& \text{(expanded form of $S_{xx}$)}
+&= 4 n \sspred
+&& \text{(expanded form of $\sspred$)}
 \end{aligned}
 $$
 
-which is positive when $S_{xx} > 0$.
+which is positive when $\sspred > 0$.
 A symmetric $2 \times 2$ matrix with a positive top-left entry
 and a positive determinant is positive definite.
 

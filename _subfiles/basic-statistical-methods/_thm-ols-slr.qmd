@@ -1,10 +1,10 @@
 ::: {#thm-ols-slr}
 #### Closed-form OLS estimates
 
-Suppose $S_{xx} > 0$ (@def-centered-sums),
+Suppose $\sspred > 0$ (@def-centered-sums),
 that is, not all $\predvar_\iobs$ are equal.
 Then the OLS estimates (@exm-ols-slr) are unique, and
 
-$$\hcoef{x} = \frac{S_{xy}}{S_{xx}},
-\qquad \hintcoef = \bar{y} - \hcoef{x} \bar{x}.$$
+$$\hcoef{x} = \frac{\sspredout}{\sspred},
+\qquad \hintcoef = \outbar - \hcoef{x} \predbar.$$
 :::

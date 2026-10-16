@@ -6,8 +6,8 @@ the **centered sums of squares** of the $\predvar_\iobs$ and of the $\outvar_\io
 
 $$
 \begin{aligned}
-S_{xx} &\eqdef \sumin (\predvar_\iobs - \bar{x})^2, &
-S_{yy} &\eqdef \sumin (\outvar_\iobs - \bar{y})^2.
+\sspred &\eqdef \sumin (\predvar_\iobs - \predbar)^2, &
+\ssout &\eqdef \sumin (\outvar_\iobs - \outbar)^2.
 \end{aligned}
 $$
 
@@ -22,7 +22,7 @@ For the data of @def-centered-sums,
 the **centered sum of cross-products** is
 
 $$
-S_{xy} \eqdef \sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y}).
+\sspredout \eqdef \sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar).
 $$
 
 :::

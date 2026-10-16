@@ -1,9 +1,9 @@
 ::: {#lem-sxx-expand}
 #### Expanded centered sum of squares
 
-The centered sum of squares $S_{xx}$ (@def-centered-sums) equals
+The centered sum of squares $\sspred$ (@def-centered-sums) equals
 
-$$S_{xx} = \sumin \predvar_\iobs^2 - n \bar{x}^2.$$
+$$\sspred = \sumin \predvar_\iobs^2 - n \predbar^2.$$
 :::
 
 ::: proof

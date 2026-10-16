@@ -4,7 +4,7 @@
 Find the partial derivative of the simple linear regression
 residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
 with respect to the intercept, $\partial \text{RSS} / \partial \intcoef$,
-and write it in terms of $\bar{x}$ and $\bar{y}$.
+and write it in terms of $\predbar$ and $\outbar$.
 :::
 
 {{< slidebreak >}}
@@ -60,10 +60,10 @@ $$
 && \text{(sum of a constant)}\\
 &= -2 \paren{\sumin \outvar_\iobs - n \intcoef - \coef{x} \sumin \predvar_\iobs}
 && \text{(constant factor out of the sum)}\\
-&= -2 \paren{n \bar{y} - n \intcoef - \coef{x} \sumin \predvar_\iobs}
-&& \text{($\sumin \outvar_\iobs = n \bar{y}$)}\\
-&= -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}
-&& \text{($\sumin \predvar_\iobs = n \bar{x}$)}
+&= -2 \paren{n \outbar - n \intcoef - \coef{x} \sumin \predvar_\iobs}
+&& \text{($\sumin \outvar_\iobs = n \outbar$)}\\
+&= -2 \paren{n \outbar - n \intcoef - \coef{x} n \predbar}
+&& \text{($\sumin \predvar_\iobs = n \predbar$)}
 \end{aligned}
 $$
 

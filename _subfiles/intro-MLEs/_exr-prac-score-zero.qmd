@@ -80,8 +80,8 @@ $$
 &= \frac{\sumin \rvar_\iobs}{\rate} - n
 && \text{(write the negative power as a fraction)}
 \\
-&= \frac{n\bar{x}}{\rate} - n
-&& \text{($\textstyle\sumin \rvar_\iobs = n\bar{x}$)}
+&= \frac{n\rvarbar}{\rate} - n
+&& \text{($\textstyle\sumin \rvar_\iobs = n\rvarbar$)}
 \ea
 $$
 
@@ -93,33 +93,33 @@ Setting $\score(\rate; \vx) = 0$:
 
 $$
 \ba
-0 &= \frac{n\bar{x}}{\rate} - n
+0 &= \frac{n\rvarbar}{\rate} - n
 && \text{(score from (b))}
 \\
-\frac{n\bar{x}}{\rate} &= n
+\frac{n\rvarbar}{\rate} &= n
 && \text{(add $n$ to both sides)}
 \\
-n\bar{x} &= n\rate
+n\rvarbar &= n\rate
 && \text{(multiply both sides by $\rate$)}
 \\
-\hat\rate_{ML} &= \bar{x}
+\hat\rate_{ML} &= \rvarbar
 && \text{(divide both sides by $n$)}
 \ea
 $$
 
-If $\bar{x} > 0$
+If $\rvarbar > 0$
 (equivalently,
 at least one $\rvar_\iobs > 0$),
 then
 
 $$
 \ba
-\score(\bar{x}; \vx)
-&= \frac{n\bar{x}}{\bar{x}} - n
-&& \text{(score from (b) at $\rate = \bar{x}$)}
+\score(\rvarbar; \vx)
+&= \frac{n\rvarbar}{\rvarbar} - n
+&& \text{(score from (b) at $\rate = \rvarbar$)}
 \\
 &= n - n
-&& \text{(cancel $\bar{x}$, since $\bar{x} > 0$)}
+&& \text{(cancel $\rvarbar$, since $\rvarbar > 0$)}
 \\
 &= 0
 && \text{(subtract)}
@@ -127,10 +127,10 @@ $$
 $$
 
 If instead all $\rvar_\iobs = 0$,
-then $\bar{x} = 0$ and $\hat\rate_{ML} = 0$ is a boundary value.
+then $\rvarbar = 0$ and $\hat\rate_{ML} = 0$ is a boundary value.
 In that case,
 the score formula
-$\score(\rate; \vx) = \frac{n\bar{x}}{\rate} - n$
+$\score(\rate; \vx) = \frac{n\rvarbar}{\rate} - n$
 is not defined at $\rate = 0$,
 so the usual interior verification
 $\score(\hat\rate_{ML}; \vx) = 0$
@@ -143,8 +143,8 @@ When it equals zero,
 increasing or decreasing $\rate$ slightly would not improve the fit;
 we are at a "flat" point.
 Intuitively,
-$\hat\rate_{ML} = \bar{x}$ is the value of $\rate$ that makes
+$\hat\rate_{ML} = \rvarbar$ is the value of $\rate$ that makes
 the expected count per observation ($\rate$) exactly equal to
-the observed sample average count ($\bar{x}$).
+the observed sample average count ($\rvarbar$).
 
 :::

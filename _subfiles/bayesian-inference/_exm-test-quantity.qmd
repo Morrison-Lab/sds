@@ -9,8 +9,8 @@ Two test quantities for these data are:
 
 - the number of mothers who smoked, $T_1(\vy) = \sumin \outvar_\iobs$;
 - the spread of the smoking proportions across the three race groups,
-  $T_2(\vy) = \max_g \bar{y}_g - \min_g \bar{y}_g$,
-  where $\bar{y}_g$ is the proportion of mothers in group $g$ who smoked.
+  $T_2(\vy) = \max_g \outbar_g - \min_g \outbar_g$,
+  where $\outbar_g$ is the proportion of mothers in group $g$ who smoked.
 
 The model can match $T_1$ by choosing $\prob$,
 but it predicts that $T_2$ is small,
