@@ -5,7 +5,7 @@
 # source line. It is diff-scoped (it reads only the lines a PR adds), so
 # existing pages, written before the convention, are not reflagged. There is
 # no `push` or `workflow_dispatch` trigger: neither has a PR base to diff
-# against, so the reusable workflow would skip having checked nothing.
+# against, so the reusable workflow would check nothing and report success.
 #
 # Blocking: a PR that adds a packed-sentence line fails this check.
 name: Check new markdown lines for missing semantic breaks
