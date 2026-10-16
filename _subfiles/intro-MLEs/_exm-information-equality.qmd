@@ -2,24 +2,24 @@
 #### Checking the information equality for Poisson data
 
 For $\dsn{X} \siid \Pois(\rate)$,
-the score is $\score = \sumin X_i/\rate - n$
+the score is $\score = \sumin \Rvar_\iobs/\rate - n$
 (@exm-information-poisson). Then:
 
 $$
 \begin{aligned}
 \E{\score}
-&= \E{\frac{\sumin X_i}{\rate} - n}
+&= \E{\frac{\sumin \Rvar_\iobs}{\rate} - n}
 && \text{(Poisson score)}\\
-&= \E{\frac{\sumin X_i}{\rate}} - \E{n}
+&= \E{\frac{\sumin \Rvar_\iobs}{\rate}} - \E{n}
 && \text{(linearity of expectation)}\\
-&= \E{\frac{\sumin X_i}{\rate}} - n
+&= \E{\frac{\sumin \Rvar_\iobs}{\rate}} - n
 && \text{(the expectation of a constant is that constant)}\\
-&= \frac{\E{\sumin X_i}}{\rate} - n
+&= \frac{\E{\sumin \Rvar_\iobs}}{\rate} - n
 && \text{(factor the constant $\tfrac{1}{\rate}$ out of the expectation)}\\
-&= \frac{\sumin \E{X_i}}{\rate} - n
+&= \frac{\sumin \E{\Rvar_\iobs}}{\rate} - n
 && \text{(linearity of expectation)}\\
 &= \frac{\sumin \rate}{\rate} - n
-&& \text{($\E{X_i} = \rate$)}\\
+&& \text{($\E{\Rvar_\iobs} = \rate$)}\\
 &= \frac{n\rate}{\rate} - n
 && \text{(sum of $n$ copies of $\rate$)}\\
 &= n - n
@@ -27,16 +27,16 @@ $$
 &= 0
 && \text{(subtract)}\\
 \Var{\score}
-&= \Var{\frac{\sumin X_i}{\rate} - n}
+&= \Var{\frac{\sumin \Rvar_\iobs}{\rate} - n}
 && \text{(Poisson score)}\\
-&= \Var{\frac{\sumin X_i}{\rate}}
+&= \Var{\frac{\sumin \Rvar_\iobs}{\rate}}
 && \text{(subtracting a constant does not change a variance)}\\
-&= \frac{\Var{\sumin X_i}}{\rate^2}
+&= \frac{\Var{\sumin \Rvar_\iobs}}{\rate^2}
 && \text{($\Var{aY} = a^2 \Var{Y}$)}\\
-&= \frac{\sumin \Var{X_i}}{\rate^2}
+&= \frac{\sumin \Var{\Rvar_\iobs}}{\rate^2}
 && \text{(variance of a sum of independent variables)}\\
 &= \frac{\sumin \rate}{\rate^2}
-&& \text{($\Var{X_i} = \rate$)}\\
+&& \text{($\Var{\Rvar_\iobs} = \rate$)}\\
 &= \frac{n\rate}{\rate^2}
 && \text{(sum of $n$ copies of $\rate$)}\\
 &= \frac{n}{\rate}

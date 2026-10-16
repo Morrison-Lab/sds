@@ -1,7 +1,7 @@
 ::: {#thm-pearson-test-null}
 #### Null distribution of the correlation t statistic
 
-Let the pairs $(X_1, Y_1), \ldots, (X_n, Y_n)$ be independent,
+Let the pairs $(\Predvar_1, \Outvar_1), \ldots, (\Predvar_n, \Outvar_n)$ be independent,
 and let each $\Outvar_\iobs$, given $\dsn{X}$,
 be Gaussian with a mean and variance that do not depend on the $X$ values.
 Then the statistic $t$ of @def-pearson-test has the $t_{n-2}$ distribution

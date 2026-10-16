@@ -4,10 +4,10 @@
 In a homoskedastic model (@def-homoskedastic),
 the deviations (@def-slr-deviation) all have the same variance $\varpar$:
 
-$$\cdev_i \mid X_i = x_i \simind \ndist{0, \varpar}.$$
+$$\cdev_\iobs \mid \Rvar_\iobs = \rvar_\iobs \simind \ndist{0, \varpar}.$$
 :::
 
 ::: proof
-By @thm-slr-deviation-dist, $\cdev_i \mid X_i = x_i \simind \ndist{0, \varpar_i}$,
-and @def-homoskedastic sets $\varpar_i = \varpar$ for all $i$.
+By @thm-slr-deviation-dist, $\cdev_\iobs \mid \Rvar_\iobs = \rvar_\iobs \simind \ndist{0, \varpar_\iobs}$,
+and @def-homoskedastic sets $\varpar_\iobs = \varpar$ for all $i$.
 :::

@@ -3,16 +3,16 @@
 
 Continuing @exm-bias-sample-mean,
 suppose also that $\dsn{X}$ are mutually independent,
-each with variance $\Var{X_i} = \varpar$.
-Both $\bar X$ and $X_1$ have zero bias,
+each with variance $\Var{\Rvar_\iobs} = \varpar$.
+Both $\bar X$ and $\Rvar_1$ have zero bias,
 so by @thm-mse-bias-variance each estimator's mean squared error
 equals its variance.
 
-For $X_1$,
+For $\Rvar_1$,
 
 $$
 \begin{aligned}
-  \mselr{X_1} &= 0^2 + \Var{X_1} \\
+  \mselr{\Rvar_1} &= 0^2 + \Var{\Rvar_1} \\
   &= \varpar.
 \end{aligned}
 $$
@@ -28,12 +28,12 @@ $$
 && \text{(zero bias)}\\
 &= \Var{\bar X}
 && \text{($0^2 = 0$)}\\
-&= \Var{\avgin X_i}
+&= \Var{\avgin \Rvar_\iobs}
 && \text{(definition of $\bar X$)}\\
-&= \frac{1}{n^2}\sumin \Var{X_i}
+&= \frac{1}{n^2}\sumin \Var{\Rvar_\iobs}
 && \text{(variance of a linear combination of independent variables)}\\
 &= \frac{1}{n^2}\sumin \varpar
-&& \text{($\Var{X_i} = \varpar$ for every $i$)}\\
+&& \text{($\Var{\Rvar_\iobs} = \varpar$ for every $i$)}\\
 &= \frac{1}{n^2} \cdot n\varpar
 && \text{(sum of $n$ copies of $\varpar$)}\\
 &= \frac{\varpar}{n}
@@ -41,7 +41,7 @@ $$
 \end{aligned}
 $$
 
-The step to $\frac{1}{n^2}\sumin \Var{X_i}$ uses
+The step to $\frac{1}{n^2}\sumin \Var{\Rvar_\iobs}$ uses
 the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom),
 whose covariance terms are all zero for independent variables.
 
@@ -51,12 +51,12 @@ $$
 \begin{aligned}
   \mselr{\bar X} &= \varpar/n \\
   &< \varpar \\
-  &= \mselr{X_1}:
+  &= \mselr{\Rvar_1}:
 \end{aligned}
 $$
 
 by mean squared error, the sample mean is the more accurate estimator.
 With $n = 50$ students, as in @exm-estimator,
-the sample mean's mean squared error is $1/50$ of $X_1$'s.
+the sample mean's mean squared error is $1/50$ of $\Rvar_1$'s.
 
 :::

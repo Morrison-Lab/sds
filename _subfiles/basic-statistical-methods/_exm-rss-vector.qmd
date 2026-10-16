@@ -2,7 +2,7 @@
 #### Residual sum of squares in vector notation
 
 In simple linear regression, take $\vparam = \vcoef$
-and substitute $\mean(x_i) = \dprod{\vxi}{\vcoef}$ (@lem-slr-mean-dot-product)
+and substitute $\mean(\predvar_\iobs) = \dprod{\vxi}{\vcoef}$ (@lem-slr-mean-dot-product)
 into each residual of the residual sum of squares (@def-rss).
 The residual sum of squares is then a function of the coefficient vector $\vcoef$,
 the same function as $\text{RSS}(\intcoef, \coef{x})$ in @exm-rss-slr:

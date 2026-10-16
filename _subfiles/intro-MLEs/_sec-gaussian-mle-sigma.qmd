@@ -3,14 +3,14 @@ Setting $\deriv{\varpar}\llik = 0$:
 $$
 \begin{aligned}
 0 &= -\frac{n}{2}\paren{\varpar}^{-1}
- + \frac{1}{2}\paren{\varpar}^{-2}\sumin (x_i - \mean)^2
+ + \frac{1}{2}\paren{\varpar}^{-2}\sumin (\rvar_\iobs - \mean)^2
 && \text{(score for $\varpar$)}\\
 \frac{n}{2}\paren{\varpar}^{-1}
-&= \frac{1}{2}\paren{\varpar}^{-2}\sumin (x_i - \mean)^2
+&= \frac{1}{2}\paren{\varpar}^{-2}\sumin (\rvar_\iobs - \mean)^2
 && \text{(add $\tfrac{n}{2}(\varpar)^{-1}$)}\\
-n\varpar &= \sumin (x_i - \mean)^2
+n\varpar &= \sumin (\rvar_\iobs - \mean)^2
 && \text{(multiply both sides by $2(\varpar)^2$)}\\
-\varpar &= \avgin (x_i - \mean)^2
+\varpar &= \avgin (\rvar_\iobs - \mean)^2
 && \text{(divide both sides by $n$)}
 \end{aligned}
 $$
@@ -20,7 +20,7 @@ which does not depend on $\varpar$,
 maximizes the [profile log-likelihood](#def-profile-loglik)
 of @exm-profile-loglik, and gives:
 
-$$\hsdpar^2_{\text{ML}} = \avgin (x_i - \bar x)^2$$
+$$\hsdpar^2_{\text{ML}} = \avgin (\rvar_\iobs - \bar x)^2$$
 
 The profile log-likelihood,
 $\llik_p(\varpar) = -\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar} - \frac{n\hvarpar_{\text{ML}}}{2\varpar}$,
@@ -29,7 +29,7 @@ and decreases for $\varpar > \hvarpar_{\text{ML}}$,
 because its derivative, $\frac{n}{2}\paren{\varpar}^{-2}\paren{\hvarpar_{\text{ML}} - \varpar}$,
 has the sign of $\hvarpar_{\text{ML}} - \varpar$.
 So $(\bar x, \hvarpar_{\text{ML}})$ is the global maximizer,
-provided the $x_i$ are not all equal.
+provided the $\rvar_\iobs$ are not all equal.
 
 {{< slidebreak >}}
 
@@ -42,7 +42,7 @@ Replacing $\varpar$ with the precision $\precision \eqdef 1/\varpar$
 and differentiating with respect to $\precision$
 can be shorter still,
 because $\precision$ enters the log-likelihood as
-$\frac{n}{2}\log\precision - \frac{\precision}{2}\sumin (x_i - \mean)^2$.
+$\frac{n}{2}\log\precision - \frac{\precision}{2}\sumin (\rvar_\iobs - \mean)^2$.
 By the invariance of maximum likelihood estimates,
 $\hprecision_{\text{ML}} = 1/\hvarpar_{\text{ML}}$.
 :::

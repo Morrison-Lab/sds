@@ -29,7 +29,7 @@ Write the likelihood of $\vy$.
 $$
 \begin{aligned}
 \Lik(\prob; \vy)
-&= \prodin \Lik_i(\prob)
+&= \prodin \Lik_\iobs(\prob)
 && \text{(product of likelihood components)}\\
 &= \prodin \Pr(\Outvar_\iobs = \outvar_\iobs)
 && \text{(definition of likelihood components)}\\

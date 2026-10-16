@@ -13,15 +13,15 @@ $$
 \llik(\rate; \vx)
 &\eqdef \logf{\Lik(\rate; \vx)}
 && \text{(definition of log-likelihood)}\\
-&= \logf{\prodin \frac{\rate^{x_i} e^{-\rate}}{x_i!}}
+&= \logf{\prodin \frac{\rate^{\rvar_\iobs} e^{-\rate}}{\rvar_\iobs!}}
 && \text{(likelihood of the dataset)}\\
-&= \sumin \logf{\frac{\rate^{x_i} e^{-\rate}}{x_i!}}
+&= \sumin \logf{\frac{\rate^{\rvar_\iobs} e^{-\rate}}{\rvar_\iobs!}}
 && \text{(log of a product)}\\
-&= \sumin \paren{\logf{\rate^{x_i}} + \logf{e^{-\rate}} - \logf{x_i!}}
+&= \sumin \paren{\logf{\rate^{\rvar_\iobs}} + \logf{e^{-\rate}} - \logf{\rvar_\iobs!}}
 && \text{(log of a product and of a quotient)}\\
-&= \sumin \paren{x_i \logf{\rate} - \rate - \logf{x_i!}}
+&= \sumin \paren{\rvar_\iobs \logf{\rate} - \rate - \logf{\rvar_\iobs!}}
 && \text{(log of a power; $\log e^{a} = a$)}\\
-&= \paren{\sumin x_i} \logf{\rate} - n\rate - \sumin \logf{x_i!}
+&= \paren{\sumin \rvar_\iobs} \logf{\rate} - n\rate - \sumin \logf{\rvar_\iobs!}
 && \text{(split the sum)}
 \end{aligned}
 $$

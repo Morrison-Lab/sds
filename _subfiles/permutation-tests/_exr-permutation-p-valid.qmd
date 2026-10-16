@@ -82,7 +82,7 @@ So $N_\sigma(y) = N_\iota(y_\sigma)$.
 :::{#lem-relabeling-count}
 #### Relabeling the data permutes the relabelings
 
-Let $T$ be a statistic, let $y = (y_1, \ldots, y_n)$ be data,
+Let $T$ be a statistic, let $y = (\outvar_1, \ldots, \outvar_n)$ be data,
 let $S_n$ be the set of permutations of $\{1, \ldots, n\}$,
 and let $y_\sigma$ be $y$ with its entries relabeled by $\sigma \in S_n$.
 For $\sigma \in S_n$ let $N_\sigma(y) \eqdef \sum_{\pi \in S_n} \indic{T(y_\pi) \ge T(y_\sigma)}$

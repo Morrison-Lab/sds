@@ -14,9 +14,9 @@ in terms of the observations' [likelihood components](#def-lik-factor).
 $$
 \begin{aligned}
 \Lik(\param)
-&= \prodin \p(X_i = x_i \mid \param)
+&= \prodin \p(\Rvar_\iobs = \rvar_\iobs \mid \param)
 && \text{(likelihood of an independent sample)}\\
-&= \prodin \Lik_i(\param)
+&= \prodin \Lik_\iobs(\param)
 && \text{(definition of likelihood components)}
 \end{aligned}
 $$

@@ -2,10 +2,10 @@
 #### Pearson correlation coefficient
 
 The **Pearson correlation coefficient** of $n$ paired observations
-$(x_1, y_1), \ldots, (x_n, y_n)$ is:
+$(\predvar_1, \outvar_1), \ldots, (\predvar_n, \outvar_n)$ is:
 
-$$r \eqdef \frac{\sumin (x_i - \bar{x})(\outvar_\iobs - \bar{y})}
-{\sqrt{\sumin (x_i - \bar{x})^2} \sqrt{\sumin (\outvar_\iobs - \bar{y})^2}}$$
+$$r \eqdef \frac{\sumin (\predvar_\iobs - \bar{x})(\outvar_\iobs - \bar{y})}
+{\sqrt{\sumin (\predvar_\iobs - \bar{x})^2} \sqrt{\sumin (\outvar_\iobs - \bar{y})^2}}$$
 
 It is defined when neither variable is constant,
 so that both sums of squares are positive.

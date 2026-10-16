@@ -1,7 +1,7 @@
 ::: {#def-permutation-distribution}
 #### Permutation distribution
 
-Let $y = (y_1, \ldots, y_n)$ hold the observed values,
+Let $y = (\outvar_1, \ldots, \outvar_n)$ hold the observed values,
 with the first $n_1$ entries belonging to group 1 and the rest to group 2,
 and let $T(y)$ be a [test statistic](inference.qmd#def-test-statistic)
 computed from the data and the group assignment.

@@ -16,9 +16,9 @@ $$
 \lik'(\param)
 &= \deriv{\param} \lik(\param)
 && \text{(notation for the derivative)}\\
-&= \deriv{\param} \sumin \log{\p(X = x_i \mid \param)}
+&= \deriv{\param} \sumin \log{\p(X = \rvar_\iobs \mid \param)}
 && \text{(log-likelihood of an $\iid$ sample)}\\
-&= \sumin \deriv{\param} \log{\p(X = x_i \mid \param)}
+&= \sumin \deriv{\param} \log{\p(X = \rvar_\iobs \mid \param)}
 && \text{(derivative of a sum is the sum of derivatives)}
 \end{aligned}
 $$

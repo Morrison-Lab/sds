@@ -2,7 +2,7 @@
 #### Deviations from the mean sum to zero
 
 For any data $z_1, \ldots, z_n$ with mean $\bar{z}$
-(for example, the $x_i$ or the $\outvar_\iobs$), the deviations from the mean sum to zero:
+(for example, the $\rvar_\iobs$ or the $\outvar_\iobs$), the deviations from the mean sum to zero:
 
 $$\sumin (z_i - \bar{z}) = 0.$$
 :::

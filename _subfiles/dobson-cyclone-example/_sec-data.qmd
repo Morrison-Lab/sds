@@ -4,8 +4,8 @@ during 13 November-to-April cyclone seasons,
 from 1956/57 to 1968/69 [@dobson4e, Section 1.6.5].
 @fig-dobson-cyclone-time-series graphs
 the number of cyclones by season.
-Let $X_i$ represent the number of cyclones in season $i$,
-and $x_i$ its observed value.
+Let $\Rvar_\iobs$ represent the number of cyclones in season $i$,
+and $\rvar_\iobs$ its observed value.
 
 ::: {#tbl-cyclones-data}
 

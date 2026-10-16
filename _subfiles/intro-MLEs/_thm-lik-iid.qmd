@@ -4,7 +4,7 @@
 For [mutually independent](https://morrison-lab.github.io/pds/independence.html#def-indpt)
 data $\dsn{X}$:
 
-$$\Lik(\param) = \prodin \p(X_i = x_i \mid \param)$$ {#eq-Lik}
+$$\Lik(\param) = \prodin \p(\Rvar_\iobs = \rvar_\iobs \mid \param)$$ {#eq-Lik}
 
 :::
 

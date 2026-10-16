@@ -1,7 +1,7 @@
 ::: {#thm-permutation-p-valid}
 #### The permutation p-value is valid
 
-Let $Y = (Y_1, \ldots, Y_n)$ be exchangeable under $H_0$ (@def-exchangeable),
+Let $Y = (\Outvar_1, \ldots, \Outvar_n)$ be exchangeable under $H_0$ (@def-exchangeable),
 and let $p_{\text{perm}}$ be the [permutation p-value](#def-permutation-p-value) of $T(Y)$.
 Then $p_{\text{perm}}$ is a [valid p-value](multiple-testing.qmd#def-valid-p-value):
 
@@ -48,7 +48,7 @@ The justifications of the third and the seventh line are @lem-relabeling-count a
 
 Simulate $10^4$ data sets of 6 independent standard Gaussian values, three per group,
 so that $H_0$ holds,
-and compute the exact permutation p-value of $\abs{\bar y_1 - \bar y_2}$ for each:
+and compute the exact permutation p-value of $\abs{\bar \outvar_1 - \bar y_2}$ for each:
 
 ```{r}
 #| label: permutation-p-valid

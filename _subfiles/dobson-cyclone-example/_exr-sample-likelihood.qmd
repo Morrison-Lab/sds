@@ -13,11 +13,11 @@ $$
 \Lik(\rate; \vx)
 &\eqdef \Pr(\vX = \vx)
 && \text{(definition of likelihood)}\\
-&= \Pr(X_1 = x_1, X_2 = x_2, \ldots, X_{13} = x_{13})
+&= \Pr(\Rvar_1 = \rvar_1, X_2 = x_2, \ldots, X_{13} = x_{13})
 && \text{(write out the vector)}\\
-&= \prod_{i=1}^{13} \Pr(X_i = x_i)
+&= \prod_{i=1}^{13} \Pr(\Rvar_\iobs = \rvar_\iobs)
 && \text{(independence)}\\
-&= \prod_{i=1}^{13} \frac{\rate^{x_i} e^{-\rate}}{x_i!}
+&= \prod_{i=1}^{13} \frac{\rate^{\rvar_\iobs} e^{-\rate}}{\rvar_\iobs!}
 && \text{(Poisson PMF)}
 \end{aligned}
 $$

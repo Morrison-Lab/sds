@@ -2,9 +2,9 @@
 #### Deviation from the conditional mean
 
 In a conditional Gaussian model (@def-cond-gaussian),
-the **deviation** $\cdev_i$ of outcome $\Outvar_\iobs$
+the **deviation** $\cdev_\iobs$ of outcome $\Outvar_\iobs$
 is its [deviation from its mean](https://morrison-lab.github.io/pds/variance-covariance.html#def-deviation-pop-mean),
-taking the mean conditional on $X_i = x_i$:
+taking the mean conditional on $\Rvar_\iobs = \rvar_\iobs$:
 
-$$\cdev_i \eqdef \Outvar_\iobs - \mean(x_i).$$
+$$\cdev_\iobs \eqdef \Outvar_\iobs - \mean(\rvar_\iobs).$$
 :::

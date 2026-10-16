@@ -1,7 +1,7 @@
 ::: {#exm-bias-sample-mean}
 #### Bias of two estimators of a mean
 
-Let $\dsn{X}$ each have expectation $\E{X_i} = \mean$,
+Let $\dsn{X}$ each have expectation $\E{\Rvar_\iobs} = \mean$,
 as in @exm-estimator.
 By @thm-bias-exprs,
 the bias of the sample mean $\bar X$ is:
@@ -11,14 +11,14 @@ $$
 \bias{\bar X}
 &= \E{\bar X} - \mean
 && \text{(bias equals expectation minus truth)}\\
-&= \E{\avgin X_i} - \mean
+&= \E{\avgin \Rvar_\iobs} - \mean
 && \text{(definition of $\bar X$)}\\
-&= \frac{1}{n}\E{\sumin X_i} - \mean
+&= \frac{1}{n}\E{\sumin \Rvar_\iobs} - \mean
 && \text{(factor the constant $\tfrac{1}{n}$ out of the expectation)}\\
-&= \avgin \E{X_i} - \mean
+&= \avgin \E{\Rvar_\iobs} - \mean
 && \text{(linearity of expectation)}\\
 &= \avgin \mean - \mean
-&& \text{($\E{X_i} = \mean$ for every $i$)}\\
+&& \text{($\E{\Rvar_\iobs} = \mean$ for every $i$)}\\
 &= \frac{1}{n} \cdot n\mean - \mean
 && \text{(sum of $n$ copies of $\mean$)}\\
 &= \mean - \mean
@@ -28,21 +28,21 @@ $$
 \end{aligned}
 $$
 
-and the bias of the single-observation estimator $\hmean^{(2)} = X_1$ is:
+and the bias of the single-observation estimator $\hmean^{(2)} = \Rvar_1$ is:
 
 $$
 \begin{aligned}
-\bias{X_1}
-&= \E{X_1} - \mean
+\bias{\Rvar_1}
+&= \E{\Rvar_1} - \mean
 && \text{(bias equals expectation minus truth)}\\
 &= \mean - \mean
-&& \text{($\E{X_1} = \mean$)}\\
+&& \text{($\E{\Rvar_1} = \mean$)}\\
 &= 0
 && \text{(subtract)}
 \end{aligned}
 $$
 
 So both estimators have zero bias,
-even though $\bar X$ uses all $n$ observations and $X_1$ uses only one.
+even though $\bar X$ uses all $n$ observations and $\Rvar_1$ uses only one.
 
 :::

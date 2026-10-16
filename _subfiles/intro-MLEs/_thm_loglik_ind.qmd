@@ -4,10 +4,10 @@
 
 For mutually independent data $\dsn{X}$:
 
-$$\llik(\param) = \sumin \log{\p(X_i = x_i \mid \param)}$$ {#eq-loglik-ind}
+$$\llik(\param) = \sumin \log{\p(\Rvar_\iobs = \rvar_\iobs \mid \param)}$$ {#eq-loglik-ind}
 
-If the $X_i$ also share a common distribution $\p(X = x \mid \param)$,
-each term is $\log{\p(X = x_i \mid \param)}$.
+If the $\Rvar_\iobs$ also share a common distribution $\p(X = x \mid \param)$,
+each term is $\log{\p(X = \rvar_\iobs \mid \param)}$.
 :::
 
 :::{.proof}

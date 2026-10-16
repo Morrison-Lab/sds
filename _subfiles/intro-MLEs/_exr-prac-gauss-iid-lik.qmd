@@ -8,7 +8,7 @@ for the observed data $\vx = (\dsn{x})$.
 
 **(b)** Write the log-likelihood $\llik(\mean, \varpar; \vx)$ in simplified form,
 as the sum of a term that depends on the data only through $n$
-and a term that depends on the data only through $\sumin (x_i - \mean)^2$.
+and a term that depends on the data only through $\sumin (\rvar_\iobs - \mean)^2$.
 
 **(c)** Derive the MLE $\hmean_{ML}$ and $\hvarpar_{ML}$.
 :::
@@ -21,23 +21,23 @@ $$
 \ba
 \Lik(\mean, \varpar; \vx)
 &= \prodin (2\pi\varpar)^{-1/2}
-  \expf{-\frac{(x_i - \mean)^2}{2\varpar}}
+  \expf{-\frac{(\rvar_\iobs - \mean)^2}{2\varpar}}
 && \text{(likelihood of an $\iid$ sample)}
 \\
 &= \paren{\prodin (2\pi\varpar)^{-1/2}}
-  \paren{\prodin \expf{-\frac{(x_i - \mean)^2}{2\varpar}}}
+  \paren{\prodin \expf{-\frac{(\rvar_\iobs - \mean)^2}{2\varpar}}}
 && \text{(regroup the factors of the product)}
 \\
 &= (2\pi\varpar)^{-n/2}
-  \prodin \expf{-\frac{(x_i - \mean)^2}{2\varpar}}
+  \prodin \expf{-\frac{(\rvar_\iobs - \mean)^2}{2\varpar}}
 && \text{(product of $n$ copies of a power)}
 \\
 &= (2\pi\varpar)^{-n/2}
-  \expf{\sumin -\frac{(x_i - \mean)^2}{2\varpar}}
+  \expf{\sumin -\frac{(\rvar_\iobs - \mean)^2}{2\varpar}}
 && \text{(product of exponentials)}
 \\
 &= (2\pi\varpar)^{-n/2}
-  \expf{-\frac{1}{2\varpar}\sumin (x_i-\mean)^2}
+  \expf{-\frac{1}{2\varpar}\sumin (\rvar_\iobs-\mean)^2}
 && \text{(factor the constant out of the sum)}
 \ea
 $$
@@ -51,19 +51,19 @@ $$
 && \text{(definition of the log-likelihood)}
 \\
 &= \logf{(2\pi\varpar)^{-n/2}
-  \expf{-\frac{1}{2\varpar}\sumin (x_i-\mean)^2}}
+  \expf{-\frac{1}{2\varpar}\sumin (\rvar_\iobs-\mean)^2}}
 && \text{(likelihood from (a))}
 \\
 &= \logf{(2\pi\varpar)^{-n/2}}
-  + \logf{\expf{-\frac{1}{2\varpar}\sumin (x_i-\mean)^2}}
+  + \logf{\expf{-\frac{1}{2\varpar}\sumin (\rvar_\iobs-\mean)^2}}
 && \text{(log of a product)}
 \\
 &= -\frac{n}{2}\logf{2\pi\varpar}
-  + \logf{\expf{-\frac{1}{2\varpar}\sumin (x_i-\mean)^2}}
+  + \logf{\expf{-\frac{1}{2\varpar}\sumin (\rvar_\iobs-\mean)^2}}
 && \text{(log of a power)}
 \\
 &= -\frac{n}{2}\logf{2\pi\varpar}
-   - \frac{1}{2\varpar}\sumin (x_i - \mean)^2
+   - \frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2
 && \text{($\logt$ undoes $\expt$)}
 \ea
 $$
@@ -76,26 +76,26 @@ $$
 \ba
 \deriv{\mean}\llik
 &= \deriv{\mean}\sb{-\frac{n}{2}\logf{2\pi\varpar}
-   - \frac{1}{2\varpar}\sumin (x_i - \mean)^2}
+   - \frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(log-likelihood from (b))}
 \\
 &= \deriv{\mean}\sb{-\frac{n}{2}\logf{2\pi\varpar}}
-   + \deriv{\mean}\sb{-\frac{1}{2\varpar}\sumin (x_i - \mean)^2}
+   + \deriv{\mean}\sb{-\frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(linearity of differentiation)}
 \\
-&= 0 + \deriv{\mean}\sb{-\frac{1}{2\varpar}\sumin (x_i - \mean)^2}
+&= 0 + \deriv{\mean}\sb{-\frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(derivative of a constant)}
 \\
-&= \deriv{\mean}\sb{-\frac{1}{2\varpar}\sumin (x_i - \mean)^2}
+&= \deriv{\mean}\sb{-\frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(drop the zero term)}
 \\
-&= -\frac{1}{2\varpar}\deriv{\mean}\sumin (x_i - \mean)^2
+&= -\frac{1}{2\varpar}\deriv{\mean}\sumin (\rvar_\iobs - \mean)^2
 && \text{(constant multiple rule)}
 \\
-&= -\frac{1}{2\varpar}\sumin \deriv{\mean}(x_i - \mean)^2
+&= -\frac{1}{2\varpar}\sumin \deriv{\mean}(\rvar_\iobs - \mean)^2
 && \text{(derivative of a sum is the sum of derivatives)}
 \\
-&= -\frac{1}{2\varpar}\sumin 2(x_i - \mean)\deriv{\mean}(x_i - \mean)
+&= -\frac{1}{2\varpar}\sumin 2(\rvar_\iobs - \mean)\deriv{\mean}(\rvar_\iobs - \mean)
 && \text{(chain rule, outer function $u^2$)}
 \ea
 $$
@@ -104,12 +104,12 @@ The inner derivative is:
 
 $$
 \ba
-\deriv{\mean}(x_i - \mean)
-&= \deriv{\mean} x_i - \deriv{\mean} \mean
+\deriv{\mean}(\rvar_\iobs - \mean)
+&= \deriv{\mean} \rvar_\iobs - \deriv{\mean} \mean
 && \text{(linearity of differentiation)}
 \\
 &= 0 - \deriv{\mean} \mean
-&& \text{($x_i$ does not depend on $\mean$)}
+&& \text{($\rvar_\iobs$ does not depend on $\mean$)}
 \\
 &= 0 - 1
 && \text{(derivative of $\mean$ with respect to itself)}
@@ -124,27 +124,27 @@ Substituting the inner derivative back in:
 $$
 \ba
 \deriv{\mean}\llik
-&= -\frac{1}{2\varpar}\sumin 2(x_i - \mean) \cdot (-1)
+&= -\frac{1}{2\varpar}\sumin 2(\rvar_\iobs - \mean) \cdot (-1)
 && \text{(inner derivative is $-1$)}
 \\
-&= -\frac{1}{2\varpar}\sumin -2(x_i - \mean)
+&= -\frac{1}{2\varpar}\sumin -2(\rvar_\iobs - \mean)
 && \text{(multiply)}
 \\
-&= -\frac{1}{2\varpar} \cdot (-2) \sumin (x_i - \mean)
+&= -\frac{1}{2\varpar} \cdot (-2) \sumin (\rvar_\iobs - \mean)
 && \text{(factor the constant $-2$ out of the sum)}
 \\
-&= \frac{1}{\varpar}\sumin (x_i - \mean)
+&= \frac{1}{\varpar}\sumin (\rvar_\iobs - \mean)
 && \text{(multiply the constants)}
 \\
-&= \frac{1}{\varpar}\paren{\sumin x_i - \sumin \mean}
+&= \frac{1}{\varpar}\paren{\sumin \rvar_\iobs - \sumin \mean}
 && \text{(split the sum)}
 \\
-&= \frac{1}{\varpar}\paren{\sumin x_i - n\mean}
+&= \frac{1}{\varpar}\paren{\sumin \rvar_\iobs - n\mean}
 && \text{(sum of $n$ copies of $\mean$)}
 \ea
 $$
 
-Setting this to zero: $\hmean_{ML} = \bar{x} \eqdef \avgin x_i$.
+Setting this to zero: $\hmean_{ML} = \bar{x} \eqdef \avgin \rvar_\iobs$.
 
 **Deriving $\hvarpar_{ML}$:**
 
@@ -152,56 +152,56 @@ $$
 \ba
 \deriv{\varpar}\llik
 &= \deriv{\varpar}\sb{-\frac{n}{2}\logf{2\pi\varpar}
-   - \frac{1}{2\varpar}\sumin (x_i - \mean)^2}
+   - \frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(log-likelihood from (b))}
 \\
 &= \deriv{\varpar}\sb{-\frac{n}{2}\paren{\logf{2\pi} + \logf{\varpar}}
-   - \frac{1}{2\varpar}\sumin (x_i - \mean)^2}
+   - \frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(log of a product)}
 \\
 &= \deriv{\varpar}\sb{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
-   - \frac{1}{2\varpar}\sumin (x_i - \mean)^2}
+   - \frac{1}{2\varpar}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(distribute $-\tfrac{n}{2}$)}
 \\
 &= \deriv{\varpar}\sb{-\frac{n}{2}\logf{2\pi} - \frac{n}{2}\logf{\varpar}
-   - \frac{1}{2}(\varpar)^{-1}\sumin (x_i - \mean)^2}
+   - \frac{1}{2}(\varpar)^{-1}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(write $\tfrac{1}{2\varpar}$ as $\tfrac{1}{2}(\varpar)^{-1}$)}
 \\
 &= \deriv{\varpar}\sb{-\frac{n}{2}\logf{2\pi}}
    + \deriv{\varpar}\sb{-\frac{n}{2}\logf{\varpar}}
-   + \deriv{\varpar}\sb{-\frac{1}{2}(\varpar)^{-1}\sumin (x_i - \mean)^2}
+   + \deriv{\varpar}\sb{-\frac{1}{2}(\varpar)^{-1}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(linearity of differentiation)}
 \\
 &= 0 + \deriv{\varpar}\sb{-\frac{n}{2}\logf{\varpar}}
-   + \deriv{\varpar}\sb{-\frac{1}{2}(\varpar)^{-1}\sumin (x_i - \mean)^2}
+   + \deriv{\varpar}\sb{-\frac{1}{2}(\varpar)^{-1}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(derivative of a constant)}
 \\
 &= \deriv{\varpar}\sb{-\frac{n}{2}\logf{\varpar}}
-   + \deriv{\varpar}\sb{-\frac{1}{2}(\varpar)^{-1}\sumin (x_i - \mean)^2}
+   + \deriv{\varpar}\sb{-\frac{1}{2}(\varpar)^{-1}\sumin (\rvar_\iobs - \mean)^2}
 && \text{(drop the zero term)}
 \\
 &= \deriv{\varpar}\sb{-\frac{n}{2}\logf{\varpar}}
-   + \deriv{\varpar}\sb{-\frac{1}{2}\sumin (x_i - \mean)^2 (\varpar)^{-1}}
+   + \deriv{\varpar}\sb{-\frac{1}{2}\sumin (\rvar_\iobs - \mean)^2 (\varpar)^{-1}}
 && \text{(reorder the factors)}
 \\
 &= -\frac{n}{2}\deriv{\varpar}\logf{\varpar}
-   - \frac{1}{2}\sumin (x_i - \mean)^2 \deriv{\varpar}(\varpar)^{-1}
+   - \frac{1}{2}\sumin (\rvar_\iobs - \mean)^2 \deriv{\varpar}(\varpar)^{-1}
 && \text{(constant multiple rule)}
 \\
 &= -\frac{n}{2}(\varpar)^{-1}
-   - \frac{1}{2}\sumin (x_i - \mean)^2 \deriv{\varpar}(\varpar)^{-1}
+   - \frac{1}{2}\sumin (\rvar_\iobs - \mean)^2 \deriv{\varpar}(\varpar)^{-1}
 && \text{(derivative of $\log$)}
 \\
 &= -\frac{n}{2}(\varpar)^{-1}
-   - \frac{1}{2}\sumin (x_i - \mean)^2 \paren{-(\varpar)^{-2}}
+   - \frac{1}{2}\sumin (\rvar_\iobs - \mean)^2 \paren{-(\varpar)^{-2}}
 && \text{(power rule)}
 \\
 &= -\frac{n}{2}(\varpar)^{-1}
-   + \frac{1}{2}\sumin (x_i - \mean)^2 (\varpar)^{-2}
+   + \frac{1}{2}\sumin (\rvar_\iobs - \mean)^2 (\varpar)^{-2}
 && \text{(multiply)}
 \\
 &= -\frac{n}{2}(\varpar)^{-1}
-   + \frac{1}{2}(\varpar)^{-2}\sumin (x_i - \mean)^2
+   + \frac{1}{2}(\varpar)^{-2}\sumin (\rvar_\iobs - \mean)^2
 && \text{(reorder the factors)}
 \ea
 $$
@@ -211,27 +211,27 @@ Setting this to zero and solving:
 $$
 \ba
 0
-&= -\frac{n}{2}(\varpar)^{-1} + \frac{1}{2}(\varpar)^{-2}\sumin (x_i - \mean)^2
+&= -\frac{n}{2}(\varpar)^{-1} + \frac{1}{2}(\varpar)^{-2}\sumin (\rvar_\iobs - \mean)^2
 && \text{(set the derivative to zero)}
 \\
 \frac{n}{2}(\varpar)^{-1}
-&= \frac{1}{2}(\varpar)^{-2}\sumin (x_i - \mean)^2
+&= \frac{1}{2}(\varpar)^{-2}\sumin (\rvar_\iobs - \mean)^2
 && \text{(add $\tfrac{n}{2}(\varpar)^{-1}$ to both sides)}
 \\
 n(\varpar)^{-1}(\varpar)^2
-&= (\varpar)^{-2}(\varpar)^2\sumin (x_i - \mean)^2
+&= (\varpar)^{-2}(\varpar)^2\sumin (\rvar_\iobs - \mean)^2
 && \text{(multiply both sides by $2(\varpar)^2$)}
 \\
 n\varpar
-&= (\varpar)^{-2}(\varpar)^2\sumin (x_i - \mean)^2
+&= (\varpar)^{-2}(\varpar)^2\sumin (\rvar_\iobs - \mean)^2
 && \text{($(\varpar)^{-1}(\varpar)^2 = \varpar$)}
 \\
 n\varpar
-&= \sumin (x_i - \mean)^2
+&= \sumin (\rvar_\iobs - \mean)^2
 && \text{($(\varpar)^{-2}(\varpar)^2 = 1$)}
 \\
 \varpar
-&= \avgin (x_i - \mean)^2
+&= \avgin (\rvar_\iobs - \mean)^2
 && \text{(divide both sides by $n$)}
 \ea
 $$
@@ -239,7 +239,7 @@ $$
 Substituting $\hmean_{ML} = \bar{x}$:
 
 $$
-\hvarpar_{ML} = \avgin (x_i - \bar{x})^2
+\hvarpar_{ML} = \avgin (\rvar_\iobs - \bar{x})^2
 $$
 
 Note: this maximum likelihood estimator is a biased estimator of $\varpar$;

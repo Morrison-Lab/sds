@@ -2,12 +2,12 @@
 #### Relative efficiency of two estimators of a mean
 
 In [the example on two estimators of a mean](estimation.qmd#exm-mse-sample-mean) the sample mean has $\mselr{\bar X} = \varpar / n$
-and the single-observation estimator has $\mselr{X_1} = \varpar$.
-The relative efficiency of the sample mean with respect to $X_1$ is
+and the single-observation estimator has $\mselr{\Rvar_1} = \varpar$.
+The relative efficiency of the sample mean with respect to $\Rvar_1$ is
 
 $$
 \begin{aligned}
-\frac{\mselr{X_1}}{\mselr{\bar X}}
+\frac{\mselr{\Rvar_1}}{\mselr{\bar X}}
 &= \frac{\varpar}{\varpar / n}
 && \text{(substitute the two mean squared errors)}\\
 &= \varpar \cdot \frac{n}{\varpar}
@@ -22,5 +22,5 @@ $$
 $$
 
 so with $n = 50$ students, as in [the student-height example](estimation.qmd#exm-estimator),
-the sample mean is 50 times as efficient as $X_1$.
+the sample mean is 50 times as efficient as $\Rvar_1$.
 :::

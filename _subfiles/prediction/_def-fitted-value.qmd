@@ -2,7 +2,7 @@
 #### Fitted value
 
 The **fitted value** $\fitted_\iobs$ of observation $i$
-is the [prediction](#def-prediction) at its own covariate value $x_i$:
+is the [prediction](#def-prediction) at its own covariate value $\predvar_\iobs$:
 
-$$\fitted_\iobs \eqdef \fitted(x_i).$$
+$$\fitted_\iobs \eqdef \fitted(\predvar_\iobs).$$
 :::

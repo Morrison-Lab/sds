@@ -2,7 +2,7 @@ $$
 \begin{aligned}
 \Lik(\param) &\eqdef \p(\vX = \vx \mid \Param = \param)
 && \text{(definition of the likelihood)}\\
-&= \p(X_1 = x_1, \ldots, X_n = x_n \mid \Param = \param)
+&= \p(\Rvar_1 = \rvar_1, \ldots, \Rvar_n = \rvar_n \mid \Param = \param)
 && \text{(write $\vX = \vx$ componentwise)}
 \end{aligned}
 $$

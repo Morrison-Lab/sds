@@ -2,7 +2,7 @@
 #### Expanding the centered sum of squares
 
 Expand the centered sum of squares $S_{xx}$ (@def-centered-sums)
-into an expression in terms of $n$, $\sumin x_i^2$ and $\bar{x}$.
+into an expression in terms of $n$, $\sumin \rvar_\iobs^2$ and $\bar{x}$.
 :::
 
 {{< slidebreak >}}
@@ -12,21 +12,21 @@ into an expression in terms of $n$, $\sumin x_i^2$ and $\bar{x}$.
 $$
 \begin{aligned}
 S_{xx}
-&= \sumin (x_i - \bar{x})^2
+&= \sumin (\rvar_\iobs - \bar{x})^2
 && \text{(definition of $S_{xx}$)}\\
-&= \sumin \paren{x_i^2 - 2 \bar{x} x_i + \bar{x}^2}
+&= \sumin \paren{\rvar_\iobs^2 - 2 \bar{x} \rvar_\iobs + \bar{x}^2}
 && \text{(expand the square)}\\
-&= \sumin x_i^2 - \sumin 2 \bar{x} x_i + \sumin \bar{x}^2
+&= \sumin \rvar_\iobs^2 - \sumin 2 \bar{x} \rvar_\iobs + \sumin \bar{x}^2
 && \text{(split the sum)}\\
-&= \sumin x_i^2 - 2 \bar{x} \sumin x_i + \sumin \bar{x}^2
+&= \sumin \rvar_\iobs^2 - 2 \bar{x} \sumin \rvar_\iobs + \sumin \bar{x}^2
 && \text{(constant factor out of the sum)}\\
-&= \sumin x_i^2 - 2 \bar{x} \sumin x_i + n \bar{x}^2
+&= \sumin \rvar_\iobs^2 - 2 \bar{x} \sumin \rvar_\iobs + n \bar{x}^2
 && \text{(sum of a constant)}\\
-&= \sumin x_i^2 - 2 \bar{x} \cdot n \bar{x} + n \bar{x}^2
-&& \text{($\sumin x_i = n \bar{x}$)}\\
-&= \sumin x_i^2 - 2 n \bar{x}^2 + n \bar{x}^2
+&= \sumin \rvar_\iobs^2 - 2 \bar{x} \cdot n \bar{x} + n \bar{x}^2
+&& \text{($\sumin \rvar_\iobs = n \bar{x}$)}\\
+&= \sumin \rvar_\iobs^2 - 2 n \bar{x}^2 + n \bar{x}^2
 && \text{(multiply)}\\
-&= \sumin x_i^2 - n \bar{x}^2
+&= \sumin \rvar_\iobs^2 - n \bar{x}^2
 && \text{(collect the $\bar{x}^2$ terms)}
 \end{aligned}
 $$
