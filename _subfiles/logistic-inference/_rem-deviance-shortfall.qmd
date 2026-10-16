@@ -2,7 +2,7 @@
 
 #### Why the deviance measures a shortfall
 
-For labels $\outvar_i \in \set{0, 1}$ the largest log-likelihood any model can reach is $0$, by giving each label probability $1$.
+For labels $\outvar_\iobs \in \set{0, 1}$ the largest log-likelihood any model can reach is $0$, by giving each label probability $1$.
 So $\deviance$ is twice the amount by which the maximized log-likelihood falls short of that largest value.
 
 :::

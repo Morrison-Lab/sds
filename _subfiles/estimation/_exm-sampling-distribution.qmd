@@ -1,7 +1,7 @@
 ::: {#exm-sampling-distribution}
 #### Sampling distribution of a sample mean
 
-Suppose student heights are $X_i \siid \ndist{\mean, \varpar}$
+Suppose student heights are $\Rvar_\iobs \siid \ndist{\mean, \varpar}$
 with standard deviation $\sdpar = 10$ cm,
 and we sample $n = 25$ students.
 The sample mean $\bar X$ is a linear combination of independent Gaussian variables,

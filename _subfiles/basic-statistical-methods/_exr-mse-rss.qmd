@@ -2,7 +2,7 @@
 #### Mean squared error and residual sum of squares
 
 For a regression model with conditional mean $\mean(x; \vparam)$,
-let $\fitted_i \eqdef \mean(x_i; \vparam)$
+let $\fitted_\iobs \eqdef \mean(\predvar_\iobs; \vparam)$
 be its predictions of $n \ge 1$ outcomes $\dsn{y}$,
 and let $\text{RSS}(\vparam)$ (@def-rss) be taken over those same outcomes.
 Write the [mean squared error](prediction.qmd#def-prediction-mse)
@@ -19,16 +19,16 @@ equals the squared residual at $\vparam$:
 
 $$
 \begin{aligned}
-\prederr_i^2
-&= (\fitted_i - y_i)^2
+\prederr_\iobs^2
+&= (\fitted_\iobs - \outvar_\iobs)^2
 && \text{(definition of prediction error)}\\
-&= \paren{\mean(x_i; \vparam) - y_i}^2
-&& \text{(definition of $\fitted_i$)}\\
-&= \paren{-\paren{y_i - \mean(x_i; \vparam)}}^2
+&= \paren{\mean(\predvar_\iobs; \vparam) - \outvar_\iobs}^2
+&& \text{(definition of $\fitted_\iobs$)}\\
+&= \paren{-\paren{\outvar_\iobs - \mean(\predvar_\iobs; \vparam)}}^2
 && \text{(factor out $-1$)}\\
-&= \paren{-\resid_i(\vparam)}^2
-&& \text{(definition of $\resid_i(\vparam)$)}\\
-&= \resid_i(\vparam)^2
+&= \paren{-\resid_\iobs(\vparam)}^2
+&& \text{(definition of $\resid_\iobs(\vparam)$)}\\
+&= \resid_\iobs(\vparam)^2
 && \text{($(-a)^2 = a^2$)}
 \end{aligned}
 $$
@@ -40,10 +40,10 @@ So the mean squared error is the residual sum of squares divided by $n$:
 $$
 \begin{aligned}
 \mselr{\fitted}
-&= \avgin \prederr_i^2
+&= \avgin \prederr_\iobs^2
 && \text{(definition of mean squared error)}\\
-&= \avgin \resid_i(\vparam)^2
-&& \text{($\prederr_i^2 = \resid_i(\vparam)^2$)}\\
+&= \avgin \resid_\iobs(\vparam)^2
+&& \text{($\prederr_\iobs^2 = \resid_\iobs(\vparam)^2$)}\\
 &= \frac{1}{n} \text{RSS}(\vparam)
 && \text{(definition of RSS)}
 \end{aligned}

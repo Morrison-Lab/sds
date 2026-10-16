@@ -17,12 +17,12 @@ starting from $\text{RSS}(\vcoef)$ in vector notation (@exm-rss-vector):
 $$
 \begin{aligned}
 \deriv{\vcoef} \text{RSS}(\vcoef)
-&= \deriv{\vcoef} \sumin \paren{y_i - \dprod{\vxi}{\vcoef}}^2
+&= \deriv{\vcoef} \sumin \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}^2
 && \text{(RSS in vector form)}\\
-&= \sumin \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}^2
+&= \sumin \deriv{\vcoef} \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}^2
 && \text{(derivative of a sum)}\\
-&= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}}
-  \deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}
+&= \sumin 2 \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}
+  \deriv{\vcoef} \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}
 && \text{(chain rule)}
 \end{aligned}
 $$
@@ -53,11 +53,11 @@ With $\va = \vxi$:
 
 $$
 \begin{aligned}
-\deriv{\vcoef} \paren{y_i - \dprod{\vxi}{\vcoef}}
-&= \deriv{\vcoef} y_i - \deriv{\vcoef} \dprod{\vxi}{\vcoef}
+\deriv{\vcoef} \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}
+&= \deriv{\vcoef} \outvar_\iobs - \deriv{\vcoef} \dprod{\vxi}{\vcoef}
 && \text{(derivative of a difference)}\\
 &= \vzero - \deriv{\vcoef} \dprod{\vxi}{\vcoef}
-&& \text{($y_i$ does not depend on $\vcoef$)}\\
+&& \text{($\outvar_\iobs$ does not depend on $\vcoef$)}\\
 &= \vzero - \vxi
 && \text{(gradient of a linear function)}\\
 &= -\vxi
@@ -70,13 +70,13 @@ Plugging the inner derivative back in:
 $$
 \begin{aligned}
 \deriv{\vcoef} \text{RSS}(\vcoef)
-&= \sumin 2 \paren{y_i - \dprod{\vxi}{\vcoef}} \paren{-\vxi}
+&= \sumin 2 \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}} \paren{-\vxi}
 && \text{(inner derivative is $-\vxi$)}\\
-&= \sumin 2 \paren{-\vxi} \paren{y_i - \dprod{\vxi}{\vcoef}}
+&= \sumin 2 \paren{-\vxi} \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}
 && \text{(reorder the scalar and vector factors)}\\
-&= \sumin \paren{-2} \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
+&= \sumin \paren{-2} \vxi \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}
 && \text{($2 \paren{-\vxi} = -2 \vxi$)}\\
-&= -2 \sumin \vxi \paren{y_i - \dprod{\vxi}{\vcoef}}
+&= -2 \sumin \vxi \paren{\outvar_\iobs - \dprod{\vxi}{\vcoef}}
 && \text{(constant factor out of the sum)}
 \end{aligned}
 $$

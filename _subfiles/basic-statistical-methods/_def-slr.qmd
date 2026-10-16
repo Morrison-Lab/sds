@@ -4,7 +4,7 @@
 A **simple linear regression** model
 is a linear regression model (@def-linear-regression)
 with $p = 1$ covariate $X$,
-writing $x_i$ for $x_{i1}$:
+writing $\predvar_\iobs$ for $\predvar_{\iobs 1}$:
 
 $$\mean(x) \eqdef \intcoef + \coef{x} x.$$
 :::

@@ -1,10 +1,10 @@
 ::: {#rem-fitted-value-cond-mean .remark}
 #### Why the fitted value is the estimated conditional mean
 
-The [fitted value](#def-fitted-value) is the prediction at the observed covariate value $\predvar_i$,
-so for the prediction in @exm-prediction-cond-mean it is the estimated conditional mean at $\predvar_i$:
+The [fitted value](#def-fitted-value) is the prediction at the observed covariate value $\predvar_\iobs$,
+so for the prediction in @exm-prediction-cond-mean it is the estimated conditional mean at $\predvar_\iobs$:
 
-$$\fitted_i = \mean(\predvar_i; \est{\vparam}).$$
+$$\fitted_\iobs = \mean(\predvar_\iobs; \est{\vparam}).$$
 
 It is chosen for the reason in @rem-why-cond-mean:
 the conditional mean is the best prediction under squared error loss.

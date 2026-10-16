@@ -4,7 +4,7 @@
 In a conditional Gaussian model (@def-cond-gaussian),
 each outcome is its conditional mean plus its deviation (@def-slr-deviation):
 
-$$Y_i = \mean_i + \cdev_i.$$
+$$\Outvar_\iobs = \mean_\iobs + \cdev_\iobs.$$
 :::
 
 ::: proof

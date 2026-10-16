@@ -7,10 +7,10 @@ the **empirical information matrix** is
 
 $$
 \oinf_e(\param; \vx) \eqdef
-\sumin \score_i \tp{\score_i}
+\sumin \score_\iobs \tp{\score_\iobs}
 - \frac{1}{n} \score \tp{\score}
 $$
 
-where $\score_i$ is the score of the $i$th observation's log-likelihood,
-and $\score = \sumin \score_i$.
+where $\score_\iobs$ is the score of the $i$th observation's log-likelihood,
+and $\score = \sumin \score_\iobs$.
 :::

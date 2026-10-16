@@ -6,7 +6,7 @@ and the line with $\intcoef = 1$ and $\coef{x} = 0.5$
 from [the residual sum of squares example](correlation-regression.qmd#exm-rss),
 and treat the line as the fitted model.
 
-| $x_i$ | $y_i$ | $\fitted_i = 1 + 0.5 x_i$ | $\resid_i = y_i - \fitted_i$ | $\prederr_i = \fitted_i - y_i$ |
+| $\predvar_\iobs$ | $\outvar_\iobs$ | $\fitted_\iobs = 1 + 0.5 \predvar_\iobs$ | $\resid_\iobs = \outvar_\iobs - \fitted_\iobs$ | $\prederr_\iobs = \fitted_\iobs - \outvar_\iobs$ |
 |:-----:|:-----:|:-----:|:-----:|:-----:|
 | 0 | 1 | 1   | 0   | 0    |
 | 1 | 2 | 1.5 | 0.5 | $-0.5$ |

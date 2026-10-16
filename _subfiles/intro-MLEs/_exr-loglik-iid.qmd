@@ -6,7 +6,7 @@ use @thm-lik-iid
 to write the [log-likelihood](#def-loglik) $\llik(\param)$
 as a sum over the observations.
 What does each term become
-if the $X_i$ also share a common distribution $\p(X = x \mid \param)$?
+if the $\Rvar_\iobs$ also share a common distribution $\p(X = x \mid \param)$?
 :::
 
 {{< slidebreak >}}
@@ -18,9 +18,9 @@ $$
 \llik(\param)
 &\eqdef \log{\Lik(\param)}
 && \text{(definition of log-likelihood)}\\
-&= \log{\prodin \p(X_i = x_i \mid \param)}
+&= \log{\prodin \p(\Rvar_\iobs = \rvar_\iobs \mid \param)}
 && \text{(likelihood of an independent sample)}\\
-&= \sumin \log{\p(X_i = x_i \mid \param)}
+&= \sumin \log{\p(\Rvar_\iobs = \rvar_\iobs \mid \param)}
 && \text{(log of a product is a sum of logs)}
 \end{aligned}
 $$
@@ -28,9 +28,9 @@ $$
 With a common distribution,
 
 $$
-\p(X_i = x_i \mid \param) = \p(X = x_i \mid \param),
+\p(\Rvar_\iobs = \rvar_\iobs \mid \param) = \p(X = \rvar_\iobs \mid \param),
 $$
 
-so each term is $\log{\p(X = x_i \mid \param)}$.
+so each term is $\log{\p(X = \rvar_\iobs \mid \param)}$.
 
 :::

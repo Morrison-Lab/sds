@@ -7,7 +7,7 @@ $$
 \Lik'(\param)
 &= \deriv{\param} \Lik(\param)
 && \text{(notation for the derivative)}\\
-&= \deriv{\param} \prodin \p(X_i = x_i \mid \param)
+&= \deriv{\param} \prodin \p(\Rvar_\iobs = \rvar_\iobs \mid \param)
 && \text{(likelihood of mutually independent data)}
 \end{aligned}
 $$ {#eq-deriv-Lik}

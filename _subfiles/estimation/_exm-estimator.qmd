@@ -7,7 +7,7 @@ and we measure the heights of
 $n = 50$ randomly sampled students as random variables $\dsn{X}$.
 Then we could use the function
 
-$$\hmean(\dsn{X}) \eqdef \avgin X_i \eqdef \bar X$$
+$$\hmean(\dsn{X}) \eqdef \avgin \Rvar_\iobs \eqdef \bar X$$
 
 as an [*estimator*](#def-estimator) to produce an *estimate* $\hmean = \bar x$ of $\mean$.
 

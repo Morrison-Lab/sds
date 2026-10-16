@@ -1,0 +1,13 @@
+:::{#def-test-error}
+#### Test error
+
+The **test error** of a [prediction rule](#def-prediction-rule) $\fitted$
+fitted to a [training set](#def-training-set) $\trainset$
+is its mean [loss](#def-observation-loss) $\obsloss{\iobs}$
+on the [test set](#def-test-set), indexed by $\testidx$:
+
+$$
+\testerr \eqdef \avgon{\testidx} \obsloss{\iobs}.
+$$ {#eq-test-error}
+
+:::

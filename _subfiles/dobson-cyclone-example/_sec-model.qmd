@@ -3,7 +3,7 @@ that is, $\Pr(X = x)$ is our [estimand](estimation.qmd#def-estimand).
 
 We could estimate $\Pr(X = x)$ for each value of $x$ in $0, 1, 2, \ldots$ separately
 ("nonparametrically"),
-using the fraction of our data with $X_i = x$;
+using the fraction of our data with $\Rvar_\iobs = x$;
 but then we would be estimating an infinite set of parameters
 from 13 observations,
 and each estimate would be imprecise.

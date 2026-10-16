@@ -3,7 +3,7 @@
 
 Continuing @exm-bias-sample-mean,
 suppose also that $\dsn{X}$ are mutually independent,
-each with variance $\Var{X_i} = \varpar$.
+each with variance $\Var{\Rvar_\iobs} = \varpar$.
 Both $\bar X$ and $X_1$ have zero bias,
 so by @thm-mse-bias-variance each estimator's mean squared error
 equals its variance.
@@ -28,12 +28,12 @@ $$
 && \text{(zero bias)}\\
 &= \Var{\bar X}
 && \text{($0^2 = 0$)}\\
-&= \Var{\avgin X_i}
+&= \Var{\avgin \Rvar_\iobs}
 && \text{(definition of $\bar X$)}\\
-&= \frac{1}{n^2}\sumin \Var{X_i}
+&= \frac{1}{n^2}\sumin \Var{\Rvar_\iobs}
 && \text{(variance of a linear combination of independent variables)}\\
 &= \frac{1}{n^2}\sumin \varpar
-&& \text{($\Var{X_i} = \varpar$ for every $i$)}\\
+&& \text{($\Var{\Rvar_\iobs} = \varpar$ for every $i$)}\\
 &= \frac{1}{n^2} \cdot n\varpar
 && \text{(sum of $n$ copies of $\varpar$)}\\
 &= \frac{\varpar}{n}
@@ -41,7 +41,7 @@ $$
 \end{aligned}
 $$
 
-The step to $\frac{1}{n^2}\sumin \Var{X_i}$ uses
+The step to $\frac{1}{n^2}\sumin \Var{\Rvar_\iobs}$ uses
 the [variance of a linear combination](https://morrison-lab.github.io/pds/variance-covariance.html#thm-var-lincom),
 whose covariance terms are all zero for independent variables.
 

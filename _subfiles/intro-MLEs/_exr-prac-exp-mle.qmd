@@ -28,32 +28,32 @@ and give an approximate 95% confidence interval for $\pmean$.
 $$
 \ba
 \llik(\pmean; \vx)
-&= \logf{\prodin \frac{1}{\pmean} e^{-x_i/\pmean}}
+&= \logf{\prodin \frac{1}{\pmean} e^{-\rvar_\iobs/\pmean}}
 && \text{(log of the likelihood of an $\iid$ sample)}
 \\
-&= \sumin \logf{\frac{1}{\pmean} e^{-x_i/\pmean}}
+&= \sumin \logf{\frac{1}{\pmean} e^{-\rvar_\iobs/\pmean}}
 && \text{(log of a product)}
 \\
-&= \sumin \paren{\logf{\frac{1}{\pmean}} + \logf{e^{-x_i/\pmean}}}
+&= \sumin \paren{\logf{\frac{1}{\pmean}} + \logf{e^{-\rvar_\iobs/\pmean}}}
 && \text{(log of a product)}
 \\
-&= \sumin \paren{-\logf{\pmean} + \logf{e^{-x_i/\pmean}}}
+&= \sumin \paren{-\logf{\pmean} + \logf{e^{-\rvar_\iobs/\pmean}}}
 && \text{(log of a reciprocal)}
 \\
-&= \sumin \paren{-\logf{\pmean} - \frac{x_i}{\pmean}}
+&= \sumin \paren{-\logf{\pmean} - \frac{\rvar_\iobs}{\pmean}}
 && \text{($\logt$ undoes $\expt$)}
 \\
-&= \sumin \paren{-\logf{\pmean}} - \sumin \frac{x_i}{\pmean}
+&= \sumin \paren{-\logf{\pmean}} - \sumin \frac{\rvar_\iobs}{\pmean}
 && \text{(split the sum)}
 \\
-&= -n\logf{\pmean} - \sumin \frac{x_i}{\pmean}
+&= -n\logf{\pmean} - \sumin \frac{\rvar_\iobs}{\pmean}
 && \text{(sum of $n$ identical terms)}
 \\
-&= -n\logf{\pmean} - \frac{1}{\pmean}\sumin x_i
+&= -n\logf{\pmean} - \frac{1}{\pmean}\sumin \rvar_\iobs
 && \text{(factor the constant $\tfrac{1}{\pmean}$ out of the sum)}
 \\
 &= -n\logf{\pmean} - \frac{n\bar{x}}{\pmean}
-&& \text{($\textstyle\sumin x_i = n\bar{x}$)}
+&& \text{($\textstyle\sumin \rvar_\iobs = n\bar{x}$)}
 \ea
 $$
 

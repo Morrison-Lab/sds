@@ -6,7 +6,7 @@ residual sum of squares $\text{RSS}(\intcoef, \coef{x})$ (@exm-rss-slr)
 with respect to the intercept is
 
 $$\frac{\partial \text{RSS}}{\partial \intcoef}
-= -2 \sumin (y_i - \intcoef - \coef{x} x_i)
+= -2 \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)
 = -2 \paren{n \bar{y} - n \intcoef - \coef{x} n \bar{x}}.$$
 :::
 

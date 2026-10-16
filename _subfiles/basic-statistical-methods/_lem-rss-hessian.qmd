@@ -7,7 +7,7 @@ with respect to $\intcoef$ and $\coef{x}$ is positive definite
 at every $(\intcoef, \coef{x})$ when $S_{xx} > 0$ (@def-centered-sums),
 and equals
 
-$$\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin x_i^2 \end{pmatrix}.$$
+$$\begin{pmatrix} 2n & 2 n \bar{x} \\ 2 n \bar{x} & 2 \sumin \predvar_\iobs^2 \end{pmatrix}.$$
 :::
 
 ::: proof

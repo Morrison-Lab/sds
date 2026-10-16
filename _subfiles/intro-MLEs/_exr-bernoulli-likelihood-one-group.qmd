@@ -17,7 +17,7 @@ $$
 Let $\vy \eqdef (\dsn{y})$ be a dataset of
 mutually independent binary outcomes,
 all with the same event probability $\prob$:
-$Y_i \simind \Ber(\prob)$.
+$\Outvar_\iobs \simind \Ber(\prob)$.
 Write the likelihood of $\vy$.
 
 :::
@@ -29,19 +29,19 @@ Write the likelihood of $\vy$.
 $$
 \begin{aligned}
 \Lik(\prob; \vy)
-&= \prodin \Lik_i(\prob)
+&= \prodin \Lik_\iobs(\prob)
 && \text{(product of likelihood components)}\\
-&= \prodin \Pr(Y_i = y_i)
+&= \prodin \Pr(\Outvar_\iobs = \outvar_\iobs)
 && \text{(definition of likelihood components)}\\
-&= \prodin \prob^{y_i} (1 - \prob)^{1 - y_i}
+&= \prodin \prob^{\outvar_\iobs} (1 - \prob)^{1 - \outvar_\iobs}
 && \text{(Bernoulli PMF)}\\
-&= \paren{\prodin \prob^{y_i}} \paren{\prodin (1 - \prob)^{1 - y_i}}
+&= \paren{\prodin \prob^{\outvar_\iobs}} \paren{\prodin (1 - \prob)^{1 - \outvar_\iobs}}
 && \text{(regroup the factors of the product)}\\
-&= \prob^{\sumin y_i} (1 - \prob)^{\sumin (1 - y_i)}
+&= \prob^{\sumin \outvar_\iobs} (1 - \prob)^{\sumin (1 - \outvar_\iobs)}
 && \text{(product of powers of a common base)}\\
-&= \prob^{\sumin y_i} (1 - \prob)^{\sumin 1 - \sumin y_i}
+&= \prob^{\sumin \outvar_\iobs} (1 - \prob)^{\sumin 1 - \sumin \outvar_\iobs}
 && \text{(split the sum in the exponent)}\\
-&= \prob^{\sumin y_i} (1 - \prob)^{n - \sumin y_i}
+&= \prob^{\sumin \outvar_\iobs} (1 - \prob)^{n - \sumin \outvar_\iobs}
 && \text{($\textstyle\sumin 1 = n$)}
 \end{aligned}
 $$

@@ -1,7 +1,7 @@
 :::{#lem-poisson-zero-rb}
 #### Conditional probability of a zero given the Poisson sum
 
-For $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin X_i$,
+For $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin \Rvar_\iobs$,
 
 $$
 \Pr\paren{X_1 = 0 \given S = t} = \paren{\frac{n-1}{n}}^t

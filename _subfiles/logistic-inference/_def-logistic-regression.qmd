@@ -7,13 +7,13 @@ with predictor vectors $\vpredvar_1, \dots, \vpredvar_n$
 says that the outcomes are independent and that
 
 $$
-\Prf{\Outvar_i = 1 \mid \vpredvar_i} = \prob_i
-= \sigmoidf{\dprod{\vcoef}{\vpredvar_i}},
+\Prf{\Outvar_\iobs = 1 \mid \vpredvar_\iobs} = \prob_i
+= \sigmoidf{\dprod{\vcoef}{\vpredvar_\iobs}},
 \qquad
 \sigmoidf{u} = \frac{1}{1 + e^{-u}},
 $$ {#eq-logistic-model}
 
-where $\vpredvar_i = \tp{\paren{1, \predvar_{i1}, \dots, \predvar_{ip}}}$ and $\vcoef = \tp{\paren{\coef{0}, \coef{1}, \dots, \coef{p}}}$.
-The leading $1$ in $\vpredvar_i$ makes $\intcoef$ the intercept, and $\coef{j}$ for $j \ge 1$ is the slope for the $j$th predictor.
+where $\vpredvar_\iobs = \tp{\paren{1, \predvar_{i1}, \dots, \predvar_{ip}}}$ and $\vcoef = \tp{\paren{\coef{0}, \coef{1}, \dots, \coef{p}}}$.
+The leading $1$ in $\vpredvar_\iobs$ makes $\intcoef$ the intercept, and $\coef{j}$ for $j \ge 1$ is the slope for the $j$th predictor.
 
 :::

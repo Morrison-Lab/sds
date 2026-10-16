@@ -5,12 +5,12 @@ For a regression model whose conditional mean $\mean(x; \vparam)$
 depends on a parameter vector $\vparam$,
 the **residual sum of squares** at $\vparam$
 is the sum of the squared residuals
-$\resid_i(\vparam) \eqdef y_i - \mean(x_i; \vparam)$
+$\resid_\iobs(\vparam) \eqdef \outvar_\iobs - \mean(\predvar_\iobs; \vparam)$
 that the model has when its parameters equal $\vparam$:
 
-$$\text{RSS}(\vparam) \eqdef \sumin \resid_i(\vparam)^2.$$
+$$\text{RSS}(\vparam) \eqdef \sumin \resid_\iobs(\vparam)^2.$$
 
 At the estimate $\est{\vparam}$,
-$\resid_i(\est{\vparam})$ is the [residual](prediction.qmd#def-residual) $\resid_i$
+$\resid_\iobs(\est{\vparam})$ is the [residual](prediction.qmd#def-residual) $\resid_\iobs$
 of the fitted model.
 :::

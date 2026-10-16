@@ -1,7 +1,7 @@
 :::{#exr-poisson-zero-conditional}
 #### Conditional probability of a zero given the Poisson sum
 
-Let $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin X_i$.
+Let $\dsn{X} \siid \Pois(\rate)$ and $S \eqdef \sumin \Rvar_\iobs$.
 Find $\Pr\paren{X_1 = 0 \given S = t}$ for each $t = 0, 1, 2, \ldots$.
 You may use that $S \sim \Pois(n\rate)$, by
 [the sum of independent Poisson variables](https://morrison-lab.github.io/pds/distributions.html#thm-sum-pois) and induction on $n$.

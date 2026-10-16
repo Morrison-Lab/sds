@@ -16,6 +16,8 @@ jobs:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       # `sds` is a self-referential symlink (`sds -> .`, see CLAUDE.md) that
       # lets include paths written as `sds/...` resolve when this repo

@@ -14,6 +14,10 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "chore(submodule)"
+    # Wait before adopting a new release, so a compromised or broken one is
+    # not pulled in the hour it ships (zizmor's `dependabot-cooldown` audit).
+    cooldown:
+      default-days: 7
 
   # Also keep pinned GitHub Actions current. Dependabot scans .github/workflows/
   # and opens a PR when a newer release of a pinned action is available;
@@ -24,3 +28,6 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "chore(actions)"
+    # Same cooldown as the submodule updater above.
+    cooldown:
+      default-days: 7

@@ -7,7 +7,7 @@ in terms of the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r) $r$
 and the
 [sample standard deviations](exploratory-descriptive.qmd#def-sample-sd)
-$s_x$ and $s_y$ of the $x_i$ and the $y_i$.
+$s_x$ and $s_y$ of the $\predvar_\iobs$ and the $\outvar_\iobs$.
 :::
 
 {{< slidebreak >}}

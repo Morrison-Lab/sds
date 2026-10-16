@@ -71,8 +71,8 @@ Always put a blank line before the start of a bullet-point list in markdown (`.m
   `\resid` ($r = y - \hat y$, from the macros repo) for a residual,
   and `\prederr` ($e = \hat y - y$) for a prediction error.
 - **Inner products**: write the inner product of two vectors as a dot product,
-  `\dprod{\vxi}{\vcoef}` ($\tilde x_i \cdot \tilde\beta$),
-  rather than as a transpose product `\tprod{\vxi}{\vcoef}` ($\tilde x_i^\top \tilde\beta$).
+  `\dprod{\vxi}{\vcoef}` (two vectors, each with a tilde under the letter),
+  rather than as a transpose product `\tprod{\vxi}{\vcoef}` (the same two vectors, with a transpose).
   Keep the transpose where it is needed:
   outer products (`\soprod{\vxi}`), quadratic forms with a matrix, and derivatives with respect to a row vector.
 - **Chain rule steps**:
@@ -226,6 +226,20 @@ checking that the anchor exists and holds the text the credit points to.
 Comments are still the place for maintainer-only notes
 that are not attributions,
 such as what was checked in a PDF or a wording edit made while porting.
+
+## Useful resources go in every repo that covers their topic
+
+A resource such as a course, book or video that covers a topic sds teaches goes in the Further reading section of the matching page,
+even when lds or another Morrison-Lab site already lists it
+(maintainer directive, 2026-10-15, answering a review question on Morrison-Lab/lds#841, a private repository the link checker cannot reach).
+If no page matches, add the resource to the Further reading section of the closest related page.
+If the page chosen has no Further reading section, add one headed `## Further reading`.
+Always link the resource.
+Adapt its material only where its license allows,
+and only when its terms (NonCommercial, ShareAlike) are compatible with this repository's license.
+Where they conflict, link and do not adapt.
+Credit adapted material as "Attributions are reader-visible" above says.
+See [`track-useful-resources`](https://github.com/Morrison-Lab/ai-config/blob/main/shared/workflow/track-useful-resources.md).
 
 ## Code Chunks
 

@@ -6,5 +6,5 @@ $\dsn{\fitted}$
 of observed outcomes $\dsn{y}$
 is the mean of their squared [prediction errors](#def-prediction-error):
 
-$$\mselr{\fitted} \eqdef \avgin \prederr_i^2.$$
+$$\mselr{\fitted} \eqdef \avgin \prederr_\iobs^2.$$
 :::

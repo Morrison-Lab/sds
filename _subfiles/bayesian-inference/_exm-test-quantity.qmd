@@ -7,7 +7,7 @@ The Beta-Bernoulli model gives every mother the same probability $\prob$ of smok
 whatever her race.
 Two test quantities for these data are:
 
-- the number of mothers who smoked, $T_1(\vy) = \sumin y_i$;
+- the number of mothers who smoked, $T_1(\vy) = \sumin \outvar_\iobs$;
 - the spread of the smoking proportions across the three race groups,
   $T_2(\vy) = \max_g \bar{y}_g - \min_g \bar{y}_g$,
   where $\bar{y}_g$ is the proportion of mothers in group $g$ who smoked.

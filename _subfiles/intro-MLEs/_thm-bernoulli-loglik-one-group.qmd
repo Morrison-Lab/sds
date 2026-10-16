@@ -1,12 +1,12 @@
 :::{#thm-bernoulli-loglik-one-group}
 #### Log-likelihood of binary outcomes with one event probability
 
-Let $Y_i \simind \Ber(\prob)$ for $i = 1, \dots, n$,
-with observed outcomes $\vy \eqdef (\dsn{y})$, each $y_i \in \cb{0, 1}$.
+Let $\Outvar_\iobs \simind \Ber(\prob)$ for $i = 1, \dots, n$,
+with observed outcomes $\vy \eqdef (\dsn{y})$, each $\outvar_\iobs \in \cb{0, 1}$.
 The log-likelihood $\llik(\prob; \vy)$ of the event probability $\prob$,
 written with the log-odds $\logit(\prob)$, is:
 
-$$\llik(\prob; \vy) = \paren{\sumin y_i} \logit(\prob) + n \logf{1 - \prob}$$
+$$\llik(\prob; \vy) = \paren{\sumin \outvar_\iobs} \logit(\prob) + n \logf{1 - \prob}$$
 
 :::
 

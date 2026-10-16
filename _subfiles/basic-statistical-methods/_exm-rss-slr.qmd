@@ -8,13 +8,13 @@ so write $\text{RSS}(\intcoef, \coef{x})$ for its residual sum of squares (@def-
 $$
 \begin{aligned}
 \text{RSS}(\intcoef, \coef{x})
-&= \sumin \resid_i(\intcoef, \coef{x})^2
+&= \sumin \resid_\iobs(\intcoef, \coef{x})^2
 && \text{(definition of RSS)}\\
-&= \sumin \paren{y_i - \mean(x_i; \intcoef, \coef{x})}^2
-&& \text{(definition of $\resid_i(\vparam)$)}\\
-&= \sumin \paren{y_i - (\intcoef + \coef{x} x_i)}^2
+&= \sumin \paren{\outvar_\iobs - \mean(\predvar_\iobs; \intcoef, \coef{x})}^2
+&& \text{(definition of $\resid_\iobs(\vparam)$)}\\
+&= \sumin \paren{\outvar_\iobs - (\intcoef + \coef{x} \predvar_\iobs)}^2
 && \text{(definition of $\mean(x)$)}\\
-&= \sumin (y_i - \intcoef - \coef{x} x_i)^2
+&= \sumin (\outvar_\iobs - \intcoef - \coef{x} \predvar_\iobs)^2
 && \text{(distribute the minus sign)}
 \end{aligned}
 $$
