@@ -3,13 +3,11 @@
 
 The **training error** of a [prediction rule](#def-prediction-rule) $\fitted$
 fitted to a [training set](#def-training-set) $\trainset$
-is the [mean squared error](prediction.qmd#def-prediction-mse)
-of its [fitted values](prediction.qmd#def-fitted-value)
-$\fitted_{\iobs}$, $\iobs \in \obsidx$,
-as predictions of the training outcomes $\outvar_{\iobs}$:
+is its mean [loss](#def-observation-loss) $\obsloss{\iobs}$
+on the training observations $\iobs \in \obsidx$:
 
 $$
-\trainerr \eqdef \frac{1}{\nobs} \sum_{\iobs \in \obsidx} \sqf{\fitted_{\iobs} - \outvar_{\iobs}}.
+\trainerr \eqdef \avgin \obsloss{\iobs}.
 $$ {#eq-training-mse}
 
 :::

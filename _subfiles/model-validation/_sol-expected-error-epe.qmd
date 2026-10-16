@@ -7,33 +7,31 @@ $$
 &\quad = \E{\generr_{\trainset}}
 && \text{(definition)}
 \\
-&\quad = \E{\E{\sqf{\fitted(\newpredvar) - \newoutvar} \mid \trainset}}
+&\quad = \E{\E{\obsloss{*} \mid \trainset}}
 && \text{(definition)}
 \\
-&\quad = \E{\E{\sqf{\fitproc\paren{\newpredvar; \trainset} - \newoutvar} \mid \trainset}}
-&& \text{(prediction rule)}
-\\
-&\quad = \E{\sqf{\fitproc\paren{\newpredvar; \trainset} - \newoutvar}}
+&\quad = \E{\obsloss{*}}
 && \text{(iterated expectations)}
 \\
-&\quad = \E{\E{\sqf{\fitproc\paren{\newpredvar; \trainset} - \newoutvar} \mid \newpredvar}}
+&\quad = \E{\E{\obsloss{*} \mid \newpredvar}}
 && \text{(iterated expectations)}
 \\
-&\quad = \E{\epe{\fitproc}{\nobs}{\newpredvar}}
+&\quad = \E{\epl{\fitproc}{\nobs}{\newpredvar}}
 && \text{(definition)}
 \ea
 $$
 
 The steps labeled "definition" apply
-@eq-expected-generalization-error, @eq-generalization-error and @eq-epe, in that order,
-and the step labeled "prediction rule" applies @eq-prediction-rule,
-$\fitted(\newpredvar) = \fitproc\paren{\newpredvar; \trainset}$.
+@eq-expected-generalization-error, @eq-generalization-error and @eq-epl, in that order.
+Here $\obsloss{*}$ is the [loss](#def-observation-loss) of the prediction rule
+$\fitted(\newpredvar) = \fitproc\paren{\newpredvar; \trainset}$ (@eq-prediction-rule)
+on the new observation.
 The two steps labeled "iterated expectations" use the
 [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie),
 the first conditioning on $\trainset$ and the second on $\newpredvar$.
 The last line needs $\trainset$ to be independent of $(\newpredvar, \newoutvar)$:
 then, given $\newpredvar = \predvar$,
 $\trainset$ still has its unconditional distribution,
-as @def-epe requires.
+as @def-epl requires.
 
 :::

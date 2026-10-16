@@ -1,9 +1,13 @@
 :::{#sol-generalization-error}
 
-1. Average the squared prediction error over the distribution of $(\newpredvar, \newoutvar)$,
+1. Average the loss over the distribution of $(\newpredvar, \newoutvar)$,
    with $\trainset$, and so the rule $\fitted$, held fixed:
 
-   $$\E{\sqf{\fitted(\newpredvar) - \newoutvar} \mid \trainset}.$$
+   $$\E{\obsloss{*} \mid \trainset}.$$
+
+   For squared-error loss, the loss is the squared prediction error:
+
+   $$\E{\prederr_{*}^2 \mid \trainset}.$$
 
 2. The rule $\fitted$ is known, because we fitted it.
    The joint distribution of $(\newpredvar, \newoutvar)$ is unknown,
