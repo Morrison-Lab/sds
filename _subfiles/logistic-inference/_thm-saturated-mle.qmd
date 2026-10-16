@@ -21,8 +21,8 @@ Adding $\nevents_k \prob_k$ to both sides gives $\nevents_k = \nreps_k \prob_k$.
 Dividing both sides by $\nreps_k$ gives $\hat\prob_k = \nevents_k / \nreps_k$.
 The log-likelihood term increases to this point and decreases after it, so the point is a maximum.
 Now suppose $\nevents_k = 0$.
-The term is $\nreps_k \ln\paren{1 - \prob_k}$, which decreases in $\prob_k$ and so peaks at $\prob_k = 0$.
+A count of $0$ times a logarithm is taken as $0$, so the term is $\nreps_k \ln\paren{1 - \prob_k}$, which decreases in $\prob_k$ and so peaks at $\prob_k = 0$.
 Next suppose $\nevents_k = \nreps_k$.
-The term is $\nreps_k \ln \prob_k$, which peaks at $\prob_k = 1$.
+By the same convention, the term is $\nreps_k \ln \prob_k$, which peaks at $\prob_k = 1$.
 Both agree with $\nevents_k / \nreps_k$.
 :::
