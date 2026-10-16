@@ -169,22 +169,29 @@ Credit every source a reader would want to know about where readers can see it:
 When a source credits its own upstream,
 carry that credit along.
 
-Content taken from the maintainer's own repositories (rme, lds, pds, ...)
-or from other works the maintainer wrote alone or with others
+"The group" means the maintainer (Ezra Morrison) and the members of the lab.
+Content taken from the group's own repositories (rme, lds, pds, ...)
+or from other works the group wrote alone or with others
 (a lab manual, papers, packages)
-is never credited to the maintainer or to those repositories and works
+is never credited to the group or to those repositories and works
 (maintainer directives, 2026-10-05 and 2026-10-16).
 A credit to such a repository or work is left out of new work,
-and an existing one is removed, but its link to the sister page stays.
-This exemption covers only the hop from the maintainer's own work to the page.
+and an existing one is removed,
+but a plain link to the group's page stays as a cross-reference.
+This rule covers only the hop from the group's own work to the page you write.
 Whatever such a repository or work itself credits
-(a book, a paper, or any person other than the maintainer)
+(a book, a paper, or any person outside the group)
 is still credited, by name for a person.
-A co-author outside the maintainer's lab keeps their credit by name.
-Citing the maintainer's published paper or released software
-as the original publication of a result, or as a tool used, is ordinary citation and stays.
+A co-author outside the group keeps their credit by name.
+Two things stay ordinary citation:
+citing the group's published paper or released software
+as the original publication of a result, or as a tool used,
+and a citation a publisher's reuse terms require.
+For a definition or result, cite the original publication
+and, where one exists, a modern textbook,
+and link the group's page as further reading.
 
-A link to one of the maintainer's other sites that sends the reader to further reading
+A link to one of the group's other sites that sends the reader to further reading
 is a cross-reference, not an attribution, and stays.
 
 An HTML comment is not an attribution,
