@@ -15,9 +15,9 @@ does not fall:
 
 $$
 \ba
-\sqf{\bias{\candproc{\icand + 1}\paren{\predvar; \trainset}}} &\le \sqf{\bias{\candproc{\icand}\paren{\predvar; \trainset}}},
+\sqf{\bias{\candproc{\icand + 1}\paren{\trainset}\paren{\predvar}}} &\le \sqf{\bias{\candproc{\icand}\paren{\trainset}\paren{\predvar}}},
 \\
-\Var{\candproc{\icand + 1}\paren{\predvar; \trainset}} &\ge \Var{\candproc{\icand}\paren{\predvar; \trainset}},
+\Var{\candproc{\icand + 1}\paren{\trainset}\paren{\predvar}} &\ge \Var{\candproc{\icand}\paren{\trainset}\paren{\predvar}},
 \qquad \icand = 1, \ldots, \ncand - 1.
 \ea
 $$ {#eq-bias-variance-tradeoff}

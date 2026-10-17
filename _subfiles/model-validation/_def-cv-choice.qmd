@@ -12,8 +12,8 @@ and applies to $\trainset$ the candidate with the smallest estimate,
 taking the smallest $\icand$ if several tie:
 
 $$
-\candproctuned{\text{CV}}\paren{\predvar; \trainset} \eqdef
-\candproc{\min \argmin_{\icand} \cvestof{\nfolds}{\candproc{\icand}}\paren{\trainset}}\paren{\predvar; \trainset}.
+\candproctuned{\text{CV}}\paren{\trainset} \eqdef
+\candproc{\min \argmin_{\icand} \cvestof{\nfolds}{\candproc{\icand}}\paren{\trainset}}\paren{\trainset}.
 $$ {#eq-cv-choice}
 
 :::
