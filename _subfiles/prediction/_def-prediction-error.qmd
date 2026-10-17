@@ -2,7 +2,7 @@
 #### Prediction error
 
 The **prediction error** of a [prediction](#def-prediction) $\fitted$
-(such as $\fitted(x)$ or a fitted value $\fitted_\iobs$)
+(such as $\predvalf{x}$ or a fitted value $\fitted_\iobs$)
 of an observed outcome $y$ is the prediction minus the outcome:
 
 $$\prederr \eqdef \fitted - y.$$

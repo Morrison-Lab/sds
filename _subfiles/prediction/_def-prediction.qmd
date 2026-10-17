@@ -1,10 +1,10 @@
 ::: {#def-prediction}
 #### Prediction (predicted value)
 
-A **prediction** (or **predicted value**) $\fitted(x)$
+A **prediction** (or **predicted value**) $\predvalf{x}$
 of an outcome $Y$ with covariate value $X = x$
 is a number computed from $x$ and from data $(x_1, y_1), \ldots, (x_n, y_n)$
 by a rule $g$, and used as a guess of $Y$:
 
-$$\fitted(x) \eqdef g\paren{x; (x_1, y_1), \ldots, (x_n, y_n)}.$$
+$$\predvalf{x} \eqdef g\paren{x; (x_1, y_1), \ldots, (x_n, y_n)}.$$
 :::
