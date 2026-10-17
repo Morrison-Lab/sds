@@ -3,17 +3,19 @@
 
 Least-squares polynomial fitting of degree $\polydeg$ has these inputs:
 
+- data: the observations the polynomial is fitted to;
 - model family: the polynomials of degree at most $\polydeg$;
-- objective function: the sum of squared errors over the training set;
+- objective function: the sum of squared errors over those observations;
 - optimization algorithm: solving the normal equations, which finds the unique minimizer exactly;
 - random seed: none, since nothing is random;
 - tuning parameter: the degree $\polydeg$;
 - preprocessing: none.
 
-Because the minimizer is unique and exact, the family, the training set and the objective already determine the fitted rule.
+Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted rule.
 
 A random forest of regression trees is different:
 
+- data: the observations the trees are grown on;
 - model family: averages of regression trees;
 - objective function: the sum of squared errors within each tree's leaves;
 - optimization algorithm: greedy splitting of the covariate space, tree by tree;

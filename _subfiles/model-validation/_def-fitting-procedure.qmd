@@ -11,8 +11,9 @@ $$
 \fitproc\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}.
 $$ {#eq-fitting-procedure}
 
-It is specified by these inputs, besides the data:
+It is specified by these inputs:
 
+- the data it is applied to;
 - the set of candidate models it searches, called the model family;
 - the objective function that scores each candidate against the data;
 - the optimization algorithm that searches the family for a candidate with a good score, with its starting values and stopping rule;
