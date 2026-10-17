@@ -22,7 +22,7 @@ $$ {#eq-prediction-bias}
 ::: {.remark .notes}
 
 In expected prediction error decompositions [@james2021islr2e, Section 2.2.2],
-the bias reflects the error introduced by approximating a real-world relationship by a model.
+the bias reflects the approximation error that comes from approximating a real-world relationship by a model.
 
 :::
 
