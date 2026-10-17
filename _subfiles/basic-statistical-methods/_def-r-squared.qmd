@@ -6,6 +6,8 @@ is one minus the ratio of its [residual sum of squares](#def-rss) at $\est{\vpar
 to the [total sum of squares](#def-tss) of its outcomes:
 
 $$R^2 \eqdef 1 - \frac{\text{RSS}(\est{\vparam})}{\text{TSS}}.$$
+
+Source: @wikipedia_coefficient_of_determination.
 :::
 
 {{< slidebreak >}}

@@ -6,4 +6,6 @@ if all outcomes share one variance $\varpar$,
 which does not depend on $i$:
 
 $$\varpar_\iobs = \varpar \text{ for all } i.$$
+
+Source: @wikipedia_homoscedasticity_and_heteroscedasticity.
 :::

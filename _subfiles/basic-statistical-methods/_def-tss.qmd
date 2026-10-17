@@ -5,4 +5,5 @@ The **total sum of squares** of $\dsn{y}$ is
 
 $$\text{TSS} \eqdef \sumin (\outvar_\iobs - \outbar)^2.$$
 
+Source: @wikipedia_total_sum_of_squares.
 :::

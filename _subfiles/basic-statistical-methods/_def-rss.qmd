@@ -13,4 +13,6 @@ $$\text{RSS}(\vparam) \eqdef \sumin \resid_\iobs(\vparam)^2.$$
 At the estimate $\est{\vparam}$,
 $\resid_\iobs(\est{\vparam})$ is the [residual](prediction.qmd#def-residual) $\resid_\iobs$
 of the fitted model.
+
+Source: @wikipedia_residual_sum_of_squares.
 :::
