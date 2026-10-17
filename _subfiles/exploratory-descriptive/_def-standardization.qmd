@@ -4,7 +4,8 @@
 Let $\dsn{x}$ be $n \ge 2$ observations of a variable
 with [sample mean](#def-sample-mean) $\bar x$
 and [sample standard deviation](#def-sample-sd) $s > 0$.
-The **standardized value** of $\rvar_\iobs$ is
+The **standardized value**
+[@wikipedia_standard_score] of $\rvar_\iobs$ is
 
 $$z_i \eqdef \frac{\rvar_\iobs - \bar x}{s}$$
 

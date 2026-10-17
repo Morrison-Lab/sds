@@ -1,7 +1,8 @@
 ::: {#def-contingency-table}
 #### Contingency table (cross-tabulation)
 
-A **contingency table** (or **cross-tabulation**) displays
+A **contingency table**
+[@wikipedia_contingency_table] (or **cross-tabulation**) displays
 the joint frequencies of two categorical variables:
 each cell counts the observations with one combination of categories.
 For two binary variables,

@@ -305,6 +305,20 @@ continuous variable across the groups defined by a categorical variable
 
 {{< include sds/_subfiles/exploratory-descriptive/_prose-workflow.qmd >}}
 
+## Further reading {.unnumbered}
+
+-   @wikipedia_histogram --- histograms and the choice of bins
+
+-   @wikipedia_box_plot --- box plots and their variants
+
+-   @wikipedia_scatter_plot --- scatter plots and their uses
+
+-   @wikipedia_q_q_plot --- quantile-quantile plots
+
+-   @wikipedia_quartile --- quartiles and how to compute them
+
+-   @wikipedia_standard_score --- z-scores and standardization
+
 ## References {.unnumbered}
 
 ::: {#refs}

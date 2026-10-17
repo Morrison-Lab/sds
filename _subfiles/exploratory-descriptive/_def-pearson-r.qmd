@@ -1,7 +1,8 @@
 :::{#def-pearson-r}
 #### Pearson correlation coefficient
 
-The **Pearson correlation coefficient** of $n$ paired observations
+The **Pearson correlation coefficient**
+[@wikipedia_pearson_correlation_coefficient] of $n$ paired observations
 $(x_1, y_1), \ldots, (x_n, y_n)$ is:
 
 $$r \eqdef \frac{\sumin (\predvar_\iobs - \predbar)(\outvar_\iobs - \outbar)}
