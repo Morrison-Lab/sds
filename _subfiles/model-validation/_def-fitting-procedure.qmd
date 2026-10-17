@@ -14,12 +14,12 @@ $$ {#eq-fitting-procedure}
 It is specified by these inputs:
 
 - the data it is fitted to;
-- the set of candidate models it searches, called the model family;
+- the set of candidate [models](estimation.qmd#def-model) it searches, called the model family;
 - the objective function that scores each candidate against the data;
 - the optimization algorithm that searches the family for a candidate with a good score, with its starting values and stopping rule;
 - the random seed, when the algorithm draws random numbers, as in splitting the data;
 - the [tuning parameters](#def-tuning-parameter), which it does not compute from the data;
-- the preprocessing of the covariates, such as scaling, encoding and feature choice.
+- the preprocessing of the covariates, such as [standardization](exploratory-descriptive.qmd#def-standardization), encoding and feature choice.
 
 :::
 
