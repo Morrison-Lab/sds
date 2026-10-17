@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-17 10:19:16 (PDT)
+Last modified: 2026-10-17 10:42:15 (PDT)
 
 ## 1 Scientific models
 
@@ -196,7 +196,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error**, denoted \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
+> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error** or its **expected squared estimation error (ESEE)**, denoted \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ or \\\operatorname{ESEE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
 >
 > \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\
 
