@@ -1,7 +1,7 @@
 :::{#thm-ds-lik-obs-lik}
 #### Dataset likelihood as a product of observation likelihoods
 
-For mutually independent data $\vx \eqdef \x1n$,
+For mutually independent data $\vx \eqdef \xin$,
 the likelihood of the dataset is the product
 of the observations' [likelihood components](#def-lik-factor):
 
