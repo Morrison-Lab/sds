@@ -10,4 +10,6 @@ $$t_p \eqdef \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n
 
 Its p-value is $\Pr(\abs{T} \ge \abs{t_p})$,
 where $T$ has the $t_{n_1 + n_2 - 2}$ distribution.
+
+Source: @wikipedia_students_t_test.
 :::

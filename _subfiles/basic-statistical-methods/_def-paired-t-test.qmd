@@ -9,4 +9,6 @@ with population mean $\mean_d$.
 The **paired t-test** of $H_0: \mean_d = 0$ against $H_1: \mean_d \neq 0$
 is the one-sample t-test (@def-one-sample-t-test)
 of $H_0: \mean = 0$ applied to $\dsn{d}$.
+
+Source: @wikipedia_students_t_test.
 :::

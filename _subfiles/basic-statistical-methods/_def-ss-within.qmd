@@ -6,4 +6,5 @@ the **within-group sum of squares** is
 
 $$\text{SS}_\text{within} \eqdef \sumto{j}{k} \sumto{i}{n_j} (\outvar_{ji} - \outbar_j)^2.$$
 
+Source: @wikipedia_partition_of_sums_of_squares.
 :::

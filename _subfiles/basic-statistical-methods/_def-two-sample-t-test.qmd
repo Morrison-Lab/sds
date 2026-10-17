@@ -16,6 +16,8 @@ $$\hdf \eqdef \frac{\paren{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}^2}
 
 Its p-value is $\Pr(\abs{T} \ge \abs{t})$,
 where $T$ has the $t_{\hdf}$ distribution ([t-distribution](inference.qmd#def-t-dist)).
+
+Source: @wikipedia_welchs_t_test.
 :::
 
 {{< slidebreak >}}
