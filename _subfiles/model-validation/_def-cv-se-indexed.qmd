@@ -2,12 +2,12 @@
 #### Fold-based standard error of a named procedure
 
 The **fold-based standard error of procedure** $\fitproc$ on a training set $\trainset$,
-$\cvseof{\nfolds}{\fitproc}\paren{\trainset}$,
+$\cvseoff{\nfolds}{\fitproc}{\trainset}$,
 is the [fold-based standard error](#def-cv-se)
 computed from the [fold sMSEs of $\fitproc$](#def-fold-mse-indexed):
 
 $$
-\cvseof{\nfolds}{\fitproc}\paren{\trainset} \eqdef \frac{\hSD{\foldmseof{1}{\fitproc}\paren{\trainset}, \ldots, \foldmseof{\nfolds}{\fitproc}\paren{\trainset}}}{\sqrt{\nfolds}}.
+\cvseoff{\nfolds}{\fitproc}{\trainset} \eqdef \frac{\hSD{\foldmseoff{1}{\fitproc}{\trainset}, \ldots, \foldmseoff{\nfolds}{\fitproc}{\trainset}}}{\sqrt{\nfolds}}.
 $$ {#eq-cv-se-indexed}
 
 :::

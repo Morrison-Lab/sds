@@ -6,7 +6,7 @@ of the [cross-validation choice procedure](#def-cv-choice) $\candproctuned{\text
 its estimate on a training set $\trainset$ is
 
 $$
-\cvestof{\nfolds}{\candproctuned{\text{CV}}}\paren{\trainset}.
+\cvestoff{\nfolds}{\candproctuned{\text{CV}}}{\trainset}.
 $$ {#eq-nested-cv}
 
 :::
