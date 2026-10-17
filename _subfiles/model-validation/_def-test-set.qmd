@@ -9,6 +9,4 @@ that the [validation choice](#def-validation-choice) picks is scored:
 $$
 \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \testidx}.
 $$ {#eq-test-set}
-
-Source: @wikipedia_training_validation_and_test_data_sets.
 :::

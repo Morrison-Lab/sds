@@ -4,8 +4,6 @@
 **Overfitting** occurs when a [prediction rule](#def-prediction-rule)
 fits its [training set](#def-training-set) well
 but predicts poorly for new observations.
-
-Source: @wikipedia_overfitting.
 :::
 
 {{< slidebreak >}}

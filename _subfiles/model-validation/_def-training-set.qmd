@@ -9,8 +9,6 @@ written as an ordered list indexed by a set $\obsidx$ of $\nobs$ observation num
 $$
 \trainset \eqdef \paren{(\vpredvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}, \quad \abs{\obsidx} = \nobs.
 $$ {#eq-training-set}
-
-Source: @wikipedia_training_validation_and_test_data_sets.
 :::
 
 :::{#rem-source-training-set}

@@ -582,6 +582,12 @@ format:
 
 -   @wikipedia_generalization_error --- generalization error and how to estimate it
 
+-   @wikipedia_hyperparameter_machine_learning --- the Wikipedia article on hyperparameter (machine learning)
+
+-   @wikipedia_leverage_statistics --- the Wikipedia article on leverage (statistics)
+
+-   @wikipedia_random_seed --- the Wikipedia article on random seed
+
 ## References {.unnumbered}
 
 ::: {#refs}

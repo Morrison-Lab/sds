@@ -4,6 +4,4 @@
 **Model selection** is choosing one [fitted model](#def-fitted-model)
 from a set of candidate fitted models from different [model families](#def-model-family),
 using observations that were [held out](#def-held-out-set) from fitting.
-
-Source: @wikipedia_model_selection.
 :::
