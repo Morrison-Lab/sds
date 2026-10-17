@@ -66,6 +66,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-preprocessing.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-preprocessing.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}
 
 {{< slidebreak >}}
