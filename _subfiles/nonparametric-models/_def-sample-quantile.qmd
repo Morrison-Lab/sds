@@ -7,4 +7,6 @@ the **sample quantile function**
 is
 
 $$\hat Q(p) \eqdef \inf\cb{t : \hat F(t) \ge p}, \quad 0 < p \le 1.$$
+
+Source: @wikipedia_quantile.
 :::
