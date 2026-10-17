@@ -8,7 +8,7 @@ is the function that maps each covariate value $\predvar$
 to the [prediction](prediction.qmd#def-prediction) that $\fitproc$ computes from $\predvar$ and $\trainset$:
 
 $$
-\fitted : \predvar \mapsto \fitproc\paren{\predvar; \trainset}.
+\fitted : \predvar \mapsto \fitprocf{\predvar; \trainset}.
 $$ {#eq-prediction-rule}
 
 :::

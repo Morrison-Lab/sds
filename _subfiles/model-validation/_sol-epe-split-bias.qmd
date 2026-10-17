@@ -4,8 +4,8 @@ Insert the average fit:
 
 $$
 \ba
-\mean(\predvar) - \fitproc\paren{\predvar; \trainset}
-&= \paren{\mean(\predvar) - \avgfitf{\predvar}} + \paren{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}
+\mean(\predvar) - \fitprocf{\predvar; \trainset}
+&= \paren{\mean(\predvar) - \avgfitf{\predvar}} + \paren{\avgfitf{\predvar} - \fitprocf{\predvar; \trainset}}
 && \text{(add and subtract } \avgfitf{\predvar} \text{)}
 \ea
 $$
@@ -14,10 +14,10 @@ Square it:
 
 $$
 \ba
-\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
+\sqf{\mean(\predvar) - \fitprocf{\predvar; \trainset}}
 &= \sqf{\mean(\predvar) - \avgfitf{\predvar}}
-+ 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}
-+ \sqf{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}
++ 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \fitprocf{\predvar; \trainset}}
++ \sqf{\avgfitf{\predvar} - \fitprocf{\predvar; \trainset}}
 && \text{(expand the square of a sum)}
 \ea
 $$
@@ -36,7 +36,7 @@ $$
 && \text{(expectation of a constant)} \\
 &= \sqf{\avgfitf{\predvar} - \mean(\predvar)}
 && \text{(a number and its negative have the same square)} \\
-&= \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}
+&= \sqf{\bias{\fitprocf{\predvar; \trainset}}}
 && \text{(definitions of the average fit and of bias)}
 \ea
 $$
@@ -47,10 +47,10 @@ The first factor is a constant, so it comes out of the expectation:
 
 $$
 \ba
-\E{2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}}
-&= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \E{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}
+\E{2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \fitprocf{\predvar; \trainset}}}
+&= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \E{\avgfitf{\predvar} - \fitprocf{\predvar; \trainset}}
 && \text{(constant factors)} \\
-&= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \E{\fitproc\paren{\predvar; \trainset}}}
+&= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \E{\fitprocf{\predvar; \trainset}}}
 && \text{(expectation of a difference of a constant and a variable)} \\
 &= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \avgfitf{\predvar}}
 && \text{(definition of the average fit)} \\
@@ -68,12 +68,12 @@ of the prediction:
 
 $$
 \ba
-\E{\sqf{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}}
-&= \E{\sqf{\fitproc\paren{\predvar; \trainset} - \avgfitf{\predvar}}}
+\E{\sqf{\avgfitf{\predvar} - \fitprocf{\predvar; \trainset}}}
+&= \E{\sqf{\fitprocf{\predvar; \trainset} - \avgfitf{\predvar}}}
 && \text{(a number and its negative have the same square)} \\
-&= \E{\sqf{\fitproc\paren{\predvar; \trainset} - \E{\fitproc\paren{\predvar; \trainset}}}}
+&= \E{\sqf{\fitprocf{\predvar; \trainset} - \E{\fitprocf{\predvar; \trainset}}}}
 && \text{(definition of the average fit)} \\
-&= \Var{\fitproc\paren{\predvar; \trainset}}
+&= \Var{\fitprocf{\predvar; \trainset}}
 && \text{(definition of variance)}
 \ea
 $$
@@ -81,8 +81,8 @@ $$
 Adding the three expectations,
 
 $$
-\E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}
-= \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}}.
+\E{\sqf{\mean(\predvar) - \fitprocf{\predvar; \trainset}}}
+= \sqf{\bias{\fitprocf{\predvar; \trainset}}} + \Var{\fitprocf{\predvar; \trainset}}.
 $$ {#eq-epe-after-bias}
 
 Neither cross term needed the noise to be normal,

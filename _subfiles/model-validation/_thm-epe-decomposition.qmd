@@ -6,16 +6,16 @@ Suppose that, given $\newpredvar = \predvar$,
 the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
 where $\noise$, the noise in the outcome at $\predvar$, has mean $0$ and variance $\varpar$,
 and that $\newoutvar$ is independent of the random training set $\trainset$,
-and that $\E{\fitproc\paren{\predvar; \trainset}^2} < \infty$.
+and that $\E{\fitprocf{\predvar; \trainset}^2} < \infty$.
 Then the [expected prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)
-of the prediction $\fitproc\paren{\predvar; \trainset}$, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$,
+of the prediction $\fitprocf{\predvar; \trainset}$, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 
 $$
-\epe{\fitproc}{\nobs}{\predvar} = \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}
-+ \Var{\fitproc\paren{\predvar; \trainset}} + \varpar.
+\epe{\fitproc}{\nobs}{\predvar} = \sqf{\bias{\fitprocf{\predvar; \trainset}}}
++ \Var{\fitprocf{\predvar; \trainset}} + \varpar.
 $$ {#eq-epe-decomposition}
 
 :::
@@ -30,11 +30,11 @@ Substituting @eq-epe-after-bias into @eq-epe-after-noise:
 $$
 \ba
 \epe{\fitproc}{\nobs}{\predvar}
-&= \varpar + \E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}
+&= \varpar + \E{\sqf{\mean(\predvar) - \fitprocf{\predvar; \trainset}}}
 && \text{(separating the noise)} \\
-&= \varpar + \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}}
+&= \varpar + \sqf{\bias{\fitprocf{\predvar; \trainset}}} + \Var{\fitprocf{\predvar; \trainset}}
 && \text{(separating the bias)} \\
-&= \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}} + \varpar
+&= \sqf{\bias{\fitprocf{\predvar; \trainset}}} + \Var{\fitprocf{\predvar; \trainset}} + \varpar
 && \text{(reorder the terms)}
 \ea
 $$

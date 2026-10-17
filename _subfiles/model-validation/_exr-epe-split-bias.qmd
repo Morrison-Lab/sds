@@ -4,7 +4,7 @@
 @eq-epe-after-noise leaves one term that still mixes two ideas:
 
 $$
-\E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}.
+\E{\sqf{\mean(\predvar) - \fitprocf{\predvar; \trainset}}}.
 $$
 
 A prediction can miss $\mean(\predvar)$ because its [average fit](#def-average-fit) is off,
