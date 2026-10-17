@@ -7,7 +7,6 @@ is the ratio of their [pMSEs](estimation.qmd#def-mse),
 the reference estimator's, that of $\hparam_b$, in the numerator:
 
 $$\frac{\pMSE{\hparam_b}}{\pMSE{\hparam_a}}$$
-
 :::
 
 :::{#rem-source-relative-efficiency}
