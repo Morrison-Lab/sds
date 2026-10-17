@@ -13,7 +13,7 @@ $$ {#eq-fitting-procedure}
 
 It is specified by these inputs:
 
-- the data it is fitted to, which is not the covariate value $\predvar$ it predicts at;
+- the data it is fitted to;
 - the set of candidate models it searches, called the model family;
 - the objective function that scores each candidate against the data;
 - the optimization algorithm that searches the family for a candidate with a good score, with its starting values and stopping rule;
