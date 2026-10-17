@@ -1,7 +1,9 @@
 :::{#def-prediction-function-family}
-#### Prediction function family
+#### Prediction function family (hypothesis class, hypothesis space)
 
-A **prediction function family** $\predfam$ is a set of functions,
+A **prediction function family** $\predfam$
+(also called a **hypothesis class** or a **hypothesis space**)
+is a set of functions,
 each of which maps a [covariate](#def-covariate) value $\predvar$ to a [prediction](prediction.qmd#def-prediction) of the outcome.
 
 :::
