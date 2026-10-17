@@ -3,7 +3,7 @@
 
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
-The **expected fit** of $\fitproc$ at a covariate value $\predvar$
+The **expected prediction** of $\fitproc$ at a covariate value $\predvar$
 is the prediction $\fitprocf{\trainset}\paren{\predvar}$ averaged over every training set it might have been fitted to:
 
 $$
@@ -14,7 +14,7 @@ $$ {#eq-average-fit}
 
 ::: {.remark .notes}
 
-The expected fit is not a prediction anyone ever holds,
+The expected prediction is not the prediction of any one analysis,
 because an analysis has one training set, not the whole distribution of them.
 It is a reference point for measuring how far the predictions are
 from the [mean function](#def-mean-function) and from each other.
@@ -24,7 +24,7 @@ from the [mean function](#def-mean-function) and from each other.
 {{< slidebreak >}}
 
 :::{#exm-average-fit}
-#### Computing the expected fit
+#### Computing the expected prediction
 
 Suppose the predictions $\fitprocf{\trainset}\paren{\predvar}$ at $\predvar$
 take the values $9$, $11$ and $13$ with equal probability.

@@ -7,13 +7,13 @@ $$
 \E{\sqf{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}}.
 $$
 
-A prediction can miss $\mean(\predvar)$ because its [expected fit](#def-average-fit) is off,
+A prediction can miss $\mean(\predvar)$ because its [expected prediction](#def-average-fit) is off,
 or because it gives a different result for every training set.
 These are different failures with different fixes,
 so the term should split into one piece for each.
 
 Split it with the same technique as before:
-add and subtract the expected fit $\avgfitf{\predvar}$ (@eq-average-fit),
+add and subtract the expected prediction $\avgfitf{\predvar}$ (@eq-average-fit),
 expand, and take the expectation term by term.
 
 Which of the three terms is not random at all,
