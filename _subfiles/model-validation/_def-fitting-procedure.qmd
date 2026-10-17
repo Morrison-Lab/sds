@@ -17,7 +17,7 @@ It is specified by these inputs:
 - the set of candidate models it searches, called the model family;
 - the objective function that scores each candidate against the data;
 - the optimization algorithm that searches the family for a candidate with a good score, with its starting values and stopping rule;
-- the random seed, when the algorithm or the data splitting draws random numbers;
+- the random seed, when the algorithm draws random numbers, as in splitting the data;
 - the [tuning parameters](#def-tuning-parameter), which it does not compute from the data;
 - the preprocessing of the covariates, such as scaling, encoding and feature choice.
 
