@@ -12,8 +12,8 @@ plus the pMSE of $\fitproc\paren{\predvar; \trainset}$
 as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$:
 
 $$
-\E{\sqf{\newoutvar - \fitproc\paren{\predvar; \trainset}}}
-= \varpar + \E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}.
+\epe{\fitproc}{\nobs}{\predvar}
+= \varpar + \pMSE{\fitproc\paren{\predvar; \trainset}}.
 $$ {#eq-epe-split-noise}
 
 :::
