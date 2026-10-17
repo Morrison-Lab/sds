@@ -7,4 +7,5 @@ has the disease ($D$):
 
 $$\text{prevalence} \eqdef \Pr(D)$$ {#eq-prevalence}
 
+Source: @wikipedia_prevalence.
 :::

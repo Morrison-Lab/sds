@@ -7,4 +7,5 @@ given that the test is negative ($\neg +$):
 
 $$\text{NPV} \eqdef \Pr(\neg D \mid \neg +)$$ {#eq-npv}
 
+Source: @wikipedia_positive_and_negative_predictive_values.
 :::

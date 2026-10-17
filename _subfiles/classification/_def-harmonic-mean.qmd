@@ -6,4 +6,5 @@ is the reciprocal of the average of their reciprocals:
 
 $$H(x, y) \eqdef \frac{2}{\frac{1}{x} + \frac{1}{y}}$$ {#eq-harmonic-mean}
 
+Source: @wikipedia_harmonic_mean.
 :::
