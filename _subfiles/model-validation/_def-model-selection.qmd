@@ -1,0 +1,9 @@
+:::{#def-model-selection}
+#### Model selection
+
+**Model selection** is choosing one fitting procedure
+from a set of candidate [fitting procedures](#def-fitting-procedure)
+$\candproc{1}, \ldots, \candproc{\ncand}$,
+using observations that were [held out](#def-held-out-set) from fitting.
+
+:::
