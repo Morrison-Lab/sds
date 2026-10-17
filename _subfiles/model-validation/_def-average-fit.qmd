@@ -4,7 +4,7 @@
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
 The **expected prediction** of $\fitproc$ at a covariate value $\predvar$
-is the prediction $\fitprocf{\trainset}\paren{\predvar}$ averaged over every training set it might have been fitted to:
+is the prediction $\fitprocf{\trainset}\paren{\predvar}$ averaged over the population distribution of all training sets that might have been observed:
 
 $$
 \avgfitf{\predvar} \eqdef \E{\fitprocf{\trainset}\paren{\predvar}}.
