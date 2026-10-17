@@ -2,18 +2,18 @@
 #### Fitting procedure
 
 A **fitting procedure** $\fitproc$ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that,
-given any [data set](#def-data-set) $\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}$,
+given any [data set](#def-data-set) $\dataset$,
 produces a fitted model $\emodmem$:
 a function that maps each [covariate](#def-covariate) value $\predvar$
 to a [prediction](prediction.qmd#def-prediction) of the outcome.
-We write $\fitproc\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}$
+We write $\fitproc\paren{\predvar; \dataset}$
 for the prediction of that fitted model at $\predvar$:
 
 $$
-\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}
+\dataset
 \mapsto
 \emodmem
-= \paren{\predvar \mapsto \fitproc\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}}.
+= \paren{\predvar \mapsto \fitproc\paren{\predvar; \dataset}}.
 $$ {#eq-fitting-procedure}
 
 It is specified by these inputs:
