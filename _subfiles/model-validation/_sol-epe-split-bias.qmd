@@ -50,8 +50,12 @@ $$
 \E{2 \paren{\mean - \Epredval} \paren{\Epredval - \predval}}
 &= 2 \paren{\mean - \Epredval} \E{\Epredval - \predval}
 && \text{(constant factors)} \\
+&= 2 \paren{\mean - \Epredval} \paren{\E{\Epredval} - \E{\predval}}
+&& \text{(linearity)} \\
+&= 2 \paren{\mean - \Epredval} \paren{\Epredval - \E{\predval}}
+&& \text{(expectation of a constant)} \\
 &= 2 \paren{\mean - \Epredval} \paren{\Epredval - \Epredval}
-&& \text{(linearity; expectation of a constant)} \\
+&& \text{(definition of the expected prediction)} \\
 &= 2 \paren{\mean - \Epredval} \cdot 0
 && \text{(} a - a = 0 \text{)} \\
 &= 0
