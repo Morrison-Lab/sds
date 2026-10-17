@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 18:04:33 (PDT)
+Last modified: 2026-10-16 19:00:04 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -124,9 +124,9 @@ Last modified: 2026-10-16 18:04:33 (PDT)
 
 > **NOTE:**
 >
-> **Definition 10 (Fitting procedure)** A **fitting procedure** \\g\\ is a rule that, given any data \\\mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}\\ and any [covariate](#def-covariate) value \\x\\, computes a [prediction](prediction.llms.md#def-prediction) of the outcome at \\x\\:
+> **Definition 10 (Fitting procedure)** A **fitting procedure** \\g\\ is a rule that, given any data \\\mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}\\, produces a fitted model \\\hat{h}\\: a function that maps each [covariate](#def-covariate) value \\x\\ to a [prediction](prediction.llms.md#def-prediction) of the outcome. We write \\g\mathopen{}\left(x; \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}\right)\mathclose{}\\ for the prediction of that fitted model at \\x\\:
 >
-> \\ \mathopen{}\left(x; \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}\right)\mathclose{} \mapsto g\mathopen{}\left(x; \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}\right)\mathclose{}. \tag{6}\\
+> \\ \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I} \mapsto \hat{h} = \mathopen{}\left(x\mapsto g\mathopen{}\left(x; \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}\right)\mathclose{}\right)\mathclose{}. \tag{6}\\
 >
 > It is specified by these inputs:
 >
@@ -154,7 +154,7 @@ Last modified: 2026-10-16 18:04:33 (PDT)
 > - [tuning parameter](#def-tuning-parameter) \\\lambda\\: the degree \\d\\;
 > - [preprocessing](#def-preprocessing) \\\phi\\: none.
 >
-> Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted rule.
+> Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted model.
 >
 > The [cross-validation choice procedure](#def-cv-choice) over polynomials of several degrees is different:
 >
@@ -166,7 +166,7 @@ Last modified: 2026-10-16 18:04:33 (PDT)
 > - tuning parameter \\\lambda\\: none, since cross-validation chooses the degree;
 > - preprocessing \\\phi\\: none.
 >
-> Here two seeds give two fold assignments, which can choose different degrees and so give different fitted rules from the same data.
+> Here two seeds give two fold assignments, which can choose different degrees and so give different fitted models from the same data.
 
 > **NOTE:**
 >

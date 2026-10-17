@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-16 18:04:33 (PDT)</p>
+  <p class="date">Last modified: 2026-10-16 19:00:04 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -456,11 +456,12 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <p><span class="theorem-title"><strong>Example 7 (Standardizing a covariate)</strong></span> <a href="./exploratory-descriptive.html#def-standardization">Standardization</a> is a <a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(\phi\)</span>: it maps each covariate value <span class="math inline">\(x\)</span> to its standardized value.</p>
 </div>
 </section><section class="slide level2"><div id="def-fitting-procedure" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 10 (Fitting procedure)</strong></span> A <strong>fitting procedure</strong> <span class="math inline">\(g\)</span> is a rule that, given any data <span class="math inline">\(\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\)</span> and any <a href="#/def-covariate">covariate</a> value <span class="math inline">\(x\)</span>, computes a <a href="./prediction.html#def-prediction">prediction</a> of the outcome at <span class="math inline">\(x\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 10 (Fitting procedure)</strong></span> A <strong>fitting procedure</strong> <span class="math inline">\(g\)</span> is a rule that, given any data <span class="math inline">\(\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\)</span>, produces a fitted model <span class="math inline">\(\hat{h}\)</span>: a function that maps each <a href="#/def-covariate">covariate</a> value <span class="math inline">\(x\)</span> to a <a href="./prediction.html#def-prediction">prediction</a> of the outcome. We write <span class="math inline">\(g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\right)\mathclose{}\)</span> for the prediction of that fitted model at <span class="math inline">\(x\)</span>:</p>
 <p><span id="eq-fitting-procedure"><span class="math display">\[
-\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\right)\mathclose{}
+\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 \mapsto
-g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\right)\mathclose{}.
+\hat{h}
+= \mathopen{}\left(x\mapsto g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}\right)\mathclose{}\right)\mathclose{}.
 \tag{6}\]</span></span></p>
 <p>It is specified by these inputs:</p>
 <ul>
@@ -494,7 +495,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <li>
 <a href="#/def-preprocessing">preprocessing</a> <span class="math inline">\(\phi\)</span>: none.</li>
 </ul>
-<p>Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted rule.</p>
+<p>Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted model.</p>
 <p>The <a href="#/def-cv-choice">cross-validation choice procedure</a> over polynomials of several degrees is different:</p>
 <ul>
 <li>data set <span class="math inline">\(\mathcal{D}\)</span>: the observations the candidates are fitted and scored on;</li>
@@ -505,7 +506,7 @@ g\mathopen{}\left(x; \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I}
 <li>tuning parameter <span class="math inline">\(\lambda\)</span>: none, since cross-validation chooses the degree;</li>
 <li>preprocessing <span class="math inline">\(\phi\)</span>: none.</li>
 </ul>
-<p>Here two seeds give two fold assignments, which can choose different degrees and so give different fitted rules from the same data.</p>
+<p>Here two seeds give two fold assignments, which can choose different degrees and so give different fitted models from the same data.</p>
 </div>
 </section><section class="slide level2"><div id="def-training-set" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Training set)</strong></span> A <strong>training set</strong> is the data to which a <a href="#/def-fitting-procedure">fitting procedure</a> is applied: <span class="math inline">\(n\)</span> observations, written as an ordered list indexed by a set <span class="math inline">\(I\)</span> of <span class="math inline">\(n\)</span> observation numbers:</p>
