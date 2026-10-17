@@ -442,6 +442,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_exm-cv-choice-inputs.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-nested-cv.qmd >}}
 
 {{< slidebreak >}}

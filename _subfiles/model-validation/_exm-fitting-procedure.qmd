@@ -1,28 +1,13 @@
 :::{#exm-fitting-procedure}
-#### Inputs of two fitting procedures
+#### Inputs of least-squares polynomial fitting
 
-Least-squares polynomial fitting of degree $\polydeg$ has these inputs:
+The least-squares [fitting procedure](#def-fitting-procedure) $\fitproc$ for polynomials of degree $\polydeg$ is specified by these inputs:
 
-- [data set](#def-data-set) $\dataset$: the observations the polynomial is fitted to;
 - [model family](#def-model-family) $\modelfam$: the polynomials of degree at most $\polydeg$;
 - [objective function](#def-objective-function) $\objfn$: the [residual sum of squares](correlation-regression.qmd#def-rss);
-- [optimization algorithm](#def-optimization-algorithm) $\optalg$: solving the [normal equations](correlation-regression.qmd#def-normal-equations), which finds the unique minimizer exactly;
+- [optimization algorithm](#def-optimization-algorithm) $\optalg$: solving the [normal equations](correlation-regression.qmd#def-normal-equations);
 - [random seed](#def-random-seed) $\seed$: none, since nothing is random;
 - [tuning parameter](#def-tuning-parameter) $\tuning$: the degree $\polydeg$;
 - [preprocessing](#def-preprocessing) $\featmap$: none.
-
-Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted model.
-
-The [cross-validation choice procedure](#def-cv-choice) over polynomials of several degrees is different:
-
-- data set $\dataset$: the observations the candidates are fitted and scored on;
-- model family $\modelfam$: the polynomials of every candidate degree;
-- objective function $\objfn$: the residual sum of squares within each candidate, and the [cross-validation estimate](#def-cv-estimate-indexed) between candidates;
-- optimization algorithm $\optalg$: the normal equations for each candidate, then keeping the candidate with the smallest cross-validation estimate of its [expected generalization error](#def-expected-generalization-error) $\expgenerr{\candproc{\polydeg}}{\nobs}$;
-- random seed $\seed$: fixes the random [fold assignment](#def-fold-assignment);
-- tuning parameter $\tuning$: none, since cross-validation chooses the degree;
-- preprocessing $\featmap$: none.
-
-Here two seeds give two fold assignments, which can choose different degrees and so give different fitted models from the same data.
 
 :::
