@@ -4,21 +4,21 @@ Code
 
 Published
 
-Last modified: 2026-10-16 18:35:04 (PDT)
+Last modified: 2026-10-17 08:55:52 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
 > **NOTE:**
 >
-> **Definition 1 (Prediction (predicted value))** A **prediction** (or **predicted value**) \\\hat y(x)\\ of an outcome \\Y\\ with covariate value \\X = x\\ is a number computed from \\x\\ and from data \\(x_1, y_1), \ldots, (x_n, y_n)\\ by a rule \\g\\, and used as a guess of \\Y\\:
+> **Definition 1 (Prediction (predicted value))** A **prediction** (or **predicted value**) \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ of an outcome \\Y\\ with covariate value \\X = x\\ is a number computed from \\x\\ and from data \\(x_1, y_1), \ldots, (x_n, y_n)\\ by a rule \\g\\, and used as a guess of \\Y\\:
 >
-> \\\hat y(x) \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\\
+> \\{\hat y\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\\
 
 > **NOTE:**
 >
 > **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ of a parameter vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\, and \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ is an estimate of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
 >
-> \\\hat y(x) = \mu(x; \hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}).\\
+> \\{\hat y\mathopen{}\left(x\right)\mathclose{}} = \mu(x; \hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}).\\
 
 > **NOTE:**
 >
@@ -30,7 +30,7 @@ Last modified: 2026-10-16 18:35:04 (PDT)
 >
 > **Definition 2 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ is the [prediction](#def-prediction) at its own covariate value \\x_i\\:
 >
-> \\\hat y_i\stackrel{\text{def}}{=}\hat y(x_i).\\
+> \\\hat y_i\stackrel{\text{def}}{=}{\hat y\mathopen{}\left(x_i\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
@@ -48,7 +48,7 @@ Last modified: 2026-10-16 18:35:04 (PDT)
 
 > **NOTE:**
 >
-> **Definition 4 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) \\\hat y\\ (such as \\\hat y(x)\\ or a fitted value \\\hat y_i\\) of an observed outcome \\y\\ is the prediction minus the outcome:
+> **Definition 4 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) \\\hat y\\ (such as \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ or a fitted value \\\hat y_i\\) of an observed outcome \\y\\ is the prediction minus the outcome:
 >
 > \\\varepsilon\stackrel{\text{def}}{=}\hat y- y.\\
 
@@ -216,7 +216,7 @@ Last modified: 2026-10-16 18:35:04 (PDT)
 > - **Target.** An [estimate](estimation.llms.md#def-estimate) aims at a fixed, unknown [estimand](estimation.llms.md#def-estimand). A [prediction](#def-prediction) aims at an outcome \\y\\, which is a random quantity even when the model is known exactly.
 > - **Error.** The [estimation error](estimation.llms.md#def-estimation-error) is the estimate minus the estimand. The [prediction error](#def-prediction-error) is the prediction minus the outcome.
 > - **Mean squared error.** The [pMSE of an estimator](estimation.llms.md#mean-squared-error) is an expectation over repeated samples. The [sMSE of predictions](#def-prediction-mse) is an average over observations.
-> - **What cannot be removed.** The error of a consistent estimator shrinks toward zero as the sample grows. A prediction’s expected squared error cannot fall below the [irreducible error](model-validation.llms.md#def-irreducible-error), the variance of the outcome around its conditional mean.
+> - **What cannot be removed.** The estimation error of a consistent estimator shrinks toward zero as the sample grows. A prediction’s expected squared error cannot fall below the [irreducible error](model-validation.llms.md#def-irreducible-error), the variance of the outcome around its conditional mean.
 >
 > [Validating Predictions](model-validation.llms.md) estimates the prediction error on new observations.
 
