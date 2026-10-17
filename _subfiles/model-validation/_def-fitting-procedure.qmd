@@ -22,10 +22,3 @@ A fitting procedure is specified by these inputs:
 - [preprocessing](#def-preprocessing) $\featmap$.
 
 :::
-
-:::{#rem-source-fitting-procedure}
-#### Source: Fitting procedure
-
-@hastie2009elements [sec. 7.2] write the model estimated from a training set as $\hat f$.
-
-:::
