@@ -1,12 +1,11 @@
 :::{#exm-optimization-algorithm}
-#### Exact and greedy searches
+#### Exact and exhaustive searches
 
-For the sum of squared errors over the polynomials in @exm-objective-function,
-solving the normal equations is an [optimization algorithm](#def-optimization-algorithm) that finds the unique minimizer in one step,
-with no starting values or stopping rule.
+For the residual sum of squares over the polynomials in @exm-objective-function,
+solving the [normal equations](correlation-regression.qmd#def-normal-equations) is an [optimization algorithm](#def-optimization-algorithm) $\optalg$
+that finds the unique minimizer in one step.
 
-Growing a regression tree is different:
-it splits the covariate space one split at a time and keeps the best split at each step,
-so it stops at a rule that need not minimize the objective function over all trees.
+Trying every member of a finite model family and keeping the one with the smallest value of the objective function is another,
+and it ends after the last member.
 
 :::
