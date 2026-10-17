@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 14:10:48 (PDT)
+Last modified: 2026-10-16 18:35:04 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -16,9 +16,9 @@ Last modified: 2026-10-16 14:10:48 (PDT)
 
 > **NOTE:**
 >
-> **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \mathord{\underset{\sim}{\theta}})\\ of a parameter vector \\\mathord{\underset{\sim}{\theta}}\\, and \\\hat{\mathord{\underset{\sim}{\theta}}}\\ is an estimate of \\\mathord{\underset{\sim}{\theta}}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
+> **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ of a parameter vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\, and \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ is an estimate of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
 >
-> \\\hat y(x) = \mu(x; \hat{\mathord{\underset{\sim}{\theta}}}).\\
+> \\\hat y(x) = \mu(x; \hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}).\\
 
 > **NOTE:**
 >
@@ -36,7 +36,7 @@ Last modified: 2026-10-16 14:10:48 (PDT)
 >
 > *Remark 2* (Why the fitted value is the estimated conditional mean). The [fitted value](#def-fitted-value) is the prediction at the observed covariate value \\x_i\\, so for the prediction in [Example 1](#exm-prediction-cond-mean) it is the estimated conditional mean at \\x_i\\:
 >
-> \\\hat y_i= \mu(x_i; \hat{\mathord{\underset{\sim}{\theta}}}).\\
+> \\\hat y_i= \mu(x_i; \hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}).\\
 >
 > It is chosen for the reason in [Remark 1](#rem-why-cond-mean): the conditional mean is the best prediction under squared error loss.
 
@@ -158,7 +158,7 @@ Last modified: 2026-10-16 14:10:48 (PDT)
 >
 > *Remark 4* (Prediction sMSE, estimator pMSE and RSS). [Definition 5](#def-prediction-mse) averages squared errors over observations, where the [pMSE of an estimator](estimation.llms.md#def-mse) takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the [residual sum of squares](correlation-regression.llms.md#def-rss) divided by \\n\\ ([sMSE and RSS](correlation-regression.llms.md#thm-mse-rss)):
 >
-> \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}), \qquad \text{RSS}(\hat{\mathord{\underset{\sim}{\theta}}}) = n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
+> \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} = \frac{1}{n} \text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}), \qquad \text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) = n \\ \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}.\\
 
 > **NOTE:**
 >

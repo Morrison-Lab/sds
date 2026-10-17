@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-16 14:10:48 (PDT)
+Last modified: 2026-10-16 18:35:04 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -59,7 +59,7 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 
 ## 2 Binary outcomes: logistic regression
 
-For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \mathord{\underset{\sim}{x}}\_i \cdot \mathord{\underset{\sim}{\beta}}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\mathord{\underset{\sim}{\beta}}\\ and samples the posterior \\\operatorname{p}(\mathord{\underset{\sim}{\beta}}\mid \mathord{\underset{\sim}{y}})\\ by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 318). Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\mathord{\underset{\sim}{\beta}}\\, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture [*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c) (Statistical Rethinking 2026, Lecture A09).
+For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ and samples the posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 318). Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture [*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c) (Statistical Rethinking 2026, Lecture A09).
 
 > **NOTE:**
 >
@@ -298,9 +298,9 @@ When several candidate models are plausible, committing to a single “best” o
 
 > **NOTE:**
 >
-> **Definition 1 (Posterior model probability)** Let \\M_1, \ldots, M_K\\ be candidate models with prior probabilities \\\operatorname{p}(M_k)\\ summing to 1, and let \\\operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_k)\\ be the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) of the data under model \\M_k\\. The **posterior model probability** of \\M_k\\ is
+> **Definition 1 (Posterior model probability)** Let \\M_1, \ldots, M_K\\ be candidate models with prior probabilities \\\operatorname{p}(M_k)\\ summing to 1, and let \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_k)\\ be the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) of the data under model \\M_k\\. The **posterior model probability** of \\M_k\\ is
 >
-> \\ \operatorname{p}(M_k \mid \mathord{\underset{\sim}{y}}) \stackrel{\text{def}}{=} \frac{\operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_k)\\ \operatorname{p}(M_k)}{\sum\_{l=1}^{K} \operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_l)\\ \operatorname{p}(M_l)}. \\
+> \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=} \frac{\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_k)\\ \operatorname{p}(M_k)}{\sum\_{l=1}^{K} \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_l)\\ \operatorname{p}(M_l)}. \\
 
 > **NOTE:**
 >
@@ -308,17 +308,17 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > \\ \begin{aligned} \operatorname{p}(M_1) &= \operatorname{p}(M_2) \\ &= 0.5 \end{aligned} \\
 >
-> and marginal likelihoods \\\operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_1) = 0.02\\ and \\\operatorname{p}(\mathord{\underset{\sim}{y}}\mid M_2) = 0.06\\ have posterior probabilities
+> and marginal likelihoods \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_1) = 0.02\\ and \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid M_2) = 0.06\\ have posterior probabilities
 >
-> \\ \begin{aligned} \operatorname{p}(M_1 \mid \mathord{\underset{\sim}{y}}) &= 0.01 / (0.01 + 0.03) \\ &= 0.25 \end{aligned} \\
+> \\ \begin{aligned} \operatorname{p}(M_1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) &= 0.01 / (0.01 + 0.03) \\ &= 0.25 \end{aligned} \\
 >
-> and \\\operatorname{p}(M_2 \mid \mathord{\underset{\sim}{y}}) = 0.75\\.
+> and \\\operatorname{p}(M_2 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = 0.75\\.
 
 > **NOTE:**
 >
-> **Definition 2 (Bayesian model averaging)** With the [posterior model probabilities](#def-posterior-model-probability) \\\operatorname{p}(M_k \mid \mathord{\underset{\sim}{y}})\\ of candidate models \\M_1, \ldots, M_K\\, **Bayesian model averaging** estimates a quantity \\\Delta\\ that has the same meaning in every model by its posterior distribution averaged over the models:
+> **Definition 2 (Bayesian model averaging)** With the [posterior model probabilities](#def-posterior-model-probability) \\\operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of candidate models \\M_1, \ldots, M_K\\, **Bayesian model averaging** estimates a quantity \\\Delta\\ that has the same meaning in every model by its posterior distribution averaged over the models:
 >
-> \\ \operatorname{p}(\Delta\mid \mathord{\underset{\sim}{y}}) \stackrel{\text{def}}{=}\sum\_{k=1}^{K} \operatorname{p}(\Delta\mid M_k, \mathord{\underset{\sim}{y}})\\ \operatorname{p}(M_k \mid \mathord{\underset{\sim}{y}}). \\
+> \\ \operatorname{p}(\Delta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \stackrel{\text{def}}{=}\sum\_{k=1}^{K} \operatorname{p}(\Delta\mid M_k, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}). \\
 
 > **NOTE:**
 >
@@ -328,7 +328,7 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > **Example 6 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities ([Schwarz 1978](#ref-schwarz1978estimating)):
 >
-> \\ \operatorname{p}(M_k \mid \mathord{\underset{\sim}{y}}) \approx \frac{\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_k\right\\\mathclose{}}{\sum\_{l=1}^{K} \operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_l\right\\\mathclose{}}. \\
+> \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \approx \frac{\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_k\right\\\mathclose{}}{\sum\_{l=1}^{K} \operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_l\right\\\mathclose{}}. \\
 >
 > We simulate data in which only \\x_1\\ and \\x_2\\ affect the outcome, fit a linear regression for every subset of the three predictors \\x_1\\, \\x_2\\ and \\x_3\\, and compute these approximate posterior model probabilities:
 >
