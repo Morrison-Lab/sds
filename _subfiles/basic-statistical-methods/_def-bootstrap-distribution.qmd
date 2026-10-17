@@ -5,7 +5,8 @@ Let $\hparam$ be a statistic computed from the observed data.
 Draw $B$ independent [bootstrap samples](#def-bootstrap-sample),
 and compute the statistic on each one,
 giving $\hparam^*_1, \ldots, \hparam^*_B$.
-The **bootstrap distribution** of $\hparam$
+The **bootstrap distribution**
+[@wikipedia_bootstrapping_statistics] of $\hparam$
 is the empirical distribution of $\hparam^*_1, \ldots, \hparam^*_B$.
 :::
 

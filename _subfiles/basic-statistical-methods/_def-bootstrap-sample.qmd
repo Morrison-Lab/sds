@@ -1,7 +1,8 @@
 ::: {#def-bootstrap-sample}
 #### Bootstrap sample
 
-A **bootstrap sample** from observed data $\dsn{x}$
+A **bootstrap sample**
+[@wikipedia_resampling_statistics] from observed data $\dsn{x}$
 is a sample of size $n$ drawn with replacement
 from $\cb{\dsn{x}}$,
 each draw choosing each of the $n$ observations
