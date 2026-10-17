@@ -3,7 +3,8 @@
 
 With observed counts $O_{ij}$ and [expected counts](#def-expected-count) $E_{ij}$
 in an $r \times c$ contingency table,
-**Pearson's chi-square test** of the null hypothesis
+**Pearson's chi-square test**
+[@wikipedia_pearsons_chi_squared_test] of the null hypothesis
 that the row and column variables are independent
 uses the statistic
 
