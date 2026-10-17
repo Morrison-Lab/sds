@@ -24,7 +24,8 @@ $$
 \ea
 $$ {#eq-data-splits}
 
-Source: @james2021islr2e [pp. 198--201]; @wikipedia_training_validation_and_test_data_sets.
+Source: @james2021islr2e [pp.\ 198--201];
+@wikipedia_training_validation_and_test_data_sets.
 :::
 
 {{< slidebreak >}}
