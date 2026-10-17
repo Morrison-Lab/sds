@@ -1,0 +1,25 @@
+:::{#exm-distribution-model}
+#### A normal distribution model with a mean function
+
+Let $\modmem$ be a [mean-function model](#def-model-family) (a line, for instance) and $\varpar > 0$ a variance.
+The distribution model $\distmem$ that gives each covariate value $\predvar$
+the [normal distribution](https://morrison-lab.github.io/pds/random-variables.html#def-normal)
+with mean $\modmemf{\predvar}$ and variance $\varpar$ is
+
+$$
+\Outvar \given \Predvar = \predvar
+\sim \ndist{\modmemf{\predvar}, \varpar}.
+$$ {#eq-normal-distribution-model}
+
+The mean parameter of a normal distribution is its mean,
+so @eq-distribution-model-mean-function gives
+
+$$
+\meanfnoff{\distmem}{\predvar}
+= \modmemf{\predvar}.
+$$ {#eq-normal-distribution-model-mean-function}
+
+The mean function $\modmem$ is the component of $\distmem$ that says where the outcome is centered,
+and $\varpar$ is the component that says how far it spreads.
+
+:::

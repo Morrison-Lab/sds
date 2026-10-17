@@ -1,0 +1,7 @@
+:::{#def-fitted-distribution-model}
+#### Fitted distribution model
+
+A **fitted distribution model** $\edistmem$ is a member of a [distribution model family](#def-distribution-model-family) $\distfam$
+that has been chosen to describe a [data set](#def-data-set) $\dataset$.
+
+:::

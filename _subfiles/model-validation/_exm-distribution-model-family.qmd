@@ -1,0 +1,12 @@
+:::{#exm-distribution-model-family}
+#### Normal distribution models with polynomial mean functions
+
+The normal distribution models of @exm-distribution-model
+whose mean function $\modmem$ is a polynomial of degree at most $\polydeg$,
+with any variance $\varpar > 0$,
+form a [distribution model family](#def-distribution-model-family) $\distfam$.
+By @eq-normal-distribution-model-mean-function,
+the set of mean functions in @eq-distribution-model-family-mean-functions
+is the set of polynomials of degree at most $\polydeg$ of @exm-model-family.
+
+:::
