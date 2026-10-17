@@ -1,8 +1,7 @@
 ::: {#def-contingency-table}
 #### Contingency table (cross-tabulation)
 
-A **contingency table**
-[@wikipedia_contingency_table] (or **cross-tabulation**) displays
+A **contingency table** (or **cross-tabulation**) displays
 the joint frequencies of two categorical variables:
 each cell counts the observations with one combination of categories.
 For two binary variables,
@@ -14,4 +13,5 @@ the contingency table is a $2 \times 2$ table with cells $a$, $b$, $c$, and $d$:
 | Exposure = 0       | $c$         | $d$         | $c + d$   |
 | Total              | $a + c$     | $b + d$     | $n$       |
 
+Source: @wikipedia_contingency_table.
 :::

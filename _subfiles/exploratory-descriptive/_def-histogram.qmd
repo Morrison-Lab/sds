@@ -1,11 +1,12 @@
 ::: {#def-histogram}
 #### Histogram
 
-A **histogram**
-[@wikipedia_histogram] displays the distribution of a continuous variable
+A **histogram** displays the distribution of a continuous variable
 by dividing the variable's range into intervals
 and drawing a bar over each interval
 whose height is the number (or proportion) of observations in that interval.
+
+Source: @wikipedia_histogram.
 :::
 
 {{< slidebreak >}}

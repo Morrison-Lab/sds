@@ -1,8 +1,7 @@
 ::: {#def-boxplot}
 #### Box plot (box-and-whisker plot)
 
-A **box plot**
-[@wikipedia_box_plot] (or **box-and-whisker plot**) summarizes the distribution
+A **box plot** (or **box-and-whisker plot**) summarizes the distribution
 of a continuous variable:
 
 - the box spans the first to the third [quartile](#def-quartiles),
@@ -13,6 +12,7 @@ of a continuous variable:
 - observations beyond the whiskers are plotted individually,
   as potential outliers.
 
+Source: @wikipedia_box_plot.
 :::
 
 {{< slidebreak >}}
