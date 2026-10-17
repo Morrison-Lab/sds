@@ -12,9 +12,7 @@ $$\kappa \eqdef \frac{p_o - p_e}{1 - p_e}$$ {#eq-cohen-kappa}
 ::: {.callout-note collapse="true"}
 #### Source
 
-@cohen1960coefficient.
-
-Source: @wikipedia_cohens_kappa.
+@cohen1960coefficient; @wikipedia_cohens_kappa.
 :::
 
 :::

@@ -234,6 +234,12 @@ format:
 
 -   @wikipedia_receiver_operating_characteristic --- ROC curves and the area under them
 
+-   @wikipedia_bayes_theorem --- the Wikipedia article on bayes' theorem
+
+-   @wikipedia_harmonic_mean --- the Wikipedia article on harmonic mean
+
+-   @wikipedia_prevalence --- the Wikipedia article on prevalence
+
 ## References {.unnumbered}
 
 ::: {#refs}
