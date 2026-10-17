@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-17 08:14:32 (PDT)</p>
+  <p class="date">Last modified: 2026-10-17 08:57:23 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -967,7 +967,7 @@ Y_{*}- \hat{y}
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}.
 \]</span></p>
 <p>A prediction can miss <span class="math inline">\(\mu\)</span> because its <a href="#/def-average-fit">expected prediction</a> is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.</p>
-<p>Split it with the same technique as before: add and subtract the expected prediction <span class="math inline">\(\mu_{h}\)</span> (<a href="#/eq-average-fit" class="quarto-xref">Equation&nbsp;27</a>), expand, and take the expectation term by term.</p>
+<p>Split it with the same technique as before: add and subtract the expected prediction <span class="math inline">\({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\)</span> (<a href="#/eq-average-fit" class="quarto-xref">Equation&nbsp;27</a>), expand, and take the expectation term by term.</p>
 <p>Which of the three terms is not random at all, and what makes the cross term zero this time?</p>
 </div>
 </section><section class="slide level2"><div id="sol-epe-split-bias" class="proof solution">
@@ -975,44 +975,46 @@ Y_{*}- \hat{y}
 <p><span class="math display">\[
 \begin{aligned}
 \mu- \hat{y}
-&amp;= \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} + \mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}
-&amp;&amp; \text{(add and subtract } \mu_{h}\text{)}
+&amp;= \mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \hat{y}\right)\mathclose{}
+&amp;&amp; \text{(add and subtract } {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\text{)}
 \end{aligned}
 \]</span></p>
 <p>Square it:</p>
 <p><span class="math display">\[
 \begin{aligned}
 {\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2
-&amp;= {\mathopen{}\left(\mu- \mu_{h}\right)\mathclose{}}^2
-+ 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}
-+ {\mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}}^2
+&amp;= {\mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}}^2
++ 2 \mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \hat{y}\right)\mathclose{}
++ {\mathopen{}\left({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \hat{y}\right)\mathclose{}}^2
 &amp;&amp; \text{(expand the square of a sum)}
 \end{aligned}
 \]</span></p>
 <p>Take the expectation of each term in turn.</p>
-<p>The first term does not depend on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: <span class="math inline">\(\mu\)</span> is a constant, and <span class="math inline">\(\mu_{h}\)</span> has already been averaged over training sets. The expectation of a constant is that constant:</p>
+<p>The first term does not depend on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: <span class="math inline">\(\mu\)</span> is a constant, and <span class="math inline">\({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\)</span> has already been averaged over training sets. The expectation of a constant is that constant:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu- \mu_{h}\right)\mathclose{}}^2\right]\mathclose{}
-&amp;= {\mathopen{}\left(\mu- \mu_{h}\right)\mathclose{}}^2
+\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}}^2\right]\mathclose{}
+&amp;= {\mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}}^2
 &amp;&amp; \text{(expectation of a constant)} \\
-&amp;= {\mathopen{}\left(\mu_{h}- \mu\right)\mathclose{}}^2
+&amp;= {\mathopen{}\left({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \mu\right)\mathclose{}}^2
 &amp;&amp; \text{(a number and its negative have the same square)} \\
 &amp;= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2
-&amp;&amp; \text{(definitions of the expected prediction and of bias)}
+&amp;&amp; \text{(definition of bias)}
 \end{aligned}
 \]</span></p>
-<p>The cross term vanishes, and this time not by independence but by the definition of the expected prediction. The first factor is a constant, so it comes out of the expectation:</p>
+<p>The cross term vanishes, and this time not by independence but because the expected prediction is the expectation of the prediction. The first factor is a constant, so it comes out of the expectation:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{E}\mathopen{}\left[2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}\right]\mathclose{}
-&amp;= 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \operatorname{E}\mathopen{}\left[\mu_{h}- \hat{y}\right]\mathclose{}
+\operatorname{E}\mathopen{}\left[2 \mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \hat{y}\right)\mathclose{}\right]\mathclose{}
+&amp;= 2 \mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{} \operatorname{E}\mathopen{}\left[{\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \hat{y}\right]\mathclose{}
 &amp;&amp; \text{(constant factors)} \\
-&amp;= 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \mathopen{}\left(\mu_{h}- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}
-&amp;&amp; \text{(expectation of a difference of a constant and a variable)} \\
-&amp;= 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \mathopen{}\left(\mu_{h}- \mu_{h}\right)\mathclose{}
+&amp;= 2 \mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{} \mathopen{}\left(\operatorname{E}\mathopen{}\left[{\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right]\mathclose{} - \operatorname{E}\mathopen{}\left[\hat{y}\right]\mathclose{}\right)\mathclose{}
+&amp;&amp; \text{(linearity)} \\
+&amp;= 2 \mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \operatorname{E}\mathopen{}\left[\hat{y}\right]\mathclose{}\right)\mathclose{}
+&amp;&amp; \text{(expectation of a constant)} \\
+&amp;= 2 \mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}
 &amp;&amp; \text{(definition of the expected prediction)} \\
-&amp;= 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \cdot 0
+&amp;= 2 \mathopen{}\left(\mu- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{} \cdot 0
 &amp;&amp; \text{(} a - a = 0 \text{)} \\
 &amp;= 0
 &amp;&amp; \text{(a number times zero)}
@@ -1021,11 +1023,9 @@ Y_{*}- \hat{y}
 <p>The third term is the expectation of the squared deviation of the prediction from its mean, which is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> of the prediction:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}
-&amp;= \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}- \mu_{h}\right)\mathclose{}}^2\right]\mathclose{}
-&amp;&amp; \text{(a number and its negative have the same square)} \\
+\operatorname{E}\mathopen{}\left[{\mathopen{}\left({\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}
 &amp;= \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}}^2\right]\mathclose{}
-&amp;&amp; \text{(definition of the expected prediction)} \\
+&amp;&amp; \text{(a number and its negative have the same square)} \\
 &amp;= \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}
 &amp;&amp; \text{(definition of variance)}
 \end{aligned}
@@ -2206,10 +2206,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb26-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb26-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb26-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb26-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb26-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 32</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;26</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;25</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021, sec. 5.1.4</a>)</span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;5</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
