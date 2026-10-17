@@ -12,9 +12,8 @@ $$
 = \fitprocf{\dataset}.
 $$ {#eq-fitting-procedure}
 
-It is specified by these inputs:
+A fitting procedure is specified by these inputs:
 
-- [data set](#def-data-set) $\dataset$;
 - [model family](#def-model-family) $\modelfam$;
 - [objective function](#def-objective-function) $\objfn$;
 - [optimization algorithm](#def-optimization-algorithm) $\optalg$;

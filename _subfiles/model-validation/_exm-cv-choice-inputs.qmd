@@ -1,9 +1,8 @@
 :::{#exm-cv-choice-inputs}
 #### Inputs of the cross-validation choice procedure
 
-The [cross-validation choice procedure](#def-cv-choice) $\fitproc$ over polynomials of several degrees has these inputs:
+The [cross-validation choice procedure](#def-cv-choice) $\fitproc$ over polynomials of several degrees is specified by these inputs:
 
-- [data set](#def-data-set) $\dataset$: the observations the candidates are fitted and scored on;
 - [model family](#def-model-family) $\modelfam$: the polynomials of every candidate degree;
 - [objective function](#def-objective-function) $\objfn$: the residual sum of squares within each candidate, and the [cross-validation estimate](#def-cv-estimate-indexed) between candidates;
 - [optimization algorithm](#def-optimization-algorithm) $\optalg$: the normal equations for each candidate, then keeping the candidate with the smallest cross-validation estimate of its [expected generalization error](#def-expected-generalization-error) $\expgenerr{\candproc{\polydeg}}{\nobs}$;
