@@ -11,4 +11,5 @@ with the data $\vX$ treated as random:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_einf.qmd >}}
 
+Source: @wikipedia_fisher_information.
 :::

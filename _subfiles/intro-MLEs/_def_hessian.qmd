@@ -8,6 +8,7 @@ with respect to the parameters:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_hess.qmd >}}
 
+Source: @wikipedia_hessian_matrix.
 :::
 
 ::: notes

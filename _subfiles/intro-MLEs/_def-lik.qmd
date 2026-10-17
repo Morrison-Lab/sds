@@ -10,4 +10,5 @@ is the *joint probability* (or joint density) of $\vX = \vx$ when $\Th = \param$
 
 {{< include sds/_subfiles/intro-MLEs/_eq-def-lik.qmd >}}
 
+Source: @wikipedia_likelihood_function.
 :::

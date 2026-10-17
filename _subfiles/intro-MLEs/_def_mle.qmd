@@ -7,4 +7,5 @@ is the value of $\Param$ that maximizes the likelihood:
 
 $$\hthml \eqdef \argmax_\Th \Lik(\Th)$$ {#eq-mle}
 
+Source: @wikipedia_maximum_likelihood_estimation.
 :::
