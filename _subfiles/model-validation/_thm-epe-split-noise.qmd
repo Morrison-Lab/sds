@@ -8,7 +8,7 @@ and that $\newoutvar$ is independent of the random [training set](#def-training-
 Then, given $\newpredvar = \predvar$,
 the [expected squared prediction error](#def-epe) (ESPE) of $\fitproc\paren{\predvar; \trainset}$
 is the [irreducible error](#def-irreducible-error) $\varpar$
-plus its expected squared estimation error (ESEE; the [pMSE](estimation.qmd#def-mse))
+plus its [expected squared estimation error](estimation.qmd#def-mse) (ESEE)
 as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$:
 
 $$
