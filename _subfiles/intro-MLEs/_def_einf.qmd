@@ -1,7 +1,8 @@
 :::{#def-einf}
 #### Expected information matrix (Fisher information matrix, information matrix)
 
-The **expected information matrix**,
+The **expected information matrix**
+[@wikipedia_fisher_information],
 also called the **Fisher information matrix**
 or just the **information matrix**,
 is written $\einf$,

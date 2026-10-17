@@ -1,7 +1,8 @@
 :::{#def-critical-point}
 #### Critical point
 
-A **critical point** of a differentiable function $f$
+A **critical point**
+[@wikipedia_critical_point_mathematics] of a differentiable function $f$
 is an input value $x_0$ where the derivative of $f$ is zero,
 or, for a function of a vector,
 a point $\vx_0$ where the gradient $f'$ of $f$ is the zero vector:

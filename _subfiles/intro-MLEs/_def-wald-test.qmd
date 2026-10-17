@@ -1,7 +1,8 @@
 :::{#def-wald-test}
 #### Wald test
 
-The **Wald test** of $H_0: \param_k = \param_{k,0}$
+The **Wald test**
+[@wikipedia_wald_test] of $H_0: \param_k = \param_{k,0}$
 uses the test statistic
 
 $$Z \eqdef \frac{\hparam_k - \param_{k,0}}{\HSE{\hparam_k}}.$$

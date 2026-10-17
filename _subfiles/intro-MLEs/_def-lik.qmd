@@ -4,7 +4,8 @@
 Let $\vx \eqdef \xin$ be a dataset with corresponding random vector $\vX$,
 and let $\p_{\Th}(\vX = \vx)$ be a probability model for the distribution of $\vX$,
 with unknown parameter vector $\Th$.
-The **likelihood** of the parameter value $\param$,
+The **likelihood**
+[@wikipedia_likelihood_function] of the parameter value $\param$,
 for model $\p_{\Th}$ and data $\vX = \vx$,
 is the *joint probability* (or joint density) of $\vX = \vx$ when $\Th = \param$:
 

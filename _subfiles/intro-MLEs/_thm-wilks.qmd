@@ -5,7 +5,8 @@
 Suppose the conditions of @thm-dist-mle hold,
 and a null hypothesis $H_0$ imposes $q$ constraints on the parameter vector $\vparam$.
 Then, if $H_0$ is true, as $n \to \infty$,
-the [likelihood ratio statistic](#def-lrt-stat) $\lrstat$ satisfies:
+the [likelihood ratio statistic](#def-lrt-stat) $\lrstat$ satisfies
+[@wikipedia_wilks_theorem]:
 
 $$
 \lrstat

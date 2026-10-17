@@ -1,7 +1,8 @@
 :::{#def-prediction-interval}
 #### Prediction interval
 
-A $100(1-\siglevel)\%$ **prediction interval** for a future random quantity $Y^*$
+A $100(1-\siglevel)\%$ **prediction interval**
+[@wikipedia_prediction_interval] for a future random quantity $Y^*$
 is a pair of statistics $L$ and $U$, computed from the observed data,
 such that the interval from $L$ to $U$ contains $Y^*$ with probability $1 - \siglevel$,
 where the probability accounts for the randomness
