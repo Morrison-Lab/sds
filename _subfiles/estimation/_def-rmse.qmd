@@ -1,7 +1,8 @@
 ::: {#def-rmse}
 #### Root mean squared error
 
-The **population root mean squared error (pRMSE)** of an estimator $\hparam$,
+The **population root mean squared error (pRMSE)**
+[@wikipedia_root_mean_square_deviation] of an estimator $\hparam$,
 also called its **root mean squared error**,
 is the square root of its [pMSE](#def-mse):
 

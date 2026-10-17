@@ -1,7 +1,8 @@
 ::: {#def-SE}
 #### Standard error
 
-The **standard error** of an estimator $\hparam$ is the
+The **standard error**
+[@wikipedia_standard_error] of an estimator $\hparam$ is the
 [standard deviation](https://morrison-lab.github.io/pds/variance-covariance.html#def-sd)
 of $\hparam$:
 
