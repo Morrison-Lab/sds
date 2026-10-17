@@ -1,11 +1,11 @@
 :::{#def-score}
 #### Score function
 
-The **score function**
-[@wikipedia_informant_function] of a statistical model $\p(\vX = \vx)$ is
+The **score function** of a statistical model $\p(\vX = \vx)$ is
 the gradient (vector of first derivatives) of the model's log-likelihood
 with respect to the parameters:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_score.qmd >}}
 
+Source: @wikipedia_informant_function.
 :::

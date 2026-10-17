@@ -2,13 +2,13 @@
 
 #### Hessian
 
-The **Hessian matrix**
-[@wikipedia_hessian_matrix] of the log-likelihood function
+The **Hessian matrix** of the log-likelihood function
 is the matrix of its second derivatives
 with respect to the parameters:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_hess.qmd >}}
 
+Source: @wikipedia_hessian_matrix.
 :::
 
 ::: notes

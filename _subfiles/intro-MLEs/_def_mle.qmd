@@ -1,11 +1,11 @@
 :::{#def-mle}
 #### Maximum likelihood estimate
 
-The **maximum likelihood estimate**
-[@wikipedia_maximum_likelihood_estimation] (MLE) of a parameter vector $\Param$,
+The **maximum likelihood estimate** (MLE) of a parameter vector $\Param$,
 written $\hthml$,
 is the value of $\Param$ that maximizes the likelihood:
 
 $$\hthml \eqdef \argmax_\Th \Lik(\Th)$$ {#eq-mle}
 
+Source: @wikipedia_maximum_likelihood_estimation.
 :::

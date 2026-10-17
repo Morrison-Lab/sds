@@ -4,11 +4,11 @@
 Suppose a null hypothesis $H_0$ imposes $q$ constraints on the parameter vector $\vparam$.
 Let $\hthml$ be the unrestricted MLE
 and $\hparam_0$ the MLE under $H_0$.
-The **likelihood ratio statistic**
-[@wikipedia_likelihood_ratio_test] is
+The **likelihood ratio statistic** is
 
 $$
 \lrstat \eqdef 2\paren{\llik(\hthml) - \llik(\hparam_0)}
 $$
 
+Source: @wikipedia_likelihood_ratio_test.
 :::

@@ -1,8 +1,7 @@
 :::{#def-einf}
 #### Expected information matrix (Fisher information matrix, information matrix)
 
-The **expected information matrix**
-[@wikipedia_fisher_information],
+The **expected information matrix**,
 also called the **Fisher information matrix**
 or just the **information matrix**,
 is written $\einf$,
@@ -12,4 +11,5 @@ with the data $\vX$ treated as random:
 
 {{< include sds/_subfiles/intro-MLEs/_eq_def_einf.qmd >}}
 
+Source: @wikipedia_fisher_information.
 :::
