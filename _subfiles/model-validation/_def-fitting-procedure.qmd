@@ -3,15 +3,13 @@
 
 A **fitting procedure** $\fitproc$ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that,
 given any [data set](#def-data-set) $\dataset$,
-produces the [fitted model](#def-fitted-model) $\emodmem = \fitprocf{\dataset}$.
-The prediction of that fitted model at a [covariate](#def-covariate) value $\predvar$ is $\fitprocf{\dataset}\paren{\predvar}$:
+produces the [fitted model](#def-fitted-model) $\emodmem = \fitprocf{\dataset}$:
 
 $$
 \dataset
 \mapsto
 \emodmem
-= \fitprocf{\dataset}
-= \paren{\predvar \mapsto \fitprocf{\dataset}\paren{\predvar}}.
+= \fitprocf{\dataset}.
 $$ {#eq-fitting-procedure}
 
 It is specified by these inputs:
