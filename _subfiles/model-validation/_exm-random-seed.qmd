@@ -1,0 +1,7 @@
+:::{#exm-random-seed}
+#### Reproducing a random split
+
+Randomly splitting a data set in half twice with the same [random seed](#def-random-seed) gives the same two halves.
+Splitting it with two different seeds gives two different splits.
+
+:::

@@ -1,0 +1,8 @@
+:::{#exm-objective-function}
+#### Sum of squared errors
+
+For the polynomials of degree at most $\polydeg$ in @exm-model-family,
+the sum of squared errors is an [objective function](#def-objective-function):
+it gives each polynomial the sum over the observations of its squared difference from the observed outcome.
+
+:::

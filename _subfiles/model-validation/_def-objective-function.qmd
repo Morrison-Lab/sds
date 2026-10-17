@@ -1,0 +1,7 @@
+:::{#def-objective-function}
+#### Objective function
+
+An **objective function** is a rule that gives each member of a [model family](#def-model-family) a number computed from the data,
+where a smaller number means a better fit to the data.
+
+:::
