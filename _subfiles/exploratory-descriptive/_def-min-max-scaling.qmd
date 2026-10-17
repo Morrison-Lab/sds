@@ -11,8 +11,6 @@ The **min-max scaled value** of $\rvar_\iobs$ is
 $$\frac{\rvar_\iobs - x_{\min}}{x_{\max} - x_{\min}}$$
 
 Source: @geron2017hands [ch. 2].
-
-Source: @wikipedia_feature_scaling.
 :::
 
 {{< slidebreak >}}
