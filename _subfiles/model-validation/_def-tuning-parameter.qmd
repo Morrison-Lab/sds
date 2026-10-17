@@ -8,4 +8,6 @@ but does not compute from the [training set](#def-training-set):
 $$
 \predvalf{\predvar} = \candpredvalf{\tuning}{\predvar}.
 $$ {#eq-tuning-parameter}
+
+Source: @wikipedia_hyperparameter_machine_learning.
 :::

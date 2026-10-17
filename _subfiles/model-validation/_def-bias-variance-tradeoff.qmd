@@ -22,5 +22,5 @@ $$
 \ea
 $$ {#eq-bias-variance-tradeoff}
 
-Source: @james2021islr2e [sec. 2.2.2].
+Source: @james2021islr2e [sec. 2.2.2]; @wikipedia_bias_variance_tradeoff.
 :::

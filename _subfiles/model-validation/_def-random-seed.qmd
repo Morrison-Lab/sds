@@ -3,4 +3,6 @@
 
 A **random seed** $\seed$ is a number that fixes the sequence of random numbers a computer generates:
 the same seed gives the same sequence.
+
+Source: @wikipedia_random_seed.
 :::
