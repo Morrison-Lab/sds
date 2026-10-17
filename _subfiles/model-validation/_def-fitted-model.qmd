@@ -5,10 +5,3 @@ A **fitted model** $\emodmem$ is a member of a [model family](#def-model-family)
 that has been chosen to describe a [data set](#def-data-set) $\dataset$.
 
 :::
-
-:::{#rem-source-fitted-model}
-#### Source: Fitted model
-
-@hastie2009elements [sec. 7.2] write the model estimated from a training set as $\hat f$.
-
-:::
