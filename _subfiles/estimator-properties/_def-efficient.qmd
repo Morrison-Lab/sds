@@ -2,6 +2,7 @@
 #### Efficient estimator
 
 An [unbiased](estimation.qmd#def-unbiased) estimator $\hparam$ of $\param$ is **efficient**
+[@wikipedia_efficiency_statistics]
 if its variance equals the [Cramér--Rao lower bound](#thm-cramer-rao):
 
 $$
