@@ -8,4 +8,5 @@ The **expected count** in cell $(i, j)$ under independence is
 
 $$E_{ij} \eqdef \frac{R_i \, C_j}{n}.$$
 
+Source: @wikipedia_contingency_table.
 :::
