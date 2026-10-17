@@ -1,0 +1,6 @@
+:::{#def-preprocessing}
+#### Preprocessing
+
+The **preprocessing** $\featmap$ of a fitting procedure is the map from [covariate](#def-covariate) values $\predvar$ to the features $\featmap\paren{\predvar}$ that the procedure's [model family](#def-model-family) uses as inputs.
+
+:::

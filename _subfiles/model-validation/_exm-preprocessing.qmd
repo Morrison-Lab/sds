@@ -1,0 +1,7 @@
+:::{#exm-preprocessing}
+#### Standardizing a covariate
+
+[Standardization](exploratory-descriptive.qmd#def-standardization) is a [preprocessing](#def-preprocessing) $\featmap$:
+it maps each covariate value $\predvar$ to its standardized value.
+
+:::

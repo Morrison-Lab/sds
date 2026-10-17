@@ -1,0 +1,11 @@
+:::{#def-optimization-algorithm}
+#### Optimization algorithm
+
+An **optimization algorithm** $\optalg$ is a step-by-step procedure that searches a [model family](#def-model-family) $\modelfam$
+for a member $\modmem$ with a small value of an [objective function](#def-objective-function) $\objfn$:
+
+$$
+\modmem = \optalg\paren{\modelfam, \objfn, \dataset} \in \modelfam.
+$$ {#eq-optimization-algorithm}
+
+:::
