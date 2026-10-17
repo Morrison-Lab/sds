@@ -2,7 +2,7 @@
 #### Polynomials of degree at most $\polydeg$
 
 The polynomials of degree at most $\polydeg$ form a [model family](#def-model-family) $\modelfam$:
-each polynomial maps a covariate value $\predvar$ to a prediction,
+each polynomial maps a [covariate](#def-covariate) value $\predvar$ to a prediction,
 and the members differ in their coefficients.
 
 :::

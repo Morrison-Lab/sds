@@ -34,6 +34,14 @@ format:
 
 ## Fitting and scoring prediction rules {#sec-prediction-rules}
 
+{{< include sds/_subfiles/model-validation/_def-covariate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-covariate.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-model-family.qmd >}}
 
 {{< slidebreak >}}
