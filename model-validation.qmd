@@ -82,7 +82,19 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-fitted-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-fitted-model.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-fitting-procedure.qmd >}}
 
 {{< slidebreak >}}
 
@@ -427,6 +439,10 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-cv-choice.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-cv-choice-inputs.qmd >}}
 
 {{< slidebreak >}}
 

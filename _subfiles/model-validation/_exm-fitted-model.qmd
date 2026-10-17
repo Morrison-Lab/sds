@@ -1,0 +1,7 @@
+:::{#exm-fitted-model}
+#### A fitted line
+
+A line chosen to describe the weights and fuel economies of the cars in the `mtcars` [data set](#def-data-set) $\dataset$
+is a [fitted model](#def-fitted-model) $\emodmem$.
+
+:::
