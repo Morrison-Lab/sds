@@ -6,6 +6,8 @@ is a model in which the data depend on group-level parameters,
 and the group-level parameters are themselves random,
 with a distribution that depends on further unknown parameters
 [@dobson4e, Chapter 12, p. 281].
+
+Source: @wikipedia_bayesian_hierarchical_modeling.
 :::
 
 {{< slidebreak >}}

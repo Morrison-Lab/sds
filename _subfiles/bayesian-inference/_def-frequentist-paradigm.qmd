@@ -7,4 +7,6 @@ probability describes long-run frequencies over repetitions
 of the data-generating process,
 and uncertainty about $\param$ is quantified by the [sampling distribution](estimation.qmd#def-sampling-distribution)
 of an estimator $\hparam$.
+
+Source: @wikipedia_frequentist_inference.
 :::

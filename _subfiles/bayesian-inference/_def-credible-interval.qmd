@@ -9,4 +9,6 @@ whose [posterior](#def-posterior) probability is $1 - \siglevel$:
 $$
 \Pr\paren{l(\vy) \le \param \le r(\vy) \mid \vY = \vy} = 1 - \siglevel.
 $$
+
+Source: @wikipedia_credible_interval.
 :::

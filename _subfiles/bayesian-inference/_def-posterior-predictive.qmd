@@ -15,4 +15,6 @@ where $Y^{\mathrm{new}}$ and $\vY$ are independent given $\param$
 The same formula, with $y^{\mathrm{new}}$ replaced by a whole replicated data set $\vy^{\mathrm{rep}}$
 of the same size as $\vy$,
 gives the posterior predictive distribution of replicated data.
+
+Source: @wikipedia_posterior_predictive_distribution.
 :::
