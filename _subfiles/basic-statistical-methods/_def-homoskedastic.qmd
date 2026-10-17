@@ -2,6 +2,7 @@
 #### Homoskedastic model
 
 A conditional Gaussian model (@def-cond-gaussian) is **homoskedastic**
+[@wikipedia_homoscedasticity_and_heteroscedasticity]
 if all outcomes share one variance $\varpar$,
 which does not depend on $i$:
 

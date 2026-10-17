@@ -1,7 +1,8 @@
 ::: {#def-r-squared}
 #### Coefficient of determination
 
-The **coefficient of determination** of a model fitted with parameter estimate $\est{\vparam}$
+The **coefficient of determination**
+[@wikipedia_coefficient_of_determination] of a model fitted with parameter estimate $\est{\vparam}$
 is one minus the ratio of its [residual sum of squares](#def-rss) at $\est{\vparam}$
 to the [total sum of squares](#def-tss) of its outcomes:
 

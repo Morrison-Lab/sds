@@ -3,7 +3,8 @@
 
 For a regression model whose conditional mean $\mean(x; \vparam)$
 depends on a parameter vector $\vparam$,
-the **residual sum of squares** at $\vparam$
+the **residual sum of squares**
+[@wikipedia_residual_sum_of_squares] at $\vparam$
 is the sum of the squared residuals
 $\resid_\iobs(\vparam) \eqdef \outvar_\iobs - \mean(\predvar_\iobs; \vparam)$
 that the model has when its parameters equal $\vparam$:
