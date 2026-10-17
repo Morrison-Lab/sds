@@ -1,12 +1,13 @@
 ::: {#def-hierarchical-model}
 #### Hierarchical model (multilevel model)
 
-A **hierarchical model**
-[@wikipedia_bayesian_hierarchical_modeling], also called a **multilevel model**,
+A **hierarchical model**, also called a **multilevel model**,
 is a model in which the data depend on group-level parameters,
 and the group-level parameters are themselves random,
 with a distribution that depends on further unknown parameters
 [@dobson4e, Chapter 12, p. 281].
+
+Source: @wikipedia_bayesian_hierarchical_modeling.
 :::
 
 {{< slidebreak >}}

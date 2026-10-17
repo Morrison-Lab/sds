@@ -3,8 +3,7 @@
 
 Given a prior $\p(\param)$
 and a model $\p(\vy \mid \param)$ for the data given $\param$,
-the **marginal likelihood**
-[@wikipedia_marginal_likelihood] (also called the **evidence**)
+the **marginal likelihood** (also called the **evidence**)
 of observed data $\vy$ is
 
 $$
@@ -13,4 +12,6 @@ $$
 
 with the integral replaced by a sum over the possible values of $\param$
 when $\param$ is discrete.
+
+Source: @wikipedia_marginal_likelihood.
 :::

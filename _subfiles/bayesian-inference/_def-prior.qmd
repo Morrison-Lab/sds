@@ -1,9 +1,10 @@
 ::: {#def-prior}
 #### Prior distribution
 
-The **prior distribution**
-[@wikipedia_prior_probability] of a parameter $\param$,
+The **prior distribution** of a parameter $\param$,
 with density or probability mass function $\p(\param)$,
 is the probability distribution that describes
 what is believed about $\param$ before the data are observed.
+
+Source: @wikipedia_prior_probability.
 :::

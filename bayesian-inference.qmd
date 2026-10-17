@@ -344,6 +344,8 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< include sds/_subfiles/bayesian-inference/_prose-resources.qmd >}}
 
+### Online references
+
 -   @wikipedia_bayes_theorem --- the theorem, its proof and its uses
 
 -   @wikipedia_bayesian_statistics --- the Bayesian approach compared with the frequentist one
