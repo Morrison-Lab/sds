@@ -10,4 +10,5 @@ $$
 \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \validx}.
 $$ {#eq-validation-set}
 
+Source: @wikipedia_training_validation_and_test_data_sets.
 :::

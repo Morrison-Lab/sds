@@ -9,4 +9,5 @@ $$
 \predvalf{\predvar} = \candpredvalf{\tuning}{\predvar}.
 $$ {#eq-tuning-parameter}
 
+Source: @wikipedia_hyperparameter_machine_learning.
 :::

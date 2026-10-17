@@ -19,6 +19,7 @@ In **$\nfolds$-fold cross-validation**:
    - Compute predicted values for the observations in fold $\fold{\ifold}$.
 3. Compute a summary prediction-error measure across all folds.
 
+Source: @wikipedia_cross_validation_statistics.
 :::
 
 {{< slidebreak >}}

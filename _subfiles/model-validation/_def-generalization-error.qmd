@@ -11,6 +11,7 @@ $$
 \generr_{\trainset} \eqdef \E{\obsloss{*} \mid \trainset}.
 $$ {#eq-generalization-error}
 
+Source: @wikipedia_generalization_error.
 :::
 
 :::{#rem-source-generalization-error}

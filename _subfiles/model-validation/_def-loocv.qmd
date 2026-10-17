@@ -15,4 +15,5 @@ $$ {#eq-loocv}
 
 Source: @james2021islr2e [sec. 5.1.2].
 
+Source: @wikipedia_cross_validation_statistics.
 :::
