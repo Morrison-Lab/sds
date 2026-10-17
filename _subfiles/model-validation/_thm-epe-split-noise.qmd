@@ -13,7 +13,7 @@ as an [estimator](estimation.qmd#def-estimator) of $\truemeanfnf{\predvar}$:
 
 $$
 \ESPE{\predvalf{\predvar}}
-= \varpar + \ESEE{\predvalf{\predvar}}.
+= \varpar + \ESEE{\estmeanf{\predvar}}.
 $$ {#eq-epe-split-noise}
 
 :::
