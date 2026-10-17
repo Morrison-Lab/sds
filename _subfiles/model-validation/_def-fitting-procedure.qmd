@@ -26,9 +26,6 @@ A fitting procedure is specified by these inputs:
 :::{#rem-source-fitting-procedure}
 #### Source: Fitting procedure
 
-The [definition of a prediction](prediction.qmd#def-prediction) takes a covariate value $x$ and a data set as the two arguments of a rule $g$.
-The fitting procedure $\fitproc$ takes the same two arguments one at a time, the data set $\dataset$ first and then the covariate value $x$:
-$g\paren{x; \dataset} = \fitprocf{\dataset}\paren{x}$.
 @hastie2009elements [sec. 7.2] write the model estimated from a training set as $\hat f$.
 
 :::
