@@ -4,8 +4,7 @@
 Under the assumptions of @exr-cov-estimator-score,
 suppose the [expected information](intro-MLEs.qmd#def-einf) satisfies $0 < \einf(\param) < \infty$.
 Then every unbiased estimator $\hparam$ of $\param$ has variance at least
-the reciprocal of the expected information
-[@wikipedia_cram_r_rao_bound]:
+the reciprocal of the expected information:
 
 $$
 \Var{\hparam} \ge \frac{1}{\einf(\param)}
@@ -13,6 +12,7 @@ $$ {#eq-cramer-rao}
 
 Source: [@rao1945information; @cramer1946mathematical; @CaseBerg01, Thm. 7.3.9, p. 335].
 
+Source: @wikipedia_cram_r_rao_bound.
 :::
 
 ::: proof

@@ -2,8 +2,7 @@
 #### Consistent estimator
 
 Let $\hparam_n$ be an estimator of $\param$ computed from $n$ observations.
-The estimator is **consistent**
-[@wikipedia_consistent_estimator] if, for every distance $\varepsilon > 0$,
+The estimator is **consistent** if, for every distance $\varepsilon > 0$,
 the probability that it lands at least $\varepsilon$ away from $\param$
 goes to zero as the sample size grows:
 
@@ -17,4 +16,5 @@ to $\param$, which we write $\hparam_n \inprob \param$.
 
 Source: @CaseBerg01 [Def. 10.1.1].
 
+Source: @wikipedia_consistent_estimator.
 :::
