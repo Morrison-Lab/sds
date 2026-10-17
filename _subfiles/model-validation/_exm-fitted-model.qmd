@@ -1,0 +1,8 @@
+:::{#exm-fitted-model}
+#### A fitted line
+
+A line chosen to describe a [data set](#def-data-set) $\dataset$ of cars' weights and fuel economies
+is a fitted model $\emodmem$.
+It maps each weight $\predvar$ to the fuel economy it predicts.
+
+:::

@@ -3,9 +3,7 @@
 
 A **fitting procedure** $\fitproc$ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that,
 given any [data set](#def-data-set) $\dataset$,
-produces a fitted model $\emodmem$:
-a function that maps each [covariate](#def-covariate) value $\predvar$
-to a [prediction](prediction.qmd#def-prediction) of the outcome.
+produces a [fitted model](#def-fitted-model) $\emodmem$.
 We write $\fitproc\paren{\predvar; \dataset}$
 for the prediction of that fitted model at $\predvar$:
 

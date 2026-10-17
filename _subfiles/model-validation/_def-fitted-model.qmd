@@ -1,0 +1,10 @@
+:::{#def-fitted-model}
+#### Fitted model
+
+A **fitted model** $\emodmem$ is a member of a [model family](#def-model-family) $\modelfam$
+that has been chosen to describe a [data set](#def-data-set) $\dataset$.
+As a member of $\modelfam$, it is a [function](https://morrison-lab.github.io/mds/functions.html#def-function)
+that maps each [covariate](#def-covariate) value $\predvar$
+to a [prediction](prediction.qmd#def-prediction) of the outcome.
+
+:::
