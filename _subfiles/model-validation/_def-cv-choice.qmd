@@ -13,7 +13,7 @@ taking the smallest $\icand$ if several tie:
 
 $$
 \candproctuned{\text{CV}}\paren{\trainset} \eqdef
-\candproc{\min \argmin_{\icand} \cvestof{\nfolds}{\candproc{\icand}}\paren{\trainset}}\paren{\trainset}.
+\candfitted{\min \argmin_{\icand} \cvestof{\nfolds}{\candproc{\icand}}\paren{\trainset}}.
 $$ {#eq-cv-choice}
 
 :::
