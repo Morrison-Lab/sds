@@ -8,7 +8,7 @@ in the cross-validation estimate itself
 - **Bias.**
   Each rule in @eq-cv-estimate is fitted to about $\nobs (\nfolds - 1) / \nfolds$ observations.
   A rule fitted to fewer observations usually predicts worse,
-  so $\cvest{\nfolds}$ tends to overstate the error of a rule fitted to all $\nobs$.
+  so $\cvest{\nfolds}$ tends to overstate the expected generalization error of a rule fitted to all $\nobs$.
   The overstatement shrinks as $\nfolds$ grows.
 - **Variance.**
   As $\nfolds$ grows,
