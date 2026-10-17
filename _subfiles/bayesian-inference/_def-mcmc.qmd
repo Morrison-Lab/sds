@@ -6,4 +6,6 @@ generates a sequence of draws $\vparam^{(1)}, \vparam^{(2)}, \ldots$,
 each drawn from a distribution that depends on the previous draw,
 such that the distribution of $\vparam^{(t)}$ converges to the target
 as $t \to \infty$.
+
+Source: @wikipedia_markov_chain_monte_carlo.
 :::

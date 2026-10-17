@@ -8,4 +8,6 @@ the **Monte Carlo estimate** of the posterior expectation $\E{g(\vparam) \mid \v
 $$
 \frac{1}{M} \sumto{m}{M} g\paren{\vparam^{(m)}}.
 $$
+
+Source: @wikipedia_monte_carlo_method.
 :::
