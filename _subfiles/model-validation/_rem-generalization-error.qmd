@@ -4,7 +4,7 @@
 @hastie2009elements [sec. 7.2] also call $\generr_{\trainset}$ the *test error*,
 and in sec. 7.12 the *conditional* test error.
 It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk)
-of the prediction $\fitted(\newpredvar)$
+of the prediction $\predvalf{\newpredvar}$
 under the [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) $\loss$,
 computed with the training set held fixed.
 

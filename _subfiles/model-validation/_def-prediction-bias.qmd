@@ -39,9 +39,9 @@ Then
 
 $$
 \begin{aligned}
-\bias{\predvalf{\predvar}}
-&= \E{\erf{\predvalf{\predvar}}} \\
-&= \E{\predvalf{\predvar}} - \mean(\predvar) \\
+\bias{\predval}
+&= \E{\erf{\predval}} \\
+&= \E{\predval} - \mean \\
 &= 11 - 10 \\
 &= 1.
 \end{aligned}
