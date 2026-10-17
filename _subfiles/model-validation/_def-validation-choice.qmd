@@ -9,7 +9,7 @@ has the smallest [validation error](#def-validation-error):
 
 $$
 \est{\icand} \eqdef \argmin_{\icand} \avgon{\validx}
-\lossf{\outvar_{\iobs}, \candproc{\icand}\paren{\predvar_{\iobs}; \trainset}}.
+\lossf{\outvar_{\iobs}, \candpredvalf{\icand}{\predvar_{\iobs}}}.
 $$ {#eq-validation-choice}
 
 :::

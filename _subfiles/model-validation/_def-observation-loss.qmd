@@ -3,13 +3,13 @@
 
 The **loss** of a [prediction rule](#def-prediction-rule) $\fitted$ on an observation $(\predvar_{\iobs}, \outvar_{\iobs})$
 is the cost, under a [loss function](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) $\loss$,
-of its prediction $\fitted(\predvar_{\iobs})$ of the outcome $\outvar_{\iobs}$:
+of its prediction $\predvalf{\predvar_{\iobs}}$ of the outcome $\outvar_{\iobs}$:
 
 $$
-\obsloss{\iobs} \eqdef \lossf{\outvar_{\iobs}, \fitted(\predvar_{\iobs})}.
+\obsloss{\iobs} \eqdef \lossf{\outvar_{\iobs}, \predvalf{\predvar_{\iobs}}}.
 $$ {#eq-observation-loss}
 
 The index $*$ names the new observation $(\newpredvar, \newoutvar)$,
-so $\obsloss{*} = \lossf{\newoutvar, \fitted(\newpredvar)}$.
+so $\obsloss{*} = \lossf{\newoutvar, \predvalf{\newpredvar}}$.
 
 :::

@@ -4,17 +4,17 @@
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
 At a covariate value $\predvar$,
-the prediction $\fitproc\paren{\predvar; \trainset}$ is a random variable,
+the prediction $\predvalf{\predvar}$ is a random variable,
 because it depends on the random training data.
 The **bias** of the prediction
 is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
 as an [estimator](estimation.qmd#def-estimator)
-of the [mean function](#def-mean-function) value $\mean(\predvar)$,
+of the [mean function](#def-mean-function) value $\mean$,
 which is its estimand here, not the new outcome it predicts:
 
 $$
-\bias{\fitproc\paren{\predvar; \trainset}}
-= \E{\erf{\fitproc\paren{\predvar; \trainset}}}.
+\bias{\predvalf{\predvar}}
+= \E{\erf{\predvalf{\predvar}}}.
 $$ {#eq-prediction-bias}
 
 :::
@@ -31,17 +31,17 @@ the bias reflects the approximation error that comes from approximating a real-w
 :::{#exm-prediction-bias}
 #### Computing the bias of a prediction
 
-Suppose $\mean(\predvar) = 10$,
-and the predictions $\fitproc\paren{\predvar; \trainset}$,
+Suppose $\mean = 10$,
+and the predictions $\predvalf{\predvar}$,
 over repeated training sets,
 average $11$.
 Then
 
 $$
 \begin{aligned}
-\bias{\fitproc\paren{\predvar; \trainset}}
-&= \E{\erf{\fitproc\paren{\predvar; \trainset}}} \\
-&= \E{\fitproc\paren{\predvar; \trainset}} - \mean(\predvar) \\
+\bias{\predval}
+&= \E{\erf{\predval}} \\
+&= \Epredval - \mean \\
 &= 11 - 10 \\
 &= 1.
 \end{aligned}

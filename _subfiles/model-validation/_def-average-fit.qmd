@@ -1,20 +1,21 @@
 :::{#def-average-fit}
-#### Average fit
+#### Expected prediction
 
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
-The **average fit** of $\fitproc$ at a covariate value $\predvar$
-is the prediction $\fitproc\paren{\predvar; \trainset}$ averaged over every training set it might have been fitted to:
+The **expected prediction** of $\fitproc$ at a covariate value $\predvar$
+is the value $\predvalf{\predvar}$ of the [prediction rule](#def-prediction-rule) $\fitted$ at $\predvar$,
+averaged over the population distribution of all training sets that might have been collected:
 
 $$
-\avgfitf{\predvar} \eqdef \E{\fitproc\paren{\predvar; \trainset}}.
+\avgfitf{\predvar} \eqdef \Epredvalf{\predvar}.
 $$ {#eq-average-fit}
 
 :::
 
 ::: {.remark .notes}
 
-The average fit is not a prediction anyone ever holds,
+The expected prediction is not the prediction of any one analysis,
 because an analysis has one training set, not the whole distribution of them.
 It is a reference point for measuring how far the predictions are
 from the [mean function](#def-mean-function) and from each other.
@@ -24,9 +25,9 @@ from the [mean function](#def-mean-function) and from each other.
 {{< slidebreak >}}
 
 :::{#exm-average-fit}
-#### Computing the average fit
+#### Computing the expected prediction
 
-Suppose the predictions $\fitproc\paren{\predvar; \trainset}$ at $\predvar$
+Suppose the predictions $\predvalf{\predvar}$ at $\predvar$
 take the values $9$, $11$ and $13$ with equal probability.
 Then
 
