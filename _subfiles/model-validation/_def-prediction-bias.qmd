@@ -41,7 +41,7 @@ $$
 \begin{aligned}
 \bias{\predval}
 &= \E{\erf{\predval}} \\
-&= \E{\predval} - \mean \\
+&= \Epredval - \mean \\
 &= 11 - 10 \\
 &= 1.
 \end{aligned}

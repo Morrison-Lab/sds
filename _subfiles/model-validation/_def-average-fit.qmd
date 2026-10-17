@@ -8,7 +8,7 @@ is the value $\predvalf{\predvar}$ of the [prediction rule](#def-prediction-rule
 averaged over the population distribution of all training sets that might have been collected:
 
 $$
-\avgfitf{\predvar} \eqdef \E{\predvalf{\predvar}}.
+\avgfitf{\predvar} \eqdef \Epredvalf{\predvar}.
 $$ {#eq-average-fit}
 
 :::

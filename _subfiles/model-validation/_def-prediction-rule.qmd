@@ -4,10 +4,10 @@
 The **prediction rule** $\fitted$
 that a [fitting procedure](#def-fitting-procedure) $\fitproc$
 produces from a [training set](#def-training-set) $\trainset$
-is the [fitted model](#def-fitted-model) $\fitprocf{\trainset}$:
+is the [fitted model](#def-fitted-model) $\fitmodf{\trainset}$:
 
 $$
-\fitted \eqdef \fitprocf{\trainset}.
+\fitted \eqdef \fitmodf{\trainset}.
 $$ {#eq-prediction-rule}
 
 :::
