@@ -5,4 +5,6 @@ For a family of tests with $V$ false positives (@def-rejection-counts),
 the **family-wise error rate** (FWER) is the probability of at least one false positive:
 
 $$\text{FWER} \eqdef \Prf{V \ge 1}.$$
+
+Source: @wikipedia_family_wise_error_rate.
 :::

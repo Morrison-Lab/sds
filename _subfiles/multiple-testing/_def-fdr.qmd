@@ -8,6 +8,7 @@ $$
 \text{FDR} \eqdef \E{\text{FDP}}.
 $$
 
+Source: @wikipedia_false_discovery_rate.
 :::
 
 :::{#rem-source-fdr}

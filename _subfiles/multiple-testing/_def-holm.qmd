@@ -6,6 +6,7 @@ Given the cutoff rank $k^*$ of @def-holm-cutoff,
 
 Source: Holm [-@holm1979simple].
 
+Source: @wikipedia_holm_bonferroni_method.
 :::
 
 {{< slidebreak >}}

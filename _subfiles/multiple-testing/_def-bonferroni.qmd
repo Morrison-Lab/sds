@@ -8,6 +8,7 @@ $$\text{reject } H_j \iff p_j \le \frac{\siglevel}{m}.$$
 
 Source: @james2021islr2e [ch. 13].
 
+Source: @wikipedia_bonferroni_correction.
 :::
 
 {{< slidebreak >}}

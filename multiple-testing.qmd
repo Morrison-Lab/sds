@@ -196,6 +196,18 @@ resources:
 - The [permutation tests](permutation-tests.qmd) page computes valid p-values by relabeling the data,
   without a distributional model for the test statistic.
 
+### Online references
+
+-   @wikipedia_multiple_comparisons_problem --- why many tests inflate the error rate
+
+-   @wikipedia_family_wise_error_rate --- the rate and the corrections that control it
+
+-   @wikipedia_false_discovery_rate --- the rate and the Benjamini–Hochberg procedure
+
+-   @wikipedia_bonferroni_correction --- the correction and its conservatism
+
+-   @wikipedia_holm_bonferroni_method --- the step-down procedure
+
 ## References {.unnumbered}
 
 ::: {#refs}
