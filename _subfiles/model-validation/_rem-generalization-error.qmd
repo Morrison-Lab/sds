@@ -13,7 +13,8 @@ $\expgenerr{\fitproc}{\nobs}$ of a fitting procedure $\fitproc$
 records that it depends on how many observations each training set has.
 By @thm-expected-error-epe, $\expgenerr{\fitproc}{\nobs}$ averages
 the expected prediction error at each covariate value,
-and @thm-epe-decomposition splits that error, under squared-error loss,
+and @thm-epe-decomposition splits each of those expected prediction errors,
+under squared-error loss,
 into a squared bias, a variance and a noise variance.
 
 :::

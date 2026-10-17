@@ -3,13 +3,13 @@
 
 Let $\mean$ be the [mean function](#def-mean-function) of the outcome given the covariate.
 Suppose that, given $\newpredvar = \predvar$,
-the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
+the new outcome is $\newoutvar = \mean + \noise$,
 where $\noise$, the noise in the outcome at $\predvar$, has mean $0$ and variance $\varpar$,
 and that $\newoutvar$ is independent of the random training set $\trainset$,
-and that $\E{{\predval}^2} < \infty$.
+and that $\E{\sqf{\predval}} < \infty$.
 Then the [expected prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)
-of the prediction $\predval$, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$,
+of the prediction $\predval$, used as an [estimator](estimation.qmd#def-estimator) of $\mean$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 

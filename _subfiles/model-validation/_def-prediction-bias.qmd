@@ -9,7 +9,7 @@ because it depends on the random training data.
 The **bias** of the prediction
 is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
 as an [estimator](estimation.qmd#def-estimator)
-of the [mean function](#def-mean-function) value $\mean(\predvar)$,
+of the [mean function](#def-mean-function) value $\mean$,
 which is its estimand here, not the new outcome it predicts:
 
 $$
@@ -22,7 +22,7 @@ $$ {#eq-prediction-bias}
 ::: {.remark .notes}
 
 In expected prediction error decompositions [@james2021islr2e, Section 2.2.2],
-the bias reflects the error introduced by approximating a real-world relationship by a model.
+the bias reflects the approximation error that comes from approximating a real-world relationship by a model.
 
 :::
 
@@ -31,7 +31,7 @@ the bias reflects the error introduced by approximating a real-world relationshi
 :::{#exm-prediction-bias}
 #### Computing the bias of a prediction
 
-Suppose $\mean(\predvar) = 10$,
+Suppose $\mean = 10$,
 and the predictions $\predvalf{\predvar}$,
 over repeated training sets,
 average $11$.
@@ -41,7 +41,7 @@ $$
 \begin{aligned}
 \bias{\predval}
 &= \E{\erf{\predval}} \\
-&= \E{\predval} - \mean \\
+&= \Epredval - \mean \\
 &= 11 - 10 \\
 &= 1.
 \end{aligned}

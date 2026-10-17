@@ -4,8 +4,8 @@
 By @thm-epe-decomposition,
 $\epe{\candproc{\icand}}{\nobs}{\predvar}$ is the squared bias plus the variance plus $\varpar$.
 Under a [bias--variance trade-off](#def-bias-variance-tradeoff)
-among $\candproc{1}, \ldots, \candproc{\ncand}$,
-moving from $\candproc{\icand}$ to $\candproc{\icand + 1}$
+among $\candfitted{1}, \ldots, \candfitted{\ncand}$,
+moving from $\candfitted{\icand}$ to $\candfitted{\icand + 1}$
 lowers the expected squared prediction error at $\predvar$
 when the squared bias falls by more than the variance rises,
 and raises it otherwise.
@@ -13,15 +13,15 @@ The smallest of $\epe{\candproc{1}}{\nobs}{\predvar}, \ldots, \epe{\candproc{\nc
 is often at some $\candproc{\icand}$ with $1 < \icand < \ncand$
 [@james2021islr2e, sec. 2.2.2],
 but not always:
-if the mean function $\mean$ is a candidate of $\candproc{1}$,
-the squared bias of $\candproc{1}$ can be zero,
-and then no later $\candproc{\icand}$ has a smaller squared bias
+if the mean function $\mean$ is among the functions that candidate $1$ can fit,
+the squared bias of $\candfitted{1}$ can be zero,
+and then no more flexible $\candfitted{\icand}$ has a smaller squared bias
 and, under the trade-off, none has a smaller variance,
 so none has a smaller expected squared prediction error.
-The procedures past the smallest error
-have lowered their squared bias by less than they have raised their variance,
-and the rules they produce tend to [overfit](#def-overfitting):
-they fit their training sets more closely than the procedure with the smallest error
+Past the candidate with the smallest expected squared prediction error,
+the more flexible candidates have lowered their squared bias by less than they have raised their variance,
+and their fitted models tend to [overfit](#def-overfitting):
+they fit their training sets more closely than the fitted model of the candidate with the smallest expected squared prediction error
 but predict new observations worse.
 
 :::

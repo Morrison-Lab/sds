@@ -8,7 +8,7 @@ that a [fitting procedure](#def-fitting-procedure) $\fitproc$ produces
 from the observations outside that fold:
 
 $$
-\fittedwo{\ifold}{\predvar} \eqdef \fitprocf{\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx \setminus \fold{\ifold}}}\paren{\predvar}.
+\fittedwo{\ifold}{\predvar} \eqdef \fitmodvalf{\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx \setminus \fold{\ifold}}}{\predvar}.
 $$ {#eq-fold-out-rule}
 
 :::

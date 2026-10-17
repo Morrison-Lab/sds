@@ -9,7 +9,7 @@ with $\mean$ the [mean function](#def-mean-function),
 there is a **bias--variance trade-off** among them
 when, from each procedure to the next,
 the squared [bias](#def-prediction-bias)
-of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$, does not rise
+of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean$, does not rise
 and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance)
 does not fall:
 

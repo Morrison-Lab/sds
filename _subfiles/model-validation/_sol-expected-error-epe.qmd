@@ -24,7 +24,7 @@ $$
 The steps labeled "definition" apply
 @eq-expected-generalization-error, @eq-generalization-error and @eq-epl, in that order.
 Here $\obsloss{*}$ is the [loss](#def-observation-loss) of the prediction rule
-$\predvalf{\newpredvar} = \fitprocf{\trainset}\paren{\newpredvar}$ (@eq-prediction-rule)
+$\predvalf{\newpredvar} = \fitmodvalf{\trainset}{\newpredvar}$ (@eq-prediction-rule)
 on the new observation.
 The two steps labeled "iterated expectations" use the
 [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie),
