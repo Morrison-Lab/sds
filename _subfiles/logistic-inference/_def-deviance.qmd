@@ -2,7 +2,8 @@
 
 #### Deviance
 
-The **deviance** of a fitted logistic regression with labels $\outvar_\iobs \in \set{0, 1}$ is minus twice its maximized log-likelihood:
+The **deviance**
+[@wikipedia_deviance_statistics] of a fitted logistic regression with labels $\outvar_\iobs \in \set{0, 1}$ is minus twice its maximized log-likelihood:
 
 $$
 \deviance \eqdef -2 \, \llikf{\hvcoef}
