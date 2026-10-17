@@ -11,7 +11,7 @@ Least-squares polynomial fitting of degree $\polydeg$ has these inputs:
 - [tuning parameter](#def-tuning-parameter) $\tuning$: the degree $\polydeg$;
 - [preprocessing](#def-preprocessing) $\featmap$: none.
 
-Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted rule.
+Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted model.
 
 The [cross-validation choice procedure](#def-cv-choice) over polynomials of several degrees is different:
 
@@ -23,6 +23,6 @@ The [cross-validation choice procedure](#def-cv-choice) over polynomials of seve
 - tuning parameter $\tuning$: none, since cross-validation chooses the degree;
 - preprocessing $\featmap$: none.
 
-Here two seeds give two fold assignments, which can choose different degrees and so give different fitted rules from the same data.
+Here two seeds give two fold assignments, which can choose different degrees and so give different fitted models from the same data.
 
 :::
