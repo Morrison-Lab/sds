@@ -18,10 +18,10 @@ the squared bias of $\candproc{1}$ can be zero,
 and then no later $\candproc{\icand}$ has a smaller squared bias
 and, under the trade-off, none has a smaller variance,
 so none has a smaller expected squared prediction error.
-The procedures past the smallest error
-have lowered their squared bias by less than they have raised their variance,
-and the rules they produce tend to [overfit](#def-overfitting):
-they fit their training sets more closely than the procedure with the smallest error
+Past the smallest error,
+the candidates have lowered their squared bias by less than they have raised their variance,
+and their fitted models $\candproc{\icand}\paren{\trainset}$ tend to [overfit](#def-overfitting):
+they fit their training sets more closely than the fitted model of the candidate with the smallest error
 but predict new observations worse.
 
 :::
