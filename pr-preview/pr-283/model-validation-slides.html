@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-17 00:38:02 (PDT)</p>
+  <p class="date">Last modified: 2026-10-17 00:57:16 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -1225,13 +1225,13 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <p><span class="theorem-title"><strong>Example 16 (Polynomial degree)</strong></span> In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, least squares computes the coefficients of each polynomial from the 20 training cars, but the degree <span class="math inline">\(d\)</span> is fixed before the fit. So the degree is a <a href="#/def-tuning-parameter">tuning parameter</a> of least-squares polynomial fitting, and the four fits are <span class="math inline">\(g_{1}, g_{2}, g_{3}, g_{4}\)</span> with <span class="math inline">\(\lambda= d\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-model-selection" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 32 (Model selection)</strong></span> <strong>Model selection</strong> is choosing one fitting procedure from a set of candidate <a href="#/def-fitting-procedure">fitting procedures</a> <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, using observations that were <a href="#/def-held-out-set">held out</a> from fitting.</p>
+<p><span class="theorem-title"><strong>Definition 32 (Model selection)</strong></span> <strong>Model selection</strong> is choosing one <a href="#/def-fitted-model">fitted model</a> from a set of candidate fitted models from different <a href="#/def-model-family">model families</a>, using observations that were <a href="#/def-held-out-set">held out</a> from fitting.</p>
 </div>
 </section><section class="slide level2"><div id="exm-model-selection" class="theorem example">
-<p><span class="theorem-title"><strong>Example 17 (Choosing a polynomial degree)</strong></span> In <a href="#/exm-tuning-parameter" class="quarto-xref">Example&nbsp;16</a>, the candidates are least-squares polynomial fits of degree <span class="math inline">\(1, 2, 3, 4\)</span> to the training cars. Choosing among these four degrees is model selection, and the observations it uses are cars held out from fitting.</p>
+<p><span class="theorem-title"><strong>Example 17 (Choosing a polynomial degree)</strong></span> In <a href="#/exm-tuning-parameter" class="quarto-xref">Example&nbsp;16</a>, the candidates are the least-squares fitted models from four polynomial model families, the families of degree <span class="math inline">\(1\)</span> (“linear”), <span class="math inline">\(2\)</span> (“quadratic”), <span class="math inline">\(3\)</span> (“cubic”) and <span class="math inline">\(4\)</span> (“quartic”). Choosing among these four fitted models is model selection, and the observations it uses are cars held out from fitting.</p>
 </div>
 </section><section class="slide level2"><div id="def-validation-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 33 (Validation set)</strong></span> The <strong>validation set</strong> of a <a href="#/def-data-splits">training/validation/test split</a> is the <a href="#/def-held-out-set">held-out set</a> of observations indexed by <span class="math inline">\(I_{\text{val}}\)</span>, used to choose among candidate <a href="#/def-fitted-model">fitted models</a> fitted to the training set:</p>
+<p><span class="theorem-title"><strong>Definition 33 (Validation set)</strong></span> The <strong>validation set</strong> of a <a href="#/def-data-splits">training/validation/test split</a> is the <a href="#/def-held-out-set">held-out set</a> of observations indexed by <span class="math inline">\(I_{\text{val}}\)</span>, used for <a href="#/def-model-selection">model selection</a> among candidate <a href="#/def-fitted-model">fitted models</a> fitted to the training set:</p>
 <p><span id="eq-validation-set"><span class="math display">\[
 \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{val}}}.
 \tag{28}\]</span></span></p>

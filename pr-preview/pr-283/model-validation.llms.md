@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-17 00:38:02 (PDT)
+Last modified: 2026-10-17 00:57:16 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -735,15 +735,15 @@ Last modified: 2026-10-17 00:38:02 (PDT)
 
 > **NOTE:**
 >
-> **Definition 32 (Model selection)** **Model selection** is choosing one fitting procedure from a set of candidate [fitting procedures](#def-fitting-procedure) \\g\_{1}, \ldots, g\_{L}\\, using observations that were [held out](#def-held-out-set) from fitting.
+> **Definition 32 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting.
 
 > **NOTE:**
 >
-> **Example 17 (Choosing a polynomial degree)** In [Example 16](#exm-tuning-parameter), the candidates are least-squares polynomial fits of degree \\1, 2, 3, 4\\ to the training cars. Choosing among these four degrees is model selection, and the observations it uses are cars held out from fitting.
+> **Example 17 (Choosing a polynomial degree)** In [Example 16](#exm-tuning-parameter), the candidates are the least-squares fitted models from four polynomial model families, the families of degree \\1\\ (“linear”), \\2\\ (“quadratic”), \\3\\ (“cubic”) and \\4\\ (“quartic”). Choosing among these four fitted models is model selection, and the observations it uses are cars held out from fitting.
 
 > **NOTE:**
 >
-> **Definition 33 (Validation set)** The **validation set** of a [training/validation/test split](#def-data-splits) is the [held-out set](#def-held-out-set) of observations indexed by \\I\_{\text{val}}\\, used to choose among candidate [fitted models](#def-fitted-model) fitted to the training set:
+> **Definition 33 (Validation set)** The **validation set** of a [training/validation/test split](#def-data-splits) is the [held-out set](#def-held-out-set) of observations indexed by \\I\_{\text{val}}\\, used for [model selection](#def-model-selection) among candidate [fitted models](#def-fitted-model) fitted to the training set:
 >
 > \\ \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{val}}}. \tag{28}\\
 
