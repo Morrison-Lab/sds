@@ -13,8 +13,6 @@ $$
 \text{ does not depend on } \param
 \quad \text{wherever } \Pr_{\param}\paren{\statf{\vX} = t} > 0
 $$ {#eq-sufficient}
-
-Source: @wikipedia_sufficient_statistic.
 :::
 
 :::{#rem-source-sufficient}

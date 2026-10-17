@@ -11,8 +11,6 @@ $$
 $$ {#eq-factorization}
 
 where $\rfacf{\vx}$ does not depend on $\param$.
-
-Source: @wikipedia_sufficient_statistic.
 :::
 
 ::: proof

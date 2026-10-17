@@ -86,6 +86,8 @@ without making it more biased.
 
 -   @wikipedia_rao_blackwell_theorem --- improving an estimator by conditioning on a sufficient statistic
 
+-   @wikipedia_statistic --- the Wikipedia article on statistic
+
 ## References {.unnumbered}
 
 ::: {#refs}
