@@ -1,6 +1,6 @@
 :::{#sol-epe-split-bias}
 
-Insert the average fit:
+Insert the expected fit:
 
 $$
 \ba
@@ -37,12 +37,12 @@ $$
 &= \sqf{\avgfitf{\predvar} - \mean(\predvar)}
 && \text{(a number and its negative have the same square)} \\
 &= \sqf{\bias{\fitprocf{\trainset}\paren{\predvar}}}
-&& \text{(definitions of the average fit and of bias)}
+&& \text{(definitions of the expected fit and of bias)}
 \ea
 $$
 
 The cross term vanishes, and this time not by independence
-but by the definition of the average fit.
+but by the definition of the expected fit.
 The first factor is a constant, so it comes out of the expectation:
 
 $$
@@ -53,7 +53,7 @@ $$
 &= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \E{\fitprocf{\trainset}\paren{\predvar}}}
 && \text{(expectation of a difference of a constant and a variable)} \\
 &= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \avgfitf{\predvar}}
-&& \text{(definition of the average fit)} \\
+&& \text{(definition of the expected fit)} \\
 &= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \cdot 0
 && \text{(} a - a = 0 \text{)} \\
 &= 0
@@ -72,7 +72,7 @@ $$
 &= \E{\sqf{\fitprocf{\trainset}\paren{\predvar} - \avgfitf{\predvar}}}
 && \text{(a number and its negative have the same square)} \\
 &= \E{\sqf{\fitprocf{\trainset}\paren{\predvar} - \E{\fitprocf{\trainset}\paren{\predvar}}}}
-&& \text{(definition of the average fit)} \\
+&& \text{(definition of the expected fit)} \\
 &= \Var{\fitprocf{\trainset}\paren{\predvar}}
 && \text{(definition of variance)}
 \ea
