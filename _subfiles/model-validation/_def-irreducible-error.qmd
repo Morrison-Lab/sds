@@ -10,7 +10,6 @@ so $\varpar$ may differ from one covariate value to another:
 it does not assume constant noise variance across covariate values.
 For example, in @exr-epe-three-sources, $\varpar = 3$,
 so every prediction there has expected squared error at least $3$.
-
 :::
 
 ::: {.remark .notes}

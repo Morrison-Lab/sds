@@ -10,7 +10,6 @@ with $\trainset$ held fixed:
 $$
 \generr_{\trainset} \eqdef \E{\obsloss{*} \mid \trainset}.
 $$ {#eq-generalization-error}
-
 :::
 
 :::{#rem-source-generalization-error}

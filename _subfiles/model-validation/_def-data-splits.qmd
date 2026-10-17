@@ -25,7 +25,6 @@ $$
 $$ {#eq-data-splits}
 
 Source: @james2021islr2e [pp. 198--201].
-
 :::
 
 {{< slidebreak >}}

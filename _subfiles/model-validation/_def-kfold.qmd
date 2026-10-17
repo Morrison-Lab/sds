@@ -18,7 +18,6 @@ In **$\nfolds$-fold cross-validation**:
      giving the [fold-out rule](#def-fold-out-rule) $\fittedwo{\ifold}{\cdot}$.
    - Compute predicted values for the observations in fold $\fold{\ifold}$.
 3. Compute a summary prediction-error measure across all folds.
-
 :::
 
 {{< slidebreak >}}
