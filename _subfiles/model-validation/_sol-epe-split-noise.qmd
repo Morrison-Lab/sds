@@ -4,10 +4,10 @@ Write the prediction error as noise plus the error of the prediction, used as an
 
 $$
 \ba
-\newoutvar - \fitprocf{\trainset}\paren{\predvar}
-&= \paren{\newoutvar - \mean(\predvar)} + \paren{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}
+\newoutvar - \predvalf{\predvar}
+&= \paren{\newoutvar - \mean(\predvar)} + \paren{\mean(\predvar) - \predvalf{\predvar}}
 && \text{(add and subtract } \mean(\predvar) \text{)} \\
-&= \noise + \paren{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}
+&= \noise + \paren{\mean(\predvar) - \predvalf{\predvar}}
 && \text{(definition of } \newoutvar \text{)}
 \ea
 $$
@@ -16,10 +16,10 @@ Square it:
 
 $$
 \ba
-\sqf{\newoutvar - \fitprocf{\trainset}\paren{\predvar}}
+\sqf{\newoutvar - \predvalf{\predvar}}
 &= \noise^2
-+ 2 \noise \paren{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}
-+ \sqf{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}
++ 2 \noise \paren{\mean(\predvar) - \predvalf{\predvar}}
++ \sqf{\mean(\predvar) - \predvalf{\predvar}}
 && \text{(expand the square of a sum)}
 \ea
 $$
@@ -48,17 +48,17 @@ For the cross term,
 $\noise = \newoutvar - \mean(\predvar)$ shifts $\newoutvar$ by a constant,
 and $\newoutvar$ is independent of $\trainset$,
 so $\noise$ is independent of $\trainset$,
-and hence of $\fitprocf{\trainset}\paren{\predvar}$ and of $\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}$.
+and hence of $\predvalf{\predvar}$ and of $\mean(\predvar) - \predvalf{\predvar}$.
 The expectation of a product of independent random variables is the product of their expectations:
 
 $$
 \ba
-\E{2 \noise \paren{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}}
-&= 2 \E{\noise \paren{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}}
+\E{2 \noise \paren{\mean(\predvar) - \predvalf{\predvar}}}
+&= 2 \E{\noise \paren{\mean(\predvar) - \predvalf{\predvar}}}
 && \text{(constant factor 2)} \\
-&= 2 \E{\noise} \E{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}
+&= 2 \E{\noise} \E{\mean(\predvar) - \predvalf{\predvar}}
 && \text{(independence)} \\
-&= 2 \cdot 0 \cdot \E{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}
+&= 2 \cdot 0 \cdot \E{\mean(\predvar) - \predvalf{\predvar}}
 && \text{(the noise has mean } 0 \text{)} \\
 &= 0
 && \text{(zero times a number)}
@@ -68,13 +68,13 @@ $$
 Adding the three expectations,
 
 $$
-\E{\sqf{\newoutvar - \fitprocf{\trainset}\paren{\predvar}}}
-= \varpar + \E{\sqf{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}}.
+\E{\sqf{\newoutvar - \predvalf{\predvar}}}
+= \varpar + \E{\sqf{\mean(\predvar) - \predvalf{\predvar}}}.
 $$ {#eq-epe-after-noise}
 
 The cross term vanished because the noise has mean $0$ and,
 for a new outcome, is independent of the training set.
-Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\mean(\predvar) - \fitprocf{\trainset}\paren{\predvar}}$, which need not be zero.
+Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\mean(\predvar) - \predvalf{\predvar}}$, which need not be zero.
 That holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.

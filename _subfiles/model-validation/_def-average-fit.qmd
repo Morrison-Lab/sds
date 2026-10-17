@@ -4,10 +4,11 @@
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
 The **expected prediction** of $\fitproc$ at a covariate value $\predvar$
-is the prediction $\fitprocf{\trainset}\paren{\predvar}$ averaged over the population distribution of all training sets that might have been observed:
+is the prediction $\predvalf{\predvar}$ of the fitted model $\fitprocf{\trainset}$
+averaged over the population distribution of all training sets that might have been collected:
 
 $$
-\avgfitf{\predvar} \eqdef \E{\fitprocf{\trainset}\paren{\predvar}}.
+\avgfitf{\predvar} \eqdef \E{\predvalf{\predvar}}.
 $$ {#eq-average-fit}
 
 :::
@@ -26,7 +27,7 @@ from the [mean function](#def-mean-function) and from each other.
 :::{#exm-average-fit}
 #### Computing the expected prediction
 
-Suppose the predictions $\fitprocf{\trainset}\paren{\predvar}$ at $\predvar$
+Suppose the predictions $\predvalf{\predvar}$ at $\predvar$
 take the values $9$, $11$ and $13$ with equal probability.
 Then
 
