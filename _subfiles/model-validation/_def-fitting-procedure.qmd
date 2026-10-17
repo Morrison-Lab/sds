@@ -1,7 +1,7 @@
 :::{#def-fitting-procedure}
 #### Fitting procedure
 
-A **fitting procedure** is a rule $\fitproc$ that,
+A **fitting procedure** $\fitproc$ is a rule that,
 given any data $\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}$ and any covariate value $\predvar$,
 computes a [prediction](prediction.qmd#def-prediction) of the outcome at $\predvar$:
 
@@ -13,13 +13,13 @@ $$ {#eq-fitting-procedure}
 
 It is specified by these inputs:
 
-- the data it is fitted to;
-- the [model family](#def-model-family) of candidates it searches;
-- the [objective function](#def-objective-function) that scores each candidate against the data;
-- the [optimization algorithm](#def-optimization-algorithm) that searches the family for a candidate with a good score, with its starting values and stopping rule;
-- the [random seed](#def-random-seed), when the algorithm draws random numbers, as in splitting the data;
-- the [tuning parameters](#def-tuning-parameter), which it does not compute from the data;
-- the preprocessing of the covariates, such as [standardization](exploratory-descriptive.qmd#def-standardization), encoding and feature choice.
+- the [data set](#def-data-set) $\dataset$ it is fitted to;
+- the [model family](#def-model-family) $\modelfam$ of candidates it searches;
+- the [objective function](#def-objective-function) $\objfn$ that scores each candidate;
+- the [optimization algorithm](#def-optimization-algorithm) $\optalg$ that searches the family for a candidate with a good score;
+- the [random seed](#def-random-seed) $\seed$, when the algorithm draws random numbers, as in splitting the data;
+- the [tuning parameters](#def-tuning-parameter) $\tuning$, which it does not compute from the data;
+- the [preprocessing](#def-preprocessing) $\featmap$ of the covariates.
 
 :::
 

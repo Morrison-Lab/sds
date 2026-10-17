@@ -3,27 +3,26 @@
 
 Least-squares polynomial fitting of degree $\polydeg$ has these inputs:
 
-- data: the observations the polynomial is fitted to;
-- [model family](#def-model-family): the polynomials of degree at most $\polydeg$;
-- [objective function](#def-objective-function): the sum of squared errors over those observations;
-- [optimization algorithm](#def-optimization-algorithm): solving the normal equations, which finds the unique minimizer exactly;
-- [random seed](#def-random-seed): none, since nothing is random;
-- [tuning parameter](#def-tuning-parameter): the degree $\polydeg$;
-- preprocessing: none.
+- [data set](#def-data-set) $\dataset$: the observations the polynomial is fitted to;
+- [model family](#def-model-family) $\modelfam$: the polynomials of degree at most $\polydeg$;
+- [objective function](#def-objective-function) $\objfn$: the [residual sum of squares](correlation-regression.qmd#def-rss);
+- [optimization algorithm](#def-optimization-algorithm) $\optalg$: solving the [normal equations](correlation-regression.qmd#def-normal-equations), which finds the unique minimizer exactly;
+- [random seed](#def-random-seed) $\seed$: none, since nothing is random;
+- [tuning parameter](#def-tuning-parameter) $\tuning$: the degree $\polydeg$;
+- [preprocessing](#def-preprocessing) $\featmap$: none.
 
 Because the minimizer is unique and exact, the family, the data and the objective already determine the fitted rule.
 
-A random forest of regression trees is different:
+The [cross-validation choice procedure](#def-cv-choice) over polynomials of several degrees is different:
 
-- data: the observations the trees are grown on;
-- model family: averages of regression trees;
-- objective function: the sum of squared errors within each tree's leaves;
-- optimization algorithm: greedy splitting of the covariate space, tree by tree;
-- random seed: fixes which observations and covariates each tree uses;
-- tuning parameters: the number of trees and the minimum leaf size;
-- preprocessing: none.
+- data set $\dataset$: the observations the candidates are fitted and scored on;
+- model family $\modelfam$: the polynomials of every candidate degree;
+- objective function $\objfn$: the residual sum of squares within each candidate, and the [cross-validation estimate](#def-cv-estimate-indexed) between candidates;
+- optimization algorithm $\optalg$: the normal equations for each candidate, then keeping the candidate with the smallest estimate;
+- random seed $\seed$: fixes the random [fold assignment](#def-fold-assignment);
+- tuning parameter $\tuning$: none, since cross-validation chooses the degree;
+- preprocessing $\featmap$: none.
 
-Here the greedy search finds no exact minimizer,
-so two seeds give different fitted rules from the same data.
+Here two seeds give two fold assignments, which can choose different degrees and so give different fitted rules from the same data.
 
 :::
