@@ -9,6 +9,8 @@ draws from the population distribution (@def-population-distribution):
 $$X_1, \ldots, X_n \iid\ \P,$$
 
 where $\P$ is the population distribution.
+
+Source: @wikipedia_simple_random_sample.
 :::
 
 ::: {.remark .notes}

@@ -6,4 +6,5 @@ third and first [quartiles](#def-quartiles):
 
 $$\text{IQR} \eqdef Q_3 - Q_1$$
 
+Source: @wikipedia_interquartile_range.
 :::

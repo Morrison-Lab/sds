@@ -5,4 +5,5 @@ The **sample variance** of $n \ge 2$ observations is:
 
 $$s^2 \eqdef \frac{1}{n-1} \sumin (\rvar_\iobs - \rvarbar)^2$$
 
+Source: @wikipedia_variance.
 :::

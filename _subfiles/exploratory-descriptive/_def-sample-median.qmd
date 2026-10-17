@@ -9,4 +9,5 @@ $x_{(1)} \le \cdots \le x_{(n)}$:
 - if $n$ is odd, the median is $x_{((n+1)/2)}$;
 - if $n$ is even, the median is $\frac{1}{2}\paren{x_{(n/2)} + x_{(n/2 + 1)}}$.
 
+Source: @wikipedia_median.
 :::
