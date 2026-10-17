@@ -6,4 +6,6 @@ also called its **root mean squared error**,
 is the square root of its [pMSE](#def-mse):
 
 $$\pRMSE{\hparam} \eqdef \sqrt{\pMSE{\hparam}}$$
+
+Source: @wikipedia_root_mean_square_deviation.
 :::

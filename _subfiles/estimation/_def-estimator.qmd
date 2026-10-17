@@ -9,4 +9,6 @@ it is a random variable:
 $$
 \hparam(\dsn{X}).
 $$
+
+Source: @wikipedia_estimator.
 :::

@@ -9,4 +9,6 @@ absolute value of the [estimation error](#def-estimation-error):
 $$
 \maelr{\hparam} \eqdef \E{\abs{\erf{\hparam}}}
 $$
+
+Source: @wikipedia_mean_absolute_error.
 :::

@@ -7,4 +7,6 @@ $\pMSE{\hparam}$ or $\ESEE{\hparam}$, is the expectation of the square
 of the [estimation error](#def-estimation-error):
 
 $$\pMSE{\hparam} \eqdef \E{\sqf{\erf{\hparam}}}$$
+
+Source: @wikipedia_mean_squared_error.
 :::

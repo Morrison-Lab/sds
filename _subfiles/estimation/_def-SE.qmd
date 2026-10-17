@@ -7,4 +7,5 @@ of $\hparam$:
 
 $$\SE{\hparam} \eqdef \SD{\hparam}$$
 
+Source: @wikipedia_standard_error.
 :::
