@@ -1,7 +1,8 @@
 ::: {#def-null-hypothesis}
 #### Null hypothesis
 
-The **null hypothesis**, written $H_0$,
+The **null hypothesis**
+[@wikipedia_statistical_hypothesis_test], written $H_0$,
 is a specific claim about the parameters of a statistical model,
 which a hypothesis test assesses against the data.
 :::

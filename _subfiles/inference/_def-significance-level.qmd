@@ -1,7 +1,8 @@
 ::: {#def-significance-level}
 #### Significance level
 
-A hypothesis test with **significance level** $\siglevel$
+A hypothesis test with **significance level**
+[@wikipedia_statistical_significance] $\siglevel$
 rejects the [null hypothesis](#def-null-hypothesis)
 when the [p-value](#def-p-value) is at most $\siglevel$.
 :::

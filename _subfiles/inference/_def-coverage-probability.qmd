@@ -1,7 +1,8 @@
 ::: {#def-coverage-probability}
 #### Coverage probability
 
-The **coverage probability** of an interval $[L, U]$ for a parameter $\param$
+The **coverage probability**
+[@wikipedia_coverage_probability] of an interval $[L, U]$ for a parameter $\param$
 is $\Pr(L \le \param \le U)$,
 computed over repeated samples with $\param$ held fixed.
 A $100(1-\siglevel)\%$ [confidence interval](#def-confidence-interval)

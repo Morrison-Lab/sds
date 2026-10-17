@@ -1,7 +1,8 @@
 ::: {#def-test-statistic}
 #### Test statistic
 
-A **test statistic** $T$ is a function of the data
+A **test statistic**
+[@wikipedia_test_statistic] $T$ is a function of the data
 whose distribution under the [null hypothesis](#def-null-hypothesis)
 is known, exactly or approximately,
 and whose larger values are more extreme,

@@ -4,6 +4,7 @@
 Let $Z_1, \ldots, Z_k$ be independent random variables,
 each with the standard Gaussian distribution.
 The distribution of $\sumto{j}{k} Z_j^2$
-is the **chi-square distribution with $k$ degrees of freedom**,
+is the **chi-square distribution with $k$ degrees of freedom**
+[@wikipedia_chi_squared_distribution],
 written $\chi^2_k$.
 :::
