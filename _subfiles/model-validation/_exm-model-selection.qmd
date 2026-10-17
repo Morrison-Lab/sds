@@ -2,7 +2,8 @@
 #### Choosing a polynomial degree
 
 In @exm-tuning-parameter,
-the candidates are the least-squares fitted models from the polynomial model families of degree at most $1, 2, 3, 4$.
+the candidates are the least-squares fitted models from four polynomial model families,
+the families of degree at most $1$, at most $2$, at most $3$ and at most $4$.
 Choosing among these four fitted models is model selection,
 and the observations it uses are cars held out from fitting.
 
