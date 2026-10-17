@@ -3,7 +3,8 @@
 
 With the [mean squares](#def-mean-squares) of $k \ge 2$ groups
 and $n > k$ observations in all,
-the **one-way analysis of variance (ANOVA)** F-test of
+the **one-way analysis of variance (ANOVA)**
+[@wikipedia_analysis_of_variance] F-test of
 
 $$
 \begin{aligned}
