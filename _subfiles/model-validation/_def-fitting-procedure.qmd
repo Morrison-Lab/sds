@@ -4,14 +4,14 @@
 A **fitting procedure** $\fitproc$ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that,
 given any [data set](#def-data-set) $\dataset$,
 produces a [fitted model](#def-fitted-model) $\emodmem$.
-We write $\fitproc\paren{\predvar; \dataset}$
+We write $\fitprocf{\predvar; \dataset}$
 for the prediction of that fitted model at $\predvar$:
 
 $$
 \dataset
 \mapsto
 \emodmem
-= \paren{\predvar \mapsto \fitproc\paren{\predvar; \dataset}}.
+= \paren{\predvar \mapsto \fitprocf{\predvar; \dataset}}.
 $$ {#eq-fitting-procedure}
 
 It is specified by these inputs:
