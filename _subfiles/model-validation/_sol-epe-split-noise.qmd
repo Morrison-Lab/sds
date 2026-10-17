@@ -1,13 +1,13 @@
 :::{#sol-epe-split-noise}
 
-Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\mean$:
+Write the prediction error as noise plus the error of the prediction, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\truemeanfnf{\predvar}$:
 
 $$
 \ba
-\newoutvar - \predval
-&= \paren{\newoutvar - \mean} + \paren{\mean - \predval}
-&& \text{(add and subtract } \mean \text{)} \\
-&= \noise + \paren{\mean - \predval}
+\newoutvar - \predvalf{\predvar}
+&= \paren{\newoutvar - \truemeanfnf{\predvar}} + \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
+&& \text{(add and subtract } \truemeanfnf{\predvar} \text{)} \\
+&= \noise + \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
 && \text{(definition of } \newoutvar \text{)}
 \ea
 $$
@@ -16,10 +16,10 @@ Square it:
 
 $$
 \ba
-\sqf{\newoutvar - \predval}
+\sqf{\newoutvar - \predvalf{\predvar}}
 &= \noise^2
-+ 2 \noise \paren{\mean - \predval}
-+ \sqf{\mean - \predval}
++ 2 \noise \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
++ \sqf{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
 && \text{(expand the square of a sum)}
 \ea
 $$
@@ -45,20 +45,20 @@ $$
 $$
 
 For the cross term,
-$\noise = \newoutvar - \mean$ shifts $\newoutvar$ by a constant,
+$\noise = \newoutvar - \truemeanfnf{\predvar}$ shifts $\newoutvar$ by a constant,
 and $\newoutvar$ is independent of $\trainset$,
 so $\noise$ is independent of $\trainset$,
-and hence of $\predval$ and of $\mean - \predval$.
+and hence of $\predvalf{\predvar}$ and of $\truemeanfnf{\predvar} - \estmeanf{\predvar}$.
 The expectation of a product of independent random variables is the product of their expectations:
 
 $$
 \ba
-\E{2 \noise \paren{\mean - \predval}}
-&= 2 \E{\noise \paren{\mean - \predval}}
+\E{2 \noise \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}
+&= 2 \E{\noise \paren{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}
 && \text{(constant factor 2)} \\
-&= 2 \E{\noise} \E{\mean - \predval}
+&= 2 \E{\noise} \E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
 && \text{(independence)} \\
-&= 2 \cdot 0 \cdot \E{\mean - \predval}
+&= 2 \cdot 0 \cdot \E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
 && \text{(the noise has mean } 0 \text{)} \\
 &= 0
 && \text{(zero times a number)}
@@ -68,13 +68,13 @@ $$
 Adding the three expectations,
 
 $$
-\E{\sqf{\newoutvar - \predval}}
-= \varpar + \E{\sqf{\mean - \predval}}.
+\E{\sqf{\newoutvar - \predvalf{\predvar}}}
+= \varpar + \E{\sqf{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}.
 $$ {#eq-epe-after-noise}
 
 The cross term vanished because the noise has mean $0$ and,
 for a new outcome, is independent of the training set.
-Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\mean - \predval}$, which need not be zero.
+Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}$, which need not be zero.
 That holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.

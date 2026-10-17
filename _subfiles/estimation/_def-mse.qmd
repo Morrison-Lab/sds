@@ -2,8 +2,8 @@
 #### Mean squared error
 
 The **population mean squared error (pMSE)** of an estimator $\hparam$,
-also called its **mean squared error**, denoted
-$\pMSE{\hparam}$, is the expectation of the square
+also called its **mean squared error** or its **expected squared estimation error (ESEE)**, denoted
+$\pMSE{\hparam}$ or $\ESEE{\hparam}$, is the expectation of the square
 of the [estimation error](#def-estimation-error):
 
 $$\pMSE{\hparam} \eqdef \E{\sqf{\erf{\hparam}}}$$

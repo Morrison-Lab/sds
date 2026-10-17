@@ -266,6 +266,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_thm-epe-split-noise.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-epe-split-noise.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_exr-epe-split-bias.qmd >}}
 
 {{< slidebreak >}}

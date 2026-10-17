@@ -2,7 +2,7 @@
 #### Expected prediction error at a covariate value
 
 The **expected prediction error at $\predvar$**
-(**EPE**; also the expected squared prediction error)
+(**EPE**; also the **expected squared prediction error**, **ESPE**)
 of a [fitting procedure](#def-fitting-procedure) $\fitproc$
 at training-set size $\nobs$
 is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss),
