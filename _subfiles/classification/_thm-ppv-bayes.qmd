@@ -6,8 +6,7 @@ $\text{spec}$ its [specificity](#def-specificity),
 and $\prev$ the [prevalence](#def-prevalence) of the disease.
 If the probability of a positive test is positive,
 $\text{sens} \cd \prev + \paren{1 - \text{spec}} \cd \paren{1 - \prev} > 0$,
-then the [positive predictive value](#def-ppv) of the test is
-[@wikipedia_bayes_theorem]:
+then the [positive predictive value](#def-ppv) of the test is:
 
 $$
 \text{PPV} =
@@ -15,6 +14,7 @@ $$
 {\text{sens} \cd \prev + \paren{1 - \text{spec}} \cd \paren{1 - \prev}}
 $$ {#eq-ppv-bayes}
 
+Source: @wikipedia_bayes_theorem.
 :::
 
 ::: proof
