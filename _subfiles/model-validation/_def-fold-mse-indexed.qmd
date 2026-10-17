@@ -7,8 +7,8 @@ is the [fold mean squared error](#def-fold-mse)
 computed with the [fold-out rule](#def-fold-out-rule) that $\fitproc$ produces:
 
 $$
-\foldmseof{\ifold}{\fitproc}\paren{\trainset} \eqdef \frac{1}{\foldsize{\ifold}} \sum_{\iobs \in \fold{\ifold}}
-\sqf{\fitprocf{\predvar_{\iobs}; \paren{(\predvar_{\iobs'}, \outvar_{\iobs'})}_{\iobs' \in \obsidx \setminus \fold{\ifold}}} - \outvar_{\iobs}}.
+\foldmseoff{\ifold}{\fitproc}{\trainset} \eqdef \frac{1}{\foldsize{\ifold}} \sum_{\iobs \in \fold{\ifold}}
+\sqf{\fittedwo{\ifold}{\predvar_{\iobs}} - \outvar_{\iobs}}.
 $$ {#eq-fold-mse-indexed}
 
 :::

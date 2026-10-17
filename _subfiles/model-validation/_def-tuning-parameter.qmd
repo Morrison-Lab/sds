@@ -6,7 +6,7 @@ is a setting $\tuning$ that the procedure needs
 but does not compute from the [training set](#def-training-set):
 
 $$
-\fitted(\predvar) = \fitproc_{\tuning}\paren{\predvar; \trainset}.
+\predvalf{\predvar} = \candpredvalf{\tuning}{\predvar}.
 $$ {#eq-tuning-parameter}
 
 :::

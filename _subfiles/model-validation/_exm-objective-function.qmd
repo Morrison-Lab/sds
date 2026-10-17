@@ -1,0 +1,8 @@
+:::{#exm-objective-function}
+#### Residual sum of squares
+
+For the polynomials $\modmem$ in @exm-model-family,
+the [residual sum of squares](correlation-regression.qmd#def-rss) is an [objective function](#def-objective-function) $\objfn$:
+it gives each polynomial the sum over the observations of its squared difference from the observed outcome.
+
+:::

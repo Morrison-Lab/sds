@@ -3,17 +3,17 @@
 
 Each set of a [training/validation/test split](#def-data-splits) has one job:
 
-- the training set is used to fit each candidate procedure,
+- the training set is used to fit each candidate model,
   which estimates its parameters;
 - the validation set is used to compare the candidates,
   choose transformations,
   or choose values of a [tuning parameter](#def-tuning-parameter);
 - the test set is used once, after the validation choice is made,
-  to estimate the [generalization error](#def-generalization-error) of the chosen rule.
+  to estimate the [generalization error](#def-generalization-error) of the chosen fitted model.
 
-The chosen procedure won on the validation set
+The chosen fitted model won on the validation set
 partly because of that particular validation sample,
-so its validation error is optimistic.
+so its prediction error on the validation set is optimistic as an estimate of its generalization error.
 Keeping the test set out of every choice
 is what makes its score free of that optimism.
 

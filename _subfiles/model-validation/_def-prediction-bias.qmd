@@ -4,17 +4,17 @@
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
 At a covariate value $\predvar$,
-the prediction $\fitprocf{\predvar; \trainset}$ is a random variable,
+the prediction $\predvalf{\predvar}$ is a random variable,
 because it depends on the random training data.
 The **bias** of the prediction
 is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
 as an [estimator](estimation.qmd#def-estimator)
-of the [mean function](#def-mean-function) value $\mean(\predvar)$,
+of the [mean function](#def-mean-function) value $\mean$,
 which is its estimand here, not the new outcome it predicts:
 
 $$
-\bias{\fitprocf{\predvar; \trainset}}
-= \E{\erf{\fitprocf{\predvar; \trainset}}}.
+\bias{\predvalf{\predvar}}
+= \E{\erf{\predvalf{\predvar}}}.
 $$ {#eq-prediction-bias}
 
 :::
@@ -22,7 +22,7 @@ $$ {#eq-prediction-bias}
 ::: {.remark .notes}
 
 In expected prediction error decompositions [@james2021islr2e, Section 2.2.2],
-the bias reflects the error introduced by approximating a real-world relationship by a model.
+the bias reflects the approximation error that comes from approximating a real-world relationship by a model.
 
 :::
 
@@ -31,17 +31,17 @@ the bias reflects the error introduced by approximating a real-world relationshi
 :::{#exm-prediction-bias}
 #### Computing the bias of a prediction
 
-Suppose $\mean(\predvar) = 10$,
-and the predictions $\fitprocf{\predvar; \trainset}$,
+Suppose $\mean = 10$,
+and the predictions $\predvalf{\predvar}$,
 over repeated training sets,
 average $11$.
 Then
 
 $$
 \begin{aligned}
-\bias{\fitprocf{\predvar; \trainset}}
-&= \E{\erf{\fitprocf{\predvar; \trainset}}} \\
-&= \E{\fitprocf{\predvar; \trainset}} - \mean(\predvar) \\
+\bias{\predval}
+&= \E{\erf{\predval}} \\
+&= \Epredval - \mean \\
 &= 11 - 10 \\
 &= 1.
 \end{aligned}

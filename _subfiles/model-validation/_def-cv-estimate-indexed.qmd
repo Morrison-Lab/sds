@@ -4,13 +4,13 @@
 Let a [training set](#def-training-set) $\trainset$, indexed by $\obsidx$,
 be divided into [folds](#def-folds) $\fold{1}, \ldots, \fold{\nfolds}$.
 The **cross-validation estimate of procedure** $\fitproc$ on $\trainset$,
-$\cvestof{\nfolds}{\fitproc}\paren{\trainset}$,
+$\cvestoff{\nfolds}{\fitproc}{\trainset}$,
 is the [cross-validation estimate](#def-cv-estimate)
 computed with [fold-out rules](#def-fold-out-rule) that $\fitproc$ produces from $\trainset$:
 
 $$
-\cvestof{\nfolds}{\fitproc}\paren{\trainset} \eqdef \frac{1}{\nobs} \sum_{\iobs \in \obsidx}
-\sqf{\fitprocf{\predvar_{\iobs}; \paren{(\predvar_{\iobs'}, \outvar_{\iobs'})}_{\iobs' \in \obsidx \setminus \fold{\foldof{\iobs}}}} - \outvar_{\iobs}}.
+\cvestoff{\nfolds}{\fitproc}{\trainset} \eqdef \frac{1}{\nobs} \sum_{\iobs \in \obsidx}
+\sqf{\fittedwo{\foldof{\iobs}}{\predvar_{\iobs}} - \outvar_{\iobs}}.
 $$ {#eq-cv-estimate-indexed}
 
 :::

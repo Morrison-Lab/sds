@@ -25,7 +25,7 @@ Each step below changes one thing.
 3. Let $\fitproc$ be the [fitting procedure](#def-fitting-procedure),
    the rule that maps a training set to a fitted prediction rule.
    The [fold-out rule](#def-fold-out-rule) of observation $i$ is then
-   $\fittedwo{\foldof{i}}{x} = \fitprocf{x; \paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \set{i}}}$.
+   $\fittedwo{\foldof{i}}{x} = \fitmodvalf{\paren{(x_{i'}, y_{i'})}_{i' \in I \setminus \set{i}}}{x}$.
    (@eq-fold-out-rule with $\fold{\foldof{i}} = \set{i}$.)
 4. This rule is fitted to every observation except observation $i$,
    and it does not involve $\foldof{i}$ itself.

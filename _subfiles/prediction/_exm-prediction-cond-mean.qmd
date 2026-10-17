@@ -7,5 +7,5 @@ and $\est{\vparam}$ is an estimate of $\vparam$.
 The usual prediction (@def-prediction) of $Y$ at $X = x$
 is the estimated conditional mean:
 
-$$\fitted(x) = \mean(x; \est{\vparam}).$$
+$$\predvalf{x} = \mean(x; \est{\vparam}).$$
 :::

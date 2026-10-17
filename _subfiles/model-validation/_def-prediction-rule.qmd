@@ -2,13 +2,13 @@
 #### Prediction rule
 
 The **prediction rule** $\fitted$
+is shorthand for the [fitted model](#def-fitted-model) $\fitmodf{\trainset}$
 that a [fitting procedure](#def-fitting-procedure) $\fitproc$
-produces from a [training set](#def-training-set) $\trainset$
-is the function that maps each covariate value $\predvar$
-to the [prediction](prediction.qmd#def-prediction) that $\fitproc$ computes from $\predvar$ and $\trainset$:
+produces from the [training set](#def-training-set) $\trainset$,
+written without the subscript when the training set is the one in use:
 
 $$
-\fitted : \predvar \mapsto \fitprocf{\predvar; \trainset}.
+\fitted \eqdef \fitmodf{\trainset}.
 $$ {#eq-prediction-rule}
 
 :::

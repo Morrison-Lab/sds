@@ -1,22 +1,24 @@
 :::{#def-fitting-procedure}
 #### Fitting procedure
 
-A **fitting procedure** is a rule $\fitproc$ that,
-given any data $\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}$ and any covariate value $\predvar$,
-computes a [prediction](prediction.qmd#def-prediction) of the outcome at $\predvar$:
+A **fitting procedure** $\fitproc$ is a [function](https://morrison-lab.github.io/mds/functions.html#def-function) that,
+given any [data set](#def-data-set) $\dataset$,
+produces the [fitted model](#def-fitted-model) $\emodmem = \fitprocf{\dataset}$:
 
 $$
-\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}
+\dataset
 \mapsto
-\fitprocf{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}.
+\emodmem
+= \fitprocf{\dataset}.
 $$ {#eq-fitting-procedure}
 
-:::
+A fitting procedure is specified by these inputs:
 
-:::{#rem-source-fitting-procedure}
-#### Source: Fitting procedure
-
-The rule $\fitproc$ of the [definition of a prediction](prediction.qmd#def-prediction).
-@hastie2009elements [sec. 7.2] write the model estimated from a training set as $\hat f$.
+- [model family](#def-model-family) $\modelfam$;
+- [objective function](#def-objective-function) $\objfn$;
+- [optimization algorithm](#def-optimization-algorithm) $\optalg$;
+- [random seed](#def-random-seed) $\seed$;
+- [tuning parameters](#def-tuning-parameter) $\tuning$;
+- [preprocessing](#def-preprocessing) $\featmap$.
 
 :::

@@ -9,15 +9,15 @@ with $\mean$ the [mean function](#def-mean-function),
 there is a **bias--variance trade-off** among them
 when, from each procedure to the next,
 the squared [bias](#def-prediction-bias)
-of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$, does not rise
+of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean$, does not rise
 and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance)
 does not fall:
 
 $$
 \ba
-\sqf{\bias{\candproc{\icand + 1}\paren{\predvar; \trainset}}} &\le \sqf{\bias{\candproc{\icand}\paren{\predvar; \trainset}}},
+\sqf{\bias{\candpredvalf{\icand + 1}{\predvar}}} &\le \sqf{\bias{\candpredvalf{\icand}{\predvar}}},
 \\
-\Var{\candproc{\icand + 1}\paren{\predvar; \trainset}} &\ge \Var{\candproc{\icand}\paren{\predvar; \trainset}},
+\Var{\candpredvalf{\icand + 1}{\predvar}} &\ge \Var{\candpredvalf{\icand}{\predvar}},
 \qquad \icand = 1, \ldots, \ncand - 1.
 \ea
 $$ {#eq-bias-variance-tradeoff}

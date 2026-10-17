@@ -142,7 +142,7 @@ Part of that gap is expected:
 by @rem-cv-estimate,
 with $\fitproc$ the least-squares fit of a degree-`r max(sim_degrees)` polynomial,
 the cross-validation estimate targets $\expgenerr{\fitproc}{`r sim_n_fit`}$,
-not the error of a fit to 30 points.
+not the expected generalization error of a fit to 30 points.
 A simulation of many training sets of each size
 shows how much the size alone matters at this degree.
 

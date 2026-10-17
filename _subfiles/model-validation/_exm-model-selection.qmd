@@ -1,0 +1,10 @@
+:::{#exm-model-selection}
+#### Choosing a polynomial degree
+
+In @exm-tuning-parameter,
+the candidates are the least-squares fitted models from four polynomial model families,
+the families of degree $1$ ("linear"), $2$ ("quadratic"), $3$ ("cubic") and $4$ ("quartic").
+Choosing among these four fitted models is model selection,
+and the observations it uses are cars held out from fitting.
+
+:::
