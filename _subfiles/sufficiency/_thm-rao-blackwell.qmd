@@ -13,6 +13,7 @@ $$ {#eq-rao-blackwell}
 
 Source: [@rao1945information; @blackwell1947conditional; @CaseBerg01, Thm. 7.3.17, p. 342].
 
+Source: @wikipedia_rao_blackwell_theorem.
 :::
 
 ::: proof

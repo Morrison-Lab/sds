@@ -80,6 +80,12 @@ without making it more biased.
 
 - The [Fall 2024 course site for UC Berkeley's Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation.
 
+### Online references
+
+-   @wikipedia_sufficient_statistic --- sufficiency and the factorization theorem
+
+-   @wikipedia_rao_blackwell_theorem --- improving an estimator by conditioning on a sufficient statistic
+
 ## References {.unnumbered}
 
 ::: {#refs}
