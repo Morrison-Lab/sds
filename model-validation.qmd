@@ -42,6 +42,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-mean-function.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-model-family.qmd >}}
 
 {{< slidebreak >}}
@@ -106,6 +110,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-prediction-function-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-prediction-function-family.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-new-observation.qmd >}}
 
 {{< slidebreak >}}
@@ -159,10 +171,6 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-expected-generalization-error.qmd >}}
-
-{{< slidebreak >}}
-
-{{< include sds/_subfiles/model-validation/_def-mean-function.qmd >}}
 
 {{< slidebreak >}}
 

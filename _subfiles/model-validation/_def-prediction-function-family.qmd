@@ -1,0 +1,7 @@
+:::{#def-prediction-function-family}
+#### Prediction function family
+
+A **prediction function family** $\predfam$ is a set of functions,
+each of which maps a [covariate](#def-covariate) value $\predvar$ to a [prediction](prediction.qmd#def-prediction) of the outcome.
+
+:::

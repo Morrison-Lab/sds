@@ -1,0 +1,9 @@
+:::{#exm-prediction-function-family}
+#### Polynomials as prediction functions
+
+Predicting the outcome at a covariate value $\predvar$ by the value at $\predvar$ of a polynomial of degree at most $\polydeg$
+makes the polynomials of @exm-model-family a [prediction function family](#def-prediction-function-family) $\predfam$.
+The same functions are the members of a [mean-function model family](#def-model-family) $\modelfam$ when each one is a candidate for the mean function,
+and the members of $\predfam$ when each one is a candidate for how to predict.
+
+:::
