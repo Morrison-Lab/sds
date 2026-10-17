@@ -1,11 +1,12 @@
 ::: {#def-bootstrap-se}
 #### Bootstrap standard error
 
-The **bootstrap standard error**
-[@wikipedia_standard_error] of a statistic $\hparam$,
+The **bootstrap standard error** of a statistic $\hparam$,
 written $\widehat{\text{SE}}_\text{boot}$,
 is the sample standard deviation of the bootstrap replicates
 $\hparam^*_1, \ldots, \hparam^*_B$
 (@def-bootstrap-distribution).
 It estimates the [standard error](estimation.qmd#def-SE) of $\hparam$.
+
+Source: @wikipedia_standard_error.
 :::
