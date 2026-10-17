@@ -16,4 +16,5 @@ $$ {#eq-logistic-model}
 where $\vpredvar_\iobs = \tp{\paren{1, \predvar_{i1}, \dots, \predvar_{ip}}}$ and $\vcoef = \tp{\paren{\coef{0}, \coef{1}, \dots, \coef{p}}}$.
 The leading $1$ in $\vpredvar_\iobs$ makes $\intcoef$ the intercept, and $\coef{j}$ for $j \ge 1$ is the slope for the $j$th predictor.
 
+Source: @wikipedia_logistic_regression.
 :::

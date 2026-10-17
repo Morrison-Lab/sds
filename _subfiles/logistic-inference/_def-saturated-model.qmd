@@ -11,4 +11,5 @@ $$ {#eq-saturated-model}
 
 with the outcomes independent given the predictors.
 
+Source: @wikipedia_saturated_model.
 :::
