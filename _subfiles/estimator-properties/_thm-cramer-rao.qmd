@@ -11,8 +11,6 @@ $$
 $$ {#eq-cramer-rao}
 
 Source: [@rao1945information; @cramer1946mathematical; @CaseBerg01, Thm. 7.3.9, p. 335].
-
-Source: @wikipedia_cram_r_rao_bound.
 :::
 
 ::: proof
