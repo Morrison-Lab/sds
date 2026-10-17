@@ -7,8 +7,6 @@ The **false discovery rate** (FDR) is the expected value of the
 $$
 \text{FDR} \eqdef \E{\text{FDP}}.
 $$
-
-Source: @wikipedia_false_discovery_rate.
 :::
 
 :::{#rem-source-fdr}

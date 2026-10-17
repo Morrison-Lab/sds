@@ -202,11 +202,13 @@ resources:
 
 -   @wikipedia_family_wise_error_rate --- the rate and the corrections that control it
 
--   @wikipedia_false_discovery_rate --- the rate and the Benjamini–Hochberg procedure
+-   @wikipedia_false_discovery_rate --- the rate and the Benjamini-Hochberg procedure
 
 -   @wikipedia_bonferroni_correction --- the correction and its conservatism
 
 -   @wikipedia_holm_bonferroni_method --- the step-down procedure
+
+-   @wikipedia_booles_inequality --- the Wikipedia article on boole's inequality
 
 ## References {.unnumbered}
 
