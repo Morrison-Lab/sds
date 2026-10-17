@@ -1,7 +1,8 @@
 ::: {#def-credible-interval}
 #### Credible interval
 
-A $100(1-\siglevel)\%$ **credible interval** for a parameter $\param$,
+A $100(1-\siglevel)\%$ **credible interval**
+[@wikipedia_credible_interval] for a parameter $\param$,
 given observed data $\vy$,
 is an interval $\sb{l(\vy),\, r(\vy)}$
 whose [posterior](#def-posterior) probability is $1 - \siglevel$:

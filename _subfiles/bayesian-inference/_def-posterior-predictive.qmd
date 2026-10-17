@@ -1,7 +1,8 @@
 ::: {#def-posterior-predictive}
 #### Posterior predictive distribution
 
-The **posterior predictive distribution** of a new observation $Y^{\mathrm{new}}$,
+The **posterior predictive distribution**
+[@wikipedia_posterior_predictive_distribution] of a new observation $Y^{\mathrm{new}}$,
 given observed data $\vY = \vy$,
 is the distribution of $Y^{\mathrm{new}}$ implied by the [posterior](#def-posterior) $\p(\param \mid \vy)$
 and the model $\p(y^{\mathrm{new}} \mid \param)$:

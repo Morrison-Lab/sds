@@ -1,7 +1,8 @@
 ::: {#def-frequentist-paradigm}
 #### Frequentist paradigm
 
-In the **frequentist** paradigm of statistical inference,
+In the **frequentist**
+[@wikipedia_frequentist_inference] paradigm of statistical inference,
 an unknown parameter $\param$ is a fixed constant,
 probability describes long-run frequencies over repetitions
 of the data-generating process,

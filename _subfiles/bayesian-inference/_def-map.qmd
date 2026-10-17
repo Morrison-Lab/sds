@@ -1,7 +1,8 @@
 ::: {#def-map}
 #### Maximum a posteriori estimate
 
-The **maximum a posteriori** (MAP) estimate of a parameter $\param$,
+The **maximum a posteriori**
+[@wikipedia_maximum_a_posteriori_estimation] (MAP) estimate of a parameter $\param$,
 given observed data $\vY = \vy$,
 written $\hparam_{\text{MAP}}$,
 is the value of $\param$ that maximizes the [posterior density](#def-posterior):

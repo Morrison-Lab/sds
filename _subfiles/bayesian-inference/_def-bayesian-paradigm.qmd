@@ -1,7 +1,8 @@
 ::: {#def-bayesian-paradigm}
 #### Bayesian paradigm
 
-In the **Bayesian** paradigm of statistical inference,
+In the **Bayesian**
+[@wikipedia_bayesian_statistics] paradigm of statistical inference,
 an unknown parameter $\param$ is a random variable with its own probability distribution,
 and probability measures degree of belief
 [@dobson4e, Chapter 12, p. 272].

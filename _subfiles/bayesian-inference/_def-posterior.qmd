@@ -1,7 +1,8 @@
 ::: {#def-posterior}
 #### Posterior distribution
 
-The **posterior distribution** of a parameter $\param$,
+The **posterior distribution**
+[@wikipedia_posterior_probability] of a parameter $\param$,
 given observed data $\vY = \vy$,
 is the [conditional distribution](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf)
 of $\param$ given $\vY = \vy$.
