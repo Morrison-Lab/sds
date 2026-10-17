@@ -15,11 +15,11 @@ is often at some $\candproc{\icand}$ with $1 < \icand < \ncand$
 but not always:
 if the mean function $\mean$ is a candidate of $\candproc{1}$,
 the squared bias of $\candproc{1}$ can be zero,
-and then no later $\candproc{\icand}$ has a smaller squared bias
+and then no more flexible $\candproc{\icand}$ has a smaller squared bias
 and, under the trade-off, none has a smaller variance,
 so none has a smaller expected squared prediction error.
 Past the candidate with the smallest expected squared prediction error,
-the later candidates have lowered their squared bias by less than they have raised their variance,
+the more flexible candidates have lowered their squared bias by less than they have raised their variance,
 and their fitted models tend to [overfit](#def-overfitting):
 they fit their training sets more closely than the fitted model of the candidate with the smallest expected squared prediction error
 but predict new observations worse.
