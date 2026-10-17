@@ -1,5 +1,5 @@
 :::{#def-average-fit}
-#### Expected fit
+#### Expected prediction
 
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
