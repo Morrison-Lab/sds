@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-17 08:57:23 (PDT)
+Last modified: 2026-10-17 10:19:16 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -495,7 +495,7 @@ Last modified: 2026-10-17 08:57:23 (PDT)
 
 > **NOTE:**
 >
-> **Definition 33 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is a random variable, because it depends on the random training data. The **bias** of the prediction is the expected [estimation error](estimation.llms.md#def-estimation-error) of the prediction as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\\, which is its estimand here, not the new outcome it predicts:
+> **Definition 33 (Bias of a prediction)** Let \\g\\ be a [fitting procedure](#def-fitting-procedure), and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ is a random variable, because it depends on the random training data. The **bias** of the prediction is the expected [estimation error](estimation.llms.md#def-estimation-error) of the prediction as an [estimator](estimation.llms.md#def-estimator) of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\, which is its estimand here, not the new outcome it predicts:
 >
 > \\ \operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} = \operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right\]\mathclose{}. \tag{28}\\
 
@@ -505,15 +505,15 @@ Last modified: 2026-10-17 08:57:23 (PDT)
 
 > **NOTE:**
 >
-> **Example 20 (Computing the bias of a prediction)** Suppose \\\mu= 10\\, and the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated training sets, average \\11\\. Then
+> **Example 20 (Computing the bias of a prediction)** Suppose \\\mu\mathopen{}\left(x\right)\mathclose{} = 10\\, and the predictions \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\, over repeated training sets, average \\11\\. Then
 >
-> \\ \begin{aligned} \operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(\hat{y}\right)\mathclose{}\right\]\mathclose{} \\ &= {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \mu\\ &= 11 - 10 \\ &= 1. \end{aligned} \\
+> \\ \begin{aligned} \operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{} &= \operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(\hat{y}\right)\mathclose{}\right\]\mathclose{} \\ &= {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \mu\mathopen{}\left(x\right)\mathclose{} \\ &= 11 - 10 \\ &= 1. \end{aligned} \\
 >
 > The squared bias is \\1^2 = 1\\, the value in [Exercise 4](#exr-epe-three-sources).
 
 > **NOTE:**
 >
-> **Exercise 4 (Expected squared error from three sources)** A prediction \\\hat{y}\\ at a covariate value \\x\\ has squared bias \\\[\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\]^2 = 1\\ and variance \\\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} = 2\\. The new outcome is \\Y\_{\*}= \mu+ \nu\\, where \\\nu\\ has mean \\0\\ and variance \\\sigma^2= 3\\ and is independent of \\\hat{y}\\.
+> **Exercise 4 (Expected squared error from three sources)** A prediction \\\hat{y}\\ at a covariate value \\x\\ has squared bias \\\[\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\]^2 = 1\\ and variance \\\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} = 2\\. The new outcome is \\Y\_{\*}= \mu\mathopen{}\left(x\right)\mathclose{} + \nu\\, where \\\nu\\ has mean \\0\\ and variance \\\sigma^2= 3\\ and is independent of \\\hat{y}\\.
 >
 > 1.  What is the expected squared prediction error \\\operatorname{E}\mathopen{}\left\[(Y\_{\*}- \hat{y})^2\right\]\mathclose{}\\?
 > 2.  If we could remove all bias and all variance of \\\hat{y}\\, what would the expected squared prediction error be?
@@ -569,9 +569,9 @@ Last modified: 2026-10-17 08:57:23 (PDT)
 >
 > **Exercise 6 (Separate the bias)** [Equation 29](#eq-epe-after-noise) leaves one term that still mixes two ideas:
 >
-> \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2\right\]\mathclose{}. \\
+> \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2\right\]\mathclose{}. \\
 >
-> A prediction can miss \\\mu\\ because its [expected prediction](#def-average-fit) is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.
+> A prediction can miss \\\mu\mathopen{}\left(x\right)\mathclose{}\\ because its [expected prediction](#def-average-fit) is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.
 >
 > Split it with the same technique as before: add and subtract the expected prediction \\{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ ([Equation 27](#eq-average-fit)), expand, and take the expectation term by term.
 >
@@ -581,21 +581,21 @@ Last modified: 2026-10-17 08:57:23 (PDT)
 >
 > *Solution 6*. Insert the expected prediction:
 >
-> \\ \begin{aligned} \mu- \hat{y} &= \mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{} && \text{(add and subtract } {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\text{)} \end{aligned} \\
+> \\ \begin{aligned} \mu\mathopen{}\left(x\right)\mathclose{} - \hat{y} &= \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} + \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{} && \text{(add and subtract } {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\text{)} \end{aligned} \\
 >
 > Square it:
 >
-> \\ \begin{aligned} {\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2 &= {\mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2 + 2 \mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{} + {\mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{}}^2 && \text{(expand the square of a sum)} \end{aligned} \\
+> \\ \begin{aligned} {\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2 &= {\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2 + 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{} + {\mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{}}^2 && \text{(expand the square of a sum)} \end{aligned} \\
 >
 > Take the expectation of each term in turn.
 >
-> The first term does not depend on \\\mathcal{D}\_{\text{train}}\\: \\\mu\\ is a constant, and \\{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ has already been averaged over training sets. The expectation of a constant is that constant:
+> The first term does not depend on \\\mathcal{D}\_{\text{train}}\\: \\\mu\mathopen{}\left(x\right)\mathclose{}\\ is a constant, and \\{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\\ has already been averaged over training sets. The expectation of a constant is that constant:
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2\right\]\mathclose{} &= {\mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2 && \text{(expectation of a constant)} \\ &= {\mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \mu\right)\mathclose{}}^2 && \text{(a number and its negative have the same square)} \\ &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(definition of bias)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2\right\]\mathclose{} &= {\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{}}^2 && \text{(expectation of a constant)} \\ &= {\mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \mu\mathopen{}\left(x\right)\mathclose{}\right)\mathclose{}}^2 && \text{(a number and its negative have the same square)} \\ &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 && \text{(definition of bias)} \end{aligned} \\
 >
 > The cross term vanishes, and this time not by independence but because the expected prediction is the expectation of the prediction. The first factor is a constant, so it comes out of the expectation:
 >
-> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[2 \mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{}\right\]\mathclose{} &= 2 \mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \operatorname{E}\mathopen{}\left\[{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right\]\mathclose{} && \text{(constant factors)} \\ &= 2 \mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left(\operatorname{E}\mathopen{}\left\[{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}\right)\mathclose{} && \text{(linearity)} \\ &= 2 \mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}\right)\mathclose{} && \text{(expectation of a constant)} \\ &= 2 \mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(definition of the expected prediction)} \\ &= 2 \mathopen{}\left(\mu- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \cdot 0 && \text{(} a - a = 0 \text{)} \\ &= 0 && \text{(a number times zero)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right)\mathclose{}\right\]\mathclose{} &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \operatorname{E}\mathopen{}\left\[{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \hat{y}\right\]\mathclose{} && \text{(constant factors)} \\ &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left(\operatorname{E}\mathopen{}\left\[{\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right\]\mathclose{} - \operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}\right)\mathclose{} && \text{(linearity)} \\ &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- \operatorname{E}\mathopen{}\left\[\hat{y}\right\]\mathclose{}\right)\mathclose{} && \text{(expectation of a constant)} \\ &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \mathopen{}\left({\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}- {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} && \text{(definition of the expected prediction)} \\ &= 2 \mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - {\operatorname{E}\_{\mathcal{D}\_{\text{train}}}\mathopen{}\left\[\hat{y}\right\]\mathclose{}}\right)\mathclose{} \cdot 0 && \text{(} a - a = 0 \text{)} \\ &= 0 && \text{(a number times zero)} \end{aligned} \\
 >
 > The third term is the expectation of the squared deviation of the prediction from its mean, which is the [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) of the prediction:
 >
@@ -603,21 +603,21 @@ Last modified: 2026-10-17 08:57:23 (PDT)
 >
 > Adding the three expectations,
 >
-> \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2\right\]\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}. \tag{30}\\
+> \\ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2\right\]\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}. \tag{30}\\
 >
 > Neither cross term needed the noise to be normal, and neither assumed anything about the fitting procedure: \\g\\ can be a line, a tree or a neural network. This split is specific to squared-error loss, the loss of this chapter’s examples.
 
 > **NOTE:**
 >
-> **Theorem 2 (Bias, variance and noise)** Let \\\mu\\ be the [mean function](#def-mean-function) of the outcome given the covariate. Suppose that, given \\X\_{\*}= x\\, the new outcome is \\Y\_{\*}= \mu+ \nu\\, where \\\nu\\, the noise in the outcome at \\x\\, has mean \\0\\ and variance \\\sigma^2\\, and that \\Y\_{\*}\\ is independent of the random training set \\\mathcal{D}\_{\text{train}}\\, and that \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^2\right\]\mathclose{} \< \infty\\. Then the [expected prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\\hat{y}\\, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
+> **Theorem 2 (Bias, variance and noise)** Let \\\mu\\ be the [mean function](#def-mean-function) of the outcome given the covariate. Suppose that, given \\X\_{\*}= x\\, the new outcome is \\Y\_{\*}= \mu\mathopen{}\left(x\right)\mathclose{} + \nu\\, where \\\nu\\, the noise in the outcome at \\x\\, has mean \\0\\ and variance \\\sigma^2\\, and that \\Y\_{\*}\\ is independent of the random training set \\\mathcal{D}\_{\text{train}}\\, and that \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^2\right\]\mathclose{} \< \infty\\. Then the [expected prediction error at \\x\\](#def-epe) is the squared [bias](#def-prediction-bias) of the prediction \\\hat{y}\\, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\, plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), plus \\\sigma^2\\:
 >
 > \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2. \tag{31}\\
 
 > **NOTE:**
 >
-> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 5](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\\. By [Solution 6](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 30](#eq-epe-after-bias) into [Equation 29](#eq-epe-after-noise):
+> *Proof*. Every expectation below is conditional on \\X\_{\*}= x\\, as in the exercises. By [Solution 5](#sol-epe-split-noise), the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\. By [Solution 6](#sol-epe-split-bias), that pMSE is the squared bias plus the variance. Substituting [Equation 30](#eq-epe-after-bias) into [Equation 29](#eq-epe-after-noise):
 >
-> \\ \begin{aligned} \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} &= \sigma^2+ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} && \text{(separating the bias)} \\ &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
+> \\ \begin{aligned} \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} &= \sigma^2+ \operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\mu\mathopen{}\left(x\right)\mathclose{} - \hat{y}\right)\mathclose{}}^2\right\]\mathclose{} && \text{(separating the noise)} \\ &= \sigma^2+ {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} && \text{(separating the bias)} \\ &= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2 && \text{(reorder the terms)} \end{aligned} \\
 
 > **NOTE:**
 >
@@ -649,7 +649,7 @@ Last modified: 2026-10-17 08:57:23 (PDT)
 
 > **NOTE:**
 >
-> **Definition 36 (Bias–variance trade-off)** Let \\g\_{1}, \ldots, g\_{L}\\ be [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, with \\\mu\\ the [mean function](#def-mean-function), there is a **bias–variance trade-off** among them when, from each procedure to the next, the squared [bias](#def-prediction-bias) of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\\, does not rise and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) does not fall:
+> **Definition 36 (Bias–variance trade-off)** Let \\g\_{1}, \ldots, g\_{L}\\ be [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, with \\\mu\\ the [mean function](#def-mean-function), there is a **bias–variance trade-off** among them when, from each procedure to the next, the squared [bias](#def-prediction-bias) of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\, does not rise and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) does not fall:
 >
 > \\ \begin{aligned} {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 &\le {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2, \\ \operatorname{Var}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} &\ge \operatorname{Var}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}, \qquad l= 1, \ldots, L- 1. \end{aligned} \tag{33}\\
 >
@@ -1626,10 +1626,10 @@ Last modified: 2026-10-17 08:57:23 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    8.88178e-15    2.00000e+00
+> #>    7.10543e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
