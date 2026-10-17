@@ -3,7 +3,8 @@
 
 For $n$ observations that an agent and a reference
 each classify as positive or negative,
-the **agreement table** counts the four combinations:
+the **agreement table**
+[@wikipedia_confusion_matrix] counts the four combinations:
 
 | | Reference positive | Reference negative | Total |
 |---|---:|---:|---:|

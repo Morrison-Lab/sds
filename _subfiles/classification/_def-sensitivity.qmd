@@ -1,7 +1,8 @@
 :::{#def-sensitivity}
 #### Sensitivity
 
-The **sensitivity** of a diagnostic test is the probability
+The **sensitivity**
+[@wikipedia_sensitivity_and_specificity] of a diagnostic test is the probability
 that the test is positive ($+$),
 given that the person tested has the disease ($D$):
 

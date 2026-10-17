@@ -1,7 +1,8 @@
 :::{#def-specificity}
 #### Specificity
 
-The **specificity** of a diagnostic test is the probability
+The **specificity**
+[@wikipedia_sensitivity_and_specificity] of a diagnostic test is the probability
 that the test is negative ($\neg +$),
 given that the person tested does not have the disease ($\neg D$):
 

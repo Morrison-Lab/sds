@@ -1,7 +1,8 @@
 :::{#def-ppv}
 #### Positive predictive value (PPV)
 
-The **positive predictive value** of a diagnostic test is the probability
+The **positive predictive value**
+[@wikipedia_positive_and_negative_predictive_values] of a diagnostic test is the probability
 that the person tested has the disease ($D$),
 given that the test is positive ($+$):
 

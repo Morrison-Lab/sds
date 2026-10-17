@@ -1,7 +1,8 @@
 :::{#def-classification}
 #### Classification
 
-A **classification problem** is a statistical problem in which
+A **classification problem**
+[@wikipedia_statistical_classification] is a statistical problem in which
 we seek to assign each observation to one of two or more discrete categories
 based on its observed features or predictors $x$.
 
