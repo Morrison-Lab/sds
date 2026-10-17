@@ -1,0 +1,7 @@
+:::{#def-random-seed}
+#### Random seed
+
+A **random seed** is the number that starts a computer's pseudorandom number generator,
+so that the same seed gives the same sequence of random-looking numbers.
+
+:::

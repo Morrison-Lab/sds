@@ -1,0 +1,8 @@
+:::{#exm-model-family}
+#### Polynomials of degree at most $\polydeg$
+
+The polynomials of degree at most $\polydeg$ form a [model family](#def-model-family):
+each polynomial maps a covariate value to a prediction,
+and the members differ in their coefficients.
+
+:::
