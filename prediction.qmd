@@ -93,3 +93,14 @@ reticulate::py_require(c("numpy", "pandas"))
 <!-- No slidebreak here: the heading shares its slide with the remark. -->
 
 {{< include sds/_subfiles/prediction/_rem-estimation-vs-prediction.qmd >}}
+
+## Further reading {.unnumbered}
+
+-   @wikipedia_errors_and_residuals --- how an error differs from a residual
+
+-   @wikipedia_mean_squared_prediction_error --- the mean squared prediction error
+
+## References {.unnumbered}
+
+::: {#refs}
+:::
