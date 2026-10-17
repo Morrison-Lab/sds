@@ -1,8 +1,9 @@
 :::{#def-margin-error}
 #### Margin of error (radius)
 
-The **margin of error**
-[@wikipedia_margin_of_error] (or **radius**) of a
+The **margin of error** (or **radius**) of a
 [confidence interval](#def-confidence-interval)
 is half the interval's width.
+
+Source: @wikipedia_margin_of_error.
 :::

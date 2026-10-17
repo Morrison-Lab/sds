@@ -3,8 +3,7 @@
 
 Given a [test statistic](#def-test-statistic) $T$
 whose observed value is $t$,
-the **p-value**
-[@wikipedia_p_value] is the probability
+the **p-value** is the probability
 that $T$ is at least as extreme as the value observed,
 computed with the data distributed as the null hypothesis specifies:
 
@@ -15,6 +14,7 @@ If the null hypothesis allows more than one distribution
 the p-value is the largest such probability over those distributions,
 or an approximation to it.
 
+Source: @wikipedia_p_value.
 :::
 
 {{< slidebreak >}}

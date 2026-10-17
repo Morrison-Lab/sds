@@ -1,8 +1,7 @@
 ::: {#def-confidence-interval}
 #### Confidence interval
 
-A $100(1-\siglevel)\%$ **confidence interval**
-[@wikipedia_confidence_interval] for a parameter $\param$
+A $100(1-\siglevel)\%$ **confidence interval** for a parameter $\param$
 is a pair of statistics $L$ and $U$, computed from the data,
 such that for every possible value of $\param$:
 
@@ -10,4 +9,6 @@ $$\Pr(L \le \param \le U) = 1 - \siglevel$$
 
 The probability is over repeated samples from the data-generating process,
 with $\param$ held fixed.
+
+Source: @wikipedia_confidence_interval.
 :::

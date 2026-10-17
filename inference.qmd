@@ -157,6 +157,8 @@ following the University of Washington's CSE 312 [@fiveminuteai_probstat].
 
 {{< include sds/_subfiles/inference/_prose-CI-resources.qmd >}}
 
+### Online references
+
 -   @wikipedia_statistical_hypothesis_test --- the logic of testing and its terminology
 
 -   @wikipedia_p_value --- the definition and common misreadings
