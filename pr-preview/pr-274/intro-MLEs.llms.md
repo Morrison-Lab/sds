@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-17 01:48:51 (PDT)
+Last modified: 2026-10-17 02:45:49 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -2146,7 +2146,7 @@ sim_summary
 
 Across 1000 simulated datasets:
 
-- the average error of \\\hat{\mu}\\ is -0.005 mg/dL, small relative to its standard error of 1.02 mg/dL, consistent with \\\hat{\mu}\\ being unbiased;
+- the sample mean of the estimation error of \\\hat{\mu}\\ over these datasets is -0.005 mg/dL, small relative to its standard error of 1.02 mg/dL, consistent with \\\hat{\mu}\\ being unbiased;
 - the standard deviation of the \\\hat{\mu}\\ values, 0.996, is close to the true standard error;
 - the 95% confidence intervals covered the true \\\mu\\ in 95.9% of datasets, close to their nominal 95%;
 - the test of \\H_0: \mu= 0.9\\\hat{\mu}\\ rejected in 100% of datasets: with \\n = 100\\, a 10% difference in the population mean is easy to detect.
