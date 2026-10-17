@@ -4,9 +4,9 @@ Insert the expected prediction:
 
 $$
 \ba
-\mean - \predval
-&= \paren{\mean - \avgfit} + \paren{\avgfit - \predval}
-&& \text{(add and subtract } \avgfit \text{)}
+\truemeanfnf{\predvar} - \predval
+&= \paren{\truemeanfnf{\predvar} - \Epredval} + \paren{\Epredval - \predval}
+&& \text{(add and subtract } \Epredval \text{)}
 \ea
 $$
 
@@ -14,10 +14,10 @@ Square it:
 
 $$
 \ba
-\sqf{\mean - \predval}
-&= \sqf{\mean - \avgfit}
-+ 2 \paren{\mean - \avgfit} \paren{\avgfit - \predval}
-+ \sqf{\avgfit - \predval}
+\sqf{\truemeanfnf{\predvar} - \predval}
+&= \sqf{\truemeanfnf{\predvar} - \Epredval}
++ 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \predval}
++ \sqf{\Epredval - \predval}
 && \text{(expand the square of a sum)}
 \ea
 $$
@@ -25,36 +25,38 @@ $$
 Take the expectation of each term in turn.
 
 The first term does not depend on $\trainset$:
-$\mean$ is a constant,
-and $\avgfit$ has already been averaged over training sets.
+$\truemeanfnf{\predvar}$ is a constant,
+and $\Epredval$ has already been averaged over training sets.
 The expectation of a constant is that constant:
 
 $$
 \ba
-\E{\sqf{\mean - \avgfit}}
-&= \sqf{\mean - \avgfit}
+\E{\sqf{\truemeanfnf{\predvar} - \Epredval}}
+&= \sqf{\truemeanfnf{\predvar} - \Epredval}
 && \text{(expectation of a constant)} \\
-&= \sqf{\avgfit - \mean}
+&= \sqf{\Epredval - \truemeanfnf{\predvar}}
 && \text{(a number and its negative have the same square)} \\
 &= \sqf{\bias{\predval}}
-&& \text{(definitions of the expected prediction and of bias)}
+&& \text{(definition of bias)}
 \ea
 $$
 
 The cross term vanishes, and this time not by independence
-but by the definition of the expected prediction.
+but because the expected prediction is the expectation of the prediction.
 The first factor is a constant, so it comes out of the expectation:
 
 $$
 \ba
-\E{2 \paren{\mean - \avgfit} \paren{\avgfit - \predval}}
-&= 2 \paren{\mean - \avgfit} \E{\avgfit - \predval}
+\E{2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \predval}}
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \E{\Epredval - \predval}
 && \text{(constant factors)} \\
-&= 2 \paren{\mean - \avgfit} \paren{\avgfit - \Epredval}
-&& \text{(expectation of a difference of a constant and a variable)} \\
-&= 2 \paren{\mean - \avgfit} \paren{\avgfit - \avgfit}
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\E{\Epredval} - \E{\predval}}
+&& \text{(linearity)} \\
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \E{\predval}}
+&& \text{(expectation of a constant)} \\
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \Epredval}
 && \text{(definition of the expected prediction)} \\
-&= 2 \paren{\mean - \avgfit} \cdot 0
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \cdot 0
 && \text{(} a - a = 0 \text{)} \\
 &= 0
 && \text{(a number times zero)}
@@ -68,11 +70,9 @@ of the prediction:
 
 $$
 \ba
-\E{\sqf{\avgfit - \predval}}
-&= \E{\sqf{\predval - \avgfit}}
-&& \text{(a number and its negative have the same square)} \\
+\E{\sqf{\Epredval - \predval}}
 &= \E{\sqf{\predval - \Epredval}}
-&& \text{(definition of the expected prediction)} \\
+&& \text{(a number and its negative have the same square)} \\
 &= \Var{\predval}
 && \text{(definition of variance)}
 \ea
@@ -81,7 +81,7 @@ $$
 Adding the three expectations,
 
 $$
-\E{\sqf{\mean - \predval}}
+\E{\sqf{\truemeanfnf{\predvar} - \predval}}
 = \sqf{\bias{\predval}} + \Var{\predval}.
 $$ {#eq-epe-after-bias}
 

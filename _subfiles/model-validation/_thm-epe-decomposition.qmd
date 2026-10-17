@@ -3,13 +3,13 @@
 
 Let $\mean$ be the [mean function](#def-mean-function) of the outcome given the covariate.
 Suppose that, given $\newpredvar = \predvar$,
-the new outcome is $\newoutvar = \mean + \noise$,
+the new outcome is $\newoutvar = \truemeanfnf{\predvar} + \noise$,
 where $\noise$, the noise in the outcome at $\predvar$, has mean $0$ and variance $\varpar$,
 and that $\newoutvar$ is independent of the random training set $\trainset$,
 and that $\E{\sqf{\predval}} < \infty$.
 Then the [expected prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)
-of the prediction $\predval$, used as an [estimator](estimation.qmd#def-estimator) of $\mean$,
+of the prediction $\predval$, used as an [estimator](estimation.qmd#def-estimator) of $\truemeanfnf{\predvar}$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 
@@ -23,14 +23,14 @@ $$ {#eq-epe-decomposition}
 ::: proof
 
 Every expectation below is conditional on $\newpredvar = \predvar$, as in the exercises.
-By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\mean$.
+By @sol-epe-split-noise, the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\truemeanfnf{\predvar}$.
 By @sol-epe-split-bias, that pMSE is the squared bias plus the variance.
 Substituting @eq-epe-after-bias into @eq-epe-after-noise:
 
 $$
 \ba
 \epe{\fitproc}{\nobs}{\predvar}
-&= \varpar + \E{\sqf{\mean - \predval}}
+&= \varpar + \E{\sqf{\truemeanfnf{\predvar} - \predval}}
 && \text{(separating the noise)} \\
 &= \varpar + \sqf{\bias{\predval}} + \Var{\predval}
 && \text{(separating the bias)} \\
