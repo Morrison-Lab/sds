@@ -14,6 +14,7 @@ If the null hypothesis allows more than one distribution
 the p-value is the largest such probability over those distributions,
 or an approximation to it.
 
+Source: @wikipedia_p_value.
 :::
 
 {{< slidebreak >}}

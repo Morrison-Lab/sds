@@ -4,4 +4,6 @@
 The **margin of error** (or **radius**) of a
 [confidence interval](#def-confidence-interval)
 is half the interval's width.
+
+Source: @wikipedia_margin_of_error.
 :::

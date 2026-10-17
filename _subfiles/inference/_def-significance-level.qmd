@@ -4,6 +4,8 @@
 A hypothesis test with **significance level** $\siglevel$
 rejects the [null hypothesis](#def-null-hypothesis)
 when the [p-value](#def-p-value) is at most $\siglevel$.
+
+Source: @wikipedia_statistical_significance.
 :::
 
 {{< slidebreak >}}
