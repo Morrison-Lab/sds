@@ -8,6 +8,8 @@ is the proportion of relabelings whose statistic is at least as extreme as the o
 $$p_{\text{perm}} \eqdef \Pr_\pi\paren{T(y_\pi) \ge T(y)} = \frac{1}{n!} \sum_{\pi \in S_n} \indic{T(y_\pi) \ge T(y)}.$$
 
 Because the identity permutation is one of the $n!$ relabelings, $p_{\text{perm}} \ge 1 / n!$.
+
+Source: @wikipedia_permutation_test.
 :::
 
 {{< slidebreak >}}

@@ -9,6 +9,7 @@ so it adds 1 to the numerator and to the denominator:
 
 $$\hat p_{\text{perm}} \eqdef \frac{1 + \sum_{b=1}^B \indic{T_b \ge T(y)}}{B + 1}.$$
 
+Source: @phipson2010permutation.
 :::
 
 {{< slidebreak >}}
