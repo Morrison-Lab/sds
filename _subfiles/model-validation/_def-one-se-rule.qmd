@@ -11,7 +11,7 @@ whose estimate is within one [fold-based standard error](#def-cv-se-indexed)
 of the smallest:
 
 $$
-\cvestof{\nfolds}{\candproc{\icand}}\paren{\trainset} \le \cvestof{\nfolds}{\candproc{\icand^*}}\paren{\trainset} + \cvseof{\nfolds}{\candproc{\icand^*}}\paren{\trainset}.
+\cvestoff{\nfolds}{\candproc{\icand}}{\trainset} \le \cvestoff{\nfolds}{\candproc{\icand^*}}{\trainset} + \cvseoff{\nfolds}{\candproc{\icand^*}}{\trainset}.
 $$ {#eq-one-se-rule}
 
 Source: [@hastie2009elements, sec. 7.10.1; @james2021islr2e, sec. 6.1.3].
