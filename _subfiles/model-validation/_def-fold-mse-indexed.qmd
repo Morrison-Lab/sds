@@ -8,7 +8,7 @@ computed with the [fold-out rule](#def-fold-out-rule) that $\fitproc$ produces:
 
 $$
 \foldmseof{\ifold}{\fitproc}\paren{\trainset} \eqdef \frac{1}{\foldsize{\ifold}} \sum_{\iobs \in \fold{\ifold}}
-\sqf{\fitprocf{\paren{(\predvar_{\iobs'}, \outvar_{\iobs'})}_{\iobs' \in \obsidx \setminus \fold{\ifold}}}\paren{\predvar_{\iobs}} - \outvar_{\iobs}}.
+\sqf{\fittedwo{\ifold}{\predvar_{\iobs}} - \outvar_{\iobs}}.
 $$ {#eq-fold-mse-indexed}
 
 :::
