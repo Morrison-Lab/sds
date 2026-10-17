@@ -355,7 +355,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-17 07:29:54 (PDT)</p>
+  <p class="date">Last modified: 2026-10-17 07:59:21 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -364,12 +364,12 @@ text-align: center;
 <span class="header-section-number">1</span> Predictions, fitted values, residuals, and prediction errors</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-prediction div. -->
 <div id="def-prediction" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Prediction (predicted value))</strong></span> A <strong>prediction</strong> (or <strong>predicted value</strong>) <span class="math inline">\(\hat y(x)\)</span> of an outcome <span class="math inline">\(Y\)</span> with covariate value <span class="math inline">\(X = x\)</span> is a number computed from <span class="math inline">\(x\)</span> and from data <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> by a rule <span class="math inline">\(g\)</span>, and used as a guess of <span class="math inline">\(Y\)</span>:</p>
-<p><span class="math display">\[\hat y(x) \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 1 (Prediction (predicted value))</strong></span> A <strong>prediction</strong> (or <strong>predicted value</strong>) <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> of an outcome <span class="math inline">\(Y\)</span> with covariate value <span class="math inline">\(X = x\)</span> is a number computed from <span class="math inline">\(x\)</span> and from data <span class="math inline">\((x_1, y_1), \ldots, (x_n, y_n)\)</span> by a rule <span class="math inline">\(g\)</span>, and used as a guess of <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[{\hat y\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exm-prediction-cond-mean" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Predicting with an estimated conditional mean)</strong></span> Suppose a model specifies the conditional mean <span class="math inline">\(\operatorname{E}\mathopen{}\left[Y \mid X = x\right]\mathclose{}\)</span> as a function <span class="math inline">\(\mu(x; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> of a parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, and <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> is an estimate of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>. The usual prediction (<a href="#/def-prediction" class="quarto-xref">Definition&nbsp;1</a>) of <span class="math inline">\(Y\)</span> at <span class="math inline">\(X = x\)</span> is the estimated conditional mean:</p>
-<p><span class="math display">\[\hat y(x) = \mu(x; \hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}).\]</span></p>
+<p><span class="math display">\[{\hat y\mathopen{}\left(x\right)\mathclose{}} = \mu(x; \hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}).\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-why-cond-mean" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Why the estimated conditional mean is the usual prediction). </span>The prediction in <a href="#/exm-prediction-cond-mean" class="quarto-xref">Example&nbsp;1</a> is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions <span class="math inline">\(h\)</span> of the covariate, <span class="math inline">\({\operatorname{E}\mathopen{}\left[Y \mid X\right]\mathclose{}}\)</span> has the smallest expected squared error <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}\)</span> (<a href="https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor">conditional mean minimizes squared-error risk</a>). The conditional mean is unknown, so we estimate it from data and predict with the estimate.</p>
@@ -377,7 +377,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="def-fitted-value" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Fitted value)</strong></span> The <strong>fitted value</strong> <span class="math inline">\(\hat y_i\)</span> of observation <span class="math inline">\(i\)</span> is the <a href="#/def-prediction">prediction</a> at its own covariate value <span class="math inline">\(x_i\)</span>:</p>
-<p><span class="math display">\[\hat y_i\stackrel{\text{def}}{=}\hat y(x_i).\]</span></p>
+<p><span class="math display">\[\hat y_i\stackrel{\text{def}}{=}{\hat y\mathopen{}\left(x_i\right)\mathclose{}}.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="rem-fitted-value-cond-mean" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Why the fitted value is the estimated conditional mean). </span>The <a href="#/def-fitted-value">fitted value</a> is the prediction at the observed covariate value <span class="math inline">\(x_i\)</span>, so for the prediction in <a href="#/exm-prediction-cond-mean" class="quarto-xref">Example&nbsp;1</a> it is the estimated conditional mean at <span class="math inline">\(x_i\)</span>:</p>
@@ -389,7 +389,7 @@ text-align: center;
 <p><span class="math display">\[r_i\stackrel{\text{def}}{=}y_i- \hat y_i\]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-prediction-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4 (Prediction error)</strong></span> The <strong>prediction error</strong> of a <a href="#/def-prediction">prediction</a> <span class="math inline">\(\hat y\)</span> (such as <span class="math inline">\(\hat y(x)\)</span> or a fitted value <span class="math inline">\(\hat y_i\)</span>) of an observed outcome <span class="math inline">\(y\)</span> is the prediction minus the outcome:</p>
+<p><span class="theorem-title"><strong>Definition 4 (Prediction error)</strong></span> The <strong>prediction error</strong> of a <a href="#/def-prediction">prediction</a> <span class="math inline">\(\hat y\)</span> (such as <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> or a fitted value <span class="math inline">\(\hat y_i\)</span>) of an observed outcome <span class="math inline">\(y\)</span> is the prediction minus the outcome:</p>
 <p><span class="math display">\[\varepsilon\stackrel{\text{def}}{=}\hat y- y.\]</span></p>
 </div>
 </section><section class="slide level2"><div id="exr-prediction-error-residual" class="theorem exercise">

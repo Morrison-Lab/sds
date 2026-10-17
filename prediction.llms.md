@@ -4,21 +4,21 @@ Code
 
 Published
 
-Last modified: 2026-10-17 07:29:54 (PDT)
+Last modified: 2026-10-17 07:59:21 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
 > **NOTE:**
 >
-> **Definition 1 (Prediction (predicted value))** A **prediction** (or **predicted value**) \\\hat y(x)\\ of an outcome \\Y\\ with covariate value \\X = x\\ is a number computed from \\x\\ and from data \\(x_1, y_1), \ldots, (x_n, y_n)\\ by a rule \\g\\, and used as a guess of \\Y\\:
+> **Definition 1 (Prediction (predicted value))** A **prediction** (or **predicted value**) \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ of an outcome \\Y\\ with covariate value \\X = x\\ is a number computed from \\x\\ and from data \\(x_1, y_1), \ldots, (x_n, y_n)\\ by a rule \\g\\, and used as a guess of \\Y\\:
 >
-> \\\hat y(x) \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\\
+> \\{\hat y\mathopen{}\left(x\right)\mathclose{}} \stackrel{\text{def}}{=}g\mathopen{}\left(x; (x_1, y_1), \ldots, (x_n, y_n)\right)\mathclose{}.\\
 
 > **NOTE:**
 >
 > **Example 1 (Predicting with an estimated conditional mean)** Suppose a model specifies the conditional mean \\\operatorname{E}\mathopen{}\left\[Y \mid X = x\right\]\mathclose{}\\ as a function \\\mu(x; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ of a parameter vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\, and \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ is an estimate of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\. The usual prediction ([Definition 1](#def-prediction)) of \\Y\\ at \\X = x\\ is the estimated conditional mean:
 >
-> \\\hat y(x) = \mu(x; \hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}).\\
+> \\{\hat y\mathopen{}\left(x\right)\mathclose{}} = \mu(x; \hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}).\\
 
 > **NOTE:**
 >
@@ -30,7 +30,7 @@ Last modified: 2026-10-17 07:29:54 (PDT)
 >
 > **Definition 2 (Fitted value)** The **fitted value** \\\hat y_i\\ of observation \\i\\ is the [prediction](#def-prediction) at its own covariate value \\x_i\\:
 >
-> \\\hat y_i\stackrel{\text{def}}{=}\hat y(x_i).\\
+> \\\hat y_i\stackrel{\text{def}}{=}{\hat y\mathopen{}\left(x_i\right)\mathclose{}}.\\
 
 > **NOTE:**
 >
@@ -48,7 +48,7 @@ Last modified: 2026-10-17 07:29:54 (PDT)
 
 > **NOTE:**
 >
-> **Definition 4 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) \\\hat y\\ (such as \\\hat y(x)\\ or a fitted value \\\hat y_i\\) of an observed outcome \\y\\ is the prediction minus the outcome:
+> **Definition 4 (Prediction error)** The **prediction error** of a [prediction](#def-prediction) \\\hat y\\ (such as \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ or a fitted value \\\hat y_i\\) of an observed outcome \\y\\ is the prediction minus the outcome:
 >
 > \\\varepsilon\stackrel{\text{def}}{=}\hat y- y.\\
 
