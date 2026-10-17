@@ -1,9 +1,10 @@
 ::: {#def-bias}
 #### Bias
 
-The **bias**
-[@wikipedia_bias_of_an_estimator] of an estimator $\hparam$ for an estimand $\param$ is the
+The **bias** of an estimator $\hparam$ for an estimand $\param$ is the
 expected value of the [estimation error](#def-estimation-error):
 
 $$\bias{\hparam} \eqdef \E{\erf{\hparam}}$$ {#eq-bias-def}
+
+Source: @wikipedia_bias_of_an_estimator.
 :::

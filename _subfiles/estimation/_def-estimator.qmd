@@ -1,8 +1,7 @@
 ::: {#def-estimator}
 #### Estimator
 
-An **estimator**
-[@wikipedia_estimator] is the function $\hparam(\cdot)$
+An **estimator** is the function $\hparam(\cdot)$
 that transforms data into an [estimate](#def-estimate);
 applied to a random sample $\dsn{X}$,
 it is a random variable:
@@ -10,4 +9,6 @@ it is a random variable:
 $$
 \hparam(\dsn{X}).
 $$
+
+Source: @wikipedia_estimator.
 :::
