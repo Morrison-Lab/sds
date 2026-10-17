@@ -14,20 +14,20 @@ $$ {#eq-fitting-procedure}
 
 It is specified by these inputs:
 
-- the [data set](#def-data-set) $\dataset$ it is fitted to;
-- the [model family](#def-model-family) $\modelfam$ of candidates it searches;
-- the [objective function](#def-objective-function) $\objfn$ that scores each candidate;
-- the [optimization algorithm](#def-optimization-algorithm) $\optalg$ that searches the family for a candidate with a good score;
-- the [random seed](#def-random-seed) $\seed$, when the algorithm draws random numbers, as in splitting the data;
-- the [tuning parameters](#def-tuning-parameter) $\tuning$, which it does not compute from the data;
-- the [preprocessing](#def-preprocessing) $\featmap$ of the covariates.
+- [data set](#def-data-set) $\dataset$;
+- [model family](#def-model-family) $\modelfam$;
+- [objective function](#def-objective-function) $\objfn$;
+- [optimization algorithm](#def-optimization-algorithm) $\optalg$;
+- [random seed](#def-random-seed) $\seed$;
+- [tuning parameters](#def-tuning-parameter) $\tuning$;
+- [preprocessing](#def-preprocessing) $\featmap$.
 
 :::
 
 :::{#rem-source-fitting-procedure}
 #### Source: Fitting procedure
 
-The rule $\fitproc$ of the [definition of a prediction](prediction.qmd#def-prediction).
+The function $\fitproc$ generalizes the rule of the [definition of a prediction](prediction.qmd#def-prediction).
 @hastie2009elements [sec. 7.2] write the model estimated from a training set as $\hat f$.
 
 :::
