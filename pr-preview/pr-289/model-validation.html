@@ -336,6 +336,16 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
+div.callout-lem.callout {
+  border-left-color: #1565C0;
+}
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
+}
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-remark.callout {
   border-left-color: #AD1457;
 }
@@ -345,6 +355,26 @@ div.callout-remark.callout-style-default .callout-header {
 div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-reading.callout {
   border-left-color: #00695C;
@@ -360,36 +390,6 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-cor.callout {
   border-left-color: #00838F;
 }
@@ -399,6 +399,26 @@ div.callout-cor.callout-style-default .callout-header {
 div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
   border-left-color: #283593;
@@ -414,14 +434,14 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   content: '\f144' !important;
   background-image: none;
 }
-div.callout-fig.callout {
+div.callout-tbl.callout {
   border-left-color: #757575;
 }
-div.callout-fig.callout-style-default .callout-header {
+div.callout-tbl.callout-style-default .callout-header {
   background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-prp.callout {
@@ -434,16 +454,6 @@ div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-cnj.callout {
   border-left-color: #558B2F;
 }
@@ -454,35 +464,25 @@ div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-def.callout {
+  border-left-color: #1B5E20;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-tbl.callout {
-  border-left-color: #757575;
+div.callout-proof.callout {
+  border-left-color: #37474F;
 }
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
 }
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -1063,7 +1063,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-17 01:45:38 (PDT)</p>
+      <p class="date">Last modified: 2026-10-17 07:34:01 (PDT)</p>
     </div>
   </div>
   
@@ -1586,10 +1586,10 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-24" class="callout-24-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-prediction-rule" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 13 (Prediction rule)</strong></span> The <strong>prediction rule</strong> <span class="math inline">\(\hat y\)</span> that a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is the <a href="#def-fitted-model"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">fitted</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">model</mark></a> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(g\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">:</mark></p>
-<p><span id="eq-prediction-rule"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
-\hat y\stackrel{\text{def}}{=}g\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}.
-\tag{8}\]</mark></span></span></p>
+<p><span class="theorem-title"><strong>Definition 13 (Prediction rule)</strong></span> The <strong>prediction rule</strong> <span class="math inline">\(\hat y\)</span> is shorthand for the <a href="#def-fitted-model">fitted model</a> <span class="math inline">\({\hat y_{\mathcal{D}_{\text{train}}}}\)</span> that a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from the <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, written without the subscript when the training set is the one in use:</p>
+<p><span id="eq-prediction-rule"><span class="math display">\[
+\hat y\stackrel{\text{def}}{=}{\hat y_{\mathcal{D}_{\text{train}}}}.
+\tag{8}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -1658,11 +1658,11 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-27" class="callout-27-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-observation-loss" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 15 (Loss of a prediction rule on an observation)</strong></span> The <strong>loss</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> on an observation <span class="math inline">\((x_{i}, y_{i})\)</span> is the cost, under a <a href="https://morrison-lab.github.io/pds/expectation.html#def-loss-function">loss function</a> <span class="math inline">\(L\)</span>, of its prediction <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({\hat y\mathopen{}\left(x_{i}\right)\mathclose{}}\)</mark></span> of the outcome <span class="math inline">\(y_{i}\)</span>:</p>
-<p><span id="eq-observation-loss"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="theorem-title"><strong>Definition 15 (Loss of a prediction rule on an observation)</strong></span> The <strong>loss</strong> of a <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> on an observation <span class="math inline">\((x_{i}, y_{i})\)</span> is the cost, under a <a href="https://morrison-lab.github.io/pds/expectation.html#def-loss-function">loss function</a> <span class="math inline">\(L\)</span>, of its prediction <span class="math inline">\({\hat y\mathopen{}\left(x_{i}\right)\mathclose{}}\)</span> of the outcome <span class="math inline">\(y_{i}\)</span>:</p>
+<p><span id="eq-observation-loss"><span class="math display">\[
 \ell_{i} \stackrel{\text{def}}{=}L\mathopen{}\left(y_{i}, {\hat y\mathopen{}\left(x_{i}\right)\mathclose{}}\right)\mathclose{}.
-\tag{9}\]</mark></span></span></p>
-<p>The index <span class="math inline">\(*\)</span> names the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>, so <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\ell_{*} = L\mathopen{}\left(Y_{*}, {\hat y\mathopen{}\left(X_{*}\right)\mathclose{}}\right)\mathclose{}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></p>
+\tag{9}\]</span></span></p>
+<p>The index <span class="math inline">\(*\)</span> names the new observation <span class="math inline">\((X_{*}, Y_{*})\)</span>, so <span class="math inline">\(\ell_{*} = L\mathopen{}\left(Y_{*}, {\hat y\mathopen{}\left(X_{*}\right)\mathclose{}}\right)\mathclose{}\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2063,7 +2063,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="def-mean-function" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 22 (Mean function)</strong></span> The <strong>mean function</strong> <span class="math inline">\(\mu\)</span> of an outcome <span class="math inline">\(Y\)</span> given a covariate <span class="math inline">\(X\)</span> maps each covariate value <span class="math inline">\(x\)</span> to the mean of <span class="math inline">\(Y\)</span> given <span class="math inline">\(X= x\)</span>:</p>
 <p><span id="eq-mean-function"><span class="math display">\[
-\mu(x) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[Y\mid X= x\right]\mathclose{}.
+\mu\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[Y\mid X= x\right]\mathclose{}.
 \tag{15}\]</span></span></p>
 </div>
 </div>
@@ -2082,7 +2082,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-45" class="callout-45-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-epl" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 23 (Expected prediction loss at a covariate value)</strong></span> The <strong>expected prediction loss at <span class="math inline">\(x\)</span></strong> of a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the expected <a href="#def-observation-loss">loss</a> <span class="math inline">\(\ell_{*}\)</span> of its prediction <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</mark></span> for a new outcome <span class="math inline">\(Y_{*}\)</span> with <span class="math inline">\(X_{*}= x\)</span>, averaged over random <a href="#def-training-set">training sets</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently of <span class="math inline">\((X_{*}, Y_{*})\)</span>, and over <span class="math inline">\(Y_{*}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 23 (Expected prediction loss at a covariate value)</strong></span> The <strong>expected prediction loss at <span class="math inline">\(x\)</span></strong> of a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> at training-set size <span class="math inline">\(n\)</span> is the expected <a href="#def-observation-loss">loss</a> <span class="math inline">\(\ell_{*}\)</span> of its prediction <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> for a new outcome <span class="math inline">\(Y_{*}\)</span> with <span class="math inline">\(X_{*}= x\)</span>, averaged over random <a href="#def-training-set">training sets</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> of <span class="math inline">\(n\)</span> observations drawn independently of <span class="math inline">\((X_{*}, Y_{*})\)</span>, and over <span class="math inline">\(Y_{*}\)</span>:</p>
 <p><span id="eq-epl"><span class="math display">\[
 \operatorname{EPL}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\ell_{*} \mid X_{*}= x\right]\mathclose{}.
 \tag{16}\]</span></span></p>
@@ -2142,8 +2142,8 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-48" class="callout-48-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-epe-mse" class="proof remark">
-<p><span class="proof-title"><em>Remark 9</em> (The expected prediction error is a population mean squared error). </span>The expected prediction error is the <a href="./prediction.html#def-prediction-mse">sMSE of predictions</a> with the average over observations replaced by an expectation over training sets and new outcomes: the pMSE of the prediction <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</mark></span> as a prediction of the new outcome <span class="math inline">\(Y_{*}\)</span>. With squared-error loss, <span class="math inline">\(\operatorname{EPL}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} = \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span>.</p>
-<p>It is not the <a href="./estimation.html#def-mse">pMSE of an estimator</a>: <a href="#thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a> shows that it exceeds the pMSE of the prediction as an estimator of the <a href="#def-mean-function">mean function</a> value <span class="math inline">\(\mu(x)\)</span> by the noise variance. The acronym omits “squared” because “error” already means squared error here. Another loss gives an expected prediction loss, not an EPE.</p>
+<p><span class="proof-title"><em>Remark 9</em> (The expected prediction error is a population mean squared error). </span>The expected prediction error is the <a href="./prediction.html#def-prediction-mse">sMSE of predictions</a> with the average over observations replaced by an expectation over training sets and new outcomes: the pMSE of the prediction <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> as a prediction of the new outcome <span class="math inline">\(Y_{*}\)</span>. With squared-error loss, <span class="math inline">\(\operatorname{EPL}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} = \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span>.</p>
+<p>It is not the <a href="./estimation.html#def-mse">pMSE of an estimator</a>: <a href="#thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a> shows that it exceeds the pMSE of the prediction as an estimator of the <a href="#def-mean-function">mean function</a> value <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span> by the noise variance. The acronym omits “squared” because “error” already means squared error here. Another loss gives an expected prediction loss, not an EPE.</p>
 </div>
 </div>
 </div>
@@ -2217,7 +2217,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 &amp;&amp; \text{(definition)}
 \end{aligned}
 \]</span></p>
-<p>The steps labeled “definition” apply <a href="#eq-expected-generalization-error" class="quarto-xref">Equation&nbsp;14</a>, <a href="#eq-generalization-error" class="quarto-xref">Equation&nbsp;10</a> and <a href="#eq-epl" class="quarto-xref">Equation&nbsp;16</a>, in that order. Here <span class="math inline">\(\ell_{*}\)</span> is the <a href="#def-observation-loss">loss</a> of the prediction rule <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({\hat y\mathopen{}\left(X_{*}\right)\mathclose{}} = g\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}\mathopen{}\left(X_{*}\right)\mathclose{}\)</mark></span> (<a href="#eq-prediction-rule" class="quarto-xref">Equation&nbsp;8</a>) on the new observation. The two steps labeled “iterated expectations” use the <a href="https://morrison-lab.github.io/pds/expectation.html#thm-lie">law of iterated expectations</a>, the first conditioning on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> and the second on <span class="math inline">\(X_{*}\)</span>. The last line needs <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> to be independent of <span class="math inline">\((X_{*}, Y_{*})\)</span>: then, given <span class="math inline">\(X_{*}= x\)</span>, <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> still has its unconditional distribution, as <a href="#def-epl" class="quarto-xref">Definition&nbsp;23</a> requires.</p>
+<p>The steps labeled “definition” apply <a href="#eq-expected-generalization-error" class="quarto-xref">Equation&nbsp;14</a>, <a href="#eq-generalization-error" class="quarto-xref">Equation&nbsp;10</a> and <a href="#eq-epl" class="quarto-xref">Equation&nbsp;16</a>, in that order. Here <span class="math inline">\(\ell_{*}\)</span> is the <a href="#def-observation-loss">loss</a> of the prediction rule <span class="math inline">\({\hat y\mathopen{}\left(X_{*}\right)\mathclose{}} = {{\hat y_{\mathcal{D}_{\text{train}}}}\mathopen{}\left(X_{*}\right)\mathclose{}}\)</span> (<a href="#eq-prediction-rule" class="quarto-xref">Equation&nbsp;8</a>) on the new observation. The two steps labeled “iterated expectations” use the <a href="https://morrison-lab.github.io/pds/expectation.html#thm-lie">law of iterated expectations</a>, the first conditioning on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> and the second on <span class="math inline">\(X_{*}\)</span>. The last line needs <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> to be independent of <span class="math inline">\((X_{*}, Y_{*})\)</span>: then, given <span class="math inline">\(X_{*}= x\)</span>, <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> still has its unconditional distribution, as <a href="#def-epl" class="quarto-xref">Definition&nbsp;23</a> requires.</p>
 </div>
 </div>
 </div>
@@ -2274,10 +2274,10 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-54" class="callout-54-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-average-fit" class="theorem definition">
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Definition 25 (Expected prediction)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#def-fitting-procedure">fitting procedure</a>, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#def-training-set">training set</a>. The <strong>expected prediction</strong> of <span class="math inline">\(g\)</span> at a covariate value <span class="math inline">\(x\)</span> is the value <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> of the <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> at <span class="math inline">\(x\)</span>, averaged over the population distribution of all training sets that might have been collected:</mark></p>
-<p><span id="eq-average-fit"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
-\mu_{h}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[{\hat y\mathopen{}\left(x\right)\mathclose{}}\right]\mathclose{}.
-\tag{19}\]</mark></span></span></p>
+<p><span class="theorem-title"><strong>Definition 25 (Expected prediction)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#def-fitting-procedure">fitting procedure</a>, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#def-training-set">training set</a>. The <strong>expected prediction</strong> of <span class="math inline">\(g\)</span> at a covariate value <span class="math inline">\(x\)</span> is the value <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> of the <a href="#def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> at <span class="math inline">\(x\)</span>, averaged over the population distribution of all training sets that might have been collected:</p>
+<p><span id="eq-average-fit"><span class="math display">\[
+\mu_{h}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}{\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[{\hat y\mathopen{}\left(x\right)\mathclose{}}\right]\mathclose{}}.
+\tag{19}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -2295,7 +2295,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-55" class="callout-55-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="notes proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>The <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">expected</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">prediction</mark> is not <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">the</mark> prediction <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">of</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">any</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">one analysis,</mark> because an analysis has one training set, not the whole distribution of them. It is a reference point for measuring how far the predictions are from the <a href="#def-mean-function">mean function</a> and from each other.</p>
+<p><span class="proof-title"><em>Remark</em>. </span>The expected prediction is not the prediction of any one analysis, because an analysis has one training set, not the whole distribution of them. It is a reference point for measuring how far the predictions are from the <a href="#def-mean-function">mean function</a> and from each other.</p>
 </div>
 </div>
 </div>
@@ -2313,7 +2313,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-56" class="callout-56-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-average-fit" class="theorem example">
-<p><span class="theorem-title"><strong>Example 12 (Computing the <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">expected</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">prediction)</mark></strong></span> Suppose the predictions <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</mark></span> at <span class="math inline">\(x\)</span> take the values <span class="math inline">\(9\)</span>, <span class="math inline">\(11\)</span> and <span class="math inline">\(13\)</span> with equal probability. Then</p>
+<p><span class="theorem-title"><strong>Example 12 (Computing the expected prediction)</strong></span> Suppose the predictions <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> at <span class="math inline">\(x\)</span> take the values <span class="math inline">\(9\)</span>, <span class="math inline">\(11\)</span> and <span class="math inline">\(13\)</span> with equal probability. Then</p>
 <p><span class="math display">\[
 \begin{aligned}
 \mu_{h}\mathopen{}\left(x\right)\mathclose{} &amp;= \frac{9 + 11 + 13}{3} \\
@@ -2337,11 +2337,11 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-57" class="callout-57-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-prediction-bias" class="theorem definition">
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Definition 26 (Bias of a prediction)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#def-fitting-procedure">fitting procedure</a>, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#def-training-set">training set</a>. At a covariate value <span class="math inline">\(x\)</span>, the prediction <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> is a random variable, because it depends on the random training data. The <strong>bias</strong> of the prediction is the expected <a href="./estimation.html#def-estimation-error">estimation error</a> of the prediction as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#def-mean-function">mean function</a> value <span class="math inline">\(\mu(x)\)</span>, which is its estimand here, not the new outcome it predicts:</mark></p>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-prediction-bias"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definition 26 (Bias of a prediction)</strong></span> Let <span class="math inline">\(g\)</span> be a <a href="#def-fitting-procedure">fitting procedure</a>, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#def-training-set">training set</a>. At a covariate value <span class="math inline">\(x\)</span>, the prediction <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> is a random variable, because it depends on the random training data. The <strong>bias</strong> of the prediction is the expected <a href="./estimation.html#def-estimation-error">estimation error</a> of the prediction as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#def-mean-function">mean function</a> value <span class="math inline">\(\mu\)</span>, which is its estimand here, not the new outcome it predicts:</p>
+<p><span id="eq-prediction-bias"><span class="math display">\[
 \operatorname{Bias}\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}
 = \operatorname{E}\mathopen{}\left[\varepsilon\mathopen{}\left({\hat y\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right]\mathclose{}.
-\tag{20}\]</span></span></mark></p>
+\tag{20}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -2359,7 +2359,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-58" class="callout-58-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div class="notes proof remark">
-<p><span class="proof-title"><em>Remark</em>. </span>In expected prediction error decompositions <span class="citation" data-cites="james2021islr2e">(<a href="#ref-james2021islr2e" role="doc-biblioref">James et al. 2021, sec. 2.2.2</a>)</span>, the bias reflects the error <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">introduced</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">by</mark> approximating a real-world relationship by a model.</p>
+<p><span class="proof-title"><em>Remark</em>. </span>In expected prediction error decompositions <span class="citation" data-cites="james2021islr2e">(<a href="#ref-james2021islr2e" role="doc-biblioref">James et al. 2021, sec. 2.2.2</a>)</span>, the bias reflects the approximation error that comes from approximating a real-world relationship by a model.</p>
 </div>
 </div>
 </div>
@@ -2377,16 +2377,16 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-59" class="callout-59-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-prediction-bias" class="theorem example">
-<p><span class="theorem-title"><strong>Example 13 (Computing the bias of a prediction)</strong></span> Suppose <span class="math inline">\(\mu(x) = 10\)</span>, and the predictions <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> over repeated training sets, average <span class="math inline">\(11\)</span>. Then</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="theorem-title"><strong>Example 13 (Computing the bias of a prediction)</strong></span> Suppose <span class="math inline">\(\mu= 10\)</span>, and the predictions <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span>, over repeated training sets, average <span class="math inline">\(11\)</span>. Then</p>
+<p><span class="math display">\[
 \begin{aligned}
 \operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}
 &amp;= \operatorname{E}\mathopen{}\left[\varepsilon\mathopen{}\left(\hat{y}\right)\mathclose{}\right]\mathclose{} \\
-&amp;= \operatorname{E}\mathopen{}\left[\hat{y}\right]\mathclose{} - \mu\\
+&amp;= {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}- \mu\\
 &amp;= 11 - 10 \\
 &amp;= 1.
 \end{aligned}
-\]</mark></span></p>
+\]</span></p>
 <p>The squared bias is <span class="math inline">\(1^2 = 1\)</span>, the value in <a href="#exr-epe-three-sources" class="quarto-xref">Exercise&nbsp;4</a>.</p>
 </div>
 </div>
@@ -2405,11 +2405,11 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-60" class="callout-60-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-epe-three-sources" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 4 (Expected squared error from three sources)</strong></span> A prediction <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat{y}\)</mark></span> at a covariate value <span class="math inline">\(x\)</span> has squared bias <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\([\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}]^2 = 1\)</mark></span> and variance <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} = 2\)</mark></span>. The new outcome is <span class="math inline">\(Y_{*}= \mu(x) + \nu\)</span>, where <span class="math inline">\(\nu\)</span> has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2= 3\)</span> and is independent of <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat{y}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark></p>
+<p><span class="theorem-title"><strong>Exercise 4 (Expected squared error from three sources)</strong></span> A prediction <span class="math inline">\(\hat{y}\)</span> at a covariate value <span class="math inline">\(x\)</span> has squared bias <span class="math inline">\([\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}]^2 = 1\)</span> and variance <span class="math inline">\(\operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} = 2\)</span>. The new outcome is <span class="math inline">\(Y_{*}= \mu+ \nu\)</span>, where <span class="math inline">\(\nu\)</span> has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2= 3\)</span> and is independent of <span class="math inline">\(\hat{y}\)</span>.</p>
 <ol type="1">
-<li>What is the expected squared prediction error <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\operatorname{E}\mathopen{}\left[(Y_{*}- \hat{y})^2\right]\mathclose{}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">?</mark></li>
-<li>If we could remove all bias and all variance of <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat{y}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> what would the expected squared prediction error be?</li>
-<li>Which of the three quantities (squared bias, variance of <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat{y}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> <span class="math inline">\(\sigma^2\)</span>) can a better prediction method reduce, and which cannot?</li>
+<li>What is the expected squared prediction error <span class="math inline">\(\operatorname{E}\mathopen{}\left[(Y_{*}- \hat{y})^2\right]\mathclose{}\)</span>?</li>
+<li>If we could remove all bias and all variance of <span class="math inline">\(\hat{y}\)</span>, what would the expected squared prediction error be?</li>
+<li>Which of the three quantities (squared bias, variance of <span class="math inline">\(\hat{y}\)</span>, <span class="math inline">\(\sigma^2\)</span>) can a better prediction method reduce, and which cannot?</li>
 </ol>
 </div>
 </div>
@@ -2432,7 +2432,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <ol type="1">
 <li><p>The expected squared error is the sum of the three sources: <span class="math inline">\(1 + 2 + 3 = 6\)</span>.</p></li>
 <li><p><span class="math inline">\(0 + 0 + 3 = 3\)</span>. The noise variance <span class="math inline">\(\sigma^2= 3\)</span> remains, so <span class="math inline">\(3\)</span> is the smallest expected squared error any prediction can have here.</p></li>
-<li><p>A better method can reduce the squared bias and the variance of <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat{y}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> because both depend on how <span class="math inline">\(g\)</span> is built. It cannot reduce <span class="math inline">\(\sigma^2\)</span>, which is the variance of the noise <span class="math inline">\(\nu\)</span> in the new outcome.</p></li>
+<li><p>A better method can reduce the squared bias and the variance of <span class="math inline">\(\hat{y}\)</span>, because both depend on how <span class="math inline">\(g\)</span> is built. It cannot reduce <span class="math inline">\(\sigma^2\)</span>, which is the variance of the noise <span class="math inline">\(\nu\)</span> in the new outcome.</p></li>
 </ol>
 </div>
 </div>
@@ -2451,10 +2451,10 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-62" class="callout-62-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-epe-split-noise" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 5 (Separate the noise)</strong></span> Suppose that, given <span class="math inline">\(X_{*}= x\)</span>, the new outcome is <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(Y_{*}= \mu+ \nu\)</mark></span>, where the noise <span class="math inline">\(\nu\)</span> has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and that <span class="math inline">\(Y_{*}\)</span> is independent of the random <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Take every expectation below to be conditional on <span class="math inline">\(X_{*}= x\)</span>. Add and subtract <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mu\)</mark></span> inside the square of the <a href="#def-epe">expected prediction error</a>,</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="theorem-title"><strong>Exercise 5 (Separate the noise)</strong></span> Suppose that, given <span class="math inline">\(X_{*}= x\)</span>, the new outcome is <span class="math inline">\(Y_{*}= \mu+ \nu\)</span>, where the noise <span class="math inline">\(\nu\)</span> has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and that <span class="math inline">\(Y_{*}\)</span> is independent of the random <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>. Take every expectation below to be conditional on <span class="math inline">\(X_{*}= x\)</span>. Add and subtract <span class="math inline">\(\mu\)</span> inside the square of the <a href="#def-epe">expected prediction error</a>,</p>
+<p><span class="math display">\[
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y_{*}- \hat{y}\right)\mathclose{}}^2\right]\mathclose{},
-\]</mark></span></p>
+\]</span></p>
 <p>expand it, and take the expectation term by term.</p>
 <p>Two of the three terms simplify. Say what each becomes, and name the assumptions that make the cross term zero.</p>
 </div>
@@ -2474,8 +2474,8 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <div id="callout-63" class="callout-63-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-epe-split-noise" class="proof solution">
-<p><span class="proof-title"><em>Solution 5</em>. </span>Write the prediction error as noise plus the error of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#def-mean-function">mean function</a> value <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mu\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">:</mark></p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="proof-title"><em>Solution 5</em>. </span>Write the prediction error as noise plus the error of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of the <a href="#def-mean-function">mean function</a> value <span class="math inline">\(\mu\)</span>:</p>
+<p><span class="math display">\[
 \begin{aligned}
 Y_{*}- \hat{y}
 &amp;= \mathopen{}\left(Y_{*}- \mu\right)\mathclose{} + \mathopen{}\left(\mu- \hat{y}\right)\mathclose{}
@@ -2483,9 +2483,9 @@ Y_{*}- \hat{y}
 &amp;= \nu+ \mathopen{}\left(\mu- \hat{y}\right)\mathclose{}
 &amp;&amp; \text{(definition of } Y_{*}\text{)}
 \end{aligned}
-\]</mark></span></p>
+\]</span></p>
 <p>Square it:</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="math display">\[
 \begin{aligned}
 {\mathopen{}\left(Y_{*}- \hat{y}\right)\mathclose{}}^2
 &amp;= \nu^2
@@ -2493,7 +2493,7 @@ Y_{*}- \hat{y}
 + {\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2
 &amp;&amp; \text{(expand the square of a sum)}
 \end{aligned}
-\]</mark></span></p>
+\]</span></p>
 <p>Take the expectation of each term in turn, using <a href="https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation">linearity of expectation</a> to split the sum.</p>
 <p>For the noise term, the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance">variance identity</a> gives <span class="math inline">\(\sigma^2= \operatorname{E}\mathopen{}\left[\nu^2\right]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left[\nu\right]\mathclose{}\right)\mathclose{}}^2\)</span>:</p>
 <p><span class="math display">\[
@@ -2507,8 +2507,8 @@ Y_{*}- \hat{y}
 &amp;&amp; \text{(} 0^2 = 0 \text{, and } \sigma^2+ 0 = \sigma^2\text{)}
 \end{aligned}
 \]</span></p>
-<p>For the cross term, <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\nu= Y_{*}- \mu\)</mark></span> shifts <span class="math inline">\(Y_{*}\)</span> by a constant, and <span class="math inline">\(Y_{*}\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, so <span class="math inline">\(\nu\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and hence of <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat{y}\)</mark></span> and of <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mu- \hat{y}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark> The expectation of a product of independent random variables is the product of their expectations:</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p>For the cross term, <span class="math inline">\(\nu= Y_{*}- \mu\)</span> shifts <span class="math inline">\(Y_{*}\)</span> by a constant, and <span class="math inline">\(Y_{*}\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, so <span class="math inline">\(\nu\)</span> is independent of <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and hence of <span class="math inline">\(\hat{y}\)</span> and of <span class="math inline">\(\mu- \hat{y}\)</span>. The expectation of a product of independent random variables is the product of their expectations:</p>
+<p><span class="math display">\[
 \begin{aligned}
 \operatorname{E}\mathopen{}\left[2 \nu\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}\right]\mathclose{}
 &amp;= 2 \operatorname{E}\mathopen{}\left[\nu\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}\right]\mathclose{}
@@ -2520,13 +2520,13 @@ Y_{*}- \hat{y}
 &amp;= 0
 &amp;&amp; \text{(zero times a number)}
 \end{aligned}
-\]</mark></span></p>
+\]</span></p>
 <p>Adding the three expectations,</p>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span id="eq-epe-after-noise"><span class="math display">\[
+<p><span id="eq-epe-after-noise"><span class="math display">\[
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y_{*}- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}
 = \sigma^2+ \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}.
-\tag{21}\]</span></span></mark></p>
-<p>The cross term vanished because the noise has mean <span class="math inline">\(0\)</span> and, for a new outcome, is independent of the training set. Without the zero mean, independence alone would leave <span class="math inline">\(2 \operatorname{E}\mathopen{}\left[\nu\right]\mathclose{}\)</span> times <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\operatorname{E}\mathopen{}\left[\mu- \hat{y}\right]\mathclose{}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> which need not be zero. That holds for a fresh observation, and it fails for an observation the procedure was trained on, whose noise helped determine the prediction.</p>
+\tag{21}\]</span></span></p>
+<p>The cross term vanished because the noise has mean <span class="math inline">\(0\)</span> and, for a new outcome, is independent of the training set. Without the zero mean, independence alone would leave <span class="math inline">\(2 \operatorname{E}\mathopen{}\left[\nu\right]\mathclose{}\)</span> times <span class="math inline">\(\operatorname{E}\mathopen{}\left[\mu- \hat{y}\right]\mathclose{}\)</span>, which need not be zero. That holds for a fresh observation, and it fails for an observation the procedure was trained on, whose noise helped determine the prediction.</p>
 </div>
 </div>
 </div>
@@ -2545,11 +2545,11 @@ Y_{*}- \hat{y}
 <div class="callout-body-container callout-body">
 <div id="exr-epe-split-bias" class="theorem exercise">
 <p><span class="theorem-title"><strong>Exercise 6 (Separate the bias)</strong></span> <a href="#eq-epe-after-noise" class="quarto-xref">Equation&nbsp;21</a> leaves one term that still mixes two ideas:</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="math display">\[
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}.
-\]</mark></span></p>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;">A prediction can miss <span class="math inline">\(\mu\)</span> because its <a href="#def-average-fit">expected prediction</a> is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.</mark></p>
-<p>Split it with the same technique as before: add and subtract the <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">expected</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">prediction</mark> <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mu_{h}\)</mark></span> (<a href="#eq-average-fit" class="quarto-xref">Equation&nbsp;19</a>), expand, and take the expectation term by term.</p>
+\]</span></p>
+<p>A prediction can miss <span class="math inline">\(\mu\)</span> because its <a href="#def-average-fit">expected prediction</a> is off, or because it gives a different result for every training set. These are different failures with different fixes, so the term should split into one piece for each.</p>
+<p>Split it with the same technique as before: add and subtract the expected prediction <span class="math inline">\(\mu_{h}\)</span> (<a href="#eq-average-fit" class="quarto-xref">Equation&nbsp;19</a>), expand, and take the expectation term by term.</p>
 <p>Which of the three terms is not random at all, and what makes the cross term zero this time?</p>
 </div>
 </div>
@@ -2568,16 +2568,16 @@ Y_{*}- \hat{y}
 <div id="callout-65" class="callout-65-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div id="sol-epe-split-bias" class="proof solution">
-<p><span class="proof-title"><em>Solution 6</em>. </span>Insert the <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">expected</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">prediction:</mark></p>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="math display">\[
+<p><span class="proof-title"><em>Solution 6</em>. </span>Insert the expected prediction:</p>
+<p><span class="math display">\[
 \begin{aligned}
 \mu- \hat{y}
 &amp;= \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} + \mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}
 &amp;&amp; \text{(add and subtract } \mu_{h}\text{)}
 \end{aligned}
-\]</span></mark></p>
+\]</span></p>
 <p>Square it:</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="math display">\[
 \begin{aligned}
 {\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2
 &amp;= {\mathopen{}\left(\mu- \mu_{h}\right)\mathclose{}}^2
@@ -2585,10 +2585,10 @@ Y_{*}- \hat{y}
 + {\mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}}^2
 &amp;&amp; \text{(expand the square of a sum)}
 \end{aligned}
-\]</mark></span></p>
+\]</span></p>
 <p>Take the expectation of each term in turn.</p>
-<p>The first term does not depend on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mu\)</mark></span> is a constant, and <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mu_{h}\)</mark></span> has already been averaged over training sets. The expectation of a constant is that constant:</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p>The first term does not depend on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>: <span class="math inline">\(\mu\)</span> is a constant, and <span class="math inline">\(\mu_{h}\)</span> has already been averaged over training sets. The expectation of a constant is that constant:</p>
+<p><span class="math display">\[
 \begin{aligned}
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu- \mu_{h}\right)\mathclose{}}^2\right]\mathclose{}
 &amp;= {\mathopen{}\left(\mu- \mu_{h}\right)\mathclose{}}^2
@@ -2598,14 +2598,14 @@ Y_{*}- \hat{y}
 &amp;= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2
 &amp;&amp; \text{(definitions of the expected prediction and of bias)}
 \end{aligned}
-\]</mark></span></p>
-<p>The cross term vanishes, and this time not by independence but by the definition of the <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">expected</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">prediction.</mark> The first factor is a constant, so it comes out of the expectation:</p>
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="math display">\[
+\]</span></p>
+<p>The cross term vanishes, and this time not by independence but by the definition of the expected prediction. The first factor is a constant, so it comes out of the expectation:</p>
+<p><span class="math display">\[
 \begin{aligned}
 \operatorname{E}\mathopen{}\left[2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}\right]\mathclose{}
 &amp;= 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \operatorname{E}\mathopen{}\left[\mu_{h}- \hat{y}\right]\mathclose{}
 &amp;&amp; \text{(constant factors)} \\
-&amp;= 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \mathopen{}\left(\mu_{h}- \operatorname{E}\mathopen{}\left[\hat{y}\right]\mathclose{}\right)\mathclose{}
+&amp;= 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \mathopen{}\left(\mu_{h}- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}
 &amp;&amp; \text{(expectation of a difference of a constant and a variable)} \\
 &amp;= 2 \mathopen{}\left(\mu- \mu_{h}\right)\mathclose{} \mathopen{}\left(\mu_{h}- \mu_{h}\right)\mathclose{}
 &amp;&amp; \text{(definition of the expected prediction)} \\
@@ -2614,24 +2614,24 @@ Y_{*}- \hat{y}
 &amp;= 0
 &amp;&amp; \text{(a number times zero)}
 \end{aligned}
-\]</span></mark></p>
+\]</span></p>
 <p>The third term is the expectation of the squared deviation of the prediction from its mean, which is the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> of the prediction:</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="math display">\[
 \begin{aligned}
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu_{h}- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}
 &amp;= \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}- \mu_{h}\right)\mathclose{}}^2\right]\mathclose{}
 &amp;&amp; \text{(a number and its negative have the same square)} \\
-&amp;= \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}- \operatorname{E}\mathopen{}\left[\hat{y}\right]\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}- {\operatorname{E}_{\mathcal{D}_{\text{train}}}\mathopen{}\left[\hat{y}\right]\mathclose{}}\right)\mathclose{}}^2\right]\mathclose{}
 &amp;&amp; \text{(definition of the expected prediction)} \\
 &amp;= \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}
 &amp;&amp; \text{(definition of variance)}
 \end{aligned}
-\]</mark></span></p>
+\]</span></p>
 <p>Adding the three expectations,</p>
-<p><span id="eq-epe-after-bias"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span id="eq-epe-after-bias"><span class="math display">\[
 \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}
 = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{}.
-\tag{22}\]</mark></span></span></p>
+\tag{22}\]</span></span></p>
 <p>Neither cross term needed the noise to be normal, and neither assumed anything about the fitting procedure: <span class="math inline">\(g\)</span> can be a line, a tree or a neural network. This split is specific to squared-error loss, the loss of this chapter’s examples.</p>
 </div>
 </div>
@@ -2650,11 +2650,11 @@ Y_{*}- \hat{y}
 <div id="callout-66" class="callout-66-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-epe-decomposition" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 2 (Bias, variance and noise)</strong></span> Let <span class="math inline">\(\mu\)</span> be the <a href="#def-mean-function">mean function</a> of the outcome given the covariate. Suppose that, given <span class="math inline">\(X_{*}= x\)</span>, the new outcome is <span class="math inline">\(Y_{*}= \mu(x) + \nu\)</span>, where <span class="math inline">\(\nu\)</span>, the noise in the outcome at <span class="math inline">\(x\)</span>, has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and that <span class="math inline">\(Y_{*}\)</span> is independent of the random training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and that <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\operatorname{E}\mathopen{}\left[{\hat{y}}^2\right]\mathclose{} &lt; \infty\)</mark></span>. Then the <a href="#def-epe">expected prediction error at <span class="math inline">\(x\)</span></a> is the squared <a href="#def-prediction-bias">bias</a> of the prediction <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat{y}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">,</mark> used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu(x)\)</span>, plus its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, plus <span class="math inline">\(\sigma^2\)</span>:</p>
-<p><span id="eq-epe-decomposition"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="theorem-title"><strong>Theorem 2 (Bias, variance and noise)</strong></span> Let <span class="math inline">\(\mu\)</span> be the <a href="#def-mean-function">mean function</a> of the outcome given the covariate. Suppose that, given <span class="math inline">\(X_{*}= x\)</span>, the new outcome is <span class="math inline">\(Y_{*}= \mu+ \nu\)</span>, where <span class="math inline">\(\nu\)</span>, the noise in the outcome at <span class="math inline">\(x\)</span>, has mean <span class="math inline">\(0\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, and that <span class="math inline">\(Y_{*}\)</span> is independent of the random training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, and that <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(\hat{y}\right)\mathclose{}}^2\right]\mathclose{} &lt; \infty\)</span>. Then the <a href="#def-epe">expected prediction error at <span class="math inline">\(x\)</span></a> is the squared <a href="#def-prediction-bias">bias</a> of the prediction <span class="math inline">\(\hat{y}\)</span>, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\)</span>, plus its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a>, plus <span class="math inline">\(\sigma^2\)</span>:</p>
+<p><span id="eq-epe-decomposition"><span class="math display">\[
 \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{} = {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2
 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2.
-\tag{23}\]</mark></span></span></p>
+\tag{23}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -2672,8 +2672,8 @@ Y_{*}- \hat{y}
 <div id="callout-67" class="callout-67-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>Every expectation below is conditional on <span class="math inline">\(X_{*}= x\)</span>, as in the exercises. By <a href="#sol-epe-split-noise" class="quarto-xref">Solution&nbsp;5</a>, the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\mu\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark> By <a href="#sol-epe-split-bias" class="quarto-xref">Solution&nbsp;6</a>, that pMSE is the squared bias plus the variance. Substituting <a href="#eq-epe-after-bias" class="quarto-xref">Equation&nbsp;22</a> into <a href="#eq-epe-after-noise" class="quarto-xref">Equation&nbsp;21</a>:</p>
-<p><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="proof-title"><em>Proof</em>. </span>Every expectation below is conditional on <span class="math inline">\(X_{*}= x\)</span>, as in the exercises. By <a href="#sol-epe-split-noise" class="quarto-xref">Solution&nbsp;5</a>, the expected squared prediction error is the noise variance plus the pMSE of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\)</span>. By <a href="#sol-epe-split-bias" class="quarto-xref">Solution&nbsp;6</a>, that pMSE is the squared bias plus the variance. Substituting <a href="#eq-epe-after-bias" class="quarto-xref">Equation&nbsp;22</a> into <a href="#eq-epe-after-noise" class="quarto-xref">Equation&nbsp;21</a>:</p>
+<p><span class="math display">\[
 \begin{aligned}
 \operatorname{EPE}^{g}_{n}\mathopen{}\left(x\right)\mathclose{}
 &amp;= \sigma^2+ \operatorname{E}\mathopen{}\left[{\mathopen{}\left(\mu- \hat{y}\right)\mathclose{}}^2\right]\mathclose{}
@@ -2683,7 +2683,7 @@ Y_{*}- \hat{y}
 &amp;= {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{y}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{y}\right)\mathclose{} + \sigma^2
 &amp;&amp; \text{(reorder the terms)}
 \end{aligned}
-\]</mark></span></p>
+\]</span></p>
 </div>
 </div>
 </div>
@@ -2737,8 +2737,8 @@ Y_{*}- \hat{y}
 <div id="callout-70" class="callout-70-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-generalization-error" class="proof remark">
-<p><span class="proof-title"><em>Remark 11</em> (Other names, and how the expected error splits). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#ref-hastie2009elements" role="doc-biblioref">2009, sec. 7.2</a>)</span> also call <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> the <em>test error</em>, and in sec.&nbsp;7.12 the <em>conditional</em> test error. It is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-risk">risk</a> of the prediction <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\({\hat y\mathopen{}\left(X_{*}\right)\mathclose{}}\)</mark></span> under the <a href="https://morrison-lab.github.io/pds/expectation.html#def-loss-function">loss</a> <span class="math inline">\(L\)</span>, computed with the training set held fixed.</p>
-<p>The argument <span class="math inline">\(n\)</span> of the <a href="#def-expected-generalization-error">expected generalization error</a> <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> of a fitting procedure <span class="math inline">\(g\)</span> records that it depends on how many observations each training set has. By <a href="#thm-expected-error-epe" class="quarto-xref">Theorem&nbsp;1</a>, <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> averages the expected prediction error at each covariate value, and <a href="#thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a> splits <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">that</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">error,</mark> under squared-error loss, into a squared bias, a variance and a noise variance.</p>
+<p><span class="proof-title"><em>Remark 11</em> (Other names, and how the expected error splits). </span><span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#ref-hastie2009elements" role="doc-biblioref">2009, sec. 7.2</a>)</span> also call <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> the <em>test error</em>, and in sec.&nbsp;7.12 the <em>conditional</em> test error. It is the <a href="https://morrison-lab.github.io/pds/expectation.html#def-risk">risk</a> of the prediction <span class="math inline">\({\hat y\mathopen{}\left(X_{*}\right)\mathclose{}}\)</span> under the <a href="https://morrison-lab.github.io/pds/expectation.html#def-loss-function">loss</a> <span class="math inline">\(L\)</span>, computed with the training set held fixed.</p>
+<p>The argument <span class="math inline">\(n\)</span> of the <a href="#def-expected-generalization-error">expected generalization error</a> <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> of a fitting procedure <span class="math inline">\(g\)</span> records that it depends on how many observations each training set has. By <a href="#thm-expected-error-epe" class="quarto-xref">Theorem&nbsp;1</a>, <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> averages the expected prediction error at each covariate value, and <a href="#thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a> splits each of those expected prediction errors, under squared-error loss, into a squared bias, a variance and a noise variance.</p>
 </div>
 </div>
 </div>
@@ -2813,15 +2813,15 @@ Y_{*}- \hat{y}
 <div id="callout-74" class="callout-74-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-bias-variance-tradeoff" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 29 (Bias–variance trade-off)</strong></span> Let <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span> be <a href="#def-fitting-procedure">fitting procedures</a>, each <a href="#def-flexibility">at least as flexible</a> as the one before, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#def-training-set">training set</a>. At a covariate value <span class="math inline">\(x\)</span>, with <span class="math inline">\(\mu\)</span> the <a href="#def-mean-function">mean function</a>, there is a <strong>bias–variance trade-off</strong> among them when, from each procedure to the next, the squared <a href="#def-prediction-bias">bias</a> of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu(x)\)</span>, does not rise and its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> does not fall:</p>
-<p><span id="eq-bias-variance-tradeoff"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span class="theorem-title"><strong>Definition 29 (Bias–variance trade-off)</strong></span> Let <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span> be <a href="#def-fitting-procedure">fitting procedures</a>, each <a href="#def-flexibility">at least as flexible</a> as the one before, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#def-training-set">training set</a>. At a covariate value <span class="math inline">\(x\)</span>, with <span class="math inline">\(\mu\)</span> the <a href="#def-mean-function">mean function</a>, there is a <strong>bias–variance trade-off</strong> among them when, from each procedure to the next, the squared <a href="#def-prediction-bias">bias</a> of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\)</span>, does not rise and its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> does not fall:</p>
+<p><span id="eq-bias-variance-tradeoff"><span class="math display">\[
 \begin{aligned}
-{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({\hat y_{l+ 1}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 &amp;\le {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({\hat y_{l}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2,
+{\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 &amp;\le {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2,
 \\
-\operatorname{Var}\mathopen{}\left({\hat y_{l+ 1}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} &amp;\ge \operatorname{Var}\mathopen{}\left({\hat y_{l}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{},
+\operatorname{Var}\mathopen{}\left({{\hat y_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} &amp;\ge \operatorname{Var}\mathopen{}\left({{\hat y_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{},
 \qquad l= 1, \ldots, L- 1.
 \end{aligned}
-\tag{25}\]</mark></span></span></p>
+\tag{25}\]</span></span></p>
 <p>Source: <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#ref-james2021islr2e" role="doc-biblioref">2021, sec. 2.2.2</a>)</span>.</p>
 </div>
 </div>
@@ -2840,7 +2840,7 @@ Y_{*}- \hat{y}
 <div id="callout-75" class="callout-75-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-overfitting-tradeoff" class="proof remark">
-<p><span class="proof-title"><em>Remark 14</em> (Overfitting and the trade-off). </span>By <a href="#thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math inline">\(\operatorname{EPE}^{g_{l}}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span> is the squared bias plus the variance plus <span class="math inline">\(\sigma^2\)</span>. Under a <a href="#def-bias-variance-tradeoff">bias–variance trade-off</a> among <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, moving from <span class="math inline">\(g_{l}\)</span> to <span class="math inline">\(g_{l+ 1}\)</span> lowers the expected squared prediction error at <span class="math inline">\(x\)</span> when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of <span class="math inline">\(\operatorname{EPE}^{g_{1}}_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g_{L}}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span> is often at some <span class="math inline">\(g_{l}\)</span> with <span class="math inline">\(1 &lt; l&lt; L\)</span> <span class="citation" data-cites="james2021islr2e">(<a href="#ref-james2021islr2e" role="doc-biblioref">James et al. 2021, sec. 2.2.2</a>)</span>, but not always: if the mean function <span class="math inline">\(\mu\)</span> is a candidate of <span class="math inline">\(g_{1}\)</span>, the squared bias of <span class="math inline">\(g_{1}\)</span> can be zero, and then no later <span class="math inline">\(g_{l}\)</span> has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. The procedures past the smallest error have lowered their squared bias by less than they have raised their variance, and the rules they produce tend to <a href="#def-overfitting">overfit</a>: they fit their training sets more closely than the procedure with the smallest error but predict new observations worse.</p>
+<p><span class="proof-title"><em>Remark 14</em> (Overfitting and the trade-off). </span>By <a href="#thm-epe-decomposition" class="quarto-xref">Theorem&nbsp;2</a>, <span class="math inline">\(\operatorname{EPE}^{g_{l}}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span> is the squared bias plus the variance plus <span class="math inline">\(\sigma^2\)</span>. Under a <a href="#def-bias-variance-tradeoff">bias–variance trade-off</a> among <span class="math inline">\({\hat y_{1}}, \ldots, {\hat y_{L}}\)</span>, moving from <span class="math inline">\({\hat y_{l}}\)</span> to <span class="math inline">\({\hat y_{l+ 1}}\)</span> lowers the expected squared prediction error at <span class="math inline">\(x\)</span> when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of <span class="math inline">\(\operatorname{EPE}^{g_{1}}_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g_{L}}_{n}\mathopen{}\left(x\right)\mathclose{}\)</span> is often at some <span class="math inline">\(g_{l}\)</span> with <span class="math inline">\(1 &lt; l&lt; L\)</span> <span class="citation" data-cites="james2021islr2e">(<a href="#ref-james2021islr2e" role="doc-biblioref">James et al. 2021, sec. 2.2.2</a>)</span>, but not always: if the mean function <span class="math inline">\(\mu\)</span> is among the functions that candidate <span class="math inline">\(1\)</span> can fit, the squared bias of <span class="math inline">\({\hat y_{1}}\)</span> can be zero, and then no more flexible <span class="math inline">\({\hat y_{l}}\)</span> has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. Past the candidate with the smallest expected squared prediction error, the more flexible candidates have lowered their squared bias by less than they have raised their variance, and their fitted models tend to <a href="#def-overfitting">overfit</a>: they fit their training sets more closely than the fitted model of the candidate with the smallest expected squared prediction error but predict new observations worse.</p>
 </div>
 </div>
 </div>
@@ -3223,9 +3223,9 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div class="callout-body-container callout-body">
 <div id="def-tuning-parameter" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 31 (Tuning parameter)</strong></span> A <strong>tuning parameter</strong> of a <a href="#def-fitting-procedure">fitting procedure</a> is a setting <span class="math inline">\(\lambda\)</span> that the procedure needs but does not compute from the <a href="#def-training-set">training set</a>:</p>
-<p><span id="eq-tuning-parameter"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
-{\hat y\mathopen{}\left(x\right)\mathclose{}} = g_{\lambda}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}\mathopen{}\left(x\right)\mathclose{}.
-\tag{27}\]</mark></span></span></p>
+<p><span id="eq-tuning-parameter"><span class="math display">\[
+{\hat y\mathopen{}\left(x\right)\mathclose{}} = {{\hat y_{\lambda}}\mathopen{}\left(x\right)\mathclose{}}.
+\tag{27}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -3261,7 +3261,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div id="callout-89" class="callout-89-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-model-selection" class="theorem definition">
-<p><mark class="preview-element-added" style="background-color: #cff4fc; color: inherit; padding: 1px 2px; border-radius: 2px;"><span class="theorem-title"><strong>Definition 32 (Model selection)</strong></span> <strong>Model selection</strong> is choosing one fitting procedure from a set of candidate <a href="#def-fitting-procedure">fitting procedures</a> <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, using observations that were <a href="#def-held-out-set">held out</a> from fitting.</mark></p>
+<p><span class="theorem-title"><strong>Definition 32 (Model selection)</strong></span> <strong>Model selection</strong> is choosing one <a href="#def-fitted-model">fitted model</a> from a set of candidate fitted models from different <a href="#def-model-family">model families</a>, using observations that were <a href="#def-held-out-set">held out</a> from fitting.</p>
 </div>
 </div>
 </div>
@@ -3279,7 +3279,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div id="callout-90" class="callout-90-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-model-selection" class="theorem example">
-<p><span class="theorem-title"><strong>Example 17 (Choosing a polynomial degree)</strong></span> In <a href="#exm-tuning-parameter" class="quarto-xref">Example&nbsp;16</a>, the candidates are least-squares polynomial <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">fits</mark> of degree <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(1, 2, 3, 4\)</mark></span> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">to</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">the</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">training</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">cars.</mark> Choosing among these four <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">degrees</mark> is model selection, and the observations it uses are cars held out from fitting.</p>
+<p><span class="theorem-title"><strong>Example 17 (Choosing a polynomial degree)</strong></span> In <a href="#exm-tuning-parameter" class="quarto-xref">Example&nbsp;16</a>, the candidates are the least-squares fitted models from four polynomial model families, the families of degree <span class="math inline">\(1\)</span> (“linear”), <span class="math inline">\(2\)</span> (“quadratic”), <span class="math inline">\(3\)</span> (“cubic”) and <span class="math inline">\(4\)</span> (“quartic”). Choosing among these four fitted models is model selection, and the observations it uses are cars held out from fitting.</p>
 </div>
 </div>
 </div>
@@ -3297,7 +3297,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div id="callout-91" class="callout-91-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-validation-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 33 (Validation set)</strong></span> The <strong>validation set</strong> of a <a href="#def-data-splits">training/validation/test split</a> is the <a href="#def-held-out-set">held-out set</a> of observations indexed by <span class="math inline">\(I_{\text{val}}\)</span>, used <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">to</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">choose</mark> among candidate <a href="#def-fitting-procedure"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">fitting</mark> <mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">procedures</mark></a> fitted to the training set:</p>
+<p><span class="theorem-title"><strong>Definition 33 (Validation set)</strong></span> The <strong>validation set</strong> of a <a href="#def-data-splits">training/validation/test split</a> is the <a href="#def-held-out-set">held-out set</a> of observations indexed by <span class="math inline">\(I_{\text{val}}\)</span>, used for <a href="#def-model-selection">model selection</a> among candidate <a href="#def-fitted-model">fitted models</a> fitted to the training set:</p>
 <p><span id="eq-validation-set"><span class="math display">\[
 \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{val}}}.
 \tag{28}\]</span></span></p>
@@ -3340,10 +3340,10 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <div class="callout-body-container callout-body">
 <div id="def-validation-choice" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 35 (Validation choice)</strong></span> Given candidate <a href="#def-fitting-procedure">fitting procedures</a> <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, the <strong>validation choice</strong> <span class="math inline">\(\hat{l}\)</span> is the index of the candidate whose <a href="#def-prediction-rule">prediction rule</a>, fitted to the training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, has the smallest <a href="#def-validation-error">validation error</a>:</p>
-<p><span id="eq-validation-choice"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
+<p><span id="eq-validation-choice"><span class="math display">\[
 \hat{l} \stackrel{\text{def}}{=}\arg \min_{l} \frac{1}{\mathopen{}\left|I_{\text{val}}\right|\mathclose{}}\sum_{i\in I_{\text{val}}}
-L\mathopen{}\left(y_{i}, {\hat y_{l}\mathopen{}\left(x_{i}\right)\mathclose{}}\right)\mathclose{}.
-\tag{30}\]</mark></span></span></p>
+L\mathopen{}\left(y_{i}, {{\hat y_{l}}\mathopen{}\left(x_{i}\right)\mathclose{}}\right)\mathclose{}.
+\tag{30}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -3361,7 +3361,7 @@ L\mathopen{}\left(y_{i}, {\hat y_{l}\mathopen{}\left(x_{i}\right)\mathclose{}}\r
 <div id="callout-94" class="callout-94-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-test-set" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 36 (Test set)</strong></span> The <strong>test set</strong> of a <a href="#def-data-splits">training/validation/test split</a> is the <a href="#def-held-out-set">held-out set</a> of observations indexed by <span class="math inline">\(I_{\text{test}}\)</span>, on which the rule of the <a href="#def-validation-choice">validation choice</a> <span class="math inline">\(g_{\hat{l}}\)</span> is scored:</p>
+<p><span class="theorem-title"><strong>Definition 36 (Test set)</strong></span> The <strong>test set</strong> of a <a href="#def-data-splits">training/validation/test split</a> is the <a href="#def-held-out-set">held-out set</a> of observations indexed by <span class="math inline">\(I_{\text{test}}\)</span>, on which the <a href="#def-fitted-model">fitted model</a> <span class="math inline">\({\hat y_{\hat{l}}}\)</span> that the <a href="#def-validation-choice">validation choice</a> picks is scored:</p>
 <p><span id="eq-test-set"><span class="math display">\[
 \mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I_{\text{test}}}.
 \tag{31}\]</span></span></p>
@@ -3405,11 +3405,11 @@ L\mathopen{}\left(y_{i}, {\hat y_{l}\mathopen{}\left(x_{i}\right)\mathclose{}}\r
 <div id="rem-data-splits" class="proof remark">
 <p><span class="proof-title"><em>Remark 17</em> (What each set is for). </span>Each set of a <a href="#def-data-splits">training/validation/test split</a> has one job:</p>
 <ul>
-<li>the training set is used to fit each candidate procedure, which estimates its parameters;</li>
+<li>the training set is used to fit each candidate model, which estimates its parameters;</li>
 <li>the validation set is used to compare the candidates, choose transformations, or choose values of a <a href="#def-tuning-parameter">tuning parameter</a>;</li>
-<li>the test set is used once, after the validation choice is made, to estimate the <a href="#def-generalization-error">generalization error</a> of the chosen rule.</li>
+<li>the test set is used once, after the validation choice is made, to estimate the <a href="#def-generalization-error">generalization error</a> of the chosen fitted model.</li>
 </ul>
-<p>The chosen procedure won on the validation set partly because of that particular validation sample, so its validation error is optimistic. Keeping the test set out of every choice is what makes its score free of that optimism.</p>
+<p>The chosen fitted model won on the validation set partly because of that particular validation sample, so its prediction error on the validation set is optimistic as an estimate of its generalization error. Keeping the test set out of every choice is what makes its score free of that optimism.</p>
 <p>For further reading, the machine learning notes define the same three sets in their own notation: the <a href="https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-training-set">training set</a>, the <a href="https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-validation-set">validation set</a>, and the <a href="https://morrison-lab.github.io/lds/chapters/big-ideas.html#def-test-set">test set</a>. They use a different symbol for the training set and a parenthesized observation index, but the same three-way split.</p>
 </div>
 </div>
@@ -3981,9 +3981,9 @@ i\in \mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}}.
 <div class="callout-body-container callout-body">
 <div id="def-fold-out-rule" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 41 (Fold-out rule)</strong></span> For <a href="#def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span>, the <strong>fold-out rule</strong> <span class="math inline">\(\hat y^{(-j)}\mathopen{}\left(\cdot\right)\mathclose{}\)</span> is the <a href="#def-prediction-rule">prediction rule</a> that a <a href="#def-fitting-procedure">fitting procedure</a> <span class="math inline">\(g\)</span> produces from the observations outside that fold:</p>
-<p><span id="eq-fold-out-rule"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
-\hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}g\mathopen{}\left(\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I\setminus \mathcal{F}_{j}}\right)\mathclose{}\mathopen{}\left(x\right)\mathclose{}.
-\tag{36}\]</mark></span></span></p>
+<p><span id="eq-fold-out-rule"><span class="math display">\[
+\hat y^{(-j)}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}{{\hat y_{\mathopen{}\left((x_{i}, y_{i})\right)\mathclose{}_{i\in I\setminus \mathcal{F}_{j}}}}\mathopen{}\left(x\right)\mathclose{}}.
+\tag{36}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -4263,7 +4263,7 @@ rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 <p><span class="proof-title"><em>Remark 26</em> (Choosing the number of folds). </span>The number of folds <span class="math inline">\(k\)</span> trades bias against variance in the cross-validation estimate itself <span class="citation" data-cites="james2021islr2e">(<a href="#ref-james2021islr2e" role="doc-biblioref">James et al. 2021, sec. 5.1.4</a>)</span>:</p>
 <ul>
 <li>
-<strong>Bias.</strong> Each rule in <a href="#eq-cv-estimate" class="quarto-xref">Equation&nbsp;37</a> is fitted to about <span class="math inline">\(n(k- 1) / k\)</span> observations. A rule fitted to fewer observations usually predicts worse, so <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> tends to overstate the error of a rule fitted to all <span class="math inline">\(n\)</span>. The overstatement shrinks as <span class="math inline">\(k\)</span> grows.</li>
+<strong>Bias.</strong> Each rule in <a href="#eq-cv-estimate" class="quarto-xref">Equation&nbsp;37</a> is fitted to about <span class="math inline">\(n(k- 1) / k\)</span> observations. A rule fitted to fewer observations usually predicts worse, so <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(k)}\)</span> tends to overstate the expected generalization error of a rule fitted to all <span class="math inline">\(n\)</span>. The overstatement shrinks as <span class="math inline">\(k\)</span> grows.</li>
 <li>
 <strong>Variance.</strong> As <span class="math inline">\(k\)</span> grows, the <span class="math inline">\(k\)</span> training sets overlap more, so the <span class="math inline">\(k\)</span> fitted rules are more alike and their errors are more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones.</li>
 <li>
@@ -4412,7 +4412,7 @@ Figure&nbsp;6: <a href="#fig-train-test-error" class="quarto-xref">Figure&nbsp;1
 </details>
 </div>
 <p>The cross-validation estimate is smallest at degree 3, and the estimated generalization error at degree 5. Unlike the training error, the cross-validation estimate does not keep falling as the degree grows, so it does not simply reward higher degrees. It is not an estimate of <span class="math inline">\(\operatorname{Err}_{\mathcal{D}_{\text{train}}}\)</span> for the fit to all 30 observations, though (<a href="#rem-cv-estimate" class="quarto-xref">Remark&nbsp;25</a>). Each of its fits uses only 24 observations. At degree 10, polynomials fitted to 24 points predict their held-out points much worse than the fit to all 30 predicts new data: the cross-validation estimate is 4.1 times the estimated generalization pRMSE.</p>
-<p>Part of that gap is expected: by <a href="#rem-cv-estimate" class="quarto-xref">Remark&nbsp;25</a>, with <span class="math inline">\(g\)</span> the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\)</span>, not the error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.</p>
+<p>Part of that gap is expected: by <a href="#rem-cv-estimate" class="quarto-xref">Remark&nbsp;25</a>, with <span class="math inline">\(g\)</span> the least-squares fit of a degree-10 polynomial, the cross-validation estimate targets <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(24\right)\mathclose{}\)</span>, not the expected generalization error of a fit to 30 points. A simulation of many training sets of each size shows how much the size alone matters at this degree.</p>
 <div class="cell">
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sim_generalization_draws</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span></span>
 <span>  <span class="va">n_train</span>, <span class="va">degree</span>, <span class="va">n_reps</span>, <span class="va">draw</span>, <span class="va">new_data</span>, <span class="va">score</span></span>
@@ -4706,7 +4706,7 @@ Table&nbsp;5: Degree with the smallest 4-fold cross-validated sRMSE in each of 5
 <ol type="1">
 <li><p>With <span class="math inline">\(k = n\)</span>, the <span class="math inline">\(n\)</span> nonempty, disjoint <a href="#def-folds">folds</a> of <a href="#eq-folds" class="quarto-xref">Equation&nbsp;33</a> partition the <span class="math inline">\(n\)</span> indices of <span class="math inline">\(I\)</span>, so each fold holds exactly one index. (A partition of <span class="math inline">\(n\)</span> indices into <span class="math inline">\(n\)</span> nonempty, disjoint subsets has one index per subset.)</p></li>
 <li><p>For observation <span class="math inline">\(i\)</span>, <a href="#eq-fold-assignment" class="quarto-xref">Equation&nbsp;35</a> gives <span class="math inline">\(i \in \mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}}\)</span>, so <span class="math inline">\(\mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}} = \mathopen{}\left\{i\right\}\mathclose{}\)</span>. (Fold <span class="math inline">\(\kappa\mathopen{}\left(i\right)\mathclose{}\)</span> holds one index, and that index is <span class="math inline">\(i\)</span>.)</p></li>
-<li><p>Let <span class="math inline">\(g\)</span> be the <a href="#def-fitting-procedure">fitting procedure</a>, the rule that maps a training set to a fitted prediction rule. The <a href="#def-fold-out-rule">fold-out rule</a> of observation <span class="math inline">\(i\)</span> is then <span class="math inline"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\right)\mathclose{} = g\mathopen{}\left(\mathopen{}\left((x_{i'}, y_{i'})\right)\mathclose{}_{i' \in I \setminus \mathopen{}\left\{i\right\}\mathclose{}}\right)\mathclose{}\mathopen{}\left(x\right)\mathclose{}\)</mark></span><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">.</mark> (<a href="#eq-fold-out-rule" class="quarto-xref">Equation&nbsp;36</a> with <span class="math inline">\(\mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}} = \mathopen{}\left\{i\right\}\mathclose{}\)</span>.)</p></li>
+<li><p>Let <span class="math inline">\(g\)</span> be the <a href="#def-fitting-procedure">fitting procedure</a>, the rule that maps a training set to a fitted prediction rule. The <a href="#def-fold-out-rule">fold-out rule</a> of observation <span class="math inline">\(i\)</span> is then <span class="math inline">\(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\right)\mathclose{} = {{\hat y_{\mathopen{}\left((x_{i'}, y_{i'})\right)\mathclose{}_{i' \in I \setminus \mathopen{}\left\{i\right\}\mathclose{}}}}\mathopen{}\left(x\right)\mathclose{}}\)</span>. (<a href="#eq-fold-out-rule" class="quarto-xref">Equation&nbsp;36</a> with <span class="math inline">\(\mathcal{F}_{\kappa\mathopen{}\left(i\right)\mathclose{}} = \mathopen{}\left\{i\right\}\mathclose{}\)</span>.)</p></li>
 <li><p>This rule is fitted to every observation except observation <span class="math inline">\(i\)</span>, and it does not involve <span class="math inline">\(\kappa\mathopen{}\left(i\right)\mathclose{}\)</span> itself. (Step 3 depends on <span class="math inline">\(i\)</span> and <span class="math inline">\(g\)</span> only.)</p></li>
 <li><p>Hence each term <span class="math inline">\({\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x_i\right)\mathclose{} - y_i\right)\mathclose{}}^2\)</span> of <a href="#eq-cv-estimate" class="quarto-xref">Equation&nbsp;37</a> is the same for every fold assignment. (Each term is a function of the rule in step 4, <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span>.)</p></li>
 <li>
@@ -5029,11 +5029,11 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <div id="callout-141" class="callout-141-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-cv-estimate-indexed" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 49 (Cross-validation estimate of a named procedure)</strong></span> Let a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, indexed by <span class="math inline">\(I\)</span>, be divided into <a href="#def-folds">folds</a> <span class="math inline">\(\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}\)</span>. The <strong>cross-validation estimate of procedure</strong> <span class="math inline">\(g\)</span> on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <span class="math inline">\(\widehat{\operatorname{Err}}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, is the <a href="#def-cv-estimate">cross-validation estimate</a> computed with <a href="#def-fold-out-rule">fold-out rules</a> that <span class="math inline">\(g\)</span> produces from <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
-<p><span id="eq-cv-estimate-indexed"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
-\widehat{\operatorname{Err}}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I}
+<p><span class="theorem-title"><strong>Definition 49 (Cross-validation estimate of a named procedure)</strong></span> Let a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, indexed by <span class="math inline">\(I\)</span>, be divided into <a href="#def-folds">folds</a> <span class="math inline">\(\mathcal{F}_{1}, \ldots, \mathcal{F}_{k}\)</span>. The <strong>cross-validation estimate of procedure</strong> <span class="math inline">\(g\)</span> on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <span class="math inline">\({\widehat{\operatorname{Err}}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}\)</span>, is the <a href="#def-cv-estimate">cross-validation estimate</a> computed with <a href="#def-fold-out-rule">fold-out rules</a> that <span class="math inline">\(g\)</span> produces from <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>:</p>
+<p><span id="eq-cv-estimate-indexed"><span class="math display">\[
+{\widehat{\operatorname{Err}}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n} \sum_{i\in I}
 {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x_{i}\right)\mathclose{} - y_{i}\right)\mathclose{}}^2.
-\tag{45}\]</mark></span></span></p>
+\tag{45}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -5052,10 +5052,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <div class="callout-body-container callout-body">
 <div id="def-cv-choice" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 50 (Cross-validation choice procedure)</strong></span> Given candidate <a href="#def-fitting-procedure">fitting procedures</a> <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span>, the <strong>cross-validation choice procedure</strong> <span class="math inline">\(g^{\text{CV}}\)</span> is the fitting procedure that, applied to a <a href="#def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, divides <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> into <span class="math inline">\(k\)</span> <a href="#def-folds">folds</a>, computes each candidate’s <a href="#def-cv-estimate-indexed">cross-validation estimate</a> on <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> with those folds, and applies to <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> the candidate with the smallest estimate, taking the smallest <span class="math inline">\(l\)</span> if several tie:</p>
-<p><span id="eq-cv-choice"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
-g^{\text{CV}}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{} \stackrel{\text{def}}{=}
-g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}.
-\tag{46}\]</mark></span></span></p>
+<p><span id="eq-cv-choice"><span class="math display">\[
+{g^{\text{CV}}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}
+{\hat y_{\min \arg \min_{l} {\widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}}}.
+\tag{46}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -5107,7 +5107,7 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathop
 <div id="def-nested-cv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 51 (Nested cross-validation)</strong></span> <strong>Nested cross-validation</strong> is <a href="#def-kfold"><span class="math inline">\(k\)</span>-fold cross-validation</a> of the <a href="#def-cv-choice">cross-validation choice procedure</a> <span class="math inline">\(g^{\text{CV}}\)</span>: its estimate on a training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is</p>
 <p><span id="eq-nested-cv"><span class="math display">\[
-\widehat{\operatorname{Err}}^{g^{\text{CV}}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}.
+{\widehat{\operatorname{Err}}^{g^{\text{CV}}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}.
 \tag{47}\]</span></span></p>
 </div>
 </div>
@@ -5254,10 +5254,10 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathop
 <div class="callout-body-container callout-body">
 <div id="def-fold-mse-indexed" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 53 (Fold mean squared error of a named procedure)</strong></span> The <strong>fold mean squared error of procedure</strong> <span class="math inline">\(g\)</span> for <a href="#def-folds">fold</a> <span class="math inline">\(\mathcal{F}_{j}\)</span> of a training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, indexed by <span class="math inline">\(I\)</span>, is the <a href="#def-fold-mse">fold mean squared error</a> computed with the <a href="#def-fold-out-rule">fold-out rule</a> that <span class="math inline">\(g\)</span> produces:</p>
-<p><span id="eq-fold-mse-indexed"><span class="math display"><mark class="preview-text-changed" style="background-color: #fff3cd; color: inherit; padding: 1px 2px; border-radius: 2px;">\[
-\operatorname{MSE}^{g}_{j}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n_{j}} \sum_{i\in \mathcal{F}_{j}}
+<p><span id="eq-fold-mse-indexed"><span class="math display">\[
+{\operatorname{MSE}^{g}_{j}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{1}{n_{j}} \sum_{i\in \mathcal{F}_{j}}
 {\mathopen{}\left(\hat y^{(-j)}\mathopen{}\left(x_{i}\right)\mathclose{} - y_{i}\right)\mathclose{}}^2.
-\tag{49}\]</mark></span></span></p>
+\tag{49}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -5275,9 +5275,9 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathop
 <div id="callout-153" class="callout-153-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-cv-se-indexed" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 54 (Fold-based standard error of a named procedure)</strong></span> The <strong>fold-based standard error of procedure</strong> <span class="math inline">\(g\)</span> on a training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <span class="math inline">\(\operatorname{SE}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}\)</span>, is the <a href="#def-cv-se">fold-based standard error</a> computed from the <a href="#def-fold-mse-indexed">fold sMSEs of <span class="math inline">\(g\)</span></a>:</p>
+<p><span class="theorem-title"><strong>Definition 54 (Fold-based standard error of a named procedure)</strong></span> The <strong>fold-based standard error of procedure</strong> <span class="math inline">\(g\)</span> on a training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span>, <span class="math inline">\({\operatorname{SE}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}\)</span>, is the <a href="#def-cv-se">fold-based standard error</a> computed from the <a href="#def-fold-mse-indexed">fold sMSEs of <span class="math inline">\(g\)</span></a>:</p>
 <p><span id="eq-cv-se-indexed"><span class="math display">\[
-\operatorname{SE}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{} \stackrel{\text{def}}{=}\frac{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left(\operatorname{MSE}^{g}_{1}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}, \ldots, \operatorname{MSE}^{g}_{k}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}\right)\mathclose{}}{\sqrt{k}}.
+{\operatorname{SE}^{g}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \stackrel{\text{def}}{=}\frac{\mathop{\widehat{\operatorname{SD}}}\nolimits\mathopen{}\left({\operatorname{MSE}^{g}_{1}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}, \ldots, {\operatorname{MSE}^{g}_{k}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}\right)\mathclose{}}{\sqrt{k}}.
 \tag{50}\]</span></span></p>
 </div>
 </div>
@@ -5298,7 +5298,7 @@ g_{\min \arg \min_{l} \widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathop
 <div id="def-one-se-rule" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 55 (One-standard-error rule)</strong></span> Let <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span> be candidate <a href="#def-fitting-procedure">fitting procedures</a>, each <a href="#def-flexibility">at least as flexible</a> as the one before, cross-validated on a training set <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> with the same folds, and let <span class="math inline">\(g_{l^*}\)</span> be the one with the smallest <a href="#def-cv-estimate-indexed">cross-validation estimate</a>. The <strong>one-standard-error rule</strong> chooses the smallest <span class="math inline">\(l\)</span> whose estimate is within one <a href="#def-cv-se-indexed">fold-based standard error</a> of the smallest:</p>
 <p><span id="eq-one-se-rule"><span class="math display">\[
-\widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{} \le \widehat{\operatorname{Err}}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{} + \operatorname{SE}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}.
+{\widehat{\operatorname{Err}}^{g_{l}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} \le {\widehat{\operatorname{Err}}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}} + {\operatorname{SE}^{g_{l^*}}_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}_{\text{train}}\right)\mathclose{}}.
 \tag{51}\]</span></span></p>
 <p>Source: <span class="citation" data-cites="hastie2009elements james2021islr2e">(<a href="#ref-hastie2009elements" role="doc-biblioref">Hastie et al. 2009, sec. 7.10.1</a>; <a href="#ref-james2021islr2e" role="doc-biblioref">James et al. 2021, sec. 6.1.3</a>)</span>.</p>
 </div>
@@ -5838,22 +5838,114 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener("load", alignEquationAnchorsWithDefault);
 </script></section><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main><!-- /main --><script>
-// A link to #target scrolls the browser to the target before MathJax and the
-// images have set their final heights. Equations above the target then grow
-// and push it up out of view. Scroll to the target again once the page has
-// settled, so the CSS scroll-margin-top in styles.css places it mid-view.
+// Typesetting equations and loading images change the height of everything
+// above the reader and push the text they were reading out of view. Keep the
+// reader's place: until they scroll, that is the link target (#id or a text
+// fragment, #:~:text=...); once they scroll, it is the block of text at about
+// a third of the way down the window. Each time the page height changes, put
+// that place back where it was in the window, until the height has held still
+// for 1.5 s after MathJax finishes (or 30 s have passed). The CSS
+// scroll-margin-top in styles.css places a link target in the upper-middle.
+// A text fragment is not in location.hash, so it is read from the navigation
+// entry (a browser that strips it leaves only the id behaviour).
+// Following another in-page link ends this: the browser's jump is the new place.
 (function () {
-  function land() {
-    var id;
-    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
-    var el = id && document.getElementById(id);
-    if (el) el.scrollIntoView();
+  var hash = "", text = null;
+  try { hash = decodeURIComponent(location.hash.slice(1).replace(/:~:.*$/, "")); } catch (e) {}
+  try {
+    var nav = performance.getEntriesByType("navigation")[0];
+    var m = nav && /#.*?:~:.*?\btext=([^&]*)/.exec(nav.name);
+    // Split on the raw commas before decoding: an encoded comma (%2C) is text.
+    // The form is [prefix-,]start[,end][,-suffix]: drop a prefix or suffix
+    // only when there are other parts, so a lone term may start or end in "-".
+    var parts = m ? m[1].split(",") : [];
+    if (parts.length > 1 && /-$/.test(parts[0])) parts.shift();
+    if (parts.length > 1 && /^-/.test(parts[parts.length - 1])) parts.pop();
+    if (parts[0]) text = decodeURIComponent(parts[0]);
+  } catch (e) {}
+
+  function findText() {
+    var needle = text.replace(/\s+/g, " ").toLowerCase();
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (n) {
+        var p = n.parentElement;
+        return p && !p.closest("script, style, mjx-container, nav")
+          ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    for (var n = walker.nextNode(); n; n = walker.nextNode()) {
+      if (n.data.replace(/\s+/g, " ").toLowerCase().indexOf(needle) >= 0) return n.parentElement;
+    }
+    return null;
   }
-  if (!location.hash) return;
+  function target() {
+    var el = hash && document.getElementById(hash);
+    return el || (text && findText());
+  }
+
+  // The reader's place: null means the link target; otherwise a block of text
+  // and where its top sat in the window when the reader last scrolled.
+  var place = null, expectedY = null, engaged = false, queued = false, stopped = false;
+  var BLOCK = "p, li, h1, h2, h3, h4, h5, h6, figcaption, td, th, pre, blockquote";
+
+  function land() {
+    if (place) {
+      // A block the reader has since collapsed or removed has no position to
+      // keep: leave the page alone until their next scroll picks a new one.
+      if (!place.el.isConnected || !place.el.getClientRects().length) return;
+      var d = place.el.getBoundingClientRect().top - place.top;
+      if (Math.abs(d) >= 1) window.scrollBy({ top: d, behavior: "instant" });
+    } else {
+      var el = target();
+      if (el) el.scrollIntoView({ block: text && !hash ? "center" : "start", behavior: "instant" });
+    }
+    expectedY = window.scrollY;
+  }
+  function track() {
+    queued = false;
+    if (stopped || Math.abs(window.scrollY - expectedY) < 1) return; // our own landing
+    expectedY = window.scrollY;
+    var line = window.innerHeight / 3;
+    var at = document.elementFromPoint(window.innerWidth / 2, line);
+    var el = at && at.closest(BLOCK);
+    if (el && el.closest("mjx-container, nav")) el = null;
+    if (!el) { // the point fell in a margin: take the first block below the line
+      var all = document.querySelectorAll(BLOCK);
+      for (var i = 0; i < all.length && !el; i++) {
+        if (all[i].getBoundingClientRect().bottom > line && !all[i].closest("mjx-container, nav")) el = all[i];
+      }
+    }
+    if (el) place = { el: el, top: el.getBoundingClientRect().top };
+  }
+
+  // Only the reader's own input makes a scroll theirs: the browser's jump to
+  // #id on load is not.
+  function engage() { engaged = true; }
+  ["wheel", "touchstart", "pointerdown"].forEach(function (ev) {
+    window.addEventListener(ev, engage, { passive: true });
+  });
+  window.addEventListener("keydown", function (e) {
+    if (/^(Arrow|Page|Home$|End$| $)/.test(e.key)) engage();
+  }, { passive: true });
+  window.addEventListener("scroll", function () {
+    if (engaged && !queued) { queued = true; requestAnimationFrame(track); }
+  }, { passive: true });
+
+  var ro, timer, ready = false;
+  function finish() { stopped = true; if (ro) ro.disconnect(); }
+  function quiet() { clearTimeout(timer); if (ready) timer = setTimeout(finish, 1500); }
+  window.addEventListener("hashchange", finish, { once: true });
+  setTimeout(finish, 30000);
+
+  if (window.ResizeObserver) {
+    ro = new ResizeObserver(function () { if (!stopped) { land(); quiet(); } });
+    ro.observe(document.body);
+  }
   function afterMath() {
     var mj = window.MathJax;
-    var ready = mj && mj.startup && mj.startup.promise;
-    (ready || Promise.resolve()).then(land, land);
+    var p = mj && mj.startup && mj.startup.promise;
+    function done() { ready = true; if (!stopped) { land(); quiet(); } }
+    (p || Promise.resolve()).then(done, done);
   }
   if (document.readyState === "complete") afterMath();
   else window.addEventListener("load", afterMath);
