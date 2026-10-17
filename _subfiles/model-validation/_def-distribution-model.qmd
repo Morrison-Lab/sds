@@ -1,0 +1,16 @@
+:::{#def-distribution-model}
+#### Distribution model
+
+A **distribution model** $\distmem$ for an outcome $\Outvar$ given a [covariate](#def-covariate) $\Predvar$
+gives each covariate value $\predvar$
+a probability distribution for $\Outvar$ given $\Predvar = \predvar$,
+specified by its [cumulative distribution function](https://morrison-lab.github.io/pds/random-variables.html#def-cdf).
+The [mean function](#def-mean-function) $\meanfnof{\distmem}$ of $\distmem$
+maps each covariate value $\predvar$ to the mean of that distribution:
+
+$$
+\meanfnoff{\distmem}{\predvar}
+\eqdef \Expfc{\distmem}{\Outvar \given \Predvar = \predvar}.
+$$ {#eq-distribution-model-mean-function}
+
+:::

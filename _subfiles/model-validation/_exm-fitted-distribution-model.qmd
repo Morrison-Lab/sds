@@ -1,0 +1,9 @@
+:::{#exm-fitted-distribution-model}
+#### A fitted normal distribution model
+
+Choosing both a line and a variance to describe the weights and fuel economies of the cars in the `mtcars` [data set](#def-data-set) $\dataset$
+gives a [fitted distribution model](#def-fitted-distribution-model) $\edistmem$
+in the family of @exm-distribution-model-family with polynomial degree $\polydeg = 1$.
+Its mean function $\meanfnof{\edistmem}$ is the fitted line of @exm-fitted-model.
+
+:::
