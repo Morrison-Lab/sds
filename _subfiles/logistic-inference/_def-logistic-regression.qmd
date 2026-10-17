@@ -2,8 +2,7 @@
 
 #### Logistic regression
 
-A **logistic regression**
-[@wikipedia_logistic_regression] model for binary outcomes $\outvar_1, \dots, \outvar_n \in \set{0, 1}$
+A **logistic regression** model for binary outcomes $\outvar_1, \dots, \outvar_n \in \set{0, 1}$
 with predictor vectors $\vpredvar_1, \dots, \vpredvar_n$
 says that the outcomes are independent and that
 
@@ -17,4 +16,5 @@ $$ {#eq-logistic-model}
 where $\vpredvar_\iobs = \tp{\paren{1, \predvar_{i1}, \dots, \predvar_{ip}}}$ and $\vcoef = \tp{\paren{\coef{0}, \coef{1}, \dots, \coef{p}}}$.
 The leading $1$ in $\vpredvar_\iobs$ makes $\intcoef$ the intercept, and $\coef{j}$ for $j \ge 1$ is the slope for the $j$th predictor.
 
+Source: @wikipedia_logistic_regression.
 :::
