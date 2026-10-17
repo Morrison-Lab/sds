@@ -7,4 +7,6 @@ with $p = 1$ covariate $X$,
 writing $\predvar_\iobs$ for $\predvar_{\iobs 1}$:
 
 $$\mean(x) \eqdef \intcoef + \coef{x} x.$$
+
+Source: @wikipedia_simple_linear_regression.
 :::

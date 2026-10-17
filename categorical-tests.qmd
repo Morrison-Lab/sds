@@ -89,6 +89,14 @@ format:
 @rice2007mathematical [Sec. 13.6, pp. 526--529] covers odds ratios.
 :::
 
+## Further reading {.unnumbered}
+
+-   @wikipedia_pearsons_chi_squared_test --- the test, its assumptions and its variants
+
+-   @wikipedia_fishers_exact_test --- the exact test and when to use it
+
+-   @wikipedia_contingency_table --- tables of counts and their analysis
+
 ## References {.unnumbered}
 
 ::: {#refs}

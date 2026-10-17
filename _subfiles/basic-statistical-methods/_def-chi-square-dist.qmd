@@ -6,4 +6,6 @@ each with the standard Gaussian distribution.
 The distribution of $\sumto{j}{k} Z_j^2$
 is the **chi-square distribution with $k$ degrees of freedom**,
 written $\chi^2_k$.
+
+Source: @wikipedia_chi_squared_distribution.
 :::

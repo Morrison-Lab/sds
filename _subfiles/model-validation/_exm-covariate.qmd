@@ -1,0 +1,7 @@
+:::{#exm-covariate}
+#### A car's weight
+
+To predict a car's fuel economy $\outvar$,
+the car's weight is a [covariate](#def-covariate) $\predvar$.
+
+:::

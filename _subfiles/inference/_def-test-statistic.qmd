@@ -6,4 +6,6 @@ whose distribution under the [null hypothesis](#def-null-hypothesis)
 is known, exactly or approximately,
 and whose larger values are more extreme,
 meaning less consistent with $H_0$ and more consistent with $H_1$.
+
+Source: @wikipedia_test_statistic.
 :::

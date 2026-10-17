@@ -3,8 +3,8 @@
 
 Take a population whose mean function is known:
 $\Outvar \mid \Predvar = \predvar \sim \ndist{\sin(2 \pi \predvar), \varpar}$ with $\sdpar = 0.3$.
-Fix $\predvar = 0.25$, where $\mean(\predvar) = 1$,
-and let $\fitproc$ fit a cubic polynomial by least squares to $\nobs = 30$ observations.
+Fix $\predvar = 0.25$, where $\truemeanfnf{\predvar} = 1$,
+and fit a cubic polynomial by least squares to $\nobs = 30$ observations.
 We draw $5{,}000$ training sets,
 each with its own new outcome at $\predvar$,
 and average the squared errors of the two targets over them.

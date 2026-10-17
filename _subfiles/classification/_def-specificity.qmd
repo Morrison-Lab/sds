@@ -7,4 +7,5 @@ given that the person tested does not have the disease ($\neg D$):
 
 $$\text{specificity} \eqdef \Pr(\neg + \mid \neg D)$$ {#eq-specificity}
 
+Source: @wikipedia_sensitivity_and_specificity.
 :::

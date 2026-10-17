@@ -1,7 +1,7 @@
 :::{#exr-ds-lik-obs-lik}
 #### Dataset likelihood from likelihood components
 
-For mutually independent data $\vx \eqdef \x1n$,
+For mutually independent data $\vx \eqdef \xin$,
 use @thm-lik-iid
 to write the likelihood of the dataset
 in terms of the observations' [likelihood components](#def-lik-factor).

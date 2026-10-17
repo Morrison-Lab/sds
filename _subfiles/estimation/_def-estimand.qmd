@@ -3,4 +3,6 @@
 
 An **estimand** is an unknown quantity $\param$ whose value we want to know
 [@pohl2021estimands; @lawrance2020estimand].
+
+Source: @wikipedia_estimand.
 :::

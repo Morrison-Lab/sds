@@ -7,4 +7,5 @@ given that the person tested has the disease ($D$):
 
 $$\text{sensitivity} \eqdef \Pr(+ \mid D)$$ {#eq-sensitivity}
 
+Source: @wikipedia_sensitivity_and_specificity.
 :::

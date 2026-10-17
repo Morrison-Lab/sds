@@ -7,4 +7,6 @@ written $\hparam_{\text{MAP}}$,
 is the value of $\param$ that maximizes the [posterior density](#def-posterior):
 
 $$\hparam_{\text{MAP}} \eqdef \argmax_\param \p(\param \mid \vy)$$ {#eq-map}
+
+Source: @wikipedia_maximum_a_posteriori_estimation.
 :::

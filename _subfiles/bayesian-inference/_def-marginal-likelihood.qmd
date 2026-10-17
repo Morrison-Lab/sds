@@ -12,4 +12,6 @@ $$
 
 with the integral replaced by a sum over the possible values of $\param$
 when $\param$ is discrete.
+
+Source: @wikipedia_marginal_likelihood.
 :::

@@ -9,4 +9,6 @@ $$\Pr(L \le \param \le U) = 1 - \siglevel$$
 
 The probability is over repeated samples from the data-generating process,
 with $\param$ held fixed.
+
+Source: @wikipedia_confidence_interval.
 :::

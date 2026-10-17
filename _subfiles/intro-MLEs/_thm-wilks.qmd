@@ -13,4 +13,5 @@ $$
 \chi^2_q
 $$
 
+Source: @wikipedia_wilks_theorem.
 :::

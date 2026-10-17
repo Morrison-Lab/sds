@@ -8,4 +8,6 @@ written
 $$x_{(1)} \le x_{(2)} \le \cdots \le x_{(n)}.$$
 
 So $x_{(1)}$ is the smallest value and $x_{(n)}$ is the largest.
+
+Source: @wikipedia_order_statistic.
 :::

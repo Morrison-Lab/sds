@@ -10,6 +10,7 @@ the probability that the value falls in a set $A$ is
 
 $$\frac{1}{n}\sumjn \indicp{x_j \in A}.$$
 
+Source: @wikipedia_empirical_measure.
 :::
 
 :::{#exm-empirical-distribution}

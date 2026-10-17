@@ -8,4 +8,6 @@ where observation $i$ has covariate values
 $\vpredvar_\iobs = (\predvar_{\iobs 1}, \ldots, \predvar_{\iobs p})$:
 
 $$\mean(x_1, \ldots, x_p) \eqdef \intcoef + \sumjp \coef{x_j} x_j.$$
+
+Source: @wikipedia_linear_regression.
 :::

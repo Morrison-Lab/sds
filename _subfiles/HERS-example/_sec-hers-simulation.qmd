@@ -127,7 +127,7 @@ sim_summary
 
 Across `r nrow(sim_results)` simulated datasets:
 
-- the average error of $\hmean$ is
+- the sample mean of the estimation error of $\hmean$ over these datasets is
   `r signif(sim_summary$bias_mu_hat, 2)` mg/dL,
   small relative to its standard error of
   `r signif(sim_summary$true_se, 3)` mg/dL,

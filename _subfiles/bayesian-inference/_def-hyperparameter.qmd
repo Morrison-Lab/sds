@@ -4,4 +4,6 @@
 In a [hierarchical model](#def-hierarchical-model),
 a **hyperparameter** is a parameter
 of the distribution of the group-level parameters.
+
+Source: @wikipedia_hyperparameter.
 :::

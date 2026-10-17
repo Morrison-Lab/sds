@@ -8,6 +8,8 @@ $$\corpar \eqdef \frac{\Cov{X, Y}}{\sqrt{\Var{X} \Var{Y}}},$$
 
 where $\Cov{X, Y}$ is their
 [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
+
+Source: @wikipedia_pearson_correlation_coefficient.
 :::
 
 {{< slidebreak >}}

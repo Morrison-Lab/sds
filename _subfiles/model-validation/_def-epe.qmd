@@ -2,17 +2,17 @@
 #### Expected prediction error at a covariate value
 
 The **expected prediction error at $\predvar$**
-(**EPE**; also the expected squared prediction error)
+(**EPE**; also the **expected squared prediction error**, **ESPE**)
 of a [fitting procedure](#def-fitting-procedure) $\fitproc$
 at training-set size $\nobs$
 is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss),
 the expected square of the [prediction error](prediction.qmd#def-prediction-error)
-$\prederr_{*}\paren{\fitted} = \fitted(\newpredvar) - \newoutvar$
-of the [prediction rule](#def-prediction-rule) $\fitted : \predvar \mapsto \fitproc\paren{\predvar; \trainset}$
+$\prederr_{*}\paren{\fitted} = \predvalf{\newpredvar} - \newoutvar$
+of the [prediction rule](#def-prediction-rule) $\fitted = \fitmodf{\trainset}$
 that $\fitproc$ produces from $\trainset$:
 
 $$
-\epe{\fitproc}{\nobs}{\predvar} \eqdef \E{\prederr_{*}\paren{\fitproc\paren{\cdot; \trainset}}^2 \mid \newpredvar = \predvar}.
+\epe{\fitproc}{\nobs}{\predvar} \eqdef \E{\prederr_{*}\paren{\fitmodf{\trainset}}^2 \mid \newpredvar = \predvar}.
 $$ {#eq-epe}
 
 :::
@@ -21,11 +21,11 @@ $$ {#eq-epe}
 #### The expected prediction error is a population mean squared error
 
 The expected prediction error is the [pMSE](estimation.qmd#def-mse)
-of the prediction $\fitproc\paren{\predvar; \trainset}$
+of the prediction $\predvalf{\predvar}$
 as a prediction of the new outcome $\newoutvar$.
 With squared-error loss, $\epl{\fitproc}{\nobs}{\predvar} = \epe{\fitproc}{\nobs}{\predvar}$.
 
-It differs from the pMSE of the same prediction as an estimator of the [mean function](#def-mean-function) value $\mean(\predvar)$:
+It differs from the pMSE of the same prediction as an estimator of the [mean function](#def-mean-function) value $\truemeanfnf{\predvar}$:
 @thm-epe-decomposition shows that it exceeds that pMSE by the noise variance.
 The acronym omits "squared" because "error" already means squared error here.
 Another loss gives an expected prediction loss, not an EPE.

@@ -6,4 +6,6 @@ is $\Pr(L \le \param \le U)$,
 computed over repeated samples with $\param$ held fixed.
 A $100(1-\siglevel)\%$ [confidence interval](#def-confidence-interval)
 has coverage probability $1 - \siglevel$.
+
+Source: @wikipedia_coverage_probability.
 :::

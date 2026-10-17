@@ -10,4 +10,6 @@ of both the observed data and $Y^*$:
 $$
 \Prf{L \le Y^* \le U} = 1 - \siglevel
 $$
+
+Source: @wikipedia_prediction_interval.
 :::

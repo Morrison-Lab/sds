@@ -1,12 +1,12 @@
 :::{#sol-epe-split-bias}
 
-Insert the average fit:
+Insert the expected prediction:
 
 $$
 \ba
-\mean(\predvar) - \fitproc\paren{\predvar; \trainset}
-&= \paren{\mean(\predvar) - \avgfitf{\predvar}} + \paren{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}
-&& \text{(add and subtract } \avgfitf{\predvar} \text{)}
+\truemeanfnf{\predvar} - \predval
+&= \paren{\truemeanfnf{\predvar} - \Epredval} + \paren{\Epredval - \predval}
+&& \text{(add and subtract } \Epredval \text{)}
 \ea
 $$
 
@@ -14,10 +14,10 @@ Square it:
 
 $$
 \ba
-\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}
-&= \sqf{\mean(\predvar) - \avgfitf{\predvar}}
-+ 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}
-+ \sqf{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}
+\sqf{\truemeanfnf{\predvar} - \predval}
+&= \sqf{\truemeanfnf{\predvar} - \Epredval}
++ 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \predval}
++ \sqf{\Epredval - \predval}
 && \text{(expand the square of a sum)}
 \ea
 $$
@@ -25,36 +25,38 @@ $$
 Take the expectation of each term in turn.
 
 The first term does not depend on $\trainset$:
-$\mean(\predvar)$ is a constant,
-and $\avgfitf{\predvar}$ has already been averaged over training sets.
+$\truemeanfnf{\predvar}$ is a constant,
+and $\Epredval$ has already been averaged over training sets.
 The expectation of a constant is that constant:
 
 $$
 \ba
-\E{\sqf{\mean(\predvar) - \avgfitf{\predvar}}}
-&= \sqf{\mean(\predvar) - \avgfitf{\predvar}}
+\E{\sqf{\truemeanfnf{\predvar} - \Epredval}}
+&= \sqf{\truemeanfnf{\predvar} - \Epredval}
 && \text{(expectation of a constant)} \\
-&= \sqf{\avgfitf{\predvar} - \mean(\predvar)}
+&= \sqf{\Epredval - \truemeanfnf{\predvar}}
 && \text{(a number and its negative have the same square)} \\
-&= \sqf{\bias{\fitproc\paren{\predvar; \trainset}}}
-&& \text{(definitions of the average fit and of bias)}
+&= \sqf{\bias{\predval}}
+&& \text{(definition of bias)}
 \ea
 $$
 
 The cross term vanishes, and this time not by independence
-but by the definition of the average fit.
+but because the expected prediction is the expectation of the prediction.
 The first factor is a constant, so it comes out of the expectation:
 
 $$
 \ba
-\E{2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}}
-&= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \E{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}
+\E{2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \predval}}
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \E{\Epredval - \predval}
 && \text{(constant factors)} \\
-&= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \E{\fitproc\paren{\predvar; \trainset}}}
-&& \text{(expectation of a difference of a constant and a variable)} \\
-&= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \paren{\avgfitf{\predvar} - \avgfitf{\predvar}}
-&& \text{(definition of the average fit)} \\
-&= 2 \paren{\mean(\predvar) - \avgfitf{\predvar}} \cdot 0
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\E{\Epredval} - \E{\predval}}
+&& \text{(linearity)} \\
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \E{\predval}}
+&& \text{(expectation of a constant)} \\
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \Epredval}
+&& \text{(definition of the expected prediction)} \\
+&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \cdot 0
 && \text{(} a - a = 0 \text{)} \\
 &= 0
 && \text{(a number times zero)}
@@ -68,12 +70,10 @@ of the prediction:
 
 $$
 \ba
-\E{\sqf{\avgfitf{\predvar} - \fitproc\paren{\predvar; \trainset}}}
-&= \E{\sqf{\fitproc\paren{\predvar; \trainset} - \avgfitf{\predvar}}}
+\E{\sqf{\Epredval - \predval}}
+&= \E{\sqf{\predval - \Epredval}}
 && \text{(a number and its negative have the same square)} \\
-&= \E{\sqf{\fitproc\paren{\predvar; \trainset} - \E{\fitproc\paren{\predvar; \trainset}}}}
-&& \text{(definition of the average fit)} \\
-&= \Var{\fitproc\paren{\predvar; \trainset}}
+&= \Var{\predval}
 && \text{(definition of variance)}
 \ea
 $$
@@ -81,8 +81,8 @@ $$
 Adding the three expectations,
 
 $$
-\E{\sqf{\mean(\predvar) - \fitproc\paren{\predvar; \trainset}}}
-= \sqf{\bias{\fitproc\paren{\predvar; \trainset}}} + \Var{\fitproc\paren{\predvar; \trainset}}.
+\E{\sqf{\truemeanfnf{\predvar} - \predval}}
+= \sqf{\bias{\predval}} + \Var{\predval}.
 $$ {#eq-epe-after-bias}
 
 Neither cross term needed the noise to be normal,

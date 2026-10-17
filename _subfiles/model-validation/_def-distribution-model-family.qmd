@@ -1,0 +1,11 @@
+:::{#def-distribution-model-family}
+#### Distribution model family
+
+A **distribution model family** $\distfam$ is a set of [distribution models](#def-distribution-model).
+The [mean functions](#def-mean-function) of its members form the set
+
+$$
+\cb{\meanfnof{\distmem} : \distmem \in \distfam}.
+$$ {#eq-distribution-model-family-mean-functions}
+
+:::

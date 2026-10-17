@@ -6,6 +6,7 @@ The **sample standard deviation** is the square root of the
 
 $$s \eqdef \sqrt{s^2}$$
 
+Source: @wikipedia_standard_deviation.
 :::
 
 {{< slidebreak >}}

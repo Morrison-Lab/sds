@@ -220,6 +220,20 @@ format:
 
 {{< include sds/_subfiles/bayesian-inference/_note-dic-caveats.qmd >}}
 
+## Further reading {.unnumbered}
+
+-   @wikipedia_markov_chain_monte_carlo --- the family of samplers and their diagnostics
+
+-   @wikipedia_metropolis_hastings_algorithm --- the algorithm and its variants
+
+-   @wikipedia_gibbs_sampling --- sampling from full conditional distributions
+
+-   @wikipedia_monte_carlo_method --- Monte Carlo estimation, with examples
+
+-   @wikipedia_markov_chain --- Markov chains and their stationary distributions
+
+-   @wikipedia_deviance_information_criterion --- the criterion and its effective number of parameters
+
 ## References {.unnumbered}
 
 ::: {#refs}

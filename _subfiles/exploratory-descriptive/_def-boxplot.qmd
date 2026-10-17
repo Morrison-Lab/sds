@@ -12,6 +12,7 @@ of a continuous variable:
 - observations beyond the whiskers are plotted individually,
   as potential outliers.
 
+Source: @wikipedia_box_plot.
 :::
 
 {{< slidebreak >}}

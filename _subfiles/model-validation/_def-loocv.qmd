@@ -14,5 +14,4 @@ $$
 $$ {#eq-loocv}
 
 Source: @james2021islr2e [sec. 5.1.2].
-
 :::

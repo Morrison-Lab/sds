@@ -11,6 +11,8 @@ evaluated at the rank pairs:
 $$
 r_S \eqdef r\paren{(u_1, v_1), \ldots, (u_n, v_n)}.
 $$
+
+Source: @wikipedia_spearmans_rank_correlation_coefficient.
 :::
 
 {{< slidebreak >}}

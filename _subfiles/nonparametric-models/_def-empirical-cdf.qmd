@@ -12,4 +12,6 @@ $$\ecdff{t} \eqdef \frac{1}{n}\sumjn I(x_j \le t), \quad t \in \reals,$$
 where $I(A)$ is the indicator function:
 $I(A) = 1$ if $A$ holds,
 and $I(A) = 0$ otherwise.
+
+Source: @wikipedia_empirical_distribution_function.
 :::

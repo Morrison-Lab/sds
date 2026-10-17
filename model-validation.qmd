@@ -34,7 +34,71 @@ format:
 
 ## Fitting and scoring prediction rules {#sec-prediction-rules}
 
+{{< include sds/_subfiles/model-validation/_def-covariate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-covariate.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-mean-function.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-model-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-model-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-objective-function.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-objective-function.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-optimization-algorithm.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-optimization-algorithm.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-random-seed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-random-seed.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-preprocessing.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-preprocessing.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-fitted-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-fitted-model.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-fitting-procedure.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-fitting-procedure.qmd >}}
 
 {{< slidebreak >}}
 
@@ -43,6 +107,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_def-prediction-rule.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-prediction-function-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-prediction-function-family.qmd >}}
 
 {{< slidebreak >}}
 
@@ -102,7 +174,51 @@ format:
 
 {{< slidebreak >}}
 
-{{< include sds/_subfiles/model-validation/_def-mean-function.qmd >}}
+{{< include sds/_subfiles/model-validation/_def-distribution-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-distribution-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-distribution-model-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-distribution-model-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-fitted-distribution-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-fitted-distribution-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-distribution-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-distribution-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-distribution-model-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-distribution-model-family.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-fitted-distribution-model.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-fitted-distribution-model.qmd >}}
 
 {{< slidebreak >}}
 
@@ -235,6 +351,14 @@ format:
 {{< slidebreak >}}
 
 {{< include sds/_subfiles/model-validation/_exm-tuning-parameter.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_def-model-selection.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-model-selection.qmd >}}
 
 {{< slidebreak >}}
 
@@ -390,6 +514,10 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_exm-cv-choice-inputs.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-nested-cv.qmd >}}
 
 {{< slidebreak >}}
@@ -439,6 +567,26 @@ format:
 ## Further reading
 
 {{< include sds/_subfiles/model-validation/_prose-further-reading.qmd >}}
+
+### Online references
+
+-   @wikipedia_cross_validation_statistics --- $k$-fold, leave-one-out and other schemes
+
+-   @wikipedia_training_validation_and_test_data_sets --- what each of the three sets is for
+
+-   @wikipedia_bias_variance_tradeoff --- the decomposition of the expected squared error
+
+-   @wikipedia_overfitting --- overfitting and underfitting, with examples
+
+-   @wikipedia_model_selection --- the task and the main criteria
+
+-   @wikipedia_generalization_error --- generalization error and how to estimate it
+
+-   @wikipedia_hyperparameter_machine_learning --- the Wikipedia article on hyperparameter (machine learning)
+
+-   @wikipedia_leverage_statistics --- the Wikipedia article on leverage (statistics)
+
+-   @wikipedia_random_seed --- the Wikipedia article on random seed
 
 ## References {.unnumbered}
 

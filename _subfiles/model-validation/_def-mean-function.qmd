@@ -5,7 +5,7 @@ The **mean function** $\mean$ of an outcome $\Outvar$ given a covariate $\Predva
 maps each covariate value $\predvar$ to the mean of $\Outvar$ given $\Predvar = \predvar$:
 
 $$
-\mean(\predvar) \eqdef \E{\Outvar \mid \Predvar = \predvar}.
+\truemeanfnf{\predvar} \eqdef \E{\Outvar \mid \Predvar = \predvar}.
 $$ {#eq-mean-function}
 
 :::

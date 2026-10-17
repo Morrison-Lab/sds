@@ -9,4 +9,5 @@ The **between-group sum of squares** is
 
 $$\text{SS}_\text{between} \eqdef \sumto{j}{k} n_j (\outbar_j - \outbar)^2.$$
 
+Source: @wikipedia_partition_of_sums_of_squares.
 :::

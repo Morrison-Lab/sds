@@ -7,4 +7,6 @@ is the sample standard deviation of the bootstrap replicates
 $\hparam^*_1, \ldots, \hparam^*_B$
 (@def-bootstrap-distribution).
 It estimates the [standard error](estimation.qmd#def-SE) of $\hparam$.
+
+Source: @wikipedia_standard_error.
 :::

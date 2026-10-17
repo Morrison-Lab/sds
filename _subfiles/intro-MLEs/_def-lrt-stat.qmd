@@ -10,4 +10,5 @@ $$
 \lrstat \eqdef 2\paren{\llik(\hthml) - \llik(\hparam_0)}
 $$
 
+Source: @wikipedia_likelihood_ratio_test.
 :::

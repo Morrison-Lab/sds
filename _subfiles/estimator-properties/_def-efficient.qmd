@@ -9,7 +9,6 @@ $$
 $$
 
 Source: @CaseBerg01 [sec. 7.3.2].
-
 :::
 
 {{< slidebreak >}}

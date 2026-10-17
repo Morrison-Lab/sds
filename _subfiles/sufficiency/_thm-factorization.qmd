@@ -11,7 +11,6 @@ $$
 $$ {#eq-factorization}
 
 where $\rfacf{\vx}$ does not depend on $\param$.
-
 :::
 
 ::: proof

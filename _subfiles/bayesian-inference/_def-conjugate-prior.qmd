@@ -4,4 +4,6 @@
 A family of prior distributions is **conjugate** to a likelihood
 if, for every prior in the family and every possible data set,
 the [posterior](#def-posterior) is also in the family.
+
+Source: @wikipedia_conjugate_prior.
 :::

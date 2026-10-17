@@ -8,6 +8,7 @@ for every permutation $\pi$ and every set $A$ of vectors,
 
 $$\Pr(Y_\pi \in A) = \Pr(Y \in A).$$
 
+Source: @wikipedia_exchangeable_random_variables.
 :::
 
 {{< slidebreak >}}

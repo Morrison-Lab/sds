@@ -7,4 +7,5 @@ given that the test is positive ($+$):
 
 $$\text{PPV} \eqdef \Pr(D \mid +)$$ {#eq-ppv}
 
+Source: @wikipedia_positive_and_negative_predictive_values.
 :::

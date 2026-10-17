@@ -7,7 +7,6 @@ the **Bonferroni correction** rejects $H_j$ when its p-value is at most $\siglev
 $$\text{reject } H_j \iff p_j \le \frac{\siglevel}{m}.$$
 
 Source: @james2021islr2e [ch. 13].
-
 :::
 
 {{< slidebreak >}}

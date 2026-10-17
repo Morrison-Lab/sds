@@ -12,4 +12,6 @@ f'(x_0) &= 0 && \text{(scalar input)}\\
 f'(\vx_0) &= \vzero && \text{(vector input)}
 \end{aligned}
 $$
+
+Source: @wikipedia_critical_point_mathematics.
 :::

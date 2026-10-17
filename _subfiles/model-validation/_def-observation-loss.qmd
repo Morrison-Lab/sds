@@ -3,16 +3,16 @@
 
 The **loss** of a [prediction rule](#def-prediction-rule) $\fitted$ on an observation $(\predvar_{\iobs}, \outvar_{\iobs})$
 is the cost, under a [loss function](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) $\loss$,
-of its prediction $\fitted(\predvar_{\iobs})$ of the outcome $\outvar_{\iobs}$:
+of its prediction $\predvalf{\predvar_{\iobs}}$ of the outcome $\outvar_{\iobs}$:
 
 $$
-\obsloss{\iobs}\paren{\fitted} \eqdef \lossf{\outvar_{\iobs}, \fitted(\predvar_{\iobs})}.
+\obsloss{\iobs}\paren{\fitted} \eqdef \lossf{\outvar_{\iobs}, \predvalf{\predvar_{\iobs}}}.
 $$ {#eq-observation-loss}
 
 The subscript names the observation, a member of a family of losses,
 and the parentheses hold the prediction rule the loss is evaluated at.
 The index $*$ names the new observation $(\newpredvar, \newoutvar)$,
-so $\obsloss{*}\paren{\fitted} = \lossf{\newoutvar, \fitted(\newpredvar)}$.
+so $\obsloss{*}\paren{\fitted} = \lossf{\newoutvar, \predvalf{\newpredvar}}$.
 When the rule is clear from context, we write $\obsloss{\iobs}$ for $\obsloss{\iobs}\paren{\fitted}$.
 
 :::

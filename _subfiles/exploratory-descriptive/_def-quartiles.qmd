@@ -6,6 +6,8 @@ the sample 0.25 and 0.75 quantiles
 ([sample quantile](nonparametric-models.qmd#def-sample-quantile)).
 The first quartile is also called the **25th percentile**,
 and the third quartile is also called the **75th percentile**.
+
+Source: @wikipedia_quartile.
 :::
 
 {{< slidebreak >}}
