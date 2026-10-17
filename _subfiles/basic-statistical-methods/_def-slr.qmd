@@ -1,11 +1,12 @@
 ::: {#def-slr}
 #### Simple linear regression model
 
-A **simple linear regression**
-[@wikipedia_simple_linear_regression] model
+A **simple linear regression** model
 is a linear regression model (@def-linear-regression)
 with $p = 1$ covariate $X$,
 writing $\predvar_\iobs$ for $\predvar_{\iobs 1}$:
 
 $$\mean(x) \eqdef \intcoef + \coef{x} x.$$
+
+Source: @wikipedia_simple_linear_regression.
 :::

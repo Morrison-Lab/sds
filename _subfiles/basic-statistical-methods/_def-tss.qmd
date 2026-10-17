@@ -1,9 +1,9 @@
 ::: {#def-tss}
 #### Total sum of squares
 
-The **total sum of squares**
-[@wikipedia_total_sum_of_squares] of $\dsn{y}$ is
+The **total sum of squares** of $\dsn{y}$ is
 
 $$\text{TSS} \eqdef \sumin (\outvar_\iobs - \outbar)^2.$$
 
+Source: @wikipedia_total_sum_of_squares.
 :::

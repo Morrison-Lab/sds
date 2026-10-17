@@ -1,14 +1,15 @@
 ::: {#def-population-correlation}
 #### Population correlation
 
-The **population correlation**
-[@wikipedia_pearson_correlation_coefficient] of two random variables $X$ and $Y$
+The **population correlation** of two random variables $X$ and $Y$
 with positive variances is
 
 $$\corpar \eqdef \frac{\Cov{X, Y}}{\sqrt{\Var{X} \Var{Y}}},$$
 
 where $\Cov{X, Y}$ is their
 [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
+
+Source: @wikipedia_pearson_correlation_coefficient.
 :::
 
 {{< slidebreak >}}
