@@ -4,10 +4,10 @@
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
 The **average fit** of $\fitproc$ at a covariate value $\predvar$
-is the prediction $\fitprocf{\predvar; \trainset}$ averaged over every training set it might have been fitted to:
+is the prediction $\fitprocf{\trainset}\paren{\predvar}$ averaged over every training set it might have been fitted to:
 
 $$
-\avgfitf{\predvar} \eqdef \E{\fitprocf{\predvar; \trainset}}.
+\avgfitf{\predvar} \eqdef \E{\fitprocf{\trainset}\paren{\predvar}}.
 $$ {#eq-average-fit}
 
 :::
@@ -26,7 +26,7 @@ from the [mean function](#def-mean-function) and from each other.
 :::{#exm-average-fit}
 #### Computing the average fit
 
-Suppose the predictions $\fitprocf{\predvar; \trainset}$ at $\predvar$
+Suppose the predictions $\fitprocf{\trainset}\paren{\predvar}$ at $\predvar$
 take the values $9$, $11$ and $13$ with equal probability.
 Then
 

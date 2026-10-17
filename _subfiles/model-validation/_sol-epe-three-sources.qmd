@@ -7,7 +7,7 @@
    The noise variance $\varpar = 3$ remains,
    so $3$ is the smallest expected squared error any prediction can have here.
 
-3. A better method can reduce the squared bias and the variance of $\fitprocf{\predvar; \trainset}$,
+3. A better method can reduce the squared bias and the variance of $\fitprocf{\trainset}\paren{\predvar}$,
    because both depend on how $\fitproc$ is built.
    It cannot reduce $\varpar$,
    which is the variance of the noise $\noise$ in the new outcome.

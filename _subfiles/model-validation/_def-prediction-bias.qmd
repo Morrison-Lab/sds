@@ -4,7 +4,7 @@
 Let $\fitproc$ be a [fitting procedure](#def-fitting-procedure),
 and let $\trainset$ be a random [training set](#def-training-set).
 At a covariate value $\predvar$,
-the prediction $\fitprocf{\predvar; \trainset}$ is a random variable,
+the prediction $\fitprocf{\trainset}\paren{\predvar}$ is a random variable,
 because it depends on the random training data.
 The **bias** of the prediction
 is the expected [estimation error](estimation.qmd#def-estimation-error) of the prediction
@@ -13,8 +13,8 @@ of the [mean function](#def-mean-function) value $\mean(\predvar)$,
 which is its estimand here, not the new outcome it predicts:
 
 $$
-\bias{\fitprocf{\predvar; \trainset}}
-= \E{\erf{\fitprocf{\predvar; \trainset}}}.
+\bias{\fitprocf{\trainset}\paren{\predvar}}
+= \E{\erf{\fitprocf{\trainset}\paren{\predvar}}}.
 $$ {#eq-prediction-bias}
 
 :::
@@ -32,16 +32,16 @@ the bias reflects the error introduced by approximating a real-world relationshi
 #### Computing the bias of a prediction
 
 Suppose $\mean(\predvar) = 10$,
-and the predictions $\fitprocf{\predvar; \trainset}$,
+and the predictions $\fitprocf{\trainset}\paren{\predvar}$,
 over repeated training sets,
 average $11$.
 Then
 
 $$
 \begin{aligned}
-\bias{\fitprocf{\predvar; \trainset}}
-&= \E{\erf{\fitprocf{\predvar; \trainset}}} \\
-&= \E{\fitprocf{\predvar; \trainset}} - \mean(\predvar) \\
+\bias{\fitprocf{\trainset}\paren{\predvar}}
+&= \E{\erf{\fitprocf{\trainset}\paren{\predvar}}} \\
+&= \E{\fitprocf{\trainset}\paren{\predvar}} - \mean(\predvar) \\
 &= 11 - 10 \\
 &= 1.
 \end{aligned}

@@ -10,7 +10,7 @@ computed with [fold-out rules](#def-fold-out-rule) that $\fitproc$ produces from
 
 $$
 \cvestof{\nfolds}{\fitproc}\paren{\trainset} \eqdef \frac{1}{\nobs} \sum_{\iobs \in \obsidx}
-\sqf{\fitprocf{\predvar_{\iobs}; \paren{(\predvar_{\iobs'}, \outvar_{\iobs'})}_{\iobs' \in \obsidx \setminus \fold{\foldof{\iobs}}}} - \outvar_{\iobs}}.
+\sqf{\fitprocf{\paren{(\predvar_{\iobs'}, \outvar_{\iobs'})}_{\iobs' \in \obsidx \setminus \fold{\foldof{\iobs}}}}\paren{\predvar_{\iobs}} - \outvar_{\iobs}}.
 $$ {#eq-cv-estimate-indexed}
 
 :::
