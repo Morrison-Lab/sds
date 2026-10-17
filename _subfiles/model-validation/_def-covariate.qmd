@@ -1,0 +1,6 @@
+:::{#def-covariate}
+#### Covariate
+
+A **covariate** $\predvar$ is a variable whose value is used to [predict](prediction.qmd#def-prediction) the outcome $\outvar$.
+
+:::

@@ -2,6 +2,6 @@
 #### Model family
 
 A **model family** $\modelfam$ is a set of functions,
-each of which maps a covariate value $\predvar$ to a [prediction](prediction.qmd#def-prediction) of the outcome.
+each of which maps a [covariate](#def-covariate) value $\predvar$ to a [prediction](prediction.qmd#def-prediction) of the outcome.
 
 :::
