@@ -11,4 +11,6 @@ $$
 =
 \p\paren{\vparam^{(t+1)} \mid \vparam^{(t)}}.
 $$
+
+Source: @wikipedia_markov_chain.
 :::

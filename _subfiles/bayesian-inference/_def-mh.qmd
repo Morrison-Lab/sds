@@ -11,4 +11,6 @@ the **Metropolis--Hastings algorithm** produces $\vparam^{(t+1)}$ from $\vparam^
 2. Compute the [acceptance ratio](#def-acceptance-ratio) $\accept$.
 3. With probability $\min(1, \accept)$, set $\vparam^{(t+1)} = \vparam^*$ (accept the candidate);
    otherwise set $\vparam^{(t+1)} = \vparam^{(t)}$ (reject it).
+
+Source: @wikipedia_metropolis_hastings_algorithm.
 :::
