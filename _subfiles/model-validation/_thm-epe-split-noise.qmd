@@ -6,14 +6,14 @@ the new outcome is $\newoutvar = \mean(\predvar) + \noise$,
 where the noise $\noise$ has mean $0$ and variance $\varpar$,
 and that $\newoutvar$ is independent of the random [training set](#def-training-set) $\trainset$.
 Then, given $\newpredvar = \predvar$,
-the [expected squared prediction error](#def-epe) (ESPE) of $\fitproc\paren{\predvar; \trainset}$
+the [expected squared prediction error](#def-epe) (ESPE) of $\fitprocf{\predvar; \trainset}$
 is the [irreducible error](#def-irreducible-error) $\varpar$
 plus its [expected squared estimation error](estimation.qmd#def-mse) (ESEE)
 as an [estimator](estimation.qmd#def-estimator) of $\mean(\predvar)$:
 
 $$
-\ESPE{\fitproc\paren{\predvar; \trainset}}
-= \varpar + \ESEE{\fitproc\paren{\predvar; \trainset}}.
+\ESPE{\fitprocf{\predvar; \trainset}}
+= \varpar + \ESEE{\fitprocf{\predvar; \trainset}}.
 $$ {#eq-epe-split-noise}
 
 :::

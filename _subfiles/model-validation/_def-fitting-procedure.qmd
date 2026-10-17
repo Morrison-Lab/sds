@@ -8,7 +8,7 @@ computes a [prediction](prediction.qmd#def-prediction) of the outcome at $\predv
 $$
 \paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}
 \mapsto
-\fitproc\paren{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}.
+\fitprocf{\predvar; \paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}}.
 $$ {#eq-fitting-procedure}
 
 :::

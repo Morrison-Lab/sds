@@ -9,7 +9,7 @@ Take every expectation below to be conditional on $\newpredvar = \predvar$.
 Add and subtract $\mean(\predvar)$ inside the square of the [expected prediction error](#def-epe),
 
 $$
-\E{\sqf{\newoutvar - \fitproc\paren{\predvar; \trainset}}},
+\E{\sqf{\newoutvar - \fitprocf{\predvar; \trainset}}},
 $$
 
 expand it, and take the expectation term by term.

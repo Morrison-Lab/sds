@@ -20,7 +20,7 @@ $$ {#eq-epe}
 The expected prediction error is the [sMSE of predictions](prediction.qmd#def-prediction-mse)
 with the average over observations replaced by an expectation
 over training sets and new outcomes:
-the pMSE of the prediction $\fitproc\paren{\predvar; \trainset}$
+the pMSE of the prediction $\fitprocf{\predvar; \trainset}$
 as a prediction of the new outcome $\newoutvar$.
 With squared-error loss, $\epl{\fitproc}{\nobs}{\predvar} = \epe{\fitproc}{\nobs}{\predvar}$.
 
