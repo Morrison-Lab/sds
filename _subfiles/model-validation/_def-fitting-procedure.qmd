@@ -2,7 +2,7 @@
 #### Fitting procedure
 
 A **fitting procedure** $\fitproc$ is a rule that,
-given any data $\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}$ and any covariate value $\predvar$,
+given any data $\paren{(\predvar_{\iobs}, \outvar_{\iobs})}_{\iobs \in \obsidx}$ and any [covariate](#def-covariate) value $\predvar$,
 computes a [prediction](prediction.qmd#def-prediction) of the outcome at $\predvar$:
 
 $$
