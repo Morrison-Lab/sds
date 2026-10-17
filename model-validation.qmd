@@ -290,6 +290,14 @@ format:
 
 {{< slidebreak >}}
 
+{{< include sds/_subfiles/model-validation/_def-model-selection.qmd >}}
+
+{{< slidebreak >}}
+
+{{< include sds/_subfiles/model-validation/_exm-model-selection.qmd >}}
+
+{{< slidebreak >}}
+
 {{< include sds/_subfiles/model-validation/_def-validation-set.qmd >}}
 
 {{< slidebreak >}}

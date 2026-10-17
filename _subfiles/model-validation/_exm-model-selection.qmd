@@ -1,0 +1,9 @@
+:::{#exm-model-selection}
+#### Choosing a polynomial degree
+
+In @exm-tuning-parameter,
+the candidates are least-squares polynomial fits of degree $1, 2, 3, 4$ to the training cars.
+Choosing among these four degrees is model selection,
+and the observations it uses are cars held out from fitting.
+
+:::
