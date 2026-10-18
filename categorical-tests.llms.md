@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
@@ -55,7 +55,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 1 (Expected count under independence)** Let a contingency table have \\r\\ rows and \\c\\ columns, with observed count \\O\_{ij}\\ in row \\i\\ and column \\j\\, row totals \\R_i\\, column totals \\C_j\\, and grand total \\n\\. The **expected count** in cell \\(i, j)\\ under independence is
+> **Definition 1 (Expected count under independence)** Let a contingency table have \\r\\ rows and \\c\\ columns, with observed count \\O\_{ij}\\ in row \\i\\ and column \\j\\, row totals \\R_i\\, column totals \\C_j\\, and grand total \\n\\ [\[3\]](#ref-wikipedia_contingency_table). The **expected count** in cell \\(i, j)\\ under independence is
 >
 > \\E\_{ij} \stackrel{\text{def}}{=}\frac{R_i \\ C_j}{n}.\\
 >
@@ -69,7 +69,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 2 (Pearson’s chi-square test of independence)** With observed counts \\O\_{ij}\\ and [expected counts](#def-expected-count) \\E\_{ij}\\ in an \\r \times c\\ contingency table, **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the statistic
+> **Definition 2 (Pearson’s chi-square test of independence)** With observed counts \\O\_{ij}\\ and [expected counts](#def-expected-count) \\E\_{ij}\\ in an \\r \times c\\ contingency table, **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the statistic [\[4\]](#ref-wikipedia_pearsons_chi_squared_test)
 >
 > \\X^2 \stackrel{\text{def}}{=}\sum\_{i=1}^{r} \sum\_{j=1}^{c} \frac{(O\_{ij} - E\_{ij})^2}{E\_{ij}}.\\
 >
@@ -138,7 +138,7 @@ hers |> head()
 >
 > \\p(x) \stackrel{\text{def}}{=}\frac{\binom{a+b}{x} \binom{c+d}{a+c-x}}{\binom{n}{a+c}}.\\
 >
-> **Fisher’s exact test** of independence has p-value
+> **Fisher’s exact test** of independence has p-value [\[6\]](#ref-wikipedia_fishers_exact_test)
 >
 > \\\sum\_{x \\:\\ p(x) \le p(a)} p(x),\\
 >
@@ -194,14 +194,6 @@ Tests of independence say whether two binary variables are associated, but not h
 > **NOTE:**
 >
 > Rice [\[5, Sec. 13.6\]](#ref-rice2007mathematical), pp. 526–529 covers odds ratios.
-
-## Further reading
-
-- Wikipedia contributors [\[4\]](#ref-wikipedia_pearsons_chi_squared_test) — the test, its assumptions and its variants
-
-- Wikipedia contributors [\[6\]](#ref-wikipedia_fishers_exact_test) — the exact test and when to use it
-
-- Wikipedia contributors [\[3\]](#ref-wikipedia_contingency_table) — tables of counts and their analysis
 
 ## References
 

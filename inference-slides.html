@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 12:03:55 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 13:22:01 (PDT)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <style>
@@ -396,7 +396,7 @@ text-align: center;
 <span class="header-section-number">2.1</span> Hypotheses</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-null-hypothesis div. -->
 <div id="def-null-hypothesis" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Null hypothesis)</strong></span> The <strong>null hypothesis</strong>, written <span class="math inline">\(H_0\)</span>, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.</p>
+<p><span class="theorem-title"><strong>Definition 2 (Null hypothesis)</strong></span> The <strong>null hypothesis</strong>, written <span class="math inline">\(H_0\)</span>, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data <span class="citation" data-cites="wikipedia_statistical_hypothesis_test"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_statistical_hypothesis_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-alternative-hypothesis" class="theorem definition">
@@ -418,7 +418,7 @@ text-align: center;
 <p>Source: <span class="citation" data-cites="wikipedia_test_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-p-value" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 6 (p-value)</strong></span> Given a <a href="#/def-test-statistic">test statistic</a> <span class="math inline">\(T\)</span> whose observed value is <span class="math inline">\(t\)</span>, the <strong>p-value</strong> is the probability that <span class="math inline">\(T\)</span> is at least as extreme as the value observed, computed with the data distributed as the null hypothesis specifies:</p>
+<p><span class="theorem-title"><strong>Definition 6 (p-value)</strong></span> Given a <a href="#/def-test-statistic">test statistic</a> <span class="math inline">\(T\)</span> whose observed value is <span class="math inline">\(t\)</span>, the <strong>p-value</strong> is the probability that <span class="math inline">\(T\)</span> is at least as extreme as the value observed, computed with the data distributed as the null hypothesis specifies <span class="citation" data-cites="wikipedia_p_value"><a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>:</p>
 <p><span class="math display">\[p \stackrel{\text{def}}{=}\Pr_{H_0}(T \ge t)\]</span></p>
 <p>If the null hypothesis allows more than one distribution (a <em>composite</em> null hypothesis, such as <span class="math inline">\(H_0: \mu_1 = \mu_0\)</span> with unknown variances), the p-value is the largest such probability over those distributions, or an approximation to it.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_p_value">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
@@ -488,7 +488,7 @@ text-align: center;
 </section><section class="slide level2"><div id="def-t-dist" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (t-distribution (Student’s t-distribution))</strong></span> Let <span class="math inline">\(Z\)</span> have the standard Gaussian distribution, let <span class="math inline">\(V\)</span> have the <span class="math inline">\(\chi^2_k\)</span> distribution (<a href="#/def-chi-square-dist" class="quarto-xref">Definition&nbsp;9</a>), and let <span class="math inline">\(Z\)</span> and <span class="math inline">\(V\)</span> be independent. The distribution of</p>
 <p><span class="math display">\[\frac{Z}{\sqrt{V/k}}\]</span></p>
-<p>is the <strong>t-distribution with <span class="math inline">\(k\)</span> degrees of freedom</strong> (or <strong>Student’s t-distribution</strong>), written <span class="math inline">\(t_k\)</span>.</p>
+<p>is the <strong>t-distribution with <span class="math inline">\(k\)</span> degrees of freedom</strong> (or <strong>Student’s t-distribution</strong>), written <span class="math inline">\(t_k\)</span> <span class="citation" data-cites="wikipedia_students_t_distribution"><a href="#/references" role="doc-biblioref" onclick="">[12]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-t-dist" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (t quantiles approach Gaussian quantiles)</strong></span> The 0.975 quantile of <span class="math inline">\(t_k\)</span> is larger than the standard Gaussian’s 0.975 quantile, 1.96, and approaches it as <span class="math inline">\(k\)</span> grows:</p>
@@ -524,14 +524,14 @@ text-align: center;
 <span class="header-section-number">4</span> Confidence intervals</h2>
 <!-- No slidebreak here: the heading shares its slide with the def-confidence-interval div. -->
 <div id="def-confidence-interval" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Confidence interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a pair of statistics <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span>, computed from the data, such that for every possible value of <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 12 (Confidence interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a pair of statistics <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span>, computed from the data, such that for every possible value of <span class="math inline">\(\theta\)</span> <span class="citation" data-cites="wikipedia_confidence_interval"><a href="#/references" role="doc-biblioref" onclick="">[13]</a></span>:</p>
 <p><span class="math display">\[\Pr(L \le \theta\le U) = 1 - \alpha\]</span></p>
 <p>The probability is over repeated samples from the data-generating process, with <span class="math inline">\(\theta\)</span> held fixed.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[12]</a></span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[13]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-coverage-probability" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Coverage probability)</strong></span> The <strong>coverage probability</strong> of an interval <span class="math inline">\([L, U]\)</span> for a parameter <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\Pr(L \le \theta\le U)\)</span>, computed over repeated samples with <span class="math inline">\(\theta\)</span> held fixed. A <span class="math inline">\(100(1-\alpha)\%\)</span> <a href="#/def-confidence-interval">confidence interval</a> has coverage probability <span class="math inline">\(1 - \alpha\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_coverage_probability">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[13]</a></span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_coverage_probability">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-approximate-ci" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Approximate confidence interval)</strong></span> An <strong>approximate</strong> <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval is an interval whose <a href="#/def-coverage-probability">coverage probability</a> is approximately <span class="math inline">\(1 - \alpha\)</span>, for example only in large samples.</p>
@@ -548,7 +548,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="def-margin-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 15 (Margin of error (radius))</strong></span> The <strong>margin of error</strong> (or <strong>radius</strong>) of a <a href="#/def-confidence-interval">confidence interval</a> is half the interval’s width.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_margin_of_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_margin_of_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[15]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-margin-error" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Margin of error for population mean cholesterol)</strong></span> In <a href="#/exm-confidence-interval-wcgs" class="quarto-xref">Example&nbsp;7</a>, the margin of error is <span class="math inline">\(z_{0.975} \times s/\sqrt{n} \approx\)</span> 1.52 mg/dL.</p>
@@ -573,14 +573,6 @@ text-align: center;
 <li>
 <a href="https://wmed.edu/sites/default/files/ANATOMY%20OF%20A%20CONFIDENCE%20INTERVAL%20%28full%29.pdf">Anatomy of a confidence interval</a> (PDF);</li>
 <li><iframe data-external="1" src="https://www.youtube.com/embed/vq1KrE7gU5M" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></li>
-</ul>
-<h3 data-number="5.1" id="online-references">
-<span class="header-section-number">5.1</span> Online references</h3>
-<ul>
-<li><p><span class="citation" data-cites="wikipedia_statistical_hypothesis_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — the logic of testing and its terminology</p></li>
-<li><p><span class="citation" data-cites="wikipedia_p_value">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span> — the definition and common misreadings</p></li>
-<li><p><span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[12]</a></span> — the definition and common misreadings</p></li>
-<li><p><span class="citation" data-cites="wikipedia_students_t_distribution">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[15]</a></span> — the distribution and its uses</p></li>
 </ul></section><section id="interpretation-of-negative-findings" class="slide level2" data-number="6"><h2>
 <span class="header-section-number">6</span> Interpretation of negative findings</h2>
 <p>If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not <em>necessarily</em> mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage <span class="math inline">\(1 - \alpha\)</span> and significance level <span class="math inline">\(\alpha\)</span>, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant <em>evidence</em> that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.</p>
@@ -692,24 +684,24 @@ Figure&nbsp;1: Interpretations of hypothetical 95% confidence intervals for a ra
 <div class="csl-right-inline">Wikipedia contributors, <span>“Chi-squared distribution — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution">https://en.wikipedia.org/wiki/Chi-squared_distribution</a>
 </div>
 </div>
-<div id="ref-wikipedia_confidence_interval" class="csl-entry" role="listitem">
+<div id="ref-wikipedia_students_t_distribution" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[12] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Student’s t-distribution — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">https://en.wikipedia.org/wiki/Student%27s_t-distribution</a>
+</div>
+</div>
+<div id="ref-wikipedia_confidence_interval" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div>
 <div class="csl-right-inline">Wikipedia contributors, <span>“Confidence interval — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Confidence_interval">https://en.wikipedia.org/wiki/Confidence_interval</a>
 </div>
 </div>
 <div id="ref-wikipedia_coverage_probability" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[13] </div>
+<div class="csl-left-margin">[14] </div>
 <div class="csl-right-inline">Wikipedia contributors, <span>“Coverage probability — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Coverage_probability">https://en.wikipedia.org/wiki/Coverage_probability</a>
 </div>
 </div>
 <div id="ref-wikipedia_margin_of_error" class="csl-entry" role="listitem">
-<div class="csl-left-margin">[14] </div>
-<div class="csl-right-inline">Wikipedia contributors, <span>“Margin of error — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Margin_of_error">https://en.wikipedia.org/wiki/Margin_of_error</a>
-</div>
-</div>
-<div id="ref-wikipedia_students_t_distribution" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[15] </div>
-<div class="csl-right-inline">Wikipedia contributors, <span>“Student’s t-distribution — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">https://en.wikipedia.org/wiki/Student%27s_t-distribution</a>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Margin of error — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Margin_of_error">https://en.wikipedia.org/wiki/Margin_of_error</a>
 </div>
 </div>
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">

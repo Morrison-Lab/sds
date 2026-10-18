@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 ## 1 Scientific models
 
@@ -40,7 +40,7 @@ These kinds of *missing data* issues are outside the scope of these notes; see V
 
 > **NOTE:**
 >
-> **Definition 2 (Estimand)** An **estimand** is an unknown quantity \\\theta\\ whose value we want to know [\[4\]](#ref-pohl2021estimands), [\[5\]](#ref-lawrance2020estimand).
+> **Definition 2 (Estimand)** An **estimand** is an unknown quantity \\\theta\\ whose value we want to know [\[4\]](#ref-pohl2021estimands), [\[5\]](#ref-lawrance2020estimand) [\[6\]](#ref-wikipedia_estimand).
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_estimand).
 
@@ -108,7 +108,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> **Definition 5 (Sampling distribution)** The **sampling distribution** of an [estimator](#def-estimator) \\\hat{\theta}\\ is the probability distribution of \\\hat{\theta}(X_1, \ldots, X_n)\\ over repeated random samples \\X_1, \ldots, X_n\\ from the same population: the distribution of the values the estimator would take across all the samples we might have drawn.
+> **Definition 5 (Sampling distribution)** The **sampling distribution** of an [estimator](#def-estimator) \\\hat{\theta}\\ is the probability distribution of \\\hat{\theta}(X_1, \ldots, X_n)\\ over repeated random samples \\X_1, \ldots, X_n\\ from the same population: the distribution of the values the estimator would take across all the samples we might have drawn [\[8\]](#ref-wikipedia_sampling_distribution).
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_sampling_distribution).
 
@@ -166,7 +166,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Definition 7 (Bias)** The **bias** of an estimator \\\hat{\theta}\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error):
+> **Definition 7 (Bias)** The **bias** of an estimator \\\hat{\theta}\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error) [\[12\]](#ref-wikipedia_bias_of_an_estimator):
 >
 > \\\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right\]\mathclose{} \tag{1}\\
 >
@@ -204,7 +204,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error** or its **expected squared estimation error (ESEE)**, denoted \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ or \\\operatorname{ESEE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
+> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error** or its **expected squared estimation error (ESEE)**, denoted \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ or \\\operatorname{ESEE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error) [\[13\]](#ref-wikipedia_mean_squared_error):
 >
 > \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\
 >
@@ -507,18 +507,6 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 > **NOTE:**
 >
 > *Proof*. This is the solution to [Exercise 9](#exr-se-rmse-unbiased).
-
-## Further reading
-
-- Wikipedia contributors [\[7\]](#ref-wikipedia_estimator) — estimators and their properties
-
-- Wikipedia contributors [\[6\]](#ref-wikipedia_estimand) — the target of an estimate
-
-- Wikipedia contributors [\[12\]](#ref-wikipedia_bias_of_an_estimator) — bias, with examples
-
-- Wikipedia contributors [\[13\]](#ref-wikipedia_mean_squared_error) — the mean squared error and its decomposition
-
-- Wikipedia contributors [\[8\]](#ref-wikipedia_sampling_distribution) — the distribution of a statistic across samples
 
 ## References
 

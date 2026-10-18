@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 ## 1 Introduction
 
@@ -155,7 +155,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 1 (Population)** A **population** is the entire collection of units (people, animals, objects, or events) that a study aims to learn about.
+> **Definition 1 (Population)** A **population** is the entire collection of units (people, animals, objects, or events) that a study aims to learn about [\[3\]](#ref-wikipedia_statistical_population).
 >
 > Source: Wikipedia contributors [\[3\]](#ref-wikipedia_statistical_population).
 
@@ -181,7 +181,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)):
+> **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)) [\[4\]](#ref-wikipedia_simple_random_sample):
 >
 > \\X_1, \ldots, X_n \operatorname{iid}\\ \operatorname{P},\\
 >
@@ -218,7 +218,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 6 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order. In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
+> **Definition 6 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order [\[5\]](#ref-wikipedia_median). In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
 >
 > - if \\n\\ is odd, the median is \\x\_{((n+1)/2)}\\;
 > - if \\n\\ is even, the median is \\\frac{1}{2}\mathopen{}\left(x\_{(n/2)} + x\_{(n/2 + 1)}\right)\mathclose{}\\.
@@ -240,7 +240,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
+> **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is [\[6\]](#ref-wikipedia_variance):
 >
 > \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar{x})^2\\
 >
@@ -248,7 +248,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 8 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance):
+> **Definition 8 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance) [\[7\]](#ref-wikipedia_standard_deviation):
 >
 > \\s \stackrel{\text{def}}{=}\sqrt{s^2}\\
 >
@@ -273,7 +273,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 9 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
+> **Definition 9 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)) [\[8\]](#ref-wikipedia_quartile). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
 >
 > Source: Wikipedia contributors [\[8\]](#ref-wikipedia_quartile).
 
@@ -283,7 +283,7 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 10 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles):
+> **Definition 10 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles) [\[9\]](#ref-wikipedia_interquartile_range):
 >
 > \\\text{IQR} \stackrel{\text{def}}{=}Q_3 - Q_1\\
 >
@@ -396,7 +396,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 12 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.
+> **Definition 12 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval [\[12\]](#ref-wikipedia_histogram).
 >
 > Source: Wikipedia contributors [\[12\]](#ref-wikipedia_histogram).
 
@@ -426,7 +426,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 14 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
+> **Definition 14 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1 [\[13\]](#ref-wikipedia_kernel_density_estimation).
 >
 > Source: Wikipedia contributors [\[13\]](#ref-wikipedia_kernel_density_estimation).
 
@@ -450,7 +450,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 15 (Box plot (box-and-whisker plot))** A **box plot** (or **box-and-whisker plot**) summarizes the distribution of a continuous variable:
+> **Definition 15 (Box plot (box-and-whisker plot))** A **box plot** (or **box-and-whisker plot**) summarizes the distribution of a continuous variable [\[14\]](#ref-wikipedia_box_plot):
 >
 > - the box spans the first to the third [quartile](#def-quartiles), so its length is the [IQR](#def-IQR);
 > - a line inside the box marks the [median](#def-sample-median);
@@ -484,7 +484,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 16 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
+> **Definition 16 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category [\[15\]](#ref-wikipedia_bar_chart).
 >
 > Source: Wikipedia contributors [\[15\]](#ref-wikipedia_bar_chart).
 
@@ -508,7 +508,7 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 17 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
+> **Definition 17 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution [\[16\]](#ref-wikipedia_q_q_plot). If the variable is approximately Gaussian, the points fall close to a straight line.
 >
 > Source: Wikipedia contributors [\[16\]](#ref-wikipedia_q_q_plot).
 
@@ -544,7 +544,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 18 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
+> **Definition 18 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis [\[17\]](#ref-wikipedia_scatter_plot).
 >
 > Source: Wikipedia contributors [\[17\]](#ref-wikipedia_scatter_plot).
 
@@ -567,7 +567,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
+> **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is [\[18\]](#ref-wikipedia_pearson_correlation_coefficient):
 >
 > \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i- \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i- \bar{y})^2}}\\
 >
@@ -674,7 +674,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> **Definition 20 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
+> **Definition 20 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables [\[19\]](#ref-wikipedia_contingency_table): each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
 >
 > |              | Outcome = 1 | Outcome = 0 |   Total   |
 > |--------------|:-----------:|:-----------:|:---------:|
@@ -816,7 +816,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
+> **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is [\[20\]](#ref-wikipedia_standard_score)
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i- \bar x}{s}\\
 >
@@ -858,7 +858,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
+> **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is [\[23\]](#ref-wikipedia_feature_scaling)
 >
 > \\\frac{x_i- x\_{\min}}{x\_{\max} - x\_{\min}}\\
 >
@@ -917,42 +917,6 @@ A typical exploratory data analysis proceeds as follows:
 > [TABLE]
 >
 > Table 5: Summary of selected WCGS variables
-
-## Further reading
-
-- Wikipedia contributors [\[12\]](#ref-wikipedia_histogram) — histograms and the choice of bins
-
-- Wikipedia contributors [\[14\]](#ref-wikipedia_box_plot) — box plots and their variants
-
-- Wikipedia contributors [\[17\]](#ref-wikipedia_scatter_plot) — scatter plots and their uses
-
-- Wikipedia contributors [\[16\]](#ref-wikipedia_q_q_plot) — quantile-quantile plots
-
-- Wikipedia contributors [\[8\]](#ref-wikipedia_quartile) — quartiles and how to compute them
-
-- Wikipedia contributors [\[20\]](#ref-wikipedia_standard_score) — z-scores and standardization
-
-- Wikipedia contributors [\[15\]](#ref-wikipedia_bar_chart) — the Wikipedia article on bar chart
-
-- Wikipedia contributors [\[19\]](#ref-wikipedia_contingency_table) — the Wikipedia article on contingency table
-
-- Wikipedia contributors [\[23\]](#ref-wikipedia_feature_scaling) — the Wikipedia article on feature scaling
-
-- Wikipedia contributors [\[9\]](#ref-wikipedia_interquartile_range) — the Wikipedia article on interquartile range
-
-- Wikipedia contributors [\[13\]](#ref-wikipedia_kernel_density_estimation) — the Wikipedia article on kernel density estimation
-
-- Wikipedia contributors [\[5\]](#ref-wikipedia_median) — the Wikipedia article on median
-
-- Wikipedia contributors [\[18\]](#ref-wikipedia_pearson_correlation_coefficient) — the Wikipedia article on pearson correlation coefficient
-
-- Wikipedia contributors [\[4\]](#ref-wikipedia_simple_random_sample) — the Wikipedia article on simple random sample
-
-- Wikipedia contributors [\[7\]](#ref-wikipedia_standard_deviation) — the Wikipedia article on standard deviation
-
-- Wikipedia contributors [\[3\]](#ref-wikipedia_statistical_population) — the Wikipedia article on statistical population
-
-- Wikipedia contributors [\[6\]](#ref-wikipedia_variance) — the Wikipedia article on variance
 
 ## References
 

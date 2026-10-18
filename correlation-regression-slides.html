@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 12:03:55 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 13:22:01 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -383,7 +383,7 @@ text-align: center;
 <span class="header-section-number">2.1</span> Testing the Pearson correlation</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-population-correlation div. -->
 <div id="def-population-correlation" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Population correlation)</strong></span> The <strong>population correlation</strong> of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with positive variances is</p>
+<p><span class="theorem-title"><strong>Definition 1 (Population correlation)</strong></span> The <strong>population correlation</strong> of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with positive variances is <span class="citation" data-cites="wikipedia_pearson_correlation_coefficient"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span></p>
 <p><span class="math display">\[\rho\stackrel{\text{def}}{=}\frac{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}{\sqrt{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} \operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}},\]</span></p>
 <p>where <span class="math inline">\(\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}\)</span> is their <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-cov">covariance</a>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_pearson_correlation_coefficient">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
@@ -471,7 +471,7 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
 <span class="header-section-number">2.2</span> Spearman rank correlation</h3>
 <!-- No slidebreak here: the heading shares its slide with the def-spearman-r div. -->
 <div id="def-spearman-r" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3 (Spearman rank correlation)</strong></span> Replace each <span class="math inline">\(x_i\)</span> by its rank <span class="math inline">\(u_i\)</span> among <span class="math inline">\(x_1, \ldots, x_n\)</span>, and each <span class="math inline">\(y_i\)</span> by its rank <span class="math inline">\(v_i\)</span> among <span class="math inline">\(y_1, \ldots, y_n\)</span>, giving tied values the average of the ranks they span. The <strong>Spearman rank correlation</strong> <span class="math inline">\(r_S\)</span> is the <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> evaluated at the rank pairs:</p>
+<p><span class="theorem-title"><strong>Definition 3 (Spearman rank correlation)</strong></span> Replace each <span class="math inline">\(x_i\)</span> by its rank <span class="math inline">\(u_i\)</span> among <span class="math inline">\(x_1, \ldots, x_n\)</span>, and each <span class="math inline">\(y_i\)</span> by its rank <span class="math inline">\(v_i\)</span> among <span class="math inline">\(y_1, \ldots, y_n\)</span>, giving tied values the average of the ranks they span. The <strong>Spearman rank correlation</strong> <span class="math inline">\(r_S\)</span> is the <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> evaluated at the rank pairs <span class="citation" data-cites="wikipedia_spearmans_rank_correlation_coefficient"><a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>:</p>
 <p><span class="math display">\[
 r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\right)\mathclose{}.
 \]</span></p>
@@ -682,12 +682,12 @@ f_{\nu}(t)
 <p><span class="proof-title"><em>Proof</em>. </span>By <a href="#/thm-slr-deviation-dist" class="quarto-xref">Theorem&nbsp;3</a>, <span class="math inline">\(\nu_i\mid X_i= x_i\ \sim_{\perp\!\!\!\perp}\ \operatorname{N}\mathopen{}\left(0, \sigma^2_i\right)\mathclose{}\)</span>, and <a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a> sets <span class="math inline">\(\sigma^2_i= \sigma^2\)</span> for all <span class="math inline">\(i\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-linear-regression" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Linear regression model)</strong></span> A <strong>linear regression model</strong> is a homoskedastic (<a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a>) conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) whose mean function is linear in <span class="math inline">\(p\)</span> covariates, where observation <span class="math inline">\(i\)</span> has covariate values <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= (x_{i1}, \ldots, x_{ip})\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 7 (Linear regression model)</strong></span> A <strong>linear regression model</strong> is a homoskedastic (<a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a>) conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) whose mean function is linear in <span class="math inline">\(p\)</span> covariates, where observation <span class="math inline">\(i\)</span> has covariate values <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= (x_{i1}, \ldots, x_{ip})\)</span> <span class="citation" data-cites="wikipedia_linear_regression"><a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>:</p>
 <p><span class="math display">\[\mu(x_1, \ldots, x_p) \stackrel{\text{def}}{=}\beta_{0}+ \sum_{j=1}^p\beta_{x_j} x_j.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_linear_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-slr" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 8 (Simple linear regression model)</strong></span> A <strong>simple linear regression</strong> model is a linear regression model (<a href="#/def-linear-regression" class="quarto-xref">Definition&nbsp;7</a>) with <span class="math inline">\(p = 1\)</span> covariate <span class="math inline">\(X\)</span>, writing <span class="math inline">\(x_i\)</span> for <span class="math inline">\(x_{i1}\)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 8 (Simple linear regression model)</strong></span> A <strong>simple linear regression</strong> model is a linear regression model (<a href="#/def-linear-regression" class="quarto-xref">Definition&nbsp;7</a>) with <span class="math inline">\(p = 1\)</span> covariate <span class="math inline">\(X\)</span>, writing <span class="math inline">\(x_i\)</span> for <span class="math inline">\(x_{i1}\)</span> <span class="citation" data-cites="wikipedia_simple_linear_regression"><a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>:</p>
 <p><span class="math display">\[\mu(x) \stackrel{\text{def}}{=}\beta_{0}+ \beta_{x} x.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_simple_linear_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>.</p>
 </div>
@@ -823,7 +823,7 @@ n \, \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}
 <p><span class="proof-title"><em>Remark 5</em> (The same observations on both sides). </span>The identities in <a href="#/thm-mse-rss" class="quarto-xref">Theorem&nbsp;4</a> need the sMSE and the residual sum of squares to be taken over the same <span class="math inline">\(n\)</span> observations. The RSS minimized in fitting is taken over the fitting data, so dividing it by <span class="math inline">\(n\)</span> gives the sMSE on the fitting data, not the sMSE of predictions of new outcomes.</p>
 </div>
 </section><section class="slide level2"><div id="def-ols" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 12 (Ordinary least squares)</strong></span> The <strong>ordinary least squares (OLS) estimate</strong> of a model’s parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is the value of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> that minimizes the <a href="#/def-rss">residual sum of squares</a>:</p>
+<p><span class="theorem-title"><strong>Definition 12 (Ordinary least squares)</strong></span> The <strong>ordinary least squares (OLS) estimate</strong> of a model’s parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is the value of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> that minimizes the <a href="#/def-rss">residual sum of squares</a> <span class="citation" data-cites="wikipedia_ordinary_least_squares"><a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>:</p>
 <p><span class="math display">\[\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}\arg \min_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}).\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_ordinary_least_squares">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>.</p>
 </div>
@@ -1961,7 +1961,7 @@ Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
 \]</span></p>
 </div>
 </section><section class="slide level2"><div id="def-r-squared" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 18 (Coefficient of determination)</strong></span> The <strong>coefficient of determination</strong> of a model fitted with parameter estimate <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> is one minus the ratio of its <a href="#/def-rss">residual sum of squares</a> at <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> to the <a href="#/def-tss">total sum of squares</a> of its outcomes:</p>
+<p><span class="theorem-title"><strong>Definition 18 (Coefficient of determination)</strong></span> The <strong>coefficient of determination</strong> of a model fitted with parameter estimate <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> is one minus the ratio of its <a href="#/def-rss">residual sum of squares</a> at <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> to the <a href="#/def-tss">total sum of squares</a> of its outcomes <span class="citation" data-cites="wikipedia_coefficient_of_determination"><a href="#/references" role="doc-biblioref" onclick="">[14]</a></span>:</p>
 <p><span class="math display">\[R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})}{\text{TSS}}.\]</span></p>
 <p>Source: <span class="citation" data-cites="wikipedia_coefficient_of_determination">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span>.</p>
 </div>
@@ -2107,15 +2107,7 @@ R^2 &amp;= r^2, &amp;
 </section><section class="slide level2"><h3 data-number="3.5" id="further-reading">
 <span class="header-section-number">3.5</span> Further reading</h3>
 <p><a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html">Linear Models Overview</a> covers linear regression in depth, including inference for the coefficients and multiple predictors. <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> cover linear regression in Chapter 4.</p>
-</section><section id="further-reading-1" class="slide level2 unnumbered"><h2>Further reading</h2>
-<ul>
-<li><p><span class="citation" data-cites="wikipedia_pearson_correlation_coefficient">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — the coefficient and its properties</p></li>
-<li><p><span class="citation" data-cites="wikipedia_spearmans_rank_correlation_coefficient">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span> — a rank-based measure of association</p></li>
-<li><p><span class="citation" data-cites="wikipedia_simple_linear_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> — the model with one covariate</p></li>
-<li><p><span class="citation" data-cites="wikipedia_linear_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span> — the model, its assumptions and its estimation</p></li>
-<li><p><span class="citation" data-cites="wikipedia_ordinary_least_squares">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span> — least squares estimation and its properties</p></li>
-<li><p><span class="citation" data-cites="wikipedia_coefficient_of_determination">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span> — R squared and its interpretation</p></li>
-</ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
+</section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>

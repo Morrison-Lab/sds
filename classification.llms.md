@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 ## 1 Introduction
 
@@ -24,13 +24,13 @@ Classification is a core problem in statistics and machine learning: we seek to 
 - biomarkers;
 - clinical signs.
 
-A test can look highly accurate in isolation, yet its predictive value for an individual patient depends heavily on the prevalence of the condition in the population being tested. Understanding this interplay requires [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes) and the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob).
+A test can look highly accurate in isolation, yet its predictive value for an individual patient depends heavily on the prevalence of the condition in the population being tested. Understanding this interplay requires [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes) and the [law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) [\[1\]](#ref-wikipedia_bayes_theorem).
 
 > **NOTE:**
 >
-> **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors \\x\\.
+> **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors \\x\\ [\[2\]](#ref-wikipedia_statistical_classification).
 >
-> Source: Wikipedia contributors [\[1\]](#ref-wikipedia_statistical_classification).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_classification).
 
 > **NOTE:**
 >
@@ -56,11 +56,11 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 4 (Sensitivity)** The **sensitivity** of a diagnostic test is the probability that the test is positive (\\+\\), given that the person tested has the disease (\\D\\):
+> **Definition 4 (Sensitivity)** The **sensitivity** of a diagnostic test is the probability that the test is positive (\\+\\), given that the person tested has the disease (\\D\\) [\[3\]](#ref-wikipedia_sensitivity_and_specificity):
 >
 > \\\text{sensitivity} \stackrel{\text{def}}{=}\Pr(+ \mid D) \tag{3}\\
 >
-> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_sensitivity_and_specificity).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_sensitivity_and_specificity).
 
 > **NOTE:**
 >
@@ -74,7 +74,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\\text{specificity} \stackrel{\text{def}}{=}\Pr(\neg + \mid \neg D) \tag{5}\\
 >
-> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_sensitivity_and_specificity).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_sensitivity_and_specificity).
 
 > **NOTE:**
 >
@@ -88,11 +88,11 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 6 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease (\\D\\):
+> **Definition 6 (Prevalence)** The **prevalence** of a disease in a population is the probability that a person drawn from that population has the disease (\\D\\) [\[4\]](#ref-wikipedia_prevalence):
 >
 > \\\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{8}\\
 >
-> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_prevalence).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_prevalence).
 
 > **NOTE:**
 >
@@ -108,11 +108,11 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 
 > **NOTE:**
 >
-> **Definition 7 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the probability that the person tested has the disease (\\D\\), given that the test is positive (\\+\\):
+> **Definition 7 (Positive predictive value (PPV))** The **positive predictive value** of a diagnostic test is the probability that the person tested has the disease (\\D\\), given that the test is positive (\\+\\) [\[5\]](#ref-wikipedia_positive_and_negative_predictive_values):
 >
 > \\\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid +) \tag{11}\\
 >
-> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_positive_and_negative_predictive_values).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_positive_and_negative_predictive_values).
 
 > **NOTE:**
 >
@@ -128,7 +128,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\\text{NPV} \stackrel{\text{def}}{=}\Pr(\neg D \mid \neg +) \tag{13}\\
 >
-> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_positive_and_negative_predictive_values).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_positive_and_negative_predictive_values).
 
 > **NOTE:**
 >
@@ -188,7 +188,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\ \text{PPV} = \frac{\text{sens} \cdot\pi} {\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}} \tag{19}\\
 >
-> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_bayes_theorem).
+> Source: Wikipedia contributors [\[1\]](#ref-wikipedia_bayes_theorem).
 
 > **NOTE:**
 >
@@ -243,7 +243,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 9 (Agreement table)** For \\n\\ observations that an agent and a reference each classify as positive or negative, the **agreement table** counts the four combinations:
+> **Definition 9 (Agreement table)** For \\n\\ observations that an agent and a reference each classify as positive or negative, the **agreement table** counts the four combinations [\[6\]](#ref-wikipedia_confusion_matrix):
 >
 > |                    | Reference positive | Reference negative |     Total |
 > |--------------------|-------------------:|-------------------:|----------:|
@@ -371,7 +371,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 15 (Harmonic mean)** The **harmonic mean** of two positive numbers \\x\\ and \\y\\ is the reciprocal of the average of their reciprocals:
+> **Definition 15 (Harmonic mean)** The **harmonic mean** of two positive numbers \\x\\ and \\y\\ is the reciprocal of the average of their reciprocals [\[8\]](#ref-wikipedia_harmonic_mean):
 >
 > \\H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{34}\\
 >
@@ -461,7 +461,7 @@ So far, we have compared a test with the true disease status. The same tools app
 
 > **NOTE:**
 >
-> **Definition 17 (Cohen’s kappa)** For an agreement table with \\p_e \< 1\\, **Cohen’s kappa** is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the overall agreement ([Definition 10](#def-overall-agreement)) and the chance agreement ([Definition 16](#def-chance-agreement)):
+> **Definition 17 (Cohen’s kappa)** For an agreement table with \\p_e \< 1\\, **Cohen’s kappa** is the agreement beyond chance, as a fraction of the largest possible agreement beyond chance, built from the overall agreement ([Definition 10](#def-overall-agreement)) and the chance agreement ([Definition 16](#def-chance-agreement)) [\[10\]](#ref-wikipedia_cohens_kappa):
 >
 > \\\kappa \stackrel{\text{def}}{=}\frac{p_o - p_e}{1 - p_e} \tag{44}\\
 >
@@ -519,47 +519,27 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high); Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high).
 
-## Further reading
-
-- Wikipedia contributors [\[1\]](#ref-wikipedia_statistical_classification) — classification rules and their evaluation
-
-- Wikipedia contributors [\[2\]](#ref-wikipedia_sensitivity_and_specificity) — the two measures of a diagnostic test
-
-- Wikipedia contributors [\[4\]](#ref-wikipedia_positive_and_negative_predictive_values) — predictive values and their dependence on prevalence
-
-- Wikipedia contributors [\[6\]](#ref-wikipedia_confusion_matrix) — the table of predicted and true classes
-
-- Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa) — agreement between two raters beyond chance
-
-- Wikipedia contributors [\[12\]](#ref-wikipedia_receiver_operating_characteristic) — ROC curves and the area under them
-
-- Wikipedia contributors [\[5\]](#ref-wikipedia_bayes_theorem) — the Wikipedia article on bayes’ theorem
-
-- Wikipedia contributors [\[8\]](#ref-wikipedia_harmonic_mean) — the Wikipedia article on harmonic mean
-
-- Wikipedia contributors [\[3\]](#ref-wikipedia_prevalence) — the Wikipedia article on prevalence
-
 ## References
 
 \[1\]
 
-Wikipedia contributors, “Statistical classification — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Statistical_classification>
+Wikipedia contributors, “Bayes’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayes%27_theorem>
 
 \[2\]
 
-Wikipedia contributors, “Sensitivity and specificity — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Sensitivity_and_specificity>
+Wikipedia contributors, “Statistical classification — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Statistical_classification>
 
 \[3\]
 
-Wikipedia contributors, “Prevalence — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prevalence>
+Wikipedia contributors, “Sensitivity and specificity — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Sensitivity_and_specificity>
 
 \[4\]
 
-Wikipedia contributors, “Positive and negative predictive values — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values>
+Wikipedia contributors, “Prevalence — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prevalence>
 
 \[5\]
 
-Wikipedia contributors, “Bayes’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayes%27_theorem>
+Wikipedia contributors, “Positive and negative predictive values — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values>
 
 \[6\]
 
@@ -584,9 +564,5 @@ Wikipedia contributors, “Cohen’s kappa — Wikipedia, the free encyclopedia.
 \[11\]
 
 A. R. Feinstein and D. V. Cicchetti, “High agreement but low kappa: I. The problems of two paradoxes,” *Journal of Clinical Epidemiology*, vol. 43, no. 6, pp. 543–549, 1990, doi: [10.1016/0895-4356(90)90158-L](https://doi.org/10.1016/0895-4356(90)90158-L).
-
-\[12\]
-
-Wikipedia contributors, “Receiver operating characteristic — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Receiver_operating_characteristic>
 
 Back to top

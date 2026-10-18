@@ -356,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 12:03:55 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 13:22:01 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -598,7 +598,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 <p><span class="proof-title"><em>Remark 3</em> (Squared-error loss). </span>Each error defined below holds for any <a href="#/def-observation-loss">loss</a>. The examples, exercises and the bias-variance decomposition use <em>squared-error loss</em>, <span class="math inline">\(L\mathopen{}\left(y, \hat{y}\right)\mathclose{} = {\mathopen{}\left(\hat{y} - y\right)\mathclose{}}^2\)</span>, unless they say otherwise. Then the loss on an observation is the square of its <a href="./prediction.html#def-prediction-error">prediction error</a>, <span class="math inline">\(\ell_{i} = \varepsilon_{i}^2\)</span>, and each average loss below is a sample mean squared error.</p>
 </div>
 </section><section class="slide level2"><div id="def-generalization-error" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 19 (Generalization error)</strong></span> The <strong>generalization error</strong> of a <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is its expected <a href="#/def-observation-loss">loss</a> <span class="math inline">\(\ell_{*}\)</span> on a <a href="#/def-new-observation">new observation</a> <span class="math inline">\((X_{*}, Y_{*})\)</span>, with <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> held fixed:</p>
+<p><span class="theorem-title"><strong>Definition 19 (Generalization error)</strong></span> The <strong>generalization error</strong> of a <a href="#/def-prediction-rule">prediction rule</a> <span class="math inline">\(\hat y\)</span> fitted to a <a href="#/def-training-set">training set</a> <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> is its expected <a href="#/def-observation-loss">loss</a> <span class="math inline">\(\ell_{*}\)</span> on a <a href="#/def-new-observation">new observation</a> <span class="math inline">\((X_{*}, Y_{*})\)</span>, with <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> held fixed <span class="citation" data-cites="wikipedia_generalization_error"><a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>:</p>
 <p><span id="eq-generalization-error"><span class="math display">\[
 \operatorname{Err}_{\mathcal{D}_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[\ell_{*} \mid \mathcal{D}_{\text{train}}\right]\mathclose{}.
 \tag{13}\]</span></span></p>
@@ -697,7 +697,7 @@ h= \mathcal{A}\mathopen{}\left(\mathcal{H}, \mathcal{J}, \mathcal{D}\right)\math
 </ol>
 </div>
 </section><section class="slide level2"><div id="def-overfitting" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 23 (Overfitting)</strong></span> <strong>Overfitting</strong> occurs when a <a href="#/def-prediction-rule">prediction rule</a> fits its <a href="#/def-training-set">training set</a> well but predicts poorly for new observations.</p>
+<p><span class="theorem-title"><strong>Definition 23 (Overfitting)</strong></span> <strong>Overfitting</strong> occurs when a <a href="#/def-prediction-rule">prediction rule</a> fits its <a href="#/def-training-set">training set</a> well but predicts poorly for new observations <span class="citation" data-cites="wikipedia_overfitting"><a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_overfitting">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-overfitting-polynomial-cars" class="theorem example">
@@ -1168,7 +1168,7 @@ Y_{*}- {\hat y\mathopen{}\left(x\right)\mathclose{}}
 <p><span class="proof-title"><em>Remark 13</em> (Polynomial degree orders flexibility). </span>Least-squares polynomial fits are ordered by degree: a polynomial of degree <span class="math inline">\(d\)</span> is also a polynomial of degree <span class="math inline">\(d+ 1\)</span> whose coefficient of <span class="math inline">\(x^{d+ 1}\)</span> is zero, so the fit of degree <span class="math inline">\(d+ 1\)</span> is <a href="#/def-flexibility">at least as flexible</a> as the fit of degree <span class="math inline">\(d\)</span>. The four fits of <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a> are ordered this way. <a href="#/def-flexibility" class="quarto-xref">Definition&nbsp;36</a> is narrower than the informal use of the word in <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 2.1.3]</a></span>: it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters <span class="citation" data-cites="hastie2009elements"><a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 7.6]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-bias-variance-tradeoff" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 37 (Bias–variance trade-off)</strong></span> Let <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span> be <a href="#/def-fitting-procedure">fitting procedures</a>, each <a href="#/def-flexibility">at least as flexible</a> as the one before, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#/def-training-set">training set</a>. At a covariate value <span class="math inline">\(x\)</span>, with <span class="math inline">\(\mu\)</span> the <a href="#/def-mean-function">mean function</a>, there is a <strong>bias–variance trade-off</strong> among them when, from each procedure to the next, the squared <a href="#/def-prediction-bias">bias</a> of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>, does not rise and its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> does not fall:</p>
+<p><span class="theorem-title"><strong>Definition 37 (Bias–variance trade-off)</strong></span> Let <span class="math inline">\(g_{1}, \ldots, g_{L}\)</span> be <a href="#/def-fitting-procedure">fitting procedures</a>, each <a href="#/def-flexibility">at least as flexible</a> as the one before, and let <span class="math inline">\(\mathcal{D}_{\text{train}}\)</span> be a random <a href="#/def-training-set">training set</a>. At a covariate value <span class="math inline">\(x\)</span>, with <span class="math inline">\(\mu\)</span> the <a href="#/def-mean-function">mean function</a>, there is a <strong>bias–variance trade-off</strong> among them when, from each procedure to the next, the squared <a href="#/def-prediction-bias">bias</a> of the prediction, used as an <a href="./estimation.html#def-estimator">estimator</a> of <span class="math inline">\(\mu\mathopen{}\left(x\right)\mathclose{}\)</span>, does not rise and its <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-variance">variance</a> does not fall <span class="citation" data-cites="wikipedia_bias_variance_tradeoff"><a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>:</p>
 <p><span id="eq-bias-variance-tradeoff"><span class="math display">\[
 \begin{aligned}
 {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 &amp;\le {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2,
@@ -1351,7 +1351,7 @@ Figure&nbsp;1: Training sRMSE and estimated generalization error (sRMSE on <span
 </section><section class="slide level2"><!--
 The ISLR section heading was verified in the PDF; rme paraphrases its text.
 --><div id="def-data-splits" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 38 (Training/validation/test split)</strong></span> A <strong>training/validation/test split</strong> divides the observations <span class="math inline">\(1, \ldots, n\)</span> of a data set into three disjoint sets of indices, <span class="math inline">\(I_{\text{train}}\)</span>, <span class="math inline">\(I_{\text{val}}\)</span> and <span class="math inline">\(I_{\text{test}}\)</span>, and takes the observations in <span class="math inline">\(I_{\text{train}}\)</span> as the <a href="#/def-training-set">training set</a>:</p>
+<p><span class="theorem-title"><strong>Definition 38 (Training/validation/test split)</strong></span> A <strong>training/validation/test split</strong> divides the observations <span class="math inline">\(1, \ldots, n\)</span> of a data set into three disjoint sets of indices, <span class="math inline">\(I_{\text{train}}\)</span>, <span class="math inline">\(I_{\text{val}}\)</span> and <span class="math inline">\(I_{\text{test}}\)</span>, and takes the observations in <span class="math inline">\(I_{\text{train}}\)</span> as the <a href="#/def-training-set">training set</a> <span class="citation" data-cites="wikipedia_training_validation_and_test_data_sets"><a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>:</p>
 <p><span id="eq-data-splits"><span class="math display">\[
 \begin{aligned}
 &amp; I_{\text{train}}\cup I_{\text{val}}\cup I_{\text{test}}= \mathopen{}\left\{1, \ldots, n\right\}\mathclose{},
@@ -1371,7 +1371,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <p><span class="theorem-title"><strong>Example 25 (Split sizes for 32 cars)</strong></span> In <a href="#/exr-data-splits" class="quarto-xref">Exercise&nbsp;8</a>, a rule of 60% / 20% / 20% on <span class="math inline">\(n= 32\)</span> cars gives sets of 19, 6, and 7 cars, and the 7 test cars are used only once, after the model is chosen.</p>
 </div>
 </section><section class="slide level2"><div id="def-tuning-parameter" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 39 (Tuning parameter)</strong></span> A <strong>tuning parameter</strong> of a <a href="#/def-fitting-procedure">fitting procedure</a> is a setting <span class="math inline">\(\lambda\)</span> that the procedure needs but does not compute from the <a href="#/def-training-set">training set</a>:</p>
+<p><span class="theorem-title"><strong>Definition 39 (Tuning parameter)</strong></span> A <strong>tuning parameter</strong> of a <a href="#/def-fitting-procedure">fitting procedure</a> is a setting <span class="math inline">\(\lambda\)</span> that the procedure needs but does not compute from the <a href="#/def-training-set">training set</a> <span class="citation" data-cites="wikipedia_hyperparameter_machine_learning"><a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>:</p>
 <p><span id="eq-tuning-parameter"><span class="math display">\[
 {\hat y\mathopen{}\left(x\right)\mathclose{}} = {{\hat y_{\lambda}}\mathopen{}\left(x\right)\mathclose{}}.
 \tag{38}\]</span></span></p>
@@ -1381,7 +1381,7 @@ The ISLR section heading was verified in the PDF; rme paraphrases its text.
 <p><span class="theorem-title"><strong>Example 26 (Polynomial degree)</strong></span> In <a href="#/exr-overfitting" class="quarto-xref">Exercise&nbsp;1</a>, least squares computes the coefficients of each polynomial from the 20 training cars, but the degree <span class="math inline">\(d\)</span> is fixed before the fit. So the degree is a <a href="#/def-tuning-parameter">tuning parameter</a> of least-squares polynomial fitting, and the four fits are <span class="math inline">\(g_{1}, g_{2}, g_{3}, g_{4}\)</span> with <span class="math inline">\(\lambda= d\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-model-selection" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 40 (Model selection)</strong></span> <strong>Model selection</strong> is choosing one <a href="#/def-fitted-model">fitted model</a> from a set of candidate fitted models from different <a href="#/def-model-family">model families</a>, using observations that were <a href="#/def-held-out-set">held out</a> from fitting.</p>
+<p><span class="theorem-title"><strong>Definition 40 (Model selection)</strong></span> <strong>Model selection</strong> is choosing one <a href="#/def-fitted-model">fitted model</a> from a set of candidate fitted models from different <a href="#/def-model-family">model families</a>, using observations that were <a href="#/def-held-out-set">held out</a> from fitting <span class="citation" data-cites="wikipedia_model_selection"><a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>.</p>
 <p>Source: <span class="citation" data-cites="wikipedia_model_selection">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-model-selection" class="theorem example">
@@ -1797,7 +1797,7 @@ step 2 indexes folds by j, as @def-folds does,
 and names the fold-out rule of @def-fold-out-rule;
 rme's remark that k = 5 or 10 is typical is in @rem-choosing-k.
 --><div id="def-kfold" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 50 (<span class="math inline">\(k\)</span>-fold cross-validation)</strong></span> In <strong><span class="math inline">\(k\)</span>-fold cross-validation</strong>:</p>
+<p><span class="theorem-title"><strong>Definition 50 (<span class="math inline">\(k\)</span>-fold cross-validation)</strong></span> In <strong><span class="math inline">\(k\)</span>-fold cross-validation</strong> <span class="citation" data-cites="wikipedia_cross_validation_statistics"><a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>:</p>
 <ol type="1">
 <li>The data are randomly divided into <span class="math inline">\(k\)</span> <a href="#/def-folds">folds</a> of equal, or nearly equal, size.</li>
 <li>For each fold <span class="math inline">\(\mathcal{F}_{j}\)</span>, <span class="math inline">\(j= 1, \ldots, k\)</span>:
@@ -2228,7 +2228,7 @@ A= {D}^{\top} D.
 </div>
 </div>
 </section><section class="slide level2"><div id="def-leverage" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 56 (Leverage)</strong></span> Consider a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a>, with <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, and an invertible <a href="#/def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span>. The <strong>leverage</strong> of observation <span class="math inline">\(i\)</span> is</p>
+<p><span class="theorem-title"><strong>Definition 56 (Leverage)</strong></span> Consider a linear model fitted by <a href="./correlation-regression.html#def-ols">ordinary least squares</a>, with <a href="#/def-term-vector">term vectors</a> <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}\)</span>, <span class="math inline">\(i\in I\)</span>, and an invertible <a href="#/def-cross-product-matrix">cross-product matrix</a> <span class="math inline">\(A\)</span>. The <strong>leverage</strong> of observation <span class="math inline">\(i\)</span> is <span class="citation" data-cites="wikipedia_leverage_statistics"><a href="#/references" role="doc-biblioref" onclick="">[12]</a></span></p>
 <p><span id="eq-leverage"><span class="math display">\[
 h_{i} \stackrel{\text{def}}{=}{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}}^{\top} A^{-1} \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{t}}\vphantom{t}}_{i}.
 \tag{54}\]</span></span></p>
@@ -2291,10 +2291,10 @@ and cv_mse(), from _exm-kfold-simulated.qmd.
 <span id="cb27-3"><a aria-label="3"></a>  mtcars_loocv<span class="sc">$</span>degree[<span class="fu">which.min</span>(mtcars_loocv<span class="sc">$</span>formula)]</span>
 <span id="cb27-4"><a aria-label="4"></a><span class="fu">c</span>(<span class="at">max_difference =</span> loocv_max_diff, <span class="at">best_degree =</span> mtcars_best_loocv)</span>
 <span id="cb27-5"><a aria-label="5"></a><span class="co">#&gt; max_difference    best_degree </span></span>
-<span id="cb27-6"><a aria-label="6"></a><span class="co">#&gt;    7.10543e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-6"><a aria-label="6"></a><span class="co">#&gt;    8.88178e-15    2.00000e+00</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
+<p>The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random (<a href="#/lem-loocv-not-random" class="quarto-xref">Lemma&nbsp;1</a>), rerunning it always gives the same choice.</p>
 </div>
 </section><section class="slide level2"><div id="rem-loocv" class="proof remark">
 <p><span class="proof-title"><em>Remark 32</em> (When to use leave-one-out cross-validation). </span>LOOCV is the <span class="math inline">\(k= n\)</span> end of <a href="#/rem-choosing-k" class="quarto-xref">Remark&nbsp;26</a>. By <a href="#/rem-cv-estimate" class="quarto-xref">Remark&nbsp;25</a>, <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> estimates <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\)</span> for the fitting procedure <span class="math inline">\(g\)</span>: each rule is fitted to <span class="math inline">\(n- 1\)</span> observations, so the bias of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> as an estimate of <span class="math inline">\(\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\)</span> is the smallest of any <span class="math inline">\(k\)</span>. But the <span class="math inline">\(n\)</span> training sets are nearly identical, so the variance of <span class="math inline">\(\widehat{\operatorname{Err}}_{\text{CV}(n)}\)</span> can be larger than that of 5- or 10-fold cross-validation <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 5.1.4]</a></span>. For least squares fits, <a href="#/thm-loocv-shortcut" class="quarto-xref">Theorem&nbsp;7</a> computes LOOCV from a single fit; for most other fitting methods, LOOCV requires <span class="math inline">\(n\)</span> fits.</p>
@@ -2586,19 +2586,7 @@ assign_folds(), from _exm-kfold-simulated.qmd.
 </section><section id="further-reading" class="slide level2" data-number="10"><h2>
 <span class="header-section-number">10</span> Further reading</h2>
 <p><span class="citation" data-cites="sanchez2020matrix4sl">Sanchez <a href="#/references" role="doc-biblioref" onclick="">[11]</a></span> reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.</p>
-<h3 data-number="10.1" id="online-references">
-<span class="header-section-number">10.1</span> Online references</h3>
-<ul>
-<li><p><span class="citation" data-cites="wikipedia_cross_validation_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span> — <span class="math inline">\(k\)</span>-fold, leave-one-out and other schemes</p></li>
-<li><p><span class="citation" data-cites="wikipedia_training_validation_and_test_data_sets">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — what each of the three sets is for</p></li>
-<li><p><span class="citation" data-cites="wikipedia_bias_variance_tradeoff">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span> — the decomposition of the expected squared error</p></li>
-<li><p><span class="citation" data-cites="wikipedia_overfitting">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span> — overfitting and underfitting, with examples</p></li>
-<li><p><span class="citation" data-cites="wikipedia_model_selection">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span> — the task and the main criteria</p></li>
-<li><p><span class="citation" data-cites="wikipedia_generalization_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> — generalization error and how to estimate it</p></li>
-<li><p><span class="citation" data-cites="wikipedia_hyperparameter_machine_learning">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> — the Wikipedia article on hyperparameter (machine learning)</p></li>
-<li><p><span class="citation" data-cites="wikipedia_leverage_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[12]</a></span> — the Wikipedia article on leverage (statistics)</p></li>
-<li><p><span class="citation" data-cites="wikipedia_random_seed">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> — the Wikipedia article on random seed</p></li>
-</ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
+</section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
 <div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-wikipedia_random_seed" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div>

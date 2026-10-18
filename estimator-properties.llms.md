@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -22,13 +22,13 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 1 (Consistent estimator)** Let \\\hat{\theta}\_n\\ be an estimator of \\\theta\\ computed from \\n\\ observations. The estimator is **consistent** if, for every distance \\\varepsilon \> 0\\, the probability that it lands at least \\\varepsilon\\ away from \\\theta\\ goes to zero as the sample size grows:
+> **Definition 1 (Consistent estimator)** Let \\\hat{\theta}\_n\\ be an estimator of \\\theta\\ computed from \\n\\ observations. The estimator is **consistent** if, for every distance \\\varepsilon \> 0\\, the probability that it lands at least \\\varepsilon\\ away from \\\theta\\ goes to zero as the sample size grows [\[1\]](#ref-wikipedia_consistent_estimator):
 >
 > \\ \lim\_{n \to \infty} \Pr\mathopen{}\left(\mathopen{}\left\|\hat{\theta}\_n - \theta\right\|\mathclose{} \ge \varepsilon\right)\mathclose{} = 0 \tag{1}\\
 >
 > In words, \\\hat{\theta}\_n\\ [converges in probability](https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability) to \\\theta\\, which we write \\\hat{\theta}\_n \overset{\scriptstyle p}{\longrightarrow}\theta\\.
 >
-> Source: Casella and Berger [\[1\]](#ref-CaseBerg01), Def. 10.1.1; Wikipedia contributors [\[2\]](#ref-wikipedia_consistent_estimator).
+> Source: Casella and Berger [\[2\]](#ref-CaseBerg01), Def. 10.1.1; Wikipedia contributors [\[1\]](#ref-wikipedia_consistent_estimator).
 
 > **NOTE:**
 >
@@ -155,7 +155,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> *Remark 2* (Source: Relative efficiency). Casella and Berger [\[1\]](#ref-CaseBerg01) define the asymptotic version, through variances, in Def. 10.1.16 (p. 476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
+> *Remark 2* (Source: Relative efficiency). Casella and Berger [\[2\]](#ref-CaseBerg01) define the asymptotic version, through variances, in Def. 10.1.16 (p. 476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
 
 > **NOTE:**
 >
@@ -171,7 +171,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> Casella and Berger [\[1, Sec. 10.1\]](#ref-CaseBerg01), pp. 467–480 covers point estimation, including consistency, efficiency and bootstrap standard errors.
+> Casella and Berger [\[2, Sec. 10.1\]](#ref-CaseBerg01), pp. 467–480 covers point estimation, including consistency, efficiency and bootstrap standard errors.
 
 ## 3 The Cramér–Rao lower bound
 
@@ -197,11 +197,11 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Theorem 2 (Cramér–Rao lower bound)** Under the assumptions of [Exercise 2](#exr-cov-estimator-score), suppose the [expected information](intro-MLEs.llms.md#def-einf) satisfies \\0 \< \mathcal{I}(\theta) \< \infty\\. Then every unbiased estimator \\\hat{\theta}\\ of \\\theta\\ has variance at least the reciprocal of the expected information:
+> **Theorem 2 (Cramér–Rao lower bound)** Under the assumptions of [Exercise 2](#exr-cov-estimator-score), suppose the [expected information](intro-MLEs.llms.md#def-einf) satisfies \\0 \< \mathcal{I}(\theta) \< \infty\\. Then every unbiased estimator \\\hat{\theta}\\ of \\\theta\\ has variance at least the reciprocal of the expected information [\[5\]](#ref-wikipedia_cram_r_rao_bound):
 >
 > \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \ge \frac{1}{\mathcal{I}(\theta)} \tag{5}\\
 >
-> Source: [\[5\]](#ref-rao1945information), [\[6\]](#ref-cramer1946mathematical), [\[1\]](#ref-CaseBerg01), Thm. 7.3.9, p. 335, [\[7\]](#ref-wikipedia_cram_r_rao_bound).
+> Source: [\[6\]](#ref-rao1945information), [\[7\]](#ref-cramer1946mathematical), [\[2\]](#ref-CaseBerg01), Thm. 7.3.9, p. 335, [\[5\]](#ref-wikipedia_cram_r_rao_bound).
 
 > **NOTE:**
 >
@@ -213,11 +213,11 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 3 (Efficient estimator)** An [unbiased](estimation.llms.md#def-unbiased) estimator \\\hat{\theta}\\ of \\\theta\\ is **efficient** if its variance equals the [Cramér–Rao lower bound](#thm-cramer-rao):
+> **Definition 3 (Efficient estimator)** An [unbiased](estimation.llms.md#def-unbiased) estimator \\\hat{\theta}\\ of \\\theta\\ is **efficient** if its variance equals the [Cramér–Rao lower bound](#thm-cramer-rao) [\[4\]](#ref-wikipedia_efficiency_statistics):
 >
 > \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \frac{1}{\mathcal{I}(\theta)} \\
 >
-> Source: Casella and Berger [\[1, Sec. 7.3.2\]](#ref-CaseBerg01); Wikipedia contributors [\[4\]](#ref-wikipedia_efficiency_statistics).
+> Source: Casella and Berger [\[2, Sec. 7.3.2\]](#ref-CaseBerg01); Wikipedia contributors [\[4\]](#ref-wikipedia_efficiency_statistics).
 
 > **NOTE:**
 >
@@ -242,27 +242,19 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 > **NOTE:**
 >
 > - Hogg et al. [\[8, Sec. 6.6\]](#ref-hoggtanis2015), pp. 285–289 covers asymptotic distributions of maximum likelihood estimators.
-> - Casella and Berger [\[1, Sec. 7.3.2\]](#ref-CaseBerg01), pp. 334–341 covers best unbiased estimators and the Cramér–Rao bound.
+> - Casella and Berger [\[2, Sec. 7.3.2\]](#ref-CaseBerg01), pp. 334–341 covers best unbiased estimators and the Cramér–Rao bound.
 > - Rice [\[9, Sec. 8.5.2\]](#ref-rice2007mathematical), pp. 274–278 covers large-sample theory for maximum likelihood estimators.
 > - Rice [\[9, Sec. 8.7\]](#ref-rice2007mathematical), pp. 298–304 covers efficiency and the Cramér–Rao lower bound.
-
-## Further reading
-
-- Wikipedia contributors [\[2\]](#ref-wikipedia_consistent_estimator) — consistency and its variants
-
-- Wikipedia contributors [\[4\]](#ref-wikipedia_efficiency_statistics) — efficiency and relative efficiency
-
-- Wikipedia contributors [\[7\]](#ref-wikipedia_cram_r_rao_bound) — the bound and the estimators that attain it
 
 ## References
 
 \[1\]
 
-G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+Wikipedia contributors, “Consistent estimator — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Consistent_estimator>
 
 \[2\]
 
-Wikipedia contributors, “Consistent estimator — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Consistent_estimator>
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
 
 \[3\]
 
@@ -274,15 +266,15 @@ Wikipedia contributors, “Efficiency (statistics) — Wikipedia, the free encyc
 
 \[5\]
 
-C. R. Rao, “Information and the accuracy attainable in the estimation of statistical parameters,” *Bulletin of the Calcutta Mathematical Society*, vol. 37, pp. 81–91, 1945.
+Wikipedia contributors, “Cramér–rao bound — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound>
 
 \[6\]
 
-H. Cramér, *Mathematical methods of statistics*. Princeton, NJ: Princeton University Press, 1946. doi: [10.1515/9781400883868](https://doi.org/10.1515/9781400883868).
+C. R. Rao, “Information and the accuracy attainable in the estimation of statistical parameters,” *Bulletin of the Calcutta Mathematical Society*, vol. 37, pp. 81–91, 1945.
 
 \[7\]
 
-Wikipedia contributors, “Cramér–rao bound — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound>
+H. Cramér, *Mathematical methods of statistics*. Princeton, NJ: Princeton University Press, 1946. doi: [10.1515/9781400883868](https://doi.org/10.1515/9781400883868).
 
 \[8\]
 

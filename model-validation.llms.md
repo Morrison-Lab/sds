@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -248,7 +248,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 19 (Generalization error)** The **generalization error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected [loss](#def-observation-loss) \\\ell\_{\*}\\ on a [new observation](#def-new-observation) \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed:
+> **Definition 19 (Generalization error)** The **generalization error** of a [prediction rule](#def-prediction-rule) \\\hat y\\ fitted to a [training set](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ is its expected [loss](#def-observation-loss) \\\ell\_{\*}\\ on a [new observation](#def-new-observation) \\(X\_{\*}, Y\_{\*})\\, with \\\mathcal{D}\_{\text{train}}\\ held fixed [\[4\]](#ref-wikipedia_generalization_error):
 >
 > \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \tag{13}\\
 >
@@ -349,7 +349,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 23 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-prediction-rule) fits its [training set](#def-training-set) well but predicts poorly for new observations.
+> **Definition 23 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-prediction-rule) fits its [training set](#def-training-set) well but predicts poorly for new observations [\[6\]](#ref-wikipedia_overfitting).
 >
 > Source: Wikipedia contributors [\[6\]](#ref-wikipedia_overfitting).
 
@@ -728,7 +728,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 37 (Bias–variance trade-off)** Let \\g\_{1}, \ldots, g\_{L}\\ be [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, with \\\mu\\ the [mean function](#def-mean-function), there is a **bias–variance trade-off** among them when, from each procedure to the next, the squared [bias](#def-prediction-bias) of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\, does not rise and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) does not fall:
+> **Definition 37 (Bias–variance trade-off)** Let \\g\_{1}, \ldots, g\_{L}\\ be [fitting procedures](#def-fitting-procedure), each [at least as flexible](#def-flexibility) as the one before, and let \\\mathcal{D}\_{\text{train}}\\ be a random [training set](#def-training-set). At a covariate value \\x\\, with \\\mu\\ the [mean function](#def-mean-function), there is a **bias–variance trade-off** among them when, from each procedure to the next, the squared [bias](#def-prediction-bias) of the prediction, used as an [estimator](estimation.llms.md#def-estimator) of \\\mu\mathopen{}\left(x\right)\mathclose{}\\, does not rise and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) does not fall [\[7\]](#ref-wikipedia_bias_variance_tradeoff):
 >
 > \\ \begin{aligned} {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 &\le {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2, \\ \operatorname{Var}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} &\ge \operatorname{Var}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}, \qquad l= 1, \ldots, L- 1. \end{aligned} \tag{36}\\
 >
@@ -872,7 +872,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 38 (Training/validation/test split)** A **training/validation/test split** divides the observations \\1, \ldots, n\\ of a data set into three disjoint sets of indices, \\I\_{\text{train}}\\, \\I\_{\text{val}}\\ and \\I\_{\text{test}}\\, and takes the observations in \\I\_{\text{train}}\\ as the [training set](#def-training-set):
+> **Definition 38 (Training/validation/test split)** A **training/validation/test split** divides the observations \\1, \ldots, n\\ of a data set into three disjoint sets of indices, \\I\_{\text{train}}\\, \\I\_{\text{val}}\\ and \\I\_{\text{test}}\\, and takes the observations in \\I\_{\text{train}}\\ as the [training set](#def-training-set) [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets):
 >
 > \\ \begin{aligned} & I\_{\text{train}}\cup I\_{\text{val}}\cup I\_{\text{test}}= \mathopen{}\left\\1, \ldots, n\right\\\mathclose{}, \\ & I\_{\text{train}}\cap I\_{\text{val}}= \emptyset, \\ & I\_{\text{train}}\cap I\_{\text{test}}= \emptyset, \\ & I\_{\text{val}}\cap I\_{\text{test}}= \emptyset, \\ & \mathcal{D}\_{\text{train}}= \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{train}}}. \end{aligned} \tag{37}\\
 >
@@ -884,7 +884,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 39 (Tuning parameter)** A **tuning parameter** of a [fitting procedure](#def-fitting-procedure) is a setting \\\lambda\\ that the procedure needs but does not compute from the [training set](#def-training-set):
+> **Definition 39 (Tuning parameter)** A **tuning parameter** of a [fitting procedure](#def-fitting-procedure) is a setting \\\lambda\\ that the procedure needs but does not compute from the [training set](#def-training-set) [\[8\]](#ref-wikipedia_hyperparameter_machine_learning):
 >
 > \\ {\hat y\mathopen{}\left(x\right)\mathclose{}} = {{\hat y\_{\lambda}}\mathopen{}\left(x\right)\mathclose{}}. \tag{38}\\
 >
@@ -896,7 +896,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 40 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting.
+> **Definition 40 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting [\[9\]](#ref-wikipedia_model_selection).
 >
 > Source: Wikipedia contributors [\[9\]](#ref-wikipedia_model_selection).
 
@@ -1265,7 +1265,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 50 (\\k\\-fold cross-validation)** In **\\k\\-fold cross-validation**:
+> **Definition 50 (\\k\\-fold cross-validation)** In **\\k\\-fold cross-validation** [\[10\]](#ref-wikipedia_cross_validation_statistics):
 >
 > 1.  The data are randomly divided into \\k\\ [folds](#def-folds) of equal, or nearly equal, size.
 > 2.  For each fold \\\mathcal{F}\_{j}\\, \\j= 1, \ldots, k\\:
@@ -1658,7 +1658,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 56 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\, \\i\in I\\, and an invertible [cross-product matrix](#def-cross-product-matrix) \\A\\. The **leverage** of observation \\i\\ is
+> **Definition 56 (Leverage)** Consider a linear model fitted by [ordinary least squares](correlation-regression.llms.md#def-ols), with [term vectors](#def-term-vector) \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}\\, \\i\in I\\, and an invertible [cross-product matrix](#def-cross-product-matrix) \\A\\. The **leverage** of observation \\i\\ is [\[12\]](#ref-wikipedia_leverage_statistics)
 >
 > \\ h\_{i} \stackrel{\text{def}}{=}{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}}^{\top} A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}. \tag{54}\\
 >
@@ -1717,10 +1717,10 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 >   mtcars_loocv$degree[which.min(mtcars_loocv$formula)]
 > c(max_difference = loocv_max_diff, best_degree = mtcars_best_loocv)
 > #> max_difference    best_degree 
-> #>    7.10543e-15    2.00000e+00
+> #>    8.88178e-15    2.00000e+00
 > ```
 >
-> The two columns differ by at most 7.1e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
+> The two columns differ by at most 8.9e-15, which is rounding error. The single-fit formula needs one fit per model instead of 32. LOOCV picks degree 2, and because LOOCV is not random ([Lemma 1](#lem-loocv-not-random)), rerunning it always gives the same choice.
 
 > **NOTE:**
 >
@@ -1975,26 +1975,6 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 ## 10 Further reading
 
 Sanchez [\[11\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
-
-### 10.1 Online references
-
-- Wikipedia contributors [\[10\]](#ref-wikipedia_cross_validation_statistics) — \\k\\-fold, leave-one-out and other schemes
-
-- Wikipedia contributors [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets) — what each of the three sets is for
-
-- Wikipedia contributors [\[7\]](#ref-wikipedia_bias_variance_tradeoff) — the decomposition of the expected squared error
-
-- Wikipedia contributors [\[6\]](#ref-wikipedia_overfitting) — overfitting and underfitting, with examples
-
-- Wikipedia contributors [\[9\]](#ref-wikipedia_model_selection) — the task and the main criteria
-
-- Wikipedia contributors [\[4\]](#ref-wikipedia_generalization_error) — generalization error and how to estimate it
-
-- Wikipedia contributors [\[8\]](#ref-wikipedia_hyperparameter_machine_learning) — the Wikipedia article on hyperparameter (machine learning)
-
-- Wikipedia contributors [\[12\]](#ref-wikipedia_leverage_statistics) — the Wikipedia article on leverage (statistics)
-
-- Wikipedia contributors [\[1\]](#ref-wikipedia_random_seed) — the Wikipedia article on random seed
 
 ## References
 

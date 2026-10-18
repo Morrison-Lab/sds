@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 ## 1 Empirical distribution
 
@@ -30,7 +30,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 2 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the function
+> **Definition 2 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the function [\[4\]](#ref-wikipedia_empirical_distribution_function)
 >
 > \\\mathop{\hat{\operatorname{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\\
 >
@@ -54,7 +54,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 3 (Order statistics)** For observed values \\x_1, \ldots, x_n\\, the **order statistics** are the same values sorted in increasing order, written
+> **Definition 3 (Order statistics)** For observed values \\x_1, \ldots, x_n\\, the **order statistics** are the same values sorted in increasing order, written [\[6\]](#ref-wikipedia_order_statistic)
 >
 > \\x\_{(1)} \le x\_{(2)} \le \cdots \le x\_{(n)}.\\
 >
@@ -75,7 +75,7 @@ Last modified: 2026-10-18 12:03:55 (PDT)
 
 > **NOTE:**
 >
-> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
+> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is [\[9\]](#ref-wikipedia_quantile)
 >
 > \\\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\\t : \hat F(t) \ge p\right\\\mathclose{}, \quad 0 \< p \le 1.\\
 >
@@ -217,16 +217,6 @@ Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functi
 > - Rice [\[5, Sec. 11.3.2\]](#ref-rice2007mathematical), pp. 448–449 covers the signed rank test.
 > - Rice [\[5, Sec. 12.2.3\]](#ref-rice2007mathematical), p. 488 covers the Kruskal–Wallis test.
 
-## Further reading
-
-- Wikipedia contributors [\[4\]](#ref-wikipedia_empirical_distribution_function) — the empirical CDF and its convergence
-
-- Wikipedia contributors [\[6\]](#ref-wikipedia_order_statistic) — order statistics and their distributions
-
-- Wikipedia contributors [\[9\]](#ref-wikipedia_quantile) — quantiles and how they are estimated
-
-- Wikipedia contributors [\[10\]](#ref-wikipedia_nonparametric_statistics) — the nonparametric approach to inference
-
 ## References
 
 \[1\]
@@ -264,9 +254,5 @@ G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 200
 \[9\]
 
 Wikipedia contributors, “Quantile — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Quantile>
-
-\[10\]
-
-Wikipedia contributors, “Nonparametric statistics — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Nonparametric_statistics>
 
 Back to top

@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
@@ -14,7 +14,7 @@ When the posterior has a known closed form, as in [the Beta-Bernoulli example](b
 
 > **NOTE:**
 >
-> **Definition 1 (Markov chain Monte Carlo)** A **Markov chain Monte Carlo (MCMC)** method for a target distribution generates a sequence of draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(2)}, \ldots\\, each drawn from a distribution that depends on the previous draw, such that the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ converges to the target as \\t \to \infty\\.
+> **Definition 1 (Markov chain Monte Carlo)** A **Markov chain Monte Carlo (MCMC)** method for a target distribution generates a sequence of draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(2)}, \ldots\\, each drawn from a distribution that depends on the previous draw, such that the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ converges to the target as \\t \to \infty\\ [\[2\]](#ref-wikipedia_markov_chain_monte_carlo).
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_markov_chain_monte_carlo).
 
@@ -34,7 +34,7 @@ an integral over every dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\
 
 > **NOTE:**
 >
-> **Definition 2 (Monte Carlo estimate)** Given draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(M)} \\ \sim\_{\operatorname{iid}}\\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ and a function \\g\\, the **Monte Carlo estimate** of the posterior expectation \\\operatorname{E}\mathopen{}\left\[g(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}\\ is
+> **Definition 2 (Monte Carlo estimate)** Given draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \ldots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(M)} \\ \sim\_{\operatorname{iid}}\\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ and a function \\g\\, the **Monte Carlo estimate** of the posterior expectation \\\operatorname{E}\mathopen{}\left\[g(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right\]\mathclose{}\\ is [\[3\]](#ref-wikipedia_monte_carlo_method)
 >
 > \\ \frac{1}{M} \sum\_{m=1}^{M} g\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(m)}\right)\mathclose{}. \\
 >
@@ -72,7 +72,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 
 > **NOTE:**
 >
-> **Definition 3 (Markov chain)** A sequence of random variables \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(2)}, \ldots\\ is a **Markov chain** if, for every \\t\\, the conditional distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ given all the earlier values depends only on \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\:
+> **Definition 3 (Markov chain)** A sequence of random variables \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(2)}, \ldots\\ is a **Markov chain** if, for every \\t\\, the conditional distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ given all the earlier values depends only on \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ [\[4\]](#ref-wikipedia_markov_chain):
 >
 > \\ \operatorname{p}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t-1)}, \ldots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}\right)\mathclose{} = \operatorname{p}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\right)\mathclose{}. \\
 >
@@ -209,7 +209,7 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 
 > **NOTE:**
 >
-> **Definition 8 (Metropolis–Hastings algorithm)** Given a target posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, a [proposal distribution](#def-proposal-distribution) \\q(\cdot \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, and a starting value \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}\\, the **Metropolis–Hastings algorithm** produces \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ from \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ as follows [\[1, Ch. 13\]](#ref-dobson4e), p. 291:
+> **Definition 8 (Metropolis–Hastings algorithm)** Given a target posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, a [proposal distribution](#def-proposal-distribution) \\q(\cdot \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, and a starting value \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}\\, the **Metropolis–Hastings algorithm** produces \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ from \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ as follows [\[1, Ch. 13\]](#ref-dobson4e), p. 291 [\[9\]](#ref-wikipedia_metropolis_hastings_algorithm):
 >
 > 1.  Draw a candidate \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* \sim q(\cdot \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)})\\.
 > 2.  Compute the [acceptance ratio](#def-acceptance-ratio) \\\alpha\\.
@@ -309,7 +309,7 @@ A chain started far from where the posterior puts its probability takes some ite
 
 > **NOTE:**
 >
-> **Definition 12 (Gibbs sampler)** The **Gibbs sampler** produces \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ from \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ by updating one component at a time: for \\k = 1, \ldots, K\\ in turn, it draws \\\theta_k^{(t+1)}\\ from the [full conditional distribution](#def-full-conditional) of \\\theta_k\\, with each other component set to its most recent value [\[1, Ch. 13\]](#ref-dobson4e), p. 293.
+> **Definition 12 (Gibbs sampler)** The **Gibbs sampler** produces \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ from \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ by updating one component at a time: for \\k = 1, \ldots, K\\ in turn, it draws \\\theta_k^{(t+1)}\\ from the [full conditional distribution](#def-full-conditional) of \\\theta_k\\, with each other component set to its most recent value [\[1, Ch. 13\]](#ref-dobson4e), p. 293 [\[10\]](#ref-wikipedia_gibbs_sampling).
 >
 > Source: Wikipedia contributors [\[10\]](#ref-wikipedia_gibbs_sampling).
 
@@ -450,7 +450,7 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 
 > **NOTE:**
 >
-> **Definition 16 (Deviance information criterion)** The **deviance information criterion** is
+> **Definition 16 (Deviance information criterion)** The **deviance information criterion** is [\[11\]](#ref-wikipedia_deviance_information_criterion)
 >
 > \\ \operatorname{DIC} \stackrel{\text{def}}{=}D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) + 2\\p_D, \\
 >
@@ -492,20 +492,6 @@ The term \\D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\
 > **NOTE:**
 >
 > *Remark 2* (Cautions about DIC). DIC should be used with care: it can behave poorly for models with weakly identified parameters or markedly non-Gaussian posteriors [\[1, Ch. 13\]](#ref-dobson4e), p. 306.
-
-## Further reading
-
-- Wikipedia contributors [\[2\]](#ref-wikipedia_markov_chain_monte_carlo) — the family of samplers and their diagnostics
-
-- Wikipedia contributors [\[9\]](#ref-wikipedia_metropolis_hastings_algorithm) — the algorithm and its variants
-
-- Wikipedia contributors [\[10\]](#ref-wikipedia_gibbs_sampling) — sampling from full conditional distributions
-
-- Wikipedia contributors [\[3\]](#ref-wikipedia_monte_carlo_method) — Monte Carlo estimation, with examples
-
-- Wikipedia contributors [\[4\]](#ref-wikipedia_markov_chain) — Markov chains and their stationary distributions
-
-- Wikipedia contributors [\[11\]](#ref-wikipedia_deviance_information_criterion) — the criterion and its effective number of parameters
 
 ## References
 

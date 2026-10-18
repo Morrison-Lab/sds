@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
@@ -215,7 +215,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 ## 4 Random effects
 
-The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ drawn from a common distribution. What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
+The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ drawn from a common distribution [\[2\]](#ref-wikipedia_bayesian_hierarchical_modeling). What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
 
 > **NOTE:**
 >
@@ -326,7 +326,7 @@ When several candidate models are plausible, committing to a single “best” o
 
 > **NOTE:**
 >
-> **Example 6 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities [\[2\]](#ref-schwarz1978estimating):
+> **Example 6 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities [\[3\]](#ref-schwarz1978estimating) [\[4\]](#ref-wikipedia_bayesian_information_criterion):
 >
 > \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \approx \frac{\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_k\right\\\mathclose{}}{\sum\_{l=1}^{K} \operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_l\right\\\mathclose{}}. \\
 >
@@ -393,16 +393,6 @@ When several candidate models are plausible, committing to a single “best” o
 >
 > The predictors that affect the outcome, \\x_1\\ and \\x_2\\, have inclusion probabilities near 1, and the irrelevant \\x_3\\ a much smaller one. The models without \\x_1\\ get almost no weight, so the model-averaged slope of \\x_1\\ is close to its least-squares estimate in the model with \\x_1\\ and \\x_2\\ only. Both differ from the true slope \\0.8\\ by sampling variation in this data set, not because of the averaging.
 
-## Further reading
-
-- Wikipedia contributors [\[3\]](#ref-wikipedia_bayesian_inference) — Bayesian updating, with examples
-
-- Wikipedia contributors [\[4\]](#ref-wikipedia_bayesian_hierarchical_modeling) — random effects and hierarchical priors
-
-- Wikipedia contributors [\[5\]](#ref-wikipedia_bayes_factor) — comparing models with the ratio of marginal likelihoods
-
-- Wikipedia contributors [\[6\]](#ref-wikipedia_bayesian_information_criterion) — a large-sample approximation to the log marginal likelihood
-
 ## References
 
 \[1\]
@@ -411,21 +401,13 @@ A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 
 
 \[2\]
 
-G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
+Wikipedia contributors, “Bayesian hierarchical modeling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling>
 
 \[3\]
 
-Wikipedia contributors, “Bayesian inference — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_inference>
+G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
 
 \[4\]
-
-Wikipedia contributors, “Bayesian hierarchical modeling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling>
-
-\[5\]
-
-Wikipedia contributors, “Bayes factor — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayes_factor>
-
-\[6\]
 
 Wikipedia contributors, “Bayesian information criterion — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_information_criterion>
 

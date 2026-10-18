@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -22,7 +22,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Definition 1 (Statistic)** A **statistic** is a function of the sample, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\, that does not depend on any unknown parameter. Its value at the observed data, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\, is a number or vector we can compute.
+> **Definition 1 (Statistic)** A **statistic** is a function of the sample, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\, that does not depend on any unknown parameter [\[1\]](#ref-wikipedia_statistic). Its value at the observed data, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\, is a number or vector we can compute.
 >
 > Source: Wikipedia contributors [\[1\]](#ref-wikipedia_statistic).
 
@@ -32,7 +32,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Definition 2 (Sufficient statistic)** Let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability:
+> **Definition 2 (Sufficient statistic)** Let \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\\ be a discrete sample whose distribution depends on a parameter \\\theta\\. A [statistic](#def-statistic) \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ is **sufficient** for \\\theta\\ if, for every sample \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and every value \\t\\, the conditional probability of the sample given the statistic is the same for every value of \\\theta\\ at which the statistic takes the value \\t\\ with positive probability [\[2\]](#ref-wikipedia_sufficient_statistic):
 >
 > \\ \Pr\_{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \quad \text{wherever } \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} \> 0 \tag{1}\\
 >
@@ -124,11 +124,11 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\:
+> **Theorem 3 (Rao–Blackwell theorem)** Let \\\hat{\theta}\\ be an [unbiased](estimation.llms.md#def-unbiased) estimator of \\\theta\\ with finite variance, and let \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ be a [sufficient](#def-sufficient) statistic for \\\theta\\. Then the [Rao–Blackwellized estimator](#def-rao-blackwellized) is unbiased and has variance no larger than that of \\\hat{\theta}\\, for every \\\theta\\ [\[6\]](#ref-wikipedia_rao_blackwell_theorem):
 >
 > \\ \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
 >
-> Source: [\[6\]](#ref-rao1945information), [\[7\]](#ref-blackwell1947conditional), [\[4\]](#ref-CaseBerg01), Thm. 7.3.17, p. 342, [\[8\]](#ref-wikipedia_rao_blackwell_theorem).
+> Source: [\[7\]](#ref-rao1945information), [\[8\]](#ref-blackwell1947conditional), [\[4\]](#ref-CaseBerg01), Thm. 7.3.17, p. 342, [\[6\]](#ref-wikipedia_rao_blackwell_theorem).
 
 > **NOTE:**
 >
@@ -246,14 +246,6 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 - The [Fall 2024 course site for UC Berkeley’s Stat 210A, *Theoretical Statistics*](https://stat210a.berkeley.edu/fall-2024/) (Will Fithian) has a course reader on exponential families, sufficiency, completeness and unbiased estimation.
 
-### 3.1 Online references
-
-- Wikipedia contributors [\[2\]](#ref-wikipedia_sufficient_statistic) — sufficiency and the factorization theorem
-
-- Wikipedia contributors [\[8\]](#ref-wikipedia_rao_blackwell_theorem) — improving an estimator by conditioning on a sufficient statistic
-
-- Wikipedia contributors [\[1\]](#ref-wikipedia_statistic) — the Wikipedia article on statistic
-
 ## References
 
 \[1\]
@@ -278,15 +270,15 @@ P. R. Halmos and L. J. Savage, “Application of the Radon–Nikodym theorem to 
 
 \[6\]
 
-C. R. Rao, “Information and the accuracy attainable in the estimation of statistical parameters,” *Bulletin of the Calcutta Mathematical Society*, vol. 37, pp. 81–91, 1945.
+Wikipedia contributors, “Rao–blackwell theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem>
 
 \[7\]
 
-D. Blackwell, “Conditional expectation and unbiased sequential estimation,” *The Annals of Mathematical Statistics*, vol. 18, no. 1, pp. 105–110, 1947, doi: [10.1214/aoms/1177730497](https://doi.org/10.1214/aoms/1177730497).
+C. R. Rao, “Information and the accuracy attainable in the estimation of statistical parameters,” *Bulletin of the Calcutta Mathematical Society*, vol. 37, pp. 81–91, 1945.
 
 \[8\]
 
-Wikipedia contributors, “Rao–blackwell theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem>
+D. Blackwell, “Conditional expectation and unbiased sequential estimation,” *The Annals of Mathematical Statistics*, vol. 18, no. 1, pp. 105–110, 1947, doi: [10.1214/aoms/1177730497](https://doi.org/10.1214/aoms/1177730497).
 
 \[9\]
 

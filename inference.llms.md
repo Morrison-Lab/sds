@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 ## 1 Inference
 
@@ -34,7 +34,7 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> **Definition 2 (Null hypothesis)** The **null hypothesis**, written \\H_0\\, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.
+> **Definition 2 (Null hypothesis)** The **null hypothesis**, written \\H_0\\, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data [\[2\]](#ref-wikipedia_statistical_hypothesis_test).
 >
 > Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_hypothesis_test).
 
@@ -64,7 +64,7 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> **Definition 6 (p-value)** Given a [test statistic](#def-test-statistic) \\T\\ whose observed value is \\t\\, the **p-value** is the probability that \\T\\ is at least as extreme as the value observed, computed with the data distributed as the null hypothesis specifies:
+> **Definition 6 (p-value)** Given a [test statistic](#def-test-statistic) \\T\\ whose observed value is \\t\\, the **p-value** is the probability that \\T\\ is at least as extreme as the value observed, computed with the data distributed as the null hypothesis specifies [\[5\]](#ref-wikipedia_p_value):
 >
 > \\p \stackrel{\text{def}}{=}\Pr\_{H_0}(T \ge t)\\
 >
@@ -151,7 +151,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > \\\frac{Z}{\sqrt{V/k}}\\
 >
-> is the **t-distribution with \\k\\ degrees of freedom** (or **Student’s t-distribution**), written \\t_k\\.
+> is the **t-distribution with \\k\\ degrees of freedom** (or **Student’s t-distribution**), written \\t_k\\ [\[12\]](#ref-wikipedia_students_t_distribution).
 
 > **NOTE:**
 >
@@ -190,19 +190,19 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a pair of statistics \\L\\ and \\U\\, computed from the data, such that for every possible value of \\\theta\\:
+> **Definition 12 (Confidence interval)** A \\100(1-\alpha)\\\\ **confidence interval** for a parameter \\\theta\\ is a pair of statistics \\L\\ and \\U\\, computed from the data, such that for every possible value of \\\theta\\ [\[13\]](#ref-wikipedia_confidence_interval):
 >
 > \\\Pr(L \le \theta\le U) = 1 - \alpha\\
 >
 > The probability is over repeated samples from the data-generating process, with \\\theta\\ held fixed.
 >
-> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_confidence_interval).
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_confidence_interval).
 
 > **NOTE:**
 >
 > **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\\[L, U\]\\ for a parameter \\\theta\\ is \\\Pr(L \le \theta\le U)\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability \\1 - \alpha\\.
 >
-> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_coverage_probability).
+> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_coverage_probability).
 
 > **NOTE:**
 >
@@ -224,7 +224,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Definition 15 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
 >
-> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_margin_of_error).
+> Source: Wikipedia contributors [\[15\]](#ref-wikipedia_margin_of_error).
 
 > **NOTE:**
 >
@@ -249,16 +249,6 @@ For more on confidence intervals:
 - # An error occurred.
 
   Unable to execute JavaScript.
-
-### 5.1 Online references
-
-- Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_hypothesis_test) — the logic of testing and its terminology
-
-- Wikipedia contributors [\[5\]](#ref-wikipedia_p_value) — the definition and common misreadings
-
-- Wikipedia contributors [\[12\]](#ref-wikipedia_confidence_interval) — the definition and common misreadings
-
-- Wikipedia contributors [\[15\]](#ref-wikipedia_students_t_distribution) — the distribution and its uses
 
 ## 6 Interpretation of negative findings
 
@@ -354,19 +344,19 @@ Wikipedia contributors, “Chi-squared distribution — Wikipedia, the free ency
 
 \[12\]
 
-Wikipedia contributors, “Confidence interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Confidence_interval>
+Wikipedia contributors, “Student’s t-distribution — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Student%27s_t-distribution>
 
 \[13\]
 
-Wikipedia contributors, “Coverage probability — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Coverage_probability>
+Wikipedia contributors, “Confidence interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Confidence_interval>
 
 \[14\]
 
-Wikipedia contributors, “Margin of error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Margin_of_error>
+Wikipedia contributors, “Coverage probability — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Coverage_probability>
 
 \[15\]
 
-Wikipedia contributors, “Student’s t-distribution — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Student%27s_t-distribution>
+Wikipedia contributors, “Margin of error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Margin_of_error>
 
 \[16\]
 

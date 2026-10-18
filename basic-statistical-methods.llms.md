@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 12:03:55 (PDT)
+Last modified: 2026-10-18 13:22:01 (PDT)
 
 ## 1 Introduction
 
@@ -138,7 +138,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 1 (One-sample t-test)** Let \\x_1, \ldots, x_n\\ be observations with \\n \ge 2\\, sample mean \\\bar{x}\\, and sample standard deviation \\s\\. The **one-sample t-test** of \\H_0: \mu= \mu_0\\ against \\H_1: \mu\neq \mu_0\\ uses the statistic
+> **Definition 1 (One-sample t-test)** Let \\x_1, \ldots, x_n\\ be observations with \\n \ge 2\\, sample mean \\\bar{x}\\, and sample standard deviation \\s\\. The **one-sample t-test** of \\H_0: \mu= \mu_0\\ against \\H_1: \mu\neq \mu_0\\ uses the statistic [\[3\]](#ref-wikipedia_students_t_test)
 >
 > \\t \stackrel{\text{def}}{=}\frac{\bar{x}- \mu_0}{s / \sqrt{n}}.\\
 >
@@ -212,7 +212,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 3 (Welch’s two-sample t-test)** Let two independent groups have sample sizes \\n_1, n_2 \ge 2\\, sample means \\\bar{x}\_1\\ and \\\bar{x}\_2\\, and sample variances \\s_1^2\\ and \\s_2^2\\. **Welch’s two-sample t-test** of \\H_0: \mu_1 = \mu_2\\ against \\H_1: \mu_1 \neq \mu_2\\ uses the statistic
+> **Definition 3 (Welch’s two-sample t-test)** Let two independent groups have sample sizes \\n_1, n_2 \ge 2\\, sample means \\\bar{x}\_1\\ and \\\bar{x}\_2\\, and sample variances \\s_1^2\\ and \\s_2^2\\. **Welch’s two-sample t-test** of \\H_0: \mu_1 = \mu_2\\ against \\H_1: \mu_1 \neq \mu_2\\ uses the statistic [\[5\]](#ref-wikipedia_welchs_t_test)
 >
 > \\t \stackrel{\text{def}}{=}\frac{\bar{x}\_1 - \bar{x}\_2}{\sqrt{\dfrac{s_1^2}{n_1} + \dfrac{s_2^2}{n_2}}}\\
 >
@@ -292,7 +292,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> **Definition 4 (Pooled variance)** For two samples of sizes \\n_1\\ and \\n_2\\ with sample variances \\s_1^2\\ and \\s_2^2\\, the **pooled variance** is
+> **Definition 4 (Pooled variance)** For two samples of sizes \\n_1\\ and \\n_2\\ with sample variances \\s_1^2\\ and \\s_2^2\\, the **pooled variance** is [\[6\]](#ref-wikipedia_pooled_variance)
 >
 > \\s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}.\\
 >
@@ -430,7 +430,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > \\ \begin{aligned} H_0: \mu_1 &= \mu_2 \\ &= \cdots \\ &= \mu_k \end{aligned} \\
 >
-> against the alternative that at least two group means differ uses the statistic
+> against the alternative that at least two group means differ uses the statistic [\[9\]](#ref-wikipedia_analysis_of_variance) [\[10\]](#ref-wikipedia_f_test)
 >
 > \\F \stackrel{\text{def}}{=}\frac{\text{MS}\_\text{between}}{\text{MS}\_\text{within}}.\\
 >
@@ -544,20 +544,8 @@ c(
 > **NOTE:**
 >
 > - Hogg et al. [\[4, Sec. 9.3\]](#ref-hoggtanis2015), pp. 446–455 covers one-factor analysis of variance.
-> - Casella and Berger [\[10, Sec. 11.2\]](#ref-CaseBerg01), pp. 522–538 covers oneway analysis of variance.
+> - Casella and Berger [\[11, Sec. 11.2\]](#ref-CaseBerg01), pp. 522–538 covers oneway analysis of variance.
 > - Rice [\[7, Sec. 12.2\]](#ref-rice2007mathematical), pp. 477–488 covers the one-way layout.
-
-## Further reading
-
-- Wikipedia contributors [\[3\]](#ref-wikipedia_students_t_test) — one-sample, paired and two-sample t-tests
-
-- Wikipedia contributors [\[5\]](#ref-wikipedia_welchs_t_test) — the t-test for groups with unequal variances
-
-- Wikipedia contributors [\[9\]](#ref-wikipedia_analysis_of_variance) — ANOVA and its F-test
-
-- Wikipedia contributors [\[11\]](#ref-wikipedia_f_test) — F-tests and where they arise
-
-- Wikipedia contributors [\[6\]](#ref-wikipedia_pooled_variance) — pooling the variances of several groups
 
 ## References
 
@@ -599,10 +587,10 @@ Wikipedia contributors, “Analysis of variance — Wikipedia, the free encyclop
 
 \[10\]
 
-G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+Wikipedia contributors, “F-test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/F-test>
 
 \[11\]
 
-Wikipedia contributors, “F-test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/F-test>
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
 
 Back to top
