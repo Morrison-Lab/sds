@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-18 11:09:18 (PDT)
+Last modified: 2026-10-18 11:34:54 (PDT)
 
-This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Section 3.6.
+This page reviews the bootstrap, a resampling method for standard errors and confidence intervals that does not need a formula for the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic. Its HERS example bootstraps the slope of a [simple linear regression](correlation-regression.llms.md#sec-simple-linear-regression). This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Section 3.6.
 
 ## 1 The HERS data
 
@@ -21,7 +21,7 @@ hers |> head()
 
 ### 2.1 When to use the bootstrap
 
-The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993](#ref-efron1993introduction)) estimates the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short ([Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)):
+The bootstrap [\[2\]](#ref-efron1979bootstrap), [\[3\]](#ref-efron1993introduction) estimates the [sampling distribution](estimation.llms.md#def-sampling-distribution) of a statistic by resampling the observed data. It gives standard errors and confidence intervals in three situations where the usual formulas fall short [\[1, Ch. 3\]](#ref-vittinghoff2e):
 
 - approximate methods for valid confidence intervals exist, but standard software does not implement them conveniently;
 - no closed-form approximate method has been found;
@@ -33,7 +33,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > **Definition 1 (Bootstrap sample)** A **bootstrap sample** from observed data \\x_1, \ldots, x_n\\ is a sample of size \\n\\ drawn with replacement from \\\mathopen{}\left\\x_1, \ldots, x_n\right\\\mathclose{}\\, each draw choosing each of the \\n\\ observations with probability \\1/n\\.
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_resampling_statistics)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_resampling_statistics).
 
 > **NOTE:**
 >
@@ -65,7 +65,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > **Definition 2 (Bootstrap distribution)** Let \\\hat{\theta}\\ be a statistic computed from the observed data. Draw \\B\\ independent [bootstrap samples](#def-bootstrap-sample), and compute the statistic on each one, giving \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\. The **bootstrap distribution** of \\\hat{\theta}\\ is the empirical distribution of \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\.
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_bootstrapping_statistics)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_bootstrapping_statistics).
 
 > **NOTE:**
 >
@@ -75,7 +75,7 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 >
 > **Definition 3 (Bootstrap standard error)** The **bootstrap standard error** of a statistic \\\hat{\theta}\\, written \\\widehat{\text{SE}}\_\text{boot}\\, is the sample standard deviation of the bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)). It estimates the [standard error](estimation.llms.md#def-SE) of \\\hat{\theta}\\.
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_standard_error)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_standard_error).
 
 > **NOTE:**
 >
@@ -116,14 +116,14 @@ The bootstrap ([Efron 1979](#ref-efron1979bootstrap); [Efron and Tibshirani 1993
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 7.7](#ref-hoggtanis2015), pp. 353–360) covers resampling methods.
-> - Casella and Berger ([2002, sec. 10.1.4](#ref-CaseBerg01), pp. 478–480) covers bootstrap standard errors.
-> - Rice ([2007, sec. 10.4.6](#ref-rice2007mathematical), pp. 399–400) covers variability of location estimates by the bootstrap.
-> - Rice ([2007, sec. 14.6](#ref-rice2007mathematical), pp. 585–586) covers conditional inference, unconditional inference and the bootstrap.
+> - Hogg et al. [\[7, Sec. 7.7\]](#ref-hoggtanis2015), pp. 353–360 covers resampling methods.
+> - Casella and Berger [\[8, Sec. 10.1.4\]](#ref-CaseBerg01), pp. 478–480 covers bootstrap standard errors.
+> - Rice [\[9, Sec. 10.4.6\]](#ref-rice2007mathematical), pp. 399–400 covers variability of location estimates by the bootstrap.
+> - Rice [\[9, Sec. 14.6\]](#ref-rice2007mathematical), pp. 585–586 covers conditional inference, unconditional inference and the bootstrap.
 
 ### 2.3 Bootstrap confidence interval methods
 
-There are three common methods for turning a bootstrap distribution into a \\100(1-\alpha)\\\\ confidence interval for a parameter \\\theta\\ ([Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e); [Efron and Tibshirani 1993](#ref-efron1993introduction)). Each is an approximate [confidence interval](inference.llms.md#def-confidence-interval). Throughout, \\z_q\\ is the \\q\\ quantile of the standard Gaussian distribution and \\\Phi\\ is its CDF.
+There are three common methods for turning a bootstrap distribution into a \\100(1-\alpha)\\\\ confidence interval for a parameter \\\theta\\ [\[1, Ch. 3\]](#ref-vittinghoff2e), [\[3\]](#ref-efron1993introduction). Each is an approximate [confidence interval](inference.llms.md#def-confidence-interval). Throughout, \\z_q\\ is the \\q\\ quantile of the standard Gaussian distribution and \\\Phi\\ is its CDF.
 
 #### 2.3.1 Normal approximation
 
@@ -137,7 +137,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 > **NOTE:**
 >
-> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the [sampling distribution](estimation.llms.md#def-sampling-distribution) of \\\hat{\theta}\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals ([Efron and Tibshirani 1993](#ref-efron1993introduction)).
+> *Remark 3* (When the normal bootstrap interval is reliable). This interval assumes that the [sampling distribution](estimation.llms.md#def-sampling-distribution) of \\\hat{\theta}\\ is approximately Gaussian and centered at \\\theta\\, so it can be unreliable when that distribution is skewed. It needs only a standard error, which takes fewer bootstrap replicates to estimate well than the tail quantiles used by the percentile and BCa intervals [\[3\]](#ref-efron1993introduction).
 
 > **NOTE:**
 >
@@ -156,7 +156,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 >
 > **Definition 5 (Percentile bootstrap confidence interval)** The **percentile bootstrap confidence interval** runs from the \\\alpha/2\\ quantile to the \\1 - \alpha/2\\ quantile of the bootstrap replicates \\\hat{\theta}^\*\_1, \ldots, \hat{\theta}^\*\_B\\ ([Definition 2](#def-bootstrap-distribution)).
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_confidence_interval)).
+> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_confidence_interval).
 
 > **NOTE:**
 >
@@ -206,7 +206,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 >
 > \\\alpha_q \stackrel{\text{def}}{=}\Phi\mathopen{}\left(\hat{z}\_0 + \frac{\hat{z}\_0 + z_q}{1 - \hat{a}(\hat{z}\_0 + z_q)}\right)\mathclose{}.\\
 >
-> The **bias-corrected and accelerated (BCa) bootstrap confidence interval** runs from the \\\alpha\_{\alpha/2}\\ quantile to the \\\alpha\_{1 - \alpha/2}\\ quantile of the bootstrap replicates ([Efron and Tibshirani 1993, chap. 14](#ref-efron1993introduction)).
+> The **bias-corrected and accelerated (BCa) bootstrap confidence interval** runs from the \\\alpha\_{\alpha/2}\\ quantile to the \\\alpha\_{1 - \alpha/2}\\ quantile of the bootstrap replicates [\[3, Ch. 14\]](#ref-efron1993introduction).
 
 > **NOTE:**
 >
@@ -235,7 +235,7 @@ There are three common methods for turning a bootstrap distribution into a \\100
 
 ### 2.4 The boot package
 
-The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a recommended package distributed with R, provides [`boot::boot()`](https://rdrr.io/pkg/boot/man/boot.html) to draw the bootstrap replicates and [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) to compute the three intervals. [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) differs from the definitions on this page in two small ways:
+The `boot` package [\[11\]](#ref-davison1997bootstrap), a recommended package distributed with R, provides [`boot::boot()`](https://rdrr.io/pkg/boot/man/boot.html) to draw the bootstrap replicates and [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) to compute the three intervals. [`boot::boot.ci()`](https://rdrr.io/pkg/boot/man/boot.ci.html) differs from the definitions on this page in two small ways:
 
 - its normal interval (`type = "norm"`) is centered at \\\hat{\theta}\\ minus the bootstrap estimate of bias, \\\hat{\theta}- (\bar\theta^\* - \hat{\theta})\\, where \\\bar\theta^\*\\ is the mean of the replicates, rather than at \\\hat{\theta}\\;
 - it estimates quantiles of the replicates by interpolation, so its percentile and BCa endpoints can differ slightly from those computed with [`quantile()`](https://rdrr.io/r/stats/quantile.html).
@@ -244,7 +244,7 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 
 > **NOTE:**
 >
-> **Example 8 (Bootstrap confidence intervals for the slope of SBP on age in HERS)** We regress systolic blood pressure (`SBP`) on `age` by [ordinary least squares](correlation-regression.llms.md#def-ols), and bootstrap the slope, resampling participants (adapted from [Vittinghoff et al. 2012, chap. 3](#ref-vittinghoff2e)). The statistic function takes the data and the row indices of one bootstrap sample:
+> **Example 8 (Bootstrap confidence intervals for the slope of SBP on age in HERS)** We regress systolic blood pressure (`SBP`) on `age` by [ordinary least squares](correlation-regression.llms.md#def-ols), and bootstrap the slope, resampling participants adapted from [\[1, Ch. 3\]](#ref-vittinghoff2e). The statistic function takes the data and the row indices of one bootstrap sample:
 >
 > ``` downlit
 > slope_sbp_age <- function(data, indices) {
@@ -296,40 +296,62 @@ The `boot` package ([Davison and Hinkley 1997](#ref-davison1997bootstrap)), a re
 > #> Calculations and Intervals on Original Scale
 > ```
 >
-> All three intervals are similar here. When the bootstrap distribution is skewed, the intervals differ more, and the BCa interval, which corrects for skewness, is the better choice ([Efron and Tibshirani 1993, chap. 14](#ref-efron1993introduction)).
+> All three intervals are similar here. When the bootstrap distribution is skewed, the intervals differ more, and the BCa interval, which corrects for skewness, is the better choice [\[3, Ch. 14\]](#ref-efron1993introduction).
 
 ## Further reading
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_bootstrapping_statistics)) — the bootstrap and its variants
+- Wikipedia contributors [\[5\]](#ref-wikipedia_bootstrapping_statistics) — the bootstrap and its variants
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_resampling_statistics)) — the bootstrap, the jackknife and permutation tests
+- Wikipedia contributors [\[4\]](#ref-wikipedia_resampling_statistics) — the bootstrap, the jackknife and permutation tests
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_standard_error)) — standard errors and how to estimate them
+- Wikipedia contributors [\[6\]](#ref-wikipedia_standard_error) — standard errors and how to estimate them
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_confidence_interval)) — the definition and common misreadings
+- Wikipedia contributors [\[10\]](#ref-wikipedia_confidence_interval) — the definition and common misreadings
 
 ## References
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+\[1\]
 
-Davison, Anthony C., and David V. Hinkley. 1997. *Bootstrap Methods and Their Application*. Cambridge Series in Statistical and Probabilistic Mathematics 1. Cambridge University Press. <https://doi.org/10.1017/CBO9780511802843>.
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
-Efron, Bradley. 1979. “Bootstrap Methods: Another Look at the Jackknife.” *The Annals of Statistics* 7 (1): 1–26. <https://doi.org/10.1214/aos/1176344552>.
+\[2\]
 
-Efron, Bradley, and Robert J. Tibshirani. 1993. *An Introduction to the Bootstrap*. Monographs on Statistics and Applied Probability 57. Chapman & Hall/CRC. <https://doi.org/10.1201/9780429246593>.
+B. Efron, “Bootstrap methods: Another look at the jackknife,” *The Annals of Statistics*, vol. 7, no. 1, pp. 1–26, 1979, doi: [10.1214/aos/1176344552](https://doi.org/10.1214/aos/1176344552).
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+\[3\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+B. Efron and R. J. Tibshirani, *An introduction to the bootstrap*. in Monographs on statistics and applied probability, no. 57. New York: Chapman & Hall/CRC, 1993. doi: [10.1201/9780429246593](https://doi.org/10.1201/9780429246593).
 
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
+\[4\]
 
-Wikipedia contributors. 2026a. *Bootstrapping (Statistics) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bootstrapping_%28statistics%29>.
+Wikipedia contributors, “Resampling (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Resampling_%28statistics%29>
 
-Wikipedia contributors. 2026b. *Confidence Interval — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Confidence_interval>.
+\[5\]
 
-Wikipedia contributors. 2026c. *Resampling (Statistics) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Resampling_%28statistics%29>.
+Wikipedia contributors, “Bootstrapping (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bootstrapping_%28statistics%29>
 
-Wikipedia contributors. 2026d. *Standard Error — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Standard_error>.
+\[6\]
+
+Wikipedia contributors, “Standard error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Standard_error>
+
+\[7\]
+
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
+
+\[8\]
+
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+\[9\]
+
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+\[10\]
+
+Wikipedia contributors, “Confidence interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Confidence_interval>
+
+\[11\]
+
+A. C. Davison and D. V. Hinkley, *Bootstrap methods and their application*. in Cambridge series in statistical and probabilistic mathematics, no. 1. Cambridge: Cambridge University Press, 1997. doi: [10.1017/CBO9780511802843](https://doi.org/10.1017/CBO9780511802843).
 
 Back to top

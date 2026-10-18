@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 11:09:18 (PDT)
+Last modified: 2026-10-18 11:34:54 (PDT)
 
 ## 1 Types of variables
 
@@ -116,7 +116,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 >
 > **Definition 10 (Dummy variables)** **Dummy variables** are numeric variables that, together, are a numeric representation of a categorical variable.
 >
-> Source: Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
+> Source: Dobson and Barnett [\[1, Sec. 2.4\]](#ref-dobson4e).
 
 > **NOTE:**
 >
@@ -124,13 +124,13 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 3* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett ([2018](#ref-dobson4e)), section 2.4, for details.
+> *Remark 3* (Other ways to code dummy variables). There are other ways to construct dummy variables. One is to use the values \\-1\\ and \\1\\: for example, \\-1\\ for “female” and \\1\\ for “male”. See Dobson and Barnett [\[1\]](#ref-dobson4e), section 2.4, for details.
 
 > **NOTE:**
 >
 > **Definition 11 (Indicator variable)** An **indicator variable** is a [dummy variable](#def-dummy-variable) whose only values are 0 and 1.
 >
-> Source: Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)).
+> Source: Dobson and Barnett [\[1, Sec. 2.4\]](#ref-dobson4e).
 
 > **NOTE:**
 >
@@ -142,7 +142,7 @@ Before summarizing data, it helps to identify the **type** of each variable, sin
 
 > **NOTE:**
 >
-> *Remark 4* (Source: Reference level). Dobson and Barnett ([2018, sec. 2.4](#ref-dobson4e)), who call this the corner point parameterization.
+> *Remark 4* (Source: Reference level). Dobson and Barnett [\[1, Sec. 2.4\]](#ref-dobson4e), who call this the corner point parameterization.
 
 > **NOTE:**
 >
@@ -347,6 +347,8 @@ Standard probability distributions for count outcomes include:
 
 ## References
 
-Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized Linear Models*. 4th ed. CRC press. <https://doi.org/10.1201/9781315182780>.
+\[1\]
+
+A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
 
 Back to top

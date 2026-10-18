@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-18 11:09:18 (PDT)
+Last modified: 2026-10-18 11:34:54 (PDT)
 
-This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
+This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the \\t\\ reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
 ## 1 The HERS data
 
@@ -29,7 +29,7 @@ hers |> head()
 >
 > where \\\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}\\ is their [covariance](https://morrison-lab.github.io/pds/variance-covariance.html#def-cov).
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_pearson_correlation_coefficient)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_pearson_correlation_coefficient).
 
 > **NOTE:**
 >
@@ -45,7 +45,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Theorem 1 (Null distribution of the correlation t statistic)** Let the pairs \\(X_1, Y_1), \ldots, (X_n, Y_n)\\ be independent, and let each \\Y_i\\, given \\X_1, \ldots, X_n\\, be Gaussian with a mean and variance that do not depend on the \\X\\ values. Then the statistic \\t\\ of [Definition 2](#def-pearson-test) has the \\t\_{n-2}\\ distribution ([Hogg et al. 2019, sec. 9.6](#ref-hoggtanis2015), pp. 472-473):
+> **Theorem 1 (Null distribution of the correlation t statistic)** Let the pairs \\(X_1, Y_1), \ldots, (X_n, Y_n)\\ be independent, and let each \\Y_i\\, given \\X_1, \ldots, X_n\\, be Gaussian with a mean and variance that do not depend on the \\X\\ values. Then the statistic \\t\\ of [Definition 2](#def-pearson-test) has the \\t\_{n-2}\\ distribution [\[3, Sec. 9.6\]](#ref-hoggtanis2015), pp. 472-473:
 >
 > \\ t \sim t\_{n-2}. \\
 
@@ -111,8 +111,8 @@ hers |> head()
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 9.6](#ref-hoggtanis2015), pp. 471–476) covers tests concerning regression and correlation.
-> - Rice ([2007, sec. 14.2.3](#ref-rice2007mathematical), pp. 560–563) covers correlation and regression.
+> - Hogg et al. [\[3, Sec. 9.6\]](#ref-hoggtanis2015), pp. 471–476 covers tests concerning regression and correlation.
+> - Rice [\[4, Sec. 14.2.3\]](#ref-rice2007mathematical), pp. 560–563 covers correlation and regression.
 
 ### 2.2 Spearman rank correlation
 
@@ -122,7 +122,7 @@ hers |> head()
 >
 > \\ r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\right)\mathclose{}. \\
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_spearmans_rank_correlation_coefficient)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_spearmans_rank_correlation_coefficient).
 
 > **NOTE:**
 >
@@ -240,7 +240,7 @@ hers |> head()
 >
 > \\\sigma^2_i= \sigma^2\text{ for all } i.\\
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_homoscedasticity_and_heteroscedasticity)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_homoscedasticity_and_heteroscedasticity).
 
 > **NOTE:**
 >
@@ -258,7 +258,7 @@ hers |> head()
 >
 > \\\mu(x_1, \ldots, x_p) \stackrel{\text{def}}{=}\beta\_{0}+ \sum\_{j=1}^p\beta\_{x_j} x_j.\\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_linear_regression)).
+> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_linear_regression).
 
 > **NOTE:**
 >
@@ -266,7 +266,7 @@ hers |> head()
 >
 > \\\mu(x) \stackrel{\text{def}}{=}\beta\_{0}+ \beta\_{x} x.\\
 >
-> Source: Wikipedia contributors ([2026g](#ref-wikipedia_simple_linear_regression)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_simple_linear_regression).
 
 > **NOTE:**
 >
@@ -290,7 +290,7 @@ hers |> head()
 >
 > At the estimate \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\, \\r_i(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\\ is the [residual](prediction.llms.md#def-residual) \\r_i\\ of the fitted model.
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_residual_sum_of_squares)).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_residual_sum_of_squares).
 
 > **NOTE:**
 >
@@ -371,7 +371,7 @@ hers |> head()
 >
 > \\\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}\arg \min\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}} \text{RSS}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}).\\
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_ordinary_least_squares)).
+> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_ordinary_least_squares).
 
 > **NOTE:**
 >
@@ -849,13 +849,13 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **TIP:**
 >
-> Hutchinson’s [Linear Regression (pt1)](https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/#linear_regression) (17 min) covers fitting a linear regression by least squares, framed as machine learning ([Hutchinson, n.d.](#ref-hutchinson_wwu_ml_videos)). The login for the video site is posted [on Canvas](https://wwu.instructure.com/courses/1906010/modules#module_3922392).
+> Hutchinson’s [Linear Regression (pt1)](https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/#linear_regression) (17 min) covers fitting a linear regression by least squares, framed as machine learning [\[11\]](#ref-hutchinson_wwu_ml_videos). The login for the video site is posted [on Canvas](https://wwu.instructure.com/courses/1906010/modules#module_3922392).
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.5](#ref-hoggtanis2015), pp. 277–284) covers a simple regression problem.
-> - Casella and Berger ([2002, sec. 11.3](#ref-CaseBerg01), pp. 539–562) covers simple linear regression.
-> - Rice ([2007, sec. 14.2.1](#ref-rice2007mathematical), pp. 547–549) covers slope and intercept properties.
+> - Hogg et al. [\[3, Sec. 6.5\]](#ref-hoggtanis2015), pp. 277–284 covers a simple regression problem.
+> - Casella and Berger [\[12, Sec. 11.3\]](#ref-CaseBerg01), pp. 539–562 covers simple linear regression.
+> - Rice [\[4, Sec. 14.2.1\]](#ref-rice2007mathematical), pp. 547–549 covers slope and intercept properties.
 
 ### 3.3 Fitting a simple linear regression in R
 
@@ -932,7 +932,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > \\\text{TSS} \stackrel{\text{def}}{=}\sum\_{i=1}^n(y_i- \bar{y})^2.\\
 >
-> Source: Wikipedia contributors ([2026i](#ref-wikipedia_total_sum_of_squares)).
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_total_sum_of_squares).
 
 > **NOTE:**
 >
@@ -946,7 +946,7 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 >
 > \\R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})}{\text{TSS}}.\\
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_coefficient_of_determination)).
+> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_coefficient_of_determination).
 
 > **NOTE:**
 >
@@ -1018,55 +1018,83 @@ The same estimates follow from a derivation in vector notation, which treats \\(
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 7.6](#ref-hoggtanis2015), pp. 344–352) covers more regression.
-> - Rice ([2007, sec. 14.2.2](#ref-rice2007mathematical), pp. 550–559) covers assessing the fit of a regression line.
+> - Hogg et al. [\[3, Sec. 7.6\]](#ref-hoggtanis2015), pp. 344–352 covers more regression.
+> - Rice [\[4, Sec. 14.2.2\]](#ref-rice2007mathematical), pp. 550–559 covers assessing the fit of a regression line.
 
 ### 3.5 Further reading
 
-[Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html) covers linear regression in depth, including inference for the coefficients and multiple predictors. Vittinghoff et al. ([2012](#ref-vittinghoff2e)) cover linear regression in Chapter 4.
+[Linear Models Overview](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html) covers linear regression in depth, including inference for the coefficients and multiple predictors. Vittinghoff et al. [\[1\]](#ref-vittinghoff2e) cover linear regression in Chapter 4.
 
 ## Further reading
 
-- Wikipedia contributors ([2026e](#ref-wikipedia_pearson_correlation_coefficient)) — the coefficient and its properties
+- Wikipedia contributors [\[2\]](#ref-wikipedia_pearson_correlation_coefficient) — the coefficient and its properties
 
-- Wikipedia contributors ([2026h](#ref-wikipedia_spearmans_rank_correlation_coefficient)) — a rank-based measure of association
+- Wikipedia contributors [\[5\]](#ref-wikipedia_spearmans_rank_correlation_coefficient) — a rank-based measure of association
 
-- Wikipedia contributors ([2026g](#ref-wikipedia_simple_linear_regression)) — the model with one covariate
+- Wikipedia contributors [\[8\]](#ref-wikipedia_simple_linear_regression) — the model with one covariate
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_linear_regression)) — the model, its assumptions and its estimation
+- Wikipedia contributors [\[7\]](#ref-wikipedia_linear_regression) — the model, its assumptions and its estimation
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_ordinary_least_squares)) — least squares estimation and its properties
+- Wikipedia contributors [\[10\]](#ref-wikipedia_ordinary_least_squares) — least squares estimation and its properties
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_coefficient_of_determination)) — R squared and its interpretation
+- Wikipedia contributors [\[14\]](#ref-wikipedia_coefficient_of_determination) — R squared and its interpretation
 
 ## References
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+\[1\]
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
-Hutchinson, Brian. n.d. *DATA 471/571 (Machine Learning) and CSCI 481/581 (Deep Learning) Video Lectures*. Western Washington University. Accessed September 28, 2026. <https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/>.
+\[2\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+Wikipedia contributors, “Pearson correlation coefficient — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Pearson_correlation_coefficient>
 
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
+\[3\]
 
-Wikipedia contributors. 2026a. *Coefficient of Determination — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Coefficient_of_determination>.
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
 
-Wikipedia contributors. 2026b. *Homoscedasticity and Heteroscedasticity — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity>.
+\[4\]
 
-Wikipedia contributors. 2026c. *Linear Regression — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Linear_regression>.
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
 
-Wikipedia contributors. 2026d. *Ordinary Least Squares — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Ordinary_least_squares>.
+\[5\]
 
-Wikipedia contributors. 2026e. *Pearson Correlation Coefficient — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Pearson_correlation_coefficient>.
+Wikipedia contributors, “Spearman’s rank correlation coefficient — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient>
 
-Wikipedia contributors. 2026f. *Residual Sum of Squares — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Residual_sum_of_squares>.
+\[6\]
 
-Wikipedia contributors. 2026g. *Simple Linear Regression — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Simple_linear_regression>.
+Wikipedia contributors, “Homoscedasticity and heteroscedasticity — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity>
 
-Wikipedia contributors. 2026h. *Spearman’s Rank Correlation Coefficient — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient>.
+\[7\]
 
-Wikipedia contributors. 2026i. *Total Sum of Squares — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Total_sum_of_squares>.
+Wikipedia contributors, “Linear regression — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Linear_regression>
+
+\[8\]
+
+Wikipedia contributors, “Simple linear regression — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Simple_linear_regression>
+
+\[9\]
+
+Wikipedia contributors, “Residual sum of squares — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Residual_sum_of_squares>
+
+\[10\]
+
+Wikipedia contributors, “Ordinary least squares — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Ordinary_least_squares>
+
+\[11\]
+
+B. Hutchinson, “DATA 471/571 (machine learning) and CSCI 481/581 (deep learning) video lectures.” Western Washington University. Accessed: Sep. 28, 2026. \[Online\]. Available: <https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/>
+
+\[12\]
+
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+\[13\]
+
+Wikipedia contributors, “Total sum of squares — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Total_sum_of_squares>
+
+\[14\]
+
+Wikipedia contributors, “Coefficient of determination — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Coefficient_of_determination>
 
 Back to top

@@ -4,13 +4,13 @@ Code
 
 Published
 
-Last modified: 2026-10-18 11:09:18 (PDT)
+Last modified: 2026-10-18 11:34:54 (PDT)
 
-This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e)). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
+This page fits models by Bayesian inference, using the JAGS sampler driven from R: a single proportion, a logistic regression, a survival model, and a random-effects model, and then averages over linear regression models [\[1, Ch. 14\]](#ref-dobson4e). It uses the priors of the [Bayesian Inference](bayesian-inference.llms.md) page and the sampling and convergence checks of the [Markov Chain Monte Carlo](mcmc.llms.md) page.
 
 ## 1 A first example: a single proportion
 
-From here on, the models are fit by Bayesian inference with JAGS (“Just Another Gibbs Sampler”), a program that builds an MCMC sampler from a text description of a model ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)), driven from R through the `rjags` package. We begin with the simplest possible model, a single Bernoulli probability, whose exact posterior is known from [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), so the output can be checked. The example shows the mechanics that every later analysis reuses: specifying a model, supplying data, running a burn-in, monitoring parameters, and summarizing and checking the draws. In JAGS, `dnorm(mean, precision)` is parameterized by the precision, the reciprocal of the variance.
+From here on, the models are fit by Bayesian inference with JAGS (“Just Another Gibbs Sampler”), a program that builds an MCMC sampler from a text description of a model [\[1, Ch. 13\]](#ref-dobson4e), driven from R through the `rjags` package. We begin with the simplest possible model, a single Bernoulli probability, whose exact posterior is known from [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), so the output can be checked. The example shows the mechanics that every later analysis reuses: specifying a model, supplying data, running a burn-in, monitoring parameters, and summarizing and checking the draws. In JAGS, `dnorm(mean, precision)` is parameterized by the precision, the reciprocal of the variance.
 
 > **NOTE:**
 >
@@ -59,7 +59,7 @@ From here on, the models are fit by Bayesian inference with JAGS (“Just Anothe
 
 ## 2 Binary outcomes: logistic regression
 
-For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ and samples the posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 318). Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture [*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c) (Statistical Rethinking 2026, Lecture A09).
+For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operatorname{logit}(\pi_i) = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, the [logistic regression](https://morrison-lab.github.io/rme/chapters/logistic-regression.html) model, a Bayesian analysis places a prior on the coefficient vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\ and samples the posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ by MCMC [\[1, Ch. 14\]](#ref-dobson4e), p. 318. Each \\\beta\_{x_j}\\ is summarized by the mean and quantiles of its draws. No large-sample Gaussian approximation is needed: a credible interval is read directly from the posterior quantiles, and the posterior of an odds ratio \\e^{\beta\_{x_j}}\\, or of any other function of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}\\, is obtained by transforming the draws. For a video introduction, see Richard McElreath’s lecture [*Modeling Events*](https://www.youtube.com/watch?v=RuBUVQELw-c) (Statistical Rethinking 2026, Lecture A09).
 
 > **NOTE:**
 >
@@ -125,7 +125,7 @@ For a binary outcome \\Y_i\sim \operatorname{Bernoulli}(\pi_i)\\ with \\\operato
 
 ## 3 Survival analysis
 
-Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 327). Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
+Parametric survival models, such as those with exponential or Weibull event times, can be fit by Bayesian inference: priors are placed on the baseline-hazard parameters and the regression coefficients, and the posterior is sampled by MCMC [\[1, Ch. 14\]](#ref-dobson4e), p. 327. Censoring enters through the likelihood, exactly as in maximum likelihood estimation with the [likelihood with censoring](https://morrison-lab.github.io/rme/chapters/intro-to-survival-analysis.html#sec-likelihood-with-censoring): an observed event at time \\t\\ contributes its density \\{\lambda}(t)\\\operatorname{S}(t)\\, and an observation right-censored at time \\t\\ contributes its survival probability \\\operatorname{S}(t)\\, where \\{\lambda}\\ is the hazard and \\\operatorname{S}\\ the survival function.
 
 When a model’s log-likelihood contribution \\\ell_i\\ for observation \\i\\ is not one of the distributions built into JAGS, the *zeros trick* supplies it. An observed value of 0 from a Poisson distribution with mean \\\phi_i\\ has probability \\e^{-\phi_i}\\, and with \\\phi_i\stackrel{\text{def}}{=}C - \ell_i\\ for a constant \\C\\,
 
@@ -215,7 +215,7 @@ which is observation \\i\\’s likelihood contribution. So declaring data `zeros
 
 ## 4 Random effects
 
-The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ drawn from a common distribution. What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 329). The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
+The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [the two-level Gaussian example](bayesian-inference.llms.md#exm-two-level-normal) is the random-effects *model structure*, with group-level parameters \\\theta_j \sim \operatorname{N}\mathopen{}\left(\mu, \tau^2\right)\mathclose{}\\ drawn from a common distribution. What changes here from a maximum likelihood fit is the *inference method*: the Bayesian analysis places priors on the hyperparameters \\\mu\\ and \\\tau\\ and samples their joint posterior together with the group-level parameters [\[1, Ch. 14\]](#ref-dobson4e), p. 329. The posterior shrinks each group’s estimate toward the overall mean, by an amount the data determine through \\\tau\\, and the posterior for \\\tau\\ carries the uncertainty about the between-group spread into every group-level summary.
 
 > **NOTE:**
 >
@@ -294,7 +294,7 @@ The [hierarchical model](bayesian-inference.llms.md#def-hierarchical-model) of [
 
 ## 5 Bayesian model averaging
 
-When several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. Bayesian model averaging instead averages over the models, weighting each by its posterior probability ([Dobson and Barnett 2018, chap. 14](#ref-dobson4e), p. 339). This approach carries *model* uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by [predictor selection](https://morrison-lab.github.io/rme/chapters/predictor-selection.html).
+When several candidate models are plausible, committing to a single “best” one ignores the uncertainty about which model is right. Bayesian model averaging instead averages over the models, weighting each by its posterior probability [\[1, Ch. 14\]](#ref-dobson4e), p. 339. This approach carries *model* uncertainty, not just parameter uncertainty, into the final inference. It is an alternative to choosing a single model by [predictor selection](https://morrison-lab.github.io/rme/chapters/predictor-selection.html).
 
 > **NOTE:**
 >
@@ -326,7 +326,7 @@ When several candidate models are plausible, committing to a single “best” o
 
 > **NOTE:**
 >
-> **Example 6 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities ([Schwarz 1978](#ref-schwarz1978estimating)):
+> **Example 6 (A BIC approximation to Bayesian model averaging)** Marginal likelihoods are hard to compute, but with equal prior probabilities for the models, the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic) gives a large-sample approximation to the posterior model probabilities [\[2\]](#ref-schwarz1978estimating):
 >
 > \\ \operatorname{p}(M_k \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \approx \frac{\operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_k\right\\\mathclose{}}{\sum\_{l=1}^{K} \operatorname{exp}\mathopen{}\left\\-\tfrac{1}{2}\operatorname{BIC}\_l\right\\\mathclose{}}. \\
 >
@@ -395,26 +395,38 @@ When several candidate models are plausible, committing to a single “best” o
 
 ## Further reading
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_bayesian_inference)) — Bayesian updating, with examples
+- Wikipedia contributors [\[3\]](#ref-wikipedia_bayesian_inference) — Bayesian updating, with examples
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_bayesian_hierarchical_modeling)) — random effects and hierarchical priors
+- Wikipedia contributors [\[4\]](#ref-wikipedia_bayesian_hierarchical_modeling) — random effects and hierarchical priors
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_bayes_factor)) — comparing models with the ratio of marginal likelihoods
+- Wikipedia contributors [\[5\]](#ref-wikipedia_bayes_factor) — comparing models with the ratio of marginal likelihoods
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_bayesian_information_criterion)) — a large-sample approximation to the log marginal likelihood
+- Wikipedia contributors [\[6\]](#ref-wikipedia_bayesian_information_criterion) — a large-sample approximation to the log marginal likelihood
 
 ## References
 
-Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized Linear Models*. 4th ed. CRC press. <https://doi.org/10.1201/9781315182780>.
+\[1\]
 
-Schwarz, Gideon. 1978. “Estimating the Dimension of a Model.” *The Annals of Statistics* 6 (2): 461–64. <https://doi.org/10.1214/aos/1176344136>.
+A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
 
-Wikipedia contributors. 2026a. *Bayes Factor — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bayes_factor>.
+\[2\]
 
-Wikipedia contributors. 2026b. *Bayesian Hierarchical Modeling — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling>.
+G. Schwarz, “Estimating the dimension of a model,” *The Annals of Statistics*, vol. 6, no. 2, pp. 461–464, 1978, doi: [10.1214/aos/1176344136](https://doi.org/10.1214/aos/1176344136).
 
-Wikipedia contributors. 2026c. *Bayesian Inference — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bayesian_inference>.
+\[3\]
 
-Wikipedia contributors. 2026d. *Bayesian Information Criterion — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bayesian_information_criterion>.
+Wikipedia contributors, “Bayesian inference — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_inference>
+
+\[4\]
+
+Wikipedia contributors, “Bayesian hierarchical modeling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling>
+
+\[5\]
+
+Wikipedia contributors, “Bayes factor — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayes_factor>
+
+\[6\]
+
+Wikipedia contributors, “Bayesian information criterion — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_information_criterion>
 
 Back to top

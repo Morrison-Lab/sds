@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 11:09:18 (PDT)
+Last modified: 2026-10-18 11:34:54 (PDT)
 
 ## 1 Introduction
 
@@ -30,7 +30,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > **Definition 1 (Classification)** A **classification problem** is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors \\x\\.
 >
-> Source: Wikipedia contributors ([2026i](#ref-wikipedia_statistical_classification)).
+> Source: Wikipedia contributors [\[1\]](#ref-wikipedia_statistical_classification).
 
 > **NOTE:**
 >
@@ -60,7 +60,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\\text{sensitivity} \stackrel{\text{def}}{=}\Pr(+ \mid D) \tag{3}\\
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_sensitivity_and_specificity)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_sensitivity_and_specificity).
 
 > **NOTE:**
 >
@@ -74,7 +74,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\\text{specificity} \stackrel{\text{def}}{=}\Pr(\neg + \mid \neg D) \tag{5}\\
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_sensitivity_and_specificity)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_sensitivity_and_specificity).
 
 > **NOTE:**
 >
@@ -92,7 +92,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{8}\\
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_prevalence)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_prevalence).
 
 > **NOTE:**
 >
@@ -112,7 +112,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid +) \tag{11}\\
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_positive_and_negative_predictive_values)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_positive_and_negative_predictive_values).
 
 > **NOTE:**
 >
@@ -128,7 +128,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\\text{NPV} \stackrel{\text{def}}{=}\Pr(\neg D \mid \neg +) \tag{13}\\
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_positive_and_negative_predictive_values)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_positive_and_negative_predictive_values).
 
 > **NOTE:**
 >
@@ -188,7 +188,7 @@ A test can look highly accurate in isolation, yet its predictive value for an in
 >
 > \\ \text{PPV} = \frac{\text{sens} \cdot\pi} {\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}} \tag{19}\\
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_bayes_theorem)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_bayes_theorem).
 
 > **NOTE:**
 >
@@ -255,7 +255,7 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > \\n \stackrel{\text{def}}{=}a + b + c + d \tag{24}\\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_confusion_matrix)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_confusion_matrix).
 
 > **NOTE:**
 >
@@ -296,7 +296,7 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > \\p\_{\text{pos}} \stackrel{\text{def}}{=}\frac{2a}{2a + b + c} \tag{27}\\
 >
-> Source: Cicchetti and Feinstein ([1990](#ref-cicchetti1990high)).
+> Source: Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high).
 
 > **NOTE:**
 >
@@ -312,7 +312,7 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > \\p\_{\text{neg}} \stackrel{\text{def}}{=}\frac{2d}{2d + b + c} \tag{29}\\
 >
-> Source: Cicchetti and Feinstein ([1990](#ref-cicchetti1990high)).
+> Source: Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high).
 
 > **NOTE:**
 >
@@ -375,7 +375,7 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > \\H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{34}\\
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_harmonic_mean)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_harmonic_mean).
 
 > **NOTE:**
 >
@@ -449,7 +449,7 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > \\p_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{42}\\
 >
-> Source: Cohen ([1960](#ref-cohen1960coefficient)).
+> Source: Cohen [\[9\]](#ref-cohen1960coefficient).
 
 > **NOTE:**
 >
@@ -467,7 +467,7 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > > **NOTE:**
 > >
-> > Cohen ([1960](#ref-cohen1960coefficient)); Wikipedia contributors ([2026b](#ref-wikipedia_cohens_kappa)).
+> > Cohen [\[9\]](#ref-cohen1960coefficient); Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa).
 
 > **NOTE:**
 >
@@ -511,58 +511,82 @@ So far, we have compared a test with the true disease status. The same tools app
 >
 > The overall agreement is still 0.99, but kappa drops to about 0.49 and the positive agreement to about 0.50, while the negative agreement stays at about 0.995. The two specific agreements show where the disagreement lies: the test and the reference agree on negatives and disagree on about half of the positive calls.
 >
-> Source: Feinstein and Cicchetti ([1990](#ref-feinstein1990high)) (the first paradox).
+> Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high) (the first paradox).
 
 > **NOTE:**
 >
-> *Remark 3* (Kappa depends on prevalence). When both classifiers call one category rarely, the chance agreement \\p_e\\ is close to 1, so the same overall agreement leaves little room for agreement beyond chance, and kappa can be low even when the overall agreement is high, as [Example 19](#exm-kappa-paradox) shows. Cicchetti and Feinstein ([1990](#ref-cicchetti1990high)) recommend reporting the positive and negative agreements alongside kappa, so that poor agreement on the rarer category is not hidden.
+> *Remark 3* (Kappa depends on prevalence). When both classifiers call one category rarely, the chance agreement \\p_e\\ is close to 1, so the same overall agreement leaves little room for agreement beyond chance, and kappa can be low even when the overall agreement is high, as [Example 19](#exm-kappa-paradox) shows. Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high) recommend reporting the positive and negative agreements alongside kappa, so that poor agreement on the rarer category is not hidden.
 >
-> Source: Feinstein and Cicchetti ([1990](#ref-feinstein1990high)); Cicchetti and Feinstein ([1990](#ref-cicchetti1990high)).
+> Source: Feinstein and Cicchetti [\[11\]](#ref-feinstein1990high); Cicchetti and Feinstein [\[7\]](#ref-cicchetti1990high).
 
 ## Further reading
 
-- Wikipedia contributors ([2026i](#ref-wikipedia_statistical_classification)) — classification rules and their evaluation
+- Wikipedia contributors [\[1\]](#ref-wikipedia_statistical_classification) — classification rules and their evaluation
 
-- Wikipedia contributors ([2026h](#ref-wikipedia_sensitivity_and_specificity)) — the two measures of a diagnostic test
+- Wikipedia contributors [\[2\]](#ref-wikipedia_sensitivity_and_specificity) — the two measures of a diagnostic test
 
-- Wikipedia contributors ([2026e](#ref-wikipedia_positive_and_negative_predictive_values)) — predictive values and their dependence on prevalence
+- Wikipedia contributors [\[4\]](#ref-wikipedia_positive_and_negative_predictive_values) — predictive values and their dependence on prevalence
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_confusion_matrix)) — the table of predicted and true classes
+- Wikipedia contributors [\[6\]](#ref-wikipedia_confusion_matrix) — the table of predicted and true classes
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_cohens_kappa)) — agreement between two raters beyond chance
+- Wikipedia contributors [\[10\]](#ref-wikipedia_cohens_kappa) — agreement between two raters beyond chance
 
-- Wikipedia contributors ([2026g](#ref-wikipedia_receiver_operating_characteristic)) — ROC curves and the area under them
+- Wikipedia contributors [\[12\]](#ref-wikipedia_receiver_operating_characteristic) — ROC curves and the area under them
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_bayes_theorem)) — the Wikipedia article on bayes’ theorem
+- Wikipedia contributors [\[5\]](#ref-wikipedia_bayes_theorem) — the Wikipedia article on bayes’ theorem
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_harmonic_mean)) — the Wikipedia article on harmonic mean
+- Wikipedia contributors [\[8\]](#ref-wikipedia_harmonic_mean) — the Wikipedia article on harmonic mean
 
-- Wikipedia contributors ([2026f](#ref-wikipedia_prevalence)) — the Wikipedia article on prevalence
+- Wikipedia contributors [\[3\]](#ref-wikipedia_prevalence) — the Wikipedia article on prevalence
 
 ## References
 
-Cicchetti, Domenic V., and Alvan R. Feinstein. 1990. “High Agreement but Low Kappa: II. Resolving the Paradoxes.” *Journal of Clinical Epidemiology* 43 (6): 551–58. <https://doi.org/10.1016/0895-4356(90)90159-M>.
+\[1\]
 
-Cohen, Jacob. 1960. “A Coefficient of Agreement for Nominal Scales.” *Educational and Psychological Measurement* 20 (1): 37–46. <https://doi.org/10.1177/001316446002000104>.
+Wikipedia contributors, “Statistical classification — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Statistical_classification>
 
-Feinstein, Alvan R., and Domenic V. Cicchetti. 1990. “High Agreement but Low Kappa: I. The Problems of Two Paradoxes.” *Journal of Clinical Epidemiology* 43 (6): 543–49. <https://doi.org/10.1016/0895-4356(90)90158-L>.
+\[2\]
 
-Wikipedia contributors. 2026a. *Bayes’ Theorem — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bayes%27_theorem>.
+Wikipedia contributors, “Sensitivity and specificity — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Sensitivity_and_specificity>
 
-Wikipedia contributors. 2026b. *Cohen’s Kappa — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Cohen%27s_kappa>.
+\[3\]
 
-Wikipedia contributors. 2026c. *Confusion Matrix — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Confusion_matrix>.
+Wikipedia contributors, “Prevalence — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prevalence>
 
-Wikipedia contributors. 2026d. *Harmonic Mean — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Harmonic_mean>.
+\[4\]
 
-Wikipedia contributors. 2026e. *Positive and Negative Predictive Values — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values>.
+Wikipedia contributors, “Positive and negative predictive values — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values>
 
-Wikipedia contributors. 2026f. *Prevalence — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Prevalence>.
+\[5\]
 
-Wikipedia contributors. 2026g. *Receiver Operating Characteristic — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Receiver_operating_characteristic>.
+Wikipedia contributors, “Bayes’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayes%27_theorem>
 
-Wikipedia contributors. 2026h. *Sensitivity and Specificity — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Sensitivity_and_specificity>.
+\[6\]
 
-Wikipedia contributors. 2026i. *Statistical Classification — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Statistical_classification>.
+Wikipedia contributors, “Confusion matrix — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Confusion_matrix>
+
+\[7\]
+
+D. V. Cicchetti and A. R. Feinstein, “High agreement but low kappa: II. Resolving the paradoxes,” *Journal of Clinical Epidemiology*, vol. 43, no. 6, pp. 551–558, 1990, doi: [10.1016/0895-4356(90)90159-M](https://doi.org/10.1016/0895-4356(90)90159-M).
+
+\[8\]
+
+Wikipedia contributors, “Harmonic mean — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Harmonic_mean>
+
+\[9\]
+
+J. Cohen, “A coefficient of agreement for nominal scales,” *Educational and Psychological Measurement*, vol. 20, no. 1, pp. 37–46, 1960, doi: [10.1177/001316446002000104](https://doi.org/10.1177/001316446002000104).
+
+\[10\]
+
+Wikipedia contributors, “Cohen’s kappa — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cohen%27s_kappa>
+
+\[11\]
+
+A. R. Feinstein and D. V. Cicchetti, “High agreement but low kappa: I. The problems of two paradoxes,” *Journal of Clinical Epidemiology*, vol. 43, no. 6, pp. 543–549, 1990, doi: [10.1016/0895-4356(90)90158-L](https://doi.org/10.1016/0895-4356(90)90158-L).
+
+\[12\]
+
+Wikipedia contributors, “Receiver operating characteristic — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Receiver_operating_characteristic>
 
 Back to top

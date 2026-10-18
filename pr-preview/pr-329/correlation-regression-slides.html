@@ -109,6 +109,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -355,13 +356,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 11:09:18 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:34:54 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
-<p>This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the <span class="math inline">\(t\)</span> reference distribution defined on the <a href="./inference.html#sec-reference-distributions">Statistical Inference</a> page. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, Chapter 3.</p>
+<p>This page reviews two ways to relate two continuous variables: correlation coefficients, with tests of whether they differ from zero, and simple linear regression. It uses the <span class="math inline">\(t\)</span> reference distribution defined on the <a href="./inference.html#sec-reference-distributions">Statistical Inference</a> page. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3.</p>
 </section><section id="the-hers-data" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
@@ -385,7 +386,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 1 (Population correlation)</strong></span> The <strong>population correlation</strong> of two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> with positive variances is</p>
 <p><span class="math display">\[\rho\stackrel{\text{def}}{=}\frac{\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}}{\sqrt{\operatorname{Var}\mathopen{}\left(X\right)\mathclose{} \operatorname{Var}\mathopen{}\left(Y\right)\mathclose{}}},\]</span></p>
 <p>where <span class="math inline">\(\operatorname{Cov}\mathopen{}\left(X, Y\right)\mathclose{}\)</span> is their <a href="https://morrison-lab.github.io/pds/variance-covariance.html#def-cov">covariance</a>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_pearson_correlation_coefficient">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026e</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_pearson_correlation_coefficient">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-sample-correlation-estimates-rho" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (The sample correlation estimates the population correlation). </span>The <a href="./exploratory-descriptive.html#def-pearson-r">Pearson correlation coefficient</a> <span class="math inline">\(r\)</span> of a sample is the corresponding sample statistic, and estimates <span class="math inline">\(\rho\)</span>.</p>
@@ -396,7 +397,7 @@ text-align: center;
 <p>Its p-value is <span class="math inline">\(\Pr(\mathopen{}\left|T\right|\mathclose{} \ge \mathopen{}\left|t\right|\mathclose{})\)</span>, where <span class="math inline">\(T\)</span> has the <span class="math inline">\(t_{n-2}\)</span> distribution (<a href="./inference.html#def-t-dist">t-distribution</a>).</p>
 </div>
 </section><section class="slide level2"><div id="thm-pearson-test-null" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Null distribution of the correlation t statistic)</strong></span> Let the pairs <span class="math inline">\((X_1, Y_1), \ldots, (X_n, Y_n)\)</span> be independent, and let each <span class="math inline">\(Y_i\)</span>, given <span class="math inline">\(X_1, \ldots, X_n\)</span>, be Gaussian with a mean and variance that do not depend on the <span class="math inline">\(X\)</span> values. Then the statistic <span class="math inline">\(t\)</span> of <a href="#/def-pearson-test" class="quarto-xref">Definition&nbsp;2</a> has the <span class="math inline">\(t_{n-2}\)</span> distribution <span class="citation" data-cites="hoggtanis2015">(<a href="#/references" role="doc-biblioref" onclick="">Hogg et al. 2019, sec. 9.6</a>, pp.&nbsp;472-473)</span>:</p>
+<p><span class="theorem-title"><strong>Theorem 1 (Null distribution of the correlation t statistic)</strong></span> Let the pairs <span class="math inline">\((X_1, Y_1), \ldots, (X_n, Y_n)\)</span> be independent, and let each <span class="math inline">\(Y_i\)</span>, given <span class="math inline">\(X_1, \ldots, X_n\)</span>, be Gaussian with a mean and variance that do not depend on the <span class="math inline">\(X\)</span> values. Then the statistic <span class="math inline">\(t\)</span> of <a href="#/def-pearson-test" class="quarto-xref">Definition&nbsp;2</a> has the <span class="math inline">\(t_{n-2}\)</span> distribution <span class="citation" data-cites="hoggtanis2015"><a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 9.6]</a>, pp.&nbsp;472-473</span>:</p>
 <p><span class="math display">\[
 t \sim t_{n-2}.
 \]</span></p>
@@ -461,9 +462,9 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 9.6</a>, pp.&nbsp;471–476)</span> covers tests concerning regression and correlation.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 9.6]</a>, pp.&nbsp;471–476</span> covers tests concerning regression and correlation.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 14.2.3</a>, pp.&nbsp;560–563)</span> covers correlation and regression.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 14.2.3]</a>, pp.&nbsp;560–563</span> covers correlation and regression.</li>
 </ul>
 </div>
 </section><section class="slide level2"><h3 data-number="2.2" id="sec-spearman">
@@ -474,7 +475,7 @@ Figure&nbsp;1: Baseline fasting glucose against BMI in HERS, with the least-squa
 <p><span class="math display">\[
 r_S \stackrel{\text{def}}{=}r\mathopen{}\left((u_1, v_1), \ldots, (u_n, v_n)\right)\mathclose{}.
 \]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_spearmans_rank_correlation_coefficient">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026h</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_spearmans_rank_correlation_coefficient">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-spearman-monotone" class="proof remark">
 <p><span class="proof-title"><em>Remark 3</em> (What the Spearman correlation measures). </span>Because ranks depend only on the ordering of the values, <span class="math inline">\(r_S\)</span> measures how close the association is to monotone, whether or not it is linear, and a single extreme value moves <span class="math inline">\(r_S\)</span> less than it moves <span class="math inline">\(r\)</span>.</p>
@@ -671,7 +672,7 @@ f_{\nu}(t)
 </section><section class="slide level2"><div id="def-homoskedastic" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Homoskedastic model)</strong></span> A conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) is <strong>homoskedastic</strong> if all outcomes share one variance <span class="math inline">\(\sigma^2\)</span>, which does not depend on <span class="math inline">\(i\)</span>:</p>
 <p><span class="math display">\[\sigma^2_i= \sigma^2\text{ for all } i.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_homoscedasticity_and_heteroscedasticity">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_homoscedasticity_and_heteroscedasticity">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="cor-homoskedastic-deviations" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 1 (Deviations in a homoskedastic model)</strong></span> In a homoskedastic model (<a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a>), the deviations (<a href="#/def-slr-deviation" class="quarto-xref">Definition&nbsp;5</a>) all have the same variance <span class="math inline">\(\sigma^2\)</span>:</p>
@@ -683,12 +684,12 @@ f_{\nu}(t)
 </section><section class="slide level2"><div id="def-linear-regression" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Linear regression model)</strong></span> A <strong>linear regression model</strong> is a homoskedastic (<a href="#/def-homoskedastic" class="quarto-xref">Definition&nbsp;6</a>) conditional Gaussian model (<a href="#/def-cond-gaussian" class="quarto-xref">Definition&nbsp;4</a>) whose mean function is linear in <span class="math inline">\(p\)</span> covariates, where observation <span class="math inline">\(i\)</span> has covariate values <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= (x_{i1}, \ldots, x_{ip})\)</span>:</p>
 <p><span class="math display">\[\mu(x_1, \ldots, x_p) \stackrel{\text{def}}{=}\beta_{0}+ \sum_{j=1}^p\beta_{x_j} x_j.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_linear_regression">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_linear_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-slr" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Simple linear regression model)</strong></span> A <strong>simple linear regression</strong> model is a linear regression model (<a href="#/def-linear-regression" class="quarto-xref">Definition&nbsp;7</a>) with <span class="math inline">\(p = 1\)</span> covariate <span class="math inline">\(X\)</span>, writing <span class="math inline">\(x_i\)</span> for <span class="math inline">\(x_{i1}\)</span>:</p>
 <p><span class="math display">\[\mu(x) \stackrel{\text{def}}{=}\beta_{0}+ \beta_{x} x.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_simple_linear_regression">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026g</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_simple_linear_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-slr-intercept" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Intercept)</strong></span> In a simple linear regression model (<a href="#/def-slr" class="quarto-xref">Definition&nbsp;8</a>), the <strong>intercept</strong> is <span class="math inline">\(\beta_{0}= \mu(0)\)</span>: the mean of <span class="math inline">\(Y\)</span> among observations with <span class="math inline">\(X = 0\)</span>.</p>
@@ -706,7 +707,7 @@ f_{\nu}(t)
 <p><span class="theorem-title"><strong>Definition 11 (Residual sum of squares)</strong></span> For a regression model whose conditional mean <span class="math inline">\(\mu(x; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> depends on a parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>, the <strong>residual sum of squares</strong> at <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is the sum of the squared residuals <span class="math inline">\(r_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}y_i- \mu(x_i; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\)</span> that the model has when its parameters equal <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span>:</p>
 <p><span class="math display">\[\text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}\sum_{i=1}^nr_i(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})^2.\]</span></p>
 <p>At the estimate <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span>, <span class="math inline">\(r_i(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})\)</span> is the <a href="./prediction.html#def-residual">residual</a> <span class="math inline">\(r_i\)</span> of the fitted model.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_residual_sum_of_squares">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026f</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_residual_sum_of_squares">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-rss-slr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Residual sum of squares of a simple linear regression)</strong></span> The mean function of a <a href="#/def-slr">simple linear regression</a> model has parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}= (\beta_{0}, \beta_{x})\)</span>, so write <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> for its residual sum of squares (<a href="#/def-rss" class="quarto-xref">Definition&nbsp;11</a>):</p>
@@ -824,7 +825,7 @@ n \, \operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{}
 </section><section class="slide level2"><div id="def-ols" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Ordinary least squares)</strong></span> The <strong>ordinary least squares (OLS) estimate</strong> of a model’s parameter vector <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> is the value of <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}\)</span> that minimizes the <a href="#/def-rss">residual sum of squares</a>:</p>
 <p><span class="math display">\[\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \stackrel{\text{def}}{=}\arg \min_{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}} \text{RSS}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}).\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_ordinary_least_squares">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_ordinary_least_squares">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-ols-slr" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (OLS estimates of a simple linear regression)</strong></span> For a simple linear regression, the OLS estimates (<a href="#/def-ols" class="quarto-xref">Definition&nbsp;12</a>) <span class="math inline">\(\hat{\beta}_{0}\)</span> and <span class="math inline">\(\hat{\beta}_{x}\)</span> are the values of <span class="math inline">\(\beta_{0}\)</span> and <span class="math inline">\(\beta_{x}\)</span> that minimize <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> from <a href="#/exm-rss-slr" class="quarto-xref">Example&nbsp;3</a>. <a href="#/fig-rss-surface" class="quarto-xref">Figure&nbsp;3</a> shows <span class="math inline">\(\text{RSS}(\beta_{0}, \beta_{x})\)</span> for the three points of <a href="#/exm-rss" class="quarto-xref">Example&nbsp;4</a>: the OLS estimates sit at the bottom of the bowl, and the line of <a href="#/exm-rss" class="quarto-xref">Example&nbsp;4</a> sits higher up.</p>
@@ -1809,7 +1810,7 @@ r \, \frac{s_y}{s_x}
 <p><strong>Video lecture</strong></p>
 </div>
 <div class="callout-content">
-<p>Hutchinson’s <a href="https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/#linear_regression">Linear Regression (pt1)</a> (17 min) covers fitting a linear regression by least squares, framed as machine learning <span class="citation" data-cites="hutchinson_wwu_ml_videos">(<a href="#/references" role="doc-biblioref" onclick="">Hutchinson, n.d.</a>)</span>. The login for the video site is posted <a href="https://wwu.instructure.com/courses/1906010/modules#module_3922392">on Canvas</a>.</p>
+<p>Hutchinson’s <a href="https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/#linear_regression">Linear Regression (pt1)</a> (17 min) covers fitting a linear regression by least squares, framed as machine learning <span class="citation" data-cites="hutchinson_wwu_ml_videos"><a href="#/references" role="doc-biblioref" onclick="">[11]</a></span>. The login for the video site is posted <a href="https://wwu.instructure.com/courses/1906010/modules#module_3922392">on Canvas</a>.</p>
 </div>
 </div>
 </div>
@@ -1817,11 +1818,11 @@ r \, \frac{s_y}{s_x}
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 6.5</a>, pp.&nbsp;277–284)</span> covers a simple regression problem.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 6.5]</a>, pp.&nbsp;277–284</span> covers a simple regression problem.</li>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 11.3</a>, pp.&nbsp;539–562)</span> covers simple linear regression.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[12, Sec. 11.3]</a>, pp.&nbsp;539–562</span> covers simple linear regression.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 14.2.1</a>, pp.&nbsp;547–549)</span> covers slope and intercept properties.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 14.2.1]</a>, pp.&nbsp;547–549</span> covers slope and intercept properties.</li>
 </ul>
 </div>
 </section><section class="slide level2"><h3 data-number="3.3" id="sec-slr-R">
@@ -1943,7 +1944,7 @@ Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
 <div id="def-tss" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 17 (Total sum of squares)</strong></span> The <strong>total sum of squares</strong> of <span class="math inline">\(y_1, \ldots, y_n\)</span> is</p>
 <p><span class="math display">\[\text{TSS} \stackrel{\text{def}}{=}\sum_{i=1}^n(y_i- \bar{y})^2.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_total_sum_of_squares">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026i</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_total_sum_of_squares">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[13]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-tss" class="theorem example">
 <p><span class="theorem-title"><strong>Example 9 (Total sum of squares of three values)</strong></span> For <span class="math inline">\(y = 1, 2, 2\)</span>, <span class="math inline">\(\bar y = 5/3\)</span>, so</p>
@@ -1962,7 +1963,7 @@ Figure&nbsp;4: Fasting glucose against BMI in HERS, with the OLS line
 </section><section class="slide level2"><div id="def-r-squared" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 18 (Coefficient of determination)</strong></span> The <strong>coefficient of determination</strong> of a model fitted with parameter estimate <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> is one minus the ratio of its <a href="#/def-rss">residual sum of squares</a> at <span class="math inline">\(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\)</span> to the <a href="#/def-tss">total sum of squares</a> of its outcomes:</p>
 <p><span class="math display">\[R^2 \stackrel{\text{def}}{=}1 - \frac{\text{RSS}(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}})}{\text{TSS}}.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_coefficient_of_determination">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_coefficient_of_determination">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-r-squared-interpretation" class="proof remark">
 <p><span class="proof-title"><em>Remark 6</em> (Interpreting the coefficient of determination). </span><span class="math inline">\(R^2\)</span> is often described as the proportion of the variation in <span class="math inline">\(Y\)</span> explained by the regression on <span class="math inline">\(X\)</span>.</p>
@@ -2098,65 +2099,90 @@ R^2 &amp;= r^2, &amp;
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 7.6</a>, pp.&nbsp;344–352)</span> covers more regression.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[3, Sec. 7.6]</a>, pp.&nbsp;344–352</span> covers more regression.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 14.2.2</a>, pp.&nbsp;550–559)</span> covers assessing the fit of a regression line.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 14.2.2]</a>, pp.&nbsp;550–559</span> covers assessing the fit of a regression line.</li>
 </ul>
 </div>
 </section><section class="slide level2"><h3 data-number="3.5" id="further-reading">
 <span class="header-section-number">3.5</span> Further reading</h3>
-<p><a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html">Linear Models Overview</a> covers linear regression in depth, including inference for the coefficients and multiple predictors. <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span> cover linear regression in Chapter 4.</p>
+<p><a href="https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html">Linear Models Overview</a> covers linear regression in depth, including inference for the coefficients and multiple predictors. <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> cover linear regression in Chapter 4.</p>
 </section><section id="further-reading-1" class="slide level2 unnumbered"><h2>Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_pearson_correlation_coefficient">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026e</a>)</span> — the coefficient and its properties</p></li>
-<li><p><span class="citation" data-cites="wikipedia_spearmans_rank_correlation_coefficient">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026h</a>)</span> — a rank-based measure of association</p></li>
-<li><p><span class="citation" data-cites="wikipedia_simple_linear_regression">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026g</a>)</span> — the model with one covariate</p></li>
-<li><p><span class="citation" data-cites="wikipedia_linear_regression">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span> — the model, its assumptions and its estimation</p></li>
-<li><p><span class="citation" data-cites="wikipedia_ordinary_least_squares">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span> — least squares estimation and its properties</p></li>
-<li><p><span class="citation" data-cites="wikipedia_coefficient_of_determination">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span> — R squared and its interpretation</p></li>
+<li><p><span class="citation" data-cites="wikipedia_pearson_correlation_coefficient">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — the coefficient and its properties</p></li>
+<li><p><span class="citation" data-cites="wikipedia_spearmans_rank_correlation_coefficient">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span> — a rank-based measure of association</p></li>
+<li><p><span class="citation" data-cites="wikipedia_simple_linear_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> — the model with one covariate</p></li>
+<li><p><span class="citation" data-cites="wikipedia_linear_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span> — the model, its assumptions and its estimation</p></li>
+<li><p><span class="citation" data-cites="wikipedia_ordinary_least_squares">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span> — least squares estimation and its properties</p></li>
+<li><p><span class="citation" data-cites="wikipedia_coefficient_of_determination">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span> — R squared and its interpretation</p></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
-</div>
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-<div id="ref-hutchinson_wwu_ml_videos" class="csl-entry" role="listitem">
-Hutchinson, Brian. n.d. <em><span>DATA</span> 471/571 (Machine Learning) and <span>CSCI</span> 481/581 (Deep Learning) Video Lectures</em>. Western Washington University. Accessed September 28, 2026. <a href="https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/">https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/</a>.
-</div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
-</div>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.
-</div>
-<div id="ref-wikipedia_coefficient_of_determination" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Coefficient of Determination — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">https://en.wikipedia.org/wiki/Coefficient_of_determination</a>.
-</div>
-<div id="ref-wikipedia_homoscedasticity_and_heteroscedasticity" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Homoscedasticity and Heteroscedasticity — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity</a>.
-</div>
-<div id="ref-wikipedia_linear_regression" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Linear Regression — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Linear_regression">https://en.wikipedia.org/wiki/Linear_regression</a>.
-</div>
-<div id="ref-wikipedia_ordinary_least_squares" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026d. <em>Ordinary Least Squares — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">https://en.wikipedia.org/wiki/Ordinary_least_squares</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, <em>Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models</em>, 2nd ed. Springer, 2012. doi: <a href="https://doi.org/10.1007/978-1-4614-1353-0">10.1007/978-1-4614-1353-0</a>.</div>
 </div>
 <div id="ref-wikipedia_pearson_correlation_coefficient" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026e. <em>Pearson Correlation Coefficient — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">https://en.wikipedia.org/wiki/Pearson_correlation_coefficient</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Pearson correlation coefficient — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Pearson_correlation_coefficient">https://en.wikipedia.org/wiki/Pearson_correlation_coefficient</a>
 </div>
-<div id="ref-wikipedia_residual_sum_of_squares" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026f. <em>Residual Sum of Squares — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Residual_sum_of_squares">https://en.wikipedia.org/wiki/Residual_sum_of_squares</a>.
 </div>
-<div id="ref-wikipedia_simple_linear_regression" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026g. <em>Simple Linear Regression — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Simple_linear_regression">https://en.wikipedia.org/wiki/Simple_linear_regression</a>.
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
 </div>
 <div id="ref-wikipedia_spearmans_rank_correlation_coefficient" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026h. <em>Spearman’s Rank Correlation Coefficient — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient</a>.
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Spearman’s rank correlation coefficient — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient">https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient</a>
+</div>
+</div>
+<div id="ref-wikipedia_homoscedasticity_and_heteroscedasticity" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Homoscedasticity and heteroscedasticity — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity</a>
+</div>
+</div>
+<div id="ref-wikipedia_linear_regression" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Linear regression — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Linear_regression">https://en.wikipedia.org/wiki/Linear_regression</a>
+</div>
+</div>
+<div id="ref-wikipedia_simple_linear_regression" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Simple linear regression — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Simple_linear_regression">https://en.wikipedia.org/wiki/Simple_linear_regression</a>
+</div>
+</div>
+<div id="ref-wikipedia_residual_sum_of_squares" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Residual sum of squares — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Residual_sum_of_squares">https://en.wikipedia.org/wiki/Residual_sum_of_squares</a>
+</div>
+</div>
+<div id="ref-wikipedia_ordinary_least_squares" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Ordinary least squares — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">https://en.wikipedia.org/wiki/Ordinary_least_squares</a>
+</div>
+</div>
+<div id="ref-hutchinson_wwu_ml_videos" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div>
+<div class="csl-right-inline">B. Hutchinson, <span>“<span>DATA</span> 471/571 (machine learning) and <span>CSCI</span> 481/581 (deep learning) video lectures.”</span> Western Washington University. Accessed: Sep. 28, 2026. [Online]. Available: <a href="https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/">https://facultyweb.cs.wwu.edu/~hutchib2/video_lectures/data371/</a>
+</div>
+</div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
+</div>
 </div>
 <div id="ref-wikipedia_total_sum_of_squares" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026i. <em>Total Sum of Squares — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Total_sum_of_squares">https://en.wikipedia.org/wiki/Total_sum_of_squares</a>.
+<div class="csl-left-margin">[13] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Total sum of squares — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Total_sum_of_squares">https://en.wikipedia.org/wiki/Total_sum_of_squares</a>
+</div>
+</div>
+<div id="ref-wikipedia_coefficient_of_determination" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Coefficient of determination — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Coefficient_of_determination">https://en.wikipedia.org/wiki/Coefficient_of_determination</a>
+</div>
 </div>
 </div>
 

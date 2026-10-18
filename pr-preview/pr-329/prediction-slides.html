@@ -109,6 +109,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -355,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 11:09:18 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:34:54 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -373,7 +374,7 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="rem-why-cond-mean" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Why the estimated conditional mean is the usual prediction). </span>The prediction in <a href="#/exm-prediction-cond-mean" class="quarto-xref">Example&nbsp;1</a> is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions <span class="math inline">\(h\)</span> of the covariate, <span class="math inline">\({\operatorname{E}\mathopen{}\left[Y \mid X\right]\mathclose{}}\)</span> has the smallest expected squared error <span class="math inline">\(\operatorname{E}\mathopen{}\left[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^2\right]\mathclose{}\)</span> (<a href="https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor">conditional mean minimizes squared-error risk</a>). The conditional mean is unknown, so we estimate it from data and predict with the estimate.</p>
-<p>The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets <span class="citation" data-cites="hastie2009elements">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, 20</a>)</span>.</p>
+<p>The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets <span class="citation" data-cites="hastie2009elements"><a href="#/references" role="doc-biblioref" onclick="">[1, p. 20]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-fitted-value" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Fitted value)</strong></span> The <strong>fitted value</strong> <span class="math inline">\(\hat y_i\)</span> of observation <span class="math inline">\(i\)</span> is the <a href="#/def-prediction">prediction</a> at its own covariate value <span class="math inline">\(x_i\)</span>:</p>
@@ -387,7 +388,7 @@ text-align: center;
 </section><section class="slide level2"><div id="def-residual" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Residual)</strong></span> The <strong>residual</strong> for observation <span class="math inline">\(i\)</span> is its observed outcome minus its <a href="#/def-fitted-value">fitted value</a>:</p>
 <p><span class="math display">\[r_i\stackrel{\text{def}}{=}y_i- \hat y_i\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_errors_and_residuals">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_errors_and_residuals">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-prediction-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Prediction error)</strong></span> The <strong>prediction error</strong> of a <a href="#/def-prediction">prediction</a> <span class="math inline">\(\hat y\)</span> (such as <span class="math inline">\({\hat y\mathopen{}\left(x\right)\mathclose{}}\)</span> or a fitted value <span class="math inline">\(\hat y_i\)</span>) of an observed outcome <span class="math inline">\(y\)</span> is the prediction minus the outcome:</p>
@@ -424,7 +425,7 @@ text-align: center;
 <p><span class="proof-title"><em>Proof</em>. </span>Multiply both sides of <a href="#/thm-prediction-error-residual" class="quarto-xref">Theorem&nbsp;1</a> by <span class="math inline">\(-1\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-residual-prediction-error" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Residuals and prediction errors for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>)</span>. They ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
+<p><span class="theorem-title"><strong>Example 2 (Residuals and prediction errors for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied"><a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>. They ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
 <p>The code below fits a line predicting birth weight from mother’s weight, then compares each residual with the negative of its prediction error.</p>
 <div class="panel-tabset" data-group="language">
 <ul id="tabset-1" class="panel-tabset-tabby">
@@ -506,7 +507,7 @@ text-align: center;
 <div id="def-prediction-mse" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Mean squared error of predictions)</strong></span> The <strong>sample mean squared error (sMSE)</strong> of predictions, also called their <strong>mean squared error</strong>, <span class="math inline">\(\hat y_1, \ldots, \hat y_n\)</span> of observed outcomes <span class="math inline">\(y_1, \ldots, y_n\)</span> is the mean of their squared <a href="#/def-prediction-error">prediction errors</a>:</p>
 <p><span class="math display">\[\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{i=1}^n\varepsilon_i^2.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_mean_squared_prediction_error">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_mean_squared_prediction_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-prediction-mse" class="proof remark">
 <p><span class="proof-title"><em>Remark 4</em> (Prediction sMSE, estimator pMSE and RSS). </span><a href="#/def-prediction-mse" class="quarto-xref">Definition&nbsp;5</a> averages squared errors over observations, where the <a href="./estimation.html#def-mse">pMSE of an estimator</a> takes an expectation over repeated samples. On the data used to fit the model, the sMSE of the fitted values is the <a href="./correlation-regression.html#def-rss">residual sum of squares</a> divided by <span class="math inline">\(n\)</span> (<a href="./correlation-regression.html#thm-mse-rss">sMSE and RSS</a>):</p>
@@ -619,21 +620,27 @@ Figure&nbsp;1: Observed outcomes (filled), fitted values on the line (open), and
 </div>
 </section><section id="further-reading" class="slide level2 unnumbered"><h2>Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_errors_and_residuals">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span> — how an error differs from a residual</p></li>
-<li><p><span class="citation" data-cites="wikipedia_mean_squared_prediction_error">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span> — the mean squared prediction error</p></li>
+<li><p><span class="citation" data-cites="wikipedia_errors_and_residuals">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — how an error differs from a residual</p></li>
+<li><p><span class="citation" data-cites="wikipedia_mean_squared_prediction_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> — the mean squared prediction error</p></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-hastie2009elements" class="csl-entry" role="listitem">
-Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
-</div>
-<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
-Hosmer, David W., and Stanley Lemeshow. 1989. <em>Applied Logistic Regression</em>. Wiley.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">T. Hastie, R. Tibshirani, and J. Friedman, <em>The elements of statistical learning: Data mining, inference, and prediction</em>, 2nd ed. Springer, 2009. doi: <a href="https://doi.org/10.1007/978-0-387-84858-7">10.1007/978-0-387-84858-7</a>.</div>
 </div>
 <div id="ref-wikipedia_errors_and_residuals" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Errors and Residuals — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Errors_and_residuals">https://en.wikipedia.org/wiki/Errors_and_residuals</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Errors and residuals — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Errors_and_residuals">https://en.wikipedia.org/wiki/Errors_and_residuals</a>
+</div>
+</div>
+<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">D. W. Hosmer and S. Lemeshow, <em>Applied logistic regression</em>. New York: Wiley, 1989.</div>
 </div>
 <div id="ref-wikipedia_mean_squared_prediction_error" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Mean Squared Prediction Error — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Mean_squared_prediction_error">https://en.wikipedia.org/wiki/Mean_squared_prediction_error</a>.
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Mean squared prediction error — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Mean_squared_prediction_error">https://en.wikipedia.org/wiki/Mean_squared_prediction_error</a>
+</div>
 </div>
 </div>
 
