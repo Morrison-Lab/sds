@@ -568,26 +568,6 @@ format:
 
 {{< include sds/_subfiles/model-validation/_prose-further-reading.qmd >}}
 
-### Online references
-
--   Wikipedia on $k$-fold, leave-one-out and other schemes [@wikipedia_cross_validation_statistics]
-
--   Wikipedia on what each of the three sets is for [@wikipedia_training_validation_and_test_data_sets]
-
--   Wikipedia on the decomposition of the [expected squared prediction error](#def-epe) [@wikipedia_bias_variance_tradeoff]
-
--   Wikipedia on [overfitting](#def-overfitting) and underfitting, with examples [@wikipedia_overfitting]
-
--   Wikipedia on the task of [model selection](#def-model-selection) and its main criteria [@wikipedia_model_selection]
-
--   Wikipedia on [generalization error](#def-generalization-error) and how to [estimate](estimation.qmd#def-estimate) it [@wikipedia_generalization_error]
-
--   Wikipedia on [hyperparameters](bayesian-inference.qmd#def-hyperparameter) in machine learning [@wikipedia_hyperparameter_machine_learning]
-
--   Wikipedia on the [leverage](#def-leverage) of an observation in regression [@wikipedia_leverage_statistics]
-
--   Wikipedia on the [random seed](#def-random-seed) [@wikipedia_random_seed]
-
 ## References {.unnumbered}
 
 ::: {#refs}
