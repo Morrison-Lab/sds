@@ -3,7 +3,7 @@
 
 Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$.
 Fix $\newpredvar = \predvar$.
-A prediction $\predvalf{\predvar}$ at $\predvar$ has
+A [prediction](prediction.qmd#def-prediction) $\predvalf{\predvar}$ at $\predvar$ has
 squared [bias](#def-prediction-bias) $\sqf{\bias{\predvalf{\predvar}}} = 1$
 and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{\predvalf{\predvar}} = 2$.
 The [noise](#def-noise) of $\newoutvar$ has [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar = 3$.

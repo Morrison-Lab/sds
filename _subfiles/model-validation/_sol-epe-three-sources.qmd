@@ -1,13 +1,13 @@
 :::{#sol-epe-three-sources}
 
-1. The expected squared prediction error is the sum of the three sources:
+1. The [expected squared prediction error](#def-epe) is the sum of the three sources:
    $1 + 2 + 3 = 6$.
 
 2. $0 + 0 + 3 = 3$.
    The noise variance $\varpar = 3$ remains,
-   so $3$ is the smallest expected squared prediction error any prediction can have here.
+   so $3$ is the smallest expected squared prediction error any [prediction](prediction.qmd#def-prediction) can have here.
 
-3. A better method can reduce the squared bias and the variance of $\predvalf{\predvar}$,
+3. A better method can reduce the squared [bias](#def-prediction-bias) and the variance of $\predvalf{\predvar}$,
    because both depend on how $\fitproc$ is built.
    It cannot reduce $\varpar$,
    which is the variance of the noise $\noise$ in the new outcome.
