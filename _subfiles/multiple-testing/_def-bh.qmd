@@ -4,7 +4,8 @@
 Given the cutoff rank $\hat k$ of @def-bh-cutoff,
 the **Benjamini--Hochberg procedure** (BH) rejects $H_{(1)}, \ldots, H_{(\hat k)}$ and no others.
 
-Source: Benjamini and Hochberg [-@benjamini1995controlling].
+Source: Benjamini and Hochberg [-@benjamini1995controlling];
+@wikipedia_false_discovery_rate.
 :::
 
 {{< slidebreak >}}
