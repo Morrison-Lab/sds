@@ -287,7 +287,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 13:29:01 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 14:27:47 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -580,21 +580,21 @@ text-align: center;
 </section><section class="slide level2"><div id="sol-bias-sq-plus-var" class="proof solution">
 <p><span class="proof-title"><em>Solution 3</em>. </span>The variance is (<a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-variance">simplified expression for variance</a>):</p>
 <p><span id="eq-bias-sq-plus-var-exr"><span class="math display">\[\operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - {\mathopen{}\left(\operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\right)\mathclose{}}^2 \tag{2}\]</span></span></p>
-<p>Let <span class="math inline">\(\mu = \operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\)</span>. Then the variance is <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - \mu^2\)</span>, and the squared bias from <a href="#/exr-sq-bias-expand" class="quarto-xref">Exercise&nbsp;2</a> is <span class="math inline">\(\mu^2 - 2\mu\theta+ \theta^2\)</span>. Add them and simplify:</p>
+<p>Let <span class="math inline">\(\mu_{\hat{\theta}} = \operatorname{E}\mathopen{}\left[\hat{\theta}\right]\mathclose{}\)</span>. Then the variance is <span class="math inline">\(\operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - {\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2\)</span>, and the squared bias from <a href="#/exr-sq-bias-expand" class="quarto-xref">Exercise&nbsp;2</a> is <span class="math inline">\({\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2 - 2\mu_{\hat{\theta}}\theta+ \theta^2\)</span>. Add them and simplify:</p>
 <p><span id="eq-bias-sq-plus-var-exr-2"><span class="math display">\[
 \begin{aligned}
 {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
-&amp;= \mu^2 - 2\mu\theta+ \theta^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
+&amp;= {\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2 - 2\mu_{\hat{\theta}}\theta+ \theta^2 + \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
 &amp;&amp; \text{(substitute the squared bias)}\\
-&amp;= \mu^2 - 2\mu\theta+ \theta^2 + \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - \mu^2
+&amp;= {\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2 - 2\mu_{\hat{\theta}}\theta+ \theta^2 + \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - {\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2
 &amp;&amp; \text{(substitute the variance)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\mu\theta+ \theta^2 + \mu^2 - \mu^2
+&amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\mu_{\hat{\theta}}\theta+ \theta^2 + {\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2 - {\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2
 &amp;&amp; \text{(reorder the terms)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\mu\theta+ \theta^2 + \mathopen{}\left(\mu^2 - \mu^2\right)\mathclose{}
+&amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\mu_{\hat{\theta}}\theta+ \theta^2 + \mathopen{}\left({\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2 - {\mathopen{}\left(\mu_{\hat{\theta}}\right)\mathclose{}}^2\right)\mathclose{}
 &amp;&amp; \text{(group the last two terms)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\mu\theta+ \theta^2 + 0
+&amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\mu_{\hat{\theta}}\theta+ \theta^2 + 0
 &amp;&amp; \text{($a - a = 0$)}\\
-&amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\mu\theta+ \theta^2
+&amp;= \operatorname{E}\mathopen{}\left[\hat{\theta}^2\right]\mathclose{} - 2\mu_{\hat{\theta}}\theta+ \theta^2
 &amp;&amp; \text{($a + 0 = a$)}
 \end{aligned}
 \tag{3}\]</span></span></p>
