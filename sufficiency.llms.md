@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 13:50:54 (PDT)
+Last modified: 2026-10-18 14:21:43 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
