@@ -9,6 +9,8 @@ The **leverage** of observation $\iobs$ is
 $$
 \lev{\iobs} \eqdef \tp{\termvec{\iobs}} \sscp^{-1} \termvec{\iobs}.
 $$ {#eq-leverage}
+
+Source: @wikipedia_leverage_statistics.
 :::
 
 :::{#rem-source-leverage}
