@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:10 (PDT)
+Last modified: 2026-10-18 13:25:37 (PDT)
 
 ## 1 Scientific models
 
@@ -20,9 +20,9 @@ Last modified: 2026-10-18 00:41:10 (PDT)
 
 > …Essentially, all models are wrong, but some are useful. **However, the approximate nature of the model must always be borne in mind.**
 
-\[Box and Draper ([1987](#ref-box_draper_1987)), p. 424; emphasis added\]
+\[Box and Draper [\[1\]](#ref-box_draper_1987), p. 424; emphasis added\]
 
-See also ([Dunn and Smyth 2018, sec. 1.8](#ref-dunn2018generalized)).
+See also [\[2, Sec. 1.8\]](#ref-dunn2018generalized).
 
 ### 1.2 Statistical analysis of scientific models
 
@@ -32,7 +32,7 @@ Physical processes do not produce data on their own. Data are only produced when
 
 To learn about the physical processes we are ultimately interested in, we often need to account for the observation process that produced the data we are analyzing. In particular, if some of the planned observations in the study design were not completed, we will likely need to account for the incompleteness of the resulting data set in our analysis. If we are not sure why some observations are incomplete, we may need to model the observation process in addition to the physical process we were originally interested in. For example, if some participants in a study dropped out part-way through, we may need to investigate why those participants dropped out, as opposed to other participants who completed the study.
 
-These kinds of *missing data* issues are outside the scope of these notes; see Van Buuren ([2018](#ref-van2018flexible)) for more details.
+These kinds of *missing data* issues are outside the scope of these notes; see Van Buuren [\[3\]](#ref-van2018flexible) for more details.
 
 ## 2 Estimands, estimates, and estimators
 
@@ -40,9 +40,9 @@ These kinds of *missing data* issues are outside the scope of these notes; see V
 
 > **NOTE:**
 >
-> **Definition 2 (Estimand)** An **estimand** is an unknown quantity \\\theta\\ whose value we want to know ([Pohl et al. 2021](#ref-pohl2021estimands); [Lawrance et al. 2020](#ref-lawrance2020estimand)).
+> **Definition 2 (Estimand)** An **estimand** is an unknown quantity \\\theta\\ whose value we want to know [\[4\]](#ref-pohl2021estimands), [\[5\]](#ref-lawrance2020estimand) [\[6\]](#ref-wikipedia_estimand).
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_estimand)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_estimand).
 
 > **NOTE:**
 >
@@ -74,7 +74,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 >
 > \\ \hat{\theta}(X_1, \ldots, X_n). \\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_estimator)).
+> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_estimator).
 
 > **NOTE:**
 >
@@ -108,9 +108,9 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> **Definition 5 (Sampling distribution)** The **sampling distribution** of an [estimator](#def-estimator) \\\hat{\theta}\\ is the probability distribution of \\\hat{\theta}(X_1, \ldots, X_n)\\ over repeated random samples \\X_1, \ldots, X_n\\ from the same population: the distribution of the values the estimator would take across all the samples we might have drawn.
+> **Definition 5 (Sampling distribution)** The **sampling distribution** of an [estimator](#def-estimator) \\\hat{\theta}\\ is the probability distribution of \\\hat{\theta}(X_1, \ldots, X_n)\\ over repeated random samples \\X_1, \ldots, X_n\\ from the same population: the distribution of the values the estimator would take across all the samples we might have drawn [\[8\]](#ref-wikipedia_sampling_distribution).
 >
-> Source: Wikipedia contributors ([2026g](#ref-wikipedia_sampling_distribution)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_sampling_distribution).
 
 > **NOTE:**
 >
@@ -130,9 +130,9 @@ It’s helpful to keep in mind the mathematical type of each estimation concept:
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.4](#ref-hoggtanis2015), pp. 264–276) covers maximum likelihood and method of moments estimation.
-> - Casella and Berger ([2002, sec. 7.2](#ref-CaseBerg01), pp. 312–329) covers methods of finding estimators.
-> - Rice ([2007, secs. 8.3–8.4](#ref-rice2007mathematical), pp. 257–266) covers parameter estimation and the method of moments.
+> - Hogg et al. [\[9, Sec. 6.4\]](#ref-hoggtanis2015), pp. 264–276 covers maximum likelihood and method of moments estimation.
+> - Casella and Berger [\[10, Sec. 7.2\]](#ref-CaseBerg01), pp. 312–329 covers methods of finding estimators.
+> - Rice [\[11, Secs. 8.3–8.4\]](#ref-rice2007mathematical), pp. 257–266 covers parameter estimation and the method of moments.
 
 ## 3 Accuracy of estimators
 
@@ -166,11 +166,11 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Definition 7 (Bias)** The **bias** of an estimator \\\hat{\theta}\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error):
+> **Definition 7 (Bias)** The **bias** of an estimator \\\hat{\theta}\\ for an estimand \\\theta\\ is the expected value of the [estimation error](#def-estimation-error) [\[12\]](#ref-wikipedia_bias_of_an_estimator):
 >
 > \\\operatorname{Bias}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right\]\mathclose{} \tag{1}\\
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_bias_of_an_estimator)).
+> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_bias_of_an_estimator).
 
 > **NOTE:**
 >
@@ -204,11 +204,11 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error** or its **expected squared estimation error (ESEE)**, denoted \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ or \\\operatorname{ESEE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error):
+> **Definition 8 (Mean squared error)** The **population mean squared error (pMSE)** of an estimator \\\hat{\theta}\\, also called its **mean squared error** or its **expected squared estimation error (ESEE)**, denoted \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\ or \\\operatorname{ESEE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\, is the expectation of the square of the [estimation error](#def-estimation-error) [\[13\]](#ref-wikipedia_mean_squared_error):
 >
 > \\\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_mean_squared_error)).
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_mean_squared_error).
 
 > **NOTE:**
 >
@@ -313,7 +313,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > \\\operatorname{pRMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\sqrt{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\right)\mathclose{}}\\
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_root_mean_square_deviation)).
+> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_root_mean_square_deviation).
 
 > **NOTE:**
 >
@@ -325,7 +325,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> Casella and Berger ([2002, sec. 7.3.1](#ref-CaseBerg01), pp. 330–333) covers mean squared error.
+> Casella and Berger [\[10, Sec. 7.3.1\]](#ref-CaseBerg01), pp. 330–333 covers mean squared error.
 
 ### 3.6 Unbiased estimators
 
@@ -408,7 +408,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 
 > **NOTE:**
 >
-> 5MinuteAI covers the [properties of estimators](https://www.youtube.com/watch?v=sUFpzYNDn3Q), including bias, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+> 5MinuteAI covers the [properties of estimators](https://www.youtube.com/watch?v=sUFpzYNDn3Q), including bias, following the University of Washington’s CSE 312 [\[15\]](#ref-fiveminuteai_probstat).
 
 ### 3.7 Population mean absolute error
 
@@ -418,7 +418,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > \\ \operatorname{MAE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\mathopen{}\left\|\varepsilon\mathopen{}\left(\hat{\theta}\right)\mathclose{}\right\|\mathclose{}\right\]\mathclose{} \\
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_mean_absolute_error)).
+> Source: Wikipedia contributors [\[16\]](#ref-wikipedia_mean_absolute_error).
 
 > **NOTE:**
 >
@@ -436,7 +436,7 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > \\\operatorname{SE}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{SD}\mathopen{}\left(\hat{\theta}\right)\mathclose{}\\
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_standard_error)).
+> Source: Wikipedia contributors [\[17\]](#ref-wikipedia_standard_error).
 
 > **NOTE:**
 >
@@ -508,52 +508,74 @@ Predictions, fitted values, residuals, prediction errors and the sample mean squ
 >
 > *Proof*. This is the solution to [Exercise 9](#exr-se-rmse-unbiased).
 
-## Further reading
-
-- Wikipedia contributors ([2026c](#ref-wikipedia_estimator)) — estimators and their properties
-
-- Wikipedia contributors ([2026b](#ref-wikipedia_estimand)) — the target of an estimate
-
-- Wikipedia contributors ([2026a](#ref-wikipedia_bias_of_an_estimator)) — bias, with examples
-
-- Wikipedia contributors ([2026e](#ref-wikipedia_mean_squared_error)) — the mean squared error and its decomposition
-
-- Wikipedia contributors ([2026g](#ref-wikipedia_sampling_distribution)) — the distribution of a statistic across samples
-
 ## References
 
-5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
+\[1\]
 
-Box, George E. P., and Norman Richard. Draper. 1987. *Empirical Model-Building and Response Surfaces*. Wiley Series in Probability and Mathematical Statistics. Applied Probability and Statistics. Wiley.
+G. E. P. Box and N. Richard. Draper, *Empirical model-building and response surfaces*. in Wiley series in probability and mathematical statistics. Applied probability and statistics. New York: Wiley, 1987.
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+\[2\]
 
-Dunn, Peter K, and Gordon K Smyth. 2018. *Generalized Linear Models with Examples in R*. Vol. 53. Springer. <https://doi.org/10.1007/978-1-4419-0118-7>.
+P. K. Dunn and G. K. Smyth, *Generalized linear models with examples in R*, vol. 53. Springer, 2018. doi: [10.1007/978-1-4419-0118-7](https://doi.org/10.1007/978-1-4419-0118-7).
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+\[3\]
 
-Lawrance, Rachael, Evgeny Degtyarev, Philip Griffiths, et al. 2020. “What Is an Estimand, and How Does It Relate to Quantifying the Effect of Treatment on Patient-Reported Quality of Life Outcomes in Clinical Trials?” *Journal of Patient-Reported Outcomes* 4 (1): 1–8. <https://doi.org/10.1186/s41687-020-00218-5>.
+S. Van Buuren, *Flexible imputation of missing data*. CRC press, 2018. Available: <https://stefvanbuuren.name/fimd/>
 
-Pohl, Moritz, Lukas Baumann, Rouven Behnisch, Marietta Kirchner, Johannes Krisam, and Anja Sander. 2021. “Estimands—A Basic Element for Clinical Trials.” *Deutsches Ärzteblatt International* 118 (51-52): 883–88. <https://doi.org/10.3238/arztebl.m2021.0373>.
+\[4\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+M. Pohl, L. Baumann, R. Behnisch, M. Kirchner, J. Krisam, and A. Sander, “Estimands—A Basic Element for Clinical Trials,” *Deutsches Ärzteblatt International*, vol. 118, no. 51–52, pp. 883–888, 2021, doi: [10.3238/arztebl.m2021.0373](https://doi.org/10.3238/arztebl.m2021.0373).
 
-Van Buuren, Stef. 2018. *Flexible Imputation of Missing Data*. CRC press. <https://stefvanbuuren.name/fimd/>.
+\[5\]
 
-Wikipedia contributors. 2026a. *Bias of an Estimator — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bias_of_an_estimator>.
+R. Lawrance *et al.*, “What is an estimand, and how does it relate to quantifying the effect of treatment on patient-reported quality of life outcomes in clinical trials?” *Journal of Patient-Reported Outcomes*, vol. 4, no. 1, pp. 1–8, 2020, doi: [10.1186/s41687-020-00218-5](https://doi.org/10.1186/s41687-020-00218-5).
 
-Wikipedia contributors. 2026b. *Estimand — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Estimand>.
+\[6\]
 
-Wikipedia contributors. 2026c. *Estimator — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Estimator>.
+Wikipedia contributors, “Estimand — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Estimand>
 
-Wikipedia contributors. 2026d. *Mean Absolute Error — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Mean_absolute_error>.
+\[7\]
 
-Wikipedia contributors. 2026e. *Mean Squared Error — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Mean_squared_error>.
+Wikipedia contributors, “Estimator — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Estimator>
 
-Wikipedia contributors. 2026f. *Root Mean Square Deviation — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Root_mean_square_deviation>.
+\[8\]
 
-Wikipedia contributors. 2026g. *Sampling Distribution — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Sampling_distribution>.
+Wikipedia contributors, “Sampling distribution — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Sampling_distribution>
 
-Wikipedia contributors. 2026h. *Standard Error — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Standard_error>.
+\[9\]
+
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
+
+\[10\]
+
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+\[11\]
+
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+\[12\]
+
+Wikipedia contributors, “Bias of an estimator — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bias_of_an_estimator>
+
+\[13\]
+
+Wikipedia contributors, “Mean squared error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Mean_squared_error>
+
+\[14\]
+
+Wikipedia contributors, “Root mean square deviation — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Root_mean_square_deviation>
+
+\[15\]
+
+5MinuteAI, “Probability & statistics.” Video playlist on YouTube. Accessed: Oct. 12, 2026. \[Online\]. Available: <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>
+
+\[16\]
+
+Wikipedia contributors, “Mean absolute error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Mean_absolute_error>
+
+\[17\]
+
+Wikipedia contributors, “Standard error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Standard_error>
 
 Back to top

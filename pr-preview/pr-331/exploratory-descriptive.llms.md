@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:10 (PDT)
+Last modified: 2026-10-18 13:25:37 (PDT)
 
 ## 1 Introduction
 
@@ -26,11 +26,11 @@ Before fitting a model, it is good practice to explore and summarize the data. E
 - motivating choices of model structure, such as transformations;
 - providing context for interpreting model results.
 
-This page is adapted from ([Vittinghoff et al. 2012, chap. 2](#ref-vittinghoff2e)).
+This page is adapted from [\[1, Ch. 2\]](#ref-vittinghoff2e).
 
 ### 1.1 The WCGS data
 
-This page illustrates exploratory data analysis using data from the Western Collaborative Group Study (WCGS) ([Rosenman et al. 1975](#ref-rosenman1975coronary)). Vittinghoff et al. ([2012, 9](#ref-vittinghoff2e)) describe the study this way:
+This page illustrates exploratory data analysis using data from the Western Collaborative Group Study (WCGS) [\[2\]](#ref-rosenman1975coronary). Vittinghoff et al. [\[1, p. 9\]](#ref-vittinghoff2e) describe the study this way:
 
 > The Western Collaborative Group Study (WCGS) was a large epidemiological study designed to investigate the association between the “type A” behavior pattern and coronary heart disease (CHD).
 
@@ -64,7 +64,7 @@ Later surveys added anthropometry, triglycerides, the Jenkins Activity Survey, a
 
 ### 1.3 Loading the data
 
-The WCGS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website, as a Stata file that R can read directly:
+The WCGS data are distributed with Vittinghoff et al. [\[1\]](#ref-vittinghoff2e) on the book’s companion website, as a Stata file that R can read directly:
 
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
@@ -155,9 +155,9 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 1 (Population)** A **population** is the entire collection of units (people, animals, objects, or events) that a study aims to learn about.
+> **Definition 1 (Population)** A **population** is the entire collection of units (people, animals, objects, or events) that a study aims to learn about [\[3\]](#ref-wikipedia_statistical_population).
 >
-> Source: Wikipedia contributors ([2026p](#ref-wikipedia_statistical_population)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_statistical_population).
 
 > **NOTE:**
 >
@@ -181,13 +181,13 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)):
+> **Definition 4 (Random sample)** A sample ([Definition 3](#def-sample)) is a **random sample** when the units are chosen by a chance mechanism such that the observations are [independent and identically distributed](https://morrison-lab.github.io/pds/independence.html#def-iid) draws from the population distribution ([Definition 2](#def-population-distribution)) [\[4\]](#ref-wikipedia_simple_random_sample):
 >
 > \\X_1, \ldots, X_n \operatorname{iid}\\ \operatorname{P},\\
 >
 > where \\\operatorname{P}\\ is the population distribution.
 >
-> Source: Wikipedia contributors ([2026m](#ref-wikipedia_simple_random_sample)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_simple_random_sample).
 
 > **NOTE:**
 >
@@ -218,12 +218,12 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 6 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order. In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
+> **Definition 6 (Sample median)** The **sample median** is the middle value when the observations are sorted in increasing order [\[5\]](#ref-wikipedia_median). In terms of the [order statistics](nonparametric-models.llms.md#def-order-statistics) \\x\_{(1)} \le \cdots \le x\_{(n)}\\:
 >
 > - if \\n\\ is odd, the median is \\x\_{((n+1)/2)}\\;
 > - if \\n\\ is even, the median is \\\frac{1}{2}\mathopen{}\left(x\_{(n/2)} + x\_{(n/2 + 1)}\right)\mathclose{}\\.
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_median)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_median).
 
 > **NOTE:**
 >
@@ -240,19 +240,19 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is:
+> **Definition 7 (Sample variance)** The **sample variance** of \\n \ge 2\\ observations is [\[6\]](#ref-wikipedia_variance):
 >
 > \\s^2 \stackrel{\text{def}}{=}\frac{1}{n-1} \sum\_{i=1}^n(x_i- \bar{x})^2\\
 >
-> Source: Wikipedia contributors ([2026q](#ref-wikipedia_variance)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_variance).
 
 > **NOTE:**
 >
-> **Definition 8 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance):
+> **Definition 8 (Sample standard deviation)** The **sample standard deviation** is the square root of the [sample variance](#def-sample-variance) [\[7\]](#ref-wikipedia_standard_deviation):
 >
 > \\s \stackrel{\text{def}}{=}\sqrt{s^2}\\
 >
-> Source: Wikipedia contributors ([2026n](#ref-wikipedia_standard_deviation)).
+> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_standard_deviation).
 
 > **NOTE:**
 >
@@ -273,9 +273,9 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 9 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
+> **Definition 9 (Quartiles (first quartile, third quartile, 25th percentile, 75th percentile))** The **quartiles** are the **first quartile** \\Q_1\\ and the **third quartile** \\Q_3\\, the sample 0.25 and 0.75 quantiles ([sample quantile](nonparametric-models.llms.md#def-sample-quantile)) [\[8\]](#ref-wikipedia_quartile). The first quartile is also called the **25th percentile**, and the third quartile is also called the **75th percentile**.
 >
-> Source: Wikipedia contributors ([2026k](#ref-wikipedia_quartile)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_quartile).
 
 > **NOTE:**
 >
@@ -283,11 +283,11 @@ dplyr::glimpse(wcgs)
 
 > **NOTE:**
 >
-> **Definition 10 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles):
+> **Definition 10 (Interquartile range)** The **interquartile range** (IQR) is the difference between the third and first [quartiles](#def-quartiles) [\[9\]](#ref-wikipedia_interquartile_range):
 >
 > \\\text{IQR} \stackrel{\text{def}}{=}Q_3 - Q_1\\
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_interquartile_range)).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_interquartile_range).
 
 > **NOTE:**
 >
@@ -385,8 +385,8 @@ For categorical variables with more than two levels, the natural descriptive sta
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.1](#ref-hoggtanis2015), pp. 233–244) covers descriptive statistics.
-> - Rice ([2007, secs. 10.4–10.5](#ref-rice2007mathematical), pp. 392–401) covers measures of location and dispersion.
+> - Hogg et al. [\[10, Sec. 6.1\]](#ref-hoggtanis2015), pp. 233–244 covers descriptive statistics.
+> - Rice [\[11, Secs. 10.4–10.5\]](#ref-rice2007mathematical), pp. 392–401 covers measures of location and dispersion.
 
 ## 3 Graphical methods
 
@@ -396,9 +396,9 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 12 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval.
+> **Definition 12 (Histogram)** A **histogram** displays the distribution of a continuous variable by dividing the variable’s range into intervals and drawing a bar over each interval whose height is the number (or proportion) of observations in that interval [\[12\]](#ref-wikipedia_histogram).
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_histogram)).
+> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_histogram).
 
 > **NOTE:**
 >
@@ -426,9 +426,9 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 14 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1.
+> **Definition 14 (Density plot)** A **density plot** draws a smooth curve that estimates the probability density of a continuous variable, scaled so that the area under the curve is 1 [\[13\]](#ref-wikipedia_kernel_density_estimation).
 >
-> Source: Wikipedia contributors ([2026g](#ref-wikipedia_kernel_density_estimation)).
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_kernel_density_estimation).
 
 > **NOTE:**
 >
@@ -450,14 +450,14 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 15 (Box plot (box-and-whisker plot))** A **box plot** (or **box-and-whisker plot**) summarizes the distribution of a continuous variable:
+> **Definition 15 (Box plot (box-and-whisker plot))** A **box plot** (or **box-and-whisker plot**) summarizes the distribution of a continuous variable [\[14\]](#ref-wikipedia_box_plot):
 >
 > - the box spans the first to the third [quartile](#def-quartiles), so its length is the [IQR](#def-IQR);
 > - a line inside the box marks the [median](#def-sample-median);
 > - the whiskers extend from the box to the most extreme observations within \\1.5 \times \text{IQR}\\ of the box;
 > - observations beyond the whiskers are plotted individually, as potential outliers.
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_box_plot)).
+> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_box_plot).
 
 > **NOTE:**
 >
@@ -484,9 +484,9 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 16 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category.
+> **Definition 16 (Bar chart)** A **bar chart** displays the number or proportion of observations in each category of a categorical variable, as one bar per category [\[15\]](#ref-wikipedia_bar_chart).
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_bar_chart)).
+> Source: Wikipedia contributors [\[15\]](#ref-wikipedia_bar_chart).
 
 > **NOTE:**
 >
@@ -508,9 +508,9 @@ Graphs can reveal features of a distribution that summary statistics miss, such 
 
 > **NOTE:**
 >
-> **Definition 17 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution. If the variable is approximately Gaussian, the points fall close to a straight line.
+> **Definition 17 (Normal quantile-quantile plot)** A **normal quantile-quantile (Q-Q) plot** plots the sorted observations ([order statistics](nonparametric-models.llms.md#def-order-statistics)) against the corresponding quantiles of a standard Gaussian distribution [\[16\]](#ref-wikipedia_q_q_plot). If the variable is approximately Gaussian, the points fall close to a straight line.
 >
-> Source: Wikipedia contributors ([2026j](#ref-wikipedia_q_q_plot)).
+> Source: Wikipedia contributors [\[16\]](#ref-wikipedia_q_q_plot).
 
 > **NOTE:**
 >
@@ -533,10 +533,10 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.2](#ref-hoggtanis2015), pp. 245–255) covers exploratory data analysis.
-> - Rice ([2007, sec. 10.2.3](#ref-rice2007mathematical), pp. 385–388) covers quantile-quantile plots.
-> - Rice ([2007, sec. 10.3](#ref-rice2007mathematical), pp. 389–391) covers histograms, density curves and stem-and-leaf plots.
-> - Rice ([2007, sec. 10.6](#ref-rice2007mathematical), pp. 402–403) covers boxplots.
+> - Hogg et al. [\[10, Sec. 6.2\]](#ref-hoggtanis2015), pp. 245–255 covers exploratory data analysis.
+> - Rice [\[11, Sec. 10.2.3\]](#ref-rice2007mathematical), pp. 385–388 covers quantile-quantile plots.
+> - Rice [\[11, Sec. 10.3\]](#ref-rice2007mathematical), pp. 389–391 covers histograms, density curves and stem-and-leaf plots.
+> - Rice [\[11, Sec. 10.6\]](#ref-rice2007mathematical), pp. 402–403 covers boxplots.
 
 ## 4 Bivariate relationships
 
@@ -544,9 +544,9 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 18 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis.
+> **Definition 18 (Scatter plot)** A **scatter plot** displays the joint distribution of two continuous variables by plotting each observation as a point, with one variable on each axis [\[17\]](#ref-wikipedia_scatter_plot).
 >
-> Source: Wikipedia contributors ([2026l](#ref-wikipedia_scatter_plot)).
+> Source: Wikipedia contributors [\[17\]](#ref-wikipedia_scatter_plot).
 
 > **NOTE:**
 >
@@ -567,13 +567,13 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is:
+> **Definition 19 (Pearson correlation coefficient)** The **Pearson correlation coefficient** of \\n\\ paired observations \\(x_1, y_1), \ldots, (x_n, y_n)\\ is [\[18\]](#ref-wikipedia_pearson_correlation_coefficient):
 >
 > \\r \stackrel{\text{def}}{=}\frac{\sum\_{i=1}^n(x_i- \bar{x})(y_i- \bar{y})} {\sqrt{\sum\_{i=1}^n(x_i- \bar{x})^2} \sqrt{\sum\_{i=1}^n(y_i- \bar{y})^2}}\\
 >
 > It is defined when neither variable is constant, so that both sums of squares are positive.
 >
-> Source: Wikipedia contributors ([2026i](#ref-wikipedia_pearson_correlation_coefficient)).
+> Source: Wikipedia contributors [\[18\]](#ref-wikipedia_pearson_correlation_coefficient).
 
 > **NOTE:**
 >
@@ -606,7 +606,7 @@ In [Figure 5](#fig-qq-chol), the points curve above the reference line at the r
 
 > **NOTE:**
 >
-> Rice ([2007, sec. 10.7](#ref-rice2007mathematical), pp. 404–406) covers scatterplots.
+> Rice [\[11, Sec. 10.7\]](#ref-rice2007mathematical), pp. 404–406 covers scatterplots.
 
 ### 4.2 A continuous variable by a categorical variable
 
@@ -674,7 +674,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 
 > **NOTE:**
 >
-> **Definition 20 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables: each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
+> **Definition 20 (Contingency table (cross-tabulation))** A **contingency table** (or **cross-tabulation**) displays the joint frequencies of two categorical variables [\[19\]](#ref-wikipedia_contingency_table): each cell counts the observations with one combination of categories. For two binary variables, the contingency table is a \\2 \times 2\\ table with cells \\a\\, \\b\\, \\c\\, and \\d\\:
 >
 > |              | Outcome = 1 | Outcome = 0 |   Total   |
 > |--------------|:-----------:|:-----------:|:---------:|
@@ -682,7 +682,7 @@ Side-by-side [box plots](#def-boxplot) compare the distribution of a continuous 
 > | Exposure = 0 |    \\c\\    |    \\d\\    | \\c + d\\ |
 > | Total        |  \\a + c\\  |  \\b + d\\  |   \\n\\   |
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_contingency_table)).
+> Source: Wikipedia contributors [\[19\]](#ref-wikipedia_contingency_table).
 
 > **NOTE:**
 >
@@ -816,15 +816,15 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is
+> **Definition 21 (Standardization)** Let \\x_1, \ldots, x_n\\ be \\n \ge 2\\ observations of a variable with [sample mean](#def-sample-mean) \\\bar x\\ and [sample standard deviation](#def-sample-sd) \\s \> 0\\. The **standardized value** of \\x_i\\ is [\[20\]](#ref-wikipedia_standard_score)
 >
 > \\z_i \stackrel{\text{def}}{=}\frac{x_i- \bar x}{s}\\
 >
-> Source: Wikipedia contributors ([2026o](#ref-wikipedia_standard_score)).
+> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_standard_score).
 
 > **NOTE:**
 >
-> *Remark 5* (Source: Standardization). James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183). Géron ([2017](#ref-geron2017hands), ch. 2) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. ([2021](#ref-james2021islr2e)).
+> *Remark 5* (Source: Standardization). James et al. [\[21, Sec. 4.7.6\]](#ref-james2021islr2e), p. 183. Géron [\[22, Ch. 2\]](#ref-geron2017hands) describes the same operation but says it divides by the variance; the standard deviation is used here, as in James et al. [\[21\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
@@ -840,7 +840,7 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> *Remark 7* (Source: Standardized values have sample mean 0 and sample standard deviation 1). Stated for the standardized Caravan variables in James et al. ([2021, sec. 4.7.6](#ref-james2021islr2e), p. 183); the proof is the elementary calculation.
+> *Remark 7* (Source: Standardized values have sample mean 0 and sample standard deviation 1). Stated for the standardized Caravan variables in James et al. [\[21, Sec. 4.7.6\]](#ref-james2021islr2e), p. 183; the proof is the elementary calculation.
 
 > **NOTE:**
 >
@@ -858,17 +858,17 @@ The log-transformed SBP is less skewed than the raw SBP (sample skewness 0.74 ve
 
 > **NOTE:**
 >
-> **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is
+> **Definition 22 (Min-max scaling)** Let \\x_1, \ldots, x_n\\ be observations of a variable with minimum \\x\_{\min}\\ and maximum \\x\_{\max} \> x\_{\min}\\. The **min-max scaled value** of \\x_i\\ is [\[23\]](#ref-wikipedia_feature_scaling)
 >
 > \\\frac{x_i- x\_{\min}}{x\_{\max} - x\_{\min}}\\
 >
-> Source: Géron ([2017](#ref-geron2017hands), ch. 2); Wikipedia contributors ([2026d](#ref-wikipedia_feature_scaling)).
+> Source: Géron [\[22, Ch. 2\]](#ref-geron2017hands); Wikipedia contributors [\[23\]](#ref-wikipedia_feature_scaling).
 
 > **NOTE:**
 >
 > *Remark 8* (Min-max scaling and outliers). Every min-max scaled value lies in \\\[0, 1\]\\: the minimum maps to \\0\\ and the maximum maps to \\1\\. For example, if median incomes range from 0 to 15, an income of 0 maps to \\0\\, and an income of 15 maps to \\1\\.
 >
-> Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less ([Géron 2017, chap. 2](#ref-geron2017hands), “Feature Scaling”).
+> Min-max scaling is sensitive to outliers. For example, suppose one income of 100 is recorded by mistake. The maximum is then 100, so min-max scaling maps all the other incomes into \\\[0, 0.15\]\\. [Standardization](#def-standardization) changes them much less [\[22, Ch. 2\]](#ref-geron2017hands), “Feature Scaling”.
 
 > **NOTE:**
 >
@@ -918,88 +918,98 @@ A typical exploratory data analysis proceeds as follows:
 >
 > Table 5: Summary of selected WCGS variables
 
-## Further reading
-
-- Wikipedia contributors ([2026e](#ref-wikipedia_histogram)) — histograms and the choice of bins
-
-- Wikipedia contributors ([2026b](#ref-wikipedia_box_plot)) — box plots and their variants
-
-- Wikipedia contributors ([2026l](#ref-wikipedia_scatter_plot)) — scatter plots and their uses
-
-- Wikipedia contributors ([2026j](#ref-wikipedia_q_q_plot)) — quantile-quantile plots
-
-- Wikipedia contributors ([2026k](#ref-wikipedia_quartile)) — quartiles and how to compute them
-
-- Wikipedia contributors ([2026o](#ref-wikipedia_standard_score)) — z-scores and standardization
-
-- Wikipedia contributors ([2026a](#ref-wikipedia_bar_chart)) — the Wikipedia article on bar chart
-
-- Wikipedia contributors ([2026c](#ref-wikipedia_contingency_table)) — the Wikipedia article on contingency table
-
-- Wikipedia contributors ([2026d](#ref-wikipedia_feature_scaling)) — the Wikipedia article on feature scaling
-
-- Wikipedia contributors ([2026f](#ref-wikipedia_interquartile_range)) — the Wikipedia article on interquartile range
-
-- Wikipedia contributors ([2026g](#ref-wikipedia_kernel_density_estimation)) — the Wikipedia article on kernel density estimation
-
-- Wikipedia contributors ([2026h](#ref-wikipedia_median)) — the Wikipedia article on median
-
-- Wikipedia contributors ([2026i](#ref-wikipedia_pearson_correlation_coefficient)) — the Wikipedia article on pearson correlation coefficient
-
-- Wikipedia contributors ([2026m](#ref-wikipedia_simple_random_sample)) — the Wikipedia article on simple random sample
-
-- Wikipedia contributors ([2026n](#ref-wikipedia_standard_deviation)) — the Wikipedia article on standard deviation
-
-- Wikipedia contributors ([2026p](#ref-wikipedia_statistical_population)) — the Wikipedia article on statistical population
-
-- Wikipedia contributors ([2026q](#ref-wikipedia_variance)) — the Wikipedia article on variance
-
 ## References
 
-Géron, Aurélien. 2017. *Hands-on Machine Learning with Scikit-Learn and TensorFlow*. 1st ed. O’Reilly Media.
+\[1\]
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
+\[2\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+R. H. Rosenman, R. J. Brand, C. D. Jenkins, M. Friedman, R. Straus, and M. Wurm, “Coronary heart disease in the Western Collaborative Group Study: Final follow-up experience of 8 1/2 years,” *JAMA*, vol. 233, no. 8, pp. 872–877, 1975, doi: [10.1001/jama.1975.03260080034016](https://doi.org/10.1001/jama.1975.03260080034016).
 
-Rosenman, Ray H, Richard J Brand, C David Jenkins, Meyer Friedman, Reuben Straus, and Moses Wurm. 1975. “Coronary Heart Disease in the Western Collaborative Group Study: Final Follow-up Experience of 8 1/2 Years.” *JAMA* 233 (8): 872–77. <https://doi.org/10.1001/jama.1975.03260080034016>.
+\[3\]
 
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
+Wikipedia contributors, “Statistical population — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Statistical_population>
 
-Wikipedia contributors. 2026a. *Bar Chart — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bar_chart>.
+\[4\]
 
-Wikipedia contributors. 2026b. *Box Plot — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Box_plot>.
+Wikipedia contributors, “Simple random sample — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Simple_random_sample>
 
-Wikipedia contributors. 2026c. *Contingency Table — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Contingency_table>.
+\[5\]
 
-Wikipedia contributors. 2026d. *Feature Scaling — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Feature_scaling>.
+Wikipedia contributors, “Median — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Median>
 
-Wikipedia contributors. 2026e. *Histogram — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Histogram>.
+\[6\]
 
-Wikipedia contributors. 2026f. *Interquartile Range — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Interquartile_range>.
+Wikipedia contributors, “Variance — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Variance>
 
-Wikipedia contributors. 2026g. *Kernel Density Estimation — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Kernel_density_estimation>.
+\[7\]
 
-Wikipedia contributors. 2026h. *Median — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Median>.
+Wikipedia contributors, “Standard deviation — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Standard_deviation>
 
-Wikipedia contributors. 2026i. *Pearson Correlation Coefficient — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Pearson_correlation_coefficient>.
+\[8\]
 
-Wikipedia contributors. 2026j. *Q–q Plot — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot>.
+Wikipedia contributors, “Quartile — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Quartile>
 
-Wikipedia contributors. 2026k. *Quartile — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Quartile>.
+\[9\]
 
-Wikipedia contributors. 2026l. *Scatter Plot — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Scatter_plot>.
+Wikipedia contributors, “Interquartile range — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Interquartile_range>
 
-Wikipedia contributors. 2026m. *Simple Random Sample — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Simple_random_sample>.
+\[10\]
 
-Wikipedia contributors. 2026n. *Standard Deviation — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Standard_deviation>.
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
 
-Wikipedia contributors. 2026o. *Standard Score — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Standard_score>.
+\[11\]
 
-Wikipedia contributors. 2026p. *Statistical Population — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Statistical_population>.
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
 
-Wikipedia contributors. 2026q. *Variance — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Variance>.
+\[12\]
+
+Wikipedia contributors, “Histogram — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Histogram>
+
+\[13\]
+
+Wikipedia contributors, “Kernel density estimation — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Kernel_density_estimation>
+
+\[14\]
+
+Wikipedia contributors, “Box plot — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Box_plot>
+
+\[15\]
+
+Wikipedia contributors, “Bar chart — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bar_chart>
+
+\[16\]
+
+Wikipedia contributors, “Q–q plot — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Q%E2%80%93Q_plot>
+
+\[17\]
+
+Wikipedia contributors, “Scatter plot — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Scatter_plot>
+
+\[18\]
+
+Wikipedia contributors, “Pearson correlation coefficient — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Pearson_correlation_coefficient>
+
+\[19\]
+
+Wikipedia contributors, “Contingency table — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Contingency_table>
+
+\[20\]
+
+Wikipedia contributors, “Standard score — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Standard_score>
+
+\[21\]
+
+G. James, D. Witten, T. Hastie, and R. Tibshirani, *An introduction to statistical learning: With applications in R*, 2nd ed. Springer, 2021. doi: [10.1007/978-1-0716-1418-1](https://doi.org/10.1007/978-1-0716-1418-1).
+
+\[22\]
+
+A. Géron, *Hands-on machine learning with Scikit-Learn and TensorFlow*, 1st ed. O’Reilly Media, 2017.
+
+\[23\]
+
+Wikipedia contributors, “Feature scaling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Feature_scaling>
 
 Back to top

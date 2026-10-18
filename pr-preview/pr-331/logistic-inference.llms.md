@@ -4,21 +4,21 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:10 (PDT)
+Last modified: 2026-10-18 13:25:37 (PDT)
 
 ## 1 Introduction
 
-Logistic regression models a binary outcome, such as whether a patient recovers, from one or more predictors. Its fitted coefficients are maximum likelihood estimates, so the likelihood theory of [Introduction to maximum likelihood](intro-MLEs.llms.md#sec-intro-MLEs) gives them standard errors, confidence intervals and tests. This page specializes that theory to the logistic model and introduces the deviance, the measure of fit that the likelihood ratio test of a logistic model is built from.
+Logistic regression models a binary outcome, such as whether a patient recovers, from one or more predictors. Its fitted coefficients are maximum likelihood estimates, so the likelihood theory of [Introduction to maximum likelihood](intro-MLEs.llms.md#sec-intro-MLEs) gives them standard errors, confidence intervals and tests. This page specializes that theory to the logistic model and introduces the deviance, the measure of fit that the likelihood ratio test of a logistic model is built from [\[1\]](#ref-wikipedia_likelihood_ratio_test).
 
 > **NOTE:**
 >
-> **Definition 1 (Logistic regression)** A **logistic regression** model for binary outcomes \\y_1, \dots, y_n \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with predictor vectors \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_1, \dots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_n\\ says that the outcomes are independent and that
+> **Definition 1 (Logistic regression)** A **logistic regression** model for binary outcomes \\y_1, \dots, y_n \in \mathopen{}\left\\0, 1\right\\\mathclose{}\\ with predictor vectors \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_1, \dots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_n\\ says that the outcomes are independent and that [\[2\]](#ref-wikipedia_logistic_regression)
 >
 > \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{} = \pi_i = \sigma\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}, \qquad \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}}, \tag{1}\\
 >
 > where \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i= {\mathopen{}\left(1, x\_{i1}, \dots, x\_{ip}\right)\mathclose{}}^{\top}\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}= {\mathopen{}\left(\beta\_{0}, \beta\_{1}, \dots, \beta\_{p}\right)\mathclose{}}^{\top}\\. The leading \\1\\ in \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\\ makes \\\beta\_{0}\\ the intercept, and \\\beta\_{j}\\ for \\j \ge 1\\ is the slope for the \\j\\th predictor.
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_logistic_regression)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_logistic_regression).
 
 > **NOTE:**
 >
@@ -48,11 +48,11 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > where \\\hat\pi_i = \sigma\mathopen{}\left(\hat{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i\right)\mathclose{}\\ is the fitted probability.
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_deviance_statistics)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_deviance_statistics).
 
 > **NOTE:**
 >
-> Nelder and Wedderburn ([1972](#ref-nelder1972generalized)) introduced the deviance for the whole family of generalized linear models; logistic regression is the case of Bernoulli outcomes with the logit link. Hastie et al. ([2009, sec. 4.4.2](#ref-hastie2009elements)) defines the residual deviance of a fitted logistic regression as minus twice its log-likelihood.
+> Nelder and Wedderburn [\[4\]](#ref-nelder1972generalized) introduced the deviance for the whole family of generalized linear models; logistic regression is the case of Bernoulli outcomes with the logit link. Hastie et al. [\[5, Sec. 4.4.2\]](#ref-hastie2009elements) defines the residual deviance of a fitted logistic regression as minus twice its log-likelihood.
 
 > **NOTE:**
 >
@@ -160,7 +160,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> Dobson and Barnett ([2018, sec. 5.5](#ref-dobson4e)) introduces both terms: observations that share a combination of factor levels and the same values of any continuous predictors have the same covariate pattern, and are called replicates.
+> Dobson and Barnett [\[6, Sec. 5.5\]](#ref-dobson4e) introduces both terms: observations that share a combination of factor levels and the same values of any continuous predictors have the same covariate pattern, and are called replicates.
 
 > **NOTE:**
 >
@@ -172,7 +172,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Example 6 (Covariate patterns in the low-birth-weight data)** The `birthwt` data record whether each of 189 babies had low birth weight (`low = 1`, under 2.5 kg), along with the mother’s smoking status and race, among other predictors ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)). Take `smoke` (0 or 1) and `race` (1, 2 or 3) as the predictors. Counting the distinct pairs, and the babies and low-weight births at each, gives one row per [covariate pattern](#def-covariate-pattern).
+> **Example 6 (Covariate patterns in the low-birth-weight data)** The `birthwt` data record whether each of 189 babies had low birth weight (`low = 1`, under 2.5 kg), along with the mother’s smoking status and race, among other predictors [\[7\]](#ref-hosmer1989applied). Take `smoke` (0 or 1) and `race` (1, 2 or 3) as the predictors. Counting the distinct pairs, and the babies and low-weight births at each, gives one row per [covariate pattern](#def-covariate-pattern).
 >
 > ``` downlit
 > bw <- read.csv("data/birthwt.csv")
@@ -192,17 +192,17 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> **Definition 7 (Saturated model (full model, maximal model))** The **saturated model** (also called the **full model** ([Dobson and Barnett 2018, sec. 5.5](#ref-dobson4e)) or **maximal model** ([Dobson and Barnett 2018, sec. 5.5](#ref-dobson4e))) for binary outcomes gives each pattern its own free event probability:
+> **Definition 7 (Saturated model (full model, maximal model))** The **saturated model** (also called the **full model** [\[6, Sec. 5.5\]](#ref-dobson4e) or **maximal model** [\[6, Sec. 5.5\]](#ref-dobson4e)) for binary outcomes gives each pattern its own free event probability:
 >
 > \\ \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_i= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}^{(k)}\right)\mathclose{} = \pi_k, \qquad k = 1, \dots, K, \tag{4}\\
 >
 > with the outcomes independent given the predictors.
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_saturated_model)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_saturated_model).
 
 > **NOTE:**
 >
-> Dobson and Barnett ([2018, sec. 5.5](#ref-dobson4e)) defines the saturated model as the model with the maximum number of parameters that can be estimated, one per distinct covariate pattern, and says it is also called a maximal or full model. In model selection, “full model” often means something else: the model with every candidate predictor ([Dobson and Barnett 2018, sec. 6.3](#ref-dobson4e)). That model is generally smaller than the saturated model.
+> Dobson and Barnett [\[6, Sec. 5.5\]](#ref-dobson4e) defines the saturated model as the model with the maximum number of parameters that can be estimated, one per distinct covariate pattern, and says it is also called a maximal or full model. In model selection, “full model” often means something else: the model with every candidate predictor [\[6, Sec. 6.3\]](#ref-dobson4e). That model is generally smaller than the saturated model.
 
 > **NOTE:**
 >
@@ -234,7 +234,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> Dobson and Barnett ([2018, sec. 5.6.1](#ref-dobson4e)) derives the deviance of a binomial model relative to the saturated model, and Section 7.5 writes it in the form of [Equation 6](#eq-saturated-deviance-grouped). Section 7.5 also notes that when every observation has its own covariate pattern, so each count is \\0\\ or \\1\\, this deviance is not a useful measure of fit.
+> Dobson and Barnett [\[6, Sec. 5.6.1\]](#ref-dobson4e) derives the deviance of a binomial model relative to the saturated model, and Section 7.5 writes it in the form of [Equation 6](#eq-saturated-deviance-grouped). Section 7.5 also notes that when every observation has its own covariate pattern, so each count is \\0\\ or \\1\\, this deviance is not a useful measure of fit.
 
 > **NOTE:**
 >
@@ -320,7 +320,7 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 
 > **NOTE:**
 >
-> *Proof*. The log-likelihood has score \\{X}^{\top} \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}\\, and its Hessian is \\-{X}^{\top} W X\\, which does not involve the outcomes. The observed and expected information are therefore both \\{X}^{\top} W X\\. The claim is the Gaussian approximation of the [central limit theorem for MLEs](intro-MLEs.llms.md#thm-dist-mle), with this information in place of the inverse covariance. The result is stated for logistic regression by Hastie et al. ([2009, sec. 4.4.3](#ref-hastie2009elements)). For independent but non-identically distributed outcomes it holds under conditions on the predictors that Fahrmeir and Kaufmann ([1985](#ref-fahrmeir1985consistency)) give.
+> *Proof*. The log-likelihood has score \\{X}^{\top} \mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}- \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}\\, and its Hessian is \\-{X}^{\top} W X\\, which does not involve the outcomes. The observed and expected information are therefore both \\{X}^{\top} W X\\. The claim is the Gaussian approximation of the [central limit theorem for MLEs](intro-MLEs.llms.md#thm-dist-mle), with this information in place of the inverse covariance. The result is stated for logistic regression by Hastie et al. [\[5, Sec. 4.4.3\]](#ref-hastie2009elements). For independent but non-identically distributed outcomes it holds under conditions on the predictors that Fahrmeir and Kaufmann [\[9\]](#ref-fahrmeir1985consistency) give.
 
 > **NOTE:**
 >
@@ -371,34 +371,42 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 >
 > The fitted odds of recovery in the treatment group are \\4\\ times those in the control group, with interval \\(0.13, 119.2)\\. The interval runs from a strong harm to a large benefit. Its width shows how little information six observations carry about the slope.
 
-## Further reading
-
-- Wikipedia contributors ([2026c](#ref-wikipedia_logistic_regression)) — the model, its fitting and its interpretation
-
-- Wikipedia contributors ([2026a](#ref-wikipedia_deviance_statistics)) — deviance and its use in model comparison
-
-- Wikipedia contributors ([2026d](#ref-wikipedia_saturated_model)) — the saturated model
-
-- Wikipedia contributors ([2026b](#ref-wikipedia_likelihood_ratio_test)) — comparing nested models
-
 ## References
 
-Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized Linear Models*. 4th ed. CRC press. <https://doi.org/10.1201/9781315182780>.
+\[1\]
 
-Fahrmeir, Ludwig, and Heinz Kaufmann. 1985. “Consistency and Asymptotic Normality of the Maximum Likelihood Estimator in Generalized Linear Models.” *The Annals of Statistics* 13 (1): 342–68. <https://doi.org/10.1214/aos/1176346597>.
+Wikipedia contributors, “Likelihood-ratio test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood-ratio_test>
 
-Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. 2nd ed. Springer. <https://doi.org/10.1007/978-0-387-84858-7>.
+\[2\]
 
-Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
+Wikipedia contributors, “Logistic regression — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Logistic_regression>
 
-Nelder, John A., and Robert W. M. Wedderburn. 1972. “Generalized Linear Models.” *Journal of the Royal Statistical Society: Series A (General)* 135 (3): 370–84. <https://doi.org/10.2307/2344614>.
+\[3\]
 
-Wikipedia contributors. 2026a. *Deviance (Statistics) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Deviance_%28statistics%29>.
+Wikipedia contributors, “Deviance (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Deviance_%28statistics%29>
 
-Wikipedia contributors. 2026b. *Likelihood-Ratio Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Likelihood-ratio_test>.
+\[4\]
 
-Wikipedia contributors. 2026c. *Logistic Regression — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Logistic_regression>.
+J. A. Nelder and R. W. M. Wedderburn, “Generalized linear models,” *Journal of the Royal Statistical Society: Series A (General)*, vol. 135, no. 3, pp. 370–384, 1972, doi: [10.2307/2344614](https://doi.org/10.2307/2344614).
 
-Wikipedia contributors. 2026d. *Saturated Model — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Saturated_model>.
+\[5\]
+
+T. Hastie, R. Tibshirani, and J. Friedman, *The elements of statistical learning: Data mining, inference, and prediction*, 2nd ed. Springer, 2009. doi: [10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
+
+\[6\]
+
+A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
+
+\[7\]
+
+D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
+
+\[8\]
+
+Wikipedia contributors, “Saturated model — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Saturated_model>
+
+\[9\]
+
+L. Fahrmeir and H. Kaufmann, “Consistency and asymptotic normality of the maximum likelihood estimator in generalized linear models,” *The Annals of Statistics*, vol. 13, no. 1, pp. 342–368, 1985, doi: [10.1214/aos/1176346597](https://doi.org/10.1214/aos/1176346597).
 
 Back to top

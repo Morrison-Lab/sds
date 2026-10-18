@@ -14,15 +14,15 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:10 (PDT)
+Last modified: 2026-10-18 13:25:37 (PDT)
 
-The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
+The p-value of a [t-test](basic-statistical-methods.llms.md#def-two-sample-t-test) comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A **permutation test** takes its null distribution from the data instead [\[1\]](#ref-wikipedia_resampling_statistics). If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.
 
-This page defines exchangeability, the permutation distribution and the permutation p-value, shows why that p-value is valid, and then approximates it by random relabelings, which is how it is computed in practice. It continues the [bootstrap](bootstrap.llms.md) page’s idea of computing a [sampling distribution](estimation.llms.md#def-sampling-distribution) by resampling, and supplies the p-values that the [multiple testing](multiple-testing.llms.md) page corrects. These notes follow chapter 13 of James et al. ([2021](#ref-james2021islr2e)) and the treatment in Good ([2005](#ref-good2005permutation)).
+This page defines exchangeability, the permutation distribution and the permutation p-value, shows why that p-value is valid, and then approximates it by random relabelings, which is how it is computed in practice. It continues the [bootstrap](bootstrap.llms.md) page’s idea of computing a [sampling distribution](estimation.llms.md#def-sampling-distribution) by resampling, and supplies the p-values that the [multiple testing](multiple-testing.llms.md) page corrects. These notes follow chapter 13 of James et al. [\[2\]](#ref-james2021islr2e) and the treatment in Good [\[3\]](#ref-good2005permutation).
 
 ## 1 The Khan gene expression data
 
-The examples on this page use gene expression data from Khan et al. ([2001](#ref-khan2001classification)), who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at [`data/khan.csv`](data/khan.csv), taken from the `Khan` data of the R package [`ISLR2`](https://cran.r-project.org/package=ISLR2) ([James et al. 2021](#ref-james2021islr2e)): the column `tumor_class` holds the class, and the columns `gene_1` to `gene_2308` hold the expression values. The examples compare classes 2 and 4.
+The examples on this page use gene expression data from Khan et al. [\[4\]](#ref-khan2001classification), who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at [`data/khan.csv`](data/khan.csv), taken from the `Khan` data of the R package [`ISLR2`](https://cran.r-project.org/package=ISLR2) [\[2\]](#ref-james2021islr2e): the column `tumor_class` holds the class, and the columns `gene_1` to `gene_2308` hold the expression values. The examples compare classes 2 and 4.
 
 ``` downlit
 khan <- read.csv("data/khan.csv")
@@ -37,11 +37,11 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> **Definition 1 (Exchangeable random variables)** For a permutation \\\pi\\ of \\\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}\\ and a vector \\y = (y_1, \ldots, y_n)\\, write \\y\_\pi \stackrel{\text{def}}{=}(y\_{\pi(1)}, \ldots, y\_{\pi(n)})\\ for the vector with its entries reordered by \\\pi\\. Random variables \\Y_1, \ldots, Y_n\\ are **exchangeable** if reordering them does not change their joint distribution: for every permutation \\\pi\\ and every set \\A\\ of vectors,
+> **Definition 1 (Exchangeable random variables)** For a permutation \\\pi\\ of \\\mathopen{}\left\\1, \ldots, n\right\\\mathclose{}\\ and a vector \\y = (y_1, \ldots, y_n)\\, write \\y\_\pi \stackrel{\text{def}}{=}(y\_{\pi(1)}, \ldots, y\_{\pi(n)})\\ for the vector with its entries reordered by \\\pi\\. Random variables \\Y_1, \ldots, Y_n\\ are **exchangeable** if reordering them does not change their joint distribution [\[5\]](#ref-wikipedia_exchangeable_random_variables): for every permutation \\\pi\\ and every set \\A\\ of vectors,
 >
 > \\\Pr(Y\_\pi \in A) = \Pr(Y \in A).\\
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_exchangeable_random_variables)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_exchangeable_random_variables).
 
 > **NOTE:**
 >
@@ -128,7 +128,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > Because the identity permutation is one of the \\n!\\ relabelings, \\p\_{\text{perm}} \ge 1 / n!\\.
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_permutation_test)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_permutation_test).
 
 > **NOTE:**
 >
@@ -241,9 +241,9 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402) covers some distribution-free tests.
-> - Rice ([2007, sec. 11.2.3](#ref-rice2007mathematical), pp. 435–442) covers the Mann–Whitney test.
-> - Rice ([2007, sec. 11.4.6](#ref-rice2007mathematical), p. 456) covers randomization.
+> - Hogg et al. [\[7, Sec. 8.5\]](#ref-hoggtanis2015), pp. 392–402 covers some distribution-free tests.
+> - Rice [\[8, Sec. 11.2.3\]](#ref-rice2007mathematical), pp. 435–442 covers the Mann–Whitney test.
+> - Rice [\[8, Sec. 11.4.6\]](#ref-rice2007mathematical), p. 456 covers randomization.
 
 ## 4 The Monte Carlo approximation
 
@@ -253,7 +253,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\\hat p\_{\text{perm}} \stackrel{\text{def}}{=}\frac{1 + \sum\_{b=1}^B \mathbb{1}\_{T_b \ge T(y)}}{B + 1}.\\
 >
-> Source: Phipson and Smyth ([2010](#ref-phipson2010permutation)).
+> Source: Phipson and Smyth [\[9\]](#ref-phipson2010permutation).
 
 > **NOTE:**
 >
@@ -306,7 +306,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 2* (Source: The Monte Carlo permutation p-value is valid). Phipson and Smyth ([2010](#ref-phipson2010permutation)) show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.
+> *Remark 2* (Source: The Monte Carlo permutation p-value is valid). Phipson and Smyth [\[9\]](#ref-phipson2010permutation) show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.
 
 > **NOTE:**
 >
@@ -337,7 +337,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> Hogg et al. ([2019, sec. 7.7](#ref-hoggtanis2015), pp. 353–360) covers resampling methods.
+> Hogg et al. [\[7, Sec. 7.7\]](#ref-hoggtanis2015), pp. 353–360 covers resampling methods.
 
 ## 5 Permutation tests and multiple testing
 
@@ -403,37 +403,47 @@ table(tumor_class = khan_pair$tumor_class)
 
 ## 6 Further reading
 
-- Good ([2005](#ref-good2005permutation)) is a book-length treatment of permutation tests.
-- Phipson and Smyth ([2010](#ref-phipson2010permutation)) explains why [Monte Carlo permutation p-values](#def-monte-carlo-p-value) need the added 1.
+- Good [\[3\]](#ref-good2005permutation) gives a book-length treatment of permutation tests.
+- Phipson and Smyth [\[9\]](#ref-phipson2010permutation) explain why [Monte Carlo permutation p-values](#def-monte-carlo-p-value) need the added 1.
 - Chapter 12 of the [*Computational and Inferential Thinking*](https://www.inferentialthinking.com/) textbook for UC Berkeley’s Data 8 introduces permutation tests through plain-language A/B testing examples.
-- Chapter 13 of James et al. ([2021](#ref-james2021islr2e)) applies permutation and other resampling methods to multiple testing.
-
-### 6.1 Online references
-
-- Wikipedia contributors ([2026b](#ref-wikipedia_permutation_test)) — the test, its assumptions and its variants
-
-- Wikipedia contributors ([2026a](#ref-wikipedia_exchangeable_random_variables)) — exchangeability and its role in permutation tests
-
-- Wikipedia contributors ([2026c](#ref-wikipedia_resampling_statistics)) — permutation tests among the resampling methods
+- Chapter 13 of James et al. [\[2\]](#ref-james2021islr2e) applies permutation and other resampling methods to multiple testing.
 
 ## References
 
-Good, Phillip I. 2005. *Permutation, Parametric and Bootstrap Tests of Hypotheses*. 3rd ed. Springer. <https://doi.org/10.1007/b138696>.
+\[1\]
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+Wikipedia contributors, “Resampling (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Resampling_%28statistics%29>
 
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
+\[2\]
 
-Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” *Nature Medicine* 7 (6): 673–79. <https://doi.org/10.1038/89044>.
+G. James, D. Witten, T. Hastie, and R. Tibshirani, *An introduction to statistical learning: With applications in R*, 2nd ed. Springer, 2021. doi: [10.1007/978-1-0716-1418-1](https://doi.org/10.1007/978-1-0716-1418-1).
 
-Phipson, Belinda, and Gordon K. Smyth. 2010. “Permutation p-Values Should Never Be Zero: Calculating Exact p-Values When Permutations Are Randomly Drawn.” *Statistical Applications in Genetics and Molecular Biology* 9 (1). <https://doi.org/10.2202/1544-6115.1585>.
+\[3\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+P. I. Good, *Permutation, parametric and bootstrap tests of hypotheses*, 3rd ed. New York: Springer, 2005. doi: [10.1007/b138696](https://doi.org/10.1007/b138696).
 
-Wikipedia contributors. 2026a. *Exchangeable Random Variables — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Exchangeable_random_variables>.
+\[4\]
 
-Wikipedia contributors. 2026b. *Permutation Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Permutation_test>.
+J. Khan *et al.*, “Classification and diagnostic prediction of cancers using gene expression profiling and artificial neural networks,” *Nature Medicine*, vol. 7, no. 6, pp. 673–679, 2001, doi: [10.1038/89044](https://doi.org/10.1038/89044).
 
-Wikipedia contributors. 2026c. *Resampling (Statistics) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Resampling_%28statistics%29>.
+\[5\]
+
+Wikipedia contributors, “Exchangeable random variables — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Exchangeable_random_variables>
+
+\[6\]
+
+Wikipedia contributors, “Permutation test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Permutation_test>
+
+\[7\]
+
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
+
+\[8\]
+
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+\[9\]
+
+B. Phipson and G. K. Smyth, “Permutation p-values should never be zero: Calculating exact p-values when permutations are randomly drawn,” *Statistical Applications in Genetics and Molecular Biology*, vol. 9, no. 1, 2010, doi: [10.2202/1544-6115.1585](https://doi.org/10.2202/1544-6115.1585).
 
 Back to top

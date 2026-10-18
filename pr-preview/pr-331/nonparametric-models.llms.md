@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:10 (PDT)
+Last modified: 2026-10-18 13:25:37 (PDT)
 
 ## 1 Empirical distribution
 
@@ -14,7 +14,7 @@ Last modified: 2026-10-18 00:41:10 (PDT)
 >
 > \\\frac{1}{n}\sum\_{j=1}^n\mathbb{1}\mathopen{}\left(x_j \in A\right)\mathclose{}.\\
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_empirical_measure)).
+> Source: Wikipedia contributors [\[1\]](#ref-wikipedia_empirical_measure).
 
 > **NOTE:**
 >
@@ -24,19 +24,19 @@ Last modified: 2026-10-18 00:41:10 (PDT)
 >
 > *Remark* (What “empirical” means). “Empirical” means computed from the observed data, not from a model or a population. An empirical quantity is the matching population quantity with the [population distribution](exploratory-descriptive.llms.md#def-population-distribution) replaced by the empirical distribution. For example, the mean of the empirical distribution is the [sample mean](exploratory-descriptive.llms.md#def-sample-mean), and its CDF is the [empirical CDF](#def-empirical-cdf). Machine learning uses the same replacement to turn the risk of a prediction model into its *empirical risk*.
 >
-> Because it needs only the data in hand, an empirical quantity can always be computed, and it serves as an estimate of the population quantity it mimics. The bootstrap rests on this replacement: it estimates the variability of a statistic by sampling from the empirical distribution ([Hastie et al. 2009, sec. 7.11](#ref-hastie2009elements), p. 250; [Efron and Tibshirani 1993](#ref-efron1993introduction)).
+> Because it needs only the data in hand, an empirical quantity can always be computed, and it serves as an estimate of the population quantity it mimics. The bootstrap rests on this replacement: it estimates the variability of a statistic by sampling from the empirical distribution [\[2, Sec. 7.11\]](#ref-hastie2009elements), p. 250, [\[3\]](#ref-efron1993introduction).
 
 ## 2 Empirical CDF
 
 > **NOTE:**
 >
-> **Definition 2 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the function
+> **Definition 2 (Empirical CDF)** For observed values \\x_1, \ldots, x_n\\, the **empirical cumulative distribution function** (**empirical CDF**) is the [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) of the [empirical distribution](#def-empirical-distribution), the function [\[4\]](#ref-wikipedia_empirical_distribution_function)
 >
 > \\\mathop{\hat{\operatorname{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\\
 >
 > where \\I(A)\\ is the indicator function: \\I(A) = 1\\ if \\A\\ holds, and \\I(A) = 0\\ otherwise.
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_empirical_distribution_function)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_empirical_distribution_function).
 
 > **NOTE:**
 >
@@ -48,19 +48,19 @@ Last modified: 2026-10-18 00:41:10 (PDT)
 
 > **NOTE:**
 >
-> Rice ([2007, sec. 10.2.1](#ref-rice2007mathematical), pp. 378–379) covers the empirical CDF.
+> Rice [\[5, Sec. 10.2.1\]](#ref-rice2007mathematical), pp. 378–379 covers the empirical CDF.
 
 ## 3 Order statistics
 
 > **NOTE:**
 >
-> **Definition 3 (Order statistics)** For observed values \\x_1, \ldots, x_n\\, the **order statistics** are the same values sorted in increasing order, written
+> **Definition 3 (Order statistics)** For observed values \\x_1, \ldots, x_n\\, the **order statistics** are the same values sorted in increasing order, written [\[6\]](#ref-wikipedia_order_statistic)
 >
 > \\x\_{(1)} \le x\_{(2)} \le \cdots \le x\_{(n)}.\\
 >
 > So \\x\_{(1)}\\ is the smallest value and \\x\_{(n)}\\ is the largest.
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_order_statistic)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_order_statistic).
 
 > **NOTE:**
 >
@@ -68,18 +68,18 @@ Last modified: 2026-10-18 00:41:10 (PDT)
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.3](#ref-hoggtanis2015), pp. 256–263) covers order statistics.
-> - Casella and Berger ([2002, sec. 5.4](#ref-CaseBerg01), pp. 226–231) covers order statistics.
+> - Hogg et al. [\[7, Sec. 6.3\]](#ref-hoggtanis2015), pp. 256–263 covers order statistics.
+> - Casella and Berger [\[8, Sec. 5.4\]](#ref-CaseBerg01), pp. 226–231 covers order statistics.
 
 ## 4 Sample quantiles
 
 > **NOTE:**
 >
-> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is
+> **Definition 4 (Sample quantile function (empirical quantile function))** Given an [empirical CDF](#def-empirical-cdf) \\\hat F\\, the **sample quantile function** (also called the **empirical quantile function**) is [\[9\]](#ref-wikipedia_quantile)
 >
 > \\\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\\t : \hat F(t) \ge p\right\\\mathclose{}, \quad 0 \< p \le 1.\\
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_quantile)).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_quantile).
 
 > **NOTE:**
 >
@@ -130,7 +130,7 @@ The [CDF](https://morrison-lab.github.io/pds/random-variables.html#def-cdf) \\F\
 
 > **NOTE:**
 >
-> Hogg et al. ([2019, sec. 7.5](#ref-hoggtanis2015), pp. 337–343) covers distribution-free confidence intervals for percentiles.
+> Hogg et al. [\[7, Sec. 7.5\]](#ref-hoggtanis2015), pp. 337–343 covers distribution-free confidence intervals for percentiles.
 
 ## 5 The empirical CDF and quantile function as generalized inverses
 
@@ -212,41 +212,47 @@ Both functions in [Figure 1](#fig-ecdf-sample-quantile-example) are step functi
 >
 > These readings look ahead from the empirical CDF to distribution-free tests, which this page does not cover:
 >
-> - Hogg et al. ([2019, sec. 8.5](#ref-hoggtanis2015), pp. 392–402) covers some distribution-free tests.
-> - Rice ([2007, sec. 11.2.3](#ref-rice2007mathematical), pp. 435–442) covers the Mann–Whitney test.
-> - Rice ([2007, sec. 11.3.2](#ref-rice2007mathematical), pp. 448–449) covers the signed rank test.
-> - Rice ([2007, sec. 12.2.3](#ref-rice2007mathematical), p. 488) covers the Kruskal–Wallis test.
-
-## Further reading
-
-- Wikipedia contributors ([2026a](#ref-wikipedia_empirical_distribution_function)) — the empirical CDF and its convergence
-
-- Wikipedia contributors ([2026d](#ref-wikipedia_order_statistic)) — order statistics and their distributions
-
-- Wikipedia contributors ([2026e](#ref-wikipedia_quantile)) — quantiles and how they are estimated
-
-- Wikipedia contributors ([2026c](#ref-wikipedia_nonparametric_statistics)) — the nonparametric approach to inference
+> - Hogg et al. [\[7, Sec. 8.5\]](#ref-hoggtanis2015), pp. 392–402 covers some distribution-free tests.
+> - Rice [\[5, Sec. 11.2.3\]](#ref-rice2007mathematical), pp. 435–442 covers the Mann–Whitney test.
+> - Rice [\[5, Sec. 11.3.2\]](#ref-rice2007mathematical), pp. 448–449 covers the signed rank test.
+> - Rice [\[5, Sec. 12.2.3\]](#ref-rice2007mathematical), p. 488 covers the Kruskal–Wallis test.
 
 ## References
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+\[1\]
 
-Efron, Bradley, and Robert J. Tibshirani. 1993. *An Introduction to the Bootstrap*. Monographs on Statistics and Applied Probability 57. Chapman & Hall/CRC. <https://doi.org/10.1201/9780429246593>.
+Wikipedia contributors, “Empirical measure — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Empirical_measure>
 
-Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. 2nd ed. Springer. <https://doi.org/10.1007/978-0-387-84858-7>.
+\[2\]
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+T. Hastie, R. Tibshirani, and J. Friedman, *The elements of statistical learning: Data mining, inference, and prediction*, 2nd ed. Springer, 2009. doi: [10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+\[3\]
 
-Wikipedia contributors. 2026a. *Empirical Distribution Function — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Empirical_distribution_function>.
+B. Efron and R. J. Tibshirani, *An introduction to the bootstrap*. in Monographs on statistics and applied probability, no. 57. New York: Chapman & Hall/CRC, 1993. doi: [10.1201/9780429246593](https://doi.org/10.1201/9780429246593).
 
-Wikipedia contributors. 2026b. *Empirical Measure — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Empirical_measure>.
+\[4\]
 
-Wikipedia contributors. 2026c. *Nonparametric Statistics — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Nonparametric_statistics>.
+Wikipedia contributors, “Empirical distribution function — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Empirical_distribution_function>
 
-Wikipedia contributors. 2026d. *Order Statistic — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Order_statistic>.
+\[5\]
 
-Wikipedia contributors. 2026e. *Quantile — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Quantile>.
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+\[6\]
+
+Wikipedia contributors, “Order statistic — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Order_statistic>
+
+\[7\]
+
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
+
+\[8\]
+
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+\[9\]
+
+Wikipedia contributors, “Quantile — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Quantile>
 
 Back to top

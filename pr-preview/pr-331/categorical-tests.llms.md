@@ -4,9 +4,9 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:10 (PDT)
+Last modified: 2026-10-18 13:25:37 (PDT)
 
-This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
+This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the [Statistical Inference](inference.llms.md#sec-reference-distributions) page. This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
 ## 1 The HERS data
 
@@ -48,18 +48,18 @@ hers |> head()
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 7.3](#ref-hoggtanis2015), pp. 323–328) covers confidence intervals for proportions.
-> - Hogg et al. ([2019, sec. 8.4](#ref-hoggtanis2015), pp. 385–391) covers tests about proportions.
+> - Hogg et al. [\[2, Sec. 7.3\]](#ref-hoggtanis2015), pp. 323–328 covers confidence intervals for proportions.
+> - Hogg et al. [\[2, Sec. 8.4\]](#ref-hoggtanis2015), pp. 385–391 covers tests about proportions.
 
 ### 2.2 The chi-square test
 
 > **NOTE:**
 >
-> **Definition 1 (Expected count under independence)** Let a contingency table have \\r\\ rows and \\c\\ columns, with observed count \\O\_{ij}\\ in row \\i\\ and column \\j\\, row totals \\R_i\\, column totals \\C_j\\, and grand total \\n\\. The **expected count** in cell \\(i, j)\\ under independence is
+> **Definition 1 (Expected count under independence)** Let a contingency table have \\r\\ rows and \\c\\ columns, with observed count \\O\_{ij}\\ in row \\i\\ and column \\j\\, row totals \\R_i\\, column totals \\C_j\\, and grand total \\n\\ [\[3\]](#ref-wikipedia_contingency_table). The **expected count** in cell \\(i, j)\\ under independence is
 >
 > \\E\_{ij} \stackrel{\text{def}}{=}\frac{R_i \\ C_j}{n}.\\
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_contingency_table)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_contingency_table).
 
 > **NOTE:**
 >
@@ -69,17 +69,17 @@ hers |> head()
 
 > **NOTE:**
 >
-> **Definition 2 (Pearson’s chi-square test of independence)** With observed counts \\O\_{ij}\\ and [expected counts](#def-expected-count) \\E\_{ij}\\ in an \\r \times c\\ contingency table, **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the statistic
+> **Definition 2 (Pearson’s chi-square test of independence)** With observed counts \\O\_{ij}\\ and [expected counts](#def-expected-count) \\E\_{ij}\\ in an \\r \times c\\ contingency table, **Pearson’s chi-square test** of the null hypothesis that the row and column variables are independent uses the statistic [\[4\]](#ref-wikipedia_pearsons_chi_squared_test)
 >
 > \\X^2 \stackrel{\text{def}}{=}\sum\_{i=1}^{r} \sum\_{j=1}^{c} \frac{(O\_{ij} - E\_{ij})^2}{E\_{ij}}.\\
 >
 > Its p-value is \\\Pr(W \ge X^2)\\, where \\W\\ has the \\\chi^2\_{(r-1)(c-1)}\\ distribution ([chi-square distribution](inference.llms.md#def-chi-square-dist)).
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_pearsons_chi_squared_test)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_pearsons_chi_squared_test).
 
 > **NOTE:**
 >
-> **Theorem 1 (Large-sample null distribution of the chi-square statistic)** Let \\n\\ observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as \\n \to \infty\\, the distribution of \\X^2\\ ([Definition 2](#def-chi-square-test)) converges to the \\\chi^2\_{(r-1)(c-1)}\\ distribution ([Hogg et al. 2019, sec. 9.2](#ref-hoggtanis2015), p. 440).
+> **Theorem 1 (Large-sample null distribution of the chi-square statistic)** Let \\n\\ observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as \\n \to \infty\\, the distribution of \\X^2\\ ([Definition 2](#def-chi-square-test)) converges to the \\\chi^2\_{(r-1)(c-1)}\\ distribution [\[2, Sec. 9.2\]](#ref-hoggtanis2015), p. 440.
 
 > **NOTE:**
 >
@@ -124,11 +124,11 @@ hers |> head()
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 9.1](#ref-hoggtanis2015), pp. 425–434) covers chi-square goodness-of-fit tests.
-> - Hogg et al. ([2019, sec. 9.2](#ref-hoggtanis2015), pp. 435–445) covers contingency tables.
-> - Rice ([2007, sec. 13.3](#ref-rice2007mathematical), pp. 516–519) covers the chi-square test of homogeneity.
-> - Rice ([2007, sec. 13.4](#ref-rice2007mathematical), pp. 520–522) covers the chi-square test of independence.
-> - Rice ([2007, sec. 9.5](#ref-rice2007mathematical), pp. 341–346) covers likelihood ratio tests for the multinomial distribution.
+> - Hogg et al. [\[2, Sec. 9.1\]](#ref-hoggtanis2015), pp. 425–434 covers chi-square goodness-of-fit tests.
+> - Hogg et al. [\[2, Sec. 9.2\]](#ref-hoggtanis2015), pp. 435–445 covers contingency tables.
+> - Rice [\[5, Sec. 13.3\]](#ref-rice2007mathematical), pp. 516–519 covers the chi-square test of homogeneity.
+> - Rice [\[5, Sec. 13.4\]](#ref-rice2007mathematical), pp. 520–522 covers the chi-square test of independence.
+> - Rice [\[5, Sec. 9.5\]](#ref-rice2007mathematical), pp. 341–346 covers likelihood ratio tests for the multinomial distribution.
 
 ### 2.3 Fisher’s exact test
 
@@ -138,7 +138,7 @@ hers |> head()
 >
 > \\p(x) \stackrel{\text{def}}{=}\frac{\binom{a+b}{x} \binom{c+d}{a+c-x}}{\binom{n}{a+c}}.\\
 >
-> **Fisher’s exact test** of independence has p-value
+> **Fisher’s exact test** of independence has p-value [\[6\]](#ref-wikipedia_fishers_exact_test)
 >
 > \\\sum\_{x \\:\\ p(x) \le p(a)} p(x),\\
 >
@@ -185,7 +185,7 @@ hers |> head()
 
 > **NOTE:**
 >
-> Rice ([2007, sec. 13.2](#ref-rice2007mathematical), pp. 514–515) covers Fisher’s exact test.
+> Rice [\[5, Sec. 13.2\]](#ref-rice2007mathematical), pp. 514–515 covers Fisher’s exact test.
 
 ### 2.4 Measures of association for \\2 \times 2\\ tables
 
@@ -193,28 +193,32 @@ Tests of independence say whether two binary variables are associated, but not h
 
 > **NOTE:**
 >
-> Rice ([2007, sec. 13.6](#ref-rice2007mathematical), pp. 526–529) covers odds ratios.
-
-## Further reading
-
-- Wikipedia contributors ([2026c](#ref-wikipedia_pearsons_chi_squared_test)) — the test, its assumptions and its variants
-
-- Wikipedia contributors ([2026b](#ref-wikipedia_fishers_exact_test)) — the exact test and when to use it
-
-- Wikipedia contributors ([2026a](#ref-wikipedia_contingency_table)) — tables of counts and their analysis
+> Rice [\[5, Sec. 13.6\]](#ref-rice2007mathematical), pp. 526–529 covers odds ratios.
 
 ## References
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+\[1\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
+\[2\]
 
-Wikipedia contributors. 2026a. *Contingency Table — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Contingency_table>.
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
 
-Wikipedia contributors. 2026b. *Fisher’s Exact Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Fisher%27s_exact_test>.
+\[3\]
 
-Wikipedia contributors. 2026c. *Pearson’s Chi-Squared Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test>.
+Wikipedia contributors, “Contingency table — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Contingency_table>
+
+\[4\]
+
+Wikipedia contributors, “Pearson’s chi-squared test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test>
+
+\[5\]
+
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+\[6\]
+
+Wikipedia contributors, “Fisher’s exact test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Fisher%27s_exact_test>
 
 Back to top

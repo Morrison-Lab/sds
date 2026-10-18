@@ -14,9 +14,9 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:10 (PDT)
+Last modified: 2026-10-18 13:25:37 (PDT)
 
-This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e)). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
+This page introduces the Bayesian approach to statistical inference: it contrasts the frequentist and Bayesian paradigms, states Bayes’ theorem as a rule for updating beliefs about parameters, discusses how to choose a prior, and outlines hierarchical models [\[1, Ch. 12\]](#ref-dobson4e). For a video introduction, see Richard McElreath’s lecture [*Introduction to Bayesian Workflow*](https://www.youtube.com/watch?v=ztbYkBPDOgU) (Statistical Rethinking 2026, Lecture A01).
 
 ## 1 Frequentist and Bayesian paradigms
 
@@ -26,13 +26,13 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > **Definition 1 (Frequentist paradigm)** In the **frequentist** paradigm of statistical inference, an unknown parameter \\\theta\\ is a fixed constant, probability describes long-run frequencies over repetitions of the data-generating process, and uncertainty about \\\theta\\ is quantified by the [sampling distribution](estimation.llms.md#def-sampling-distribution) of an estimator \\\hat{\theta}\\.
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_frequentist_inference)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_frequentist_inference).
 
 > **NOTE:**
 >
-> **Definition 2 (Bayesian paradigm)** In the **Bayesian** paradigm of statistical inference, an unknown parameter \\\theta\\ is a random variable with its own probability distribution, and probability measures degree of belief ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 272).
+> **Definition 2 (Bayesian paradigm)** In the **Bayesian** paradigm of statistical inference, an unknown parameter \\\theta\\ is a random variable with its own probability distribution, and probability measures degree of belief [\[1, Ch. 12\]](#ref-dobson4e), p. 272 [\[3\]](#ref-wikipedia_bayesian_statistics).
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_bayesian_statistics)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_bayesian_statistics).
 
 > **NOTE:**
 >
@@ -40,9 +40,9 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 > **NOTE:**
 >
-> **Definition 3 (Prior distribution)** The **prior distribution** of a parameter \\\theta\\, with density or probability mass function \\\operatorname{p}(\theta)\\, is the probability distribution that describes what is believed about \\\theta\\ before the data are observed.
+> **Definition 3 (Prior distribution)** The **prior distribution** of a parameter \\\theta\\, with density or probability mass function \\\operatorname{p}(\theta)\\, is the probability distribution that describes what is believed about \\\theta\\ before the data are observed [\[4\]](#ref-wikipedia_prior_probability).
 >
-> Source: Wikipedia contributors ([2026l](#ref-wikipedia_prior_probability)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_prior_probability).
 
 > **NOTE:**
 >
@@ -64,7 +64,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > **Definition 4 (Posterior distribution)** The **posterior distribution** of a parameter \\\theta\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, is the [conditional distribution](https://morrison-lab.github.io/pds/expectation.html#def-cond-pdf) of \\\theta\\ given \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\. Its density or probability mass function is written \\\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\.
 >
-> Source: Wikipedia contributors ([2026k](#ref-wikipedia_posterior_probability)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_posterior_probability).
 
 > **NOTE:**
 >
@@ -78,7 +78,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > with the integral replaced by a sum over the possible values of \\\theta\\ when \\\theta\\ is discrete.
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_marginal_likelihood)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_marginal_likelihood).
 
 > **NOTE:**
 >
@@ -136,7 +136,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > *Proof*. In [Equation 1](#eq-bayes-posterior), the denominator \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ does not depend on \\\theta\\.
 
-[Theorem 1](#thm-bayes-posterior) is [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes) for events, restated for densities. Here \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\, viewed as a function of \\\theta\\, is the [likelihood](intro-MLEs.llms.md#def-lik) \\\mathcal{L}(\theta)\\. [Corollary 1](#cor-bayes-proportional) is the workhorse of applied Bayesian analysis: it identifies the posterior from the shape of likelihood times prior, without computing the integral \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, and it is what makes the simulation methods of Markov chain Monte Carlo possible ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 272).
+[Theorem 1](#thm-bayes-posterior) is [Bayes’ theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes) for events, restated for densities [\[7\]](#ref-wikipedia_bayes_theorem). Here \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\, viewed as a function of \\\theta\\, is the [likelihood](intro-MLEs.llms.md#def-lik) \\\mathcal{L}(\theta)\\. [Corollary 1](#cor-bayes-proportional) is the workhorse of applied Bayesian analysis: it identifies the posterior from the shape of likelihood times prior, without computing the integral \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, and it is what makes the simulation methods of Markov chain Monte Carlo possible [\[1, Ch. 12\]](#ref-dobson4e), p. 272.
 
 ### 2.1 A Gaussian mean with a Gaussian prior
 
@@ -166,7 +166,7 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 >
 > \\\hat{\theta}\_{\text{MAP}} \stackrel{\text{def}}{=}\arg \max\_\theta\operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \tag{9}\\
 >
-> Source: Wikipedia contributors ([2026i](#ref-wikipedia_maximum_a_posteriori_estimation)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_maximum_a_posteriori_estimation).
 
 > **NOTE:**
 >
@@ -257,15 +257,15 @@ The [estimation](estimation.llms.md) and [inference](inference.llms.md) pages ta
 
 ### 2.3 Two readings of an interval estimate
 
-The two paradigms differ most visibly in how they interpret an interval estimate ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 272). A frequentist 95% [confidence interval](inference.llms.md#def-confidence-interval) is a random interval whose coverage probability, over repeated samples with \\\theta\\ held fixed, is 0.95. Any one realized interval either contains \\\theta\\ or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about \\\theta\\ itself, given the data actually observed.
+The two paradigms differ most visibly in how they interpret an interval estimate [\[1, Ch. 12\]](#ref-dobson4e), p. 272. A frequentist 95% [confidence interval](inference.llms.md#def-confidence-interval) is a random interval whose coverage probability, over repeated samples with \\\theta\\ held fixed, is 0.95. Any one realized interval either contains \\\theta\\ or does not; the 0.95 describes the procedure, not that interval. A Bayesian interval estimate instead makes a probability statement about \\\theta\\ itself, given the data actually observed.
 
 > **NOTE:**
 >
-> **Definition 7 (Credible interval)** A \\100(1-\alpha)\\\\ **credible interval** for a parameter \\\theta\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, is an interval \\\mathopen{}\left\[l(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}),\\ r(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\right\]\mathclose{}\\ whose [posterior](#def-posterior) probability is \\1 - \alpha\\:
+> **Definition 7 (Credible interval)** A \\100(1-\alpha)\\\\ **credible interval** for a parameter \\\theta\\, given observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, is an interval \\\mathopen{}\left\[l(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}),\\ r(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\right\]\mathclose{}\\ whose [posterior](#def-posterior) probability is \\1 - \alpha\\ [\[9\]](#ref-wikipedia_credible_interval):
 >
 > \\ \Pr\mathopen{}\left(l(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \le \theta\le r(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{} = 1 - \alpha. \\
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_credible_interval)).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_credible_interval).
 
 In a credible interval, the data are fixed at their observed values and \\\theta\\ is random, so the probability statement is about \\\theta\\ directly. Many intervals have posterior probability \\1 - \alpha\\; the usual choice, and the one used on this page, is the equal-tailed interval.
 
@@ -452,7 +452,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 
 > **NOTE:**
 >
-> Casella and Berger ([2002, sec. 9.2.4](#ref-CaseBerg01), pp. 435–439) covers Bayesian intervals.
+> Casella and Berger [\[10, Sec. 9.2.4\]](#ref-CaseBerg01), pp. 435–439 covers Bayesian intervals.
 
 ### 2.4 The parameter space
 
@@ -460,7 +460,7 @@ In a credible interval, the data are fixed at their observed values and \\\theta
 >
 > **Definition 9 (Parameter space)** The **parameter space** \\\Theta\\ of a model is the set of values that its parameter \\\theta\\ can take.
 
-Because the Bayesian treats \\\theta\\ as random, the prior and posterior are distributions over the parameter space ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 273), and the prior has to respect it.
+Because the Bayesian treats \\\theta\\ as random, the prior and posterior are distributions over the parameter space [\[1, Ch. 12\]](#ref-dobson4e), p. 273, and the prior has to respect it.
 
 > **NOTE:**
 >
@@ -484,21 +484,21 @@ Because the Bayesian treats \\\theta\\ as random, the prior and posterior are di
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.8](#ref-hoggtanis2015), pp. 298–305) covers Bayesian estimation.
-> - Casella and Berger ([2002, sec. 7.2.3](#ref-CaseBerg01), pp. 324–325) covers Bayes estimators.
-> - Rice ([2007, sec. 8.6](#ref-rice2007mathematical), pp. 285–297) covers the Bayesian approach to parameter estimation.
+> - Hogg et al. [\[11, Sec. 6.8\]](#ref-hoggtanis2015), pp. 298–305 covers Bayesian estimation.
+> - Casella and Berger [\[10, Sec. 7.2.3\]](#ref-CaseBerg01), pp. 324–325 covers Bayes estimators.
+> - Rice [\[12, Sec. 8.6\]](#ref-rice2007mathematical), pp. 285–297 covers the Bayesian approach to parameter estimation.
 
 ## 3 Priors
 
-The [prior](#def-prior) encodes what is known about \\\theta\\ before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 276).
+The [prior](#def-prior) encodes what is known about \\\theta\\ before the current data are seen. Choosing it is the step that most distinguishes Bayesian practice from frequentist practice, and it is where most of the controversy and most of the craft lie [\[1, Ch. 12\]](#ref-dobson4e), p. 276.
 
 ### 3.1 Conjugate priors
 
 > **NOTE:**
 >
-> **Definition 10 (Conjugate prior)** A family of prior distributions is **conjugate** to a likelihood if, for every prior in the family and every possible data set, the [posterior](#def-posterior) is also in the family.
+> **Definition 10 (Conjugate prior)** A family of prior distributions is **conjugate** to a likelihood if, for every prior in the family and every possible data set, the [posterior](#def-posterior) is also in the family [\[13\]](#ref-wikipedia_conjugate_prior).
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_conjugate_prior)).
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_conjugate_prior).
 
 A conjugate prior gives the posterior in closed form: updating the prior only changes the family’s parameters. In [Example 6](#exm-normal-normal), a Gaussian prior for a Gaussian mean gave a Gaussian posterior. For a related video lecture, see Richard McElreath’s [*Garden of Forking Data*](https://www.youtube.com/watch?v=pGVkCWlXnlg) (Statistical Rethinking 2026, Lecture A02).
 
@@ -530,14 +530,14 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 > #> 0.602 0.501 0.699
 > ```
 >
-> The mean uses the \\\operatorname{Beta}(a, b)\\ mean \\a / (a + b)\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107). By [Definition 7](#def-credible-interval), the interval is read as a probability statement about \\\pi\\ itself: given these 91 trials, the posterior probability that \\\pi\\ lies between 0.501 and 0.699 is 0.95 (approximately, since those endpoints are rounded to three decimals). A 95% confidence interval computed from the same data supports no such statement, as [Section 2.3](#sec-bayes-interval-interp) explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains \\\pi\\ or does not.
+> The mean uses the \\\operatorname{Beta}(a, b)\\ mean \\a / (a + b)\\ [\[10, Sec. 3.3\]](#ref-CaseBerg01), p. 107. By [Definition 7](#def-credible-interval), the interval is read as a probability statement about \\\pi\\ itself: given these 91 trials, the posterior probability that \\\pi\\ lies between 0.501 and 0.699 is 0.95 (approximately, since those endpoints are rounded to three decimals). A 95% confidence interval computed from the same data supports no such statement, as [Section 2.3](#sec-bayes-interval-interp) explains: its 0.95 describes the procedure over repeated samples, and the realized interval either contains \\\pi\\ or does not.
 
 > **NOTE:**
 >
 > **Example 15 (Prior and posterior, with and without a known truth)** Plotting the prior and posterior densities together shows how much the data moved our beliefs. We use the Beta-Bernoulli model of [Example 14](#exm-beta-bernoulli) with the uniform \\\operatorname{Beta}\mathopen{}\left(1, 1\right)\mathclose{}\\ prior of [Example 2](#exm-prior) on two data sets:
 >
 > - **Simulated data.** We choose the true value of \\\pi\\ ourselves, draw Bernoulli observations with that probability, and then check where the posterior puts the truth.
-> - **Real data.** We use the `birthwt` data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied); [Venables and Ripley 2002, sec. 7.2](#ref-venables2002modern)). Here \\\pi\\ is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s `MASS` package as [`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html); the Python code reads [`data/birthwt.csv`](data/birthwt.csv), a copy of the same table on this site, which is also posted as a CSV file by the [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
+> - **Real data.** We use the `birthwt` data on 189 births at Baystate Medical Center in Springfield, Massachusetts, in 1986 [\[14\]](#ref-hosmer1989applied), [\[15, Sec. 7.2\]](#ref-venables2002modern). Here \\\pi\\ is the probability that a mother in this population smoked during pregnancy, and its true value is unknown. The data ship with R’s `MASS` package as [`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html); the Python code reads [`data/birthwt.csv`](data/birthwt.csv), a copy of the same table on this site, which is also posted as a CSV file by the [Rdatasets project](https://vincentarelbundock.github.io/Rdatasets/csv/MASS/birthwt.csv).
 >
 > ## R
 >
@@ -716,7 +716,7 @@ A conjugate prior gives the posterior in closed form: updating the prior only ch
 
 ### 3.2 Informative, weakly informative, and flat priors
 
-Priors range along a spectrum of how strongly they constrain \\\theta\\ ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 276).
+Priors range along a spectrum of how strongly they constrain \\\theta\\ [\[1, Ch. 12\]](#ref-dobson4e), p. 276.
 
 > **NOTE:**
 >
@@ -779,7 +779,7 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 >
 > \\ \begin{aligned} \frac{d}{d\eta} \operatorname{expit}(\eta) &= \frac{d}{d\eta} (1 + e^{-\eta})^{-1}\\ &= -(1 + e^{-\eta})^{-2} \cdot (-e^{-\eta}) && \text{(chain rule)}\\ &= \frac{1}{1 + e^{-\eta}} \cdot \frac{e^{-\eta}}{1 + e^{-\eta}} && \text{(splitting the fraction)}\\ &= \operatorname{expit}(\eta)\\ \mathopen{}\left(1 - \operatorname{expit}(\eta)\right)\mathclose{} && \text{(\$\tfrac{e^{-\eta}}{1 + e^{-\eta}} = 1 - \tfrac{1}{1 + e^{-\eta}}\$)}. \end{aligned} \\
 >
-> By the change-of-variables formula for densities ([Casella and Berger 2002](#ref-CaseBerg01), Theorem 2.1.5), the prior density of \\\eta\\ is
+> By the change-of-variables formula for densities [\[10\]](#ref-CaseBerg01), Theorem 2.1.5, the prior density of \\\eta\\ is
 >
 > \\ \begin{aligned} \operatorname{p}\_\eta(\eta) &= \operatorname{p}\_\pi\mathopen{}\left(\operatorname{expit}(\eta)\right)\mathclose{} \cdot \mathopen{}\left\|\frac{d}{d\eta} \operatorname{expit}(\eta)\right\|\mathclose{} && \text{(change of variables)}\\ &= 1 \cdot \operatorname{expit}(\eta)\\ \mathopen{}\left(1 - \operatorname{expit}(\eta)\right)\mathclose{} && \text{(uniform density of \$\pi\$; derivative of \$\operatorname{expit}\$)}, \end{aligned} \\
 >
@@ -813,7 +813,7 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 
 > **NOTE:**
 >
-> **Definition 15 (Skeptical prior)** A **skeptical prior** is an [informative prior](#def-informative-prior) centered on the parameter value that represents no effect, and concentrated near that value ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 277).
+> **Definition 15 (Skeptical prior)** A **skeptical prior** is an [informative prior](#def-informative-prior) centered on the parameter value that represents no effect, and concentrated near that value [\[1, Ch. 12\]](#ref-dobson4e), p. 277.
 
 > **NOTE:**
 >
@@ -843,11 +843,11 @@ A flat prior is a common choice of noninformative prior, but “noninformative p
 
 ## 4 Predictive checks
 
-A Bayesian model makes predictions about data, both before and after the data are seen. Comparing those predictions with the data we actually have is a way to check the model. A check made before the data are used tests the prior; a check made after the data are used tests the whole model ([Gelman et al. 2013, sec. 6.3](#ref-gelman2013bda), p. 143; [McElreath 2020, sec. 4.3.2](#ref-statrethink2e), pp. 82-83). For a related video lecture, see Richard McElreath’s [*Geocentric Models*](https://www.youtube.com/watch?v=JX_UyidsQNg) (Statistical Rethinking 2026, Lecture A03).
+A Bayesian model makes predictions about data, both before and after the data are seen. Comparing those predictions with the data we actually have is a way to check the model. A check made before the data are used tests the prior; a check made after the data are used tests the whole model [\[16, Sec. 6.3\]](#ref-gelman2013bda), p. 143, [\[17, Sec. 4.3.2\]](#ref-statrethink2e), pp. 82-83. For a related video lecture, see Richard McElreath’s [*Geocentric Models*](https://www.youtube.com/watch?v=JX_UyidsQNg) (Statistical Rethinking 2026, Lecture A03).
 
 > **NOTE:**
 >
-> **Definition 16 (Prior predictive distribution)** The **prior predictive distribution** of the data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ is the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ implied by the [prior](#def-prior) \\\operatorname{p}(\theta)\\ and the model \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\, before any data are observed ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.3):
+> **Definition 16 (Prior predictive distribution)** The **prior predictive distribution** of the data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ is the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ implied by the [prior](#def-prior) \\\operatorname{p}(\theta)\\ and the model \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\, before any data are observed [\[16, Sec. 1.3\]](#ref-gelman2013bda), p. 7, eq. 1.3:
 >
 > \\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \int \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \theta)\\ \operatorname{p}(\theta)\\ d\theta. \\
 
@@ -857,7 +857,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > \\ \begin{aligned} \Pr\mathopen{}\left(R = r\right)\mathclose{} &= \int_0^1 \binom{n}{r} \pi^{r} (1 - \pi)^{n - r} \cdot 1 \\ d\pi && \text{(definition of the prior predictive distribution)}\\ &= \binom{n}{r} \frac{r!\\(n - r)!}{(n + 1)!} && \text{(the Beta integral)}\\ &= \frac{n!}{r!\\(n - r)!} \cdot \frac{r!\\(n - r)!}{(n + 1)!} && \text{(definition of the binomial coefficient)}\\ &= \frac{n!}{(n + 1)!} && \text{(the factor \$r!\\(n - r)!\$ appears above and below)}\\ &= \frac{1}{n + 1} && \text{(\$(n + 1)! = (n + 1) \cdot n!\$)}, \end{aligned} \\
 >
-> for \\r = 0, 1, \ldots, n\\. So the uniform prior says that, before seeing the data, every count of successes is equally likely ([Gelman et al. 2013, sec. 2.4](#ref-gelman2013bda), p. 34). For the 189 mothers in the `birthwt` data, the code below computes these probabilities from the Beta-binomial probability mass function:
+> for \\r = 0, 1, \ldots, n\\. So the uniform prior says that, before seeing the data, every count of successes is equally likely [\[16, Sec. 2.4\]](#ref-gelman2013bda), p. 34. For the 189 mothers in the `birthwt` data, the code below computes these probabilities from the Beta-binomial probability mass function:
 >
 > ## R
 >
@@ -895,7 +895,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> *Remark 6* (The prior predictive distribution and the marginal likelihood). The prior predictive distribution ([Definition 16](#def-prior-predictive)) is the [marginal likelihood](#def-marginal-likelihood), read as a distribution over possible data sets ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.3).
+> *Remark 6* (The prior predictive distribution and the marginal likelihood). The prior predictive distribution ([Definition 16](#def-prior-predictive)) is the [marginal likelihood](#def-marginal-likelihood), read as a distribution over possible data sets [\[16, Sec. 1.3\]](#ref-gelman2013bda), p. 7, eq. 1.3.
 
 > **NOTE:**
 >
@@ -903,9 +903,9 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > \\ \operatorname{p}(y^{\mathrm{new}} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \int \operatorname{p}(y^{\mathrm{new}} \mid \theta)\\ \operatorname{p}(\theta\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ d\theta, \\
 >
-> where \\Y^{\mathrm{new}}\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ are independent given \\\theta\\ ([Gelman et al. 2013, sec. 1.3](#ref-gelman2013bda), p. 7, eq. 1.4). The same formula, with \\y^{\mathrm{new}}\\ replaced by a whole replicated data set \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}^{\mathrm{rep}}\\ of the same size as \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, gives the posterior predictive distribution of replicated data.
+> where \\Y^{\mathrm{new}}\\ and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}\\ are independent given \\\theta\\ [\[16, Sec. 1.3\]](#ref-gelman2013bda), p. 7, eq. 1.4. The same formula, with \\y^{\mathrm{new}}\\ replaced by a whole replicated data set \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}^{\mathrm{rep}}\\ of the same size as \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\\, gives the posterior predictive distribution of replicated data.
 >
-> Source: Wikipedia contributors ([2026j](#ref-wikipedia_posterior_predictive_distribution)).
+> Source: Wikipedia contributors [\[18\]](#ref-wikipedia_posterior_predictive_distribution).
 
 > **NOTE:**
 >
@@ -956,7 +956,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 18 (Test quantity)** A **test quantity** \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ is a number computed from a data set that summarizes an aspect of the data we want the model to reproduce ([Gelman et al. 2013, sec. 6.3](#ref-gelman2013bda), p. 145).
+> **Definition 18 (Test quantity)** A **test quantity** \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ is a number computed from a data set that summarizes an aspect of the data we want the model to reproduce [\[16, Sec. 6.3\]](#ref-gelman2013bda), p. 145.
 
 > **NOTE:**
 >
@@ -1016,7 +1016,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 19 (Prior predictive check)** A **prior predictive check** compares a [test quantity](#def-test-quantity) \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of the observed data with the distribution of \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}})\\ under the [prior predictive distribution](#def-prior-predictive). If the observed value would be very unlikely under that distribution, the prior and the data disagree ([McElreath 2020, sec. 4.3.2](#ref-statrethink2e), pp. 82-83).
+> **Definition 19 (Prior predictive check)** A **prior predictive check** compares a [test quantity](#def-test-quantity) \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of the observed data with the distribution of \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}})\\ under the [prior predictive distribution](#def-prior-predictive). If the observed value would be very unlikely under that distribution, the prior and the data disagree [\[17, Sec. 4.3.2\]](#ref-statrethink2e), pp. 82-83.
 
 > **NOTE:**
 >
@@ -1127,7 +1127,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 20 (Posterior predictive check)** A **posterior predictive check** compares a [test quantity](#def-test-quantity) \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of the observed data with the distribution of \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}})\\, where \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}\\ is a replicated data set drawn from the [posterior predictive distribution](#def-posterior-predictive). If the model fits, replicated data should look like the observed data, so a systematic difference points to a way the model fails ([Gelman et al. 2013, sec. 6.3](#ref-gelman2013bda), pp. 143-145).
+> **Definition 20 (Posterior predictive check)** A **posterior predictive check** compares a [test quantity](#def-test-quantity) \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ of the observed data with the distribution of \\T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}})\\, where \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}\\ is a replicated data set drawn from the [posterior predictive distribution](#def-posterior-predictive). If the model fits, replicated data should look like the observed data, so a systematic difference points to a way the model fails [\[16, Sec. 6.3\]](#ref-gelman2013bda), pp. 143-145.
 
 > **NOTE:**
 >
@@ -1259,7 +1259,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > \\ p_B = \Pr\mathopen{}\left(T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}) \ge T(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\right)\mathclose{}, \\
 >
-> where the probability is over \\\theta\\ drawn from its [posterior](#def-posterior) and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}\\ drawn from the model given \\\theta\\ ([Gelman et al. 2013, sec. 6.3](#ref-gelman2013bda), p. 146).
+> where the probability is over \\\theta\\ drawn from its [posterior](#def-posterior) and \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{Y}}\vphantom{Y}}^{\mathrm{rep}}\\ drawn from the model given \\\theta\\ [\[16, Sec. 6.3\]](#ref-gelman2013bda), p. 146.
 
 > **NOTE:**
 >
@@ -1295,9 +1295,9 @@ A Bayesian model makes predictions about data, both before and after the data ar
 
 > **NOTE:**
 >
-> **Definition 22 (Hierarchical model (multilevel model))** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281).
+> **Definition 22 (Hierarchical model (multilevel model))** A **hierarchical model**, also called a **multilevel model**, is a model in which the data depend on group-level parameters, and the group-level parameters are themselves random, with a distribution that depends on further unknown parameters [\[1, Ch. 12\]](#ref-dobson4e), p. 281.
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_bayesian_hierarchical_modeling)).
+> Source: Wikipedia contributors [\[19\]](#ref-wikipedia_bayesian_hierarchical_modeling).
 
 > **NOTE:**
 >
@@ -1307,7 +1307,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > **Definition 23 (Hyperparameter)** In a [hierarchical model](#def-hierarchical-model), a **hyperparameter** is a parameter of the distribution of the group-level parameters.
 >
-> Source: Wikipedia contributors ([2026g](#ref-wikipedia_hyperparameter)).
+> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_hyperparameter).
 
 > **NOTE:**
 >
@@ -1321,7 +1321,7 @@ A Bayesian model makes predictions about data, both before and after the data ar
 >
 > The group means \\\theta_j\\ are the group-level parameters, and \\\mu\\ and \\\tau\\ are the [hyperparameters](#def-hyperparameter). To fit this model by Bayesian inference, we add a [hyperprior](#def-hyperprior) for \\(\mu, \tau)\\ and a prior for the within-group standard deviation \\\sigma\\.
 
-The middle level lets the groups *borrow strength* from one another: the posterior for each \\\theta_j\\ is pulled toward the overall mean \\\mu\\, by an amount that depends on the between-group standard deviation \\\tau\\, which the data themselves inform ([Dobson and Barnett 2018, chap. 12](#ref-dobson4e), p. 281). This random-effects *model structure* is the one fit by maximum likelihood in ([Dobson and Barnett 2018, chap. 11](#ref-dobson4e)) and in [an introduction to multilevel models](https://morrison-lab.github.io/rme/chapters/intro-multilevel-models.html). The Bayesian *inference method* differs only in placing a hyperprior on \\\mu\\ and \\\tau\\ and returning a full posterior for them, rather than point estimates of the variance components. For a video introduction, see Richard McElreath’s lecture [*Multilevel Models*](https://www.youtube.com/watch?v=jh3RltVrQ-Q) (Statistical Rethinking 2026, Lecture B01).
+The middle level lets the groups *borrow strength* from one another: the posterior for each \\\theta_j\\ is pulled toward the overall mean \\\mu\\, by an amount that depends on the between-group standard deviation \\\tau\\, which the data themselves inform [\[1, Ch. 12\]](#ref-dobson4e), p. 281. This random-effects *model structure* is the one fit by maximum likelihood in [\[1, Ch. 11\]](#ref-dobson4e) and in [an introduction to multilevel models](https://morrison-lab.github.io/rme/chapters/intro-multilevel-models.html). The Bayesian *inference method* differs only in placing a hyperprior on \\\mu\\ and \\\tau\\ and returning a full posterior for them, rather than point estimates of the variance components. For a video introduction, see Richard McElreath’s lecture [*Multilevel Models*](https://www.youtube.com/watch?v=jh3RltVrQ-Q) (Statistical Rethinking 2026, Lecture B01).
 
 ## 6 Further reading
 
@@ -1340,78 +1340,118 @@ The following resources cover Bayesian inference in more depth.
 
 ### 6.2 Books
 
-- Ross ([2022](#ref-rossbayes)), a free online textbook
-- Aragon ([2018](#ref-aragon2018population)), on population health thinking with Bayesian networks
-- McElreath ([2020](#ref-statrethink2e)), which [ECL 234](https://catalog.ucdavis.edu/search/?q=ECL+234) uses; its author was formerly a UC Davis professor, and has published [video lectures](https://www.youtube.com/@rmcelreath/playlists), most recently the [2026 course](https://www.youtube.com/playlist?list=PLDcUM9US4XdNOlqSyhe38US8mFgmqzI14), and [course materials](https://github.com/rmcelreath/stat_rethinking_2024); the Data Science Learning Community’s [book club](https://www.youtube.com/playlist?list=PL3x6DOfs2NGhiIU3mxd_gUyqzmbLesmjh) recorded its discussion of the first twelve chapters
-- Korner-Nievergelt and Korner-Nievergelt ([2015](#ref-korner.bayes.ecology))
-- Cowles ([2013](#ref-CowlesMaryKathryn2013ABSW))
-- Kéry et al. ([2012](#ref-kery-bayes-pop))
-- Hobbs and Hooten ([2015](#ref-HobbsN.Thompson2015Bmas)), which has been used in [PLS 207](https://catalog.ucdavis.edu/search/?q=PLS+207)
-
-### 6.3 Online references
-
-- Wikipedia contributors ([2026a](#ref-wikipedia_bayes_theorem)) — the theorem, its proof and its uses
-
-- Wikipedia contributors ([2026c](#ref-wikipedia_bayesian_statistics)) — the Bayesian approach compared with the frequentist one
-
-- Wikipedia contributors ([2026l](#ref-wikipedia_prior_probability)) — informative, weakly informative and improper priors
-
-- Wikipedia contributors ([2026d](#ref-wikipedia_conjugate_prior)) — conjugate pairs of prior and likelihood
-
-- Wikipedia contributors ([2026e](#ref-wikipedia_credible_interval)) — credible intervals and how they differ from confidence intervals
+- Ross [\[21\]](#ref-rossbayes), a free online textbook
+- Aragon [\[22\]](#ref-aragon2018population), on population health thinking with Bayesian networks
+- McElreath [\[17\]](#ref-statrethink2e), which [ECL 234](https://catalog.ucdavis.edu/search/?q=ECL+234) uses; its author was formerly a UC Davis professor, and has published [video lectures](https://www.youtube.com/@rmcelreath/playlists), most recently the [2026 course](https://www.youtube.com/playlist?list=PLDcUM9US4XdNOlqSyhe38US8mFgmqzI14), and [course materials](https://github.com/rmcelreath/stat_rethinking_2024); the Data Science Learning Community’s [book club](https://www.youtube.com/playlist?list=PL3x6DOfs2NGhiIU3mxd_gUyqzmbLesmjh) recorded its discussion of the first twelve chapters
+- Korner-Nievergelt and Korner-Nievergelt [\[23\]](#ref-korner.bayes.ecology)
+- Cowles [\[24\]](#ref-CowlesMaryKathryn2013ABSW)
+- Kéry et al. [\[25\]](#ref-kery-bayes-pop)
+- Hobbs and Hooten [\[26\]](#ref-HobbsN.Thompson2015Bmas), which has been used in [PLS 207](https://catalog.ucdavis.edu/search/?q=PLS+207)
 
 ## References
 
-Aragon, Tomas J. 2018. *Population Health Thinking with Bayesian Networks*. <https://escholarship.org/uc/item/8000r5m5>.
+\[1\]
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
 
-Cowles, Mary Kathryn. 2013. *Applied Bayesian Statistics: With R and OpenBUGS Examples*. Vol. 98. Springer Texts in Statistics. Springer Nature. <https://doi.org/10.1007/978-1-4614-5696-4>.
+\[2\]
 
-Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized Linear Models*. 4th ed. CRC press. <https://doi.org/10.1201/9781315182780>.
+Wikipedia contributors, “Frequentist inference — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Frequentist_inference>
 
-Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. *Bayesian Data Analysis*. 3rd ed. Chapman & Hall/CRC Texts in Statistical Science. CRC Press. <https://doi.org/10.1201/b16018>.
+\[3\]
 
-Hobbs, N. Thompson, and Mevin B Hooten. 2015. *Bayesian Models: A Statistical Primer for Ecologists*. STU - Student edition. Princeton University Press.
+Wikipedia contributors, “Bayesian statistics — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_statistics>
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+\[4\]
 
-Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
+Wikipedia contributors, “Prior probability — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prior_probability>
 
-Kéry, Marc., Michael. Schaub, and Steven R. Beissinger. 2012. *Bayesian Population Analysis Using WinBUGS : A Hierarchical Perspective*. 1st ed. Academic Press. <https://shop.elsevier.com/books/bayesian-population-analysis-using-winbugs/kery/978-0-12-387020-9>.
+\[5\]
 
-Korner-Nievergelt, Fränzi, and Fränzi Korner-Nievergelt. 2015. *Bayesian Data Analysis in Ecology Using Linear Models with R, BUGS, and Stan*. 1st ed. Academic Press.
+Wikipedia contributors, “Posterior probability — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Posterior_probability>
 
-McElreath, Richard. 2020. *Statistical Rethinking : A Bayesian Course with Examples in R and Stan*. Second edition. Chapman & Hall/CRC Texts in Statistical Science Series. CRC Press.
+\[6\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+Wikipedia contributors, “Marginal likelihood — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Marginal_likelihood>
 
-Ross, Kevin. 2022. *An Introduction to Bayesian Reasoning and Methods*. Online. <https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/>.
+\[7\]
 
-Venables, W. N., and B. D. Ripley. 2002. *Modern Applied Statistics with S*. 4th ed. Springer. <https://doi.org/10.1007/978-0-387-21706-2>.
+Wikipedia contributors, “Bayes’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayes%27_theorem>
 
-Wikipedia contributors. 2026a. *Bayes’ Theorem — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bayes%27_theorem>.
+\[8\]
 
-Wikipedia contributors. 2026b. *Bayesian Hierarchical Modeling — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling>.
+Wikipedia contributors, “Maximum a posteriori estimation — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation>
 
-Wikipedia contributors. 2026c. *Bayesian Statistics — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bayesian_statistics>.
+\[9\]
 
-Wikipedia contributors. 2026d. *Conjugate Prior — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Conjugate_prior>.
+Wikipedia contributors, “Credible interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Credible_interval>
 
-Wikipedia contributors. 2026e. *Credible Interval — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Credible_interval>.
+\[10\]
 
-Wikipedia contributors. 2026f. *Frequentist Inference — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Frequentist_inference>.
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
 
-Wikipedia contributors. 2026g. *Hyperparameter — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Hyperparameter>.
+\[11\]
 
-Wikipedia contributors. 2026h. *Marginal Likelihood — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Marginal_likelihood>.
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
 
-Wikipedia contributors. 2026i. *Maximum a Posteriori Estimation — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation>.
+\[12\]
 
-Wikipedia contributors. 2026j. *Posterior Predictive Distribution — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Posterior_predictive_distribution>.
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
 
-Wikipedia contributors. 2026k. *Posterior Probability — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Posterior_probability>.
+\[13\]
 
-Wikipedia contributors. 2026l. *Prior Probability — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Prior_probability>.
+Wikipedia contributors, “Conjugate prior — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Conjugate_prior>
+
+\[14\]
+
+D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
+
+\[15\]
+
+W. N. Venables and B. D. Ripley, *Modern applied statistics with S*, 4th ed. New York: Springer, 2002. doi: [10.1007/978-0-387-21706-2](https://doi.org/10.1007/978-0-387-21706-2).
+
+\[16\]
+
+A. Gelman, J. B. Carlin, H. S. Stern, D. B. Dunson, A. Vehtari, and D. B. Rubin, *Bayesian data analysis*, 3rd ed. in Chapman & hall/CRC texts in statistical science. Boca Raton, FL: CRC Press, 2013. doi: [10.1201/b16018](https://doi.org/10.1201/b16018).
+
+\[17\]
+
+R. McElreath, *Statistical rethinking : A Bayesian course with examples in R and Stan*, Second edition. in Chapman & hall/CRC texts in statistical science series. Boca Raton, FL: CRC Press, 2020.
+
+\[18\]
+
+Wikipedia contributors, “Posterior predictive distribution — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Posterior_predictive_distribution>
+
+\[19\]
+
+Wikipedia contributors, “Bayesian hierarchical modeling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bayesian_hierarchical_modeling>
+
+\[20\]
+
+Wikipedia contributors, “Hyperparameter — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hyperparameter>
+
+\[21\]
+
+K. Ross, *An introduction to bayesian reasoning and methods*. Online, 2022. Available: <https://bookdown.org/kevin_davisross/bayesian-reasoning-and-methods/>
+
+\[22\]
+
+T. J. Aragon, “Population health thinking with Bayesian networks,” 2018, Available: <https://escholarship.org/uc/item/8000r5m5>
+
+\[23\]
+
+F. Korner-Nievergelt and F. Korner-Nievergelt, *Bayesian data analysis in ecology using linear models with R, BUGS, and Stan*, 1st ed. Amsterdam, \[Netherlands: Academic Press, 2015.
+
+\[24\]
+
+M. K. Cowles, *Applied bayesian statistics: With R and OpenBUGS examples*, vol. 98. in Springer texts in statistics, vol. 98. New York, NY: Springer Nature, 2013. doi: [10.1007/978-1-4614-5696-4](https://doi.org/10.1007/978-1-4614-5696-4).
+
+\[25\]
+
+Marc. Kéry, Michael. Schaub, and S. R. Beissinger, *Bayesian population analysis using WinBUGS : A hierarchical perspective*, 1st ed. Boston: Academic Press, 2012. Available: <https://shop.elsevier.com/books/bayesian-population-analysis-using-winbugs/kery/978-0-12-387020-9>
+
+\[26\]
+
+N. T. Hobbs and M. B. Hooten, *Bayesian models: A statistical primer for ecologists*, STU - Student edition. Princeton: Princeton University Press, 2015.
 
 Back to top

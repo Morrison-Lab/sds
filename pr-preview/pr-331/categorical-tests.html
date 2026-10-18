@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -333,45 +334,25 @@ cookieconsent.run({
 })();
 </script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-exr.callout {
-  border-left-color: #FFA500;
+div.callout-lem.callout {
+  border-left-color: #1565C0;
 }
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
 }
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-proof.callout {
+  border-left-color: #37474F;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-proof.callout-style-default .callout-header {
+  background-color: rgba(55, 71, 79, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-remark.callout {
-  border-left-color: #AD1457;
-}
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
-}
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-exm.callout {
   border-left-color: #6A1B9A;
@@ -393,6 +374,26 @@ div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
+}
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
+}
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-prp.callout {
   border-left-color: #827717;
 }
@@ -402,6 +403,16 @@ div.callout-prp.callout-style-default .callout-header {
 div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
 div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-fig.callout {
   border-left-color: #757575;
@@ -413,29 +424,15 @@ div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-videos.callout {
-  border-left-color: #283593;
+div.callout-exr.callout {
+  border-left-color: #FFA500;
 }
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
 }
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
-}
-div.callout-def.callout {
-  border-left-color: #1B5E20;
-}
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
-}
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-reading.callout {
   border-left-color: #00695C;
@@ -451,6 +448,16 @@ div.callout-reading.callout-style-default .callout-icon::before, div.callout-rea
   content: '\f518' !important;
   background-image: none;
 }
+div.callout-solution.callout {
+  border-left-color: #4E342E;
+}
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
+}
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-tbl.callout {
   border-left-color: #757575;
 }
@@ -461,25 +468,19 @@ div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-lem.callout {
-  border-left-color: #1565C0;
+div.callout-videos.callout {
+  border-left-color: #283593;
 }
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
 }
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-proof.callout {
-  border-left-color: #37474F;
-}
-div.callout-proof.callout-style-default .callout-header {
-  background-color: rgba(55, 71, 79, 0.13);
-}
-div.callout-proof .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -1016,7 +1017,6 @@ window.Quarto = {
   <li><a href="#sec-2x2-measures" id="toc-sec-2x2-measures" class="nav-link" data-scroll-target="#sec-2x2-measures"><span class="header-section-number">2.4</span> Measures of association for <span class="math inline">\(2 \times 2\)</span> tables</a></li>
   </ul>
 </li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/Morrison-Lab/sds/edit/main/categorical-tests.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Morrison-Lab/sds/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/Morrison-Lab/sds/blob/main/categorical-tests.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="categorical-tests-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li><li><a href="categorical-tests-handout.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li><li><a href="categorical-tests-handout.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></nav>
     </div>
@@ -1048,7 +1048,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-18 00:41:10 (PDT)</p>
+      <p class="date">Last modified: 2026-10-18 13:25:37 (PDT)</p>
     </div>
   </div>
   
@@ -1062,7 +1062,7 @@ window.Quarto = {
 text-align: center;
 }
 </style>
-<p>This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the <a href="./inference.html#sec-reference-distributions">Statistical Inference</a> page. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#ref-vittinghoff2e" role="doc-biblioref">2012</a>)</span>, Chapter 3.</p>
+<p>This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the <a href="./inference.html#sec-reference-distributions">Statistical Inference</a> page. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#ref-vittinghoff2e" role="doc-biblioref">[1]</a></span>, Chapter 3.</p>
 <section id="the-hers-data" class="level2" data-number="1"><h2 data-number="1" class="anchored" data-anchor-id="the-hers-data">
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
@@ -1118,23 +1118,23 @@ Table&nbsp;1: Exercise by treatment group in HERS
 </figcaption><div aria-describedby="tbl-hers-crosstab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="gdtoapbqbo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gdtoapbqbo table {
+<div id="xxaydmreli" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xxaydmreli table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gdtoapbqbo thead, #gdtoapbqbo tbody, #gdtoapbqbo tfoot, #gdtoapbqbo tr, #gdtoapbqbo td, #gdtoapbqbo th {
+#xxaydmreli thead, #xxaydmreli tbody, #xxaydmreli tfoot, #xxaydmreli tr, #xxaydmreli td, #xxaydmreli th {
   border-style: none;
 }
 
-#gdtoapbqbo p {
+#xxaydmreli p {
   margin: 0;
   padding: 0;
 }
 
-#gdtoapbqbo .gt_table {
+#xxaydmreli .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1160,12 +1160,12 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-left-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_caption {
+#xxaydmreli .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gdtoapbqbo .gt_title {
+#xxaydmreli .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1177,7 +1177,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-width: 0;
 }
 
-#gdtoapbqbo .gt_subtitle {
+#xxaydmreli .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1189,7 +1189,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-top-width: 0;
 }
 
-#gdtoapbqbo .gt_heading {
+#xxaydmreli .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1201,13 +1201,13 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_bottom_border {
+#xxaydmreli .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_col_headings {
+#xxaydmreli .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1222,7 +1222,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_col_heading {
+#xxaydmreli .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1242,7 +1242,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   overflow-x: hidden;
 }
 
-#gdtoapbqbo .gt_column_spanner_outer {
+#xxaydmreli .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1254,15 +1254,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 4px;
 }
 
-#gdtoapbqbo .gt_column_spanner_outer:first-child {
+#xxaydmreli .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gdtoapbqbo .gt_column_spanner_outer:last-child {
+#xxaydmreli .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gdtoapbqbo .gt_column_spanner {
+#xxaydmreli .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1274,11 +1274,11 @@ Table&nbsp;1: Exercise by treatment group in HERS
   width: 100%;
 }
 
-#gdtoapbqbo .gt_spanner_row {
+#xxaydmreli .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gdtoapbqbo .gt_group_heading {
+#xxaydmreli .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1304,7 +1304,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   text-align: left;
 }
 
-#gdtoapbqbo .gt_empty_group_heading {
+#xxaydmreli .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1319,15 +1319,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   vertical-align: middle;
 }
 
-#gdtoapbqbo .gt_from_md > :first-child {
+#xxaydmreli .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gdtoapbqbo .gt_from_md > :last-child {
+#xxaydmreli .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gdtoapbqbo .gt_row {
+#xxaydmreli .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1346,7 +1346,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   overflow-x: hidden;
 }
 
-#gdtoapbqbo .gt_stub {
+#xxaydmreli .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1359,7 +1359,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_stub_row_group {
+#xxaydmreli .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1373,15 +1373,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   vertical-align: top;
 }
 
-#gdtoapbqbo .gt_row_group_first td {
+#xxaydmreli .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gdtoapbqbo .gt_row_group_first th {
+#xxaydmreli .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gdtoapbqbo .gt_summary_row {
+#xxaydmreli .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1391,16 +1391,16 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_first_summary_row {
+#xxaydmreli .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_first_summary_row.thick {
+#xxaydmreli .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gdtoapbqbo .gt_last_summary_row {
+#xxaydmreli .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1410,7 +1410,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_grand_summary_row {
+#xxaydmreli .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1420,7 +1420,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_first_grand_summary_row {
+#xxaydmreli .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1430,7 +1430,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-top-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_last_grand_summary_row_top {
+#xxaydmreli .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1440,11 +1440,11 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_striped {
+#xxaydmreli .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gdtoapbqbo .gt_table_body {
+#xxaydmreli .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1453,7 +1453,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_footnotes {
+#xxaydmreli .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1467,7 +1467,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_footnote {
+#xxaydmreli .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1476,7 +1476,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_sourcenotes {
+#xxaydmreli .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1490,7 +1490,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_sourcenote {
+#xxaydmreli .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1498,72 +1498,72 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_left {
+#xxaydmreli .gt_left {
   text-align: left;
 }
 
-#gdtoapbqbo .gt_center {
+#xxaydmreli .gt_center {
   text-align: center;
 }
 
-#gdtoapbqbo .gt_right {
+#xxaydmreli .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gdtoapbqbo .gt_font_normal {
+#xxaydmreli .gt_font_normal {
   font-weight: normal;
 }
 
-#gdtoapbqbo .gt_font_bold {
+#xxaydmreli .gt_font_bold {
   font-weight: bold;
 }
 
-#gdtoapbqbo .gt_font_italic {
+#xxaydmreli .gt_font_italic {
   font-style: italic;
 }
 
-#gdtoapbqbo .gt_super {
+#xxaydmreli .gt_super {
   font-size: 65%;
 }
 
-#gdtoapbqbo .gt_footnote_marks {
+#xxaydmreli .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gdtoapbqbo .gt_asterisk {
+#xxaydmreli .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gdtoapbqbo .gt_indent_1 {
+#xxaydmreli .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gdtoapbqbo .gt_indent_2 {
+#xxaydmreli .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gdtoapbqbo .gt_indent_3 {
+#xxaydmreli .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gdtoapbqbo .gt_indent_4 {
+#xxaydmreli .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gdtoapbqbo .gt_indent_5 {
+#xxaydmreli .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gdtoapbqbo .katex-display {
+#xxaydmreli .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gdtoapbqbo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xxaydmreli div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1642,9 +1642,9 @@ Treatment group
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 7.3</a>, pp.&nbsp;323–328)</span> covers confidence intervals for proportions.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#ref-hoggtanis2015" role="doc-biblioref">[2, Sec. 7.3]</a>, pp.&nbsp;323–328</span> covers confidence intervals for proportions.</li>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 8.4</a>, pp.&nbsp;385–391)</span> covers tests about proportions.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#ref-hoggtanis2015" role="doc-biblioref">[2, Sec. 8.4]</a>, pp.&nbsp;385–391</span> covers tests about proportions.</li>
 </ul>
 </div>
 </div>
@@ -1666,9 +1666,9 @@ Treatment group
 <div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-expected-count" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1 (Expected count under independence)</strong></span> Let a contingency table have <span class="math inline">\(r\)</span> rows and <span class="math inline">\(c\)</span> columns, with observed count <span class="math inline">\(O_{ij}\)</span> in row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span>, row totals <span class="math inline">\(R_i\)</span>, column totals <span class="math inline">\(C_j\)</span>, and grand total <span class="math inline">\(n\)</span>. The <strong>expected count</strong> in cell <span class="math inline">\((i, j)\)</span> under independence is</p>
+<p><span class="theorem-title"><strong>Definition 1 (Expected count under independence)</strong></span> Let a contingency table have <span class="math inline">\(r\)</span> rows and <span class="math inline">\(c\)</span> columns, with observed count <span class="math inline">\(O_{ij}\)</span> in row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span>, row totals <span class="math inline">\(R_i\)</span>, column totals <span class="math inline">\(C_j\)</span>, and grand total <span class="math inline">\(n\)</span> <span class="citation" data-cites="wikipedia_contingency_table"><a href="#ref-wikipedia_contingency_table" role="doc-biblioref">[3]</a></span>. The <strong>expected count</strong> in cell <span class="math inline">\((i, j)\)</span> under independence is</p>
 <p><span class="math display">\[E_{ij} \stackrel{\text{def}}{=}\frac{R_i \, C_j}{n}.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_contingency_table">Wikipedia contributors (<a href="#ref-wikipedia_contingency_table" role="doc-biblioref">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_contingency_table">Wikipedia contributors <a href="#ref-wikipedia_contingency_table" role="doc-biblioref">[3]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1710,10 +1710,10 @@ Treatment group
 <div id="callout-5" class="callout-5-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-chi-square-test" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 2 (Pearson’s chi-square test of independence)</strong></span> With observed counts <span class="math inline">\(O_{ij}\)</span> and <a href="#def-expected-count">expected counts</a> <span class="math inline">\(E_{ij}\)</span> in an <span class="math inline">\(r \times c\)</span> contingency table, <strong>Pearson’s chi-square test</strong> of the null hypothesis that the row and column variables are independent uses the statistic</p>
+<p><span class="theorem-title"><strong>Definition 2 (Pearson’s chi-square test of independence)</strong></span> With observed counts <span class="math inline">\(O_{ij}\)</span> and <a href="#def-expected-count">expected counts</a> <span class="math inline">\(E_{ij}\)</span> in an <span class="math inline">\(r \times c\)</span> contingency table, <strong>Pearson’s chi-square test</strong> of the null hypothesis that the row and column variables are independent uses the statistic <span class="citation" data-cites="wikipedia_pearsons_chi_squared_test"><a href="#ref-wikipedia_pearsons_chi_squared_test" role="doc-biblioref">[4]</a></span></p>
 <p><span class="math display">\[X^2 \stackrel{\text{def}}{=}\sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.\]</span></p>
 <p>Its p-value is <span class="math inline">\(\Pr(W \ge X^2)\)</span>, where <span class="math inline">\(W\)</span> has the <span class="math inline">\(\chi^2_{(r-1)(c-1)}\)</span> distribution (<a href="./inference.html#def-chi-square-dist">chi-square distribution</a>).</p>
-<p>Source: <span class="citation" data-cites="wikipedia_pearsons_chi_squared_test">Wikipedia contributors (<a href="#ref-wikipedia_pearsons_chi_squared_test" role="doc-biblioref">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_pearsons_chi_squared_test">Wikipedia contributors <a href="#ref-wikipedia_pearsons_chi_squared_test" role="doc-biblioref">[4]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1731,7 +1731,7 @@ Treatment group
 <div id="callout-6" class="callout-6-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="thm-chi-square-null" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Large-sample null distribution of the chi-square statistic)</strong></span> Let <span class="math inline">\(n\)</span> observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as <span class="math inline">\(n \to \infty\)</span>, the distribution of <span class="math inline">\(X^2\)</span> (<a href="#def-chi-square-test" class="quarto-xref">Definition&nbsp;2</a>) converges to the <span class="math inline">\(\chi^2_{(r-1)(c-1)}\)</span> distribution <span class="citation" data-cites="hoggtanis2015">(<a href="#ref-hoggtanis2015" role="doc-biblioref">Hogg et al. 2019, sec. 9.2</a>, p.&nbsp;440)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 1 (Large-sample null distribution of the chi-square statistic)</strong></span> Let <span class="math inline">\(n\)</span> observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as <span class="math inline">\(n \to \infty\)</span>, the distribution of <span class="math inline">\(X^2\)</span> (<a href="#def-chi-square-test" class="quarto-xref">Definition&nbsp;2</a>) converges to the <span class="math inline">\(\chi^2_{(r-1)(c-1)}\)</span> distribution <span class="citation" data-cites="hoggtanis2015"><a href="#ref-hoggtanis2015" role="doc-biblioref">[2, Sec. 9.2]</a>, p.&nbsp;440</span>.</p>
 </div>
 </div>
 </div>
@@ -1830,15 +1830,15 @@ Treatment group
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 9.1</a>, pp.&nbsp;425–434)</span> covers chi-square goodness-of-fit tests.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#ref-hoggtanis2015" role="doc-biblioref">[2, Sec. 9.1]</a>, pp.&nbsp;425–434</span> covers chi-square goodness-of-fit tests.</li>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 9.2</a>, pp.&nbsp;435–445)</span> covers contingency tables.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#ref-hoggtanis2015" role="doc-biblioref">[2, Sec. 9.2]</a>, pp.&nbsp;435–445</span> covers contingency tables.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 13.3</a>, pp.&nbsp;516–519)</span> covers the chi-square test of homogeneity.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[5, Sec. 13.3]</a>, pp.&nbsp;516–519</span> covers the chi-square test of homogeneity.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 13.4</a>, pp.&nbsp;520–522)</span> covers the chi-square test of independence.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[5, Sec. 13.4]</a>, pp.&nbsp;520–522</span> covers the chi-square test of independence.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 9.5</a>, pp.&nbsp;341–346)</span> covers likelihood ratio tests for the multinomial distribution.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[5, Sec. 9.5]</a>, pp.&nbsp;341–346</span> covers likelihood ratio tests for the multinomial distribution.</li>
 </ul>
 </div>
 </div>
@@ -1862,7 +1862,7 @@ Treatment group
 <div id="def-fishers-exact" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Fisher’s exact test)</strong></span> Take a <span class="math inline">\(2 \times 2\)</span> contingency table with cells <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, and <span class="math inline">\(d\)</span> as in <a href="./exploratory-descriptive.html#def-contingency-table">the contingency table definition</a>, and hold its row and column totals fixed. Under independence of the row and column variables, the probability that the top-left cell equals <span class="math inline">\(x\)</span> is the hypergeometric probability</p>
 <p><span class="math display">\[p(x) \stackrel{\text{def}}{=}\frac{\binom{a+b}{x} \binom{c+d}{a+c-x}}{\binom{n}{a+c}}.\]</span></p>
-<p><strong>Fisher’s exact test</strong> of independence has p-value</p>
+<p><strong>Fisher’s exact test</strong> of independence has p-value <span class="citation" data-cites="wikipedia_fishers_exact_test"><a href="#ref-wikipedia_fishers_exact_test" role="doc-biblioref">[6]</a></span></p>
 <p><span class="math display">\[\sum_{x \,:\, p(x) \le p(a)} p(x),\]</span></p>
 <p>the total probability of the tables with the same totals that are no more probable than the observed table.</p>
 </div>
@@ -1945,7 +1945,7 @@ Treatment group
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p><span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 13.2</a>, pp.&nbsp;514–515)</span> covers Fisher’s exact test.</p>
+<p><span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[5, Sec. 13.2]</a>, pp.&nbsp;514–515</span> covers Fisher’s exact test.</p>
 </div>
 </div>
 </div>
@@ -1966,35 +1966,39 @@ Treatment group
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p><span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 13.6</a>, pp.&nbsp;526–529)</span> covers odds ratios.</p>
+<p><span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[5, Sec. 13.6]</a>, pp.&nbsp;526–529</span> covers odds ratios.</p>
 </div>
 </div>
 </div>
 </div>
-</section></section><section id="further-reading" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="further-reading">Further reading</h2>
-<ul>
-<li><p><span class="citation" data-cites="wikipedia_pearsons_chi_squared_test">Wikipedia contributors (<a href="#ref-wikipedia_pearsons_chi_squared_test" role="doc-biblioref">2026c</a>)</span> — the test, its assumptions and its variants</p></li>
-<li><p><span class="citation" data-cites="wikipedia_fishers_exact_test">Wikipedia contributors (<a href="#ref-wikipedia_fishers_exact_test" role="doc-biblioref">2026b</a>)</span> — the exact test and when to use it</p></li>
-<li><p><span class="citation" data-cites="wikipedia_contingency_table">Wikipedia contributors (<a href="#ref-wikipedia_contingency_table" role="doc-biblioref">2026a</a>)</span> — tables of counts and their analysis</p></li>
-</ul></section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
-</div>
+</section></section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, <em>Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models</em>, 2nd ed. Springer, 2012. doi: <a href="https://doi.org/10.1007/978-1-4614-1353-0">10.1007/978-1-4614-1353-0</a>.</div>
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
 </div>
 <div id="ref-wikipedia_contingency_table" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Contingency Table — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Contingency_table">https://en.wikipedia.org/wiki/Contingency_table</a>.
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Contingency table — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Contingency_table">https://en.wikipedia.org/wiki/Contingency_table</a>
 </div>
-<div id="ref-wikipedia_fishers_exact_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Fisher’s Exact Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Fisher%27s_exact_test">https://en.wikipedia.org/wiki/Fisher%27s_exact_test</a>.
 </div>
 <div id="ref-wikipedia_pearsons_chi_squared_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Pearson’s Chi-Squared Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test">https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test</a>.
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Pearson’s chi-squared test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test">https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test</a>
+</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
+</div>
+<div id="ref-wikipedia_fishers_exact_test" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Fisher’s exact test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Fisher%27s_exact_test">https://en.wikipedia.org/wiki/Fisher%27s_exact_test</a>
+</div>
 </div>
 </div>
 
@@ -2985,18 +2989,11 @@ document.querySelectorAll("main table").forEach(function (t) {
 <span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>@rice2007mathematical <span class="co">[</span><span class="ot">Sec. 13.6, pp. 526--529</span><span class="co">]</span> covers odds ratios.</span>
 <span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a><span class="fu">## Further reading {.unnumbered}</span></span>
-<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>@wikipedia_pearsons_chi_squared_test --- the test, its assumptions and its variants</span>
-<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>@wikipedia_fishers_exact_test --- the exact test and when to use it</span>
-<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>@wikipedia_contingency_table --- tables of counts and their analysis</span>
-<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
-<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
-<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a><span class="fu">## References {.unnumbered}</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>::: {#refs}</span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
