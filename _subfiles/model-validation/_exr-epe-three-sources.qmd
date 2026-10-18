@@ -8,7 +8,7 @@ squared [bias](#def-prediction-bias) $\sqf{\bias{\predvalf{\predvar}}} = 1$
 and [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\Var{\predvalf{\predvar}} = 2$.
 The [noise](#def-noise) of $\newoutvar$ has [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance) $\varpar = 3$.
 
-1. What is the [expected squared prediction error](#def-epe) $\E{\sqf{\newoutvar - \predvalf{\predvar}} \mid \newpredvar = \predvar}$?
+1. What is the [expected squared prediction error](#def-epe) $\epe{\fitproc}{\nobs}{\predvar}$?
 2. If we could remove all bias and all variance of $\predvalf{\predvar}$,
    what would the expected squared prediction error at $\predvar$ be?
 3. Which of the three quantities
