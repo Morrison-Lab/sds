@@ -109,6 +109,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -355,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 00:41:18 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:35:24 (PDT)</p>
 </section><section id="empirical-distribution" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Empirical distribution</h2>
 <style>
@@ -366,13 +367,13 @@ text-align: center;
 <!-- No slidebreak here: the heading shares its slide with the def-empirical-distribution div. --><div id="def-empirical-distribution" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Empirical distribution)</strong></span> For observed values <span class="math inline">\(x_1, \ldots, x_n\)</span>, the <strong>empirical distribution</strong> is the distribution of a value <a href="https://morrison-lab.github.io/pds/probability-basics.html#def-random-choice">chosen at random</a> from the sample, each of the <span class="math inline">\(n\)</span> observations being equally likely: the probability that the value falls in a set <span class="math inline">\(A\)</span> is</p>
 <p><span class="math display">\[\frac{1}{n}\sum_{j=1}^n\mathbb{1}\mathopen{}\left(x_j \in A\right)\mathclose{}.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_empirical_measure">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_empirical_measure">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
 </div>
 <div id="exm-empirical-distribution" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Numerical example: empirical distribution)</strong></span> Suppose the observed values are <span class="math inline">\(4, 1, 7, 3\)</span>, so <span class="math inline">\(n = 4\)</span>, and let <span class="math inline">\(A = [2, 5)\)</span>. Two of the four values (4 and 3) lie in <span class="math inline">\(A\)</span>, so the empirical distribution gives <span class="math inline">\(A\)</span> probability <span class="math inline">\(2/4 = 0.5\)</span>. Each observed value has probability <span class="math inline">\(1/4\)</span>, and any set containing none of them has probability <span class="math inline">\(0\)</span>.</p>
 </div>
 <aside class="notes proof remark"><p><span class="proof-title"><em>Remark</em> (What “empirical” means). </span>“Empirical” means computed from the observed data, not from a model or a population. An empirical quantity is the matching population quantity with the <a href="./exploratory-descriptive.html#def-population-distribution">population distribution</a> replaced by the empirical distribution. For example, the mean of the empirical distribution is the <a href="./exploratory-descriptive.html#def-sample-mean">sample mean</a>, and its CDF is the <a href="#/def-empirical-cdf">empirical CDF</a>. Machine learning uses the same replacement to turn the risk of a prediction model into its <em>empirical risk</em>.</p>
-<p>Because it needs only the data in hand, an empirical quantity can always be computed, and it serves as an estimate of the population quantity it mimics. The bootstrap rests on this replacement: it estimates the variability of a statistic by sampling from the empirical distribution <span class="citation" data-cites="hastie2009elements efron1993introduction">(<a href="#/references" role="doc-biblioref" onclick="">Hastie et al. 2009, sec. 7.11</a>, p.&nbsp;250; <a href="#/references" role="doc-biblioref" onclick="">Efron and Tibshirani 1993</a>)</span>.</p>
+<p>Because it needs only the data in hand, an empirical quantity can always be computed, and it serves as an estimate of the population quantity it mimics. The bootstrap rests on this replacement: it estimates the variability of a statistic by sampling from the empirical distribution <span class="citation" data-cites="hastie2009elements efron1993introduction"><a href="#/references" role="doc-biblioref" onclick="">[2, Sec. 7.11]</a>, p.&nbsp;250, <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -389,7 +390,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 2 (Empirical CDF)</strong></span> For observed values <span class="math inline">\(x_1, \ldots, x_n\)</span>, the <strong>empirical cumulative distribution function</strong> (<strong>empirical CDF</strong>) is the <a href="https://morrison-lab.github.io/pds/random-variables.html#def-cdf">CDF</a> of the <a href="#/def-empirical-distribution">empirical distribution</a>, the function</p>
 <p><span class="math display">\[\mathop{\hat{\operatorname{F}}}\nolimits\mathopen{}\left(t\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum_{j=1}^nI(x_j \le t), \quad t \in \mathbb{R},\]</span></p>
 <p>where <span class="math inline">\(I(A)\)</span> is the indicator function: <span class="math inline">\(I(A) = 1\)</span> if <span class="math inline">\(A\)</span> holds, and <span class="math inline">\(I(A) = 0\)</span> otherwise.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_empirical_distribution_function">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_empirical_distribution_function">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-empirical-cdf" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Numerical example: empirical CDF)</strong></span> Suppose the observed values are <span class="math inline">\(4, 1, 7, 3\)</span>, so <span class="math inline">\(n = 4\)</span>. Two of the four values (1 and 3) are at most 3.5, so:</p>
@@ -407,7 +408,7 @@ text-align: center;
 <p>Similarly, <span class="math inline">\(\hat F(0) = 0\)</span>, because no value is at most 0, and <span class="math inline">\(\hat F(7) = 1\)</span>, because every value is at most 7.</p>
 </div>
 <div class="reading">
-<p><span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 10.2.1</a>, pp.&nbsp;378–379)</span> covers the empirical CDF.</p>
+<p><span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 10.2.1]</a>, pp.&nbsp;378–379</span> covers the empirical CDF.</p>
 </div>
 </section><section id="order-statistics" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Order statistics</h2>
@@ -416,7 +417,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 3 (Order statistics)</strong></span> For observed values <span class="math inline">\(x_1, \ldots, x_n\)</span>, the <strong>order statistics</strong> are the same values sorted in increasing order, written</p>
 <p><span class="math display">\[x_{(1)} \le x_{(2)} \le \cdots \le x_{(n)}.\]</span></p>
 <p>So <span class="math inline">\(x_{(1)}\)</span> is the smallest value and <span class="math inline">\(x_{(n)}\)</span> is the largest.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_order_statistic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_order_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-order-statistics" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Numerical example: order statistics)</strong></span> If the observed values are <span class="math inline">\(4, 1, 7, 3\)</span>, then the order statistics are <span class="math inline">\(x_{(1)} = 1\)</span>, <span class="math inline">\(x_{(2)} = 3\)</span>, <span class="math inline">\(x_{(3)} = 4\)</span>, and <span class="math inline">\(x_{(4)} = 7\)</span>.</p>
@@ -424,9 +425,9 @@ text-align: center;
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 6.3</a>, pp.&nbsp;256–263)</span> covers order statistics.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 6.3]</a>, pp.&nbsp;256–263</span> covers order statistics.</li>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 5.4</a>, pp.&nbsp;226–231)</span> covers order statistics.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[8, Sec. 5.4]</a>, pp.&nbsp;226–231</span> covers order statistics.</li>
 </ul>
 </div>
 </section><section id="sample-quantiles" class="slide level2" data-number="4"><h2>
@@ -435,7 +436,7 @@ text-align: center;
 <div id="def-sample-quantile" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Sample quantile function (empirical quantile function))</strong></span> Given an <a href="#/def-empirical-cdf">empirical CDF</a> <span class="math inline">\(\hat F\)</span>, the <strong>sample quantile function</strong> (also called the <strong>empirical quantile function</strong>) is</p>
 <p><span class="math display">\[\hat Q(p) \stackrel{\text{def}}{=}\inf\mathopen{}\left\{t : \hat F(t) \ge p\right\}\mathclose{}, \quad 0 &lt; p \le 1.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_quantile">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026e</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_quantile">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-sample-p-quantile" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Sample <span class="math inline">\(p\)</span> quantile (sample <span class="math inline">\(100p\)</span>th percentile))</strong></span> For a given <span class="math inline">\(p\)</span>, the value <span class="math inline">\(\hat Q(p)\)</span> of the <a href="#/def-sample-quantile">sample quantile function</a> is the <strong>sample <span class="math inline">\(p\)</span> quantile</strong>, also called the <strong>sample <span class="math inline">\(100p\)</span>th percentile</strong>.</p>
@@ -492,7 +493,7 @@ text-align: center;
 <p><span class="proof-title"><em>Remark 1</em> (Quantile conventions). </span>Other sources, and other software defaults, define sample quantiles differently, mostly by interpolating between order statistics. R’s <code><a href="https://rdrr.io/r/stats/quantile.html">quantile()</a></code> offers nine definitions through its <code>type</code> argument, and its default (<code>type = 7</code>) interpolates, so <code>quantile(c(4, 1, 7, 3), 0.5)</code> returns 3.5, not 3. The usual sample median is another interpolated quantile: for an even number of observations, it averages the two middle order statistics. These notes use <a href="#/def-sample-quantile" class="quarto-xref">Definition&nbsp;4</a>, which always returns one of the observed values.</p>
 </div>
 <div class="reading">
-<p><span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 7.5</a>, pp.&nbsp;337–343)</span> covers distribution-free confidence intervals for percentiles.</p>
+<p><span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 7.5]</a>, pp.&nbsp;337–343</span> covers distribution-free confidence intervals for percentiles.</p>
 </div>
 </section><section id="the-empirical-cdf-and-quantile-function-as-generalized-inverses" class="slide level2" data-number="5"><h2>
 <span class="header-section-number">5</span> The empirical CDF and quantile function as generalized inverses</h2>
@@ -594,52 +595,68 @@ Figure&nbsp;1: The empirical CDF and the sample quantile function for the data 4
 <p>These readings look ahead from the empirical CDF to distribution-free tests, which this page does not cover:</p>
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 8.5</a>, pp.&nbsp;392–402)</span> covers some distribution-free tests.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 8.5]</a>, pp.&nbsp;392–402</span> covers some distribution-free tests.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 11.2.3</a>, pp.&nbsp;435–442)</span> covers the Mann–Whitney test.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 11.2.3]</a>, pp.&nbsp;435–442</span> covers the Mann–Whitney test.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 11.3.2</a>, pp.&nbsp;448–449)</span> covers the signed rank test.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 11.3.2]</a>, pp.&nbsp;448–449</span> covers the signed rank test.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 12.2.3</a>, p.&nbsp;488)</span> covers the Kruskal–Wallis test.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 12.2.3]</a>, p.&nbsp;488</span> covers the Kruskal–Wallis test.</li>
 </ul>
 </div>
 </section><section id="further-reading" class="slide level2 unnumbered"><h2>Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_empirical_distribution_function">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span> — the empirical CDF and its convergence</p></li>
-<li><p><span class="citation" data-cites="wikipedia_order_statistic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span> — order statistics and their distributions</p></li>
-<li><p><span class="citation" data-cites="wikipedia_quantile">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026e</a>)</span> — quantiles and how they are estimated</p></li>
-<li><p><span class="citation" data-cites="wikipedia_nonparametric_statistics">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span> — the nonparametric approach to inference</p></li>
+<li><p><span class="citation" data-cites="wikipedia_empirical_distribution_function">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> — the empirical CDF and its convergence</p></li>
+<li><p><span class="citation" data-cites="wikipedia_order_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span> — order statistics and their distributions</p></li>
+<li><p><span class="citation" data-cites="wikipedia_quantile">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span> — quantiles and how they are estimated</p></li>
+<li><p><span class="citation" data-cites="wikipedia_nonparametric_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span> — the nonparametric approach to inference</p></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-wikipedia_empirical_measure" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Empirical measure — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Empirical_measure">https://en.wikipedia.org/wiki/Empirical_measure</a>
 </div>
-<div id="ref-efron1993introduction" class="csl-entry" role="listitem">
-Efron, Bradley, and Robert J. Tibshirani. 1993. <em>An Introduction to the Bootstrap</em>. Monographs on Statistics and Applied Probability 57. Chapman &amp; Hall/CRC. <a href="https://doi.org/10.1201/9780429246593">https://doi.org/10.1201/9780429246593</a>.
 </div>
 <div id="ref-hastie2009elements" class="csl-entry" role="listitem">
-Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">T. Hastie, R. Tibshirani, and J. Friedman, <em>The elements of statistical learning: Data mining, inference, and prediction</em>, 2nd ed. Springer, 2009. doi: <a href="https://doi.org/10.1007/978-0-387-84858-7">10.1007/978-0-387-84858-7</a>.</div>
 </div>
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
+<div id="ref-efron1993introduction" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">B. Efron and R. J. Tibshirani, <em>An introduction to the bootstrap</em>. in Monographs on statistics and applied probability, no. 57. New York: Chapman &amp; Hall/CRC, 1993. doi: <a href="https://doi.org/10.1201/9780429246593">10.1201/9780429246593</a>.</div>
 </div>
 <div id="ref-wikipedia_empirical_distribution_function" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Empirical Distribution Function — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Empirical_distribution_function">https://en.wikipedia.org/wiki/Empirical_distribution_function</a>.
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Empirical distribution function — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Empirical_distribution_function">https://en.wikipedia.org/wiki/Empirical_distribution_function</a>
 </div>
-<div id="ref-wikipedia_empirical_measure" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Empirical Measure — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Empirical_measure">https://en.wikipedia.org/wiki/Empirical_measure</a>.
 </div>
-<div id="ref-wikipedia_nonparametric_statistics" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Nonparametric Statistics — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Nonparametric_statistics">https://en.wikipedia.org/wiki/Nonparametric_statistics</a>.
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
 </div>
 <div id="ref-wikipedia_order_statistic" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026d. <em>Order Statistic — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Order_statistic">https://en.wikipedia.org/wiki/Order_statistic</a>.
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Order statistic — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Order_statistic">https://en.wikipedia.org/wiki/Order_statistic</a>
+</div>
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
+</div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
+</div>
 </div>
 <div id="ref-wikipedia_quantile" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026e. <em>Quantile — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Quantile">https://en.wikipedia.org/wiki/Quantile</a>.
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Quantile — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Quantile">https://en.wikipedia.org/wiki/Quantile</a>
+</div>
+</div>
+<div id="ref-wikipedia_nonparametric_statistics" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Nonparametric statistics — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Nonparametric_statistics">https://en.wikipedia.org/wiki/Nonparametric_statistics</a>
+</div>
 </div>
 </div>
 

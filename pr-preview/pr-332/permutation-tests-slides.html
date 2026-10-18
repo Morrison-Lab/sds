@@ -109,6 +109,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -355,17 +356,17 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 00:41:18 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:35:24 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
 <p>The p-value of a <a href="./basic-statistical-methods.html#def-two-sample-t-test">t-test</a> comes from a distributional approximation: the statistic is only approximately t-distributed unless the data are Gaussian. A <strong>permutation test</strong> takes its null distribution from the data instead. If the null hypothesis says that two groups have the same distribution, then under that hypothesis the group labels carry no information, so reassigning the labels at random produces data sets that are as plausible as the observed one. The spread of the test statistic across those relabelings is its null distribution.</p>
-<p>This page defines exchangeability, the permutation distribution and the permutation p-value, shows why that p-value is valid, and then approximates it by random relabelings, which is how it is computed in practice. It continues the <a href="./bootstrap.html">bootstrap</a> page’s idea of computing a <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> by resampling, and supplies the p-values that the <a href="./multiple-testing.html">multiple testing</a> page corrects. These notes follow chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span> and the treatment in <span class="citation" data-cites="good2005permutation">Good (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span>.</p>
+<p>This page defines exchangeability, the permutation distribution and the permutation p-value, shows why that p-value is valid, and then approximates it by random relabelings, which is how it is computed in practice. It continues the <a href="./bootstrap.html">bootstrap</a> page’s idea of computing a <a href="./estimation.html#def-sampling-distribution">sampling distribution</a> by resampling, and supplies the p-values that the <a href="./multiple-testing.html">multiple testing</a> page corrects. These notes follow chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> and the treatment in <span class="citation" data-cites="good2005permutation">Good <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </section><section id="sec-permutation-khan-data" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The Khan gene expression data</h2>
-<p>The examples on this page use gene expression data from <span class="citation" data-cites="khan2001classification">Khan et al. (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>, who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at <a href="data/khan.csv"><code>data/khan.csv</code></a>, taken from the <code>Khan</code> data of the R package <a href="https://cran.r-project.org/package=ISLR2"><code>ISLR2</code></a> <span class="citation" data-cites="james2021islr2e">(<a href="#/references" role="doc-biblioref" onclick="">James et al. 2021</a>)</span>: the column <code>tumor_class</code> holds the class, and the columns <code>gene_1</code> to <code>gene_2308</code> hold the expression values. The examples compare classes 2 and 4.</p>
+<p>The examples on this page use gene expression data from <span class="citation" data-cites="khan2001classification">Khan et al. <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>, who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at <a href="data/khan.csv"><code>data/khan.csv</code></a>, taken from the <code>Khan</code> data of the R package <a href="https://cran.r-project.org/package=ISLR2"><code>ISLR2</code></a> <span class="citation" data-cites="james2021islr2e"><a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>: the column <code>tumor_class</code> holds the class, and the columns <code>gene_1</code> to <code>gene_2308</code> hold the expression values. The examples compare classes 2 and 4.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>khan <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/khan.csv"</span>)</span>
 <span id="cb1-2"><a aria-label="2"></a>khan_pair <span class="ot">&lt;-</span> khan[khan<span class="sc">$</span>tumor_class <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>), ]</span>
@@ -380,7 +381,7 @@ text-align: center;
 <div id="def-exchangeable" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Exchangeable random variables)</strong></span> For a permutation <span class="math inline">\(\pi\)</span> of <span class="math inline">\(\mathopen{}\left\{1, \ldots, n\right\}\mathclose{}\)</span> and a vector <span class="math inline">\(y = (y_1, \ldots, y_n)\)</span>, write <span class="math inline">\(y_\pi \stackrel{\text{def}}{=}(y_{\pi(1)}, \ldots, y_{\pi(n)})\)</span> for the vector with its entries reordered by <span class="math inline">\(\pi\)</span>. Random variables <span class="math inline">\(Y_1, \ldots, Y_n\)</span> are <strong>exchangeable</strong> if reordering them does not change their joint distribution: for every permutation <span class="math inline">\(\pi\)</span> and every set <span class="math inline">\(A\)</span> of vectors,</p>
 <p><span class="math display">\[\Pr(Y_\pi \in A) = \Pr(Y \in A).\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_exchangeable_random_variables">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_exchangeable_random_variables">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-exchangeable" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (Two groups with the same distribution)</strong></span> Let a gene’s expression be measured in <span class="math inline">\(n_1\)</span> samples from tumor class 2 and <span class="math inline">\(n_2\)</span> samples from tumor class 4, and let <span class="math inline">\(H_0\)</span> say that the expression has the same distribution in both classes. Under <span class="math inline">\(H_0\)</span> the <span class="math inline">\(n = n_1 + n_2\)</span> values <span class="math inline">\(Y_1, \ldots, Y_n\)</span> are independent and identically distributed, and independent, identically distributed variables are exchangeable, because their joint distribution is the product of the same marginal distribution <span class="math inline">\(n\)</span> times, which does not depend on the order of the factors. Given the set of observed values, every assignment of them to the two groups is then equally likely. With 23 samples in class 2 and 20 in class 4 there are</p>
@@ -524,7 +525,7 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 3 (Permutation p-value)</strong></span> With the notation of <a href="#/def-permutation-distribution" class="quarto-xref">Definition&nbsp;2</a>, the <strong>permutation p-value</strong> of the observed statistic <span class="math inline">\(t = T(y)\)</span> is the proportion of relabelings whose statistic is at least as extreme as the observed one:</p>
 <p><span class="math display">\[p_{\text{perm}} \stackrel{\text{def}}{=}\Pr_\pi\mathopen{}\left(T(y_\pi) \ge T(y)\right)\mathclose{} = \frac{1}{n!} \sum_{\pi \in S_n} \mathbb{1}_{T(y_\pi) \ge T(y)}.\]</span></p>
 <p>Because the identity permutation is one of the <span class="math inline">\(n!\)</span> relabelings, <span class="math inline">\(p_{\text{perm}} \ge 1 / n!\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_permutation_test">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_permutation_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-permutation-p-value" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Exact permutation p-value for six expression values)</strong></span> Of the 20 relabelings in <a href="#/exm-permutation-distribution" class="quarto-xref">Example&nbsp;2</a>, count those whose statistic is at least the observed one. Rounding before the comparison keeps floating-point error from separating values that are equal in exact arithmetic, such as the observed statistic and the one for its mirror image:</p>
@@ -650,11 +651,11 @@ N_\iota(y_\sigma)
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 8.5</a>, pp.&nbsp;392–402)</span> covers some distribution-free tests.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 8.5]</a>, pp.&nbsp;392–402</span> covers some distribution-free tests.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 11.2.3</a>, pp.&nbsp;435–442)</span> covers the Mann–Whitney test.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 11.2.3]</a>, pp.&nbsp;435–442</span> covers the Mann–Whitney test.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 11.4.6</a>, p.&nbsp;456)</span> covers randomization.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[7, Sec. 11.4.6]</a>, p.&nbsp;456</span> covers randomization.</li>
 </ul>
 </div>
 </section><section id="sec-monte-carlo-permutation" class="slide level2" data-number="4"><h2>
@@ -663,7 +664,7 @@ N_\iota(y_\sigma)
 <div id="def-monte-carlo-p-value" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Monte Carlo permutation p-value)</strong></span> With the notation of <a href="#/def-permutation-distribution" class="quarto-xref">Definition&nbsp;2</a>, draw <span class="math inline">\(B\)</span> permutations <span class="math inline">\(\pi_1, \ldots, \pi_B\)</span> independently and uniformly from <span class="math inline">\(S_n\)</span>, and let <span class="math inline">\(T_b \stackrel{\text{def}}{=}T(y_{\pi_b})\)</span>. The <strong>Monte Carlo permutation p-value</strong> counts the observed labeling as one more relabeling, so it adds 1 to the numerator and to the denominator:</p>
 <p><span class="math display">\[\hat p_{\text{perm}} \stackrel{\text{def}}{=}\frac{1 + \sum_{b=1}^B \mathbb{1}_{T_b \ge T(y)}}{B + 1}.\]</span></p>
-<p>Source: <span class="citation" data-cites="phipson2010permutation">Phipson and Smyth (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="phipson2010permutation">Phipson and Smyth <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-monte-carlo-p-value" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (Monte Carlo p-value for gene 3)</strong></span> Compare tumor classes 2 and 4 on gene 3 of the Khan data, using <span class="math inline">\(\mathopen{}\left|t\right|\mathclose{}\)</span> of Welch’s statistic and <span class="math inline">\(B = 10{,}000\)</span> random relabelings. The <span class="math inline">\(43\)</span> values admit <span class="math inline">\(\binom{43}{20} =\)</span> 960,566,918,220 relabelings (<a href="#/exm-exchangeable" class="quarto-xref">Example&nbsp;1</a>), too many to list:</p>
@@ -710,7 +711,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <p><span class="math display">\[\Pr_{H_0}\mathopen{}\left(\hat p_{\text{perm}} \le u\right)\mathclose{} \le u \quad \text{for every } u \in [0, 1].\]</span></p>
 </div>
 <div id="rem-source-monte-carlo-p-valid" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Source: The Monte Carlo permutation p-value is valid). </span>Phipson and Smyth <span class="citation" data-cites="phipson2010permutation">(<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span> show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.</p>
+<p><span class="proof-title"><em>Remark 2</em> (Source: The Monte Carlo permutation p-value is valid). </span>Phipson and Smyth <span class="citation" data-cites="phipson2010permutation"><a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> show that the Monte Carlo p-value with the added 1 is valid for random permutations. The proof is omitted here.</p>
 </div>
 </section><section class="slide level2"><div id="exm-monte-carlo-p-valid" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (Validity in a small simulation)</strong></span> Simulate 2000 data sets of 20 independent standard Gaussian values, ten per group, so that <span class="math inline">\(H_0\)</span> holds. For each, compute <span class="math inline">\(\hat p_{\text{perm}}\)</span> of the absolute difference in means with <span class="math inline">\(B = 99\)</span>:</p>
@@ -743,7 +744,7 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <p><span class="proof-title"><em>Remark 3</em> (Why add 1). </span>Without the 1, a data set whose statistic exceeds all <span class="math inline">\(B\)</span> permuted statistics would get a p-value of 0, which claims that the observed result is impossible under <span class="math inline">\(H_0\)</span>. Under <span class="math inline">\(H_0\)</span>, with no ties, that happens with probability <span class="math inline">\(1 / (B + 1)\)</span>, because the observed statistic is equally likely to be any one of the <span class="math inline">\(B + 1\)</span> values it is compared with. A p-value that equals 0 with positive probability is not valid. With the 1, the smallest value of <span class="math inline">\(\hat p_{\text{perm}}\)</span> is <span class="math inline">\(1 / (B + 1)\)</span>.</p>
 </div>
 <div class="reading">
-<p><span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 7.7</a>, pp.&nbsp;353–360)</span> covers resampling methods.</p>
+<p><span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[6, Sec. 7.7]</a>, pp.&nbsp;353–360</span> covers resampling methods.</p>
 </div>
 </section><section id="sec-permutation-multiple-testing" class="slide level2" data-number="5"><h2>
 <span class="header-section-number">5</span> Permutation tests and multiple testing</h2>
@@ -805,46 +806,58 @@ Figure&nbsp;1: Permutation distribution of the absolute Welch t statistic for ge
 <span class="header-section-number">6</span> Further reading</h2>
 <ul>
 <li>
-<span class="citation" data-cites="good2005permutation">Good (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span> is a book-length treatment of permutation tests.</li>
+<span class="citation" data-cites="good2005permutation">Good <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> is a book-length treatment of permutation tests.</li>
 <li>
-<span class="citation" data-cites="phipson2010permutation">Phipson and Smyth (<a href="#/references" role="doc-biblioref" onclick="">2010</a>)</span> explains why Monte Carlo permutation p-values need the added 1.</li>
+<span class="citation" data-cites="phipson2010permutation">Phipson and Smyth <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> explains why Monte Carlo permutation p-values need the added 1.</li>
 <li>Chapter 12 of the <a href="https://www.inferentialthinking.com/"><em>Computational and Inferential Thinking</em></a> textbook for UC Berkeley’s Data 8 introduces permutation tests through plain-language A/B testing examples.</li>
-<li>Chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span> applies permutation and other resampling methods to multiple testing.</li>
+<li>Chapter 13 of <span class="citation" data-cites="james2021islr2e">James et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> applies permutation and other resampling methods to multiple testing.</li>
 </ul>
 <h3 data-number="6.1" id="online-references">
 <span class="header-section-number">6.1</span> Online references</h3>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_permutation_test">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span> — the test, its assumptions and its variants</p></li>
-<li><p><span class="citation" data-cites="wikipedia_exchangeable_random_variables">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span> — exchangeability and its role in permutation tests</p></li>
-<li><p><span class="citation" data-cites="wikipedia_resampling_statistics">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span> — permutation tests among the resampling methods</p></li>
+<li><p><span class="citation" data-cites="wikipedia_permutation_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span> — the test, its assumptions and its variants</p></li>
+<li><p><span class="citation" data-cites="wikipedia_exchangeable_random_variables">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> — exchangeability and its role in permutation tests</p></li>
+<li><p><span class="citation" data-cites="wikipedia_resampling_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span> — permutation tests among the resampling methods</p></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-good2005permutation" class="csl-entry" role="listitem">
-Good, Phillip I. 2005. <em>Permutation, Parametric and Bootstrap Tests of Hypotheses</em>. 3rd ed. Springer. <a href="https://doi.org/10.1007/b138696">https://doi.org/10.1007/b138696</a>.
-</div>
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-james2021islr2e" class="csl-entry" role="listitem">
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: With Applications in <span>R</span></em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">G. James, D. Witten, T. Hastie, and R. Tibshirani, <em>An introduction to statistical learning: With applications in <span>R</span></em>, 2nd ed. Springer, 2021. doi: <a href="https://doi.org/10.1007/978-1-0716-1418-1">10.1007/978-1-0716-1418-1</a>.</div>
+</div>
+<div id="ref-good2005permutation" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">P. I. Good, <em>Permutation, parametric and bootstrap tests of hypotheses</em>, 3rd ed. New York: Springer, 2005. doi: <a href="https://doi.org/10.1007/b138696">10.1007/b138696</a>.</div>
 </div>
 <div id="ref-khan2001classification" class="csl-entry" role="listitem">
-Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. <span>“Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.”</span> <em>Nature Medicine</em> 7 (6): 673–79. <a href="https://doi.org/10.1038/89044">https://doi.org/10.1038/89044</a>.
-</div>
-<div id="ref-phipson2010permutation" class="csl-entry" role="listitem">
-Phipson, Belinda, and Gordon K. Smyth. 2010. <span>“Permutation p-Values Should Never Be Zero: Calculating Exact p-Values When Permutations Are Randomly Drawn.”</span> <em>Statistical Applications in Genetics and Molecular Biology</em> 9 (1). <a href="https://doi.org/10.2202/1544-6115.1585">https://doi.org/10.2202/1544-6115.1585</a>.
-</div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">J. Khan <em>et al.</em>, <span>“Classification and diagnostic prediction of cancers using gene expression profiling and artificial neural networks,”</span> <em>Nature Medicine</em>, vol. 7, no. 6, pp. 673–679, 2001, doi: <a href="https://doi.org/10.1038/89044">10.1038/89044</a>.</div>
 </div>
 <div id="ref-wikipedia_exchangeable_random_variables" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Exchangeable Random Variables — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Exchangeable_random_variables">https://en.wikipedia.org/wiki/Exchangeable_random_variables</a>.
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Exchangeable random variables — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Exchangeable_random_variables">https://en.wikipedia.org/wiki/Exchangeable_random_variables</a>
+</div>
 </div>
 <div id="ref-wikipedia_permutation_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Permutation Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Permutation_test">https://en.wikipedia.org/wiki/Permutation_test</a>.
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Permutation test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Permutation_test">https://en.wikipedia.org/wiki/Permutation_test</a>
+</div>
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
+</div>
+<div id="ref-phipson2010permutation" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">B. Phipson and G. K. Smyth, <span>“Permutation p-values should never be zero: Calculating exact p-values when permutations are randomly drawn,”</span> <em>Statistical Applications in Genetics and Molecular Biology</em>, vol. 9, no. 1, 2010, doi: <a href="https://doi.org/10.2202/1544-6115.1585">10.2202/1544-6115.1585</a>.</div>
 </div>
 <div id="ref-wikipedia_resampling_statistics" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Resampling (Statistics) — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Resampling_%28statistics%29">https://en.wikipedia.org/wiki/Resampling_%28statistics%29</a>.
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Resampling (statistics) — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Resampling_%28statistics%29">https://en.wikipedia.org/wiki/Resampling_%28statistics%29</a>
+</div>
 </div>
 </div>
 

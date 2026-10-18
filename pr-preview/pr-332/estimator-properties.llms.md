@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:18 (PDT)
+Last modified: 2026-10-18 11:35:24 (PDT)
 
 [Estimation](estimation.llms.md) defines the accuracy of an estimator at one sample size, through its bias, variance and population mean squared error. This page asks two further questions: what happens to an estimator as the sample size grows, and how small can the variance of an unbiased estimator be?
 
@@ -28,7 +28,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > In words, \\\hat{\theta}\_n\\ [converges in probability](https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability) to \\\theta\\, which we write \\\hat{\theta}\_n \overset{\scriptstyle p}{\longrightarrow}\theta\\.
 >
-> Source: Casella and Berger ([2002](#ref-CaseBerg01), Def. 10.1.1); Wikipedia contributors ([2026a](#ref-wikipedia_consistent_estimator)).
+> Source: Casella and Berger [\[1\]](#ref-CaseBerg01), Def. 10.1.1; Wikipedia contributors [\[2\]](#ref-wikipedia_consistent_estimator).
 
 > **NOTE:**
 >
@@ -74,7 +74,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 
 > **NOTE:**
 >
-> **Example 1 (Consistency of the sample mean for birth weights)** The `birthwt` data record the birth weight (grams) of 189 babies from a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
+> **Example 1 (Consistency of the sample mean for birth weights)** The `birthwt` data record the birth weight (grams) of 189 babies from a study at Baystate Medical Center in Springfield, Massachusetts [\[3\]](#ref-hosmer1989applied); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
 >
 > To see [Corollary 1](#cor-sample-mean-consistent) at work, treat these babies as a finite population and let the estimand \\\mu\\ be their population mean birth weight. We draw \\n\\ babies at random with replacement, so the draws are independent with the population’s mean and variance, and we ask how often the sample mean misses \\\mu\\ by at least \\\varepsilon = 100\\ grams. For each \\n\\ we repeat the sampling 2000 times and report the fraction of repeats that miss, with a 95% confidence interval for that probability (the Wilson score interval with continuity correction, the default of [`prop.test()`](https://rdrr.io/r/stats/prop.test.html)), next to the bound \\\sigma^2/ (n \varepsilon^2)\\ that [Lemma 1](#lem-estimation-error-bound) gives, capped at 1 because a probability cannot exceed 1, using \\\operatorname{pMSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\\ from [the example on two estimators of a mean](estimation.llms.md#exm-mse-sample-mean).
 >
@@ -151,11 +151,11 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > \\\frac{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_b\right)\mathclose{}}{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}\_a\right)\mathclose{}}\\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_efficiency_statistics)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_efficiency_statistics).
 
 > **NOTE:**
 >
-> *Remark 2* (Source: Relative efficiency). Casella and Berger ([2002](#ref-CaseBerg01)) define the asymptotic version, through variances, in Def. 10.1.16 (p. 476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
+> *Remark 2* (Source: Relative efficiency). Casella and Berger [\[1\]](#ref-CaseBerg01) define the asymptotic version, through variances, in Def. 10.1.16 (p. 476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p. 330).
 
 > **NOTE:**
 >
@@ -171,7 +171,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 
 > **NOTE:**
 >
-> Casella and Berger ([2002, sec. 10.1](#ref-CaseBerg01), pp. 467–480) covers point estimation, including consistency, efficiency and bootstrap standard errors.
+> Casella and Berger [\[1, Sec. 10.1\]](#ref-CaseBerg01), pp. 467–480 covers point estimation, including consistency, efficiency and bootstrap standard errors.
 
 ## 3 The Cramér–Rao lower bound
 
@@ -201,7 +201,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \ge \frac{1}{\mathcal{I}(\theta)} \tag{5}\\
 >
-> Source: ([Rao 1945](#ref-rao1945information); [Cramér 1946](#ref-cramer1946mathematical); [Casella and Berger 2002](#ref-CaseBerg01), Thm. 7.3.9, p. 335; [Wikipedia contributors 2026b](#ref-wikipedia_cram_r_rao_bound)).
+> Source: [\[5\]](#ref-rao1945information), [\[6\]](#ref-cramer1946mathematical), [\[1\]](#ref-CaseBerg01), Thm. 7.3.9, p. 335, [\[7\]](#ref-wikipedia_cram_r_rao_bound).
 
 > **NOTE:**
 >
@@ -217,7 +217,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > \\ \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \frac{1}{\mathcal{I}(\theta)} \\
 >
-> Source: Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01)); Wikipedia contributors ([2026c](#ref-wikipedia_efficiency_statistics)).
+> Source: Casella and Berger [\[1, Sec. 7.3.2\]](#ref-CaseBerg01); Wikipedia contributors [\[4\]](#ref-wikipedia_efficiency_statistics).
 
 > **NOTE:**
 >
@@ -241,37 +241,55 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.6](#ref-hoggtanis2015), pp. 285–289) covers asymptotic distributions of maximum likelihood estimators.
-> - Casella and Berger ([2002, sec. 7.3.2](#ref-CaseBerg01), pp. 334–341) covers best unbiased estimators and the Cramér–Rao bound.
-> - Rice ([2007, sec. 8.5.2](#ref-rice2007mathematical), pp. 274–278) covers large-sample theory for maximum likelihood estimators.
-> - Rice ([2007, sec. 8.7](#ref-rice2007mathematical), pp. 298–304) covers efficiency and the Cramér–Rao lower bound.
+> - Hogg et al. [\[8, Sec. 6.6\]](#ref-hoggtanis2015), pp. 285–289 covers asymptotic distributions of maximum likelihood estimators.
+> - Casella and Berger [\[1, Sec. 7.3.2\]](#ref-CaseBerg01), pp. 334–341 covers best unbiased estimators and the Cramér–Rao bound.
+> - Rice [\[9, Sec. 8.5.2\]](#ref-rice2007mathematical), pp. 274–278 covers large-sample theory for maximum likelihood estimators.
+> - Rice [\[9, Sec. 8.7\]](#ref-rice2007mathematical), pp. 298–304 covers efficiency and the Cramér–Rao lower bound.
 
 ## Further reading
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_consistent_estimator)) — consistency and its variants
+- Wikipedia contributors [\[2\]](#ref-wikipedia_consistent_estimator) — consistency and its variants
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_efficiency_statistics)) — efficiency and relative efficiency
+- Wikipedia contributors [\[4\]](#ref-wikipedia_efficiency_statistics) — efficiency and relative efficiency
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_cram_r_rao_bound)) — the bound and the estimators that attain it
+- Wikipedia contributors [\[7\]](#ref-wikipedia_cram_r_rao_bound) — the bound and the estimators that attain it
 
 ## References
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+\[1\]
 
-Cramér, Harald. 1946. *Mathematical Methods of Statistics*. Princeton University Press. <https://doi.org/10.1515/9781400883868>.
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+\[2\]
 
-Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
+Wikipedia contributors, “Consistent estimator — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Consistent_estimator>
 
-Rao, C. Radhakrishna. 1945. “Information and the Accuracy Attainable in the Estimation of Statistical Parameters.” *Bulletin of the Calcutta Mathematical Society* 37: 81–91.
+\[3\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
 
-Wikipedia contributors. 2026a. *Consistent Estimator — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Consistent_estimator>.
+\[4\]
 
-Wikipedia contributors. 2026b. *Cramér–Rao Bound — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound>.
+Wikipedia contributors, “Efficiency (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Efficiency_%28statistics%29>
 
-Wikipedia contributors. 2026c. *Efficiency (Statistics) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Efficiency_%28statistics%29>.
+\[5\]
+
+C. R. Rao, “Information and the accuracy attainable in the estimation of statistical parameters,” *Bulletin of the Calcutta Mathematical Society*, vol. 37, pp. 81–91, 1945.
+
+\[6\]
+
+H. Cramér, *Mathematical methods of statistics*. Princeton, NJ: Princeton University Press, 1946. doi: [10.1515/9781400883868](https://doi.org/10.1515/9781400883868).
+
+\[7\]
+
+Wikipedia contributors, “Cramér–rao bound — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound>
+
+\[8\]
+
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
+
+\[9\]
+
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
 
 Back to top

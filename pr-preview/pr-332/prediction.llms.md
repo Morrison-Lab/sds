@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:18 (PDT)
+Last modified: 2026-10-18 11:35:24 (PDT)
 
 ## 1 Predictions, fitted values, residuals, and prediction errors
 
@@ -24,7 +24,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > *Remark 1* (Why the estimated conditional mean is the usual prediction). The prediction in [Example 1](#exm-prediction-cond-mean) is chosen because the conditional mean is the best possible prediction under squared error loss. Among all functions \\h\\ of the covariate, \\{\operatorname{E}\mathopen{}\left\[Y \mid X\right\]\mathclose{}}\\ has the smallest expected squared error \\\operatorname{E}\mathopen{}\left\[{\mathopen{}\left(Y- h\mathopen{}\left(X\right)\mathclose{}\right)\mathclose{}}^2\right\]\mathclose{}\\ ([conditional mean minimizes squared-error risk](https://morrison-lab.github.io/pds/expectation.html#thm-best-predictor)). The conditional mean is unknown, so we estimate it from data and predict with the estimate.
 >
-> The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets ([Hastie et al. 2009, 20](#ref-hastie2009elements)).
+> The target depends on the loss. For absolute error loss, the best prediction is the conditional median instead, and other losses have other targets [\[1, p. 20\]](#ref-hastie2009elements).
 
 > **NOTE:**
 >
@@ -46,7 +46,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > \\r_i\stackrel{\text{def}}{=}y_i- \hat y_i\\
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_errors_and_residuals)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_errors_and_residuals).
 
 > **NOTE:**
 >
@@ -84,7 +84,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 
 > **NOTE:**
 >
-> **Example 2 (Residuals and prediction errors for birth weights)** The `birthwt` data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)). They ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
+> **Example 2 (Residuals and prediction errors for birth weights)** The `birthwt` data record the birth weight (grams) of 189 babies and their mothers’ weight at the last menstrual period (pounds), from a study at Baystate Medical Center in Springfield, Massachusetts [\[3\]](#ref-hosmer1989applied). They ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv).
 >
 > The code below fits a line predicting birth weight from mother’s weight, then compares each residual with the negative of its prediction error.
 >
@@ -156,7 +156,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > \\\operatorname{sMSE}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}\frac{1}{n}\sum\_{i=1}^n\varepsilon_i^2.\\
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_mean_squared_prediction_error)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_mean_squared_prediction_error).
 
 > **NOTE:**
 >
@@ -224,20 +224,22 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > [Validating Predictions](model-validation.llms.md) estimates the prediction error on new observations.
 
-## Further reading
-
-- Wikipedia contributors ([2026a](#ref-wikipedia_errors_and_residuals)) — how an error differs from a [residual](#def-residual)
-
-- Wikipedia contributors ([2026b](#ref-wikipedia_mean_squared_prediction_error)) — the mean squared [prediction error](#def-prediction-error)
-
 ## References
 
-Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. 2nd ed. Springer. <https://doi.org/10.1007/978-0-387-84858-7>.
+\[1\]
 
-Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
+T. Hastie, R. Tibshirani, and J. Friedman, *The elements of statistical learning: Data mining, inference, and prediction*, 2nd ed. Springer, 2009. doi: [10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
 
-Wikipedia contributors. 2026a. *Errors and Residuals — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Errors_and_residuals>.
+\[2\]
 
-Wikipedia contributors. 2026b. *Mean Squared Prediction Error — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Mean_squared_prediction_error>.
+Wikipedia contributors, “Errors and residuals — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Errors_and_residuals>
+
+\[3\]
+
+D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
+
+\[4\]
+
+Wikipedia contributors, “Mean squared prediction error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Mean_squared_prediction_error>
 
 Back to top

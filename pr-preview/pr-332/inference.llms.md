@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 00:41:18 (PDT)
+Last modified: 2026-10-18 11:35:24 (PDT)
 
 ## 1 Inference
 
@@ -12,7 +12,7 @@ Last modified: 2026-10-18 00:41:18 (PDT)
 >
 > **Definition 1 (Statistical inference)** **Statistical inference** is the process of analyzing data to learn about the shape and structure of the probability distribution that generated those data.
 
-This definition is adapted from Wikipedia’s ([Wikipedia contributors 2025](#ref-wp:statinference)).
+This definition is adapted from Wikipedia’s [\[1\]](#ref-wp:statinference).
 
 > **NOTE:**
 >
@@ -36,7 +36,7 @@ There are two predominant paradigms for statistical inference:
 >
 > **Definition 2 (Null hypothesis)** The **null hypothesis**, written \\H_0\\, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.
 >
-> Source: Wikipedia contributors ([2026g](#ref-wikipedia_statistical_hypothesis_test)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_hypothesis_test).
 
 > **NOTE:**
 >
@@ -46,7 +46,7 @@ There are two predominant paradigms for statistical inference:
 >
 > **Definition 4 (Two-sided alternative)** For a null hypothesis that a parameter equals a value, such as \\H_0: \theta= \theta_0\\, the **two-sided alternative** is that the parameter differs from that value in either direction: \\H_1: \theta\ne \theta_0\\.
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_one_and_two_tailed_tests)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_one_and_two_tailed_tests).
 
 > **NOTE:**
 >
@@ -60,7 +60,7 @@ There are two predominant paradigms for statistical inference:
 >
 > **Definition 5 (Test statistic)** A **test statistic** \\T\\ is a function of the data whose distribution under the [null hypothesis](#def-null-hypothesis) is known, exactly or approximately, and whose larger values are more extreme, meaning less consistent with \\H_0\\ and more consistent with \\H_1\\.
 >
-> Source: Wikipedia contributors ([2026j](#ref-wikipedia_test_statistic)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_test_statistic).
 
 > **NOTE:**
 >
@@ -70,7 +70,7 @@ There are two predominant paradigms for statistical inference:
 >
 > If the null hypothesis allows more than one distribution (a *composite* null hypothesis, such as \\H_0: \mu_1 = \mu_0\\ with unknown variances), the p-value is the largest such probability over those distributions, or an approximation to it.
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_p_value)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_p_value).
 
 > **NOTE:**
 >
@@ -80,7 +80,7 @@ There are two predominant paradigms for statistical inference:
 >
 > **Definition 7 (Significance level)** A hypothesis test with **significance level** \\\alpha\\ rejects the [null hypothesis](#def-null-hypothesis) when the [p-value](#def-p-value) is at most \\\alpha\\.
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_statistical_significance)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_statistical_significance).
 
 > **NOTE:**
 >
@@ -116,14 +116,14 @@ There are two predominant paradigms for statistical inference:
 
 > **NOTE:**
 >
-> 5MinuteAI explains [hypothesis testing](https://www.youtube.com/watch?v=Plya_ZXkOvs) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+> 5MinuteAI explains [hypothesis testing](https://www.youtube.com/watch?v=Plya_ZXkOvs) in five minutes, following the University of Washington’s CSE 312 [\[7\]](#ref-fiveminuteai_probstat).
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 8.1](#ref-hoggtanis2015), pp. 361–368) covers tests about one mean.
-> - Hogg et al. ([2019, sec. 8.6](#ref-hoggtanis2015), pp. 403–409) covers power of a statistical test.
-> - Casella and Berger ([2002, sec. 8.3](#ref-CaseBerg01), pp. 382–401) covers methods of evaluating tests.
-> - Rice ([2007, sec. 9.2](#ref-rice2007mathematical), pp. 331–336) covers the Neyman–Pearson paradigm.
+> - Hogg et al. [\[8, Sec. 8.1\]](#ref-hoggtanis2015), pp. 361–368 covers tests about one mean.
+> - Hogg et al. [\[8, Sec. 8.6\]](#ref-hoggtanis2015), pp. 403–409 covers power of a statistical test.
+> - Casella and Berger [\[9, Sec. 8.3\]](#ref-CaseBerg01), pp. 382–401 covers methods of evaluating tests.
+> - Rice [\[10, Sec. 9.2\]](#ref-rice2007mathematical), pp. 331–336 covers the Neyman–Pearson paradigm.
 
 ## 3 Reference distributions
 
@@ -133,7 +133,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Definition 9 (Chi-square distribution)** Let \\Z_1, \ldots, Z_k\\ be independent random variables, each with the standard Gaussian distribution. The distribution of \\\sum\_{j=1}^{k} Z_j^2\\ is the **chi-square distribution with \\k\\ degrees of freedom**, written \\\chi^2_k\\.
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_chi_squared_distribution)).
+> Source: Wikipedia contributors [\[11\]](#ref-wikipedia_chi_squared_distribution).
 
 > **NOTE:**
 >
@@ -196,13 +196,13 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > The probability is over repeated samples from the data-generating process, with \\\theta\\ held fixed.
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_confidence_interval)).
+> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_confidence_interval).
 
 > **NOTE:**
 >
 > **Definition 13 (Coverage probability)** The **coverage probability** of an interval \\\[L, U\]\\ for a parameter \\\theta\\ is \\\Pr(L \le \theta\le U)\\, computed over repeated samples with \\\theta\\ held fixed. A \\100(1-\alpha)\\\\ [confidence interval](#def-confidence-interval) has coverage probability \\1 - \alpha\\.
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_coverage_probability)).
+> Source: Wikipedia contributors [\[13\]](#ref-wikipedia_coverage_probability).
 
 > **NOTE:**
 >
@@ -224,7 +224,7 @@ The tests on this page compare a test statistic with one of three families of di
 >
 > **Definition 15 (Margin of error (radius))** The **margin of error** (or **radius**) of a [confidence interval](#def-confidence-interval) is half the interval’s width.
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_margin_of_error)).
+> Source: Wikipedia contributors [\[14\]](#ref-wikipedia_margin_of_error).
 
 > **NOTE:**
 >
@@ -232,13 +232,13 @@ The tests on this page compare a test statistic with one of three families of di
 
 > **NOTE:**
 >
-> 5MinuteAI explains [confidence intervals](https://www.youtube.com/watch?v=XdaAhYUqWsg) in five minutes, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+> 5MinuteAI explains [confidence intervals](https://www.youtube.com/watch?v=XdaAhYUqWsg) in five minutes, following the University of Washington’s CSE 312 [\[7\]](#ref-fiveminuteai_probstat).
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 7.1](#ref-hoggtanis2015), pp. 307–313) covers confidence intervals for means.
-> - Casella and Berger ([2002, sec. 9.2](#ref-CaseBerg01), pp. 420–439) covers methods of finding interval estimators.
-> - Rice ([2007, sec. 9.3](#ref-rice2007mathematical), pp. 337–338) covers duality of confidence intervals and hypothesis tests.
+> - Hogg et al. [\[8, Sec. 7.1\]](#ref-hoggtanis2015), pp. 307–313 covers confidence intervals for means.
+> - Casella and Berger [\[9, Sec. 9.2\]](#ref-CaseBerg01), pp. 420–439 covers methods of finding interval estimators.
+> - Rice [\[10, Sec. 9.3\]](#ref-rice2007mathematical), pp. 337–338 covers duality of confidence intervals and hypothesis tests.
 
 ## 5 Further reading on confidence intervals
 
@@ -252,13 +252,13 @@ For more on confidence intervals:
 
 ### 5.1 Online references
 
-- Wikipedia contributors ([2026g](#ref-wikipedia_statistical_hypothesis_test)) — the logic of testing and its terminology
+- Wikipedia contributors [\[2\]](#ref-wikipedia_statistical_hypothesis_test) — the logic of testing and its terminology
 
-- Wikipedia contributors ([2026f](#ref-wikipedia_p_value)) — the definition and common misreadings
+- Wikipedia contributors [\[5\]](#ref-wikipedia_p_value) — the definition and common misreadings
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_confidence_interval)) — the definition and common misreadings
+- Wikipedia contributors [\[12\]](#ref-wikipedia_confidence_interval) — the definition and common misreadings
 
-- Wikipedia contributors ([2026i](#ref-wikipedia_students_t_distribution)) — the distribution and its uses
+- Wikipedia contributors [\[15\]](#ref-wikipedia_students_t_distribution) — the distribution and its uses
 
 ## 6 Interpretation of negative findings
 
@@ -304,40 +304,72 @@ Conversely, even statistically significant evidence of a non-null value does not
 >
 > Figure 1: Interpretations of hypothetical 95% confidence intervals for a ratio (such as an odds ratio), relative to the null value 1 (dashed line). Adapted from a whiteboard sketch made in office hours.
 
-See also ([Vittinghoff et al. 2012, sec. 3.7](#ref-vittinghoff2e)).
+See also [\[16, Sec. 3.7\]](#ref-vittinghoff2e).
 
 ## References
 
-5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
+\[1\]
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+Wikipedia contributors, “Statistical inference — Wikipedia, the free encyclopedia.” 2025. Available: <https://en.wikipedia.org/w/index.php?title=Statistical_inference&oldid=1304071803>
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+\[2\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+Wikipedia contributors, “Statistical hypothesis test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Statistical_hypothesis_test>
 
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
+\[3\]
 
-Wikipedia contributors. 2025. *Statistical Inference — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/w/index.php?title=Statistical_inference&oldid=1304071803>.
+Wikipedia contributors, “One- and two-tailed tests — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/One-_and_two-tailed_tests>
 
-Wikipedia contributors. 2026a. *Chi-Squared Distribution — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Chi-squared_distribution>.
+\[4\]
 
-Wikipedia contributors. 2026b. *Confidence Interval — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Confidence_interval>.
+Wikipedia contributors, “Test statistic — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Test_statistic>
 
-Wikipedia contributors. 2026c. *Coverage Probability — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Coverage_probability>.
+\[5\]
 
-Wikipedia contributors. 2026d. *Margin of Error — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Margin_of_error>.
+Wikipedia contributors, “P-value — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/P-value>
 
-Wikipedia contributors. 2026e. *One- and Two-Tailed Tests — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/One-_and_two-tailed_tests>.
+\[6\]
 
-Wikipedia contributors. 2026f. *P-Value — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/P-value>.
+Wikipedia contributors, “Statistical significance — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Statistical_significance>
 
-Wikipedia contributors. 2026g. *Statistical Hypothesis Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Statistical_hypothesis_test>.
+\[7\]
 
-Wikipedia contributors. 2026h. *Statistical Significance — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Statistical_significance>.
+5MinuteAI, “Probability & statistics.” Video playlist on YouTube. Accessed: Oct. 12, 2026. \[Online\]. Available: <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>
 
-Wikipedia contributors. 2026i. *Student’s t-Distribution — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Student%27s_t-distribution>.
+\[8\]
 
-Wikipedia contributors. 2026j. *Test Statistic — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Test_statistic>.
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
+
+\[9\]
+
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+\[10\]
+
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+\[11\]
+
+Wikipedia contributors, “Chi-squared distribution — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Chi-squared_distribution>
+
+\[12\]
+
+Wikipedia contributors, “Confidence interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Confidence_interval>
+
+\[13\]
+
+Wikipedia contributors, “Coverage probability — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Coverage_probability>
+
+\[14\]
+
+Wikipedia contributors, “Margin of error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Margin_of_error>
+
+\[15\]
+
+Wikipedia contributors, “Student’s t-distribution — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Student%27s_t-distribution>
+
+\[16\]
+
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
 Back to top
