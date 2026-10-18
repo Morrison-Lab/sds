@@ -1,10 +1,10 @@
 :::{#exr-epe-split-noise}
 #### Separate the noise
 
-Suppose that, given $\newpredvar = \predvar$,
-the new outcome is $\newoutvar = \truemeanfnf{\predvar} + \noise$,
-where the noise $\noise$ has mean $0$ and variance $\varpar$,
-and that $\newoutvar$ is independent of the random [training set](#def-training-set) $\trainset$.
+Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$.
+Fix $\newpredvar = \predvar$.
+Let $\noise$ be the [noise](#def-noise) of $\newoutvar$.
+Let $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
 Take every expectation below to be conditional on $\newpredvar = \predvar$.
 Add and subtract $\truemeanfnf{\predvar}$ inside the square of the [expected prediction error](#def-epe),
 
@@ -16,6 +16,7 @@ expand it, and take the expectation term by term.
 
 Two of the three terms simplify.
 Say what each becomes,
-and name the assumptions that make the cross term zero.
+and name which facts about the noise hold by definition
+and which hypothesis makes the cross term zero.
 
 :::

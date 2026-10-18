@@ -1,14 +1,15 @@
 :::{#thm-epe-split-noise}
 #### The pMSE of a prediction is the pMSE of the mean estimate plus the noise variance
 
-Suppose that, given $\newpredvar = \predvar$,
-the new outcome is $\newoutvar = \truemeanfnf{\predvar} + \noise$,
-where the noise $\noise$ has mean $0$ and variance $\varpar$,
-and that $\newoutvar$ is independent of the random [training set](#def-training-set) $\trainset$.
+Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$.
+Fix $\newpredvar = \predvar$.
+Let $\noise$ be the [noise](#def-noise) of $\newoutvar$.
+Let $\varpar \eqdef \Var{\noise}$ be its [population variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
 Then, given $\newpredvar = \predvar$,
 the [expected squared prediction error](#def-epe) (ESPE) of $\predvalf{\predvar}$
-is the [irreducible error](#def-irreducible-error) $\varpar$
-plus its [expected squared estimation error](estimation.qmd#def-mse) (ESEE)
+is the sum of two terms.
+The first is the [irreducible error](#def-irreducible-error) $\varpar$.
+The second is the [expected squared estimation error](estimation.qmd#def-mse) (ESEE) of $\predvalf{\predvar}$
 as an [estimator](estimation.qmd#def-estimator) of $\truemeanfnf{\predvar}$:
 
 $$

@@ -38,7 +38,7 @@ $$
 &= \varpar + \sqf{\E{\noise}}
 && \text{(variance identity)} \\
 &= \varpar + 0^2
-&& \text{(the noise has mean } 0 \text{)} \\
+&& \text{(the noise has population mean } 0 \text{)} \\
 &= \varpar
 && \text{(} 0^2 = 0 \text{, and } \varpar + 0 = \varpar \text{)}
 \ea
@@ -59,7 +59,7 @@ $$
 &= 2 \E{\noise} \E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
 && \text{(independence)} \\
 &= 2 \cdot 0 \cdot \E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}
-&& \text{(the noise has mean } 0 \text{)} \\
+&& \text{(the noise has population mean } 0 \text{)} \\
 &= 0
 && \text{(zero times a number)}
 \ea
@@ -72,11 +72,19 @@ $$
 = \varpar + \E{\sqf{\truemeanfnf{\predvar} - \estmeanf{\predvar}}}.
 $$ {#eq-epe-after-noise}
 
-The cross term vanished because the noise has mean $0$ and,
-for a new outcome, is independent of the training set.
-Without the zero mean, independence alone would leave $2 \E{\noise}$ times $\E{\truemeanfnf{\predvar} - \estmeanf{\predvar}}$, which need not be zero.
-That holds for a fresh observation,
+The noise has [population mean](https://morrison-lab.github.io/pds/expectation.html#def-expectation) $0$ by @thm-noise-mean-zero,
+so the algebra used only one hypothesis about the [new observation](#def-new-observation): it is independent of the [training set](#def-training-set).
+Independence holds for a fresh observation,
 and it fails for an observation the procedure was trained on,
 whose noise helped determine the prediction.
+It also fails when the new observation depends on the training data
+(for example, a later time in the same series),
+or when the same [test set](#def-test-set) was used to choose the procedure.
+
+The algebra did not use that the new pair has the same [population distribution](exploratory-descriptive.qmd#def-population-distribution) as the training data.
+Suppose the new pair came from a [population](exploratory-descriptive.qmd#def-population) whose mean function differed from the training population's.
+Then @eq-epe-after-noise would still hold, with the new population's mean function and noise variance.
+Its [estimation-error](estimation.qmd#def-estimation-error) term would include the [bias](estimation.qmd#def-bias) from that difference.
+So it would no longer measure how well the procedure [estimates](estimation.qmd#def-estimate) the training population's mean function.
 
 :::
