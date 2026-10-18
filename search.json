@@ -125,7 +125,7 @@
     "href": "permutation-tests.html#sec-permutation-reading",
     "title": "Permutation Tests",
     "section": "\n6 Further reading",
-    "text": "6 Further reading\n\n\nGood [3] is a book-length treatment of permutation tests.\n\nPhipson and Smyth [9] explains why Monte Carlo permutation p-values need the added 1.\nChapter 12 of the Computational and Inferential Thinking textbook for UC Berkeley’s Data 8 introduces permutation tests through plain-language A/B testing examples.\nChapter 13 of James et al. [2] applies permutation and other resampling methods to multiple testing.",
+    "text": "6 Further reading\n\nGood [3] gives a book-length treatment of permutation tests.\nPhipson and Smyth [9] explain why Monte Carlo permutation p-values need the added 1.\nChapter 12 of the Computational and Inferential Thinking textbook for UC Berkeley’s Data 8 introduces permutation tests through plain-language A/B testing examples.\nChapter 13 of James et al. [2] applies permutation and other resampling methods to multiple testing.",
     "crumbs": [
       "Methods",
       "Permutation Tests"
