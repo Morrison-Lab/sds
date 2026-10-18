@@ -4,19 +4,19 @@ Code
 
 Published
 
-Last modified: 2026-10-18 01:15:39 (PDT)
+Last modified: 2026-10-18 11:27:25 (PDT)
 
-This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
+This page explains why most posterior distributions must be simulated, introduces Monte Carlo integration and Markov chains, describes the Metropolis–Hastings and Gibbs samplers, shows how to check a sampler’s output, and presents a criterion for comparing models [\[1, Ch. 13\]](#ref-dobson4e). It builds on the priors and posteriors defined on the [Bayesian Inference](bayesian-inference.llms.md) page. For a video introduction, see Richard McElreath’s lecture [*MCMC and Item Response Models*](https://www.youtube.com/watch?v=N_LRQUrdHag) (Statistical Rethinking 2026, Lecture A08).
 
 ## 1 Foundations of MCMC
 
-When the posterior has a known closed form, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), we can compute its summaries exactly or sample from it directly. In most real-world models, however, the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. Markov chain Monte Carlo methods get around this problem: instead of independent draws from the posterior, they generate a correlated sequence of draws whose distribution converges to the posterior ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 287).
+When the posterior has a known closed form, as in [the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli), we can compute its summaries exactly or sample from it directly. In most real-world models, however, the [marginal likelihood](bayesian-inference.llms.md#def-marginal-likelihood) \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ that normalizes the posterior cannot be computed, so neither can the posterior’s summaries. Markov chain Monte Carlo methods get around this problem: instead of independent draws from the posterior, they generate a correlated sequence of draws whose distribution converges to the posterior [\[1, Ch. 13\]](#ref-dobson4e), p. 287.
 
 > **NOTE:**
 >
 > **Definition 1 (Markov chain Monte Carlo)** A **Markov chain Monte Carlo (MCMC)** method for a target distribution generates a sequence of draws \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(2)}, \ldots\\, each drawn from a distribution that depends on the previous draw, such that the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ converges to the target as \\t \to \infty\\.
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_markov_chain_monte_carlo)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_markov_chain_monte_carlo).
 
 > **NOTE:**
 >
@@ -28,7 +28,7 @@ With a parameter vector \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scri
 
 \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) = \int \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\ d\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}},\\
 
-an integral over every dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\ that typically has no closed form. Computing it numerically becomes infeasible as the dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 287). MCMC sidesteps the problem: MCMC samplers use the posterior only through ratios \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, in which the normalizing constant cancels.
+an integral over every dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\ that typically has no closed form. Computing it numerically becomes infeasible as the dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\\ grows [\[1, Ch. 13\]](#ref-dobson4e), p. 287. MCMC sidesteps the problem: MCMC samplers use the posterior only through ratios \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, in which the normalizing constant cancels.
 
 ### 1.2 Monte Carlo integration
 
@@ -38,9 +38,9 @@ an integral over every dimension of \\\mathord{\smash\[b\]{\underset{\raise.3ex\
 >
 > \\ \frac{1}{M} \sum\_{m=1}^{M} g\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(m)}\right)\mathclose{}. \\
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_monte_carlo_method)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_monte_carlo_method).
 
-By the law of large numbers, a Monte Carlo estimate converges to the posterior expectation it estimates as the number of draws \\M\\ grows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 288). The posterior mean (\\g(\theta) = \theta\\) and posterior probabilities (\\g(\theta) = \text{1}\_{\theta\le c}\\, an indicator) are posterior expectations, so they are estimated by averages of the draws; posterior quantiles, and so credible-interval endpoints, are estimated by the corresponding quantiles of the draws.
+By the law of large numbers, a Monte Carlo estimate converges to the posterior expectation it estimates as the number of draws \\M\\ grows [\[1, Ch. 13\]](#ref-dobson4e), p. 288. The posterior mean (\\g(\theta) = \theta\\) and posterior probabilities (\\g(\theta) = \text{1}\_{\theta\le c}\\, an indicator) are posterior expectations, so they are estimated by averages of the draws; posterior quantiles, and so credible-interval endpoints, are estimated by the corresponding quantiles of the draws.
 
 > **NOTE:**
 >
@@ -76,13 +76,13 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > \\ \operatorname{p}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t-1)}, \ldots, \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}\right)\mathclose{} = \operatorname{p}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\right)\mathclose{}. \\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_markov_chain)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_markov_chain).
 
 > **NOTE:**
 >
 > **Definition 4 (Stationary distribution)** A distribution \\\pi\\ is a **stationary distribution** of a [Markov chain](#def-markov-chain) if, whenever \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ has distribution \\\pi\\, \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ also has distribution \\\pi\\.
 >
-> Source: Wikipedia contributors ([2026g](#ref-wikipedia_stationary_distribution)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_stationary_distribution).
 
 > **NOTE:**
 >
@@ -121,7 +121,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 
 > **NOTE:**
 >
-> *Solution 1*. Suppose \\\theta^{(t)} \sim \operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\\. By [Example 4](#exm-ar1-chain), \\\varepsilon^{(t+1)}\\ is independent of \\\theta^{(t)}\\, so \\\theta^{(t+1)} = \rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\\, a linear combination of independent Gaussian random variables, is Gaussian ([Casella and Berger 2002](#ref-CaseBerg01), Corollary 4.6.10). By [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation), its mean is
+> *Solution 1*. Suppose \\\theta^{(t)} \sim \operatorname{N}\mathopen{}\left(0, v\right)\mathclose{}\\. By [Example 4](#exm-ar1-chain), \\\varepsilon^{(t+1)}\\ is independent of \\\theta^{(t)}\\, so \\\theta^{(t+1)} = \rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\\, a linear combination of independent Gaussian random variables, is Gaussian [\[6\]](#ref-CaseBerg01), Corollary 4.6.10. By [linearity of expectation](https://morrison-lab.github.io/pds/expectation.html#thm-linearity-expectation), its mean is
 >
 > \\ \begin{aligned} \operatorname{E}\mathopen{}\left\[\theta^{(t+1)}\right\]\mathclose{} &= \operatorname{E}\mathopen{}\left\[\rho\\ \theta^{(t)} + \varepsilon^{(t+1)}\right\]\mathclose{} && \text{(definition of the chain)}\\ &= \rho\\ \operatorname{E}\mathopen{}\left\[\theta^{(t)}\right\]\mathclose{} + \operatorname{E}\mathopen{}\left\[\varepsilon^{(t+1)}\right\]\mathclose{} && \text{(linearity of expectation)}\\ &= \rho\cdot 0 + 0 && \text{(substituting the two means)}\\ &= 0 && \text{(arithmetic)}. \end{aligned} \tag{2}\\
 >
@@ -163,7 +163,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > > **NOTE:**
 > >
-> > That a linear combination of independent normal random variables is normal is Casella and Berger ([2002](#ref-CaseBerg01), Corollary 4.6.10).
+> > That a linear combination of independent normal random variables is normal is Casella and Berger [\[6\]](#ref-CaseBerg01), Corollary 4.6.10.
 
 > **NOTE:**
 >
@@ -175,7 +175,7 @@ By the law of large numbers, a Monte Carlo estimate converges to the posterior e
 >
 > *Proof*. This result is the solution to [Exercise 1](#exr-ar1-stationary).
 
-Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ converges to it ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), p. 279; [Robert and Casella 2004, sec. 6.6.1](#ref-robert2004mcsm), Theorem 6.51, p. 234). Sample means along the chain also converge to expectations under that distribution, even though successive values are correlated ([Robert and Casella 2004, sec. 6.7.1](#ref-robert2004mcsm), Theorem 6.63, p. 241; [Robert and Casella 2004, sec. 7.2](#ref-robert2004mcsm), p. 269). MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ ([Gelman et al. 2013, chap. 11](#ref-gelman2013bda), p. 275), so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
+Under conditions on its transition probabilities (irreducibility, aperiodicity and positive recurrence; for a continuous parameter, Harris positive recurrence), a Markov chain has a unique stationary distribution and the distribution of \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ converges to it [\[7, Sec. 11.2\]](#ref-gelman2013bda), p. 279, [\[8, Sec. 6.6.1\]](#ref-robert2004mcsm), Theorem 6.51, p. 234. Sample means along the chain also converge to expectations under that distribution, even though successive values are correlated [\[8, Sec. 6.7.1\]](#ref-robert2004mcsm), Theorem 6.63, p. 241, [\[8, Sec. 7.2\]](#ref-robert2004mcsm), p. 269. MCMC algorithms construct a Markov chain whose stationary distribution is the posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ [\[7, Ch. 11\]](#ref-gelman2013bda), p. 275, so that [Monte Carlo estimates](#def-monte-carlo-estimate) can be computed from the chain’s values in place of independent draws.
 
 ## 2 MCMC samplers
 
@@ -209,15 +209,15 @@ Under conditions on its transition probabilities (irreducibility, aperiodicity a
 
 > **NOTE:**
 >
-> **Definition 8 (Metropolis–Hastings algorithm)** Given a target posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, a [proposal distribution](#def-proposal-distribution) \\q(\cdot \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, and a starting value \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}\\, the **Metropolis–Hastings algorithm** produces \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ from \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ as follows ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 291):
+> **Definition 8 (Metropolis–Hastings algorithm)** Given a target posterior \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\, a [proposal distribution](#def-proposal-distribution) \\q(\cdot \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\\, and a starting value \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(1)}\\, the **Metropolis–Hastings algorithm** produces \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ from \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ as follows [\[1, Ch. 13\]](#ref-dobson4e), p. 291:
 >
 > 1.  Draw a candidate \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* \sim q(\cdot \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)})\\.
 > 2.  Compute the [acceptance ratio](#def-acceptance-ratio) \\\alpha\\.
 > 3.  With probability \\\min(1, \alpha)\\, set \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)} = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\*\\ (accept the candidate); otherwise set \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)} = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ (reject it).
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_metropolis_hastings_algorithm)).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_metropolis_hastings_algorithm).
 
-The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ with the normalizing constant \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ canceled ([the posterior equation](bayesian-inference.llms.md#eq-bayes-posterior)), so the algorithm needs only the unnormalized posterior. When the proposal is [symmetric](#def-symmetric-proposal), as for a random walk \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)} + \varepsilon\\ with \\\varepsilon\\ drawn from a distribution symmetric about 0, the second factor equals 1. Provided the proposal can reach every region where the posterior is positive, the resulting chain is a [Markov chain](#def-markov-chain) whose stationary distribution is the posterior ([Gelman et al. 2013, sec. 11.2](#ref-gelman2013bda), pp. 279-280; [Robert and Casella 2004, sec. 7.3.1](#ref-robert2004mcsm), Theorem 7.2, p. 272).
+The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}}) / \operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)} \mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ with the normalizing constant \\\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{y}}\vphantom{y}})\\ canceled ([the posterior equation](bayesian-inference.llms.md#eq-bayes-posterior)), so the algorithm needs only the unnormalized posterior. When the proposal is [symmetric](#def-symmetric-proposal), as for a random walk \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^\* = \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)} + \varepsilon\\ with \\\varepsilon\\ drawn from a distribution symmetric about 0, the second factor equals 1. Provided the proposal can reach every region where the posterior is positive, the resulting chain is a [Markov chain](#def-markov-chain) whose stationary distribution is the posterior [\[7, Sec. 11.2\]](#ref-gelman2013bda), pp. 279-280, [\[8, Sec. 7.3.1\]](#ref-robert2004mcsm), Theorem 7.2, p. 272.
 
 > **NOTE:**
 >
@@ -267,7 +267,7 @@ The first factor of \\\alpha\\ is the ratio \\\operatorname{p}(\mathord{\smash\[
 
 > **NOTE:**
 >
-> **Definition 10 (Burn-in)** The **burn-in** period is the initial segment of an MCMC chain that is discarded before posterior summaries are computed ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 301).
+> **Definition 10 (Burn-in)** The **burn-in** period is the initial segment of an MCMC chain that is discarded before posterior summaries are computed [\[1, Ch. 13\]](#ref-dobson4e), p. 301.
 
 A chain started far from where the posterior puts its probability takes some iterations to get there, and until it does, its values are not draws from the posterior. Burn-in removes those iterations. Its length is chosen by inspecting [trace plots](#def-trace-plot) of chains started from different values: the burn-in should end after the chains have stopped drifting and are moving around the same region.
 
@@ -309,15 +309,15 @@ A chain started far from where the posterior puts its probability takes some ite
 
 > **NOTE:**
 >
-> **Definition 12 (Gibbs sampler)** The **Gibbs sampler** produces \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ from \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ by updating one component at a time: for \\k = 1, \ldots, K\\ in turn, it draws \\\theta_k^{(t+1)}\\ from the [full conditional distribution](#def-full-conditional) of \\\theta_k\\, with each other component set to its most recent value ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293).
+> **Definition 12 (Gibbs sampler)** The **Gibbs sampler** produces \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t+1)}\\ from \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{(t)}\\ by updating one component at a time: for \\k = 1, \ldots, K\\ in turn, it draws \\\theta_k^{(t+1)}\\ from the [full conditional distribution](#def-full-conditional) of \\\theta_k\\, with each other component set to its most recent value [\[1, Ch. 13\]](#ref-dobson4e), p. 293.
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_gibbs_sampling)).
+> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_gibbs_sampling).
 
-The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#def-mh), one component at a time, whose proposal is the full conditional itself; with that proposal the acceptance ratio is always 1, so every draw is accepted ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 293). It needs a way to draw from each full conditional. JAGS (“Just Another Gibbs Sampler”) builds a Gibbs sampler from a model’s description, choosing a sampling method for each full conditional ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e)).
+The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#def-mh), one component at a time, whose proposal is the full conditional itself; with that proposal the acceptance ratio is always 1, so every draw is accepted [\[1, Ch. 13\]](#ref-dobson4e), p. 293. It needs a way to draw from each full conditional. JAGS (“Just Another Gibbs Sampler”) builds a Gibbs sampler from a model’s description, choosing a sampling method for each full conditional [\[1, Ch. 13\]](#ref-dobson4e).
 
 > **NOTE:**
 >
-> **Example 9 (Gibbs sampling from a correlated Gaussian target)** Let the target be the bivariate Gaussian distribution of \\(\theta_1, \theta_2)\\ with means 0, variances 1 and correlation \\\rho\\, whose density is proportional to \\\operatorname{exp}\mathopen{}\left\\-\frac{\theta_1^2 - 2\rho\theta_1\theta_2 + \theta_2^2}{2(1-\rho^2)}\right\\\mathclose{}\\ ([Casella and Berger 2002](#ref-CaseBerg01), Definition 4.5.10). As a function of \\\theta_1\\,
+> **Example 9 (Gibbs sampling from a correlated Gaussian target)** Let the target be the bivariate Gaussian distribution of \\(\theta_1, \theta_2)\\ with means 0, variances 1 and correlation \\\rho\\, whose density is proportional to \\\operatorname{exp}\mathopen{}\left\\-\frac{\theta_1^2 - 2\rho\theta_1\theta_2 + \theta_2^2}{2(1-\rho^2)}\right\\\mathclose{}\\ [\[6\]](#ref-CaseBerg01), Definition 4.5.10. As a function of \\\theta_1\\,
 >
 > \\ \begin{aligned} \operatorname{p}(\theta_1 \mid \theta_2) &\propto \operatorname{exp}\mathopen{}\left\\-\frac{\theta_1^2 - 2\rho\theta_1\theta_2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(dropping the factor with \$\theta_2^2\$ only)}\\ &= \operatorname{exp}\mathopen{}\left\\-\frac{(\theta_1 - \rho\theta_2)^2 - \rho^2\theta_2^2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(completing the square)}\\ &\propto \operatorname{exp}\mathopen{}\left\\-\frac{(\theta_1 - \rho\theta_2)^2}{2(1-\rho^2)}\right\\\mathclose{} && \text{(dropping the factor with \$\theta_2^2\$ only)}, \end{aligned} \\
 >
@@ -353,7 +353,7 @@ The Gibbs sampler is a special case of the [Metropolis–Hastings algorithm](#de
 
 ## 3 Checking and improving MCMC
 
-Because MCMC draws are correlated, and a chain may take many iterations to reach its stationary distribution, we must check whether the chains have converged before using them for inference ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 302). [Trace plots](#def-trace-plot) give a visual check; the potential scale reduction factor gives a numerical one, by comparing several chains started from different values.
+Because MCMC draws are correlated, and a chain may take many iterations to reach its stationary distribution, we must check whether the chains have converged before using them for inference [\[1, Ch. 13\]](#ref-dobson4e), p. 302. [Trace plots](#def-trace-plot) give a visual check; the potential scale reduction factor gives a numerical one, by comparing several chains started from different values.
 
 > **NOTE:**
 >
@@ -365,7 +365,7 @@ Because MCMC draws are correlated, and a chain may take many iterations to reach
 >
 > \\ \hat{R}\stackrel{\text{def}}{=}\sqrt{\hat V / W}. \\
 
-If the chains have all converged to the posterior, \\\hat V\\ estimates the posterior variance and \\W\\ approaches it as \\n\\ grows, so \\\hat{R}\\ is close to 1. If the chains are still exploring different regions, the chain means differ, \\B\\ is large, and \\\hat{R}\\ exceeds 1 ([Gelman et al. 2013, sec. 11.4](#ref-gelman2013bda), pp. 283-285). [Definition 13](#def-psrf) follows Gelman et al. ([2013, sec. 11.4](#ref-gelman2013bda), pp. 284-285), except that they first split each chain in half and compute \\\hat{R}\\ over the half-chains, so that \\\hat{R}\\ also checks each chain for stationarity ([Gelman et al. 2013, sec. 11.4](#ref-gelman2013bda), p. 285, footnote 2). The statistic \\\hat{R}\\ is also called the **Gelman–Rubin statistic**; it formally assesses whether several chains have converged ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306). Software reports \\\hat{R}\\ as `psrf` or `Rhat`; [`coda::gelman.diag()`](https://rdrr.io/pkg/coda/man/gelman.diag.html) also applies a small-sample correction, so its value differs slightly from [Definition 13](#def-psrf)’s. A value of \\\hat{R}\\ near 1 does not prove convergence: chains that are all stuck in the same wrong region also agree.
+If the chains have all converged to the posterior, \\\hat V\\ estimates the posterior variance and \\W\\ approaches it as \\n\\ grows, so \\\hat{R}\\ is close to 1. If the chains are still exploring different regions, the chain means differ, \\B\\ is large, and \\\hat{R}\\ exceeds 1 [\[7, Sec. 11.4\]](#ref-gelman2013bda), pp. 283-285. [Definition 13](#def-psrf) follows Gelman et al. [\[7, Sec. 11.4\]](#ref-gelman2013bda), pp. 284-285, except that they first split each chain in half and compute \\\hat{R}\\ over the half-chains, so that \\\hat{R}\\ also checks each chain for stationarity [\[7, Sec. 11.4\]](#ref-gelman2013bda), p. 285, footnote 2. The statistic \\\hat{R}\\ is also called the **Gelman–Rubin statistic**; it formally assesses whether several chains have converged [\[1, Ch. 13\]](#ref-dobson4e), p. 306. Software reports \\\hat{R}\\ as `psrf` or `Rhat`; [`coda::gelman.diag()`](https://rdrr.io/pkg/coda/man/gelman.diag.html) also applies a small-sample correction, so its value differs slightly from [Definition 13](#def-psrf)’s. A value of \\\hat{R}\\ near 1 does not prove convergence: chains that are all stuck in the same wrong region also agree.
 
 > **NOTE:**
 >
@@ -393,11 +393,11 @@ If the chains have all converged to the posterior, \\\hat V\\ estimates the post
 
 ### 3.1 Comparing MCMC estimates to maximum likelihood
 
-When the prior is weak and the sample is moderate or large, the posterior mean from a well-mixed chain and the [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) typically agree closely, and the posterior standard deviation is close to the frequentist [standard error](estimation.llms.md#def-SE) ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 302). As \\n\\ grows the likelihood dominates the prior, so the posterior concentrates near the maximum likelihood estimate. Comparing the two is therefore a useful check on an MCMC analysis.
+When the prior is weak and the sample is moderate or large, the posterior mean from a well-mixed chain and the [maximum likelihood estimate](intro-MLEs.llms.md#def-mle) typically agree closely, and the posterior standard deviation is close to the frequentist [standard error](estimation.llms.md#def-SE) [\[1, Ch. 13\]](#ref-dobson4e), p. 302. As \\n\\ grows the likelihood dominates the prior, so the posterior concentrates near the maximum likelihood estimate. Comparing the two is therefore a useful check on an MCMC analysis.
 
 > **NOTE:**
 >
-> **Example 11 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat{\pi}= r / n\\, with estimated standard error \\\sqrt{\hat{\pi}(1 - \hat{\pi})/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ ([Casella and Berger 2002, sec. 3.3](#ref-CaseBerg01), p. 107):
+> **Example 11 (Posterior mean and maximum likelihood estimate for a Bernoulli model)** With \\r = 55\\ successes in \\n = 91\\ trials, the maximum likelihood estimate is \\\hat{\pi}= r / n\\, with estimated standard error \\\sqrt{\hat{\pi}(1 - \hat{\pi})/n}\\. Under the uniform prior, the posterior is \\\operatorname{Beta}(r + 1, n - r + 1)\\ ([the Beta-Bernoulli example](bayesian-inference.llms.md#exm-beta-bernoulli)), whose mean is \\(r + 1)/(n + 2)\\ and whose standard deviation is \\\sqrt{ab / \mathopen{}\left((a + b)^2 (a + b + 1)\right)\mathclose{}}\\ with \\a = r + 1\\ and \\b = n - r + 1\\ [\[6, Sec. 3.3\]](#ref-CaseBerg01), p. 107:
 >
 > ``` downlit
 > r <- 55
@@ -424,13 +424,13 @@ A persistent discrepancy between the two is a signal worth investigating: it may
 
 ### 3.2 The importance of parameterization
 
-How a model is written affects how well its sampler mixes ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 299). Two algebraically equivalent parameterizations of the same model can produce chains with very different autocorrelation. Strong posterior correlation between parameters slows a sampler that updates one component at a time, because each update can move only a short way along a narrow, tilted ridge, as [Example 9](#exm-gibbs-bivariate-normal) shows with \\\rho= 0.99\\.
+How a model is written affects how well its sampler mixes [\[1, Ch. 13\]](#ref-dobson4e), p. 299. Two algebraically equivalent parameterizations of the same model can produce chains with very different autocorrelation. Strong posterior correlation between parameters slows a sampler that updates one component at a time, because each update can move only a short way along a narrow, tilted ridge, as [Example 9](#exm-gibbs-bivariate-normal) shows with \\\rho= 0.99\\.
 
 Common remedies include *centering* predictors (subtracting their means), so that the intercept and slopes are less correlated, and *reparameterizing* variance components on a scale on which the posterior is more nearly symmetric. These changes leave the model, and so the scientific conclusions, unchanged; they alter only the geometry the sampler must explore.
 
 ## 4 Deviance information criterion
 
-To compare models fit to the same data by Bayesian inference, we need a measure that balances goodness of fit against complexity, as [Akaike’s information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-aic) does for models fit by maximum likelihood. The standard criterion computed from MCMC output is the deviance information criterion ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306).
+To compare models fit to the same data by Bayesian inference, we need a measure that balances goodness of fit against complexity, as [Akaike’s information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-aic) does for models fit by maximum likelihood. The standard criterion computed from MCMC output is the deviance information criterion [\[1, Ch. 13\]](#ref-dobson4e), p. 306.
 
 > **NOTE:**
 >
@@ -456,13 +456,13 @@ To compare models fit to the same data by Bayesian inference, we need a measure 
 >
 > with \\D\\ from [Definition 14](#def-bayes-deviance) and \\p_D\\ from [Definition 15](#def-effective-parameters).
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_deviance_information_criterion)).
+> Source: Wikipedia contributors [\[11\]](#ref-wikipedia_deviance_information_criterion).
 
 Substituting [Definition 15](#def-effective-parameters) gives an equivalent form:
 
 \\ \begin{aligned} \operatorname{DIC} &= D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) + 2\mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{} && \text{(definition of \$p_D\$)}\\ &= 2\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}) && \text{(collecting terms)}\\ &= \overline{D} + \mathopen{}\left(\overline{D} - D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\right)\mathclose{} && \text{(splitting \$2\overline{D}\$)}\\ &= \overline{D} + p_D && \text{(definition of \$p_D\$)}. \end{aligned} \\
 
-The term \\D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\\ rewards fit, while \\p_D\\ penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306). Both \\\overline{D}\\ and \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ are [Monte Carlo estimates](#def-monte-carlo-estimate) from the posterior draws, so DIC is a by-product of an MCMC run.
+The term \\D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}})\\ rewards fit, while \\p_D\\ penalizes complexity: it measures how much the deviance is reduced, on average, by letting the parameters adapt to the data. As with Akaike’s criterion, lower DIC is better, and only differences in DIC between models fit to the same data are meaningful [\[1, Ch. 13\]](#ref-dobson4e), p. 306. Both \\\overline{D}\\ and \\\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\\ are [Monte Carlo estimates](#def-monte-carlo-estimate) from the posterior draws, so DIC is a by-product of an MCMC run.
 
 > **NOTE:**
 >
@@ -491,44 +491,66 @@ The term \\D(\bar{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\
 
 > **NOTE:**
 >
-> *Remark 2* (Cautions about DIC). DIC should be used with care: it can behave poorly for models with weakly identified parameters or markedly non-Gaussian posteriors ([Dobson and Barnett 2018, chap. 13](#ref-dobson4e), p. 306).
+> *Remark 2* (Cautions about DIC). DIC should be used with care: it can behave poorly for models with weakly identified parameters or markedly non-Gaussian posteriors [\[1, Ch. 13\]](#ref-dobson4e), p. 306.
 
 ## Further reading
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_markov_chain_monte_carlo)) — the family of samplers and their diagnostics
+- Wikipedia contributors [\[2\]](#ref-wikipedia_markov_chain_monte_carlo) — the family of samplers and their diagnostics
 
-- Wikipedia contributors ([2026e](#ref-wikipedia_metropolis_hastings_algorithm)) — the algorithm and its variants
+- Wikipedia contributors [\[9\]](#ref-wikipedia_metropolis_hastings_algorithm) — the algorithm and its variants
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_gibbs_sampling)) — sampling from full conditional distributions
+- Wikipedia contributors [\[10\]](#ref-wikipedia_gibbs_sampling) — sampling from full conditional distributions
 
-- Wikipedia contributors ([2026f](#ref-wikipedia_monte_carlo_method)) — Monte Carlo estimation, with examples
+- Wikipedia contributors [\[3\]](#ref-wikipedia_monte_carlo_method) — Monte Carlo estimation, with examples
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_markov_chain)) — Markov chains and their stationary distributions
+- Wikipedia contributors [\[4\]](#ref-wikipedia_markov_chain) — Markov chains and their stationary distributions
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_deviance_information_criterion)) — the criterion and its effective number of parameters
+- Wikipedia contributors [\[11\]](#ref-wikipedia_deviance_information_criterion) — the criterion and its effective number of parameters
 
 ## References
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+\[1\]
 
-Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized Linear Models*. 4th ed. CRC press. <https://doi.org/10.1201/9781315182780>.
+A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
 
-Gelman, Andrew, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, and Donald B. Rubin. 2013. *Bayesian Data Analysis*. 3rd ed. Chapman & Hall/CRC Texts in Statistical Science. CRC Press. <https://doi.org/10.1201/b16018>.
+\[2\]
 
-Robert, Christian P., and George Casella. 2004. *Monte Carlo Statistical Methods*. 2nd ed. Springer Texts in Statistics. Springer. <https://doi.org/10.1007/978-1-4757-4145-2>.
+Wikipedia contributors, “Markov chain monte carlo — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo>
 
-Wikipedia contributors. 2026a. *Deviance Information Criterion — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Deviance_information_criterion>.
+\[3\]
 
-Wikipedia contributors. 2026b. *Gibbs Sampling — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Gibbs_sampling>.
+Wikipedia contributors, “Monte carlo method — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Monte_Carlo_method>
 
-Wikipedia contributors. 2026c. *Markov Chain — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Markov_chain>.
+\[4\]
 
-Wikipedia contributors. 2026d. *Markov Chain Monte Carlo — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo>.
+Wikipedia contributors, “Markov chain — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Markov_chain>
 
-Wikipedia contributors. 2026e. *Metropolis–Hastings Algorithm — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm>.
+\[5\]
 
-Wikipedia contributors. 2026f. *Monte Carlo Method — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Monte_Carlo_method>.
+Wikipedia contributors, “Stationary distribution — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Stationary_distribution>
 
-Wikipedia contributors. 2026g. *Stationary Distribution — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Stationary_distribution>.
+\[6\]
+
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+\[7\]
+
+A. Gelman, J. B. Carlin, H. S. Stern, D. B. Dunson, A. Vehtari, and D. B. Rubin, *Bayesian data analysis*, 3rd ed. in Chapman & hall/CRC texts in statistical science. Boca Raton, FL: CRC Press, 2013. doi: [10.1201/b16018](https://doi.org/10.1201/b16018).
+
+\[8\]
+
+C. P. Robert and G. Casella, *Monte carlo statistical methods*, 2nd ed. in Springer texts in statistics. New York: Springer, 2004. doi: [10.1007/978-1-4757-4145-2](https://doi.org/10.1007/978-1-4757-4145-2).
+
+\[9\]
+
+Wikipedia contributors, “Metropolis–hastings algorithm — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm>
+
+\[10\]
+
+Wikipedia contributors, “Gibbs sampling — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Gibbs_sampling>
+
+\[11\]
+
+Wikipedia contributors, “Deviance information criterion — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Deviance_information_criterion>
 
 Back to top

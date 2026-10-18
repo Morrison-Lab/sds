@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 01:15:39 (PDT)
+Last modified: 2026-10-18 11:27:25 (PDT)
 
 A [p-value](inference.llms.md#def-p-value) answers a question about one hypothesis. Many studies ask the question many times: a gene expression study tests every gene for a difference between two tumor types, and a screening study tests every candidate drug. Each test that uses the usual [significance level](inference.llms.md#def-significance-level) has a small chance of flagging a null hypothesis that is true, and those chances add up over thousands of tests.
 
@@ -22,13 +22,13 @@ This page does three things:
 
 - shows how fast false positives accumulate;
 - defines two error rates for a whole family of tests, the family-wise error rate and the false discovery rate;
-- presents the standard procedures that control them: the Bonferroni correction, Holm’s step-down procedure ([Holm 1979](#ref-holm1979simple)) and the Benjamini–Hochberg procedure ([Benjamini and Hochberg 1995](#ref-benjamini1995controlling)), with the adjusted p-values that report their results.
+- presents the standard procedures that control them: the Bonferroni correction, Holm’s step-down procedure [\[1\]](#ref-holm1979simple) and the Benjamini–Hochberg procedure [\[2\]](#ref-benjamini1995controlling), with the adjusted p-values that report their results.
 
-The next page, [permutation tests](permutation-tests.llms.md), shows how to compute a p-value without a distributional model. These notes follow chapter 13 of James et al. ([2021](#ref-james2021islr2e)).
+The next page, [permutation tests](permutation-tests.llms.md), shows how to compute a p-value without a distributional model. These notes follow chapter 13 of James et al. [\[3\]](#ref-james2021islr2e).
 
 ## 1 The Khan gene expression data
 
-The examples on this page use gene expression data from Khan et al. ([2001](#ref-khan2001classification)), who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at [`data/khan.csv`](data/khan.csv), taken from the `Khan` data of the R package [`ISLR2`](https://cran.r-project.org/package=ISLR2) ([James et al. 2021](#ref-james2021islr2e)): the column `tumor_class` holds the class, and the columns `gene_1` to `gene_2308` hold the expression values. The examples compare classes 2 and 4.
+The examples on this page use gene expression data from Khan et al. [\[4\]](#ref-khan2001classification), who measured 2308 genes in tissue samples from children with small round blue cell tumors. The samples fall into four tumor classes, numbered 1 to 4 in the data. This site keeps a copy of the 63 training samples at [`data/khan.csv`](data/khan.csv), taken from the `Khan` data of the R package [`ISLR2`](https://cran.r-project.org/package=ISLR2) [\[3\]](#ref-james2021islr2e): the column `tumor_class` holds the class, and the columns `gene_1` to `gene_2308` hold the expression values. The examples compare classes 2 and 4.
 
 ``` downlit
 khan <- read.csv("data/khan.csv")
@@ -214,7 +214,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\\text{FWER} \stackrel{\text{def}}{=}\Pr\mathopen{}\left(V \ge 1\right)\mathclose{}.\\
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_family_wise_error_rate)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_family_wise_error_rate).
 
 > **NOTE:**
 >
@@ -258,11 +258,11 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\ \text{FDR} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\text{FDP}\right\]\mathclose{}. \\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_false_discovery_rate)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_false_discovery_rate).
 
 > **NOTE:**
 >
-> *Remark 2* (Source: False discovery rate). The false discovery rate was introduced by Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)); the notation \\V\\, \\S\\, \\U\\, \\T\\ and \\R\\ follows James et al. ([2021](#ref-james2021islr2e), ch. 13).
+> *Remark 2* (Source: False discovery rate). The false discovery rate was introduced by Benjamini and Hochberg [\[2\]](#ref-benjamini1995controlling); the notation \\V\\, \\S\\, \\U\\, \\T\\ and \\R\\ follows James et al. [\[3, Ch. 13\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
@@ -331,7 +331,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\\text{reject } H_j \iff p_j \le \frac{\alpha}{m}.\\
 >
-> Source: James et al. ([2021](#ref-james2021islr2e), ch. 13); Wikipedia contributors ([2026a](#ref-wikipedia_bonferroni_correction)).
+> Source: James et al. [\[3, Ch. 13\]](#ref-james2021islr2e); Wikipedia contributors [\[7\]](#ref-wikipedia_bonferroni_correction).
 
 > **NOTE:**
 >
@@ -410,7 +410,7 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\\Pr\mathopen{}\left(A_1 \cup \cdots \cup A_k\right)\mathclose{} \le \Pr(A_1) + \cdots + \Pr(A_k).\\
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_booles_inequality)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_booles_inequality).
 
 > **NOTE:**
 >
@@ -480,13 +480,13 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\k^\* \stackrel{\text{def}}{=}\min \mathopen{}\left\\k : p\_{(k)} \> \frac{\alpha}{m - k + 1}\right\\\mathclose{}.\\
 >
-> Source: Holm ([1979](#ref-holm1979simple)).
+> Source: Holm [\[1\]](#ref-holm1979simple).
 
 > **NOTE:**
 >
 > **Definition 10 (Holm’s step-down procedure)** Given the cutoff rank \\k^\*\\ of [Definition 9](#def-holm-cutoff), **Holm’s procedure** rejects \\H\_{(1)}, \ldots, H\_{(k^\* - 1)}\\ and no others.
 >
-> Source: Holm ([1979](#ref-holm1979simple)); Wikipedia contributors ([2026e](#ref-wikipedia_holm_bonferroni_method)).
+> Source: Holm [\[1\]](#ref-holm1979simple); Wikipedia contributors [\[9\]](#ref-wikipedia_holm_bonferroni_method).
 
 > **NOTE:**
 >
@@ -629,8 +629,8 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> - Casella and Berger ([2002, sec. 11.2.5](#ref-CaseBerg01), pp. 534–535) covers simultaneous estimation of contrasts.
-> - Rice ([2007, sec. 12.2.2](#ref-rice2007mathematical), pp. 485–487) covers multiple comparisons.
+> - Casella and Berger [\[10, Sec. 11.2.5\]](#ref-CaseBerg01), pp. 534–535 covers simultaneous estimation of contrasts.
+> - Rice [\[11, Sec. 12.2.2\]](#ref-rice2007mathematical), pp. 485–487 covers multiple comparisons.
 
 ## 5 Controlling the false discovery rate
 
@@ -642,13 +642,13 @@ table(tumor_class = khan_pair$tumor_class)
 >
 > \\\hat k \stackrel{\text{def}}{=}\max \mathopen{}\left\\k : p\_{(k)} \le \frac{k q}{m}\right\\\mathclose{}.\\
 >
-> Source: Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)).
+> Source: Benjamini and Hochberg [\[2\]](#ref-benjamini1995controlling).
 
 > **NOTE:**
 >
 > **Definition 12 (Benjamini–Hochberg procedure)** Given the cutoff rank \\\hat k\\ of [Definition 11](#def-bh-cutoff), the **Benjamini–Hochberg procedure** (BH) rejects \\H\_{(1)}, \ldots, H\_{(\hat k)}\\ and no others.
 >
-> Source: Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)); Wikipedia contributors ([2026c](#ref-wikipedia_false_discovery_rate)).
+> Source: Benjamini and Hochberg [\[2\]](#ref-benjamini1995controlling); Wikipedia contributors [\[6\]](#ref-wikipedia_false_discovery_rate).
 
 > **NOTE:**
 >
@@ -727,7 +727,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 7* (Source: The BH procedure controls the FDR under independence). Benjamini and Hochberg ([1995](#ref-benjamini1995controlling)), which proves the result for any configuration of false null hypotheses. The proof is omitted here.
+> *Remark 7* (Source: The BH procedure controls the FDR under independence). Benjamini and Hochberg [\[2\]](#ref-benjamini1995controlling), which proves the result for any configuration of false null hypotheses. The proof is omitted here.
 
 > **NOTE:**
 >
@@ -745,7 +745,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 8* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli ([2001](#ref-benjamini2001control)) proved that BH still controls the FDR at level \\q\\ under a form of positive dependence among the p-values, and that the procedure run at level \\q / \sum\_{k=1}^m (1/k)\\ controls it under any dependence. James et al. ([2021](#ref-james2021islr2e), ch. 13) and Efron and Hastie ([2016](#ref-efron2016computer), ch. 15) discuss the procedure in practice.
+> *Remark 8* (BH under dependence). Gene expression levels are usually correlated, and [Theorem 5](#thm-bh-fdr) assumes independence. Benjamini and Yekutieli [\[12\]](#ref-benjamini2001control) proved that BH still controls the FDR at level \\q\\ under a form of positive dependence among the p-values, and that the procedure run at level \\q / \sum\_{k=1}^m (1/k)\\ controls it under any dependence. James et al. [\[3, Ch. 13\]](#ref-james2021islr2e) and Efron and Hastie [\[13, Ch. 15\]](#ref-efron2016computer) discuss the procedure in practice.
 
 ## 6 Adjusted p-values and q-values
 
@@ -820,7 +820,7 @@ table(tumor_class = khan_pair$tumor_class)
 
 > **NOTE:**
 >
-> *Remark 10* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level \\q\\ at which BH rejects it. Some authors call this a *q-value*. Storey ([2002](#ref-storey2002direct)) defines the q-value with the same meaning, but estimates the fraction \\m_0 / m\\ of true null hypotheses from the p-values and multiplies by the estimate, \\\hat\pi_0\\, which is usually below 1. BH is the case \\\hat\pi_0 = 1\\, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
+> *Remark 10* (q-values). The BH adjusted p-value of a hypothesis is the smallest FDR level \\q\\ at which BH rejects it. Some authors call this a *q-value*. Storey [\[14\]](#ref-storey2002direct) defines the q-value with the same meaning, but estimates the fraction \\m_0 / m\\ of true null hypotheses from the p-values and multiplies by the estimate, \\\hat\pi_0\\, which is usually below 1. BH is the case \\\hat\pi_0 = 1\\, so Storey’s q-values are smaller, and reject more, when many null hypotheses are false.
 
 ## 7 Comparing the procedures
 
@@ -851,56 +851,86 @@ table(tumor_class = khan_pair$tumor_class)
 
 ## 8 Further reading
 
-- Chapter 13 of James et al. ([2021](#ref-james2021islr2e)) covers the same procedures, with labs.
-- Chapter 15 of Efron and Hastie ([2016](#ref-efron2016computer)) treats large-scale testing and the false discovery rate.
+- Chapter 13 of James et al. [\[3\]](#ref-james2021islr2e) covers the same procedures, with labs.
+- Chapter 15 of Efron and Hastie [\[13\]](#ref-efron2016computer) treats large-scale testing and the false discovery rate.
 - Andrew Lin’s [notes on Stanford STATS 300C](https://web.stanford.edu/~lindrew/stats300C.pdf) (Emmanuel Candès, Spring 2025) are student-written and cover global testing, the false discovery rate, e-values and conformal inference.
 - Will Fithian’s [Stat 212A, *Topics in Selective Inference*](https://www.stat.berkeley.edu/~wfithian/courses/stat212a/) (UC Berkeley, Fall 2015) has a syllabus, references and homework with solutions on inference after selection, including multiple testing.
 - The [permutation tests](permutation-tests.llms.md) page computes valid p-values by relabeling the data, without a distributional model for the test statistic.
 
 ### 8.1 Online references
 
-- Wikipedia contributors ([2026f](#ref-wikipedia_multiple_comparisons_problem)) — why many tests inflate the error rate
+- Wikipedia contributors [\[15\]](#ref-wikipedia_multiple_comparisons_problem) — why many tests inflate the error rate
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_family_wise_error_rate)) — the rate and the corrections that control it
+- Wikipedia contributors [\[5\]](#ref-wikipedia_family_wise_error_rate) — the rate and the corrections that control it
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_false_discovery_rate)) — the rate and the Benjamini-Hochberg procedure
+- Wikipedia contributors [\[6\]](#ref-wikipedia_false_discovery_rate) — the rate and the Benjamini-Hochberg procedure
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_bonferroni_correction)) — the correction and its conservatism
+- Wikipedia contributors [\[7\]](#ref-wikipedia_bonferroni_correction) — the correction and its conservatism
 
-- Wikipedia contributors ([2026e](#ref-wikipedia_holm_bonferroni_method)) — the step-down procedure
+- Wikipedia contributors [\[9\]](#ref-wikipedia_holm_bonferroni_method) — the step-down procedure
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_booles_inequality)) — the Wikipedia article on boole’s inequality
+- Wikipedia contributors [\[8\]](#ref-wikipedia_booles_inequality) — the Wikipedia article on boole’s inequality
 
 ## References
 
-Benjamini, Yoav, and Yosef Hochberg. 1995. “Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing.” *Journal of the Royal Statistical Society: Series B (Methodological)* 57 (1): 289–300. <https://doi.org/10.1111/j.2517-6161.1995.tb02031.x>.
+\[1\]
 
-Benjamini, Yoav, and Daniel Yekutieli. 2001. “The Control of the False Discovery Rate in Multiple Testing Under Dependency.” *The Annals of Statistics* 29 (4). <https://doi.org/10.1214/aos/1013699998>.
+S. Holm, “A simple sequentially rejective multiple test procedure,” *Scandinavian Journal of Statistics*, vol. 6, no. 2, pp. 65–70, 1979.
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+\[2\]
 
-Efron, Bradley, and Trevor Hastie. 2016. *Computer Age Statistical Inference: Algorithms, Evidence, and Data Science*. Cambridge University Press. <https://doi.org/10.1017/CBO9781316576533>.
+Y. Benjamini and Y. Hochberg, “Controlling the false discovery rate: A practical and powerful approach to multiple testing,” *Journal of the Royal Statistical Society: Series B (Methodological)*, vol. 57, no. 1, pp. 289–300, 1995, doi: [10.1111/j.2517-6161.1995.tb02031.x](https://doi.org/10.1111/j.2517-6161.1995.tb02031.x).
 
-Holm, Sture. 1979. “A Simple Sequentially Rejective Multiple Test Procedure.” *Scandinavian Journal of Statistics* 6 (2): 65–70.
+\[3\]
 
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
+G. James, D. Witten, T. Hastie, and R. Tibshirani, *An introduction to statistical learning: With applications in R*, 2nd ed. Springer, 2021. doi: [10.1007/978-1-0716-1418-1](https://doi.org/10.1007/978-1-0716-1418-1).
 
-Khan, Javed, Jun S. Wei, Markus Ringnér, et al. 2001. “Classification and Diagnostic Prediction of Cancers Using Gene Expression Profiling and Artificial Neural Networks.” *Nature Medicine* 7 (6): 673–79. <https://doi.org/10.1038/89044>.
+\[4\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+J. Khan *et al.*, “Classification and diagnostic prediction of cancers using gene expression profiling and artificial neural networks,” *Nature Medicine*, vol. 7, no. 6, pp. 673–679, 2001, doi: [10.1038/89044](https://doi.org/10.1038/89044).
 
-Storey, John D. 2002. “A Direct Approach to False Discovery Rates.” *Journal of the Royal Statistical Society: Series B (Statistical Methodology)* 64 (3): 479–98. <https://doi.org/10.1111/1467-9868.00346>.
+\[5\]
 
-Wikipedia contributors. 2026a. *Bonferroni Correction — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bonferroni_correction>.
+Wikipedia contributors, “Family-wise error rate — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Family-wise_error_rate>
 
-Wikipedia contributors. 2026b. *Boole’s Inequality — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Boole%27s_inequality>.
+\[6\]
 
-Wikipedia contributors. 2026c. *False Discovery Rate — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/False_discovery_rate>.
+Wikipedia contributors, “False discovery rate — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/False_discovery_rate>
 
-Wikipedia contributors. 2026d. *Family-Wise Error Rate — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Family-wise_error_rate>.
+\[7\]
 
-Wikipedia contributors. 2026e. *Holm–Bonferroni Method — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Holm%E2%80%93Bonferroni_method>.
+Wikipedia contributors, “Bonferroni correction — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bonferroni_correction>
 
-Wikipedia contributors. 2026f. *Multiple Comparisons Problem — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Multiple_comparisons_problem>.
+\[8\]
+
+Wikipedia contributors, “Boole’s inequality — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Boole%27s_inequality>
+
+\[9\]
+
+Wikipedia contributors, “Holm–bonferroni method — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Holm%E2%80%93Bonferroni_method>
+
+\[10\]
+
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+\[11\]
+
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+\[12\]
+
+Y. Benjamini and D. Yekutieli, “The control of the false discovery rate in multiple testing under dependency,” *The Annals of Statistics*, vol. 29, no. 4, 2001, doi: [10.1214/aos/1013699998](https://doi.org/10.1214/aos/1013699998).
+
+\[13\]
+
+B. Efron and T. Hastie, *Computer age statistical inference: Algorithms, evidence, and data science*. Cambridge University Press, 2016. doi: [10.1017/CBO9781316576533](https://doi.org/10.1017/CBO9781316576533).
+
+\[14\]
+
+J. D. Storey, “A direct approach to false discovery rates,” *Journal of the Royal Statistical Society: Series B (Statistical Methodology)*, vol. 64, no. 3, pp. 479–498, 2002, doi: [10.1111/1467-9868.00346](https://doi.org/10.1111/1467-9868.00346).
+
+\[15\]
+
+Wikipedia contributors, “Multiple comparisons problem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Multiple_comparisons_problem>
 
 Back to top

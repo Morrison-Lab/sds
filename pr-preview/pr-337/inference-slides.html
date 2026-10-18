@@ -109,6 +109,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -355,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 01:15:39 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:27:25 (PDT)</p>
 </section><section id="inference" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> Inference</h2>
 <style>
@@ -366,7 +367,7 @@ text-align: center;
 <!-- No slidebreak here: the heading shares its slide with the def-inference div. --><div id="def-inference" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Statistical inference)</strong></span> <strong>Statistical inference</strong> is the process of analyzing data to learn about the shape and structure of the probability distribution that generated those data.</p>
 </div>
-<aside class="notes"><p>This definition is adapted from Wikipedia’s <span class="citation" data-cites="wp:statinference">(<a href="#/references" role="doc-biblioref" onclick="">Wikipedia contributors 2025</a>)</span>.</p>
+<aside class="notes"><p>This definition is adapted from Wikipedia’s <span class="citation" data-cites="wp:statinference"><a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -396,14 +397,14 @@ text-align: center;
 <!-- No slidebreak here: the heading shares its slide with the def-null-hypothesis div. -->
 <div id="def-null-hypothesis" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Null hypothesis)</strong></span> The <strong>null hypothesis</strong>, written <span class="math inline">\(H_0\)</span>, is a specific claim about the parameters of a statistical model, which a hypothesis test assesses against the data.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_statistical_hypothesis_test">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026g</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_statistical_hypothesis_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-alternative-hypothesis" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 3 (Alternative hypothesis)</strong></span> The <strong>alternative hypothesis</strong>, written <span class="math inline">\(H_1\)</span> or <span class="math inline">\(H_A\)</span>, is the claim that a hypothesis test weighs the data as evidence <em>for</em>, against the <a href="#/def-null-hypothesis">null hypothesis</a>.</p>
 </div>
 </section><section class="slide level2"><div id="def-two-sided-alternative" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Two-sided alternative)</strong></span> For a null hypothesis that a parameter equals a value, such as <span class="math inline">\(H_0: \theta= \theta_0\)</span>, the <strong>two-sided alternative</strong> is that the parameter differs from that value in either direction: <span class="math inline">\(H_1: \theta\ne \theta_0\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_one_and_two_tailed_tests">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026e</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_one_and_two_tailed_tests">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-hypotheses-wcgs" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Cholesterol and CHD in the WCGS)</strong></span> Let <span class="math inline">\(\mu_1\)</span> and <span class="math inline">\(\mu_0\)</span> be the population mean cholesterol of men who do and do not have a CHD event by 1969, in the population the WCGS sampled. A comparison of the two groups tests the null hypothesis that the population means are equal against the <a href="#/def-two-sided-alternative">two-sided alternative</a> that they differ:</p>
@@ -414,20 +415,20 @@ text-align: center;
 <!-- No slidebreak here: the heading shares its slide with the def-test-statistic div. -->
 <div id="def-test-statistic" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Test statistic)</strong></span> A <strong>test statistic</strong> <span class="math inline">\(T\)</span> is a function of the data whose distribution under the <a href="#/def-null-hypothesis">null hypothesis</a> is known, exactly or approximately, and whose larger values are more extreme, meaning less consistent with <span class="math inline">\(H_0\)</span> and more consistent with <span class="math inline">\(H_1\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_test_statistic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026j</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_test_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-p-value" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (p-value)</strong></span> Given a <a href="#/def-test-statistic">test statistic</a> <span class="math inline">\(T\)</span> whose observed value is <span class="math inline">\(t\)</span>, the <strong>p-value</strong> is the probability that <span class="math inline">\(T\)</span> is at least as extreme as the value observed, computed with the data distributed as the null hypothesis specifies:</p>
 <p><span class="math display">\[p \stackrel{\text{def}}{=}\Pr_{H_0}(T \ge t)\]</span></p>
 <p>If the null hypothesis allows more than one distribution (a <em>composite</em> null hypothesis, such as <span class="math inline">\(H_0: \mu_1 = \mu_0\)</span> with unknown variances), the p-value is the largest such probability over those distributions, or an approximation to it.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_p_value">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026f</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_p_value">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-p-value-not-posterior" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (A p-value is not the probability that the null hypothesis is true). </span>A p-value is computed assuming <span class="math inline">\(H_0\)</span> is true, so it is not the probability that <span class="math inline">\(H_0\)</span> is true given the data.</p>
 </div>
 </section><section class="slide level2"><div id="def-significance-level" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Significance level)</strong></span> A hypothesis test with <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> rejects the <a href="#/def-null-hypothesis">null hypothesis</a> when the <a href="#/def-p-value">p-value</a> is at most <span class="math inline">\(\alpha\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_statistical_significance">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026h</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_statistical_significance">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-significance-level-convention" class="proof remark">
 <p><span class="proof-title"><em>Remark 2</em> (Choosing a significance level). </span><span class="math inline">\(\alpha= 0.05\)</span> is a common convention, not a rule. When <span class="math inline">\(H_0\)</span> is true and the p-value is computed exactly, a test with significance level <span class="math inline">\(\alpha\)</span> rejects <span class="math inline">\(H_0\)</span> with probability at most <span class="math inline">\(\alpha\)</span>; for a test based on an approximate p-value, such as a large-sample test, this holds only approximately.</p>
@@ -455,18 +456,18 @@ text-align: center;
 <p>The p-value is far below 0.05, so at significance level 0.05 the test rejects <span class="math inline">\(H_0\)</span>: the data provide <a href="#/def-statistically-significant">statistically significant</a> evidence that population mean cholesterol differs between the two groups.</p>
 </div>
 <div class="videos">
-<p>5MinuteAI explains <a href="https://www.youtube.com/watch?v=Plya_ZXkOvs">hypothesis testing</a> in five minutes, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat">(<a href="#/references" role="doc-biblioref" onclick="">5MinuteAI, n.d.</a>)</span>.</p>
+<p>5MinuteAI explains <a href="https://www.youtube.com/watch?v=Plya_ZXkOvs">hypothesis testing</a> in five minutes, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat"><a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
 </div>
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 8.1</a>, pp.&nbsp;361–368)</span> covers tests about one mean.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[8, Sec. 8.1]</a>, pp.&nbsp;361–368</span> covers tests about one mean.</li>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 8.6</a>, pp.&nbsp;403–409)</span> covers power of a statistical test.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[8, Sec. 8.6]</a>, pp.&nbsp;403–409</span> covers power of a statistical test.</li>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 8.3</a>, pp.&nbsp;382–401)</span> covers methods of evaluating tests.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[9, Sec. 8.3]</a>, pp.&nbsp;382–401</span> covers methods of evaluating tests.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 9.2</a>, pp.&nbsp;331–336)</span> covers the Neyman–Pearson paradigm.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[10, Sec. 9.2]</a>, pp.&nbsp;331–336</span> covers the Neyman–Pearson paradigm.</li>
 </ul>
 </div>
 </section><section id="sec-reference-distributions" class="slide level2" data-number="3"><h2>
@@ -474,7 +475,7 @@ text-align: center;
 <p>The tests on this page compare a test statistic with one of three families of distributions, each built from independent standard Gaussian random variables. Here, “independent” means mutually <a href="https://morrison-lab.github.io/pds/independence.html#def-indpt">independent</a>.</p>
 </section><section class="slide level2"><div id="def-chi-square-dist" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 9 (Chi-square distribution)</strong></span> Let <span class="math inline">\(Z_1, \ldots, Z_k\)</span> be independent random variables, each with the standard Gaussian distribution. The distribution of <span class="math inline">\(\sum_{j=1}^{k} Z_j^2\)</span> is the <strong>chi-square distribution with <span class="math inline">\(k\)</span> degrees of freedom</strong>, written <span class="math inline">\(\chi^2_k\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_chi_squared_distribution">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_chi_squared_distribution">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[11]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-chi-square-dist" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (The 0.95 quantile of <span class="math inline">\(\chi^2_1\)</span>)</strong></span> By <a href="#/def-chi-square-dist" class="quarto-xref">Definition&nbsp;9</a>, a <span class="math inline">\(\chi^2_1\)</span> random variable is <span class="math inline">\(Z^2\)</span> for a standard Gaussian <span class="math inline">\(Z\)</span>. So <span class="math inline">\(\Pr(Z^2 \le c) = \Pr(-\sqrt{c} \le Z \le \sqrt{c})\)</span>, and the 0.95 quantile of <span class="math inline">\(\chi^2_1\)</span> is the square of the 0.975 quantile of the standard Gaussian distribution:</p>
@@ -526,11 +527,11 @@ text-align: center;
 <p><span class="theorem-title"><strong>Definition 12 (Confidence interval)</strong></span> A <span class="math inline">\(100(1-\alpha)\%\)</span> <strong>confidence interval</strong> for a parameter <span class="math inline">\(\theta\)</span> is a pair of statistics <span class="math inline">\(L\)</span> and <span class="math inline">\(U\)</span>, computed from the data, such that for every possible value of <span class="math inline">\(\theta\)</span>:</p>
 <p><span class="math display">\[\Pr(L \le \theta\le U) = 1 - \alpha\]</span></p>
 <p>The probability is over repeated samples from the data-generating process, with <span class="math inline">\(\theta\)</span> held fixed.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[12]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-coverage-probability" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Coverage probability)</strong></span> The <strong>coverage probability</strong> of an interval <span class="math inline">\([L, U]\)</span> for a parameter <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\Pr(L \le \theta\le U)\)</span>, computed over repeated samples with <span class="math inline">\(\theta\)</span> held fixed. A <span class="math inline">\(100(1-\alpha)\%\)</span> <a href="#/def-confidence-interval">confidence interval</a> has coverage probability <span class="math inline">\(1 - \alpha\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_coverage_probability">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_coverage_probability">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[13]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-approximate-ci" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 14 (Approximate confidence interval)</strong></span> An <strong>approximate</strong> <span class="math inline">\(100(1-\alpha)\%\)</span> confidence interval is an interval whose <a href="#/def-coverage-probability">coverage probability</a> is approximately <span class="math inline">\(1 - \alpha\)</span>, for example only in large samples.</p>
@@ -547,22 +548,22 @@ text-align: center;
 </div>
 </section><section class="slide level2"><div id="def-margin-error" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 15 (Margin of error (radius))</strong></span> The <strong>margin of error</strong> (or <strong>radius</strong>) of a <a href="#/def-confidence-interval">confidence interval</a> is half the interval’s width.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_margin_of_error">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_margin_of_error">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[14]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-margin-error" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Margin of error for population mean cholesterol)</strong></span> In <a href="#/exm-confidence-interval-wcgs" class="quarto-xref">Example&nbsp;7</a>, the margin of error is <span class="math inline">\(z_{0.975} \times s/\sqrt{n} \approx\)</span> 1.52 mg/dL.</p>
 </div>
 <div class="videos">
-<p>5MinuteAI explains <a href="https://www.youtube.com/watch?v=XdaAhYUqWsg">confidence intervals</a> in five minutes, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat">(<a href="#/references" role="doc-biblioref" onclick="">5MinuteAI, n.d.</a>)</span>.</p>
+<p>5MinuteAI explains <a href="https://www.youtube.com/watch?v=XdaAhYUqWsg">confidence intervals</a> in five minutes, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat"><a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
 </div>
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 7.1</a>, pp.&nbsp;307–313)</span> covers confidence intervals for means.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[8, Sec. 7.1]</a>, pp.&nbsp;307–313</span> covers confidence intervals for means.</li>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002, sec. 9.2</a>, pp.&nbsp;420–439)</span> covers methods of finding interval estimators.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[9, Sec. 9.2]</a>, pp.&nbsp;420–439</span> covers methods of finding interval estimators.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 9.3</a>, pp.&nbsp;337–338)</span> covers duality of confidence intervals and hypothesis tests.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[10, Sec. 9.3]</a>, pp.&nbsp;337–338</span> covers duality of confidence intervals and hypothesis tests.</li>
 </ul>
 </div>
 </section><section id="further-reading-on-confidence-intervals" class="slide level2" data-number="5"><h2>
@@ -576,10 +577,10 @@ text-align: center;
 <h3 data-number="5.1" id="online-references">
 <span class="header-section-number">5.1</span> Online references</h3>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_statistical_hypothesis_test">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026g</a>)</span> — the logic of testing and its terminology</p></li>
-<li><p><span class="citation" data-cites="wikipedia_p_value">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026f</a>)</span> — the definition and common misreadings</p></li>
-<li><p><span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span> — the definition and common misreadings</p></li>
-<li><p><span class="citation" data-cites="wikipedia_students_t_distribution">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026i</a>)</span> — the distribution and its uses</p></li>
+<li><p><span class="citation" data-cites="wikipedia_statistical_hypothesis_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — the logic of testing and its terminology</p></li>
+<li><p><span class="citation" data-cites="wikipedia_p_value">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span> — the definition and common misreadings</p></li>
+<li><p><span class="citation" data-cites="wikipedia_confidence_interval">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[12]</a></span> — the definition and common misreadings</p></li>
+<li><p><span class="citation" data-cites="wikipedia_students_t_distribution">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[15]</a></span> — the distribution and its uses</p></li>
 </ul></section><section id="interpretation-of-negative-findings" class="slide level2" data-number="6"><h2>
 <span class="header-section-number">6</span> Interpretation of negative findings</h2>
 <p>If a confidence interval includes the null value, or a hypothesis test fails to reject the null hypothesis, that result does not <em>necessarily</em> mean that the null hypothesis is true. (When the interval and the test are built from the same statistic, with coverage <span class="math inline">\(1 - \alpha\)</span> and significance level <span class="math inline">\(\alpha\)</span>, the two results coincide.) So we should not interpret such results as “the odds (or risks, hazards, or means) are not significantly different”. Instead, we should write something like “the data do not provide statistically significant <em>evidence</em> that the odds (or risks, hazards, or means) differ”. Statistical significance is a property of evidence, not of the estimands.</p>
@@ -625,7 +626,7 @@ Figure&nbsp;1: Interpretations of hypothetical 95% confidence intervals for a ra
 </div>
 </figure>
 </div>
-<aside class="notes"><p>See also <span class="citation" data-cites="vittinghoff2e">(<a href="#/references" role="doc-biblioref" onclick="">Vittinghoff et al. 2012, sec. 3.7</a>)</span>.</p>
+<aside class="notes"><p>See also <span class="citation" data-cites="vittinghoff2e"><a href="#/references" role="doc-biblioref" onclick="">[16, Sec. 3.7]</a></span>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -637,54 +638,83 @@ Figure&nbsp;1: Interpretations of hypothetical 95% confidence intervals for a ra
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-fiveminuteai_probstat" class="csl-entry" role="listitem">
-5MinuteAI. n.d. <em>Probability &amp; Statistics</em>. Video playlist on YouTube. Accessed October 12, 2026. <a href="https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK">https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK</a>.
-</div>
-<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
-</div>
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
-</div>
-<div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.
-</div>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-wp:statinference" class="csl-entry" role="listitem">
-Wikipedia contributors. 2025. <em>Statistical Inference — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/w/index.php?title=Statistical_inference&amp;oldid=1304071803">https://en.wikipedia.org/w/index.php?title=Statistical_inference&amp;oldid=1304071803</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Statistical inference — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2025. Available: <a href="https://en.wikipedia.org/w/index.php?title=Statistical_inference&amp;oldid=1304071803">https://en.wikipedia.org/w/index.php?title=Statistical_inference&amp;oldid=1304071803</a>
 </div>
-<div id="ref-wikipedia_chi_squared_distribution" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Chi-Squared Distribution — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution">https://en.wikipedia.org/wiki/Chi-squared_distribution</a>.
-</div>
-<div id="ref-wikipedia_confidence_interval" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Confidence Interval — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Confidence_interval">https://en.wikipedia.org/wiki/Confidence_interval</a>.
-</div>
-<div id="ref-wikipedia_coverage_probability" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Coverage Probability — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Coverage_probability">https://en.wikipedia.org/wiki/Coverage_probability</a>.
-</div>
-<div id="ref-wikipedia_margin_of_error" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026d. <em>Margin of Error — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Margin_of_error">https://en.wikipedia.org/wiki/Margin_of_error</a>.
-</div>
-<div id="ref-wikipedia_one_and_two_tailed_tests" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026e. <em>One- and Two-Tailed Tests — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/One-_and_two-tailed_tests">https://en.wikipedia.org/wiki/One-_and_two-tailed_tests</a>.
-</div>
-<div id="ref-wikipedia_p_value" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026f. <em>P-Value — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/P-value">https://en.wikipedia.org/wiki/P-value</a>.
 </div>
 <div id="ref-wikipedia_statistical_hypothesis_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026g. <em>Statistical Hypothesis Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Statistical_hypothesis_test">https://en.wikipedia.org/wiki/Statistical_hypothesis_test</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Statistical hypothesis test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Statistical_hypothesis_test">https://en.wikipedia.org/wiki/Statistical_hypothesis_test</a>
 </div>
-<div id="ref-wikipedia_statistical_significance" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026h. <em>Statistical Significance — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Statistical_significance">https://en.wikipedia.org/wiki/Statistical_significance</a>.
 </div>
-<div id="ref-wikipedia_students_t_distribution" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026i. <em>Student’s t-Distribution — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">https://en.wikipedia.org/wiki/Student%27s_t-distribution</a>.
+<div id="ref-wikipedia_one_and_two_tailed_tests" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“One- and two-tailed tests — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/One-_and_two-tailed_tests">https://en.wikipedia.org/wiki/One-_and_two-tailed_tests</a>
+</div>
 </div>
 <div id="ref-wikipedia_test_statistic" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026j. <em>Test Statistic — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Test_statistic">https://en.wikipedia.org/wiki/Test_statistic</a>.
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Test statistic — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Test_statistic">https://en.wikipedia.org/wiki/Test_statistic</a>
+</div>
+</div>
+<div id="ref-wikipedia_p_value" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“P-value — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/P-value">https://en.wikipedia.org/wiki/P-value</a>
+</div>
+</div>
+<div id="ref-wikipedia_statistical_significance" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Statistical significance — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Statistical_significance">https://en.wikipedia.org/wiki/Statistical_significance</a>
+</div>
+</div>
+<div id="ref-fiveminuteai_probstat" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">5MinuteAI, <span>“Probability &amp; statistics.”</span> Video playlist on YouTube. Accessed: Oct. 12, 2026. [Online]. Available: <a href="https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK">https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK</a>
+</div>
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
+</div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
+</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
+</div>
+<div id="ref-wikipedia_chi_squared_distribution" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Chi-squared distribution — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution">https://en.wikipedia.org/wiki/Chi-squared_distribution</a>
+</div>
+</div>
+<div id="ref-wikipedia_confidence_interval" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Confidence interval — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Confidence_interval">https://en.wikipedia.org/wiki/Confidence_interval</a>
+</div>
+</div>
+<div id="ref-wikipedia_coverage_probability" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Coverage probability — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Coverage_probability">https://en.wikipedia.org/wiki/Coverage_probability</a>
+</div>
+</div>
+<div id="ref-wikipedia_margin_of_error" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[14] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Margin of error — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Margin_of_error">https://en.wikipedia.org/wiki/Margin_of_error</a>
+</div>
+</div>
+<div id="ref-wikipedia_students_t_distribution" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Student’s t-distribution — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">https://en.wikipedia.org/wiki/Student%27s_t-distribution</a>
+</div>
+</div>
+<div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div>
+<div class="csl-right-inline">E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, <em>Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models</em>, 2nd ed. Springer, 2012. doi: <a href="https://doi.org/10.1007/978-1-4614-1353-0">10.1007/978-1-4614-1353-0</a>.</div>
 </div>
 </div>
 

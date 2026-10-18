@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -339,70 +340,6 @@ cookieconsent.run({
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-reading.callout {
-  border-left-color: #00695C;
-}
-div.callout-reading.callout-style-default .callout-header {
-  background-color: rgba(0, 105, 92, 0.13);
-}
-div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-cor.callout {
-  border-left-color: #00838F;
-}
-div.callout-cor.callout-style-default .callout-header {
-  background-color: rgba(0, 131, 143, 0.13);
-}
-div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exr.callout {
-  border-left-color: #FFA500;
-}
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
-}
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-tbl.callout {
-  border-left-color: #757575;
-}
-div.callout-tbl.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
 div.callout-cnj.callout {
   border-left-color: #558B2F;
 }
@@ -423,15 +360,55 @@ div.callout-proof .callout-toggle::before {  background-image: url('data:image/s
 div.callout-proof.callout-style-default .callout-icon::before, div.callout-proof.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2337474F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-prp.callout {
-  border-left-color: #827717;
+div.callout-lem.callout {
+  border-left-color: #1565C0;
 }
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
 }
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-cor.callout {
+  border-left-color: #00838F;
+}
+div.callout-cor.callout-style-default .callout-header {
+  background-color: rgba(0, 131, 143, 0.13);
+}
+div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-remark.callout {
+  border-left-color: #AD1457;
+}
+div.callout-remark.callout-style-default .callout-header {
+  background-color: rgba(173, 20, 87, 0.13);
+}
+div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-videos.callout {
   border-left-color: #283593;
@@ -447,25 +424,39 @@ div.callout-videos.callout-style-default .callout-icon::before, div.callout-vide
   content: '\f144' !important;
   background-image: none;
 }
-div.callout-remark.callout {
-  border-left-color: #AD1457;
+div.callout-fig.callout {
+  border-left-color: #757575;
 }
-div.callout-remark.callout-style-default .callout-header {
-  background-color: rgba(173, 20, 87, 0.13);
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
 }
-div.callout-remark .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-lem.callout {
-  border-left-color: #1565C0;
+div.callout-reading.callout {
+  border-left-color: #00695C;
 }
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
+div.callout-reading.callout-style-default .callout-header {
+  background-color: rgba(0, 105, 92, 0.13);
 }
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f518' !important;
+  background-image: none;
+}
+div.callout-def.callout {
+  border-left-color: #1B5E20;
+}
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
+}
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-solution.callout {
   border-left-color: #4E342E;
@@ -477,15 +468,25 @@ div.callout-solution .callout-toggle::before {  background-image: url('data:imag
 div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-def.callout {
-  border-left-color: #1B5E20;
+div.callout-prp.callout {
+  border-left-color: #827717;
 }
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
 }
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-tbl.callout {
+  border-left-color: #757575;
+}
+div.callout-tbl.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -1113,7 +1114,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-18 01:15:39 (PDT)</p>
+      <p class="date">Last modified: 2026-10-18 11:27:25 (PDT)</p>
     </div>
   </div>
   
@@ -1130,7 +1131,7 @@ text-align: center;
 }
 </style>
 <div class="notes">
-<p>These notes are derived primarily from <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chaps. 1–5</a>)</span>, with some material from <span class="citation" data-cites="mclachlan2007em">(<a href="#ref-mclachlan2007em" role="doc-biblioref">McLachlan and Krishnan 2007</a>)</span> and <span class="citation" data-cites="CaseBerg01">(<a href="#ref-CaseBerg01" role="doc-biblioref">Casella and Berger 2002</a>)</span>.</p>
+<p>These notes are derived primarily from <span class="citation" data-cites="dobson4e"><a href="#ref-dobson4e" role="doc-biblioref">[1, Ch. 1–5]</a></span>, with some material from <span class="citation" data-cites="mclachlan2007em"><a href="#ref-mclachlan2007em" role="doc-biblioref">[2]</a></span> and <span class="citation" data-cites="CaseBerg01"><a href="#ref-CaseBerg01" role="doc-biblioref">[3]</a></span>.</p>
 </div>
 <section id="the-likelihood-function" class="level3" data-number="1.1"><h3 data-number="1.1" class="anchored" data-anchor-id="the-likelihood-function">
 <span class="header-section-number">1.1</span> The likelihood function</h3>
@@ -1199,7 +1200,7 @@ text-align: center;
 &amp;&amp; \text{(write $\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}$ componentwise)}
 \end{aligned}
 \]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_likelihood_function">Wikipedia contributors (<a href="#ref-wikipedia_likelihood_function" role="doc-biblioref">2026e</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_likelihood_function">Wikipedia contributors <a href="#ref-wikipedia_likelihood_function" role="doc-biblioref">[4]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1518,7 +1519,7 @@ text-align: center;
 <div id="def-mle" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Maximum likelihood estimate)</strong></span> The <strong>maximum likelihood estimate</strong> (MLE) of a parameter vector <span class="math inline">\(\Theta\)</span>, written <span class="math inline">\(\hat\theta_{\text{ML}}\)</span>, is the value of <span class="math inline">\(\Theta\)</span> that maximizes the likelihood:</p>
 <p><span id="eq-mle"><span class="math display">\[\hat\theta_{\text{ML}}\stackrel{\text{def}}{=}\arg \max_\Theta\mathcal{L}(\Theta) \tag{2}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_maximum_likelihood_estimation">Wikipedia contributors (<a href="#ref-wikipedia_maximum_likelihood_estimation" role="doc-biblioref">2026g</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_maximum_likelihood_estimation">Wikipedia contributors <a href="#ref-wikipedia_maximum_likelihood_estimation" role="doc-biblioref">[5]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1554,7 +1555,7 @@ text-align: center;
 </div>
 <div id="callout-20" class="callout-20-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>5MinuteAI explains <a href="https://www.youtube.com/watch?v=Pa-GWE5JuH4">maximum likelihood estimation</a> and works <a href="https://www.youtube.com/watch?v=w3a08digzfw">examples</a> in five minutes each, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat">(<a href="#ref-fiveminuteai_probstat" role="doc-biblioref">5MinuteAI, n.d.</a>)</span>.</p>
+<p>5MinuteAI explains <a href="https://www.youtube.com/watch?v=Pa-GWE5JuH4">maximum likelihood estimation</a> and works <a href="https://www.youtube.com/watch?v=w3a08digzfw">examples</a> in five minutes each, following the University of Washington’s CSE 312 <span class="citation" data-cites="fiveminuteai_probstat"><a href="#ref-fiveminuteai_probstat" role="doc-biblioref">[6]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1574,11 +1575,11 @@ text-align: center;
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 6.4</a>, pp.&nbsp;264–276)</span> covers maximum likelihood and method of moments estimation.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#ref-hoggtanis2015" role="doc-biblioref">[7, Sec. 6.4]</a>, pp.&nbsp;264–276</span> covers maximum likelihood and method of moments estimation.</li>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 7.2.2</a>, pp.&nbsp;315–323)</span> covers maximum likelihood estimators.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[3, Sec. 7.2.2]</a>, pp.&nbsp;315–323</span> covers maximum likelihood estimators.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 8.5</a>, pp.&nbsp;267–284)</span> covers the method of maximum likelihood.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[8, Sec. 8.5]</a>, pp.&nbsp;267–284</span> covers the method of maximum likelihood.</li>
 </ul>
 </div>
 </div>
@@ -1607,7 +1608,7 @@ f'(x_0) &amp;= 0 &amp;&amp; \text{(scalar input)}\\
 f'(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_0) &amp;= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{0}}\vphantom{0}}&amp;&amp; \text{(vector input)}
 \end{aligned}
 \]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_critical_point_mathematics">Wikipedia contributors (<a href="#ref-wikipedia_critical_point_mathematics" role="doc-biblioref">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_critical_point_mathematics">Wikipedia contributors <a href="#ref-wikipedia_critical_point_mathematics" role="doc-biblioref">[9]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2026,7 +2027,7 @@ f'(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphanto
 <div id="def-score" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Score function)</strong></span> The <strong>score function</strong> of a statistical model <span class="math inline">\(\operatorname{p}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> is the gradient (vector of first derivatives) of the model’s log-likelihood with respect to the parameters:</p>
 <p><span id="eq-def-score"><span class="math display">\[\ell'\stackrel{\text{def}}{=}\frac{\partial}{\partial \theta} \ell(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}|\theta) \tag{7}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_informant_function">Wikipedia contributors (<a href="#ref-wikipedia_informant_function" role="doc-biblioref">2026d</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_informant_function">Wikipedia contributors <a href="#ref-wikipedia_informant_function" role="doc-biblioref">[10]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2044,7 +2045,7 @@ f'(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphanto
 <div id="callout-42" class="callout-42-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-score-notation" class="proof remark">
-<p><span class="proof-title"><em>Remark 1</em> (Notation for the score function). </span>We often omit the arguments <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> and <span class="math inline">\(\theta\)</span>, writing <span class="math inline">\(\ell'\stackrel{\text{def}}{=}\ell'(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\)</span>. Some sources write <span class="math inline">\(U\)</span> or <span class="math inline">\(S\)</span> for the score function instead of <span class="math inline">\(\ell'\)</span>; for example, <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span> write <span class="math inline">\(U\)</span>. The <a href="https://morrison-lab.github.io/macros/notation-choices.html#sec-score-notation">notation choices page</a> explains why these notes use <span class="math inline">\(\ell'\)</span>.</p>
+<p><span class="proof-title"><em>Remark 1</em> (Notation for the score function). </span>We often omit the arguments <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> and <span class="math inline">\(\theta\)</span>, writing <span class="math inline">\(\ell'\stackrel{\text{def}}{=}\ell'(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\)</span>. Some sources write <span class="math inline">\(U\)</span> or <span class="math inline">\(S\)</span> for the score function instead of <span class="math inline">\(\ell'\)</span>; for example, <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span> write <span class="math inline">\(U\)</span>. The <a href="https://morrison-lab.github.io/macros/notation-choices.html#sec-score-notation">notation choices page</a> explains why these notes use <span class="math inline">\(\ell'\)</span>.</p>
 </div>
 </div>
 </div>
@@ -2529,7 +2530,7 @@ f'(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphanto
 <div id="callout-59" class="callout-59-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-score-natural-exponential-family" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (The score function in natural exponential families). </span>This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter <em>natural</em> (or linear) exponential family, whose log-density is linear in <span class="math inline">\(x\)</span>; for every such family, the score with respect to the mean is <span class="math inline">\((x - \operatorname{E}\mathopen{}\left[X\right]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\)</span>. Other members of the broader <a href="https://en.wikipedia.org/wiki/Exponential_family">exponential family</a>, such as the Weibull distribution with known shape <span class="math inline">\(k \ne 1\)</span>, do not have this form. Exponential-family distributions share many special properties <span class="citation" data-cites="hoggtanis2015 dobson4e">(<a href="#ref-hoggtanis2015" role="doc-biblioref">Hogg et al. 2019, sec. 6.7</a>; <a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 3</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 2</em> (The score function in natural exponential families). </span>This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter <em>natural</em> (or linear) exponential family, whose log-density is linear in <span class="math inline">\(x\)</span>; for every such family, the score with respect to the mean is <span class="math inline">\((x - \operatorname{E}\mathopen{}\left[X\right]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\)</span>. Other members of the broader <a href="https://en.wikipedia.org/wiki/Exponential_family">exponential family</a>, such as the Weibull distribution with known shape <span class="math inline">\(k \ne 1\)</span>, do not have this form. Exponential-family distributions share many special properties <span class="citation" data-cites="hoggtanis2015 dobson4e"><a href="#ref-dobson4e" role="doc-biblioref">[1, Ch. 3]</a>, <a href="#ref-hoggtanis2015" role="doc-biblioref">[7, Sec. 6.7]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2596,7 +2597,7 @@ f'(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphanto
 <p><span id="eq-def-hess"><span class="math display">\[
 \ell''\stackrel{\text{def}}{=}\frac{\partial}{\partial \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}}\frac{\partial}{\partial \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}^{\top}} \ell(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}| \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})
 \tag{8}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_hessian_matrix">Wikipedia contributors (<a href="#ref-wikipedia_hessian_matrix" role="doc-biblioref">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_hessian_matrix">Wikipedia contributors <a href="#ref-wikipedia_hessian_matrix" role="doc-biblioref">[11]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -2778,7 +2779,7 @@ f'(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphanto
 <div id="def-einf" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 10 (Expected information matrix (Fisher information matrix, information matrix))</strong></span> The <strong>expected information matrix</strong>, also called the <strong>Fisher information matrix</strong> or just the <strong>information matrix</strong>, is written <span class="math inline">\(\mathcal{I}\)</span>, and is the expected value of the negative <a href="#def-hessian">Hessian</a> of the log-likelihood, with the data <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\)</span> treated as random:</p>
 <p><span id="eq-def-einf"><span class="math display">\[\mathcal{I}(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left[-\ell''(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\theta}}\vphantom{\theta}})\right]\mathclose{} \tag{10}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_fisher_information">Wikipedia contributors (<a href="#ref-wikipedia_fisher_information" role="doc-biblioref">2026b</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_fisher_information">Wikipedia contributors <a href="#ref-wikipedia_fisher_information" role="doc-biblioref">[12]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -3335,22 +3336,22 @@ Table&nbsp;1: Notation for information matrices in several sources
 <td><span class="math inline">\(\mathcal{I}\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span></td>
+<td><span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span></td>
 <td><span class="math inline">\(-U'\)</span></td>
 <td><span class="math inline">\(\mathfrak{I}\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="citation" data-cites="dunn2018generalized">Dunn and Smyth (<a href="#ref-dunn2018generalized" role="doc-biblioref">2018</a>)</span></td>
+<td><span class="citation" data-cites="dunn2018generalized">Dunn and Smyth <a href="#ref-dunn2018generalized" role="doc-biblioref">[13]</a></span></td>
 <td><span class="math inline">\(\mathfrak{I}\)</span></td>
 <td><span class="math inline">\(\mathcal{I}\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="citation" data-cites="mclachlan2007em">McLachlan and Krishnan (<a href="#ref-mclachlan2007em" role="doc-biblioref">2007</a>)</span></td>
+<td><span class="citation" data-cites="mclachlan2007em">McLachlan and Krishnan <a href="#ref-mclachlan2007em" role="doc-biblioref">[2]</a></span></td>
 <td><span class="math inline">\(I\)</span></td>
 <td><span class="math inline">\(\mathcal{I}\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="citation" data-cites="wood2017generalized">Wood (<a href="#ref-wood2017generalized" role="doc-biblioref">2017</a>)</span></td>
+<td><span class="citation" data-cites="wood2017generalized">Wood <a href="#ref-wood2017generalized" role="doc-biblioref">[14]</a></span></td>
 <td><span class="math inline">\(\hat{I}\)</span></td>
 <td><span class="math inline">\(\mathcal{I}\)</span></td>
 </tr>
@@ -3399,7 +3400,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div id="callout-93" class="callout-93-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The proof is beyond the scope of these notes; see <span class="citation" data-cites="lehmannELST">(<a href="#ref-lehmannELST" role="doc-biblioref">Lehmann 1999</a>, Theorem 7.5.2, p.&nbsp;501)</span> and <span class="citation" data-cites="newey1994large">(<a href="#ref-newey1994large" role="doc-biblioref">Newey and McFadden 1994</a>)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The proof is beyond the scope of these notes; see <span class="citation" data-cites="lehmannELST"><a href="#ref-lehmannELST" role="doc-biblioref">[15]</a>, Theorem 7.5.2, p.&nbsp;501</span> and <span class="citation" data-cites="newey1994large"><a href="#ref-newey1994large" role="doc-biblioref">[16]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -3460,7 +3461,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div id="callout-96" class="callout-96-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-observed-information-se" class="proof remark">
-<p><span class="proof-title"><em>Remark 6</em> (Observed versus expected information). </span>Using the observed information is often more convenient, and there are settings where it is provably better by some criteria <span class="citation" data-cites="efron1978assessing">(<a href="#ref-efron1978assessing" role="doc-biblioref">Efron and Hinkley 1978</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 6</em> (Observed versus expected information). </span>Using the observed information is often more convenient, and there are settings where it is provably better by some criteria <span class="citation" data-cites="efron1978assessing"><a href="#ref-efron1978assessing" role="doc-biblioref">[17]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -3480,9 +3481,9 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 6.6</a>, pp.&nbsp;285–289)</span> covers asymptotic distributions of maximum likelihood estimators.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#ref-hoggtanis2015" role="doc-biblioref">[7, Sec. 6.6]</a>, pp.&nbsp;285–289</span> covers asymptotic distributions of maximum likelihood estimators.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 8.5.2</a>, pp.&nbsp;274–278)</span> covers large-sample theory for maximum likelihood estimators.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[8, Sec. 8.5.2]</a>, pp.&nbsp;274–278</span> covers large-sample theory for maximum likelihood estimators.</li>
 </ul>
 </div>
 </div>
@@ -3531,9 +3532,9 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 10.4.1</a>, pp.&nbsp;496–498)</span> covers approximate maximum likelihood intervals.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[3, Sec. 10.4.1]</a>, pp.&nbsp;496–498</span> covers approximate maximum likelihood intervals.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 8.5.3</a>, pp.&nbsp;279–284)</span> covers confidence intervals from maximum likelihood estimators.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[8, Sec. 8.5.3]</a>, pp.&nbsp;279–284</span> covers confidence intervals from maximum likelihood estimators.</li>
 </ul>
 </div>
 </div>
@@ -3557,7 +3558,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div id="def-wald-test" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 13 (Wald test)</strong></span> The <strong>Wald test</strong> of <span class="math inline">\(H_0: \theta_k = \theta_{k,0}\)</span> uses the test statistic</p>
 <p><span class="math display">\[Z \stackrel{\text{def}}{=}\frac{\hat{\theta}_k - \theta_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}_k\right)\mathclose{}}.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_wald_test">Wikipedia contributors (<a href="#ref-wikipedia_wald_test" role="doc-biblioref">2026i</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_wald_test">Wikipedia contributors <a href="#ref-wikipedia_wald_test" role="doc-biblioref">[18]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -3650,7 +3651,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <p><span class="math display">\[
 \Lambda\stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta_{\text{ML}}) - \ell(\hat{\theta}_0)\right)\mathclose{}
 \]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_likelihood_ratio_test">Wikipedia contributors (<a href="#ref-wikipedia_likelihood_ratio_test" role="doc-biblioref">2026f</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_likelihood_ratio_test">Wikipedia contributors <a href="#ref-wikipedia_likelihood_ratio_test" role="doc-biblioref">[19]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -3960,7 +3961,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 \overset{d}{\to}
 \chi^2_q
 \]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_wilks_theorem">Wikipedia contributors (<a href="#ref-wikipedia_wilks_theorem" role="doc-biblioref">2026j</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_wilks_theorem">Wikipedia contributors <a href="#ref-wikipedia_wilks_theorem" role="doc-biblioref">[20]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -3978,7 +3979,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div id="callout-118" class="callout-118-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>We sketch the argument for a scalar parameter and the point null hypothesis <span class="math inline">\(H_0: \theta= \theta_0\)</span>, which imposes <span class="math inline">\(q = 1\)</span> constraint. For the full proof, see <span class="citation" data-cites="wilks1938">(<a href="#ref-wilks1938" role="doc-biblioref">Wilks 1938</a>)</span> or <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 5.7</a>)</span>.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>We sketch the argument for a scalar parameter and the point null hypothesis <span class="math inline">\(H_0: \theta= \theta_0\)</span>, which imposes <span class="math inline">\(q = 1\)</span> constraint. For the full proof, see <span class="citation" data-cites="wilks1938"><a href="#ref-wilks1938" role="doc-biblioref">[21]</a></span> or <span class="citation" data-cites="dobson4e"><a href="#ref-dobson4e" role="doc-biblioref">[1, Sec. 5.7]</a></span>.</p>
 <p>By <a href="#lem-wilks-lrt-quadratic" class="quarto-xref">Lemma&nbsp;3</a>, <span class="math inline">\(\Lambda\approx I(\hat\theta_{\text{ML}})(\hat\theta_{\text{ML}}- \theta_0)^2\)</span>. Under the regularity conditions, <span class="math inline">\(I(\hat\theta_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\)</span> in probability, by the law of large numbers and the consistency of <span class="math inline">\(\hat\theta_{\text{ML}}\)</span>; this sketch assumes that step rather than proving it. So, with <span class="math inline">\(Z\)</span> as in <a href="#lem-wilks-std-gaussian" class="quarto-xref">Lemma&nbsp;4</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -4073,7 +4074,7 @@ Table&nbsp;1: Notation for information matrices in several sources
 </div>
 </div>
 <div class="notes">
-<p>See also <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 5.7</a>)</span> and <a href="https://online.stat.psu.edu/stat504/Lesson02" class="uri">https://online.stat.psu.edu/stat504/Lesson02</a>.</p>
+<p>See also <span class="citation" data-cites="dobson4e"><a href="#ref-dobson4e" role="doc-biblioref">[1, Sec. 5.7]</a></span> and <a href="https://online.stat.psu.edu/stat504/Lesson02" class="uri">https://online.stat.psu.edu/stat504/Lesson02</a>.</p>
 </div>
 <div id="read-caseberg01-2" class="watch-anchor">
 <div class="callout callout-style-default callout-reading callout-titled">
@@ -4090,9 +4091,9 @@ Table&nbsp;1: Notation for information matrices in several sources
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 10.3.1</a>, pp.&nbsp;488–491)</span> covers asymptotic distribution of likelihood ratio tests.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[3, Sec. 10.3.1]</a>, pp.&nbsp;488–491</span> covers asymptotic distribution of likelihood ratio tests.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 9.4</a>, pp.&nbsp;339–340)</span> covers generalized likelihood ratio tests.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[8, Sec. 9.4]</a>, pp.&nbsp;339–340</span> covers generalized likelihood ratio tests.</li>
 </ul>
 </div>
 </div>
@@ -4214,7 +4215,7 @@ Table&nbsp;2: Exact tests that assume Gaussian outcomes, and their approximate, 
 <p><span class="math display">\[
 \Pr\mathopen{}\left(L \le Y^* \le U\right)\mathclose{} = 1 - \alpha
 \]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_prediction_interval">Wikipedia contributors (<a href="#ref-wikipedia_prediction_interval" role="doc-biblioref">2026h</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_prediction_interval">Wikipedia contributors <a href="#ref-wikipedia_prediction_interval" role="doc-biblioref">[22]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -4263,11 +4264,11 @@ Table&nbsp;2: Exact tests that assume Gaussian outcomes, and their approximate, 
 </section></section></section><section id="example-maximum-likelihood-for-tropical-cyclones-in-australia" class="level2" data-number="2"><h2 data-number="2" class="anchored" data-anchor-id="example-maximum-likelihood-for-tropical-cyclones-in-australia">
 <span class="header-section-number">2</span> Example: maximum likelihood for tropical cyclones in Australia</h2>
 <div class="notes">
-<p>Adapted from <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 1.6.5</a>)</span>.</p>
+<p>Adapted from <span class="citation" data-cites="dobson4e"><a href="#ref-dobson4e" role="doc-biblioref">[1, Sec. 1.6.5]</a></span>.</p>
 </div>
 <section id="sec-dobson-cyclones-data" class="level3" data-number="2.1"><h3 data-number="2.1" class="anchored" data-anchor-id="sec-dobson-cyclones-data">
 <span class="header-section-number">2.1</span> Data</h3>
-<p><a href="#tbl-cyclones-data" class="quarto-xref">Table&nbsp;3</a> records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 1.6.5</a>)</span>. <a href="#fig-dobson-cyclone-time-series" class="quarto-xref">Figure&nbsp;1</a> graphs the number of cyclones by season. Let <span class="math inline">\(X_i\)</span> represent the number of cyclones in season <span class="math inline">\(i\)</span>, and <span class="math inline">\(x_i\)</span> its observed value.</p>
+<p><a href="#tbl-cyclones-data" class="quarto-xref">Table&nbsp;3</a> records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 <span class="citation" data-cites="dobson4e"><a href="#ref-dobson4e" role="doc-biblioref">[1, Sec. 1.6.5]</a></span>. <a href="#fig-dobson-cyclone-time-series" class="quarto-xref">Figure&nbsp;1</a> graphs the number of cyclones by season. Let <span class="math inline">\(X_i\)</span> represent the number of cyclones in season <span class="math inline">\(i\)</span>, and <span class="math inline">\(x_i\)</span> its observed value.</p>
 <div class="callout callout-style-simple callout-tbl no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -4285,7 +4286,7 @@ Table&nbsp;2: Exact tests that assume Gaussian outcomes, and their approximate, 
 <span><span class="va">cyclones</span> <span class="op">|&gt;</span> <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div id="tbl-cyclones-data" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cyclones-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Number of tropical cyclones during each November-to-April season in northeastern Australia <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, sec. 1.6.5</a>)</span>
+Table&nbsp;3: Number of tropical cyclones during each November-to-April season in northeastern Australia <span class="citation" data-cites="dobson4e"><a href="#ref-dobson4e" role="doc-biblioref">[1, Sec. 1.6.5]</a></span>
 </figcaption><div aria-describedby="tbl-cyclones-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
@@ -5462,7 +5463,7 @@ Figure&nbsp;8: Observed information of the cyclone data
 <span class="header-section-number">2.6</span> Finding the MLE using the Newton-Raphson algorithm</h3>
 <section id="sec-newton-raphson" class="level4" data-number="2.6.1"><h4 data-number="2.6.1" class="anchored" data-anchor-id="sec-newton-raphson">
 <span class="header-section-number">2.6.1</span> Iterative maximization</h4>
-<p>When we cannot solve the score equation <span class="math inline">\(\ell'(\theta) = 0\)</span> algebraically, we can search for its solution numerically <span class="citation" data-cites="dobson4e">(<a href="#ref-dobson4e" role="doc-biblioref">Dobson and Barnett 2018, chap. 4</a>)</span>.</p>
+<p>When we cannot solve the score equation <span class="math inline">\(\ell'(\theta) = 0\)</span> algebraically, we can search for its solution numerically <span class="citation" data-cites="dobson4e"><a href="#ref-dobson4e" role="doc-biblioref">[1, Ch. 4]</a></span>.</p>
 <div class="callouty-titled callout callout-style-default callout-def callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-161-contents" aria-controls="callout-161" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -5577,7 +5578,7 @@ Figure&nbsp;8: Observed information of the cyclone data
 <div id="callout-164" class="callout-164-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="def-empirical-information" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 19 (Empirical information matrix)</strong></span> For mutually independent observations, the <strong>empirical information matrix</strong> is <span class="citation" data-cites="mclachlan2007em">(<a href="#ref-mclachlan2007em" role="doc-biblioref">McLachlan and Krishnan 2007</a>)</span>:</p>
+<p><span class="theorem-title"><strong>Definition 19 (Empirical information matrix)</strong></span> For mutually independent observations, the <strong>empirical information matrix</strong> is <span class="citation" data-cites="mclachlan2007em"><a href="#ref-mclachlan2007em" role="doc-biblioref">[2]</a></span>:</p>
 <p><span class="math display">\[
 I_e(\theta; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) \stackrel{\text{def}}{=}
 \sum_{i=1}^n\ell'_i{\ell'_i}^{\top}
@@ -6395,18 +6396,18 @@ I(\hat{\mu}, \hat{\sigma}^2) =
 \]</span></p>
 <p>By <a href="#thm-dist-mle" class="quarto-xref">Theorem&nbsp;17</a>, the estimated standard errors are <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} = \hat{\sigma}/\sqrt{n}\)</span> and <span class="math inline">\(\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{} = \hat{\sigma}^2\sqrt{2/n}\)</span>, and the two estimates are approximately uncorrelated in large samples.</p>
 <div class="notes">
-<p>See also <span class="citation" data-cites="CaseBerg01">(<a href="#ref-CaseBerg01" role="doc-biblioref">Casella and Berger 2002</a>, Example 7.2.12)</span>.</p>
+<p>See also <span class="citation" data-cites="CaseBerg01"><a href="#ref-CaseBerg01" role="doc-biblioref">[3]</a>, Example 7.2.12</span>.</p>
 </div>
 </section></section><section id="sec-hers-mle-example" class="level2" data-number="4"><h2 data-number="4" class="anchored" data-anchor-id="sec-hers-mle-example">
 <span class="header-section-number">4</span> Example: hormone therapy study</h2>
 <p>This example fits a Gaussian model to real data by maximum likelihood, and then uses simulation to examine the properties of maximum likelihood estimation for that model.</p>
 <section id="data" class="level3" data-number="4.1"><h3 data-number="4.1" class="anchored" data-anchor-id="data">
 <span class="header-section-number">4.1</span> Data</h3>
-<p>The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">Hulley et al. 1998</a>)</span>.</p>
-<p>The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">Hulley et al. 1998</a>)</span>. Women were followed for an average of 4.1 years <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">Hulley et al. 1998</a>)</span>.</p>
-<p>The primary outcome was nonfatal myocardial infarction or CHD death <span class="citation" data-cites="HulleyStephen1998RToE">(<a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">Hulley et al. 1998</a>)</span>.</p>
+<p>The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) <span class="citation" data-cites="HulleyStephen1998RToE"><a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">[23]</a></span>.</p>
+<p>The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo <span class="citation" data-cites="HulleyStephen1998RToE"><a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">[23]</a></span>. Women were followed for an average of 4.1 years <span class="citation" data-cites="HulleyStephen1998RToE"><a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">[23]</a></span>.</p>
+<p>The primary outcome was nonfatal myocardial infarction or CHD death <span class="citation" data-cites="HulleyStephen1998RToE"><a href="#ref-HulleyStephen1998RToE" role="doc-biblioref">[23]</a></span>.</p>
 <p>We model the distribution of fasting glucose among HERS participants who do not have diabetes and do not exercise.</p>
-<p>The HERS data are distributed with <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#ref-vittinghoff2e" role="doc-biblioref">2012</a>)</span> on the book’s companion website:</p>
+<p>The HERS data are distributed with <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#ref-vittinghoff2e" role="doc-biblioref">[24]</a></span> on the book’s companion website:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># one unbroken string, so that link checkers test the whole URL:</span></span>
 <span><span class="va">url</span> <span class="op">&lt;-</span> <span class="st">"https://regression.ucsf.edu/sites/g/files/tkssra16191/files/wysiwyg/home/data/hersdata.dta"</span> <span class="co"># nolint: line_length_linter.</span></span>
@@ -6888,7 +6889,7 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu= 95\)<
 <div id="callout-171" class="callout-171-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-observed-power" class="proof remark">
-<p><span class="proof-title"><em>Remark 13</em> (Choosing the alternative, and observed power). </span>The alternative <span class="math inline">\(\mu_1\)</span> should be chosen before seeing the data, as a difference worth detecting. Power computed at <span class="math inline">\(\mu_1 = \hat{\mu}\)</span> (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed <span class="citation" data-cites="hoenig2001abuse">(<a href="#ref-hoenig2001abuse" role="doc-biblioref">Hoenig and Heisey 2001</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 13</em> (Choosing the alternative, and observed power). </span>The alternative <span class="math inline">\(\mu_1\)</span> should be chosen before seeing the data, as a difference worth detecting. Power computed at <span class="math inline">\(\mu_1 = \hat{\mu}\)</span> (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed <span class="citation" data-cites="hoenig2001abuse"><a href="#ref-hoenig2001abuse" role="doc-biblioref">[25]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -7036,14 +7037,14 @@ Figure&nbsp;20: Power of the test of <span class="math inline">\(H_0: \mu= 95\)<
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exr</span><a href="#exr-prac-binom-lik" class="quarto-xref">Exercise&nbsp;38</a> (Binomial likelihood (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 3))
+<span class="screen-reader-only">Exr</span><a href="#exr-prac-binom-lik" class="quarto-xref">Exercise&nbsp;38</a> (Binomial likelihood (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span>, Chapter 3))
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-172" class="callout-172-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-prac-binom-lik" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 38 (Binomial likelihood (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 3))</strong></span> Let <span class="math inline">\(Y \sim \text{Binomial}(n, \pi)\)</span>, so that</p>
+<p><span class="theorem-title"><strong>Exercise 38 (Binomial likelihood (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(Y \sim \text{Binomial}(n, \pi)\)</span>, so that</p>
 <p><span class="math display">\[
 \operatorname{p}(Y = y \mid \pi) = \binom{n}{y} \pi^y (1-\pi)^{n-y},
 \quad y \in \{0, 1, \ldots, n\}.
@@ -7214,14 +7215,14 @@ y &amp;= n\pi
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exr</span><a href="#exr-prac-gauss-iid-lik" class="quarto-xref">Exercise&nbsp;39</a> (Gaussian log-likelihood (adapted from <span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. (<a href="#ref-kleinbaum2014applied" role="doc-biblioref">2014</a>)</span>, Chapter 5))
+<span class="screen-reader-only">Exr</span><a href="#exr-prac-gauss-iid-lik" class="quarto-xref">Exercise&nbsp;39</a> (Gaussian log-likelihood (adapted from <span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. <a href="#ref-kleinbaum2014applied" role="doc-biblioref">[26]</a></span>, Chapter 5))
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-174" class="callout-174-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-prac-gauss-iid-lik" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 39 (Gaussian log-likelihood (adapted from <span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. (<a href="#ref-kleinbaum2014applied" role="doc-biblioref">2014</a>)</span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 39 (Gaussian log-likelihood (adapted from <span class="citation" data-cites="kleinbaum2014applied">Kleinbaum et al. <a href="#ref-kleinbaum2014applied" role="doc-biblioref">[26]</a></span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{N}(\mu, \sigma^2)\)</span>.</p>
 <p><strong>(a)</strong> Write the likelihood <span class="math inline">\(\mathcal{L}(\mu, \sigma^2; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> for the observed data <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\)</span>.</p>
 <p><strong>(b)</strong> Write the log-likelihood <span class="math inline">\(\ell(\mu, \sigma^2; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span> in simplified form, as the sum of a term that depends on the data only through <span class="math inline">\(n\)</span> and a term that depends on the data only through <span class="math inline">\(\sum_{i=1}^n(x_i- \mu)^2\)</span>.</p>
 <p><strong>(c)</strong> Derive the MLE <span class="math inline">\(\hat{\mu}_{ML}\)</span> and <span class="math inline">\(\hat{\sigma}^2_{ML}\)</span>.</p>
@@ -7462,14 +7463,14 @@ n\sigma^2
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exr</span><a href="#exr-prac-score-zero" class="quarto-xref">Exercise&nbsp;40</a> (Score at the MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 3))
+<span class="screen-reader-only">Exr</span><a href="#exr-prac-score-zero" class="quarto-xref">Exercise&nbsp;40</a> (Score at the MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span>, Chapter 3))
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-176" class="callout-176-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-prac-score-zero" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 40 (Score at the MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 40 (Score at the MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
 <p><strong>(a)</strong> Write the log-likelihood <span class="math inline">\(\ell({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(b)</strong> Derive the score function <span class="math inline">\(\ell'({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(c)</strong> Find the MLE <span class="math inline">\(\hat{\lambda}_{ML}\)</span>, and evaluate the score at the MLE.</p>
@@ -7600,14 +7601,14 @@ n\bar{x}&amp;= n{\lambda}
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exr</span><a href="#exr-prac-mle-se" class="quarto-xref">Exercise&nbsp;41</a> (Standard error of an MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 5))
+<span class="screen-reader-only">Exr</span><a href="#exr-prac-mle-se" class="quarto-xref">Exercise&nbsp;41</a> (Standard error of an MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span>, Chapter 5))
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-178" class="callout-178-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-prac-mle-se" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 41 (Standard error of an MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
+<p><span class="theorem-title"><strong>Exercise 41 (Standard error of an MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span>, Chapter 5))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>.</p>
 <p><strong>(a)</strong> Derive the Hessian <span class="math inline">\(\ell''({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial [}2]{{\lambda}}\ell({\lambda};\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(b)</strong> Derive the observed information <span class="math inline">\(I({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}) = -\ell''({\lambda}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
 <p><strong>(c)</strong> Evaluate <span class="math inline">\(I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}})\)</span>.</p>
@@ -7714,14 +7715,14 @@ I(\hat{\lambda}_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Exr</span><a href="#exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;42</a> (Exponential MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 3))
+<span class="screen-reader-only">Exr</span><a href="#exr-prac-exp-mle" class="quarto-xref">Exercise&nbsp;42</a> (Exponential MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span>, Chapter 3))
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-180" class="callout-180-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exr-prac-exp-mle" class="theorem exercise">
-<p><span class="theorem-title"><strong>Exercise 42 (Exponential MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#ref-dobson4e" role="doc-biblioref">2018</a>)</span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \text{Exponential}(\mu)\)</span>, so that <span class="math display">\[
+<p><span class="theorem-title"><strong>Exercise 42 (Exponential MLE (adapted from <span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#ref-dobson4e" role="doc-biblioref">[1]</a></span>, Chapter 3))</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \text{Exponential}(\mu)\)</span>, so that <span class="math display">\[
 \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu},
 \quad x &gt; 0, \quad \mu&gt; 0.
 \]</span></p>
@@ -7922,92 +7923,131 @@ I(\hat\mu_{ML}; \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}
 </div>
 </section><section id="further-reading" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="further-reading">Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_maximum_likelihood_estimation">Wikipedia contributors (<a href="#ref-wikipedia_maximum_likelihood_estimation" role="doc-biblioref">2026g</a>)</span> — the method, its properties and its history</p></li>
-<li><p><span class="citation" data-cites="wikipedia_likelihood_function">Wikipedia contributors (<a href="#ref-wikipedia_likelihood_function" role="doc-biblioref">2026e</a>)</span> — likelihood and log-likelihood</p></li>
-<li><p><span class="citation" data-cites="wikipedia_informant_function">Wikipedia contributors (<a href="#ref-wikipedia_informant_function" role="doc-biblioref">2026d</a>)</span> — the score function and its properties</p></li>
-<li><p><span class="citation" data-cites="wikipedia_fisher_information">Wikipedia contributors (<a href="#ref-wikipedia_fisher_information" role="doc-biblioref">2026b</a>)</span> — expected and observed information</p></li>
-<li><p><span class="citation" data-cites="wikipedia_wald_test">Wikipedia contributors (<a href="#ref-wikipedia_wald_test" role="doc-biblioref">2026i</a>)</span> — the Wald test and confidence interval</p></li>
-<li><p><span class="citation" data-cites="wikipedia_likelihood_ratio_test">Wikipedia contributors (<a href="#ref-wikipedia_likelihood_ratio_test" role="doc-biblioref">2026f</a>)</span> — the test and Wilks’ theorem</p></li>
-<li><p><span class="citation" data-cites="wikipedia_prediction_interval">Wikipedia contributors (<a href="#ref-wikipedia_prediction_interval" role="doc-biblioref">2026h</a>)</span> — how it differs from a confidence interval</p></li>
+<li><p><span class="citation" data-cites="wikipedia_maximum_likelihood_estimation">Wikipedia contributors <a href="#ref-wikipedia_maximum_likelihood_estimation" role="doc-biblioref">[5]</a></span> — the method, its properties and its history</p></li>
+<li><p><span class="citation" data-cites="wikipedia_likelihood_function">Wikipedia contributors <a href="#ref-wikipedia_likelihood_function" role="doc-biblioref">[4]</a></span> — likelihood and log-likelihood</p></li>
+<li><p><span class="citation" data-cites="wikipedia_informant_function">Wikipedia contributors <a href="#ref-wikipedia_informant_function" role="doc-biblioref">[10]</a></span> — the score function and its properties</p></li>
+<li><p><span class="citation" data-cites="wikipedia_fisher_information">Wikipedia contributors <a href="#ref-wikipedia_fisher_information" role="doc-biblioref">[12]</a></span> — expected and observed information</p></li>
+<li><p><span class="citation" data-cites="wikipedia_wald_test">Wikipedia contributors <a href="#ref-wikipedia_wald_test" role="doc-biblioref">[18]</a></span> — the Wald test and confidence interval</p></li>
+<li><p><span class="citation" data-cites="wikipedia_likelihood_ratio_test">Wikipedia contributors <a href="#ref-wikipedia_likelihood_ratio_test" role="doc-biblioref">[19]</a></span> — the test and Wilks’ theorem</p></li>
+<li><p><span class="citation" data-cites="wikipedia_prediction_interval">Wikipedia contributors <a href="#ref-wikipedia_prediction_interval" role="doc-biblioref">[22]</a></span> — how it differs from a confidence interval</p></li>
 </ul></section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-fiveminuteai_probstat" class="csl-entry" role="listitem">
-5MinuteAI. n.d. <em>Probability &amp; Statistics</em>. Video playlist on YouTube. Accessed October 12, 2026. <a href="https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK">https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK</a>.
-</div>
-<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
-</div>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-dobson4e" class="csl-entry" role="listitem">
-Dobson, Annette J, and Adrian G Barnett. 2018. <em>An Introduction to Generalized Linear Models</em>. 4th ed. CRC press. <a href="https://doi.org/10.1201/9781315182780">https://doi.org/10.1201/9781315182780</a>.
-</div>
-<div id="ref-dunn2018generalized" class="csl-entry" role="listitem">
-Dunn, Peter K, and Gordon K Smyth. 2018. <em>Generalized Linear Models with Examples in <span>R</span></em>. Vol. 53. Springer. <a href="https://doi.org/10.1007/978-1-4419-0118-7">https://doi.org/10.1007/978-1-4419-0118-7</a>.
-</div>
-<div id="ref-efron1978assessing" class="csl-entry" role="listitem">
-Efron, Bradley, and David V Hinkley. 1978. <span>“Assessing the Accuracy of the Maximum Likelihood Estimator: Observed Versus Expected <span>Fisher</span> Information.”</span> <em>Biometrika</em> 65 (3): 457–83. <a href="https://doi.org/10.1093/biomet/65.3.457">https://doi.org/10.1093/biomet/65.3.457</a>.
-</div>
-<div id="ref-hoenig2001abuse" class="csl-entry" role="listitem">
-Hoenig, John M., and Dennis M. Heisey. 2001. <span>“The Abuse of Power: The Pervasive Fallacy of Power Calculations for Data Analysis.”</span> <em>The American Statistician</em> 55 (1): 19–24. <a href="https://doi.org/10.1198/000313001300339897">https://doi.org/10.1198/000313001300339897</a>.
-</div>
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-<div id="ref-HulleyStephen1998RToE" class="csl-entry" role="listitem">
-Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. <span>“Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.”</span> <em>JAMA : The Journal of the American Medical Association</em> (Chicago, IL) 280 (7): 605–13. <a href="https://doi.org/10.1001/jama.280.7.605">https://doi.org/10.1001/jama.280.7.605</a>.
-</div>
-<div id="ref-kleinbaum2014applied" class="csl-entry" role="listitem">
-Kleinbaum, David G, Lawrence L Kupper, Azhar Nizam, K Muller, and ES Rosenberg. 2014. <em>Applied Regression Analysis and Other Multivariable Methods</em>. 5th ed. Cengage Learning. <a href="https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/">https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/</a>.
-</div>
-<div id="ref-lehmannELST" class="csl-entry" role="listitem">
-Lehmann, E. L. 1999. <em>Elements of Large-Sample Theory</em>. Springer Texts in Statistics. Springer. <a href="https://doi.org/10.1007/b98855">https://doi.org/10.1007/b98855</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">A. J. Dobson and A. G. Barnett, <em>An introduction to generalized linear models</em>, 4th ed. CRC press, 2018. doi: <a href="https://doi.org/10.1201/9781315182780">10.1201/9781315182780</a>.</div>
 </div>
 <div id="ref-mclachlan2007em" class="csl-entry" role="listitem">
-McLachlan, Geoffrey J, and Thriyambakam Krishnan. 2007. <em>The <span>EM</span> Algorithm and Extensions</em>. 2nd ed. John Wiley &amp; Sons. <a href="https://doi.org/10.1002/9780470191613">https://doi.org/10.1002/9780470191613</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">G. J. McLachlan and T. Krishnan, <em>The <span>EM</span> algorithm and extensions</em>, 2nd ed. John Wiley &amp; Sons, 2007. doi: <a href="https://doi.org/10.1002/9780470191613">10.1002/9780470191613</a>.</div>
 </div>
-<div id="ref-newey1994large" class="csl-entry" role="listitem">
-Newey, Whitney K, and Daniel McFadden. 1994. <span>“Large Sample Estimation and Hypothesis Testing.”</span> In <em>Handbook of Econometrics</em>, edited by Robert Engle and Dan McFadden, vol. 4. Elsevier. <a href="https://doi.org/10.1016/S1573-4412(05)80005-4">https://doi.org/10.1016/S1573-4412(05)80005-4</a>.
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
 </div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
-</div>
-<div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.
-</div>
-<div id="ref-wikipedia_critical_point_mathematics" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Critical Point (Mathematics) — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Critical_point_%28mathematics%29">https://en.wikipedia.org/wiki/Critical_point_%28mathematics%29</a>.
-</div>
-<div id="ref-wikipedia_fisher_information" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Fisher Information — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Fisher_information">https://en.wikipedia.org/wiki/Fisher_information</a>.
-</div>
-<div id="ref-wikipedia_hessian_matrix" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Hessian Matrix — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Hessian_matrix">https://en.wikipedia.org/wiki/Hessian_matrix</a>.
-</div>
-<div id="ref-wikipedia_informant_function" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026d. <em>Informant Function — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Informant_function">https://en.wikipedia.org/wiki/Informant_function</a>.
 </div>
 <div id="ref-wikipedia_likelihood_function" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026e. <em>Likelihood Function — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Likelihood_function">https://en.wikipedia.org/wiki/Likelihood_function</a>.
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Likelihood function — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Likelihood_function">https://en.wikipedia.org/wiki/Likelihood_function</a>
 </div>
-<div id="ref-wikipedia_likelihood_ratio_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026f. <em>Likelihood-Ratio Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test">https://en.wikipedia.org/wiki/Likelihood-ratio_test</a>.
 </div>
 <div id="ref-wikipedia_maximum_likelihood_estimation" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026g. <em>Maximum Likelihood Estimation — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation">https://en.wikipedia.org/wiki/Maximum_likelihood_estimation</a>.
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Maximum likelihood estimation — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Maximum_likelihood_estimation">https://en.wikipedia.org/wiki/Maximum_likelihood_estimation</a>
 </div>
-<div id="ref-wikipedia_prediction_interval" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026h. <em>Prediction Interval — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Prediction_interval">https://en.wikipedia.org/wiki/Prediction_interval</a>.
 </div>
-<div id="ref-wikipedia_wald_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026i. <em>Wald Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Wald_test">https://en.wikipedia.org/wiki/Wald_test</a>.
+<div id="ref-fiveminuteai_probstat" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">5MinuteAI, <span>“Probability &amp; statistics.”</span> Video playlist on YouTube. Accessed: Oct. 12, 2026. [Online]. Available: <a href="https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK">https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK</a>
 </div>
-<div id="ref-wikipedia_wilks_theorem" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026j. <em>Wilks’ Theorem — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Wilks%27_theorem">https://en.wikipedia.org/wiki/Wilks%27_theorem</a>.
 </div>
-<div id="ref-wilks1938" class="csl-entry" role="listitem">
-Wilks, Samuel S. 1938. <span>“The Large-Sample Distribution of the Likelihood Ratio for Testing Composite Hypotheses.”</span> <em>The Annals of Mathematical Statistics</em> 9 (1): 60–62. <a href="https://doi.org/10.1214/aoms/1177732360">https://doi.org/10.1214/aoms/1177732360</a>.
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
+</div>
+<div id="ref-wikipedia_critical_point_mathematics" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Critical point (mathematics) — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Critical_point_%28mathematics%29">https://en.wikipedia.org/wiki/Critical_point_%28mathematics%29</a>
+</div>
+</div>
+<div id="ref-wikipedia_informant_function" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Informant function — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Informant_function">https://en.wikipedia.org/wiki/Informant_function</a>
+</div>
+</div>
+<div id="ref-wikipedia_hessian_matrix" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Hessian matrix — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Hessian_matrix">https://en.wikipedia.org/wiki/Hessian_matrix</a>
+</div>
+</div>
+<div id="ref-wikipedia_fisher_information" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Fisher information — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Fisher_information">https://en.wikipedia.org/wiki/Fisher_information</a>
+</div>
+</div>
+<div id="ref-dunn2018generalized" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[13] </div>
+<div class="csl-right-inline">P. K. Dunn and G. K. Smyth, <em>Generalized linear models with examples in <span>R</span></em>, vol. 53. Springer, 2018. doi: <a href="https://doi.org/10.1007/978-1-4419-0118-7">10.1007/978-1-4419-0118-7</a>.</div>
 </div>
 <div id="ref-wood2017generalized" class="csl-entry" role="listitem">
-Wood, Simon N. 2017. <em>Generalized Additive Models: An Introduction with r</em>. 2nd ed. Chapman; Hall/CRC. <a href="https://doi.org/10.1201/9781315370279">https://doi.org/10.1201/9781315370279</a>.
+<div class="csl-left-margin">[14] </div>
+<div class="csl-right-inline">S. N. Wood, <em>Generalized additive models: An introduction with r</em>, 2nd ed. Chapman; Hall/CRC, 2017. doi: <a href="https://doi.org/10.1201/9781315370279">10.1201/9781315370279</a>.</div>
+</div>
+<div id="ref-lehmannELST" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[15] </div>
+<div class="csl-right-inline">E. L. Lehmann, <em>Elements of large-sample theory</em>. in Springer texts in statistics. New York: Springer, 1999. doi: <a href="https://doi.org/10.1007/b98855">10.1007/b98855</a>.</div>
+</div>
+<div id="ref-newey1994large" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[16] </div>
+<div class="csl-right-inline">W. K. Newey and D. McFadden, <span>“Large sample estimation and hypothesis testing,”</span> in <em>Handbook of econometrics</em>, vol. 4, R. Engle and D. McFadden, Eds., Elsevier, 1994, pp. 2111–2245. doi: <a href="https://doi.org/10.1016/S1573-4412(05)80005-4">10.1016/S1573-4412(05)80005-4</a>.</div>
+</div>
+<div id="ref-efron1978assessing" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[17] </div>
+<div class="csl-right-inline">B. Efron and D. V. Hinkley, <span>“Assessing the accuracy of the maximum likelihood estimator: Observed versus expected <span>Fisher</span> information,”</span> <em>Biometrika</em>, vol. 65, no. 3, pp. 457–483, 1978, doi: <a href="https://doi.org/10.1093/biomet/65.3.457">10.1093/biomet/65.3.457</a>.</div>
+</div>
+<div id="ref-wikipedia_wald_test" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[18] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Wald test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Wald_test">https://en.wikipedia.org/wiki/Wald_test</a>
+</div>
+</div>
+<div id="ref-wikipedia_likelihood_ratio_test" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[19] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Likelihood-ratio test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test">https://en.wikipedia.org/wiki/Likelihood-ratio_test</a>
+</div>
+</div>
+<div id="ref-wikipedia_wilks_theorem" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[20] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Wilks’ theorem — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Wilks%27_theorem">https://en.wikipedia.org/wiki/Wilks%27_theorem</a>
+</div>
+</div>
+<div id="ref-wilks1938" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[21] </div>
+<div class="csl-right-inline">S. S. Wilks, <span>“The large-sample distribution of the likelihood ratio for testing composite hypotheses,”</span> <em>The Annals of Mathematical Statistics</em>, vol. 9, no. 1, pp. 60–62, 1938, doi: <a href="https://doi.org/10.1214/aoms/1177732360">10.1214/aoms/1177732360</a>.</div>
+</div>
+<div id="ref-wikipedia_prediction_interval" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[22] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Prediction interval — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Prediction_interval">https://en.wikipedia.org/wiki/Prediction_interval</a>
+</div>
+</div>
+<div id="ref-HulleyStephen1998RToE" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[23] </div>
+<div class="csl-right-inline">S. Hulley <em>et al.</em>, <span>“Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,”</span> <em>JAMA : the journal of the American Medical Association</em>, vol. 280, no. 7, pp. 605–613, 1998, doi: <a href="https://doi.org/10.1001/jama.280.7.605">10.1001/jama.280.7.605</a>.</div>
+</div>
+<div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[24] </div>
+<div class="csl-right-inline">E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, <em>Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models</em>, 2nd ed. Springer, 2012. doi: <a href="https://doi.org/10.1007/978-1-4614-1353-0">10.1007/978-1-4614-1353-0</a>.</div>
+</div>
+<div id="ref-hoenig2001abuse" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[25] </div>
+<div class="csl-right-inline">J. M. Hoenig and D. M. Heisey, <span>“The abuse of power: The pervasive fallacy of power calculations for data analysis,”</span> <em>The American Statistician</em>, vol. 55, no. 1, pp. 19–24, 2001, doi: <a href="https://doi.org/10.1198/000313001300339897">10.1198/000313001300339897</a>.</div>
+</div>
+<div id="ref-kleinbaum2014applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[26] </div>
+<div class="csl-right-inline">D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, <em>Applied regression analysis and other multivariable methods</em>, 5th ed. Cengage Learning, 2014. Available: <a href="https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/">https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/</a>
+</div>
 </div>
 </div>
 

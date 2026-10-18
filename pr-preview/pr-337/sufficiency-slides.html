@@ -106,6 +106,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -355,7 +356,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 01:15:39 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:27:25 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -366,7 +367,7 @@ text-align: center;
 <span class="header-section-number">1</span> Sufficient statistics</h2>
 <div id="def-statistic" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Statistic)</strong></span> A <strong>statistic</strong> is a function of the sample, <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\)</span>, that does not depend on any unknown parameter. Its value at the observed data, <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}\)</span>, is a number or vector we can compute.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_statistic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-statistic-estimator" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Estimators are statistics). </span>Every <a href="./estimation.html#def-estimator">estimator</a> is a statistic, one chosen to land close to an <a href="./estimation.html#def-estimand">estimand</a>. This page asks which statistics lose no information about the parameter, and how to use one to improve an estimator.</p>
@@ -378,10 +379,10 @@ text-align: center;
 \text{ does not depend on } \theta
 \quad \text{wherever } \Pr_{\theta}\mathopen{}\left(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} &gt; 0
 \tag{1}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_sufficient_statistic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_sufficient_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 <div id="rem-source-sufficient" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Source: Sufficient statistic). </span><span class="citation" data-cites="fisher1922mathematical">Fisher (<a href="#/references" role="doc-biblioref" onclick="">1922</a>)</span> introduced sufficiency; <span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>, Def. 6.2.1, p.&nbsp;272)</span>.</p>
+<p><span class="proof-title"><em>Remark 2</em> (Source: Sufficient statistic). </span><span class="citation" data-cites="fisher1922mathematical">Fisher <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span> introduced sufficiency; <span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[4]</a>, Def. 6.2.1, p.&nbsp;272</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-sufficient-meaning" class="proof remark">
 <p><span class="proof-title"><em>Remark 3</em> (What sufficiency says). </span>Once we know <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\)</span>, the remaining randomness in the sample has the same distribution whatever the parameter is, so the sample carries no further information about <span class="math inline">\(\theta\)</span> beyond <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\)</span>. A statistic can therefore stand in for the whole sample when we estimate <span class="math inline">\(\theta\)</span>.</p>
@@ -395,7 +396,7 @@ text-align: center;
 \operatorname{f}\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}; \theta\right)\mathclose{} = g\mathopen{}\left(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{} ; \theta\right)\mathclose{} \, h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}
 \tag{2}\]</span></span></p>
 <p>where <span class="math inline">\(h\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}\)</span> does not depend on <span class="math inline">\(\theta\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_sufficient_statistic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_sufficient_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Fix a sample <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> and write <span class="math inline">\(t \stackrel{\text{def}}{=}T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{}\)</span>. The event <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> lies inside the event <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{} = t\)</span>.</p>
@@ -444,7 +445,7 @@ text-align: center;
 <p>which does not depend on <span class="math inline">\(\theta\)</span>. For a sample <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\)</span> with <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}\right)\mathclose{} \neq t\)</span> the conditional probability is zero, which does not depend on <span class="math inline">\(\theta\)</span> either. So <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\)</span> is sufficient.</p>
 </div>
 <div id="rem-source-factorization" class="proof remark">
-<p><span class="proof-title"><em>Remark 4</em> (Source: Factorization theorem). </span><span class="citation" data-cites="halmos1949application">Halmos and Savage (<a href="#/references" role="doc-biblioref" onclick="">1949</a>)</span>, whom <span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>, Thm. 6.2.6, p.&nbsp;276, and its footnote)</span> credit with the general form, and Neyman (1935) with an earlier one.</p>
+<p><span class="proof-title"><em>Remark 4</em> (Source: Factorization theorem). </span><span class="citation" data-cites="halmos1949application">Halmos and Savage <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>, whom <span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[4]</a>, Thm. 6.2.6, p.&nbsp;276, and its footnote</span> credit with the general form, and Neyman (1935) with an earlier one.</p>
 </div>
 </section><section class="slide level2"><div id="exm-poisson-sufficient" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (The sum is sufficient for a Poisson rate)</strong></span> Let <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span> and <span class="math inline">\(S \stackrel{\text{def}}{=}\sum_{i=1}^nX_i\)</span>. The joint mass function of the sample is</p>
@@ -501,7 +502,7 @@ text-align: center;
 <p><span id="eq-rao-blackwell"><span class="math display">\[
 \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\right]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{}
 \tag{4}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="rao1945information blackwell1947conditional CaseBerg01 wikipedia_rao_blackwell_theorem">(<a href="#/references" role="doc-biblioref" onclick="">Rao 1945</a>; <a href="#/references" role="doc-biblioref" onclick="">Blackwell 1947</a>; <a href="#/references" role="doc-biblioref" onclick="">Casella and Berger 2002</a>, Thm.&nbsp;7.3.17, p.&nbsp;342; <a href="#/references" role="doc-biblioref" onclick="">Wikipedia contributors 2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="rao1945information blackwell1947conditional CaseBerg01 wikipedia_rao_blackwell_theorem"><a href="#/references" role="doc-biblioref" onclick="">[6]</a>, <a href="#/references" role="doc-biblioref" onclick="">[7]</a>, <a href="#/references" role="doc-biblioref" onclick="">[4]</a>, Thm.&nbsp;7.3.17, p.&nbsp;342, <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>Unbiasedness is <a href="#/thm-rb-unbiased" class="quarto-xref">Theorem&nbsp;2</a>. For the variance, we use the <a href="https://morrison-lab.github.io/pds/variance-covariance.html#thm-total-variance">law of total variance</a>:</p>
@@ -551,7 +552,7 @@ text-align: center;
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-poisson-zero-conditional" class="quarto-xref">Exercise&nbsp;1</a>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-rao-blackwell-poisson" class="theorem example">
-<p><span class="theorem-title"><strong>Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)</strong></span> The <code>birthwt</code> data record the number of previous premature labors (<code>ptl</code>) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>)</span>; the data ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>. Treat counts like these as a Poisson sample, <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>, with <span class="math inline">\({\lambda}\)</span> equal to the sample mean of <code>ptl</code>, 0.196.</p>
+<p><span class="theorem-title"><strong>Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)</strong></span> The <code>birthwt</code> data record the number of previous premature labors (<code>ptl</code>) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied"><a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>; the data ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>. Treat counts like these as a Poisson sample, <span class="math inline">\(X_1, \ldots, X_n \ \sim_{\operatorname{iid}}\ \operatorname{Pois}({\lambda})\)</span>, with <span class="math inline">\({\lambda}\)</span> equal to the sample mean of <code>ptl</code>, 0.196.</p>
 <p>The estimand is the probability of a zero count, <span class="math inline">\(\pi= \Pr(X_i= 0) = e^{-{\lambda}}\)</span>. Index the model by <span class="math inline">\(\pi\)</span> instead of <span class="math inline">\({\lambda}\)</span> (the map <span class="math inline">\({\lambda}\mapsto e^{-{\lambda}}\)</span> is one-to-one); then the sum <span class="math inline">\(S = \sum_{i=1}^nX_i\)</span> is still <a href="#/def-sufficient">sufficient</a>, by <a href="#/exm-poisson-sufficient" class="quarto-xref">Example&nbsp;1</a>.</p>
 <p>The crude estimator is the indicator that the first observation is zero, <span class="math inline">\(\hat{\pi}_1 = \mathbb{1}\mathopen{}\left\{X_1 = 0\right\}\mathclose{}\)</span>, which uses one observation and is unbiased for <span class="math inline">\(\pi\)</span>. Its Rao–Blackwellization is</p>
 <p><span class="math display">\[
@@ -643,7 +644,7 @@ Figure&nbsp;1: The sampling distribution of the crude and Rao–Blackwellized es
 </div>
 </div>
 </section><section class="slide level2"><div id="rem-rb-insufficient" class="proof remark">
-<p><span class="proof-title"><em>Remark 5</em> (Sufficiency is needed). </span>If <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\)</span> is not sufficient, then <span class="math inline">\({\operatorname{E}\mathopen{}\left[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\right]\mathclose{}}\)</span> may depend on <span class="math inline">\(\theta\)</span>, in which case it is not an estimator at all (<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#/references" role="doc-biblioref" onclick="">2002</a>, Example 7.3.18)</span>).</p>
+<p><span class="proof-title"><em>Remark 5</em> (Sufficiency is needed). </span>If <span class="math inline">\(T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\)</span> is not sufficient, then <span class="math inline">\({\operatorname{E}\mathopen{}\left[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{X}}\vphantom{X}}\right)\mathclose{}\right]\mathclose{}}\)</span> may depend on <span class="math inline">\(\theta\)</span>, in which case it is not an estimator at all (<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#/references" role="doc-biblioref" onclick="">[4]</a>, Example 7.3.18</span>).</p>
 </div>
 </section><section id="sec-sufficiency-reading" class="slide level2" data-number="3"><h2>
 <span class="header-section-number">3</span> Further reading</h2>
@@ -653,37 +654,50 @@ Figure&nbsp;1: The sampling distribution of the crude and Rao–Blackwellized es
 <h3 data-number="3.1" id="online-references">
 <span class="header-section-number">3.1</span> Online references</h3>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_sufficient_statistic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span> — sufficiency and the factorization theorem</p></li>
-<li><p><span class="citation" data-cites="wikipedia_rao_blackwell_theorem">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span> — improving an estimator by conditioning on a sufficient statistic</p></li>
-<li><p><span class="citation" data-cites="wikipedia_statistic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span> — the Wikipedia article on statistic</p></li>
+<li><p><span class="citation" data-cites="wikipedia_sufficient_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — sufficiency and the factorization theorem</p></li>
+<li><p><span class="citation" data-cites="wikipedia_rao_blackwell_theorem">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> — improving an estimator by conditioning on a sufficient statistic</p></li>
+<li><p><span class="citation" data-cites="wikipedia_statistic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> — the Wikipedia article on statistic</p></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-blackwell1947conditional" class="csl-entry" role="listitem">
-Blackwell, David. 1947. <span>“Conditional Expectation and Unbiased Sequential Estimation.”</span> <em>The Annals of Mathematical Statistics</em> 18 (1): 105–10. <a href="https://doi.org/10.1214/aoms/1177730497">https://doi.org/10.1214/aoms/1177730497</a>.
-</div>
-<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
-</div>
-<div id="ref-fisher1922mathematical" class="csl-entry" role="listitem">
-Fisher, Ronald A. 1922. <span>“On the Mathematical Foundations of Theoretical Statistics.”</span> <em>Philosophical Transactions of the Royal Society of London. Series A</em> 222 (594–604): 309–68. <a href="https://doi.org/10.1098/rsta.1922.0009">https://doi.org/10.1098/rsta.1922.0009</a>.
-</div>
-<div id="ref-halmos1949application" class="csl-entry" role="listitem">
-Halmos, Paul R., and Leonard J. Savage. 1949. <span>“Application of the <span>Radon–Nikodym</span> Theorem to the Theory of Sufficient Statistics.”</span> <em>The Annals of Mathematical Statistics</em> 20 (2): 225–41. <a href="https://doi.org/10.1214/aoms/1177730032">https://doi.org/10.1214/aoms/1177730032</a>.
-</div>
-<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
-Hosmer, David W., and Stanley Lemeshow. 1989. <em>Applied Logistic Regression</em>. Wiley.
-</div>
-<div id="ref-rao1945information" class="csl-entry" role="listitem">
-Rao, C. Radhakrishna. 1945. <span>“Information and the Accuracy Attainable in the Estimation of Statistical Parameters.”</span> <em>Bulletin of the Calcutta Mathematical Society</em> 37: 81–91.
-</div>
-<div id="ref-wikipedia_rao_blackwell_theorem" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Rao–Blackwell Theorem — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem">https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem</a>.
-</div>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-wikipedia_statistic" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Statistic — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Statistic">https://en.wikipedia.org/wiki/Statistic</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Statistic — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Statistic">https://en.wikipedia.org/wiki/Statistic</a>
+</div>
 </div>
 <div id="ref-wikipedia_sufficient_statistic" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Sufficient Statistic — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Sufficient_statistic">https://en.wikipedia.org/wiki/Sufficient_statistic</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Sufficient statistic — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Sufficient_statistic">https://en.wikipedia.org/wiki/Sufficient_statistic</a>
+</div>
+</div>
+<div id="ref-fisher1922mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">R. A. Fisher, <span>“On the mathematical foundations of theoretical statistics,”</span> <em>Philosophical Transactions of the Royal Society of London. Series A</em>, vol. 222, no. 594–604, pp. 309–368, 1922, doi: <a href="https://doi.org/10.1098/rsta.1922.0009">10.1098/rsta.1922.0009</a>.</div>
+</div>
+<div id="ref-CaseBerg01" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
+</div>
+</div>
+<div id="ref-halmos1949application" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">P. R. Halmos and L. J. Savage, <span>“Application of the <span>Radon–Nikodym</span> theorem to the theory of sufficient statistics,”</span> <em>The Annals of Mathematical Statistics</em>, vol. 20, no. 2, pp. 225–241, 1949, doi: <a href="https://doi.org/10.1214/aoms/1177730032">10.1214/aoms/1177730032</a>.</div>
+</div>
+<div id="ref-rao1945information" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">C. R. Rao, <span>“Information and the accuracy attainable in the estimation of statistical parameters,”</span> <em>Bulletin of the Calcutta Mathematical Society</em>, vol. 37, pp. 81–91, 1945.</div>
+</div>
+<div id="ref-blackwell1947conditional" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">D. Blackwell, <span>“Conditional expectation and unbiased sequential estimation,”</span> <em>The Annals of Mathematical Statistics</em>, vol. 18, no. 1, pp. 105–110, 1947, doi: <a href="https://doi.org/10.1214/aoms/1177730497">10.1214/aoms/1177730497</a>.</div>
+</div>
+<div id="ref-wikipedia_rao_blackwell_theorem" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Rao–blackwell theorem — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem">https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem</a>
+</div>
+</div>
+<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">D. W. Hosmer and S. Lemeshow, <em>Applied logistic regression</em>. New York: Wiley, 1989.</div>
 </div>
 </div>
 

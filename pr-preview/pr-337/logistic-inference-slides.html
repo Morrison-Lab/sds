@@ -106,6 +106,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -352,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 01:15:39 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:27:25 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -369,7 +370,7 @@ text-align: center;
 \sigma\mathopen{}\left(u\right)\mathclose{} = \frac{1}{1 + e^{-u}},
 \tag{1}\]</span></span></p>
 <p>where <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= {\mathopen{}\left(1, x_{i1}, \dots, x_{ip}\right)\mathclose{}}^{\top}\)</span> and <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}= {\mathopen{}\left(\beta_{0}, \beta_{1}, \dots, \beta_{p}\right)\mathclose{}}^{\top}\)</span>. The leading <span class="math inline">\(1\)</span> in <span class="math inline">\(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\)</span> makes <span class="math inline">\(\beta_{0}\)</span> the intercept, and <span class="math inline">\(\beta_{j}\)</span> for <span class="math inline">\(j \ge 1\)</span> is the slope for the <span class="math inline">\(j\)</span>th predictor.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_logistic_regression">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_logistic_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-logistic-regression" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1 (A six-patient trial)</strong></span> Six patients are split into a control group, coded <span class="math inline">\(x= -1\)</span>, and a treatment group, coded <span class="math inline">\(x= +1\)</span>. The outcome is <span class="math inline">\(y= 1\)</span> if the patient recovered. Fitting the model of <a href="#/eq-logistic-model" class="quarto-xref">Equation&nbsp;1</a> by maximum likelihood gives the coefficients below.</p>
@@ -396,7 +397,7 @@ D\stackrel{\text{def}}{=}-2 \, \ell\mathopen{}\left(\hat{\mathord{\smash[b]{\und
 = -2 \sum_{i=1}^n\mathopen{}\left\{y_i\ln \hat\pi_i + \mathopen{}\left(1 - y_i\right)\mathclose{} \ln\mathopen{}\left(1 - \hat\pi_i\right)\mathclose{}\right\}\mathclose{},
 \tag{2}\]</span></span></p>
 <p>where <span class="math inline">\(\hat\pi_i = \sigma\mathopen{}\left(\hat{\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\beta}}\vphantom{\beta}}} \cdot \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i\right)\mathclose{}\)</span> is the fitted probability.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_deviance_statistics">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_deviance_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 <div class="callout callout-note callout-titled callout-style-simple">
 <div class="callout-body">
@@ -407,7 +408,7 @@ D\stackrel{\text{def}}{=}-2 \, \ell\mathopen{}\left(\hat{\mathord{\smash[b]{\und
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="nelder1972generalized">Nelder and Wedderburn (<a href="#/references" role="doc-biblioref" onclick="">1972</a>)</span> introduced the deviance for the whole family of generalized linear models; logistic regression is the case of Bernoulli outcomes with the logit link. <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 4.4.2</a>)</span> defines the residual deviance of a fitted logistic regression as minus twice its log-likelihood.</p>
+<p><span class="citation" data-cites="nelder1972generalized">Nelder and Wedderburn <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span> introduced the deviance for the whole family of generalized linear models; logistic regression is the case of Bernoulli outcomes with the logit link. <span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 4.4.2]</a></span> defines the residual deviance of a fitted logistic regression as minus twice its log-likelihood.</p>
 </div>
 </div>
 </div>
@@ -506,7 +507,7 @@ D_0= -2 n \mathopen{}\left\{\bar y\ln \bar y+ \mathopen{}\left(1 - \bar y\right)
 <p><strong>Note&nbsp;3: Source: covariate patterns and replicates</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 5.5</a>)</span> introduces both terms: observations that share a combination of factor levels and the same values of any continuous predictors have the same covariate pattern, and are called replicates.</p>
+<p><span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 5.5]</a></span> introduces both terms: observations that share a combination of factor levels and the same values of any continuous predictors have the same covariate pattern, and are called replicates.</p>
 </div>
 </div>
 </div>
@@ -519,7 +520,7 @@ s_k = \sum_{i:\, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$
 <p>so <span class="math inline">\(0 \le s_k \le m_k\)</span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-covariate-patterns" class="theorem example">
-<p><span class="theorem-title"><strong>Example 6 (Covariate patterns in the low-birth-weight data)</strong></span> The <code>birthwt</code> data record whether each of 189 babies had low birth weight (<code>low = 1</code>, under 2.5 kg), along with the mother’s smoking status and race, among other predictors <span class="citation" data-cites="hosmer1989applied">(<a href="#/references" role="doc-biblioref" onclick="">Hosmer and Lemeshow 1989</a>)</span>. Take <code>smoke</code> (0 or 1) and <code>race</code> (1, 2 or 3) as the predictors. Counting the distinct pairs, and the babies and low-weight births at each, gives one row per <a href="#/def-covariate-pattern">covariate pattern</a>.</p>
+<p><span class="theorem-title"><strong>Example 6 (Covariate patterns in the low-birth-weight data)</strong></span> The <code>birthwt</code> data record whether each of 189 babies had low birth weight (<code>low = 1</code>, under 2.5 kg), along with the mother’s smoking status and race, among other predictors <span class="citation" data-cites="hosmer1989applied"><a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>. Take <code>smoke</code> (0 or 1) and <code>race</code> (1, 2 or 3) as the predictors. Counting the distinct pairs, and the babies and low-weight births at each, gives one row per <a href="#/def-covariate-pattern">covariate pattern</a>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>bw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/birthwt.csv"</span>)</span>
 <span id="cb6-2"><a aria-label="2"></a>bw<span class="sc">$</span>race <span class="ot">&lt;-</span> <span class="fu">factor</span>(bw<span class="sc">$</span>race)</span>
@@ -543,13 +544,13 @@ s_k = \sum_{i:\, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$
 <p>There are <span class="math inline">\(K= 6\)</span> covariate patterns among <span class="math inline">\(n= 189\)</span> babies. The pattern with the most <a href="#/def-replicates">replicates</a> has <code>smoke</code> = 0 and <code>race</code> = 3, and it has 55 of them.</p>
 </div>
 </section><section class="slide level2"><div id="def-saturated-model" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 7 (Saturated model (full model, maximal model))</strong></span> The <strong>saturated model</strong> (also called the <strong>full model</strong> <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, sec. 5.5</a>)</span> or <strong>maximal model</strong> <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, sec. 5.5</a>)</span>) for binary outcomes gives each pattern its own free event probability:</p>
+<p><span class="theorem-title"><strong>Definition 7 (Saturated model (full model, maximal model))</strong></span> The <strong>saturated model</strong> (also called the <strong>full model</strong> <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 5.5]</a></span> or <strong>maximal model</strong> <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 5.5]</a></span>) for binary outcomes gives each pattern its own free event probability:</p>
 <p><span id="eq-saturated-model"><span class="math display">\[
 \Pr\mathopen{}\left(Y_i= 1 \mid \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}_i= \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{x}}\vphantom{x}}^{(k)}\right)\mathclose{} = \pi_k,
 \qquad k = 1, \dots, K,
 \tag{4}\]</span></span></p>
 <p>with the outcomes independent given the predictors.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_saturated_model">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_saturated_model">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
 </div>
 <div id="rem-source-saturated-model">
 <div id="rem-source-saturated-model" class="callout callout-note callout-titled callout-style-simple">
@@ -561,7 +562,7 @@ s_k = \sum_{i:\, \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$
 <p><strong>Note&nbsp;4: Source: saturated model</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 5.5</a>)</span> defines the saturated model as the model with the maximum number of parameters that can be estimated, one per distinct covariate pattern, and says it is also called a maximal or full model. In model selection, “full model” often means something else: the model with every candidate predictor <span class="citation" data-cites="dobson4e">(<a href="#/references" role="doc-biblioref" onclick="">Dobson and Barnett 2018, sec. 6.3</a>)</span>. That model is generally smaller than the saturated model.</p>
+<p><span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 5.5]</a></span> defines the saturated model as the model with the maximum number of parameters that can be estimated, one per distinct covariate pattern, and says it is also called a maximal or full model. In model selection, “full model” often means something else: the model with every candidate predictor <span class="citation" data-cites="dobson4e"><a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 6.3]</a></span>. That model is generally smaller than the saturated model.</p>
 </div>
 </div>
 </div>
@@ -603,7 +604,7 @@ D_{\mathrm{sat}}
 <p><strong>Note&nbsp;5: Source: deviance from grouped counts</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="dobson4e">Dobson and Barnett (<a href="#/references" role="doc-biblioref" onclick="">2018, sec. 5.6.1</a>)</span> derives the deviance of a binomial model relative to the saturated model, and Section 7.5 writes it in the form of <a href="#/eq-saturated-deviance-grouped" class="quarto-xref">Equation&nbsp;6</a>. Section 7.5 also notes that when every observation has its own covariate pattern, so each count is <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, this deviance is not a useful measure of fit.</p>
+<p><span class="citation" data-cites="dobson4e">Dobson and Barnett <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 5.6.1]</a></span> derives the deviance of a binomial model relative to the saturated model, and Section 7.5 writes it in the form of <a href="#/eq-saturated-deviance-grouped" class="quarto-xref">Equation&nbsp;6</a>. Section 7.5 also notes that when every observation has its own covariate pattern, so each count is <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, this deviance is not a useful measure of fit.</p>
 </div>
 </div>
 </div>
@@ -685,7 +686,7 @@ D= D_{\mathrm{sat}}- 2 \ell_{\mathrm{sat}}.
 \tag{7}\]</span></span></p>
 </div>
 <div class="proof">
-<p><span class="proof-title"><em>Proof</em>. </span>The log-likelihood has score <span class="math inline">\({X}^{\top} \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}- \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}\)</span>, and its Hessian is <span class="math inline">\(-{X}^{\top} W X\)</span>, which does not involve the outcomes. The observed and expected information are therefore both <span class="math inline">\({X}^{\top} W X\)</span>. The claim is the Gaussian approximation of the <a href="./intro-MLEs.html#thm-dist-mle">central limit theorem for MLEs</a>, with this information in place of the inverse covariance. The result is stated for logistic regression by <span class="citation" data-cites="hastie2009elements">Hastie et al. (<a href="#/references" role="doc-biblioref" onclick="">2009, sec. 4.4.3</a>)</span>. For independent but non-identically distributed outcomes it holds under conditions on the predictors that <span class="citation" data-cites="fahrmeir1985consistency">Fahrmeir and Kaufmann (<a href="#/references" role="doc-biblioref" onclick="">1985</a>)</span> give.</p>
+<p><span class="proof-title"><em>Proof</em>. </span>The log-likelihood has score <span class="math inline">\({X}^{\top} \mathopen{}\left(\mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{y}}\vphantom{y}}- \mathord{\smash[b]{\underset{\raise.3ex\hbox{$\scriptstyle\sim$}}{\pi}}\vphantom{\pi}}\right)\mathclose{}\)</span>, and its Hessian is <span class="math inline">\(-{X}^{\top} W X\)</span>, which does not involve the outcomes. The observed and expected information are therefore both <span class="math inline">\({X}^{\top} W X\)</span>. The claim is the Gaussian approximation of the <a href="./intro-MLEs.html#thm-dist-mle">central limit theorem for MLEs</a>, with this information in place of the inverse covariance. The result is stated for logistic regression by <span class="citation" data-cites="hastie2009elements">Hastie et al. <a href="#/references" role="doc-biblioref" onclick="">[4, Sec. 4.4.3]</a></span>. For independent but non-identically distributed outcomes it holds under conditions on the predictors that <span class="citation" data-cites="fahrmeir1985consistency">Fahrmeir and Kaufmann <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> give.</p>
 </div>
 </section><section class="slide level2"><div id="cor-logistic-wald" class="theorem corollary">
 <p><span class="theorem-title"><strong>Corollary 3 (Wald interval for a logistic coefficient)</strong></span> Let <span class="math inline">\(\hat W\)</span> be <span class="math inline">\(W\)</span> with each <span class="math inline">\(\pi_i\)</span> replaced by its fitted value. The estimated standard error of <span class="math inline">\(\hat{\beta}_{j}\)</span> is the square root of the diagonal entry of <span class="math inline">\({\mathopen{}\left({X}^{\top} \hat W X\right)\mathclose{}}^{-1}\)</span> in the row and column of <span class="math inline">\(\beta_{j}\)</span>; because <span class="math inline">\(\beta_{0}\)</span> comes first, that is the <span class="math inline">\((j+1)\)</span>th diagonal entry counting from <span class="math inline">\(1\)</span>, and a <a href="./intro-MLEs.html#def-wald-ci">Wald confidence interval</a> with level <span class="math inline">\(1 - \alpha\)</span> for <span class="math inline">\(\beta_{j}\)</span> is</p>
@@ -730,38 +731,51 @@ D= D_{\mathrm{sat}}- 2 \ell_{\mathrm{sat}}.
 </div>
 </section><section id="further-reading" class="slide level2 unnumbered"><h2>Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_logistic_regression">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span> — the model, its fitting and its interpretation</p></li>
-<li><p><span class="citation" data-cites="wikipedia_deviance_statistics">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span> — deviance and its use in model comparison</p></li>
-<li><p><span class="citation" data-cites="wikipedia_saturated_model">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span> — the saturated model</p></li>
-<li><p><span class="citation" data-cites="wikipedia_likelihood_ratio_test">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span> — comparing nested models</p></li>
+<li><p><span class="citation" data-cites="wikipedia_logistic_regression">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> — the model, its fitting and its interpretation</p></li>
+<li><p><span class="citation" data-cites="wikipedia_deviance_statistics">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — deviance and its use in model comparison</p></li>
+<li><p><span class="citation" data-cites="wikipedia_saturated_model">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span> — the saturated model</p></li>
+<li><p><span class="citation" data-cites="wikipedia_likelihood_ratio_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span> — comparing nested models</p></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-dobson4e" class="csl-entry" role="listitem">
-Dobson, Annette J, and Adrian G Barnett. 2018. <em>An Introduction to Generalized Linear Models</em>. 4th ed. CRC press. <a href="https://doi.org/10.1201/9781315182780">https://doi.org/10.1201/9781315182780</a>.
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-wikipedia_logistic_regression" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Logistic regression — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Logistic_regression">https://en.wikipedia.org/wiki/Logistic_regression</a>
 </div>
-<div id="ref-fahrmeir1985consistency" class="csl-entry" role="listitem">
-Fahrmeir, Ludwig, and Heinz Kaufmann. 1985. <span>“Consistency and Asymptotic Normality of the Maximum Likelihood Estimator in Generalized Linear Models.”</span> <em>The Annals of Statistics</em> 13 (1): 342–68. <a href="https://doi.org/10.1214/aos/1176346597">https://doi.org/10.1214/aos/1176346597</a>.
-</div>
-<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
-Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. <em>The Elements of Statistical Learning: Data Mining, Inference, and Prediction</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-0-387-84858-7">https://doi.org/10.1007/978-0-387-84858-7</a>.
-</div>
-<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
-Hosmer, David W., and Stanley Lemeshow. 1989. <em>Applied Logistic Regression</em>. Wiley.
-</div>
-<div id="ref-nelder1972generalized" class="csl-entry" role="listitem">
-Nelder, John A., and Robert W. M. Wedderburn. 1972. <span>“Generalized Linear Models.”</span> <em>Journal of the Royal Statistical Society: Series A (General)</em> 135 (3): 370–84. <a href="https://doi.org/10.2307/2344614">https://doi.org/10.2307/2344614</a>.
 </div>
 <div id="ref-wikipedia_deviance_statistics" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Deviance (Statistics) — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Deviance_%28statistics%29">https://en.wikipedia.org/wiki/Deviance_%28statistics%29</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Deviance (statistics) — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Deviance_%28statistics%29">https://en.wikipedia.org/wiki/Deviance_%28statistics%29</a>
 </div>
-<div id="ref-wikipedia_likelihood_ratio_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Likelihood-Ratio Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test">https://en.wikipedia.org/wiki/Likelihood-ratio_test</a>.
 </div>
-<div id="ref-wikipedia_logistic_regression" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Logistic Regression — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Logistic_regression">https://en.wikipedia.org/wiki/Logistic_regression</a>.
+<div id="ref-nelder1972generalized" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">J. A. Nelder and R. W. M. Wedderburn, <span>“Generalized linear models,”</span> <em>Journal of the Royal Statistical Society: Series A (General)</em>, vol. 135, no. 3, pp. 370–384, 1972, doi: <a href="https://doi.org/10.2307/2344614">10.2307/2344614</a>.</div>
+</div>
+<div id="ref-hastie2009elements" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">T. Hastie, R. Tibshirani, and J. Friedman, <em>The elements of statistical learning: Data mining, inference, and prediction</em>, 2nd ed. Springer, 2009. doi: <a href="https://doi.org/10.1007/978-0-387-84858-7">10.1007/978-0-387-84858-7</a>.</div>
+</div>
+<div id="ref-dobson4e" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">A. J. Dobson and A. G. Barnett, <em>An introduction to generalized linear models</em>, 4th ed. CRC press, 2018. doi: <a href="https://doi.org/10.1201/9781315182780">10.1201/9781315182780</a>.</div>
+</div>
+<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">D. W. Hosmer and S. Lemeshow, <em>Applied logistic regression</em>. New York: Wiley, 1989.</div>
 </div>
 <div id="ref-wikipedia_saturated_model" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026d. <em>Saturated Model — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Saturated_model">https://en.wikipedia.org/wiki/Saturated_model</a>.
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Saturated model — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Saturated_model">https://en.wikipedia.org/wiki/Saturated_model</a>
+</div>
+</div>
+<div id="ref-fahrmeir1985consistency" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">L. Fahrmeir and H. Kaufmann, <span>“Consistency and asymptotic normality of the maximum likelihood estimator in generalized linear models,”</span> <em>The Annals of Statistics</em>, vol. 13, no. 1, pp. 342–368, 1985, doi: <a href="https://doi.org/10.1214/aos/1176346597">10.1214/aos/1176346597</a>.</div>
+</div>
+<div id="ref-wikipedia_likelihood_ratio_test" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Likelihood-ratio test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test">https://en.wikipedia.org/wiki/Likelihood-ratio_test</a>
+</div>
 </div>
 </div>
 
