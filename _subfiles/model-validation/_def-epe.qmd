@@ -25,7 +25,7 @@ of the prediction $\predvalf{\predvar}$
 as a prediction of the new outcome $\newoutvar$.
 With squared-error loss, $\epl{\fitproc}{\nobs}{\predvar} = \epe{\fitproc}{\nobs}{\predvar}$.
 
-It differs from the pMSE of the same prediction as an estimator of the [mean function](#def-mean-function) value $\truemeanfnf{\predvar}$:
+It differs from the pMSE of the same prediction as an estimator of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$:
 @thm-epe-decomposition shows that it exceeds that pMSE by the noise variance.
 The acronym omits "squared" because "error" already means squared error here.
 Another loss gives an expected prediction loss, not an EPE.

@@ -4,8 +4,8 @@ Insert the expected prediction:
 
 $$
 \ba
-\truemeanfnf{\predvar} - \predval
-&= \paren{\truemeanfnf{\predvar} - \Epredval} + \paren{\Epredval - \predval}
+\truemeanf{\predvar} - \predval
+&= \paren{\truemeanf{\predvar} - \Epredval} + \paren{\Epredval - \predval}
 && \text{(add and subtract } \Epredval \text{)}
 \ea
 $$
@@ -14,9 +14,9 @@ Square it:
 
 $$
 \ba
-\sqf{\truemeanfnf{\predvar} - \predval}
-&= \sqf{\truemeanfnf{\predvar} - \Epredval}
-+ 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \predval}
+\sqf{\truemeanf{\predvar} - \predval}
+&= \sqf{\truemeanf{\predvar} - \Epredval}
++ 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \predval}
 + \sqf{\Epredval - \predval}
 && \text{(expand the square of a sum)}
 \ea
@@ -25,16 +25,16 @@ $$
 Take the expectation of each term in turn.
 
 The first term does not depend on $\trainset$:
-$\truemeanfnf{\predvar}$ is a constant,
+$\truemeanf{\predvar}$ is a constant,
 and $\Epredval$ has already been averaged over training sets.
 The expectation of a constant is that constant:
 
 $$
 \ba
-\E{\sqf{\truemeanfnf{\predvar} - \Epredval}}
-&= \sqf{\truemeanfnf{\predvar} - \Epredval}
+\E{\sqf{\truemeanf{\predvar} - \Epredval}}
+&= \sqf{\truemeanf{\predvar} - \Epredval}
 && \text{(expectation of a constant)} \\
-&= \sqf{\Epredval - \truemeanfnf{\predvar}}
+&= \sqf{\Epredval - \truemeanf{\predvar}}
 && \text{(a number and its negative have the same square)} \\
 &= \sqf{\bias{\predval}}
 && \text{(definition of bias)}
@@ -47,16 +47,16 @@ The first factor is a constant, so it comes out of the expectation:
 
 $$
 \ba
-\E{2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \predval}}
-&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \E{\Epredval - \predval}
+\E{2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \predval}}
+&= 2 \paren{\truemeanf{\predvar} - \Epredval} \E{\Epredval - \predval}
 && \text{(constant factors)} \\
-&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\E{\Epredval} - \E{\predval}}
+&= 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\E{\Epredval} - \E{\predval}}
 && \text{(linearity)} \\
-&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \E{\predval}}
+&= 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \E{\predval}}
 && \text{(expectation of a constant)} \\
-&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \paren{\Epredval - \Epredval}
+&= 2 \paren{\truemeanf{\predvar} - \Epredval} \paren{\Epredval - \Epredval}
 && \text{(definition of the expected prediction)} \\
-&= 2 \paren{\truemeanfnf{\predvar} - \Epredval} \cdot 0
+&= 2 \paren{\truemeanf{\predvar} - \Epredval} \cdot 0
 && \text{(} a - a = 0 \text{)} \\
 &= 0
 && \text{(a number times zero)}
@@ -81,7 +81,7 @@ $$
 Adding the three expectations,
 
 $$
-\E{\sqf{\truemeanfnf{\predvar} - \predval}}
+\E{\sqf{\truemeanf{\predvar} - \predval}}
 = \sqf{\bias{\predval}} + \Var{\predval}.
 $$ {#eq-epe-after-bias}
 
