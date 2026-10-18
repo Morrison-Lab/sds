@@ -14,11 +14,11 @@ Code
 
 Published
 
-Last modified: 2026-10-18 01:13:21 (PDT)
+Last modified: 2026-10-18 11:21:26 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
-These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](#ref-dobson4e)), with some material from ([McLachlan and Krishnan 2007](#ref-mclachlan2007em)) and ([Casella and Berger 2002](#ref-CaseBerg01)).
+These notes are derived primarily from [\[1, Ch. 1–5\]](#ref-dobson4e), with some material from [\[2\]](#ref-mclachlan2007em) and [\[3\]](#ref-CaseBerg01).
 
 ### 1.1 The likelihood function
 
@@ -44,7 +44,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 >
 > \\ \begin{aligned} \mathcal{L}(\theta) &\stackrel{\text{def}}{=}\operatorname{p}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \Theta= \theta) && \text{(definition of the likelihood)}\\ &= \operatorname{p}(X_1 = x_1, \ldots, X_n = x_n \mid \Theta= \theta) && \text{(write \$\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\$ componentwise)} \end{aligned} \\
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_likelihood_function)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_likelihood_function).
 
 > **NOTE:**
 >
@@ -122,7 +122,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 >
 > \\\hat\theta\_{\text{ML}}\stackrel{\text{def}}{=}\arg \max\_\Theta\mathcal{L}(\Theta) \tag{2}\\
 >
-> Source: Wikipedia contributors ([2026g](#ref-wikipedia_maximum_likelihood_estimation)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_maximum_likelihood_estimation).
 
 > **NOTE:**
 >
@@ -130,13 +130,13 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> 5MinuteAI explains [maximum likelihood estimation](https://www.youtube.com/watch?v=Pa-GWE5JuH4) and works [examples](https://www.youtube.com/watch?v=w3a08digzfw) in five minutes each, following the University of Washington’s CSE 312 ([5MinuteAI, n.d.](#ref-fiveminuteai_probstat)).
+> 5MinuteAI explains [maximum likelihood estimation](https://www.youtube.com/watch?v=Pa-GWE5JuH4) and works [examples](https://www.youtube.com/watch?v=w3a08digzfw) in five minutes each, following the University of Washington’s CSE 312 [\[6\]](#ref-fiveminuteai_probstat).
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.4](#ref-hoggtanis2015), pp. 264–276) covers maximum likelihood and method of moments estimation.
-> - Casella and Berger ([2002, sec. 7.2.2](#ref-CaseBerg01), pp. 315–323) covers maximum likelihood estimators.
-> - Rice ([2007, sec. 8.5](#ref-rice2007mathematical), pp. 267–284) covers the method of maximum likelihood.
+> - Hogg et al. [\[7, Sec. 6.4\]](#ref-hoggtanis2015), pp. 264–276 covers maximum likelihood and method of moments estimation.
+> - Casella and Berger [\[3, Sec. 7.2.2\]](#ref-CaseBerg01), pp. 315–323 covers maximum likelihood estimators.
+> - Rice [\[8, Sec. 8.5\]](#ref-rice2007mathematical), pp. 267–284 covers the method of maximum likelihood.
 
 ### 1.3 Finding the maximum of a function
 
@@ -146,7 +146,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 >
 > \\ \begin{aligned} f'(x_0) &= 0 && \text{(scalar input)}\\ f'(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_0) &= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{0}}\vphantom{0}}&& \text{(vector input)} \end{aligned} \\
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_critical_point_mathematics)).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_critical_point_mathematics).
 
 From calculus: if \\f(x)\\ is differentiable, its maximum over an interval of input values can occur only at an endpoint of the interval or at a [critical point](#def-critical-point). At a critical point \\x_0\\, \\f''(x_0) \< 0\\ is sufficient for \\x_0\\ to be a local maximum, but not necessary: \\f(x) = -x^4\\ has a maximum at \\x_0 = 0\\, where \\f''(0) = 0\\. For a function of a vector, a negative definite Hessian matrix at a critical point is sufficient for a local maximum.
 
@@ -262,11 +262,11 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 >
 > \\\ell'\stackrel{\text{def}}{=}\frac{\partial}{\partial \theta} \ell(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\|\theta) \tag{7}\\
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_informant_function)).
+> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_informant_function).
 
 > **NOTE:**
 >
-> *Remark 1* (Notation for the score function). We often omit the arguments \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and \\\theta\\, writing \\\ell'\stackrel{\text{def}}{=}\ell'(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\\. Some sources write \\U\\ or \\S\\ for the score function instead of \\\ell'\\; for example, Dobson and Barnett ([2018](#ref-dobson4e)) write \\U\\. The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-score-notation) explains why these notes use \\\ell'\\.
+> *Remark 1* (Notation for the score function). We often omit the arguments \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and \\\theta\\, writing \\\ell'\stackrel{\text{def}}{=}\ell'(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\\. Some sources write \\U\\ or \\S\\ for the score function instead of \\\ell'\\; for example, Dobson and Barnett [\[1\]](#ref-dobson4e) write \\U\\. The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-score-notation) explains why these notes use \\\ell'\\.
 
 > **NOTE:**
 >
@@ -372,7 +372,7 @@ In all four examples ([Theorem 8](#thm-bernoulli-score), [Theorem 9](#thm-pois
 
 > **NOTE:**
 >
-> *Remark 2* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in \\x\\; for every such family, the score with respect to the mean is \\(x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape \\k \ne 1\\, do not have this form. Exponential-family distributions share many special properties ([Hogg et al. 2019, sec. 6.7](#ref-hoggtanis2015); [Dobson and Barnett 2018, chap. 3](#ref-dobson4e)).
+> *Remark 2* (The score function in natural exponential families). This pattern is no coincidence. With the mean as the parameter, each of these four models is a one-parameter *natural* (or linear) exponential family, whose log-density is linear in \\x\\; for every such family, the score with respect to the mean is \\(x - \operatorname{E}\mathopen{}\left\[X\right\]\mathclose{})/\operatorname{Var}\mathopen{}\left(X\right)\mathclose{}\\. Other members of the broader [exponential family](https://en.wikipedia.org/wiki/Exponential_family), such as the Weibull distribution with known shape \\k \ne 1\\, do not have this form. Exponential-family distributions share many special properties [\[1, Ch. 3\]](#ref-dobson4e), [\[7, Sec. 6.7\]](#ref-hoggtanis2015).
 
 > **NOTE:**
 >
@@ -394,7 +394,7 @@ The score equation is one example of an **estimating equation**, an equation who
 >
 > \\ \ell''\stackrel{\text{def}}{=}\frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}}\frac{\partial}{\partial \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}^{\top}} \ell(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\| \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \tag{8}\\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_hessian_matrix)).
+> Source: Wikipedia contributors [\[11\]](#ref-wikipedia_hessian_matrix).
 
 The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.org/wiki/Otto_Hesse).
 
@@ -440,7 +440,7 @@ The Hessian is named after the mathematician [Otto Hesse](https://en.wikipedia.o
 >
 > \\\mathcal{I}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}}) \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[-\ell''(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\mid \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{\theta}}\vphantom{\theta}})\right\]\mathclose{} \tag{10}\\
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_fisher_information)).
+> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_fisher_information).
 
 > **NOTE:**
 >
@@ -569,10 +569,10 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 > | Source | Observed information | Expected information |
 > |----|----|----|
 > | These notes | \\I\\ | \\\mathcal{I}\\ |
-> | Dobson and Barnett ([2018](#ref-dobson4e)) | \\-U'\\ | \\\mathfrak{I}\\ |
-> | Dunn and Smyth ([2018](#ref-dunn2018generalized)) | \\\mathfrak{I}\\ | \\\mathcal{I}\\ |
-> | McLachlan and Krishnan ([2007](#ref-mclachlan2007em)) | \\I\\ | \\\mathcal{I}\\ |
-> | Wood ([2017](#ref-wood2017generalized)) | \\\hat{I}\\ | \\\mathcal{I}\\ |
+> | Dobson and Barnett [\[1\]](#ref-dobson4e) | \\-U'\\ | \\\mathfrak{I}\\ |
+> | Dunn and Smyth [\[13\]](#ref-dunn2018generalized) | \\\mathfrak{I}\\ | \\\mathcal{I}\\ |
+> | McLachlan and Krishnan [\[2\]](#ref-mclachlan2007em) | \\I\\ | \\\mathcal{I}\\ |
+> | Wood [\[14\]](#ref-wood2017generalized) | \\\hat{I}\\ | \\\mathcal{I}\\ |
 >
 > Table 1: Notation for information matrices in several sources
 
@@ -586,7 +586,7 @@ Sources disagree on the symbols for the observed and expected information ([Tabl
 
 > **NOTE:**
 >
-> *Proof*. The proof is beyond the scope of these notes; see ([Lehmann 1999](#ref-lehmannELST), Theorem 7.5.2, p. 501) and ([Newey and McFadden 1994](#ref-newey1994large)).
+> *Proof*. The proof is beyond the scope of these notes; see [\[15\]](#ref-lehmannELST), Theorem 7.5.2, p. 501 and [\[16\]](#ref-newey1994large).
 
 > **NOTE:**
 >
@@ -608,12 +608,12 @@ where \\\hat{\mathcal{I}}\\ is whichever estimate of \\\mathcal{I}(\mathord{\sma
 
 > **NOTE:**
 >
-> *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria ([Efron and Hinkley 1978](#ref-efron1978assessing)).
+> *Remark 6* (Observed versus expected information). Using the observed information is often more convenient, and there are settings where it is provably better by some criteria [\[17\]](#ref-efron1978assessing).
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 6.6](#ref-hoggtanis2015), pp. 285–289) covers asymptotic distributions of maximum likelihood estimators.
-> - Rice ([2007, sec. 8.5.2](#ref-rice2007mathematical), pp. 274–278) covers large-sample theory for maximum likelihood estimators.
+> - Hogg et al. [\[7, Sec. 6.6\]](#ref-hoggtanis2015), pp. 285–289 covers asymptotic distributions of maximum likelihood estimators.
+> - Rice [\[8, Sec. 8.5.2\]](#ref-rice2007mathematical), pp. 274–278 covers large-sample theory for maximum likelihood estimators.
 
 ### 1.9 Quantifying uncertainty about MLEs
 
@@ -631,8 +631,8 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 
 > **NOTE:**
 >
-> - Casella and Berger ([2002, sec. 10.4.1](#ref-CaseBerg01), pp. 496–498) covers approximate maximum likelihood intervals.
-> - Rice ([2007, sec. 8.5.3](#ref-rice2007mathematical), pp. 279–284) covers confidence intervals from maximum likelihood estimators.
+> - Casella and Berger [\[3, Sec. 10.4.1\]](#ref-CaseBerg01), pp. 496–498 covers approximate maximum likelihood intervals.
+> - Rice [\[8, Sec. 8.5.3\]](#ref-rice2007mathematical), pp. 279–284 covers confidence intervals from maximum likelihood estimators.
 
 #### 1.9.2 Wald tests
 
@@ -642,7 +642,7 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 >
 > \\Z \stackrel{\text{def}}{=}\frac{\hat{\theta}\_k - \theta\_{k,0}}{\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\theta}\_k\right)\mathclose{}}.\\
 >
-> Source: Wikipedia contributors ([2026i](#ref-wikipedia_wald_test)).
+> Source: Wikipedia contributors [\[18\]](#ref-wikipedia_wald_test).
 
 > **NOTE:**
 >
@@ -679,7 +679,7 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 >
 > \\ \Lambda\stackrel{\text{def}}{=}2\mathopen{}\left(\ell(\hat\theta\_{\text{ML}}) - \ell(\hat{\theta}\_0)\right)\mathclose{} \\
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_likelihood_ratio_test)).
+> Source: Wikipedia contributors [\[19\]](#ref-wikipedia_likelihood_ratio_test).
 
 > **NOTE:**
 >
@@ -751,11 +751,11 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 >
 > \\ \Lambda \overset{d}{\to} \chi^2_q \\
 >
-> Source: Wikipedia contributors ([2026j](#ref-wikipedia_wilks_theorem)).
+> Source: Wikipedia contributors [\[20\]](#ref-wikipedia_wilks_theorem).
 
 > **NOTE:**
 >
-> *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. For the full proof, see ([Wilks 1938](#ref-wilks1938)) or ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)).
+> *Proof*. We sketch the argument for a scalar parameter and the point null hypothesis \\H_0: \theta= \theta_0\\, which imposes \\q = 1\\ constraint. For the full proof, see [\[21\]](#ref-wilks1938) or [\[1, Sec. 5.7\]](#ref-dobson4e).
 >
 > By [Lemma 3](#lem-wilks-lrt-quadratic), \\\Lambda\approx I(\hat\theta\_{\text{ML}})(\hat\theta\_{\text{ML}}- \theta_0)^2\\. Under the regularity conditions, \\I(\hat\theta\_{\text{ML}})/\mathcal{I}(\theta_0) \to 1\\ in probability, by the law of large numbers and the consistency of \\\hat\theta\_{\text{ML}}\\; this sketch assumes that step rather than proving it. So, with \\Z\\ as in [Lemma 4](#lem-wilks-std-gaussian):
 >
@@ -791,12 +791,12 @@ By [Theorem 17](#thm-dist-mle), \\(\hat{\theta}\_k - \theta_k)/\mathop{\widehat
 > #> 6.86082566 0.00881058
 > ```
 
-See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://online.stat.psu.edu/stat504/Lesson02>.
+See also [\[1, Sec. 5.7\]](#ref-dobson4e) and <https://online.stat.psu.edu/stat504/Lesson02>.
 
 > **NOTE:**
 >
-> - Casella and Berger ([2002, sec. 10.3.1](#ref-CaseBerg01), pp. 488–491) covers asymptotic distribution of likelihood ratio tests.
-> - Rice ([2007, sec. 9.4](#ref-rice2007mathematical), pp. 339–340) covers generalized likelihood ratio tests.
+> - Casella and Berger [\[3, Sec. 10.3.1\]](#ref-CaseBerg01), pp. 488–491 covers asymptotic distribution of likelihood ratio tests.
+> - Rice [\[8, Sec. 9.4\]](#ref-rice2007mathematical), pp. 339–340 covers generalized likelihood ratio tests.
 
 #### 1.9.4 Exact and approximate tests
 
@@ -825,7 +825,7 @@ See also ([Dobson and Barnett 2018, sec. 5.7](#ref-dobson4e)) and <https://onlin
 >
 > \\ \Pr\mathopen{}\left(L \le Y^\* \le U\right)\mathclose{} = 1 - \alpha \\
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_prediction_interval)).
+> Source: Wikipedia contributors [\[22\]](#ref-wikipedia_prediction_interval).
 
 Suppose \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}\mathopen{}\left(\mu, \sigma^2\right)\mathclose{}\\ with \\\sigma^2\\ known, and we want to predict the sample mean \\\bar X^\*\\ of \\m\\ new observations from the same distribution, independent of the first \\n\\. The MLE of \\\mu\\ is \\\hat{\mu}= \bar X\\, and the difference \\\bar X^\* - \hat{\mu}\\ (the negative of the [prediction error](prediction.llms.md#def-prediction-error)) is a difference of independent Gaussian variables, so:
 
@@ -849,11 +849,11 @@ Usually \\m = 1\\. The term \\1/n\\ accounts for the uncertainty in \\\hat{\mu}\
 
 ## 2 Example: maximum likelihood for tropical cyclones in Australia
 
-Adapted from ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)).
+Adapted from [\[1, Sec. 1.6.5\]](#ref-dobson4e).
 
 ### 2.1 Data
 
-[Table 3](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
+[Table 3](#tbl-cyclones-data) records the number of tropical cyclones in northeastern Australia during 13 November-to-April cyclone seasons, from 1956/57 to 1968/69 [\[1, Sec. 1.6.5\]](#ref-dobson4e). [Figure 1](#fig-dobson-cyclone-time-series) graphs the number of cyclones by season. Let \\X_i\\ represent the number of cyclones in season \\i\\, and \\x_i\\ its observed value.
 
 > **NOTE:**
 >
@@ -887,7 +887,7 @@ Adapted from ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e)).
 > | 1967/8  |     12 |      7 |
 > | 1968/9  |     13 |      4 |
 >
-> Table 3: Number of tropical cyclones during each November-to-April season in northeastern Australia ([Dobson and Barnett 2018, sec. 1.6.5](#ref-dobson4e))
+> Table 3: Number of tropical cyclones during each November-to-April season in northeastern Australia [\[1, Sec. 1.6.5\]](#ref-dobson4e)
 
 ### 2.2 Exploratory analysis
 
@@ -1282,7 +1282,7 @@ Call this solution of the score equation \\\tilde {\lambda}\\ for now:
 
 #### 2.6.1 Iterative maximization
 
-When we cannot solve the score equation \\\ell'(\theta) = 0\\ algebraically, we can search for its solution numerically ([Dobson and Barnett 2018, chap. 4](#ref-dobson4e)).
+When we cannot solve the score equation \\\ell'(\theta) = 0\\ algebraically, we can search for its solution numerically [\[1, Ch. 4\]](#ref-dobson4e).
 
 > **NOTE:**
 >
@@ -1322,7 +1322,7 @@ The expected information is sometimes simpler to compute than the observed infor
 
 > **NOTE:**
 >
-> **Definition 19 (Empirical information matrix)** For mutually independent observations, the **empirical information matrix** is ([McLachlan and Krishnan 2007](#ref-mclachlan2007em)):
+> **Definition 19 (Empirical information matrix)** For mutually independent observations, the **empirical information matrix** is [\[2\]](#ref-mclachlan2007em):
 >
 > \\ I_e(\theta; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) \stackrel{\text{def}}{=} \sum\_{i=1}^n\ell'\_i{\ell'\_i}^{\top} - \frac{1}{n} \ell'{\ell'}^{\top} \\
 >
@@ -1702,7 +1702,7 @@ Its diagonal entries are positive and its off-diagonal entries are zero, so it i
 
 By [Theorem 17](#thm-dist-mle), the estimated standard errors are \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\mu}\right)\mathclose{} = \hat{\sigma}/\sqrt{n}\\ and \\\mathop{\widehat{\operatorname{SE}}}\nolimits\mathopen{}\left(\hat{\sigma}^2\right)\mathclose{} = \hat{\sigma}^2\sqrt{2/n}\\, and the two estimates are approximately uncorrelated in large samples.
 
-See also ([Casella and Berger 2002](#ref-CaseBerg01), Example 7.2.12).
+See also [\[3\]](#ref-CaseBerg01), Example 7.2.12.
 
 ## 4 Example: hormone therapy study
 
@@ -1710,15 +1710,15 @@ This example fits a Gaussian model to real data by maximum likelihood, and then 
 
 ### 4.1 Data
 
-The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)).
+The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[23\]](#ref-HulleyStephen1998RToE).
 
-The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)). Women were followed for an average of 4.1 years ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)).
+The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[23\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[23\]](#ref-HulleyStephen1998RToE).
 
-The primary outcome was nonfatal myocardial infarction or CHD death ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)).
+The primary outcome was nonfatal myocardial infarction or CHD death [\[23\]](#ref-HulleyStephen1998RToE).
 
 We model the distribution of fasting glucose among HERS participants who do not have diabetes and do not exercise.
 
-The HERS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website:
+The HERS data are distributed with Vittinghoff et al. [\[24\]](#ref-vittinghoff2e) on the book’s companion website:
 
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
@@ -2046,7 +2046,7 @@ power(n = n_obs, null = mu0, alt = mu1, sigma = sigma_hat)
 
 > **NOTE:**
 >
-> *Remark 13* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed ([Hoenig and Heisey 2001](#ref-hoenig2001abuse)).
+> *Remark 13* (Choosing the alternative, and observed power). The alternative \\\mu_1\\ should be chosen before seeing the data, as a difference worth detecting. Power computed at \\\mu_1 = \hat{\mu}\\ (“observed power”) is a function of the p-value, so it adds no information about the data already analyzed [\[25\]](#ref-hoenig2001abuse).
 
 ### 4.7 Simulation
 
@@ -2170,7 +2170,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 38 (Binomial likelihood (adapted from Dobson and Barnett ([2018](#ref-dobson4e)), Chapter 3))** Let \\Y \sim \text{Binomial}(n, \pi)\\, so that
+> **Exercise 38 (Binomial likelihood (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\Y \sim \text{Binomial}(n, \pi)\\, so that
 >
 > \\ \operatorname{p}(Y = y \mid \pi) = \binom{n}{y} \pi^y (1-\pi)^{n-y}, \quad y \in \\0, 1, \ldots, n\\. \\
 >
@@ -2218,7 +2218,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 39 (Gaussian log-likelihood (adapted from Kleinbaum et al. ([2014](#ref-kleinbaum2014applied)), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}(\mu, \sigma^2)\\.
+> **Exercise 39 (Gaussian log-likelihood (adapted from Kleinbaum et al. [\[26\]](#ref-kleinbaum2014applied), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{N}(\mu, \sigma^2)\\.
 >
 > **(a)** Write the likelihood \\\mathcal{L}(\mu, \sigma^2; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ for the observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\.
 >
@@ -2268,7 +2268,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 40 (Score at the MLE (adapted from Dobson and Barnett ([2018](#ref-dobson4e)), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
+> **Exercise 40 (Score at the MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
 >
 > **(a)** Write the log-likelihood \\\ell({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
 >
@@ -2306,7 +2306,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 41 (Standard error of an MLE (adapted from Dobson and Barnett ([2018](#ref-dobson4e)), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
+> **Exercise 41 (Standard error of an MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 5))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\.
 >
 > **(a)** Derive the Hessian \\\ell''({\lambda}; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}) = \frac{\partial}{\partial \[}2\]{{\lambda}}\ell({\lambda};\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\.
 >
@@ -2350,7 +2350,7 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 > **NOTE:**
 >
-> **Exercise 42 (Exponential MLE (adapted from Dobson and Barnett ([2018](#ref-dobson4e)), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Exponential}(\mu)\\, so that \\ \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu}, \quad x \> 0, \quad \mu\> 0. \\
+> **Exercise 42 (Exponential MLE (adapted from Dobson and Barnett [\[1\]](#ref-dobson4e), Chapter 3))** Let \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \text{Exponential}(\mu)\\, so that \\ \operatorname{p}(X = x \mid \mu) = \frac{1}{\mu} e^{-x/\mu}, \quad x \> 0, \quad \mu\> 0. \\
 >
 > **(a)** Write the log-likelihood \\\ell(\mu; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\ for the observed data \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}= (x_1, \ldots, x_n)\\.
 >
@@ -2406,72 +2406,124 @@ Changing the sample size, the true \\\mu\\, or \\\sigma^2\\ in `do_n_sims()` sho
 
 ## Further reading
 
-- Wikipedia contributors ([2026g](#ref-wikipedia_maximum_likelihood_estimation)) — the method, its properties and its history
+- Wikipedia contributors [\[5\]](#ref-wikipedia_maximum_likelihood_estimation) — the method, its properties and its history
 
-- Wikipedia contributors ([2026e](#ref-wikipedia_likelihood_function)) — likelihood and log-likelihood
+- Wikipedia contributors [\[4\]](#ref-wikipedia_likelihood_function) — likelihood and log-likelihood
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_informant_function)) — the score function and its properties
+- Wikipedia contributors [\[10\]](#ref-wikipedia_informant_function) — the score function and its properties
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_fisher_information)) — expected and observed information
+- Wikipedia contributors [\[12\]](#ref-wikipedia_fisher_information) — expected and observed information
 
-- Wikipedia contributors ([2026i](#ref-wikipedia_wald_test)) — the Wald test and confidence interval
+- Wikipedia contributors [\[18\]](#ref-wikipedia_wald_test) — the Wald test and confidence interval
 
-- Wikipedia contributors ([2026f](#ref-wikipedia_likelihood_ratio_test)) — the test and Wilks’ theorem
+- Wikipedia contributors [\[19\]](#ref-wikipedia_likelihood_ratio_test) — the test and Wilks’ theorem
 
-- Wikipedia contributors ([2026h](#ref-wikipedia_prediction_interval)) — how it differs from a confidence interval
+- Wikipedia contributors [\[22\]](#ref-wikipedia_prediction_interval) — how it differs from a confidence interval
 
 ## References
 
-5MinuteAI. n.d. *Probability & Statistics*. Video playlist on YouTube. Accessed October 12, 2026. <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>.
+\[1\]
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+A. J. Dobson and A. G. Barnett, *An introduction to generalized linear models*, 4th ed. CRC press, 2018. doi: [10.1201/9781315182780](https://doi.org/10.1201/9781315182780).
 
-Dobson, Annette J, and Adrian G Barnett. 2018. *An Introduction to Generalized Linear Models*. 4th ed. CRC press. <https://doi.org/10.1201/9781315182780>.
+\[2\]
 
-Dunn, Peter K, and Gordon K Smyth. 2018. *Generalized Linear Models with Examples in R*. Vol. 53. Springer. <https://doi.org/10.1007/978-1-4419-0118-7>.
+G. J. McLachlan and T. Krishnan, *The EM algorithm and extensions*, 2nd ed. John Wiley & Sons, 2007. doi: [10.1002/9780470191613](https://doi.org/10.1002/9780470191613).
 
-Efron, Bradley, and David V Hinkley. 1978. “Assessing the Accuracy of the Maximum Likelihood Estimator: Observed Versus Expected Fisher Information.” *Biometrika* 65 (3): 457–83. <https://doi.org/10.1093/biomet/65.3.457>.
+\[3\]
 
-Hoenig, John M., and Dennis M. Heisey. 2001. “The Abuse of Power: The Pervasive Fallacy of Power Calculations for Data Analysis.” *The American Statistician* 55 (1): 19–24. <https://doi.org/10.1198/000313001300339897>.
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+\[4\]
 
-Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” *JAMA : The Journal of the American Medical Association* (Chicago, IL) 280 (7): 605–13. <https://doi.org/10.1001/jama.280.7.605>.
+Wikipedia contributors, “Likelihood function — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood_function>
 
-Kleinbaum, David G, Lawrence L Kupper, Azhar Nizam, K Muller, and ES Rosenberg. 2014. *Applied Regression Analysis and Other Multivariable Methods*. 5th ed. Cengage Learning. <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>.
+\[5\]
 
-Lehmann, E. L. 1999. *Elements of Large-Sample Theory*. Springer Texts in Statistics. Springer. <https://doi.org/10.1007/b98855>.
+Wikipedia contributors, “Maximum likelihood estimation — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Maximum_likelihood_estimation>
 
-McLachlan, Geoffrey J, and Thriyambakam Krishnan. 2007. *The EM Algorithm and Extensions*. 2nd ed. John Wiley & Sons. <https://doi.org/10.1002/9780470191613>.
+\[6\]
 
-Newey, Whitney K, and Daniel McFadden. 1994. “Large Sample Estimation and Hypothesis Testing.” In *Handbook of Econometrics*, edited by Robert Engle and Dan McFadden, vol. 4. Elsevier. <https://doi.org/10.1016/S1573-4412(05)80005-4>.
+5MinuteAI, “Probability & statistics.” Video playlist on YouTube. Accessed: Oct. 12, 2026. \[Online\]. Available: <https://www.youtube.com/playlist?list=PLeB45KifGiuHesi4PALNZSYZFhViVGQJK>
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+\[7\]
 
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
 
-Wikipedia contributors. 2026a. *Critical Point (Mathematics) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Critical_point_%28mathematics%29>.
+\[8\]
 
-Wikipedia contributors. 2026b. *Fisher Information — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Fisher_information>.
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
 
-Wikipedia contributors. 2026c. *Hessian Matrix — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Hessian_matrix>.
+\[9\]
 
-Wikipedia contributors. 2026d. *Informant Function — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Informant_function>.
+Wikipedia contributors, “Critical point (mathematics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Critical_point_%28mathematics%29>
 
-Wikipedia contributors. 2026e. *Likelihood Function — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Likelihood_function>.
+\[10\]
 
-Wikipedia contributors. 2026f. *Likelihood-Ratio Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Likelihood-ratio_test>.
+Wikipedia contributors, “Informant function — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Informant_function>
 
-Wikipedia contributors. 2026g. *Maximum Likelihood Estimation — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Maximum_likelihood_estimation>.
+\[11\]
 
-Wikipedia contributors. 2026h. *Prediction Interval — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Prediction_interval>.
+Wikipedia contributors, “Hessian matrix — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hessian_matrix>
 
-Wikipedia contributors. 2026i. *Wald Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Wald_test>.
+\[12\]
 
-Wikipedia contributors. 2026j. *Wilks’ Theorem — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Wilks%27_theorem>.
+Wikipedia contributors, “Fisher information — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Fisher_information>
 
-Wilks, Samuel S. 1938. “The Large-Sample Distribution of the Likelihood Ratio for Testing Composite Hypotheses.” *The Annals of Mathematical Statistics* 9 (1): 60–62. <https://doi.org/10.1214/aoms/1177732360>.
+\[13\]
 
-Wood, Simon N. 2017. *Generalized Additive Models: An Introduction with r*. 2nd ed. Chapman; Hall/CRC. <https://doi.org/10.1201/9781315370279>.
+P. K. Dunn and G. K. Smyth, *Generalized linear models with examples in R*, vol. 53. Springer, 2018. doi: [10.1007/978-1-4419-0118-7](https://doi.org/10.1007/978-1-4419-0118-7).
+
+\[14\]
+
+S. N. Wood, *Generalized additive models: An introduction with r*, 2nd ed. Chapman; Hall/CRC, 2017. doi: [10.1201/9781315370279](https://doi.org/10.1201/9781315370279).
+
+\[15\]
+
+E. L. Lehmann, *Elements of large-sample theory*. in Springer texts in statistics. New York: Springer, 1999. doi: [10.1007/b98855](https://doi.org/10.1007/b98855).
+
+\[16\]
+
+W. K. Newey and D. McFadden, “Large sample estimation and hypothesis testing,” in *Handbook of econometrics*, vol. 4, R. Engle and D. McFadden, Eds., Elsevier, 1994, pp. 2111–2245. doi: [10.1016/S1573-4412(05)80005-4](https://doi.org/10.1016/S1573-4412(05)80005-4).
+
+\[17\]
+
+B. Efron and D. V. Hinkley, “Assessing the accuracy of the maximum likelihood estimator: Observed versus expected Fisher information,” *Biometrika*, vol. 65, no. 3, pp. 457–483, 1978, doi: [10.1093/biomet/65.3.457](https://doi.org/10.1093/biomet/65.3.457).
+
+\[18\]
+
+Wikipedia contributors, “Wald test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wald_test>
+
+\[19\]
+
+Wikipedia contributors, “Likelihood-ratio test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Likelihood-ratio_test>
+
+\[20\]
+
+Wikipedia contributors, “Wilks’ theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Wilks%27_theorem>
+
+\[21\]
+
+S. S. Wilks, “The large-sample distribution of the likelihood ratio for testing composite hypotheses,” *The Annals of Mathematical Statistics*, vol. 9, no. 1, pp. 60–62, 1938, doi: [10.1214/aoms/1177732360](https://doi.org/10.1214/aoms/1177732360).
+
+\[22\]
+
+Wikipedia contributors, “Prediction interval — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Prediction_interval>
+
+\[23\]
+
+S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
+
+\[24\]
+
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
+
+\[25\]
+
+J. M. Hoenig and D. M. Heisey, “The abuse of power: The pervasive fallacy of power calculations for data analysis,” *The American Statistician*, vol. 55, no. 1, pp. 19–24, 2001, doi: [10.1198/000313001300339897](https://doi.org/10.1198/000313001300339897).
+
+\[26\]
+
+D. G. Kleinbaum, L. L. Kupper, A. Nizam, K. Muller, and E. Rosenberg, *Applied regression analysis and other multivariable methods*, 5th ed. Cengage Learning, 2014. Available: <https://www.cengage.com/c/applied-regression-analysis-and-other-multivariable-methods-5e-kleinbaum/9781285051086/>
 
 Back to top

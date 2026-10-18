@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 01:13:21 (PDT)
+Last modified: 2026-10-18 11:21:26 (PDT)
 
 ## 1 Introduction
 
@@ -18,17 +18,17 @@ This page builds on three others:
 
 The t-tests and ANOVA on this page are the exact, Gaussian-outcome tests in the [table of exact and approximate tests](intro-MLEs.llms.md#tbl-gaussian-vs-mle-tests) on the Maximum Likelihood page, which pairs each one with its large-sample counterpart.
 
-This page is adapted from Vittinghoff et al. ([2012](#ref-vittinghoff2e)), Chapter 3.
+This page is adapted from Vittinghoff et al. [\[1\]](#ref-vittinghoff2e), Chapter 3.
 
 ## 2 The HERS data
 
-The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)).
+The “heart and estrogen/progestin study” (HERS) was a clinical trial of hormone therapy for prevention of recurrent heart attacks and death among 2,763 post-menopausal women with existing coronary heart disease (CHD) [\[2\]](#ref-HulleyStephen1998RToE).
 
-The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)). Women were followed for an average of 4.1 years ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)).
+The trial was conducted at 20 US clinical centers. Participants were randomized to receive either conjugated equine estrogens (0.625 mg/day) plus medroxyprogesterone acetate (2.5 mg/day) or a matching placebo [\[2\]](#ref-HulleyStephen1998RToE). Women were followed for an average of 4.1 years [\[2\]](#ref-HulleyStephen1998RToE).
 
-The primary outcome was nonfatal myocardial infarction or CHD death ([Hulley et al. 1998](#ref-HulleyStephen1998RToE)).
+The primary outcome was nonfatal myocardial infarction or CHD death [\[2\]](#ref-HulleyStephen1998RToE).
 
-The HERS data are distributed with Vittinghoff et al. ([2012](#ref-vittinghoff2e)) on the book’s companion website, as a Stata file that R can read directly:
+The HERS data are distributed with Vittinghoff et al. [\[1\]](#ref-vittinghoff2e) on the book’s companion website, as a Stata file that R can read directly:
 
 ``` downlit
 # one unbroken string, so that link checkers test the whole URL:
@@ -144,7 +144,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{n-1}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_students_t_test)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_students_t_test).
 
 > **NOTE:**
 >
@@ -152,7 +152,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> *Proof*. We use a standard fact about Gaussian samples ([Hogg et al. 2019, sec. 5.5](#ref-hoggtanis2015), pp. 203-205): \\\bar X\\ and \\S^2\\ are independent, and \\V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2\\ has the \\\chi^2\_{n-1}\\ distribution. Also, \\Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma/ \sqrt{n})\\ has the standard Gaussian distribution, and \\Z\\ is independent of \\V\\ because \\\bar X\\ is independent of \\S^2\\. So by the [definition of the t-distribution](inference.llms.md#def-t-dist), \\Z / \sqrt{V / (n-1)}\\ has the \\t\_{n-1}\\ distribution, and this ratio equals \\T\\:
+> *Proof*. We use a standard fact about Gaussian samples [\[4, Sec. 5.5\]](#ref-hoggtanis2015), pp. 203-205: \\\bar X\\ and \\S^2\\ are independent, and \\V \stackrel{\text{def}}{=}(n-1) S^2 / \sigma^2\\ has the \\\chi^2\_{n-1}\\ distribution. Also, \\Z \stackrel{\text{def}}{=}(\bar X - \mu_0) / (\sigma/ \sqrt{n})\\ has the standard Gaussian distribution, and \\Z\\ is independent of \\V\\ because \\\bar X\\ is independent of \\S^2\\. So by the [definition of the t-distribution](inference.llms.md#def-t-dist), \\Z / \sqrt{V / (n-1)}\\ has the \\t\_{n-1}\\ distribution, and this ratio equals \\T\\:
 >
 > \\ \begin{aligned} \frac{Z}{\sqrt{V/(n-1)}} &= \frac{(\bar X - \mu_0) / (\sigma/ \sqrt{n})}{\sqrt{S^2 / \sigma^2}} && \text{(substitute \$Z\$ and \$V\$)}\\ &= \frac{(\bar X - \mu_0) / (\sigma/ \sqrt{n})}{S / \sigma} && \text{(\$\sqrt{S^2} = S\$, since \$S \ge 0\$)}\\ &= \frac{\bar X - \mu_0}{S / \sqrt{n}} && \text{(the factors of \$\sigma\$ cancel)}\\ &= T. \end{aligned} \\
 
@@ -166,7 +166,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > **Definition 2 (Paired t-test)** Let \\(x\_{1,1}, x\_{1,2}), \ldots, (x\_{n,1}, x\_{n,2})\\ be pairs of related measurements, such as the same participants measured at two times, and let \\d_i \stackrel{\text{def}}{=}x\_{i,2} - x\_{i,1}\\ be the within-pair differences, with population mean \\\mu_d\\. The **paired t-test** of \\H_0: \mu_d = 0\\ against \\H_1: \mu_d \neq 0\\ is the one-sample t-test ([Definition 1](#def-one-sample-t-test)) of \\H_0: \mu= 0\\ applied to \\d_1, \ldots, d_n\\.
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_students_t_test)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_students_t_test).
 
 > **NOTE:**
 >
@@ -222,7 +222,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t\right\|\mathclose{})\\, where \\T\\ has the \\t\_{\hat{\nu}}\\ distribution ([t-distribution](inference.llms.md#def-t-dist)).
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_welchs_t_test)).
+> Source: Wikipedia contributors [\[5\]](#ref-wikipedia_welchs_t_test).
 
 > **NOTE:**
 >
@@ -296,7 +296,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > \\s_p^2 \stackrel{\text{def}}{=}\frac{(n_1 - 1) s_1^2 + (n_2 - 1) s_2^2}{n_1 + n_2 - 2}.\\
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_pooled_variance)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_pooled_variance).
 
 > **NOTE:**
 >
@@ -318,11 +318,11 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > Its p-value is \\\Pr(\mathopen{}\left\|T\right\|\mathclose{} \ge \mathopen{}\left\|t_p\right\|\mathclose{})\\, where \\T\\ has the \\t\_{n_1 + n_2 - 2}\\ distribution.
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_students_t_test)).
+> Source: Wikipedia contributors [\[3\]](#ref-wikipedia_students_t_test).
 
 > **NOTE:**
 >
-> **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance \\\sigma^2\\. Then \\t_p\\ ([Definition 5](#def-pooled-t-test)), computed from these random variables, has the \\t\_{n_1 + n_2 - 2}\\ distribution ([Hogg et al. 2019, sec. 8.2](#ref-hoggtanis2015), p. 371).
+> **Theorem 2 (Null distribution of the pooled t statistic)** Let the observations in both groups be independent and Gaussian, all with the same mean and the same variance \\\sigma^2\\. Then \\t_p\\ ([Definition 5](#def-pooled-t-test)), computed from these random variables, has the \\t\_{n_1 + n_2 - 2}\\ distribution [\[4, Sec. 8.2\]](#ref-hoggtanis2015), p. 371.
 
 > **NOTE:**
 >
@@ -349,9 +349,9 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 8.2](#ref-hoggtanis2015), pp. 369–377) covers tests of the equality of two means.
-> - Rice ([2007, sec. 11.2.1](#ref-rice2007mathematical), pp. 421–432) covers normal-theory methods for two independent samples.
-> - Rice ([2007, sec. 11.3.1](#ref-rice2007mathematical), pp. 446–447) covers normal-theory methods for paired samples.
+> - Hogg et al. [\[4, Sec. 8.2\]](#ref-hoggtanis2015), pp. 369–377 covers tests of the equality of two means.
+> - Rice [\[7, Sec. 11.2.1\]](#ref-rice2007mathematical), pp. 421–432 covers normal-theory methods for two independent samples.
+> - Rice [\[7, Sec. 11.3.1\]](#ref-rice2007mathematical), pp. 446–447 covers normal-theory methods for paired samples.
 
 ### 4.5 Confidence intervals for the difference in means
 
@@ -378,7 +378,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 
 > **NOTE:**
 >
-> Hogg et al. ([2019, sec. 7.2](#ref-hoggtanis2015), pp. 314–322) covers confidence intervals for the difference of two means.
+> Hogg et al. [\[4, Sec. 7.2\]](#ref-hoggtanis2015), pp. 314–322 covers confidence intervals for the difference of two means.
 
 ## 5 One-way analysis of variance
 
@@ -388,7 +388,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > \\\text{SS}\_\text{between} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} n_j (\bar{y}\_j - \bar{y})^2.\\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_partition_of_sums_of_squares)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_partition_of_sums_of_squares).
 
 > **NOTE:**
 >
@@ -402,7 +402,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > \\\text{SS}\_\text{within} \stackrel{\text{def}}{=}\sum\_{j=1}^{k} \sum\_{i=1}^{n_j} (y\_{ji} - \bar{y}\_j)^2.\\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_partition_of_sums_of_squares)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_partition_of_sums_of_squares).
 
 > **NOTE:**
 >
@@ -436,7 +436,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > Its p-value is \\\Pr(F^\* \ge F)\\, where \\F^\*\\ has the \\F\_{k-1,\\ n-k}\\ distribution ([F-distribution](inference.llms.md#def-f-dist)).
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_analysis_of_variance)).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_analysis_of_variance).
 
 > **NOTE:**
 >
@@ -450,7 +450,7 @@ The [Statistical Inference](inference.llms.md) page defines the [null hypothesis
 >
 > \\ \begin{aligned} H_0: \mu_1 &= \cdots \\ &= \mu_k \end{aligned} \\
 >
-> holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution ([Hogg et al. 2019, sec. 9.3](#ref-hoggtanis2015), p. 449).
+> holds, then \\F\\ ([Definition 10](#def-one-way-anova)), computed from these random variables, has the \\F\_{k-1,\\ n-k}\\ distribution [\[4, Sec. 9.3\]](#ref-hoggtanis2015), p. 449.
 
 > **NOTE:**
 >
@@ -543,44 +543,66 @@ c(
 
 > **NOTE:**
 >
-> - Hogg et al. ([2019, sec. 9.3](#ref-hoggtanis2015), pp. 446–455) covers one-factor analysis of variance.
-> - Casella and Berger ([2002, sec. 11.2](#ref-CaseBerg01), pp. 522–538) covers oneway analysis of variance.
-> - Rice ([2007, sec. 12.2](#ref-rice2007mathematical), pp. 477–488) covers the one-way layout.
+> - Hogg et al. [\[4, Sec. 9.3\]](#ref-hoggtanis2015), pp. 446–455 covers one-factor analysis of variance.
+> - Casella and Berger [\[10, Sec. 11.2\]](#ref-CaseBerg01), pp. 522–538 covers oneway analysis of variance.
+> - Rice [\[7, Sec. 12.2\]](#ref-rice2007mathematical), pp. 477–488 covers the one-way layout.
 
 ## Further reading
 
-- Wikipedia contributors ([2026e](#ref-wikipedia_students_t_test)) — one-sample, paired and two-sample t-tests
+- Wikipedia contributors [\[3\]](#ref-wikipedia_students_t_test) — one-sample, paired and two-sample t-tests
 
-- Wikipedia contributors ([2026f](#ref-wikipedia_welchs_t_test)) — the t-test for groups with unequal variances
+- Wikipedia contributors [\[5\]](#ref-wikipedia_welchs_t_test) — the t-test for groups with unequal variances
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_analysis_of_variance)) — ANOVA and its F-test
+- Wikipedia contributors [\[9\]](#ref-wikipedia_analysis_of_variance) — ANOVA and its F-test
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_f_test)) — F-tests and where they arise
+- Wikipedia contributors [\[11\]](#ref-wikipedia_f_test) — F-tests and where they arise
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_pooled_variance)) — pooling the variances of several groups
+- Wikipedia contributors [\[6\]](#ref-wikipedia_pooled_variance) — pooling the variances of several groups
 
 ## References
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+\[1\]
 
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. *Probability and Statistical Inference*. Tenth edition. Pearson.
+E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, *Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models*, 2nd ed. Springer, 2012. doi: [10.1007/978-1-4614-1353-0](https://doi.org/10.1007/978-1-4614-1353-0).
 
-Hulley, Stephen, Deborah Grady, Trudy Bush, et al. 1998. “Randomized Trial of Estrogen Plus Progestin for Secondary Prevention of Coronary Heart Disease in Postmenopausal Women.” *JAMA : The Journal of the American Medical Association* (Chicago, IL) 280 (7): 605–13. <https://doi.org/10.1001/jama.280.7.605>.
+\[2\]
 
-Rice, John A. 2007. *Mathematical Statistics and Data Analysis*. 3rd ed. Cengage Learning.
+S. Hulley *et al.*, “Randomized trial of estrogen plus progestin for secondary prevention of coronary heart disease in postmenopausal women,” *JAMA : the journal of the American Medical Association*, vol. 280, no. 7, pp. 605–613, 1998, doi: [10.1001/jama.280.7.605](https://doi.org/10.1001/jama.280.7.605).
 
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. *Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-4614-1353-0>.
+\[3\]
 
-Wikipedia contributors. 2026a. *Analysis of Variance — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Analysis_of_variance>.
+Wikipedia contributors, “Student’s t-test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Student%27s_t-test>
 
-Wikipedia contributors. 2026b. *F-Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/F-test>.
+\[4\]
 
-Wikipedia contributors. 2026c. *Partition of Sums of Squares — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Partition_of_sums_of_squares>.
+R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, *Probability and statistical inference*, Tenth edition. Boston: Pearson, 2019.
 
-Wikipedia contributors. 2026d. *Pooled Variance — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Pooled_variance>.
+\[5\]
 
-Wikipedia contributors. 2026e. *Student’s t-Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Student%27s_t-test>.
+Wikipedia contributors, “Welch’s t-test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Welch%27s_t-test>
 
-Wikipedia contributors. 2026f. *Welch’s t-Test — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Welch%27s_t-test>.
+\[6\]
+
+Wikipedia contributors, “Pooled variance — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Pooled_variance>
+
+\[7\]
+
+J. A. Rice, *Mathematical statistics and data analysis*, 3rd ed. Belmont, CA: Cengage Learning, 2007.
+
+\[8\]
+
+Wikipedia contributors, “Partition of sums of squares — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Partition_of_sums_of_squares>
+
+\[9\]
+
+Wikipedia contributors, “Analysis of variance — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Analysis_of_variance>
+
+\[10\]
+
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
+
+\[11\]
+
+Wikipedia contributors, “F-test — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/F-test>
 
 Back to top

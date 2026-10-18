@@ -106,6 +106,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -352,13 +353,13 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 01:13:21 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:21:26 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
 }
 </style>
-<p>This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the <a href="./inference.html#sec-reference-distributions">Statistical Inference</a> page. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, Chapter 3.</p>
+<p>This page reviews tests for comparing groups on a categorical outcome: the chi-square test and Fisher’s exact test for contingency tables. It uses the chi-square reference distribution defined on the <a href="./inference.html#sec-reference-distributions">Statistical Inference</a> page. This page is adapted from <span class="citation" data-cites="vittinghoff2e">Vittinghoff et al. <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>, Chapter 3.</p>
 </section><section id="the-hers-data" class="slide level2" data-number="1"><h2>
 <span class="header-section-number">1</span> The HERS data</h2>
 <p>The examples on this page use the HERS data, which the <a href="./basic-statistical-methods.html#sec-hers-intro">Comparing Means</a> page describes. The <code>rmb</code> R package includes the dataset; <code><a href="https://forcats.tidyverse.org/reference/as_factor.html">haven::as_factor()</a></code> converts its Stata value labels to factors:</p>
@@ -396,23 +397,23 @@ Table&nbsp;1: Exercise by treatment group in HERS
 </figcaption><div aria-describedby="tbl-hers-crosstab-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
-<div id="gdtoapbqbo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gdtoapbqbo table {
+<div id="povdjxlzca" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#povdjxlzca table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gdtoapbqbo thead, #gdtoapbqbo tbody, #gdtoapbqbo tfoot, #gdtoapbqbo tr, #gdtoapbqbo td, #gdtoapbqbo th {
+#povdjxlzca thead, #povdjxlzca tbody, #povdjxlzca tfoot, #povdjxlzca tr, #povdjxlzca td, #povdjxlzca th {
   border-style: none;
 }
 
-#gdtoapbqbo p {
+#povdjxlzca p {
   margin: 0;
   padding: 0;
 }
 
-#gdtoapbqbo .gt_table {
+#povdjxlzca .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -438,12 +439,12 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-left-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_caption {
+#povdjxlzca .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gdtoapbqbo .gt_title {
+#povdjxlzca .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -455,7 +456,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-width: 0;
 }
 
-#gdtoapbqbo .gt_subtitle {
+#povdjxlzca .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -467,7 +468,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-top-width: 0;
 }
 
-#gdtoapbqbo .gt_heading {
+#povdjxlzca .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -479,13 +480,13 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_bottom_border {
+#povdjxlzca .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_col_headings {
+#povdjxlzca .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -500,7 +501,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_col_heading {
+#povdjxlzca .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -520,7 +521,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   overflow-x: hidden;
 }
 
-#gdtoapbqbo .gt_column_spanner_outer {
+#povdjxlzca .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -532,15 +533,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 4px;
 }
 
-#gdtoapbqbo .gt_column_spanner_outer:first-child {
+#povdjxlzca .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gdtoapbqbo .gt_column_spanner_outer:last-child {
+#povdjxlzca .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gdtoapbqbo .gt_column_spanner {
+#povdjxlzca .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -552,11 +553,11 @@ Table&nbsp;1: Exercise by treatment group in HERS
   width: 100%;
 }
 
-#gdtoapbqbo .gt_spanner_row {
+#povdjxlzca .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gdtoapbqbo .gt_group_heading {
+#povdjxlzca .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -582,7 +583,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   text-align: left;
 }
 
-#gdtoapbqbo .gt_empty_group_heading {
+#povdjxlzca .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -597,15 +598,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   vertical-align: middle;
 }
 
-#gdtoapbqbo .gt_from_md > :first-child {
+#povdjxlzca .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gdtoapbqbo .gt_from_md > :last-child {
+#povdjxlzca .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gdtoapbqbo .gt_row {
+#povdjxlzca .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -624,7 +625,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   overflow-x: hidden;
 }
 
-#gdtoapbqbo .gt_stub {
+#povdjxlzca .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -637,7 +638,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_stub_row_group {
+#povdjxlzca .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -651,15 +652,15 @@ Table&nbsp;1: Exercise by treatment group in HERS
   vertical-align: top;
 }
 
-#gdtoapbqbo .gt_row_group_first td {
+#povdjxlzca .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gdtoapbqbo .gt_row_group_first th {
+#povdjxlzca .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gdtoapbqbo .gt_summary_row {
+#povdjxlzca .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -669,16 +670,16 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_first_summary_row {
+#povdjxlzca .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_first_summary_row.thick {
+#povdjxlzca .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gdtoapbqbo .gt_last_summary_row {
+#povdjxlzca .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -688,7 +689,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_grand_summary_row {
+#povdjxlzca .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -698,7 +699,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_first_grand_summary_row {
+#povdjxlzca .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -708,7 +709,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-top-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_last_grand_summary_row_top {
+#povdjxlzca .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -718,11 +719,11 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_striped {
+#povdjxlzca .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gdtoapbqbo .gt_table_body {
+#povdjxlzca .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -731,7 +732,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-bottom-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_footnotes {
+#povdjxlzca .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -745,7 +746,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_footnote {
+#povdjxlzca .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -754,7 +755,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_sourcenotes {
+#povdjxlzca .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -768,7 +769,7 @@ Table&nbsp;1: Exercise by treatment group in HERS
   border-right-color: #D3D3D3;
 }
 
-#gdtoapbqbo .gt_sourcenote {
+#povdjxlzca .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -776,72 +777,72 @@ Table&nbsp;1: Exercise by treatment group in HERS
   padding-right: 5px;
 }
 
-#gdtoapbqbo .gt_left {
+#povdjxlzca .gt_left {
   text-align: left;
 }
 
-#gdtoapbqbo .gt_center {
+#povdjxlzca .gt_center {
   text-align: center;
 }
 
-#gdtoapbqbo .gt_right {
+#povdjxlzca .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gdtoapbqbo .gt_font_normal {
+#povdjxlzca .gt_font_normal {
   font-weight: normal;
 }
 
-#gdtoapbqbo .gt_font_bold {
+#povdjxlzca .gt_font_bold {
   font-weight: bold;
 }
 
-#gdtoapbqbo .gt_font_italic {
+#povdjxlzca .gt_font_italic {
   font-style: italic;
 }
 
-#gdtoapbqbo .gt_super {
+#povdjxlzca .gt_super {
   font-size: 65%;
 }
 
-#gdtoapbqbo .gt_footnote_marks {
+#povdjxlzca .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gdtoapbqbo .gt_asterisk {
+#povdjxlzca .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gdtoapbqbo .gt_indent_1 {
+#povdjxlzca .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gdtoapbqbo .gt_indent_2 {
+#povdjxlzca .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gdtoapbqbo .gt_indent_3 {
+#povdjxlzca .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gdtoapbqbo .gt_indent_4 {
+#povdjxlzca .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gdtoapbqbo .gt_indent_5 {
+#povdjxlzca .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gdtoapbqbo .katex-display {
+#povdjxlzca .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gdtoapbqbo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#povdjxlzca div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -902,9 +903,9 @@ Treatment group
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 7.3</a>, pp.&nbsp;323–328)</span> covers confidence intervals for proportions.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[2, Sec. 7.3]</a>, pp.&nbsp;323–328</span> covers confidence intervals for proportions.</li>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 8.4</a>, pp.&nbsp;385–391)</span> covers tests about proportions.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[2, Sec. 8.4]</a>, pp.&nbsp;385–391</span> covers tests about proportions.</li>
 </ul>
 </div>
 </section><section class="slide level2"><h3 data-number="2.2" id="sec-chi-square">
@@ -913,7 +914,7 @@ Treatment group
 <div id="def-expected-count" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Expected count under independence)</strong></span> Let a contingency table have <span class="math inline">\(r\)</span> rows and <span class="math inline">\(c\)</span> columns, with observed count <span class="math inline">\(O_{ij}\)</span> in row <span class="math inline">\(i\)</span> and column <span class="math inline">\(j\)</span>, row totals <span class="math inline">\(R_i\)</span>, column totals <span class="math inline">\(C_j\)</span>, and grand total <span class="math inline">\(n\)</span>. The <strong>expected count</strong> in cell <span class="math inline">\((i, j)\)</span> under independence is</p>
 <p><span class="math display">\[E_{ij} \stackrel{\text{def}}{=}\frac{R_i \, C_j}{n}.\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_contingency_table">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_contingency_table">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-expected-count" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Expected count in a 2 x 2 table)</strong></span> In a table with <span class="math inline">\(n = 100\)</span>, first-row total <span class="math inline">\(R_1 = 30\)</span>, and first-column total <span class="math inline">\(C_1 = 40\)</span>, the expected count in cell <span class="math inline">\((1, 1)\)</span> is</p>
@@ -928,10 +929,10 @@ Treatment group
 <p><span class="theorem-title"><strong>Definition 2 (Pearson’s chi-square test of independence)</strong></span> With observed counts <span class="math inline">\(O_{ij}\)</span> and <a href="#/def-expected-count">expected counts</a> <span class="math inline">\(E_{ij}\)</span> in an <span class="math inline">\(r \times c\)</span> contingency table, <strong>Pearson’s chi-square test</strong> of the null hypothesis that the row and column variables are independent uses the statistic</p>
 <p><span class="math display">\[X^2 \stackrel{\text{def}}{=}\sum_{i=1}^{r} \sum_{j=1}^{c} \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.\]</span></p>
 <p>Its p-value is <span class="math inline">\(\Pr(W \ge X^2)\)</span>, where <span class="math inline">\(W\)</span> has the <span class="math inline">\(\chi^2_{(r-1)(c-1)}\)</span> distribution (<a href="./inference.html#def-chi-square-dist">chi-square distribution</a>).</p>
-<p>Source: <span class="citation" data-cites="wikipedia_pearsons_chi_squared_test">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_pearsons_chi_squared_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="thm-chi-square-null" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 1 (Large-sample null distribution of the chi-square statistic)</strong></span> Let <span class="math inline">\(n\)</span> observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as <span class="math inline">\(n \to \infty\)</span>, the distribution of <span class="math inline">\(X^2\)</span> (<a href="#/def-chi-square-test" class="quarto-xref">Definition&nbsp;2</a>) converges to the <span class="math inline">\(\chi^2_{(r-1)(c-1)}\)</span> distribution <span class="citation" data-cites="hoggtanis2015">(<a href="#/references" role="doc-biblioref" onclick="">Hogg et al. 2019, sec. 9.2</a>, p.&nbsp;440)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 1 (Large-sample null distribution of the chi-square statistic)</strong></span> Let <span class="math inline">\(n\)</span> observations be sampled independently and classified by two categorical variables, and let the two variables be independent. Then as <span class="math inline">\(n \to \infty\)</span>, the distribution of <span class="math inline">\(X^2\)</span> (<a href="#/def-chi-square-test" class="quarto-xref">Definition&nbsp;2</a>) converges to the <span class="math inline">\(\chi^2_{(r-1)(c-1)}\)</span> distribution <span class="citation" data-cites="hoggtanis2015"><a href="#/references" role="doc-biblioref" onclick="">[2, Sec. 9.2]</a>, p.&nbsp;440</span>.</p>
 </div>
 </section><section class="slide level2"><div id="rem-expected-count-rule" class="proof remark">
 <p><span class="proof-title"><em>Remark 1</em> (Small expected counts). </span>The chi-square approximation is poor when some expected counts are small. A common rule of thumb asks for every <span class="math inline">\(E_{ij}\)</span> to be at least 5.</p>
@@ -970,15 +971,15 @@ Treatment group
 <div class="reading">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 9.1</a>, pp.&nbsp;425–434)</span> covers chi-square goodness-of-fit tests.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[2, Sec. 9.1]</a>, pp.&nbsp;425–434</span> covers chi-square goodness-of-fit tests.</li>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#/references" role="doc-biblioref" onclick="">2019, sec. 9.2</a>, pp.&nbsp;435–445)</span> covers contingency tables.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#/references" role="doc-biblioref" onclick="">[2, Sec. 9.2]</a>, pp.&nbsp;435–445</span> covers contingency tables.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 13.3</a>, pp.&nbsp;516–519)</span> covers the chi-square test of homogeneity.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 13.3]</a>, pp.&nbsp;516–519</span> covers the chi-square test of homogeneity.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 13.4</a>, pp.&nbsp;520–522)</span> covers the chi-square test of independence.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 13.4]</a>, pp.&nbsp;520–522</span> covers the chi-square test of independence.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 9.5</a>, pp.&nbsp;341–346)</span> covers likelihood ratio tests for the multinomial distribution.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 9.5]</a>, pp.&nbsp;341–346</span> covers likelihood ratio tests for the multinomial distribution.</li>
 </ul>
 </div>
 </section><section class="slide level2"><h3 data-number="2.3" id="sec-fisher">
@@ -1025,38 +1026,47 @@ Treatment group
 <p>With counts this large, the exact p-value is close to the chi-square p-value of <a href="#/exm-hers-chisq" class="quarto-xref">Example&nbsp;3</a>.</p>
 </div>
 <div class="reading">
-<p><span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 13.2</a>, pp.&nbsp;514–515)</span> covers Fisher’s exact test.</p>
+<p><span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 13.2]</a>, pp.&nbsp;514–515</span> covers Fisher’s exact test.</p>
 </div>
 </section><section class="slide level2"><h3 data-number="2.4" id="sec-2x2-measures">
 <span class="header-section-number">2.4</span> Measures of association for <span class="math inline">\(2 \times 2\)</span> tables</h3>
 <p>Tests of independence say whether two binary variables are associated, but not how strongly. Risk differences, risk ratios, and odds ratios measure the strength of the association; see <a href="https://morrison-lab.github.io/rme/chapters/binary-outcome-associations.html#sec-OR-RR">Odds Ratios and Relative Risks</a>.</p>
 <div class="reading">
-<p><span class="citation" data-cites="rice2007mathematical">Rice (<a href="#/references" role="doc-biblioref" onclick="">2007, sec. 13.6</a>, pp.&nbsp;526–529)</span> covers odds ratios.</p>
+<p><span class="citation" data-cites="rice2007mathematical">Rice <a href="#/references" role="doc-biblioref" onclick="">[5, Sec. 13.6]</a>, pp.&nbsp;526–529</span> covers odds ratios.</p>
 </div>
 </section><section id="further-reading" class="slide level2 unnumbered"><h2>Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_pearsons_chi_squared_test">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span> — the test, its assumptions and its variants</p></li>
-<li><p><span class="citation" data-cites="wikipedia_fishers_exact_test">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span> — the exact test and when to use it</p></li>
-<li><p><span class="citation" data-cites="wikipedia_contingency_table">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span> — tables of counts and their analysis</p></li>
+<li><p><span class="citation" data-cites="wikipedia_pearsons_chi_squared_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> — the test, its assumptions and its variants</p></li>
+<li><p><span class="citation" data-cites="wikipedia_fishers_exact_test">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span> — the exact test and when to use it</p></li>
+<li><p><span class="citation" data-cites="wikipedia_contingency_table">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span> — tables of counts and their analysis</p></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
-</div>
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-vittinghoff2e" class="csl-entry" role="listitem">
-Vittinghoff, Eric, David V Glidden, Stephen C Shiboski, and Charles E McCulloch. 2012. <em>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models</em>. 2nd ed. Springer. <a href="https://doi.org/10.1007/978-1-4614-1353-0">https://doi.org/10.1007/978-1-4614-1353-0</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">E. Vittinghoff, D. V. Glidden, S. C. Shiboski, and C. E. McCulloch, <em>Regression methods in biostatistics: Linear, logistic, survival, and repeated measures models</em>, 2nd ed. Springer, 2012. doi: <a href="https://doi.org/10.1007/978-1-4614-1353-0">10.1007/978-1-4614-1353-0</a>.</div>
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
 </div>
 <div id="ref-wikipedia_contingency_table" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Contingency Table — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Contingency_table">https://en.wikipedia.org/wiki/Contingency_table</a>.
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Contingency table — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Contingency_table">https://en.wikipedia.org/wiki/Contingency_table</a>
 </div>
-<div id="ref-wikipedia_fishers_exact_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Fisher’s Exact Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Fisher%27s_exact_test">https://en.wikipedia.org/wiki/Fisher%27s_exact_test</a>.
 </div>
 <div id="ref-wikipedia_pearsons_chi_squared_test" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Pearson’s Chi-Squared Test — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test">https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test</a>.
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Pearson’s chi-squared test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test">https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test</a>
+</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
+</div>
+<div id="ref-wikipedia_fishers_exact_test" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Fisher’s exact test — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Fisher%27s_exact_test">https://en.wikipedia.org/wiki/Fisher%27s_exact_test</a>
+</div>
 </div>
 </div>
 

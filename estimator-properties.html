@@ -62,6 +62,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -336,79 +337,15 @@ cookieconsent.run({
 <script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link href="site_libs/plotly-htmlwidgets-css-2.25.2/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="site_libs/plotly-main-2.25.2/plotly-latest.min.js"></script><link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script><style>
-div.callout-exr.callout {
-  border-left-color: #FFA500;
+div.callout-def.callout {
+  border-left-color: #1B5E20;
 }
-div.callout-exr.callout-style-default .callout-header {
-  background-color: rgba(255, 165, 0, 0.13);
+div.callout-def.callout-style-default .callout-header {
+  background-color: rgba(27, 94, 32, 0.13);
 }
-div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-fig.callout {
-  border-left-color: #757575;
-}
-div.callout-fig.callout-style-default .callout-header {
-  background-color: rgba(117, 117, 117, 0.13);
-}
-div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-videos.callout {
-  border-left-color: #283593;
-}
-div.callout-videos.callout-style-default .callout-header {
-  background-color: rgba(40, 53, 147, 0.13);
-}
-div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f144' !important;
-  background-image: none;
-}
-div.callout-cnj.callout {
-  border-left-color: #558B2F;
-}
-div.callout-cnj.callout-style-default .callout-header {
-  background-color: rgba(85, 139, 47, 0.13);
-}
-div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-prp.callout {
-  border-left-color: #827717;
-}
-div.callout-prp.callout-style-default .callout-header {
-  background-color: rgba(130, 119, 23, 0.13);
-}
-div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-lem.callout {
-  border-left-color: #1565C0;
-}
-div.callout-lem.callout-style-default .callout-header {
-  background-color: rgba(21, 101, 192, 0.13);
-}
-div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
-}
-div.callout-exm.callout {
-  border-left-color: #6A1B9A;
-}
-div.callout-exm.callout-style-default .callout-header {
-  background-color: rgba(106, 27, 154, 0.13);
-}
-div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-cor.callout {
   border-left-color: #00838F;
@@ -420,19 +357,35 @@ div.callout-cor .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-cor.callout-style-default .callout-icon::before, div.callout-cor.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2300838F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-reading.callout {
-  border-left-color: #00695C;
+div.callout-solution.callout {
+  border-left-color: #4E342E;
 }
-div.callout-reading.callout-style-default .callout-header {
-  background-color: rgba(0, 105, 92, 0.13);
+div.callout-solution.callout-style-default .callout-header {
+  background-color: rgba(78, 52, 46, 0.13);
 }
-div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
-  font-family: 'Font Awesome 7 Free';
-  font-weight: 900;
-  font-style: normal;
-  content: '\f518' !important;
-  background-image: none;
+div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-prp.callout {
+  border-left-color: #827717;
+}
+div.callout-prp.callout-style-default .callout-header {
+  background-color: rgba(130, 119, 23, 0.13);
+}
+div.callout-prp .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-prp.callout-style-default .callout-icon::before, div.callout-prp.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23827717" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exr.callout {
+  border-left-color: #FFA500;
+}
+div.callout-exr.callout-style-default .callout-header {
+  background-color: rgba(255, 165, 0, 0.13);
+}
+div.callout-exr .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exr.callout-style-default .callout-icon::before, div.callout-exr.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23FFA500" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
 div.callout-proof.callout {
   border-left-color: #37474F;
@@ -454,6 +407,16 @@ div.callout-tbl .callout-toggle::before {  background-image: url('data:image/svg
 div.callout-tbl.callout-style-default .callout-icon::before, div.callout-tbl.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
+div.callout-fig.callout {
+  border-left-color: #757575;
+}
+div.callout-fig.callout-style-default .callout-header {
+  background-color: rgba(117, 117, 117, 0.13);
+}
+div.callout-fig .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-fig.callout-style-default .callout-icon::before, div.callout-fig.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23757575" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
 div.callout-remark.callout {
   border-left-color: #AD1457;
 }
@@ -464,25 +427,63 @@ div.callout-remark .callout-toggle::before {  background-image: url('data:image/
 div.callout-remark.callout-style-default .callout-icon::before, div.callout-remark.callout-titled .callout-icon::before {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23AD1457" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-def.callout {
-  border-left-color: #1B5E20;
+div.callout-lem.callout {
+  border-left-color: #1565C0;
 }
-div.callout-def.callout-style-default .callout-header {
-  background-color: rgba(27, 94, 32, 0.13);
+div.callout-lem.callout-style-default .callout-header {
+  background-color: rgba(21, 101, 192, 0.13);
 }
-div.callout-def .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-def.callout-style-default .callout-icon::before, div.callout-def.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231B5E20" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-lem .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-lem.callout-style-default .callout-icon::before, div.callout-lem.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%231565C0" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
 }
-div.callout-solution.callout {
-  border-left-color: #4E342E;
+div.callout-cnj.callout {
+  border-left-color: #558B2F;
 }
-div.callout-solution.callout-style-default .callout-header {
-  background-color: rgba(78, 52, 46, 0.13);
+div.callout-cnj.callout-style-default .callout-header {
+  background-color: rgba(85, 139, 47, 0.13);
 }
-div.callout-solution .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
-div.callout-solution.callout-style-default .callout-icon::before, div.callout-solution.callout-titled .callout-icon::before {
-  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%234E342E" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+div.callout-cnj .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-cnj.callout-style-default .callout-icon::before, div.callout-cnj.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%23558B2F" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-exm.callout {
+  border-left-color: #6A1B9A;
+}
+div.callout-exm.callout-style-default .callout-header {
+  background-color: rgba(106, 27, 154, 0.13);
+}
+div.callout-exm .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-exm.callout-style-default .callout-icon::before, div.callout-exm.callout-titled .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236A1B9A" class="bi bi-exclamation-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg>');
+}
+div.callout-reading.callout {
+  border-left-color: #00695C;
+}
+div.callout-reading.callout-style-default .callout-header {
+  background-color: rgba(0, 105, 92, 0.13);
+}
+div.callout-reading .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-reading.callout-style-default .callout-icon::before, div.callout-reading.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f518' !important;
+  background-image: none;
+}
+div.callout-videos.callout {
+  border-left-color: #283593;
+}
+div.callout-videos.callout-style-default .callout-header {
+  background-color: rgba(40, 53, 147, 0.13);
+}
+div.callout-videos .callout-toggle::before {  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(33, 37, 41)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');}
+div.callout-videos.callout-style-default .callout-icon::before, div.callout-videos.callout-titled .callout-icon::before {
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  font-style: normal;
+  content: '\f144' !important;
+  background-image: none;
 }
 </style>
 <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script><script type="text/javascript">
@@ -1029,7 +1030,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Last modified: 2026-10-18 01:13:21 (PDT)</p>
+      <p class="date">Last modified: 2026-10-18 11:21:26 (PDT)</p>
     </div>
   </div>
   
@@ -1064,7 +1065,7 @@ text-align: center;
 \lim_{n \to \infty} \Pr\mathopen{}\left(\mathopen{}\left|\hat{\theta}_n - \theta\right|\mathclose{} \ge \varepsilon\right)\mathclose{} = 0
 \tag{1}\]</span></span></p>
 <p>In words, <span class="math inline">\(\hat{\theta}_n\)</span> <a href="https://morrison-lab.github.io/pds/limit-theorems.html#def-convergence-in-probability">converges in probability</a> to <span class="math inline">\(\theta\)</span>, which we write <span class="math inline">\(\hat{\theta}_n \overset{\scriptstyle p}{\longrightarrow}\theta\)</span>.</p>
-<p>Source: <span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002</a>, Def.&nbsp;10.1.1)</span>; <span class="citation" data-cites="wikipedia_consistent_estimator">Wikipedia contributors (<a href="#ref-wikipedia_consistent_estimator" role="doc-biblioref">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[1]</a>, Def.&nbsp;10.1.1</span>; <span class="citation" data-cites="wikipedia_consistent_estimator">Wikipedia contributors <a href="#ref-wikipedia_consistent_estimator" role="doc-biblioref">[2]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1265,7 +1266,7 @@ text-align: center;
 <div id="callout-11" class="callout-11-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="exm-consistency-birthwt" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1 (Consistency of the sample mean for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied">(<a href="#ref-hosmer1989applied" role="doc-biblioref">Hosmer and Lemeshow 1989</a>)</span>; the data ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
+<p><span class="theorem-title"><strong>Example 1 (Consistency of the sample mean for birth weights)</strong></span> The <code>birthwt</code> data record the birth weight (grams) of 189 babies from a study at Baystate Medical Center in Springfield, Massachusetts <span class="citation" data-cites="hosmer1989applied"><a href="#ref-hosmer1989applied" role="doc-biblioref">[3]</a></span>; the data ship with the R package <a href="https://cran.r-project.org/package=MASS"><code>MASS</code></a> (<code><a href="https://rdrr.io/pkg/MASS/man/birthwt.html">MASS::birthwt</a></code>), and this site has a copy at <a href="data/birthwt.csv"><code>data/birthwt.csv</code></a>.</p>
 <p>To see <a href="#cor-sample-mean-consistent" class="quarto-xref">Corollary&nbsp;1</a> at work, treat these babies as a finite population and let the estimand <span class="math inline">\(\mu\)</span> be their population mean birth weight. We draw <span class="math inline">\(n\)</span> babies at random with replacement, so the draws are independent with the population’s mean and variance, and we ask how often the sample mean misses <span class="math inline">\(\mu\)</span> by at least <span class="math inline">\(\varepsilon = 100\)</span> grams. For each <span class="math inline">\(n\)</span> we repeat the sampling 2000 times and report the fraction of repeats that miss, with a 95% confidence interval for that probability (the Wilson score interval with continuity correction, the default of <code><a href="https://rdrr.io/r/stats/prop.test.html">prop.test()</a></code>), next to the bound <span class="math inline">\(\sigma^2/ (n \varepsilon^2)\)</span> that <a href="#lem-estimation-error-bound" class="quarto-xref">Lemma&nbsp;1</a> gives, capped at 1 because a probability cannot exceed 1, using <span class="math inline">\(\operatorname{pMSE}\mathopen{}\left(\bar X_n\right)\mathclose{} = \sigma^2/ n\)</span> from <a href="./estimation.html#exm-mse-sample-mean">the example on two estimators of a mean</a>.</p>
 <div class="cell">
 <details class="code-fold"><summary>Show R code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">birthwt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/birthwt.csv"</span><span class="op">)</span></span>
@@ -1338,7 +1339,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <div class="cell">
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-80e4fa71c69fe2188f06" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-80e4fa71c69fe2188f06">{"x":{"data":[{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058,2.5051499783199058,2.5051499783199058,2.204119982655925,1.9030899869919435,1.6020599913279625,1.3010299956639813,1,0.69897000433601886,0.69897000433601886],"y":[0.74412642085190062,0.6275620769472674,0.50533818540028108,0.34442468759560502,0.20118085408834369,0.079869152366822072,0.007875933252589902,0.007875933252589902,0.018091204478120012,0.10572594390584567,0.23791136600264648,0.38709710028076422,0.54955517342634796,0.66985982235767061,0.78184975102102827,0.74412642085190062],"text":["n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:   5<br />lower: 0.74412642<br />upper: 0.7818498"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(51,51,51,0.25)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635<br />linetype: simulated","n:  10<br />miss_prob: 0.6490<br />linetype: simulated","n:  20<br />miss_prob: 0.5275<br />linetype: simulated","n:  40<br />miss_prob: 0.3655<br />linetype: simulated","n:  80<br />miss_prob: 0.2190<br />linetype: simulated","n: 160<br />miss_prob: 0.0920<br />linetype: simulated","n: 320<br />miss_prob: 0.0120<br />linetype: simulated"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","name":"simulated","legendgroup":"simulated","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635","n:  10<br />miss_prob: 0.6490","n:  20<br />miss_prob: 0.5275","n:  40<br />miss_prob: 0.3655","n:  80<br />miss_prob: 0.2190","n: 160<br />miss_prob: 0.0920","n: 320<br />miss_prob: 0.0120"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[1,1,1,1,0.66117497228521038,0.33058748614260519,0.1652937430713026],"text":["n:   5<br />bound: 1.000000<br />linetype: bound","n:  10<br />bound: 1.000000<br />linetype: bound","n:  20<br />bound: 1.000000<br />linetype: bound","n:  40<br />bound: 1.000000<br />linetype: bound","n:  80<br />bound: 0.661175<br />linetype: bound","n: 160<br />bound: 0.330587<br />linetype: bound","n: 320<br />bound: 0.165294<br />linetype: bound"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","name":"bound","legendgroup":"bound","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":39.651307596513085,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.60866100563682446,2.5954589770191001],"tickmode":"array","ticktext":["5","10","20","40","80","160","320"],"tickvals":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"categoryorder":"array","categoryarray":["5","10","20","40","80","160","320"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"sample size n","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.041730270084780606,1.0496062033373705],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.24999999999999997,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"probability of a miss","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"31925a3c15c0":{"x":{},"ymin":{},"ymax":{},"type":"scatter"},"31923d0e02d2":{"x":{},"y":{},"linetype":{}},"3192dcde620":{"x":{},"y":{}},"31927b550573":{"x":{},"y":{},"linetype":{}}},"cur_data":"31925a3c15c0","visdat":{"31925a3c15c0":["function (y) ","x"],"31923d0e02d2":["function (y) ","x"],"3192dcde620":["function (y) ","x"],"31927b550573":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-80e4fa71c69fe2188f06">{"x":{"data":[{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058,2.5051499783199058,2.5051499783199058,2.204119982655925,1.9030899869919435,1.6020599913279625,1.3010299956639813,1,0.69897000433601886,0.69897000433601886],"y":[0.74412642085190062,0.6275620769472674,0.50533818540028108,0.34442468759560502,0.20118085408834369,0.079869152366822072,0.007875933252589902,0.007875933252589902,0.018091204478120012,0.10572594390584567,0.23791136600264648,0.38709710028076422,0.54955517342634796,0.66985982235767061,0.78184975102102827,0.74412642085190062],"text":["n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 320<br />lower: 0.00787593<br />upper: 0.0180912","n: 160<br />lower: 0.07986915<br />upper: 0.1057259","n:  80<br />lower: 0.20118085<br />upper: 0.2379114","n:  40<br />lower: 0.34442469<br />upper: 0.3870971","n:  20<br />lower: 0.50533819<br />upper: 0.5495552","n:  10<br />lower: 0.62756208<br />upper: 0.6698598","n:   5<br />lower: 0.74412642<br />upper: 0.7818498","n:   5<br />lower: 0.74412642<br />upper: 0.7818498"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(51,51,51,0.25)","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635<br />linetype: simulated","n:  10<br />miss_prob: 0.6490<br />linetype: simulated","n:  20<br />miss_prob: 0.5275<br />linetype: simulated","n:  40<br />miss_prob: 0.3655<br />linetype: simulated","n:  80<br />miss_prob: 0.2190<br />linetype: simulated","n: 160<br />miss_prob: 0.0920<br />linetype: simulated","n: 320<br />miss_prob: 0.0120<br />linetype: simulated"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"solid"},"hoveron":"points","name":"simulated","legendgroup":"simulated","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[0.76349999999999996,0.64900000000000002,0.52749999999999997,0.36549999999999999,0.219,0.091999999999999998,0.012],"text":["n:   5<br />miss_prob: 0.7635","n:  10<br />miss_prob: 0.6490","n:  20<br />miss_prob: 0.5275","n:  40<br />miss_prob: 0.3655","n:  80<br />miss_prob: 0.2190","n: 160<br />miss_prob: 0.0920","n: 320<br />miss_prob: 0.0120"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,0,0,1)","opacity":1,"size":5.6692913385826778,"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)"}},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"y":[1,1,1,1,0.66117497228521038,0.33058748614260519,0.1652937430713026],"text":["n:   5<br />bound: 1.000000<br />linetype: bound","n:  10<br />bound: 1.000000<br />linetype: bound","n:  20<br />bound: 1.000000<br />linetype: bound","n:  40<br />bound: 1.000000<br />linetype: bound","n:  80<br />bound: 0.661175<br />linetype: bound","n: 160<br />bound: 0.330587<br />linetype: bound","n: 320<br />bound: 0.165294<br />linetype: bound"],"type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(0,0,0,1)","dash":"dash"},"hoveron":"points","name":"bound","legendgroup":"bound","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":23.305936073059364,"r":7.3059360730593621,"b":39.651307596513085,"l":52.403486924034887},"plot_bgcolor":"rgba(255,255,255,1)","paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.60866100563682446,2.5954589770191001],"tickmode":"array","ticktext":["5","10","20","40","80","160","320"],"tickvals":[0.69897000433601886,1,1.3010299956639813,1.6020599913279625,1.9030899869919435,2.204119982655925,2.5051499783199058],"categoryorder":"array","categoryarray":["5","10","20","40","80","160","320"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"sample size n","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.041730270084780606,1.0496062033373705],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.24999999999999997,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"outside","tickcolor":"rgba(51,51,51,1)","ticklen":3.6529680365296811,"tickwidth":0.66417600664176002,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"serif","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"probability of a miss","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":"rgba(255,255,255,1)","line":{"color":"rgba(51,51,51,1)","width":0.66417600664176002,"linetype":"solid"},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":"rgba(255,255,255,1)","bordercolor":"transparent","borderwidth":1.8897637795275593,"font":{"color":"rgba(0,0,0,1)","family":"serif","size":12.7521793275218},"orientation":"h","x":0.5,"y":-0.14999999999999999,"xanchor":"center","yanchor":"top","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"serif","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"346b7a567e87":{"x":{},"ymin":{},"ymax":{},"type":"scatter"},"346b5992a56a":{"x":{},"y":{},"linetype":{}},"346b3ce4197f":{"x":{},"y":{}},"346b5122c155":{"x":{},"y":{},"linetype":{}}},"cur_data":"346b7a567e87","visdat":{"346b7a567e87":["function (y) ","x"],"346b5992a56a":["function (y) ","x"],"346b3ce4197f":["function (y) ","x"],"346b5122c155":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
@@ -1369,7 +1370,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <div id="def-relative-efficiency" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Relative efficiency)</strong></span> Let <span class="math inline">\(\hat{\theta}_a\)</span> and <span class="math inline">\(\hat{\theta}_b\)</span> be two estimators of the same estimand <span class="math inline">\(\theta\)</span>. The <strong>relative efficiency</strong> of <span class="math inline">\(\hat{\theta}_a\)</span> with respect to <span class="math inline">\(\hat{\theta}_b\)</span> is the ratio of their <a href="./estimation.html#def-mse">pMSEs</a>, the reference estimator’s, that of <span class="math inline">\(\hat{\theta}_b\)</span>, in the numerator:</p>
 <p><span class="math display">\[\frac{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}_b\right)\mathclose{}}{\operatorname{pMSE}\mathopen{}\left(\hat{\theta}_a\right)\mathclose{}}\]</span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_efficiency_statistics">Wikipedia contributors (<a href="#ref-wikipedia_efficiency_statistics" role="doc-biblioref">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_efficiency_statistics">Wikipedia contributors <a href="#ref-wikipedia_efficiency_statistics" role="doc-biblioref">[4]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1387,7 +1388,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <div id="callout-13" class="callout-13-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <div id="rem-source-relative-efficiency" class="proof remark">
-<p><span class="proof-title"><em>Remark 2</em> (Source: Relative efficiency). </span><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002</a>)</span> define the asymptotic version, through variances, in Def. 10.1.16 (p.&nbsp;476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p.&nbsp;330).</p>
+<p><span class="proof-title"><em>Remark 2</em> (Source: Relative efficiency). </span><span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[1]</a></span> define the asymptotic version, through variances, in Def. 10.1.16 (p.&nbsp;476); this finite-sample form uses the mean squared error of their Def. 7.3.1 (p.&nbsp;330).</p>
 </div>
 </div>
 </div>
@@ -1457,7 +1458,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p><span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 10.1</a>, pp.&nbsp;467–480)</span> covers point estimation, including consistency, efficiency and bootstrap standard errors.</p>
+<p><span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[1, Sec. 10.1]</a>, pp.&nbsp;467–480</span> covers point estimation, including consistency, efficiency and bootstrap standard errors.</p>
 </div>
 </div>
 </div>
@@ -1583,7 +1584,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <p><span id="eq-cramer-rao"><span class="math display">\[
 \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \ge \frac{1}{\mathcal{I}(\theta)}
 \tag{5}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="rao1945information cramer1946mathematical CaseBerg01 wikipedia_cram_r_rao_bound">(<a href="#ref-rao1945information" role="doc-biblioref">Rao 1945</a>; <a href="#ref-cramer1946mathematical" role="doc-biblioref">Cramér 1946</a>; <a href="#ref-CaseBerg01" role="doc-biblioref">Casella and Berger 2002</a>, Thm.&nbsp;7.3.9, p.&nbsp;335; <a href="#ref-wikipedia_cram_r_rao_bound" role="doc-biblioref">Wikipedia contributors 2026b</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="rao1945information cramer1946mathematical CaseBerg01 wikipedia_cram_r_rao_bound"><a href="#ref-rao1945information" role="doc-biblioref">[5]</a>, <a href="#ref-cramer1946mathematical" role="doc-biblioref">[6]</a>, <a href="#ref-CaseBerg01" role="doc-biblioref">[1]</a>, Thm.&nbsp;7.3.9, p.&nbsp;335, <a href="#ref-wikipedia_cram_r_rao_bound" role="doc-biblioref">[7]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1637,7 +1638,7 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <p><span class="math display">\[
 \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} = \frac{1}{\mathcal{I}(\theta)}
 \]</span></p>
-<p>Source: <span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 7.3.2</a>)</span>; <span class="citation" data-cites="wikipedia_efficiency_statistics">Wikipedia contributors (<a href="#ref-wikipedia_efficiency_statistics" role="doc-biblioref">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[1, Sec. 7.3.2]</a></span>; <span class="citation" data-cites="wikipedia_efficiency_statistics">Wikipedia contributors <a href="#ref-wikipedia_efficiency_statistics" role="doc-biblioref">[4]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1725,13 +1726,13 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<span class="citation" data-cites="hoggtanis2015">Hogg et al. (<a href="#ref-hoggtanis2015" role="doc-biblioref">2019, sec. 6.6</a>, pp.&nbsp;285–289)</span> covers asymptotic distributions of maximum likelihood estimators.</li>
+<span class="citation" data-cites="hoggtanis2015">Hogg et al. <a href="#ref-hoggtanis2015" role="doc-biblioref">[8, Sec. 6.6]</a>, pp.&nbsp;285–289</span> covers asymptotic distributions of maximum likelihood estimators.</li>
 <li>
-<span class="citation" data-cites="CaseBerg01">Casella and Berger (<a href="#ref-CaseBerg01" role="doc-biblioref">2002, sec. 7.3.2</a>, pp.&nbsp;334–341)</span> covers best unbiased estimators and the Cramér–Rao bound.</li>
+<span class="citation" data-cites="CaseBerg01">Casella and Berger <a href="#ref-CaseBerg01" role="doc-biblioref">[1, Sec. 7.3.2]</a>, pp.&nbsp;334–341</span> covers best unbiased estimators and the Cramér–Rao bound.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 8.5.2</a>, pp.&nbsp;274–278)</span> covers large-sample theory for maximum likelihood estimators.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[9, Sec. 8.5.2]</a>, pp.&nbsp;274–278</span> covers large-sample theory for maximum likelihood estimators.</li>
 <li>
-<span class="citation" data-cites="rice2007mathematical">Rice (<a href="#ref-rice2007mathematical" role="doc-biblioref">2007, sec. 8.7</a>, pp.&nbsp;298–304)</span> covers efficiency and the Cramér–Rao lower bound.</li>
+<span class="citation" data-cites="rice2007mathematical">Rice <a href="#ref-rice2007mathematical" role="doc-biblioref">[9, Sec. 8.7]</a>, pp.&nbsp;298–304</span> covers efficiency and the Cramér–Rao lower bound.</li>
 </ul>
 </div>
 </div>
@@ -1739,37 +1740,50 @@ Figure&nbsp;1: The chance that the sample mean of <span class="math inline">\(n\
 </div>
 </section><section id="further-reading" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="further-reading">Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_consistent_estimator">Wikipedia contributors (<a href="#ref-wikipedia_consistent_estimator" role="doc-biblioref">2026a</a>)</span> — consistency and its variants</p></li>
-<li><p><span class="citation" data-cites="wikipedia_efficiency_statistics">Wikipedia contributors (<a href="#ref-wikipedia_efficiency_statistics" role="doc-biblioref">2026c</a>)</span> — efficiency and relative efficiency</p></li>
-<li><p><span class="citation" data-cites="wikipedia_cram_r_rao_bound">Wikipedia contributors (<a href="#ref-wikipedia_cram_r_rao_bound" role="doc-biblioref">2026b</a>)</span> — the bound and the estimators that attain it</p></li>
+<li><p><span class="citation" data-cites="wikipedia_consistent_estimator">Wikipedia contributors <a href="#ref-wikipedia_consistent_estimator" role="doc-biblioref">[2]</a></span> — consistency and its variants</p></li>
+<li><p><span class="citation" data-cites="wikipedia_efficiency_statistics">Wikipedia contributors <a href="#ref-wikipedia_efficiency_statistics" role="doc-biblioref">[4]</a></span> — efficiency and relative efficiency</p></li>
+<li><p><span class="citation" data-cites="wikipedia_cram_r_rao_bound">Wikipedia contributors <a href="#ref-wikipedia_cram_r_rao_bound" role="doc-biblioref">[7]</a></span> — the bound and the estimators that attain it</p></li>
 </ul></section><section id="references" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
 <div id="ref-CaseBerg01" class="csl-entry" role="listitem">
-Casella, George, and Roger Berger. 2002. <em>Statistical Inference</em>. 2nd ed. Cengage Learning. <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>.
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">G. Casella and R. Berger, <em>Statistical inference</em>, 2nd ed. Cengage Learning, 2002. Available: <a href="https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/</a>
 </div>
-<div id="ref-cramer1946mathematical" class="csl-entry" role="listitem">
-Cramér, Harald. 1946. <em>Mathematical Methods of Statistics</em>. Princeton University Press. <a href="https://doi.org/10.1515/9781400883868">https://doi.org/10.1515/9781400883868</a>.
-</div>
-<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
-Hogg, Robert V., Elliot A. Tanis, and Dale L. Zimmerman. 2019. <em>Probability and Statistical Inference</em>. Tenth edition. Pearson.
-</div>
-<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
-Hosmer, David W., and Stanley Lemeshow. 1989. <em>Applied Logistic Regression</em>. Wiley.
-</div>
-<div id="ref-rao1945information" class="csl-entry" role="listitem">
-Rao, C. Radhakrishna. 1945. <span>“Information and the Accuracy Attainable in the Estimation of Statistical Parameters.”</span> <em>Bulletin of the Calcutta Mathematical Society</em> 37: 81–91.
-</div>
-<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
-Rice, John A. 2007. <em>Mathematical Statistics and Data Analysis</em>. 3rd ed. Cengage Learning.
 </div>
 <div id="ref-wikipedia_consistent_estimator" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Consistent Estimator — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Consistent_estimator">https://en.wikipedia.org/wiki/Consistent_estimator</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Consistent estimator — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Consistent_estimator">https://en.wikipedia.org/wiki/Consistent_estimator</a>
 </div>
-<div id="ref-wikipedia_cram_r_rao_bound" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Cram<span>é</span>r–Rao Bound — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound">https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound</a>.
+</div>
+<div id="ref-hosmer1989applied" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">D. W. Hosmer and S. Lemeshow, <em>Applied logistic regression</em>. New York: Wiley, 1989.</div>
 </div>
 <div id="ref-wikipedia_efficiency_statistics" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Efficiency (Statistics) — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Efficiency_%28statistics%29">https://en.wikipedia.org/wiki/Efficiency_%28statistics%29</a>.
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Efficiency (statistics) — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Efficiency_%28statistics%29">https://en.wikipedia.org/wiki/Efficiency_%28statistics%29</a>
+</div>
+</div>
+<div id="ref-rao1945information" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">C. R. Rao, <span>“Information and the accuracy attainable in the estimation of statistical parameters,”</span> <em>Bulletin of the Calcutta Mathematical Society</em>, vol. 37, pp. 81–91, 1945.</div>
+</div>
+<div id="ref-cramer1946mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">H. Cramér, <em>Mathematical methods of statistics</em>. Princeton, NJ: Princeton University Press, 1946. doi: <a href="https://doi.org/10.1515/9781400883868">10.1515/9781400883868</a>.</div>
+</div>
+<div id="ref-wikipedia_cram_r_rao_bound" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Cram<span>é</span>r–rao bound — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound">https://en.wikipedia.org/wiki/Cram%C3%A9r%E2%80%93Rao_bound</a>
+</div>
+</div>
+<div id="ref-hoggtanis2015" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">R. V. Hogg, E. A. Tanis, and D. L. Zimmerman, <em>Probability and statistical inference</em>, Tenth edition. Boston: Pearson, 2019.</div>
+</div>
+<div id="ref-rice2007mathematical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">J. A. Rice, <em>Mathematical statistics and data analysis</em>, 3rd ed. Belmont, CA: Cengage Learning, 2007.</div>
 </div>
 </div>
 

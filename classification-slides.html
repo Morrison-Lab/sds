@@ -106,6 +106,7 @@
     div.csl-bib-body { }
     div.csl-entry {
       clear: both;
+      margin-bottom: 0em;
     }
     .hanging-indent div.csl-entry {
       margin-left:2em;
@@ -352,7 +353,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">Last modified: 2026-10-18 01:13:21 (PDT)</p>
+  <p class="date">Last modified: 2026-10-18 11:21:26 (PDT)</p>
 </section><section class="slide level2"><style>
 .quarto-figure-center > figure {
 text-align: center;
@@ -368,7 +369,7 @@ text-align: center;
 <p>A test can look highly accurate in isolation, yet its predictive value for an individual patient depends heavily on the prevalence of the condition in the population being tested. Understanding this interplay requires <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes">Bayes’ theorem</a> and the <a href="https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob">law of total probability</a>.</p>
 </section><section class="slide level2"><div id="def-classification" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (Classification)</strong></span> A <strong>classification problem</strong> is a statistical problem in which we seek to assign each observation to one of two or more discrete categories based on its observed features or predictors <span class="math inline">\(x\)</span>.</p>
-<p>Source: <span class="citation" data-cites="wikipedia_statistical_classification">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026i</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_statistical_classification">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="def-class" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 2 (Class)</strong></span> The discrete categories of a classification problem (<a href="#/def-classification" class="quarto-xref">Definition&nbsp;1</a>) are its <strong>classes</strong>. Let <span class="math inline">\(\mathcal{C}\)</span> be a set of <span class="math inline">\(K\)</span> classes (for example, <span class="math inline">\(\mathcal{C}= \mathopen{}\left\{1, \dots, K\right\}\mathclose{}\)</span>, or a set of text labels).</p>
@@ -396,7 +397,7 @@ c(x) \stackrel{\text{def}}{=}
 <div id="def-sensitivity" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 4 (Sensitivity)</strong></span> The <strong>sensitivity</strong> of a diagnostic test is the probability that the test is positive (<span class="math inline">\(+\)</span>), given that the person tested has the disease (<span class="math inline">\(D\)</span>):</p>
 <p><span id="eq-sensitivity"><span class="math display">\[\text{sensitivity} \stackrel{\text{def}}{=}\Pr(+ \mid D) \tag{3}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_sensitivity_and_specificity">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026h</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_sensitivity_and_specificity">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-sensitivity" class="theorem example">
 <p><span class="theorem-title"><strong>Example 2 (Sensitivity of a COVID-19 test)</strong></span> Suppose a COVID-19 test is positive for 99% of the people who have COVID-19. Let <span class="math inline">\(D\)</span> be the event “the person has COVID-19” and <span class="math inline">\(+\)</span> the event “the test is positive”. Then the test’s sensitivity (<a href="#/def-sensitivity" class="quarto-xref">Definition&nbsp;4</a>) is:</p>
@@ -405,7 +406,7 @@ c(x) \stackrel{\text{def}}{=}
 </section><section class="slide level2"><div id="def-specificity" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 5 (Specificity)</strong></span> The <strong>specificity</strong> of a diagnostic test is the probability that the test is negative (<span class="math inline">\(\neg +\)</span>), given that the person tested does not have the disease (<span class="math inline">\(\neg D\)</span>):</p>
 <p><span id="eq-specificity"><span class="math display">\[\text{specificity} \stackrel{\text{def}}{=}\Pr(\neg + \mid \neg D) \tag{5}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_sensitivity_and_specificity">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026h</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_sensitivity_and_specificity">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-specificity" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3 (Specificity of a COVID-19 test)</strong></span> Suppose the COVID-19 test of <a href="#/exm-sensitivity" class="quarto-xref">Example&nbsp;2</a> is negative for 99% of the people who do not have COVID-19. Then its specificity (<a href="#/def-specificity" class="quarto-xref">Definition&nbsp;5</a>) is:</p>
@@ -426,7 +427,7 @@ c(x) \stackrel{\text{def}}{=}
 </section><section class="slide level2"><div id="def-prevalence" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 6 (Prevalence)</strong></span> The <strong>prevalence</strong> of a disease in a population is the probability that a person drawn from that population has the disease (<span class="math inline">\(D\)</span>):</p>
 <p><span id="eq-prevalence"><span class="math display">\[\text{prevalence} \stackrel{\text{def}}{=}\Pr(D) \tag{8}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_prevalence">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026f</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_prevalence">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-prevalence" class="theorem example">
 <p><span class="theorem-title"><strong>Example 4 (Prevalence of COVID-19)</strong></span> Suppose 7% of the population being tested with the COVID-19 test of <a href="#/exm-sensitivity" class="quarto-xref">Example&nbsp;2</a> has COVID-19. Then the prevalence (<a href="#/def-prevalence" class="quarto-xref">Definition&nbsp;6</a>) is:</p>
@@ -450,7 +451,7 @@ c(x) \stackrel{\text{def}}{=}
 <div id="def-ppv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 7 (Positive predictive value (PPV))</strong></span> The <strong>positive predictive value</strong> of a diagnostic test is the probability that the person tested has the disease (<span class="math inline">\(D\)</span>), given that the test is positive (<span class="math inline">\(+\)</span>):</p>
 <p><span id="eq-ppv"><span class="math display">\[\text{PPV} \stackrel{\text{def}}{=}\Pr(D \mid +) \tag{11}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_positive_and_negative_predictive_values">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026e</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_positive_and_negative_predictive_values">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-ppv" class="theorem example">
 <p><span class="theorem-title"><strong>Example 5 (PPV of a COVID-19 test)</strong></span> For the COVID-19 test of <a href="#/exm-sensitivity" class="quarto-xref">Example&nbsp;2</a> and <a href="#/exm-specificity" class="quarto-xref">Example&nbsp;3</a>, used in the population of <a href="#/exm-prevalence" class="quarto-xref">Example&nbsp;4</a>, <a href="https://morrison-lab.github.io/pds/probability-basics.html#exm-bayes">Bayes’ theorem</a> gives the positive predictive value (<a href="#/def-ppv" class="quarto-xref">Definition&nbsp;7</a>):</p>
@@ -460,7 +461,7 @@ c(x) \stackrel{\text{def}}{=}
 </section><section class="slide level2"><div id="def-npv" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 8 (Negative predictive value (NPV))</strong></span> The <strong>negative predictive value</strong> of a diagnostic test is the probability that the person tested does not have the disease (<span class="math inline">\(\neg D\)</span>), given that the test is negative (<span class="math inline">\(\neg +\)</span>):</p>
 <p><span id="eq-npv"><span class="math display">\[\text{NPV} \stackrel{\text{def}}{=}\Pr(\neg D \mid \neg +) \tag{13}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_positive_and_negative_predictive_values">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026e</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_positive_and_negative_predictive_values">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-npv" class="theorem example">
 <p><span class="theorem-title"><strong>Example 6 (NPV of a COVID-19 test)</strong></span> For the COVID-19 test of <a href="#/exm-sensitivity" class="quarto-xref">Example&nbsp;2</a> and <a href="#/exm-specificity" class="quarto-xref">Example&nbsp;3</a>, used in the population of <a href="#/exm-prevalence" class="quarto-xref">Example&nbsp;4</a>, the probability of a negative test for a person with COVID-19 is, by the <a href="https://morrison-lab.github.io/pds/probability-basics.html#cor-p-neg0">complement rule</a>:</p>
@@ -572,7 +573,7 @@ c(x) \stackrel{\text{def}}{=}
 \frac{\text{sens} \cdot\pi}
 {\text{sens} \cdot\pi+ \mathopen{}\left(1 - \text{spec}\right)\mathclose{} \cdot\mathopen{}\left(1 - \pi\right)\mathclose{}}
 \tag{19}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_bayes_theorem">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_bayes_theorem">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span>.</p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Proof</em>. </span>This is the solution to <a href="#/exr-ppv-bayes" class="quarto-xref">Exercise&nbsp;2</a>, worked in <a href="#/sol-ppv-bayes" class="quarto-xref">Solution&nbsp;2</a>, which builds on <a href="#/thm-prob-positive" class="quarto-xref">Theorem&nbsp;1</a>.</p>
@@ -693,7 +694,7 @@ c(x) \stackrel{\text{def}}{=}
 </table>
 <p>The cells <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span> count agreements, the cells <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> count disagreements, and the four cells together count every observation:</p>
 <p><span id="eq-agreement-table-n"><span class="math display">\[n \stackrel{\text{def}}{=}a + b + c + d \tag{24}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_confusion_matrix">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_confusion_matrix">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-agreement-table-covid" class="theorem example">
 <p><span class="theorem-title"><strong>Example 8 (Agreement table for a COVID-19 test)</strong></span> Apply the COVID-19 test of <a href="#/exm-sensitivity" class="quarto-xref">Example&nbsp;2</a> and <a href="#/exm-specificity" class="quarto-xref">Example&nbsp;3</a> to <span class="math inline">\(n = 10{,}000\)</span> people from the population of <a href="#/exm-prevalence" class="quarto-xref">Example&nbsp;4</a>, with the true disease status as the reference. With 7% prevalence, <span class="math inline">\(0.07 \times 10{,}000 = 700\)</span> people have COVID-19 and <span class="math inline">\(10{,}000 - 700 = 9{,}300\)</span> do not. With 99% sensitivity, the test is positive for <span class="math inline">\(0.99 \times 700 = 693\)</span> of the 700; with 99% specificity, it is negative for <span class="math inline">\(0.99 \times 9{,}300 = 9{,}207\)</span> of the 9,300. So the test is positive for <span class="math inline">\(9{,}300 - 9{,}207 = 93\)</span> people without COVID-19 and negative for <span class="math inline">\(700 - 693 = 7\)</span> people with it. The agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) is:</p>
@@ -757,7 +758,7 @@ p_o
 </section><section class="slide level2"><div id="def-positive-agreement" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 11 (Positive agreement)</strong></span> The <strong>positive agreement</strong> (also called the <em>average positive agreement</em>) of an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) with <span class="math inline">\(2a + b + c &gt; 0\)</span> is the number of positive calls the agent and the reference share, counted once for each classifier, as a proportion of all their positive calls:</p>
 <p><span id="eq-positive-agreement"><span class="math display">\[p_{\text{pos}} \stackrel{\text{def}}{=}\frac{2a}{2a + b + c} \tag{27}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-positive-agreement" class="theorem example">
 <p><span class="theorem-title"><strong>Example 10 (Positive agreement for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the positive agreement (<a href="#/def-positive-agreement" class="quarto-xref">Definition&nbsp;11</a>) is:</p>
@@ -779,7 +780,7 @@ p_{\text{pos}}
 </section><section class="slide level2"><div id="def-negative-agreement" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 12 (Negative agreement)</strong></span> The <strong>negative agreement</strong> (also called the <em>average negative agreement</em>) of an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) with <span class="math inline">\(2d + b + c &gt; 0\)</span> is the number of negative calls the agent and the reference share, counted once for each classifier, as a proportion of all their negative calls:</p>
 <p><span id="eq-negative-agreement"><span class="math display">\[p_{\text{neg}} \stackrel{\text{def}}{=}\frac{2d}{2d + b + c} \tag{29}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-negative-agreement" class="theorem example">
 <p><span class="theorem-title"><strong>Example 11 (Negative agreement for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the negative agreement (<a href="#/def-negative-agreement" class="quarto-xref">Definition&nbsp;12</a>) is:</p>
@@ -857,7 +858,7 @@ p_{\text{agent}}
 <div id="def-harmonic-mean" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 15 (Harmonic mean)</strong></span> The <strong>harmonic mean</strong> of two positive numbers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is the reciprocal of the average of their reciprocals:</p>
 <p><span id="eq-harmonic-mean"><span class="math display">\[H(x, y) \stackrel{\text{def}}{=}\frac{2}{\frac{1}{x} + \frac{1}{y}} \tag{34}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="wikipedia_harmonic_mean">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="wikipedia_harmonic_mean">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-harmonic-mean" class="theorem example">
 <p><span class="theorem-title"><strong>Example 14 (Harmonic mean of 0.5 and 1)</strong></span> By <a href="#/def-harmonic-mean" class="quarto-xref">Definition&nbsp;15</a>:</p>
@@ -1012,7 +1013,7 @@ p_{\text{neg}}
 <div id="def-chance-agreement" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 16 (Chance agreement)</strong></span> The <strong>chance agreement</strong> of an agreement table (<a href="#/def-agreement-table" class="quarto-xref">Definition&nbsp;9</a>) is the overall agreement we would expect if the agent and the reference classified independently, each with its observed proportion of positive calls:</p>
 <p><span id="eq-chance-agreement"><span class="math display">\[p_e \stackrel{\text{def}}{=}\frac{(a + b)(a + c) + (c + d)(b + d)}{n^2} \tag{42}\]</span></span></p>
-<p>Source: <span class="citation" data-cites="cohen1960coefficient">Cohen (<a href="#/references" role="doc-biblioref" onclick="">1960</a>)</span>.</p>
+<p>Source: <span class="citation" data-cites="cohen1960coefficient">Cohen <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>.</p>
 </div>
 </section><section class="slide level2"><div id="exm-chance-agreement" class="theorem example">
 <p><span class="theorem-title"><strong>Example 17 (Chance agreement for the COVID-19 test)</strong></span> For the agreement table of <a href="#/exm-agreement-table-covid" class="quarto-xref">Example&nbsp;8</a>, the chance agreement (<a href="#/def-chance-agreement" class="quarto-xref">Definition&nbsp;16</a>) is:</p>
@@ -1045,7 +1046,7 @@ p_e
 <p><strong>Source</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="citation" data-cites="cohen1960coefficient">Cohen (<a href="#/references" role="doc-biblioref" onclick="">1960</a>)</span>; <span class="citation" data-cites="wikipedia_cohens_kappa">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span>.</p>
+<p><span class="citation" data-cites="cohen1960coefficient">Cohen <a href="#/references" role="doc-biblioref" onclick="">[9]</a></span>; <span class="citation" data-cites="wikipedia_cohens_kappa">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span>.</p>
 </div>
 </div>
 </div>
@@ -1098,60 +1099,81 @@ p_e
 <span id="cb4-10"><a aria-label="10"></a><span class="co">#&gt;   0.9900   0.4975   0.9949   0.4937</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The overall agreement is still 0.99, but kappa drops to about 0.49 and the positive agreement to about 0.50, while the negative agreement stays at about 0.995. The two specific agreements show where the disagreement lies: the test and the reference agree on negatives and disagree on about half of the positive calls.</p>
-<p>Source: <span class="citation" data-cites="feinstein1990high">Feinstein and Cicchetti (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span> (the first paradox).</p>
+<p>Source: <span class="citation" data-cites="feinstein1990high">Feinstein and Cicchetti <a href="#/references" role="doc-biblioref" onclick="">[11]</a></span> (the first paradox).</p>
 </div>
 </section><section class="slide level2"><div id="rem-kappa-prevalence" class="proof remark">
-<p><span class="proof-title"><em>Remark 3</em> (Kappa depends on prevalence). </span>When both classifiers call one category rarely, the chance agreement <span class="math inline">\(p_e\)</span> is close to 1, so the same overall agreement leaves little room for agreement beyond chance, and kappa can be low even when the overall agreement is high, as <a href="#/exm-kappa-paradox" class="quarto-xref">Example&nbsp;19</a> shows. <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span> recommend reporting the positive and negative agreements alongside kappa, so that poor agreement on the rarer category is not hidden.</p>
-<p>Source: <span class="citation" data-cites="feinstein1990high">Feinstein and Cicchetti (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>; <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein (<a href="#/references" role="doc-biblioref" onclick="">1990</a>)</span>.</p>
+<p><span class="proof-title"><em>Remark 3</em> (Kappa depends on prevalence). </span>When both classifiers call one category rarely, the chance agreement <span class="math inline">\(p_e\)</span> is close to 1, so the same overall agreement leaves little room for agreement beyond chance, and kappa can be low even when the overall agreement is high, as <a href="#/exm-kappa-paradox" class="quarto-xref">Example&nbsp;19</a> shows. <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span> recommend reporting the positive and negative agreements alongside kappa, so that poor agreement on the rarer category is not hidden.</p>
+<p>Source: <span class="citation" data-cites="feinstein1990high">Feinstein and Cicchetti <a href="#/references" role="doc-biblioref" onclick="">[11]</a></span>; <span class="citation" data-cites="cicchetti1990high">Cicchetti and Feinstein <a href="#/references" role="doc-biblioref" onclick="">[7]</a></span>.</p>
 </div>
 </section><section id="further-reading" class="slide level2 unnumbered"><h2>Further reading</h2>
 <ul>
-<li><p><span class="citation" data-cites="wikipedia_statistical_classification">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026i</a>)</span> — classification rules and their evaluation</p></li>
-<li><p><span class="citation" data-cites="wikipedia_sensitivity_and_specificity">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026h</a>)</span> — the two measures of a diagnostic test</p></li>
-<li><p><span class="citation" data-cites="wikipedia_positive_and_negative_predictive_values">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026e</a>)</span> — predictive values and their dependence on prevalence</p></li>
-<li><p><span class="citation" data-cites="wikipedia_confusion_matrix">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026c</a>)</span> — the table of predicted and true classes</p></li>
-<li><p><span class="citation" data-cites="wikipedia_cohens_kappa">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026b</a>)</span> — agreement between two raters beyond chance</p></li>
-<li><p><span class="citation" data-cites="wikipedia_receiver_operating_characteristic">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026g</a>)</span> — ROC curves and the area under them</p></li>
-<li><p><span class="citation" data-cites="wikipedia_bayes_theorem">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026a</a>)</span> — the Wikipedia article on bayes’ theorem</p></li>
-<li><p><span class="citation" data-cites="wikipedia_harmonic_mean">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026d</a>)</span> — the Wikipedia article on harmonic mean</p></li>
-<li><p><span class="citation" data-cites="wikipedia_prevalence">Wikipedia contributors (<a href="#/references" role="doc-biblioref" onclick="">2026f</a>)</span> — the Wikipedia article on prevalence</p></li>
+<li><p><span class="citation" data-cites="wikipedia_statistical_classification">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[1]</a></span> — classification rules and their evaluation</p></li>
+<li><p><span class="citation" data-cites="wikipedia_sensitivity_and_specificity">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[2]</a></span> — the two measures of a diagnostic test</p></li>
+<li><p><span class="citation" data-cites="wikipedia_positive_and_negative_predictive_values">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[4]</a></span> — predictive values and their dependence on prevalence</p></li>
+<li><p><span class="citation" data-cites="wikipedia_confusion_matrix">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[6]</a></span> — the table of predicted and true classes</p></li>
+<li><p><span class="citation" data-cites="wikipedia_cohens_kappa">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[10]</a></span> — agreement between two raters beyond chance</p></li>
+<li><p><span class="citation" data-cites="wikipedia_receiver_operating_characteristic">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[12]</a></span> — ROC curves and the area under them</p></li>
+<li><p><span class="citation" data-cites="wikipedia_bayes_theorem">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[5]</a></span> — the Wikipedia article on bayes’ theorem</p></li>
+<li><p><span class="citation" data-cites="wikipedia_harmonic_mean">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[8]</a></span> — the Wikipedia article on harmonic mean</p></li>
+<li><p><span class="citation" data-cites="wikipedia_prevalence">Wikipedia contributors <a href="#/references" role="doc-biblioref" onclick="">[3]</a></span> — the Wikipedia article on prevalence</p></li>
 </ul></section><section id="references" class="slide level2 unnumbered smaller scrollable"><h2>References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-cicchetti1990high" class="csl-entry" role="listitem">
-Cicchetti, Domenic V., and Alvan R. Feinstein. 1990. <span>“High Agreement but Low Kappa: <span>II</span>. <span>Resolving</span> the Paradoxes.”</span> <em>Journal of Clinical Epidemiology</em> 43 (6): 551–58. <a href="https://doi.org/10.1016/0895-4356(90)90159-M">https://doi.org/10.1016/0895-4356(90)90159-M</a>.
+<div id="refs" class="references csl-bib-body" data-entry-spacing="0" role="list">
+<div id="ref-wikipedia_statistical_classification" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[1] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Statistical classification — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Statistical_classification">https://en.wikipedia.org/wiki/Statistical_classification</a>
 </div>
-<div id="ref-cohen1960coefficient" class="csl-entry" role="listitem">
-Cohen, Jacob. 1960. <span>“A Coefficient of Agreement for Nominal Scales.”</span> <em>Educational and Psychological Measurement</em> 20 (1): 37–46. <a href="https://doi.org/10.1177/001316446002000104">https://doi.org/10.1177/001316446002000104</a>.
-</div>
-<div id="ref-feinstein1990high" class="csl-entry" role="listitem">
-Feinstein, Alvan R., and Domenic V. Cicchetti. 1990. <span>“High Agreement but Low Kappa: <span>I</span>. <span>The</span> Problems of Two Paradoxes.”</span> <em>Journal of Clinical Epidemiology</em> 43 (6): 543–49. <a href="https://doi.org/10.1016/0895-4356(90)90158-L">https://doi.org/10.1016/0895-4356(90)90158-L</a>.
-</div>
-<div id="ref-wikipedia_bayes_theorem" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026a. <em>Bayes’ Theorem — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">https://en.wikipedia.org/wiki/Bayes%27_theorem</a>.
-</div>
-<div id="ref-wikipedia_cohens_kappa" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026b. <em>Cohen’s Kappa — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">https://en.wikipedia.org/wiki/Cohen%27s_kappa</a>.
-</div>
-<div id="ref-wikipedia_confusion_matrix" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026c. <em>Confusion Matrix — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Confusion_matrix">https://en.wikipedia.org/wiki/Confusion_matrix</a>.
-</div>
-<div id="ref-wikipedia_harmonic_mean" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026d. <em>Harmonic Mean — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Harmonic_mean">https://en.wikipedia.org/wiki/Harmonic_mean</a>.
-</div>
-<div id="ref-wikipedia_positive_and_negative_predictive_values" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026e. <em>Positive and Negative Predictive Values — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values">https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values</a>.
-</div>
-<div id="ref-wikipedia_prevalence" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026f. <em>Prevalence — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Prevalence">https://en.wikipedia.org/wiki/Prevalence</a>.
-</div>
-<div id="ref-wikipedia_receiver_operating_characteristic" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026g. <em>Receiver Operating Characteristic — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">https://en.wikipedia.org/wiki/Receiver_operating_characteristic</a>.
 </div>
 <div id="ref-wikipedia_sensitivity_and_specificity" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026h. <em>Sensitivity and Specificity — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a>.
+<div class="csl-left-margin">[2] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Sensitivity and specificity — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">https://en.wikipedia.org/wiki/Sensitivity_and_specificity</a>
 </div>
-<div id="ref-wikipedia_statistical_classification" class="csl-entry" role="listitem">
-Wikipedia contributors. 2026i. <em>Statistical Classification — <span>Wikipedia</span><span>,</span> the Free Encyclopedia</em>. <a href="https://en.wikipedia.org/wiki/Statistical_classification">https://en.wikipedia.org/wiki/Statistical_classification</a>.
+</div>
+<div id="ref-wikipedia_prevalence" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[3] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Prevalence — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Prevalence">https://en.wikipedia.org/wiki/Prevalence</a>
+</div>
+</div>
+<div id="ref-wikipedia_positive_and_negative_predictive_values" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[4] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Positive and negative predictive values — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values">https://en.wikipedia.org/wiki/Positive_and_negative_predictive_values</a>
+</div>
+</div>
+<div id="ref-wikipedia_bayes_theorem" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[5] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Bayes’ theorem — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">https://en.wikipedia.org/wiki/Bayes%27_theorem</a>
+</div>
+</div>
+<div id="ref-wikipedia_confusion_matrix" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[6] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Confusion matrix — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Confusion_matrix">https://en.wikipedia.org/wiki/Confusion_matrix</a>
+</div>
+</div>
+<div id="ref-cicchetti1990high" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[7] </div>
+<div class="csl-right-inline">D. V. Cicchetti and A. R. Feinstein, <span>“High agreement but low kappa: <span>II</span>. <span>Resolving</span> the paradoxes,”</span> <em>Journal of Clinical Epidemiology</em>, vol. 43, no. 6, pp. 551–558, 1990, doi: <a href="https://doi.org/10.1016/0895-4356(90)90159-M">10.1016/0895-4356(90)90159-M</a>.</div>
+</div>
+<div id="ref-wikipedia_harmonic_mean" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[8] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Harmonic mean — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Harmonic_mean">https://en.wikipedia.org/wiki/Harmonic_mean</a>
+</div>
+</div>
+<div id="ref-cohen1960coefficient" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[9] </div>
+<div class="csl-right-inline">J. Cohen, <span>“A coefficient of agreement for nominal scales,”</span> <em>Educational and Psychological Measurement</em>, vol. 20, no. 1, pp. 37–46, 1960, doi: <a href="https://doi.org/10.1177/001316446002000104">10.1177/001316446002000104</a>.</div>
+</div>
+<div id="ref-wikipedia_cohens_kappa" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[10] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Cohen’s kappa — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Cohen%27s_kappa">https://en.wikipedia.org/wiki/Cohen%27s_kappa</a>
+</div>
+</div>
+<div id="ref-feinstein1990high" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[11] </div>
+<div class="csl-right-inline">A. R. Feinstein and D. V. Cicchetti, <span>“High agreement but low kappa: <span>I</span>. <span>The</span> problems of two paradoxes,”</span> <em>Journal of Clinical Epidemiology</em>, vol. 43, no. 6, pp. 543–549, 1990, doi: <a href="https://doi.org/10.1016/0895-4356(90)90158-L">10.1016/0895-4356(90)90158-L</a>.</div>
+</div>
+<div id="ref-wikipedia_receiver_operating_characteristic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">[12] </div>
+<div class="csl-right-inline">Wikipedia contributors, <span>“Receiver operating characteristic — <span>Wikipedia</span><span>,</span> the free encyclopedia.”</span> 2026. Available: <a href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">https://en.wikipedia.org/wiki/Receiver_operating_characteristic</a>
+</div>
 </div>
 </div>
 

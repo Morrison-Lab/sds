@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 01:13:21 (PDT)
+Last modified: 2026-10-18 11:21:26 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -116,7 +116,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > **Definition 9 (Random seed)** A **random seed** \\\mathfrak{s}\\ is a number that fixes the sequence of random numbers a computer generates: the same seed gives the same sequence.
 >
-> Source: Wikipedia contributors ([2026h](#ref-wikipedia_random_seed)).
+> Source: Wikipedia contributors [\[1\]](#ref-wikipedia_random_seed).
 
 > **NOTE:**
 >
@@ -170,11 +170,11 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ \mathcal{D}\_{\text{train}}\stackrel{\text{def}}{=}\mathopen{}\left((\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\_{i}, y\_{i})\right)\mathclose{}\_{i\in I}, \quad \mathopen{}\left\|I\right\|\mathclose{} = n. \tag{8}\\
 >
-> Source: Wikipedia contributors ([2026i](#ref-wikipedia_training_validation_and_test_data_sets)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
 > **NOTE:**
 >
-> *Remark 2* (Source: Training set). Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)), who also write the training set as \\\mathcal{T}\\.
+> *Remark 2* (Source: Training set). Hastie et al. [\[3, Sec. 7.2\]](#ref-hastie2009elements), who also write the training set as \\\mathcal{T}\\.
 
 > **NOTE:**
 >
@@ -252,11 +252,11 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ \operatorname{Err}\_{\mathcal{D}\_{\text{train}}} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}. \tag{13}\\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_generalization_error)).
+> Source: Wikipedia contributors [\[4\]](#ref-wikipedia_generalization_error).
 
 > **NOTE:**
 >
-> *Remark 4* (Source: Generalization error). The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)).
+> *Remark 4* (Source: Generalization error). The risk form follows Brian Hutchinson’s Fall 2025 lecture notes; the conditional form, with the training set held fixed, follows Hastie et al. [\[3, Sec. 7.2\]](#ref-hastie2009elements).
 
 > **NOTE:**
 >
@@ -266,7 +266,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 5* (Source: Held-out set (hold-out set)). Also called a **hold-out set** ([James et al. 2021, sec. 5.1.1](#ref-james2021islr2e)).
+> *Remark 5* (Source: Held-out set (hold-out set)). Also called a **hold-out set** [\[5, Sec. 5.1.1\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
@@ -282,7 +282,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 6* (Source: Training error). Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)), who write the training error as \\\overline{\text{err}}\\ and define it for any loss.
+> *Remark 6* (Source: Training error). Hastie et al. [\[3, Sec. 7.2\]](#ref-hastie2009elements), who write the training error as \\\overline{\text{err}}\\ and define it for any loss.
 
 ## 3 Overfitting
 
@@ -351,7 +351,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > **Definition 23 (Overfitting)** **Overfitting** occurs when a [prediction rule](#def-prediction-rule) fits its [training set](#def-training-set) well but predicts poorly for new observations.
 >
-> Source: Wikipedia contributors ([2026g](#ref-wikipedia_overfitting)).
+> Source: Wikipedia contributors [\[6\]](#ref-wikipedia_overfitting).
 
 > **NOTE:**
 >
@@ -391,7 +391,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 7* (Source: Expected generalization error (expected prediction error, expected test error)). Also called the **expected prediction error** or **expected test error** ([Hastie et al. 2009, sec. 7.2](#ref-hastie2009elements)). Hastie et al. write the quantity as \\\operatorname{Err}\\, without the argument \\n\\.
+> *Remark 7* (Source: Expected generalization error (expected prediction error, expected test error)). Also called the **expected prediction error** or **expected test error** [\[3, Sec. 7.2\]](#ref-hastie2009elements). Hastie et al. write the quantity as \\\operatorname{Err}\\, without the argument \\n\\.
 
 > **NOTE:**
 >
@@ -489,7 +489,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 10* (Source: Expected prediction error at a covariate value). Hastie et al. ([2009, sec. 7.3](#ref-hastie2009elements)) write this quantity as \\\operatorname{Err}(x_0)\\ for squared-error loss.
+> *Remark 10* (Source: Expected prediction error at a covariate value). Hastie et al. [\[3, Sec. 7.3\]](#ref-hastie2009elements) write this quantity as \\\operatorname{Err}(x_0)\\ for squared-error loss.
 
 > **NOTE:**
 >
@@ -535,7 +535,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark*. In expected prediction error decompositions ([James et al. 2021, sec. 2.2.2](#ref-james2021islr2e)), the bias reflects the approximation error that comes from approximating a real-world relationship by a model.
+> *Remark*. In expected prediction error decompositions [\[5, Sec. 2.2.2\]](#ref-james2021islr2e), the bias reflects the approximation error that comes from approximating a real-world relationship by a model.
 
 > **NOTE:**
 >
@@ -700,15 +700,15 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > **Definition 35 (Irreducible error)** In [Theorem 4](#thm-epe-decomposition), the term \\\sigma^2= \operatorname{Var}\mathopen{}\left(\nu\right)\mathclose{}\\ is the **irreducible error**. It does not depend on the fitting procedure \\g\\, so no choice of prediction can remove it. The theorem concerns the single covariate value \\x\\, so \\\sigma^2\\ may differ from one covariate value to another: it does not assume constant noise variance across covariate values. For example, in [Exercise 4](#exr-epe-three-sources), \\\sigma^2= 3\\, so every prediction there has expected squared error at least \\3\\.
 >
-> Source: Wikipedia contributors ([2026a](#ref-wikipedia_bias_variance_tradeoff)).
+> Source: Wikipedia contributors [\[7\]](#ref-wikipedia_bias_variance_tradeoff).
 
 > **NOTE:**
 >
-> *Remark*. This expected prediction error decomposition into squared bias, variance, and irreducible error follows James et al. ([2021, sec. 2.2.2](#ref-james2021islr2e)).
+> *Remark*. This expected prediction error decomposition into squared bias, variance, and irreducible error follows James et al. [\[5, Sec. 2.2.2\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
-> *Remark 11* (Other names, and how the expected error splits). Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) also call \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ the *test error*, and in sec. 7.12 the *conditional* test error. It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) of the prediction \\{\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}}\\ under the [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) \\L\\, computed with the training set held fixed.
+> *Remark 11* (Other names, and how the expected error splits). Hastie et al. [\[3, Sec. 7.2\]](#ref-hastie2009elements) also call \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ the *test error*, and in sec. 7.12 the *conditional* test error. It is the [risk](https://morrison-lab.github.io/pds/expectation.html#def-risk) of the prediction \\{\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}}\\ under the [loss](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) \\L\\, computed with the training set held fixed.
 >
 > The argument \\n\\ of the [expected generalization error](#def-expected-generalization-error) \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ of a fitting procedure \\g\\ records that it depends on how many observations each training set has. By [Theorem 2](#thm-expected-error-epe), \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ averages the expected prediction error at each covariate value, and [Theorem 4](#thm-epe-decomposition) splits each of those expected prediction errors, under squared-error loss, into a squared bias, a variance and a noise variance.
 
@@ -720,11 +720,11 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 12* (Source: Flexibility). James et al. ([2021, sec. 2.1.3](#ref-james2021islr2e)) use flexibility without a formal definition.
+> *Remark 12* (Source: Flexibility). James et al. [\[5, Sec. 2.1.3\]](#ref-james2021islr2e) use flexibility without a formal definition.
 
 > **NOTE:**
 >
-> *Remark 13* (Polynomial degree orders flexibility). Least-squares polynomial fits are ordered by degree: a polynomial of degree \\d\\ is also a polynomial of degree \\d+ 1\\ whose coefficient of \\x^{d+ 1}\\ is zero, so the fit of degree \\d+ 1\\ is [at least as flexible](#def-flexibility) as the fit of degree \\d\\. The four fits of [Exercise 1](#exr-overfitting) are ordered this way. [Definition 36](#def-flexibility) is narrower than the informal use of the word in James et al. ([2021, sec. 2.1.3](#ref-james2021islr2e)): it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters ([Hastie et al. 2009, sec. 7.6](#ref-hastie2009elements)).
+> *Remark 13* (Polynomial degree orders flexibility). Least-squares polynomial fits are ordered by degree: a polynomial of degree \\d\\ is also a polynomial of degree \\d+ 1\\ whose coefficient of \\x^{d+ 1}\\ is zero, so the fit of degree \\d+ 1\\ is [at least as flexible](#def-flexibility) as the fit of degree \\d\\. The four fits of [Exercise 1](#exr-overfitting) are ordered this way. [Definition 36](#def-flexibility) is narrower than the informal use of the word in James et al. [\[5, Sec. 2.1.3\]](#ref-james2021islr2e): it orders only procedures whose candidate sets are nested. Other procedures can be compared by other measures, such as the effective number of parameters [\[3, Sec. 7.6\]](#ref-hastie2009elements).
 
 > **NOTE:**
 >
@@ -732,11 +732,11 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ \begin{aligned} {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2 &\le {\mathopen{}\left(\operatorname{Bias}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}\right)\mathclose{}}^2, \\ \operatorname{Var}\mathopen{}\left({{\hat y\_{l+ 1}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{} &\ge \operatorname{Var}\mathopen{}\left({{\hat y\_{l}}\mathopen{}\left(x\right)\mathclose{}}\right)\mathclose{}, \qquad l= 1, \ldots, L- 1. \end{aligned} \tag{36}\\
 >
-> Source: James et al. ([2021, sec. 2.2.2](#ref-james2021islr2e)); Wikipedia contributors ([2026a](#ref-wikipedia_bias_variance_tradeoff)).
+> Source: James et al. [\[5, Sec. 2.2.2\]](#ref-james2021islr2e); Wikipedia contributors [\[7\]](#ref-wikipedia_bias_variance_tradeoff).
 
 > **NOTE:**
 >
-> *Remark 14* (Overfitting and the trade-off). By [Theorem 4](#thm-epe-decomposition), \\\operatorname{EPE}^{g\_{l}}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is the squared bias plus the variance plus \\\sigma^2\\. Under a [bias–variance trade-off](#def-bias-variance-tradeoff) among \\{\hat y\_{1}}, \ldots, {\hat y\_{L}}\\, moving from \\{\hat y\_{l}}\\ to \\{\hat y\_{l+ 1}}\\ lowers the expected squared prediction error at \\x\\ when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of \\\operatorname{EPE}^{g\_{1}}\_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g\_{L}}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is often at some \\g\_{l}\\ with \\1 \< l\< L\\ ([James et al. 2021, sec. 2.2.2](#ref-james2021islr2e)), but not always: if the mean function \\\mu\\ is among the functions that candidate \\1\\ can fit, the squared bias of \\{\hat y\_{1}}\\ can be zero, and then no more flexible \\{\hat y\_{l}}\\ has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. Past the candidate with the smallest expected squared prediction error, the more flexible candidates have lowered their squared bias by less than they have raised their variance, and their fitted models tend to [overfit](#def-overfitting): they fit their training sets more closely than the fitted model of the candidate with the smallest expected squared prediction error but predict new observations worse.
+> *Remark 14* (Overfitting and the trade-off). By [Theorem 4](#thm-epe-decomposition), \\\operatorname{EPE}^{g\_{l}}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is the squared bias plus the variance plus \\\sigma^2\\. Under a [bias–variance trade-off](#def-bias-variance-tradeoff) among \\{\hat y\_{1}}, \ldots, {\hat y\_{L}}\\, moving from \\{\hat y\_{l}}\\ to \\{\hat y\_{l+ 1}}\\ lowers the expected squared prediction error at \\x\\ when the squared bias falls by more than the variance rises, and raises it otherwise. The smallest of \\\operatorname{EPE}^{g\_{1}}\_{n}\mathopen{}\left(x\right)\mathclose{}, \ldots, \operatorname{EPE}^{g\_{L}}\_{n}\mathopen{}\left(x\right)\mathclose{}\\ is often at some \\g\_{l}\\ with \\1 \< l\< L\\ [\[5, Sec. 2.2.2\]](#ref-james2021islr2e), but not always: if the mean function \\\mu\\ is among the functions that candidate \\1\\ can fit, the squared bias of \\{\hat y\_{1}}\\ can be zero, and then no more flexible \\{\hat y\_{l}}\\ has a smaller squared bias and, under the trade-off, none has a smaller variance, so none has a smaller expected squared prediction error. Past the candidate with the smallest expected squared prediction error, the more flexible candidates have lowered their squared bias by less than they have raised their variance, and their fitted models tend to [overfit](#def-overfitting): they fit their training sets more closely than the fitted model of the candidate with the smallest expected squared prediction error but predict new observations worse.
 
 > **NOTE:**
 >
@@ -770,7 +770,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 16* (Training error is optimistic). The same argument fails for the training set. The training pairs are not independent of \\\mathcal{D}\_{\text{train}}\\: they are \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was fitted to make their prediction errors small. So the argument of [Theorem 5](#thm-held-out-unbiased), that each loss has conditional expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, does not hold for them, and the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ is typically *smaller* than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ ([Hastie et al. 2009, sec. 7.4](#ref-hastie2009elements)). [Exercise 1](#exr-overfitting) shows the pattern: training sRMSE keeps falling as the degree grows, while held-out sRMSE does not.
+> *Remark 16* (Training error is optimistic). The same argument fails for the training set. The training pairs are not independent of \\\mathcal{D}\_{\text{train}}\\: they are \\\mathcal{D}\_{\text{train}}\\, and \\\hat y\\ was fitted to make their prediction errors small. So the argument of [Theorem 5](#thm-held-out-unbiased), that each loss has conditional expectation \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\, does not hold for them, and the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ is typically *smaller* than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ [\[3, Sec. 7.4\]](#ref-hastie2009elements). [Exercise 1](#exr-overfitting) shows the pattern: training sRMSE keeps falling as the degree grows, while held-out sRMSE does not.
 
 > **NOTE:**
 >
@@ -876,7 +876,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ \begin{aligned} & I\_{\text{train}}\cup I\_{\text{val}}\cup I\_{\text{test}}= \mathopen{}\left\\1, \ldots, n\right\\\mathclose{}, \\ & I\_{\text{train}}\cap I\_{\text{val}}= \emptyset, \\ & I\_{\text{train}}\cap I\_{\text{test}}= \emptyset, \\ & I\_{\text{val}}\cap I\_{\text{test}}= \emptyset, \\ & \mathcal{D}\_{\text{train}}= \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{train}}}. \end{aligned} \tag{37}\\
 >
-> Source: James et al. ([2021, 198–201](#ref-james2021islr2e)); Wikipedia contributors ([2026i](#ref-wikipedia_training_validation_and_test_data_sets)).
+> Source: James et al. [\[5, pp. 198–201\]](#ref-james2021islr2e); Wikipedia contributors [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
 > **NOTE:**
 >
@@ -888,7 +888,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ {\hat y\mathopen{}\left(x\right)\mathclose{}} = {{\hat y\_{\lambda}}\mathopen{}\left(x\right)\mathclose{}}. \tag{38}\\
 >
-> Source: Wikipedia contributors ([2026d](#ref-wikipedia_hyperparameter_machine_learning)).
+> Source: Wikipedia contributors [\[8\]](#ref-wikipedia_hyperparameter_machine_learning).
 
 > **NOTE:**
 >
@@ -898,7 +898,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > **Definition 40 (Model selection)** **Model selection** is choosing one [fitted model](#def-fitted-model) from a set of candidate fitted models from different [model families](#def-model-family), using observations that were [held out](#def-held-out-set) from fitting.
 >
-> Source: Wikipedia contributors ([2026f](#ref-wikipedia_model_selection)).
+> Source: Wikipedia contributors [\[9\]](#ref-wikipedia_model_selection).
 
 > **NOTE:**
 >
@@ -910,7 +910,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{val}}}. \tag{39}\\
 >
-> Source: Wikipedia contributors ([2026i](#ref-wikipedia_training_validation_and_test_data_sets)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
 > **NOTE:**
 >
@@ -930,7 +930,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ \mathopen{}\left((x\_{i}, y\_{i})\right)\mathclose{}\_{i\in I\_{\text{test}}}. \tag{42}\\
 >
-> Source: Wikipedia contributors ([2026i](#ref-wikipedia_training_validation_and_test_data_sets)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets).
 
 > **NOTE:**
 >
@@ -954,13 +954,13 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > *Remark 18* (What the validation and test errors estimate). The [validation error](#def-validation-error) and the [test error](#def-test-error) differ from the [training error](#def-training-mse) \\\overline{\operatorname{err}}\\ only in the set that scores the rule. The rule was not fitted to the validation or test set, so each estimates the [generalization error](#def-generalization-error) of the fitted rule without the optimism of the training error. The [validation choice](#def-validation-choice) selects the rule with the smallest validation error, so the validation error of the chosen rule is still optimistic; the test error is computed once, after the choice, so it is not.
 >
-> Hastie et al. ([2009, sec. 7.2](#ref-hastie2009elements)) use “test error” for the generalization error of the fitted rule itself. Here the test error is the number computed from the test set, and the generalization error is what it estimates.
+> Hastie et al. [\[3, Sec. 7.2\]](#ref-hastie2009elements) use “test error” for the generalization error of the fitted rule itself. Here the test error is the number computed from the test set, and the generalization error is what it estimates.
 >
 > Each definition holds for any [loss](#def-observation-loss). Under squared-error loss, they are sample mean squared errors; under absolute-error loss, they are sample mean absolute errors.
 
 > **NOTE:**
 >
-> **Example 28 (Numerical example)** This example ([Example 28](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test sRMSE on untouched test data ([James et al. 2021, 213](#ref-james2021islr2e)).
+> **Example 28 (Numerical example)** This example ([Example 28](#exm-train-validation-test-split)) uses R’s built-in `mtcars` dataset (\\n=32\\ cars) to predict fuel efficiency (`mpg`) from vehicle weight (`wt`). It uses one random split to compare linear, quadratic, cubic, and quartic models (`mpg ~ wt`, `mpg ~ wt + I(wt^2)`, `mpg ~ wt + I(wt^2) + I(wt^3)`, and `mpg ~ wt + I(wt^2) + I(wt^3) + I(wt^4)`) on a validation set, then reports the chosen model’s test sRMSE on untouched test data [\[5, p. 213\]](#ref-james2021islr2e).
 >
 > > **NOTE:**
 > >
@@ -1205,7 +1205,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > > **NOTE:**
 > >
-> > The validation-set lab of James et al. ([2021, 213](#ref-james2021islr2e)).
+> > The validation-set lab of James et al. [\[5, p. 213\]](#ref-james2021islr2e).
 
 ## 6 \\k\\-fold cross-validation
 
@@ -1235,7 +1235,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 19* (Source: Folds). James et al. ([2021, sec. 5.1.3](#ref-james2021islr2e)) and Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)), who split the data into \\k\\ roughly equal-sized parts.
+> *Remark 19* (Source: Folds). James et al. [\[5, Sec. 5.1.3\]](#ref-james2021islr2e) and Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), who split the data into \\k\\ roughly equal-sized parts.
 
 > **NOTE:**
 >
@@ -1251,7 +1251,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 20* (Source: Fold assignment). The fold-assignment function \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ follows Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)).
+> *Remark 20* (Source: Fold assignment). The fold-assignment function \\\kappa\mathopen{}\left(i\right)\mathclose{}\\ follows Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements).
 
 > **NOTE:**
 >
@@ -1261,7 +1261,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 21* (Source: Fold-out rule). Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)), who write the fitted function with the \\k\\th part of the data removed as \\\hat f^{-k}\\.
+> *Remark 21* (Source: Fold-out rule). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), who write the fitted function with the \\k\\th part of the data removed as \\\hat f^{-k}\\.
 
 > **NOTE:**
 >
@@ -1273,7 +1273,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >     - Compute predicted values for the observations in fold \\\mathcal{F}\_{j}\\.
 > 3.  Compute a summary prediction-error measure across all folds.
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_cross_validation_statistics)).
+> Source: Wikipedia contributors [\[10\]](#ref-wikipedia_cross_validation_statistics).
 
 > **NOTE:**
 >
@@ -1287,7 +1287,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 23* (Source: Cross-validation estimate). Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)), for the per-observation form with the fold index \\\kappa\mathopen{}\left(i\right)\mathclose{}\\.
+> *Remark 23* (Source: Cross-validation estimate). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), for the per-observation form with the fold index \\\kappa\mathopen{}\left(i\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -1319,17 +1319,17 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 24* (Source: Fold mean squared error). James et al. ([2021, sec. 5.1.3](#ref-james2021islr2e)), who write the fold mean squared errors as \\\text{MSE}\_1, \ldots, \text{MSE}\_{k}\\.
+> *Remark 24* (Source: Fold mean squared error). James et al. [\[5, Sec. 5.1.3\]](#ref-james2021islr2e), who write the fold mean squared errors as \\\text{MSE}\_1, \ldots, \text{MSE}\_{k}\\.
 
 > **NOTE:**
 >
-> *Remark 25* (What the cross-validation estimate estimates). Each prediction in [Equation 48](#eq-cv-estimate) comes from a rule that did not see the observation it predicts, so each squared error is scored as in [Theorem 5](#thm-held-out-unbiased). But the rule for fold \\\mathcal{F}\_{j}\\ was fitted to \\n- n\_{j}\\ observations, not \\n\\, and the \\k\\ rules differ from one another and from the rule fitted to all \\n\\. So \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ estimates the [expected generalization error](#def-expected-generalization-error) of the fitting *procedure* \\g\\ at the smaller training-set sizes \\n- n\_{j}\\, which is \\\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}\\ when every fold has \\n/ k\\ observations, rather than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ for the one rule fitted to all the data ([Hastie et al. 2009, sec. 7.12](#ref-hastie2009elements)).
+> *Remark 25* (What the cross-validation estimate estimates). Each prediction in [Equation 48](#eq-cv-estimate) comes from a rule that did not see the observation it predicts, so each squared error is scored as in [Theorem 5](#thm-held-out-unbiased). But the rule for fold \\\mathcal{F}\_{j}\\ was fitted to \\n- n\_{j}\\ observations, not \\n\\, and the \\k\\ rules differ from one another and from the rule fitted to all \\n\\. So \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ estimates the [expected generalization error](#def-expected-generalization-error) of the fitting *procedure* \\g\\ at the smaller training-set sizes \\n- n\_{j}\\, which is \\\operatorname{Err}^{g}\mathopen{}\left(n(k- 1) / k\right)\mathclose{}\\ when every fold has \\n/ k\\ observations, rather than \\\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\\ for the one rule fitted to all the data [\[3, Sec. 7.12\]](#ref-hastie2009elements).
 >
-> When every [fold](#def-folds) has \\n\_{j} = n/ k\\ observations, \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is also the average of the \\k\\ [fold sMSEs](#def-fold-mse) \\\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\\, the form James et al. ([2021, sec. 5.1.3](#ref-james2021islr2e)) use.
+> When every [fold](#def-folds) has \\n\_{j} = n/ k\\ observations, \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ is also the average of the \\k\\ [fold sMSEs](#def-fold-mse) \\\operatorname{MSE}\_{1}, \ldots, \operatorname{MSE}\_{k}\\, the form James et al. [\[5, Sec. 5.1.3\]](#ref-james2021islr2e) use.
 
 > **NOTE:**
 >
-> *Remark 26* (Choosing the number of folds). The number of folds \\k\\ trades bias against variance in the cross-validation estimate itself ([James et al. 2021, sec. 5.1.4](#ref-james2021islr2e)):
+> *Remark 26* (Choosing the number of folds). The number of folds \\k\\ trades bias against variance in the cross-validation estimate itself [\[5, Sec. 5.1.4\]](#ref-james2021islr2e):
 >
 > - **Bias.** Each rule in [Equation 48](#eq-cv-estimate) is fitted to about \\n(k- 1) / k\\ observations. A rule fitted to fewer observations usually predicts worse, so \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ tends to overstate the expected generalization error of a rule fitted to all \\n\\. The overstatement shrinks as \\k\\ grows.
 > - **Variance.** As \\k\\ grows, the \\k\\ training sets overlap more, so the \\k\\ fitted rules are more alike and their errors are more strongly correlated. An average of strongly correlated errors varies more from one data set to another than an average of weakly correlated ones.
@@ -1596,7 +1596,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ \widehat{\operatorname{Err}}\_{\text{CV}(n)} = \frac{1}{n} \sum\_{i\in I} {\mathopen{}\left(\hat y^{(-\kappa\mathopen{}\left(i\right)\mathclose{})}\mathopen{}\left(x\_{i}\right)\mathclose{} - y\_{i}\right)\mathclose{}}^2. \tag{51}\\
 >
-> Source: James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)); Wikipedia contributors ([2026b](#ref-wikipedia_cross_validation_statistics)).
+> Source: James et al. [\[5, Sec. 5.1.2\]](#ref-james2021islr2e); Wikipedia contributors [\[10\]](#ref-wikipedia_cross_validation_statistics).
 
 > **NOTE:**
 >
@@ -1642,7 +1642,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 28* (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). Also called a **sum-of-squares and cross-products matrix** ([Sanchez 2020](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products”) (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
+> *Remark 28* (Source: Cross-product matrix (sum-of-squares and cross-products matrix)). Also called a **sum-of-squares and cross-products matrix** [\[11\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)).
 
 > **NOTE:**
 >
@@ -1654,7 +1654,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > > **NOTE:**
 > >
-> > I restated the SSCP reading and the covariance special case from Sanchez ([2020](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products”) (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) in this page’s notation. The book carries a non-commercial, share-alike license, so I paraphrased it and copied none of its text.
+> > I restated the SSCP reading and the covariance special case from Sanchez [\[11\]](#ref-sanchez2020matrix4sl), chap. “Matrix Cross-Products” (see [the chapter online](https://www.gastonsanchez.com/matrix4sl/cross-products.html#cross-products)) in this page’s notation. The book carries a non-commercial, share-alike license, so I paraphrased it and copied none of its text.
 
 > **NOTE:**
 >
@@ -1662,11 +1662,11 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ h\_{i} \stackrel{\text{def}}{=}{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}}^{\top} A^{-1} \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{t}}\vphantom{t}}\_{i}. \tag{54}\\
 >
-> Source: Wikipedia contributors ([2026e](#ref-wikipedia_leverage_statistics)).
+> Source: Wikipedia contributors [\[12\]](#ref-wikipedia_leverage_statistics).
 
 > **NOTE:**
 >
-> *Remark 30* (Source: Leverage). James et al. ([2021, sec. 3.3.3](#ref-james2021islr2e)), written here with term vectors and the matrix \\A\\, as in [the vector form of the OLS estimates](correlation-regression.llms.md#thm-ols-slr-vector).
+> *Remark 30* (Source: Leverage). James et al. [\[5, Sec. 3.3.3\]](#ref-james2021islr2e), written here with term vectors and the matrix \\A\\, as in [the vector form of the OLS estimates](correlation-regression.llms.md#thm-ols-slr-vector).
 
 > **NOTE:**
 >
@@ -1680,7 +1680,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 31* (Source: Leave-one-out cross-validation for least squares). James et al. ([2021, sec. 5.1.2](#ref-james2021islr2e)) states this formula for least squares linear or polynomial regression, and Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)) for many linear fitting methods.
+> *Remark 31* (Source: Leave-one-out cross-validation for least squares). James et al. [\[5, Sec. 5.1.2\]](#ref-james2021islr2e) states this formula for least squares linear or polynomial regression, and Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements) for many linear fitting methods.
 
 > **NOTE:**
 >
@@ -1724,7 +1724,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 32* (When to use leave-one-out cross-validation). LOOCV is the \\k= n\\ end of [Remark 26](#rem-choosing-k). By [Remark 25](#rem-cv-estimate), \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ estimates \\\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\\ for the fitting procedure \\g\\: each rule is fitted to \\n- 1\\ observations, so the bias of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ as an estimate of \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ is the smallest of any \\k\\. But the \\n\\ training sets are nearly identical, so the variance of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ can be larger than that of 5- or 10-fold cross-validation ([James et al. 2021, sec. 5.1.4](#ref-james2021islr2e)). For least squares fits, [Theorem 7](#thm-loocv-shortcut) computes LOOCV from a single fit; for most other fitting methods, LOOCV requires \\n\\ fits.
+> *Remark 32* (When to use leave-one-out cross-validation). LOOCV is the \\k= n\\ end of [Remark 26](#rem-choosing-k). By [Remark 25](#rem-cv-estimate), \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ estimates \\\operatorname{Err}^{g}\mathopen{}\left(n- 1\right)\mathclose{}\\ for the fitting procedure \\g\\: each rule is fitted to \\n- 1\\ observations, so the bias of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ as an estimate of \\\operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{}\\ is the smallest of any \\k\\. But the \\n\\ training sets are nearly identical, so the variance of \\\widehat{\operatorname{Err}}\_{\text{CV}(n)}\\ can be larger than that of 5- or 10-fold cross-validation [\[5, Sec. 5.1.4\]](#ref-james2021islr2e). For least squares fits, [Theorem 7](#thm-loocv-shortcut) computes LOOCV from a single fit; for most other fitting methods, LOOCV requires \\n\\ fits.
 
 ## 8 Choosing a model by cross-validation
 
@@ -1759,7 +1759,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 33* (Source: Nested cross-validation). Hastie et al. ([2009, sec. 7.10.2](#ref-hastie2009elements)) for cross-validating every step of a procedure, choices included.
+> *Remark 33* (Source: Nested cross-validation). Hastie et al. [\[3, Sec. 7.10.2\]](#ref-hastie2009elements) for cross-validating every step of a procedure, choices included.
 
 > **NOTE:**
 >
@@ -1767,7 +1767,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 35* (Cross-validation replaces the validation set, not the test set). Used to choose between models, cross-validation takes the place of the *validation* set of [Definition 38](#def-data-splits), the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice ([Hastie et al. 2009, sec. 7.2](#ref-hastie2009elements)), such as a [test set](#def-test-set), or the outer folds of [nested cross-validation](#def-nested-cv).
+> *Remark 35* (Cross-validation replaces the validation set, not the test set). Used to choose between models, cross-validation takes the place of the *validation* set of [Definition 38](#def-data-splits), the one consulted again and again, and not of the test set, which stays unused until the end. The cross-validation estimate of the winning model is optimistic: that model won partly because the particular sample and split happened to favor it, so its estimate is the smallest of several noisy estimates. An honest estimate of the chosen model’s error needs data that took no part in the choice [\[3, Sec. 7.2\]](#ref-hastie2009elements), such as a [test set](#def-test-set), or the outer folds of [nested cross-validation](#def-nested-cv).
 >
 > > **NOTE:**
 > >
@@ -1781,11 +1781,11 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 36* (Source: Fold-based standard error). Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)), who call the result a standard error.
+> *Remark 36* (Source: Fold-based standard error). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), who call the result a standard error.
 
 > **NOTE:**
 >
-> *Remark 37* (The fold-based standard error is only a rough guide). Hastie et al. ([2009, sec. 7.10.1](#ref-hastie2009elements)) draw standard-error bars computed from the per-fold errors as in [Equation 59](#eq-cv-se). That formula treats the \\k\\ fold errors as if they were independent, which they are not: every pair of folds shares \\k- 2\\ folds of training data. So \\\operatorname{SE}\_{\text{CV}(k)}\\ is a rough indication of how much \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ might change with a different sample, not a [standard error](estimation.llms.md#def-SE) of \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\.
+> *Remark 37* (The fold-based standard error is only a rough guide). Hastie et al. [\[3, Sec. 7.10.1\]](#ref-hastie2009elements) draw standard-error bars computed from the per-fold errors as in [Equation 59](#eq-cv-se). That formula treats the \\k\\ fold errors as if they were independent, which they are not: every pair of folds shares \\k- 2\\ folds of training data. So \\\operatorname{SE}\_{\text{CV}(k)}\\ is a rough indication of how much \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\ might change with a different sample, not a [standard error](estimation.llms.md#def-SE) of \\\widehat{\operatorname{Err}}\_{\text{CV}(k)}\\.
 
 > **NOTE:**
 >
@@ -1805,7 +1805,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > \\ {\widehat{\operatorname{Err}}^{g\_{l}}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} \le {\widehat{\operatorname{Err}}^{g\_{l^\*}}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}} + {\operatorname{SE}^{g\_{l^\*}}\_{\text{CV}(k)}\mathopen{}\left(\mathcal{D}\_{\text{train}}\right)\mathclose{}}. \tag{62}\\
 >
-> Source: ([Hastie et al. 2009, sec. 7.10.1](#ref-hastie2009elements); [James et al. 2021, sec. 6.1.3](#ref-james2021islr2e)).
+> Source: [\[3, Sec. 7.10.1\]](#ref-hastie2009elements), [\[5, Sec. 6.1.3\]](#ref-james2021islr2e).
 
 > **NOTE:**
 >
@@ -1892,7 +1892,7 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 >
 > > **NOTE:**
 > >
-> > A regression version of the classification example in Hastie et al. ([2009, sec. 7.10.2](#ref-hastie2009elements)), “The Wrong and Right Way to Do Cross-validation”.
+> > A regression version of the classification example in Hastie et al. [\[3, Sec. 7.10.2\]](#ref-hastie2009elements), “The Wrong and Right Way to Do Cross-validation”.
 
 > **NOTE:**
 >
@@ -1964,62 +1964,86 @@ Last modified: 2026-10-18 01:13:21 (PDT)
 
 > **NOTE:**
 >
-> *Remark 38* (Cross-validate the whole procedure). Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations ([Hastie et al. 2009, sec. 7.10.2](#ref-hastie2009elements)). Such steps include:
+> *Remark 38* (Cross-validate the whole procedure). Every step that uses the outcome is part of fitting, and must be repeated inside each fold using only that fold’s training observations [\[3, Sec. 7.10.2\]](#ref-hastie2009elements). Such steps include:
 >
 > - screening or selecting predictors, as in [Exercise 12](#exr-cv-screening);
 > - choosing transformations or a polynomial degree;
 > - choosing a penalty or another [tuning parameter](#def-tuning-parameter).
 >
-> Hastie et al. ([2009, sec. 7.10.2](#ref-hastie2009elements)) note that steps using only the predictors, such as dropping predictors with almost no variation, can be done once on all the data before the folds are formed. Repeating such a step inside each fold is never wrong, though, and it scores each held-out fold the way new data would be scored. Examples are estimating the mean and standard deviation used for [standardization](exploratory-descriptive.llms.md#def-standardization), and the values used to fill in missing predictor values, when they are computed without the outcome.
+> Hastie et al. [\[3, Sec. 7.10.2\]](#ref-hastie2009elements) note that steps using only the predictors, such as dropping predictors with almost no variation, can be done once on all the data before the folds are formed. Repeating such a step inside each fold is never wrong, though, and it scores each held-out fold the way new data would be scored. Examples are estimating the mean and standard deviation used for [standardization](exploratory-descriptive.llms.md#def-standardization), and the values used to fill in missing predictor values, when they are computed without the outcome.
 
 ## 10 Further reading
 
-Sanchez ([2020](#ref-sanchez2020matrix4sl)) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
+Sanchez [\[11\]](#ref-sanchez2020matrix4sl) reviews the matrix algebra behind statistical learning, including the covariance and correlation matrices that cross-products produce.
 
 ### 10.1 Online references
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_cross_validation_statistics)) — \\k\\-fold, leave-one-out and other schemes
+- Wikipedia contributors [\[10\]](#ref-wikipedia_cross_validation_statistics) — \\k\\-fold, leave-one-out and other schemes
 
-- Wikipedia contributors ([2026i](#ref-wikipedia_training_validation_and_test_data_sets)) — what each of the three sets is for
+- Wikipedia contributors [\[2\]](#ref-wikipedia_training_validation_and_test_data_sets) — what each of the three sets is for
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_bias_variance_tradeoff)) — the decomposition of the expected squared error
+- Wikipedia contributors [\[7\]](#ref-wikipedia_bias_variance_tradeoff) — the decomposition of the expected squared error
 
-- Wikipedia contributors ([2026g](#ref-wikipedia_overfitting)) — overfitting and underfitting, with examples
+- Wikipedia contributors [\[6\]](#ref-wikipedia_overfitting) — overfitting and underfitting, with examples
 
-- Wikipedia contributors ([2026f](#ref-wikipedia_model_selection)) — the task and the main criteria
+- Wikipedia contributors [\[9\]](#ref-wikipedia_model_selection) — the task and the main criteria
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_generalization_error)) — generalization error and how to estimate it
+- Wikipedia contributors [\[4\]](#ref-wikipedia_generalization_error) — generalization error and how to estimate it
 
-- Wikipedia contributors ([2026d](#ref-wikipedia_hyperparameter_machine_learning)) — the Wikipedia article on hyperparameter (machine learning)
+- Wikipedia contributors [\[8\]](#ref-wikipedia_hyperparameter_machine_learning) — the Wikipedia article on hyperparameter (machine learning)
 
-- Wikipedia contributors ([2026e](#ref-wikipedia_leverage_statistics)) — the Wikipedia article on leverage (statistics)
+- Wikipedia contributors [\[12\]](#ref-wikipedia_leverage_statistics) — the Wikipedia article on leverage (statistics)
 
-- Wikipedia contributors ([2026h](#ref-wikipedia_random_seed)) — the Wikipedia article on random seed
+- Wikipedia contributors [\[1\]](#ref-wikipedia_random_seed) — the Wikipedia article on random seed
 
 ## References
 
-Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. 2009. *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*. 2nd ed. Springer. <https://doi.org/10.1007/978-0-387-84858-7>.
+\[1\]
 
-James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2021. *An Introduction to Statistical Learning: With Applications in R*. 2nd ed. Springer. <https://doi.org/10.1007/978-1-0716-1418-1>.
+Wikipedia contributors, “Random seed — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Random_seed>
 
-Sanchez, Gaston. 2020. *A Matrix Algebra Companion for Statistical Learning (matrix4sl)*. Online book, work in progress. Licensed CC BY-NC-SA 4.0. <https://www.gastonsanchez.com/matrix4sl/>.
+\[2\]
 
-Wikipedia contributors. 2026a. *Bias–Variance Tradeoff — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff>.
+Wikipedia contributors, “Training, validation, and test data sets — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets>
 
-Wikipedia contributors. 2026b. *Cross-Validation (Statistics) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29>.
+\[3\]
 
-Wikipedia contributors. 2026c. *Generalization Error — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Generalization_error>.
+T. Hastie, R. Tibshirani, and J. Friedman, *The elements of statistical learning: Data mining, inference, and prediction*, 2nd ed. Springer, 2009. doi: [10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
 
-Wikipedia contributors. 2026d. *Hyperparameter (Machine Learning) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Hyperparameter_%28machine_learning%29>.
+\[4\]
 
-Wikipedia contributors. 2026e. *Leverage (Statistics) — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Leverage_%28statistics%29>.
+Wikipedia contributors, “Generalization error — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Generalization_error>
 
-Wikipedia contributors. 2026f. *Model Selection — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Model_selection>.
+\[5\]
 
-Wikipedia contributors. 2026g. *Overfitting — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Overfitting>.
+G. James, D. Witten, T. Hastie, and R. Tibshirani, *An introduction to statistical learning: With applications in R*, 2nd ed. Springer, 2021. doi: [10.1007/978-1-0716-1418-1](https://doi.org/10.1007/978-1-0716-1418-1).
 
-Wikipedia contributors. 2026h. *Random Seed — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Random_seed>.
+\[6\]
 
-Wikipedia contributors. 2026i. *Training, Validation, and Test Data Sets — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets>.
+Wikipedia contributors, “Overfitting — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Overfitting>
+
+\[7\]
+
+Wikipedia contributors, “Bias–variance tradeoff — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Bias%E2%80%93variance_tradeoff>
+
+\[8\]
+
+Wikipedia contributors, “Hyperparameter (machine learning) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Hyperparameter_%28machine_learning%29>
+
+\[9\]
+
+Wikipedia contributors, “Model selection — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Model_selection>
+
+\[10\]
+
+Wikipedia contributors, “Cross-validation (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Cross-validation_%28statistics%29>
+
+\[11\]
+
+G. Sanchez, “A matrix algebra companion for statistical learning (matrix4sl).” Online book, work in progress. Licensed CC BY-NC-SA 4.0, 2020. Available: <https://www.gastonsanchez.com/matrix4sl/>
+
+\[12\]
+
+Wikipedia contributors, “Leverage (statistics) — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Leverage_%28statistics%29>
 
 Back to top

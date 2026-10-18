@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-18 01:13:21 (PDT)
+Last modified: 2026-10-18 11:21:26 (PDT)
 
 A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothing that matters for a parameter. This page defines such summaries, called sufficient statistics, and shows how to use one to improve an estimator without making it more biased.
 
@@ -24,7 +24,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > **Definition 1 (Statistic)** A **statistic** is a function of the sample, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\, that does not depend on any unknown parameter. Its value at the observed data, \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\, is a number or vector we can compute.
 >
-> Source: Wikipedia contributors ([2026b](#ref-wikipedia_statistic)).
+> Source: Wikipedia contributors [\[1\]](#ref-wikipedia_statistic).
 
 > **NOTE:**
 >
@@ -36,11 +36,11 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > \\ \Pr\_{\theta}\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}= \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} \text{ does not depend on } \theta \quad \text{wherever } \Pr\_{\theta}\mathopen{}\left(T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{} = t\right)\mathclose{} \> 0 \tag{1}\\
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_sufficient_statistic)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_sufficient_statistic).
 
 > **NOTE:**
 >
-> *Remark 2* (Source: Sufficient statistic). Fisher ([1922](#ref-fisher1922mathematical)) introduced sufficiency; Casella and Berger ([2002](#ref-CaseBerg01), Def. 6.2.1, p. 272).
+> *Remark 2* (Source: Sufficient statistic). Fisher [\[3\]](#ref-fisher1922mathematical) introduced sufficiency; Casella and Berger [\[4\]](#ref-CaseBerg01), Def. 6.2.1, p. 272.
 
 > **NOTE:**
 >
@@ -60,7 +60,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > where \\h\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\right)\mathclose{}\\ does not depend on \\\theta\\.
 >
-> Source: Wikipedia contributors ([2026c](#ref-wikipedia_sufficient_statistic)).
+> Source: Wikipedia contributors [\[2\]](#ref-wikipedia_sufficient_statistic).
 
 > **NOTE:**
 >
@@ -82,7 +82,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Remark 4* (Source: Factorization theorem). Halmos and Savage ([1949](#ref-halmos1949application)), whom Casella and Berger ([2002](#ref-CaseBerg01), Thm. 6.2.6, p. 276, and its footnote) credit with the general form, and Neyman (1935) with an earlier one.
+> *Remark 4* (Source: Factorization theorem). Halmos and Savage [\[5\]](#ref-halmos1949application), whom Casella and Berger [\[4\]](#ref-CaseBerg01), Thm. 6.2.6, p. 276, and its footnote credit with the general form, and Neyman (1935) with an earlier one.
 
 > **NOTE:**
 >
@@ -128,7 +128,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 >
 > \\ \operatorname{Var}\mathopen{}\left({\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\right\]\mathclose{}}\right)\mathclose{} \le \operatorname{Var}\mathopen{}\left(\hat{\theta}\right)\mathclose{} \tag{4}\\
 >
-> Source: ([Rao 1945](#ref-rao1945information); [Blackwell 1947](#ref-blackwell1947conditional); [Casella and Berger 2002](#ref-CaseBerg01), Thm. 7.3.17, p. 342; [Wikipedia contributors 2026a](#ref-wikipedia_rao_blackwell_theorem)).
+> Source: [\[6\]](#ref-rao1945information), [\[7\]](#ref-blackwell1947conditional), [\[4\]](#ref-CaseBerg01), Thm. 7.3.17, p. 342, [\[8\]](#ref-wikipedia_rao_blackwell_theorem).
 
 > **NOTE:**
 >
@@ -160,7 +160,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> **Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)** The `birthwt` data record the number of previous premature labors (`ptl`) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts ([Hosmer and Lemeshow 1989](#ref-hosmer1989applied)); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv). Treat counts like these as a Poisson sample, \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, with \\{\lambda}\\ equal to the sample mean of `ptl`, 0.196.
+> **Example 2 (Rao–Blackwellizing an estimate of the chance of a zero count)** The `birthwt` data record the number of previous premature labors (`ptl`) for 189 women in a study at Baystate Medical Center in Springfield, Massachusetts [\[9\]](#ref-hosmer1989applied); the data ship with the R package [`MASS`](https://cran.r-project.org/package=MASS) ([`MASS::birthwt`](https://rdrr.io/pkg/MASS/man/birthwt.html)), and this site has a copy at [`data/birthwt.csv`](data/birthwt.csv). Treat counts like these as a Poisson sample, \\X_1, \ldots, X_n \\ \sim\_{\operatorname{iid}}\\ \operatorname{Pois}({\lambda})\\, with \\{\lambda}\\ equal to the sample mean of `ptl`, 0.196.
 >
 > The estimand is the probability of a zero count, \\\pi= \Pr(X_i= 0) = e^{-{\lambda}}\\. Index the model by \\\pi\\ instead of \\{\lambda}\\ (the map \\{\lambda}\mapsto e^{-{\lambda}}\\ is one-to-one); then the sum \\S = \sum\_{i=1}^nX_i\\ is still [sufficient](#def-sufficient), by [Example 1](#exm-poisson-sufficient).
 >
@@ -240,7 +240,7 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 > **NOTE:**
 >
-> *Remark 5* (Sufficiency is needed). If \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger ([2002](#ref-CaseBerg01), Example 7.3.18)).
+> *Remark 5* (Sufficiency is needed). If \\T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\\ is not sufficient, then \\{\operatorname{E}\mathopen{}\left\[\hat{\theta} \mid T\mathopen{}\left(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{X}}\vphantom{X}}\right)\mathclose{}\right\]\mathclose{}}\\ may depend on \\\theta\\, in which case it is not an estimator at all (Casella and Berger [\[4\]](#ref-CaseBerg01), Example 7.3.18).
 
 ## 3 Further reading
 
@@ -248,30 +248,48 @@ A [statistic](#def-statistic) summarizes a sample, and some summaries lose nothi
 
 ### 3.1 Online references
 
-- Wikipedia contributors ([2026c](#ref-wikipedia_sufficient_statistic)) — sufficiency and the factorization theorem
+- Wikipedia contributors [\[2\]](#ref-wikipedia_sufficient_statistic) — sufficiency and the factorization theorem
 
-- Wikipedia contributors ([2026a](#ref-wikipedia_rao_blackwell_theorem)) — improving an estimator by conditioning on a sufficient statistic
+- Wikipedia contributors [\[8\]](#ref-wikipedia_rao_blackwell_theorem) — improving an estimator by conditioning on a sufficient statistic
 
-- Wikipedia contributors ([2026b](#ref-wikipedia_statistic)) — the Wikipedia article on statistic
+- Wikipedia contributors [\[1\]](#ref-wikipedia_statistic) — the Wikipedia article on statistic
 
 ## References
 
-Blackwell, David. 1947. “Conditional Expectation and Unbiased Sequential Estimation.” *The Annals of Mathematical Statistics* 18 (1): 105–10. <https://doi.org/10.1214/aoms/1177730497>.
+\[1\]
 
-Casella, George, and Roger Berger. 2002. *Statistical Inference*. 2nd ed. Cengage Learning. <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>.
+Wikipedia contributors, “Statistic — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Statistic>
 
-Fisher, Ronald A. 1922. “On the Mathematical Foundations of Theoretical Statistics.” *Philosophical Transactions of the Royal Society of London. Series A* 222 (594–604): 309–68. <https://doi.org/10.1098/rsta.1922.0009>.
+\[2\]
 
-Halmos, Paul R., and Leonard J. Savage. 1949. “Application of the Radon–Nikodym Theorem to the Theory of Sufficient Statistics.” *The Annals of Mathematical Statistics* 20 (2): 225–41. <https://doi.org/10.1214/aoms/1177730032>.
+Wikipedia contributors, “Sufficient statistic — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Sufficient_statistic>
 
-Hosmer, David W., and Stanley Lemeshow. 1989. *Applied Logistic Regression*. Wiley.
+\[3\]
 
-Rao, C. Radhakrishna. 1945. “Information and the Accuracy Attainable in the Estimation of Statistical Parameters.” *Bulletin of the Calcutta Mathematical Society* 37: 81–91.
+R. A. Fisher, “On the mathematical foundations of theoretical statistics,” *Philosophical Transactions of the Royal Society of London. Series A*, vol. 222, no. 594–604, pp. 309–368, 1922, doi: [10.1098/rsta.1922.0009](https://doi.org/10.1098/rsta.1922.0009).
 
-Wikipedia contributors. 2026a. *Rao–Blackwell Theorem — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem>.
+\[4\]
 
-Wikipedia contributors. 2026b. *Statistic — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Statistic>.
+G. Casella and R. Berger, *Statistical inference*, 2nd ed. Cengage Learning, 2002. Available: <https://www.cengage.com/c/statistical-inference-2e-casella-berger/9780534243128/>
 
-Wikipedia contributors. 2026c. *Sufficient Statistic — Wikipedia, the Free Encyclopedia*. <https://en.wikipedia.org/wiki/Sufficient_statistic>.
+\[5\]
+
+P. R. Halmos and L. J. Savage, “Application of the Radon–Nikodym theorem to the theory of sufficient statistics,” *The Annals of Mathematical Statistics*, vol. 20, no. 2, pp. 225–241, 1949, doi: [10.1214/aoms/1177730032](https://doi.org/10.1214/aoms/1177730032).
+
+\[6\]
+
+C. R. Rao, “Information and the accuracy attainable in the estimation of statistical parameters,” *Bulletin of the Calcutta Mathematical Society*, vol. 37, pp. 81–91, 1945.
+
+\[7\]
+
+D. Blackwell, “Conditional expectation and unbiased sequential estimation,” *The Annals of Mathematical Statistics*, vol. 18, no. 1, pp. 105–110, 1947, doi: [10.1214/aoms/1177730497](https://doi.org/10.1214/aoms/1177730497).
+
+\[8\]
+
+Wikipedia contributors, “Rao–blackwell theorem — Wikipedia, the free encyclopedia.” 2026. Available: <https://en.wikipedia.org/wiki/Rao%E2%80%93Blackwell_theorem>
+
+\[9\]
+
+D. W. Hosmer and S. Lemeshow, *Applied logistic regression*. New York: Wiley, 1989.
 
 Back to top
