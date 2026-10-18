@@ -4,7 +4,7 @@ Code
 
 Published
 
-Last modified: 2026-10-17 19:06:28 (PDT)
+Last modified: 2026-10-17 21:08:29 (PDT)
 
 ## 1 Scientific models
 
@@ -52,7 +52,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> Model parameters and other estimands are often symbolized using lower-case Greek letters: \\\alpha, \beta, \gamma, \delta\\, etc.
+> Model parameters and other estimands are often symbolized using lower-case Greek letters. The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-estimand-estimator-symbols) gives our convention and the alternatives.
 
 ### 2.2 Estimates
 
@@ -82,7 +82,7 @@ In statistical contexts, most estimands are parameters of probabilistic models, 
 
 > **NOTE:**
 >
-> Estimators are often symbolized by placing a ^ (“hat”) symbol on top of the corresponding estimand; for example, \\\hat{\theta}\\.
+> Estimators are often symbolized by placing a hat over the symbol of the corresponding estimand; for example, \\\hat{\theta}\\. The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-estimand-estimator-symbols) gives our convention and the alternatives.
 >
 > Usually, their dependence on the data is implicit:
 >

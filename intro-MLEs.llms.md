@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-17 19:06:28 (PDT)
+Last modified: 2026-10-17 21:08:29 (PDT)
 
 ## 1 Overview of maximum likelihood estimation
 
@@ -48,14 +48,7 @@ These notes are derived primarily from ([Dobson and Barnett 2018, chaps. 1–5](
 
 > **NOTE:**
 >
-> Sources write the likelihood function in several ways, all meaning the same function:
->
-> - \\\mathcal{L}(\theta)\\;
-> - \\\mathcal{L}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}; \theta)\\ or \\\mathcal{L}(\theta; \mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\;
-> - \\\mathcal{L}\_{\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}}(\theta)\\ or \\\mathcal{L}\_{\theta}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}})\\;
-> - \\\mathcal{L}(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta)\\.
->
-> These notes mostly write \\\mathcal{L}(\theta)\\, leaving the data implicit, to emphasize that the likelihood is a function of the parameters, with the data held fixed at their observed values.
+> These notes mostly write \\\mathcal{L}(\theta)\\, leaving the data implicit. The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-likelihood-notation) explains why, and lists the other ways sources write the likelihood function.
 
 > **NOTE:**
 >
@@ -273,7 +266,7 @@ To find the maximizer of the likelihood function, we solve \\\mathcal{L}'(\theta
 
 > **NOTE:**
 >
-> *Remark 1* (Notation for the score function). We often omit the arguments \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and \\\theta\\, writing \\\ell'\stackrel{\text{def}}{=}\ell'(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\\. Some sources write \\U\\ or \\S\\ for the score function instead of \\\ell'\\; for example, Dobson and Barnett ([2018](#ref-dobson4e)) write \\U\\. These notes use \\\ell'\\, which keeps \\U\\ and \\S\\ free for other uses and needs no extra symbol to memorize.
+> *Remark 1* (Notation for the score function). We often omit the arguments \\\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\\ and \\\theta\\, writing \\\ell'\stackrel{\text{def}}{=}\ell'(\mathord{\smash\[b\]{\underset{\raise.3ex\hbox{\$\scriptstyle\sim\$}}{x}}\vphantom{x}}\mid \theta) \stackrel{\text{def}}{=}\ell'(\theta)\\. Some sources write \\U\\ or \\S\\ for the score function instead of \\\ell'\\; for example, Dobson and Barnett ([2018](#ref-dobson4e)) write \\U\\. The [notation choices page](https://morrison-lab.github.io/macros/notation-choices.html#sec-score-notation) explains why these notes use \\\ell'\\.
 
 > **NOTE:**
 >
