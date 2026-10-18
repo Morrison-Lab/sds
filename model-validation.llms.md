@@ -14,7 +14,7 @@ Code
 
 Published
 
-Last modified: 2026-10-17 18:16:37 (PDT)
+Last modified: 2026-10-17 19:06:28 (PDT)
 
 ## 1 Data sets, input matrices and outcome vectors
 
@@ -212,9 +212,9 @@ Last modified: 2026-10-17 18:16:37 (PDT)
 >
 > **Definition 17 (Loss of a prediction rule on an observation)** The **loss** of a [prediction rule](#def-prediction-rule) \\\hat y\\ on an observation \\(x\_{i}, y\_{i})\\ is the cost, under a [loss function](https://morrison-lab.github.io/pds/expectation.html#def-loss-function) \\L\\, of its prediction \\{\hat y\mathopen{}\left(x\_{i}\right)\mathclose{}}\\ of the outcome \\y\_{i}\\:
 >
-> \\ \ell\_{i} \stackrel{\text{def}}{=}L\mathopen{}\left(y\_{i}, {\hat y\mathopen{}\left(x\_{i}\right)\mathclose{}}\right)\mathclose{}. \tag{10}\\
+> \\ \ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{} \stackrel{\text{def}}{=}L\mathopen{}\left(y\_{i}, {\hat y\mathopen{}\left(x\_{i}\right)\mathclose{}}\right)\mathclose{}. \tag{10}\\
 >
-> The index \\\*\\ names the new observation \\(X\_{\*}, Y\_{\*})\\, so \\\ell\_{\*} = L\mathopen{}\left(Y\_{\*}, {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right)\mathclose{}\\.
+> The subscript names the observation, a member of a family of losses, and the parentheses hold the prediction rule the loss is evaluated at. The index \\\*\\ names the new observation \\(X\_{\*}, Y\_{\*})\\, so \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{} = L\mathopen{}\left(Y\_{\*}, {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}}\right)\mathclose{}\\. When the rule is clear from context, we write \\\ell\_{i}\\ for \\\ell\_{i}\mathopen{}\left(\hat y\right)\mathclose{}\\.
 
 > **NOTE:**
 >
@@ -441,9 +441,9 @@ Last modified: 2026-10-17 18:16:37 (PDT)
 
 > **NOTE:**
 >
-> **Definition 30 (Expected prediction loss at a covariate value)** The **expected prediction loss at \\x\\** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the expected [loss](#def-observation-loss) \\\ell\_{\*}\\ of its prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ for a new outcome \\Y\_{\*}\\ with \\X\_{\*}= x\\, averaged over random [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently of \\(X\_{\*}, Y\_{\*})\\, and over \\Y\_{\*}\\:
+> **Definition 30 (Expected prediction loss at a covariate value)** The **expected prediction loss at \\x\\** of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is the expected [loss](#def-observation-loss) \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{}\\ of the [prediction rule](#def-prediction-rule) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\, on a new outcome \\Y\_{\*}\\ with \\X\_{\*}= x\\, averaged over random [training sets](#def-training-set) \\\mathcal{D}\_{\text{train}}\\ of \\n\\ observations drawn independently of \\(X\_{\*}, Y\_{\*})\\, and over \\Y\_{\*}\\. The rule \\{\hat y\_{\mathcal{D}\_{\text{train}}}}\\ is random because \\\mathcal{D}\_{\text{train}}\\ is:
 >
-> \\ \operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid X\_{\*}= x\right\]\mathclose{}. \tag{24}\\
+> \\ \operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\ell\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{} \mid X\_{\*}= x\right\]\mathclose{}. \tag{24}\\
 
 > **NOTE:**
 >
@@ -451,15 +451,15 @@ Last modified: 2026-10-17 18:16:37 (PDT)
 
 > **NOTE:**
 >
-> **Definition 31 (Expected prediction error at a covariate value)** The **expected prediction error at \\x\\** (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss), the expected square of the [prediction error](prediction.llms.md#def-prediction-error) \\\varepsilon\_{\*}\\:
+> **Definition 31 (Expected prediction error at a covariate value)** The **expected prediction error at \\x\\** (**EPE**; also the **expected squared prediction error**, **ESPE**) of a [fitting procedure](#def-fitting-procedure) \\g\\ at training-set size \\n\\ is its [expected prediction loss](#def-epl) under [squared-error loss](#rem-squared-error-loss), the expected value of the squared [prediction error](prediction.llms.md#def-prediction-error) \\\varepsilon\_{\*}\mathopen{}\left(\hat y\right)\mathclose{} = {\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} - Y\_{\*}\\ of the [prediction rule](#def-prediction-rule) \\\hat y= {\hat y\_{\mathcal{D}\_{\text{train}}}}\\ that \\g\\ produces from \\\mathcal{D}\_{\text{train}}\\:
 >
-> \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}^2 \mid X\_{\*}= x\right\]\mathclose{}. \tag{25}\\
+> \\ \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} \stackrel{\text{def}}{=}\operatorname{E}\mathopen{}\left\[\varepsilon\_{\*}\mathopen{}\left({\hat y\_{\mathcal{D}\_{\text{train}}}}\right)\mathclose{}^2 \mid X\_{\*}= x\right\]\mathclose{}. \tag{25}\\
 
 > **NOTE:**
 >
-> *Remark 9* (The expected prediction error is a population mean squared error). The expected prediction error is the [sMSE of predictions](prediction.llms.md#def-prediction-mse) with the average over observations replaced by an expectation over training sets and new outcomes: the pMSE of the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as a prediction of the new outcome \\Y\_{\*}\\. With squared-error loss, \\\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}\\.
+> *Remark 9* (The expected prediction error is a population mean squared error). The expected prediction error is the [pMSE](estimation.llms.md#def-mse) of the prediction \\{\hat y\mathopen{}\left(x\right)\mathclose{}}\\ as a prediction of the new outcome \\Y\_{\*}\\. With squared-error loss, \\\operatorname{EPL}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{} = \operatorname{EPE}^{g}\_{n}\mathopen{}\left(x\right)\mathclose{}\\.
 >
-> It is not the [pMSE of an estimator](estimation.llms.md#def-mse): [Theorem 3](#thm-epe-decomposition) shows that it exceeds the pMSE of the prediction as an estimator of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\ by the noise variance. The acronym omits “squared” because “error” already means squared error here. Another loss gives an expected prediction loss, not an EPE.
+> It differs from the pMSE of the same prediction as an estimator of the [mean function](#def-mean-function) value \\\mu\mathopen{}\left(x\right)\mathclose{}\\: [Theorem 3](#thm-epe-decomposition) shows that it exceeds that pMSE by the noise variance. The acronym omits “squared” because “error” already means squared error here. Another loss gives an expected prediction loss, not an EPE.
 
 > **NOTE:**
 >
@@ -473,7 +473,7 @@ Last modified: 2026-10-17 18:16:37 (PDT)
 >
 > *Solution 3*. \\ \begin{aligned} & \operatorname{Err}^{g}\mathopen{}\left(n\right)\mathclose{} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{Err}\_{\mathcal{D}\_{\text{train}}}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid \mathcal{D}\_{\text{train}}\right\]\mathclose{}\right\]\mathclose{} && \text{(definition)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\ell\_{\*}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{E}\mathopen{}\left\[\ell\_{\*} \mid X\_{\*}\right\]\mathclose{}\right\]\mathclose{} && \text{(iterated expectations)} \\ &\quad = \operatorname{E}\mathopen{}\left\[\operatorname{EPL}^{g}\_{n}\mathopen{}\left(X\_{\*}\right)\mathclose{}\right\]\mathclose{} && \text{(definition)} \end{aligned} \\
 >
-> The steps labeled “definition” apply [Equation 15](#eq-expected-generalization-error), [Equation 11](#eq-generalization-error) and [Equation 24](#eq-epl), in that order. Here \\\ell\_{\*}\\ is the [loss](#def-observation-loss) of the prediction rule \\{\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} = {{\hat y\_{\mathcal{D}\_{\text{train}}}}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\\ ([Equation 9](#eq-prediction-rule)) on the new observation. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{D}\_{\text{train}}\\ and the second on \\X\_{\*}\\. The last line needs \\\mathcal{D}\_{\text{train}}\\ to be independent of \\(X\_{\*}, Y\_{\*})\\: then, given \\X\_{\*}= x\\, \\\mathcal{D}\_{\text{train}}\\ still has its unconditional distribution, as [Definition 30](#def-epl) requires.
+> The steps labeled “definition” apply [Equation 15](#eq-expected-generalization-error), [Equation 11](#eq-generalization-error) and [Equation 24](#eq-epl), in that order. Here \\\ell\_{\*}\\ abbreviates \\\ell\_{\*}\mathopen{}\left(\hat y\right)\mathclose{}\\, the [loss](#def-observation-loss) of the prediction rule \\{\hat y\mathopen{}\left(X\_{\*}\right)\mathclose{}} = {{\hat y\_{\mathcal{D}\_{\text{train}}}}\mathopen{}\left(X\_{\*}\right)\mathclose{}}\\ ([Equation 9](#eq-prediction-rule)) on the new observation. The two steps labeled “iterated expectations” use the [law of iterated expectations](https://morrison-lab.github.io/pds/expectation.html#thm-lie), the first conditioning on \\\mathcal{D}\_{\text{train}}\\ and the second on \\X\_{\*}\\. The last line needs \\\mathcal{D}\_{\text{train}}\\ to be independent of \\(X\_{\*}, Y\_{\*})\\: then, given \\X\_{\*}= x\\, \\\mathcal{D}\_{\text{train}}\\ still has its unconditional distribution, as [Definition 30](#def-epl) requires.
 
 > **NOTE:**
 >
