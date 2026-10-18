@@ -3,7 +3,7 @@
 
 The **sensitivity** of a diagnostic test is the probability
 that the test is positive ($+$),
-given that the person tested has the disease ($D$):
+given that the person tested has the disease ($D$) [@wikipedia_sensitivity_and_specificity]:
 
 $$\text{sensitivity} \eqdef \Pr(+ \mid D)$$ {#eq-sensitivity}
 

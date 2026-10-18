@@ -5,7 +5,7 @@ Marginal likelihoods are hard to compute,
 but with equal prior probabilities for the models,
 the [Bayesian information criterion](https://morrison-lab.github.io/rme/chapters/Linear-models-overview.html#def-bic)
 gives a large-sample approximation to the posterior model probabilities
-[@schwarz1978estimating]:
+[@schwarz1978estimating] [@wikipedia_bayesian_information_criterion]:
 
 $$
 \p(M_k \mid \vy) \approx

@@ -4,7 +4,7 @@ a gene expression study tests every gene for a difference between two tumor type
 and a screening study tests every candidate drug.
 Each test that uses the usual [significance level](inference.qmd#def-significance-level)
 has a small chance of flagging a null hypothesis that is true,
-and those chances add up over thousands of tests.
+and those chances add up over thousands of tests [@wikipedia_multiple_comparisons_problem].
 
 This page does three things:
 

@@ -6,7 +6,7 @@ by updating one component at a time:
 for $k = 1, \ldots, K$ in turn,
 it draws $\param_k^{(t+1)}$ from the [full conditional distribution](#def-full-conditional) of $\param_k$,
 with each other component set to its most recent value
-[@dobson4e, Chapter 13, p. 293].
+[@dobson4e, Chapter 13, p. 293] [@wikipedia_gibbs_sampling].
 
 Source: @wikipedia_gibbs_sampling.
 :::

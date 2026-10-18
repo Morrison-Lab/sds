@@ -17,4 +17,4 @@ prevalence of the condition in the population being tested.
 Understanding this interplay requires
 [Bayes' theorem](https://morrison-lab.github.io/pds/probability-basics.html#thm-bayes)
 and the
-[law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob).
+[law of total probability](https://morrison-lab.github.io/pds/probability-basics.html#thm-total-prob) [@wikipedia_bayes_theorem].

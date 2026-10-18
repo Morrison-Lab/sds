@@ -344,17 +344,6 @@ reticulate::py_require(c("numpy", "pandas", "scipy", "matplotlib"))
 
 {{< include sds/_subfiles/bayesian-inference/_prose-resources.qmd >}}
 
-### Online references
-
--   @wikipedia_bayes_theorem --- the theorem, its proof and its uses
-
--   @wikipedia_bayesian_statistics --- the Bayesian approach compared with the frequentist one
-
--   @wikipedia_prior_probability --- informative, weakly informative and improper priors
-
--   @wikipedia_conjugate_prior --- conjugate pairs of prior and likelihood
-
--   @wikipedia_credible_interval --- credible intervals and how they differ from confidence intervals
 
 ## References {.unnumbered}
 

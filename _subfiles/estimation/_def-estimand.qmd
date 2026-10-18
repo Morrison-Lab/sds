@@ -2,7 +2,7 @@
 #### Estimand
 
 An **estimand** is an unknown quantity $\param$ whose value we want to know
-[@pohl2021estimands; @lawrance2020estimand].
+[@pohl2021estimands; @lawrance2020estimand] [@wikipedia_estimand].
 
 Source: @wikipedia_estimand.
 :::

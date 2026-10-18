@@ -5,7 +5,7 @@ The **percentile bootstrap confidence interval**
 runs from the $\siglevel/2$ quantile
 to the $1 - \siglevel/2$ quantile
 of the bootstrap replicates $\hparam^*_1, \ldots, \hparam^*_B$
-(@def-bootstrap-distribution).
+(@def-bootstrap-distribution) [@wikipedia_confidence_interval].
 
 Source: @wikipedia_confidence_interval.
 :::

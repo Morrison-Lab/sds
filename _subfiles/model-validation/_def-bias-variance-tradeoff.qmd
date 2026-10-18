@@ -11,7 +11,7 @@ when, from each procedure to the next,
 the squared [bias](#def-prediction-bias)
 of the prediction, used as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$, does not rise
 and its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance)
-does not fall:
+does not fall [@wikipedia_bias_variance_tradeoff]:
 
 $$
 \ba

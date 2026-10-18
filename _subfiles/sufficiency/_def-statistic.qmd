@@ -2,7 +2,7 @@
 #### Statistic
 
 A **statistic** is a function of the sample, $\statf{\vX}$,
-that does not depend on any unknown parameter.
+that does not depend on any unknown parameter [@wikipedia_statistic].
 Its value at the observed data, $\statf{\vx}$, is a number or vector we can compute.
 
 Source: @wikipedia_statistic.

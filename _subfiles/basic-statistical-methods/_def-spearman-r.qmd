@@ -6,7 +6,7 @@ and each $\outvar_\iobs$ by its rank $v_i$ among $\dsn{y}$,
 giving tied values the average of the ranks they span.
 The **Spearman rank correlation** $r_S$ is the
 [Pearson correlation coefficient](exploratory-descriptive.qmd#def-pearson-r)
-evaluated at the rank pairs:
+evaluated at the rank pairs [@wikipedia_spearmans_rank_correlation_coefficient]:
 
 $$
 r_S \eqdef r\paren{(u_1, v_1), \ldots, (u_n, v_n)}.

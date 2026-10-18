@@ -91,13 +91,6 @@ and how small can the variance of an unbiased estimator be?
 - @rice2007mathematical [Sec. 8.7, pp. 298--304] covers efficiency and the Cramér--Rao lower bound.
 :::
 
-## Further reading {.unnumbered}
-
--   @wikipedia_consistent_estimator --- consistency and its variants
-
--   @wikipedia_efficiency_statistics --- efficiency and relative efficiency
-
--   @wikipedia_cram_r_rao_bound --- the bound and the estimators that attain it
 
 ## References {.unnumbered}
 

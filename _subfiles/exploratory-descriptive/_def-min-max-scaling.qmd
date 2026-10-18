@@ -6,7 +6,7 @@ Geron: page number not verified.
 
 Let $\dsn{x}$ be observations of a variable
 with minimum $x_{\min}$ and maximum $x_{\max} > x_{\min}$.
-The **min-max scaled value** of $\rvar_\iobs$ is
+The **min-max scaled value** of $\rvar_\iobs$ is [@wikipedia_feature_scaling]
 
 $$\frac{\rvar_\iobs - x_{\min}}{x_{\max} - x_{\min}}$$
 

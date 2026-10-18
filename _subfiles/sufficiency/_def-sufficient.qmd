@@ -6,7 +6,7 @@ A [statistic](#def-statistic) $\statf{\vX}$ is **sufficient** for $\param$
 if, for every sample $\vx$ and every value $t$,
 the conditional probability of the sample given the statistic
 is the same for every value of $\param$ at which the statistic takes the value $t$
-with positive probability:
+with positive probability [@wikipedia_sufficient_statistic]:
 
 $$
 \Pr_{\param}\paren{\vX = \vx \given \statf{\vX} = t}

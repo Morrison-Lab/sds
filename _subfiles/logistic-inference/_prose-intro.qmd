@@ -2,4 +2,4 @@ Logistic regression models a binary outcome, such as whether a patient recovers,
 Its fitted coefficients are maximum likelihood estimates,
 so the likelihood theory of [Introduction to maximum likelihood](intro-MLEs.qmd#sec-intro-MLEs) gives them standard errors, confidence intervals and tests.
 This page specializes that theory to the logistic model and introduces the deviance,
-the measure of fit that the likelihood ratio test of a logistic model is built from.
+the measure of fit that the likelihood ratio test of a logistic model is built from [@wikipedia_likelihood_ratio_test].
