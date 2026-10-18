@@ -1,15 +1,14 @@
 :::{#thm-epe-decomposition}
 #### Bias, variance and noise
 
-Let $\mean$ be the [mean function](#def-mean-function) of the outcome given the covariate.
-Suppose that, given $\newpredvar = \predvar$,
-the new outcome is $\newoutvar = \truemeanf{\predvar} + \noise$,
-where $\noise$, the noise in the outcome at $\predvar$, has mean $0$ and variance $\varpar$,
-and that $\newoutvar$ is independent of the random training set $\trainset$,
-and that $\E{\sqf{\predval}} < \infty$.
+Let $\paren{\newpredvar, \newoutvar}$ be a [new observation](#def-new-observation) relative to the random [training set](#def-training-set) $\trainset$.
+Fix $\newpredvar = \predvar$.
+Let $\noise$ be the [noise](#def-noise) of $\newoutvar$.
+Let $\varpar \eqdef \Var{\noise}$ be its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance), which we take to be finite.
+Suppose also that $\E{\sqf{\predval}} < \infty$.
 Then the [expected prediction error at $\predvar$](#def-epe)
 is the squared [bias](#def-prediction-bias)
-of the prediction $\predval$, used as an [estimator](estimation.qmd#def-estimator) of $\truemeanf{\predvar}$,
+of the prediction $\predval$, used as an [estimator](estimation.qmd#def-estimator) of the [mean function](#def-mean-function) value $\truemeanf{\predvar}$,
 plus its [variance](https://morrison-lab.github.io/pds/variance-covariance.html#def-variance),
 plus $\varpar$:
 
