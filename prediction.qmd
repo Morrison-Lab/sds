@@ -98,7 +98,7 @@ reticulate::py_require(c("numpy", "pandas"))
 
 -   @wikipedia_errors_and_residuals --- how an error differs from a [residual](#def-residual)
 
--   @wikipedia_mean_squared_prediction_error --- the mean squared prediction error
+-   @wikipedia_mean_squared_prediction_error --- the mean squared [prediction error](#def-prediction-error)
 
 ## References {.unnumbered}
 
